@@ -1,0 +1,293 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getDb } from '../../db';
+import { tools, tags, editSuggestions } from '../../db/schema';
+import { eq, desc } from 'drizzle-orm';
+import { formatDate } from '../../lib/utils';
+
+const secret = Astro.url.searchParams.get('secret');
+const adminSecret = Astro.locals.runtime.env.ADMIN_SECRET;
+
+if (!adminSecret || secret !== adminSecret) {
+  return Astro.redirect('/404');
+}
+
+const db = getDb(Astro.locals.runtime.env.DB);
+
+// Fetch pending tools
+const pendingTools = await db
+  .select()
+  .from(tools)
+  .where(eq(tools.status, 'pending'))
+  .orderBy(desc(tools.submittedAt));
+
+// Fetch pending edit suggestions
+const pendingEdits = await db
+  .select({
+    id: editSuggestions.id,
+    toolId: editSuggestions.toolId,
+    fieldName: editSuggestions.fieldName,
+    oldValue: editSuggestions.oldValue,
+    newValue: editSuggestions.newValue,
+    reason: editSuggestions.reason,
+    submittedAt: editSuggestions.submittedAt,
+  })
+  .from(editSuggestions)
+  .where(eq(editSuggestions.status, 'pending'))
+  .orderBy(desc(editSuggestions.submittedAt));
+
+// Map tool names for edits
+const editToolIds = [...new Set(pendingEdits.map((e) => e.toolId))];
+const editToolNames = new Map<number, string>();
+for (const id of editToolIds) {
+  const [t] = await db
+    .select({ name: tools.name, slug: tools.slug })
+    .from(tools)
+    .where(eq(tools.id, id))
+    .limit(1);
+  if (t) editToolNames.set(id, t.name);
+}
+---
+
+<Layout title="Admin Review" description="Review pending tool submissions.">
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold tracking-tight mb-8">Admin Review</h1>
+
+    <!-- Pending Tools -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4">
+        Pending Submissions ({pendingTools.length})
+      </h2>
+
+      {pendingTools.length === 0 ? (
+        <p class="text-neutral-500 text-sm">No pending submissions.</p>
+      ) : (
+        <div class="space-y-4">
+          {pendingTools.map((tool) => (
+            <div
+              class="border border-neutral-200 rounded-lg p-5 tool-card"
+              data-tool-id={tool.id}
+            >
+              <div class="flex items-start justify-between mb-3">
+                <div>
+                  <h3 class="font-semibold text-neutral-950">{tool.name}</h3>
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm text-blue-600 hover:underline"
+                  >
+                    {tool.url}
+                  </a>
+                </div>
+                <span class="text-xs text-neutral-400">
+                  {formatDate(tool.submittedAt)}
+                </span>
+              </div>
+
+              {tool.description && (
+                <p class="text-sm text-neutral-600 mb-2">{tool.description}</p>
+              )}
+
+              <div class="bg-green-50 border border-green-200 rounded-md p-3 mb-3">
+                <p class="text-xs text-green-800">
+                  <span class="font-medium">Core task:</span> "{tool.coreTask}"
+                </p>
+              </div>
+
+              <div class="text-xs text-neutral-400 mb-3">
+                Slug: <code class="bg-neutral-100 px-1 rounded">{tool.slug}</code>
+                · IP Hash: <code class="bg-neutral-100 px-1 rounded">{tool.submitterIpHash?.slice(0, 8)}...</code>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button
+                  class="btn-primary text-sm approve-btn"
+                  data-tool-id={tool.id}
+                >
+                  Approve
+                </button>
+                <button
+                  class="btn-secondary text-sm reject-toggle-btn"
+                  data-tool-id={tool.id}
+                >
+                  Reject
+                </button>
+              </div>
+
+              <div class="hidden mt-3 reject-form" data-tool-id={tool.id}>
+                <input
+                  type="text"
+                  placeholder="Rejection reason..."
+                  class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm mb-2
+                         focus:outline-none focus:ring-2 focus:ring-red-500"
+                />
+                <button class="btn-danger text-sm reject-btn" data-tool-id={tool.id}>
+                  Confirm Reject
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <!-- Pending Edits -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">
+        Pending Edit Suggestions ({pendingEdits.length})
+      </h2>
+
+      {pendingEdits.length === 0 ? (
+        <p class="text-neutral-500 text-sm">No pending edit suggestions.</p>
+      ) : (
+        <div class="space-y-4">
+          {pendingEdits.map((edit) => (
+            <div
+              class="border border-neutral-200 rounded-lg p-5 edit-card"
+              data-edit-id={edit.id}
+            >
+              <div class="flex items-start justify-between mb-3">
+                <div>
+                  <h3 class="font-semibold text-neutral-950">
+                    {editToolNames.get(edit.toolId) || `Tool #${edit.toolId}`}
+                  </h3>
+                  <span class="text-sm text-neutral-500">
+                    Field: <code class="bg-neutral-100 px-1 rounded">{edit.fieldName}</code>
+                  </span>
+                </div>
+                <span class="text-xs text-neutral-400">
+                  {formatDate(edit.submittedAt)}
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4 mb-3 text-sm">
+                <div>
+                  <span class="text-neutral-400 text-xs">Current value:</span>
+                  <p class="text-neutral-600">{edit.oldValue || '(empty)'}</p>
+                </div>
+                <div>
+                  <span class="text-neutral-400 text-xs">Suggested value:</span>
+                  <p class="text-neutral-950 font-medium">{edit.newValue}</p>
+                </div>
+              </div>
+
+              {edit.reason && (
+                <p class="text-xs text-neutral-500 mb-3">
+                  Reason: {edit.reason}
+                </p>
+              )}
+
+              <div class="flex items-center gap-2">
+                <button
+                  class="btn-primary text-sm approve-edit-btn"
+                  data-edit-id={edit.id}
+                >
+                  Approve & Apply
+                </button>
+                <button
+                  class="btn-secondary text-sm reject-edit-btn"
+                  data-edit-id={edit.id}
+                >
+                  Reject
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  </div>
+
+  <script>
+    const secret = new URLSearchParams(window.location.search).get('secret');
+
+    // Tool approval
+    document.querySelectorAll('.approve-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const toolId = (btn as HTMLElement).dataset.toolId;
+        const res = await fetch('/api/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ toolId: Number(toolId), action: 'approve', secret }),
+        });
+        if ((await res.json()).ok) {
+          const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
+          card?.remove();
+        }
+      });
+    });
+
+    // Toggle reject form
+    document.querySelectorAll('.reject-toggle-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const toolId = (btn as HTMLElement).dataset.toolId;
+        const form = document.querySelector(`.reject-form[data-tool-id="${toolId}"]`);
+        form?.classList.toggle('hidden');
+      });
+    });
+
+    // Tool rejection
+    document.querySelectorAll('.reject-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const toolId = (btn as HTMLElement).dataset.toolId;
+        const form = document.querySelector(`.reject-form[data-tool-id="${toolId}"]`);
+        const reason = (form?.querySelector('input') as HTMLInputElement)?.value || '';
+        const res = await fetch('/api/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            toolId: Number(toolId),
+            action: 'reject',
+            reason,
+            secret,
+          }),
+        });
+        if ((await res.json()).ok) {
+          const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
+          card?.remove();
+        }
+      });
+    });
+
+    // Edit approval
+    document.querySelectorAll('.approve-edit-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const editId = (btn as HTMLElement).dataset.editId;
+        const res = await fetch('/api/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            editId: Number(editId),
+            action: 'approve_edit',
+            secret,
+          }),
+        });
+        if ((await res.json()).ok) {
+          const card = document.querySelector(`.edit-card[data-edit-id="${editId}"]`);
+          card?.remove();
+        }
+      });
+    });
+
+    // Edit rejection
+    document.querySelectorAll('.reject-edit-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const editId = (btn as HTMLElement).dataset.editId;
+        const res = await fetch('/api/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            editId: Number(editId),
+            action: 'reject_edit',
+            secret,
+          }),
+        });
+        if ((await res.json()).ok) {
+          const card = document.querySelector(`.edit-card[data-edit-id="${editId}"]`);
+          card?.remove();
+        }
+      });
+    });
+  </script>
+</Layout>
