@@ -1,0 +1,358 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HealthBadge from '../../components/HealthBadge.astro';
+import { getDb } from '../../db';
+import { tools, tags, healthChecks } from '../../db/schema';
+import { eq, desc, sql } from 'drizzle-orm';
+import { formatDate, timeAgo } from '../../lib/utils';
+
+const { slug } = Astro.params;
+const db = getDb(Astro.locals.runtime.env.DB);
+
+// Fetch tool
+const [tool] = await db
+  .select()
+  .from(tools)
+  .where(eq(tools.slug, slug!))
+  .limit(1);
+
+if (!tool) {
+  return Astro.redirect('/404');
+}
+
+// Fetch tags
+const toolTags = await db
+  .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+  .from(tags)
+  .where(eq(tags.toolId, tool.id));
+
+// Fetch latest health check
+const [latestHealth] = await db
+  .select()
+  .from(healthChecks)
+  .where(eq(healthChecks.toolId, tool.id))
+  .orderBy(desc(healthChecks.checkedAt))
+  .limit(1);
+
+// Fetch health history (last 14 days)
+const fourteenDaysAgo = new Date(Date.now() - 14 * 86400000);
+const healthHistory = await db
+  .select({
+    checkedAt: healthChecks.checkedAt,
+    isOnline: healthChecks.isOnline,
+  })
+  .from(healthChecks)
+  .where(
+    sql`${healthChecks.toolId} = ${tool.id} AND ${healthChecks.checkedAt} > ${Math.floor(fourteenDaysAgo.getTime() / 1000)}`
+  )
+  .orderBy(desc(healthChecks.checkedAt));
+
+// Group health by day
+const healthByDay = new Map<string, boolean>();
+for (const check of healthHistory) {
+  const day = check.checkedAt.toISOString().split('T')[0];
+  if (!healthByDay.has(day)) {
+    healthByDay.set(day, check.isOnline);
+  }
+}
+
+// Generate last 14 days for timeline
+const days: { date: string; label: string; isOnline: boolean | null }[] = [];
+for (let i = 13; i >= 0; i--) {
+  const d = new Date(Date.now() - i * 86400000);
+  const key = d.toISOString().split('T')[0];
+  days.push({
+    date: key,
+    label: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    isOnline: healthByDay.get(key) ?? null,
+  });
+}
+
+const isVerified = tool.status === 'approved';
+const isPending = tool.status === 'pending';
+const isRejected = tool.status === 'rejected';
+const isOnline = latestHealth?.isOnline ?? null;
+const isOffline = isOnline === false;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: tool.name,
+  url: tool.url,
+  description: tool.description || '',
+  applicationCategory: 'WebApplication',
+};
+---
+
+<Layout
+  title={tool.name}
+  description={tool.description || `${tool.name} — a tool that works without login.`}
+  ogType="article"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+    <!-- Back link -->
+    <a
+      href="/"
+      class="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-950 mb-6"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 4L6 8L10 12"></path>
+      </svg>
+      Back to Tools
+    </a>
+
+    <!-- Status banners -->
+    {isPending && (
+      <div class="bg-amber-50 border border-amber-200 rounded-md p-4 mb-6">
+        <p class="text-sm text-amber-800 font-medium">
+          This tool is pending review.
+        </p>
+        <p class="text-xs text-amber-600 mt-1">
+          It will appear in the public directory once approved.
+        </p>
+      </div>
+    )}
+
+    {isRejected && (
+      <div class="bg-red-50 border border-red-200 rounded-md p-4 mb-6">
+        <p class="text-sm text-red-800 font-medium">
+          This tool was not approved.
+        </p>
+        {tool.rejectionReason && (
+          <p class="text-xs text-red-600 mt-1">
+            Reason: {tool.rejectionReason}
+          </p>
+        )}
+      </div>
+    )}
+
+    <!-- Tool header -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold tracking-tight mb-3">{tool.name}</h1>
+
+      <div class="flex flex-wrap items-center gap-3 text-sm">
+        {isVerified && (
+          <span class="inline-flex items-center gap-1.5 text-green-600 font-medium">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="7" fill="#22c55e" />
+              <path d="M4 7L6 9L10 5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            NoLogin Verified
+          </span>
+        )}
+        {isVerified && tool.approvedAt && (
+          <span class="text-neutral-400">
+            · Since {formatDate(tool.approvedAt)}
+          </span>
+        )}
+        <HealthBadge isOnline={isOnline} lastCheckedAt={latestHealth?.checkedAt ?? null} />
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex flex-wrap gap-3 mb-8">
+      {isOffline ? (
+        <>
+          <span class="btn-secondary opacity-50 cursor-not-allowed">Tool Offline</span>
+          {tool.archiveUrl && (
+            <a
+              href={tool.archiveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+            >
+              View Archived Copy
+            </a>
+          )}
+        </>
+      ) : (
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Visit Tool
+        </a>
+      )}
+      {isVerified && (
+        <button
+          id="suggest-edit-btn"
+          class="btn-secondary"
+        >
+          Suggest Edit
+        </button>
+      )}
+    </div>
+
+    <!-- Edit suggestion form (hidden by default) -->
+    {isVerified && (
+      <div id="edit-form" class="hidden mb-8 border border-neutral-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">Suggest an Edit</h3>
+        <form id="edit-suggestion-form" class="space-y-4">
+          <input type="hidden" name="toolId" value={tool.id} />
+          <div>
+            <label for="edit-field" class="block text-sm font-medium text-neutral-700 mb-1">
+              Field to edit
+            </label>
+            <select
+              id="edit-field"
+              name="fieldName"
+              class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            >
+              <option value="name">Name</option>
+              <option value="description">Description</option>
+              <option value="coreTask">Core Task</option>
+              <option value="url">URL</option>
+            </select>
+          </div>
+          <div>
+            <label for="edit-value" class="block text-sm font-medium text-neutral-700 mb-1">
+              New value
+            </label>
+            <input
+              type="text"
+              id="edit-value"
+              name="newValue"
+              required
+              class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+          <div>
+            <label for="edit-reason" class="block text-sm font-medium text-neutral-700 mb-1">
+              Reason (optional)
+            </label>
+            <input
+              type="text"
+              id="edit-reason"
+              name="reason"
+              placeholder="Why should this be changed?"
+              class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+          <div id="edit-msg" class="hidden text-sm"></div>
+          <div class="flex gap-2">
+            <button type="submit" class="btn-primary text-sm">Submit Edit</button>
+            <button type="button" id="cancel-edit" class="btn-secondary text-sm">Cancel</button>
+          </div>
+        </form>
+      </div>
+    )}
+
+    <!-- About -->
+    <section class="mb-8">
+      <h2 class="text-lg font-semibold text-neutral-950 mb-3">About</h2>
+      {tool.description && (
+        <p class="text-neutral-700 leading-relaxed mb-4">{tool.description}</p>
+      )}
+      <div class="bg-green-50 border border-green-200 rounded-md p-4">
+        <p class="text-sm text-green-800">
+          <span class="font-medium">Core task (no login required):</span>{' '}
+          "{tool.coreTask}"
+        </p>
+      </div>
+    </section>
+
+    <!-- Tags -->
+    {toolTags.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-neutral-950 mb-3">Tags</h2>
+        <div class="flex flex-wrap gap-2">
+          {toolTags.map((tag) => (
+            <a
+              href={`/?${tag.tagKey}=${encodeURIComponent(tag.tagValue)}`}
+              class="chip chip-default"
+            >
+              {tag.tagKey}:{tag.tagValue}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Health History -->
+    {days.some((d) => d.isOnline !== null) && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-neutral-950 mb-3">
+          Health History
+        </h2>
+        <div class="flex items-center gap-1">
+          {days.map((day) => (
+            <div class="flex flex-col items-center gap-1" title={`${day.label}: ${day.isOnline === null ? 'No data' : day.isOnline ? 'Online' : 'Offline'}`}>
+              <div
+                class:list={[
+                  'w-3 h-3 rounded-full',
+                  day.isOnline === null
+                    ? 'bg-neutral-200'
+                    : day.isOnline
+                      ? 'bg-green-500'
+                      : 'bg-red-500',
+                ]}
+              />
+              <span class="text-[9px] text-neutral-400 hidden sm:block">
+                {day.label.split(' ')[1]}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-neutral-400 mt-2">Last 14 days</p>
+      </section>
+    )}
+  </div>
+
+  <script>
+    const editBtn = document.getElementById('suggest-edit-btn');
+    const editForm = document.getElementById('edit-form');
+    const cancelBtn = document.getElementById('cancel-edit');
+    const editSuggestionForm = document.getElementById('edit-suggestion-form') as HTMLFormElement | null;
+    const editMsg = document.getElementById('edit-msg');
+
+    editBtn?.addEventListener('click', () => {
+      editForm?.classList.toggle('hidden');
+    });
+
+    cancelBtn?.addEventListener('click', () => {
+      editForm?.classList.add('hidden');
+    });
+
+    editSuggestionForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(editSuggestionForm);
+
+      try {
+        const res = await fetch('/api/edit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            toolId: Number(formData.get('toolId')),
+            fieldName: formData.get('fieldName'),
+            newValue: formData.get('newValue'),
+            reason: formData.get('reason') || undefined,
+          }),
+        });
+
+        const result = await res.json();
+        if (editMsg) {
+          if (result.ok) {
+            editMsg.textContent = 'Edit suggestion submitted! It will be reviewed.';
+            editMsg.className = 'text-sm text-green-600';
+            editMsg.classList.remove('hidden');
+            editSuggestionForm.reset();
+          } else {
+            editMsg.textContent = result.error || 'Failed to submit edit.';
+            editMsg.className = 'text-sm text-red-500';
+            editMsg.classList.remove('hidden');
+          }
+        }
+      } catch {
+        if (editMsg) {
+          editMsg.textContent = 'Network error. Please try again.';
+          editMsg.className = 'text-sm text-red-500';
+          editMsg.classList.remove('hidden');
+        }
+      }
+    });
+  </script>
+</Layout>
