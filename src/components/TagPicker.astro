@@ -1,0 +1,76 @@
+---
+import { TAG_DEFINITIONS } from '../lib/tags';
+
+interface Props {
+  selectedTags?: { key: string; value: string }[];
+}
+
+const { selectedTags = [] } = Astro.props;
+---
+
+<div class="space-y-4">
+  {TAG_DEFINITIONS.map((def) => {
+    const selected = selectedTags
+      .filter((t) => t.key === def.key)
+      .map((t) => t.value);
+
+    return (
+      <fieldset>
+        <legend class="text-sm font-medium text-neutral-700 mb-2">
+          {def.label}
+        </legend>
+        <div class="flex flex-wrap gap-2">
+          {def.values.map((val) => {
+            const isSelected = selected.includes(val);
+            const inputType = def.multiSelect ? 'checkbox' : 'radio';
+            const inputName = def.multiSelect
+              ? `tag_${def.key}[]`
+              : `tag_${def.key}`;
+            return (
+              <label
+                class:list={[
+                  'chip cursor-pointer select-none',
+                  isSelected ? 'chip-active' : 'chip-default',
+                ]}
+              >
+                <input
+                  type={inputType}
+                  name={inputName}
+                  value={val}
+                  checked={isSelected}
+                  class="sr-only peer"
+                />
+                <span>{val}</span>
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+    );
+  })}
+</div>
+
+<script>
+  document.querySelectorAll('.chip input').forEach((input) => {
+    input.addEventListener('change', () => {
+      const label = input.closest('label');
+      if (!label) return;
+
+      if ((input as HTMLInputElement).type === 'radio') {
+        const name = (input as HTMLInputElement).name;
+        document.querySelectorAll(`input[name="${name}"]`).forEach((other) => {
+          other.closest('label')?.classList.remove('chip-active');
+          other.closest('label')?.classList.add('chip-default');
+        });
+      }
+
+      if ((input as HTMLInputElement).checked) {
+        label.classList.remove('chip-default');
+        label.classList.add('chip-active');
+      } else {
+        label.classList.remove('chip-active');
+        label.classList.add('chip-default');
+      }
+    });
+  });
+</script>

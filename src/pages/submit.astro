@@ -1,0 +1,251 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TagPicker from '../components/TagPicker.astro';
+---
+
+<Layout
+  title="Submit a Tool"
+  description="Submit a tool that works without login to the nologin.tools directory."
+>
+  <div class="max-w-2xl mx-auto px-6 py-16">
+    <h1 class="text-3xl font-bold tracking-tight mb-2">Submit a Tool</h1>
+    <p class="text-neutral-500 mb-8">
+      Share a tool that works without login. We'll review it and add it to the
+      directory.
+    </p>
+
+    <form id="submit-form" class="space-y-8" novalidate>
+      <!-- Tool Information -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-semibold text-neutral-950">
+          Tool Information
+        </h2>
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">
+            Tool Name <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            minlength="2"
+            maxlength="100"
+            placeholder="e.g. Excalidraw"
+            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
+                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <p class="text-xs text-red-500 mt-1 hidden" data-error="name"></p>
+        </div>
+
+        <div>
+          <label for="url" class="block text-sm font-medium text-neutral-700 mb-1">
+            Tool URL <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="url"
+            id="url"
+            name="url"
+            required
+            placeholder="https://excalidraw.com"
+            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
+                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <p class="text-xs text-red-500 mt-1 hidden" data-error="url"></p>
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm font-medium text-neutral-700 mb-1">
+            Description <span class="text-red-500">*</span>
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            required
+            maxlength="500"
+            rows="3"
+            placeholder="A brief description of what this tool does..."
+            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
+                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+          ></textarea>
+          <div class="flex justify-end">
+            <span class="text-xs text-neutral-400" id="char-count">0/500</span>
+          </div>
+          <p class="text-xs text-red-500 mt-1 hidden" data-error="description"></p>
+        </div>
+      </section>
+
+      <!-- No-Login Verification -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-semibold text-neutral-950">
+          No-Login Verification
+        </h2>
+
+        <div>
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              id="pledge"
+              name="pledge"
+              required
+              class="mt-0.5 w-4 h-4 text-green-500 border-neutral-300 rounded
+                     focus:ring-green-500"
+            />
+            <span class="text-sm text-neutral-700">
+              I confirm this tool's core functionality works without creating an
+              account or logging in. <span class="text-red-500">*</span>
+            </span>
+          </label>
+          <p class="text-xs text-red-500 mt-1 hidden" data-error="pledge"></p>
+        </div>
+
+        <div>
+          <label for="coreTask" class="block text-sm font-medium text-neutral-700 mb-1">
+            What can you do without login? <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="coreTask"
+            name="coreTask"
+            required
+            maxlength="200"
+            placeholder='e.g. "Draw diagrams and export to PNG"'
+            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
+                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <p class="text-xs text-red-500 mt-1 hidden" data-error="coreTask"></p>
+        </div>
+      </section>
+
+      <!-- Tags -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-semibold text-neutral-950">Tags</h2>
+        <TagPicker />
+      </section>
+
+      <!-- Error message -->
+      <div
+        id="form-error"
+        class="hidden p-4 bg-red-50 border border-red-200 rounded-md text-sm text-red-700"
+      ></div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        id="submit-btn"
+        class="btn-primary w-full justify-center py-3"
+      >
+        Submit Tool
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('submit-form') as HTMLFormElement;
+    const charCount = document.getElementById('char-count')!;
+    const description = document.getElementById('description') as HTMLTextAreaElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const formError = document.getElementById('form-error')!;
+
+    description.addEventListener('input', () => {
+      charCount.textContent = `${description.value.length}/500`;
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Clear errors
+      document.querySelectorAll('[data-error]').forEach((el) => el.classList.add('hidden'));
+      formError.classList.add('hidden');
+
+      const formData = new FormData(form);
+      const data: Record<string, any> = {
+        name: formData.get('name'),
+        url: formData.get('url'),
+        description: formData.get('description'),
+        pledge: formData.get('pledge') === 'on',
+        coreTask: formData.get('coreTask'),
+        tags: [] as { key: string; value: string }[],
+      };
+
+      // Collect tags
+      for (const [key, value] of formData.entries()) {
+        if (key.startsWith('tag_')) {
+          const tagKey = key.replace('tag_', '').replace('[]', '');
+          data.tags.push({ key: tagKey, value: value as string });
+        }
+      }
+
+      // Client-side validation
+      let hasError = false;
+      if (!data.name || (data.name as string).length < 2) {
+        showError('name', 'Name must be at least 2 characters.');
+        hasError = true;
+      }
+      if (!data.url) {
+        showError('url', 'A valid URL is required.');
+        hasError = true;
+      } else {
+        try {
+          new URL(data.url as string);
+        } catch {
+          showError('url', 'Please enter a valid URL.');
+          hasError = true;
+        }
+      }
+      if (!data.description) {
+        showError('description', 'Description is required.');
+        hasError = true;
+      }
+      if (!data.pledge) {
+        showError('pledge', 'You must confirm the no-login pledge.');
+        hasError = true;
+      }
+      if (!data.coreTask) {
+        showError('coreTask', 'Please describe what users can do without login.');
+        hasError = true;
+      }
+      if (hasError) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.ok) {
+          window.location.href = `/submit/success?slug=${result.data.slug}`;
+        } else {
+          if (result.details) {
+            for (const [field, msg] of Object.entries(result.details)) {
+              showError(field, msg as string);
+            }
+          }
+          formError.textContent = result.error || 'Submission failed.';
+          formError.classList.remove('hidden');
+        }
+      } catch {
+        formError.textContent = 'Network error. Please try again.';
+        formError.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Tool';
+      }
+    });
+
+    function showError(field: string, message: string) {
+      const el = document.querySelector(`[data-error="${field}"]`);
+      if (el) {
+        el.textContent = message;
+        el.classList.remove('hidden');
+      }
+    }
+  </script>
+</Layout>
