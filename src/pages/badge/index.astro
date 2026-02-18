@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="NoLogin Verified Badge"
+  description="What is NoLogin Verified? Learn about the badge that certifies tools work without login."
+>
+  <div class="max-w-3xl mx-auto px-6 py-16">
+    <!-- Hero -->
+    <div class="text-center mb-12">
+      <div class="mb-6">
+        <img
+          src="/badge.svg"
+          alt="NoLogin Verified"
+          class="inline-block w-40"
+        />
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight mb-3">
+        What is NoLogin Verified?
+      </h1>
+      <p class="text-lg text-neutral-500 max-w-xl mx-auto">
+        A badge that certifies a tool's core functionality works without
+        creating an account or logging in.
+      </p>
+    </div>
+
+    <div class="space-y-8 text-neutral-700 leading-relaxed">
+      <!-- For Users -->
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">
+          For Users
+        </h2>
+        <ul class="space-y-2 list-disc list-inside">
+          <li>
+            Tools with this badge have been <strong>manually reviewed</strong>{' '}
+            and verified by our team.
+          </li>
+          <li>
+            The core functionality — the main thing the tool does — is accessible
+            without sign-up.
+          </li>
+          <li>
+            We continuously monitor tool availability with automated health
+            checks.
+          </li>
+          <li>
+            All verified tools are archived on{' '}
+            <a
+              href="https://web.archive.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-600 hover:underline"
+            >
+              web.archive.org
+            </a>{' '}
+            for preservation.
+          </li>
+        </ul>
+      </section>
+
+      <!-- For Tool Creators -->
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">
+          For Tool Creators
+        </h2>
+        <p class="mb-4">
+          If your tool works without login, you can submit it to our directory.
+          Once approved, you'll receive the NoLogin Verified badge to display on
+          your site.
+        </p>
+        <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-6">
+          <h3 class="text-sm font-semibold text-neutral-950 mb-3">
+            How to Get Verified
+          </h3>
+          <ol class="list-decimal list-inside space-y-2 text-sm">
+            <li>
+              <a href="/submit" class="text-blue-600 hover:underline">
+                Submit your tool
+              </a>{' '}
+              with a description and the core task users can do without login.
+            </li>
+            <li>Our team reviews the submission (usually within 48 hours).</li>
+            <li>
+              Once approved, your tool appears in the directory with the
+              NoLogin Verified badge.
+            </li>
+            <li>
+              Optionally, add the badge to your site — tools displaying the
+              badge get higher visibility in the directory.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Badge Display Benefit -->
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">
+          Displaying the Badge
+        </h2>
+        <p>
+          Displaying the badge on your site is <strong>optional</strong> and does
+          not affect your verified status. However, tools that display the badge
+          receive a ranking boost in the directory:
+        </p>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+          <div class="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+            <p class="font-semibold text-green-800 mb-1">SVG Badge</p>
+            <p class="text-green-600">+10 rank boost</p>
+          </div>
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+            <p class="font-semibold text-blue-800 mb-1">Meta / Link</p>
+            <p class="text-blue-600">+5 rank boost</p>
+          </div>
+          <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-4 text-center">
+            <p class="font-semibold text-neutral-800 mb-1">No Badge</p>
+            <p class="text-neutral-500">No boost</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a href="/submit" class="btn-primary text-base px-8 py-3">
+        Submit Your Tool
+      </a>
+    </div>
+  </div>
+</Layout>
