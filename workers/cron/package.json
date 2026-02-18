@@ -1,0 +1,9 @@
+{
+  "name": "nologin-tools-cron",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  }
+}
