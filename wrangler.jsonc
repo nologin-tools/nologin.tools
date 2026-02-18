@@ -1,0 +1,24 @@
+{
+  "name": "nologin-tools",
+  "main": "dist/_worker.js/index.js",
+  "compatibility_date": "2026-02-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nologin-tools-db",
+      "database_id": "placeholder",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "SITE_URL": "https://nologin.tools"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
