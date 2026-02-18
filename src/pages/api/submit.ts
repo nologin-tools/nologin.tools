@@ -134,16 +134,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
   // Archive URL asynchronously (fire and forget)
   const env = locals.runtime.env;
   if (env.ARCHIVE_ORG_ACCESS_KEY && env.ARCHIVE_ORG_SECRET_KEY) {
-    archiveUrl(url, env.ARCHIVE_ORG_ACCESS_KEY, env.ARCHIVE_ORG_SECRET_KEY).then(
-      async (archiveUrlResult) => {
+    archiveUrl(url, env.ARCHIVE_ORG_ACCESS_KEY, env.ARCHIVE_ORG_SECRET_KEY)
+      .then(async (archiveUrlResult) => {
         if (archiveUrlResult) {
           await db
             .update(tools)
             .set({ archiveUrl: archiveUrlResult })
             .where(eq(tools.id, inserted.id));
         }
-      }
-    );
+      })
+      .catch(() => {
+        // Archive is best-effort; failure is non-critical
+      });
   }
 
   return api.success({ slug: inserted.slug }, 201);

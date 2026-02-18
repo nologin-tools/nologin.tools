@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { getDb } from '../db';
 import { tools, tags, healthChecks, badgeDisplays } from '../db/schema';
-import { eq, desc, sql, and } from 'drizzle-orm';
+import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { TAG_DEFINITIONS } from '../lib/tags';
 
 const db = getDb(Astro.locals.runtime.env.DB);
@@ -100,7 +100,7 @@ if (allToolIds.length > 0) {
       tagValue: tags.tagValue,
     })
     .from(tags)
-    .where(sql`${tags.toolId} IN (${sql.raw(allToolIds.join(','))})`);
+    .where(inArray(tags.toolId, allToolIds));
 }
 
 // Build tag map
@@ -135,7 +135,7 @@ if (allToolIds.length > 0) {
       checkedAt: healthChecks.checkedAt,
     })
     .from(healthChecks)
-    .where(sql`${healthChecks.toolId} IN (${sql.raw(allToolIds.join(','))})`)
+    .where(inArray(healthChecks.toolId, allToolIds))
     .orderBy(desc(healthChecks.checkedAt));
 
   for (const check of latestChecks) {

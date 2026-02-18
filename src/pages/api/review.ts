@@ -65,21 +65,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     if (!edit) return api.error('Edit suggestion not found.', 404);
 
-    // Apply the edit to the tool
-    const fieldMap: Record<string, string> = {
-      name: 'name',
-      description: 'description',
-      coreTask: 'core_task',
-      url: 'url',
-    };
+    // Apply the edit to the tool (only allow whitelisted fields)
+    const allowedFields = ['name', 'description', 'coreTask', 'url'] as const;
+    type AllowedField = (typeof allowedFields)[number];
 
-    const dbField = fieldMap[edit.fieldName];
-    if (dbField) {
-      await db
-        .update(tools)
-        .set({ [edit.fieldName]: edit.newValue })
-        .where(eq(tools.id, edit.toolId));
+    if (!allowedFields.includes(edit.fieldName as AllowedField)) {
+      return api.error('Invalid field for editing.', 400);
     }
+
+    const updateData: Record<string, string> = {};
+    updateData[edit.fieldName] = edit.newValue;
+    await db
+      .update(tools)
+      .set(updateData)
+      .where(eq(tools.id, edit.toolId));
 
     // Mark edit as approved
     await db

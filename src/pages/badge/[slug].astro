@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import HealthBadge from '../../components/HealthBadge.astro';
 import { getDb } from '../../db';
 import { tools, tags, healthChecks, badgeDisplays } from '../../db/schema';
-import { eq, desc, sql } from 'drizzle-orm';
+import { eq, desc, and, ne, inArray } from 'drizzle-orm';
 import { formatDate } from '../../lib/utils';
 import { getBadgeEmbedCode } from '../../lib/badge';
 
@@ -49,7 +49,11 @@ if (tagKeys.length > 0) {
     .from(tools)
     .innerJoin(tags, eq(tags.toolId, tools.id))
     .where(
-      sql`${tools.status} = 'approved' AND ${tools.id} != ${tool.id} AND ${tags.tagKey} IN (${sql.raw(tagKeys.map((k) => `'${k}'`).join(','))})`
+      and(
+        eq(tools.status, 'approved'),
+        ne(tools.id, tool.id),
+        inArray(tags.tagKey, tagKeys)
+      )
     )
     .limit(3);
 }
