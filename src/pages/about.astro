@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About" description="About nologin.tools — a curated directory of tools that work without login.">
+  <div class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-3xl font-bold tracking-tight mb-8">About nologin.tools</h1>
+
+    <div class="space-y-8 text-neutral-700 leading-relaxed">
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">Mission</h2>
+        <p>
+          We believe the best tools respect your time and privacy. <strong>nologin.tools</strong> is
+          a curated directory of software and services that let you get things done without creating
+          an account or handing over personal information.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">How It Works</h2>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Anyone can <a href="/submit" class="text-blue-600 hover:underline">submit a tool</a> they believe works without login.</li>
+          <li>Our team reviews each submission to verify the no-login claim.</li>
+          <li>Approved tools receive the <strong>NoLogin Verified</strong> badge and appear in the public directory.</li>
+          <li>The community can suggest edits to keep information accurate (wiki mode).</li>
+          <li>We continuously monitor tool availability with automated health checks.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">NoLogin Verified Badge</h2>
+        <p>
+          The <span class="inline-flex items-center gap-1.5 text-green-600 font-medium">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="7" fill="#22c55e"/>
+              <path d="M4 7L6 9L10 5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            NoLogin Verified
+          </span> badge means we have confirmed that a tool's core functionality is accessible
+          without registration or login. Tool creators can display this badge on their own sites —
+          <a href="/badge" class="text-blue-600 hover:underline">learn more</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-neutral-950 mb-3">Open Source</h2>
+        <p>
+          nologin.tools is open source and built with Astro, Cloudflare Workers, and D1.
+          All verified tools are also exported to an
+          <a href="https://github.com/nologin-tools" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+            awesome-nologin-tools
+          </a> list on GitHub.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

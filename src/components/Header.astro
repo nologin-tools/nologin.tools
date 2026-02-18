@@ -1,0 +1,111 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-neutral-200">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="/" class="font-mono text-lg font-bold tracking-tight">
+        nologin.tools
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a
+          href="/"
+          class:list={[
+            'text-sm transition-colors',
+            currentPath === '/'
+              ? 'text-neutral-950 font-medium'
+              : 'text-neutral-500 hover:text-neutral-950',
+          ]}
+        >
+          Tools
+        </a>
+        <a
+          href="/badge"
+          class:list={[
+            'text-sm transition-colors',
+            currentPath.startsWith('/badge')
+              ? 'text-neutral-950 font-medium'
+              : 'text-neutral-500 hover:text-neutral-950',
+          ]}
+        >
+          Badge
+        </a>
+        <a
+          href="/about"
+          class:list={[
+            'text-sm transition-colors',
+            currentPath === '/about'
+              ? 'text-neutral-950 font-medium'
+              : 'text-neutral-500 hover:text-neutral-950',
+          ]}
+        >
+          About
+        </a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="/submit" class="btn-primary text-sm">Submit a Tool</a>
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-neutral-500 hover:text-neutral-950"
+        aria-label="Toggle menu"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M3 5h14M3 10h14M3 15h14"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-neutral-200 px-6 py-4 space-y-3"
+  >
+    <a
+      href="/"
+      class:list={[
+        'block text-sm',
+        currentPath === '/' ? 'text-neutral-950 font-medium' : 'text-neutral-500',
+      ]}
+    >
+      Tools
+    </a>
+    <a
+      href="/badge"
+      class:list={[
+        'block text-sm',
+        currentPath.startsWith('/badge')
+          ? 'text-neutral-950 font-medium'
+          : 'text-neutral-500',
+      ]}
+    >
+      Badge
+    </a>
+    <a
+      href="/about"
+      class:list={[
+        'block text-sm',
+        currentPath === '/about'
+          ? 'text-neutral-950 font-medium'
+          : 'text-neutral-500',
+      ]}
+    >
+      About
+    </a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

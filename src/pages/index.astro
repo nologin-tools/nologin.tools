@@ -1,17 +1,326 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { getDb } from '../db';
+import { tools, tags, healthChecks, badgeDisplays } from '../db/schema';
+import { eq, desc, sql, and } from 'drizzle-orm';
+import { TAG_DEFINITIONS } from '../lib/tags';
 
+const db = getDb(Astro.locals.runtime.env.DB);
+
+const url = Astro.url;
+const query = url.searchParams.get('q') || '';
+const sort = url.searchParams.get('sort') || 'recommended';
+const page = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+const perPage = 24;
+
+// Collect active tag filters
+const activeFilters: { key: string; value: string }[] = [];
+for (const def of TAG_DEFINITIONS) {
+  const val = url.searchParams.get(def.key);
+  if (val) {
+    activeFilters.push({ key: def.key, value: val });
+  }
+}
+
+// Build SQL query
+let toolsQuery;
+
+if (sort === 'recommended') {
+  toolsQuery = db
+    .select({
+      id: tools.id,
+      slug: tools.slug,
+      name: tools.name,
+      url: tools.url,
+      description: tools.description,
+      status: tools.status,
+      approvedAt: tools.approvedAt,
+      archiveUrl: tools.archiveUrl,
+      score: sql<number>`
+        COALESCE(
+          CASE ${badgeDisplays.displayType}
+            WHEN 'explicit' THEN 10
+            WHEN 'implicit' THEN 5
+            ELSE 0
+          END, 0
+        )
+        + CASE
+            WHEN ${tools.approvedAt} > unixepoch() - 2592000 THEN 5
+            WHEN ${tools.approvedAt} > unixepoch() - 7776000 THEN 3
+            ELSE 1
+          END
+        + COALESCE(
+          (SELECT CASE WHEN hc.is_online THEN 3 ELSE 0 END
+           FROM health_checks hc WHERE hc.tool_id = ${tools.id}
+           ORDER BY hc.checked_at DESC LIMIT 1), 1
+        )
+      `.as('score'),
+    })
+    .from(tools)
+    .leftJoin(badgeDisplays, eq(badgeDisplays.toolId, tools.id))
+    .where(eq(tools.status, 'approved'));
+} else {
+  toolsQuery = db
+    .select({
+      id: tools.id,
+      slug: tools.slug,
+      name: tools.name,
+      url: tools.url,
+      description: tools.description,
+      status: tools.status,
+      approvedAt: tools.approvedAt,
+      archiveUrl: tools.archiveUrl,
+    })
+    .from(tools)
+    .where(eq(tools.status, 'approved'));
+}
+
+// Execute query and apply filters in-memory for simplicity with D1
+let allTools = await toolsQuery;
+
+// Apply search filter
+if (query) {
+  const q = query.toLowerCase();
+  allTools = allTools.filter(
+    (t) =>
+      t.name.toLowerCase().includes(q) ||
+      (t.description && t.description.toLowerCase().includes(q))
+  );
+}
+
+// Get tags for all tools
+const allToolIds = allTools.map((t) => t.id);
+let toolTags: { toolId: number; tagKey: string; tagValue: string }[] = [];
+if (allToolIds.length > 0) {
+  toolTags = await db
+    .select({
+      toolId: tags.toolId,
+      tagKey: tags.tagKey,
+      tagValue: tags.tagValue,
+    })
+    .from(tags)
+    .where(sql`${tags.toolId} IN (${sql.raw(allToolIds.join(','))})`);
+}
+
+// Build tag map
+const tagMap = new Map<number, { tagKey: string; tagValue: string }[]>();
+for (const tag of toolTags) {
+  if (!tagMap.has(tag.toolId)) tagMap.set(tag.toolId, []);
+  tagMap.get(tag.toolId)!.push({ tagKey: tag.tagKey, tagValue: tag.tagValue });
+}
+
+// Apply tag filters
+if (activeFilters.length > 0) {
+  allTools = allTools.filter((t) => {
+    const tTags = tagMap.get(t.id) || [];
+    return activeFilters.every((filter) =>
+      tTags.some(
+        (tag) => tag.tagKey === filter.key && tag.tagValue === filter.value
+      )
+    );
+  });
+}
+
+// Get latest health check for each tool
+let healthMap = new Map<
+  number,
+  { isOnline: boolean; checkedAt: Date }
+>();
+if (allToolIds.length > 0) {
+  const latestChecks = await db
+    .select({
+      toolId: healthChecks.toolId,
+      isOnline: healthChecks.isOnline,
+      checkedAt: healthChecks.checkedAt,
+    })
+    .from(healthChecks)
+    .where(sql`${healthChecks.toolId} IN (${sql.raw(allToolIds.join(','))})`)
+    .orderBy(desc(healthChecks.checkedAt));
+
+  for (const check of latestChecks) {
+    if (!healthMap.has(check.toolId)) {
+      healthMap.set(check.toolId, {
+        isOnline: check.isOnline,
+        checkedAt: check.checkedAt,
+      });
+    }
+  }
+}
+
+// Sort
+if (sort === 'newest') {
+  allTools.sort((a, b) => {
+    const aTime = a.approvedAt ? a.approvedAt.getTime() : 0;
+    const bTime = b.approvedAt ? b.approvedAt.getTime() : 0;
+    return bTime - aTime;
+  });
+} else if (sort === 'alpha') {
+  allTools.sort((a, b) => a.name.localeCompare(b.name));
+} else {
+  // recommended - sort by score
+  allTools.sort((a, b) => {
+    const aScore = 'score' in a ? (a as any).score : 0;
+    const bScore = 'score' in b ? (b as any).score : 0;
+    return bScore - aScore;
+  });
+}
+
+// Paginate
+const totalTools = allTools.length;
+const totalPages = Math.max(1, Math.ceil(totalTools / perPage));
+const pagedTools = allTools.slice((page - 1) * perPage, page * perPage);
+
+// Build pagination URL helper
+function buildUrl(params: Record<string, string>) {
+  const u = new URL(url);
+  for (const [k, v] of Object.entries(params)) {
+    if (v) {
+      u.searchParams.set(k, v);
+    } else {
+      u.searchParams.delete(k);
+    }
+  }
+  return u.pathname + u.search;
+}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Hero -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold tracking-tight mb-3">nologin.tools</h1>
+      <p class="text-lg text-neutral-500 mb-8">
+        Discover tools that respect your privacy — no login required.
+      </p>
+
+      <!-- Search -->
+      <form method="GET" action="/" class="max-w-xl mx-auto mb-8">
+        {activeFilters.map((f) => (
+          <input type="hidden" name={f.key} value={f.value} />
+        ))}
+        <input type="hidden" name="sort" value={sort} />
+        <div class="relative">
+          <svg
+            class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400"
+            width="18"
+            height="18"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="9" cy="9" r="6"></circle>
+            <path d="M13.5 13.5L17 17"></path>
+          </svg>
+          <input
+            type="text"
+            name="q"
+            value={query}
+            placeholder="Search tools..."
+            class="w-full pl-10 pr-4 py-2.5 border border-neutral-300 rounded-lg text-sm
+                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+        </div>
+      </form>
+    </div>
+
+    <!-- Tag Filters -->
+    <div class="mb-6 overflow-x-auto">
+      <div class="flex flex-wrap gap-2">
+        {TAG_DEFINITIONS.map((def) =>
+          def.values.map((val) => {
+            const isActive = activeFilters.some(
+              (f) => f.key === def.key && f.value === val
+            );
+            const toggleUrl = isActive
+              ? buildUrl({ [def.key]: '', page: '' })
+              : buildUrl({ [def.key]: val, page: '' });
+            return (
+              <a
+                href={toggleUrl}
+                class:list={['chip', isActive ? 'chip-active' : 'chip-default']}
+              >
+                {def.key}:{val}
+              </a>
+            );
+          })
+        )}
+      </div>
+    </div>
+
+    <!-- Sort -->
+    <div class="flex items-center gap-2 mb-6 text-sm">
+      <span class="text-neutral-500">Sort:</span>
+      {[
+        { key: 'recommended', label: 'Recommended' },
+        { key: 'newest', label: 'Newest' },
+        { key: 'alpha', label: 'A-Z' },
+      ].map((s) => (
+        <a
+          href={buildUrl({ sort: s.key, page: '' })}
+          class:list={[
+            'px-3 py-1 rounded-md transition-colors',
+            sort === s.key
+              ? 'bg-neutral-100 text-neutral-950 font-medium'
+              : 'text-neutral-500 hover:text-neutral-950',
+          ]}
+        >
+          {s.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Tool Grid -->
+    {pagedTools.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {pagedTools.map((tool) => {
+          const health = healthMap.get(tool.id);
+          const tTags = tagMap.get(tool.id) || [];
+          return (
+            <ToolCard
+              slug={tool.slug}
+              name={tool.name}
+              description={tool.description}
+              isVerified={tool.status === 'approved'}
+              isOnline={health?.isOnline ?? null}
+              lastCheckedAt={health?.checkedAt ?? null}
+              tags={tTags}
+              archiveUrl={tool.archiveUrl}
+            />
+          );
+        })}
+      </div>
+    ) : (
+      <div class="text-center py-16">
+        <p class="text-neutral-500 mb-4">No tools found.</p>
+        <a href="/" class="text-sm text-blue-600 hover:underline">Clear filters</a>
+      </div>
+    )}
+
+    <!-- Pagination -->
+    {totalPages > 1 && (
+      <div class="flex justify-center gap-2">
+        {page > 1 && (
+          <a
+            href={buildUrl({ page: String(page - 1) })}
+            class="btn-secondary text-sm"
+          >
+            Previous
+          </a>
+        )}
+        <span class="px-3 py-2 text-sm text-neutral-500">
+          Page {page} of {totalPages}
+        </span>
+        {page < totalPages && (
+          <a
+            href={buildUrl({ page: String(page + 1) })}
+            class="btn-secondary text-sm"
+          >
+            Next
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+</Layout>
