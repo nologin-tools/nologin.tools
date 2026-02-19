@@ -163,7 +163,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   // Health check asynchronously (fire and forget)
-  checkHealth(url)
+  checkHealth(url, env.SITE_URL)
     .then(async (result) => {
       await db.insert(healthChecks).values({
         toolId: inserted.id,

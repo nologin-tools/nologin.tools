@@ -56,6 +56,24 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
     const chunk = batch.slice(i, i + batchSize);
     const results = await Promise.allSettled(
       chunk.map(async (tool) => {
+        // Skip self-referencing requests — Cloudflare Workers cannot fetch
+        // themselves without triggering a 522. The Worker running this code
+        // already proves the site is online.
+        try {
+          if (new URL(tool.url).hostname === new URL(env.SITE_URL).hostname) {
+            return {
+              toolId: tool.id,
+              isOnline: true,
+              httpStatus: 200,
+              responseTimeMs: 0,
+              url: tool.url,
+              archiveUrl: tool.archive_url,
+            };
+          }
+        } catch {
+          // Invalid URL — fall through to normal fetch
+        }
+
         const start = Date.now();
         try {
           const controller = new AbortController();

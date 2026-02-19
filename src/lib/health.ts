@@ -4,7 +4,22 @@ export interface HealthCheckResult {
   responseTimeMs: number | null;
 }
 
-export async function checkHealth(url: string): Promise<HealthCheckResult> {
+function isSelfReference(url: string, siteUrl: string): boolean {
+  try {
+    return new URL(url).hostname === new URL(siteUrl).hostname;
+  } catch {
+    return false;
+  }
+}
+
+export async function checkHealth(url: string, siteUrl?: string): Promise<HealthCheckResult> {
+  // Self-referencing requests on Cloudflare Workers cause 522 errors.
+  // If the target hostname matches SITE_URL, short-circuit: the Worker being
+  // able to execute this code already proves the site is online.
+  if (siteUrl && isSelfReference(url, siteUrl)) {
+    return { isOnline: true, httpStatus: 200, responseTimeMs: 0 };
+  }
+
   const start = Date.now();
   try {
     const controller = new AbortController();

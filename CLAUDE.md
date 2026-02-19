@@ -68,6 +68,7 @@ workers/cron/             # Health checks, badge detection, data export
   - `POST /api/admin/tool-delete` — delete tool (cascade cleans associations)
   - `POST /api/admin/health-check` — manually trigger health check for a tool
 - **Health check on submit**: Tools are health-checked on submission/resubmission (fire-and-forget). Results stored in `health_checks` table, displayed on admin review page.
+- **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. The cron worker has equivalent inline logic.
 
 ## Commands
 

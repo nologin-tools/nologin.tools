@@ -38,7 +38,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   // Run health check
-  const result = await checkHealth(tool.url);
+  const result = await checkHealth(tool.url, env.SITE_URL);
   const now = new Date();
 
   // Store result
