@@ -188,6 +188,22 @@ const jsonLd = {
       )}
     </div>
 
+    <!-- Badge CTA for verified tools -->
+    {isVerified && (
+      <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
+        <p class="text-sm text-green-800">
+          <span class="font-medium">Are you the author of this tool?</span>{' '}
+          Display the NoLogin Verified badge on your site to increase trust and visibility.
+        </p>
+        <a
+          href={`/badge/${slug}`}
+          class="inline-flex items-center gap-1 text-sm text-green-700 font-medium hover:text-green-900 mt-2"
+        >
+          Get the badge code &rarr;
+        </a>
+      </div>
+    )}
+
     <!-- Edit suggestion form (hidden by default) -->
     {isVerified && (
       <div id="edit-form" class="hidden mb-8 border border-neutral-200 rounded-lg p-6">
