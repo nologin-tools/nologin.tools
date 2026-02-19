@@ -27,11 +27,11 @@ src/
 │   ├── tool/[slug].astro # Tool detail with health timeline
 │   ├── badge/index.astro # "What is NoLogin Verified?"
 │   ├── badge/[slug].astro
-│   ├── admin/index.astro # Review queue (secret-protected)
+│   ├── admin/index.astro # Full admin dashboard (tab-based, secret-protected)
 │   ├── about.astro
 │   ├── 404.astro
 │   ├── sitemap.xml.ts
-│   └── api/              # submit, review, edit, resubmit, tools/[slug]
+│   └── api/              # submit, review, edit, resubmit, tools/[slug], admin/*
 workers/cron/             # Health checks, badge detection, data export
 ```
 
@@ -54,6 +54,17 @@ workers/cron/             # Health checks, badge detection, data export
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle. Embed tab includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
+- **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health`):
+  - **Dashboard**: Stats overview (total/approved/pending/offline) + recent submissions table
+  - **Tools**: Full CRUD — status filter chips, search, pagination via `POST /api/admin/tools`; inline edit/reject forms; approve/reject/edit/delete/health-check actions
+  - **Edits**: Pending edit suggestions review (approve & apply / reject)
+  - **Health**: Health monitoring table for approved tools with manual "Run Check" button
+  - Toast notifications (success/error, 3s auto-dismiss), loading states on buttons, `confirm()` for destructive actions
+- **Admin API endpoints** (all POST, require `secret`):
+  - `POST /api/admin/tools` — list tools with status filter, search, pagination (20/page)
+  - `POST /api/admin/tool-update` — edit tool fields and tags
+  - `POST /api/admin/tool-delete` — delete tool (cascade cleans associations)
+  - `POST /api/admin/health-check` — manually trigger health check for a tool
 - **Health check on submit**: Tools are health-checked on submission/resubmission (fire-and-forget). Results stored in `health_checks` table, displayed on admin review page.
 
 ## Commands
@@ -97,3 +108,4 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3)
 - Max width: 6xl (1152px), card grid 1/2/3 columns responsive
 - **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)
 - **TagPicker**: Uses checkboxes for all dimensions; single-select enforced via JS (allows deselect). Wrapper has `.tag-picker-container` for multi-instance isolation. Labels carry `data-tag-group` and `data-multi-select` attributes.
+- **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables)
