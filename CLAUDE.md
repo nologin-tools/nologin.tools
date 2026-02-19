@@ -38,7 +38,9 @@ workers/cron/             # Health checks, badge detection, data export
 ## Key Conventions
 
 - **Slug**: Generated from tool URL — `urlToSlug("https://excalidraw.com")` → `"excalidraw-com"`
-- **Tags**: Key:Value format — `source:Open Source`, `pricing:Free`
+- **Tags**: Key:Value format — `category:Design`, `source:Open Source`, `pricing:Free`
+  - 8 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS), `source`, `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
+  - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
