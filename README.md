@@ -1,5 +1,9 @@
 # nologin.tools
 
+<a href="https://nologin.tools/badge/nologin-tools">
+  <img src="https://nologin.tools/badges/for-the-badge.svg" alt="NoLogin Verified" title="Verified by nologin.tools" />
+</a>
+
 A curated directory of privacy-friendly tools that work without login. Built to help users discover software that respects their time and privacy — no account required.
 
 **Live site:** [nologin.tools](https://nologin.tools)
