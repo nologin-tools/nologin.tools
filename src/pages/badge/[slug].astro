@@ -83,6 +83,23 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
       </h1>
     </div>
 
+    <!-- Tab navigation -->
+    <div class="flex border-b border-neutral-200 mb-8" role="tablist">
+      <button role="tab" aria-selected="true" aria-controls="panel-verification"
+        id="tab-verification"
+        class="tab-btn px-4 py-2.5 text-sm font-medium border-b-2 border-green-500 text-green-600 -mb-px">
+        Verification
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="panel-embed"
+        id="tab-embed"
+        class="tab-btn px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-neutral-500 hover:text-neutral-700 -mb-px">
+        Embed Code
+      </button>
+    </div>
+
+    <!-- Panel: Verification (default visible) -->
+    <div id="panel-verification" role="tabpanel" aria-labelledby="tab-verification">
+
     <!-- Tool info card -->
     <div class="border border-neutral-200 rounded-lg p-6 mb-8">
       <div class="flex items-start justify-between mb-4">
@@ -163,6 +180,37 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
       </p>
     </section>
 
+    <!-- Similar tools -->
+    {similarTools.length > 0 && (
+      <section>
+        <h2 class="text-lg font-semibold text-neutral-950 mb-3">
+          Similar Tools
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {similarTools.map((st) => (
+            <a
+              href={`/tool/${st.slug}`}
+              class="border border-neutral-200 rounded-lg p-4 hover:shadow-md transition-all"
+            >
+              <h3 class="font-semibold text-neutral-950 text-sm mb-1">
+                {st.name}
+              </h3>
+              {st.description && (
+                <p class="text-xs text-neutral-500 line-clamp-2">
+                  {st.description}
+                </p>
+              )}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    </div> <!-- end panel-verification -->
+
+    <!-- Panel: Embed Code (hidden by default) -->
+    <div id="panel-embed" role="tabpanel" aria-labelledby="tab-embed" class="hidden">
+
     <!-- Embed code -->
     <section class="mb-12">
       <h2 class="text-lg font-semibold text-neutral-950 mb-2">
@@ -238,34 +286,57 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
       </div>
     </section>
 
-    <!-- Similar tools -->
-    {similarTools.length > 0 && (
-      <section>
-        <h2 class="text-lg font-semibold text-neutral-950 mb-3">
-          Similar Tools
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {similarTools.map((st) => (
-            <a
-              href={`/tool/${st.slug}`}
-              class="border border-neutral-200 rounded-lg p-4 hover:shadow-md transition-all"
-            >
-              <h3 class="font-semibold text-neutral-950 text-sm mb-1">
-                {st.name}
-              </h3>
-              {st.description && (
-                <p class="text-xs text-neutral-500 line-clamp-2">
-                  {st.description}
-                </p>
-              )}
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
+    </div> <!-- end panel-embed -->
+
   </div>
 
   <script>
+    // Tab switching
+    const tabs = {
+      verification: {
+        btn: document.getElementById('tab-verification')!,
+        panel: document.getElementById('panel-verification')!,
+      },
+      embed: {
+        btn: document.getElementById('tab-embed')!,
+        panel: document.getElementById('panel-embed')!,
+      },
+    };
+
+    function activateTab(name: 'verification' | 'embed') {
+      for (const [key, { btn, panel }] of Object.entries(tabs)) {
+        const isActive = key === name;
+        panel.classList.toggle('hidden', !isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+        btn.classList.toggle('border-green-500', isActive);
+        btn.classList.toggle('text-green-600', isActive);
+        btn.classList.toggle('border-transparent', !isActive);
+        btn.classList.toggle('text-neutral-500', !isActive);
+      }
+    }
+
+    // Initialize from hash
+    if (window.location.hash === '#embed') {
+      activateTab('embed');
+    }
+
+    // Tab click handlers
+    tabs.verification.btn.addEventListener('click', () => {
+      activateTab('verification');
+      history.replaceState(null, '', window.location.pathname);
+    });
+
+    tabs.embed.btn.addEventListener('click', () => {
+      activateTab('embed');
+      history.replaceState(null, '', '#embed');
+    });
+
+    // Handle browser back/forward
+    window.addEventListener('hashchange', () => {
+      activateTab(window.location.hash === '#embed' ? 'embed' : 'verification');
+    });
+
+    // Copy to clipboard
     document.querySelectorAll('.copy-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const codeId = `code-${(btn as HTMLElement).dataset.code}`;

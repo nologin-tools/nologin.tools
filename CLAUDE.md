@@ -45,6 +45,7 @@ workers/cron/             # Health checks, badge detection, data export
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
+- **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 
 ## Commands
