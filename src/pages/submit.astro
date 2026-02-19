@@ -224,11 +224,18 @@ import TagPicker from '../components/TagPicker.astro';
           window.location.href = `/submit/success?slug=${result.data.slug}`;
         } else {
           if (result.details) {
-            for (const [field, msg] of Object.entries(result.details)) {
-              showError(field, msg as string);
+            if (result.details.slug) {
+              // Duplicate tool — show link to existing page
+              formError.innerHTML = `This tool has already been submitted. <a href="/tool/${result.details.slug}" class="underline font-medium">View it here</a>.`;
+            } else {
+              for (const [field, msg] of Object.entries(result.details)) {
+                showError(field, msg as string);
+              }
+              formError.textContent = result.error || 'Submission failed.';
             }
+          } else {
+            formError.textContent = result.error || 'Submission failed.';
           }
-          formError.textContent = result.error || 'Submission failed.';
           formError.classList.remove('hidden');
         }
       } catch {

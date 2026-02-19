@@ -57,7 +57,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   // Check for duplicate
   const existing = await db
-    .select({ id: tools.id })
+    .select({ id: tools.id, slug: tools.slug, status: tools.status })
     .from(tools)
     .where(eq(tools.slug, slug))
     .limit(1);
@@ -65,6 +65,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
   if (existing.length > 0) {
     return api.error('This tool has already been submitted.', 409, {
       url: 'This URL has already been submitted.',
+      slug: existing[0].slug,
+      status: existing[0].status,
     });
   }
 
