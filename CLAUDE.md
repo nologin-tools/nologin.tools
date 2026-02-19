@@ -111,3 +111,13 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3)
 - **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)
 - **TagPicker**: Uses checkboxes for all dimensions; single-select enforced via JS (allows deselect). Wrapper has `.tag-picker-container` for multi-instance isolation. Labels carry `data-tag-group` and `data-multi-select` attributes.
 - **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables)
+
+## CI/CD
+
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Triggers**: push to `main` → deploy | PR to `main` → build check only | manual `workflow_dispatch` → deploy
+- **Jobs** (main branch): `migrate` → `deploy-app` + `deploy-cron` (parallel after migration)
+- **Jobs** (PR): `build-check` only (pnpm install + pnpm build)
+- **D1 database_id**: Real ID stored directly in `wrangler.jsonc` and `workers/cron/wrangler.jsonc` (not sensitive — access requires API token)
+- **GitHub Secrets required**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- **Concurrency**: Same workflow + branch combo cancels in-progress runs
