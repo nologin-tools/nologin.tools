@@ -51,6 +51,8 @@ workers/cron/             # Health checks, badge detection, data export
   - **Color** (3): `flat-blue` (`#07c`), `flat-purple` (`#8957e5`), `flat-orange` (`#fe7d37`) — left `#555` + colored right
   - **Original** (1): `/badge.svg` (160×28, white bg, legacy) — not in `BADGE_GROUPS`, shown as secondary option
   - `/badge.svg` is kept for backward compatibility; new embeds default to `flat`
+  - All SVG badges have `<title>Verified by nologin.tools</title>` and `aria-label="Verified by nologin.tools"` for hover tooltip and accessibility
+  - Embed code `<img>` tags include `title="Verified by nologin.tools"` for native browser hover tooltip
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle. Embed tab includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
