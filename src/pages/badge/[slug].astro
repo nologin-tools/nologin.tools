@@ -19,9 +19,11 @@ const [tool] = await db
   .where(eq(tools.slug, slug!))
   .limit(1);
 
-if (!tool || tool.status !== 'approved') {
+if (!tool || tool.status === 'rejected') {
   return Astro.redirect('/404');
 }
+
+const isPending = tool.status === 'pending';
 
 // Fetch tags
 const toolTags = await db
@@ -37,10 +39,10 @@ const [latestHealth] = await db
   .orderBy(desc(healthChecks.checkedAt))
   .limit(1);
 
-// Fetch similar tools (same tags, limit 3)
+// Fetch similar tools (same tags, limit 3) — only for approved tools
 const tagKeys = toolTags.map((t) => t.tagKey);
 let similarTools: { slug: string; name: string; description: string | null }[] = [];
-if (tagKeys.length > 0) {
+if (!isPending && tagKeys.length > 0) {
   similarTools = await db
     .selectDistinct({
       slug: tools.slug,
@@ -63,8 +65,8 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
 ---
 
 <Layout
-  title={`${tool.name} — NoLogin Verified`}
-  description={`${tool.name} is NoLogin Verified. ${tool.coreTask}`}
+  title={`${tool.name} — ${isPending ? 'Pending Verification' : 'NoLogin Verified'}`}
+  description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
 >
   <div class="max-w-3xl mx-auto px-6 py-16">
     <!-- Badge header -->
@@ -76,8 +78,8 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
           class="inline-block w-40"
         />
       </div>
-      <h1 class="text-2xl font-bold text-green-600 mb-2">
-        This tool is NoLogin Verified
+      <h1 class:list={['text-2xl font-bold mb-2', isPending ? 'text-amber-600' : 'text-green-600']}>
+        {isPending ? 'This tool is pending verification' : 'This tool is NoLogin Verified'}
       </h1>
     </div>
 
@@ -95,10 +97,12 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
             {tool.url}
           </a>
         </div>
-        <HealthBadge
-          isOnline={latestHealth?.isOnline ?? null}
-          lastCheckedAt={latestHealth?.checkedAt ?? null}
-        />
+        {!isPending && (
+          <HealthBadge
+            isOnline={latestHealth?.isOnline ?? null}
+            lastCheckedAt={latestHealth?.checkedAt ?? null}
+          />
+        )}
       </div>
 
       {tool.description && (
@@ -112,11 +116,13 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
         </p>
       </div>
 
-      <div class="flex flex-wrap gap-4 text-sm text-neutral-500">
-        {tool.approvedAt && (
-          <span>Verified since {formatDate(tool.approvedAt)}</span>
-        )}
-      </div>
+      {!isPending && (
+        <div class="flex flex-wrap gap-4 text-sm text-neutral-500">
+          {tool.approvedAt && (
+            <span>Verified since {formatDate(tool.approvedAt)}</span>
+          )}
+        </div>
+      )}
 
       {toolTags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 mt-4">
@@ -166,6 +172,14 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
         Display the NoLogin Verified badge to let users know your tool is
         verified. Tools with badges get higher visibility in the directory.
       </p>
+
+      {isPending && (
+        <div class="bg-amber-50 border border-amber-200 rounded-md p-4 mb-6">
+          <p class="text-sm text-amber-800">
+            Your tool is being reviewed. You can prepare the badge code now — it will activate once approved.
+          </p>
+        </div>
+      )}
 
       <!-- SVG Badge -->
       <div class="mb-6">
