@@ -1,11 +1,11 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../db';
-import { tools, editSuggestions } from '../../db/schema';
+import { tools, tags, editSuggestions } from '../../db/schema';
 import { eq } from 'drizzle-orm';
 import { api } from '../../lib/api';
 import { hashIp, getClientIp } from '../../lib/utils';
 
-const ALLOWED_FIELDS = ['name', 'description', 'coreTask', 'url'];
+const ALLOWED_FIELDS = ['name', 'description', 'coreTask', 'url', 'tags'];
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const db = getDb(locals.runtime.env.DB);
@@ -27,8 +27,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error(`Invalid field: ${fieldName}`, 400);
   }
 
-  if (typeof newValue !== 'string' || newValue.length > 500) {
-    return api.error('New value must be a string (max 500 characters).', 400);
+  if (typeof newValue !== 'string' || newValue.length > 2000) {
+    return api.error('New value must be a string (max 2000 characters).', 400);
   }
 
   // Verify tool exists and is approved
@@ -44,8 +44,17 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   // Get current value
-  const fieldKey = fieldName as keyof typeof tool;
-  const oldValue = tool[fieldKey] as string | null;
+  let oldValue: string | null;
+  if (fieldName === 'tags') {
+    const currentTags = await db
+      .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+      .from(tags)
+      .where(eq(tags.toolId, toolId));
+    oldValue = JSON.stringify(currentTags.map(t => ({ key: t.tagKey, value: t.tagValue })));
+  } else {
+    const fieldKey = fieldName as keyof typeof tool;
+    oldValue = (tool[fieldKey] as string | null) || null;
+  }
 
   const clientIp = getClientIp(request);
   const ipHash = await hashIp(clientIp);
