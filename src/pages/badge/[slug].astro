@@ -157,6 +157,73 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
       </p>
     </section>
 
+    <!-- Embed code -->
+    <section class="mb-12">
+      <h2 class="text-lg font-semibold text-neutral-950 mb-2">
+        Add the Badge to Your Site
+      </h2>
+      <p class="text-sm text-neutral-500 mb-6">
+        Display the NoLogin Verified badge to let users know your tool is
+        verified. Tools with badges get higher visibility in the directory.
+      </p>
+
+      <!-- SVG Badge -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-sm font-medium text-neutral-700">
+            SVG Badge (Recommended)
+          </h3>
+          <button
+            class="copy-btn text-xs text-blue-600 hover:underline"
+            data-code="svg"
+          >
+            Copy
+          </button>
+        </div>
+        <div class="mb-2">
+          <img src="/badge.svg" alt="NoLogin Verified" class="inline-block" />
+        </div>
+        <pre
+          id="code-svg"
+          class="bg-neutral-900 text-neutral-100 p-4 rounded-md text-xs overflow-x-auto"
+        ><code>{embedCode.svg}</code></pre>
+      </div>
+
+      <!-- Meta tag -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-sm font-medium text-neutral-700">Meta Tag</h3>
+          <button
+            class="copy-btn text-xs text-blue-600 hover:underline"
+            data-code="meta"
+          >
+            Copy
+          </button>
+        </div>
+        <pre
+          id="code-meta"
+          class="bg-neutral-900 text-neutral-100 p-4 rounded-md text-xs overflow-x-auto"
+        ><code>{embedCode.meta}</code></pre>
+      </div>
+
+      <!-- Text link -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-sm font-medium text-neutral-700">Footer Link</h3>
+          <button
+            class="copy-btn text-xs text-blue-600 hover:underline"
+            data-code="link"
+          >
+            Copy
+          </button>
+        </div>
+        <pre
+          id="code-link"
+          class="bg-neutral-900 text-neutral-100 p-4 rounded-md text-xs overflow-x-auto"
+        ><code>{embedCode.link}</code></pre>
+      </div>
+    </section>
+
     <!-- Similar tools -->
     {similarTools.length > 0 && (
       <section>
@@ -183,4 +250,20 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
       </section>
     )}
   </div>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const codeId = `code-${(btn as HTMLElement).dataset.code}`;
+        const codeEl = document.getElementById(codeId);
+        if (codeEl) {
+          navigator.clipboard.writeText(codeEl.textContent || '');
+          btn.textContent = 'Copied!';
+          setTimeout(() => {
+            btn.textContent = 'Copy';
+          }, 2000);
+        }
+      });
+    });
+  </script>
 </Layout>
