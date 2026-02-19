@@ -6,6 +6,7 @@ import { tools, tags, healthChecks, badgeDisplays } from '../../db/schema';
 import { eq, desc, and, ne, inArray } from 'drizzle-orm';
 import { formatDate } from '../../lib/utils';
 import { getBadgeEmbedCode } from '../../lib/badge';
+import { sortTagsCategoryFirst } from '../../lib/tags';
 
 const { slug } = Astro.params;
 const db = getDb(Astro.locals.runtime.env.DB);
@@ -119,9 +120,9 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
 
       {toolTags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 mt-4">
-          {toolTags.map((tag) => (
-            <span class="chip chip-default text-[11px]">
-              {tag.tagKey}:{tag.tagValue}
+          {sortTagsCategoryFirst(toolTags).map((tag) => (
+            <span class:list={['chip text-[11px]', tag.tagKey === 'category' ? 'chip-category' : 'chip-default']}>
+              {tag.tagKey === 'category' ? tag.tagValue : `${tag.tagKey}:${tag.tagValue}`}
             </span>
           ))}
         </div>
