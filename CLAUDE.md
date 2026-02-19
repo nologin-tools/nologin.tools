@@ -31,7 +31,7 @@ src/
 │   ├── about.astro
 │   ├── 404.astro
 │   ├── sitemap.xml.ts
-│   └── api/              # submit, review, edit, tools/[slug]
+│   └── api/              # submit, review, edit, resubmit, tools/[slug]
 workers/cron/             # Health checks, badge detection, data export
 ```
 
@@ -42,6 +42,8 @@ workers/cron/             # Health checks, badge detection, data export
   - 8 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS), `source`, `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
   - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
+  - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
+- **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 
