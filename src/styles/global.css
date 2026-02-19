@@ -17,13 +17,28 @@
 
 @layer components {
   .chip {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border transition-colors cursor-pointer;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border transition-all cursor-pointer;
   }
   .chip-default {
-    @apply bg-neutral-50 text-neutral-700 border-neutral-200 hover:bg-neutral-100;
+    @apply bg-neutral-50 text-neutral-700 border-neutral-200 hover:bg-neutral-100 hover:border-neutral-300;
   }
   .chip-active {
-    @apply bg-green-50 text-green-700 border-green-200;
+    @apply bg-green-50 text-green-700 border-green-300 shadow-sm;
+  }
+  .chip-toggle {
+    @apply px-3 py-1 text-sm gap-1.5;
+  }
+  .chip-toggle .chip-check-icon {
+    @apply hidden;
+  }
+  .chip-toggle.chip-active .chip-check-icon {
+    @apply inline-block;
+  }
+  .chip-toggle.chip-active {
+    @apply ring-1 ring-green-200 border-green-400;
+  }
+  .chip-toggle.chip-default:hover {
+    @apply shadow-sm;
   }
   .chip-category {
     @apply bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100;

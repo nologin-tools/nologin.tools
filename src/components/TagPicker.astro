@@ -8,7 +8,7 @@ interface Props {
 const { selectedTags = [] } = Astro.props;
 ---
 
-<div class="space-y-4">
+<div class="tag-picker-container space-y-4">
   {TAG_DEFINITIONS.map((def) => {
     const selected = selectedTags
       .filter((t) => t.key === def.key)
@@ -22,24 +22,25 @@ const { selectedTags = [] } = Astro.props;
         <div class="flex flex-wrap gap-2">
           {def.values.map((val) => {
             const isSelected = selected.includes(val);
-            const inputType = def.multiSelect ? 'checkbox' : 'radio';
-            const inputName = def.multiSelect
-              ? `tag_${def.key}[]`
-              : `tag_${def.key}`;
             return (
               <label
                 class:list={[
-                  'chip cursor-pointer select-none',
+                  'chip chip-toggle cursor-pointer select-none',
                   isSelected ? 'chip-active' : 'chip-default',
                 ]}
+                data-tag-group={def.key}
+                data-multi-select={def.multiSelect ? 'true' : 'false'}
               >
                 <input
-                  type={inputType}
-                  name={inputName}
+                  type="checkbox"
+                  name={`tag_${def.key}[]`}
                   value={val}
                   checked={isSelected}
                   class="sr-only peer"
                 />
+                <svg class="chip-check-icon w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
                 <span>{val}</span>
               </label>
             );
@@ -51,26 +52,37 @@ const { selectedTags = [] } = Astro.props;
 </div>
 
 <script>
-  document.querySelectorAll('.chip input').forEach((input) => {
-    input.addEventListener('change', () => {
-      const label = input.closest('label');
-      if (!label) return;
+  document.querySelectorAll('.tag-picker-container').forEach((container) => {
+    container.querySelectorAll('.chip-toggle input[type="checkbox"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        const checkbox = input as HTMLInputElement;
+        const label = checkbox.closest('label');
+        if (!label) return;
 
-      if ((input as HTMLInputElement).type === 'radio') {
-        const name = (input as HTMLInputElement).name;
-        document.querySelectorAll(`input[name="${name}"]`).forEach((other) => {
-          other.closest('label')?.classList.remove('chip-active');
-          other.closest('label')?.classList.add('chip-default');
-        });
-      }
+        const isMultiSelect = label.dataset.multiSelect === 'true';
+        const group = label.dataset.tagGroup;
+        const picker = label.closest('.tag-picker-container');
+        if (!picker || !group) return;
 
-      if ((input as HTMLInputElement).checked) {
-        label.classList.remove('chip-default');
-        label.classList.add('chip-active');
-      } else {
-        label.classList.remove('chip-active');
-        label.classList.add('chip-default');
-      }
+        if (!isMultiSelect && checkbox.checked) {
+          // Single-select: uncheck others in same group
+          picker.querySelectorAll(`label[data-tag-group="${group}"] input[type="checkbox"]`).forEach((other) => {
+            if (other !== checkbox) {
+              (other as HTMLInputElement).checked = false;
+              other.closest('label')?.classList.remove('chip-active');
+              other.closest('label')?.classList.add('chip-default');
+            }
+          });
+        }
+
+        if (checkbox.checked) {
+          label.classList.remove('chip-default');
+          label.classList.add('chip-active');
+        } else {
+          label.classList.remove('chip-active');
+          label.classList.add('chip-default');
+        }
+      });
     });
   });
 </script>

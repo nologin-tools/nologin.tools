@@ -85,3 +85,5 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3)
 - Colors: white bg, neutral-950 text, green-500 verified, red-500 offline, amber-500 pending
 - Font: system font stack
 - Max width: 6xl (1152px), card grid 1/2/3 columns responsive
+- **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)
+- **TagPicker**: Uses checkboxes for all dimensions; single-select enforced via JS (allows deselect). Wrapper has `.tag-picker-container` for multi-instance isolation. Labels carry `data-tag-group` and `data-multi-select` attributes.
