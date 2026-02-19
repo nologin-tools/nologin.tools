@@ -7,6 +7,13 @@ export interface TagDefinition {
 
 export const TAG_DEFINITIONS: TagDefinition[] = [
   {
+    key: 'category',
+    label: 'Category',
+    values: ['Design', 'Writing', 'Development', 'Productivity', 'Media',
+             'Privacy', 'Data', 'Communication', 'Education', 'Finance'],
+    multiSelect: false,
+  },
+  {
     key: 'source',
     label: 'Source',
     values: ['Open Source', 'Closed Source'],
@@ -58,4 +65,14 @@ export function getAllTagValues(): { key: string; value: string }[] {
   return TAG_DEFINITIONS.flatMap((def) =>
     def.values.map((value) => ({ key: def.key, value }))
   );
+}
+
+export function sortTagsCategoryFirst(
+  tags: { tagKey: string; tagValue: string }[]
+): { tagKey: string; tagValue: string }[] {
+  return [...tags].sort((a, b) => {
+    if (a.tagKey === 'category') return -1;
+    if (b.tagKey === 'category') return 1;
+    return 0;
+  });
 }
