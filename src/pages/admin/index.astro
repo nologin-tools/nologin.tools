@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getDb } from '../../db';
-import { tools, tags, editSuggestions } from '../../db/schema';
+import { tools, tags, editSuggestions, healthChecks } from '../../db/schema';
 import { eq, desc } from 'drizzle-orm';
-import { formatDate } from '../../lib/utils';
+import { formatDate, timeAgo } from '../../lib/utils';
 
 const secret = Astro.url.searchParams.get('secret');
 const adminSecret = Astro.locals.runtime.env.ADMIN_SECRET;
@@ -20,6 +20,29 @@ const pendingTools = await db
   .from(tools)
   .where(eq(tools.status, 'pending'))
   .orderBy(desc(tools.submittedAt));
+
+// Fetch latest health check for each pending tool
+const healthMap = new Map<number, {
+  isOnline: boolean;
+  httpStatus: number | null;
+  responseTimeMs: number | null;
+  checkedAt: Date;
+}>();
+
+for (const tool of pendingTools) {
+  const [latest] = await db
+    .select({
+      isOnline: healthChecks.isOnline,
+      httpStatus: healthChecks.httpStatus,
+      responseTimeMs: healthChecks.responseTimeMs,
+      checkedAt: healthChecks.checkedAt,
+    })
+    .from(healthChecks)
+    .where(eq(healthChecks.toolId, tool.id))
+    .orderBy(desc(healthChecks.checkedAt))
+    .limit(1);
+  if (latest) healthMap.set(tool.id, latest);
+}
 
 // Fetch pending edit suggestions
 const pendingEdits = await db
@@ -99,6 +122,29 @@ for (const id of editToolIds) {
                 Slug: <code class="bg-neutral-100 px-1 rounded">{tool.slug}</code>
                 · IP Hash: <code class="bg-neutral-100 px-1 rounded">{tool.submitterIpHash?.slice(0, 8)}...</code>
               </div>
+
+              {healthMap.has(tool.id) ? (
+                healthMap.get(tool.id)!.isOnline ? (
+                  <div class="bg-green-50 border border-green-200 rounded-md p-2 mb-3 text-xs text-green-800 flex items-center gap-3">
+                    <span class="font-medium">● Online</span>
+                    <span>HTTP {healthMap.get(tool.id)!.httpStatus}</span>
+                    <span>{healthMap.get(tool.id)!.responseTimeMs}ms</span>
+                    <span class="text-green-600">{timeAgo(healthMap.get(tool.id)!.checkedAt)}</span>
+                  </div>
+                ) : (
+                  <div class="bg-red-50 border border-red-200 rounded-md p-2 mb-3 text-xs text-red-800 flex items-center gap-3">
+                    <span class="font-medium">● Offline</span>
+                    {healthMap.get(tool.id)!.httpStatus && (
+                      <span>HTTP {healthMap.get(tool.id)!.httpStatus}</span>
+                    )}
+                    <span class="text-red-600">{timeAgo(healthMap.get(tool.id)!.checkedAt)}</span>
+                  </div>
+                )
+              ) : (
+                <div class="bg-neutral-50 border border-neutral-200 rounded-md p-2 mb-3 text-xs text-neutral-500 flex items-center gap-3">
+                  <span>● No health check data</span>
+                </div>
+              )}
 
               <div class="flex items-center gap-2">
                 <button

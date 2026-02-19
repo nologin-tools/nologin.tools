@@ -47,6 +47,7 @@ workers/cron/             # Health checks, badge detection, data export
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
+- **Health check on submit**: Tools are health-checked on submission/resubmission (fire-and-forget). Results stored in `health_checks` table, displayed on admin review page.
 
 ## Commands
 

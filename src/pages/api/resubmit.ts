@@ -1,9 +1,10 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../db';
-import { tools, tags } from '../../db/schema';
+import { tools, tags, healthChecks } from '../../db/schema';
 import { eq, and, ne } from 'drizzle-orm';
 import { urlToSlug } from '../../lib/utils';
 import { api } from '../../lib/api';
+import { checkHealth } from '../../lib/health';
 import { TAG_DEFINITIONS } from '../../lib/tags';
 
 export const POST: APIRoute = async ({ request, locals }) => {
@@ -131,6 +132,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
       }))
     );
   }
+
+  // Health check asynchronously (fire and forget)
+  checkHealth(url)
+    .then(async (result) => {
+      await db.insert(healthChecks).values({
+        toolId,
+        checkedAt: new Date(),
+        isOnline: result.isOnline,
+        httpStatus: result.httpStatus,
+        responseTimeMs: result.responseTimeMs,
+      });
+    })
+    .catch(() => {});
 
   return api.success({ slug: newSlug });
 };
