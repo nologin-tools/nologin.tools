@@ -186,7 +186,8 @@ async function runBadgeDetection(env: Env, ctx: ExecutionContext) {
           // Check for explicit badge (img/a with nologin.tools/badge)
           if (
             html.includes('nologin.tools/badge.svg') ||
-            html.includes('nologin.tools/badge/')
+            html.includes('nologin.tools/badge/') ||
+            html.includes('nologin.tools/badges/')
           ) {
             return { toolId: tool.id, displayType: 'explicit' as const };
           }

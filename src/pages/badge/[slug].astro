@@ -5,7 +5,7 @@ import { getDb } from '../../db';
 import { tools, tags, healthChecks, badgeDisplays } from '../../db/schema';
 import { eq, desc, and, ne, inArray } from 'drizzle-orm';
 import { formatDate } from '../../lib/utils';
-import { getBadgeEmbedCode } from '../../lib/badge';
+import { getBadgeEmbedCode, BADGE_STYLES, ORIGINAL_BADGE } from '../../lib/badge';
 import { sortTagsCategoryFirst } from '../../lib/tags';
 
 const { slug } = Astro.params;
@@ -61,7 +61,10 @@ if (!isPending && tagKeys.length > 0) {
     .limit(3);
 }
 
-const embedCode = getBadgeEmbedCode(slug!, siteUrl);
+const embedCode = getBadgeEmbedCode(slug!, siteUrl, 'flat');
+const allEmbedCodes = Object.fromEntries(
+  [...BADGE_STYLES, ORIGINAL_BADGE].map((s) => [s.id, getBadgeEmbedCode(slug!, siteUrl, s.id)])
+);
 ---
 
 <Layout
@@ -229,6 +232,33 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
         </div>
       )}
 
+      <!-- Badge Style Selector -->
+      <div class="mb-6">
+        <h3 class="text-sm font-medium text-neutral-700 mb-3">
+          Choose Badge Style
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+          {BADGE_STYLES.map((style) => (
+            <button
+              class:list={[
+                'badge-style-btn flex flex-col items-center justify-center gap-2 p-3 border rounded-lg transition-all cursor-pointer',
+                style.id === 'flat'
+                  ? 'border-green-500 bg-green-50'
+                  : 'border-neutral-200 hover:border-neutral-300',
+              ]}
+              data-style={style.id}
+              data-badge-path={style.path}
+            >
+              <img src={style.path} alt={style.label} class="inline-block" />
+              <span class="text-xs text-neutral-600">{style.label}</span>
+            </button>
+          ))}
+        </div>
+        <p class="text-xs text-neutral-400 mb-4">
+          Also available: <button class="badge-style-btn text-blue-600 hover:underline" data-style="original" data-badge-path={ORIGINAL_BADGE.path}>Original badge</button>
+        </p>
+      </div>
+
       <!-- SVG Badge -->
       <div class="mb-6">
         <div class="flex items-center justify-between mb-2">
@@ -243,7 +273,7 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
           </button>
         </div>
         <div class="mb-2">
-          <img src="/badge.svg" alt="NoLogin Verified" class="inline-block" />
+          <img id="badge-preview" src="/badges/flat.svg" alt="NoLogin Verified" class="inline-block" />
         </div>
         <pre
           id="code-svg"
@@ -288,6 +318,7 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
 
     </div> <!-- end panel-embed -->
 
+    <script id="embed-codes-data" type="application/json" set:html={JSON.stringify(allEmbedCodes)} />
   </div>
 
   <script>
@@ -334,6 +365,41 @@ const embedCode = getBadgeEmbedCode(slug!, siteUrl);
     // Handle browser back/forward
     window.addEventListener('hashchange', () => {
       activateTab(window.location.hash === '#embed' ? 'embed' : 'verification');
+    });
+
+    // Badge style switching
+    const embedCodes: Record<string, { svg: string }> = JSON.parse(
+      document.getElementById('embed-codes-data')!.textContent!
+    );
+    const styleBtns = document.querySelectorAll('.badge-style-btn');
+    const badgePreview = document.getElementById('badge-preview') as HTMLImageElement;
+    const codeSvg = document.getElementById('code-svg');
+
+    styleBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const style = (btn as HTMLElement).dataset.style!;
+        const badgePath = (btn as HTMLElement).dataset.badgePath!;
+
+        // Update preview image
+        badgePreview.src = badgePath;
+
+        // Update SVG embed code
+        if (codeSvg && embedCodes[style]) {
+          codeSvg.innerHTML = `<code>${embedCodes[style].svg.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
+        }
+
+        // Update button styles
+        styleBtns.forEach((b) => {
+          const el = b as HTMLElement;
+          if (el.dataset.style === style) {
+            el.classList.add('border-green-500', 'bg-green-50');
+            el.classList.remove('border-neutral-200', 'hover:border-neutral-300');
+          } else {
+            el.classList.remove('border-green-500', 'bg-green-50');
+            el.classList.add('border-neutral-200', 'hover:border-neutral-300');
+          }
+        });
+      });
     });
 
     // Copy to clipboard

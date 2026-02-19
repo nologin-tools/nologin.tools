@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="169" height="28" role="img" aria-label="NOLOGIN: VERIFIED">
+  <title>NOLOGIN: VERIFIED</title>
+  <g shape-rendering="crispEdges">
+    <rect width="89" height="28" fill="#555"/>
+    <rect x="89" width="80" height="28" fill="#4c1"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
+    <text transform="scale(.1)" x="445" y="185" textLength="690" fill="#fff" font-weight="bold">NOLOGIN</text>
+    <text transform="scale(.1)" x="1290" y="185" textLength="600" fill="#fff" font-weight="bold">VERIFIED</text>
+  </g>
+</svg>

@@ -44,8 +44,16 @@ workers/cron/             # Health checks, badge detection, data export
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
+- **Badge styles**: 5 badge variants defined in `src/lib/badge.ts` (`BADGE_STYLES` + `ORIGINAL_BADGE`):
+  - `flat` (default) — `/badges/flat.svg` (102×20, rounded, gradient overlay)
+  - `flat-square` — `/badges/flat-square.svg` (102×20, sharp corners)
+  - `plastic` — `/badges/plastic.svg` (102×18, 3D gradient)
+  - `for-the-badge` — `/badges/for-the-badge.svg` (169×28, large bold uppercase)
+  - `original` — `/badge.svg` (160×28, white bg, legacy)
+  - All shields.io-style badges use left gray `#555` ("nologin") + right green `#4c1` ("verified") segments
+  - `/badge.svg` is kept for backward compatibility; new embeds default to `flat`
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
-- **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
+- **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle. Embed tab includes a 4-grid style selector for shields.io badge variants.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 - **Health check on submit**: Tools are health-checked on submission/resubmission (fire-and-forget). Results stored in `health_checks` table, displayed on admin review page.
 

@@ -4,7 +4,7 @@ import { getBadgeEmbedCode } from '../../lib/badge';
 
 const slug = Astro.url.searchParams.get('slug') || '';
 const siteUrl = Astro.locals.runtime.env.SITE_URL || 'https://nologin.tools';
-const embedCode = getBadgeEmbedCode(slug, siteUrl);
+const embedCode = getBadgeEmbedCode(slug, siteUrl, 'flat');
 ---
 
 <Layout
@@ -84,7 +84,7 @@ const embedCode = getBadgeEmbedCode(slug, siteUrl);
         </div>
         <div class="mb-2">
           <img
-            src="/badge.svg"
+            src="/badges/flat.svg"
             alt="NoLogin Verified"
             class="inline-block"
           />
