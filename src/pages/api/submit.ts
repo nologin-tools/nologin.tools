@@ -77,10 +77,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
   }
 
-  // Rate limiting: max 3 submissions per IP per day
+  // Rate limiting
+  const maxSubmissions = parseInt(locals.runtime.env.RATE_LIMIT_MAX_SUBMISSIONS || '3', 10) || 3;
+  const windowHours = parseInt(locals.runtime.env.RATE_LIMIT_WINDOW_HOURS || '24', 10) || 24;
+
   const clientIp = getClientIp(request);
   const ipHash = await hashIp(clientIp);
-  const oneDayAgo = new Date(Date.now() - 86400000);
+  const windowStart = new Date(Date.now() - windowHours * 3600000);
 
   const recentSubmissions = await db
     .select({ id: tools.id })
@@ -88,13 +91,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
     .where(
       and(
         eq(tools.submitterIpHash, ipHash),
-        sql`${tools.submittedAt} > ${Math.floor(oneDayAgo.getTime() / 1000)}`
+        sql`${tools.submittedAt} > ${Math.floor(windowStart.getTime() / 1000)}`
       )
     );
 
-  if (recentSubmissions.length >= 3) {
+  if (recentSubmissions.length >= maxSubmissions) {
+    const windowLabel = windowHours === 24 ? 'daily' : `${windowHours}-hour`;
     return api.error(
-      'You have reached the daily submission limit (3 per day). Please try again tomorrow.',
+      `You have reached the ${windowLabel} submission limit (${maxSubmissions} per ${windowHours}h). Please try again later.`,
       429
     );
   }

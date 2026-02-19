@@ -90,6 +90,8 @@ pnpm deploy:cron          # Deploy cron worker
 | `GITHUB_TOKEN` | Data export to GitHub | `wrangler secret put` |
 | `ARCHIVE_ORG_ACCESS_KEY` | web.archive.org auth | `wrangler secret put` |
 | `ARCHIVE_ORG_SECRET_KEY` | web.archive.org auth | `wrangler secret put` |
+| `RATE_LIMIT_MAX_SUBMISSIONS` | Max submissions per IP per window (default: 3) | wrangler.jsonc vars |
+| `RATE_LIMIT_WINDOW_HOURS` | Rate limit window in hours (default: 24) | wrangler.jsonc vars |
 
 ## Database Schema
 

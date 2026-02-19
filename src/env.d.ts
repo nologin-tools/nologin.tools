@@ -9,6 +9,8 @@ type Env = {
   GITHUB_TOKEN: string;
   ARCHIVE_ORG_ACCESS_KEY: string;
   ARCHIVE_ORG_SECRET_KEY: string;
+  RATE_LIMIT_MAX_SUBMISSIONS?: string;
+  RATE_LIMIT_WINDOW_HOURS?: string;
 };
 
 type Runtime = import('@astrojs/cloudflare').Runtime<Env>;

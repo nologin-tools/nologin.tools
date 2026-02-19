@@ -18,7 +18,9 @@
 		}
 	],
 	"vars": {
-		"SITE_URL": "https://nologin.tools"
+		"SITE_URL": "https://nologin.tools",
+		"RATE_LIMIT_MAX_SUBMISSIONS": "3",
+		"RATE_LIMIT_WINDOW_HOURS": "24"
 	},
 	"observability": {
 		"enabled": true
