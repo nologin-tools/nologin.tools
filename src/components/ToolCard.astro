@@ -1,5 +1,6 @@
 ---
 import HealthBadge from './HealthBadge.astro';
+import { sortTagsCategoryFirst } from '../lib/tags';
 
 interface Tag {
   tagKey: string;
@@ -20,6 +21,7 @@ interface Props {
 const { slug, name, description, isVerified, isOnline, lastCheckedAt, tags, archiveUrl } =
   Astro.props;
 const isOffline = isOnline === false;
+const sortedTags = sortTagsCategoryFirst(tags);
 ---
 
 <a
@@ -39,9 +41,9 @@ const isOffline = isOnline === false;
   )}
 
   <div class="flex flex-wrap gap-1.5 mb-3">
-    {tags.slice(0, 4).map((tag) => (
-      <span class="chip chip-default text-[11px]">
-        {tag.tagKey}:{tag.tagValue}
+    {sortedTags.slice(0, 4).map((tag) => (
+      <span class:list={['chip text-[11px]', tag.tagKey === 'category' ? 'chip-category' : 'chip-default']}>
+        {tag.tagKey === 'category' ? tag.tagValue : `${tag.tagKey}:${tag.tagValue}`}
       </span>
     ))}
   </div>
