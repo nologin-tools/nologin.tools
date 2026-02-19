@@ -1,9 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TagPicker from '../../components/TagPicker.astro';
 import { getDb } from '../../db';
 import { tools, tags, editSuggestions, healthChecks } from '../../db/schema';
-import { eq, desc } from 'drizzle-orm';
+import { eq, desc, sql, and } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
+import { TAG_DEFINITIONS } from '../../lib/tags';
+import { sortTagsCategoryFirst } from '../../lib/tags';
 
 const secret = Astro.url.searchParams.get('secret');
 const adminSecret = Astro.locals.runtime.env.ADMIN_SECRET;
@@ -14,29 +17,47 @@ if (!adminSecret || secret !== adminSecret) {
 
 const db = getDb(Astro.locals.runtime.env.DB);
 
-// Fetch pending tools
-const pendingTools = await db
-  .select()
+// === Dashboard stats ===
+const [totalCount] = await db.select({ count: sql<number>`count(*)` }).from(tools);
+const [approvedCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'approved'));
+const [pendingCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'pending'));
+const [rejectedCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'rejected'));
+
+// Count offline approved tools (latest health check is offline)
+const offlineTools = await db.all(sql`
+  SELECT COUNT(DISTINCT t.id) as count FROM tools t
+  INNER JOIN health_checks h ON h.tool_id = t.id
+  WHERE t.status = 'approved'
+  AND h.is_online = 0
+  AND h.checked_at = (SELECT MAX(h2.checked_at) FROM health_checks h2 WHERE h2.tool_id = t.id)
+`);
+const offlineCount = (offlineTools[0] as any)?.count || 0;
+
+// Recent submissions (last 10)
+const recentTools = await db
+  .select({ id: tools.id, name: tools.name, slug: tools.slug, status: tools.status, submittedAt: tools.submittedAt })
   .from(tools)
-  .where(eq(tools.status, 'pending'))
-  .orderBy(desc(tools.submittedAt));
+  .orderBy(desc(tools.submittedAt))
+  .limit(10);
 
-// Fetch latest health check for each pending tool
-const healthMap = new Map<number, {
-  isOnline: boolean;
-  httpStatus: number | null;
-  responseTimeMs: number | null;
-  checkedAt: Date;
-}>();
+// === Tools tab: pending tools (initial SSR) ===
+const pendingTools = await db.select().from(tools).where(eq(tools.status, 'pending')).orderBy(desc(tools.submittedAt));
 
+// Fetch tags for pending tools
+const pendingToolTags = new Map<number, { tagKey: string; tagValue: string }[]>();
+for (const tool of pendingTools) {
+  const toolTags = await db
+    .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+    .from(tags)
+    .where(eq(tags.toolId, tool.id));
+  pendingToolTags.set(tool.id, toolTags);
+}
+
+// Fetch latest health for pending tools
+const healthMap = new Map<number, { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }>();
 for (const tool of pendingTools) {
   const [latest] = await db
-    .select({
-      isOnline: healthChecks.isOnline,
-      httpStatus: healthChecks.httpStatus,
-      responseTimeMs: healthChecks.responseTimeMs,
-      checkedAt: healthChecks.checkedAt,
-    })
+    .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
     .from(healthChecks)
     .where(eq(healthChecks.toolId, tool.id))
     .orderBy(desc(healthChecks.checkedAt))
@@ -44,300 +65,1046 @@ for (const tool of pendingTools) {
   if (latest) healthMap.set(tool.id, latest);
 }
 
-// Fetch pending edit suggestions
+// === Edits tab ===
 const pendingEdits = await db
-  .select({
-    id: editSuggestions.id,
-    toolId: editSuggestions.toolId,
-    fieldName: editSuggestions.fieldName,
-    oldValue: editSuggestions.oldValue,
-    newValue: editSuggestions.newValue,
-    reason: editSuggestions.reason,
-    submittedAt: editSuggestions.submittedAt,
-  })
+  .select({ id: editSuggestions.id, toolId: editSuggestions.toolId, fieldName: editSuggestions.fieldName, oldValue: editSuggestions.oldValue, newValue: editSuggestions.newValue, reason: editSuggestions.reason, submittedAt: editSuggestions.submittedAt })
   .from(editSuggestions)
   .where(eq(editSuggestions.status, 'pending'))
   .orderBy(desc(editSuggestions.submittedAt));
 
-// Map tool names for edits
 const editToolIds = [...new Set(pendingEdits.map((e) => e.toolId))];
-const editToolNames = new Map<number, string>();
+const editToolMap = new Map<number, { name: string; slug: string }>();
 for (const id of editToolIds) {
-  const [t] = await db
-    .select({ name: tools.name, slug: tools.slug })
-    .from(tools)
-    .where(eq(tools.id, id))
-    .limit(1);
-  if (t) editToolNames.set(id, t.name);
+  const [t] = await db.select({ name: tools.name, slug: tools.slug }).from(tools).where(eq(tools.id, id)).limit(1);
+  if (t) editToolMap.set(id, t);
 }
+
+// === Health tab ===
+const approvedTools = await db.select().from(tools).where(eq(tools.status, 'approved')).orderBy(desc(tools.submittedAt));
+const healthList: { tool: typeof approvedTools[0]; health: { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date } | null }[] = [];
+for (const tool of approvedTools) {
+  const [latest] = await db
+    .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
+    .from(healthChecks)
+    .where(eq(healthChecks.toolId, tool.id))
+    .orderBy(desc(healthChecks.checkedAt))
+    .limit(1);
+  healthList.push({ tool, health: latest || null });
+}
+// Sort: offline first, then no data, then online
+healthList.sort((a, b) => {
+  const order = (h: typeof a.health) => h === null ? 1 : h.isOnline ? 2 : 0;
+  return order(a.health) - order(b.health);
+});
+
+const healthOnline = healthList.filter(h => h.health?.isOnline === true).length;
+const healthOffline = healthList.filter(h => h.health?.isOnline === false).length;
+const healthNoData = healthList.filter(h => h.health === null).length;
 ---
 
-<Layout title="Admin Review" description="Review pending tool submissions.">
-  <div class="max-w-4xl mx-auto px-6 py-12">
-    <h1 class="text-3xl font-bold tracking-tight mb-8">Admin Review</h1>
+<Layout title="Admin Dashboard" description="Admin dashboard for managing tools.">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <h1 class="text-2xl font-bold tracking-tight mb-6">Admin Dashboard</h1>
 
-    <!-- Pending Tools -->
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">
-        Pending Submissions ({pendingTools.length})
-      </h2>
+    <!-- Toast container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2"></div>
 
-      {pendingTools.length === 0 ? (
-        <p class="text-neutral-500 text-sm">No pending submissions.</p>
-      ) : (
-        <div class="space-y-4">
-          {pendingTools.map((tool) => (
-            <div
-              class="border border-neutral-200 rounded-lg p-5 tool-card"
-              data-tool-id={tool.id}
-            >
-              <div class="flex items-start justify-between mb-3">
-                <div>
-                  <h3 class="font-semibold text-neutral-950">{tool.name}</h3>
-                  <a
-                    href={tool.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-sm text-blue-600 hover:underline"
-                  >
-                    {tool.url}
-                  </a>
-                </div>
-                <span class="text-xs text-neutral-400">
-                  {formatDate(tool.submittedAt)}
-                </span>
-              </div>
+    <!-- Tab navigation -->
+    <div class="flex border-b border-neutral-200 mb-6" role="tablist">
+      <button role="tab" id="tab-dashboard" class="admin-tab admin-tab-active" data-tab="dashboard">
+        Dashboard
+      </button>
+      <button role="tab" id="tab-tools" class="admin-tab admin-tab-inactive" data-tab="tools">
+        Tools
+        {pendingCount.count > 0 && (
+          <span class="ml-1.5 inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-xs font-bold">{pendingCount.count}</span>
+        )}
+      </button>
+      <button role="tab" id="tab-edits" class="admin-tab admin-tab-inactive" data-tab="edits">
+        Edits
+        {pendingEdits.length > 0 && (
+          <span class="ml-1.5 inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-xs font-bold">{pendingEdits.length}</span>
+        )}
+      </button>
+      <button role="tab" id="tab-health" class="admin-tab admin-tab-inactive" data-tab="health">
+        Health
+      </button>
+    </div>
 
-              {tool.description && (
-                <p class="text-sm text-neutral-600 mb-2">{tool.description}</p>
-              )}
-
-              <div class="bg-green-50 border border-green-200 rounded-md p-3 mb-3">
-                <p class="text-xs text-green-800">
-                  <span class="font-medium">Core task:</span> "{tool.coreTask}"
-                </p>
-              </div>
-
-              <div class="text-xs text-neutral-400 mb-3">
-                Slug: <code class="bg-neutral-100 px-1 rounded">{tool.slug}</code>
-                · IP Hash: <code class="bg-neutral-100 px-1 rounded">{tool.submitterIpHash?.slice(0, 8)}...</code>
-                {tool.submitterEmail && (
-                  <Fragment>
-                    · Email: <a href={`mailto:${tool.submitterEmail}`} class="text-blue-600 hover:underline">{tool.submitterEmail}</a>
-                  </Fragment>
-                )}
-              </div>
-
-              {healthMap.has(tool.id) ? (
-                healthMap.get(tool.id)!.isOnline ? (
-                  <div class="bg-green-50 border border-green-200 rounded-md p-2 mb-3 text-xs text-green-800 flex items-center gap-3">
-                    <span class="font-medium">● Online</span>
-                    <span>HTTP {healthMap.get(tool.id)!.httpStatus}</span>
-                    <span>{healthMap.get(tool.id)!.responseTimeMs}ms</span>
-                    <span class="text-green-600">{timeAgo(healthMap.get(tool.id)!.checkedAt)}</span>
-                  </div>
-                ) : (
-                  <div class="bg-red-50 border border-red-200 rounded-md p-2 mb-3 text-xs text-red-800 flex items-center gap-3">
-                    <span class="font-medium">● Offline</span>
-                    {healthMap.get(tool.id)!.httpStatus && (
-                      <span>HTTP {healthMap.get(tool.id)!.httpStatus}</span>
-                    )}
-                    <span class="text-red-600">{timeAgo(healthMap.get(tool.id)!.checkedAt)}</span>
-                  </div>
-                )
-              ) : (
-                <div class="bg-neutral-50 border border-neutral-200 rounded-md p-2 mb-3 text-xs text-neutral-500 flex items-center gap-3">
-                  <span>● No health check data</span>
-                </div>
-              )}
-
-              <div class="flex items-center gap-2">
-                <button
-                  class="btn-primary text-sm approve-btn"
-                  data-tool-id={tool.id}
-                >
-                  Approve
-                </button>
-                <button
-                  class="btn-secondary text-sm reject-toggle-btn"
-                  data-tool-id={tool.id}
-                >
-                  Reject
-                </button>
-              </div>
-
-              <div class="hidden mt-3 reject-form" data-tool-id={tool.id}>
-                <input
-                  type="text"
-                  placeholder="Rejection reason..."
-                  class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm mb-2
-                         focus:outline-none focus:ring-2 focus:ring-red-500"
-                />
-                <button class="btn-danger text-sm reject-btn" data-tool-id={tool.id}>
-                  Confirm Reject
-                </button>
-              </div>
-            </div>
-          ))}
+    <!-- ==================== PANEL: Dashboard ==================== -->
+    <div id="panel-dashboard" class="tab-panel">
+      <!-- Stats grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="border border-neutral-200 rounded-lg p-5">
+          <p class="text-sm text-neutral-500 mb-1">Total Tools</p>
+          <p class="text-3xl font-bold text-neutral-950">{totalCount.count}</p>
         </div>
-      )}
-    </section>
+        <div class="border border-green-200 rounded-lg p-5 bg-green-50">
+          <p class="text-sm text-green-600 mb-1">Approved</p>
+          <p class="text-3xl font-bold text-green-700">{approvedCount.count}</p>
+        </div>
+        <div class="border border-amber-200 rounded-lg p-5 bg-amber-50">
+          <p class="text-sm text-amber-600 mb-1">Pending Review</p>
+          <p class="text-3xl font-bold text-amber-700">{pendingCount.count}</p>
+        </div>
+        <div class="border border-red-200 rounded-lg p-5 bg-red-50">
+          <p class="text-sm text-red-600 mb-1">Offline</p>
+          <p class="text-3xl font-bold text-red-700">{offlineCount}</p>
+        </div>
+      </div>
 
-    <!-- Pending Edits -->
-    <section>
-      <h2 class="text-xl font-semibold mb-4">
-        Pending Edit Suggestions ({pendingEdits.length})
-      </h2>
+      <!-- Recent submissions -->
+      <div>
+        <h2 class="text-lg font-semibold mb-4">Recent Submissions</h2>
+        {recentTools.length === 0 ? (
+          <p class="text-neutral-500 text-sm">No submissions yet.</p>
+        ) : (
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recentTools.map((t) => (
+                <tr>
+                  <td class="font-medium">{t.name}</td>
+                  <td>
+                    <span class:list={['status-badge', `status-${t.status}`]}>{t.status}</span>
+                  </td>
+                  <td class="text-neutral-500">{timeAgo(t.submittedAt)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
+
+    <!-- ==================== PANEL: Tools ==================== -->
+    <div id="panel-tools" class="tab-panel hidden">
+      <!-- Filter bar -->
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <div class="flex gap-1.5">
+          <button class="chip chip-active tool-filter-btn" data-status="all">All</button>
+          <button class="chip chip-default tool-filter-btn" data-status="pending">
+            Pending <span class="ml-0.5 opacity-70">{pendingCount.count}</span>
+          </button>
+          <button class="chip chip-default tool-filter-btn" data-status="approved">
+            Approved <span class="ml-0.5 opacity-70">{approvedCount.count}</span>
+          </button>
+          <button class="chip chip-default tool-filter-btn" data-status="rejected">
+            Rejected <span class="ml-0.5 opacity-70">{rejectedCount.count}</span>
+          </button>
+        </div>
+        <div class="flex-1 min-w-[200px] max-w-sm">
+          <input
+            type="text"
+            id="tool-search"
+            placeholder="Search tools..."
+            class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+        </div>
+      </div>
+
+      <!-- Tool cards container -->
+      <div id="tools-list" class="space-y-4">
+        {pendingTools.length === 0 ? (
+          <p class="text-neutral-500 text-sm" id="tools-empty">No pending tools.</p>
+        ) : (
+          pendingTools.map((tool) => {
+            const toolTags = pendingToolTags.get(tool.id) || [];
+            const health = healthMap.get(tool.id);
+            return (
+              <div class="border border-neutral-200 rounded-lg p-5 tool-card" data-tool-id={tool.id} data-tool-status={tool.status}>
+                <div class="flex items-start justify-between mb-3">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h3 class="font-semibold text-neutral-950 tool-name">{tool.name}</h3>
+                      <span class:list={['status-badge', `status-${tool.status}`]} data-field="status">{tool.status}</span>
+                    </div>
+                    <a href={tool.url} target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline tool-url">{tool.url}</a>
+                  </div>
+                  <span class="text-xs text-neutral-400 shrink-0 ml-3">{formatDate(tool.submittedAt)}</span>
+                </div>
+
+                {tool.description && (
+                  <p class="text-sm text-neutral-600 mb-2 tool-desc">{tool.description}</p>
+                )}
+
+                <div class="bg-green-50 border border-green-200 rounded-md p-3 mb-3">
+                  <p class="text-xs text-green-800">
+                    <span class="font-medium">Core task:</span> "<span class="tool-core-task">{tool.coreTask}</span>"
+                  </p>
+                </div>
+
+                {toolTags.length > 0 && (
+                  <div class="flex flex-wrap gap-1 mb-3 tool-tags-display">
+                    {sortTagsCategoryFirst(toolTags).map((tag) => (
+                      <span class:list={['inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border', tag.tagKey === 'category' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-neutral-50 text-neutral-600 border-neutral-200']}>
+                        {tag.tagKey === 'category' ? tag.tagValue : `${tag.tagKey}:${tag.tagValue}`}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div class="text-xs text-neutral-400 mb-3">
+                  Slug: <code class="bg-neutral-100 px-1 rounded">{tool.slug}</code>
+                  {tool.submitterIpHash && (
+                    <Fragment> · IP: <code class="bg-neutral-100 px-1 rounded">{tool.submitterIpHash.slice(0, 8)}...</code></Fragment>
+                  )}
+                  {tool.submitterEmail && (
+                    <Fragment> · Email: <a href={`mailto:${tool.submitterEmail}`} class="text-blue-600 hover:underline">{tool.submitterEmail}</a></Fragment>
+                  )}
+                </div>
+
+                {/* Health badge */}
+                <div class="health-display mb-3">
+                  {health ? (
+                    health.isOnline ? (
+                      <div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
+                        <span class="font-medium">● Online</span>
+                        <span>HTTP {health.httpStatus}</span>
+                        <span>{health.responseTimeMs}ms</span>
+                        <span class="text-green-600">{timeAgo(health.checkedAt)}</span>
+                      </div>
+                    ) : (
+                      <div class="bg-red-50 border border-red-200 rounded-md p-2 text-xs text-red-800 flex items-center gap-3">
+                        <span class="font-medium">● Offline</span>
+                        {health.httpStatus && <span>HTTP {health.httpStatus}</span>}
+                        <span class="text-red-600">{timeAgo(health.checkedAt)}</span>
+                      </div>
+                    )
+                  ) : (
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-md p-2 text-xs text-neutral-500">
+                      ● No health check data
+                    </div>
+                  )}
+                </div>
+
+                {/* Action buttons */}
+                <div class="flex items-center gap-2 tool-actions">
+                  {tool.status === 'pending' && (
+                    <Fragment>
+                      <button class="btn-primary text-sm approve-btn" data-tool-id={tool.id}>Approve</button>
+                      <button class="btn-secondary text-sm reject-toggle-btn" data-tool-id={tool.id}>Reject</button>
+                    </Fragment>
+                  )}
+                  <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id={tool.id}>Edit</button>
+                  {tool.status === 'approved' && (
+                    <button class="btn-secondary text-sm health-check-btn" data-tool-id={tool.id}>Health Check</button>
+                  )}
+                  <button class="btn-danger text-sm delete-btn" data-tool-id={tool.id}>Delete</button>
+                </div>
+
+                {/* Reject form (hidden) */}
+                <div class="hidden mt-3 reject-form" data-tool-id={tool.id}>
+                  <input type="text" placeholder="Rejection reason..." class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+                  <button class="btn-danger text-sm reject-btn" data-tool-id={tool.id}>Confirm Reject</button>
+                </div>
+
+                {/* Edit form (hidden) */}
+                <div class="hidden mt-3 border-t border-neutral-200 pt-3 edit-form" data-tool-id={tool.id}>
+                  <div class="grid gap-3 mb-3">
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Name</label>
+                      <input type="text" name="name" value={tool.name} class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">URL</label>
+                      <input type="text" name="url" value={tool.url} class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Description</label>
+                      <textarea name="description" rows="2" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500">{tool.description}</textarea>
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Core Task</label>
+                      <input type="text" name="coreTask" value={tool.coreTask} class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Tags</label>
+                      <div class="edit-tag-picker">
+                        <TagPicker selectedTags={toolTags.map(t => ({ key: t.tagKey, value: t.tagValue }))} />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <button class="btn-primary text-sm save-edit-btn" data-tool-id={tool.id}>Save Changes</button>
+                    <button class="btn-secondary text-sm cancel-edit-btn" data-tool-id={tool.id}>Cancel</button>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      <!-- Pagination -->
+      <div id="tools-pagination" class="flex items-center justify-between mt-6 hidden">
+        <button id="prev-page-btn" class="btn-secondary text-sm" disabled>Previous</button>
+        <span id="page-info" class="text-sm text-neutral-500"></span>
+        <button id="next-page-btn" class="btn-secondary text-sm" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- ==================== PANEL: Edits ==================== -->
+    <div id="panel-edits" class="tab-panel hidden">
+      <h2 class="text-lg font-semibold mb-4">Pending Edit Suggestions ({pendingEdits.length})</h2>
 
       {pendingEdits.length === 0 ? (
         <p class="text-neutral-500 text-sm">No pending edit suggestions.</p>
       ) : (
         <div class="space-y-4">
-          {pendingEdits.map((edit) => (
-            <div
-              class="border border-neutral-200 rounded-lg p-5 edit-card"
-              data-edit-id={edit.id}
-            >
-              <div class="flex items-start justify-between mb-3">
-                <div>
-                  <h3 class="font-semibold text-neutral-950">
-                    {editToolNames.get(edit.toolId) || `Tool #${edit.toolId}`}
-                  </h3>
-                  <span class="text-sm text-neutral-500">
-                    Field: <code class="bg-neutral-100 px-1 rounded">{edit.fieldName}</code>
-                  </span>
+          {pendingEdits.map((edit) => {
+            const toolInfo = editToolMap.get(edit.toolId);
+            return (
+              <div class="border border-neutral-200 rounded-lg p-5 edit-card" data-edit-id={edit.id}>
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="font-semibold text-neutral-950">
+                      {toolInfo?.name || `Tool #${edit.toolId}`}
+                    </h3>
+                    <div class="flex items-center gap-2 text-sm">
+                      <span class="text-neutral-500">
+                        Field: <code class="bg-neutral-100 px-1 rounded">{edit.fieldName}</code>
+                      </span>
+                      {toolInfo && (
+                        <a href={`/tool/${toolInfo.slug}`} target="_blank" class="text-blue-600 hover:underline text-xs">View tool</a>
+                      )}
+                    </div>
+                  </div>
+                  <span class="text-xs text-neutral-400">{formatDate(edit.submittedAt)}</span>
                 </div>
-                <span class="text-xs text-neutral-400">
-                  {formatDate(edit.submittedAt)}
-                </span>
-              </div>
 
-              <div class="grid grid-cols-2 gap-4 mb-3 text-sm">
-                <div>
-                  <span class="text-neutral-400 text-xs">Current value:</span>
-                  <p class="text-neutral-600">{edit.oldValue || '(empty)'}</p>
+                <div class="grid grid-cols-2 gap-4 mb-3 text-sm">
+                  <div>
+                    <span class="text-neutral-400 text-xs">Current value:</span>
+                    <p class="text-neutral-600 mt-0.5">{edit.oldValue || '(empty)'}</p>
+                  </div>
+                  <div>
+                    <span class="text-neutral-400 text-xs">Suggested value:</span>
+                    <p class="text-neutral-950 font-medium mt-0.5">{edit.newValue}</p>
+                  </div>
                 </div>
-                <div>
-                  <span class="text-neutral-400 text-xs">Suggested value:</span>
-                  <p class="text-neutral-950 font-medium">{edit.newValue}</p>
+
+                {edit.reason && (
+                  <p class="text-xs text-neutral-500 mb-3">Reason: {edit.reason}</p>
+                )}
+
+                <div class="flex items-center gap-2">
+                  <button class="btn-primary text-sm approve-edit-btn" data-edit-id={edit.id}>Approve & Apply</button>
+                  <button class="btn-secondary text-sm reject-edit-btn" data-edit-id={edit.id}>Reject</button>
                 </div>
               </div>
-
-              {edit.reason && (
-                <p class="text-xs text-neutral-500 mb-3">
-                  Reason: {edit.reason}
-                </p>
-              )}
-
-              <div class="flex items-center gap-2">
-                <button
-                  class="btn-primary text-sm approve-edit-btn"
-                  data-edit-id={edit.id}
-                >
-                  Approve & Apply
-                </button>
-                <button
-                  class="btn-secondary text-sm reject-edit-btn"
-                  data-edit-id={edit.id}
-                >
-                  Reject
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
-    </section>
+    </div>
+
+    <!-- ==================== PANEL: Health ==================== -->
+    <div id="panel-health" class="tab-panel hidden">
+      <!-- Health stats -->
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="border border-green-200 rounded-lg p-4 bg-green-50">
+          <p class="text-sm text-green-600 mb-1">Online</p>
+          <p class="text-2xl font-bold text-green-700">{healthOnline}</p>
+        </div>
+        <div class="border border-red-200 rounded-lg p-4 bg-red-50">
+          <p class="text-sm text-red-600 mb-1">Offline</p>
+          <p class="text-2xl font-bold text-red-700">{healthOffline}</p>
+        </div>
+        <div class="border border-neutral-200 rounded-lg p-4">
+          <p class="text-sm text-neutral-500 mb-1">No Data</p>
+          <p class="text-2xl font-bold text-neutral-700">{healthNoData}</p>
+        </div>
+      </div>
+
+      <!-- Health table -->
+      {healthList.length === 0 ? (
+        <p class="text-neutral-500 text-sm">No approved tools yet.</p>
+      ) : (
+        <div class="overflow-x-auto">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Status</th>
+                <th>HTTP</th>
+                <th>Response</th>
+                <th>Last Check</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {healthList.map((item) => (
+                <tr class="health-row" data-tool-id={item.tool.id}>
+                  <td>
+                    <a href={`/tool/${item.tool.slug}`} target="_blank" class="font-medium text-blue-600 hover:underline">{item.tool.name}</a>
+                  </td>
+                  <td>
+                    <span class="health-status">
+                      {item.health === null ? (
+                        <span class="text-neutral-400">—</span>
+                      ) : item.health.isOnline ? (
+                        <span class="text-green-600 font-medium">● Online</span>
+                      ) : (
+                        <span class="text-red-600 font-medium">● Offline</span>
+                      )}
+                    </span>
+                  </td>
+                  <td class="health-http text-neutral-500">
+                    {item.health?.httpStatus ?? '—'}
+                  </td>
+                  <td class="health-time text-neutral-500">
+                    {item.health?.responseTimeMs != null ? `${item.health.responseTimeMs}ms` : '—'}
+                  </td>
+                  <td class="health-checked text-neutral-500 text-xs">
+                    {item.health ? timeAgo(item.health.checkedAt) : '—'}
+                  </td>
+                  <td>
+                    <button class="text-sm text-blue-600 hover:underline run-health-btn" data-tool-id={item.tool.id}>
+                      Run Check
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+
+    <!-- Hidden TagPicker template for JS cloning -->
+    <template id="tag-picker-template">
+      <TagPicker />
+    </template>
+
+    <!-- TAG_DEFINITIONS data for JS -->
+    <script id="tag-defs-data" type="application/json" set:html={JSON.stringify(TAG_DEFINITIONS)} />
   </div>
 
   <script>
     const secret = new URLSearchParams(window.location.search).get('secret');
+    const tabNames = ['dashboard', 'tools', 'edits', 'health'] as const;
+    type TabName = typeof tabNames[number];
 
-    // Tool approval
-    document.querySelectorAll('.approve-btn').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const toolId = (btn as HTMLElement).dataset.toolId;
-        const res = await fetch('/api/review', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ toolId: Number(toolId), action: 'approve', secret }),
-        });
-        if ((await res.json()).ok) {
-          const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
-          card?.remove();
+    // ===== Toast =====
+    function showToast(message: string, type: 'success' | 'error' = 'success') {
+      const container = document.getElementById('toast-container')!;
+      const toast = document.createElement('div');
+      toast.className = `px-4 py-2.5 rounded-lg shadow-lg text-sm font-medium text-white transition-all ${
+        type === 'success' ? 'bg-green-600' : 'bg-red-600'
+      }`;
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // ===== API helper =====
+    async function adminFetch(endpoint: string, data: Record<string, any>) {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret, ...data }),
+      });
+      return res.json();
+    }
+
+    // ===== Tab switching =====
+    function activateTab(name: TabName) {
+      tabNames.forEach((t) => {
+        const btn = document.getElementById(`tab-${t}`)!;
+        const panel = document.getElementById(`panel-${t}`)!;
+        if (t === name) {
+          btn.classList.remove('admin-tab-inactive');
+          btn.classList.add('admin-tab-active');
+          panel.classList.remove('hidden');
+        } else {
+          btn.classList.remove('admin-tab-active');
+          btn.classList.add('admin-tab-inactive');
+          panel.classList.add('hidden');
         }
+      });
+    }
+
+    // Init from hash
+    const initHash = window.location.hash.slice(1) as TabName;
+    if (tabNames.includes(initHash)) {
+      activateTab(initHash);
+    }
+
+    tabNames.forEach((name) => {
+      document.getElementById(`tab-${name}`)!.addEventListener('click', () => {
+        activateTab(name);
+        history.replaceState(null, '', name === 'dashboard' ? window.location.pathname + window.location.search : `#${name}`);
       });
     });
 
-    // Toggle reject form
-    document.querySelectorAll('.reject-toggle-btn').forEach((btn) => {
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.slice(1) as TabName;
+      activateTab(tabNames.includes(hash) ? hash : 'dashboard');
+    });
+
+    // ===== Tools tab: filtering & dynamic loading =====
+    let currentStatus = 'all';
+    let currentSearch = '';
+    let currentPage = 1;
+    let isSSRData = true; // Track if showing initial SSR data
+
+    const toolsList = document.getElementById('tools-list')!;
+    const pagination = document.getElementById('tools-pagination')!;
+    const prevBtn = document.getElementById('prev-page-btn') as HTMLButtonElement;
+    const nextBtn = document.getElementById('next-page-btn') as HTMLButtonElement;
+    const pageInfo = document.getElementById('page-info')!;
+
+    // Filter buttons
+    document.querySelectorAll('.tool-filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const toolId = (btn as HTMLElement).dataset.toolId;
-        const form = document.querySelector(`.reject-form[data-tool-id="${toolId}"]`);
-        form?.classList.toggle('hidden');
-      });
-    });
+        const status = (btn as HTMLElement).dataset.status!;
+        currentStatus = status;
+        currentPage = 1;
+        isSSRData = false;
 
-    // Tool rejection
-    document.querySelectorAll('.reject-btn').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const toolId = (btn as HTMLElement).dataset.toolId;
-        const form = document.querySelector(`.reject-form[data-tool-id="${toolId}"]`);
-        const reason = (form?.querySelector('input') as HTMLInputElement)?.value || '';
-        const res = await fetch('/api/review', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            toolId: Number(toolId),
-            action: 'reject',
-            reason,
-            secret,
-          }),
+        // Update chip styles
+        document.querySelectorAll('.tool-filter-btn').forEach((b) => {
+          b.classList.remove('chip-active');
+          b.classList.add('chip-default');
         });
-        if ((await res.json()).ok) {
-          const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
-          card?.remove();
-        }
+        btn.classList.remove('chip-default');
+        btn.classList.add('chip-active');
+
+        loadTools();
       });
     });
 
-    // Edit approval
+    // Search with debounce
+    let searchTimeout: ReturnType<typeof setTimeout>;
+    document.getElementById('tool-search')!.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        currentSearch = (e.target as HTMLInputElement).value;
+        currentPage = 1;
+        isSSRData = false;
+        loadTools();
+      }, 300);
+    });
+
+    // Pagination
+    prevBtn.addEventListener('click', () => { currentPage--; loadTools(); });
+    nextBtn.addEventListener('click', () => { currentPage++; loadTools(); });
+
+    async function loadTools() {
+      toolsList.innerHTML = '<p class="text-neutral-500 text-sm">Loading...</p>';
+      const result = await adminFetch('/api/admin/tools', {
+        status: currentStatus,
+        search: currentSearch,
+        page: currentPage,
+      });
+
+      if (!result.ok) {
+        toolsList.innerHTML = `<p class="text-red-500 text-sm">Error: ${result.error}</p>`;
+        return;
+      }
+
+      const { tools: toolsData, total, page, totalPages } = result.data;
+
+      if (toolsData.length === 0) {
+        toolsList.innerHTML = '<p class="text-neutral-500 text-sm">No tools found.</p>';
+        pagination.classList.add('hidden');
+        return;
+      }
+
+      toolsList.innerHTML = toolsData.map((tool: any) => renderToolCard(tool)).join('');
+      bindToolActions();
+
+      // Pagination
+      if (totalPages > 1) {
+        pagination.classList.remove('hidden');
+        prevBtn.disabled = page <= 1;
+        nextBtn.disabled = page >= totalPages;
+        pageInfo.textContent = `Page ${page} of ${totalPages} (${total} tools)`;
+      } else {
+        pagination.classList.add('hidden');
+      }
+    }
+
+    function renderToolCard(tool: any): string {
+      const tagsHtml = (tool.tags || [])
+        .sort((a: any, b: any) => a.tagKey === 'category' ? -1 : b.tagKey === 'category' ? 1 : 0)
+        .map((t: any) => {
+          const isCategory = t.tagKey === 'category';
+          const cls = isCategory
+            ? 'bg-blue-50 text-blue-700 border-blue-200'
+            : 'bg-neutral-50 text-neutral-600 border-neutral-200';
+          const label = isCategory ? t.tagValue : `${t.tagKey}:${t.tagValue}`;
+          return `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${cls}">${escapeHtml(label)}</span>`;
+        })
+        .join('');
+
+      const healthHtml = tool.latestHealth
+        ? tool.latestHealth.isOnline
+          ? `<div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
+               <span class="font-medium">● Online</span>
+               <span>HTTP ${tool.latestHealth.httpStatus}</span>
+               <span>${tool.latestHealth.responseTimeMs}ms</span>
+             </div>`
+          : `<div class="bg-red-50 border border-red-200 rounded-md p-2 text-xs text-red-800 flex items-center gap-3">
+               <span class="font-medium">● Offline</span>
+               ${tool.latestHealth.httpStatus ? `<span>HTTP ${tool.latestHealth.httpStatus}</span>` : ''}
+             </div>`
+        : `<div class="bg-neutral-50 border border-neutral-200 rounded-md p-2 text-xs text-neutral-500">● No health check data</div>`;
+
+      const actionsHtml = `
+        ${tool.status === 'pending' ? `
+          <button class="btn-primary text-sm approve-btn" data-tool-id="${tool.id}">Approve</button>
+          <button class="btn-secondary text-sm reject-toggle-btn" data-tool-id="${tool.id}">Reject</button>
+        ` : ''}
+        <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${tool.id}">Edit</button>
+        ${tool.status === 'approved' ? `<button class="btn-secondary text-sm health-check-btn" data-tool-id="${tool.id}">Health Check</button>` : ''}
+        <button class="btn-danger text-sm delete-btn" data-tool-id="${tool.id}">Delete</button>
+      `;
+
+      const submittedDate = new Date(tool.submittedAt);
+      const dateStr = submittedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+      const tagsDataAttr = escapeHtml(JSON.stringify(tool.tags || []));
+
+      return `
+        <div class="border border-neutral-200 rounded-lg p-5 tool-card" data-tool-id="${tool.id}" data-tool-status="${tool.status}" data-tool-tags='${tagsDataAttr}'>
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-semibold text-neutral-950 tool-name">${escapeHtml(tool.name)}</h3>
+                <span class="status-badge status-${tool.status}" data-field="status">${tool.status}</span>
+              </div>
+              <a href="${escapeHtml(tool.url)}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline tool-url">${escapeHtml(tool.url)}</a>
+            </div>
+            <span class="text-xs text-neutral-400 shrink-0 ml-3">${dateStr}</span>
+          </div>
+          ${tool.description ? `<p class="text-sm text-neutral-600 mb-2 tool-desc">${escapeHtml(tool.description)}</p>` : ''}
+          <div class="bg-green-50 border border-green-200 rounded-md p-3 mb-3">
+            <p class="text-xs text-green-800"><span class="font-medium">Core task:</span> "<span class="tool-core-task">${escapeHtml(tool.coreTask)}</span>"</p>
+          </div>
+          ${tagsHtml ? `<div class="flex flex-wrap gap-1 mb-3 tool-tags-display">${tagsHtml}</div>` : ''}
+          <div class="text-xs text-neutral-400 mb-3">
+            Slug: <code class="bg-neutral-100 px-1 rounded">${escapeHtml(tool.slug)}</code>
+            ${tool.submitterIpHash ? ` · IP: <code class="bg-neutral-100 px-1 rounded">${escapeHtml(tool.submitterIpHash.slice(0, 8))}...</code>` : ''}
+            ${tool.submitterEmail ? ` · Email: <a href="mailto:${escapeHtml(tool.submitterEmail)}" class="text-blue-600 hover:underline">${escapeHtml(tool.submitterEmail)}</a>` : ''}
+          </div>
+          <div class="health-display mb-3">${healthHtml}</div>
+          <div class="flex items-center gap-2 tool-actions">${actionsHtml}</div>
+          <div class="hidden mt-3 reject-form" data-tool-id="${tool.id}">
+            <input type="text" placeholder="Rejection reason..." class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+            <button class="btn-danger text-sm reject-btn" data-tool-id="${tool.id}">Confirm Reject</button>
+          </div>
+          <div class="hidden mt-3 border-t border-neutral-200 pt-3 edit-form" data-tool-id="${tool.id}">
+            <div class="grid gap-3 mb-3">
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Name</label>
+                <input type="text" name="name" value="${escapeHtml(tool.name)}" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">URL</label>
+                <input type="text" name="url" value="${escapeHtml(tool.url)}" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Description</label>
+                <textarea name="description" rows="2" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500">${escapeHtml(tool.description || '')}</textarea>
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Core Task</label>
+                <input type="text" name="coreTask" value="${escapeHtml(tool.coreTask)}" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Tags</label>
+                <div class="edit-tag-picker"></div>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn-primary text-sm save-edit-btn" data-tool-id="${tool.id}">Save Changes</button>
+              <button class="btn-secondary text-sm cancel-edit-btn" data-tool-id="${tool.id}">Cancel</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function escapeHtml(str: string): string {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ===== Bind tool card actions =====
+    function bindToolActions() {
+      // Approve
+      document.querySelectorAll('.approve-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Approving...';
+
+          const result = await adminFetch('/api/review', { toolId, action: 'approve' });
+          if (result.ok) {
+            showToast('Tool approved!');
+            const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`)!;
+            const badge = card.querySelector('[data-field="status"]');
+            if (badge) {
+              badge.className = 'status-badge status-approved';
+              badge.textContent = 'approved';
+            }
+            card.setAttribute('data-tool-status', 'approved');
+            // Update action buttons
+            const actions = card.querySelector('.tool-actions')!;
+            actions.innerHTML = `
+              <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${toolId}">Edit</button>
+              <button class="btn-secondary text-sm health-check-btn" data-tool-id="${toolId}">Health Check</button>
+              <button class="btn-danger text-sm delete-btn" data-tool-id="${toolId}">Delete</button>
+            `;
+            // Hide reject form if visible
+            const rejectForm = card.querySelector('.reject-form');
+            rejectForm?.classList.add('hidden');
+            bindToolActions();
+          } else {
+            showToast(result.error || 'Failed to approve.', 'error');
+            b.disabled = false;
+            b.textContent = 'Approve';
+          }
+        });
+      });
+
+      // Reject toggle
+      document.querySelectorAll('.reject-toggle-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const toolId = (btn as HTMLElement).dataset.toolId;
+          const form = document.querySelector(`.reject-form[data-tool-id="${toolId}"]`);
+          form?.classList.toggle('hidden');
+        });
+      });
+
+      // Reject confirm
+      document.querySelectorAll('.reject-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const form = document.querySelector(`.reject-form[data-tool-id="${toolId}"]`)!;
+          const reason = (form.querySelector('input') as HTMLInputElement)?.value || '';
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Rejecting...';
+
+          const result = await adminFetch('/api/review', { toolId, action: 'reject', reason });
+          if (result.ok) {
+            showToast('Tool rejected.');
+            const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`)!;
+            const badge = card.querySelector('[data-field="status"]');
+            if (badge) {
+              badge.className = 'status-badge status-rejected';
+              badge.textContent = 'rejected';
+            }
+            card.setAttribute('data-tool-status', 'rejected');
+            form.classList.add('hidden');
+            const actions = card.querySelector('.tool-actions')!;
+            actions.innerHTML = `
+              <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${toolId}">Edit</button>
+              <button class="btn-danger text-sm delete-btn" data-tool-id="${toolId}">Delete</button>
+            `;
+            bindToolActions();
+          } else {
+            showToast(result.error || 'Failed to reject.', 'error');
+            b.disabled = false;
+            b.textContent = 'Confirm Reject';
+          }
+        });
+      });
+
+      // Edit toggle
+      document.querySelectorAll('.edit-toggle-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const toolId = (btn as HTMLElement).dataset.toolId;
+          const form = document.querySelector(`.edit-form[data-tool-id="${toolId}"]`) as HTMLElement;
+          if (!form) return;
+          form.classList.toggle('hidden');
+
+          // If form just opened and has empty tag picker from dynamic rendering, populate it
+          if (!form.classList.contains('hidden')) {
+            const pickerContainer = form.querySelector('.edit-tag-picker') as HTMLElement;
+            if (pickerContainer && !pickerContainer.querySelector('.tag-picker-container')) {
+              const card = form.closest('.tool-card') as HTMLElement;
+              let existingTags: { tagKey: string; tagValue: string }[] = [];
+              try {
+                const tagsAttr = card.dataset.toolTags;
+                if (tagsAttr) existingTags = JSON.parse(tagsAttr);
+              } catch {}
+              pickerContainer.innerHTML = buildTagPickerHtml(existingTags);
+              initTagPicker(pickerContainer);
+            }
+          }
+        });
+      });
+
+      // Cancel edit
+      document.querySelectorAll('.cancel-edit-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const toolId = (btn as HTMLElement).dataset.toolId;
+          document.querySelector(`.edit-form[data-tool-id="${toolId}"]`)?.classList.add('hidden');
+        });
+      });
+
+      // Save edit
+      document.querySelectorAll('.save-edit-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const form = document.querySelector(`.edit-form[data-tool-id="${toolId}"]`) as HTMLElement;
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Saving...';
+
+          const name = (form.querySelector('input[name="name"]') as HTMLInputElement).value;
+          const url = (form.querySelector('input[name="url"]') as HTMLInputElement).value;
+          const description = (form.querySelector('textarea[name="description"]') as HTMLTextAreaElement).value;
+          const coreTask = (form.querySelector('input[name="coreTask"]') as HTMLInputElement).value;
+
+          // Collect tags from tag picker
+          const tagInputs = form.querySelectorAll('.tag-picker-container input[type="checkbox"]:checked');
+          const tagsList: { key: string; value: string }[] = [];
+          tagInputs.forEach((input) => {
+            const label = input.closest('label') as HTMLElement;
+            const key = label?.dataset.tagGroup;
+            const value = (input as HTMLInputElement).value;
+            if (key && value) tagsList.push({ key, value });
+          });
+
+          const result = await adminFetch('/api/admin/tool-update', {
+            toolId, name, url, description, coreTask, tags: tagsList,
+          });
+
+          if (result.ok) {
+            showToast('Tool updated!');
+            form.classList.add('hidden');
+            // Update card display
+            const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`) as HTMLElement;
+            const nameEl = card.querySelector('.tool-name');
+            if (nameEl) nameEl.textContent = name;
+            const urlEl = card.querySelector('.tool-url') as HTMLAnchorElement;
+            if (urlEl) { urlEl.textContent = url; urlEl.href = url; }
+            const descEl = card.querySelector('.tool-desc');
+            if (descEl) descEl.textContent = description;
+            const ctEl = card.querySelector('.tool-core-task');
+            if (ctEl) ctEl.textContent = coreTask;
+            // Update tags display
+            const tagsDisplay = card.querySelector('.tool-tags-display');
+            if (tagsDisplay) {
+              tagsDisplay.innerHTML = tagsList
+                .sort((a, b) => a.key === 'category' ? -1 : b.key === 'category' ? 1 : 0)
+                .map((t) => {
+                  const isCat = t.key === 'category';
+                  const cls = isCat ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-neutral-50 text-neutral-600 border-neutral-200';
+                  return `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${cls}">${escapeHtml(isCat ? t.value : `${t.key}:${t.value}`)}</span>`;
+                })
+                .join('');
+            }
+            card.dataset.toolTags = JSON.stringify(tagsList.map(t => ({ tagKey: t.key, tagValue: t.value })));
+          } else {
+            showToast(result.error || 'Failed to update.', 'error');
+          }
+          b.disabled = false;
+          b.textContent = 'Save Changes';
+        });
+      });
+
+      // Delete
+      document.querySelectorAll('.delete-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          if (!confirm('Are you sure you want to delete this tool? This cannot be undone.')) return;
+
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Deleting...';
+
+          const result = await adminFetch('/api/admin/tool-delete', { toolId });
+          if (result.ok) {
+            showToast('Tool deleted.');
+            document.querySelector(`.tool-card[data-tool-id="${toolId}"]`)?.remove();
+          } else {
+            showToast(result.error || 'Failed to delete.', 'error');
+            b.disabled = false;
+            b.textContent = 'Delete';
+          }
+        });
+      });
+
+      // Health check (tools tab)
+      document.querySelectorAll('.health-check-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Checking...';
+
+          const result = await adminFetch('/api/admin/health-check', { toolId });
+          if (result.ok) {
+            const d = result.data;
+            showToast(`Health check: ${d.isOnline ? 'Online' : 'Offline'}`);
+            const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
+            const healthDisplay = card?.querySelector('.health-display');
+            if (healthDisplay) {
+              healthDisplay.innerHTML = d.isOnline
+                ? `<div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
+                     <span class="font-medium">● Online</span>
+                     <span>HTTP ${d.httpStatus}</span>
+                     <span>${d.responseTimeMs}ms</span>
+                     <span class="text-green-600">just now</span>
+                   </div>`
+                : `<div class="bg-red-50 border border-red-200 rounded-md p-2 text-xs text-red-800 flex items-center gap-3">
+                     <span class="font-medium">● Offline</span>
+                     ${d.httpStatus ? `<span>HTTP ${d.httpStatus}</span>` : ''}
+                     <span class="text-red-600">just now</span>
+                   </div>`;
+            }
+          } else {
+            showToast(result.error || 'Health check failed.', 'error');
+          }
+          b.disabled = false;
+          b.textContent = 'Health Check';
+        });
+      });
+    }
+
+    // Bind SSR-rendered tool cards
+    bindToolActions();
+
+    // ===== Tag picker builder (for dynamic cards) =====
+    const TAG_DEFINITIONS: { key: string; label: string; values: string[]; multiSelect: boolean }[] =
+      JSON.parse(document.getElementById('tag-defs-data')!.textContent!);
+
+    function buildTagPickerHtml(existingTags: { tagKey: string; tagValue: string }[]): string {
+      return `<div class="tag-picker-container space-y-4">${TAG_DEFINITIONS.map((def) => {
+        const selected = existingTags.filter(t => t.tagKey === def.key).map(t => t.tagValue);
+        return `<fieldset>
+          <legend class="text-sm font-medium text-neutral-700 mb-2">${escapeHtml(def.label)}</legend>
+          <div class="flex flex-wrap gap-2">
+            ${def.values.map((val) => {
+              const isSelected = selected.includes(val);
+              return `<label class="chip chip-toggle cursor-pointer select-none ${isSelected ? 'chip-active' : 'chip-default'}" data-tag-group="${def.key}" data-multi-select="${def.multiSelect}">
+                <input type="checkbox" name="tag_${def.key}[]" value="${escapeHtml(val)}" ${isSelected ? 'checked' : ''} class="sr-only peer" />
+                <svg class="chip-check-icon w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>${escapeHtml(val)}</span>
+              </label>`;
+            }).join('')}
+          </div>
+        </fieldset>`;
+      }).join('')}</div>`;
+    }
+
+    function initTagPicker(container: HTMLElement) {
+      container.querySelectorAll('.chip-toggle input[type="checkbox"]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const checkbox = input as HTMLInputElement;
+          const label = checkbox.closest('label') as HTMLElement;
+          if (!label) return;
+          const isMultiSelect = label.dataset.multiSelect === 'true';
+          const group = label.dataset.tagGroup;
+          const picker = label.closest('.tag-picker-container');
+          if (!picker || !group) return;
+
+          if (!isMultiSelect && checkbox.checked) {
+            picker.querySelectorAll(`label[data-tag-group="${group}"] input[type="checkbox"]`).forEach((other) => {
+              if (other !== checkbox) {
+                (other as HTMLInputElement).checked = false;
+                other.closest('label')?.classList.remove('chip-active');
+                other.closest('label')?.classList.add('chip-default');
+              }
+            });
+          }
+
+          if (checkbox.checked) {
+            label.classList.remove('chip-default');
+            label.classList.add('chip-active');
+          } else {
+            label.classList.remove('chip-active');
+            label.classList.add('chip-default');
+          }
+        });
+      });
+    }
+
+    // ===== Edit suggestions =====
     document.querySelectorAll('.approve-edit-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const editId = (btn as HTMLElement).dataset.editId;
-        const res = await fetch('/api/review', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            editId: Number(editId),
-            action: 'approve_edit',
-            secret,
-          }),
-        });
-        if ((await res.json()).ok) {
-          const card = document.querySelector(`.edit-card[data-edit-id="${editId}"]`);
-          card?.remove();
+        const editId = Number((btn as HTMLElement).dataset.editId);
+        const b = btn as HTMLButtonElement;
+        b.disabled = true;
+        b.textContent = 'Applying...';
+
+        const result = await adminFetch('/api/review', { editId, action: 'approve_edit' });
+        if (result.ok) {
+          showToast('Edit approved and applied!');
+          document.querySelector(`.edit-card[data-edit-id="${editId}"]`)?.remove();
+        } else {
+          showToast(result.error || 'Failed to approve.', 'error');
+          b.disabled = false;
+          b.textContent = 'Approve & Apply';
         }
       });
     });
 
-    // Edit rejection
     document.querySelectorAll('.reject-edit-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const editId = (btn as HTMLElement).dataset.editId;
-        const res = await fetch('/api/review', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            editId: Number(editId),
-            action: 'reject_edit',
-            secret,
-          }),
-        });
-        if ((await res.json()).ok) {
-          const card = document.querySelector(`.edit-card[data-edit-id="${editId}"]`);
-          card?.remove();
+        const editId = Number((btn as HTMLElement).dataset.editId);
+        const b = btn as HTMLButtonElement;
+        b.disabled = true;
+        b.textContent = 'Rejecting...';
+
+        const result = await adminFetch('/api/review', { editId, action: 'reject_edit' });
+        if (result.ok) {
+          showToast('Edit rejected.');
+          document.querySelector(`.edit-card[data-edit-id="${editId}"]`)?.remove();
+        } else {
+          showToast(result.error || 'Failed to reject.', 'error');
+          b.disabled = false;
+          b.textContent = 'Reject';
         }
+      });
+    });
+
+    // ===== Health tab: run check =====
+    document.querySelectorAll('.run-health-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const toolId = Number((btn as HTMLElement).dataset.toolId);
+        const b = btn as HTMLButtonElement;
+        b.disabled = true;
+        b.textContent = 'Checking...';
+
+        const result = await adminFetch('/api/admin/health-check', { toolId });
+        if (result.ok) {
+          const d = result.data;
+          showToast(`Health: ${d.isOnline ? 'Online' : 'Offline'}`);
+          const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`);
+          if (row) {
+            const statusEl = row.querySelector('.health-status')!;
+            statusEl.innerHTML = d.isOnline
+              ? '<span class="text-green-600 font-medium">● Online</span>'
+              : '<span class="text-red-600 font-medium">● Offline</span>';
+            row.querySelector('.health-http')!.textContent = d.httpStatus ?? '—';
+            row.querySelector('.health-time')!.textContent = d.responseTimeMs != null ? `${d.responseTimeMs}ms` : '—';
+            row.querySelector('.health-checked')!.textContent = 'just now';
+          }
+        } else {
+          showToast(result.error || 'Health check failed.', 'error');
+        }
+        b.disabled = false;
+        b.textContent = 'Run Check';
       });
     });
   </script>
