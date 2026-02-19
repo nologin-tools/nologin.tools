@@ -225,10 +225,38 @@ function buildUrl(params: Record<string, string>) {
       </form>
     </div>
 
+    <!-- Category Filter -->
+    {(() => {
+      const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+      if (!categoryDef) return null;
+      return (
+        <div class="mb-4 overflow-x-auto">
+          <div class="flex flex-wrap gap-2">
+            {categoryDef.values.map((val) => {
+              const isActive = activeFilters.some(
+                (f) => f.key === 'category' && f.value === val
+              );
+              const toggleUrl = isActive
+                ? buildUrl({ category: '', page: '' })
+                : buildUrl({ category: val, page: '' });
+              return (
+                <a
+                  href={toggleUrl}
+                  class:list={['chip', isActive ? 'chip-active' : 'chip-category']}
+                >
+                  {val}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      );
+    })()}
+
     <!-- Tag Filters -->
     <div class="mb-6 overflow-x-auto">
       <div class="flex flex-wrap gap-2">
-        {TAG_DEFINITIONS.map((def) =>
+        {TAG_DEFINITIONS.filter((def) => def.key !== 'category').map((def) =>
           def.values.map((val) => {
             const isActive = activeFilters.some(
               (f) => f.key === def.key && f.value === val
