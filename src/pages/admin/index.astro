@@ -121,6 +121,11 @@ for (const id of editToolIds) {
               <div class="text-xs text-neutral-400 mb-3">
                 Slug: <code class="bg-neutral-100 px-1 rounded">{tool.slug}</code>
                 · IP Hash: <code class="bg-neutral-100 px-1 rounded">{tool.submitterIpHash?.slice(0, 8)}...</code>
+                {tool.submitterEmail && (
+                  <Fragment>
+                    · Email: <a href={`mailto:${tool.submitterEmail}`} class="text-blue-600 hover:underline">{tool.submitterEmail}</a>
+                  </Fragment>
+                )}
               </div>
 
               {healthMap.has(tool.id) ? (

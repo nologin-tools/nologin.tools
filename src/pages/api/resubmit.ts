@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Invalid JSON body.', 400);
   }
 
-  const { toolId, name, url, description, pledge, coreTask, tags: submittedTags } = body;
+  const { toolId, name, url, description, pledge, coreTask, submitterEmail, tags: submittedTags } = body;
 
   // Validate toolId
   if (!toolId || typeof toolId !== 'number') {
@@ -66,6 +66,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   if (!coreTask || typeof coreTask !== 'string' || coreTask.length > 200) {
     errors.coreTask = 'Core task description is required (max 200 characters).';
+  }
+
+  if (submitterEmail != null && submitterEmail !== '') {
+    if (typeof submitterEmail !== 'string' || submitterEmail.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(submitterEmail)) {
+      errors.submitterEmail = 'Please enter a valid email address.';
+    }
   }
 
   if (Object.keys(errors).length > 0) {
@@ -117,6 +123,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       status: 'pending',
       rejectionReason: null,
       submittedAt: now,
+      submitterEmail: submitterEmail ? submitterEmail.trim() : null,
     })
     .where(eq(tools.id, toolId));
 

@@ -17,6 +17,7 @@ export const tools = sqliteTable('tools', {
   approvedAt: integer('approved_at', { mode: 'timestamp' }),
   rejectionReason: text('rejection_reason'),
   submitterIpHash: text('submitter_ip_hash'),
+  submitterEmail: text('submitter_email'),
   archiveUrl: text('archive_url'),
 });
 

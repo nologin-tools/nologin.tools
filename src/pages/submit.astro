@@ -124,6 +124,32 @@ import TagPicker from '../components/TagPicker.astro';
         <TagPicker />
       </section>
 
+      <!-- Contact Email -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-semibold text-neutral-950">
+          Contact Information
+        </h2>
+
+        <div>
+          <label for="submitterEmail" class="block text-sm font-medium text-neutral-700 mb-1">
+            Email <span class="text-neutral-400 font-normal">(optional)</span>
+          </label>
+          <input
+            type="email"
+            id="submitterEmail"
+            name="submitterEmail"
+            maxlength="254"
+            placeholder="you@example.com"
+            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
+                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <p class="text-xs text-neutral-400 mt-1">
+            Only visible to reviewers. We may use it to contact you about your submission.
+          </p>
+          <p class="text-xs text-red-500 mt-1 hidden" data-error="submitterEmail"></p>
+        </div>
+      </section>
+
       <!-- Error message -->
       <div
         id="form-error"
@@ -166,6 +192,7 @@ import TagPicker from '../components/TagPicker.astro';
         description: formData.get('description'),
         pledge: formData.get('pledge') === 'on',
         coreTask: formData.get('coreTask'),
+        submitterEmail: formData.get('submitterEmail') || '',
         tags: [] as { key: string; value: string }[],
       };
 
@@ -204,6 +231,10 @@ import TagPicker from '../components/TagPicker.astro';
       }
       if (!data.coreTask) {
         showError('coreTask', 'Please describe what users can do without login.');
+        hasError = true;
+      }
+      if (data.submitterEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.submitterEmail as string)) {
+        showError('submitterEmail', 'Please enter a valid email address.');
         hasError = true;
       }
       if (hasError) return;

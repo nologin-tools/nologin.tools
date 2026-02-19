@@ -75,6 +75,8 @@ pnpm deploy:cron          # Deploy cron worker
 
 5 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode).
 
+- `tools.submitter_email`: Optional contact email from the submitter. Only displayed on the admin review page (not public). Validated as a proper email format (max 254 chars) when provided.
+
 ## Recommendation Score
 
 ```

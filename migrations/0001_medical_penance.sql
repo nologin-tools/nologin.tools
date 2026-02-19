@@ -1,0 +1,1 @@
+ALTER TABLE `tools` ADD `submitter_email` text;

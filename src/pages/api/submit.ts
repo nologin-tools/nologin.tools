@@ -18,7 +18,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Invalid JSON body.', 400);
   }
 
-  const { name, url, description, pledge, coreTask, tags: submittedTags } = body;
+  const { name, url, description, pledge, coreTask, submitterEmail, tags: submittedTags } = body;
 
   // Validation
   const errors: Record<string, string> = {};
@@ -47,6 +47,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   if (!coreTask || typeof coreTask !== 'string' || coreTask.length > 200) {
     errors.coreTask = 'Core task description is required (max 200 characters).';
+  }
+
+  if (submitterEmail != null && submitterEmail !== '') {
+    if (typeof submitterEmail !== 'string' || submitterEmail.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(submitterEmail)) {
+      errors.submitterEmail = 'Please enter a valid email address.';
+    }
   }
 
   if (Object.keys(errors).length > 0) {
@@ -120,6 +126,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       status: 'pending',
       submittedAt: now,
       submitterIpHash: ipHash,
+      submitterEmail: submitterEmail ? submitterEmail.trim() : null,
     })
     .returning({ id: tools.id, slug: tools.slug });
 
