@@ -3,6 +3,7 @@ import { getDb } from '../../../db';
 import { tools, tags, healthChecks } from '../../../db/schema';
 import { eq, desc } from 'drizzle-orm';
 import { api } from '../../../lib/api';
+import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../../lib/health';
 
 export const GET: APIRoute = async ({ params, locals }) => {
   const db = getDb(locals.runtime.env.DB);
@@ -23,7 +24,7 @@ export const GET: APIRoute = async ({ params, locals }) => {
     .from(tags)
     .where(eq(tags.toolId, tool.id));
 
-  const [latestHealth] = await db
+  const recentChecks = await db
     .select({
       isOnline: healthChecks.isOnline,
       checkedAt: healthChecks.checkedAt,
@@ -33,11 +34,16 @@ export const GET: APIRoute = async ({ params, locals }) => {
     .from(healthChecks)
     .where(eq(healthChecks.toolId, tool.id))
     .orderBy(desc(healthChecks.checkedAt))
-    .limit(1);
+    .limit(HEALTH_TOLERANCE);
+
+  const latestHealth = recentChecks[0] || null;
+  const effectiveStatus = resolveEffectiveStatus(recentChecks);
 
   return api.success({
     ...tool,
     tags: toolTags,
-    latestHealth: latestHealth || null,
+    latestHealth: latestHealth
+      ? { ...latestHealth, isOnline: effectiveStatus ?? latestHealth.isOnline }
+      : null,
   });
 };

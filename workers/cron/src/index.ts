@@ -88,12 +88,14 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
           try {
             response = await fetch(tool.url, {
               method: 'HEAD',
+              headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },
               signal: controller.signal,
               redirect: 'follow',
             });
           } catch {
             response = await fetch(tool.url, {
               method: 'GET',
+              headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },
               signal: controller.signal,
               redirect: 'follow',
             });
@@ -130,14 +132,21 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
           'INSERT INTO health_checks (tool_id, checked_at, is_online, http_status, response_time_ms) VALUES (?, ?, ?, ?, ?)'
         ).bind(r.toolId, now, r.isOnline ? 1 : 0, r.httpStatus, r.responseTimeMs).run();
 
-        // Archive offline tools that don't have an archive URL
+        // Archive offline tools only after 3 consecutive failures
         if (
           !r.isOnline &&
           !r.archiveUrl &&
           env.ARCHIVE_ORG_ACCESS_KEY &&
           env.ARCHIVE_ORG_SECRET_KEY
         ) {
-          ctx.waitUntil(archiveUrl(r.url, r.toolId, env));
+          const recentChecks = await env.DB.prepare(
+            'SELECT is_online FROM health_checks WHERE tool_id = ? ORDER BY checked_at DESC LIMIT 3'
+          ).bind(r.toolId).all<{ is_online: number }>();
+          const rows = recentChecks.results || [];
+          const allOffline = rows.length >= 3 && rows.every((row) => row.is_online === 0);
+          if (allOffline) {
+            ctx.waitUntil(archiveUrl(r.url, r.toolId, env));
+          }
         }
       }
     }

@@ -7,6 +7,7 @@ import { tools, tags, healthChecks } from '../../db/schema';
 import { eq, desc, sql } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { sortTagsCategoryFirst, TAG_DEFINITIONS } from '../../lib/tags';
+import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../lib/health';
 
 const { slug } = Astro.params;
 const db = getDb(Astro.locals.runtime.env.DB);
@@ -28,13 +29,14 @@ const toolTags = await db
   .from(tags)
   .where(eq(tags.toolId, tool.id));
 
-// Fetch latest health check
-const [latestHealth] = await db
+// Fetch recent health checks for tolerance
+const recentChecks = await db
   .select()
   .from(healthChecks)
   .where(eq(healthChecks.toolId, tool.id))
   .orderBy(desc(healthChecks.checkedAt))
-  .limit(1);
+  .limit(HEALTH_TOLERANCE);
+const latestHealth = recentChecks[0] ?? null;
 
 // Fetch health history (last 14 days)
 const fourteenDaysAgo = new Date(Date.now() - 14 * 86400000);
@@ -73,7 +75,7 @@ for (let i = 13; i >= 0; i--) {
 const isVerified = tool.status === 'approved';
 const isPending = tool.status === 'pending';
 const isRejected = tool.status === 'rejected';
-const isOnline = latestHealth?.isOnline ?? null;
+const isOnline = resolveEffectiveStatus(recentChecks);
 const isOffline = isOnline === false;
 
 const jsonLd = {

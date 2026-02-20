@@ -4,6 +4,19 @@ export interface HealthCheckResult {
   responseTimeMs: number | null;
 }
 
+const HEALTH_CHECK_HEADERS = {
+  'User-Agent': 'NoLoginTools-HealthChecker/1.0',
+};
+
+export const HEALTH_TOLERANCE = 3;
+
+export function resolveEffectiveStatus(
+  checks: { isOnline: boolean }[]
+): boolean | null {
+  if (checks.length === 0) return null;
+  return checks.some((c) => c.isOnline);
+}
+
 function isSelfReference(url: string, siteUrl: string): boolean {
   try {
     return new URL(url).hostname === new URL(siteUrl).hostname;
@@ -29,12 +42,14 @@ export async function checkHealth(url: string, siteUrl?: string): Promise<Health
     try {
       response = await fetch(url, {
         method: 'HEAD',
+        headers: HEALTH_CHECK_HEADERS,
         signal: controller.signal,
         redirect: 'follow',
       });
     } catch {
       response = await fetch(url, {
         method: 'GET',
+        headers: HEALTH_CHECK_HEADERS,
         signal: controller.signal,
         redirect: 'follow',
       });

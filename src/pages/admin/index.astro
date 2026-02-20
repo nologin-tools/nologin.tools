@@ -7,6 +7,7 @@ import { eq, desc, sql, and } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
 import { sortTagsCategoryFirst } from '../../lib/tags';
+import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../lib/health';
 
 const secret = Astro.url.searchParams.get('secret');
 const adminSecret = Astro.locals.runtime.env.ADMIN_SECRET;
@@ -23,13 +24,14 @@ const [approvedCount] = await db.select({ count: sql<number>`count(*)` }).from(t
 const [pendingCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'pending'));
 const [rejectedCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'rejected'));
 
-// Count offline approved tools (latest health check is offline)
+// Count offline approved tools (3 consecutive failures = offline)
 const offlineTools = await db.all(sql`
-  SELECT COUNT(DISTINCT t.id) as count FROM tools t
-  INNER JOIN health_checks h ON h.tool_id = t.id
+  SELECT COUNT(*) as count FROM tools t
   WHERE t.status = 'approved'
-  AND h.is_online = 0
-  AND h.checked_at = (SELECT MAX(h2.checked_at) FROM health_checks h2 WHERE h2.tool_id = t.id)
+  AND (SELECT COUNT(*) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub WHERE sub.is_online = 0) >= ${HEALTH_TOLERANCE}
+  AND (SELECT COUNT(*) FROM health_checks WHERE tool_id = t.id) >= ${HEALTH_TOLERANCE}
 `);
 const offlineCount = (offlineTools[0] as any)?.count || 0;
 
@@ -53,16 +55,22 @@ for (const tool of pendingTools) {
   pendingToolTags.set(tool.id, toolTags);
 }
 
-// Fetch latest health for pending tools
+// Fetch latest health for pending tools (with tolerance)
 const healthMap = new Map<number, { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }>();
 for (const tool of pendingTools) {
-  const [latest] = await db
+  const recentChecks = await db
     .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
     .from(healthChecks)
     .where(eq(healthChecks.toolId, tool.id))
     .orderBy(desc(healthChecks.checkedAt))
-    .limit(1);
-  if (latest) healthMap.set(tool.id, latest);
+    .limit(HEALTH_TOLERANCE);
+  if (recentChecks.length > 0) {
+    const effectiveStatus = resolveEffectiveStatus(recentChecks);
+    healthMap.set(tool.id, {
+      ...recentChecks[0],
+      isOnline: effectiveStatus ?? recentChecks[0].isOnline,
+    });
+  }
 }
 
 // === Edits tab ===
@@ -83,13 +91,24 @@ for (const id of editToolIds) {
 const approvedTools = await db.select().from(tools).where(eq(tools.status, 'approved')).orderBy(desc(tools.submittedAt));
 const healthList: { tool: typeof approvedTools[0]; health: { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date } | null }[] = [];
 for (const tool of approvedTools) {
-  const [latest] = await db
+  const recentChecks = await db
     .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
     .from(healthChecks)
     .where(eq(healthChecks.toolId, tool.id))
     .orderBy(desc(healthChecks.checkedAt))
-    .limit(1);
-  healthList.push({ tool, health: latest || null });
+    .limit(HEALTH_TOLERANCE);
+  if (recentChecks.length > 0) {
+    const effectiveStatus = resolveEffectiveStatus(recentChecks);
+    healthList.push({
+      tool,
+      health: {
+        ...recentChecks[0],
+        isOnline: effectiveStatus ?? recentChecks[0].isOnline,
+      },
+    });
+  } else {
+    healthList.push({ tool, health: null });
+  }
 }
 // Sort: offline first, then no data, then online
 healthList.sort((a, b) => {
