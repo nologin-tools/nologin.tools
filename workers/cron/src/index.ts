@@ -93,6 +93,11 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
               redirect: 'follow',
             });
           } catch {
+            // HEAD threw a network error — fall through to GET
+          }
+
+          // Retry with GET if HEAD failed or returned non-ok
+          if (!response! || !response.ok) {
             response = await fetch(tool.url, {
               method: 'GET',
               headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },

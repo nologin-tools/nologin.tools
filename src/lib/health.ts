@@ -47,6 +47,12 @@ export async function checkHealth(url: string, siteUrl?: string): Promise<Health
         redirect: 'follow',
       });
     } catch {
+      // HEAD threw a network error — fall through to GET
+    }
+
+    // Retry with GET if HEAD failed (network error) or returned non-ok
+    // (some sites like WolframAlpha return 404 for HEAD but 200 for GET)
+    if (!response! || !response.ok) {
       response = await fetch(url, {
         method: 'GET',
         headers: HEALTH_CHECK_HEADERS,
