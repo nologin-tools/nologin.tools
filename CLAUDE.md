@@ -18,7 +18,7 @@ src/
 ├── db/schema.ts          # Drizzle tables: tools, tags, health_checks, badge_displays, edit_suggestions, data_exports
 ├── db/index.ts           # getDb(d1) helper
 ├── lib/                  # Utilities: api, archive, badge, health, tags, utils
-├── layouts/Layout.astro  # Base layout with SEO meta
+├── layouts/Layout.astro  # Base layout with SEO meta; `bare` prop hides Header/Footer
 ├── components/           # Header, Footer, ToolCard, HealthBadge, TagPicker
 ├── pages/
 │   ├── index.astro       # Homepage: search, filter, sort, tool grid
@@ -58,8 +58,8 @@ workers/cron/             # Health checks, badge detection, data export
   - All SVG badges have `<title>Verified by nologin.tools</title>` and `aria-label="Verified by nologin.tools"` for hover tooltip and accessibility
   - Embed code `<img>` tags include `title="Verified by nologin.tools"` for native browser hover tooltip
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
-- **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
-  - **Verification tab** uses a certificate-style layout: small `flat.svg` brand link at top → 72×72 shield SVG hero (green checkmark for approved, amber clock for pending) → `<dl>`-based Certificate Details card with colored border (green/amber) → 2×2 Trust Signals grid (Manually Reviewed, No Login Required, Continuously Monitored, Web Archived) → action buttons → attribution line → similar tools
+- **Badge page tabs**: `/badge/[slug]` uses `bare` layout (no Header/Footer) for a standalone certificate feel. Two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
+  - **Verification tab** uses a certificate-style layout: small `flat.svg` brand link at top → 72×72 shield SVG hero (green checkmark for approved, amber clock for pending) + "by nologin.tools" attribution → `<dl>`-based Certificate Details card with colored border (green/amber) → 2×2 Trust Signals grid (Manually Reviewed, No Login Required, Continuously Monitored, Web Archived) → action buttons → attribution line
   - **Embed Code tab** includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 - **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export`):

@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import HealthBadge from '../../components/HealthBadge.astro';
 import { getDb } from '../../db';
 import { tools, tags, healthChecks, badgeDisplays } from '../../db/schema';
-import { eq, desc, and, ne, inArray } from 'drizzle-orm';
+import { eq, desc } from 'drizzle-orm';
 import { formatDate } from '../../lib/utils';
 import { getBadgeEmbedCode, BADGE_STYLES, BADGE_GROUPS, ORIGINAL_BADGE } from '../../lib/badge';
 import { sortTagsCategoryFirst } from '../../lib/tags';
@@ -39,27 +39,6 @@ const [latestHealth] = await db
   .orderBy(desc(healthChecks.checkedAt))
   .limit(1);
 
-// Fetch similar tools (same tags, limit 3) — only for approved tools
-const tagKeys = toolTags.map((t) => t.tagKey);
-let similarTools: { slug: string; name: string; description: string | null }[] = [];
-if (!isPending && tagKeys.length > 0) {
-  similarTools = await db
-    .selectDistinct({
-      slug: tools.slug,
-      name: tools.name,
-      description: tools.description,
-    })
-    .from(tools)
-    .innerJoin(tags, eq(tags.toolId, tools.id))
-    .where(
-      and(
-        eq(tools.status, 'approved'),
-        ne(tools.id, tool.id),
-        inArray(tags.tagKey, tagKeys)
-      )
-    )
-    .limit(3);
-}
 
 const embedCode = getBadgeEmbedCode(slug!, siteUrl, 'flat');
 const allEmbedCodes = Object.fromEntries(
@@ -68,6 +47,7 @@ const allEmbedCodes = Object.fromEntries(
 ---
 
 <Layout
+  bare
   title={`${tool.name} — ${isPending ? 'Pending Verification' : 'NoLogin Verified'}`}
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
 >
@@ -113,6 +93,7 @@ const allEmbedCodes = Object.fromEntries(
       <h1 class:list={['text-2xl font-bold', isPending ? 'text-amber-600' : 'text-green-600']}>
         {isPending ? 'Verification Pending' : 'NoLogin Verified'}
       </h1>
+      <p class="text-sm text-neutral-400 mt-1">by <a href="/" class="hover:underline">nologin.tools</a></p>
     </div>
 
     <!-- Certificate Details Card -->
@@ -273,32 +254,6 @@ const allEmbedCodes = Object.fromEntries(
         <a href="/badge" class="text-blue-600 hover:underline">Learn more</a>.
       </p>
     </section>
-
-    <!-- Similar tools -->
-    {similarTools.length > 0 && (
-      <section>
-        <h2 class="text-xs font-medium uppercase tracking-wide text-neutral-500 mb-3">
-          Similar Tools
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {similarTools.map((st) => (
-            <a
-              href={`/tool/${st.slug}`}
-              class="border border-neutral-200 rounded-lg p-4 hover:shadow-md transition-all"
-            >
-              <h3 class="font-semibold text-neutral-950 text-sm mb-1">
-                {st.name}
-              </h3>
-              {st.description && (
-                <p class="text-xs text-neutral-500 line-clamp-2">
-                  {st.description}
-                </p>
-              )}
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
 
     </div> <!-- end panel-verification -->
 

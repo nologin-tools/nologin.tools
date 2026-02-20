@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   ogType?: 'website' | 'article';
   ogImage?: string;
+  bare?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description = 'Discover tools that respect your privacy — no login required.',
   ogType = 'website',
   ogImage = '/favicon.svg',
+  bare = false,
 } = Astro.props;
 
 const fullTitle =
@@ -43,10 +45,10 @@ const siteUrl = Astro.site?.href || 'https://nologin.tools';
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <Header />
+    {!bare && <Header />}
     <main>
       <slot />
     </main>
-    <Footer />
+    {!bare && <Footer />}
   </body>
 </html>
