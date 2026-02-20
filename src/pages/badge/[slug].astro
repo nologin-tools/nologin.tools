@@ -72,18 +72,11 @@ const allEmbedCodes = Object.fromEntries(
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
 >
   <div class="max-w-3xl mx-auto px-6 py-16">
-    <!-- Badge header -->
-    <div class="text-center mb-10">
-      <div class="mb-4">
-        <img
-          src="/badge.svg"
-          alt="NoLogin Verified"
-          class="inline-block w-40"
-        />
-      </div>
-      <h1 class:list={['text-2xl font-bold mb-2', isPending ? 'text-amber-600' : 'text-green-600']}>
-        {isPending ? 'This tool is pending verification' : 'This tool is NoLogin Verified'}
-      </h1>
+    <!-- Badge brand link -->
+    <div class="mb-6">
+      <a href="/badge" class="inline-block">
+        <img src="/badges/flat.svg" alt="NoLogin Verified" title="Verified by nologin.tools" class="inline-block" />
+      </a>
     </div>
 
     <!-- Tab navigation -->
@@ -103,49 +96,89 @@ const allEmbedCodes = Object.fromEntries(
     <!-- Panel: Verification (default visible) -->
     <div id="panel-verification" role="tabpanel" aria-labelledby="tab-verification">
 
-    <!-- Tool info card -->
-    <div class="border border-neutral-200 rounded-lg p-6 mb-8">
-      <div class="flex items-start justify-between mb-4">
-        <div>
-          <h2 class="text-xl font-bold text-neutral-950">{tool.name}</h2>
-          <a
-            href={tool.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-blue-600 hover:underline"
-          >
-            {tool.url}
-          </a>
+    <!-- Certificate Hero -->
+    <div class="text-center mb-10">
+      {isPending ? (
+        <svg class="mx-auto mb-4" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Verification Pending">
+          <path d="M36 4L8 18v18c0 16.6 11.9 32.1 28 36 16.1-3.9 28-19.4 28-36V18L36 4z" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="2.5"/>
+          <circle cx="36" cy="38" r="12" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+          <path d="M36 30v9l6 3" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      ) : (
+        <svg class="mx-auto mb-4" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="NoLogin Verified">
+          <path d="M36 4L8 18v18c0 16.6 11.9 32.1 28 36 16.1-3.9 28-19.4 28-36V18L36 4z" fill="#22c55e" fill-opacity="0.15" stroke="#22c55e" stroke-width="2.5"/>
+          <path d="M24 37l8 8 16-16" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      )}
+      <h1 class:list={['text-2xl font-bold', isPending ? 'text-amber-600' : 'text-green-600']}>
+        {isPending ? 'Verification Pending' : 'NoLogin Verified'}
+      </h1>
+    </div>
+
+    <!-- Certificate Details Card -->
+    <div class:list={[
+      'border rounded-lg p-6 mb-8',
+      isPending ? 'border-amber-200 bg-amber-50/30' : 'border-green-200 bg-green-50/30',
+    ]}>
+      <h2 class="text-xs font-medium uppercase tracking-wide text-neutral-500 mb-4">Certificate Details</h2>
+      <dl class="space-y-3 text-sm">
+        <div class="flex gap-2">
+          <dt class="font-medium text-neutral-500 w-32 shrink-0">Tool</dt>
+          <dd class="text-neutral-950 font-semibold">{tool.name}</dd>
         </div>
-        {!isPending && (
-          <HealthBadge
-            isOnline={latestHealth?.isOnline ?? null}
-            lastCheckedAt={latestHealth?.checkedAt ?? null}
-          />
+        <div class="flex gap-2">
+          <dt class="font-medium text-neutral-500 w-32 shrink-0">URL</dt>
+          <dd>
+            <a href={tool.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline break-all">{tool.url}</a>
+          </dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-medium text-neutral-500 w-32 shrink-0">Core Task</dt>
+          <dd class="text-neutral-700">{tool.coreTask}</dd>
+        </div>
+        {tool.description && (
+          <div class="flex gap-2">
+            <dt class="font-medium text-neutral-500 w-32 shrink-0">Description</dt>
+            <dd class="text-neutral-600">{tool.description}</dd>
+          </div>
         )}
-      </div>
-
-      {tool.description && (
-        <p class="text-neutral-600 mb-4">{tool.description}</p>
-      )}
-
-      <div class="bg-green-50 border border-green-200 rounded-md p-3 mb-4">
-        <p class="text-sm text-green-800">
-          <span class="font-medium">Core task (no login required):</span>{' '}
-          "{tool.coreTask}"
-        </p>
-      </div>
-
-      {!isPending && (
-        <div class="flex flex-wrap gap-4 text-sm text-neutral-500">
-          {tool.approvedAt && (
-            <span>Verified since {formatDate(tool.approvedAt)}</span>
-          )}
+        <div class="flex gap-2 items-center">
+          <dt class="font-medium text-neutral-500 w-32 shrink-0">Status</dt>
+          <dd>
+            <span class:list={['status-badge', isPending ? 'status-pending' : 'status-approved']}>
+              {isPending ? 'Pending' : 'Approved'}
+            </span>
+          </dd>
         </div>
-      )}
+        {!isPending && tool.approvedAt && (
+          <div class="flex gap-2">
+            <dt class="font-medium text-neutral-500 w-32 shrink-0">Verified Since</dt>
+            <dd class="text-neutral-700">{formatDate(tool.approvedAt)}</dd>
+          </div>
+        )}
+        {!isPending && (
+          <div class="flex gap-2 items-center">
+            <dt class="font-medium text-neutral-500 w-32 shrink-0">Availability</dt>
+            <dd>
+              <HealthBadge
+                isOnline={latestHealth?.isOnline ?? null}
+                lastCheckedAt={latestHealth?.checkedAt ?? null}
+              />
+            </dd>
+          </div>
+        )}
+        {tool.archiveUrl && (
+          <div class="flex gap-2">
+            <dt class="font-medium text-neutral-500 w-32 shrink-0">Web Archive</dt>
+            <dd>
+              <a href={tool.archiveUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">View Snapshot</a>
+            </dd>
+          </div>
+        )}
+      </dl>
 
       {toolTags.length > 0 && (
-        <div class="flex flex-wrap gap-1.5 mt-4">
+        <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-neutral-200/60">
           {sortTagsCategoryFirst(toolTags).map((tag) => (
             <span class:list={['chip text-[11px]', tag.tagKey === 'category' ? 'chip-category' : 'chip-default']}>
               {tag.tagKey === 'category' ? tag.tagValue : `${tag.tagKey}:${tag.tagValue}`}
@@ -155,8 +188,70 @@ const allEmbedCodes = Object.fromEntries(
       )}
     </div>
 
+    <!-- Trust Signals Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+      <div class="border border-neutral-200 rounded-lg p-5">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 1L3 5v5c0 4.6 3.3 8.9 7 10 3.7-1.1 7-5.4 7-10V5l-7-4z" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M7 10.5l2 2 4-4" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-neutral-950">Manually Reviewed</h3>
+            <p class="text-xs text-neutral-500 mt-0.5">Each tool is individually reviewed by our team to verify it works without login.</p>
+          </div>
+        </div>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-5">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="6" r="3" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+              <path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <line x1="3" y1="3" x2="17" y2="17" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-neutral-950">No Login Required</h3>
+            <p class="text-xs text-neutral-500 mt-0.5">Core functionality is accessible without registration, sign-up, or any account.</p>
+          </div>
+        </div>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-5">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+              <path d="M10 5v5.5l3.5 2" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-neutral-950">Continuously Monitored</h3>
+            <p class="text-xs text-neutral-500 mt-0.5">Automated health checks run regularly to ensure the tool stays online and accessible.</p>
+          </div>
+        </div>
+      </div>
+      <div class="border border-neutral-200 rounded-lg p-5">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+              <path d="M2.5 7.5h15M2.5 12.5h15" stroke="#22c55e" stroke-width="1" stroke-opacity="0.5"/>
+              <ellipse cx="10" cy="10" rx="4" ry="8" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-neutral-950">Web Archived</h3>
+            <p class="text-xs text-neutral-500 mt-0.5">A snapshot is preserved on the Internet Archive for transparency and permanence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Actions -->
-    <div class="flex justify-center gap-3 mb-12">
+    <div class="flex justify-center gap-3 mb-10">
       <a
         href={tool.url}
         target="_blank"
@@ -169,16 +264,12 @@ const allEmbedCodes = Object.fromEntries(
     </div>
 
     <!-- What is NoLogin Verified -->
-    <section class="mb-12">
-      <h2 class="text-lg font-semibold text-neutral-950 mb-3">
-        What is NoLogin Verified?
-      </h2>
-      <p class="text-neutral-600 text-sm leading-relaxed">
-        The NoLogin Verified badge means this tool has been reviewed and
-        confirmed by{' '}
-        <a href="/" class="text-blue-600 hover:underline">nologin.tools</a>{' '}
-        to provide its core functionality without requiring user registration or
-        login. We continuously monitor the availability of verified tools.{' '}
+    <section class="mb-10">
+      <h2 class="text-lg font-semibold text-neutral-950 mb-2">What is NoLogin Verified?</h2>
+      <p class="text-sm text-neutral-500 leading-relaxed">
+        The NoLogin Verified badge means this tool has been reviewed and confirmed by
+        <a href="/" class="text-blue-600 hover:underline">nologin.tools</a>
+        to provide its core functionality without requiring user registration or login.
         <a href="/badge" class="text-blue-600 hover:underline">Learn more</a>.
       </p>
     </section>
@@ -186,7 +277,7 @@ const allEmbedCodes = Object.fromEntries(
     <!-- Similar tools -->
     {similarTools.length > 0 && (
       <section>
-        <h2 class="text-lg font-semibold text-neutral-950 mb-3">
+        <h2 class="text-xs font-medium uppercase tracking-wide text-neutral-500 mb-3">
           Similar Tools
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">

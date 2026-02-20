@@ -58,7 +58,9 @@ workers/cron/             # Health checks, badge detection, data export
   - All SVG badges have `<title>Verified by nologin.tools</title>` and `aria-label="Verified by nologin.tools"` for hover tooltip and accessibility
   - Embed code `<img>` tags include `title="Verified by nologin.tools"` for native browser hover tooltip
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
-- **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle. Embed tab includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
+- **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
+  - **Verification tab** uses a certificate-style layout: small `flat.svg` brand link at top → 72×72 shield SVG hero (green checkmark for approved, amber clock for pending) → `<dl>`-based Certificate Details card with colored border (green/amber) → 2×2 Trust Signals grid (Manually Reviewed, No Login Required, Continuously Monitored, Web Archived) → action buttons → attribution line → similar tools
+  - **Embed Code tab** includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 - **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export`):
   - **Dashboard**: Stats overview (total/approved/pending/offline) + recent submissions table
