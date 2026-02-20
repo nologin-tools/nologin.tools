@@ -1,8 +1,11 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../../db';
-import { tools, tags } from '../../../db/schema';
+import { tools, tags, dataExports } from '../../../db/schema';
 import { eq } from 'drizzle-orm';
 import { api } from '../../../lib/api';
+import { TAG_DEFINITIONS } from '../../../lib/tags';
+
+const CATEGORY_ORDER = TAG_DEFINITIONS.find((d) => d.key === 'category')!.values;
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const env = locals.runtime.env;
@@ -56,14 +59,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
     tagMap.get(tag.toolId)!.push({ key: tag.tagKey, value: tag.tagValue });
   }
 
-  const toolsList = approvedTools.map((t) => ({
-    slug: t.slug,
-    name: t.name,
-    url: t.url,
-    description: t.description,
-    coreTask: t.coreTask,
-    tags: tagMap.get(t.id) || [],
-  }));
+  const toolsList = approvedTools.map((t) => {
+    const toolTags = tagMap.get(t.id) || [];
+    const category = toolTags.find((tag) => tag.key === 'category')?.value || null;
+    return {
+      slug: t.slug,
+      name: t.name,
+      url: t.url,
+      description: t.description,
+      coreTask: t.coreTask,
+      category,
+    };
+  });
 
   // Generate files
   const toolsJson = JSON.stringify(toolsList, null, 2);
@@ -73,26 +80,45 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const repo = 'nologin-tools/awesome-nologin-tools';
   const token = env.GITHUB_TOKEN;
 
-  const files: { path: string; updated: boolean }[] = [];
+  const filesUpdated: string[] = [];
+  let toolCount = toolsList.length;
 
   try {
     const jsonResult = await pushToGithub(token, repo, 'tools.json', toolsJson);
-    files.push({ path: 'tools.json', updated: jsonResult.updated });
-  } catch (err: any) {
-    return api.error(`Failed to push tools.json: ${err.message}`, 500);
-  }
+    if (jsonResult.updated) filesUpdated.push('tools.json');
 
-  try {
     const readmeResult = await pushToGithub(token, repo, 'README.md', readme);
-    files.push({ path: 'README.md', updated: readmeResult.updated });
-  } catch (err: any) {
-    return api.error(`Failed to push README.md: ${err.message}`, 500);
-  }
+    if (readmeResult.updated) filesUpdated.push('README.md');
 
-  return api.success({
-    toolCount: toolsList.length,
-    files,
-  });
+    // Record success
+    await db.insert(dataExports).values({
+      exportedAt: new Date(),
+      toolCount,
+      filesUpdated: JSON.stringify(filesUpdated),
+      triggerSource: 'manual',
+      status: 'success',
+    });
+
+    return api.success({
+      toolCount,
+      files: [
+        { path: 'tools.json', updated: filesUpdated.includes('tools.json') },
+        { path: 'README.md', updated: filesUpdated.includes('README.md') },
+      ],
+    });
+  } catch (err: any) {
+    // Record failure
+    await db.insert(dataExports).values({
+      exportedAt: new Date(),
+      toolCount,
+      filesUpdated: JSON.stringify(filesUpdated),
+      triggerSource: 'manual',
+      status: 'error',
+      errorMessage: err.message?.slice(0, 500),
+    });
+
+    return api.error(`Export failed: ${err.message}`, 500);
+  }
 };
 
 function generateReadme(
@@ -101,21 +127,40 @@ function generateReadme(
     url: string;
     description: string | null;
     coreTask: string;
-    tags: { key: string; value: string }[];
+    category: string | null;
   }[]
 ): string {
   let md = `# Awesome NoLogin Tools\n\n`;
-  md += `> A curated list of tools that work without login. Auto-generated from [nologin.tools](https://nologin.tools).\n\n`;
-  md += `## Tools\n\n`;
+  md += `> A curated list of privacy-friendly tools that work without requiring login or registration.\n`;
+  md += `> Auto-generated from [nologin.tools](https://nologin.tools).\n\n`;
+  md += `## Discover & Submit\n\n`;
+  md += `Browse and search all tools at **[nologin.tools](https://nologin.tools)**.\n\n`;
+  md += `Know a great tool that works without login? **[Submit it here](https://nologin.tools/submit)**!\n\n`;
 
+  // Group by category
+  const groups = new Map<string, typeof tools>();
   for (const tool of tools) {
-    const tagStr = tool.tags.map((t) => `\`${t.key}:${t.value}\``).join(' ');
-    md += `- [${tool.name}](${tool.url}) — ${tool.description || tool.coreTask}`;
-    if (tagStr) md += ` ${tagStr}`;
+    const cat = tool.category || 'Other';
+    if (!groups.has(cat)) groups.set(cat, []);
+    groups.get(cat)!.push(tool);
+  }
+
+  // Output in defined order, then "Other" at the end
+  const orderedCategories = [...CATEGORY_ORDER.filter((c) => groups.has(c))];
+  if (groups.has('Other')) orderedCategories.push('Other');
+
+  for (const cat of orderedCategories) {
+    const catTools = groups.get(cat)!;
+    md += `## ${cat}\n\n`;
+    for (const tool of catTools) {
+      md += `- **[${tool.name}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
+      md += `  - _No-login task: ${tool.coreTask}_\n`;
+    }
     md += `\n`;
   }
 
-  md += `\n---\n\nGenerated by [nologin.tools](https://nologin.tools).\n`;
+  md += `---\n\n`;
+  md += `Generated by [nologin.tools](https://nologin.tools) · [Submit a tool](https://nologin.tools/submit)\n`;
   return md;
 }
 
@@ -158,9 +203,12 @@ async function pushToGithub(
   }
 
   // Create or update file
-  const body: Record<string, string> = {
+  const committer = { name: 'nologin-bot', email: 'bot@nologin.tools' };
+  const body: Record<string, any> = {
     message: `Update ${path}`,
     content: btoa(unescape(encodeURIComponent(content))),
+    committer,
+    author: committer,
   };
   if (sha) body.sha = sha;
 

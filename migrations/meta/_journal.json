@@ -15,6 +15,13 @@
       "when": 1771484921293,
       "tag": "0001_medical_penance",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1771554828636,
+      "tag": "0002_lying_silver_surfer",
+      "breakpoints": true
     }
   ]
 }

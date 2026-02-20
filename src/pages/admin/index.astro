@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import TagPicker from '../../components/TagPicker.astro';
 import { getDb } from '../../db';
-import { tools, tags, editSuggestions, healthChecks } from '../../db/schema';
+import { tools, tags, editSuggestions, healthChecks, dataExports } from '../../db/schema';
 import { eq, desc, sql, and } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
@@ -100,6 +100,9 @@ healthList.sort((a, b) => {
 const healthOnline = healthList.filter(h => h.health?.isOnline === true).length;
 const healthOffline = healthList.filter(h => h.health?.isOnline === false).length;
 const healthNoData = healthList.filter(h => h.health === null).length;
+
+// === Export tab ===
+const recentExports = await db.select().from(dataExports).orderBy(desc(dataExports.exportedAt)).limit(10);
 ---
 
 <Layout title="Admin Dashboard" description="Admin dashboard for managing tools.">
@@ -129,6 +132,9 @@ const healthNoData = healthList.filter(h => h.health === null).length;
       <button role="tab" id="tab-health" class="admin-tab admin-tab-inactive" data-tab="health">
         Health
       </button>
+      <button role="tab" id="tab-export" class="admin-tab admin-tab-inactive" data-tab="export">
+        Export
+      </button>
     </div>
 
     <!-- ==================== PANEL: Dashboard ==================== -->
@@ -151,14 +157,6 @@ const healthNoData = healthList.filter(h => h.health === null).length;
           <p class="text-sm text-red-600 mb-1">Offline</p>
           <p class="text-3xl font-bold text-red-700">{offlineCount}</p>
         </div>
-      </div>
-
-      <!-- Quick actions -->
-      <div class="flex items-center gap-3 mb-8">
-        <button id="export-btn" class="btn-secondary text-sm">
-          Export to GitHub
-        </button>
-        <span id="export-status" class="text-sm text-neutral-500"></span>
       </div>
 
       <!-- Recent submissions -->
@@ -486,6 +484,63 @@ const healthNoData = healthList.filter(h => h.health === null).length;
       )}
     </div>
 
+    <!-- ==================== PANEL: Export ==================== -->
+    <div id="panel-export" class="tab-panel hidden">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-lg font-semibold">Data Export</h2>
+          <p class="text-sm text-neutral-500 mt-1">Export approved tools to the <code class="bg-neutral-100 px-1 rounded">awesome-nologin-tools</code> GitHub repository.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="export-btn" class="btn-primary text-sm">Export Now</button>
+        </div>
+      </div>
+
+      <h3 class="text-sm font-semibold text-neutral-700 mb-3">Export History</h3>
+      <div id="export-history-container">
+        {recentExports.length === 0 ? (
+          <p class="text-neutral-500 text-sm" id="export-empty">No exports yet.</p>
+        ) : (
+          <table class="admin-table" id="export-history-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Source</th>
+                <th>Tools</th>
+                <th>Files Updated</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recentExports.map((exp) => {
+                let files: string[] = [];
+                try { files = JSON.parse(exp.filesUpdated || '[]'); } catch {}
+                return (
+                  <tr>
+                    <td class="text-neutral-500 text-xs">{timeAgo(exp.exportedAt)}</td>
+                    <td>
+                      <span class:list={['inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border', exp.triggerSource === 'cron' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-neutral-50 text-neutral-600 border-neutral-200']}>
+                        {exp.triggerSource}
+                      </span>
+                    </td>
+                    <td class="text-neutral-700">{exp.toolCount}</td>
+                    <td class="text-neutral-500 text-xs">{files.length > 0 ? files.join(', ') : 'No changes'}</td>
+                    <td>
+                      {exp.status === 'success' ? (
+                        <span class="text-green-600 font-medium text-xs">Success</span>
+                      ) : (
+                        <span class="text-red-600 font-medium text-xs" title={exp.errorMessage || ''}>Error</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
+
     <!-- Hidden TagPicker template for JS cloning -->
     <template id="tag-picker-template">
       <TagPicker />
@@ -497,7 +552,7 @@ const healthNoData = healthList.filter(h => h.health === null).length;
 
   <script>
     const secret = new URLSearchParams(window.location.search).get('secret');
-    const tabNames = ['dashboard', 'tools', 'edits', 'health'] as const;
+    const tabNames = ['dashboard', 'tools', 'edits', 'health', 'export'] as const;
     type TabName = typeof tabNames[number];
 
     // ===== Toast =====
@@ -561,12 +616,60 @@ const healthNoData = healthList.filter(h => h.health === null).length;
     });
 
     // ===== Export to GitHub =====
+    function timeAgoJS(date: Date): string {
+      const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+      if (seconds < 60) return 'just now';
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return `${minutes}m ago`;
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return `${hours}h ago`;
+      const days = Math.floor(hours / 24);
+      if (days < 30) return `${days}d ago`;
+      const months = Math.floor(days / 30);
+      return `${months}mo ago`;
+    }
+
+    async function refreshExportHistory() {
+      const result = await adminFetch('/api/admin/export-history', {});
+      if (!result.ok) return;
+
+      const container = document.getElementById('export-history-container')!;
+      const exports = result.data.exports;
+
+      if (exports.length === 0) {
+        container.innerHTML = '<p class="text-neutral-500 text-sm">No exports yet.</p>';
+        return;
+      }
+
+      const rows = exports.map((exp: any) => {
+        let files: string[] = [];
+        try { files = JSON.parse(exp.filesUpdated || '[]'); } catch {}
+        const sourceClass = exp.triggerSource === 'cron'
+          ? 'bg-blue-50 text-blue-700 border-blue-200'
+          : 'bg-neutral-50 text-neutral-600 border-neutral-200';
+        const statusHtml = exp.status === 'success'
+          ? '<span class="text-green-600 font-medium text-xs">Success</span>'
+          : `<span class="text-red-600 font-medium text-xs" title="${escapeHtml(exp.errorMessage || '')}">Error</span>`;
+        const exportDate = new Date(typeof exp.exportedAt === 'number' ? exp.exportedAt * 1000 : exp.exportedAt);
+        return `<tr>
+          <td class="text-neutral-500 text-xs">${timeAgoJS(exportDate)}</td>
+          <td><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${sourceClass}">${exp.triggerSource}</span></td>
+          <td class="text-neutral-700">${exp.toolCount}</td>
+          <td class="text-neutral-500 text-xs">${files.length > 0 ? escapeHtml(files.join(', ')) : 'No changes'}</td>
+          <td>${statusHtml}</td>
+        </tr>`;
+      }).join('');
+
+      container.innerHTML = `<table class="admin-table" id="export-history-table">
+        <thead><tr><th>Time</th><th>Source</th><th>Tools</th><th>Files Updated</th><th>Status</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+    }
+
     document.getElementById('export-btn')!.addEventListener('click', async () => {
       const btn = document.getElementById('export-btn') as HTMLButtonElement;
-      const status = document.getElementById('export-status')!;
       btn.disabled = true;
       btn.textContent = 'Exporting...';
-      status.textContent = '';
 
       const result = await adminFetch('/api/admin/data-export', {});
 
@@ -578,12 +681,14 @@ const healthNoData = healthList.filter(h => h.health === null).length;
         } else {
           showToast(`No changes to export (${toolCount} tools)`);
         }
+        await refreshExportHistory();
       } else {
         showToast(result.error || 'Export failed.', 'error');
+        await refreshExportHistory();
       }
 
       btn.disabled = false;
-      btn.textContent = 'Export to GitHub';
+      btn.textContent = 'Export Now';
     });
 
     // ===== Tools tab: filtering & dynamic loading =====

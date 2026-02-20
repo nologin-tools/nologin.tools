@@ -15,7 +15,7 @@ A curated directory of privacy-friendly tools that work without login.
 
 ```
 src/
-├── db/schema.ts          # Drizzle tables: tools, tags, health_checks, badge_displays, edit_suggestions
+├── db/schema.ts          # Drizzle tables: tools, tags, health_checks, badge_displays, edit_suggestions, data_exports
 ├── db/index.ts           # getDb(d1) helper
 ├── lib/                  # Utilities: api, archive, badge, health, tags, utils
 ├── layouts/Layout.astro  # Base layout with SEO meta
@@ -56,18 +56,20 @@ workers/cron/             # Health checks, badge detection, data export
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Badge page tabs**: `/badge/[slug]` has two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle. Embed tab includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
-- **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health`):
-  - **Dashboard**: Stats overview (total/approved/pending/offline) + "Export to GitHub" quick action + recent submissions table
+- **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export`):
+  - **Dashboard**: Stats overview (total/approved/pending/offline) + recent submissions table
   - **Tools**: Full CRUD — status filter chips, search, pagination via `POST /api/admin/tools`; inline edit/reject forms; approve/reject/edit/delete/health-check actions
   - **Edits**: Pending edit suggestions review (approve & apply / reject)
   - **Health**: Health monitoring table for approved tools with manual "Run Check" button
+  - **Export**: Manual "Export Now" button + export history table (time, source cron/manual, tool count, files updated, status)
   - Toast notifications (success/error, 3s auto-dismiss), loading states on buttons, `confirm()` for destructive actions
 - **Admin API endpoints** (all POST, require `secret`):
   - `POST /api/admin/tools` — list tools with status filter, search, pagination (20/page)
   - `POST /api/admin/tool-update` — edit tool fields and tags
   - `POST /api/admin/tool-delete` — delete tool (cascade cleans associations)
   - `POST /api/admin/health-check` — manually trigger health check for a tool
-  - `POST /api/admin/data-export` — manually trigger data export to GitHub (pushes tools.json + README.md with change detection)
+  - `POST /api/admin/data-export` — manually trigger data export to GitHub (pushes tools.json + README.md with change detection), records to `data_exports` table
+  - `POST /api/admin/export-history` — query recent export history (last 20 entries)
 - **Health check on submit**: Tools are health-checked on submission/resubmission (fire-and-forget). Results stored in `health_checks` table, displayed on admin review page.
 - **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. The cron worker has equivalent inline logic.
 
@@ -97,7 +99,7 @@ pnpm deploy:cron          # Deploy cron worker
 
 ## Database Schema
 
-5 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode).
+6 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode), `data_exports` (export history).
 
 - `tools.submitter_email`: Optional contact email from the submitter. Only displayed on the admin review page (not public). Validated as a proper email format (max 254 chars) when provided.
 

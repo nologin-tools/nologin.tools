@@ -70,3 +70,13 @@ export const editSuggestions = sqliteTable('edit_suggestions', {
   submittedAt: integer('submitted_at', { mode: 'timestamp' }).notNull(),
   submitterIpHash: text('submitter_ip_hash'),
 });
+
+export const dataExports = sqliteTable('data_exports', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  exportedAt: integer('exported_at', { mode: 'timestamp' }).notNull(),
+  toolCount: integer('tool_count').notNull(),
+  filesUpdated: text('files_updated'),
+  triggerSource: text('trigger_source', { enum: ['manual', 'cron'] }).notNull(),
+  status: text('status', { enum: ['success', 'error'] }).notNull(),
+  errorMessage: text('error_message'),
+});
