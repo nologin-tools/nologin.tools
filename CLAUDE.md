@@ -45,12 +45,16 @@ workers/cron/             # Health checks, badge detection, data export
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
 - **Badge styles**: 13 badge variants defined in `src/lib/badge.ts` (`BADGE_STYLES` + `ORIGINAL_BADGE`), organized in `BADGE_GROUPS`:
-  - **Standard** (4): `flat` (default), `flat-square`, `plastic`, `for-the-badge` — left `#555` + right `#4c1`
-  - **Social** (1): `social` — pill shape, light left `#fafafa` + green right, border stroke
-  - **Dark** (4): `flat-dark`, `flat-square-dark`, `plastic-dark`, `for-the-badge-dark` — left `#2d2d2d` + right `#3fb950`
-  - **Color** (3): `flat-blue` (`#07c`), `flat-purple` (`#8957e5`), `flat-orange` (`#fe7d37`) — left `#555` + colored right
+  - **Standard** (4): `flat` (default, 118×20), `flat-square` (118×20), `plastic` (116×18), `for-the-badge` (191×28) — left `#555` + right `#4c1`
+  - **Social** (1): `social` (142×20) — pill shape, light left `#fafafa` + green right, border stroke
+  - **Dark** (4): `flat-dark` (118×20), `flat-square-dark` (118×20), `plastic-dark` (116×18), `for-the-badge-dark` (191×28) — left `#2d2d2d` + right `#3fb950`
+  - **Color** (3): `flat-blue` (118×20, `#07c`), `flat-purple` (118×20, `#8957e5`), `flat-orange` (118×20, `#fe7d37`) — left `#555` + colored right
   - **Original** (1): `/badge.svg` (160×28, white bg, legacy) — not in `BADGE_GROUPS`, shown as secondary option
   - `/badge.svg` is kept for backward compatibility; new embeds default to `flat`
+  - **Shield icon**: All 12 badge variants (not original) include a shield+checkmark icon on the left side before "nologin" text, for brand recognition and verification authority:
+    - 12×12 base size shield path with checkmark stroke, scaled per badge height (0.833× for plastic, 1× for flat/social, 1.333× for for-the-badge)
+    - Dark backgrounds: white shield (`fill="#fff" fill-opacity="0.9"`) + background-colored checkmark stroke
+    - Social (light `#fafafa` bg): green shield (`fill="#22c55e"`) + white checkmark stroke
   - All SVG badges have `<title>Verified by nologin.tools</title>` and `aria-label="Verified by nologin.tools"` for hover tooltip and accessibility
   - Embed code `<img>` tags include `title="Verified by nologin.tools"` for native browser hover tooltip
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`

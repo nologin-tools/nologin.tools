@@ -25,21 +25,21 @@ export const BADGE_GROUPS: { id: BadgeGroup; label: string }[] = [
 
 export const BADGE_STYLES: BadgeStyleInfo[] = [
   // Standard
-  { id: 'flat', label: 'Flat', path: '/badges/flat.svg', width: 102, height: 20, group: 'standard' },
-  { id: 'flat-square', label: 'Flat Square', path: '/badges/flat-square.svg', width: 102, height: 20, group: 'standard' },
-  { id: 'plastic', label: 'Plastic', path: '/badges/plastic.svg', width: 102, height: 18, group: 'standard' },
-  { id: 'for-the-badge', label: 'For The Badge', path: '/badges/for-the-badge.svg', width: 169, height: 28, group: 'standard' },
+  { id: 'flat', label: 'Flat', path: '/badges/flat.svg', width: 118, height: 20, group: 'standard' },
+  { id: 'flat-square', label: 'Flat Square', path: '/badges/flat-square.svg', width: 118, height: 20, group: 'standard' },
+  { id: 'plastic', label: 'Plastic', path: '/badges/plastic.svg', width: 116, height: 18, group: 'standard' },
+  { id: 'for-the-badge', label: 'For The Badge', path: '/badges/for-the-badge.svg', width: 191, height: 28, group: 'standard' },
   // Social
-  { id: 'social', label: 'Social', path: '/badges/social.svg', width: 126, height: 20, group: 'social' },
+  { id: 'social', label: 'Social', path: '/badges/social.svg', width: 142, height: 20, group: 'social' },
   // Dark
-  { id: 'flat-dark', label: 'Flat', path: '/badges/flat-dark.svg', width: 102, height: 20, group: 'dark' },
-  { id: 'flat-square-dark', label: 'Flat Square', path: '/badges/flat-square-dark.svg', width: 102, height: 20, group: 'dark' },
-  { id: 'plastic-dark', label: 'Plastic', path: '/badges/plastic-dark.svg', width: 102, height: 18, group: 'dark' },
-  { id: 'for-the-badge-dark', label: 'For The Badge', path: '/badges/for-the-badge-dark.svg', width: 169, height: 28, group: 'dark' },
+  { id: 'flat-dark', label: 'Flat', path: '/badges/flat-dark.svg', width: 118, height: 20, group: 'dark' },
+  { id: 'flat-square-dark', label: 'Flat Square', path: '/badges/flat-square-dark.svg', width: 118, height: 20, group: 'dark' },
+  { id: 'plastic-dark', label: 'Plastic', path: '/badges/plastic-dark.svg', width: 116, height: 18, group: 'dark' },
+  { id: 'for-the-badge-dark', label: 'For The Badge', path: '/badges/for-the-badge-dark.svg', width: 191, height: 28, group: 'dark' },
   // Color
-  { id: 'flat-blue', label: 'Blue', path: '/badges/flat-blue.svg', width: 102, height: 20, group: 'color' },
-  { id: 'flat-purple', label: 'Purple', path: '/badges/flat-purple.svg', width: 102, height: 20, group: 'color' },
-  { id: 'flat-orange', label: 'Orange', path: '/badges/flat-orange.svg', width: 102, height: 20, group: 'color' },
+  { id: 'flat-blue', label: 'Blue', path: '/badges/flat-blue.svg', width: 118, height: 20, group: 'color' },
+  { id: 'flat-purple', label: 'Purple', path: '/badges/flat-purple.svg', width: 118, height: 20, group: 'color' },
+  { id: 'flat-orange', label: 'Orange', path: '/badges/flat-orange.svg', width: 118, height: 20, group: 'color' },
 ];
 
 export const ORIGINAL_BADGE: Omit<BadgeStyleInfo, 'group'> = {

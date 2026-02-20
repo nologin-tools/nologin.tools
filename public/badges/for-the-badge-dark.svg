@@ -1,11 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="169" height="28" role="img" aria-label="Verified by nologin.tools">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="191" height="28" role="img" aria-label="Verified by nologin.tools">
   <title>Verified by nologin.tools</title>
   <g shape-rendering="crispEdges">
-    <rect width="89" height="28" fill="#2d2d2d"/>
-    <rect x="89" width="80" height="28" fill="#3fb950"/>
+    <rect width="111" height="28" fill="#2d2d2d"/>
+    <rect x="111" width="80" height="28" fill="#3fb950"/>
+  </g>
+  <g transform="translate(5, 6) scale(1.333)">
+    <path d="M6 0.5 L11 2.5 L11 6 C11 9 8.5 11 6 12 C3.5 11 1 9 1 6 L1 2.5 Z" fill="#fff" fill-opacity="0.9"/>
+    <path d="M4 6 L5.5 7.8 L8.5 4" stroke="#2d2d2d" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
-    <text transform="scale(.1)" x="445" y="185" textLength="690" fill="#fff" font-weight="bold">NOLOGIN</text>
-    <text transform="scale(.1)" x="1290" y="185" textLength="600" fill="#fff" font-weight="bold">VERIFIED</text>
+    <text transform="scale(.1)" x="685" y="185" textLength="690" fill="#fff" font-weight="bold">NOLOGIN</text>
+    <text transform="scale(.1)" x="1510" y="185" textLength="600" fill="#fff" font-weight="bold">VERIFIED</text>
   </g>
 </svg>

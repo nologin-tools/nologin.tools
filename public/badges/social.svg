@@ -1,16 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="126" height="20" role="img" aria-label="Verified by nologin.tools">
+<svg xmlns="http://www.w3.org/2000/svg" width="142" height="20" role="img" aria-label="Verified by nologin.tools">
   <title>Verified by nologin.tools</title>
   <clipPath id="r">
-    <rect width="126" height="20" rx="10" fill="#fff"/>
+    <rect width="142" height="20" rx="10" fill="#fff"/>
   </clipPath>
   <g clip-path="url(#r)">
-    <rect width="65" height="20" fill="#fafafa"/>
-    <rect x="65" width="61" height="20" fill="#4c1"/>
+    <rect width="81" height="20" fill="#fafafa"/>
+    <rect x="81" width="61" height="20" fill="#4c1"/>
   </g>
-  <rect x=".5" y=".5" width="125" height="19" rx="9.5" fill="none" stroke="#d5d5d5"/>
+  <rect x=".5" y=".5" width="141" height="19" rx="9.5" fill="none" stroke="#d5d5d5"/>
+  <g transform="translate(5, 4)">
+    <path d="M6 0.5 L11 2.5 L11 6 C11 9 8.5 11 6 12 C3.5 11 1 9 1 6 L1 2.5 Z" fill="#22c55e" fill-opacity="0.9"/>
+    <path d="M4 6 L5.5 7.8 L8.5 4" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
   <g text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
-    <text x="325" y="140" transform="scale(.1)" fill="#333" textLength="430">nologin</text>
-    <text aria-hidden="true" x="955" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="390">verified</text>
-    <text x="955" y="140" transform="scale(.1)" fill="#fff" textLength="390">verified</text>
+    <text x="495" y="140" transform="scale(.1)" fill="#333" textLength="430">nologin</text>
+    <text aria-hidden="true" x="1115" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="390">verified</text>
+    <text x="1115" y="140" transform="scale(.1)" fill="#fff" textLength="390">verified</text>
   </g>
 </svg>
