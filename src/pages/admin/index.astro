@@ -153,6 +153,14 @@ const healthNoData = healthList.filter(h => h.health === null).length;
         </div>
       </div>
 
+      <!-- Quick actions -->
+      <div class="flex items-center gap-3 mb-8">
+        <button id="export-btn" class="btn-secondary text-sm">
+          Export to GitHub
+        </button>
+        <span id="export-status" class="text-sm text-neutral-500"></span>
+      </div>
+
       <!-- Recent submissions -->
       <div>
         <h2 class="text-lg font-semibold mb-4">Recent Submissions</h2>
@@ -550,6 +558,32 @@ const healthNoData = healthList.filter(h => h.health === null).length;
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.slice(1) as TabName;
       activateTab(tabNames.includes(hash) ? hash : 'dashboard');
+    });
+
+    // ===== Export to GitHub =====
+    document.getElementById('export-btn')!.addEventListener('click', async () => {
+      const btn = document.getElementById('export-btn') as HTMLButtonElement;
+      const status = document.getElementById('export-status')!;
+      btn.disabled = true;
+      btn.textContent = 'Exporting...';
+      status.textContent = '';
+
+      const result = await adminFetch('/api/admin/data-export', {});
+
+      if (result.ok) {
+        const { toolCount, files } = result.data;
+        const updated = files.filter((f: any) => f.updated).map((f: any) => f.path);
+        if (updated.length > 0) {
+          showToast(`Exported ${toolCount} tools (${updated.join(', ')} updated)`);
+        } else {
+          showToast(`No changes to export (${toolCount} tools)`);
+        }
+      } else {
+        showToast(result.error || 'Export failed.', 'error');
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Export to GitHub';
     });
 
     // ===== Tools tab: filtering & dynamic loading =====
