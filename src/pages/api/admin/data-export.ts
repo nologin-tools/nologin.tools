@@ -154,7 +154,7 @@ function generateReadme(
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
       md += `- **[${tool.name}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
-      md += `  - _No-login task: ${tool.coreTask}_\n`;
+      md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;
   }
