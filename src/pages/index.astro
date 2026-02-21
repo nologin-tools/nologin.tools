@@ -5,7 +5,7 @@ import { getDb } from '../db';
 import { tools, tags, healthChecks, badgeDisplays } from '../db/schema';
 import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { TAG_DEFINITIONS } from '../lib/tags';
-import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../lib/health';
+import { HEALTH_TOLERANCE, HEALTH_WINDOW_HOURS, resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
 
 const db = getDb(Astro.locals.runtime.env.DB);
 
@@ -54,8 +54,16 @@ if (sort === 'recommended') {
             ELSE 1
           END
         + COALESCE(
-          (SELECT CASE WHEN SUM(sub.is_online) > 0 THEN 3 ELSE 0 END
-           FROM (SELECT is_online FROM health_checks WHERE tool_id = ${tools.id}
+          (SELECT
+            CASE
+              WHEN COUNT(*) = 0 THEN 1
+              WHEN SUM(sub.is_online) = COUNT(*) THEN 3
+              WHEN SUM(sub.is_online) > 0 THEN 1
+              ELSE 0
+            END
+           FROM (SELECT is_online FROM health_checks
+                 WHERE tool_id = ${tools.id}
+                   AND checked_at > unixepoch() - ${HEALTH_WINDOW_HOURS * 3600}
                  ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}) sub), 1
         )
         + CASE WHEN ${tools.isFeatured} = 1 THEN 8 ELSE 0 END
@@ -141,7 +149,7 @@ if (activeFilters.length > 0) {
 // Get recent health checks for each tool (up to HEALTH_TOLERANCE per tool)
 let healthMap = new Map<
   number,
-  { isOnline: boolean; checkedAt: Date }
+  { status: EffectiveStatus; checkedAt: Date }
 >();
 if (allToolIds.length > 0) {
   const healthBatches = [];
@@ -173,10 +181,10 @@ if (allToolIds.length > 0) {
   }
 
   for (const [toolId, checks] of checksPerTool) {
-    const effectiveStatus = resolveEffectiveStatus(checks);
-    if (effectiveStatus !== null) {
+    const status = resolveEffectiveStatus(checks);
+    if (status !== null) {
       healthMap.set(toolId, {
-        isOnline: effectiveStatus,
+        status,
         checkedAt: checks[0].checkedAt,
       });
     }
@@ -581,9 +589,15 @@ function buildUrl(params: Record<string, string>) {
                                   {tool.name}
                                 </a>
                                 {health && (
-                                  <span class:list={['inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tight border', health.isOnline ? 'bg-green-50 text-green-700 border-green-200/50' : 'bg-red-50 text-red-700 border-red-200/50']}>
-                                    <span class:list={['w-1 h-1 rounded-full', health.isOnline ? 'bg-green-500 animate-pulse' : 'bg-red-500']} />
-                                    {health.isOnline ? 'Online' : 'Offline'}
+                                  <span class:list={['inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tight border',
+                                    health.status === 'online' ? 'bg-green-50 text-green-700 border-green-200/50' :
+                                    health.status === 'unstable' ? 'bg-amber-50 text-amber-700 border-amber-200/50' :
+                                    'bg-red-50 text-red-700 border-red-200/50']}>
+                                    <span class:list={['w-1 h-1 rounded-full',
+                                      health.status === 'online' ? 'bg-green-500 animate-pulse' :
+                                      health.status === 'unstable' ? 'bg-amber-500' :
+                                      'bg-red-500']} />
+                                    {health.status === 'online' ? 'Online' : health.status === 'unstable' ? 'Unstable' : 'Offline'}
                                   </span>
                                 )}
                               </div>
@@ -716,7 +730,7 @@ function buildUrl(params: Record<string, string>) {
                           url={tool.url}
                           description={tool.description}
                           isVerified={tool.status === 'approved'}
-                          isOnline={health?.isOnline ?? null}
+                          healthStatus={health?.status ?? null}
                           lastCheckedAt={health?.checkedAt ?? null}
                           tags={tTags}
                           archiveUrl={tool.archiveUrl}
@@ -758,7 +772,7 @@ function buildUrl(params: Record<string, string>) {
                       url={tool.url}
                       description={tool.description}
                       isVerified={tool.status === 'approved'}
-                      isOnline={health?.isOnline ?? null}
+                      healthStatus={health?.status ?? null}
                       lastCheckedAt={health?.checkedAt ?? null}
                       tags={tTags}
                       archiveUrl={tool.archiveUrl}
@@ -797,7 +811,7 @@ function buildUrl(params: Record<string, string>) {
                   url={tool.url}
                   description={tool.description}
                   isVerified={tool.status === 'approved'}
-                  isOnline={health?.isOnline ?? null}
+                  healthStatus={health?.status ?? null}
                   lastCheckedAt={health?.checkedAt ?? null}
                   tags={tTags}
                   archiveUrl={tool.archiveUrl}

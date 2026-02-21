@@ -7,7 +7,7 @@ import { eq, desc, sql, and } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
 import { sortTagsCategoryFirst } from '../../lib/tags';
-import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../lib/health';
+import { HEALTH_TOLERANCE, HEALTH_WINDOW_HOURS, resolveEffectiveStatus, type EffectiveStatus } from '../../lib/health';
 
 const secret = Astro.url.searchParams.get('secret');
 const adminSecret = Astro.locals.runtime.env.ADMIN_SECRET;
@@ -26,16 +26,39 @@ const [rejectedCount] = await db.select({ count: sql<number>`count(*)` }).from(t
 
 const [featuredCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.isFeatured, true));
 
-// Count offline approved tools (3 consecutive failures = offline)
+// Count offline approved tools (all recent checks within window failed = offline)
+const windowCutoff = Math.floor(Date.now() / 1000) - HEALTH_WINDOW_HOURS * 3600;
 const offlineTools = await db.all(sql`
   SELECT COUNT(*) as count FROM tools t
   WHERE t.status = 'approved'
   AND (SELECT COUNT(*) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub WHERE sub.is_online = 0) >= ${HEALTH_TOLERANCE}
-  AND (SELECT COUNT(*) FROM health_checks WHERE tool_id = t.id) >= ${HEALTH_TOLERANCE}
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub) > 0
+  AND (SELECT COUNT(*) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub WHERE sub.is_online = 0) = (SELECT COUNT(*) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub)
 `);
 const offlineCount = (offlineTools[0] as any)?.count || 0;
+
+// Count unstable approved tools (mix of online and offline in window)
+const unstableTools = await db.all(sql`
+  SELECT COUNT(*) as count FROM tools t
+  WHERE t.status = 'approved'
+  AND (SELECT COUNT(*) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub) > 0
+  AND (SELECT SUM(is_online) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub) > 0
+  AND (SELECT SUM(is_online) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub) < (SELECT COUNT(*) FROM (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+  ) sub)
+`);
+const unstableCount = (unstableTools[0] as any)?.count || 0;
 
 // Recent submissions (last 10)
 const recentTools = await db
@@ -58,7 +81,7 @@ for (const tool of pendingTools) {
 }
 
 // Fetch latest health for pending tools (with tolerance)
-const healthMap = new Map<number, { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }>();
+const healthMap = new Map<number, { effectiveStatus: EffectiveStatus; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }>();
 for (const tool of pendingTools) {
   const recentChecks = await db
     .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
@@ -67,10 +90,10 @@ for (const tool of pendingTools) {
     .orderBy(desc(healthChecks.checkedAt))
     .limit(HEALTH_TOLERANCE);
   if (recentChecks.length > 0) {
-    const effectiveStatus = resolveEffectiveStatus(recentChecks);
+    const status = resolveEffectiveStatus(recentChecks);
     healthMap.set(tool.id, {
       ...recentChecks[0],
-      isOnline: effectiveStatus ?? recentChecks[0].isOnline,
+      effectiveStatus: status ?? (recentChecks[0].isOnline ? 'online' : 'offline'),
     });
   }
 }
@@ -91,7 +114,7 @@ for (const id of editToolIds) {
 
 // === Health tab ===
 const approvedTools = await db.select().from(tools).where(eq(tools.status, 'approved')).orderBy(desc(tools.submittedAt));
-const healthList: { tool: typeof approvedTools[0]; health: { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date } | null }[] = [];
+const healthList: { tool: typeof approvedTools[0]; health: { effectiveStatus: EffectiveStatus; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date } | null }[] = [];
 for (const tool of approvedTools) {
   const recentChecks = await db
     .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
@@ -100,26 +123,32 @@ for (const tool of approvedTools) {
     .orderBy(desc(healthChecks.checkedAt))
     .limit(HEALTH_TOLERANCE);
   if (recentChecks.length > 0) {
-    const effectiveStatus = resolveEffectiveStatus(recentChecks);
+    const status = resolveEffectiveStatus(recentChecks);
     healthList.push({
       tool,
       health: {
         ...recentChecks[0],
-        isOnline: effectiveStatus ?? recentChecks[0].isOnline,
+        effectiveStatus: status ?? (recentChecks[0].isOnline ? 'online' : 'offline'),
       },
     });
   } else {
     healthList.push({ tool, health: null });
   }
 }
-// Sort: offline first, then no data, then online
+// Sort: offline first, then unstable, then no data, then online
 healthList.sort((a, b) => {
-  const order = (h: typeof a.health) => h === null ? 1 : h.isOnline ? 2 : 0;
+  const order = (h: typeof a.health) => {
+    if (h === null) return 2;
+    if (h.effectiveStatus === 'offline') return 0;
+    if (h.effectiveStatus === 'unstable') return 1;
+    return 3;
+  };
   return order(a.health) - order(b.health);
 });
 
-const healthOnline = healthList.filter(h => h.health?.isOnline === true).length;
-const healthOffline = healthList.filter(h => h.health?.isOnline === false).length;
+const healthOnline = healthList.filter(h => h.health?.effectiveStatus === 'online').length;
+const healthUnstable = healthList.filter(h => h.health?.effectiveStatus === 'unstable').length;
+const healthOffline = healthList.filter(h => h.health?.effectiveStatus === 'offline').length;
 const healthNoData = healthList.filter(h => h.health === null).length;
 
 // === Export tab ===
@@ -161,7 +190,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
     <!-- ==================== PANEL: Dashboard ==================== -->
     <div id="panel-dashboard" class="tab-panel">
       <!-- Stats grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+      <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 mb-8">
         <div class="border border-neutral-200 rounded-lg p-5">
           <p class="text-sm text-neutral-500 mb-1">Total Tools</p>
           <p class="text-3xl font-bold text-neutral-950">{totalCount.count}</p>
@@ -173,6 +202,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         <div class="border border-amber-200 rounded-lg p-5 bg-amber-50">
           <p class="text-sm text-amber-600 mb-1">Pending Review</p>
           <p class="text-3xl font-bold text-amber-700">{pendingCount.count}</p>
+        </div>
+        <div class="border border-amber-200 rounded-lg p-5 bg-amber-50/50">
+          <p class="text-sm text-amber-500 mb-1">Unstable</p>
+          <p class="text-3xl font-bold text-amber-600">{unstableCount}</p>
         </div>
         <div class="border border-red-200 rounded-lg p-5 bg-red-50">
           <p class="text-sm text-red-600 mb-1">Offline</p>
@@ -297,12 +330,19 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                 {/* Health badge */}
                 <div class="health-display mb-3">
                   {health ? (
-                    health.isOnline ? (
+                    health.effectiveStatus === 'online' ? (
                       <div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
                         <span class="font-medium">● Online</span>
                         <span>HTTP {health.httpStatus}</span>
                         <span>{health.responseTimeMs}ms</span>
                         <span class="text-green-600">{timeAgo(health.checkedAt)}</span>
+                      </div>
+                    ) : health.effectiveStatus === 'unstable' ? (
+                      <div class="bg-amber-50 border border-amber-200 rounded-md p-2 text-xs text-amber-800 flex items-center gap-3">
+                        <span class="font-medium">◐ Unstable</span>
+                        <span>HTTP {health.httpStatus}</span>
+                        <span>{health.responseTimeMs}ms</span>
+                        <span class="text-amber-600">{timeAgo(health.checkedAt)}</span>
                       </div>
                     ) : (
                       <div class="bg-red-50 border border-red-200 rounded-md p-2 text-xs text-red-800 flex items-center gap-3">
@@ -458,10 +498,14 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
       </div>
 
       <!-- Health stats -->
-      <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="grid grid-cols-4 gap-4 mb-6">
         <div class="border border-green-200 rounded-lg p-4 bg-green-50">
           <p class="text-sm text-green-600 mb-1">Online</p>
           <p class="text-2xl font-bold text-green-700">{healthOnline}</p>
+        </div>
+        <div class="border border-amber-200 rounded-lg p-4 bg-amber-50">
+          <p class="text-sm text-amber-600 mb-1">Unstable</p>
+          <p class="text-2xl font-bold text-amber-700">{healthUnstable}</p>
         </div>
         <div class="border border-red-200 rounded-lg p-4 bg-red-50">
           <p class="text-sm text-red-600 mb-1">Offline</p>
@@ -499,8 +543,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                     <span class="health-status">
                       {item.health === null ? (
                         <span class="text-neutral-400">—</span>
-                      ) : item.health.isOnline ? (
+                      ) : item.health.effectiveStatus === 'online' ? (
                         <span class="text-green-600 font-medium">● Online</span>
+                      ) : item.health.effectiveStatus === 'unstable' ? (
+                        <span class="text-amber-600 font-medium">◐ Unstable</span>
                       ) : (
                         <span class="text-red-600 font-medium">● Offline</span>
                       )}
@@ -832,10 +878,17 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         })
         .join('');
 
+      const es = tool.latestHealth?.effectiveStatus;
       const healthHtml = tool.latestHealth
-        ? tool.latestHealth.isOnline
+        ? es === 'online'
           ? `<div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
                <span class="font-medium">● Online</span>
+               <span>HTTP ${tool.latestHealth.httpStatus}</span>
+               <span>${tool.latestHealth.responseTimeMs}ms</span>
+             </div>`
+          : es === 'unstable'
+          ? `<div class="bg-amber-50 border border-amber-200 rounded-md p-2 text-xs text-amber-800 flex items-center gap-3">
+               <span class="font-medium">◐ Unstable</span>
                <span>HTTP ${tool.latestHealth.httpStatus}</span>
                <span>${tool.latestHealth.responseTimeMs}ms</span>
              </div>`
@@ -1174,23 +1227,33 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
           const result = await adminFetch('/api/admin/health-check', { toolId });
           if (result.ok) {
             const d = result.data;
-            const effective = d.effectiveIsOnline;
-            showToast(`Health check: ${effective ? 'Online' : 'Offline'}`);
+            const es = d.effectiveStatus;
+            const label = es === 'online' ? 'Online' : es === 'unstable' ? 'Unstable' : 'Offline';
+            showToast(`Health check: ${label}`);
             const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
             const healthDisplay = card?.querySelector('.health-display');
             if (healthDisplay) {
-              healthDisplay.innerHTML = effective
-                ? `<div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
+              if (es === 'online') {
+                healthDisplay.innerHTML = `<div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
                      <span class="font-medium">● Online</span>
                      <span>HTTP ${d.httpStatus}</span>
                      <span>${d.responseTimeMs}ms</span>
                      <span class="text-green-600">just now</span>
-                   </div>`
-                : `<div class="bg-red-50 border border-red-200 rounded-md p-2 text-xs text-red-800 flex items-center gap-3">
+                   </div>`;
+              } else if (es === 'unstable') {
+                healthDisplay.innerHTML = `<div class="bg-amber-50 border border-amber-200 rounded-md p-2 text-xs text-amber-800 flex items-center gap-3">
+                     <span class="font-medium">◐ Unstable</span>
+                     <span>HTTP ${d.httpStatus}</span>
+                     <span>${d.responseTimeMs}ms</span>
+                     <span class="text-amber-600">just now</span>
+                   </div>`;
+              } else {
+                healthDisplay.innerHTML = `<div class="bg-red-50 border border-red-200 rounded-md p-2 text-xs text-red-800 flex items-center gap-3">
                      <span class="font-medium">● Offline</span>
                      ${d.httpStatus ? `<span>HTTP ${d.httpStatus}</span>` : ''}
                      <span class="text-red-600">just now</span>
                    </div>`;
+              }
             }
           } else {
             showToast(result.error || 'Health check failed.', 'error');
@@ -1318,13 +1381,17 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
     });
 
     // ===== Health tab: run check =====
-    function updateHealthRow(toolId: number, d: { isOnline: boolean; effectiveIsOnline: boolean; httpStatus?: number; responseTimeMs?: number }) {
+    function updateHealthRow(toolId: number, d: { isOnline: boolean; effectiveStatus: string; httpStatus?: number; responseTimeMs?: number }) {
       const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`);
       if (!row) return;
       const statusEl = row.querySelector('.health-status')!;
-      statusEl.innerHTML = d.effectiveIsOnline
-        ? '<span class="text-green-600 font-medium">● Online</span>'
-        : '<span class="text-red-600 font-medium">● Offline</span>';
+      if (d.effectiveStatus === 'online') {
+        statusEl.innerHTML = '<span class="text-green-600 font-medium">● Online</span>';
+      } else if (d.effectiveStatus === 'unstable') {
+        statusEl.innerHTML = '<span class="text-amber-600 font-medium">◐ Unstable</span>';
+      } else {
+        statusEl.innerHTML = '<span class="text-red-600 font-medium">● Offline</span>';
+      }
       row.querySelector('.health-http')!.textContent = d.httpStatus != null ? String(d.httpStatus) : '—';
       row.querySelector('.health-time')!.textContent = d.responseTimeMs != null ? `${d.responseTimeMs}ms` : '—';
       row.querySelector('.health-checked')!.textContent = 'just now';
@@ -1341,10 +1408,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         if (result.ok) {
           const d = result.data;
           const checkLabel = d.isOnline ? 'Online' : 'Offline';
-          const effectiveLabel = d.effectiveIsOnline ? 'Online' : 'Offline';
-          const msg = d.isOnline !== d.effectiveIsOnline
-            ? `Check: ${checkLabel} (effective: ${effectiveLabel} per tolerance)`
-            : `Health: ${effectiveLabel}`;
+          const esLabel = d.effectiveStatus === 'online' ? 'Online' : d.effectiveStatus === 'unstable' ? 'Unstable' : 'Offline';
+          const msg = checkLabel !== esLabel
+            ? `Check: ${checkLabel} (effective: ${esLabel} per tolerance)`
+            : `Health: ${esLabel}`;
           showToast(msg);
           updateHealthRow(toolId, d);
         } else {
@@ -1393,6 +1460,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
         let completed = 0;
         let online = 0;
+        let unstable = 0;
         let offline = 0;
         const total = toolIds.length;
         progressEl.classList.remove('hidden');
@@ -1412,7 +1480,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
               if (signal.aborted) return;
               if (result.ok) {
                 updateHealthRow(toolId, result.data);
-                if (result.data.effectiveIsOnline) online++; else offline++;
+                const es = result.data.effectiveStatus;
+                if (es === 'online') online++;
+                else if (es === 'unstable') unstable++;
+                else offline++;
               }
             } catch {
               if (signal.aborted) return;
@@ -1433,12 +1504,13 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         bulkBtn.classList.add('btn-primary');
         setIndividualBtnsDisabled(false);
 
+        const summary = `${online} online, ${unstable} unstable, ${offline} offline`;
         if (signal.aborted) {
           progressEl.textContent = `Cancelled (${completed} / ${total})`;
-          showToast(`Health check cancelled: ${online} online, ${offline} offline`, 'error');
+          showToast(`Health check cancelled: ${summary}`, 'error');
         } else {
-          progressEl.textContent = `Done: ${online} online, ${offline} offline`;
-          showToast(`Health check complete: ${online} online, ${offline} offline`);
+          progressEl.textContent = `Done: ${summary}`;
+          showToast(`Health check complete: ${summary}`);
         }
         setTimeout(() => progressEl.classList.add('hidden'), 5000);
       });

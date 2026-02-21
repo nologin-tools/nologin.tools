@@ -1,6 +1,7 @@
 ---
 import HealthBadge from './HealthBadge.astro';
 import { sortTagsCategoryFirst } from '../lib/tags';
+import type { EffectiveStatus } from '../lib/health';
 
 interface Tag {
   tagKey: string;
@@ -13,16 +14,16 @@ interface Props {
   url: string;
   description: string | null;
   isVerified: boolean;
-  isOnline: boolean | null;
+  healthStatus: EffectiveStatus | null;
   lastCheckedAt: Date | null;
   tags: Tag[];
   archiveUrl: string | null;
   isFeatured?: boolean;
 }
 
-const { slug, name, url, description, isVerified, isOnline, lastCheckedAt, tags, archiveUrl, isFeatured = false } =
+const { slug, name, url, description, isVerified, healthStatus, lastCheckedAt, tags, archiveUrl, isFeatured = false } =
   Astro.props;
-const isOffline = isOnline === false;
+const isOffline = healthStatus === 'offline';
 const sortedTags = sortTagsCategoryFirst(tags);
 
 let faviconHostname = '';
@@ -71,7 +72,7 @@ const initial = name.charAt(0).toUpperCase();
         <p class="text-[11px] text-neutral-400 truncate">{faviconHostname}</p>
       </div>
     </div>
-    <HealthBadge isOnline={isOnline} lastCheckedAt={lastCheckedAt} />
+    <HealthBadge status={healthStatus} lastCheckedAt={lastCheckedAt} />
   </div>
 
   {description && (

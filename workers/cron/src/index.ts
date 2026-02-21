@@ -25,6 +25,17 @@ interface TagRow {
   tag_value: string;
 }
 
+/** Status codes that indicate the page is gone (not just blocked). */
+const GONE_STATUS_CODES = new Set([404, 410]);
+
+/** Returns true if the HTTP status indicates the server is reachable. */
+function isReachable(status: number): boolean {
+  return !GONE_STATUS_CODES.has(status);
+}
+
+const HEALTH_TOLERANCE = 5;
+const HEALTH_WINDOW_HOURS = 48;
+
 const CATEGORY_ORDER = [
   'AI', 'Design', 'Writing', 'Development', 'Productivity', 'Media',
   'Privacy', 'Data', 'Communication', 'Education', 'Finance',
@@ -110,7 +121,7 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
 
           return {
             toolId: tool.id,
-            isOnline: response.ok,
+            isOnline: isReachable(response.status),
             httpStatus: response.status,
             responseTimeMs: Date.now() - start,
             url: tool.url,
@@ -138,18 +149,19 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
           'INSERT INTO health_checks (tool_id, checked_at, is_online, http_status, response_time_ms) VALUES (?, ?, ?, ?, ?)'
         ).bind(r.toolId, now, r.isOnline ? 1 : 0, r.httpStatus, r.responseTimeMs).run();
 
-        // Archive offline tools only after 3 consecutive failures
+        // Archive offline tools only after HEALTH_TOLERANCE consecutive failures within window
         if (
           !r.isOnline &&
           !r.archiveUrl &&
           env.ARCHIVE_ORG_ACCESS_KEY &&
           env.ARCHIVE_ORG_SECRET_KEY
         ) {
+          const windowCutoff = Math.floor(Date.now() / 1000) - HEALTH_WINDOW_HOURS * 3600;
           const recentChecks = await env.DB.prepare(
-            'SELECT is_online FROM health_checks WHERE tool_id = ? ORDER BY checked_at DESC LIMIT 3'
-          ).bind(r.toolId).all<{ is_online: number }>();
+            `SELECT is_online FROM health_checks WHERE tool_id = ? AND checked_at > ? ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}`
+          ).bind(r.toolId, windowCutoff).all<{ is_online: number }>();
           const rows = recentChecks.results || [];
-          const allOffline = rows.length >= 3 && rows.every((row) => row.is_online === 0);
+          const allOffline = rows.length >= HEALTH_TOLERANCE && rows.every((row) => row.is_online === 0);
           if (allOffline) {
             ctx.waitUntil(archiveUrl(r.url, r.toolId, env));
           }

@@ -52,17 +52,17 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   // Query recent checks for tolerance-based effective status
   const recentChecks = await db
-    .select({ isOnline: healthChecks.isOnline })
+    .select({ isOnline: healthChecks.isOnline, checkedAt: healthChecks.checkedAt })
     .from(healthChecks)
     .where(eq(healthChecks.toolId, tool.id))
     .orderBy(desc(healthChecks.checkedAt))
     .limit(HEALTH_TOLERANCE);
-  const effectiveIsOnline = resolveEffectiveStatus(recentChecks) ?? result.isOnline;
+  const effectiveStatus = resolveEffectiveStatus(recentChecks) ?? (result.isOnline ? 'online' : 'offline');
 
   return api.success({
     toolId: tool.id,
     isOnline: result.isOnline,
-    effectiveIsOnline,
+    effectiveStatus,
     httpStatus: result.httpStatus,
     responseTimeMs: result.responseTimeMs,
     checkedAt: now.toISOString(),

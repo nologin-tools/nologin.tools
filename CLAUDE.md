@@ -78,7 +78,7 @@ workers/cron/             # Health checks, badge detection, data export
   - **Embed Code tab** includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 - **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export`):
-  - **Dashboard**: Stats overview (total/approved/pending/offline) + recent submissions table
+  - **Dashboard**: Stats overview (total/approved/pending/unstable/offline/featured) + recent submissions table
   - **Tools**: Full CRUD — status filter chips, search, pagination via `POST /api/admin/tools`; inline edit/reject forms; approve/reject/edit/delete/health-check actions
   - **Edits**: Pending edit suggestions review (approve & apply / reject)
   - **Health**: Health monitoring table for approved tools with manual "Run Check" button. "Run All Checks" bulk button runs all tools with 3 concurrent requests, shows real-time progress, supports cancel via `AbortController`, and displays summary toast on completion. Individual "Run Check" buttons are disabled during bulk runs.
@@ -88,14 +88,16 @@ workers/cron/             # Health checks, badge detection, data export
   - `POST /api/admin/tools` — list tools with status filter, search, pagination (20/page)
   - `POST /api/admin/tool-update` — edit tool fields and tags
   - `POST /api/admin/tool-delete` — delete tool (cascade cleans associations)
-  - `POST /api/admin/health-check` — manually trigger health check for a tool; returns `isOnline` (raw single-check result) and `effectiveIsOnline` (tolerance-based effective status from last 3 checks)
+  - `POST /api/admin/health-check` — manually trigger health check for a tool; returns `isOnline` (raw single-check result) and `effectiveStatus` (`'online'|'unstable'|'offline'`)
   - `POST /api/admin/data-export` — manually trigger data export to GitHub (pushes tools.json + README.md with change detection), records to `data_exports` table
   - `POST /api/admin/export-history` — query recent export history (last 20 entries)
 - **Health check on submit**: Tools are health-checked on submission/resubmission via `ctx.waitUntil()`. Results stored in `health_checks` table, displayed on admin review page.
 - **`ctx.waitUntil()` for background work**: In Cloudflare Workers, the execution context terminates after the Response is returned. Any fire-and-forget async work (health checks, archiving, etc.) **must** be registered with `locals.runtime.ctx.waitUntil(promise)` — otherwise the Promise will be killed before completion. The cron worker uses `ctx.waitUntil()` directly from its `ExecutionContext`.
 - **Health check User-Agent**: All health check fetch requests (both `src/lib/health.ts` and `workers/cron/`) include `User-Agent: 'NoLoginTools-HealthChecker/1.0'` to avoid WAF/bot-detection false positives (e.g. WolframAlpha 403). Badge detection uses `NoLoginTools-BadgeChecker/1.0`.
 - **Health check HEAD→GET fallback**: HEAD is tried first; if it **throws** (network error) OR returns **non-ok status** (e.g. WolframAlpha returns 404 for HEAD), a GET retry follows. This prevents sites that reject HEAD but accept GET from being marked offline.
-- **Health check tolerance**: Online/offline status uses a sliding window of the last 3 checks (`HEALTH_TOLERANCE = 3`). A tool is considered online if **any** of the recent 3 checks succeeded; offline only when **all 3** failed. The helper `resolveEffectiveStatus(checks)` in `src/lib/health.ts` is used by all display layers. The health-check API returns both `isOnline` (raw) and `effectiveIsOnline` (tolerance-based); all client-side JS uses `effectiveIsOnline` for UI updates. New tools with fewer than 3 checks use whatever records exist. The cron worker inlines the same logic for archive triggering (queries D1 directly since it can't import `src/lib/`).
+- **Health check HTTP status intelligence**: `isOnline` is determined by `isReachable(status)` — any HTTP response is considered "reachable" (server is up) except 404/410 which indicate the page is gone. This means 403 (WAF), 429 (rate limit), and 5xx (server error) all count as "online" since the server is responding. Network errors (DNS failure, timeout, connection refused) count as offline.
+- **Health check three-level effective status**: `resolveEffectiveStatus(checks)` returns `EffectiveStatus | null` (`'online'|'unstable'|'offline'|null`). Within the time window: all checks online → `'online'`, all checks offline → `'offline'`, mixed results → `'unstable'`, no checks in window → `null`.
+- **Health check tolerance**: Status uses a sliding window of the last 5 checks (`HEALTH_TOLERANCE = 5`) within a 48-hour time window (`HEALTH_WINDOW_HOURS = 48`). Checks older than 48h are excluded from status calculation (returns `null` = "No checks yet"). The helper `resolveEffectiveStatus(checks)` in `src/lib/health.ts` is used by all display layers. The health-check API returns `isOnline` (raw) and `effectiveStatus` (three-level); client-side JS uses `effectiveStatus` for UI updates. The cron worker inlines the same `isReachable()` logic for `isOnline` determination and uses `HEALTH_TOLERANCE`/`HEALTH_WINDOW_HOURS` for archive triggering (queries D1 directly since it can't import `src/lib/`).
 - **Exported README badges**: The auto-generated `awesome-nologin-tools` README includes 5 shields.io badges on the first line + 1 self-hosted badge on a separate line below the title. First line: Awesome (static, pink `#fc60a8`), Tools count (dynamic from `tools.length`, green `#4c1`), License CC0 (static, grey), Website (static, blue), Submit a Tool (static, orange). Second line: NoLogin Verified (`/badges/flat.svg`, self-hosted, links to `/badge/awesome-nologin-tools`). Both `generateReadme()` in `src/pages/api/admin/data-export.ts` and `workers/cron/src/index.ts` must stay in sync.
 - **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. The cron worker has equivalent inline logic.
 - **Cron export logging**: `runDataExport` in the cron worker always records to `data_exports` table — `GITHUB_TOKEN` missing writes `status: 'error'` with `error_message: 'GITHUB_TOKEN not configured'`; any runtime exception also records error with message. DB writes themselves are wrapped in try-catch to prevent double failures.
@@ -138,7 +140,7 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 
 ## Design System
 
-- Colors: white bg, neutral-950 text, green-500 verified, red-500 offline, amber-500 pending
+- Colors: white bg, neutral-950 text, green-500 verified/online, amber-500 pending/unstable, red-500 offline
 - Font: system font stack
 - Max width: 6xl (1152px), card grid 1/2/3 columns responsive
 - **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)

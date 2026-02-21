@@ -92,7 +92,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
         ...tool,
         tags: toolTags,
         latestHealth: latestHealth
-          ? { ...latestHealth, isOnline: effectiveStatus ?? latestHealth.isOnline }
+          ? {
+              ...latestHealth,
+              effectiveStatus: effectiveStatus ?? (latestHealth.isOnline ? 'online' : 'offline'),
+            }
           : null,
       };
     })
