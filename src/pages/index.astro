@@ -267,29 +267,52 @@ function buildUrl(params: Record<string, string>) {
       );
     })()}
 
-    <!-- Tag Filters -->
-    <div class="mb-6 overflow-x-auto">
-      <div class="flex flex-wrap gap-2">
-        {TAG_DEFINITIONS.filter((def) => def.key !== 'category').map((def) =>
-          def.values.map((val) => {
-            const isActive = activeFilters.some(
-              (f) => f.key === def.key && f.value === val
-            );
-            const toggleUrl = isActive
-              ? buildUrl({ [def.key]: '', page: '' })
-              : buildUrl({ [def.key]: val, page: '' });
-            return (
-              <a
-                href={toggleUrl}
-                class:list={['chip', isActive ? 'chip-active' : 'chip-default']}
-              >
-                {def.key}:{val}
-              </a>
-            );
-          })
-        )}
-      </div>
-    </div>
+    <!-- More Filters (collapsed by default, auto-expand when non-category filters active) -->
+    {(() => {
+      const nonCategoryDefs = TAG_DEFINITIONS.filter((def) => def.key !== 'category');
+      const hasNonCategoryFilter = activeFilters.some((f) => f.key !== 'category');
+      return (
+        <div class="mb-6">
+          <button
+            type="button"
+            id="more-filters-toggle"
+            class="text-sm text-neutral-500 hover:text-neutral-700 transition-colors flex items-center gap-1 mb-3"
+          >
+            <svg id="more-filters-arrow" class:list={["w-4 h-4 transition-transform", hasNonCategoryFilter && "rotate-90"]} viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            </svg>
+            More filters
+          </button>
+          <div id="more-filters-panel" class:list={[!hasNonCategoryFilter && "hidden"]}>
+            <div class="space-y-2">
+              {nonCategoryDefs.map((def) => (
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-neutral-400 w-20 shrink-0 text-right">{def.label}</span>
+                  <div class="flex flex-wrap gap-1.5">
+                    {def.values.map((val) => {
+                      const isActive = activeFilters.some(
+                        (f) => f.key === def.key && f.value === val
+                      );
+                      const toggleUrl = isActive
+                        ? buildUrl({ [def.key]: '', page: '' })
+                        : buildUrl({ [def.key]: val, page: '' });
+                      return (
+                        <a
+                          href={toggleUrl}
+                          class:list={['chip', isActive ? 'chip-active' : 'chip-default']}
+                        >
+                          {val}
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    })()}
 
     <!-- Result Count + Sort -->
     <div class="flex items-center justify-between mb-6 text-sm">
@@ -373,3 +396,13 @@ function buildUrl(params: Record<string, string>) {
     )}
   </div>
 </Layout>
+
+<script>
+  const toggle = document.getElementById('more-filters-toggle');
+  const panel = document.getElementById('more-filters-panel');
+  const arrow = document.getElementById('more-filters-arrow');
+  toggle?.addEventListener('click', () => {
+    panel?.classList.toggle('hidden');
+    arrow?.classList.toggle('rotate-90');
+  });
+</script>
