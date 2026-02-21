@@ -232,9 +232,22 @@ function buildUrl(params: Record<string, string>) {
             name="q"
             value={query}
             placeholder="Search tools..."
-            class="w-full pl-10 pr-4 py-2.5 border border-neutral-300 rounded-lg text-sm
-                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            class:list={[
+              "w-full pl-10 py-2.5 border border-neutral-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent",
+              query ? "pr-9" : "pr-4",
+            ]}
           />
+          {query && (
+            <a
+              href={buildUrl({ q: '', page: '' })}
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition-colors"
+              aria-label="Clear search"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4l8 8M12 4l-8 8" />
+              </svg>
+            </a>
+          )}
         </div>
       </form>
     </div>
