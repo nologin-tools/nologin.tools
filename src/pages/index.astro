@@ -177,10 +177,42 @@ if (sort === 'newest') {
   });
 }
 
-// Paginate
+// Determine display mode
+const hasCategoryFilter = activeFilters.some((f) => f.key === 'category');
+const isGroupedMode = !hasCategoryFilter && !query && activeFilters.length === 0;
+
+// Paginate (flat mode only)
 const totalTools = allTools.length;
-const totalPages = Math.max(1, Math.ceil(totalTools / perPage));
-const pagedTools = allTools.slice((page - 1) * perPage, page * perPage);
+const totalPages = isGroupedMode ? 1 : Math.max(1, Math.ceil(totalTools / perPage));
+const pagedTools = isGroupedMode ? allTools : allTools.slice((page - 1) * perPage, page * perPage);
+
+// Build category groups (grouped mode only)
+const maxPerGroup = 6;
+const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+const categoryOrder = categoryDef ? categoryDef.values : [];
+type ToolType = (typeof allTools)[number];
+const categoryGroups: { category: string; tools: ToolType[] }[] = [];
+
+if (isGroupedMode) {
+  const groupMap = new Map<string, ToolType[]>();
+  for (const cat of categoryOrder) groupMap.set(cat, []);
+
+  for (const tool of allTools) {
+    const tTags = tagMap.get(tool.id) || [];
+    const catTag = tTags.find((t) => t.tagKey === 'category');
+    const cat = catTag ? catTag.tagValue : 'Other';
+    if (!groupMap.has(cat)) groupMap.set(cat, []);
+    groupMap.get(cat)!.push(tool);
+  }
+
+  for (const cat of categoryOrder) {
+    const tools = groupMap.get(cat) || [];
+    if (tools.length > 0) categoryGroups.push({ category: cat, tools });
+  }
+  // Add "Other" at the end
+  const otherTools = groupMap.get('Other') || [];
+  if (otherTools.length > 0) categoryGroups.push({ category: 'Other', tools: otherTools });
+}
 
 // Build pagination URL helper
 function buildUrl(params: Record<string, string>) {
@@ -382,69 +414,122 @@ function buildUrl(params: Record<string, string>) {
       </div>
     </div>
 
-    <!-- Tool Grid -->
-    {pagedTools.length > 0 ? (
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        {pagedTools.map((tool) => {
-          const health = healthMap.get(tool.id);
-          const tTags = tagMap.get(tool.id) || [];
-          return (
-            <ToolCard
-              slug={tool.slug}
-              name={tool.name}
-              url={tool.url}
-              description={tool.description}
-              isVerified={tool.status === 'approved'}
-              isOnline={health?.isOnline ?? null}
-              lastCheckedAt={health?.checkedAt ?? null}
-              tags={tTags}
-              archiveUrl={tool.archiveUrl}
-            />
-          );
-        })}
-      </div>
-    ) : (
-      <div class="text-center py-16">
-        <svg class="mx-auto mb-4 text-neutral-300" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="11" cy="11" r="7" />
-          <path d="M21 21l-4.35-4.35" stroke-linecap="round" />
-        </svg>
-        <p class="text-neutral-500 mb-1 font-medium">No tools found</p>
-        <p class="text-sm text-neutral-400 mb-6">
-          {query
-            ? `No results matching "${query}". Try a different search or adjust filters.`
-            : 'No tools match the current filters. Try removing some filters.'}
-        </p>
-        <div class="flex items-center justify-center gap-3">
-          <a href="/" class="btn-secondary text-sm">Clear filters</a>
+    {isGroupedMode ? (
+      totalTools > 0 ? (
+        <div class="space-y-10">
+          {categoryGroups.map((group) => (
+            <section>
+              <div class="flex items-baseline justify-between mb-4">
+                <h2 class="text-lg font-semibold text-neutral-950">
+                  {group.category}
+                  <span class="text-sm font-normal text-neutral-400 ml-2">{group.tools.length}</span>
+                </h2>
+                {group.tools.length > maxPerGroup && (
+                  <a
+                    href={buildUrl({ category: group.category, page: '' })}
+                    class="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    View all {group.tools.length} &rarr;
+                  </a>
+                )}
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {group.tools.slice(0, maxPerGroup).map((tool) => {
+                  const health = healthMap.get(tool.id);
+                  const tTags = tagMap.get(tool.id) || [];
+                  return (
+                    <ToolCard
+                      slug={tool.slug}
+                      name={tool.name}
+                      url={tool.url}
+                      description={tool.description}
+                      isVerified={tool.status === 'approved'}
+                      isOnline={health?.isOnline ?? null}
+                      lastCheckedAt={health?.checkedAt ?? null}
+                      tags={tTags}
+                      archiveUrl={tool.archiveUrl}
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <svg class="mx-auto mb-4 text-neutral-300" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.35-4.35" stroke-linecap="round" />
+          </svg>
+          <p class="text-neutral-500 mb-1 font-medium">No tools yet</p>
+          <p class="text-sm text-neutral-400 mb-6">Be the first to submit a privacy-friendly tool.</p>
           <a href="/submit" class="btn-primary text-sm">Submit a Tool</a>
         </div>
-      </div>
-    )}
-
-    <!-- Pagination -->
-    {totalPages > 1 && (
-      <div class="flex justify-center gap-2">
-        {page > 1 && (
-          <a
-            href={buildUrl({ page: String(page - 1) })}
-            class="btn-secondary text-sm"
-          >
-            Previous
-          </a>
-        )}
-        <span class="px-3 py-2 text-sm text-neutral-500">
-          Page {page} of {totalPages}
-        </span>
-        {page < totalPages && (
-          <a
-            href={buildUrl({ page: String(page + 1) })}
-            class="btn-secondary text-sm"
-          >
-            Next
-          </a>
-        )}
-      </div>
+      )
+    ) : (
+      pagedTools.length > 0 ? (
+        <div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {pagedTools.map((tool) => {
+              const health = healthMap.get(tool.id);
+              const tTags = tagMap.get(tool.id) || [];
+              return (
+                <ToolCard
+                  slug={tool.slug}
+                  name={tool.name}
+                  url={tool.url}
+                  description={tool.description}
+                  isVerified={tool.status === 'approved'}
+                  isOnline={health?.isOnline ?? null}
+                  lastCheckedAt={health?.checkedAt ?? null}
+                  tags={tTags}
+                  archiveUrl={tool.archiveUrl}
+                />
+              );
+            })}
+          </div>
+          {totalPages > 1 && (
+            <div class="flex justify-center gap-2">
+              {page > 1 && (
+                <a
+                  href={buildUrl({ page: String(page - 1) })}
+                  class="btn-secondary text-sm"
+                >
+                  Previous
+                </a>
+              )}
+              <span class="px-3 py-2 text-sm text-neutral-500">
+                Page {page} of {totalPages}
+              </span>
+              {page < totalPages && (
+                <a
+                  href={buildUrl({ page: String(page + 1) })}
+                  class="btn-secondary text-sm"
+                >
+                  Next
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <svg class="mx-auto mb-4 text-neutral-300" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.35-4.35" stroke-linecap="round" />
+          </svg>
+          <p class="text-neutral-500 mb-1 font-medium">No tools found</p>
+          <p class="text-sm text-neutral-400 mb-6">
+            {query
+              ? `No results matching "${query}". Try a different search or adjust filters.`
+              : 'No tools match the current filters. Try removing some filters.'}
+          </p>
+          <div class="flex items-center justify-center gap-3">
+            <a href="/" class="btn-secondary text-sm">Clear filters</a>
+            <a href="/submit" class="btn-primary text-sm">Submit a Tool</a>
+          </div>
+        </div>
+      )
     )}
   </div>
 </Layout>
