@@ -38,6 +38,8 @@ if (sort === 'recommended') {
       status: tools.status,
       approvedAt: tools.approvedAt,
       archiveUrl: tools.archiveUrl,
+      isFeatured: tools.isFeatured,
+      featuredAt: tools.featuredAt,
       score: sql<number>`
         COALESCE(
           CASE ${badgeDisplays.displayType}
@@ -56,6 +58,7 @@ if (sort === 'recommended') {
            FROM (SELECT is_online FROM health_checks WHERE tool_id = ${tools.id}
                  ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}) sub), 1
         )
+        + CASE WHEN ${tools.isFeatured} = 1 THEN 8 ELSE 0 END
       `.as('score'),
     })
     .from(tools)
@@ -72,6 +75,8 @@ if (sort === 'recommended') {
       status: tools.status,
       approvedAt: tools.approvedAt,
       archiveUrl: tools.archiveUrl,
+      isFeatured: tools.isFeatured,
+      featuredAt: tools.featuredAt,
     })
     .from(tools)
     .where(eq(tools.status, 'approved'));
@@ -213,6 +218,16 @@ if (isGroupedMode) {
   const otherTools = groupMap.get('Other') || [];
   if (otherTools.length > 0) categoryGroups.push({ category: 'Other', tools: otherTools });
 }
+
+// Build featured tools list (grouped mode only)
+const featuredTools = isGroupedMode
+  ? allTools.filter((t) => 'isFeatured' in t && t.isFeatured)
+      .sort((a, b) => {
+        const aTime = 'featuredAt' in a && a.featuredAt ? (a.featuredAt as Date).getTime() : 0;
+        const bTime = 'featuredAt' in b && b.featuredAt ? (b.featuredAt as Date).getTime() : 0;
+        return bTime - aTime;
+      })
+  : [];
 
 // Build pagination URL helper
 function buildUrl(params: Record<string, string>) {
@@ -417,6 +432,36 @@ function buildUrl(params: Record<string, string>) {
     {isGroupedMode ? (
       totalTools > 0 ? (
         <div class="space-y-10">
+          {featuredTools.length > 0 && (
+            <section>
+              <div class="flex items-baseline justify-between mb-4">
+                <h2 class="text-lg font-semibold text-neutral-950">
+                  <span class="text-yellow-500">★</span> Featured
+                  <span class="text-sm font-normal text-neutral-400 ml-2">{featuredTools.length}</span>
+                </h2>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {featuredTools.map((tool) => {
+                  const health = healthMap.get(tool.id);
+                  const tTags = tagMap.get(tool.id) || [];
+                  return (
+                    <ToolCard
+                      slug={tool.slug}
+                      name={tool.name}
+                      url={tool.url}
+                      description={tool.description}
+                      isVerified={tool.status === 'approved'}
+                      isOnline={health?.isOnline ?? null}
+                      lastCheckedAt={health?.checkedAt ?? null}
+                      tags={tTags}
+                      archiveUrl={tool.archiveUrl}
+                      isFeatured={true}
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          )}
           {categoryGroups.map((group) => (
             <section>
               <div class="flex items-baseline justify-between mb-4">
@@ -448,6 +493,7 @@ function buildUrl(params: Record<string, string>) {
                       lastCheckedAt={health?.checkedAt ?? null}
                       tags={tTags}
                       archiveUrl={tool.archiveUrl}
+                      isFeatured={'isFeatured' in tool && !!tool.isFeatured}
                     />
                   );
                 })}
@@ -484,6 +530,7 @@ function buildUrl(params: Record<string, string>) {
                   lastCheckedAt={health?.checkedAt ?? null}
                   tags={tTags}
                   archiveUrl={tool.archiveUrl}
+                  isFeatured={'isFeatured' in tool && !!tool.isFeatured}
                 />
               );
             })}
