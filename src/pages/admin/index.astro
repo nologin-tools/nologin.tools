@@ -594,7 +594,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
     function showToast(message: string, type: 'success' | 'error' = 'success') {
       const container = document.getElementById('toast-container')!;
       const toast = document.createElement('div');
-      toast.className = `px-4 py-2.5 rounded-lg shadow-lg text-sm font-medium text-white transition-all ${
+      toast.className = `px-4 py-2.5 rounded-lg shadow-lg text-sm font-medium text-white transition-opacity duration-300 ${
         type === 'success' ? 'bg-green-600' : 'bg-red-600'
       }`;
       toast.textContent = message;
