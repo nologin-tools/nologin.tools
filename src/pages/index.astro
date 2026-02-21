@@ -392,6 +392,7 @@ function buildUrl(params: Record<string, string>) {
             <ToolCard
               slug={tool.slug}
               name={tool.name}
+              url={tool.url}
               description={tool.description}
               isVerified={tool.status === 'approved'}
               isOnline={health?.isOnline ?? null}
