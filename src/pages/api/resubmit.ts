@@ -140,18 +140,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
     );
   }
 
-  // Health check asynchronously (fire and forget)
-  checkHealth(url, locals.runtime.env.SITE_URL)
-    .then(async (result) => {
-      await db.insert(healthChecks).values({
-        toolId,
-        checkedAt: new Date(),
-        isOnline: result.isOnline,
-        httpStatus: result.httpStatus,
-        responseTimeMs: result.responseTimeMs,
-      });
-    })
-    .catch(() => {});
+  // Health check asynchronously (fire and forget via waitUntil)
+  locals.runtime.ctx.waitUntil(
+    checkHealth(url, locals.runtime.env.SITE_URL)
+      .then(async (result) => {
+        await db.insert(healthChecks).values({
+          toolId,
+          checkedAt: new Date(),
+          isOnline: result.isOnline,
+          httpStatus: result.httpStatus,
+          responseTimeMs: result.responseTimeMs,
+        });
+      })
+      .catch(() => {})
+  );
 
   return api.success({ slug: newSlug });
 };

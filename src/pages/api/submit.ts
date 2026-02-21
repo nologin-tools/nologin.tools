@@ -145,35 +145,40 @@ export const POST: APIRoute = async ({ request, locals }) => {
     );
   }
 
-  // Archive URL asynchronously (fire and forget)
+  // Archive URL asynchronously (fire and forget via waitUntil)
   const env = locals.runtime.env;
+  const ctx = locals.runtime.ctx;
   if (env.ARCHIVE_ORG_ACCESS_KEY && env.ARCHIVE_ORG_SECRET_KEY) {
-    archiveUrl(url, env.ARCHIVE_ORG_ACCESS_KEY, env.ARCHIVE_ORG_SECRET_KEY)
-      .then(async (archiveUrlResult) => {
-        if (archiveUrlResult) {
-          await db
-            .update(tools)
-            .set({ archiveUrl: archiveUrlResult })
-            .where(eq(tools.id, inserted.id));
-        }
-      })
-      .catch(() => {
-        // Archive is best-effort; failure is non-critical
-      });
+    ctx.waitUntil(
+      archiveUrl(url, env.ARCHIVE_ORG_ACCESS_KEY, env.ARCHIVE_ORG_SECRET_KEY)
+        .then(async (archiveUrlResult) => {
+          if (archiveUrlResult) {
+            await db
+              .update(tools)
+              .set({ archiveUrl: archiveUrlResult })
+              .where(eq(tools.id, inserted.id));
+          }
+        })
+        .catch(() => {
+          // Archive is best-effort; failure is non-critical
+        })
+    );
   }
 
-  // Health check asynchronously (fire and forget)
-  checkHealth(url, env.SITE_URL)
-    .then(async (result) => {
-      await db.insert(healthChecks).values({
-        toolId: inserted.id,
-        checkedAt: new Date(),
-        isOnline: result.isOnline,
-        httpStatus: result.httpStatus,
-        responseTimeMs: result.responseTimeMs,
-      });
-    })
-    .catch(() => {});
+  // Health check asynchronously (fire and forget via waitUntil)
+  ctx.waitUntil(
+    checkHealth(url, env.SITE_URL)
+      .then(async (result) => {
+        await db.insert(healthChecks).values({
+          toolId: inserted.id,
+          checkedAt: new Date(),
+          isOnline: result.isOnline,
+          httpStatus: result.httpStatus,
+          responseTimeMs: result.responseTimeMs,
+        });
+      })
+      .catch(() => {})
+  );
 
   return api.success({ slug: inserted.slug }, 201);
 };
