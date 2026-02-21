@@ -16,6 +16,7 @@ interface ToolRow {
   status: string;
   approved_at: number | null;
   archive_url: string | null;
+  is_featured: number | null;
 }
 
 interface TagRow {
@@ -269,7 +270,7 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
   const now = Math.floor(Date.now() / 1000);
 
   const tools = await env.DB.prepare(
-    "SELECT id, slug, name, url, description, core_task, approved_at FROM tools WHERE status = 'approved' ORDER BY name ASC"
+    "SELECT id, slug, name, url, description, core_task, approved_at, is_featured FROM tools WHERE status = 'approved' ORDER BY name ASC"
   ).all<ToolRow>();
 
   const tags = await env.DB.prepare(
@@ -295,6 +296,7 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
       description: t.description,
       coreTask: t.core_task,
       category,
+      featured: !!t.is_featured,
     };
   });
 
@@ -340,6 +342,7 @@ function generateReadme(
     description: string | null;
     coreTask: string;
     category: string | null;
+    featured: boolean;
   }[]
 ): string {
   const toolCount = tools.length;
@@ -373,7 +376,8 @@ function generateReadme(
     const catTools = groups.get(cat)!;
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
-      md += `- **[${tool.name}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
+      const star = tool.featured ? ' ★' : '';
+      md += `- **[${tool.name}${star}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
       md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;

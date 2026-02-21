@@ -37,6 +37,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       url: tools.url,
       description: tools.description,
       coreTask: tools.coreTask,
+      isFeatured: tools.isFeatured,
     })
     .from(tools)
     .where(eq(tools.status, 'approved'))
@@ -69,6 +70,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       description: t.description,
       coreTask: t.coreTask,
       category,
+      featured: t.isFeatured || false,
     };
   });
 
@@ -128,6 +130,7 @@ function generateReadme(
     description: string | null;
     coreTask: string;
     category: string | null;
+    featured: boolean;
   }[]
 ): string {
   const toolCount = tools.length;
@@ -161,7 +164,8 @@ function generateReadme(
     const catTools = groups.get(cat)!;
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
-      md += `- **[${tool.name}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
+      const star = tool.featured ? ' ★' : '';
+      md += `- **[${tool.name}${star}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
       md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;
