@@ -46,6 +46,15 @@ workers/cron/             # Health checks, badge detection, data export
   - **Flat mode** (search active or any filter active): Paginated grid (24/page) with standard pagination controls.
 - **Homepage filter UX**: Category chips shown as top row; non-category filters collapsed under "More filters" toggle (auto-expands when non-category filters active), displayed by dimension with labels. Active filters shown as removable chips with X icon and "Clear all" link.
 - **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to initial letter on error via inline `onerror`. Requires `url` prop.
+- **Featured tools**: Admin can mark approved tools as "featured" for higher visibility:
+  - `POST /api/admin/tool-feature` — toggle `isFeatured` + `featuredAt` (only approved tools)
+  - Homepage grouped mode: Featured section appears **above** category groups, showing all featured tools sorted by `featuredAt` desc. Featured tools **still appear** in their category groups.
+  - Homepage flat mode: Featured tools get +8 recommendation score boost (`CASE WHEN is_featured = 1 THEN 8 ELSE 0 END`)
+  - ToolCard: `isFeatured` prop → gold border (`border-yellow-300`), pale yellow bg (`bg-yellow-50/30`), ★ star icon
+  - Tool detail page: ★ Featured label next to NoLogin Verified
+  - Data export: `featured` boolean field in tools.json, ★ marker after tool name in README
+  - Rejecting a tool auto-clears `isFeatured` and `featuredAt`
+  - Admin dashboard: Featured count stat card (yellow theme), ★ Featured filter button, Feature/Unfeature toggle per approved tool
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
@@ -121,7 +130,7 @@ pnpm deploy:cron          # Deploy cron worker
 ## Recommendation Score
 
 ```
-score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3)
+score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0/8)
 ```
 
 ## Design System
