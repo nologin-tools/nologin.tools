@@ -463,11 +463,45 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                 <div class="grid grid-cols-2 gap-4 mb-3 text-sm">
                   <div>
                     <span class="text-neutral-400 text-xs">Current value:</span>
-                    <p class="text-neutral-600 mt-0.5">{edit.oldValue || '(empty)'}</p>
+                    {edit.fieldName === 'tags' ? (
+                      <div class="flex flex-wrap gap-1 mt-1">
+                        {(() => {
+                          try {
+                            const parsed = JSON.parse(edit.oldValue || '[]');
+                            return parsed.map((t: any) => (
+                              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border bg-neutral-50 text-neutral-600 border-neutral-200">
+                                {t.key === 'category' ? t.value : `${t.key}:${t.value}`}
+                              </span>
+                            ));
+                          } catch {
+                            return <p class="text-neutral-600 mt-0.5">{edit.oldValue || '(empty)'}</p>;
+                          }
+                        })()}
+                      </div>
+                    ) : (
+                      <p class="text-neutral-600 mt-0.5">{edit.oldValue || '(empty)'}</p>
+                    )}
                   </div>
                   <div>
                     <span class="text-neutral-400 text-xs">Suggested value:</span>
-                    <p class="text-neutral-950 font-medium mt-0.5">{edit.newValue}</p>
+                    {edit.fieldName === 'tags' ? (
+                      <div class="flex flex-wrap gap-1 mt-1">
+                        {(() => {
+                          try {
+                            const parsed = JSON.parse(edit.newValue || '[]');
+                            return parsed.map((t: any) => (
+                              <span class:list={['inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border', t.key === 'category' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-green-50 text-green-700 border-green-200']}>
+                                {t.key === 'category' ? t.value : `${t.key}:${t.value}`}
+                              </span>
+                            ));
+                          } catch {
+                            return <p class="text-neutral-950 font-medium mt-0.5">{edit.newValue}</p>;
+                          }
+                        })()}
+                      </div>
+                    ) : (
+                      <p class="text-neutral-950 font-medium mt-0.5">{edit.newValue}</p>
+                    )}
                   </div>
                 </div>
 

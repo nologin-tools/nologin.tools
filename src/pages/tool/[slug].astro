@@ -438,7 +438,7 @@ const jsonLd = {
   {/* Edit Suggestion Modal Backdrop (Custom UI) */}
   <div id="edit-form" class="hidden fixed inset-0 z-[60] flex items-center justify-center px-6">
     <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-sm"></div>
-    <div class="relative glass-card w-full max-w-xl rounded-[2.5rem] p-8 sm:p-10 shadow-2xl">
+    <div class="relative glass-card w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] p-8 sm:p-10 shadow-2xl">
       <h3 class="text-2xl font-black text-neutral-900 mb-6">Suggest an Edit</h3>
       <form id="edit-suggestion-form" class="space-y-6">
         <input type="hidden" name="toolId" value={tool.id} />
@@ -488,7 +488,7 @@ const jsonLd = {
           ></textarea>
         </div>
         <div id="edit-msg" class="hidden p-4 rounded-xl text-sm font-bold"></div>
-        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <div id="edit-buttons" class="flex flex-col sm:flex-row gap-3 pt-2">
           <button type="submit" class="btn-primary flex-1 justify-center py-4 rounded-2xl">Submit Suggestion</button>
           <button type="button" id="cancel-edit" class="btn-secondary flex-1 justify-center py-4 rounded-2xl">Cancel</button>
         </div>
@@ -536,9 +536,37 @@ const jsonLd = {
             tagEntries.push({ key: tagKey, value: value as string });
           }
         }
+        if (tagEntries.length === 0) {
+          if (editMsg) {
+            editMsg.textContent = 'Please select at least one tag.';
+            editMsg.className = 'text-sm text-red-500';
+            editMsg.classList.remove('hidden');
+          }
+          return;
+        }
         newValue = JSON.stringify(tagEntries);
       } else {
-        newValue = formData.get('newValue') as string;
+        newValue = (formData.get('newValue') as string || '').trim();
+        let validationError = '';
+        if (!newValue) {
+          validationError = 'New value cannot be empty.';
+        } else if (fieldName === 'name' && (newValue.length < 2 || newValue.length > 100)) {
+          validationError = 'Name must be between 2 and 100 characters.';
+        } else if (fieldName === 'description' && newValue.length > 500) {
+          validationError = 'Description must be max 500 characters.';
+        } else if (fieldName === 'coreTask' && newValue.length > 200) {
+          validationError = 'Core task must be max 200 characters.';
+        } else if (fieldName === 'url') {
+          try { new URL(newValue); } catch { validationError = 'Please enter a valid URL.'; }
+        }
+        if (validationError) {
+          if (editMsg) {
+            editMsg.textContent = validationError;
+            editMsg.className = 'text-sm text-red-500';
+            editMsg.classList.remove('hidden');
+          }
+          return;
+        }
       }
 
       try {
@@ -560,6 +588,17 @@ const jsonLd = {
             editMsg.className = 'text-sm text-green-600';
             editMsg.classList.remove('hidden');
             editSuggestionForm.reset();
+            document.getElementById('edit-buttons')?.classList.add('hidden');
+            setTimeout(() => {
+              editForm?.classList.add('hidden');
+              editMsg.classList.add('hidden');
+              editMsg.textContent = '';
+              document.getElementById('edit-buttons')?.classList.remove('hidden');
+              // Reset field selector and TagPicker visibility
+              if (editFieldSelect) editFieldSelect.value = 'name';
+              editValueWrap?.classList.remove('hidden');
+              editTagsWrap?.classList.add('hidden');
+            }, 1500);
           } else {
             editMsg.textContent = result.error || 'Failed to submit edit.';
             editMsg.className = 'text-sm text-red-500';

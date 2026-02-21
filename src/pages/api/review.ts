@@ -1,8 +1,10 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../db';
-import { tools, editSuggestions } from '../../db/schema';
-import { eq } from 'drizzle-orm';
+import { tools, tags, editSuggestions } from '../../db/schema';
+import { eq, and, ne } from 'drizzle-orm';
 import { api } from '../../lib/api';
+import { urlToSlug } from '../../lib/utils';
+import { TAG_DEFINITIONS } from '../../lib/tags';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const env = locals.runtime.env;
@@ -67,20 +69,72 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     if (!edit) return api.error('Edit suggestion not found.', 404);
 
-    // Apply the edit to the tool (only allow whitelisted fields)
-    const allowedFields = ['name', 'description', 'coreTask', 'url'] as const;
+    // Apply the edit to the tool
+    const allowedFields = ['name', 'description', 'coreTask', 'url', 'tags'] as const;
     type AllowedField = (typeof allowedFields)[number];
 
     if (!allowedFields.includes(edit.fieldName as AllowedField)) {
       return api.error('Invalid field for editing.', 400);
     }
 
-    const updateData: Record<string, string> = {};
-    updateData[edit.fieldName] = edit.newValue;
-    await db
-      .update(tools)
-      .set(updateData)
-      .where(eq(tools.id, edit.toolId));
+    if (edit.fieldName === 'tags') {
+      // Parse and validate tags JSON
+      let tagEntries: { key: string; value: string }[];
+      try {
+        tagEntries = JSON.parse(edit.newValue);
+        if (!Array.isArray(tagEntries)) throw new Error('Not an array');
+      } catch {
+        return api.error('Invalid tags data.', 400);
+      }
+
+      const validTags: { key: string; value: string }[] = [];
+      for (const tag of tagEntries) {
+        if (tag.key && tag.value) {
+          const def = TAG_DEFINITIONS.find((d) => d.key === tag.key);
+          if (def && def.values.includes(tag.value)) {
+            validTags.push({ key: tag.key, value: tag.value });
+          }
+        }
+      }
+
+      // Delete old tags and insert new ones
+      await db.delete(tags).where(eq(tags.toolId, edit.toolId));
+      if (validTags.length > 0) {
+        await db.insert(tags).values(
+          validTags.map((t) => ({
+            toolId: edit.toolId,
+            tagKey: t.key,
+            tagValue: t.value,
+          }))
+        );
+      }
+    } else if (edit.fieldName === 'url') {
+      // URL change requires slug update + uniqueness check
+      const newUrl = edit.newValue.trim();
+      try { new URL(newUrl); } catch {
+        return api.error('Invalid URL.', 400);
+      }
+      const newSlug = urlToSlug(newUrl);
+      const [existing] = await db
+        .select({ id: tools.id })
+        .from(tools)
+        .where(and(eq(tools.slug, newSlug), ne(tools.id, edit.toolId)))
+        .limit(1);
+      if (existing) {
+        return api.error('A tool with this URL already exists.', 400);
+      }
+      await db
+        .update(tools)
+        .set({ url: newUrl, slug: newSlug })
+        .where(eq(tools.id, edit.toolId));
+    } else {
+      const updateData: Record<string, string> = {};
+      updateData[edit.fieldName] = edit.newValue;
+      await db
+        .update(tools)
+        .set(updateData)
+        .where(eq(tools.id, edit.toolId));
+    }
 
     // Mark edit as approved
     await db

@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../db';
 import { tools, tags, editSuggestions } from '../../db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, and, ne } from 'drizzle-orm';
 import { api } from '../../lib/api';
-import { hashIp, getClientIp } from '../../lib/utils';
+import { hashIp, getClientIp, urlToSlug } from '../../lib/utils';
 
 const ALLOWED_FIELDS = ['name', 'description', 'coreTask', 'url', 'tags'];
 
@@ -41,6 +41,22 @@ export const POST: APIRoute = async ({ request, locals }) => {
   if (!tool) return api.error('Tool not found.', 404);
   if (tool.status !== 'approved') {
     return api.error('Only approved tools can be edited.', 400);
+  }
+
+  // URL uniqueness check
+  if (fieldName === 'url') {
+    try { new URL(newValue); } catch {
+      return api.error('Please enter a valid URL.', 400);
+    }
+    const newSlug = urlToSlug(newValue);
+    const [conflict] = await db
+      .select({ id: tools.id })
+      .from(tools)
+      .where(and(eq(tools.slug, newSlug), ne(tools.id, toolId)))
+      .limit(1);
+    if (conflict) {
+      return api.error('A tool with this URL already exists.', 400);
+    }
   }
 
   // Get current value
