@@ -24,6 +24,8 @@ const [approvedCount] = await db.select({ count: sql<number>`count(*)` }).from(t
 const [pendingCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'pending'));
 const [rejectedCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'rejected'));
 
+const [featuredCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.isFeatured, true));
+
 // Count offline approved tools (3 consecutive failures = offline)
 const offlineTools = await db.all(sql`
   SELECT COUNT(*) as count FROM tools t
@@ -159,7 +161,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
     <!-- ==================== PANEL: Dashboard ==================== -->
     <div id="panel-dashboard" class="tab-panel">
       <!-- Stats grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         <div class="border border-neutral-200 rounded-lg p-5">
           <p class="text-sm text-neutral-500 mb-1">Total Tools</p>
           <p class="text-3xl font-bold text-neutral-950">{totalCount.count}</p>
@@ -175,6 +177,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         <div class="border border-red-200 rounded-lg p-5 bg-red-50">
           <p class="text-sm text-red-600 mb-1">Offline</p>
           <p class="text-3xl font-bold text-red-700">{offlineCount}</p>
+        </div>
+        <div class="border border-yellow-200 rounded-lg p-5 bg-yellow-50">
+          <p class="text-sm text-yellow-600 mb-1">Featured</p>
+          <p class="text-3xl font-bold text-yellow-700">{featuredCount.count}</p>
         </div>
       </div>
 
@@ -224,6 +230,9 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
             Rejected <span class="ml-0.5 opacity-70">{rejectedCount.count}</span>
           </button>
         </div>
+        <button class="chip chip-default" id="featured-filter-btn">
+          ★ Featured <span class="ml-0.5 opacity-70">{featuredCount.count}</span>
+        </button>
         <div class="flex-1 min-w-[200px] max-w-sm">
           <input
             type="text"
@@ -316,6 +325,13 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                       <button class="btn-primary text-sm approve-btn" data-tool-id={tool.id}>Approve</button>
                       <button class="btn-secondary text-sm reject-toggle-btn" data-tool-id={tool.id}>Reject</button>
                     </Fragment>
+                  )}
+                  {tool.status === 'approved' && (
+                    tool.isFeatured ? (
+                      <button class="btn-primary text-sm feature-btn" data-tool-id={tool.id} data-featured="true">★ Featured</button>
+                    ) : (
+                      <button class="btn-secondary text-sm feature-btn" data-tool-id={tool.id} data-featured="false">☆ Feature</button>
+                    )
                   )}
                   <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id={tool.id}>Edit</button>
                   {tool.status === 'approved' && (
@@ -764,6 +780,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         status: currentStatus,
         search: currentSearch,
         page: currentPage,
+        ...(featuredFilterActive && { featured: true }),
       });
 
       if (!result.ok) {
@@ -819,11 +836,18 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
              </div>`
         : `<div class="bg-neutral-50 border border-neutral-200 rounded-md p-2 text-xs text-neutral-500">● No health check data</div>`;
 
+      const featureBtnHtml = tool.status === 'approved'
+        ? tool.isFeatured
+          ? `<button class="btn-primary text-sm feature-btn" data-tool-id="${tool.id}" data-featured="true">★ Featured</button>`
+          : `<button class="btn-secondary text-sm feature-btn" data-tool-id="${tool.id}" data-featured="false">☆ Feature</button>`
+        : '';
+
       const actionsHtml = `
         ${tool.status === 'pending' ? `
           <button class="btn-primary text-sm approve-btn" data-tool-id="${tool.id}">Approve</button>
           <button class="btn-secondary text-sm reject-toggle-btn" data-tool-id="${tool.id}">Reject</button>
         ` : ''}
+        ${featureBtnHtml}
         <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${tool.id}">Edit</button>
         ${tool.status === 'approved' ? `<button class="btn-secondary text-sm health-check-btn" data-tool-id="${tool.id}">Health Check</button>` : ''}
         <button class="btn-danger text-sm delete-btn" data-tool-id="${tool.id}">Delete</button>
@@ -923,6 +947,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
             // Update action buttons
             const actions = card.querySelector('.tool-actions')!;
             actions.innerHTML = `
+              <button class="btn-secondary text-sm feature-btn" data-tool-id="${toolId}" data-featured="false">☆ Feature</button>
               <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${toolId}">Edit</button>
               <button class="btn-secondary text-sm health-check-btn" data-tool-id="${toolId}">Health Check</button>
               <button class="btn-danger text-sm delete-btn" data-tool-id="${toolId}">Delete</button>
@@ -1100,6 +1125,35 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         });
       });
 
+      // Feature toggle
+      document.querySelectorAll('.feature-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const isFeatured = (btn as HTMLElement).dataset.featured === 'true';
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = isFeatured ? 'Unfeaturing...' : 'Featuring...';
+
+          const result = await adminFetch('/api/admin/tool-feature', { toolId, featured: !isFeatured });
+          if (result.ok) {
+            showToast(isFeatured ? 'Tool unfeatured.' : 'Tool featured!');
+            if (isFeatured) {
+              b.className = 'btn-secondary text-sm feature-btn';
+              b.textContent = '☆ Feature';
+              b.dataset.featured = 'false';
+            } else {
+              b.className = 'btn-primary text-sm feature-btn';
+              b.textContent = '★ Featured';
+              b.dataset.featured = 'true';
+            }
+          } else {
+            showToast(result.error || 'Failed to toggle feature.', 'error');
+            b.textContent = isFeatured ? '★ Featured' : '☆ Feature';
+          }
+          b.disabled = false;
+        });
+      });
+
       // Health check (tools tab)
       document.querySelectorAll('.health-check-btn').forEach((btn) => {
         btn.addEventListener('click', async () => {
@@ -1139,6 +1193,23 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
     // Bind SSR-rendered tool cards
     bindToolActions();
+
+    // ===== Featured filter =====
+    let featuredFilterActive = false;
+    const featuredFilterBtn = document.getElementById('featured-filter-btn')!;
+    featuredFilterBtn.addEventListener('click', () => {
+      featuredFilterActive = !featuredFilterActive;
+      if (featuredFilterActive) {
+        featuredFilterBtn.classList.remove('chip-default');
+        featuredFilterBtn.classList.add('chip-active');
+      } else {
+        featuredFilterBtn.classList.remove('chip-active');
+        featuredFilterBtn.classList.add('chip-default');
+      }
+      currentPage = 1;
+      isSSRData = false;
+      loadTools();
+    });
 
     // ===== Tag picker builder (for dynamic cards) =====
     const TAG_DEFINITIONS: { key: string; label: string; values: string[]; multiSelect: boolean }[] =

@@ -18,7 +18,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Invalid JSON body.', 400);
   }
 
-  const { secret, status, search, page = 1 } = body;
+  const { secret, status, search, page = 1, featured } = body;
 
   if (!env.ADMIN_SECRET || secret !== env.ADMIN_SECRET) {
     return api.error('Unauthorized.', 401);
@@ -28,6 +28,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const conditions = [];
   if (status && status !== 'all') {
     conditions.push(eq(tools.status, status));
+  }
+  if (featured === true) {
+    conditions.push(eq(tools.isFeatured, true));
   }
   if (search && typeof search === 'string' && search.trim()) {
     const term = `%${search.trim()}%`;
