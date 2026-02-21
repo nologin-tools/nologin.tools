@@ -493,6 +493,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         <h2 class="text-lg font-semibold">Health Monitoring</h2>
         <div class="flex items-center gap-3">
           <span id="bulk-health-progress" class="text-sm text-neutral-500 hidden"></span>
+          <button id="bulk-health-abnormal-btn" class="text-sm px-3 py-1.5 rounded-md font-medium bg-amber-100 text-amber-700 border border-amber-300 hover:bg-amber-200 transition-colors">Check Abnormal (<span id="abnormal-count">{healthUnstable + healthOffline + healthNoData}</span>)</button>
           <button id="bulk-health-btn" class="btn-primary text-sm">Run All Checks</button>
         </div>
       </div>
@@ -535,7 +536,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
             </thead>
             <tbody>
               {healthList.map((item) => (
-                <tr class="health-row" data-tool-id={item.tool.id}>
+                <tr class="health-row" data-tool-id={item.tool.id} data-status={item.health === null ? 'unknown' : item.health.effectiveStatus}>
                   <td>
                     <a href={`/tool/${item.tool.slug}`} target="_blank" class="font-medium text-blue-600 hover:underline">{item.tool.name}</a>
                   </td>
@@ -1382,7 +1383,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
     // ===== Health tab: run check =====
     function updateHealthRow(toolId: number, d: { isOnline: boolean; effectiveStatus: string; httpStatus?: number; responseTimeMs?: number }) {
-      const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`);
+      const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`) as HTMLElement | null;
       if (!row) return;
       const statusEl = row.querySelector('.health-status')!;
       if (d.effectiveStatus === 'online') {
@@ -1392,9 +1393,18 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
       } else {
         statusEl.innerHTML = '<span class="text-red-600 font-medium">● Offline</span>';
       }
+      row.dataset.status = d.effectiveStatus || 'offline';
       row.querySelector('.health-http')!.textContent = d.httpStatus != null ? String(d.httpStatus) : '—';
       row.querySelector('.health-time')!.textContent = d.responseTimeMs != null ? `${d.responseTimeMs}ms` : '—';
       row.querySelector('.health-checked')!.textContent = 'just now';
+      updateAbnormalCount();
+    }
+
+    function updateAbnormalCount() {
+      const el = document.getElementById('abnormal-count');
+      if (!el) return;
+      const count = document.querySelectorAll('.health-row[data-status="unstable"], .health-row[data-status="offline"], .health-row[data-status="unknown"]').length;
+      el.textContent = String(count);
     }
 
     document.querySelectorAll('.run-health-btn').forEach((btn) => {
@@ -1424,9 +1434,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
     // ===== Health tab: bulk check =====
     (() => {
-      const bulkBtn = document.getElementById('bulk-health-btn') as HTMLButtonElement;
+      const bulkAllBtn = document.getElementById('bulk-health-btn') as HTMLButtonElement;
+      const bulkAbnormalBtn = document.getElementById('bulk-health-abnormal-btn') as HTMLButtonElement;
       const progressEl = document.getElementById('bulk-health-progress')!;
-      if (!bulkBtn) return;
+      if (!bulkAllBtn) return;
 
       let abortController: AbortController | null = null;
       let isBulkRunning = false;
@@ -1437,15 +1448,13 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         });
       }
 
-      bulkBtn.addEventListener('click', async () => {
-        if (isBulkRunning) {
-          // Cancel
-          abortController?.abort();
-          return;
-        }
+      function setBulkBtnsDisabled(disabled: boolean, activeBtn?: HTMLButtonElement) {
+        [bulkAllBtn, bulkAbnormalBtn].forEach((btn) => {
+          if (btn && btn !== activeBtn) btn.disabled = disabled;
+        });
+      }
 
-        const rows = document.querySelectorAll('.health-row[data-tool-id]');
-        const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
+      async function runBulkCheck(toolIds: number[], triggerBtn: HTMLButtonElement, originalLabel: string) {
         if (toolIds.length === 0) {
           showToast('No tools to check.', 'error');
           return;
@@ -1453,10 +1462,15 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
         isBulkRunning = true;
         abortController = new AbortController();
-        bulkBtn.textContent = 'Cancel';
-        bulkBtn.classList.remove('btn-primary');
-        bulkBtn.classList.add('btn-danger');
+        triggerBtn.textContent = 'Cancel';
+        triggerBtn.classList.remove('btn-primary');
+        triggerBtn.classList.add('btn-danger');
+        // Remove amber styling if it's the abnormal button
+        if (triggerBtn === bulkAbnormalBtn) {
+          triggerBtn.classList.remove('bg-amber-100', 'text-amber-700', 'border-amber-300', 'hover:bg-amber-200');
+        }
         setIndividualBtnsDisabled(true);
+        setBulkBtnsDisabled(true, triggerBtn);
 
         let completed = 0;
         let online = 0;
@@ -1499,10 +1513,15 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         // Reset UI
         isBulkRunning = false;
         abortController = null;
-        bulkBtn.textContent = 'Run All Checks';
-        bulkBtn.classList.remove('btn-danger');
-        bulkBtn.classList.add('btn-primary');
+        triggerBtn.textContent = originalLabel;
+        triggerBtn.classList.remove('btn-danger');
+        if (triggerBtn === bulkAllBtn) {
+          triggerBtn.classList.add('btn-primary');
+        } else if (triggerBtn === bulkAbnormalBtn) {
+          triggerBtn.classList.add('bg-amber-100', 'text-amber-700', 'border-amber-300', 'hover:bg-amber-200');
+        }
         setIndividualBtnsDisabled(false);
+        setBulkBtnsDisabled(false);
 
         const summary = `${online} online, ${unstable} unstable, ${offline} offline`;
         if (signal.aborted) {
@@ -1513,7 +1532,29 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
           showToast(`Health check complete: ${summary}`);
         }
         setTimeout(() => progressEl.classList.add('hidden'), 5000);
+      }
+
+      bulkAllBtn.addEventListener('click', async () => {
+        if (isBulkRunning) {
+          abortController?.abort();
+          return;
+        }
+        const rows = document.querySelectorAll('.health-row[data-tool-id]');
+        const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
+        await runBulkCheck(toolIds, bulkAllBtn, 'Run All Checks');
       });
+
+      if (bulkAbnormalBtn) {
+        bulkAbnormalBtn.addEventListener('click', async () => {
+          if (isBulkRunning) {
+            abortController?.abort();
+            return;
+          }
+          const rows = document.querySelectorAll('.health-row[data-status="unstable"], .health-row[data-status="offline"], .health-row[data-status="unknown"]');
+          const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
+          await runBulkCheck(toolIds, bulkAbnormalBtn, bulkAbnormalBtn.textContent || 'Check Abnormal');
+        });
+      }
     })();
   </script>
 </Layout>

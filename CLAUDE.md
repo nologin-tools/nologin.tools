@@ -81,7 +81,7 @@ workers/cron/             # Health checks, badge detection, data export
   - **Dashboard**: Stats overview (total/approved/pending/unstable/offline/featured) + recent submissions table
   - **Tools**: Full CRUD — status filter chips, search, pagination via `POST /api/admin/tools`; inline edit/reject forms; approve/reject/edit/delete/health-check actions
   - **Edits**: Pending edit suggestions review (approve & apply / reject)
-  - **Health**: Health monitoring table for approved tools with manual "Run Check" button. "Run All Checks" bulk button runs all tools with 3 concurrent requests, shows real-time progress, supports cancel via `AbortController`, and displays summary toast on completion. Individual "Run Check" buttons are disabled during bulk runs.
+  - **Health**: Health monitoring table for approved tools with manual "Run Check" button. "Run All Checks" bulk button runs all tools with 3 concurrent requests, shows real-time progress, supports cancel via `AbortController`, and displays summary toast on completion. "Check Abnormal" button (amber-styled) runs checks only for tools with unstable/offline/unknown status, showing live abnormal count; both bulk buttons share `abortController`/`isBulkRunning` state and disable each other + individual buttons during runs. Health table rows carry `data-status` attribute (`online`/`unstable`/`offline`/`unknown`) updated after each check for client-side filtering.
   - **Export**: Manual "Export Now" button + export history table (time, source cron/manual, tool count, files updated, status)
   - Toast notifications (success/error, 3s auto-dismiss), loading states on buttons, `confirm()` for destructive actions
 - **Admin API endpoints** (all POST, require `secret`):
