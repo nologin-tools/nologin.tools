@@ -285,6 +285,11 @@ const jsonLd = {
             NoLogin Verified
           </a>
         )}
+        {tool.isFeatured && (
+          <span class="inline-flex items-center gap-1 text-yellow-600 font-medium">
+            ★ Featured
+          </span>
+        )}
         {isVerified && tool.approvedAt && (
           <span class="text-neutral-400">
             · Since {formatDate(tool.approvedAt)}
