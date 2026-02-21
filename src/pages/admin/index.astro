@@ -1174,11 +1174,12 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
           const result = await adminFetch('/api/admin/health-check', { toolId });
           if (result.ok) {
             const d = result.data;
-            showToast(`Health check: ${d.isOnline ? 'Online' : 'Offline'}`);
+            const effective = d.effectiveIsOnline;
+            showToast(`Health check: ${effective ? 'Online' : 'Offline'}`);
             const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
             const healthDisplay = card?.querySelector('.health-display');
             if (healthDisplay) {
-              healthDisplay.innerHTML = d.isOnline
+              healthDisplay.innerHTML = effective
                 ? `<div class="bg-green-50 border border-green-200 rounded-md p-2 text-xs text-green-800 flex items-center gap-3">
                      <span class="font-medium">● Online</span>
                      <span>HTTP ${d.httpStatus}</span>
@@ -1317,11 +1318,11 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
     });
 
     // ===== Health tab: run check =====
-    function updateHealthRow(toolId: number, d: { isOnline: boolean; httpStatus?: number; responseTimeMs?: number }) {
+    function updateHealthRow(toolId: number, d: { isOnline: boolean; effectiveIsOnline: boolean; httpStatus?: number; responseTimeMs?: number }) {
       const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`);
       if (!row) return;
       const statusEl = row.querySelector('.health-status')!;
-      statusEl.innerHTML = d.isOnline
+      statusEl.innerHTML = d.effectiveIsOnline
         ? '<span class="text-green-600 font-medium">● Online</span>'
         : '<span class="text-red-600 font-medium">● Offline</span>';
       row.querySelector('.health-http')!.textContent = d.httpStatus != null ? String(d.httpStatus) : '—';
@@ -1338,8 +1339,14 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
         const result = await adminFetch('/api/admin/health-check', { toolId });
         if (result.ok) {
-          showToast(`Health: ${result.data.isOnline ? 'Online' : 'Offline'}`);
-          updateHealthRow(toolId, result.data);
+          const d = result.data;
+          const checkLabel = d.isOnline ? 'Online' : 'Offline';
+          const effectiveLabel = d.effectiveIsOnline ? 'Online' : 'Offline';
+          const msg = d.isOnline !== d.effectiveIsOnline
+            ? `Check: ${checkLabel} (effective: ${effectiveLabel} per tolerance)`
+            : `Health: ${effectiveLabel}`;
+          showToast(msg);
+          updateHealthRow(toolId, d);
         } else {
           showToast(result.error || 'Health check failed.', 'error');
         }
@@ -1405,7 +1412,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
               if (signal.aborted) return;
               if (result.ok) {
                 updateHealthRow(toolId, result.data);
-                if (result.data.isOnline) online++; else offline++;
+                if (result.data.effectiveIsOnline) online++; else offline++;
               }
             } catch {
               if (signal.aborted) return;

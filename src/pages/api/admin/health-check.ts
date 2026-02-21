@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../../db';
 import { tools, healthChecks } from '../../../db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, desc } from 'drizzle-orm';
 import { api } from '../../../lib/api';
-import { checkHealth } from '../../../lib/health';
+import { checkHealth, HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../../lib/health';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const env = locals.runtime.env;
@@ -50,9 +50,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
     responseTimeMs: result.responseTimeMs,
   });
 
+  // Query recent checks for tolerance-based effective status
+  const recentChecks = await db
+    .select({ isOnline: healthChecks.isOnline })
+    .from(healthChecks)
+    .where(eq(healthChecks.toolId, tool.id))
+    .orderBy(desc(healthChecks.checkedAt))
+    .limit(HEALTH_TOLERANCE);
+  const effectiveIsOnline = resolveEffectiveStatus(recentChecks) ?? result.isOnline;
+
   return api.success({
     toolId: tool.id,
     isOnline: result.isOnline,
+    effectiveIsOnline,
     httpStatus: result.httpStatus,
     responseTimeMs: result.responseTimeMs,
     checkedAt: now.toISOString(),
