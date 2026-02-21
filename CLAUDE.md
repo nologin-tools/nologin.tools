@@ -48,7 +48,7 @@ workers/cron/             # Health checks, badge detection, data export
 - **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to initial letter on error via inline `onerror`. Requires `url` prop.
 - **Featured tools**: Admin can mark approved tools as "featured" for higher visibility:
   - `POST /api/admin/tool-feature` — toggle `isFeatured` + `featuredAt` (only approved tools)
-  - Homepage grouped mode: Featured section appears **above** category groups, showing all featured tools sorted by `featuredAt` desc. Featured tools **still appear** in their category groups.
+  - Homepage grouped mode: **Spotlight Carousel** appears **above** category groups. Single large card at a time, auto-rotates every 5s with fade+slide animation. Navigation: prev/next arrow buttons + dot indicators (hidden when only 1 featured). Hover pauses autoplay, keyboard ←/→ supported. Cards use custom layout (not ToolCard): 28px favicon, `text-xl` title, up to 5 tags, "Visit Tool →" CTA (sm+). SSR renders all slides (first active, rest `opacity-0`). JS carousel logic in IIFE at page bottom. Featured tools **still appear** in their category groups.
   - Homepage flat mode: Featured tools get +8 recommendation score boost (`CASE WHEN is_featured = 1 THEN 8 ELSE 0 END`)
   - ToolCard: `isFeatured` prop → gold border (`border-yellow-300`), pale yellow bg (`bg-yellow-50/30`), ★ star icon
   - Tool detail page: ★ Featured label next to NoLogin Verified
@@ -141,6 +141,7 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 - **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)
 - **TagPicker**: Uses checkboxes for all dimensions; single-select enforced via JS (allows deselect). Wrapper has `.tag-picker-container` for multi-instance isolation. Labels carry `data-tag-group` and `data-multi-select` attributes.
 - **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables)
+- **Spotlight Carousel**: `.spotlight-track` (overflow container), `.spotlight-slide` (absolute positioned base), `.spotlight-slide-active` (visible, relative to set height), `.spotlight-slide-exit` / `.spotlight-slide-enter-right` / `.spotlight-slide-enter-left` (transition states), `.spotlight-dot` / `.spotlight-dot-active` (indicator dots)
 
 ## CI/CD
 

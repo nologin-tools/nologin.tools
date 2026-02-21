@@ -77,4 +77,30 @@
   .admin-table th { @apply text-left px-4 py-3 text-neutral-500 font-medium bg-neutral-50 border-b; }
   .admin-table td { @apply px-4 py-3 border-b border-neutral-100; }
   .admin-table tr:hover td { @apply bg-neutral-50; }
+
+  /* Spotlight Carousel */
+  .spotlight-track {
+    @apply relative overflow-hidden;
+  }
+  .spotlight-slide {
+    @apply absolute inset-0 transition-all duration-500 ease-in-out;
+  }
+  .spotlight-slide-active {
+    @apply relative opacity-100 translate-x-0;
+  }
+  .spotlight-slide-exit {
+    @apply opacity-0;
+  }
+  .spotlight-slide-enter-right {
+    @apply opacity-0 translate-x-8;
+  }
+  .spotlight-slide-enter-left {
+    @apply opacity-0 -translate-x-8;
+  }
+  .spotlight-dot {
+    @apply w-2 h-2 rounded-full bg-neutral-200 transition-all duration-300 cursor-pointer hover:bg-neutral-400;
+  }
+  .spotlight-dot-active {
+    @apply w-6 bg-gradient-to-r from-yellow-400 to-amber-500 shadow-sm;
+  }
 }
