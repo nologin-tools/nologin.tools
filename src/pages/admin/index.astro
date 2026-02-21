@@ -448,6 +448,15 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
     <!-- ==================== PANEL: Health ==================== -->
     <div id="panel-health" class="tab-panel hidden">
+      <!-- Health header with bulk check -->
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold">Health Monitoring</h2>
+        <div class="flex items-center gap-3">
+          <span id="bulk-health-progress" class="text-sm text-neutral-500 hidden"></span>
+          <button id="bulk-health-btn" class="btn-primary text-sm">Run All Checks</button>
+        </div>
+      </div>
+
       <!-- Health stats -->
       <div class="grid grid-cols-3 gap-4 mb-6">
         <div class="border border-green-200 rounded-lg p-4 bg-green-50">
@@ -1308,6 +1317,18 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
     });
 
     // ===== Health tab: run check =====
+    function updateHealthRow(toolId: number, d: { isOnline: boolean; httpStatus?: number; responseTimeMs?: number }) {
+      const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`);
+      if (!row) return;
+      const statusEl = row.querySelector('.health-status')!;
+      statusEl.innerHTML = d.isOnline
+        ? '<span class="text-green-600 font-medium">● Online</span>'
+        : '<span class="text-red-600 font-medium">● Offline</span>';
+      row.querySelector('.health-http')!.textContent = d.httpStatus != null ? String(d.httpStatus) : '—';
+      row.querySelector('.health-time')!.textContent = d.responseTimeMs != null ? `${d.responseTimeMs}ms` : '—';
+      row.querySelector('.health-checked')!.textContent = 'just now';
+    }
+
     document.querySelectorAll('.run-health-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const toolId = Number((btn as HTMLElement).dataset.toolId);
@@ -1317,18 +1338,8 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
         const result = await adminFetch('/api/admin/health-check', { toolId });
         if (result.ok) {
-          const d = result.data;
-          showToast(`Health: ${d.isOnline ? 'Online' : 'Offline'}`);
-          const row = document.querySelector(`.health-row[data-tool-id="${toolId}"]`);
-          if (row) {
-            const statusEl = row.querySelector('.health-status')!;
-            statusEl.innerHTML = d.isOnline
-              ? '<span class="text-green-600 font-medium">● Online</span>'
-              : '<span class="text-red-600 font-medium">● Offline</span>';
-            row.querySelector('.health-http')!.textContent = d.httpStatus ?? '—';
-            row.querySelector('.health-time')!.textContent = d.responseTimeMs != null ? `${d.responseTimeMs}ms` : '—';
-            row.querySelector('.health-checked')!.textContent = 'just now';
-          }
+          showToast(`Health: ${result.data.isOnline ? 'Online' : 'Offline'}`);
+          updateHealthRow(toolId, result.data);
         } else {
           showToast(result.error || 'Health check failed.', 'error');
         }
@@ -1336,5 +1347,94 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
         b.textContent = 'Run Check';
       });
     });
+
+    // ===== Health tab: bulk check =====
+    (() => {
+      const bulkBtn = document.getElementById('bulk-health-btn') as HTMLButtonElement;
+      const progressEl = document.getElementById('bulk-health-progress')!;
+      if (!bulkBtn) return;
+
+      let abortController: AbortController | null = null;
+      let isBulkRunning = false;
+
+      function setIndividualBtnsDisabled(disabled: boolean) {
+        document.querySelectorAll('.run-health-btn').forEach((b) => {
+          (b as HTMLButtonElement).disabled = disabled;
+        });
+      }
+
+      bulkBtn.addEventListener('click', async () => {
+        if (isBulkRunning) {
+          // Cancel
+          abortController?.abort();
+          return;
+        }
+
+        const rows = document.querySelectorAll('.health-row[data-tool-id]');
+        const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
+        if (toolIds.length === 0) {
+          showToast('No tools to check.', 'error');
+          return;
+        }
+
+        isBulkRunning = true;
+        abortController = new AbortController();
+        bulkBtn.textContent = 'Cancel';
+        bulkBtn.classList.remove('btn-primary');
+        bulkBtn.classList.add('btn-danger');
+        setIndividualBtnsDisabled(true);
+
+        let completed = 0;
+        let online = 0;
+        let offline = 0;
+        const total = toolIds.length;
+        progressEl.classList.remove('hidden');
+        progressEl.textContent = `0 / ${total}`;
+
+        const CONCURRENCY = 3;
+        let index = 0;
+        const signal = abortController.signal;
+
+        async function next(): Promise<void> {
+          while (index < total) {
+            if (signal.aborted) return;
+            const i = index++;
+            const toolId = toolIds[i];
+            try {
+              const result = await adminFetch('/api/admin/health-check', { toolId });
+              if (signal.aborted) return;
+              if (result.ok) {
+                updateHealthRow(toolId, result.data);
+                if (result.data.isOnline) online++; else offline++;
+              }
+            } catch {
+              if (signal.aborted) return;
+            }
+            completed++;
+            progressEl.textContent = `${completed} / ${total}`;
+          }
+        }
+
+        const workers = Array.from({ length: Math.min(CONCURRENCY, total) }, () => next());
+        await Promise.all(workers);
+
+        // Reset UI
+        isBulkRunning = false;
+        abortController = null;
+        bulkBtn.textContent = 'Run All Checks';
+        bulkBtn.classList.remove('btn-danger');
+        bulkBtn.classList.add('btn-primary');
+        setIndividualBtnsDisabled(false);
+
+        if (signal.aborted) {
+          progressEl.textContent = `Cancelled (${completed} / ${total})`;
+          showToast(`Health check cancelled: ${online} online, ${offline} offline`, 'error');
+        } else {
+          progressEl.textContent = `Done: ${online} online, ${offline} offline`;
+          showToast(`Health check complete: ${online} online, ${offline} offline`);
+        }
+        setTimeout(() => progressEl.classList.add('hidden'), 5000);
+      });
+    })();
   </script>
 </Layout>
