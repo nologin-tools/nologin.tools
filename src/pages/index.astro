@@ -267,6 +267,32 @@ function buildUrl(params: Record<string, string>) {
       );
     })()}
 
+    <!-- Active Filters -->
+    {activeFilters.length > 0 && (
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        {activeFilters.map((f) => {
+          const def = TAG_DEFINITIONS.find((d) => d.key === f.key);
+          const label = f.key === 'category' ? f.value : `${def?.label || f.key}: ${f.value}`;
+          return (
+            <a
+              href={buildUrl({ [f.key]: '', page: '' })}
+              class="chip chip-active gap-1"
+            >
+              {label}
+              <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3l6 6M9 3l-6 6" />
+              </svg>
+            </a>
+          );
+        })}
+        {activeFilters.length > 1 && (
+          <a href={buildUrl(Object.fromEntries([...activeFilters.map((f) => [f.key, '']), ['page', '']]))} class="text-xs text-neutral-400 hover:text-neutral-600 transition-colors">
+            Clear all
+          </a>
+        )}
+      </div>
+    )}
+
     <!-- More Filters (collapsed by default, auto-expand when non-category filters active) -->
     {(() => {
       const nonCategoryDefs = TAG_DEFINITIONS.filter((def) => def.key !== 'category');
