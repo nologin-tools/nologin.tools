@@ -46,6 +46,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
       .set({
         status: 'rejected',
         rejectionReason: reason || null,
+        isFeatured: false,
+        featuredAt: null,
       })
       .where(eq(tools.id, toolId));
 
