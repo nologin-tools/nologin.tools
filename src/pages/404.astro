@@ -3,12 +3,31 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Page Not Found" description="The page you're looking for doesn't exist.">
+  {/* Background Elements */}
+  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-red-100/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-48 -right-48 w-80 h-80 bg-neutral-100/10 blur-3xl rounded-full"></div>
+  </div>
+
   <div class="max-w-6xl mx-auto px-6 py-32 text-center">
-    <p class="text-8xl font-bold text-neutral-200 mb-4">404</p>
-    <h1 class="text-2xl font-bold text-neutral-950 mb-2">Page not found</h1>
-    <p class="text-neutral-500 mb-8">
-      The page you're looking for doesn't exist or has been moved.
+    <div class="relative inline-block mb-10">
+      <div class="absolute inset-0 bg-neutral-200/30 blur-3xl rounded-full scale-150 animate-pulse"></div>
+      <p class="relative text-[12rem] font-black leading-none text-neutral-900/5 select-none">404</p>
+      <div class="absolute inset-0 flex items-center justify-center">
+         <div class="w-24 h-24 bg-white border border-neutral-100 rounded-[2.5rem] shadow-2xl flex items-center justify-center text-neutral-300">
+           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+         </div>
+      </div>
+    </div>
+    
+    <h1 class="text-4xl font-black text-neutral-900 mb-4 tracking-tight">Lost in the Directory</h1>
+    <p class="text-xl text-neutral-500 mb-12 max-w-md mx-auto font-medium leading-relaxed">
+      The page you're looking for doesn't exist or has been moved to a new location.
     </p>
-    <a href="/" class="btn-primary">Back to Home</a>
+    
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="/" class="btn-primary px-10 py-4 rounded-2xl font-black shadow-xl shadow-green-100">Back to Tools</a>
+      <a href="/about" class="btn-secondary px-10 py-4 rounded-2xl font-black">Learn More</a>
+    </div>
   </div>
 </Layout>

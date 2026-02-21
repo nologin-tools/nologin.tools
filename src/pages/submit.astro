@@ -7,56 +7,64 @@ import TagPicker from '../components/TagPicker.astro';
   title="Submit a Tool"
   description="Submit a tool that works without login to the nologin.tools directory."
 >
-  <div class="max-w-2xl mx-auto px-6 py-16">
-    <h1 class="text-3xl font-bold tracking-tight mb-2">Submit a Tool</h1>
-    <p class="text-neutral-500 mb-8">
-      Share a tool that works without login. We'll review it and add it to the
-      directory.
-    </p>
+  {/* Background Elements */}
+  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
+  </div>
 
-    <form id="submit-form" class="space-y-8" novalidate>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
+    <div class="text-center mb-12 sm:mb-16">
+      <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-neutral-900 mb-4 px-2">Submit a Tool</h1>
+      <p class="text-base sm:text-xl text-neutral-500 max-w-xl mx-auto leading-relaxed px-4">
+        Help the community by sharing tools that respect user privacy and work without a login.
+      </p>
+    </div>
+
+    <form id="submit-form" class="space-y-8 sm:space-y-10" novalidate>
       <!-- Tool Information -->
-      <section class="space-y-4">
-        <h2 class="text-lg font-semibold text-neutral-950">
-          Tool Information
+      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">1</div>
+           Tool Information
         </h2>
 
-        <div>
-          <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">
-            Tool Name <span class="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            minlength="2"
-            maxlength="100"
-            placeholder="e.g. Excalidraw"
-            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
-                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-          />
-          <p class="text-xs text-red-500 mt-1 hidden" data-error="name"></p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+              Tool Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              minlength="2"
+              maxlength="100"
+              placeholder="e.g. Excalidraw"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="name"></p>
+          </div>
+
+          <div>
+            <label for="url" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+              Tool URL <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              placeholder="https://excalidraw.com"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="url"></p>
+          </div>
         </div>
 
         <div>
-          <label for="url" class="block text-sm font-medium text-neutral-700 mb-1">
-            Tool URL <span class="text-red-500">*</span>
-          </label>
-          <input
-            type="url"
-            id="url"
-            name="url"
-            required
-            placeholder="https://excalidraw.com"
-            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
-                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-          />
-          <p class="text-xs text-red-500 mt-1 hidden" data-error="url"></p>
-        </div>
-
-        <div>
-          <label for="description" class="block text-sm font-medium text-neutral-700 mb-1">
+          <label for="description" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
             Description <span class="text-red-500">*</span>
           </label>
           <textarea
@@ -64,44 +72,43 @@ import TagPicker from '../components/TagPicker.astro';
             name="description"
             required
             maxlength="500"
-            rows="3"
+            rows="4"
             placeholder="A brief description of what this tool does..."
-            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
-                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition-all"
           ></textarea>
-          <div class="flex justify-end">
-            <span class="text-xs text-neutral-400" id="char-count">0/500</span>
+          <div class="flex justify-end mt-2">
+            <span class="text-[9px] font-black uppercase tracking-widest text-neutral-300" id="char-count">0/500</span>
           </div>
-          <p class="text-xs text-red-500 mt-1 hidden" data-error="description"></p>
+          <p class="text-xs text-red-500 mt-1 font-bold hidden" data-error="description"></p>
         </div>
       </section>
 
       <!-- No-Login Verification -->
-      <section class="space-y-4">
-        <h2 class="text-lg font-semibold text-neutral-950">
-          No-Login Verification
+      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">2</div>
+           Verification
         </h2>
 
-        <div>
-          <label class="flex items-start gap-3 cursor-pointer">
+        <div class="p-5 sm:p-6 bg-green-50/50 border border-green-100 rounded-2xl sm:rounded-[2rem]">
+          <label class="flex items-start gap-3 sm:gap-4 cursor-pointer">
             <input
               type="checkbox"
               id="pledge"
               name="pledge"
               required
-              class="mt-0.5 w-4 h-4 text-green-500 border-neutral-300 rounded
-                     focus:ring-green-500"
+              class="mt-1 w-5 h-5 sm:w-6 sm:h-6 text-green-600 border-neutral-300 rounded-lg sm:rounded-xl focus:ring-green-500 transition-all"
             />
-            <span class="text-sm text-neutral-700">
+            <span class="text-sm text-green-900 font-bold leading-relaxed">
               I confirm this tool's core functionality works without creating an
-              account or logging in. <span class="text-red-500">*</span>
+              account or logging in. <span class="text-red-500 font-black">*</span>
             </span>
           </label>
-          <p class="text-xs text-red-500 mt-1 hidden" data-error="pledge"></p>
+          <p class="text-xs text-red-500 mt-3 font-bold hidden" data-error="pledge"></p>
         </div>
 
         <div>
-          <label for="coreTask" class="block text-sm font-medium text-neutral-700 mb-1">
+          <label for="coreTask" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
             What can you do without login? <span class="text-red-500">*</span>
           </label>
           <input
@@ -111,28 +118,31 @@ import TagPicker from '../components/TagPicker.astro';
             required
             maxlength="200"
             placeholder='e.g. "Draw diagrams and export to PNG"'
-            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
-                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
           />
-          <p class="text-xs text-red-500 mt-1 hidden" data-error="coreTask"></p>
+          <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="coreTask"></p>
         </div>
       </section>
 
       <!-- Tags -->
-      <section class="space-y-4">
-        <h2 class="text-lg font-semibold text-neutral-950">Tags</h2>
+      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">3</div>
+           Classification
+        </h2>
         <TagPicker />
       </section>
 
       <!-- Contact Email -->
-      <section class="space-y-4">
-        <h2 class="text-lg font-semibold text-neutral-950">
-          Contact Information
+      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">4</div>
+           Contact (Optional)
         </h2>
 
         <div>
-          <label for="submitterEmail" class="block text-sm font-medium text-neutral-700 mb-1">
-            Email <span class="text-neutral-400 font-normal">(optional)</span>
+          <label for="submitterEmail" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            Email Address
           </label>
           <input
             type="email"
@@ -140,30 +150,34 @@ import TagPicker from '../components/TagPicker.astro';
             name="submitterEmail"
             maxlength="254"
             placeholder="you@example.com"
-            class="w-full px-3 py-2 border border-neutral-300 rounded-md text-sm
-                   focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
           />
-          <p class="text-xs text-neutral-400 mt-1">
-            Only visible to reviewers. We may use it to contact you about your submission.
+          <p class="text-xs text-neutral-400 mt-3 font-medium italic">
+            Only visible to reviewers.
           </p>
-          <p class="text-xs text-red-500 mt-1 hidden" data-error="submitterEmail"></p>
+          <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="submitterEmail"></p>
         </div>
       </section>
 
       <!-- Error message -->
       <div
         id="form-error"
-        class="hidden p-4 bg-red-50 border border-red-200 rounded-md text-sm text-red-700"
+        class="hidden p-5 sm:p-6 bg-red-50 border border-red-200 rounded-[1.5rem] sm:rounded-[2rem] text-sm text-red-700 font-bold shadow-sm"
       ></div>
 
       <!-- Submit -->
-      <button
-        type="submit"
-        id="submit-btn"
-        class="btn-primary w-full justify-center py-3"
-      >
-        Submit Tool
-      </button>
+      <div class="pt-4 px-2 sm:px-0">
+        <button
+          type="submit"
+          id="submit-btn"
+          class="btn-primary w-full justify-center py-4 sm:py-5 rounded-[1.5rem] sm:rounded-[2rem] text-base sm:text-lg font-black"
+        >
+          Submit Tool for Review
+        </button>
+        <p class="text-center text-[10px] text-neutral-400 mt-6 font-medium px-4">
+          By submitting, you agree that the information provided is accurate and adheres to our quality standards.
+        </p>
+      </div>
     </form>
   </div>
 
@@ -182,7 +196,10 @@ import TagPicker from '../components/TagPicker.astro';
       e.preventDefault();
 
       // Clear errors
-      document.querySelectorAll('[data-error]').forEach((el) => el.classList.add('hidden'));
+      document.querySelectorAll('[data-error]').forEach((el) => {
+        el.classList.add('hidden');
+        el.parentElement?.querySelector('input, textarea')?.classList.remove('border-red-500', 'bg-red-50/50', 'ring-2', 'ring-red-500/20');
+      });
       formError.classList.add('hidden');
 
       const formData = new FormData(form);
@@ -207,7 +224,7 @@ import TagPicker from '../components/TagPicker.astro';
       // Client-side validation
       let hasError = false;
       if (!data.name || (data.name as string).length < 2) {
-        showError('name', 'Name must be at least 2 characters.');
+        showError('name', 'Please enter a valid tool name (min 2 chars).');
         hasError = true;
       }
       if (!data.url) {
@@ -217,30 +234,47 @@ import TagPicker from '../components/TagPicker.astro';
         try {
           new URL(data.url as string);
         } catch {
-          showError('url', 'Please enter a valid URL.');
+          showError('url', 'Please enter a complete URL (e.g., https://...).');
           hasError = true;
         }
       }
       if (!data.description) {
-        showError('description', 'Description is required.');
+        showError('description', 'A description is required so users know what the tool does.');
         hasError = true;
       }
       if (!data.pledge) {
-        showError('pledge', 'You must confirm the no-login pledge.');
+        showError('pledge', 'You must confirm the no-login pledge to submit.');
         hasError = true;
       }
       if (!data.coreTask) {
-        showError('coreTask', 'Please describe what users can do without login.');
+        showError('coreTask', 'Please explain what users can do without logging in.');
         hasError = true;
       }
       if (data.submitterEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.submitterEmail as string)) {
         showError('submitterEmail', 'Please enter a valid email address.');
         hasError = true;
       }
-      if (hasError) return;
+      
+      if (hasError) {
+        formError.innerHTML = `
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>Please correct the errors highlighted above before submitting.</span>
+          </div>
+        `;
+        formError.classList.remove('hidden');
+        formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
+      submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Verifying & Submitting...
+      `;
 
       try {
         const res = await fetch('/api/submit', {
@@ -257,32 +291,49 @@ import TagPicker from '../components/TagPicker.astro';
           if (result.details) {
             if (result.details.slug) {
               // Duplicate tool — show link to existing page
-              formError.innerHTML = `This tool has already been submitted. <a href="/tool/${result.details.slug}" class="underline font-medium">View it here</a>.`;
+              formError.innerHTML = `
+                <div class="flex items-center gap-3">
+                  <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  <span>This tool has already been submitted. <a href="/tool/${result.details.slug}" class="underline font-black hover:text-red-900 transition-colors">View it here &rarr;</a></span>
+                </div>
+              `;
             } else {
               for (const [field, msg] of Object.entries(result.details)) {
                 showError(field, msg as string);
               }
-              formError.textContent = result.error || 'Submission failed.';
+              formError.textContent = result.error || 'Submission failed. Please check your inputs.';
             }
           } else {
-            formError.textContent = result.error || 'Submission failed.';
+            formError.textContent = result.error || 'An unexpected error occurred. Please try again.';
           }
           formError.classList.remove('hidden');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       } catch {
-        formError.textContent = 'Network error. Please try again.';
+        formError.textContent = 'Network error. Please check your connection and try again.';
         formError.classList.remove('hidden');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Tool';
+        submitBtn.textContent = 'Submit Tool for Review';
       }
     });
 
     function showError(field: string, message: string) {
       const el = document.querySelector(`[data-error="${field}"]`);
       if (el) {
-        el.textContent = message;
+        el.innerHTML = `
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            ${message}
+          </div>
+        `;
         el.classList.remove('hidden');
+        
+        // Highlight the input/textarea
+        const input = el.parentElement?.querySelector('input, textarea');
+        if (input) {
+          input.classList.add('border-red-500', 'bg-red-50/50', 'ring-2', 'ring-red-500/20');
+        }
       }
     }
   </script>

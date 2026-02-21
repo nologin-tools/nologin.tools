@@ -14,170 +14,125 @@ const allEmbedCodes = Object.fromEntries(
   title="Tool Submitted"
   description="Your tool has been submitted for review."
 >
-  <div class="max-w-2xl mx-auto px-6 py-16">
+  {/* Background Elements */}
+  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-6 py-16 sm:py-24">
     <!-- Success message -->
-    <div class="text-center mb-12">
-      <div
-        class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
-      >
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-        >
-          <path
-            d="M8 16L14 22L24 10"
-            stroke="#22c55e"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
+    <div class="text-center mb-16">
+      <div class="relative inline-block mb-8">
+        <div class="absolute inset-0 bg-green-500/20 blur-2xl rounded-full scale-125"></div>
+        <div class="relative w-24 h-24 bg-green-500 rounded-[2.5rem] flex items-center justify-center text-white shadow-xl shadow-green-200">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
       </div>
-      <h1 class="text-3xl font-bold tracking-tight mb-2">
-        Tool Submitted!
+      <h1 class="text-5xl font-black tracking-tight text-neutral-900 mb-6">
+        Submission Received!
       </h1>
-      <p class="text-neutral-500">
-        Your tool has been submitted for review. We'll verify it and add it to
-        the directory.
+      <p class="text-xl text-neutral-500 max-w-xl mx-auto leading-relaxed">
+        Thank you for contributing to the community. Our team will review your submission shortly.
       </p>
     </div>
 
-    <!-- Tool page link -->
-    {slug && (
-      <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-4 mb-8">
-        <p class="text-sm text-neutral-700 mb-2">
-          Your tool page is available at:
-        </p>
-        <a
-          href={`/tool/${slug}`}
-          class="text-blue-600 hover:underline text-sm font-mono"
-        >
-          {siteUrl}/tool/{slug}
-        </a>
-        <p class="text-xs text-neutral-400 mt-1">
-          The tool will appear in the public directory after review.
-        </p>
-      </div>
-    )}
-
-    <!-- Badge integration guide -->
-    <div class="space-y-6">
-      <h2 class="text-xl font-semibold text-neutral-950">
-        Add the NoLogin Verified Badge
-      </h2>
-      <p class="text-sm text-neutral-500">
-        Once approved, display the badge on your site to let users know your
-        tool is verified. Tools with badges get higher visibility in the
-        directory.
-      </p>
-
-      <!-- Badge Style Selector -->
-      <div>
-        <h3 class="text-sm font-medium text-neutral-700 mb-3">
-          Choose Badge Style
-        </h3>
-        {BADGE_GROUPS.map((group) => {
-          const groupStyles = BADGE_STYLES.filter((s) => s.group === group.id);
-          const isDark = group.id === 'dark';
-          return groupStyles.length > 0 && (
-            <div class="mb-4">
-              <p class="text-xs text-neutral-500 mb-2 font-medium uppercase tracking-wide">{group.label}</p>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {groupStyles.map((style) => (
-                  <button
-                    class:list={[
-                      'badge-style-btn flex flex-col items-center justify-center gap-2 p-3 border rounded-lg transition-all cursor-pointer',
-                      isDark ? 'bg-neutral-800' : '',
-                      style.id === 'flat'
-                        ? 'border-green-500 bg-green-50'
-                        : 'border-neutral-200 hover:border-neutral-300',
-                    ]}
-                    data-style={style.id}
-                    data-badge-path={style.path}
-                    data-dark={isDark ? 'true' : undefined}
-                  >
-                    <img src={style.path} alt={style.label} title="Verified by nologin.tools" class="inline-block" />
-                    <span class:list={['text-xs', isDark ? 'text-neutral-300' : 'text-neutral-600']}>{style.label}</span>
-                  </button>
-                ))}
-              </div>
+    <div class="space-y-12">
+      <!-- Tool page link -->
+      {slug && (
+        <section class="glass-card rounded-[2.5rem] p-8 sm:p-10 border-green-100/50 bg-green-50/20">
+          <h2 class="text-xs font-black uppercase tracking-[0.2em] text-green-700/60 mb-6">Pending Tool Page</h2>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <p class="text-neutral-900 font-bold text-lg mb-1">Preview your listing</p>
+              <a href={`/tool/${slug}`} class="text-blue-600 font-bold hover:underline break-all">{siteUrl}/tool/{slug}</a>
             </div>
-          );
-        })}
-        <p class="text-xs text-neutral-400 mb-6">
-          Also available: <button class="badge-style-btn text-blue-600 hover:underline" data-style="original" data-badge-path={ORIGINAL_BADGE.path}>Original badge</button>
-        </p>
-      </div>
+            <a href={`/tool/${slug}`} class="btn-secondary bg-white whitespace-nowrap">View Page</a>
+          </div>
+          <p class="text-xs text-neutral-400 mt-6 font-medium italic">
+            Note: The tool will only appear in the public directory and search results after it has been approved.
+          </p>
+        </section>
+      )}
 
-      <!-- SVG Badge -->
-      <div>
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-sm font-medium text-neutral-700">
-            SVG Badge (Recommended)
-          </h3>
-          <button
-            class="copy-btn text-xs text-blue-600 hover:underline"
-            data-code="svg"
-          >
-            Copy
-          </button>
+      <!-- Badge integration guide -->
+      <section class="glass-card rounded-[3rem] p-8 sm:p-12">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-black text-neutral-900 mb-4">Get the Badge Ready</h2>
+          <p class="text-neutral-500 max-w-xl mx-auto font-medium">
+            While you wait for approval, you can prepare the verification badge for your website. 
+            Tools that display the badge receive higher visibility.
+          </p>
         </div>
-        <div class="mb-2">
-          <img
-            id="badge-preview"
-            src="/badges/flat.svg"
-            alt="NoLogin Verified"
-            title="Verified by nologin.tools"
-            class="inline-block"
-          />
-        </div>
-        <pre
-          id="code-svg"
-          class="bg-neutral-900 text-neutral-100 p-4 rounded-md text-xs overflow-x-auto"
-        ><code>{embedCode.svg}</code></pre>
-      </div>
 
-      <!-- Meta tag -->
-      <div>
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-sm font-medium text-neutral-700">Meta Tag</h3>
-          <button
-            class="copy-btn text-xs text-blue-600 hover:underline"
-            data-code="meta"
-          >
-            Copy
-          </button>
+        <!-- Badge Style Selector -->
+        <div class="mb-12">
+          <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 mb-8 text-center">Select Your Preferred Style</h3>
+          <div class="space-y-10">
+            {BADGE_GROUPS.map((group) => {
+              const groupStyles = BADGE_STYLES.filter((s) => s.group === group.id);
+              const isDark = group.id === 'dark';
+              return groupStyles.length > 0 && (
+                <div>
+                  <p class="text-[10px] font-black text-neutral-300 mb-4 uppercase tracking-[0.2em] text-center">{group.label}</p>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    {groupStyles.map((style) => (
+                      <button
+                        class:list={[
+                          'badge-style-btn flex flex-col items-center justify-center gap-4 p-5 rounded-2xl border transition-all duration-300 cursor-pointer shadow-sm active:scale-95',
+                          isDark ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-100',
+                          style.id === 'flat'
+                            ? 'ring-2 ring-green-500 border-transparent shadow-lg shadow-green-100'
+                            : 'hover:border-neutral-300 hover:shadow-md',
+                        ]}
+                        data-style={style.id}
+                        data-badge-path={style.path}
+                        data-dark={isDark ? 'true' : undefined}
+                      >
+                        <img src={style.path} alt={style.label} class="h-6" />
+                        <span class:list={['text-[10px] font-black uppercase tracking-widest', isDark ? 'text-neutral-500' : 'text-neutral-400']}>{style.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <pre
-          id="code-meta"
-          class="bg-neutral-900 text-neutral-100 p-4 rounded-md text-xs overflow-x-auto"
-        ><code>{embedCode.meta}</code></pre>
-      </div>
 
-      <!-- Text link -->
-      <div>
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-sm font-medium text-neutral-700">
-            Footer Link
-          </h3>
-          <button
-            class="copy-btn text-xs text-blue-600 hover:underline"
-            data-code="link"
-          >
-            Copy
-          </button>
+        <div class="grid grid-cols-1 gap-8 text-left max-w-2xl mx-auto">
+          <!-- SVG Badge -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-black uppercase tracking-widest text-neutral-400">SVG Badge</h3>
+              <button class="copy-btn text-xs font-black text-green-600 hover:text-green-700 px-3 py-1 rounded-lg bg-green-50 transition-colors" data-code="svg">Copy</button>
+            </div>
+            <div class="p-6 bg-white border border-neutral-100 rounded-3xl shadow-inner flex justify-center mb-4">
+              <img id="badge-preview" src="/badges/flat.svg" alt="NoLogin Verified" class="h-10" />
+            </div>
+            <pre id="code-svg" class="bg-neutral-900 text-neutral-400 p-6 rounded-3xl text-[11px] font-mono overflow-x-auto border-4 border-neutral-800"><code>{embedCode.svg}</code></pre>
+          </div>
+
+          <!-- Meta tag -->
+          <div class="space-y-3">
+             <div class="flex items-center justify-between">
+              <h3 class="text-xs font-black uppercase tracking-widest text-neutral-400">Meta Tag</h3>
+              <button class="copy-btn text-xs font-black text-green-600 hover:text-green-700 px-3 py-1 rounded-lg bg-green-50 transition-colors" data-code="meta">Copy</button>
+            </div>
+            <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-6 rounded-3xl text-[11px] font-mono overflow-x-auto border-4 border-neutral-800"><code>{embedCode.meta}</code></pre>
+          </div>
         </div>
-        <pre
-          id="code-link"
-          class="bg-neutral-900 text-neutral-100 p-4 rounded-md text-xs overflow-x-auto"
-        ><code>{embedCode.link}</code></pre>
+      </section>
+
+      <div class="text-center pt-8">
+        <a href="/" class="btn-primary px-12 py-5 rounded-3xl font-black shadow-xl shadow-green-100">
+          Back to Directory
+        </a>
       </div>
     </div>
-
-    <div class="mt-12 text-center">
-      <a href="/" class="btn-secondary">Browse Tools</a>
-    </div>
+  </div>
 
     <script id="embed-codes-data" type="application/json" set:html={JSON.stringify(allEmbedCodes)} />
   </div>
