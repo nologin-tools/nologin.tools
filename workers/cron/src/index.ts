@@ -342,7 +342,13 @@ function generateReadme(
     category: string | null;
   }[]
 ): string {
+  const toolCount = tools.length;
+
   let md = `# Awesome NoLogin Tools\n\n`;
+  md += `[![Awesome](https://img.shields.io/badge/Awesome-fc60a8?logo=awesomelists&logoColor=white)](https://github.com/nologin-tools/awesome-nologin-tools)\n`;
+  md += `[![Tools](https://img.shields.io/badge/Tools-${toolCount}-4c1)](https://nologin.tools)\n`;
+  md += `[![License: CC0](https://img.shields.io/badge/License-CC0_1.0-lightgrey)](https://creativecommons.org/publicdomain/zero/1.0/)\n`;
+  md += `[![Website](https://img.shields.io/badge/nologin.tools-Visit-blue)](https://nologin.tools)\n\n`;
   md += `> A curated list of privacy-friendly tools that work without requiring login or registration.\n`;
   md += `> Auto-generated from [nologin.tools](https://nologin.tools).\n\n`;
   md += `## Discover & Submit\n\n`;
