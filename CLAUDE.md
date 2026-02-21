@@ -81,7 +81,7 @@ workers/cron/             # Health checks, badge detection, data export
   - **Dashboard**: Stats overview (total/approved/pending/offline) + recent submissions table
   - **Tools**: Full CRUD — status filter chips, search, pagination via `POST /api/admin/tools`; inline edit/reject forms; approve/reject/edit/delete/health-check actions
   - **Edits**: Pending edit suggestions review (approve & apply / reject)
-  - **Health**: Health monitoring table for approved tools with manual "Run Check" button
+  - **Health**: Health monitoring table for approved tools with manual "Run Check" button. "Run All Checks" bulk button runs all tools with 3 concurrent requests, shows real-time progress, supports cancel via `AbortController`, and displays summary toast on completion. Individual "Run Check" buttons are disabled during bulk runs.
   - **Export**: Manual "Export Now" button + export history table (time, source cron/manual, tool count, files updated, status)
   - Toast notifications (success/error, 3s auto-dismiss), loading states on buttons, `confirm()` for destructive actions
 - **Admin API endpoints** (all POST, require `secret`):
@@ -97,6 +97,7 @@ workers/cron/             # Health checks, badge detection, data export
 - **Health check tolerance**: Online/offline status uses a sliding window of the last 3 checks (`HEALTH_TOLERANCE = 3`). A tool is considered online if **any** of the recent 3 checks succeeded; offline only when **all 3** failed. The helper `resolveEffectiveStatus(checks)` in `src/lib/health.ts` is used by all display layers. New tools with fewer than 3 checks use whatever records exist. The cron worker inlines the same logic for archive triggering (queries D1 directly since it can't import `src/lib/`).
 - **Exported README badges**: The auto-generated `awesome-nologin-tools` README includes 5 shields.io badges on the first line + 1 self-hosted badge on a separate line below the title. First line: Awesome (static, pink `#fc60a8`), Tools count (dynamic from `tools.length`, green `#4c1`), License CC0 (static, grey), Website (static, blue), Submit a Tool (static, orange). Second line: NoLogin Verified (`/badges/flat.svg`, self-hosted, links to `/badge/awesome-nologin-tools`). Both `generateReadme()` in `src/pages/api/admin/data-export.ts` and `workers/cron/src/index.ts` must stay in sync.
 - **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. The cron worker has equivalent inline logic.
+- **Cron export logging**: `runDataExport` in the cron worker always records to `data_exports` table — `GITHUB_TOKEN` missing writes `status: 'error'` with `error_message: 'GITHUB_TOKEN not configured'`; any runtime exception also records error with message. DB writes themselves are wrapped in try-catch to prevent double failures.
 
 ## Commands
 
