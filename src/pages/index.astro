@@ -95,18 +95,28 @@ if (query) {
   );
 }
 
-// Get tags for all tools
+// Get tags for all tools (batch to stay under D1's 100-parameter limit)
 const allToolIds = allTools.map((t) => t.id);
+const BATCH_SIZE = 50;
 let toolTags: { toolId: number; tagKey: string; tagValue: string }[] = [];
 if (allToolIds.length > 0) {
-  toolTags = await db
-    .select({
-      toolId: tags.toolId,
-      tagKey: tags.tagKey,
-      tagValue: tags.tagValue,
-    })
-    .from(tags)
-    .where(inArray(tags.toolId, allToolIds));
+  const batches = [];
+  for (let i = 0; i < allToolIds.length; i += BATCH_SIZE) {
+    batches.push(allToolIds.slice(i, i + BATCH_SIZE));
+  }
+  const results = await Promise.all(
+    batches.map((batch) =>
+      db
+        .select({
+          toolId: tags.toolId,
+          tagKey: tags.tagKey,
+          tagValue: tags.tagValue,
+        })
+        .from(tags)
+        .where(inArray(tags.toolId, batch))
+    )
+  );
+  toolTags = results.flat();
 }
 
 // Build tag map
@@ -134,15 +144,24 @@ let healthMap = new Map<
   { isOnline: boolean; checkedAt: Date }
 >();
 if (allToolIds.length > 0) {
-  const latestChecks = await db
-    .select({
-      toolId: healthChecks.toolId,
-      isOnline: healthChecks.isOnline,
-      checkedAt: healthChecks.checkedAt,
-    })
-    .from(healthChecks)
-    .where(inArray(healthChecks.toolId, allToolIds))
-    .orderBy(desc(healthChecks.checkedAt));
+  const healthBatches = [];
+  for (let i = 0; i < allToolIds.length; i += BATCH_SIZE) {
+    healthBatches.push(allToolIds.slice(i, i + BATCH_SIZE));
+  }
+  const healthResults = await Promise.all(
+    healthBatches.map((batch) =>
+      db
+        .select({
+          toolId: healthChecks.toolId,
+          isOnline: healthChecks.isOnline,
+          checkedAt: healthChecks.checkedAt,
+        })
+        .from(healthChecks)
+        .where(inArray(healthChecks.toolId, batch))
+        .orderBy(desc(healthChecks.checkedAt))
+    )
+  );
+  const latestChecks = healthResults.flat().sort((a, b) => b.checkedAt.getTime() - a.checkedAt.getTime());
 
   const checksPerTool = new Map<number, { isOnline: boolean; checkedAt: Date }[]>();
   for (const check of latestChecks) {
