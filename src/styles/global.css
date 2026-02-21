@@ -86,10 +86,10 @@
     @apply relative overflow-hidden;
   }
   .spotlight-slide {
-    @apply absolute inset-0 transition-all duration-500 ease-in-out;
+    @apply absolute inset-0 transition-all duration-500 ease-in-out pointer-events-none;
   }
   .spotlight-slide-active {
-    @apply relative opacity-100 translate-x-0;
+    @apply relative opacity-100 translate-x-0 pointer-events-auto;
   }
   .spotlight-slide-exit {
     @apply opacity-0;
