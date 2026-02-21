@@ -262,57 +262,67 @@ async function runBadgeDetection(env: Env, ctx: ExecutionContext) {
 // ─── Data Export (daily 03:00 UTC) ───
 
 async function runDataExport(env: Env, ctx: ExecutionContext) {
+  const now = Math.floor(Date.now() / 1000);
+
   if (!env.GITHUB_TOKEN) {
     console.warn('GITHUB_TOKEN not configured, skipping data export');
+    try {
+      await env.DB.prepare(
+        'INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (?, ?, ?, ?, ?, ?)'
+      ).bind(now, 0, '[]', 'cron', 'error', 'GITHUB_TOKEN not configured').run();
+    } catch (dbErr: any) {
+      console.error(`Failed to record export skip: ${dbErr.message}`);
+    }
     return;
   }
 
-  const now = Math.floor(Date.now() / 1000);
-
-  const tools = await env.DB.prepare(
-    "SELECT id, slug, name, url, description, core_task, approved_at, is_featured FROM tools WHERE status = 'approved' ORDER BY name ASC"
-  ).all<ToolRow>();
-
-  const tags = await env.DB.prepare(
-    "SELECT t.tool_id, t.tag_key, t.tag_value FROM tags t INNER JOIN tools ON tools.id = t.tool_id WHERE tools.status = 'approved'"
-  ).all<TagRow>();
-
-  const tagMap = new Map<number, { key: string; value: string }[]>();
-  for (const tag of tags.results || []) {
-    if (!tagMap.has(tag.tool_id)) tagMap.set(tag.tool_id, []);
-    tagMap.get(tag.tool_id)!.push({
-      key: tag.tag_key,
-      value: tag.tag_value,
-    });
-  }
-
-  const toolsList = (tools.results || []).map((t) => {
-    const toolTags = tagMap.get(t.id) || [];
-    const category = toolTags.find((tag) => tag.key === 'category')?.value || null;
-    return {
-      slug: t.slug,
-      name: t.name,
-      url: t.url,
-      description: t.description,
-      coreTask: t.core_task,
-      category,
-      featured: !!t.is_featured,
-    };
-  });
-
-  console.log(`Data export: ${toolsList.length} approved tools`);
-
-  // Generate tools.json
-  const toolsJson = JSON.stringify(toolsList, null, 2);
-
-  // Generate README.md
-  const readme = generateReadme(toolsList);
-
-  // Push to GitHub
-  const repo = 'nologin-tools/awesome-nologin-tools';
+  let toolCount = 0;
   const filesUpdated: string[] = [];
 
   try {
+    const tools = await env.DB.prepare(
+      "SELECT id, slug, name, url, description, core_task, approved_at, is_featured FROM tools WHERE status = 'approved' ORDER BY name ASC"
+    ).all<ToolRow>();
+
+    const tags = await env.DB.prepare(
+      "SELECT t.tool_id, t.tag_key, t.tag_value FROM tags t INNER JOIN tools ON tools.id = t.tool_id WHERE tools.status = 'approved'"
+    ).all<TagRow>();
+
+    const tagMap = new Map<number, { key: string; value: string }[]>();
+    for (const tag of tags.results || []) {
+      if (!tagMap.has(tag.tool_id)) tagMap.set(tag.tool_id, []);
+      tagMap.get(tag.tool_id)!.push({
+        key: tag.tag_key,
+        value: tag.tag_value,
+      });
+    }
+
+    const toolsList = (tools.results || []).map((t) => {
+      const toolTags = tagMap.get(t.id) || [];
+      const category = toolTags.find((tag) => tag.key === 'category')?.value || null;
+      return {
+        slug: t.slug,
+        name: t.name,
+        url: t.url,
+        description: t.description,
+        coreTask: t.core_task,
+        category,
+        featured: !!t.is_featured,
+      };
+    });
+
+    toolCount = toolsList.length;
+    console.log(`Data export: ${toolCount} approved tools`);
+
+    // Generate tools.json
+    const toolsJson = JSON.stringify(toolsList, null, 2);
+
+    // Generate README.md
+    const readme = generateReadme(toolsList);
+
+    // Push to GitHub
+    const repo = 'nologin-tools/awesome-nologin-tools';
+
     const jsonResult = await pushToGithub(env.GITHUB_TOKEN, repo, 'tools.json', toolsJson);
     if (jsonResult.updated) filesUpdated.push('tools.json');
 
@@ -324,14 +334,18 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
     // Record success
     await env.DB.prepare(
       'INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status) VALUES (?, ?, ?, ?, ?)'
-    ).bind(now, toolsList.length, JSON.stringify(filesUpdated), 'cron', 'success').run();
+    ).bind(now, toolCount, JSON.stringify(filesUpdated), 'cron', 'success').run();
   } catch (err: any) {
     console.error(`Data export failed: ${err.message}`);
 
     // Record failure
-    await env.DB.prepare(
-      'INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (?, ?, ?, ?, ?, ?)'
-    ).bind(now, toolsList.length, JSON.stringify(filesUpdated), 'cron', 'error', (err.message || '').slice(0, 500)).run();
+    try {
+      await env.DB.prepare(
+        'INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (?, ?, ?, ?, ?, ?)'
+      ).bind(now, toolCount, JSON.stringify(filesUpdated), 'cron', 'error', (err.message || '').slice(0, 500)).run();
+    } catch (dbErr: any) {
+      console.error(`Failed to record export error: ${dbErr.message}`);
+    }
   }
 }
 
