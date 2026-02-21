@@ -21,7 +21,7 @@ src/
 ├── layouts/Layout.astro  # Base layout with SEO meta; `bare` prop hides Header/Footer
 ├── components/           # Header, Footer, ToolCard, HealthBadge, TagPicker
 ├── pages/
-│   ├── index.astro       # Homepage: search, filter, sort, tool grid
+│   ├── index.astro       # Homepage: search, filter, grouped/flat tool display
 │   ├── submit.astro      # Submission form
 │   ├── submit/success.astro
 │   ├── tool/[slug].astro # Tool detail with health timeline
@@ -41,6 +41,11 @@ workers/cron/             # Health checks, badge detection, data export
 - **Tags**: Key:Value format — `category:Design`, `source:Open Source`, `pricing:Free`
   - 8 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS), `source`, `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
   - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
+- **Homepage display modes**: Two modes based on context:
+  - **Grouped mode** (default — no search, no filters): Tools grouped by category per `TAG_DEFINITIONS` order, each section shows category name + count + max 6 cards + "View all X →" link (links to `/?category=Xxx`). No pagination. Tools without category go to "Other" group at the end.
+  - **Flat mode** (search active or any filter active): Paginated grid (24/page) with standard pagination controls.
+- **Homepage filter UX**: Category chips shown as top row; non-category filters collapsed under "More filters" toggle (auto-expands when non-category filters active), displayed by dimension with labels. Active filters shown as removable chips with X icon and "Clear all" link.
+- **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to initial letter on error via inline `onerror`. Requires `url` prop.
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
