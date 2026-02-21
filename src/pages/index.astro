@@ -404,8 +404,20 @@ function buildUrl(params: Record<string, string>) {
       </div>
     ) : (
       <div class="text-center py-16">
-        <p class="text-neutral-500 mb-4">No tools found.</p>
-        <a href="/" class="text-sm text-blue-600 hover:underline">Clear filters</a>
+        <svg class="mx-auto mb-4 text-neutral-300" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M21 21l-4.35-4.35" stroke-linecap="round" />
+        </svg>
+        <p class="text-neutral-500 mb-1 font-medium">No tools found</p>
+        <p class="text-sm text-neutral-400 mb-6">
+          {query
+            ? `No results matching "${query}". Try a different search or adjust filters.`
+            : 'No tools match the current filters. Try removing some filters.'}
+        </p>
+        <div class="flex items-center justify-center gap-3">
+          <a href="/" class="btn-secondary text-sm">Clear filters</a>
+          <a href="/submit" class="btn-primary text-sm">Submit a Tool</a>
+        </div>
       </div>
     )}
 
