@@ -9,7 +9,7 @@ export const TAG_DEFINITIONS: TagDefinition[] = [
   {
     key: 'category',
     label: 'Category',
-    values: ['Design', 'Writing', 'Development', 'AI', 'Productivity', 'Media',
+    values: ['AI', 'Design', 'Writing', 'Development', 'Productivity', 'Media',
              'Privacy', 'Data', 'Communication', 'Education', 'Finance'],
     multiSelect: false,
   },

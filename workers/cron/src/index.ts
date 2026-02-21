@@ -26,7 +26,7 @@ interface TagRow {
 }
 
 const CATEGORY_ORDER = [
-  'Design', 'Writing', 'Development', 'AI', 'Productivity', 'Media',
+  'AI', 'Design', 'Writing', 'Development', 'Productivity', 'Media',
   'Privacy', 'Data', 'Communication', 'Education', 'Finance',
 ];
 
