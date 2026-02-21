@@ -17,9 +17,10 @@ interface Props {
   lastCheckedAt: Date | null;
   tags: Tag[];
   archiveUrl: string | null;
+  isFeatured?: boolean;
 }
 
-const { slug, name, url, description, isVerified, isOnline, lastCheckedAt, tags, archiveUrl } =
+const { slug, name, url, description, isVerified, isOnline, lastCheckedAt, tags, archiveUrl, isFeatured = false } =
   Astro.props;
 const isOffline = isOnline === false;
 const sortedTags = sortTagsCategoryFirst(tags);
@@ -35,7 +36,8 @@ const initial = name.charAt(0).toUpperCase();
 <a
   href={`/tool/${slug}`}
   class:list={[
-    'block border border-neutral-200 rounded-lg p-5 hover:shadow-md transition-all',
+    'block border rounded-lg p-5 hover:shadow-md transition-all',
+    isFeatured ? 'border-yellow-300 bg-yellow-50/30' : 'border-neutral-200',
     isOffline && 'opacity-60',
   ]}
 >
@@ -56,6 +58,7 @@ const initial = name.charAt(0).toUpperCase();
         <span class="w-5 h-5 rounded bg-neutral-100 text-neutral-500 text-xs font-medium flex items-center justify-center shrink-0">{initial}</span>
       )}
       <h3 class="font-semibold text-neutral-950 truncate">{name}</h3>
+      {isFeatured && <span class="text-yellow-500 shrink-0" title="Featured">★</span>}
     </div>
     <HealthBadge isOnline={isOnline} lastCheckedAt={lastCheckedAt} />
   </div>
