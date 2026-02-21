@@ -136,7 +136,9 @@ function generateReadme(
   md += `[![Awesome](https://img.shields.io/badge/Awesome-fc60a8?logo=awesomelists&logoColor=white)](https://github.com/nologin-tools/awesome-nologin-tools)\n`;
   md += `[![Tools](https://img.shields.io/badge/Tools-${toolCount}-4c1)](https://nologin.tools)\n`;
   md += `[![License: CC0](https://img.shields.io/badge/License-CC0_1.0-lightgrey)](https://creativecommons.org/publicdomain/zero/1.0/)\n`;
-  md += `[![Website](https://img.shields.io/badge/nologin.tools-Visit-blue)](https://nologin.tools)\n\n`;
+  md += `[![Website](https://img.shields.io/badge/nologin.tools-Visit-blue)](https://nologin.tools)\n`;
+  md += `[![Submit a Tool](https://img.shields.io/badge/Submit_a_Tool-orange)](https://nologin.tools/submit)\n\n`;
+  md += `[![NoLogin Verified](https://nologin.tools/badges/flat.svg)](https://nologin.tools/badge/awesome-nologin-tools)\n\n`;
   md += `> A curated list of privacy-friendly tools that work without requiring login or registration.\n`;
   md += `> Auto-generated from [nologin.tools](https://nologin.tools).\n\n`;
   md += `## Discover & Submit\n\n`;
