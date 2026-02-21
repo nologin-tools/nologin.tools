@@ -19,6 +19,8 @@ export const tools = sqliteTable('tools', {
   submitterIpHash: text('submitter_ip_hash'),
   submitterEmail: text('submitter_email'),
   archiveUrl: text('archive_url'),
+  isFeatured: integer('is_featured', { mode: 'boolean' }).notNull().default(false),
+  featuredAt: integer('featured_at', { mode: 'timestamp' }),
 });
 
 export const tags = sqliteTable('tags', {
