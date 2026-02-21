@@ -39,7 +39,7 @@ workers/cron/             # Health checks, badge detection, data export
 
 - **Slug**: Generated from tool URL — `urlToSlug("https://excalidraw.com")` → `"excalidraw-com"`
 - **Tags**: Key:Value format — `category:Design`, `source:Open Source`, `pricing:Free`
-  - 8 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS), `source`, `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
+  - 8 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS, 11 values), `source`, `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
   - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
 - **Homepage display modes**: Two modes based on context:
   - **Grouped mode** (default — no search, no filters): Tools grouped by category per `TAG_DEFINITIONS` order, each section shows category name + count + max 6 cards + "View all X →" link (links to `/?category=Xxx`). No pagination. Tools without category go to "Other" group at the end.
