@@ -1,5 +1,11 @@
 # nologin.tools
 
+[![Deploy](https://github.com/nologin-tools/nologin.tools/actions/workflows/deploy.yml/badge.svg)](https://github.com/nologin-tools/nologin.tools/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fnologin.tools)](https://nologin.tools)
+[![Built with Astro](https://img.shields.io/badge/Astro-bc52ee?logo=astro&logoColor=white)](https://astro.build)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
+
 <a href="https://nologin.tools/badge/nologin-tools">
   <img src="https://nologin.tools/badges/for-the-badge.svg" alt="NoLogin Verified" title="Verified by nologin.tools" />
 </a>
