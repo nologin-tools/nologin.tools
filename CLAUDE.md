@@ -166,3 +166,4 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 - **D1 database_id**: Real ID stored directly in `wrangler.jsonc` and `workers/cron/wrangler.jsonc` (not sensitive — access requires API token)
 - **GitHub Secrets required**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 - **Concurrency**: Same workflow + branch combo cancels in-progress runs
+- **Observability**: Both the main app (`wrangler.jsonc`) and cron worker (`workers/cron/wrangler.jsonc`) have `"observability": { "enabled": true }` for Cloudflare Dashboard logs
