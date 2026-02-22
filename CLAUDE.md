@@ -126,6 +126,15 @@ pnpm deploy:cron          # Deploy cron worker
 | `RATE_LIMIT_MAX_SUBMISSIONS` | Max submissions per IP per window (default: 3) | wrangler.jsonc vars |
 | `RATE_LIMIT_WINDOW_HOURS` | Rate limit window in hours (default: 24) | wrangler.jsonc vars |
 
+**Important**: The main app (`nologin-tools`) and cron worker (`nologin-tools-cron`) are **separate Cloudflare Workers**. Secrets are isolated per worker, so secrets needed by the cron worker (`GITHUB_TOKEN`, `ARCHIVE_ORG_ACCESS_KEY`, `ARCHIVE_ORG_SECRET_KEY`) must be set separately under `workers/cron/`:
+
+```bash
+cd workers/cron
+wrangler secret put GITHUB_TOKEN
+wrangler secret put ARCHIVE_ORG_ACCESS_KEY
+wrangler secret put ARCHIVE_ORG_SECRET_KEY
+```
+
 ## Database Schema
 
 6 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode), `data_exports` (export history).
