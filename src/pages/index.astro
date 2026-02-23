@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import ToolCard from '../components/ToolCard.astro';
 import { getDb } from '../db';
 import { tools, tags, healthChecks, badgeDisplays } from '../db/schema';
-import { eq, desc, sql, and, inArray } from 'drizzle-orm';
+import { eq, desc, inArray } from 'drizzle-orm';
 import { TAG_DEFINITIONS } from '../lib/tags';
-import { HEALTH_TOLERANCE, HEALTH_WINDOW_HOURS, resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
+import { HEALTH_TOLERANCE, resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
 
 const db = getDb(Astro.locals.runtime.env.DB);
 
@@ -24,71 +24,24 @@ for (const def of TAG_DEFINITIONS) {
   }
 }
 
-// Build SQL query
-let toolsQuery;
-
-if (sort === 'recommended') {
-  toolsQuery = db
-    .select({
-      id: tools.id,
-      slug: tools.slug,
-      name: tools.name,
-      url: tools.url,
-      description: tools.description,
-      status: tools.status,
-      approvedAt: tools.approvedAt,
-      archiveUrl: tools.archiveUrl,
-      isFeatured: tools.isFeatured,
-      featuredAt: tools.featuredAt,
-      score: sql<number>`
-        COALESCE(
-          CASE ${badgeDisplays.displayType}
-            WHEN 'explicit' THEN 10
-            WHEN 'implicit' THEN 5
-            ELSE 0
-          END, 0
-        )
-        + CASE
-            WHEN ${tools.approvedAt} > unixepoch() - 2592000 THEN 5
-            WHEN ${tools.approvedAt} > unixepoch() - 7776000 THEN 3
-            ELSE 1
-          END
-        + COALESCE(
-          (SELECT
-            CASE
-              WHEN COUNT(*) = 0 THEN 1
-              WHEN SUM(sub.is_online) = COUNT(*) THEN 3
-              WHEN SUM(sub.is_online) > 0 THEN 1
-              ELSE 0
-            END
-           FROM (SELECT is_online FROM health_checks
-                 WHERE tool_id = ${tools.id}
-                   AND checked_at > unixepoch() - ${HEALTH_WINDOW_HOURS * 3600}
-                 ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}) sub), 1
-        )
-        + CASE WHEN ${tools.isFeatured} = 1 THEN 8 ELSE 0 END
-      `.as('score'),
-    })
-    .from(tools)
-    .leftJoin(badgeDisplays, eq(badgeDisplays.toolId, tools.id))
-    .where(eq(tools.status, 'approved'));
-} else {
-  toolsQuery = db
-    .select({
-      id: tools.id,
-      slug: tools.slug,
-      name: tools.name,
-      url: tools.url,
-      description: tools.description,
-      status: tools.status,
-      approvedAt: tools.approvedAt,
-      archiveUrl: tools.archiveUrl,
-      isFeatured: tools.isFeatured,
-      featuredAt: tools.featuredAt,
-    })
-    .from(tools)
-    .where(eq(tools.status, 'approved'));
-}
+// Build SQL query — unified simple query with LEFT JOIN for badge data
+const toolsQuery = db
+  .select({
+    id: tools.id,
+    slug: tools.slug,
+    name: tools.name,
+    url: tools.url,
+    description: tools.description,
+    status: tools.status,
+    approvedAt: tools.approvedAt,
+    archiveUrl: tools.archiveUrl,
+    isFeatured: tools.isFeatured,
+    featuredAt: tools.featuredAt,
+    badgeDisplayType: badgeDisplays.displayType,
+  })
+  .from(tools)
+  .leftJoin(badgeDisplays, eq(badgeDisplays.toolId, tools.id))
+  .where(eq(tools.status, 'approved'));
 
 // Execute query and apply filters in-memory for simplicity with D1
 let allTools = await toolsQuery;
@@ -191,6 +144,24 @@ if (allToolIds.length > 0) {
   }
 }
 
+// Compute recommendation score in JS (avoids expensive SQL correlated subqueries)
+function computeScore(tool: (typeof allTools)[number]): number {
+  const badgeType = tool.badgeDisplayType;
+  const badgeWeight = badgeType === 'explicit' ? 10 : badgeType === 'implicit' ? 5 : 0;
+
+  const now = Date.now();
+  const approvedMs = tool.approvedAt ? tool.approvedAt.getTime() : 0;
+  const ageMs = now - approvedMs;
+  const freshness = ageMs < 30 * 86400000 ? 5 : ageMs < 90 * 86400000 ? 3 : 1;
+
+  const health = healthMap.get(tool.id);
+  const healthScore = !health ? 1 : health.status === 'online' ? 3 : health.status === 'unstable' ? 1 : 0;
+
+  const featuredBoost = tool.isFeatured ? 8 : 0;
+
+  return badgeWeight + freshness + healthScore + featuredBoost;
+}
+
 // Sort
 if (sort === 'newest') {
   allTools.sort((a, b) => {
@@ -201,12 +172,8 @@ if (sort === 'newest') {
 } else if (sort === 'alpha') {
   allTools.sort((a, b) => a.name.localeCompare(b.name));
 } else {
-  // recommended - sort by score
-  allTools.sort((a, b) => {
-    const aScore = 'score' in a ? (a as any).score : 0;
-    const bScore = 'score' in b ? (b as any).score : 0;
-    return bScore - aScore;
-  });
+  // recommended - sort by JS-computed score
+  allTools.sort((a, b) => computeScore(b) - computeScore(a));
 }
 
 // Determine display mode
