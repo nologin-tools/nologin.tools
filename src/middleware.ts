@@ -26,7 +26,14 @@ export const onRequest = defineMiddleware(async (context, next) => {
       cacheKey = new Request(url.toString(), { method: 'GET' });
       const cached = await cache.match(cacheKey);
       if (cached) {
-        return cached;
+        // Return a new Response with mutable headers — cached responses
+        // from the Cache API have immutable headers, and Astro's render
+        // pipeline needs to modify them (e.g. Content-Type).
+        return new Response(cached.body, {
+          status: cached.status,
+          statusText: cached.statusText,
+          headers: new Headers(cached.headers),
+        });
       }
     }
   } catch (err) {
