@@ -29,6 +29,13 @@
       "when": 1771652058846,
       "tag": "0003_nasty_stingray",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1771854766522,
+      "tag": "0004_nifty_ricochet",
+      "breakpoints": true
     }
   ]
 }

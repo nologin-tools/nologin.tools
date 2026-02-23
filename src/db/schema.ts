@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core';
 
 export const tools = sqliteTable('tools', {
   id: integer('id').primaryKey({ autoIncrement: true }),
@@ -21,7 +21,9 @@ export const tools = sqliteTable('tools', {
   archiveUrl: text('archive_url'),
   isFeatured: integer('is_featured', { mode: 'boolean' }).notNull().default(false),
   featuredAt: integer('featured_at', { mode: 'timestamp' }),
-});
+}, (table) => [
+  index('idx_tools_status').on(table.status),
+]);
 
 export const tags = sqliteTable('tags', {
   id: integer('id').primaryKey({ autoIncrement: true }),
@@ -30,7 +32,9 @@ export const tags = sqliteTable('tags', {
     .references(() => tools.id, { onDelete: 'cascade' }),
   tagKey: text('tag_key').notNull(),
   tagValue: text('tag_value').notNull(),
-});
+}, (table) => [
+  index('idx_tags_tool_id').on(table.toolId),
+]);
 
 export const healthChecks = sqliteTable('health_checks', {
   id: integer('id').primaryKey({ autoIncrement: true }),
@@ -41,7 +45,9 @@ export const healthChecks = sqliteTable('health_checks', {
   isOnline: integer('is_online', { mode: 'boolean' }).notNull(),
   httpStatus: integer('http_status'),
   responseTimeMs: integer('response_time_ms'),
-});
+}, (table) => [
+  index('idx_health_checks_tool_id_checked_at').on(table.toolId, table.checkedAt),
+]);
 
 export const badgeDisplays = sqliteTable('badge_displays', {
   id: integer('id').primaryKey({ autoIncrement: true }),
