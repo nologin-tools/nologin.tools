@@ -16,26 +16,30 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return next();
   }
 
-  // Try Cloudflare Workers Cache API — wrapped in try/catch so cache
-  // failures never break the request (graceful degradation).
+  // Phase 1: Try to read from Cloudflare Workers Cache API
+  let cache: Cache | undefined;
+  let cacheKey: Request | undefined;
   try {
     // @ts-ignore — caches.default is Cloudflare-specific
-    const cache: Cache | undefined = typeof caches !== 'undefined' ? (caches as any).default : undefined;
-    if (!cache) {
-      return next();
+    cache = typeof caches !== 'undefined' ? (caches as any).default : undefined;
+    if (cache) {
+      cacheKey = new Request(url.toString(), { method: 'GET' });
+      const cached = await cache.match(cacheKey);
+      if (cached) {
+        return cached;
+      }
     }
+  } catch (err) {
+    console.error('[cache] read error:', err);
+    // Continue to normal rendering
+  }
 
-    const cacheKey = new Request(url.toString(), { method: 'GET' });
-    const cached = await cache.match(cacheKey);
-    if (cached) {
-      return cached;
-    }
+  // Phase 2: Render the page (never inside cache try/catch)
+  const response = await next();
 
-    // Cache miss — generate response
-    const response = await next();
-
-    // Only cache successful responses
-    if (response.status === 200) {
+  // Phase 3: Try to write successful responses to cache
+  if (cache && cacheKey && response.status === 200) {
+    try {
       const cloned = response.clone();
       const headers = new Headers(cloned.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_TTL}`);
@@ -46,16 +50,14 @@ export const onRequest = defineMiddleware(async (context, next) => {
         headers,
       });
 
-      // Write to cache asynchronously via waitUntil
       const ctx = (context.locals as any).runtime?.ctx;
       if (ctx?.waitUntil) {
         ctx.waitUntil(cache.put(cacheKey, cachedResponse));
       }
+    } catch (err) {
+      console.error('[cache] write error:', err);
     }
-
-    return response;
-  } catch {
-    // Cache API unavailable or errored — fall through to normal rendering
-    return next();
   }
+
+  return response;
 });
