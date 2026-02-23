@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../../db';
 import { tools, tags, healthChecks } from '../../../db/schema';
-import { eq, desc, like, or, sql } from 'drizzle-orm';
+import { eq, desc, like, or, sql, inArray } from 'drizzle-orm';
 import { api } from '../../../lib/api';
 import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../../lib/health';
 
@@ -65,41 +65,62 @@ export const POST: APIRoute = async ({ request, locals }) => {
     .limit(PAGE_SIZE)
     .offset(offset);
 
-  // Fetch tags and latest health for each tool
-  const result = await Promise.all(
-    toolList.map(async (tool) => {
-      const toolTags = await db
-        .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
-        .from(tags)
-        .where(eq(tags.toolId, tool.id));
+  // Batch fetch tags and health checks (avoids N+1 queries)
+  const toolIds = toolList.map((t) => t.id);
 
-      const recentChecks = await db
-        .select({
-          isOnline: healthChecks.isOnline,
-          httpStatus: healthChecks.httpStatus,
-          responseTimeMs: healthChecks.responseTimeMs,
-          checkedAt: healthChecks.checkedAt,
-        })
-        .from(healthChecks)
-        .where(eq(healthChecks.toolId, tool.id))
-        .orderBy(desc(healthChecks.checkedAt))
-        .limit(HEALTH_TOLERANCE);
+  const [allTags, allHealthChecks] = toolIds.length > 0
+    ? await Promise.all([
+        db.select({ toolId: tags.toolId, tagKey: tags.tagKey, tagValue: tags.tagValue })
+          .from(tags)
+          .where(inArray(tags.toolId, toolIds)),
+        db.select({
+            toolId: healthChecks.toolId,
+            isOnline: healthChecks.isOnline,
+            httpStatus: healthChecks.httpStatus,
+            responseTimeMs: healthChecks.responseTimeMs,
+            checkedAt: healthChecks.checkedAt,
+          })
+          .from(healthChecks)
+          .where(inArray(healthChecks.toolId, toolIds))
+          .orderBy(desc(healthChecks.checkedAt)),
+      ])
+    : [[], []];
 
-      const latestHealth = recentChecks[0] || null;
-      const effectiveStatus = resolveEffectiveStatus(recentChecks);
+  // Build tag map
+  const tagMap = new Map<number, { tagKey: string; tagValue: string }[]>();
+  for (const tag of allTags) {
+    if (!tagMap.has(tag.toolId)) tagMap.set(tag.toolId, []);
+    tagMap.get(tag.toolId)!.push({ tagKey: tag.tagKey, tagValue: tag.tagValue });
+  }
 
-      return {
-        ...tool,
-        tags: toolTags,
-        latestHealth: latestHealth
-          ? {
-              ...latestHealth,
-              effectiveStatus: effectiveStatus ?? (latestHealth.isOnline ? 'online' : 'offline'),
-            }
-          : null,
-      };
-    })
-  );
+  // Build health map (keep only HEALTH_TOLERANCE most recent per tool)
+  const healthMap = new Map<number, typeof allHealthChecks>();
+  for (const check of allHealthChecks) {
+    const arr = healthMap.get(check.toolId) || [];
+    if (arr.length < HEALTH_TOLERANCE) {
+      arr.push(check);
+      healthMap.set(check.toolId, arr);
+    }
+  }
+
+  // Assemble result
+  const result = toolList.map((tool) => {
+    const toolTags = tagMap.get(tool.id) || [];
+    const recentChecks = healthMap.get(tool.id) || [];
+    const latestHealth = recentChecks[0] || null;
+    const effectiveStatus = resolveEffectiveStatus(recentChecks);
+
+    return {
+      ...tool,
+      tags: toolTags,
+      latestHealth: latestHealth
+        ? {
+            ...latestHealth,
+            effectiveStatus: effectiveStatus ?? (latestHealth.isOnline ? 'online' : 'offline'),
+          }
+        : null,
+    };
+  });
 
   return api.success({
     tools: result,
