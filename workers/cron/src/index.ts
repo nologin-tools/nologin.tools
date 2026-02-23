@@ -96,7 +96,7 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 10000);
 
-          let response: Response;
+          let response: Response | undefined;
           try {
             response = await fetch(tool.url, {
               method: 'HEAD',
@@ -109,7 +109,7 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
           }
 
           // Retry with GET if HEAD failed or returned non-ok
-          if (!response! || !response.ok) {
+          if (!response || !response.ok) {
             response = await fetch(tool.url, {
               method: 'GET',
               headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },
