@@ -24,18 +24,20 @@ export function isReachable(status: number): boolean {
 export function resolveEffectiveStatus(
   checks: { isOnline: boolean; checkedAt?: Date | null }[]
 ): EffectiveStatus | null {
-  // Apply time window filter if checkedAt is available
-  const windowMs = HEALTH_WINDOW_HOURS * 60 * 60 * 1000;
-  const cutoff = Date.now() - windowMs;
+  if (checks.length === 0) return null;
 
-  const filtered = checks[0]?.checkedAt
-    ? checks.filter((c) => c.checkedAt && c.checkedAt.getTime() >= cutoff)
-    : checks; // No checkedAt available — use all
+  // If timestamps available, check if most recent is within 48h window
+  if (checks[0]?.checkedAt) {
+    const windowMs = HEALTH_WINDOW_HOURS * 60 * 60 * 1000;
+    const cutoff = Date.now() - windowMs;
+    if (checks[0].checkedAt.getTime() < cutoff) return null;
+  }
 
-  if (filtered.length === 0) return null;
+  // Fast recovery: latest check online → immediately online
+  if (checks[0].isOnline) return 'online';
 
-  const onlineCount = filtered.filter((c) => c.isOnline).length;
-  if (onlineCount === filtered.length) return 'online';
+  // Latest check is offline — use all records to distinguish unstable vs offline
+  const onlineCount = checks.filter((c) => c.isOnline).length;
   if (onlineCount === 0) return 'offline';
   return 'unstable';
 }

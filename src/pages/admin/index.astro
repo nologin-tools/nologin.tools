@@ -26,37 +26,40 @@ const [rejectedCount] = await db.select({ count: sql<number>`count(*)` }).from(t
 
 const [featuredCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.isFeatured, true));
 
-// Count offline approved tools (all recent checks within window failed = offline)
+// Count offline approved tools: latest check in 48h window AND latest is offline AND all last N offline
 const windowCutoff = Math.floor(Date.now() / 1000) - HEALTH_WINDOW_HOURS * 3600;
 const offlineTools = await db.all(sql`
   SELECT COUNT(*) as count FROM tools t
   WHERE t.status = 'approved'
-  AND (SELECT COUNT(*) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub) > 0
-  AND (SELECT COUNT(*) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub WHERE sub.is_online = 0) = (SELECT COUNT(*) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub)
+  AND EXISTS (
+    SELECT 1 FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff}
+  )
+  AND (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id ORDER BY checked_at DESC LIMIT 1
+  ) = 0
+  AND (
+    SELECT SUM(is_online) FROM (
+      SELECT is_online FROM health_checks WHERE tool_id = t.id ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+    ) sub
+  ) = 0
 `);
 const offlineCount = (offlineTools[0] as any)?.count || 0;
 
-// Count unstable approved tools (mix of online and offline in window)
+// Count unstable approved tools: latest check in 48h window AND latest is offline AND some online in last N
 const unstableTools = await db.all(sql`
   SELECT COUNT(*) as count FROM tools t
   WHERE t.status = 'approved'
-  AND (SELECT COUNT(*) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub) > 0
-  AND (SELECT SUM(is_online) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub) > 0
-  AND (SELECT SUM(is_online) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub) < (SELECT COUNT(*) FROM (
-    SELECT is_online FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff} ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
-  ) sub)
+  AND EXISTS (
+    SELECT 1 FROM health_checks WHERE tool_id = t.id AND checked_at > ${windowCutoff}
+  )
+  AND (
+    SELECT is_online FROM health_checks WHERE tool_id = t.id ORDER BY checked_at DESC LIMIT 1
+  ) = 0
+  AND (
+    SELECT SUM(is_online) FROM (
+      SELECT is_online FROM health_checks WHERE tool_id = t.id ORDER BY checked_at DESC LIMIT ${HEALTH_TOLERANCE}
+    ) sub
+  ) > 0
 `);
 const unstableCount = (unstableTools[0] as any)?.count || 0;
 
