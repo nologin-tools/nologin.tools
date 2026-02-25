@@ -4,3 +4,4 @@ dist/
 .astro/
 .env
 .dev.vars
+src/data/build-data.json

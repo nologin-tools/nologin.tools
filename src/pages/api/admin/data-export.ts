@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import type { APIRoute } from 'astro';
 import { getDb } from '../../../db';
 import { tools, tags, dataExports } from '../../../db/schema';

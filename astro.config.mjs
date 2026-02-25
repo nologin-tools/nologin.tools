@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://nologin.tools',
-  output: 'server',
+  output: 'static',
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
