@@ -1,258 +1,91 @@
 ---
-export const prerender = false;
-
 import Layout from '../layouts/Layout.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { getDb } from '../db';
-import { tools, tags, healthChecks, badgeDisplays } from '../db/schema';
-import { eq, desc, inArray } from 'drizzle-orm';
 import { TAG_DEFINITIONS } from '../lib/tags';
-import { HEALTH_TOLERANCE, resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore } from '../data/loader';
+import type { EffectiveStatus } from '../lib/health';
 
-const db = getDb(Astro.locals.runtime.env.DB);
+const approvedTools = getApprovedTools();
 
-const url = Astro.url;
-const query = url.searchParams.get('q') || '';
-const sort = url.searchParams.get('sort') || 'recommended';
-const page = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
-const perPage = 24;
+const toolsWithMeta = approvedTools.map(tool => {
+  const health = getToolHealthStatus(tool);
+  const score = computeToolScore(tool, health);
+  return { ...tool, health, score };
+});
 
-// Collect active tag filters
-const activeFilters: { key: string; value: string }[] = [];
-for (const def of TAG_DEFINITIONS) {
-  const val = url.searchParams.get(def.key);
-  if (val) {
-    activeFilters.push({ key: def.key, value: val });
-  }
-}
+const allTools = [...toolsWithMeta].sort((a, b) => b.score - a.score);
 
-// Build SQL query — unified simple query with LEFT JOIN for badge data
-const toolsQuery = db
-  .select({
-    id: tools.id,
-    slug: tools.slug,
-    name: tools.name,
-    url: tools.url,
-    description: tools.description,
-    status: tools.status,
-    approvedAt: tools.approvedAt,
-    archiveUrl: tools.archiveUrl,
-    isFeatured: tools.isFeatured,
-    featuredAt: tools.featuredAt,
-    badgeDisplayType: badgeDisplays.displayType,
-  })
-  .from(tools)
-  .leftJoin(badgeDisplays, eq(badgeDisplays.toolId, tools.id))
-  .where(eq(tools.status, 'approved'));
-
-// Execute query and apply filters in-memory for simplicity with D1
-let allTools = await toolsQuery;
-
-// Apply search filter
-if (query) {
-  const q = query.toLowerCase();
-  allTools = allTools.filter(
-    (t) =>
-      t.name.toLowerCase().includes(q) ||
-      (t.description && t.description.toLowerCase().includes(q))
-  );
-}
-
-// Get tags for all tools (batch to stay under D1's 100-parameter limit)
-const allToolIds = allTools.map((t) => t.id);
-const BATCH_SIZE = 50;
-let toolTags: { toolId: number; tagKey: string; tagValue: string }[] = [];
-if (allToolIds.length > 0) {
-  const batches = [];
-  for (let i = 0; i < allToolIds.length; i += BATCH_SIZE) {
-    batches.push(allToolIds.slice(i, i + BATCH_SIZE));
-  }
-  const results = await Promise.all(
-    batches.map((batch) =>
-      db
-        .select({
-          toolId: tags.toolId,
-          tagKey: tags.tagKey,
-          tagValue: tags.tagValue,
-        })
-        .from(tags)
-        .where(inArray(tags.toolId, batch))
-    )
-  );
-  toolTags = results.flat();
-}
-
-// Build tag map
 const tagMap = new Map<number, { tagKey: string; tagValue: string }[]>();
-for (const tag of toolTags) {
-  if (!tagMap.has(tag.toolId)) tagMap.set(tag.toolId, []);
-  tagMap.get(tag.toolId)!.push({ tagKey: tag.tagKey, tagValue: tag.tagValue });
+for (const tool of allTools) {
+  tagMap.set(tool.id, tool.tags);
 }
 
-// Apply tag filters
-if (activeFilters.length > 0) {
-  allTools = allTools.filter((t) => {
-    const tTags = tagMap.get(t.id) || [];
-    return activeFilters.every((filter) =>
-      tTags.some(
-        (tag) => tag.tagKey === filter.key && tag.tagValue === filter.value
-      )
-    );
-  });
+const healthMap = new Map<number, { status: EffectiveStatus; checkedAt: Date }>();
+for (const tool of allTools) {
+  if (tool.health) healthMap.set(tool.id, tool.health);
 }
 
-// Get recent health checks for each tool (up to HEALTH_TOLERANCE per tool)
-let healthMap = new Map<
-  number,
-  { status: EffectiveStatus; checkedAt: Date }
->();
-if (allToolIds.length > 0) {
-  const healthBatches = [];
-  for (let i = 0; i < allToolIds.length; i += BATCH_SIZE) {
-    healthBatches.push(allToolIds.slice(i, i + BATCH_SIZE));
-  }
-  const healthResults = await Promise.all(
-    healthBatches.map((batch) =>
-      db
-        .select({
-          toolId: healthChecks.toolId,
-          isOnline: healthChecks.isOnline,
-          checkedAt: healthChecks.checkedAt,
-        })
-        .from(healthChecks)
-        .where(inArray(healthChecks.toolId, batch))
-        .orderBy(desc(healthChecks.checkedAt))
-    )
-  );
-  const latestChecks = healthResults.flat().sort((a, b) => b.checkedAt.getTime() - a.checkedAt.getTime());
-
-  const checksPerTool = new Map<number, { isOnline: boolean; checkedAt: Date }[]>();
-  for (const check of latestChecks) {
-    const arr = checksPerTool.get(check.toolId) || [];
-    if (arr.length < HEALTH_TOLERANCE) {
-      arr.push({ isOnline: check.isOnline, checkedAt: check.checkedAt });
-      checksPerTool.set(check.toolId, arr);
-    }
-  }
-
-  for (const [toolId, checks] of checksPerTool) {
-    const status = resolveEffectiveStatus(checks);
-    if (status !== null) {
-      healthMap.set(toolId, {
-        status,
-        checkedAt: checks[0].checkedAt,
-      });
-    }
-  }
-}
-
-// Compute recommendation score in JS (avoids expensive SQL correlated subqueries)
-function computeScore(tool: (typeof allTools)[number]): number {
-  const badgeType = tool.badgeDisplayType;
-  const badgeWeight = badgeType === 'explicit' ? 10 : badgeType === 'implicit' ? 5 : 0;
-
-  const now = Date.now();
-  const approvedMs = tool.approvedAt ? tool.approvedAt.getTime() : 0;
-  const ageMs = now - approvedMs;
-  const freshness = ageMs < 30 * 86400000 ? 5 : ageMs < 90 * 86400000 ? 3 : 1;
-
-  const health = healthMap.get(tool.id);
-  const healthScore = !health ? 1 : health.status === 'online' ? 3 : health.status === 'unstable' ? 1 : 0;
-
-  const featuredBoost = tool.isFeatured ? 8 : 0;
-
-  return badgeWeight + freshness + healthScore + featuredBoost;
-}
-
-// Sort
-if (sort === 'newest') {
-  allTools.sort((a, b) => {
-    const aTime = a.approvedAt ? a.approvedAt.getTime() : 0;
-    const bTime = b.approvedAt ? b.approvedAt.getTime() : 0;
+const featuredTools = allTools
+  .filter(t => t.isFeatured)
+  .sort((a, b) => {
+    const aTime = a.featuredAt ? new Date(a.featuredAt).getTime() : 0;
+    const bTime = b.featuredAt ? new Date(b.featuredAt).getTime() : 0;
     return bTime - aTime;
   });
-} else if (sort === 'alpha') {
-  allTools.sort((a, b) => a.name.localeCompare(b.name));
-} else {
-  // recommended - sort by JS-computed score
-  allTools.sort((a, b) => computeScore(b) - computeScore(a));
-}
 
-// Determine display mode
-const hasCategoryFilter = activeFilters.some((f) => f.key === 'category');
-const isGroupedMode = !hasCategoryFilter && !query && activeFilters.length === 0;
+const RECENT_TOOLS_COUNT = 8;
+const recentTools = [...allTools]
+  .filter(t => t.approvedAt)
+  .sort((a, b) => {
+    const aTime = a.approvedAt ? new Date(a.approvedAt).getTime() : 0;
+    const bTime = b.approvedAt ? new Date(b.approvedAt).getTime() : 0;
+    return bTime - aTime;
+  })
+  .slice(0, RECENT_TOOLS_COUNT);
 
-// Paginate (flat mode only)
-const totalTools = allTools.length;
-const totalPages = isGroupedMode ? 1 : Math.max(1, Math.ceil(totalTools / perPage));
-const pagedTools = isGroupedMode ? allTools : allTools.slice((page - 1) * perPage, page * perPage);
-
-// Build category groups (grouped mode only)
 const maxPerGroup = 6;
-const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+const categoryDef = TAG_DEFINITIONS.find(d => d.key === 'category');
 const categoryOrder = categoryDef ? categoryDef.values : [];
 type ToolType = (typeof allTools)[number];
 const categoryGroups: { category: string; tools: ToolType[] }[] = [];
+const groupMap = new Map<string, ToolType[]>();
+for (const cat of categoryOrder) groupMap.set(cat, []);
 
-if (isGroupedMode) {
-  const groupMap = new Map<string, ToolType[]>();
-  for (const cat of categoryOrder) groupMap.set(cat, []);
-
-  for (const tool of allTools) {
-    const tTags = tagMap.get(tool.id) || [];
-    const catTag = tTags.find((t) => t.tagKey === 'category');
-    const cat = catTag ? catTag.tagValue : 'Other';
-    if (!groupMap.has(cat)) groupMap.set(cat, []);
-    groupMap.get(cat)!.push(tool);
-  }
-
-  for (const cat of categoryOrder) {
-    const tools = groupMap.get(cat) || [];
-    if (tools.length > 0) categoryGroups.push({ category: cat, tools });
-  }
-  // Add "Other" at the end
-  const otherTools = groupMap.get('Other') || [];
-  if (otherTools.length > 0) categoryGroups.push({ category: 'Other', tools: otherTools });
+for (const tool of allTools) {
+  const catTag = tool.tags.find(t => t.tagKey === 'category');
+  const cat = catTag ? catTag.tagValue : 'Other';
+  if (!groupMap.has(cat)) groupMap.set(cat, []);
+  groupMap.get(cat)!.push(tool);
 }
 
-// Build featured tools list (grouped mode only)
-const featuredTools = isGroupedMode
-  ? allTools.filter((t) => 'isFeatured' in t && t.isFeatured)
-      .sort((a, b) => {
-        const aTime = 'featuredAt' in a && a.featuredAt ? (a.featuredAt as Date).getTime() : 0;
-        const bTime = 'featuredAt' in b && b.featuredAt ? (b.featuredAt as Date).getTime() : 0;
-        return bTime - aTime;
-      })
-  : [];
-
-// Build recently added tools list (grouped mode only)
-const RECENT_TOOLS_COUNT = 8;
-const recentTools = isGroupedMode
-  ? [...allTools]
-      .filter((t) => t.approvedAt)
-      .sort((a, b) => {
-        const aTime = a.approvedAt ? a.approvedAt.getTime() : 0;
-        const bTime = b.approvedAt ? b.approvedAt.getTime() : 0;
-        return bTime - aTime;
-      })
-      .slice(0, RECENT_TOOLS_COUNT)
-  : [];
-
-// Build pagination URL helper
-function buildUrl(params: Record<string, string>) {
-  const u = new URL(url);
-  for (const [k, v] of Object.entries(params)) {
-    if (v) {
-      u.searchParams.set(k, v);
-    } else {
-      u.searchParams.delete(k);
-    }
-  }
-  return u.pathname + u.search;
+for (const cat of categoryOrder) {
+  const catTools = groupMap.get(cat) || [];
+  if (catTools.length > 0) categoryGroups.push({ category: cat, tools: catTools });
 }
+const otherGroupTools = groupMap.get('Other') || [];
+if (otherGroupTools.length > 0) categoryGroups.push({ category: 'Other', tools: otherGroupTools });
+
+const totalTools = allTools.length;
+
+const clientToolsData = allTools.map(tool => ({
+  s: tool.slug,
+  n: tool.name,
+  u: tool.url,
+  d: tool.description,
+  a: tool.approvedAt,
+  f: tool.isFeatured,
+  t: tool.tags.map(t => [t.tagKey, t.tagValue]),
+  h: tool.health?.status || null,
+  c: tool.health ? tool.health.checkedAt.toISOString() : null,
+  sc: tool.score,
+  ar: tool.archiveUrl,
+}));
 ---
 
 <Layout title="Home">
+  <script is:inline>if(location.search)document.documentElement.classList.add('has-filters')</script>
+  <style is:inline>.has-filters #grouped-view{display:none!important}.has-filters #flat-view-loading{display:flex!important}</style>
+
   {/* Hero Background Elements */}
   <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/30 blur-3xl rounded-full"></div>
@@ -276,7 +109,7 @@ function buildUrl(params: Record<string, string>) {
       <p class="text-base sm:text-xl text-neutral-500 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
         The curated directory of high-quality tools that respect your privacy — no login, no tracking, just utility.
       </p>
-      
+
       <div class="flex items-center justify-center gap-4 mb-8 sm:mb-12">
         <a href="/badge/nologin-tools" class="inline-block transition-transform hover:scale-105 active:scale-95 shadow-md rounded-lg">
           <img src="/badges/for-the-badge.svg" alt="NoLogin Verified" title="Verified by nologin.tools" class="h-8 sm:h-auto" />
@@ -284,11 +117,7 @@ function buildUrl(params: Record<string, string>) {
       </div>
 
       <!-- Search -->
-      <form method="GET" action="/" class="max-w-2xl mx-auto mb-4 group px-2 sm:px-0">
-        {activeFilters.map((f) => (
-          <input type="hidden" name={f.key} value={f.value} />
-        ))}
-        <input type="hidden" name="sort" value={sort} />
+      <form id="search-form" method="GET" action="/" class="max-w-2xl mx-auto mb-4 group px-2 sm:px-0">
         <div class="relative">
           <div class="absolute inset-0 bg-green-500/10 blur-xl rounded-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"></div>
           <div class="relative flex items-center bg-white border border-neutral-200 rounded-2xl shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 group-focus-within:border-green-500/50 group-focus-within:shadow-[0_8px_24px_-4px_rgba(34,197,94,0.12)] group-focus-within:-translate-y-0.5">
@@ -307,16 +136,13 @@ function buildUrl(params: Record<string, string>) {
             <input
               type="text"
               name="q"
-              value={query}
+              value=""
               placeholder="Search for tools..."
-              class:list={[
-                "w-full px-3 sm:px-4 py-3 sm:py-4 bg-transparent rounded-2xl text-sm sm:text-base text-neutral-900 placeholder-neutral-400 focus:outline-none",
-                query ? "pr-10" : "pr-4",
-              ]}
+              class="w-full px-3 sm:px-4 py-3 sm:py-4 bg-transparent rounded-2xl text-sm sm:text-base text-neutral-900 placeholder-neutral-400 focus:outline-none pr-4"
             />
-            {query && (
+            <span id="search-clear" class="hidden">
               <a
-                href={buildUrl({ q: '', page: '' })}
+                href="/"
                 class="absolute right-3 text-neutral-400 hover:text-neutral-600 transition-colors p-1 hover:bg-neutral-100 rounded-full"
                 aria-label="Clear search"
               >
@@ -324,7 +150,7 @@ function buildUrl(params: Record<string, string>) {
                   <path d="M4 4l8 8M12 4l-8 8" />
                 </svg>
               </a>
-            )}
+            </span>
           </div>
         </div>
       </form>
@@ -332,34 +158,30 @@ function buildUrl(params: Record<string, string>) {
 
     <!-- Category Filter -->
     {(() => {
-      const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
-      if (!categoryDef) return null;
+      const catDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+      if (!catDef) return null;
       return (
         <div class="mb-8 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
           <div class="flex flex-nowrap sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-3">
             <a
-              href={buildUrl({ category: '', page: '' })}
-              class:list={['chip chip-toggle shrink-0 text-[11px] sm:text-xs', !activeFilters.some(f => f.key === 'category') ? 'chip-active' : 'chip-default']}
+              href="/"
+              data-filter-key="category"
+              data-filter-value=""
+              class="chip chip-toggle shrink-0 text-[11px] sm:text-xs chip-active"
             >
               All Tools
             </a>
             <div class="w-px h-4 bg-neutral-200 mx-1 shrink-0"></div>
-            {categoryDef.values.map((val) => {
-              const isActive = activeFilters.some(
-                (f) => f.key === 'category' && f.value === val
-              );
-              const toggleUrl = isActive
-                ? buildUrl({ category: '', page: '' })
-                : buildUrl({ category: val, page: '' });
-              return (
-                <a
-                  href={toggleUrl}
-                  class:list={['chip chip-toggle shrink-0 text-[11px] sm:text-xs', isActive ? 'chip-active' : 'chip-default']}
-                >
-                  {val}
-                </a>
-              );
-            })}
+            {catDef.values.map((val) => (
+              <a
+                href={"/?category=" + val}
+                data-filter-key="category"
+                data-filter-value={val}
+                class="chip chip-toggle shrink-0 text-[11px] sm:text-xs chip-default"
+              >
+                {val}
+              </a>
+            ))}
           </div>
         </div>
       );
@@ -368,37 +190,11 @@ function buildUrl(params: Record<string, string>) {
     {/* Active Filters Bar */}
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 pb-6 border-b border-neutral-100">
       <div class="flex flex-wrap items-center gap-2 sm:gap-3">
-        {activeFilters.length > 0 ? (
-          <>
-            <span class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mr-1">Filtered by:</span>
-            {activeFilters.map((f) => {
-              const def = TAG_DEFINITIONS.find((d) => d.key === f.key);
-              const label = f.key === 'category' ? f.value : `${def?.label || f.key}: ${f.value}`;
-              return (
-                <a
-                  href={buildUrl({ [f.key]: '', page: '' })}
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-900 text-white text-[10px] font-medium hover:bg-neutral-800 transition-colors shadow-sm"
-                >
-                  {label}
-                  <svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                    <path d="M3 3l6 6M9 3l-6 6" />
-                  </svg>
-                </a>
-              );
-            })}
-            <a href={buildUrl(Object.fromEntries([...activeFilters.map((f) => [f.key, '']), ['page', '']]))} class="text-[10px] text-neutral-400 hover:text-neutral-600 underline underline-offset-4 transition-colors px-1">
-              Clear all
-            </a>
-          </>
-        ) : (
-          <div class="flex items-center gap-2 text-neutral-500">
-            <span class="text-xs sm:text-sm font-medium">
-              {query
-                ? `${totalTools} result${totalTools !== 1 ? 's' : ''} for "${query}"`
-                : `${totalTools} curated tools`}
-            </span>
-          </div>
-        )}
+        <div id="filter-status" class="flex items-center gap-2 text-neutral-500">
+          <span class="text-xs sm:text-sm font-medium">
+            {totalTools} curated tools
+          </span>
+        </div>
       </div>
 
       <div class="flex items-center gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-hide">
@@ -409,29 +205,24 @@ function buildUrl(params: Record<string, string>) {
             { key: 'alpha', label: 'A-Z' },
           ].map((s) => (
             <a
-              href={buildUrl({ sort: s.key, page: '' })}
-              class:list={[
-                'px-3 sm:px-4 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold transition-all duration-200',
-                sort === s.key
+              href={"/?sort=" + s.key}
+              data-sort={s.key}
+              class={`px-3 sm:px-4 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold transition-all duration-200 ${
+                s.key === 'recommended'
                   ? 'bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200'
-                  : 'text-neutral-500 hover:text-neutral-900 hover:bg-white/50',
-              ]}
+                  : 'text-neutral-500 hover:text-neutral-900 hover:bg-white/50'
+              }`}
             >
               {s.label}
             </a>
           ))}
         </div>
-        
+
         {/* More Filters Toggle */}
         <button
           type="button"
           id="more-filters-toggle"
-          class:list={[
-            "inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-[10px] sm:text-xs font-bold border transition-all shrink-0",
-            activeFilters.some(f => f.key !== 'category') 
-              ? "bg-green-50 text-green-700 border-green-200" 
-              : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
-          ]}
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-[10px] sm:text-xs font-bold border transition-all shrink-0 bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-50"
         >
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line>
@@ -442,36 +233,30 @@ function buildUrl(params: Record<string, string>) {
     </div>
 
     {/* More Filters Panel (Slide Down) */}
-    <div id="more-filters-panel" class:list={["mb-10 p-6 bg-neutral-50 border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300", !activeFilters.some(f => f.key !== 'category') && "hidden"]}>
+    <div id="more-filters-panel" class="mb-10 p-6 bg-neutral-50 border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hidden">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {TAG_DEFINITIONS.filter((def) => def.key !== 'category').map((def) => (
           <div>
             <h3 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] mb-4">{def.label}</h3>
             <div class="flex flex-wrap gap-2">
-              {def.values.map((val) => {
-                const isActive = activeFilters.some(
-                  (f) => f.key === def.key && f.value === val
-                );
-                const toggleUrl = isActive
-                  ? buildUrl({ [def.key]: '', page: '' })
-                  : buildUrl({ [def.key]: val, page: '' });
-                return (
-                  <a
-                    href={toggleUrl}
-                    class:list={['chip text-[11px] px-4 py-1.5', isActive ? 'chip-active' : 'chip-default bg-white']}
-                  >
-                    {val}
-                  </a>
-                );
-              })}
+              {def.values.map((val) => (
+                <a
+                  href={"/?"+def.key+"="+val}
+                  data-filter-key={def.key}
+                  data-filter-value={val}
+                  class="chip text-[11px] px-4 py-1.5 chip-default bg-white"
+                >
+                  {val}
+                </a>
+              ))}
             </div>
           </div>
         ))}
       </div>
     </div>
 
-    {isGroupedMode ? (
-      totalTools > 0 ? (
+    <div id="grouped-view">
+      {totalTools > 0 ? (
         <div class="space-y-12 sm:space-y-20">
           {featuredTools.length > 0 && (
             <section id="spotlight-carousel" aria-label="Featured tools spotlight" class="relative">
@@ -595,7 +380,7 @@ function buildUrl(params: Record<string, string>) {
                                   Verified
                                 </span>
                               </div>
-                              
+
                               <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                 <a
                                   href={tool.url}
@@ -652,7 +437,7 @@ function buildUrl(params: Record<string, string>) {
                   <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-green-100 text-green-700 text-[9px] sm:text-[10px] font-black uppercase tracking-wider">New</span>
                 </h2>
                 <a
-                  href={buildUrl({ sort: 'newest', page: '' })}
+                  href="/?sort=newest"
                   class="text-xs sm:text-sm font-bold text-green-600 hover:text-green-700 transition-colors flex items-center gap-1 group/link"
                 >
                   View all
@@ -722,10 +507,10 @@ function buildUrl(params: Record<string, string>) {
                 </h2>
                 {group.tools.length > maxPerGroup && (
                   <a
-                    href={buildUrl({ category: group.category, page: '' })}
+                    href={"/?category=" + group.category}
                     class="text-xs sm:text-sm font-bold text-green-600 hover:text-green-700 transition-colors flex items-center gap-1 group/link"
                   >
-                    View gallery 
+                    View gallery
                     <svg class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                   </a>
                 )}
@@ -765,105 +550,342 @@ function buildUrl(params: Record<string, string>) {
           <p class="text-sm sm:text-base text-neutral-500 mb-8 sm:mb-10 max-w-sm mx-auto">Be the first to submit a privacy-friendly tool to this collection.</p>
           <a href="/submit" class="btn-primary w-full sm:w-auto justify-center">Submit a Tool</a>
         </div>
-      )
-    ) : (
-      pagedTools.length > 0 ? (
-        <div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-            {pagedTools.map((tool) => {
-              const health = healthMap.get(tool.id);
-              const tTags = tagMap.get(tool.id) || [];
-              return (
-                <ToolCard
-                  slug={tool.slug}
-                  name={tool.name}
-                  url={tool.url}
-                  description={tool.description}
-                  isVerified={tool.status === 'approved'}
-                  healthStatus={health?.status ?? null}
-                  lastCheckedAt={health?.checkedAt ?? null}
-                  tags={tTags}
-                  archiveUrl={tool.archiveUrl}
-                  isFeatured={'isFeatured' in tool && !!tool.isFeatured}
-                />
-              );
-            })}
-          </div>
-          {totalPages > 1 && (
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-8 sm:pt-12 border-t border-neutral-100">
-              <div class="flex items-center gap-4 order-2 sm:order-1">
-                {page > 1 ? (
-                  <a
-                    href={buildUrl({ page: String(page - 1) })}
-                    class="btn-secondary py-2"
-                  >
-                    <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-                    Prev
-                  </a>
-                ) : <div class="w-[84px] hidden sm:block"></div>}
-                
-                <div class="flex items-center gap-1.5">
-                  {Array.from({ length: Math.min(3, totalPages) }, (_, i) => {
-                     let pageNum = i + 1;
-                     if (totalPages > 3 && page > 2) {
-                       pageNum = page - 1 + i;
-                       if (pageNum > totalPages) pageNum = totalPages - (2 - i);
-                     }
-                     if (pageNum <= 0) return null;
-                     if (pageNum > totalPages) return null;
-                     
-                     return (
-                       <a 
-                         href={buildUrl({ page: String(pageNum) })}
-                         class:list={[
-                           "w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl text-[11px] sm:text-sm font-bold transition-all",
-                           page === pageNum 
-                             ? "bg-green-600 text-white shadow-lg shadow-green-100" 
-                             : "text-neutral-500 hover:bg-neutral-100"
-                         ]}
-                       >
-                         {pageNum}
-                       </a>
-                     );
-                  })}
-                </div>
+      )}
+    </div>
 
-                {page < totalPages ? (
-                  <a
-                    href={buildUrl({ page: String(page + 1) })}
-                    class="btn-secondary py-2"
-                  >
-                    Next
-                    <svg class="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-                  </a>
-                ) : <div class="w-[84px] hidden sm:block"></div>}
-              </div>
-            </div>
-          )}
-        </div>
-      ) : (
-        <div class="text-center py-16 sm:py-24 glass-card rounded-[2rem] sm:rounded-[3rem] px-4">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 bg-neutral-100 rounded-2xl sm:rounded-[2rem] flex items-center justify-center mx-auto mb-6">
-            <svg class="text-neutral-400" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <circle cx="11" cy="11" r="7" />
-              <path d="M21 21l-4.35-4.35" />
-            </svg>
-          </div>
-          <p class="text-lg sm:text-xl text-neutral-900 mb-2 font-black">No matches found</p>
-          <p class="text-sm sm:text-base text-neutral-500 mb-8 sm:mb-10 max-w-sm mx-auto">
-            {query
-              ? `We couldn't find anything matching "${query}".`
-              : 'No tools match the selected filters.'}
-          </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href="/" class="btn-secondary w-full sm:w-auto justify-center">Clear filters</a>
-            <a href="/submit" class="btn-primary w-full sm:w-auto justify-center">Submit a Tool</a>
-          </div>
-        </div>
-      )
-    )}
+    <!-- Flat View (rendered by client JS when search/filters active) -->
+    <div id="flat-view" class="hidden">
+      <div id="flat-view-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12"></div>
+      <div id="flat-view-pagination" class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-8 sm:pt-12 border-t border-neutral-100"></div>
+    </div>
+
+    <!-- Flat View Empty State -->
+    <div id="flat-view-empty" class="hidden text-center py-16 sm:py-24 glass-card rounded-[2rem] sm:rounded-[3rem] px-4">
+      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-neutral-100 rounded-2xl sm:rounded-[2rem] flex items-center justify-center mx-auto mb-6">
+        <svg class="text-neutral-400" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+      </div>
+      <p id="flat-empty-title" class="text-lg sm:text-xl text-neutral-900 mb-2 font-black">No matches found</p>
+      <p id="flat-empty-text" class="text-sm sm:text-base text-neutral-500 mb-8 sm:mb-10 max-w-sm mx-auto">No tools match the selected filters.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/" class="btn-secondary w-full sm:w-auto justify-center">Clear filters</a>
+        <a href="/submit" class="btn-primary w-full sm:w-auto justify-center">Submit a Tool</a>
+      </div>
+    </div>
+
+    <!-- Loading indicator (shown briefly while JS processes filters) -->
+    <div id="flat-view-loading" class="hidden items-center justify-center py-24">
+      <div class="w-8 h-8 border-4 border-neutral-200 border-t-green-500 rounded-full animate-spin"></div>
+    </div>
   </div>
 </Layout>
+
+<script id="tools-data" type="application/json" set:html={JSON.stringify(clientToolsData)}></script>
+
+<script>
+  // Client-side search, filter, sort, and paginate
+  (function() {
+    const TAG_KEYS = ['category','source','data','privacy','type','hosting','offline','pricing'];
+    const TAG_LABELS: Record<string, string> = {category:'Category',source:'Source',data:'Data Processing',privacy:'Privacy',type:'Type',hosting:'Hosting',offline:'Offline',pricing:'Pricing'};
+    const params = new URLSearchParams(location.search);
+    const query = params.get('q') || '';
+    const sort = params.get('sort') || 'recommended';
+    const page = Math.max(1, parseInt(params.get('page') || '1', 10));
+    const perPage = 24;
+
+    const activeFilters: {key:string,value:string}[] = [];
+    for (const key of TAG_KEYS) {
+      const val = params.get(key);
+      if (val) activeFilters.push({ key, value: val });
+    }
+
+    const hasFilters = query || sort !== 'recommended' || activeFilters.length > 0;
+
+    // Update search input value
+    const searchInput = document.querySelector<HTMLInputElement>('#search-form input[name="q"]');
+    if (searchInput && query) {
+      searchInput.value = query;
+      const clearBtn = document.getElementById('search-clear');
+      if (clearBtn) clearBtn.classList.remove('hidden');
+    }
+
+    // Update sort tab active states and hrefs
+    document.querySelectorAll<HTMLAnchorElement>('[data-sort]').forEach(el => {
+      const s = el.dataset.sort!;
+      el.href = buildUrl({ sort: s === 'recommended' ? '' : s });
+      if (s === sort) {
+        el.className = el.className.replace(/text-neutral-500 hover:text-neutral-900 hover:bg-white\/50/g, 'bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200');
+      } else {
+        el.className = el.className.replace(/bg-white text-neutral-900 shadow-sm ring-1 ring-neutral-200/g, 'text-neutral-500 hover:text-neutral-900 hover:bg-white/50');
+      }
+    });
+
+    // Update category chip active states and hrefs
+    document.querySelectorAll<HTMLAnchorElement>('[data-filter-key="category"]').forEach(el => {
+      const val = el.dataset.filterValue!;
+      const activeCat = activeFilters.find(f => f.key === 'category');
+      const isActive = val === '' ? !activeCat : activeCat?.value === val;
+      el.href = val ? buildUrl({ category: val }) : buildUrl({ category: '' });
+      if (isActive) {
+        el.classList.remove('chip-default');
+        el.classList.add('chip-active');
+      } else {
+        el.classList.remove('chip-active');
+        el.classList.add('chip-default');
+      }
+    });
+
+    // Update more-filter chips
+    document.querySelectorAll<HTMLAnchorElement>('[data-filter-key]:not([data-filter-key="category"])').forEach(el => {
+      const key = el.dataset.filterKey!;
+      const val = el.dataset.filterValue!;
+      const isActive = activeFilters.some(f => f.key === key && f.value === val);
+      el.href = isActive ? buildUrl({ [key]: '' }) : buildUrl({ [key]: val });
+      if (isActive) {
+        el.classList.remove('chip-default', 'bg-white');
+        el.classList.add('chip-active');
+      } else {
+        el.classList.remove('chip-active');
+        el.classList.add('chip-default', 'bg-white');
+      }
+    });
+
+    // Auto-expand more filters if non-category filters are active
+    if (activeFilters.some(f => f.key !== 'category')) {
+      const panel = document.getElementById('more-filters-panel');
+      if (panel) panel.classList.remove('hidden');
+      const toggle = document.getElementById('more-filters-toggle');
+      if (toggle) {
+        toggle.classList.remove('bg-white', 'text-neutral-600', 'border-neutral-200');
+        toggle.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+      }
+    }
+
+    // Update filter status bar
+    const filterStatus = document.getElementById('filter-status');
+    if (filterStatus) {
+      if (activeFilters.length > 0 || query) {
+        // Will be updated after filtering with result count
+      }
+    }
+
+    // Add hidden inputs to search form for active filters
+    const searchForm = document.getElementById('search-form') as HTMLFormElement | null;
+    if (searchForm) {
+      for (const f of activeFilters) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = f.key;
+        input.value = f.value;
+        searchForm.prepend(input);
+      }
+      if (sort !== 'recommended') {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'sort';
+        input.value = sort;
+        searchForm.prepend(input);
+      }
+    }
+
+    if (!hasFilters) return;
+
+    // Load tools data
+    const toolsRaw = JSON.parse(document.getElementById('tools-data')!.textContent!);
+
+    // Filter
+    let filtered = toolsRaw;
+    if (query) {
+      const q = query.toLowerCase();
+      filtered = filtered.filter((t: any) =>
+        t.n.toLowerCase().includes(q) || (t.d && t.d.toLowerCase().includes(q))
+      );
+    }
+    if (activeFilters.length > 0) {
+      filtered = filtered.filter((t: any) =>
+        activeFilters.every(f =>
+          t.t.some((tag: [string,string]) => tag[0] === f.key && tag[1] === f.value)
+        )
+      );
+    }
+
+    // Sort
+    if (sort === 'newest') {
+      filtered.sort((a: any, b: any) => {
+        const at = a.a ? new Date(a.a).getTime() : 0;
+        const bt = b.a ? new Date(b.a).getTime() : 0;
+        return bt - at;
+      });
+    } else if (sort === 'alpha') {
+      filtered.sort((a: any, b: any) => a.n.localeCompare(b.n));
+    } else {
+      filtered.sort((a: any, b: any) => b.sc - a.sc);
+    }
+
+    const totalFiltered = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(totalFiltered / perPage));
+    const safePage = Math.min(page, totalPages);
+    const paged = filtered.slice((safePage - 1) * perPage, safePage * perPage);
+
+    // Update filter status bar with results count
+    if (filterStatus) {
+      if (activeFilters.length > 0) {
+        const chips = activeFilters.map((f: {key:string,value:string}) => {
+          const label = f.key === 'category' ? f.value : `${TAG_LABELS[f.key as keyof typeof TAG_LABELS] || f.key}: ${f.value}`;
+          return `<a href="${escapeAttr(buildUrl({[f.key]:''}))}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-900 text-white text-[10px] font-medium hover:bg-neutral-800 transition-colors shadow-sm">${escapeHtml(label)}<svg class="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></a>`;
+        }).join('');
+        const clearUrl = buildUrl(Object.fromEntries(activeFilters.map((f: {key:string}) => [f.key, ''])));
+        filterStatus.innerHTML = `<span class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mr-1">Filtered by:</span>${chips}<a href="${escapeAttr(clearUrl)}" class="text-[10px] text-neutral-400 hover:text-neutral-600 underline underline-offset-4 transition-colors px-1">Clear all</a>`;
+      } else if (query) {
+        filterStatus.innerHTML = `<div class="flex items-center gap-2 text-neutral-500"><span class="text-xs sm:text-sm font-medium">${totalFiltered} result${totalFiltered !== 1 ? 's' : ''} for &quot;${escapeHtml(query)}&quot;</span></div>`;
+      }
+    }
+
+    // Hide grouped view, show flat view
+    document.getElementById('grouped-view')?.style.setProperty('display', 'none');
+    document.getElementById('flat-view-loading')?.classList.add('hidden');
+
+    if (paged.length === 0) {
+      const emptyEl = document.getElementById('flat-view-empty')!;
+      emptyEl.classList.remove('hidden');
+      const title = document.getElementById('flat-empty-title')!;
+      const text = document.getElementById('flat-empty-text')!;
+      title.textContent = 'No matches found';
+      text.textContent = query ? `We couldn't find anything matching "${query}".` : 'No tools match the selected filters.';
+      return;
+    }
+
+    // Render tool cards
+    const grid = document.getElementById('flat-view-grid')!;
+    grid.innerHTML = paged.map((tool: any) => createToolCard(tool)).join('');
+    document.getElementById('flat-view')!.classList.remove('hidden');
+
+    // Render pagination
+    if (totalPages > 1) {
+      const pagDiv = document.getElementById('flat-view-pagination')!;
+      let pagHTML = '<div class="flex items-center gap-4 order-2 sm:order-1">';
+      if (safePage > 1) {
+        pagHTML += `<a href="${escapeAttr(buildUrl({page:String(safePage-1)}))}" class="btn-secondary py-2"><svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>Prev</a>`;
+      } else {
+        pagHTML += '<div class="w-[84px] hidden sm:block"></div>';
+      }
+      pagHTML += '<div class="flex items-center gap-1.5">';
+      for (let i = 0; i < Math.min(3, totalPages); i++) {
+        let pn = i + 1;
+        if (totalPages > 3 && safePage > 2) {
+          pn = safePage - 1 + i;
+          if (pn > totalPages) pn = totalPages - (2 - i);
+        }
+        if (pn <= 0 || pn > totalPages) continue;
+        const cls = safePage === pn ? 'bg-green-600 text-white shadow-lg shadow-green-100' : 'text-neutral-500 hover:bg-neutral-100';
+        pagHTML += `<a href="${escapeAttr(buildUrl({page:String(pn)}))}" class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl text-[11px] sm:text-sm font-bold transition-all ${cls}">${pn}</a>`;
+      }
+      pagHTML += '</div>';
+      if (safePage < totalPages) {
+        pagHTML += `<a href="${escapeAttr(buildUrl({page:String(safePage+1)}))}" class="btn-secondary py-2">Next<svg class="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg></a>`;
+      } else {
+        pagHTML += '<div class="w-[84px] hidden sm:block"></div>';
+      }
+      pagHTML += '</div>';
+      pagDiv.innerHTML = pagHTML;
+    }
+
+    function buildUrl(changes: Record<string,string>) {
+      const u = new URL(location.href);
+      for (const [k, v] of Object.entries(changes)) {
+        if (v) u.searchParams.set(k, v);
+        else u.searchParams.delete(k);
+      }
+      if (!('page' in changes)) u.searchParams.delete('page');
+      return u.pathname + u.search;
+    }
+
+    function escapeHtml(str: string) {
+      if (!str) return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function escapeAttr(str: string) {
+      return str.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+    }
+
+    function timeAgo(dateStr: string) {
+      const seconds = Math.floor((Date.now() - new Date(dateStr).getTime()) / 1000);
+      if (seconds < 60) return 'just now';
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return minutes + 'm ago';
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return hours + 'h ago';
+      const days = Math.floor(hours / 24);
+      if (days < 30) return days + 'd ago';
+      return Math.floor(days / 30) + 'mo ago';
+    }
+
+    function createToolCard(tool: any) {
+      const hostname = (() => { try { return new URL(tool.u).hostname; } catch { return ''; } })();
+      const faviconUrl = hostname ? `https://www.google.com/s2/favicons?domain=${hostname}&sz=32` : '';
+      const initial = tool.n.charAt(0).toUpperCase();
+      const isOffline = tool.h === 'offline';
+      const tags = tool.t.map((t: [string,string]) => ({ tagKey: t[0], tagValue: t[1] }));
+      const sortedTags = [...tags].sort((a: any, b: any) => a.tagKey === 'category' ? -1 : b.tagKey === 'category' ? 1 : 0);
+
+      let hb = '';
+      if (tool.h === null) {
+        hb = '<span class="inline-flex items-center gap-1.5 text-xs text-neutral-400"><span class="w-2 h-2 rounded-full bg-neutral-300"></span>No checks yet</span>';
+      } else if (tool.h === 'online') {
+        hb = `<span class="inline-flex items-center gap-1.5 text-xs text-green-600"><span class="w-2 h-2 rounded-full bg-green-500"></span>Online${tool.c ? `<span class="text-neutral-400">&middot; ${timeAgo(tool.c)}</span>` : ''}</span>`;
+      } else if (tool.h === 'unstable') {
+        hb = `<span class="inline-flex items-center gap-1.5 text-xs text-amber-600"><span class="w-2 h-2 rounded-full bg-amber-500"></span>Unstable${tool.c ? `<span class="text-neutral-400">&middot; ${timeAgo(tool.c)}</span>` : ''}</span>`;
+      } else {
+        hb = `<span class="inline-flex items-center gap-1.5 text-xs text-red-500"><span class="w-2 h-2 rounded-full bg-red-500"></span>Offline${tool.c ? `<span class="text-neutral-400">&middot; ${timeAgo(tool.c)}</span>` : ''}</span>`;
+      }
+
+      const tc = sortedTags.slice(0, 3).map((tag: any) =>
+        `<span class="chip text-[10px] uppercase tracking-wider ${tag.tagKey === 'category' ? 'chip-category' : 'chip-default'}">${escapeHtml(tag.tagValue)}</span>`
+      ).join('');
+      const tm = sortedTags.length > 3 ? `<span class="text-[10px] text-neutral-400 self-center">+${sortedTags.length - 3}</span>` : '';
+
+      const fc = tool.f ? ' ring-1 ring-yellow-400/50 bg-gradient-to-br from-yellow-50/50 to-white' : '';
+      const oc = isOffline ? ' opacity-60 grayscale-[0.5]' : '';
+      const fs = tool.f ? '<div class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-yellow-400 rounded-full border-2 border-white flex items-center justify-center shadow-sm"><span class="text-[8px] text-white">&#9733;</span></div>' : '';
+
+      return `<a href="/tool/${tool.s}" class="group block relative p-5 bg-white border border-neutral-200/60 rounded-2xl transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1${fc}${oc}">
+  <div class="flex items-start justify-between gap-3 mb-4">
+    <div class="flex items-center gap-3 min-w-0">
+      <div class="relative flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300">
+          ${faviconUrl
+            ? `<img src="${faviconUrl}" alt="" width="24" height="24" loading="lazy" class="w-6 h-6 object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-100 text-neutral-400 text-sm font-bold items-center justify-center hidden">${initial}</span>`
+            : `<span class="w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-100 text-neutral-400 text-sm font-bold flex items-center justify-center">${initial}</span>`
+          }
+        </div>
+        ${fs}
+      </div>
+      <div class="min-w-0">
+        <h3 class="font-bold text-neutral-900 truncate group-hover:text-green-600 transition-colors">${escapeHtml(tool.n)}</h3>
+        <p class="text-[11px] text-neutral-400 truncate">${hostname}</p>
+      </div>
+    </div>
+    ${hb}
+  </div>
+  ${tool.d ? `<p class="text-sm text-neutral-600 mb-4 line-clamp-2 leading-relaxed h-[2.5rem]">${escapeHtml(tool.d)}</p>` : ''}
+  <div class="flex flex-wrap gap-1.5 mb-4">${tc}${tm}</div>
+  <div class="flex items-center justify-between pt-4 border-t border-neutral-50">
+    <span class="inline-flex items-center gap-1.5 text-[11px] text-green-600 font-bold uppercase tracking-tight">
+      <div class="w-3.5 h-3.5 rounded-full bg-green-500 flex items-center justify-center"><svg width="8" height="8" viewBox="0 0 12 12" fill="none"><path d="M3.5 6L5.5 8L8.5 4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      Verified
+    </span>
+    <div class="flex items-center gap-1 text-neutral-300 group-hover:text-neutral-500 transition-colors">
+      <span class="text-[10px] font-medium">Explore</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+</a>`;
+    }
+  })();
+</script>
 
 <script>
   const toggle = document.getElementById('more-filters-toggle');

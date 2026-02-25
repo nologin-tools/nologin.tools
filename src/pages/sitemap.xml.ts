@@ -1,18 +1,9 @@
-export const prerender = false;
-
 import type { APIRoute } from 'astro';
-import { getDb } from '../db';
-import { tools } from '../db/schema';
-import { eq } from 'drizzle-orm';
+import { getApprovedTools } from '../data/loader';
 
-export const GET: APIRoute = async ({ locals }) => {
-  const db = getDb(locals.runtime.env.DB);
-  const siteUrl = locals.runtime.env.SITE_URL || 'https://nologin.tools';
-
-  const approvedTools = await db
-    .select({ slug: tools.slug })
-    .from(tools)
-    .where(eq(tools.status, 'approved'));
+export const GET: APIRoute = async () => {
+  const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
+  const approvedTools = getApprovedTools();
 
   const staticPages = [
     { url: '/', priority: '1.0', changefreq: 'daily' },
