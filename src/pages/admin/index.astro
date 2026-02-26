@@ -90,26 +90,39 @@ if (pendingIds.length > 0) {
   }
 }
 
-// Fetch latest health for pending tools (batch query with tolerance)
+// Fetch latest health for pending tools (batch query with tolerance + ROW_NUMBER)
 const healthMap = new Map<number, { effectiveStatus: EffectiveStatus; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }>();
 if (pendingIds.length > 0) {
-  const allPendingHealth = await db
-    .select({ toolId: healthChecks.toolId, isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
-    .from(healthChecks)
-    .where(inArray(healthChecks.toolId, pendingIds))
-    .orderBy(desc(healthChecks.checkedAt));
-  const healthByTool = new Map<number, typeof allPendingHealth>();
-  for (const check of allPendingHealth) {
-    const arr = healthByTool.get(check.toolId) || [];
-    if (arr.length < HEALTH_TOLERANCE) arr.push(check);
-    healthByTool.set(check.toolId, arr);
+  const pendingHealthRows = await db.all(sql`
+    SELECT tool_id, is_online, http_status, response_time_ms, checked_at
+    FROM (
+      SELECT hc.*, ROW_NUMBER() OVER (PARTITION BY hc.tool_id ORDER BY hc.checked_at DESC) AS rn
+      FROM health_checks hc
+      INNER JOIN tools t ON t.id = hc.tool_id
+      WHERE t.status = 'pending'
+    ) sub
+    WHERE rn <= ${HEALTH_TOLERANCE}
+    ORDER BY checked_at DESC
+  `) as { tool_id: number; is_online: number; http_status: number | null; response_time_ms: number | null; checked_at: number }[];
+  const healthByTool = new Map<number, { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }[]>();
+  for (const check of pendingHealthRows) {
+    const arr = healthByTool.get(check.tool_id) || [];
+    arr.push({
+      isOnline: check.is_online === 1,
+      httpStatus: check.http_status,
+      responseTimeMs: check.response_time_ms,
+      checkedAt: new Date(check.checked_at * 1000),
+    });
+    healthByTool.set(check.tool_id, arr);
   }
   for (const [toolId, checks] of healthByTool) {
     if (checks.length > 0) {
       const status = resolveEffectiveStatus(checks);
       healthMap.set(toolId, {
-        ...checks[0],
         effectiveStatus: status ?? (checks[0].isOnline ? 'online' : 'offline'),
+        httpStatus: checks[0].httpStatus,
+        responseTimeMs: checks[0].responseTimeMs,
+        checkedAt: checks[0].checkedAt,
       });
     }
   }
@@ -129,20 +142,30 @@ if (editToolIds.length > 0) {
   for (const t of editToolRows) editToolMap.set(t.id, { name: t.name, slug: t.slug });
 }
 
-// === Health tab (batch query) ===
+// === Health tab (batch query — use ROW_NUMBER + JOIN to limit per-tool rows) ===
 const approvedTools = await db.select().from(tools).where(eq(tools.status, 'approved')).orderBy(desc(tools.submittedAt));
-const approvedIds = approvedTools.map(t => t.id);
 const approvedHealthByTool = new Map<number, { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }[]>();
-if (approvedIds.length > 0) {
-  const allApprovedHealth = await db
-    .select({ toolId: healthChecks.toolId, isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
-    .from(healthChecks)
-    .where(inArray(healthChecks.toolId, approvedIds))
-    .orderBy(desc(healthChecks.checkedAt));
-  for (const check of allApprovedHealth) {
-    const arr = approvedHealthByTool.get(check.toolId) || [];
-    if (arr.length < HEALTH_TOLERANCE) arr.push(check);
-    approvedHealthByTool.set(check.toolId, arr);
+if (approvedTools.length > 0) {
+  const approvedHealthRows = await db.all(sql`
+    SELECT tool_id, is_online, http_status, response_time_ms, checked_at
+    FROM (
+      SELECT hc.*, ROW_NUMBER() OVER (PARTITION BY hc.tool_id ORDER BY hc.checked_at DESC) AS rn
+      FROM health_checks hc
+      INNER JOIN tools t ON t.id = hc.tool_id
+      WHERE t.status = 'approved'
+    ) sub
+    WHERE rn <= ${HEALTH_TOLERANCE}
+    ORDER BY checked_at DESC
+  `) as { tool_id: number; is_online: number; http_status: number | null; response_time_ms: number | null; checked_at: number }[];
+  for (const check of approvedHealthRows) {
+    const arr = approvedHealthByTool.get(check.tool_id) || [];
+    arr.push({
+      isOnline: check.is_online === 1,
+      httpStatus: check.http_status,
+      responseTimeMs: check.response_time_ms,
+      checkedAt: new Date(check.checked_at * 1000),
+    });
+    approvedHealthByTool.set(check.tool_id, arr);
   }
 }
 const healthList: { tool: typeof approvedTools[0]; health: { effectiveStatus: EffectiveStatus; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date } | null }[] = [];
