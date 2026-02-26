@@ -1,0 +1,63 @@
+---
+export const prerender = false;
+
+import { getDb } from '../../../db';
+import { tools, tags, healthChecks } from '../../../db/schema';
+import { eq, desc, sql } from 'drizzle-orm';
+import { HEALTH_TOLERANCE } from '../../../lib/health';
+import ToolDetailPage from '../../../components/ToolDetailPage.astro';
+
+const { slug } = Astro.params;
+const db = getDb(Astro.locals.runtime.env.DB);
+
+// Fetch tool
+const [tool] = await db
+  .select()
+  .from(tools)
+  .where(eq(tools.slug, slug!))
+  .limit(1);
+
+if (!tool) {
+  return Astro.redirect('/404');
+}
+
+// Fetch tags
+const toolTags = await db
+  .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+  .from(tags)
+  .where(eq(tags.toolId, tool.id));
+
+// Fetch recent health checks for tolerance
+const recentChecks = await db
+  .select({
+    isOnline: healthChecks.isOnline,
+    httpStatus: healthChecks.httpStatus,
+    responseTimeMs: healthChecks.responseTimeMs,
+    checkedAt: healthChecks.checkedAt,
+  })
+  .from(healthChecks)
+  .where(eq(healthChecks.toolId, tool.id))
+  .orderBy(desc(healthChecks.checkedAt))
+  .limit(HEALTH_TOLERANCE);
+
+// Fetch health history (last 14 days)
+const fourteenDaysAgo = new Date(Date.now() - 14 * 86400000);
+const healthHistory = await db
+  .select({
+    checkedAt: healthChecks.checkedAt,
+    isOnline: healthChecks.isOnline,
+  })
+  .from(healthChecks)
+  .where(
+    sql`${healthChecks.toolId} = ${tool.id} AND ${healthChecks.checkedAt} > ${Math.floor(fourteenDaysAgo.getTime() / 1000)}`
+  )
+  .orderBy(desc(healthChecks.checkedAt));
+---
+
+<ToolDetailPage
+  tool={tool}
+  toolTags={toolTags}
+  recentChecks={recentChecks}
+  healthHistory={healthHistory}
+  slug={slug!}
+/>

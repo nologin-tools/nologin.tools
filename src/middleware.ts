@@ -1,22 +1,17 @@
 import { defineMiddleware } from 'astro:middleware';
 
-const CACHED_PATHS = new Set(['/', '/sitemap.xml']);
-const CACHE_TTL = 60; // seconds
+const ISR_CACHE_TTL = 21600; // 6 hours in seconds
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url } = context;
+  const { pathname } = url;
 
-  // Only cache GET requests for specific paths
-  if (request.method !== 'GET' || !CACHED_PATHS.has(url.pathname)) {
+  // Only handle GET requests for ISR paths
+  if (request.method !== 'GET' || !isISRPath(pathname)) {
     return next();
   }
 
-  // Skip cache for admin requests
-  if (url.searchParams.has('secret')) {
-    return next();
-  }
-
-  // Phase 1: Try to read from Cloudflare Workers Cache API
+  // Phase 1: Check Cache API for previously cached SSR responses
   let cache: Cache | undefined;
   let cacheKey: Request | undefined;
   try {
@@ -26,9 +21,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
       cacheKey = new Request(url.toString(), { method: 'GET' });
       const cached = await cache.match(cacheKey);
       if (cached) {
-        // Return a new Response with mutable headers — cached responses
-        // from the Cache API have immutable headers, and Astro's render
-        // pipeline needs to modify them (e.g. Content-Type).
         return new Response(cached.body, {
           status: cached.status,
           statusText: cached.statusText,
@@ -37,34 +29,50 @@ export const onRequest = defineMiddleware(async (context, next) => {
       }
     }
   } catch (err) {
-    console.error('[cache] read error:', err);
-    // Continue to normal rendering
+    console.error('[isr-cache] read error:', err);
   }
 
-  // Phase 2: Render the page (never inside cache try/catch)
+  // Phase 2: Try static rendering (will 404 if no static file exists)
   const response = await next();
 
-  // Phase 3: Try to write successful responses to cache
-  if (cache && cacheKey && response.status === 200) {
+  // Phase 3: If 404, rewrite to SSR fallback route
+  if (response.status === 404) {
+    const ssrPath = pathname.replace(/^\/(tool|badge)\//, '/ssr/$1/');
     try {
-      const cloned = response.clone();
-      const headers = new Headers(cloned.headers);
-      headers.set('Cache-Control', `public, max-age=${CACHE_TTL}`);
+      const ssrResponse = await context.rewrite(ssrPath);
 
-      const cachedResponse = new Response(cloned.body, {
-        status: cloned.status,
-        statusText: cloned.statusText,
-        headers,
-      });
+      // Phase 4: Cache successful SSR responses
+      if (ssrResponse.status === 200 && cache && cacheKey) {
+        try {
+          const cloned = ssrResponse.clone();
+          const headers = new Headers(cloned.headers);
+          headers.set('Cache-Control', `public, max-age=${ISR_CACHE_TTL}`);
 
-      const ctx = (context.locals as any).runtime?.ctx;
-      if (ctx?.waitUntil) {
-        ctx.waitUntil(cache.put(cacheKey, cachedResponse));
+          const cachedResponse = new Response(cloned.body, {
+            status: cloned.status,
+            statusText: cloned.statusText,
+            headers,
+          });
+
+          const ctx = (context.locals as any).runtime?.ctx;
+          if (ctx?.waitUntil) {
+            ctx.waitUntil(cache.put(cacheKey, cachedResponse));
+          }
+        } catch (err) {
+          console.error('[isr-cache] write error:', err);
+        }
       }
+
+      return ssrResponse;
     } catch (err) {
-      console.error('[cache] write error:', err);
+      console.error('[isr] rewrite error:', err);
+      return response; // Return original 404
     }
   }
 
   return response;
 });
+
+function isISRPath(pathname: string): boolean {
+  return /^\/(tool|badge)\/[^/]+\/?$/.test(pathname);
+}

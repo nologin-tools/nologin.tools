@@ -1,0 +1,45 @@
+---
+export const prerender = false;
+
+import { getDb } from '../../../db';
+import { tools, tags, healthChecks } from '../../../db/schema';
+import { eq, desc } from 'drizzle-orm';
+import BadgeDetailPage from '../../../components/BadgeDetailPage.astro';
+
+const { slug } = Astro.params;
+const db = getDb(Astro.locals.runtime.env.DB);
+const siteUrl = Astro.locals.runtime.env.SITE_URL || 'https://nologin.tools';
+
+// Fetch tool
+const [tool] = await db
+  .select()
+  .from(tools)
+  .where(eq(tools.slug, slug!))
+  .limit(1);
+
+if (!tool || tool.status === 'rejected') {
+  return Astro.redirect('/404');
+}
+
+// Fetch tags
+const toolTags = await db
+  .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+  .from(tags)
+  .where(eq(tags.toolId, tool.id));
+
+// Fetch latest health check
+const [latestHealth] = await db
+  .select()
+  .from(healthChecks)
+  .where(eq(healthChecks.toolId, tool.id))
+  .orderBy(desc(healthChecks.checkedAt))
+  .limit(1);
+---
+
+<BadgeDetailPage
+  tool={tool}
+  toolTags={toolTags}
+  latestHealth={latestHealth ? { isOnline: latestHealth.isOnline, checkedAt: latestHealth.checkedAt } : null}
+  slug={slug!}
+  siteUrl={siteUrl}
+/>

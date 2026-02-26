@@ -33,8 +33,9 @@ export function timeAgo(date: Date): string {
   return `${months}mo ago`;
 }
 
-export function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
+export function formatDate(date: Date | string): string {
+  const d = typeof date === 'string' ? new Date(date) : date;
+  return d.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

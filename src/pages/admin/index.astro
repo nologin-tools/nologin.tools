@@ -5,7 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import TagPicker from '../../components/TagPicker.astro';
 import { getDb } from '../../db';
 import { tools, tags, editSuggestions, healthChecks, dataExports } from '../../db/schema';
-import { eq, desc, sql, and } from 'drizzle-orm';
+import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
 import { sortTagsCategoryFirst } from '../../lib/tags';
@@ -75,31 +75,43 @@ const recentTools = await db
 // === Tools tab: pending tools (initial SSR) ===
 const pendingTools = await db.select().from(tools).where(eq(tools.status, 'pending')).orderBy(desc(tools.submittedAt));
 
-// Fetch tags for pending tools
+// Fetch tags for pending tools (batch query)
 const pendingToolTags = new Map<number, { tagKey: string; tagValue: string }[]>();
-for (const tool of pendingTools) {
-  const toolTags = await db
-    .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+const pendingIds = pendingTools.map(t => t.id);
+if (pendingIds.length > 0) {
+  const allPendingTags = await db
+    .select({ toolId: tags.toolId, tagKey: tags.tagKey, tagValue: tags.tagValue })
     .from(tags)
-    .where(eq(tags.toolId, tool.id));
-  pendingToolTags.set(tool.id, toolTags);
+    .where(inArray(tags.toolId, pendingIds));
+  for (const tag of allPendingTags) {
+    const arr = pendingToolTags.get(tag.toolId) || [];
+    arr.push({ tagKey: tag.tagKey, tagValue: tag.tagValue });
+    pendingToolTags.set(tag.toolId, arr);
+  }
 }
 
-// Fetch latest health for pending tools (with tolerance)
+// Fetch latest health for pending tools (batch query with tolerance)
 const healthMap = new Map<number, { effectiveStatus: EffectiveStatus; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }>();
-for (const tool of pendingTools) {
-  const recentChecks = await db
-    .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
+if (pendingIds.length > 0) {
+  const allPendingHealth = await db
+    .select({ toolId: healthChecks.toolId, isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
     .from(healthChecks)
-    .where(eq(healthChecks.toolId, tool.id))
-    .orderBy(desc(healthChecks.checkedAt))
-    .limit(HEALTH_TOLERANCE);
-  if (recentChecks.length > 0) {
-    const status = resolveEffectiveStatus(recentChecks);
-    healthMap.set(tool.id, {
-      ...recentChecks[0],
-      effectiveStatus: status ?? (recentChecks[0].isOnline ? 'online' : 'offline'),
-    });
+    .where(inArray(healthChecks.toolId, pendingIds))
+    .orderBy(desc(healthChecks.checkedAt));
+  const healthByTool = new Map<number, typeof allPendingHealth>();
+  for (const check of allPendingHealth) {
+    const arr = healthByTool.get(check.toolId) || [];
+    if (arr.length < HEALTH_TOLERANCE) arr.push(check);
+    healthByTool.set(check.toolId, arr);
+  }
+  for (const [toolId, checks] of healthByTool) {
+    if (checks.length > 0) {
+      const status = resolveEffectiveStatus(checks);
+      healthMap.set(toolId, {
+        ...checks[0],
+        effectiveStatus: status ?? (checks[0].isOnline ? 'online' : 'offline'),
+      });
+    }
   }
 }
 
@@ -112,28 +124,37 @@ const pendingEdits = await db
 
 const editToolIds = [...new Set(pendingEdits.map((e) => e.toolId))];
 const editToolMap = new Map<number, { name: string; slug: string }>();
-for (const id of editToolIds) {
-  const [t] = await db.select({ name: tools.name, slug: tools.slug }).from(tools).where(eq(tools.id, id)).limit(1);
-  if (t) editToolMap.set(id, t);
+if (editToolIds.length > 0) {
+  const editToolRows = await db.select({ id: tools.id, name: tools.name, slug: tools.slug }).from(tools).where(inArray(tools.id, editToolIds));
+  for (const t of editToolRows) editToolMap.set(t.id, { name: t.name, slug: t.slug });
 }
 
-// === Health tab ===
+// === Health tab (batch query) ===
 const approvedTools = await db.select().from(tools).where(eq(tools.status, 'approved')).orderBy(desc(tools.submittedAt));
+const approvedIds = approvedTools.map(t => t.id);
+const approvedHealthByTool = new Map<number, { isOnline: boolean; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date }[]>();
+if (approvedIds.length > 0) {
+  const allApprovedHealth = await db
+    .select({ toolId: healthChecks.toolId, isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
+    .from(healthChecks)
+    .where(inArray(healthChecks.toolId, approvedIds))
+    .orderBy(desc(healthChecks.checkedAt));
+  for (const check of allApprovedHealth) {
+    const arr = approvedHealthByTool.get(check.toolId) || [];
+    if (arr.length < HEALTH_TOLERANCE) arr.push(check);
+    approvedHealthByTool.set(check.toolId, arr);
+  }
+}
 const healthList: { tool: typeof approvedTools[0]; health: { effectiveStatus: EffectiveStatus; httpStatus: number | null; responseTimeMs: number | null; checkedAt: Date } | null }[] = [];
 for (const tool of approvedTools) {
-  const recentChecks = await db
-    .select({ isOnline: healthChecks.isOnline, httpStatus: healthChecks.httpStatus, responseTimeMs: healthChecks.responseTimeMs, checkedAt: healthChecks.checkedAt })
-    .from(healthChecks)
-    .where(eq(healthChecks.toolId, tool.id))
-    .orderBy(desc(healthChecks.checkedAt))
-    .limit(HEALTH_TOLERANCE);
-  if (recentChecks.length > 0) {
-    const status = resolveEffectiveStatus(recentChecks);
+  const checks = approvedHealthByTool.get(tool.id);
+  if (checks && checks.length > 0) {
+    const status = resolveEffectiveStatus(checks);
     healthList.push({
       tool,
       health: {
-        ...recentChecks[0],
-        effectiveStatus: status ?? (recentChecks[0].isOnline ? 'online' : 'offline'),
+        ...checks[0],
+        effectiveStatus: status ?? (checks[0].isOnline ? 'online' : 'offline'),
       },
     });
   } else {
