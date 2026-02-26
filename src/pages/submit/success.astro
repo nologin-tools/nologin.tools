@@ -163,13 +163,17 @@ const allEmbedCodes = Object.fromEntries(
           const el = b as HTMLElement;
           const isDark = el.dataset.dark === 'true';
           if (el.dataset.style === style) {
-            el.classList.add('border-green-500');
-            el.classList.remove('border-neutral-200', 'hover:border-neutral-300');
+            el.classList.add('ring-2', 'ring-green-500', 'border-transparent', 'shadow-lg', 'shadow-green-100');
+            el.classList.remove('border-neutral-200', 'border-neutral-100', 'border-neutral-800', 'hover:border-neutral-300', 'hover:shadow-md');
             if (!isDark) el.classList.add('bg-green-50');
           } else {
-            el.classList.remove('border-green-500');
-            el.classList.add('border-neutral-200', 'hover:border-neutral-300');
-            if (!isDark) el.classList.remove('bg-green-50');
+            el.classList.remove('ring-2', 'ring-green-500', 'border-transparent', 'shadow-lg', 'shadow-green-100', 'bg-green-50');
+            el.classList.add('hover:border-neutral-300', 'hover:shadow-md');
+            if (isDark) {
+              el.classList.add('border-neutral-800');
+            } else {
+              el.classList.add('border-neutral-100');
+            }
           }
         });
       });
