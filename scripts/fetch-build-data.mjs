@@ -35,9 +35,33 @@ if (isMock) {
 // Read database_id from wrangler.jsonc
 const wranglerPath = resolve(__dirname, '../wrangler.jsonc');
 const wranglerContent = readFileSync(wranglerPath, 'utf-8');
-// Strip comments (// ...) for JSON parsing
+// Strip JSONC comments (// and /* */) while preserving strings like URLs
+function stripJsonComments(str) {
+  let result = '';
+  let inString = false;
+  for (let i = 0; i < str.length; i++) {
+    if (inString) {
+      if (str[i] === '\\') { result += str[i] + (str[i + 1] || ''); i++; continue; }
+      if (str[i] === '"') inString = false;
+      result += str[i];
+    } else if (str[i] === '"') {
+      inString = true;
+      result += str[i];
+    } else if (str[i] === '/' && str[i + 1] === '/') {
+      while (i < str.length && str[i] !== '\n') i++;
+      i--; // let loop increment handle newline
+    } else if (str[i] === '/' && str[i + 1] === '*') {
+      i += 2;
+      while (i < str.length && !(str[i] === '*' && str[i + 1] === '/')) i++;
+      i++; // skip closing /
+    } else {
+      result += str[i];
+    }
+  }
+  return result;
+}
 const wranglerJson = JSON.parse(
-  wranglerContent.replace(/\/\/.*$/gm, '').replace(/,(\s*[}\]])/g, '$1')
+  stripJsonComments(wranglerContent).replace(/,(\s*[}\]])/g, '$1')
 );
 const databaseId = wranglerJson.d1_databases?.[0]?.database_id;
 if (!databaseId) {
