@@ -57,7 +57,7 @@ export function getBadgeEmbedCode(slug: string, siteUrl: string, style: BadgeSty
 
   return {
     svg: `<a href="${siteUrl}/badge/${slug}">
-  <img src="${siteUrl}${badge.path}" alt="NoLogin Verified" title="Verified by nologin.tools" />
+  <img src="${siteUrl}${badge.path}" alt="NoLogin Verified" title="Verified by NoLoginTools.org" />
 </a>`,
     meta: `<meta name="nologin-verified" content="${slug}" />`,
     link: `<a href="${siteUrl}/badge/${slug}">NoLogin Verified</a>`,
