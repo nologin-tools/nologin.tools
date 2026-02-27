@@ -60,17 +60,20 @@ export async function checkHealth(url: string, siteUrl?: string): Promise<Health
 
   const start = Date.now();
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
-
+    // HEAD and GET each get their own AbortController to prevent the
+    // shared-timeout bug: if HEAD consumes most of the 10s budget, GET
+    // would be aborted almost immediately with a shared controller.
     let response: Response | undefined;
     try {
+      const headController = new AbortController();
+      const headTimeout = setTimeout(() => headController.abort(), 10000);
       response = await fetch(url, {
         method: 'HEAD',
         headers: HEALTH_CHECK_HEADERS,
-        signal: controller.signal,
+        signal: headController.signal,
         redirect: 'follow',
       });
+      clearTimeout(headTimeout);
     } catch {
       // HEAD threw a network error — fall through to GET
     }
@@ -78,15 +81,17 @@ export async function checkHealth(url: string, siteUrl?: string): Promise<Health
     // Retry with GET if HEAD failed (network error) or returned non-ok
     // (some sites like WolframAlpha return 404 for HEAD but 200 for GET)
     if (!response || !response.ok) {
+      const getController = new AbortController();
+      const getTimeout = setTimeout(() => getController.abort(), 10000);
       response = await fetch(url, {
         method: 'GET',
         headers: HEALTH_CHECK_HEADERS,
-        signal: controller.signal,
+        signal: getController.signal,
         redirect: 'follow',
       });
+      clearTimeout(getTimeout);
     }
 
-    clearTimeout(timeout);
     const responseTimeMs = Date.now() - start;
 
     return {

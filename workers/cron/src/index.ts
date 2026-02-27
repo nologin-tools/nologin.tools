@@ -62,12 +62,15 @@ export default {
 // ─── Health Checks (every 6 hours) ───
 
 async function runHealthChecks(env: Env, ctx: ExecutionContext) {
+  // Random sampling: check 15 tools per run instead of all approved tools.
+  // This avoids hitting Cloudflare subrequest limits and reduces event-loop
+  // contention that caused widespread false-offline results.
   const tools = await env.DB.prepare(
-    "SELECT id, url, archive_url FROM tools WHERE status = 'approved'"
+    "SELECT id, url, archive_url FROM tools WHERE status = 'approved' ORDER BY RANDOM() LIMIT 15"
   ).all<ToolRow>();
 
   const batch = tools.results || [];
-  const batchSize = 10;
+  const batchSize = 3;
 
   for (let i = 0; i < batch.length; i += batchSize) {
     const chunk = batch.slice(i, i + batchSize);
@@ -93,30 +96,18 @@ async function runHealthChecks(env: Env, ctx: ExecutionContext) {
 
         const start = Date.now();
         try {
+          // Use GET directly — skipping HEAD avoids the shared-timeout bug
+          // where HEAD consuming most of the timeout leaves GET with
+          // insufficient time. Also halves subrequest count.
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 10000);
 
-          let response: Response | undefined;
-          try {
-            response = await fetch(tool.url, {
-              method: 'HEAD',
-              headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },
-              signal: controller.signal,
-              redirect: 'follow',
-            });
-          } catch {
-            // HEAD threw a network error — fall through to GET
-          }
-
-          // Retry with GET if HEAD failed or returned non-ok
-          if (!response || !response.ok) {
-            response = await fetch(tool.url, {
-              method: 'GET',
-              headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },
-              signal: controller.signal,
-              redirect: 'follow',
-            });
-          }
+          const response = await fetch(tool.url, {
+            method: 'GET',
+            headers: { 'User-Agent': 'NoLoginTools-HealthChecker/1.0' },
+            signal: controller.signal,
+            redirect: 'follow',
+          });
           clearTimeout(timeout);
 
           return {
