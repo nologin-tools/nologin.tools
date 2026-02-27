@@ -53,6 +53,7 @@ const allEmbedCodes = Object.fromEntries(
           nologin<span class="text-green-600">.</span>tools
         </span>
       </a>
+      <p class="text-xs text-neutral-400 mt-1 font-medium">by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-600 transition-colors">NoLoginTools.org</a></p>
     </div>
 
     <!-- Tab navigation -->
@@ -124,6 +125,10 @@ const allEmbedCodes = Object.fromEntries(
               </span>
             </dd>
           </div>
+          <div class="space-y-1">
+            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Issued By</dt>
+            <dd class="text-lg font-bold text-neutral-700"><a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors">NoLoginTools.org</a></dd>
+          </div>
           <div class="space-y-1 md:col-span-2">
             <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Tool URL</dt>
             <dd>
@@ -177,7 +182,7 @@ const allEmbedCodes = Object.fromEntries(
           <div>
             <h2 class="text-xl font-black mb-2">What is NoLogin Verified?</h2>
             <p class="text-green-50 font-medium leading-relaxed">
-              This certificate confirms that <span class="font-black underline decoration-white/30 underline-offset-4">{tool.name}</span> has been manually audited. It guarantees that users can access its core features **immediately**—without ever needing to sign up or log in.
+              This certificate, issued by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-white font-black underline decoration-white/30 underline-offset-4 hover:decoration-white/60 transition-colors">NoLoginTools.org</a>, confirms that <span class="font-black underline decoration-white/30 underline-offset-4">{tool.name}</span> has been manually audited. It guarantees that users can access its core features **immediately**—without ever needing to sign up or log in.
             </p>
           </div>
         </div>
@@ -208,6 +213,11 @@ const allEmbedCodes = Object.fromEntries(
         <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-primary px-10 py-4 rounded-2xl font-black">Visit Verified Tool</a>
         <a href={`/tool/${slug}`} class="btn-secondary px-10 py-4 rounded-2xl font-black">Directory Listing</a>
       </div>
+
+      <!-- Bottom attribution -->
+      <p class="text-center text-xs text-neutral-400 font-medium">
+        This certificate is issued and maintained by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-neutral-700 transition-colors">NoLoginTools.org</a>
+      </p>
     </div> <!-- end panel-verification -->
 
     <!-- Panel: Embed Code (hidden by default) -->
