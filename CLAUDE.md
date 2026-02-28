@@ -2,6 +2,14 @@
 
 A curated directory of privacy-friendly tools that work without login.
 
+## Organization Identity
+
+Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTools.org** is the organization identity (like Let's Encrypt by ISRG).
+- **nologin.tools** appears in: Header logo, page titles, SEO, product references
+- **NoLoginTools.org** appears in: Footer attribution, About page, badge certificate issuer, badge/embed `title` attributes, SVG `aria-label`/`<title>`
+- Badge embed `<img>` tags use `title="Verified by NoLoginTools.org"`
+- All SVG badges use `aria-label="Verified by NoLoginTools.org"` and `<title>Verified by NoLoginTools.org</title>`
+
 ## Tech Stack
 
 - **Framework**: Astro (Static + ISR hybrid mode)
@@ -95,8 +103,8 @@ workers/cron/             # Health checks, badge detection, data export
     - 12×12 base size shield path with checkmark stroke, scaled per badge height (0.833× for plastic, 1× for flat/social, 1.333× for for-the-badge)
     - Dark backgrounds: white shield (`fill="#fff" fill-opacity="0.9"`) + background-colored checkmark stroke
     - Social (light `#fafafa` bg): green shield (`fill="#22c55e"`) + white checkmark stroke
-  - All SVG badges have `<title>Verified by nologin.tools</title>` and `aria-label="Verified by nologin.tools"` for hover tooltip and accessibility
-  - Embed code `<img>` tags include `title="Verified by nologin.tools"` for native browser hover tooltip
+  - All SVG badges have `<title>Verified by NoLoginTools.org</title>` and `aria-label="Verified by NoLoginTools.org"` for hover tooltip and accessibility
+  - Embed code `<img>` tags include `title="Verified by NoLoginTools.org"` for native browser hover tooltip
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Badge page tabs**: `/badge/[slug]` uses `bare` layout (no Header/Footer) for a standalone certificate feel. Two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
   - **Verification tab** uses a certificate-style layout: small `flat.svg` brand link at top → 72×72 shield SVG hero (green checkmark for approved, amber clock for pending) + "by nologin.tools" attribution → `<dl>`-based Certificate Details card with colored border (green/amber) → 2×2 Trust Signals grid (Manually Reviewed, No Login Required, Continuously Monitored, Web Archived) → action buttons → attribution line
