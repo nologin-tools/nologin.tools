@@ -9,6 +9,7 @@ import { api } from '../../lib/api';
 import { archiveUrl } from '../../lib/archive';
 import { checkHealth } from '../../lib/health';
 import { TAG_DEFINITIONS } from '../../lib/tags';
+import { validateTwitterUrl, validateGitHubProfileUrl, validateDiscordUrl, validateRepoUrl, parseGitHubRepoUrl, fetchGitHubRepoData } from '../../lib/github';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const db = getDb(locals.runtime.env.DB);
@@ -20,7 +21,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Invalid JSON body.', 400);
   }
 
-  const { name, url, description, pledge, coreTask, submitterEmail, tags: submittedTags } = body;
+  const { name, url, description, pledge, coreTask, submitterEmail, repoUrl, twitterUrl, githubUrl, discordUrl, tags: submittedTags } = body;
 
   // Validation
   const errors: Record<string, string> = {};
@@ -54,6 +55,27 @@ export const POST: APIRoute = async ({ request, locals }) => {
   if (submitterEmail != null && submitterEmail !== '') {
     if (typeof submitterEmail !== 'string' || submitterEmail.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(submitterEmail)) {
       errors.submitterEmail = 'Please enter a valid email address.';
+    }
+  }
+
+  if (repoUrl && typeof repoUrl === 'string' && repoUrl.trim()) {
+    if (!validateRepoUrl(repoUrl.trim())) {
+      errors.repoUrl = 'Please enter a valid GitHub repository URL.';
+    }
+  }
+  if (twitterUrl && typeof twitterUrl === 'string' && twitterUrl.trim()) {
+    if (!validateTwitterUrl(twitterUrl.trim())) {
+      errors.twitterUrl = 'Please enter a valid Twitter/X URL.';
+    }
+  }
+  if (githubUrl && typeof githubUrl === 'string' && githubUrl.trim()) {
+    if (!validateGitHubProfileUrl(githubUrl.trim())) {
+      errors.githubUrl = 'Please enter a valid GitHub URL.';
+    }
+  }
+  if (discordUrl && typeof discordUrl === 'string' && discordUrl.trim()) {
+    if (!validateDiscordUrl(discordUrl.trim())) {
+      errors.discordUrl = 'Please enter a valid Discord URL.';
     }
   }
 
@@ -118,6 +140,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
   }
 
+  // Auto-derive source tag from repo URL
+  const trimmedRepoUrl = repoUrl && typeof repoUrl === 'string' ? repoUrl.trim() : '';
+  if (trimmedRepoUrl) {
+    validTags.push({ key: 'source', value: 'Open Source' });
+  }
+
   // Insert tool
   const now = new Date();
   const [inserted] = await db
@@ -133,6 +161,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       submittedAt: now,
       submitterIpHash: ipHash,
       submitterEmail: submitterEmail ? submitterEmail.trim() : null,
+      repoUrl: trimmedRepoUrl || null,
+      twitterUrl: twitterUrl && typeof twitterUrl === 'string' && twitterUrl.trim() ? twitterUrl.trim() : null,
+      githubUrl: githubUrl && typeof githubUrl === 'string' && githubUrl.trim() ? githubUrl.trim() : null,
+      discordUrl: discordUrl && typeof discordUrl === 'string' && discordUrl.trim() ? discordUrl.trim() : null,
     })
     .returning({ id: tools.id, slug: tools.slug });
 
@@ -181,6 +213,32 @@ export const POST: APIRoute = async ({ request, locals }) => {
       })
       .catch(() => {})
   );
+
+  // Fetch GitHub repo data asynchronously
+  if (trimmedRepoUrl) {
+    const parsed = parseGitHubRepoUrl(trimmedRepoUrl);
+    if (parsed) {
+      ctx.waitUntil(
+        fetchGitHubRepoData(parsed.owner, parsed.repo)
+          .then(async (data) => {
+            if (data) {
+              await db
+                .update(tools)
+                .set({
+                  githubStars: data.stars,
+                  githubForks: data.forks,
+                  githubLicense: data.license,
+                  githubLanguage: data.language,
+                  githubUpdatedAt: data.updatedAt,
+                  githubFetchedAt: new Date(),
+                })
+                .where(eq(tools.id, inserted.id));
+            }
+          })
+          .catch(() => {})
+      );
+    }
+  }
 
   return api.success({ slug: inserted.slug }, 201);
 };

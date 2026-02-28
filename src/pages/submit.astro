@@ -83,10 +83,80 @@ import TagPicker from '../components/TagPicker.astro';
         </div>
       </section>
 
-      <!-- No-Login Verification -->
+      <!-- Links & Repository (Optional) -->
       <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
         <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">2</div>
+           Links & Repository
+           <span class="text-xs font-bold text-neutral-400 uppercase tracking-widest">(Optional)</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label for="repoUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+              Repository URL
+            </label>
+            <input
+              type="url"
+              id="repoUrl"
+              name="repoUrl"
+              placeholder="https://github.com/owner/repo"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-neutral-400 mt-2 font-medium italic">
+              Filling this will automatically mark the tool as open source.
+            </p>
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="repoUrl"></p>
+          </div>
+
+          <div>
+            <label for="twitterUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+              Twitter / X
+            </label>
+            <input
+              type="url"
+              id="twitterUrl"
+              name="twitterUrl"
+              placeholder="https://x.com/username"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="twitterUrl"></p>
+          </div>
+
+          <div>
+            <label for="githubUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+              GitHub Profile
+            </label>
+            <input
+              type="url"
+              id="githubUrl"
+              name="githubUrl"
+              placeholder="https://github.com/username"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="githubUrl"></p>
+          </div>
+
+          <div>
+            <label for="discordUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+              Discord
+            </label>
+            <input
+              type="url"
+              id="discordUrl"
+              name="discordUrl"
+              placeholder="https://discord.gg/invite-code"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="discordUrl"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- No-Login Verification -->
+      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">3</div>
            Verification
         </h2>
 
@@ -127,7 +197,7 @@ import TagPicker from '../components/TagPicker.astro';
       <!-- Tags -->
       <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
         <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">3</div>
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">4</div>
            Classification
         </h2>
         <TagPicker />
@@ -136,7 +206,7 @@ import TagPicker from '../components/TagPicker.astro';
       <!-- Contact Email -->
       <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
         <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">4</div>
+           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">5</div>
            Contact (Optional)
         </h2>
 
@@ -210,6 +280,10 @@ import TagPicker from '../components/TagPicker.astro';
         pledge: formData.get('pledge') === 'on',
         coreTask: formData.get('coreTask'),
         submitterEmail: formData.get('submitterEmail') || '',
+        repoUrl: formData.get('repoUrl') || '',
+        twitterUrl: formData.get('twitterUrl') || '',
+        githubUrl: formData.get('githubUrl') || '',
+        discordUrl: formData.get('discordUrl') || '',
         tags: [] as { key: string; value: string }[],
       };
 
@@ -253,6 +327,42 @@ import TagPicker from '../components/TagPicker.astro';
       if (data.submitterEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.submitterEmail as string)) {
         showError('submitterEmail', 'Please enter a valid email address.');
         hasError = true;
+      }
+      if (data.repoUrl) {
+        try {
+          const u = new URL(data.repoUrl as string);
+          if (u.hostname !== 'github.com') {
+            showError('repoUrl', 'Please enter a GitHub repository URL.');
+            hasError = true;
+          }
+        } catch { showError('repoUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+      if (data.twitterUrl) {
+        try {
+          const u = new URL(data.twitterUrl as string);
+          if (!['x.com', 'www.x.com', 'twitter.com', 'www.twitter.com'].includes(u.hostname)) {
+            showError('twitterUrl', 'Please enter a Twitter/X URL.');
+            hasError = true;
+          }
+        } catch { showError('twitterUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+      if (data.githubUrl) {
+        try {
+          const u = new URL(data.githubUrl as string);
+          if (u.hostname !== 'github.com' && u.hostname !== 'www.github.com') {
+            showError('githubUrl', 'Please enter a GitHub URL.');
+            hasError = true;
+          }
+        } catch { showError('githubUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+      if (data.discordUrl) {
+        try {
+          const u = new URL(data.discordUrl as string);
+          if (!['discord.gg', 'www.discord.gg', 'discord.com', 'www.discord.com'].includes(u.hostname)) {
+            showError('discordUrl', 'Please enter a Discord URL.');
+            hasError = true;
+          }
+        } catch { showError('discordUrl', 'Please enter a valid URL.'); hasError = true; }
       }
       
       if (hasError) {
