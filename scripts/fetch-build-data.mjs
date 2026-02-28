@@ -115,7 +115,10 @@ console.log('[build-data] Fetching data from D1...');
 const toolRows = await queryD1(`
   SELECT id, slug, name, url, description, core_task, status,
          submitted_at, approved_at, rejection_reason, submitter_email,
-         archive_url, is_featured, featured_at, submitter_ip_hash
+         archive_url, is_featured, featured_at, submitter_ip_hash,
+         twitter_url, github_url, discord_url, repo_url,
+         github_stars, github_forks, github_license, github_language,
+         github_updated_at, github_fetched_at
   FROM tools
   WHERE status != 'rejected'
   ORDER BY id
@@ -223,6 +226,16 @@ const tools = toolRows.map((t) => {
     archiveUrl: t.archive_url,
     isFeatured: t.is_featured === 1,
     featuredAt: toISO(t.featured_at),
+    twitterUrl: t.twitter_url || null,
+    githubUrl: t.github_url || null,
+    discordUrl: t.discord_url || null,
+    repoUrl: t.repo_url || null,
+    githubStars: t.github_stars ?? null,
+    githubForks: t.github_forks ?? null,
+    githubLicense: t.github_license || null,
+    githubLanguage: t.github_language || null,
+    githubUpdatedAt: toISO(t.github_updated_at),
+    githubFetchedAt: toISO(t.github_fetched_at),
     tags: tagMap.get(id) || [],
     healthChecks,
     healthHistory,

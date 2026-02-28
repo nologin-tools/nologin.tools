@@ -32,6 +32,16 @@ export interface BuildDataTool {
   archiveUrl: string | null;
   isFeatured: boolean;
   featuredAt: string | null;
+  twitterUrl: string | null;
+  githubUrl: string | null;
+  discordUrl: string | null;
+  repoUrl: string | null;
+  githubStars: number | null;
+  githubForks: number | null;
+  githubLicense: string | null;
+  githubLanguage: string | null;
+  githubUpdatedAt: string | null;
+  githubFetchedAt: string | null;
   tags: BuildDataTag[];
   healthChecks: BuildDataHealthCheck[];
   healthHistory: BuildDataHealthHistory[];
