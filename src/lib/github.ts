@@ -76,11 +76,14 @@ export interface GitHubRepoData {
  * No authentication needed for public repos (60 requests/hour rate limit).
  */
 export async function fetchGitHubRepoData(owner: string, repo: string): Promise<GitHubRepoData | null> {
+  const url = `https://api.github.com/repos/${owner}/${repo}`;
+  console.log(`[GitHub] Fetching repo data: ${url}`);
+
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 10000);
 
-    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+    const res = await fetch(url, {
       headers: {
         'User-Agent': 'NoLoginTools-GitHubFetcher/1.0',
         Accept: 'application/vnd.github.v3+json',
@@ -89,7 +92,10 @@ export async function fetchGitHubRepoData(owner: string, repo: string): Promise<
     });
     clearTimeout(timeout);
 
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.warn(`[GitHub] API returned ${res.status} for ${owner}/${repo}`);
+      return null;
+    }
 
     const data = await res.json() as {
       stargazers_count: number;
@@ -99,6 +105,8 @@ export async function fetchGitHubRepoData(owner: string, repo: string): Promise<
       updated_at: string;
     };
 
+    console.log(`[GitHub] Fetched ${owner}/${repo}: ⭐${data.stargazers_count} 🍴${data.forks_count} ${data.language || 'N/A'}`);
+
     return {
       stars: data.stargazers_count,
       forks: data.forks_count,
@@ -106,7 +114,8 @@ export async function fetchGitHubRepoData(owner: string, repo: string): Promise<
       language: data.language,
       updatedAt: new Date(data.updated_at),
     };
-  } catch {
+  } catch (err) {
+    console.error(`[GitHub] Failed to fetch ${owner}/${repo}:`, err);
     return null;
   }
 }

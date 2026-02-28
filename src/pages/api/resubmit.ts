@@ -208,9 +208,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
                   githubFetchedAt: new Date(),
                 })
                 .where(eq(tools.id, toolId));
+              console.log(`[Resubmit] GitHub data saved for tool #${toolId}`);
             }
           })
-          .catch(() => {})
+          .catch((err) => {
+            console.error(`[Resubmit] GitHub data fetch/save failed:`, err);
+          })
       );
     }
   }
