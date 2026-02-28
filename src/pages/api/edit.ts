@@ -6,8 +6,9 @@ import { tools, tags, editSuggestions } from '../../db/schema';
 import { eq, and, ne } from 'drizzle-orm';
 import { api } from '../../lib/api';
 import { hashIp, getClientIp, urlToSlug } from '../../lib/utils';
+import { validateTwitterUrl, validateGitHubProfileUrl, validateDiscordUrl, validateRepoUrl } from '../../lib/github';
 
-const ALLOWED_FIELDS = ['name', 'description', 'coreTask', 'url', 'tags'];
+const ALLOWED_FIELDS = ['name', 'description', 'coreTask', 'url', 'tags', 'repoUrl', 'twitterUrl', 'githubUrl', 'discordUrl'];
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const db = getDb(locals.runtime.env.DB);
@@ -59,6 +60,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
     if (conflict) {
       return api.error('A tool with this URL already exists.', 400);
     }
+  }
+
+  // Validate social/repo URL fields
+  if (fieldName === 'repoUrl' && newValue.trim() && !validateRepoUrl(newValue.trim())) {
+    return api.error('Please enter a valid GitHub repository URL.', 400);
+  }
+  if (fieldName === 'twitterUrl' && newValue.trim() && !validateTwitterUrl(newValue.trim())) {
+    return api.error('Please enter a valid Twitter/X URL.', 400);
+  }
+  if (fieldName === 'githubUrl' && newValue.trim() && !validateGitHubProfileUrl(newValue.trim())) {
+    return api.error('Please enter a valid GitHub URL.', 400);
+  }
+  if (fieldName === 'discordUrl' && newValue.trim() && !validateDiscordUrl(newValue.trim())) {
+    return api.error('Please enter a valid Discord URL.', 400);
   }
 
   // Get current value

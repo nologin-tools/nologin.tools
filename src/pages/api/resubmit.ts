@@ -8,6 +8,7 @@ import { urlToSlug } from '../../lib/utils';
 import { api } from '../../lib/api';
 import { checkHealth } from '../../lib/health';
 import { TAG_DEFINITIONS } from '../../lib/tags';
+import { validateTwitterUrl, validateGitHubProfileUrl, validateDiscordUrl, validateRepoUrl, parseGitHubRepoUrl, fetchGitHubRepoData } from '../../lib/github';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const db = getDb(locals.runtime.env.DB);
@@ -19,7 +20,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Invalid JSON body.', 400);
   }
 
-  const { toolId, name, url, description, pledge, coreTask, submitterEmail, tags: submittedTags } = body;
+  const { toolId, name, url, description, pledge, coreTask, submitterEmail, repoUrl, twitterUrl, githubUrl, discordUrl, tags: submittedTags } = body;
 
   // Validate toolId
   if (!toolId || typeof toolId !== 'number') {
@@ -76,6 +77,27 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
   }
 
+  if (repoUrl && typeof repoUrl === 'string' && repoUrl.trim()) {
+    if (!validateRepoUrl(repoUrl.trim())) {
+      errors.repoUrl = 'Please enter a valid GitHub repository URL.';
+    }
+  }
+  if (twitterUrl && typeof twitterUrl === 'string' && twitterUrl.trim()) {
+    if (!validateTwitterUrl(twitterUrl.trim())) {
+      errors.twitterUrl = 'Please enter a valid Twitter/X URL.';
+    }
+  }
+  if (githubUrl && typeof githubUrl === 'string' && githubUrl.trim()) {
+    if (!validateGitHubProfileUrl(githubUrl.trim())) {
+      errors.githubUrl = 'Please enter a valid GitHub URL.';
+    }
+  }
+  if (discordUrl && typeof discordUrl === 'string' && discordUrl.trim()) {
+    if (!validateDiscordUrl(discordUrl.trim())) {
+      errors.discordUrl = 'Please enter a valid Discord URL.';
+    }
+  }
+
   if (Object.keys(errors).length > 0) {
     return api.error('Validation failed.', 400, errors);
   }
@@ -111,6 +133,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
   }
 
+  // Auto-derive source tag from repo URL
+  const trimmedRepoUrl = repoUrl && typeof repoUrl === 'string' ? repoUrl.trim() : '';
+  if (trimmedRepoUrl) {
+    validTags.push({ key: 'source', value: 'Open Source' });
+  }
+
   // Update tool
   const now = new Date();
   await db
@@ -126,6 +154,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       rejectionReason: null,
       submittedAt: now,
       submitterEmail: submitterEmail ? submitterEmail.trim() : null,
+      repoUrl: trimmedRepoUrl || null,
+      twitterUrl: twitterUrl && typeof twitterUrl === 'string' && twitterUrl.trim() ? twitterUrl.trim() : null,
+      githubUrl: githubUrl && typeof githubUrl === 'string' && githubUrl.trim() ? githubUrl.trim() : null,
+      discordUrl: discordUrl && typeof discordUrl === 'string' && discordUrl.trim() ? discordUrl.trim() : null,
     })
     .where(eq(tools.id, toolId));
 
@@ -156,6 +188,32 @@ export const POST: APIRoute = async ({ request, locals }) => {
       })
       .catch(() => {})
   );
+
+  // Fetch GitHub repo data asynchronously
+  if (trimmedRepoUrl) {
+    const parsed = parseGitHubRepoUrl(trimmedRepoUrl);
+    if (parsed) {
+      locals.runtime.ctx.waitUntil(
+        fetchGitHubRepoData(parsed.owner, parsed.repo)
+          .then(async (data) => {
+            if (data) {
+              await db
+                .update(tools)
+                .set({
+                  githubStars: data.stars,
+                  githubForks: data.forks,
+                  githubLicense: data.license,
+                  githubLanguage: data.language,
+                  githubUpdatedAt: data.updatedAt,
+                  githubFetchedAt: new Date(),
+                })
+                .where(eq(tools.id, toolId));
+            }
+          })
+          .catch(() => {})
+      );
+    }
+  }
 
   return api.success({ slug: newSlug });
 };
