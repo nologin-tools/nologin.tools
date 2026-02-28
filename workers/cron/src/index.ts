@@ -17,6 +17,10 @@ interface ToolRow {
   approved_at: number | null;
   archive_url: string | null;
   is_featured: number | null;
+  repo_url: string | null;
+  github_stars: number | null;
+  github_language: string | null;
+  github_license: string | null;
 }
 
 interface TagRow {
@@ -284,7 +288,7 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
 
   try {
     const tools = await env.DB.prepare(
-      "SELECT id, slug, name, url, description, core_task, approved_at, is_featured FROM tools WHERE status = 'approved' ORDER BY name ASC"
+      "SELECT id, slug, name, url, description, core_task, approved_at, is_featured, repo_url, github_stars, github_language, github_license FROM tools WHERE status = 'approved' ORDER BY name ASC"
     ).all<ToolRow>();
 
     const tags = await env.DB.prepare(
@@ -311,6 +315,8 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
         coreTask: t.core_task,
         category,
         featured: !!t.is_featured,
+        repoUrl: t.repo_url || null,
+        githubStars: t.github_stars ?? null,
       };
     });
 
@@ -360,6 +366,8 @@ function generateReadme(
     coreTask: string;
     category: string | null;
     featured: boolean;
+    repoUrl?: string | null;
+    githubStars?: number | null;
   }[]
 ): string {
   const toolCount = tools.length;
@@ -394,7 +402,8 @@ function generateReadme(
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
       const star = tool.featured ? ' ★' : '';
-      md += `- **[${tool.name}${star}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
+      const repoSuffix = tool.repoUrl ? ` ([Source](${tool.repoUrl})${tool.githubStars != null ? ` ⭐${tool.githubStars}` : ''})` : '';
+      md += `- **[${tool.name}${star}](${tool.url})**${repoSuffix} — ${tool.description || tool.coreTask}\n`;
       md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;

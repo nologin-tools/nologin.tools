@@ -40,6 +40,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       description: tools.description,
       coreTask: tools.coreTask,
       isFeatured: tools.isFeatured,
+      repoUrl: tools.repoUrl,
+      githubStars: tools.githubStars,
+      githubLanguage: tools.githubLanguage,
+      githubLicense: tools.githubLicense,
     })
     .from(tools)
     .where(eq(tools.status, 'approved'))
@@ -73,6 +77,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       coreTask: t.coreTask,
       category,
       featured: t.isFeatured || false,
+      repoUrl: t.repoUrl || null,
+      githubStars: t.githubStars ?? null,
+      githubLanguage: t.githubLanguage || null,
+      githubLicense: t.githubLicense || null,
     };
   });
 
@@ -133,6 +141,8 @@ function generateReadme(
     coreTask: string;
     category: string | null;
     featured: boolean;
+    repoUrl?: string | null;
+    githubStars?: number | null;
   }[]
 ): string {
   const toolCount = tools.length;
@@ -167,7 +177,8 @@ function generateReadme(
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
       const star = tool.featured ? ' ★' : '';
-      md += `- **[${tool.name}${star}](${tool.url})** — ${tool.description || tool.coreTask}\n`;
+      const repoSuffix = tool.repoUrl ? ` ([Source](${tool.repoUrl})${tool.githubStars != null ? ` ⭐${tool.githubStars}` : ''})` : '';
+      md += `- **[${tool.name}${star}](${tool.url})**${repoSuffix} — ${tool.description || tool.coreTask}\n`;
       md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;

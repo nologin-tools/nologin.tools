@@ -31,7 +31,7 @@ src/
 │   └── loader.ts         # Type-safe data layer: getApprovedTools(), computeScore(), etc.
 ├── db/schema.ts          # Drizzle tables: tools, tags, health_checks, badge_displays, edit_suggestions, data_exports
 ├── db/index.ts           # getDb(d1) helper (used only by SSR pages/API)
-├── lib/                  # Utilities: api, archive, badge, health, tags, utils
+├── lib/                  # Utilities: api, archive, badge, github, health, tags, utils
 ├── layouts/Layout.astro  # Base layout with SEO meta; `bare` prop hides Header/Footer
 ├── components/
 │   ├── ToolDetailPage.astro  # Shared tool detail renderer (used by static + SSR)
@@ -72,7 +72,8 @@ workers/cron/             # Health checks, badge detection, data export
 
 - **Slug**: Generated from tool URL — `urlToSlug("https://excalidraw.com")` → `"excalidraw-com"`
 - **Tags**: Key:Value format — `category:Design`, `source:Open Source`, `pricing:Free`
-  - 8 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS, 11 values), `source`, `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
+  - 7 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS, 11 values), `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
+  - `source` tag is auto-derived: if `repo_url` is set, `source:Open Source` is automatically added during submit/resubmit/tool-update (not in TAG_DEFINITIONS, but still stored in tags table for backward compatibility)
   - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
 - **Homepage display modes**: Two modes based on context. The homepage is **static HTML** — grouped mode is server-rendered at build time; flat mode (search/filter) is handled by **client-side JavaScript** that reads embedded JSON data (`<script id="tools-data">`). Flash prevention: inline `<head>` script adds `.has-filters` class when URL has search params, CSS hides grouped view before JS executes.
   - **Grouped mode** (default — no search, no filters): Tools grouped by category per `TAG_DEFINITIONS` order, each section shows category name + count + max 6 cards + "View all X →" link (links to `/?category=Xxx`). No pagination. Tools without category go to "Other" group at the end.
@@ -184,6 +185,9 @@ wrangler secret put ARCHIVE_ORG_SECRET_KEY
 6 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode), `data_exports` (export history).
 
 - `tools.submitter_email`: Optional contact email from the submitter. Only displayed on the admin review page (not public). Validated as a proper email format (max 254 chars) when provided.
+- **Social links** (all optional): `tools.twitter_url`, `tools.github_url`, `tools.discord_url` — validated on submit (twitter.com/x.com, github.com, discord.gg/discord.com). Displayed as icon buttons on tool detail page and as text links in admin dashboard.
+- **Repository URL**: `tools.repo_url` — GitHub repo URL (e.g. `https://github.com/owner/repo`). When set, auto-adds `source:Open Source` tag. Triggers async GitHub API fetch for repo metadata.
+- **GitHub cached data**: `tools.github_stars`, `tools.github_forks`, `tools.github_license`, `tools.github_language`, `tools.github_updated_at`, `tools.github_fetched_at` — fetched from GitHub REST API (unauthenticated, 60 req/hr) via `src/lib/github.ts` `fetchGitHubRepoData()`. Updated on submit/resubmit and when admin clicks "Refresh GitHub Data". Displayed in a sidebar card on tool detail page.
 
 ## Recommendation Score
 
