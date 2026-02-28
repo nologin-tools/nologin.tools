@@ -14,12 +14,6 @@ export const TAG_DEFINITIONS: TagDefinition[] = [
     multiSelect: false,
   },
   {
-    key: 'source',
-    label: 'Source',
-    values: ['Open Source', 'Closed Source'],
-    multiSelect: false,
-  },
-  {
     key: 'data',
     label: 'Data Processing',
     values: ['Client-Side Only', 'Server-Side'],
