@@ -21,6 +21,19 @@ export const tools = sqliteTable('tools', {
   archiveUrl: text('archive_url'),
   isFeatured: integer('is_featured', { mode: 'boolean' }).notNull().default(false),
   featuredAt: integer('featured_at', { mode: 'timestamp' }),
+  // Social links
+  twitterUrl: text('twitter_url'),
+  githubUrl: text('github_url'),
+  discordUrl: text('discord_url'),
+  // Repository
+  repoUrl: text('repo_url'),
+  // Cached GitHub repo data
+  githubStars: integer('github_stars'),
+  githubForks: integer('github_forks'),
+  githubLicense: text('github_license'),
+  githubLanguage: text('github_language'),
+  githubUpdatedAt: integer('github_updated_at', { mode: 'timestamp' }),
+  githubFetchedAt: integer('github_fetched_at', { mode: 'timestamp' }),
 }, (table) => [
   index('idx_tools_status').on(table.status),
 ]);
