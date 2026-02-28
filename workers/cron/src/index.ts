@@ -59,6 +59,8 @@ export default {
       await runDataExport(env, ctx);
     } else if (cron === '0 4 * * *') {
       await runBadgeDetection(env, ctx);
+    } else if (cron === '0 5 * * *') {
+      await runGitHubDataRefresh(env);
     }
   },
 };
@@ -191,6 +193,101 @@ async function archiveUrl(url: string, toolId: number, env: Env) {
     }
   } catch {
     // Silently fail — will retry next run
+  }
+}
+
+// ─── GitHub Data Refresh (daily 05:00 UTC) ───
+
+async function runGitHubDataRefresh(env: Env) {
+  // Priority 1: tools with repo_url set but never fetched (initial failure retry)
+  // Priority 2: tools with stale data (fetched > 7 days ago)
+  const sevenDaysAgo = Math.floor(Date.now() / 1000) - 7 * 86400;
+
+  const toolsToRefresh = await env.DB.prepare(`
+    SELECT id, repo_url FROM tools
+    WHERE status IN ('approved', 'pending')
+      AND repo_url IS NOT NULL
+      AND repo_url != ''
+      AND (github_fetched_at IS NULL OR github_fetched_at < ?)
+    ORDER BY github_fetched_at IS NULL DESC, github_fetched_at ASC
+    LIMIT 10
+  `).bind(sevenDaysAgo).all<{ id: number; repo_url: string }>();
+
+  const batch = toolsToRefresh.results || [];
+  console.log(`[GitHubRefresh] ${batch.length} tools to refresh`);
+
+  for (const tool of batch) {
+    const parsed = parseGitHubRepoUrl(tool.repo_url);
+    if (!parsed) {
+      console.warn(`[GitHubRefresh] Invalid repo URL for tool #${tool.id}: ${tool.repo_url}`);
+      continue;
+    }
+
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+
+      const res = await fetch(`https://api.github.com/repos/${parsed.owner}/${parsed.repo}`, {
+        headers: {
+          'User-Agent': 'NoLoginTools-GitHubFetcher/1.0',
+          Accept: 'application/vnd.github.v3+json',
+        },
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+
+      if (!res.ok) {
+        console.warn(`[GitHubRefresh] API returned ${res.status} for tool #${tool.id}`);
+        continue;
+      }
+
+      const data = await res.json() as {
+        stargazers_count: number;
+        forks_count: number;
+        license: { spdx_id: string } | null;
+        language: string | null;
+        updated_at: string;
+      };
+
+      const now = Math.floor(Date.now() / 1000);
+      const updatedAt = Math.floor(new Date(data.updated_at).getTime() / 1000);
+
+      await env.DB.prepare(`
+        UPDATE tools SET
+          github_stars = ?,
+          github_forks = ?,
+          github_license = ?,
+          github_language = ?,
+          github_updated_at = ?,
+          github_fetched_at = ?
+        WHERE id = ?
+      `).bind(
+        data.stargazers_count,
+        data.forks_count,
+        data.license?.spdx_id || null,
+        data.language,
+        updatedAt,
+        now,
+        tool.id
+      ).run();
+
+      console.log(`[GitHubRefresh] Updated tool #${tool.id}: ⭐${data.stargazers_count} 🍴${data.forks_count}`);
+    } catch (err: any) {
+      console.error(`[GitHubRefresh] Failed for tool #${tool.id}: ${err.message}`);
+    }
+  }
+}
+
+/** Parse GitHub repo URL — inline version for cron worker (can't import src/lib). */
+function parseGitHubRepoUrl(url: string): { owner: string; repo: string } | null {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== 'github.com') return null;
+    const parts = parsed.pathname.split('/').filter(Boolean);
+    if (parts.length < 2) return null;
+    return { owner: parts[0], repo: parts[1].replace(/\.git$/, '') };
+  } catch {
+    return null;
   }
 }
 

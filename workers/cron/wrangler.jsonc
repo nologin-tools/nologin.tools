@@ -14,7 +14,7 @@
     "SITE_URL": "https://nologin.tools"
   },
   "triggers": {
-    "crons": ["0 3 * * *", "0 */6 * * *", "0 4 * * *"]
+    "crons": ["0 3 * * *", "0 */6 * * *", "0 4 * * *", "0 5 * * *"]
   },
   "observability": {
     "enabled": true
