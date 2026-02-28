@@ -374,7 +374,19 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                   {tool.submitterEmail && (
                     <Fragment> · Email: <a href={`mailto:${tool.submitterEmail}`} class="text-blue-600 hover:underline">{tool.submitterEmail}</a></Fragment>
                   )}
+                  {tool.repoUrl && (
+                    <Fragment> · Repo: <a href={tool.repoUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{tool.repoUrl.replace('https://github.com/', '')}</a>
+                      {tool.githubStars != null && <span class="ml-1">⭐{tool.githubStars}</span>}
+                    </Fragment>
+                  )}
                 </div>
+                {(tool.twitterUrl || tool.githubUrl || tool.discordUrl) && (
+                  <div class="text-xs text-neutral-400 mb-3">
+                    {tool.twitterUrl && <Fragment><a href={tool.twitterUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Twitter/X</a> </Fragment>}
+                    {tool.githubUrl && <Fragment><a href={tool.githubUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">GitHub</a> </Fragment>}
+                    {tool.discordUrl && <Fragment><a href={tool.discordUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Discord</a> </Fragment>}
+                  </div>
+                )}
 
                 {/* Health badge */}
                 <div class="health-display mb-3">
@@ -455,6 +467,22 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                       <input type="text" name="coreTask" value={tool.coreTask} class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
                     </div>
                     <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Repository URL</label>
+                      <input type="text" name="repoUrl" value={tool.repoUrl || ''} placeholder="https://github.com/owner/repo" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Twitter / X</label>
+                      <input type="text" name="twitterUrl" value={tool.twitterUrl || ''} placeholder="https://x.com/username" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">GitHub Profile</label>
+                      <input type="text" name="githubUrl" value={tool.githubUrl || ''} placeholder="https://github.com/username" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
+                      <label class="text-xs font-medium text-neutral-600 mb-1 block">Discord</label>
+                      <input type="text" name="discordUrl" value={tool.discordUrl || ''} placeholder="https://discord.gg/invite" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+                    <div>
                       <label class="text-xs font-medium text-neutral-600 mb-1 block">Tags</label>
                       <div class="edit-tag-picker">
                         <TagPicker selectedTags={toolTags.map(t => ({ key: t.tagKey, value: t.tagValue }))} />
@@ -463,6 +491,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                   </div>
                   <div class="flex gap-2">
                     <button class="btn-primary text-sm save-edit-btn" data-tool-id={tool.id}>Save Changes</button>
+                    <button class="btn-secondary text-sm refresh-github-btn" data-tool-id={tool.id}>Refresh GitHub Data</button>
                     <button class="btn-secondary text-sm cancel-edit-btn" data-tool-id={tool.id}>Cancel</button>
                   </div>
                 </div>
@@ -1025,7 +1054,9 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
             Slug: <code class="bg-neutral-100 px-1 rounded">${escapeHtml(tool.slug)}</code>
             ${tool.submitterIpHash ? ` · IP: <code class="bg-neutral-100 px-1 rounded">${escapeHtml(tool.submitterIpHash.slice(0, 8))}...</code>` : ''}
             ${tool.submitterEmail ? ` · Email: <a href="mailto:${escapeHtml(tool.submitterEmail)}" class="text-blue-600 hover:underline">${escapeHtml(tool.submitterEmail)}</a>` : ''}
+            ${tool.repoUrl ? ` · Repo: <a href="${escapeHtml(tool.repoUrl)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">${escapeHtml(tool.repoUrl.replace('https://github.com/', ''))}</a>${tool.githubStars != null ? ` ⭐${tool.githubStars}` : ''}` : ''}
           </div>
+          ${(tool.twitterUrl || tool.githubUrl || tool.discordUrl) ? `<div class="text-xs text-neutral-400 mb-3">${tool.twitterUrl ? `<a href="${escapeHtml(tool.twitterUrl)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Twitter/X</a> ` : ''}${tool.githubUrl ? `<a href="${escapeHtml(tool.githubUrl)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">GitHub</a> ` : ''}${tool.discordUrl ? `<a href="${escapeHtml(tool.discordUrl)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Discord</a> ` : ''}</div>` : ''}
           <div class="health-display mb-3">${healthHtml}</div>
           <div class="flex items-center gap-2 tool-actions">${actionsHtml}</div>
           <div class="hidden mt-3 reject-form" data-tool-id="${tool.id}">
@@ -1051,12 +1082,29 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
                 <input type="text" name="coreTask" value="${escapeHtml(tool.coreTask)}" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
               </div>
               <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Repository URL</label>
+                <input type="text" name="repoUrl" value="${escapeHtml(tool.repoUrl || '')}" placeholder="https://github.com/owner/repo" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Twitter / X</label>
+                <input type="text" name="twitterUrl" value="${escapeHtml(tool.twitterUrl || '')}" placeholder="https://x.com/username" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">GitHub Profile</label>
+                <input type="text" name="githubUrl" value="${escapeHtml(tool.githubUrl || '')}" placeholder="https://github.com/username" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
+                <label class="text-xs font-medium text-neutral-600 mb-1 block">Discord</label>
+                <input type="text" name="discordUrl" value="${escapeHtml(tool.discordUrl || '')}" placeholder="https://discord.gg/invite" class="w-full px-3 py-1.5 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+              </div>
+              <div>
                 <label class="text-xs font-medium text-neutral-600 mb-1 block">Tags</label>
                 <div class="edit-tag-picker"></div>
               </div>
             </div>
             <div class="flex gap-2">
               <button class="btn-primary text-sm save-edit-btn" data-tool-id="${tool.id}">Save Changes</button>
+              <button class="btn-secondary text-sm refresh-github-btn" data-tool-id="${tool.id}">Refresh GitHub Data</button>
               <button class="btn-secondary text-sm cancel-edit-btn" data-tool-id="${tool.id}">Cancel</button>
             </div>
           </div>
@@ -1200,6 +1248,10 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
           const url = (form.querySelector('input[name="url"]') as HTMLInputElement).value;
           const description = (form.querySelector('textarea[name="description"]') as HTMLTextAreaElement).value;
           const coreTask = (form.querySelector('input[name="coreTask"]') as HTMLInputElement).value;
+          const repoUrl = (form.querySelector('input[name="repoUrl"]') as HTMLInputElement)?.value || '';
+          const twitterUrl = (form.querySelector('input[name="twitterUrl"]') as HTMLInputElement)?.value || '';
+          const githubUrl = (form.querySelector('input[name="githubUrl"]') as HTMLInputElement)?.value || '';
+          const discordUrl = (form.querySelector('input[name="discordUrl"]') as HTMLInputElement)?.value || '';
 
           // Collect tags from tag picker
           const tagInputs = form.querySelectorAll('.tag-picker-container input[type="checkbox"]:checked');
@@ -1212,7 +1264,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
           });
 
           const result = await adminFetch('/api/admin/tool-update', {
-            toolId, name, url, description, coreTask, tags: tagsList,
+            toolId, name, url, description, coreTask, repoUrl, twitterUrl, githubUrl, discordUrl, tags: tagsList,
           });
 
           if (result.ok) {
@@ -1297,6 +1349,25 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
             b.textContent = isFeatured ? '★ Featured' : '☆ Feature';
           }
           b.disabled = false;
+        });
+      });
+
+      // Refresh GitHub Data
+      document.querySelectorAll('.refresh-github-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Refreshing...';
+
+          const result = await adminFetch('/api/admin/tool-update', { toolId, refreshGithub: true });
+          if (result.ok) {
+            showToast('GitHub data refresh triggered!');
+          } else {
+            showToast(result.error || 'Failed to refresh.', 'error');
+          }
+          b.disabled = false;
+          b.textContent = 'Refresh GitHub Data';
         });
       });
 

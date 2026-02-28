@@ -7,6 +7,7 @@ import { eq, and, ne } from 'drizzle-orm';
 import { urlToSlug } from '../../../lib/utils';
 import { api } from '../../../lib/api';
 import { TAG_DEFINITIONS } from '../../../lib/tags';
+import { validateTwitterUrl, validateGitHubProfileUrl, validateDiscordUrl, validateRepoUrl, parseGitHubRepoUrl, fetchGitHubRepoData } from '../../../lib/github';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const env = locals.runtime.env;
@@ -96,6 +97,42 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
   }
 
+  if (body.repoUrl !== undefined) {
+    const val = String(body.repoUrl).trim();
+    if (val && !validateRepoUrl(val)) {
+      errors.repoUrl = 'Please enter a valid GitHub repository URL.';
+    } else {
+      updateData.repoUrl = val || null;
+    }
+  }
+
+  if (body.twitterUrl !== undefined) {
+    const val = String(body.twitterUrl).trim();
+    if (val && !validateTwitterUrl(val)) {
+      errors.twitterUrl = 'Please enter a valid Twitter/X URL.';
+    } else {
+      updateData.twitterUrl = val || null;
+    }
+  }
+
+  if (body.githubUrl !== undefined) {
+    const val = String(body.githubUrl).trim();
+    if (val && !validateGitHubProfileUrl(val)) {
+      errors.githubUrl = 'Please enter a valid GitHub URL.';
+    } else {
+      updateData.githubUrl = val || null;
+    }
+  }
+
+  if (body.discordUrl !== undefined) {
+    const val = String(body.discordUrl).trim();
+    if (val && !validateDiscordUrl(val)) {
+      errors.discordUrl = 'Please enter a valid Discord URL.';
+    } else {
+      updateData.discordUrl = val || null;
+    }
+  }
+
   if (Object.keys(errors).length > 0) {
     return api.error('Validation failed.', 400, errors);
   }
@@ -110,22 +147,77 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const validTags: { key: string; value: string }[] = [];
     for (const tag of body.tags) {
       if (tag.key && tag.value) {
-        const def = TAG_DEFINITIONS.find((d) => d.key === tag.key);
-        if (def && def.values.includes(tag.value)) {
+        // Allow source tags (auto-derived) and TAG_DEFINITIONS tags
+        if (tag.key === 'source' && (tag.value === 'Open Source' || tag.value === 'Closed Source')) {
           validTags.push({ key: tag.key, value: tag.value });
+        } else {
+          const def = TAG_DEFINITIONS.find((d) => d.key === tag.key);
+          if (def && def.values.includes(tag.value)) {
+            validTags.push({ key: tag.key, value: tag.value });
+          }
         }
       }
     }
 
+    // Auto-derive source tag: remove existing source tags, add if repo_url present
+    const filteredTags = validTags.filter(t => t.key !== 'source');
+    const effectiveRepoUrl = updateData.repoUrl !== undefined ? updateData.repoUrl : tool.repoUrl;
+    if (effectiveRepoUrl) {
+      filteredTags.push({ key: 'source', value: 'Open Source' });
+    }
+
     await db.delete(tags).where(eq(tags.toolId, toolId));
-    if (validTags.length > 0) {
+    if (filteredTags.length > 0) {
       await db.insert(tags).values(
-        validTags.map((t) => ({
+        filteredTags.map((t) => ({
           toolId,
           tagKey: t.key,
           tagValue: t.value,
         }))
       );
+    }
+  }
+
+  // Refresh GitHub data if repo URL changed or explicitly requested
+  const effectiveRepoUrl = updateData.repoUrl !== undefined ? updateData.repoUrl : tool.repoUrl;
+  if (body.refreshGithub || (updateData.repoUrl !== undefined && updateData.repoUrl !== tool.repoUrl)) {
+    if (effectiveRepoUrl) {
+      const parsed = parseGitHubRepoUrl(effectiveRepoUrl);
+      if (parsed) {
+        const ctx = locals.runtime.ctx;
+        ctx.waitUntil(
+          fetchGitHubRepoData(parsed.owner, parsed.repo)
+            .then(async (data) => {
+              if (data) {
+                await db
+                  .update(tools)
+                  .set({
+                    githubStars: data.stars,
+                    githubForks: data.forks,
+                    githubLicense: data.license,
+                    githubLanguage: data.language,
+                    githubUpdatedAt: data.updatedAt,
+                    githubFetchedAt: new Date(),
+                  })
+                  .where(eq(tools.id, toolId));
+              }
+            })
+            .catch(() => {})
+        );
+      }
+    } else {
+      // Clear GitHub data if repo URL removed
+      await db
+        .update(tools)
+        .set({
+          githubStars: null,
+          githubForks: null,
+          githubLicense: null,
+          githubLanguage: null,
+          githubUpdatedAt: null,
+          githubFetchedAt: null,
+        })
+        .where(eq(tools.id, toolId));
     }
   }
 
