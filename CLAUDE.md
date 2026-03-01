@@ -111,7 +111,7 @@ workers/cron/             # Health checks, badge detection, data export
   - **Verification tab** uses a certificate-style layout: small `flat.svg` brand link at top → 72×72 shield SVG hero (green checkmark for approved, amber clock for pending) + "by nologin.tools" attribution → `<dl>`-based Certificate Details card with colored border (green/amber) → 2×2 Trust Signals grid (Manually Reviewed, No Login Required, Continuously Monitored, Web Archived) → action buttons → attribution line
   - **Embed Code tab** includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
-- **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export`):
+- **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export` / `#github`):
   - **Dashboard**: Stats overview (total/approved/pending/unstable/offline/featured) + recent submissions table
   - **Tools**: Full CRUD — status filter chips, search, pagination via `POST /api/admin/tools`; inline edit/reject forms; approve/reject/edit/delete/health-check actions
   - **Edits**: Pending edit suggestions review (approve & apply / reject)
@@ -125,6 +125,10 @@ workers/cron/             # Health checks, badge detection, data export
   - `POST /api/admin/health-check` — manually trigger health check for a tool; returns `isOnline` (raw single-check result) and `effectiveStatus` (`'online'|'unstable'|'offline'`)
   - `POST /api/admin/data-export` — manually trigger data export to GitHub (pushes tools.json + README.md with change detection), records to `data_exports` table
   - `POST /api/admin/export-history` — query recent export history (last 20 entries)
+  - `POST /api/admin/github-fetch` — refresh GitHub repo metadata for a tool (uses authenticated API if `GITHUB_TOKEN` available: 5000 req/hr vs 60 req/hr)
+  - `POST /api/admin/github-notify` — create GitHub Issue notifying repo of NoLogin Verified status; idempotent (`force=true` to resend); requires `GITHUB_TOKEN`, tool must be approved with `repoUrl`
+- **Admin dashboard tabs**: Dashboard, Tools, Edits, Health, Export, GitHub — URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export` / `#github`)
+- **GitHub tab**: Two sections — "GitHub Data Refresh" (table with stars/forks/license/language, individual + bulk refresh, concurrency=2 with 1.2s delay) and "Badge Notification" (GitHub Issue creation for verified tools, individual + bulk notify, concurrency=3 with 0.5s delay). Bulk operations support cancel via `AbortController`.
 - **Health check on submit**: Tools are health-checked on submission/resubmission via `ctx.waitUntil()`. Results stored in `health_checks` table, displayed on admin review page.
 - **`ctx.waitUntil()` for background work**: In Cloudflare Workers, the execution context terminates after the Response is returned. Any fire-and-forget async work (health checks, archiving, etc.) **must** be registered with `locals.runtime.ctx.waitUntil(promise)` — otherwise the Promise will be killed before completion. The cron worker uses `ctx.waitUntil()` directly from its `ExecutionContext`.
 - **Health check User-Agent**: All health check fetch requests (both `src/lib/health.ts` and `workers/cron/`) include `User-Agent: 'NoLoginTools-HealthChecker/1.0'` to avoid WAF/bot-detection false positives (e.g. WolframAlpha 403). Badge detection uses `NoLoginTools-BadgeChecker/1.0`.
@@ -183,12 +187,13 @@ wrangler secret put ARCHIVE_ORG_SECRET_KEY
 
 ## Database Schema
 
-6 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode), `data_exports` (export history).
+7 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode), `data_exports` (export history), `github_notifications` (issue tracking).
 
 - `tools.submitter_email`: Optional contact email from the submitter. Only displayed on the admin review page (not public). Validated as a proper email format (max 254 chars) when provided.
 - **Social links** (all optional): `tools.twitter_url`, `tools.github_url`, `tools.discord_url` — validated on submit (twitter.com/x.com, github.com, discord.gg/discord.com). Displayed as icon buttons on tool detail page and as text links in admin dashboard.
 - **Repository URL**: `tools.repo_url` — GitHub repo URL (e.g. `https://github.com/owner/repo`). When set, auto-adds `source:Open Source` tag. Triggers async GitHub API fetch for repo metadata.
 - **GitHub cached data**: `tools.github_stars`, `tools.github_forks`, `tools.github_license`, `tools.github_language`, `tools.github_updated_at`, `tools.github_fetched_at` — fetched from GitHub REST API (unauthenticated, 60 req/hr) via `src/lib/github.ts` `fetchGitHubRepoData()`. Updated on submit/resubmit and when admin clicks "Refresh GitHub Data". Displayed in a sidebar card on tool detail page.
+- **GitHub notifications**: `github_notifications` table tracks Issue-based badge notifications sent to tool repos. One record per tool (`tool_id` UNIQUE), idempotent design — `status` is `created` (issue sent), `error` (failed, retryable), or `closed`. Stores `issue_url`, `issue_number`, `error_message`. Cascade-deletes with tool.
 
 ## Recommendation Score
 

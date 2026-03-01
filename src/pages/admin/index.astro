@@ -4,7 +4,7 @@ export const prerender = false;
 import Layout from '../../layouts/Layout.astro';
 import TagPicker from '../../components/TagPicker.astro';
 import { getDb } from '../../db';
-import { tools, tags, editSuggestions, healthChecks, dataExports } from '../../db/schema';
+import { tools, tags, editSuggestions, healthChecks, dataExports, githubNotifications } from '../../db/schema';
 import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
@@ -202,6 +202,50 @@ const healthNoData = healthList.filter(h => h.health === null).length;
 
 // === Export tab ===
 const recentExports = await db.select().from(dataExports).orderBy(desc(dataExports.exportedAt)).limit(10);
+
+// === GitHub tab ===
+const githubTools = await db
+  .select({
+    id: tools.id,
+    name: tools.name,
+    slug: tools.slug,
+    url: tools.url,
+    repoUrl: tools.repoUrl,
+    status: tools.status,
+    githubStars: tools.githubStars,
+    githubForks: tools.githubForks,
+    githubLicense: tools.githubLicense,
+    githubLanguage: tools.githubLanguage,
+    githubFetchedAt: tools.githubFetchedAt,
+  })
+  .from(tools)
+  .where(and(eq(tools.status, 'approved'), sql`${tools.repoUrl} IS NOT NULL AND ${tools.repoUrl} != ''`))
+  .orderBy(desc(tools.submittedAt));
+
+// Batch query notification status
+const githubNotifMap = new Map<number, { status: string; issueUrl: string | null; issueNumber: number | null; createdAt: Date; errorMessage: string | null }>();
+if (githubTools.length > 0) {
+  const notifRows = await db
+    .select()
+    .from(githubNotifications)
+    .where(inArray(githubNotifications.toolId, githubTools.map(t => t.id)));
+  for (const n of notifRows) {
+    githubNotifMap.set(n.toolId, {
+      status: n.status,
+      issueUrl: n.issueUrl,
+      issueNumber: n.issueNumber,
+      createdAt: n.createdAt,
+      errorMessage: n.errorMessage,
+    });
+  }
+}
+
+// GitHub stats
+const githubTotalCount = githubTools.length;
+const githubNotifiedCount = Array.from(githubNotifMap.values()).filter(n => n.status === 'created').length;
+const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+const githubStaleCount = githubTools.filter(t => t.githubFetchedAt && t.githubFetchedAt < sevenDaysAgo).length;
+const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).length;
 ---
 
 <Layout title="Admin Dashboard" description="Admin dashboard for managing tools.">
@@ -233,6 +277,12 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
       </button>
       <button role="tab" id="tab-export" class="admin-tab admin-tab-inactive" data-tab="export">
         Export
+      </button>
+      <button role="tab" id="tab-github" class="admin-tab admin-tab-inactive" data-tab="github">
+        GitHub
+        {githubTotalCount > 0 && (
+          <span class="ml-1.5 inline-flex items-center justify-center px-1.5 h-5 rounded-full bg-neutral-100 text-neutral-600 text-xs font-bold">{githubTotalCount}</span>
+        )}
       </button>
     </div>
 
@@ -744,6 +794,168 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
       </div>
     </div>
 
+    <!-- ==================== PANEL: GitHub ==================== -->
+    <div id="panel-github" class="tab-panel hidden">
+      <!-- GitHub stats -->
+      <div class="grid grid-cols-4 gap-4 mb-6">
+        <div class="border border-neutral-200 rounded-lg p-4">
+          <p class="text-sm text-neutral-500 mb-1">With Repo</p>
+          <p class="text-2xl font-bold text-neutral-700">{githubTotalCount}</p>
+        </div>
+        <div class="border border-green-200 rounded-lg p-4 bg-green-50">
+          <p class="text-sm text-green-600 mb-1">Notified</p>
+          <p class="text-2xl font-bold text-green-700">{githubNotifiedCount}</p>
+        </div>
+        <div class="border border-amber-200 rounded-lg p-4 bg-amber-50">
+          <p class="text-sm text-amber-600 mb-1">Data Stale (&gt;7d)</p>
+          <p class="text-2xl font-bold text-amber-700">{githubStaleCount}</p>
+        </div>
+        <div class="border border-neutral-200 rounded-lg p-4">
+          <p class="text-sm text-neutral-500 mb-1">Never Fetched</p>
+          <p class="text-2xl font-bold text-neutral-700">{githubNeverFetchedCount}</p>
+        </div>
+      </div>
+
+      <!-- Section 1: GitHub Data Refresh -->
+      <div class="mb-10">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">GitHub Data Refresh</h2>
+          <div class="flex items-center gap-3">
+            <span id="bulk-github-progress" class="text-sm text-neutral-500 hidden"></span>
+            <button id="bulk-github-btn" class="btn-primary text-sm">Refresh All</button>
+          </div>
+        </div>
+
+        {githubTools.length === 0 ? (
+          <p class="text-neutral-500 text-sm">No approved tools with repository URLs.</p>
+        ) : (
+          <div class="overflow-x-auto">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Stars</th>
+                  <th>Forks</th>
+                  <th>License</th>
+                  <th>Language</th>
+                  <th>Last Fetched</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {githubTools.map((tool) => (
+                  <tr class="github-data-row" data-tool-id={tool.id}>
+                    <td>
+                      <a href={tool.repoUrl!} target="_blank" class="font-medium text-blue-600 hover:underline">{tool.name}</a>
+                    </td>
+                    <td class="gh-stars text-neutral-700">
+                      {tool.githubStars != null ? `⭐ ${tool.githubStars.toLocaleString()}` : '—'}
+                    </td>
+                    <td class="gh-forks text-neutral-700">
+                      {tool.githubForks != null ? tool.githubForks.toLocaleString() : '—'}
+                    </td>
+                    <td class="gh-license text-neutral-500 text-sm">
+                      {tool.githubLicense || '—'}
+                    </td>
+                    <td class="gh-language text-neutral-500 text-sm">
+                      {tool.githubLanguage || '—'}
+                    </td>
+                    <td class="gh-fetched text-neutral-500 text-xs">
+                      {tool.githubFetchedAt ? timeAgo(tool.githubFetchedAt) : 'Never'}
+                    </td>
+                    <td>
+                      <button class="text-sm text-blue-600 hover:underline run-github-fetch-btn" data-tool-id={tool.id}>
+                        Refresh
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      <!-- Section 2: Badge Notification (GitHub Issues) -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">Badge Notification (GitHub Issues)</h2>
+          <div class="flex items-center gap-3">
+            <span id="bulk-notify-progress" class="text-sm text-neutral-500 hidden"></span>
+            <button id="bulk-notify-btn" class="text-sm px-3 py-1.5 rounded-md font-medium bg-green-100 text-green-700 border border-green-300 hover:bg-green-200 transition-colors">Notify All Unnotified</button>
+          </div>
+        </div>
+
+        {githubTools.length === 0 ? (
+          <p class="text-neutral-500 text-sm">No approved tools with repository URLs.</p>
+        ) : (
+          <div class="overflow-x-auto">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Repository</th>
+                  <th>Status</th>
+                  <th>Issue</th>
+                  <th>Notified</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {githubTools.map((tool) => {
+                  const notif = githubNotifMap.get(tool.id);
+                  return (
+                    <tr class="github-notify-row" data-tool-id={tool.id} data-notify-status={notif?.status || 'none'}>
+                      <td>
+                        <a href={`/tool/${tool.slug}`} target="_blank" class="font-medium text-blue-600 hover:underline">{tool.name}</a>
+                      </td>
+                      <td class="text-neutral-500 text-sm">
+                        <a href={tool.repoUrl!} target="_blank" rel="noopener noreferrer" class="hover:underline">{tool.repoUrl!.replace('https://github.com/', '')}</a>
+                      </td>
+                      <td>
+                        <span class="notify-status">
+                          {notif ? (
+                            notif.status === 'created' ? (
+                              <span class="text-green-600 font-medium text-xs">✓ Notified</span>
+                            ) : notif.status === 'error' ? (
+                              <span class="text-red-600 font-medium text-xs" title={notif.errorMessage || ''}>✗ Error</span>
+                            ) : (
+                              <span class="text-neutral-400 font-medium text-xs">{notif.status}</span>
+                            )
+                          ) : (
+                            <span class="text-neutral-400 text-xs">Not notified</span>
+                          )}
+                        </span>
+                      </td>
+                      <td class="notify-issue text-xs">
+                        {notif?.issueUrl ? (
+                          <a href={notif.issueUrl} target="_blank" class="text-blue-600 hover:underline">#{notif.issueNumber}</a>
+                        ) : '—'}
+                      </td>
+                      <td class="notify-time text-neutral-500 text-xs">
+                        {notif?.createdAt ? timeAgo(notif.createdAt) : '—'}
+                      </td>
+                      <td>
+                        {notif?.status === 'created' ? (
+                          <button class="text-sm text-amber-600 hover:underline run-notify-btn" data-tool-id={tool.id} data-force="true">
+                            Resend
+                          </button>
+                        ) : (
+                          <button class="text-sm text-blue-600 hover:underline run-notify-btn" data-tool-id={tool.id} data-force="false">
+                            Create Issue
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+
     <!-- Hidden TagPicker template for JS cloning -->
     <template id="tag-picker-template">
       <TagPicker />
@@ -755,7 +967,7 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
 
   <script>
     const secret = new URLSearchParams(window.location.search).get('secret');
-    const tabNames = ['dashboard', 'tools', 'edits', 'health', 'export'] as const;
+    const tabNames = ['dashboard', 'tools', 'edits', 'health', 'export', 'github'] as const;
     type TabName = typeof tabNames[number];
 
     // ===== Toast =====
@@ -1709,6 +1921,293 @@ const recentExports = await db.select().from(dataExports).orderBy(desc(dataExpor
           await runBulkCheck(toolIds, bulkAbnormalBtn, bulkAbnormalBtn.textContent || 'Check Abnormal');
         });
       }
+    })();
+
+    // ===== GitHub tab: data refresh =====
+    document.querySelectorAll('.run-github-fetch-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const toolId = Number((btn as HTMLElement).dataset.toolId);
+        const b = btn as HTMLButtonElement;
+        b.disabled = true;
+        b.textContent = 'Refreshing...';
+
+        const result = await adminFetch('/api/admin/github-fetch', { toolId });
+        if (result.ok) {
+          const d = result.data;
+          showToast(`GitHub data refreshed: ⭐${d.stars}`);
+          const row = document.querySelector(`.github-data-row[data-tool-id="${toolId}"]`) as HTMLElement;
+          if (row) {
+            row.querySelector('.gh-stars')!.textContent = d.stars != null ? `⭐ ${Number(d.stars).toLocaleString()}` : '—';
+            row.querySelector('.gh-forks')!.textContent = d.forks != null ? Number(d.forks).toLocaleString() : '—';
+            row.querySelector('.gh-license')!.textContent = d.license || '—';
+            row.querySelector('.gh-language')!.textContent = d.language || '—';
+            row.querySelector('.gh-fetched')!.textContent = 'just now';
+          }
+        } else {
+          showToast(result.error || 'Failed to refresh GitHub data.', 'error');
+        }
+        b.disabled = false;
+        b.textContent = 'Refresh';
+      });
+    });
+
+    // ===== GitHub tab: bulk refresh =====
+    (() => {
+      const bulkBtn = document.getElementById('bulk-github-btn') as HTMLButtonElement;
+      const progressEl = document.getElementById('bulk-github-progress')!;
+      if (!bulkBtn) return;
+
+      let abortController: AbortController | null = null;
+      let isRunning = false;
+
+      bulkBtn.addEventListener('click', async () => {
+        if (isRunning) {
+          abortController?.abort();
+          return;
+        }
+
+        const rows = document.querySelectorAll('.github-data-row[data-tool-id]');
+        const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
+        if (toolIds.length === 0) {
+          showToast('No tools to refresh.', 'error');
+          return;
+        }
+
+        isRunning = true;
+        abortController = new AbortController();
+        bulkBtn.textContent = 'Cancel';
+        bulkBtn.classList.remove('btn-primary');
+        bulkBtn.classList.add('btn-danger');
+        document.querySelectorAll('.run-github-fetch-btn').forEach((b) => { (b as HTMLButtonElement).disabled = true; });
+
+        let completed = 0;
+        let success = 0;
+        let failed = 0;
+        const total = toolIds.length;
+        progressEl.classList.remove('hidden');
+        progressEl.textContent = `0 / ${total}`;
+
+        const CONCURRENCY = 2;
+        let index = 0;
+        const signal = abortController.signal;
+
+        async function next(): Promise<void> {
+          while (index < total) {
+            if (signal.aborted) return;
+            const i = index++;
+            const toolId = toolIds[i];
+            try {
+              const result = await adminFetch('/api/admin/github-fetch', { toolId });
+              if (signal.aborted) return;
+              if (result.ok) {
+                success++;
+                const d = result.data;
+                const row = document.querySelector(`.github-data-row[data-tool-id="${toolId}"]`) as HTMLElement;
+                if (row) {
+                  row.querySelector('.gh-stars')!.textContent = d.stars != null ? `⭐ ${Number(d.stars).toLocaleString()}` : '—';
+                  row.querySelector('.gh-forks')!.textContent = d.forks != null ? Number(d.forks).toLocaleString() : '—';
+                  row.querySelector('.gh-license')!.textContent = d.license || '—';
+                  row.querySelector('.gh-language')!.textContent = d.language || '—';
+                  row.querySelector('.gh-fetched')!.textContent = 'just now';
+                }
+              } else {
+                failed++;
+              }
+            } catch {
+              if (signal.aborted) return;
+              failed++;
+            }
+            completed++;
+            progressEl.textContent = `${completed} / ${total}`;
+            // Rate limit delay: ~1.2s between requests for unauthenticated API
+            if (!signal.aborted) await new Promise(r => setTimeout(r, 1200));
+          }
+        }
+
+        const workers = Array.from({ length: Math.min(CONCURRENCY, total) }, () => next());
+        await Promise.all(workers);
+
+        isRunning = false;
+        abortController = null;
+        bulkBtn.textContent = 'Refresh All';
+        bulkBtn.classList.remove('btn-danger');
+        bulkBtn.classList.add('btn-primary');
+        document.querySelectorAll('.run-github-fetch-btn').forEach((b) => { (b as HTMLButtonElement).disabled = false; });
+
+        const summary = `${success} refreshed, ${failed} failed`;
+        if (signal.aborted) {
+          progressEl.textContent = `Cancelled (${completed} / ${total})`;
+          showToast(`GitHub refresh cancelled: ${summary}`, 'error');
+        } else {
+          progressEl.textContent = `Done: ${summary}`;
+          showToast(`GitHub refresh complete: ${summary}`);
+        }
+        setTimeout(() => progressEl.classList.add('hidden'), 5000);
+      });
+    })();
+
+    // ===== GitHub tab: notifications =====
+    document.querySelectorAll('.run-notify-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const toolId = Number((btn as HTMLElement).dataset.toolId);
+        const force = (btn as HTMLElement).dataset.force === 'true';
+        const b = btn as HTMLButtonElement;
+
+        if (force && !confirm('This tool was already notified. Are you sure you want to resend?')) return;
+
+        b.disabled = true;
+        b.textContent = 'Sending...';
+
+        const result = await adminFetch('/api/admin/github-notify', { toolId, force });
+        if (result.ok) {
+          const d = result.data;
+          showToast('Notification issue created!');
+          const row = document.querySelector(`.github-notify-row[data-tool-id="${toolId}"]`) as HTMLElement;
+          if (row) {
+            row.dataset.notifyStatus = 'created';
+            row.querySelector('.notify-status')!.innerHTML = '<span class="text-green-600 font-medium text-xs">✓ Notified</span>';
+            row.querySelector('.notify-issue')!.innerHTML = `<a href="${escapeHtml(d.issueUrl)}" target="_blank" class="text-blue-600 hover:underline">#${d.issueNumber}</a>`;
+            row.querySelector('.notify-time')!.textContent = 'just now';
+            // Switch button to Resend
+            const btnCell = row.querySelector('td:last-child')!;
+            btnCell.innerHTML = `<button class="text-sm text-amber-600 hover:underline run-notify-btn" data-tool-id="${toolId}" data-force="true">Resend</button>`;
+            bindNotifyButtons(btnCell);
+          }
+        } else {
+          showToast(result.error || 'Failed to create notification.', 'error');
+        }
+        b.disabled = false;
+        b.textContent = force ? 'Resend' : 'Create Issue';
+      });
+    });
+
+    function bindNotifyButtons(container: Element) {
+      container.querySelectorAll('.run-notify-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const force = (btn as HTMLElement).dataset.force === 'true';
+          const b = btn as HTMLButtonElement;
+
+          if (force && !confirm('This tool was already notified. Are you sure you want to resend?')) return;
+
+          b.disabled = true;
+          b.textContent = 'Sending...';
+
+          const result = await adminFetch('/api/admin/github-notify', { toolId, force });
+          if (result.ok) {
+            const d = result.data;
+            showToast('Notification issue created!');
+            const row = document.querySelector(`.github-notify-row[data-tool-id="${toolId}"]`) as HTMLElement;
+            if (row) {
+              row.dataset.notifyStatus = 'created';
+              row.querySelector('.notify-status')!.innerHTML = '<span class="text-green-600 font-medium text-xs">✓ Notified</span>';
+              row.querySelector('.notify-issue')!.innerHTML = `<a href="${escapeHtml(d.issueUrl)}" target="_blank" class="text-blue-600 hover:underline">#${d.issueNumber}</a>`;
+              row.querySelector('.notify-time')!.textContent = 'just now';
+            }
+          } else {
+            showToast(result.error || 'Failed to create notification.', 'error');
+          }
+          b.disabled = false;
+          b.textContent = force ? 'Resend' : 'Create Issue';
+        });
+      });
+    }
+
+    // ===== GitHub tab: bulk notify =====
+    (() => {
+      const bulkBtn = document.getElementById('bulk-notify-btn') as HTMLButtonElement;
+      const progressEl = document.getElementById('bulk-notify-progress')!;
+      if (!bulkBtn) return;
+
+      let abortController: AbortController | null = null;
+      let isRunning = false;
+
+      bulkBtn.addEventListener('click', async () => {
+        if (isRunning) {
+          abortController?.abort();
+          return;
+        }
+
+        // Only notify tools that are not yet notified or had errors
+        const rows = document.querySelectorAll('.github-notify-row[data-notify-status="none"], .github-notify-row[data-notify-status="error"]');
+        const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
+        if (toolIds.length === 0) {
+          showToast('All tools have been notified already.', 'error');
+          return;
+        }
+
+        isRunning = true;
+        abortController = new AbortController();
+        bulkBtn.textContent = 'Cancel';
+        bulkBtn.classList.remove('bg-green-100', 'text-green-700', 'border-green-300', 'hover:bg-green-200');
+        bulkBtn.classList.add('btn-danger');
+        document.querySelectorAll('.run-notify-btn').forEach((b) => { (b as HTMLButtonElement).disabled = true; });
+
+        let completed = 0;
+        let success = 0;
+        let failed = 0;
+        const total = toolIds.length;
+        progressEl.classList.remove('hidden');
+        progressEl.textContent = `0 / ${total}`;
+
+        const CONCURRENCY = 3;
+        let index = 0;
+        const signal = abortController.signal;
+
+        async function next(): Promise<void> {
+          while (index < total) {
+            if (signal.aborted) return;
+            const i = index++;
+            const toolId = toolIds[i];
+            try {
+              const result = await adminFetch('/api/admin/github-notify', { toolId });
+              if (signal.aborted) return;
+              if (result.ok) {
+                success++;
+                const d = result.data;
+                const row = document.querySelector(`.github-notify-row[data-tool-id="${toolId}"]`) as HTMLElement;
+                if (row) {
+                  row.dataset.notifyStatus = 'created';
+                  row.querySelector('.notify-status')!.innerHTML = '<span class="text-green-600 font-medium text-xs">✓ Notified</span>';
+                  row.querySelector('.notify-issue')!.innerHTML = `<a href="${escapeHtml(d.issueUrl)}" target="_blank" class="text-blue-600 hover:underline">#${d.issueNumber}</a>`;
+                  row.querySelector('.notify-time')!.textContent = 'just now';
+                  const btnCell = row.querySelector('td:last-child')!;
+                  btnCell.innerHTML = `<button class="text-sm text-amber-600 hover:underline run-notify-btn" data-tool-id="${toolId}" data-force="true">Resend</button>`;
+                }
+              } else {
+                failed++;
+              }
+            } catch {
+              if (signal.aborted) return;
+              failed++;
+            }
+            completed++;
+            progressEl.textContent = `${completed} / ${total}`;
+            // Small delay for rate limiting with token (5000 req/hr)
+            if (!signal.aborted) await new Promise(r => setTimeout(r, 500));
+          }
+        }
+
+        const workers = Array.from({ length: Math.min(CONCURRENCY, total) }, () => next());
+        await Promise.all(workers);
+
+        isRunning = false;
+        abortController = null;
+        bulkBtn.textContent = 'Notify All Unnotified';
+        bulkBtn.classList.remove('btn-danger');
+        bulkBtn.classList.add('bg-green-100', 'text-green-700', 'border-green-300', 'hover:bg-green-200');
+        document.querySelectorAll('.run-notify-btn').forEach((b) => { (b as HTMLButtonElement).disabled = false; });
+
+        const summary = `${success} notified, ${failed} failed`;
+        if (signal.aborted) {
+          progressEl.textContent = `Cancelled (${completed} / ${total})`;
+          showToast(`Notification cancelled: ${summary}`, 'error');
+        } else {
+          progressEl.textContent = `Done: ${summary}`;
+          showToast(`Notification complete: ${summary}`);
+        }
+        setTimeout(() => progressEl.classList.add('hidden'), 5000);
+      });
     })();
   </script>
 </Layout>

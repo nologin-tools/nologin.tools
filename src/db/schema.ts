@@ -101,3 +101,18 @@ export const dataExports = sqliteTable('data_exports', {
   status: text('status', { enum: ['success', 'error'] }).notNull(),
   errorMessage: text('error_message'),
 });
+
+export const githubNotifications = sqliteTable('github_notifications', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  toolId: integer('tool_id')
+    .notNull()
+    .unique()
+    .references(() => tools.id, { onDelete: 'cascade' }),
+  issueUrl: text('issue_url'),
+  issueNumber: integer('issue_number'),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
+  status: text('status', { enum: ['created', 'closed', 'error'] })
+    .notNull()
+    .default('created'),
+  errorMessage: text('error_message'),
+});

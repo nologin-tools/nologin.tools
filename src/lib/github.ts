@@ -119,3 +119,179 @@ export async function fetchGitHubRepoData(owner: string, repo: string): Promise<
     return null;
   }
 }
+
+/**
+ * Fetch repository data with optional authentication.
+ * With token: 5000 req/hr. Without token: 60 req/hr.
+ */
+export async function fetchGitHubRepoDataAuth(
+  owner: string,
+  repo: string,
+  githubToken?: string,
+): Promise<GitHubRepoData | null> {
+  const url = `https://api.github.com/repos/${owner}/${repo}`;
+  console.log(`[GitHub] Fetching repo data (auth=${!!githubToken}): ${url}`);
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+
+    const headers: Record<string, string> = {
+      'User-Agent': 'NoLoginTools-GitHubFetcher/1.0',
+      Accept: 'application/vnd.github.v3+json',
+    };
+    if (githubToken) {
+      headers['Authorization'] = `Bearer ${githubToken}`;
+    }
+
+    const res = await fetch(url, { headers, signal: controller.signal });
+    clearTimeout(timeout);
+
+    if (!res.ok) {
+      console.warn(`[GitHub] API returned ${res.status} for ${owner}/${repo}`);
+      return null;
+    }
+
+    const data = await res.json() as {
+      stargazers_count: number;
+      forks_count: number;
+      license: { spdx_id: string } | null;
+      language: string | null;
+      updated_at: string;
+    };
+
+    console.log(`[GitHub] Fetched ${owner}/${repo}: ⭐${data.stargazers_count} 🍴${data.forks_count} ${data.language || 'N/A'}`);
+
+    return {
+      stars: data.stargazers_count,
+      forks: data.forks_count,
+      license: data.license?.spdx_id || null,
+      language: data.language,
+      updatedAt: new Date(data.updated_at),
+    };
+  } catch (err) {
+    console.error(`[GitHub] Failed to fetch ${owner}/${repo}:`, err);
+    return null;
+  }
+}
+
+export interface GitHubIssueResult {
+  issueUrl: string;
+  issueNumber: number;
+}
+
+/**
+ * Create a GitHub Issue notifying a repo that their tool has been verified.
+ * Returns issue URL and number on success, or null on failure.
+ * Throws on 410 Gone (issues disabled).
+ */
+export async function createGitHubNotificationIssue(
+  owner: string,
+  repo: string,
+  toolName: string,
+  toolUrl: string,
+  toolSlug: string,
+  siteUrl: string,
+  githubToken: string,
+): Promise<GitHubIssueResult | null> {
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/issues`;
+  const badgeUrl = `${siteUrl}/badges/flat.svg`;
+  const badgePageUrl = `${siteUrl}/badge/${toolSlug}`;
+  const toolPageUrl = `${siteUrl}/tool/${toolSlug}`;
+
+  const title = `[NoLogin Verified] ${toolName} has been verified by nologin.tools`;
+  const body = `## 🎉 Congratulations!
+
+**${toolName}** has been verified by [nologin.tools](${siteUrl}/about) as a privacy-friendly tool that works without requiring user login.
+
+### What is NoLogin Verified?
+
+[NoLogin Verified](${siteUrl}/badge/) is a trust badge for tools that respect user privacy. Your tool has been manually reviewed and confirmed to:
+- ✅ Work without requiring user registration or login
+- ✅ Respect user privacy
+- ✅ Be continuously monitored for availability
+
+Learn more: [${siteUrl}/badge/](${siteUrl}/badge/)
+
+### Add the NoLogin Verified badge to your README
+
+[![NoLogin Verified](${badgeUrl})](${badgePageUrl})
+
+\`\`\`markdown
+[![NoLogin Verified](${badgeUrl})](${badgePageUrl})
+\`\`\`
+
+### More badge styles
+
+Visit your [badge page](${badgePageUrl}#embed) to explore 13+ badge styles including dark, social, and color variants.
+
+### Your tool page
+
+View your verified tool page: [${toolPageUrl}](${toolPageUrl})
+
+---
+
+*This is an automated notification from [nologin.tools](${siteUrl}). If you have questions, visit our [about page](${siteUrl}/about).*`;
+
+  console.log(`[GitHub] Creating notification issue for ${owner}/${repo}`);
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'User-Agent': 'NoLoginTools-Notifier/1.0',
+        Accept: 'application/vnd.github.v3+json',
+        Authorization: `Bearer ${githubToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        body,
+        labels: ['nologin-verified'],
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
+    if (res.status === 410) {
+      console.warn(`[GitHub] Issues disabled for ${owner}/${repo}`);
+      throw new Error('Issues are disabled for this repository');
+    }
+
+    if (res.status === 422) {
+      // Label doesn't exist — retry without labels
+      const retryRes = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'User-Agent': 'NoLoginTools-Notifier/1.0',
+          Accept: 'application/vnd.github.v3+json',
+          Authorization: `Bearer ${githubToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, body }),
+      });
+      if (!retryRes.ok) {
+        console.warn(`[GitHub] Failed to create issue (retry) for ${owner}/${repo}: ${retryRes.status}`);
+        return null;
+      }
+      const retryData = await retryRes.json() as { html_url: string; number: number };
+      console.log(`[GitHub] Issue created (no labels): ${retryData.html_url}`);
+      return { issueUrl: retryData.html_url, issueNumber: retryData.number };
+    }
+
+    if (!res.ok) {
+      console.warn(`[GitHub] Failed to create issue for ${owner}/${repo}: ${res.status}`);
+      return null;
+    }
+
+    const data = await res.json() as { html_url: string; number: number };
+    console.log(`[GitHub] Issue created: ${data.html_url}`);
+    return { issueUrl: data.html_url, issueNumber: data.number };
+  } catch (err) {
+    console.error(`[GitHub] Failed to create issue for ${owner}/${repo}:`, err);
+    throw err;
+  }
+}
