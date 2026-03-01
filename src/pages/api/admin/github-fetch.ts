@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const data = await fetchGitHubRepoDataAuth(parsed.owner, parsed.repo, githubToken);
 
   if (!data) {
-    return api.error('Failed to fetch GitHub data.', 502);
+    return api.error('Failed to fetch GitHub data.', 500);
   }
 
   await db.update(tools).set({

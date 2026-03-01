@@ -106,7 +106,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
           createdAt: new Date(),
         });
       }
-      return api.error('Failed to create GitHub issue.', 502);
+      return api.error('Failed to create GitHub issue.', 500);
     }
 
     // Upsert success record
@@ -152,6 +152,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
       });
     }
 
-    return api.error(`Failed to create issue: ${errorMessage}`, 502);
+    return api.error(`Failed to create issue: ${errorMessage}`, 500);
   }
 };
