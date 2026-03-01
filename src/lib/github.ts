@@ -213,7 +213,9 @@ export async function createGitHubNotificationIssue(
 
 Learn more: [${siteUrl}/badge/](${siteUrl}/badge/)
 
-### Add the NoLogin Verified badge to your README
+### Add the NoLogin Verified badge
+
+#### In your README
 
 [![NoLogin Verified](${badgeUrl})](${badgePageUrl})
 
@@ -221,9 +223,15 @@ Learn more: [${siteUrl}/badge/](${siteUrl}/badge/)
 [![NoLogin Verified](${badgeUrl})](${badgePageUrl})
 \`\`\`
 
+#### On your landing page or footer
+
+\`\`\`html
+<a href="${badgePageUrl}"><img src="${badgeUrl}" alt="NoLogin Verified" title="Verified by NoLoginTools.org" /></a>
+\`\`\`
+
 ### More badge styles
 
-Visit your [badge page](${badgePageUrl}#embed) to explore 13+ badge styles including dark, social, and color variants.
+We offer 13+ badge styles including dark, social, and color variants. Visit your [badge page](${badgePageUrl}#embed) to find the one that best fits your site.
 
 ### Your tool page
 
