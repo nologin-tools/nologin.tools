@@ -284,8 +284,8 @@ View your verified tool page: [${toolPageUrl}](${toolPageUrl})
         throw new GitHubApiError('Issues are disabled for this repository', 410, ghMessage);
       }
 
-      if (res.status === 422) {
-        // Label doesn't exist — retry without labels
+      if (res.status === 422 || res.status === 403) {
+        // Label issue (doesn't exist or no permission) — retry without labels
         const retryRes = await fetch(apiUrl, {
           method: 'POST',
           headers: {
