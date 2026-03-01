@@ -180,6 +180,16 @@ export interface GitHubIssueResult {
   issueNumber: number;
 }
 
+export class GitHubApiError extends Error {
+  constructor(
+    message: string,
+    public status: number,
+    public ghMessage?: string,
+  ) {
+    super(message);
+  }
+}
+
 /**
  * Create a GitHub Issue notifying a repo that their tool has been verified.
  * Returns issue URL and number on success, or null on failure.
@@ -264,35 +274,40 @@ View your verified tool page: [${toolPageUrl}](${toolPageUrl})
     });
     clearTimeout(timeout);
 
-    if (res.status === 410) {
-      console.warn(`[GitHub] Issues disabled for ${owner}/${repo}`);
-      throw new Error('Issues are disabled for this repository');
-    }
-
-    if (res.status === 422) {
-      // Label doesn't exist — retry without labels
-      const retryRes = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'User-Agent': 'NoLoginTools-Notifier/1.0',
-          Accept: 'application/vnd.github.v3+json',
-          Authorization: `Bearer ${githubToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, body }),
-      });
-      if (!retryRes.ok) {
-        console.warn(`[GitHub] Failed to create issue (retry) for ${owner}/${repo}: ${retryRes.status}`);
-        return null;
-      }
-      const retryData = await retryRes.json() as { html_url: string; number: number };
-      console.log(`[GitHub] Issue created (no labels): ${retryData.html_url}`);
-      return { issueUrl: retryData.html_url, issueNumber: retryData.number };
-    }
-
     if (!res.ok) {
-      console.warn(`[GitHub] Failed to create issue for ${owner}/${repo}: ${res.status}`);
-      return null;
+      const errorBody = await res.text().catch(() => '');
+      let ghMessage = '';
+      try { ghMessage = JSON.parse(errorBody)?.message || errorBody; } catch { ghMessage = errorBody; }
+      console.warn(`[GitHub] Failed to create issue for ${owner}/${repo}: ${res.status} ${ghMessage}`);
+
+      if (res.status === 410) {
+        throw new GitHubApiError('Issues are disabled for this repository', 410, ghMessage);
+      }
+
+      if (res.status === 422) {
+        // Label doesn't exist — retry without labels
+        const retryRes = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'User-Agent': 'NoLoginTools-Notifier/1.0',
+            Accept: 'application/vnd.github.v3+json',
+            Authorization: `Bearer ${githubToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title, body }),
+        });
+        if (!retryRes.ok) {
+          const retryBody = await retryRes.text().catch(() => '');
+          let retryMsg = '';
+          try { retryMsg = JSON.parse(retryBody)?.message || retryBody; } catch { retryMsg = retryBody; }
+          throw new GitHubApiError(`GitHub API ${retryRes.status}: ${retryMsg}`, retryRes.status, retryMsg);
+        }
+        const retryData = await retryRes.json() as { html_url: string; number: number };
+        console.log(`[GitHub] Issue created (no labels): ${retryData.html_url}`);
+        return { issueUrl: retryData.html_url, issueNumber: retryData.number };
+      }
+
+      throw new GitHubApiError(`GitHub API ${res.status}: ${ghMessage}`, res.status, ghMessage);
     }
 
     const data = await res.json() as { html_url: string; number: number };
