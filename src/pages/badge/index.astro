@@ -6,6 +6,44 @@ import Layout from '../../layouts/Layout.astro';
   title="NoLogin Verified Badge"
   description="What is NoLogin Verified? Learn about the badge that certifies tools work without login."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is NoLogin Verified?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'NoLogin Verified is a digital trust certificate issued by NoLoginTools.org to web applications that have been manually audited. It guarantees that the core functionality of a tool is accessible without sign-up or login.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What does the NoLogin Verified badge mean?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'The badge means the tool has been manually reviewed and confirmed to provide its core functionality without requiring users to create an account or log in. It signals a commitment to privacy and frictionless access.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How can I get the NoLogin Verified badge for my tool?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Submit your tool at nologin.tools/submit. Our team will manually review it within approximately 48 hours. If approved, you will receive a unique badge embed code to display on your site.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does displaying the badge affect my ranking on nologin.tools?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Tools that display the NoLogin Verified SVG badge on their site receive +10 ranking points, while those using a meta tag or link get +5 points. Tools without a badge receive no bonus.',
+        },
+      },
+    ],
+  })} />
   {/* Background Elements */}
   <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>

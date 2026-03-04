@@ -3,6 +3,18 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About" description="About nologin.tools — a curated directory of tools that work without login.">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+    logo: 'https://nologin.tools/og-default.png',
+    description: 'A curated directory of privacy-friendly tools that work without login.',
+    sameAs: [
+      'https://x.com/nologin_tools',
+      'https://github.com/nologin-tools',
+    ],
+  })} />
   {/* Background Elements */}
   <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
