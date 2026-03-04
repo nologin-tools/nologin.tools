@@ -15,9 +15,11 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@tailwindcss/vite": "^4.2.0",
     "astro": "^5.17.1",
     "drizzle-orm": "^0.45.1",
+    "satori": "^0.24.1",
     "tailwindcss": "^4.2.0"
   },
   "devDependencies": {

@@ -116,6 +116,7 @@ const breadcrumbLd = {
   ogType="article"
   canonicalOverride={`/tool/${slug}`}
   publishedTime={approvedDate}
+  ogImagePath={`/api/og/${slug}`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
