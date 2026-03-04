@@ -5,7 +5,7 @@ export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
   const approvedTools = getApprovedTools();
 
-  const staticLastmod = '2025-01-01';
+  const staticLastmod = new Date().toISOString().split('T')[0];
 
   const staticPages = [
     { url: '/', priority: '1.0', changefreq: 'daily', lastmod: undefined as string | undefined },
