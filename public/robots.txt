@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /ssr/
+
+Sitemap: https://nologin.tools/sitemap.xml

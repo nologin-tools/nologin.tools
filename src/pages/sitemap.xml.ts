@@ -5,23 +5,27 @@ export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
   const approvedTools = getApprovedTools();
 
+  const staticLastmod = '2025-01-01';
+
   const staticPages = [
-    { url: '/', priority: '1.0', changefreq: 'daily' },
-    { url: '/about', priority: '0.5', changefreq: 'monthly' },
-    { url: '/badge', priority: '0.6', changefreq: 'monthly' },
-    { url: '/submit', priority: '0.7', changefreq: 'monthly' },
+    { url: '/', priority: '1.0', changefreq: 'daily', lastmod: undefined as string | undefined },
+    { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
+    { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: staticLastmod },
+    { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: staticLastmod },
   ];
 
   const toolPages = approvedTools.map((t) => ({
     url: `/tool/${t.slug}`,
     priority: '0.8',
     changefreq: 'weekly',
+    lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
   }));
 
   const badgePages = approvedTools.map((t) => ({
     url: `/badge/${t.slug}`,
     priority: '0.6',
     changefreq: 'weekly',
+    lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
   }));
 
   const allPages = [...staticPages, ...toolPages, ...badgePages];
@@ -31,7 +35,7 @@ export const GET: APIRoute = async () => {
 ${allPages
   .map(
     (page) => `  <url>
-    <loc>${siteUrl}${page.url}</loc>
+    <loc>${siteUrl}${page.url}</loc>${page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : ''}
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`

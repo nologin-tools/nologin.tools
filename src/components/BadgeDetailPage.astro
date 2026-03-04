@@ -25,6 +25,16 @@ const { tool, toolTags, latestHealth, slug, siteUrl } = Astro.props;
 
 const isPending = tool.status === 'pending';
 
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologin.tools' },
+    { '@type': 'ListItem', position: 2, name: tool.name, item: `https://nologin.tools/tool/${slug}` },
+    { '@type': 'ListItem', position: 3, name: isPending ? 'Pending Verification' : 'NoLogin Verified', item: `https://nologin.tools/badge/${slug}` },
+  ],
+};
+
 const embedCode = getBadgeEmbedCode(slug, siteUrl, 'flat');
 const allEmbedCodes = Object.fromEntries(
   [...BADGE_STYLES, ORIGINAL_BADGE].map((s) => [s.id, getBadgeEmbedCode(slug, siteUrl, s.id)])
@@ -35,7 +45,9 @@ const allEmbedCodes = Object.fromEntries(
   bare
   title={`${tool.name} — ${isPending ? 'Pending Verification' : 'NoLogin Verified'}`}
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
+  canonicalOverride={`/badge/${slug}`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
   {/* Background Elements */}
   <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>

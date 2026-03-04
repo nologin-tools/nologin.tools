@@ -82,7 +82,21 @@ const clientToolsData = allTools.map(tool => ({
 }));
 ---
 
-<Layout title="Home">
+<Layout
+  title="Privacy-Friendly Tools Without Login"
+  description="Discover curated privacy-friendly tools that work without login or signup. Browse verified tools across design, development, productivity, and more."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "nologin.tools",
+    "url": "https://nologin.tools",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://nologin.tools/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })} />
   <script is:inline>if(location.search)document.documentElement.classList.add('has-filters')</script>
   <style is:inline>.has-filters #grouped-view{display:none!important}.has-filters #flat-view-loading{display:flex!important}</style>
 

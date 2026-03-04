@@ -82,6 +82,8 @@ const isPending = tool.status === 'pending';
 const isRejected = tool.status === 'rejected';
 const isOffline = effectiveStatus === 'offline';
 
+const approvedDate = tool.approvedAt ? new Date(tool.approvedAt).toISOString().split('T')[0] : undefined;
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -89,6 +91,22 @@ const jsonLd = {
   url: tool.url,
   description: tool.description || '',
   applicationCategory: 'WebApplication',
+  operatingSystem: 'All',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  ...(approvedDate ? { datePublished: approvedDate } : {}),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologin.tools' },
+    { '@type': 'ListItem', position: 2, name: tool.name, item: `https://nologin.tools/tool/${slug}` },
+  ],
 };
 ---
 
@@ -96,8 +114,11 @@ const jsonLd = {
   title={tool.name}
   description={tool.description || `${tool.name} — a tool that works without login.`}
   ogType="article"
+  canonicalOverride={`/tool/${slug}`}
+  publishedTime={approvedDate}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
 
   {/* Background Elements */}
   <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
