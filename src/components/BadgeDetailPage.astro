@@ -55,6 +55,25 @@ const allEmbedCodes = Object.fromEntries(
   </div>
 
   <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href="/" class="hover:text-neutral-900 transition-colors">Home</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li>
+          <a href={`/tool/${slug}`} class="hover:text-neutral-900 transition-colors truncate max-w-[150px] sm:max-w-none inline-block">{tool.name}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">{isPending ? 'Pending Verification' : 'NoLogin Verified'}</li>
+      </ol>
+    </nav>
+
     <!-- Badge brand link -->
     <div class="mb-12 flex justify-center">
       <a href="/" class="flex items-center gap-2 group">

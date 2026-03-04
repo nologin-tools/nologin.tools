@@ -132,6 +132,7 @@ const clientToolsData = allTools.map(tool => ({
 
       <!-- Search -->
       <form id="search-form" method="GET" action="/" class="max-w-2xl mx-auto mb-4 group px-2 sm:px-0">
+        <label for="search-input" class="sr-only">Search tools</label>
         <div class="relative">
           <div class="absolute inset-0 bg-green-500/10 blur-xl rounded-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"></div>
           <div class="relative flex items-center bg-white border border-neutral-200 rounded-2xl shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 group-focus-within:border-green-500/50 group-focus-within:shadow-[0_8px_24px_-4px_rgba(34,197,94,0.12)] group-focus-within:-translate-y-0.5">
@@ -149,6 +150,7 @@ const clientToolsData = allTools.map(tool => ({
             </svg>
             <input
               type="text"
+              id="search-input"
               name="q"
               value=""
               placeholder="Search for tools..."
