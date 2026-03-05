@@ -1,13 +1,10 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import satori from 'satori';
-import { initWasm, Resvg } from '@resvg/resvg-wasm';
+import { ImageResponse } from '@cf-wasm/og/workerd';
 import { getDb } from '../../../db';
 import { tools } from '../../../db/schema';
 import { eq } from 'drizzle-orm';
-
-let wasmInitialized = false;
 
 export const GET: APIRoute = async (ctx) => {
   const { slug } = ctx.params;
@@ -36,8 +33,6 @@ export const GET: APIRoute = async (ctx) => {
       : tool.description
     : '';
 
-  // Use a system font since we're in a Worker environment
-  // Fetch Inter font from Google Fonts CDN
   const fontData = await fetch(
     'https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZhrib2Bg-4.ttf'
   ).then((res) => res.arrayBuffer());
@@ -46,7 +41,7 @@ export const GET: APIRoute = async (ctx) => {
     'https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYMZhrib2Bg-4.ttf'
   ).then((res) => res.arrayBuffer());
 
-  const svg = await satori(
+  const response = await ImageResponse.async(
     {
       type: 'div',
       props: {
@@ -248,21 +243,12 @@ export const GET: APIRoute = async (ctx) => {
     }
   );
 
-  if (!wasmInitialized) {
-    await initWasm(fetch('https://unpkg.com/@resvg/resvg-wasm@2.6.2/index_bg.wasm'));
-    wasmInitialized = true;
-  }
+  // Add cache header (ImageResponse doesn't set it)
+  const headers = new Headers(response.headers);
+  headers.set('Cache-Control', 'public, max-age=21600');
 
-  const resvg = new Resvg(svg, {
-    fitTo: { mode: 'width', value: 1200 },
-  });
-  const pngData = resvg.render();
-  const pngBuffer = pngData.asPng();
-
-  return new Response(pngBuffer, {
-    headers: {
-      'Content-Type': 'image/png',
-      'Cache-Control': 'public, max-age=21600',
-    },
+  return new Response(response.body, {
+    status: response.status,
+    headers,
   });
 };
