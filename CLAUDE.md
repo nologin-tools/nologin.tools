@@ -38,7 +38,7 @@ src/
 │   ├── BadgeDetailPage.astro # Shared badge detail renderer (used by static + SSR)
 │   └── ...               # Header, Footer, ToolCard, HealthBadge, TagPicker
 ├── pages/
-│   ├── index.astro       # Homepage: static HTML + client-side search/filter
+│   ├── index.astro       # Homepage: minimalist list-style single page (static)
 │   ├── submit.astro      # Submission form (static)
 │   ├── submit/success.astro  # SSR (reads URL params)
 │   ├── tool/[slug].astro     # Static with getStaticPaths (known tools)
@@ -59,7 +59,7 @@ workers/cron/             # Health checks, badge detection, data export
 
 | Page | Mode | Data Source |
 |------|------|-------------|
-| `/` (homepage) | Static | `loader.ts` (build data) + client-side JS for search/filter |
+| `/` (homepage) | Static | `loader.ts` (build data), no client-side JS except bookmark hint |
 | `/tool/[slug]` | Static + ISR | Known: `getStaticPaths()` / New: SSR fallback `/ssr/tool/[slug]` |
 | `/badge/[slug]` | Static + ISR | Known: `getStaticPaths()` / New: SSR fallback `/ssr/badge/[slug]` |
 | `/sitemap.xml` | Static | `loader.ts` (build data) |
@@ -75,16 +75,16 @@ workers/cron/             # Health checks, badge detection, data export
   - 7 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS, 11 values), `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
   - `source` tag is auto-derived: if `repo_url` is set, `source:Open Source` is automatically added during submit/resubmit/tool-update (not in TAG_DEFINITIONS, but still stored in tags table for backward compatibility)
   - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
-- **Homepage display modes**: Two modes based on context. The homepage is **static HTML** — grouped mode is server-rendered at build time; flat mode (search/filter) is handled by **client-side JavaScript** that reads embedded JSON data (`<script id="tools-data">`). Flash prevention: inline `<head>` script adds `.has-filters` class when URL has search params, CSS hides grouped view before JS executes.
-  - **Grouped mode** (default — no search, no filters): Tools grouped by category per `TAG_DEFINITIONS` order, each section shows category name + count + max 6 cards + "View all X →" link (links to `/?category=Xxx`). No pagination. Tools without category go to "Other" group at the end.
-    - **Recently Added** section appears between Spotlight Carousel and category groups. Horizontal scrollable card list showing the 8 most recently approved tools (sorted by `approvedAt` desc). Features: snap scrolling (`snap-x snap-mandatory`), left/right gradient masks indicating scroll direction, navigation arrows (sm+ only, appear on hover, auto-hide at edges), mobile touch-friendly with edge bleed (`-mx-4 px-4`). Cards are 280px (mobile) / 320px (desktop) wide using standard `ToolCard`. Section header includes clock icon (green gradient), "New" badge, and "View all →" link to `/?sort=newest`. Hidden scrollbar via `.scrollbar-hide` utility class.
-  - **Flat mode** (search active or any filter active): Client-side JS filters/sorts/paginates from embedded JSON. Renders ToolCard HTML via `createToolCard()`. Paginated grid (24/page) with standard pagination controls.
-- **Homepage filter UX**: Category chips shown as top row; non-category filters collapsed under "More filters" toggle (auto-expands when non-category filters active), displayed by dimension with labels. Active filters shown as removable chips with X icon and "Clear all" link.
-- **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to initial letter on error via inline `onerror`. Requires `url` prop.
+- **Homepage**: Minimalist list-style single page (Hacker News-inspired). All tools displayed on one page, no search, no pagination, no cards. Grouped by category per `TAG_DEFINITIONS` order, each group sorted by recommendation score descending. Tools without a category go to "Other" group at the end.
+  - **Hero**: Simple title (`nologin.tools`), tagline, stats line (`X verified tools across Y categories`), bookmark hint (`Ctrl+D` / `⌘+D` on Mac, detected via JS `navigator.platform`).
+  - **Category navigation**: Inline anchor links (`AI · Design · Writing · ...`) at top, scroll to `#cat-{name}` sections.
+  - **Tool list item** (`.tool-item`): Single line per tool — 16px favicon + ★ (featured only, gold) + bold name (link to `/tool/[slug]`) + `—` hostname (external link) + `—` description + right-aligned health status (`✓ Online` / `⚠ Unstable` / `✗ Offline`). Mobile: name+hostname on first line, description wraps to second line.
+  - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
+  - No client-side JS except Mac/Win bookmark hint detection (few lines in IIFE).
+- **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to hiding on error via inline `onerror`. Used on homepage list and ToolCard component.
 - **Featured tools**: Admin can mark approved tools as "featured" for higher visibility:
   - `POST /api/admin/tool-feature` — toggle `isFeatured` + `featuredAt` (only approved tools)
-  - Homepage grouped mode: **Spotlight Carousel** appears **above** category groups. Single large card at a time, auto-rotates every 5s with fade+slide animation. Navigation: prev/next arrow buttons + dot indicators (hidden when only 1 featured). Hover pauses autoplay, keyboard ←/→ supported. Cards use custom layout (not ToolCard): 28px favicon, `text-xl` title, up to 5 tags, "Visit Tool →" CTA (sm+). SSR renders all slides (first active, rest `opacity-0`). JS carousel logic in IIFE at page bottom. Featured tools **still appear** in their category groups.
-  - Homepage flat mode: Featured tools get +8 recommendation score boost (`CASE WHEN is_featured = 1 THEN 8 ELSE 0 END`)
+  - Homepage: Featured tools get ★ gold star prefix in list item + +8 recommendation score boost (sorted higher)
   - ToolCard: `isFeatured` prop → gold border (`border-yellow-300`), pale yellow bg (`bg-yellow-50/30`), ★ star icon
   - Tool detail page: ★ Featured label next to NoLogin Verified
   - Data export: `featured` boolean field in tools.json, ★ marker after tool name in README
@@ -154,7 +154,7 @@ workers/cron/             # Health checks, badge detection, data export
 - **SEO — Meta tags**: Layout includes `og:site_name`, `og:locale`, `twitter:site` (`@nologin_tools`), explicit `twitter:title`/`twitter:description`/`twitter:image`, `og:image:width`/`og:image:height`/`og:image:alt`, `theme-color` (`#22c55e`), `<link rel="sitemap">`, and `<link rel="preconnect">` for Google Fonts.
 - **SEO — Security headers**: `public/_headers` sets `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (no camera/mic/geo).
 - **SEO — Breadcrumbs**: Tool detail pages and badge detail pages have visible HTML `<nav aria-label="Breadcrumb">` with structured `<ol>` lists. Tool: Home > {name}. Badge: Home > {name} > Verified/Pending.
-- **SEO — Accessibility**: Header nav elements have `aria-label` ("Main navigation" / "Mobile navigation"). Homepage search input has associated `<label>` (sr-only).
+- **SEO — Accessibility**: Header nav elements have `aria-label` ("Main navigation" / "Mobile navigation"). Homepage category navigation has `aria-label` ("Category navigation").
 
 ## Commands
 
@@ -214,11 +214,12 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 
 - Colors: white bg, neutral-950 text, green-500 verified/online, amber-500 pending/unstable, red-500 offline
 - Font: system font stack
-- Max width: 6xl (1152px), card grid 1/2/3 columns responsive
+- Max width: 4xl (896px) for homepage list, 6xl (1152px) for other pages
+- **Homepage list styles**: `.tool-item` (flex row, hover bg-neutral-50, border-bottom), `.category-heading` (bold, border-b-2 separator)
 - **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)
 - **TagPicker**: Uses checkboxes for all dimensions; single-select enforced via JS (allows deselect). Wrapper has `.tag-picker-container` for multi-instance isolation. Labels carry `data-tag-group` and `data-multi-select` attributes.
 - **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables)
-- **Spotlight Carousel**: `.spotlight-track` (overflow container), `.spotlight-slide` (absolute positioned base), `.spotlight-slide-active` (visible, relative to set height), `.spotlight-slide-exit` / `.spotlight-slide-enter-right` / `.spotlight-slide-enter-left` (transition states), `.spotlight-dot` / `.spotlight-dot-active` (indicator dots)
+- **Spotlight Carousel** (kept in CSS for potential reuse): `.spotlight-track`, `.spotlight-slide`, `.spotlight-slide-active`, `.spotlight-slide-exit`, `.spotlight-slide-enter-right` / `.spotlight-slide-enter-left`, `.spotlight-dot` / `.spotlight-dot-active`
 
 ## CI/CD
 
