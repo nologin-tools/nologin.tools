@@ -2,13 +2,13 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-white border-b border-neutral-200">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
-    <div class="flex items-center gap-6">
-      <a href="/" class="font-bold text-base sm:text-lg tracking-tight text-neutral-900">
-        nologin<span class="text-green-600">.</span>tools
+<header class="bg-[#fdfdfc] border-b-2 border-neutral-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="/" class="font-black text-xl tracking-tighter text-neutral-900 uppercase italic">
+        nologin.tools
       </a>
-      <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+      <nav class="hidden md:flex items-center gap-6 text-retro-mono" aria-label="Main navigation">
         {[
           { label: 'Tools', path: '/' },
           { label: 'Badge', path: '/badge' },
@@ -20,10 +20,10 @@ const currentPath = Astro.url.pathname;
             <a
               href={item.path}
               class:list={[
-                'text-sm font-medium transition-colors',
+                'text-xs font-bold uppercase tracking-widest transition-all px-1',
                 isActive
-                  ? 'text-neutral-900'
-                  : 'text-neutral-400 hover:text-neutral-900',
+                  ? 'bg-neutral-900 text-white'
+                  : 'text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4',
               ]}
             >
               {item.label}
@@ -34,17 +34,17 @@ const currentPath = Astro.url.pathname;
     </div>
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 text-neutral-500 hover:text-neutral-950 transition-colors"
+      class="md:hidden p-2 text-neutral-900 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
       aria-label="Toggle menu"
     >
       <svg
-        width="20"
-        height="20"
+        width="18"
+        height="18"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
+        stroke-width="3"
+        stroke-linecap="square"
       >
         <path d="M3 12h18M3 6h18M3 18h18"></path>
       </svg>
@@ -52,14 +52,14 @@ const currentPath = Astro.url.pathname;
   </div>
   <nav
     id="mobile-menu"
-    class="hidden md:hidden border-t border-neutral-200 bg-white px-6 py-6 space-y-4"
+    class="hidden md:hidden border-t-2 border-neutral-900 bg-white px-6 py-8 space-y-6 text-retro-mono"
     aria-label="Mobile navigation"
   >
     <a
       href="/"
       class:list={[
-        'block text-base font-medium',
-        currentPath === '/' ? 'text-green-600' : 'text-neutral-500',
+        'block text-sm font-bold uppercase tracking-widest',
+        currentPath === '/' ? 'text-neutral-900 underline decoration-2' : 'text-neutral-500',
       ]}
     >
       Tools
@@ -67,9 +67,9 @@ const currentPath = Astro.url.pathname;
     <a
       href="/badge"
       class:list={[
-        'block text-base font-medium',
+        'block text-sm font-bold uppercase tracking-widest',
         currentPath.startsWith('/badge')
-          ? 'text-green-600'
+          ? 'text-neutral-900 underline decoration-2'
           : 'text-neutral-500',
       ]}
     >
@@ -78,9 +78,9 @@ const currentPath = Astro.url.pathname;
     <a
       href="/about"
       class:list={[
-        'block text-base font-medium',
+        'block text-sm font-bold uppercase tracking-widest',
         currentPath === '/about'
-          ? 'text-green-600'
+          ? 'text-neutral-900 underline decoration-2'
           : 'text-neutral-500',
       ]}
     >
@@ -89,9 +89,9 @@ const currentPath = Astro.url.pathname;
     <a
       href="/submit"
       class:list={[
-        'block text-base font-medium',
+        'block text-sm font-bold uppercase tracking-widest',
         currentPath === '/submit'
-          ? 'text-green-600'
+          ? 'text-neutral-900 underline decoration-2'
           : 'text-neutral-500',
       ]}
     >

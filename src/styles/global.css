@@ -7,19 +7,73 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-white text-neutral-950 min-h-screen flex flex-col;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    @apply bg-[#fdfdfc] text-neutral-900 min-h-screen flex flex-col;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
   main {
     @apply flex-1;
   }
+  
+  code, pre, kbd, samp {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
 }
 
 @layer components {
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+  /* Retro Card */
+  .retro-card {
+    @apply bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
   }
 
+  /* Retro Button */
+  .btn-retro {
+    @apply inline-flex items-center px-4 py-2 bg-white border-2 border-neutral-900 text-sm font-bold text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+  }
+  
+  .btn-retro-primary {
+    @apply inline-flex items-center px-4 py-2 bg-green-400 border-2 border-neutral-900 text-sm font-bold text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-green-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply text-neutral-600 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 transition-colors font-bold uppercase;
+  }
+
+  /* Homepage tool list */
+  .tool-item {
+    @apply flex items-start sm:items-center justify-between gap-3 py-4 px-0 border-b border-neutral-200 transition-colors;
+  }
+
+  .category-heading {
+    @apply text-xl font-black text-neutral-900 pb-3 mb-2 border-b-2 border-neutral-900 sticky top-0 bg-[#fdfdfc] pt-6 z-10;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    letter-spacing: -0.05em;
+  }
+
+  /* Typography helpers */
+  .text-retro-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  /* Admin components */
+  .admin-table { @apply w-full text-sm border-2 border-neutral-900; }
+  .admin-table th { @apply text-left px-4 py-3 text-neutral-900 font-bold bg-neutral-100 border-b-2 border-neutral-900; }
+  .admin-table td { @apply px-4 py-3 border-b border-neutral-900; }
+  
+  /* Status badge */
+  .status-badge {
+    @apply inline-flex items-center px-2 py-0.5 border-2 border-neutral-900 text-[10px] uppercase font-bold tracking-widest;
+  }
+  .status-approved { @apply bg-green-200 text-green-900; }
+  .status-pending { @apply bg-amber-200 text-amber-900; }
+  .status-rejected { @apply bg-red-200 text-red-900; }
+
+  /* Chips — retro style */
+  .retro-chip {
+    @apply inline-flex items-center px-2 py-0.5 border border-neutral-900 text-[10px] uppercase font-bold tracking-tighter bg-white;
+  }
+
+  /* Chips — classic (used by Admin, TagPicker, BadgeDetailPage) */
   .chip {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border transition-all duration-200 cursor-pointer;
   }
@@ -32,7 +86,6 @@
   .chip-category {
     @apply bg-blue-50/50 text-blue-700 border-blue-100 hover:bg-blue-100/50 hover:border-blue-200;
   }
-
   .chip-toggle {
     @apply gap-2 pl-3 pr-4 py-1.5 border-neutral-200/60 bg-white hover:border-green-200 hover:bg-green-50/30 transition-all duration-300;
   }
@@ -46,6 +99,7 @@
     @apply block text-white;
   }
 
+  /* Buttons — admin */
   .btn-primary {
     @apply inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold bg-green-600 text-white shadow-[0_4px_12px_-2px_rgba(22,163,74,0.3)] hover:bg-green-700 hover:shadow-[0_6px_16px_-2px_rgba(22,163,74,0.4)] hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95;
   }
@@ -56,7 +110,15 @@
     @apply inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-medium bg-red-500 text-white shadow-[0_4px_12px_-2px_rgba(239,68,68,0.3)] hover:bg-red-600 hover:shadow-[0_6px_16px_-2px_rgba(239,68,68,0.4)] transition-all focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-95;
   }
 
-  /* Admin tab */
+  /* Buttons — public pages */
+  .btn-minimal {
+    @apply inline-flex items-center text-sm font-medium text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-500 transition-colors;
+  }
+  .btn-minimal-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-green-600 text-white rounded hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  }
+
+  /* Admin tabs */
   .admin-tab {
     @apply px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors cursor-pointer;
   }
@@ -67,68 +129,10 @@
     @apply border-transparent text-neutral-500 hover:text-neutral-700;
   }
 
-  /* Status badge */
-  .status-badge {
-    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
-  }
-  .status-approved { @apply bg-green-50 text-green-700 border border-green-200; }
-  .status-pending { @apply bg-amber-50 text-amber-700 border border-amber-200; }
-  .status-rejected { @apply bg-red-50 text-red-700 border border-red-200; }
-
-  /* Admin table */
-  .admin-table { @apply w-full text-sm; }
-  .admin-table th { @apply text-left px-4 py-3 text-neutral-500 font-medium bg-neutral-50 border-b; }
-  .admin-table td { @apply px-4 py-3 border-b border-neutral-100; }
   .admin-table tr:hover td { @apply bg-neutral-50; }
 
-  /* Spotlight Carousel (deprecated — kept for potential reuse) */
-  .spotlight-track {
-    @apply relative overflow-hidden;
-  }
-  .spotlight-slide {
-    @apply absolute inset-0 transition-all duration-500 ease-in-out pointer-events-none;
-  }
-  .spotlight-slide-active {
-    @apply relative opacity-100 translate-x-0 pointer-events-auto;
-  }
-  .spotlight-slide-exit {
-    @apply opacity-0;
-  }
-  .spotlight-slide-enter-right {
-    @apply opacity-0 translate-x-8;
-  }
-  .spotlight-slide-enter-left {
-    @apply opacity-0 -translate-x-8;
-  }
-  .spotlight-dot {
-    @apply w-2 h-2 rounded-full bg-neutral-200 transition-all duration-300 cursor-pointer hover:bg-neutral-400;
-  }
-  .spotlight-dot-active {
-    @apply w-6 bg-gradient-to-r from-yellow-400 to-amber-500 shadow-sm;
-  }
-
-  .scrollbar-hide {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Homepage tool list */
-  .tool-item {
-    @apply flex items-start sm:items-center justify-between gap-3 py-2.5 px-2 -mx-2 rounded transition-colors hover:bg-neutral-50;
-  }
-
-  .category-heading {
-    @apply text-lg font-bold text-neutral-900 pb-2 mb-1 border-b-2 border-neutral-200;
-  }
-
-  /* Minimal button styles for public pages (Admin pages keep btn-primary/secondary/danger) */
-  .btn-minimal {
-    @apply inline-flex items-center text-sm font-medium text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-500 transition-colors;
-  }
-  .btn-minimal-primary {
-    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-green-600 text-white rounded hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  /* Glass card — admin only */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
   }
 }

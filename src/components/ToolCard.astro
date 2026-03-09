@@ -37,15 +37,15 @@ const initial = name.charAt(0).toUpperCase();
 <a
   href={`/tool/${slug}`}
   class:list={[
-    'group block relative p-5 bg-white border border-neutral-200/60 rounded-2xl transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1',
-    isFeatured ? 'ring-1 ring-yellow-400/50 bg-gradient-to-br from-yellow-50/50 to-white' : '',
+    'group block relative p-5 retro-card',
+    isFeatured && 'border-yellow-500 bg-yellow-50/30',
     isOffline && 'opacity-60 grayscale-[0.5]',
   ]}
 >
   <div class="flex items-start justify-between gap-3 mb-4">
     <div class="flex items-center gap-3 min-w-0">
       <div class="relative flex-shrink-0">
-        <div class="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center overflow-hidden shadow-sm group-hover:scale-110 transition-transform duration-300">
+        <div class="w-10 h-10 bg-neutral-50 border-2 border-neutral-900 flex items-center justify-center overflow-hidden transition-transform duration-300">
           {faviconUrl ? (
             <img
               src={faviconUrl}
@@ -53,64 +53,57 @@ const initial = name.charAt(0).toUpperCase();
               width="24"
               height="24"
               loading="lazy"
-              class="w-6 h-6 object-contain"
+              class="w-6 h-6 object-contain grayscale group-hover:grayscale-0 transition-all"
               onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
             />
-            <span class="w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-100 text-neutral-400 text-sm font-bold items-center justify-center hidden">{initial}</span>
+            <span class="w-full h-full bg-neutral-100 text-neutral-900 text-sm font-black items-center justify-center hidden">{initial}</span>
           ) : (
-            <span class="w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-100 text-neutral-400 text-sm font-bold flex items-center justify-center">{initial}</span>
+            <span class="w-full h-full bg-neutral-100 text-neutral-900 text-sm font-black flex items-center justify-center">{initial}</span>
           )}
         </div>
         {isFeatured && (
-          <div class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-yellow-400 rounded-full border-2 border-white flex items-center justify-center shadow-sm">
-            <span class="text-[8px] text-white">★</span>
+          <div class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-yellow-400 border-2 border-neutral-900 flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+            <span class="text-[10px] text-neutral-900 font-bold">★</span>
           </div>
         )}
       </div>
       <div class="min-w-0">
-        <h3 class="font-bold text-neutral-900 truncate group-hover:text-green-600 transition-colors">{name}</h3>
-        <p class="text-[11px] text-neutral-400 truncate">{faviconHostname}</p>
+        <h3 class="font-black text-neutral-900 truncate group-hover:underline decoration-2 underline-offset-4">{name}</h3>
+        <p class="text-[10px] text-neutral-400 truncate font-mono uppercase tracking-tighter">{faviconHostname}</p>
       </div>
     </div>
     <HealthBadge status={healthStatus} lastCheckedAt={lastCheckedAt} />
   </div>
 
   {description && (
-    <p class="text-sm text-neutral-600 mb-4 line-clamp-2 leading-relaxed h-[2.5rem]">{description}</p>
+    <p class="text-sm text-neutral-700 mb-6 line-clamp-2 leading-relaxed h-[2.5rem] italic">{description}</p>
   )}
 
-  <div class="flex flex-wrap gap-1.5 mb-4">
+  <div class="flex flex-wrap gap-1.5 mb-6">
     {sortedTags.slice(0, 3).map((tag) => (
-      <span class:list={['chip text-[10px] uppercase tracking-wider', tag.tagKey === 'category' ? 'chip-category' : 'chip-default']}>
-        {tag.tagKey === 'category' ? tag.tagValue : tag.tagValue}
+      <span class="retro-chip">
+        {tag.tagValue}
       </span>
     ))}
-    {sortedTags.length > 3 && (
-      <span class="text-[10px] text-neutral-400 self-center">+{sortedTags.length - 3}</span>
-    )}
   </div>
 
-  <div class="flex items-center justify-between pt-4 border-t border-neutral-50">
+  <div class="flex items-center justify-between pt-4 border-t-2 border-neutral-900">
     {isVerified && (
-      <span class="inline-flex items-center gap-1.5 text-[11px] text-green-600 font-bold uppercase tracking-tight">
-        <div class="w-3.5 h-3.5 rounded-full bg-green-500 flex items-center justify-center">
-          <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
-            <path
-              d="M3.5 6L5.5 8L8.5 4"
-              stroke="white"
-              stroke-width="2"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
+      <span class="inline-flex items-center gap-1.5 text-[10px] text-green-700 font-black uppercase tracking-widest">
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+          <path
+            d="M2 6L5 9L10 3"
+            stroke="currentColor"
+            stroke-width="3"
+            fill="none"
+          />
+        </svg>
         Verified
       </span>
     )}
-    <div class="flex items-center gap-1 text-neutral-300 group-hover:text-neutral-500 transition-colors">
-      <span class="text-[10px] font-medium">Explore</span>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <div class="flex items-center gap-1 text-neutral-900 font-mono text-[10px] font-bold uppercase">
+      <span>Details</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </div>

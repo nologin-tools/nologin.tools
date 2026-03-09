@@ -2,33 +2,35 @@
 
 ---
 
-<footer class="border-t border-neutral-200 mt-10">
+<footer class="border-t-2 border-neutral-900 mt-20 bg-neutral-50">
   <div
-    class="max-w-4xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+    class="max-w-4xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-8 text-retro-mono"
   >
-    <div class="flex items-center gap-4 text-sm text-neutral-500">
-      <a href="/about" class="hover:text-neutral-950 transition-colors"
+    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-xs font-bold uppercase tracking-wider">
+      <a href="/about" class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
         >About</a
       >
-      <span class="text-neutral-300">&middot;</span>
       <a
         href="https://github.com/nologin-tools"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-neutral-950 transition-colors">GitHub</a
+        class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">GitHub</a
       >
-      <span class="text-neutral-300">&middot;</span>
       <a
         href="https://x.com/nologin_tools"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-neutral-950 transition-colors">𝕏</a
+        class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">𝕏</a
       >
-      <span class="text-neutral-300">&middot;</span>
-      <span>MIT License</span>
+      <span class="text-neutral-400">MIT License</span>
     </div>
-    <p class="text-sm text-neutral-400">
-      &copy; {new Date().getFullYear()} nologin.tools &middot; A project by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-950 transition-colors">NoLoginTools.org</a>
-    </p>
+    <div class="text-[10px] text-neutral-400 text-center sm:text-right font-bold uppercase tracking-tighter">
+      <p>
+        &copy; {new Date().getFullYear()} nologin.tools
+      </p>
+      <p class="mt-1">
+        A project by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-neutral-900">NoLoginTools.org</a>
+      </p>
+    </div>
   </div>
 </footer>

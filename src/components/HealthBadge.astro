@@ -12,27 +12,28 @@ const { status, lastCheckedAt } = Astro.props;
 
 {
   status === null ? (
-    <span class="inline-flex items-center gap-1.5 text-xs text-neutral-400">
-      <span class="w-2 h-2 rounded-full bg-neutral-300" />
-      No checks yet
+    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold text-neutral-400">
+      <span class="w-2 h-2 border border-neutral-300" />
+      No checks
     </span>
   ) : status === 'online' ? (
-    <span class="inline-flex items-center gap-1.5 text-xs text-green-600">
-      <span class="w-2 h-2 rounded-full bg-green-500" />
+    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-green-700">
+      <span class="w-2 h-2 bg-green-500 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" />
       Online
-      {lastCheckedAt && <span class="text-neutral-400">&middot; {timeAgo(lastCheckedAt)}</span>}
+      {lastCheckedAt && <span class="text-neutral-400 font-mono tracking-tighter">&middot; {timeAgo(lastCheckedAt)}</span>}
     </span>
   ) : status === 'unstable' ? (
-    <span class="inline-flex items-center gap-1.5 text-xs text-amber-600">
-      <span class="w-2 h-2 rounded-full bg-amber-500" />
+    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-amber-700">
+      <span class="w-2 h-2 bg-amber-400 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" />
       Unstable
-      {lastCheckedAt && <span class="text-neutral-400">&middot; {timeAgo(lastCheckedAt)}</span>}
+      {lastCheckedAt && <span class="text-neutral-400 font-mono tracking-tighter">&middot; {timeAgo(lastCheckedAt)}</span>}
     </span>
   ) : (
-    <span class="inline-flex items-center gap-1.5 text-xs text-red-500">
-      <span class="w-2 h-2 rounded-full bg-red-500" />
+    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-red-700">
+      <span class="w-2 h-2 bg-red-500 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" />
       Offline
-      {lastCheckedAt && <span class="text-neutral-400">&middot; {timeAgo(lastCheckedAt)}</span>}
+      {lastCheckedAt && <span class="text-neutral-400 font-mono tracking-tighter">&middot; {timeAgo(lastCheckedAt)}</span>}
     </span>
   )
 }
+
