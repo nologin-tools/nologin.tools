@@ -1,0 +1,16 @@
+{
+  "name": "nologin.tools",
+  "short_name": "nologin.tools",
+  "description": "Privacy-friendly tools that work without login.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#22c55e",
+  "background_color": "#fdfdfc",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

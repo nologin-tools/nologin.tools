@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 import { getApprovedTools } from '../data/loader';
 
 export const GET: APIRoute = async () => {
@@ -7,8 +8,15 @@ export const GET: APIRoute = async () => {
 
   const staticLastmod = new Date().toISOString().split('T')[0];
 
+  // Homepage lastmod: use the most recent approvedAt date among all tools
+  const homepageLastmod = approvedTools.reduce((latest, t) => {
+    if (!t.approvedAt) return latest;
+    const d = new Date(t.approvedAt).toISOString().split('T')[0];
+    return d > latest ? d : latest;
+  }, staticLastmod);
+
   const staticPages = [
-    { url: '/', priority: '1.0', changefreq: 'daily', lastmod: undefined as string | undefined },
+    { url: '/', priority: '1.0', changefreq: 'daily', lastmod: homepageLastmod },
     { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: staticLastmod },
@@ -28,7 +36,19 @@ export const GET: APIRoute = async () => {
     lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
   }));
 
-  const allPages = [...staticPages, ...toolPages, ...badgePages];
+  // Blog pages
+  const blogPosts = await getCollection('blog');
+  const blogListPage = [
+    { url: '/blog', priority: '0.8', changefreq: 'daily', lastmod: staticLastmod },
+  ];
+  const blogPostPages = blogPosts.map((post) => ({
+    url: `/blog/${post.id}`,
+    priority: '0.7',
+    changefreq: 'weekly',
+    lastmod: (post.data.updatedAt || post.data.publishedAt).toISOString().split('T')[0],
+  }));
+
+  const allPages = [...staticPages, ...toolPages, ...badgePages, ...blogListPage, ...blogPostPages];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

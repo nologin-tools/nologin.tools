@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
+const publishedDate = formatDate(post.data.publishedAt);
+const modifiedDate = post.data.updatedAt ? formatDate(post.data.updatedAt) : undefined;
+
+// Related posts: same tags
+const allPosts = await getCollection('blog');
+const related = allPosts
+  .filter((p) => p.id !== post.id && p.data.tags.some((t: string) => post.data.tags.includes(t)))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 3);
+
+const postLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: publishedDate,
+  ...(modifiedDate ? { dateModified: modifiedDate } : {}),
+  url: `https://nologin.tools/blog/${post.id}`,
+  image: 'https://nologin.tools/og-default.png',
+  author: {
+    '@type': 'Organization',
+    name: post.data.author,
+    url: 'https://nologin.tools',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://nologin.tools/og-default.png',
+    },
+  },
+  ...(post.data.tags.length > 0 ? { keywords: post.data.tags.join(', ') } : {}),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologin.tools' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://nologin.tools/blog' },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: `https://nologin.tools/blog/${post.id}` },
+  ],
+};
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  publishedTime={publishedDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(postLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href="/" class="hover:text-neutral-900 transition-colors">Home</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li>
+          <a href="/blog" class="hover:text-neutral-900 transition-colors">Blog</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900 truncate max-w-[200px] sm:max-w-none">{post.data.title}</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-10 border-b border-neutral-200 pb-8">
+      <h1 class="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight mb-4">
+        {post.data.title}
+      </h1>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-neutral-400">
+        <time datetime={publishedDate} class="font-mono">{publishedDate}</time>
+        {modifiedDate && (
+          <>
+            <span class="text-neutral-300">·</span>
+            <span>Updated {modifiedDate}</span>
+          </>
+        )}
+        <span class="text-neutral-300">·</span>
+        <span>{post.data.author}</span>
+      </div>
+      {post.data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-4">
+          {post.data.tags.map((tag: string) => (
+            <span class="text-xs font-mono text-neutral-500 border border-neutral-200 px-2 py-0.5">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Article Content -->
+    <article class="prose prose-neutral max-w-none">
+      <Content />
+    </article>
+
+    <!-- Related Posts -->
+    {related.length > 0 && (
+      <aside class="mt-16 border-t border-neutral-200 pt-8">
+        <h2 class="text-sm font-bold text-neutral-500 uppercase tracking-wider mb-6">Related Posts</h2>
+        <ul class="space-y-4">
+          {related.map((r) => (
+            <li>
+              <a href={`/blog/${r.id}`} class="group flex items-baseline gap-3">
+                <time datetime={formatDate(r.data.publishedAt)} class="text-xs text-neutral-400 font-mono shrink-0">
+                  {formatDate(r.data.publishedAt)}
+                </time>
+                <span class="text-neutral-900 font-bold group-hover:underline decoration-2 underline-offset-4">
+                  {r.data.title}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
+  </div>
+</Layout>

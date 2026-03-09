@@ -11,6 +11,7 @@ const currentPath = Astro.url.pathname;
       <nav class="hidden md:flex items-center gap-6 text-retro-mono" aria-label="Main navigation">
         {[
           { label: 'Tools', path: '/' },
+          { label: 'Blog', path: '/blog' },
           { label: 'Badge', path: '/badge' },
           { label: 'About', path: '/about' },
           { label: 'Submit', path: '/submit' },
@@ -63,6 +64,17 @@ const currentPath = Astro.url.pathname;
       ]}
     >
       Tools
+    </a>
+    <a
+      href="/blog"
+      class:list={[
+        'block text-sm font-bold uppercase tracking-widest',
+        currentPath.startsWith('/blog')
+          ? 'text-neutral-900 underline decoration-2'
+          : 'text-neutral-500',
+      ]}
+    >
+      Blog
     </a>
     <a
       href="/badge"

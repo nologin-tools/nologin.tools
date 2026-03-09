@@ -84,6 +84,9 @@ const isOffline = effectiveStatus === 'offline';
 
 const approvedDate = tool.approvedAt ? new Date(tool.approvedAt).toISOString().split('T')[0] : undefined;
 
+const sameAs = [tool.twitterUrl, tool.githubUrl, tool.discordUrl, tool.repoUrl].filter(Boolean) as string[];
+const keywords = toolTags.map(t => t.tagValue).join(', ');
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -92,12 +95,17 @@ const jsonLd = {
   description: tool.description || '',
   applicationCategory: 'WebApplication',
   operatingSystem: 'All',
+  image: `https://nologin.tools/api/og/${slug}`,
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
+    url: tool.url,
+    availability: 'https://schema.org/InStock',
   },
   ...(approvedDate ? { datePublished: approvedDate } : {}),
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+  ...(keywords ? { keywords } : {}),
 };
 
 const breadcrumbLd = {
