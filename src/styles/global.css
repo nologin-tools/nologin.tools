@@ -114,4 +114,13 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Homepage tool list */
+  .tool-item {
+    @apply flex items-start sm:items-center justify-between gap-3 py-2.5 px-2 -mx-2 rounded transition-colors hover:bg-neutral-50;
+  }
+
+  .category-heading {
+    @apply text-lg font-bold text-neutral-900 pb-2 mb-1 border-b-2 border-neutral-200;
+  }
 }
