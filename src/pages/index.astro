@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import { TAG_DEFINITIONS } from '../lib/tags';
 import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore } from '../data/loader';
-import type { EffectiveStatus } from '../lib/health';
 
 const approvedTools = getApprovedTools();
 
@@ -43,14 +42,6 @@ function getHostname(url: string): string {
   try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
 }
 
-function healthLabel(status: EffectiveStatus): { text: string; symbol: string; color: string } {
-  switch (status) {
-    case 'online': return { text: 'Online', symbol: '✓', color: 'text-green-600' };
-    case 'unstable': return { text: 'Unstable', symbol: '⚠', color: 'text-amber-500' };
-    case 'offline': return { text: 'Offline', symbol: '✗', color: 'text-red-500' };
-  }
-}
-
 function catAnchor(cat: string): string {
   return 'cat-' + cat.toLowerCase().replace(/\s+/g, '-');
 }
@@ -73,95 +64,87 @@ function catAnchor(cat: string): string {
     }
   })} />
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
     <!-- Hero -->
-    <div class="mb-10 sm:mb-14">
-      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">nologin.tools</h1>
-      <p class="text-neutral-500 mb-3">Privacy-friendly tools. No login required.</p>
-      <p class="text-sm text-neutral-400">
-        {totalTools} verified tools
-        <span class="text-neutral-300 mx-0.5">·</span>
-        <a href="/submit" class="text-neutral-500 hover:text-neutral-900 transition-colors">Submit</a>
-        <span class="text-neutral-300 mx-0.5">·</span>
-        <a href="/badge" class="text-neutral-500 hover:text-neutral-900 transition-colors">Badge</a>
-        <span class="text-neutral-300 mx-0.5">·</span>
-        <a href="/about" class="text-neutral-500 hover:text-neutral-900 transition-colors">About</a>
+    <header class="mb-16 border-b-4 border-neutral-900 pb-8">
+      <h1 class="text-4xl sm:text-5xl font-black text-neutral-900 mb-4 tracking-tight uppercase italic">
+        nologin.tools
+      </h1>
+      <p class="text-xl text-neutral-700 font-medium mb-6">
+        Privacy-friendly tools. <span class="bg-yellow-200 px-1">No login required.</span>
       </p>
-    </div>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-retro-mono font-bold uppercase tracking-wider">
+        <span class="text-neutral-500">{totalTools} Tools Verified</span>
+        <a href="/submit" class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">Submit</a>
+        <a href="/badge" class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">Badge</a>
+        <a href="/about" class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">About</a>
+      </div>
+    </header>
 
     <!-- Category Navigation -->
-    <nav class="mb-10 sm:mb-12 text-sm" aria-label="Category navigation">
-      <div class="flex flex-wrap gap-x-1.5 gap-y-1 text-neutral-500">
-        {categoryGroups.map((group, i) => (
-          <>
-            {i > 0 && <span class="text-neutral-300">·</span>}
-            <a href={`#${catAnchor(group.category)}`} class="hover:text-neutral-900 transition-colors">
-              {group.category}
-            </a>
-          </>
+    <nav class="mb-16 text-sm text-retro-mono" aria-label="Category navigation">
+      <div class="flex flex-wrap gap-x-3 gap-y-2">
+        {categoryGroups.map((group) => (
+          <a 
+            href={`#${catAnchor(group.category)}`} 
+            class="px-2 py-1 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase font-bold"
+          >
+            {group.category}
+          </a>
         ))}
       </div>
     </nav>
 
     <!-- Tool Lists by Category -->
-    <div class="space-y-10 sm:space-y-12">
+    <div class="space-y-16">
       {categoryGroups.map((group) => (
-        <section id={catAnchor(group.category)}>
-          <h2 class="category-heading">
-            {group.category} <span class="font-normal text-neutral-400">({group.tools.length})</span>
+        <section id={catAnchor(group.category)} class="scroll-mt-10">
+          <h2 class="category-heading uppercase">
+            {group.category} <span class="ml-2 text-sm font-normal text-neutral-400">[{group.tools.length}]</span>
           </h2>
-          <ul class="divide-y divide-neutral-100">
+          <ul class="mt-4">
             {group.tools.map((tool) => {
               const hostname = getHostname(tool.url);
-              const health = tool.health;
-              const hl = health ? healthLabel(health.status) : null;
               return (
-                <li class="tool-item">
-                  <div class="flex items-start sm:items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                    {/* Favicon */}
+                <li class="tool-item group">
+                  <div class="flex items-start gap-3 min-w-0 flex-1">
+                    {/* Favicon - simplified */}
                     <img
                       src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
                       alt=""
                       width="16"
                       height="16"
-                      class="w-4 h-4 mt-0.5 sm:mt-0 shrink-0 rounded-sm"
+                      class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
                       loading="lazy"
                       onerror={`this.style.display='none'`}
                     />
-                    <div class="min-w-0 flex flex-col sm:flex-row sm:items-center sm:gap-1.5 flex-1">
-                      <div class="flex items-center gap-1.5 min-w-0">
+                    <div class="min-w-0 flex flex-col flex-1">
+                      <div class="flex items-center gap-2 min-w-0">
                         {tool.isFeatured && (
-                          <span class="text-yellow-500 shrink-0" title="Featured">★</span>
+                          <span class="text-yellow-600 shrink-0 text-xs" title="Featured">★</span>
                         )}
                         <a
                           href={`/tool/${tool.slug}`}
-                          class="font-semibold text-neutral-900 hover:text-green-600 transition-colors truncate"
+                          class="font-bold text-lg text-neutral-900 hover:underline decoration-2 underline-offset-4"
                         >
                           {tool.name}
                         </a>
-                        <span class="text-neutral-300 hidden sm:inline">—</span>
                         <a
                           href={tool.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="text-neutral-400 hover:text-neutral-600 text-sm shrink-0 transition-colors hidden sm:inline"
+                          class="text-neutral-400 hover:text-neutral-600 text-xs font-mono transition-colors hidden sm:inline"
                         >
-                          {hostname}
+                          ({hostname})
                         </a>
                       </div>
                       {tool.description && (
-                        <span class="text-neutral-500 text-sm truncate">
-                          <span class="text-neutral-300 hidden sm:inline">—</span>
-                          {' '}{tool.description}
-                        </span>
+                        <p class="text-neutral-600 text-sm">
+                          {tool.description}
+                        </p>
                       )}
                     </div>
                   </div>
-                  {hl && (
-                    <span class={`shrink-0 text-xs whitespace-nowrap ${hl.color}`}>
-                      {hl.symbol} <span class="hidden sm:inline">{hl.text}</span>
-                    </span>
-                  )}
                 </li>
               );
             })}
