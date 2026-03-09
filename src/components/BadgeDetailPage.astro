@@ -48,11 +48,6 @@ const allEmbedCodes = Object.fromEntries(
   canonicalOverride={`/badge/${slug}`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
-  {/* Background Elements */}
-  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
-    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
-  </div>
 
   <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
     <!-- Breadcrumb -->
@@ -77,7 +72,7 @@ const allEmbedCodes = Object.fromEntries(
     <!-- Badge brand link -->
     <div class="mb-12 flex justify-center">
       <a href="/" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-black text-xl shadow-lg shadow-green-100 group-hover:scale-110 transition-transform">
+        <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-black text-xl">
           n
         </div>
         <span class="font-black text-xl tracking-tight text-neutral-900">
@@ -112,14 +107,9 @@ const allEmbedCodes = Object.fromEntries(
 
       <!-- Certificate Hero -->
       <div class="text-center">
-        <div class="relative inline-block mb-8">
-          {isPending ? (
-             <div class="absolute inset-0 bg-amber-500/20 blur-2xl rounded-full scale-110 animate-pulse"></div>
-          ) : (
-             <div class="absolute inset-0 bg-green-500/20 blur-2xl rounded-full scale-110"></div>
-          )}
+        <div class="inline-block mb-8">
           <div class:list={[
-            "relative w-24 h-24 rounded-[2.5rem] flex items-center justify-center border-2",
+            "w-24 h-24 rounded-[2.5rem] flex items-center justify-center border-2",
             isPending ? "bg-amber-50 border-amber-200 text-amber-600" : "bg-green-50 border-green-200 text-green-600"
           ]}>
             {isPending ? (
@@ -137,19 +127,18 @@ const allEmbedCodes = Object.fromEntries(
 
       <!-- Certificate Details Card -->
       <div class:list={[
-        'glass-card rounded-[3rem] p-8 sm:p-12 relative overflow-hidden',
-        isPending ? 'border-amber-200/50 bg-amber-50/20' : 'border-green-200/50 bg-green-50/20',
+        'bg-white border rounded-lg p-8 sm:p-12',
+        isPending ? 'border-amber-200' : 'border-green-200',
       ]}>
-        <div class="absolute top-0 right-0 w-48 h-48 bg-white/50 rounded-bl-[10rem] pointer-events-none"></div>
-        <h2 class="text-xs font-black uppercase tracking-[0.2em] text-neutral-400 mb-10">Verification Details</h2>
+        <h2 class="text-sm font-medium text-neutral-500 mb-10">Verification Details</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
           <div class="space-y-1">
-            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Tool Name</dt>
+            <dt class="text-sm font-medium text-neutral-500">Tool Name</dt>
             <dd class="text-xl font-black text-neutral-950">{tool.name}</dd>
           </div>
           <div class="space-y-1">
-            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Status</dt>
+            <dt class="text-sm font-medium text-neutral-500">Status</dt>
             <dd>
               <span class:list={['status-badge px-4 py-1.5 rounded-xl font-black uppercase tracking-tight text-[10px]', isPending ? 'status-pending' : 'status-approved']}>
                 {isPending ? 'Review in progress' : 'Verified & Approved'}
@@ -157,29 +146,29 @@ const allEmbedCodes = Object.fromEntries(
             </dd>
           </div>
           <div class="space-y-1">
-            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Issued By</dt>
+            <dt class="text-sm font-medium text-neutral-500">Issued By</dt>
             <dd class="text-lg font-bold text-neutral-700"><a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors">NoLoginTools.org</a></dd>
           </div>
           <div class="space-y-1 md:col-span-2">
-            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Tool URL</dt>
+            <dt class="text-sm font-medium text-neutral-500">Tool URL</dt>
             <dd>
               <a href={tool.url} target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-blue-600 hover:text-blue-700 break-all underline decoration-blue-200 underline-offset-4">{tool.url}</a>
             </dd>
           </div>
           <div class="space-y-1 md:col-span-2">
-            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Certified Core Task</dt>
+            <dt class="text-sm font-medium text-neutral-500">Certified Core Task</dt>
             <dd class="text-lg font-bold text-neutral-700 leading-relaxed italic">"{tool.coreTask}"</dd>
           </div>
 
           {!isPending && tool.approvedAt && (
             <div class="space-y-1">
-              <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Verified Since</dt>
+              <dt class="text-sm font-medium text-neutral-500">Verified Since</dt>
               <dd class="text-lg font-bold text-neutral-700">{formatDate(tool.approvedAt)}</dd>
             </div>
           )}
           {!isPending && (
             <div class="space-y-1">
-              <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Current Health</dt>
+              <dt class="text-sm font-medium text-neutral-500">Current Health</dt>
               <dd>
                 <HealthBadge
                   isOnline={latestHealth?.isOnline ?? null}
@@ -191,8 +180,8 @@ const allEmbedCodes = Object.fromEntries(
         </div>
 
         {toolTags.length > 0 && (
-          <div class="mt-12 pt-8 border-t border-neutral-200/50">
-            <dt class="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-4">Classifications</dt>
+          <div class="mt-12 pt-8 border-t border-neutral-200">
+            <dt class="text-sm font-medium text-neutral-500 mb-4">Classifications</dt>
             <div class="flex flex-wrap gap-2">
               {sortTagsCategoryFirst(toolTags).map((tag) => (
                 <span class:list={['chip px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]', tag.tagKey === 'category' ? 'chip-category' : 'chip-default']}>
@@ -205,35 +194,35 @@ const allEmbedCodes = Object.fromEntries(
       </div>
 
       <!-- Quick Intro for External Visitors -->
-      <div class="glass-card rounded-[2.5rem] p-8 bg-gradient-to-br from-green-600 to-emerald-500 text-white border-none shadow-xl shadow-green-100/50">
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="w-16 h-16 shrink-0 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <div class="border-l-4 border-green-500 pl-6 py-4">
+        <div class="flex flex-col md:flex-row items-start gap-6">
+          <div class="w-10 h-10 shrink-0 rounded-lg bg-green-50 flex items-center justify-center text-green-600">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <div>
-            <h2 class="text-xl font-black mb-2">What is NoLogin Verified?</h2>
-            <p class="text-green-50 font-medium leading-relaxed">
-              This certificate, issued by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-white font-black underline decoration-white/30 underline-offset-4 hover:decoration-white/60 transition-colors">NoLoginTools.org</a>, confirms that <span class="font-black underline decoration-white/30 underline-offset-4">{tool.name}</span> has been manually audited. It guarantees that users can access its core features **immediately**—without ever needing to sign up or log in.
+            <h2 class="text-lg font-bold text-neutral-900 mb-1">What is NoLogin Verified?</h2>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              This certificate, issued by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 font-semibold hover:text-green-700 transition-colors">NoLoginTools.org</a>, confirms that <span class="font-semibold">{tool.name}</span> has been manually audited. It guarantees that users can access its core features <strong>immediately</strong>—without ever needing to sign up or log in.
             </p>
           </div>
         </div>
       </div>
 
       <!-- Trust Signals Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {[
           { title: "Manual Review", desc: "Individually tested by humans to ensure a login-free experience.", icon: "M" },
           { title: "Privacy First", desc: "Core tasks are accessible without harvesting personal data.", icon: "P" },
           { title: "24/7 Monitoring", desc: "Automated checks ensure the tool stays active and accessible.", icon: "H" },
           { title: "Archive Proof", desc: "Public snapshots preserved on the Internet Archive for audit.", icon: "A" }
         ].map(item => (
-          <div class="glass-card rounded-3xl p-6 flex gap-4">
-            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-600 font-black shrink-0 border border-green-100">
+          <div class="border border-neutral-200 rounded-lg p-5 flex gap-4">
+            <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 font-black shrink-0 border border-green-100">
                {item.icon}
             </div>
             <div>
-              <h3 class="text-sm font-black text-neutral-900">{item.title}</h3>
-              <p class="text-xs text-neutral-500 mt-1 leading-relaxed font-medium">{item.desc}</p>
+              <h3 class="text-sm font-bold text-neutral-900">{item.title}</h3>
+              <p class="text-xs text-neutral-500 mt-1 leading-relaxed">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -241,8 +230,8 @@ const allEmbedCodes = Object.fromEntries(
 
       <!-- Actions -->
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-primary px-10 py-4 rounded-2xl font-black">Visit Verified Tool</a>
-        <a href={`/tool/${slug}`} class="btn-secondary px-10 py-4 rounded-2xl font-black">Directory Listing</a>
+        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-minimal-primary px-8 py-3 rounded-lg font-semibold">Visit Verified Tool</a>
+        <a href={`/tool/${slug}`} class="inline-flex items-center justify-center text-sm font-medium text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-500 transition-colors px-8 py-3">Directory Listing</a>
       </div>
 
       <!-- Bottom attribution -->
@@ -254,7 +243,7 @@ const allEmbedCodes = Object.fromEntries(
     <!-- Panel: Embed Code (hidden by default) -->
     <div id="panel-embed" role="tabpanel" aria-labelledby="tab-embed" class="hidden space-y-12">
 
-      <section class="glass-card rounded-[3rem] p-8 sm:p-12 text-center">
+      <section class="border border-neutral-200 rounded-lg p-8 sm:p-12 text-center">
         <h2 class="text-3xl font-black text-neutral-900 mb-4">Add to Your Site</h2>
         <p class="text-neutral-500 max-w-xl mx-auto font-medium mb-10">
           Display the NoLogin Verified badge to signal your commitment to a frictionless user experience.
@@ -262,7 +251,7 @@ const allEmbedCodes = Object.fromEntries(
         </p>
 
         {isPending && (
-          <div class="bg-amber-50 border border-amber-200/50 rounded-2xl p-6 mb-10 max-w-2xl mx-auto">
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-10 max-w-2xl mx-auto">
             <p class="text-sm text-amber-800 font-bold">
               Verification in progress. You can embed the code now; it will automatically update to "Verified" once approved.
             </p>
@@ -271,30 +260,30 @@ const allEmbedCodes = Object.fromEntries(
 
         <!-- Badge Style Selector -->
         <div class="mb-12 text-left">
-          <h3 class="text-xs font-black uppercase tracking-[0.2em] text-neutral-400 mb-8 text-center">Customize Style</h3>
+          <h3 class="text-sm font-medium text-neutral-500 mb-8 text-center">Customize Style</h3>
           <div class="space-y-10">
             {BADGE_GROUPS.map((group) => {
               const groupStyles = BADGE_STYLES.filter((s) => s.group === group.id);
               const isDark = group.id === 'dark';
               return groupStyles.length > 0 && (
                 <div>
-                  <p class="text-[10px] font-black text-neutral-300 mb-4 uppercase tracking-[0.2em] text-center">{group.label} Collection</p>
+                  <p class="text-xs font-medium text-neutral-400 mb-4 text-center">{group.label} Collection</p>
                   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {groupStyles.map((style) => (
                       <button
                         class:list={[
-                          'badge-style-btn flex flex-col items-center justify-center gap-4 p-5 rounded-2xl border transition-all duration-300 cursor-pointer shadow-sm active:scale-95',
-                          isDark ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-100',
+                          'badge-style-btn flex flex-col items-center justify-center gap-4 border rounded p-3 transition-all duration-200 cursor-pointer',
+                          isDark ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200',
                           style.id === 'flat'
-                            ? 'ring-2 ring-green-500 border-transparent shadow-lg shadow-green-100'
-                            : 'hover:border-neutral-300 hover:shadow-md',
+                            ? 'ring-2 ring-green-500 border-transparent'
+                            : 'hover:border-neutral-400',
                         ]}
                         data-style={style.id}
                         data-badge-path={style.path}
                         data-dark={isDark ? 'true' : undefined}
                       >
                         <img src={style.path} alt={style.label} class="h-6" />
-                        <span class:list={['text-[10px] font-black uppercase tracking-widest', isDark ? 'text-neutral-500' : 'text-neutral-400']}>{style.label}</span>
+                        <span class:list={['text-xs font-medium', isDark ? 'text-neutral-500' : 'text-neutral-400']}>{style.label}</span>
                       </button>
                     ))}
                   </div>
@@ -309,22 +298,22 @@ const allEmbedCodes = Object.fromEntries(
           <!-- SVG Badge -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <h3 class="text-xs font-black uppercase tracking-widest text-neutral-400">SVG Badge (Recommended)</h3>
-              <button class="copy-btn text-xs font-black text-green-600 hover:text-green-700 px-3 py-1 rounded-lg bg-green-50 transition-colors" data-code="svg">Copy Code</button>
+              <h3 class="text-sm font-medium text-neutral-500">SVG Badge (Recommended)</h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="svg">Copy Code</button>
             </div>
-            <div class="p-6 bg-white border border-neutral-100 rounded-3xl shadow-inner flex justify-center mb-4">
+            <div class="p-6 bg-white border border-neutral-200 rounded-lg flex justify-center mb-4">
               <img id="badge-preview" src="/badges/flat.svg" alt="NoLogin Verified" class="h-10" />
             </div>
-            <pre id="code-svg" class="bg-neutral-900 text-neutral-400 p-6 rounded-3xl text-[11px] font-mono overflow-x-auto border-4 border-neutral-800"><code>{embedCode.svg}</code></pre>
+            <pre id="code-svg" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{embedCode.svg}</code></pre>
           </div>
 
           <!-- Meta tag -->
           <div class="space-y-3">
              <div class="flex items-center justify-between">
-              <h3 class="text-xs font-black uppercase tracking-widest text-neutral-400">Meta Tag</h3>
-              <button class="copy-btn text-xs font-black text-green-600 hover:text-green-700 px-3 py-1 rounded-lg bg-green-50 transition-colors" data-code="meta">Copy Code</button>
+              <h3 class="text-sm font-medium text-neutral-500">Meta Tag</h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="meta">Copy Code</button>
             </div>
-            <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-6 rounded-3xl text-[11px] font-mono overflow-x-auto border-4 border-neutral-800"><code>{embedCode.meta}</code></pre>
+            <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{embedCode.meta}</code></pre>
           </div>
         </div>
       </section>
@@ -406,16 +395,16 @@ const allEmbedCodes = Object.fromEntries(
           const el = b as HTMLElement;
           const isDark = el.dataset.dark === 'true';
           if (el.dataset.style === style) {
-            el.classList.add('ring-2', 'ring-green-500', 'border-transparent', 'shadow-lg', 'shadow-green-100');
-            el.classList.remove('border-neutral-200', 'border-neutral-100', 'border-neutral-800', 'hover:border-neutral-300', 'hover:shadow-md');
+            el.classList.add('ring-2', 'ring-green-500', 'border-transparent');
+            el.classList.remove('border-neutral-200', 'border-neutral-800', 'hover:border-neutral-400');
             if (!isDark) el.classList.add('bg-green-50');
           } else {
-            el.classList.remove('ring-2', 'ring-green-500', 'border-transparent', 'shadow-lg', 'shadow-green-100', 'bg-green-50');
-            el.classList.add('hover:border-neutral-300', 'hover:shadow-md');
+            el.classList.remove('ring-2', 'ring-green-500', 'border-transparent', 'bg-green-50');
+            el.classList.add('hover:border-neutral-400');
             if (isDark) {
               el.classList.add('border-neutral-800');
             } else {
-              el.classList.add('border-neutral-100');
+              el.classList.add('border-neutral-200');
             }
           }
         });

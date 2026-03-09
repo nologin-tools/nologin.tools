@@ -15,99 +15,68 @@ import Layout from '../layouts/Layout.astro';
       'https://github.com/nologin-tools',
     ],
   })} />
-  {/* Background Elements */}
-  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
-    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
-  </div>
 
   <div class="max-w-4xl mx-auto px-6 py-16 sm:py-24">
-    <div class="text-center mb-20">
-      <h1 class="text-5xl font-black tracking-tight text-neutral-900 mb-6">About nologin<span class="text-green-600">.</span>tools</h1>
-      <p class="text-xl text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+    <div class="mb-12">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-3">About nologin<span class="text-green-600">.</span>tools</h1>
+      <p class="text-base text-neutral-500 max-w-2xl leading-relaxed">
         We believe the best tools are the ones that let you start working immediately, respecting both your time and your privacy.
       </p>
-      <p class="text-sm text-neutral-400 mt-4 font-medium">
-        An open initiative by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors font-bold">NoLoginTools.org</a>
+      <p class="text-sm text-neutral-400 mt-2">
+        An open initiative by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors font-semibold">NoLoginTools.org</a>
       </p>
     </div>
 
-    <div class="space-y-12">
-      <section class="glass-card rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-bl-[10rem] pointer-events-none"></div>
-        <h2 class="text-3xl font-black text-neutral-900 mb-6 flex items-center gap-4">
-          <span class="w-10 h-10 rounded-2xl bg-green-100 flex items-center justify-center text-green-600">
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </span>
-          Our Mission
-        </h2>
-        <div class="text-lg text-neutral-600 leading-relaxed space-y-4">
-          <p>
-            The internet has become increasingly fragmented by "walled gardens" and unnecessary friction. 
-            Simple tasks now often require a multi-step registration process, email verification, and the surrender of personal data.
-          </p>
-          <p class="font-bold text-neutral-900">
-            nologin.tools is a curated directory of high-quality software and services that let you get things done without creating an account.
-          </p>
-        </div>
+    <section class="border-b pb-8 mb-8">
+      <h2 class="text-xl font-semibold text-neutral-900 mb-4">Our Mission</h2>
+      <div class="text-base text-neutral-600 leading-relaxed space-y-3">
+        <p>
+          The internet has become increasingly fragmented by "walled gardens" and unnecessary friction.
+          Simple tasks now often require a multi-step registration process, email verification, and the surrender of personal data.
+        </p>
+        <p class="font-semibold text-neutral-900">
+          nologin.tools is a curated directory of high-quality software and services that let you get things done without creating an account.
+        </p>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-b pb-8 mb-8">
+      <section class="border rounded-lg p-6">
+        <h2 class="text-lg font-semibold text-neutral-900 mb-4">Verification Process</h2>
+        <ul class="space-y-3">
+          {[
+            "Reviewers manually verify every submission.",
+            "We confirm core tasks work without login.",
+            "Health checks monitor tool uptime daily.",
+            "The community helps keep data accurate."
+          ].map(item => (
+            <li class="flex items-start gap-2 text-neutral-600 text-sm">
+              <svg class="mt-0.5 shrink-0 text-green-500" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <section class="glass-card rounded-[2.5rem] p-8 sm:p-10 border-blue-50">
-          <h2 class="text-xl font-black text-neutral-900 mb-6 flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600">
-               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-            </span>
-            Verification Process
-          </h2>
-          <ul class="space-y-4">
-            {[
-              "Reviewers manually verify every submission.",
-              "We confirm core tasks work without login.",
-              "Health checks monitor tool uptime daily.",
-              "The community helps keep data accurate."
-            ].map(item => (
-              <li class="flex items-start gap-3 text-neutral-600 text-sm font-medium">
-                <svg class="mt-1 shrink-0 text-green-500" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section class="glass-card rounded-[2.5rem] p-8 sm:p-10 border-yellow-50">
-          <h2 class="text-xl font-black text-neutral-900 mb-6 flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-yellow-100 flex items-center justify-center text-yellow-600">
-               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-            </span>
-            The Verified Badge
-          </h2>
-          <p class="text-sm text-neutral-600 leading-relaxed mb-6 font-medium">
-            Tool creators can display our badge to signal their commitment to a frictionless user experience.
-          </p>
-          <div class="flex items-center justify-center p-6 bg-white border border-yellow-100 rounded-2xl mb-6 shadow-sm">
-             <img src="/badges/for-the-badge.svg" alt="NoLogin Verified" class="h-8" />
-          </div>
-          <a href="/badge" class="text-sm font-bold text-yellow-700 hover:text-yellow-800 underline underline-offset-4 transition-colors">Learn how to get yours &rarr;</a>
-        </section>
-      </div>
-
-      <section class="glass-card rounded-[2.5rem] p-8 sm:p-12 text-center bg-neutral-900 text-white border-none shadow-2xl">
-        <h2 class="text-3xl font-black mb-6">Built with Openness</h2>
-        <p class="text-neutral-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-          nologin.tools is built on transparent principles by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 underline underline-offset-4 transition-colors">NoLoginTools.org</a>. Our code is open source, and our database is exported regularly to help others build privacy-first applications.
+      <section class="border rounded-lg p-6">
+        <h2 class="text-lg font-semibold text-neutral-900 mb-4">The Verified Badge</h2>
+        <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+          Tool creators can display our badge to signal their commitment to a frictionless user experience.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-6">
-           <a href="https://github.com/nologin-tools" target="_blank" rel="noopener noreferrer" class="btn-primary bg-white text-neutral-900 hover:bg-neutral-100 shadow-none">
-             Explore on GitHub
-           </a>
-           <a href="/submit" class="btn-secondary bg-transparent border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500">
-             Submit a Tool
-           </a>
+        <div class="flex items-center justify-center p-4 border rounded-lg mb-4">
+           <img src="/badges/for-the-badge.svg" alt="NoLogin Verified" class="h-8" />
         </div>
+        <a href="/badge" class="btn-minimal">Learn how to get yours &rarr;</a>
       </section>
     </div>
+
+    <section class="pb-8">
+      <p class="text-base text-neutral-600 leading-relaxed">
+        nologin.tools is built on transparent principles by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors font-semibold">NoLoginTools.org</a>. Our code is open source, and our database is exported regularly to help others build privacy-first applications.
+        <a href="https://github.com/nologin-tools" target="_blank" rel="noopener noreferrer" class="btn-minimal">Explore on GitHub</a> · <a href="/submit" class="btn-minimal">Submit a Tool</a>
+      </p>
+    </section>
   </div>
 </Layout>

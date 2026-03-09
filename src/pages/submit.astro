@@ -7,31 +7,22 @@ import TagPicker from '../components/TagPicker.astro';
   title="Submit a Tool"
   description="Submit a tool that works without login to the nologin.tools directory."
 >
-  {/* Background Elements */}
-  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
-    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
-  </div>
-
   <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
     <div class="text-center mb-12 sm:mb-16">
-      <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-neutral-900 mb-4 px-2">Submit a Tool</h1>
-      <p class="text-base sm:text-xl text-neutral-500 max-w-xl mx-auto leading-relaxed px-4">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-4">Submit a Tool</h1>
+      <p class="text-base text-neutral-500 max-w-xl mx-auto leading-relaxed">
         Help the community by sharing tools that respect user privacy and work without a login.
       </p>
     </div>
 
-    <form id="submit-form" class="space-y-8 sm:space-y-10" novalidate>
+    <form id="submit-form" class="space-y-0" novalidate>
       <!-- Tool Information -->
-      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
-        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">1</div>
-           Tool Information
-        </h2>
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">Tool Information</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="name" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            <label for="name" class="block text-sm font-medium text-neutral-600 mb-2">
               Tool Name <span class="text-red-500">*</span>
             </label>
             <input
@@ -42,13 +33,13 @@ import TagPicker from '../components/TagPicker.astro';
               minlength="2"
               maxlength="100"
               placeholder="e.g. Excalidraw"
-              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             />
             <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="name"></p>
           </div>
 
           <div>
-            <label for="url" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            <label for="url" class="block text-sm font-medium text-neutral-600 mb-2">
               Tool URL <span class="text-red-500">*</span>
             </label>
             <input
@@ -57,14 +48,14 @@ import TagPicker from '../components/TagPicker.astro';
               name="url"
               required
               placeholder="https://excalidraw.com"
-              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             />
             <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="url"></p>
           </div>
         </div>
 
         <div>
-          <label for="description" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+          <label for="description" class="block text-sm font-medium text-neutral-600 mb-2">
             Description <span class="text-red-500">*</span>
           </label>
           <textarea
@@ -74,26 +65,25 @@ import TagPicker from '../components/TagPicker.astro';
             maxlength="500"
             rows="4"
             placeholder="A brief description of what this tool does..."
-            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition-all"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition-all"
           ></textarea>
           <div class="flex justify-end mt-2">
-            <span class="text-[9px] font-black uppercase tracking-widest text-neutral-300" id="char-count">0/500</span>
+            <span class="text-xs text-neutral-400" id="char-count">0/500</span>
           </div>
           <p class="text-xs text-red-500 mt-1 font-bold hidden" data-error="description"></p>
         </div>
       </section>
 
       <!-- Links & Repository (Optional) -->
-      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
-        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">2</div>
-           Links & Repository
-           <span class="text-xs font-bold text-neutral-400 uppercase tracking-widest">(Optional)</span>
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">
+          Links & Repository
+          <span class="text-xs font-normal text-neutral-400">(Optional)</span>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="md:col-span-2">
-            <label for="repoUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            <label for="repoUrl" class="block text-sm font-medium text-neutral-600 mb-2">
               Repository URL
             </label>
             <input
@@ -101,16 +91,16 @@ import TagPicker from '../components/TagPicker.astro';
               id="repoUrl"
               name="repoUrl"
               placeholder="https://github.com/owner/repo"
-              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             />
-            <p class="text-xs text-neutral-400 mt-2 font-medium italic">
+            <p class="text-xs text-neutral-400 mt-2 italic">
               Filling this will automatically mark the tool as open source.
             </p>
             <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="repoUrl"></p>
           </div>
 
           <div>
-            <label for="twitterUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            <label for="twitterUrl" class="block text-sm font-medium text-neutral-600 mb-2">
               Twitter / X
             </label>
             <input
@@ -118,13 +108,13 @@ import TagPicker from '../components/TagPicker.astro';
               id="twitterUrl"
               name="twitterUrl"
               placeholder="https://x.com/username"
-              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             />
             <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="twitterUrl"></p>
           </div>
 
           <div>
-            <label for="githubUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            <label for="githubUrl" class="block text-sm font-medium text-neutral-600 mb-2">
               GitHub Profile
             </label>
             <input
@@ -132,13 +122,13 @@ import TagPicker from '../components/TagPicker.astro';
               id="githubUrl"
               name="githubUrl"
               placeholder="https://github.com/username"
-              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             />
             <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="githubUrl"></p>
           </div>
 
           <div>
-            <label for="discordUrl" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+            <label for="discordUrl" class="block text-sm font-medium text-neutral-600 mb-2">
               Discord
             </label>
             <input
@@ -146,7 +136,7 @@ import TagPicker from '../components/TagPicker.astro';
               id="discordUrl"
               name="discordUrl"
               placeholder="https://discord.gg/invite-code"
-              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
             />
             <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="discordUrl"></p>
           </div>
@@ -154,31 +144,28 @@ import TagPicker from '../components/TagPicker.astro';
       </section>
 
       <!-- No-Login Verification -->
-      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
-        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">3</div>
-           Verification
-        </h2>
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">Verification</h2>
 
-        <div class="p-5 sm:p-6 bg-green-50/50 border border-green-100 rounded-2xl sm:rounded-[2rem]">
-          <label class="flex items-start gap-3 sm:gap-4 cursor-pointer">
+        <div class="flex items-start gap-3">
+          <label class="flex items-start gap-3 cursor-pointer">
             <input
               type="checkbox"
               id="pledge"
               name="pledge"
               required
-              class="mt-1 w-5 h-5 sm:w-6 sm:h-6 text-green-600 border-neutral-300 rounded-lg sm:rounded-xl focus:ring-green-500 transition-all"
+              class="mt-1 w-5 h-5 text-green-600 border-neutral-300 rounded focus:ring-green-500 transition-all"
             />
-            <span class="text-sm text-green-900 font-bold leading-relaxed">
+            <span class="text-sm text-neutral-700 leading-relaxed">
               I confirm this tool's core functionality works without creating an
-              account or logging in. <span class="text-red-500 font-black">*</span>
+              account or logging in. <span class="text-red-500">*</span>
             </span>
           </label>
-          <p class="text-xs text-red-500 mt-3 font-bold hidden" data-error="pledge"></p>
         </div>
+        <p class="text-xs text-red-500 mt-3 font-bold hidden" data-error="pledge"></p>
 
         <div>
-          <label for="coreTask" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+          <label for="coreTask" class="block text-sm font-medium text-neutral-600 mb-2">
             What can you do without login? <span class="text-red-500">*</span>
           </label>
           <input
@@ -188,30 +175,27 @@ import TagPicker from '../components/TagPicker.astro';
             required
             maxlength="200"
             placeholder='e.g. "Draw diagrams and export to PNG"'
-            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
           />
           <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="coreTask"></p>
         </div>
       </section>
 
       <!-- Tags -->
-      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
-        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">4</div>
-           Classification
-        </h2>
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">Classification</h2>
         <TagPicker />
       </section>
 
       <!-- Contact Email -->
-      <section class="glass-card rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 space-y-6 sm:space-y-8">
-        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 flex items-center gap-3">
-           <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-xs sm:text-sm">5</div>
-           Contact (Optional)
+      <section class="space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">
+          Contact
+          <span class="text-xs font-normal text-neutral-400">(Optional)</span>
         </h2>
 
         <div>
-          <label for="submitterEmail" class="block text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2 sm:mb-3">
+          <label for="submitterEmail" class="block text-sm font-medium text-neutral-600 mb-2">
             Email Address
           </label>
           <input
@@ -220,9 +204,9 @@ import TagPicker from '../components/TagPicker.astro';
             name="submitterEmail"
             maxlength="254"
             placeholder="you@example.com"
-            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl sm:rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
           />
-          <p class="text-xs text-neutral-400 mt-3 font-medium italic">
+          <p class="text-xs text-neutral-400 mt-2 italic">
             Only visible to reviewers.
           </p>
           <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="submitterEmail"></p>
@@ -232,19 +216,19 @@ import TagPicker from '../components/TagPicker.astro';
       <!-- Error message -->
       <div
         id="form-error"
-        class="hidden p-5 sm:p-6 bg-red-50 border border-red-200 rounded-[1.5rem] sm:rounded-[2rem] text-sm text-red-700 font-bold shadow-sm"
+        class="hidden mt-6 p-5 bg-red-50 border border-red-200 rounded text-sm text-red-700 font-bold"
       ></div>
 
       <!-- Submit -->
-      <div class="pt-4 px-2 sm:px-0">
+      <div class="pt-8">
         <button
           type="submit"
           id="submit-btn"
-          class="btn-primary w-full justify-center py-4 sm:py-5 rounded-[1.5rem] sm:rounded-[2rem] text-base sm:text-lg font-black"
+          class="btn-minimal-primary w-full py-3"
         >
           Submit Tool for Review
         </button>
-        <p class="text-center text-[10px] text-neutral-400 mt-6 font-medium px-4">
+        <p class="text-center text-xs text-neutral-400 mt-6">
           By submitting, you agree that the information provided is accurate and adheres to our quality standards.
         </p>
       </div>
@@ -364,7 +348,7 @@ import TagPicker from '../components/TagPicker.astro';
           }
         } catch { showError('discordUrl', 'Please enter a valid URL.'); hasError = true; }
       }
-      
+
       if (hasError) {
         formError.innerHTML = `
           <div class="flex items-center gap-3">
@@ -438,7 +422,7 @@ import TagPicker from '../components/TagPicker.astro';
           </div>
         `;
         el.classList.remove('hidden');
-        
+
         // Highlight the input/textarea
         const input = el.parentElement?.querySelector('input, textarea');
         if (input) {

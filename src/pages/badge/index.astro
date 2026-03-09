@@ -44,104 +44,79 @@ import Layout from '../../layouts/Layout.astro';
       },
     ],
   })} />
-  {/* Background Elements */}
-  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
-    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
-  </div>
 
   <div class="max-w-4xl mx-auto px-6 py-16 sm:py-24">
     <!-- Hero -->
-    <div class="text-center mb-20">
-      <div class="mb-10 relative inline-block">
-        <div class="absolute inset-0 bg-green-500/20 blur-2xl rounded-full scale-110"></div>
+    <div class="text-center mb-16">
+      <div class="mb-8">
         <img
           src="/badge.svg"
           alt="NoLogin Verified"
-          class="relative w-48 drop-shadow-2xl"
+          class="w-48 mx-auto"
         />
       </div>
-      <h1 class="text-5xl font-black tracking-tight text-neutral-900 mb-6">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-4">
         The <span class="text-green-600">NoLogin</span> Standard
       </h1>
-      <p class="text-xl text-neutral-500 max-w-2xl mx-auto leading-relaxed font-medium">
+      <p class="text-base text-neutral-500 max-w-2xl mx-auto leading-relaxed">
         We're on a mission to celebrate tools that let you work instantly — without the friction of accounts, passwords, or data harvesting.
       </p>
     </div>
 
-    <!-- Explicit Definition Section -->
-    <div class="glass-card rounded-[2.5rem] p-10 mb-20 bg-gradient-to-br from-white to-green-50/30">
-      <div class="flex flex-col md:flex-row gap-10 items-center">
-        <div class="flex-1">
-          <h2 class="text-3xl font-black text-neutral-900 mb-4">What is NoLogin Verified?</h2>
-          <div class="space-y-4 text-neutral-600 font-medium leading-relaxed">
-            <p>
-              It is a <span class="text-neutral-900 font-bold">digital trust certificate</span> issued by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 font-bold transition-colors">NoLoginTools.org</a> to web applications that have been manually audited by our team.
-            </p>
-            <p>
-              When a tool displays this badge, it serves as a guarantee that the **core functionality** promised by the tool is accessible to any user immediately, without the requirement to sign up, log in, or provide personal credentials.
-            </p>
-          </div>
-        </div>
-        <div class="shrink-0">
-          <div class="w-32 h-32 rounded-[2rem] bg-white shadow-xl flex items-center justify-center border border-green-100">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          </div>
-        </div>
+    <!-- What is NoLogin Verified? -->
+    <div class="border-b pb-8 mb-8">
+      <h2 class="text-xl font-bold text-neutral-900 mb-4">What is NoLogin Verified?</h2>
+      <div class="space-y-3 text-neutral-600 leading-relaxed">
+        <p>
+          It is a <span class="text-neutral-900 font-semibold">digital trust certificate</span> issued by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 font-semibold transition-colors">NoLoginTools.org</a> to web applications that have been manually audited by our team.
+        </p>
+        <p>
+          When a tool displays this badge, it serves as a guarantee that the **core functionality** promised by the tool is accessible to any user immediately, without the requirement to sign up, log in, or provide personal credentials.
+        </p>
       </div>
     </div>
 
-    <!-- The "What is NoLogin" Simple Intro -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-      <div class="glass-card rounded-[2rem] p-8 text-center border-green-100/30">
-        <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-green-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="18" y1="8" x2="23" y2="13"></line><line x1="23" y1="8" x2="18" y2="13"></line></svg>
-        </div>
-        <h3 class="font-black text-neutral-900 mb-2">No Accounts</h3>
-        <p class="text-sm text-neutral-500 font-medium">Skip the "Sign Up" button. Just open the URL and start creating immediately.</p>
+    <!-- Three-column grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+      <div class="border rounded-lg p-4 text-center">
+        <h3 class="font-bold text-neutral-900 mb-1 text-sm">No Accounts</h3>
+        <p class="text-sm text-neutral-500">Skip the "Sign Up" button. Just open the URL and start creating immediately.</p>
       </div>
-      <div class="glass-card rounded-[2rem] p-8 text-center border-blue-100/30">
-        <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        </div>
-        <h3 class="font-black text-neutral-900 mb-2">Privacy First</h3>
-        <p class="text-sm text-neutral-500 font-medium">Your data stays with you. No email lists, no tracking, no unwanted marketing.</p>
+      <div class="border rounded-lg p-4 text-center">
+        <h3 class="font-bold text-neutral-900 mb-1 text-sm">Privacy First</h3>
+        <p class="text-sm text-neutral-500">Your data stays with you. No email lists, no tracking, no unwanted marketing.</p>
       </div>
-      <div class="glass-card rounded-[2rem] p-8 text-center border-yellow-100/30">
-        <div class="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-yellow-600">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <h3 class="font-black text-neutral-900 mb-2">Instant Value</h3>
-        <p class="text-sm text-neutral-500 font-medium">Zero friction means you get your task done 10x faster than traditional tools.</p>
+      <div class="border rounded-lg p-4 text-center">
+        <h3 class="font-bold text-neutral-900 mb-1 text-sm">Instant Value</h3>
+        <p class="text-sm text-neutral-500">Zero friction means you get your task done 10x faster than traditional tools.</p>
       </div>
     </div>
 
     <div class="space-y-12">
       <!-- Two Column Layout for Users/Creators -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- For Users -->
-        <section class="glass-card rounded-[2.5rem] p-8 sm:p-10 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-24 h-24 bg-green-500/5 rounded-bl-full pointer-events-none"></div>
-          <h2 class="text-2xl font-black text-neutral-900 mb-6 flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-sm font-black">U</span>
+        <section class="border rounded-lg p-6">
+          <h2 class="text-lg font-bold text-neutral-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded bg-green-100 flex items-center justify-center text-green-600 text-xs font-bold">U</span>
             The Verified Seal
           </h2>
-          <p class="text-sm text-neutral-600 leading-relaxed mb-6 font-medium">
-            When you see the <span class="text-green-600 font-bold">NoLogin Verified</span> badge, you can trust that:
+          <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+            When you see the <span class="text-green-600 font-semibold">NoLogin Verified</span> badge, you can trust that:
           </p>
-          <ul class="space-y-4">
+          <ul class="space-y-3">
             {[
               { title: "Manual Review", desc: "Every tool is individually tested by our verification team." },
               { title: "Core Task Verified", desc: "We confirm the main utility is accessible without sign-up." },
               { title: "Health Monitoring", desc: "We track tool availability daily to ensure they stay accessible." },
               { title: "Digital Preservation", desc: "Verified tools are archived to ensure long-term transparency." }
             ].map(item => (
-              <li class="flex items-start gap-4">
-                <svg class="mt-1 shrink-0 text-green-500" width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+              <li class="flex items-start gap-3">
+                <svg class="mt-0.5 shrink-0 text-green-500" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 <div>
-                  <p class="text-sm font-bold text-neutral-900">{item.title}</p>
+                  <p class="text-sm font-semibold text-neutral-900">{item.title}</p>
                   <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{item.desc}</p>
                 </div>
               </li>
@@ -150,76 +125,66 @@ import Layout from '../../layouts/Layout.astro';
         </section>
 
         <!-- For Creators -->
-        <section class="glass-card rounded-[2.5rem] p-8 sm:p-10 border-blue-50 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-bl-full pointer-events-none"></div>
-          <h2 class="text-2xl font-black text-neutral-900 mb-6 flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-sm font-black">C</span>
+        <section class="border rounded-lg p-6">
+          <h2 class="text-lg font-bold text-neutral-900 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded bg-blue-100 flex items-center justify-center text-blue-600 text-xs font-bold">C</span>
             Join the Directory
           </h2>
-          <p class="text-sm text-neutral-600 leading-relaxed mb-8 font-medium">
+          <p class="text-sm text-neutral-600 leading-relaxed mb-6">
             Building a privacy-first tool? Get recognized for your commitment to a registration-free experience.
           </p>
-          <div class="space-y-6">
-            <div class="flex items-center gap-4 group">
-               <div class="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-400 group-hover:bg-green-50 group-hover:text-green-600 transition-all font-black">1</div>
-               <p class="text-sm font-bold text-neutral-700">Submit your tool details</p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+               <div class="w-8 h-8 rounded bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 text-sm font-bold">1</div>
+               <p class="text-sm font-semibold text-neutral-700">Submit your tool details</p>
             </div>
-            <div class="flex items-center gap-4 group">
-               <div class="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-400 group-hover:bg-green-50 group-hover:text-green-600 transition-all font-black">2</div>
-               <p class="text-sm font-bold text-neutral-700">Verification review (~48h)</p>
+            <div class="flex items-center gap-3">
+               <div class="w-8 h-8 rounded bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 text-sm font-bold">2</div>
+               <p class="text-sm font-semibold text-neutral-700">Verification review (~48h)</p>
             </div>
-            <div class="flex items-center gap-4 group">
-               <div class="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-400 group-hover:bg-green-50 group-hover:text-green-600 transition-all font-black">3</div>
-               <p class="text-sm font-bold text-neutral-700">Approval & Directory listing</p>
+            <div class="flex items-center gap-3">
+               <div class="w-8 h-8 rounded bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 text-sm font-bold">3</div>
+               <p class="text-sm font-semibold text-neutral-700">Approval & Directory listing</p>
             </div>
-            <div class="flex items-center gap-4 group">
-               <div class="w-10 h-10 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-400 group-hover:bg-green-50 group-hover:text-green-600 transition-all font-black">4</div>
-               <p class="text-sm font-bold text-neutral-700">Get your unique badge code</p>
+            <div class="flex items-center gap-3">
+               <div class="w-8 h-8 rounded bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 text-sm font-bold">4</div>
+               <p class="text-sm font-semibold text-neutral-700">Get your unique badge code</p>
             </div>
           </div>
         </section>
       </div>
 
-      <!-- Badge Display Benefit -->
-      <section class="glass-card rounded-[2.5rem] p-8 sm:p-12 text-center bg-neutral-50">
-        <h2 class="text-3xl font-black text-neutral-900 mb-4">Ranking Boost</h2>
-        <p class="text-neutral-500 mb-10 max-w-xl mx-auto font-medium">
+      <!-- Ranking Boost -->
+      <section class="border-t pt-8 mt-8">
+        <h2 class="text-xl font-bold text-neutral-900 mb-2 text-center">Ranking Boost</h2>
+        <p class="text-neutral-500 mb-8 max-w-xl mx-auto text-center text-sm">
           Tools that display our badge on their site receive a ranking boost in the nologin.tools directory.
         </p>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="p-6 bg-white border border-green-200/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
-               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            </div>
-            <p class="font-black text-neutral-900 mb-1 uppercase tracking-tighter">SVG Badge</p>
-            <p class="text-green-600 font-black text-2xl">+10</p>
-            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-black mt-2">Rank Points</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-5 border rounded-lg text-center">
+            <p class="font-bold text-neutral-900 mb-1 text-sm uppercase tracking-tight">SVG Badge</p>
+            <p class="text-green-600 font-bold text-2xl">+10</p>
+            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-semibold mt-1">Rank Points</p>
           </div>
-          
-          <div class="p-6 bg-white border border-blue-200/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
-               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-            </div>
-            <p class="font-black text-neutral-900 mb-1 uppercase tracking-tighter">Meta / Link</p>
-            <p class="text-blue-600 font-black text-2xl">+5</p>
-            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-black mt-2">Rank Points</p>
+
+          <div class="p-5 border rounded-lg text-center">
+            <p class="font-bold text-neutral-900 mb-1 text-sm uppercase tracking-tight">Meta / Link</p>
+            <p class="text-blue-600 font-bold text-2xl">+5</p>
+            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-semibold mt-1">Rank Points</p>
           </div>
-          
-          <div class="p-6 bg-white border border-neutral-200/50 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4 text-neutral-400">
-               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </div>
-            <p class="font-black text-neutral-900 mb-1 uppercase tracking-tighter">No Badge</p>
-            <p class="text-neutral-400 font-black text-2xl">0</p>
-            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-black mt-2">Rank Points</p>
+
+          <div class="p-5 border rounded-lg text-center">
+            <p class="font-bold text-neutral-900 mb-1 text-sm uppercase tracking-tight">No Badge</p>
+            <p class="text-neutral-400 font-bold text-2xl">0</p>
+            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-semibold mt-1">Rank Points</p>
           </div>
         </div>
       </section>
 
       <!-- CTA -->
-      <div class="text-center pt-8">
-        <a href="/submit" class="btn-primary text-lg px-12 py-5 rounded-3xl font-black">
+      <div class="text-center pt-4">
+        <a href="/submit" class="btn-minimal-primary">
           Submit Your Tool
         </a>
       </div>

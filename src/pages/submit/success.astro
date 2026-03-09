@@ -16,27 +16,14 @@ const allEmbedCodes = Object.fromEntries(
   title="Tool Submitted"
   description="Your tool has been submitted for review."
 >
-  {/* Background Elements */}
-  <div class="absolute top-0 inset-x-0 h-[32rem] pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-100/20 blur-3xl rounded-full"></div>
-    <div class="absolute top-48 -right-48 w-80 h-80 bg-blue-100/10 blur-3xl rounded-full"></div>
-  </div>
-
   <div class="max-w-4xl mx-auto px-6 py-16 sm:py-24">
     <!-- Success message -->
     <div class="text-center mb-16">
-      <div class="relative inline-block mb-8">
-        <div class="absolute inset-0 bg-green-500/20 blur-2xl rounded-full scale-125"></div>
-        <div class="relative w-24 h-24 bg-green-500 rounded-[2.5rem] flex items-center justify-center text-white shadow-xl shadow-green-200">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-      </div>
-      <h1 class="text-5xl font-black tracking-tight text-neutral-900 mb-6">
+      <span class="text-green-500 text-3xl mb-4 inline-block">&#10003;</span>
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-4">
         Submission Received!
       </h1>
-      <p class="text-xl text-neutral-500 max-w-xl mx-auto leading-relaxed">
+      <p class="text-neutral-500 max-w-xl mx-auto leading-relaxed">
         Thank you for contributing to the community. Our team will review your submission shortly.
       </p>
     </div>
@@ -44,57 +31,57 @@ const allEmbedCodes = Object.fromEntries(
     <div class="space-y-12">
       <!-- Tool page link -->
       {slug && (
-        <section class="glass-card rounded-[2.5rem] p-8 sm:p-10 border-green-100/50 bg-green-50/20">
-          <h2 class="text-xs font-black uppercase tracking-[0.2em] text-green-700/60 mb-6">Pending Tool Page</h2>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <section class="border-b pb-6 mb-6">
+          <h2 class="text-sm font-medium text-neutral-500 mb-4">Pending Tool Page</h2>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <p class="text-neutral-900 font-bold text-lg mb-1">Preview your listing</p>
-              <a href={`/tool/${slug}`} class="text-blue-600 font-bold hover:underline break-all">{siteUrl}/tool/{slug}</a>
+              <p class="text-neutral-900 font-bold mb-1">Preview your listing</p>
+              <a href={`/tool/${slug}`} class="text-blue-600 hover:underline break-all">{siteUrl}/tool/{slug}</a>
             </div>
-            <a href={`/tool/${slug}`} class="btn-secondary bg-white whitespace-nowrap">View Page</a>
+            <a href={`/tool/${slug}`} class="text-blue-600 hover:underline whitespace-nowrap">View Page &rarr;</a>
           </div>
-          <p class="text-xs text-neutral-400 mt-6 font-medium italic">
+          <p class="text-xs text-neutral-400 mt-4">
             Note: The tool will only appear in the public directory and search results after it has been approved.
           </p>
         </section>
       )}
 
       <!-- Badge integration guide -->
-      <section class="glass-card rounded-[3rem] p-8 sm:p-12">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-black text-neutral-900 mb-4">Get the Badge Ready</h2>
-          <p class="text-neutral-500 max-w-xl mx-auto font-medium">
-            While you wait for approval, you can prepare the verification badge for your website. 
+      <section class="border-t pt-8">
+        <div class="text-center mb-10">
+          <h2 class="text-xl font-bold text-neutral-900 mb-3">Get the Badge Ready</h2>
+          <p class="text-neutral-500 max-w-xl mx-auto">
+            While you wait for approval, you can prepare the verification badge for your website.
             Tools that display the badge receive higher visibility.
           </p>
         </div>
 
         <!-- Badge Style Selector -->
-        <div class="mb-12">
-          <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 mb-8 text-center">Select Your Preferred Style</h3>
-          <div class="space-y-10">
+        <div class="mb-10">
+          <h3 class="text-sm font-medium text-neutral-500 mb-6 text-center">Select Your Preferred Style</h3>
+          <div class="space-y-8">
             {BADGE_GROUPS.map((group) => {
               const groupStyles = BADGE_STYLES.filter((s) => s.group === group.id);
               const isDark = group.id === 'dark';
               return groupStyles.length > 0 && (
                 <div>
-                  <p class="text-[10px] font-black text-neutral-300 mb-4 uppercase tracking-[0.2em] text-center">{group.label}</p>
+                  <p class="text-sm font-medium text-neutral-500 mb-3 text-center">{group.label}</p>
                   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {groupStyles.map((style) => (
                       <button
                         class:list={[
-                          'badge-style-btn flex flex-col items-center justify-center gap-4 p-5 rounded-2xl border transition-all duration-300 cursor-pointer shadow-sm active:scale-95',
-                          isDark ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-100',
+                          'badge-style-btn flex flex-col items-center justify-center gap-3 p-3 rounded border transition-all duration-200 cursor-pointer',
+                          isDark ? 'bg-neutral-900 border-neutral-800' : 'bg-white border-neutral-200',
                           style.id === 'flat'
-                            ? 'ring-2 ring-green-500 border-transparent shadow-lg shadow-green-100'
-                            : 'hover:border-neutral-300 hover:shadow-md',
+                            ? 'ring-2 ring-green-500 border-transparent'
+                            : 'hover:border-neutral-300',
                         ]}
                         data-style={style.id}
                         data-badge-path={style.path}
                         data-dark={isDark ? 'true' : undefined}
                       >
                         <img src={style.path} alt={style.label} class="h-6" />
-                        <span class:list={['text-[10px] font-black uppercase tracking-widest', isDark ? 'text-neutral-500' : 'text-neutral-400']}>{style.label}</span>
+                        <span class:list={['text-xs text-neutral-400', isDark ? 'text-neutral-500' : '']}>{style.label}</span>
                       </button>
                     ))}
                   </div>
@@ -108,36 +95,35 @@ const allEmbedCodes = Object.fromEntries(
           <!-- SVG Badge -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <h3 class="text-xs font-black uppercase tracking-widest text-neutral-400">SVG Badge</h3>
-              <button class="copy-btn text-xs font-black text-green-600 hover:text-green-700 px-3 py-1 rounded-lg bg-green-50 transition-colors" data-code="svg">Copy</button>
+              <h3 class="text-sm font-medium text-neutral-500">SVG Badge</h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="svg">Copy</button>
             </div>
-            <div class="p-6 bg-white border border-neutral-100 rounded-3xl shadow-inner flex justify-center mb-4">
+            <div class="p-4 bg-white border border-neutral-200 rounded flex justify-center mb-3">
               <img id="badge-preview" src="/badges/flat.svg" alt="NoLogin Verified" class="h-10" />
             </div>
-            <pre id="code-svg" class="bg-neutral-900 text-neutral-400 p-6 rounded-3xl text-[11px] font-mono overflow-x-auto border-4 border-neutral-800"><code>{embedCode.svg}</code></pre>
+            <pre id="code-svg" class="bg-neutral-900 text-neutral-400 p-4 rounded text-[11px] font-mono overflow-x-auto"><code>{embedCode.svg}</code></pre>
           </div>
 
           <!-- Meta tag -->
           <div class="space-y-3">
              <div class="flex items-center justify-between">
-              <h3 class="text-xs font-black uppercase tracking-widest text-neutral-400">Meta Tag</h3>
-              <button class="copy-btn text-xs font-black text-green-600 hover:text-green-700 px-3 py-1 rounded-lg bg-green-50 transition-colors" data-code="meta">Copy</button>
+              <h3 class="text-sm font-medium text-neutral-500">Meta Tag</h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="meta">Copy</button>
             </div>
-            <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-6 rounded-3xl text-[11px] font-mono overflow-x-auto border-4 border-neutral-800"><code>{embedCode.meta}</code></pre>
+            <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-4 rounded text-[11px] font-mono overflow-x-auto"><code>{embedCode.meta}</code></pre>
           </div>
         </div>
       </section>
 
       <div class="text-center pt-8">
-        <a href="/" class="btn-primary px-12 py-5 rounded-3xl font-black shadow-xl shadow-green-100">
+        <a href="/" class="btn-minimal-primary">
           Back to Directory
         </a>
       </div>
     </div>
   </div>
 
-    <script id="embed-codes-data" type="application/json" set:html={JSON.stringify(allEmbedCodes)} />
-  </div>
+  <script id="embed-codes-data" type="application/json" set:html={JSON.stringify(allEmbedCodes)} />
 
   <script>
     // Badge style switching
@@ -163,16 +149,15 @@ const allEmbedCodes = Object.fromEntries(
           const el = b as HTMLElement;
           const isDark = el.dataset.dark === 'true';
           if (el.dataset.style === style) {
-            el.classList.add('ring-2', 'ring-green-500', 'border-transparent', 'shadow-lg', 'shadow-green-100');
-            el.classList.remove('border-neutral-200', 'border-neutral-100', 'border-neutral-800', 'hover:border-neutral-300', 'hover:shadow-md');
-            if (!isDark) el.classList.add('bg-green-50');
+            el.classList.add('ring-2', 'ring-green-500', 'border-transparent');
+            el.classList.remove('border-neutral-200', 'border-neutral-800', 'hover:border-neutral-300');
           } else {
-            el.classList.remove('ring-2', 'ring-green-500', 'border-transparent', 'shadow-lg', 'shadow-green-100', 'bg-green-50');
-            el.classList.add('hover:border-neutral-300', 'hover:shadow-md');
+            el.classList.remove('ring-2', 'ring-green-500', 'border-transparent');
+            el.classList.add('hover:border-neutral-300');
             if (isDark) {
               el.classList.add('border-neutral-800');
             } else {
-              el.classList.add('border-neutral-100');
+              el.classList.add('border-neutral-200');
             }
           }
         });

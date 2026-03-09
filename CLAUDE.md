@@ -108,8 +108,8 @@ workers/cron/             # Health checks, badge detection, data export
   - Embed code `<img>` tags include `title="Verified by NoLoginTools.org"` for native browser hover tooltip
 - **API responses**: `{ ok: true, data: ... }` or `{ ok: false, error: "...", details: {...} }`
 - **Badge page tabs**: `/badge/[slug]` uses `bare` layout (no Header/Footer) for a standalone certificate feel. Two tabs — "Verification" (default) and "Embed Code" (`#embed` hash). Tab switching is client-side vanilla JS with `hidden` class toggle.
-  - **Verification tab** uses a certificate-style layout: small `flat.svg` brand link at top → 72×72 shield SVG hero (green checkmark for approved, amber clock for pending) + "by nologin.tools" attribution → `<dl>`-based Certificate Details card with colored border (green/amber) → 2×2 Trust Signals grid (Manually Reviewed, No Login Required, Continuously Monitored, Web Archived) → action buttons → attribution line
-  - **Embed Code tab** includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-800` preview background.
+  - **Verification tab** uses a certificate-style layout: brand link at top → shield SVG hero (green checkmark for approved, amber clock for pending) + "by nologin.tools" attribution → Certificate Details card with `bg-white border rounded-lg` → 2×2 Trust Signals grid → action buttons → attribution line. No glass-card, no blur glow, no gradients.
+  - **Embed Code tab** includes a grouped style selector (Standard/Social/Dark/Color) for badge variants. Dark cards use `bg-neutral-900` preview background.
 - **Admin auth**: Query param `?secret=ADMIN_SECRET`
 - **Admin dashboard**: Tab-based SPA at `/admin?secret=...` with URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export` / `#github`):
   - **Dashboard**: Stats overview (total/approved/pending/unstable/offline/featured) + recent submissions table
@@ -199,9 +199,9 @@ wrangler secret put ARCHIVE_ORG_SECRET_KEY
 7 tables: `tools` (main), `tags` (key:value), `health_checks` (periodic), `badge_displays` (detection results), `edit_suggestions` (wiki mode), `data_exports` (export history), `github_notifications` (issue tracking).
 
 - `tools.submitter_email`: Optional contact email from the submitter. Only displayed on the admin review page (not public). Validated as a proper email format (max 254 chars) when provided.
-- **Social links** (all optional): `tools.twitter_url`, `tools.github_url`, `tools.discord_url` — validated on submit (twitter.com/x.com, github.com, discord.gg/discord.com). Displayed as icon buttons on tool detail page and as text links in admin dashboard.
+- **Social links** (all optional): `tools.twitter_url`, `tools.github_url`, `tools.discord_url` — validated on submit (twitter.com/x.com, github.com, discord.gg/discord.com). Displayed as plain text links on tool detail page and in admin dashboard.
 - **Repository URL**: `tools.repo_url` — GitHub repo URL (e.g. `https://github.com/owner/repo`). When set, auto-adds `source:Open Source` tag. Triggers async GitHub API fetch for repo metadata.
-- **GitHub cached data**: `tools.github_stars`, `tools.github_forks`, `tools.github_license`, `tools.github_language`, `tools.github_updated_at`, `tools.github_fetched_at` — fetched from GitHub REST API (unauthenticated, 60 req/hr) via `src/lib/github.ts` `fetchGitHubRepoData()`. Updated on submit/resubmit and when admin clicks "Refresh GitHub Data". Displayed in a sidebar card on tool detail page.
+- **GitHub cached data**: `tools.github_stars`, `tools.github_forks`, `tools.github_license`, `tools.github_language`, `tools.github_updated_at`, `tools.github_fetched_at` — fetched from GitHub REST API (unauthenticated, 60 req/hr) via `src/lib/github.ts` `fetchGitHubRepoData()`. Updated on submit/resubmit and when admin clicks "Refresh GitHub Data". Displayed as inline text on tool detail page.
 - **GitHub notifications**: `github_notifications` table tracks Issue-based badge notifications sent to tool repos. One record per tool (`tool_id` UNIQUE), idempotent design — `status` is `created` (issue sent), `error` (failed, retryable), or `closed`. Stores `issue_url`, `issue_number`, `error_message`. Cascade-deletes with tool.
 
 ## Recommendation Score
@@ -212,14 +212,20 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 
 ## Design System
 
+- **Overall style**: Minimalist, text-first. No glass-card, no shadows, no gradients, no animations on public pages. Admin pages retain the modern SaaS style.
 - Colors: white bg, neutral-950 text, green-500 verified/online, amber-500 pending/unstable, red-500 offline
 - Font: system font stack
-- Max width: 4xl (896px) for homepage list, 6xl (1152px) for other pages
+- Max width: **4xl (896px)** for all public pages (homepage, tool detail, submit, about, badge, 404). Admin uses 6xl.
+- **Public page buttons**: `.btn-minimal` (text link with underline), `.btn-minimal-primary` (simple green solid, no shadow/hover-lift). Admin pages keep `.btn-primary` / `.btn-secondary` / `.btn-danger`.
+- **Public page sections**: Use `border-b pb-6 mb-6` or `border-t pt-8` dividers instead of cards. No `glass-card` on public pages.
+- **Tool detail page**: Single-column layout, inline favicon (w-6 h-6) next to title, plain text social links, comma-separated tags, `border-l-2 border-green-500` for core task, health/github/badge info below main content.
+- **Header**: Plain `bg-white border-b`, compact height (`h-14 sm:h-16`), no backdrop-blur, no shadow. Submit button is a simple bordered link.
+- **Footer**: `max-w-4xl`, `mt-10 py-6`, minimal text.
 - **Homepage list styles**: `.tool-item` (flex row, hover bg-neutral-50, border-bottom), `.category-heading` (bold, border-b-2 separator)
-- **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker)
+- **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker). Chips are used in TagPicker and admin; tool detail page uses plain text for tags.
 - **TagPicker**: Uses checkboxes for all dimensions; single-select enforced via JS (allows deselect). Wrapper has `.tag-picker-container` for multi-instance isolation. Labels carry `data-tag-group` and `data-multi-select` attributes.
-- **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables)
-- **Spotlight Carousel** (kept in CSS for potential reuse): `.spotlight-track`, `.spotlight-slide`, `.spotlight-slide-active`, `.spotlight-slide-exit`, `.spotlight-slide-enter-right` / `.spotlight-slide-enter-left`, `.spotlight-dot` / `.spotlight-dot-active`
+- **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables). Admin retains `glass-card`, `btn-primary`, `btn-secondary`, `btn-danger`.
+- **Spotlight Carousel** (deprecated, kept in CSS for potential reuse): `.spotlight-track`, `.spotlight-slide`, `.spotlight-slide-active`, `.spotlight-slide-exit`, `.spotlight-slide-enter-right` / `.spotlight-slide-enter-left`, `.spotlight-dot` / `.spotlight-dot-active`
 
 ## CI/CD
 
