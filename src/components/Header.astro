@@ -3,28 +3,24 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="sticky top-0 z-50 bg-white border-b border-neutral-200">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-    <div class="flex items-center gap-4 sm:gap-12">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-7 h-7 bg-green-600 rounded-lg flex items-center justify-center text-white font-black text-lg">
-          n
-        </div>
-        <span class="font-black text-lg sm:text-xl tracking-tight text-neutral-900">
-          nologin<span class="text-green-600">.</span>tools
-        </span>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
+    <div class="flex items-center gap-6">
+      <a href="/" class="font-bold text-base sm:text-lg tracking-tight text-neutral-900">
+        nologin<span class="text-green-600">.</span>tools
       </a>
-      <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+      <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
         {[
           { label: 'Tools', path: '/' },
           { label: 'Badge', path: '/badge' },
           { label: 'About', path: '/about' },
+          { label: 'Submit', path: '/submit' },
         ].map((item) => {
           const isActive = item.path === '/' ? currentPath === '/' : currentPath.startsWith(item.path);
           return (
             <a
               href={item.path}
               class:list={[
-                'text-sm font-bold transition-colors py-2',
+                'text-sm font-medium transition-colors',
                 isActive
                   ? 'text-neutral-900'
                   : 'text-neutral-400 hover:text-neutral-900',
@@ -36,30 +32,23 @@ const currentPath = Astro.url.pathname;
         })}
       </nav>
     </div>
-    <div class="flex items-center gap-4">
-      {currentPath !== '/submit' && (
-        <a href="/submit" class="border border-neutral-300 px-3 py-1 text-sm font-medium text-neutral-700 rounded hover:border-neutral-400 transition-colors">
-          Submit Tool
-        </a>
-      )}
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden p-2 text-neutral-500 hover:text-neutral-950 transition-colors"
-        aria-label="Toggle menu"
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 text-neutral-500 hover:text-neutral-950 transition-colors"
+      aria-label="Toggle menu"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-        >
-          <path d="M3 12h18M3 6h18M3 18h18"></path>
-        </svg>
-      </button>
-    </div>
+        <path d="M3 12h18M3 6h18M3 18h18"></path>
+      </svg>
+    </button>
   </div>
   <nav
     id="mobile-menu"
@@ -69,7 +58,7 @@ const currentPath = Astro.url.pathname;
     <a
       href="/"
       class:list={[
-        'block text-base font-bold',
+        'block text-base font-medium',
         currentPath === '/' ? 'text-green-600' : 'text-neutral-500',
       ]}
     >
@@ -78,7 +67,7 @@ const currentPath = Astro.url.pathname;
     <a
       href="/badge"
       class:list={[
-        'block text-base font-bold',
+        'block text-base font-medium',
         currentPath.startsWith('/badge')
           ? 'text-green-600'
           : 'text-neutral-500',
@@ -89,13 +78,24 @@ const currentPath = Astro.url.pathname;
     <a
       href="/about"
       class:list={[
-        'block text-base font-bold',
+        'block text-base font-medium',
         currentPath === '/about'
           ? 'text-green-600'
           : 'text-neutral-500',
       ]}
     >
       About
+    </a>
+    <a
+      href="/submit"
+      class:list={[
+        'block text-base font-medium',
+        currentPath === '/submit'
+          ? 'text-green-600'
+          : 'text-neutral-500',
+      ]}
+    >
+      Submit
     </a>
   </nav>
 </header>

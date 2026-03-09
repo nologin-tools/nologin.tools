@@ -5,7 +5,7 @@ A curated directory of privacy-friendly tools that work without login.
 ## Organization Identity
 
 Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTools.org** is the organization identity (like Let's Encrypt by ISRG).
-- **nologin.tools** appears in: Header logo, page titles, SEO, product references
+- **nologin.tools** appears in: Header brand text, page titles, SEO, product references
 - **NoLoginTools.org** appears in: Footer attribution, About page, badge certificate issuer, badge/embed `title` attributes, SVG `aria-label`/`<title>`
 - Badge embed `<img>` tags use `title="Verified by NoLoginTools.org"`
 - All SVG badges use `aria-label="Verified by NoLoginTools.org"` and `<title>Verified by NoLoginTools.org</title>`
@@ -32,7 +32,7 @@ src/
 ├── db/schema.ts          # Drizzle tables: tools, tags, health_checks, badge_displays, edit_suggestions, data_exports
 ├── db/index.ts           # getDb(d1) helper (used only by SSR pages/API)
 ├── lib/                  # Utilities: api, archive, badge, github, health, tags, utils
-├── layouts/Layout.astro  # Base layout with SEO meta; `bare` prop hides Header/Footer
+├── layouts/Layout.astro  # Base layout with SEO meta; `bare` hides Header/Footer, `hideHeader` hides Header only
 ├── components/
 │   ├── ToolDetailPage.astro  # Shared tool detail renderer (used by static + SSR)
 │   ├── BadgeDetailPage.astro # Shared badge detail renderer (used by static + SSR)
@@ -59,7 +59,7 @@ workers/cron/             # Health checks, badge detection, data export
 
 | Page | Mode | Data Source |
 |------|------|-------------|
-| `/` (homepage) | Static | `loader.ts` (build data), no client-side JS except bookmark hint |
+| `/` (homepage) | Static | `loader.ts` (build data), no Header, no client-side JS |
 | `/tool/[slug]` | Static + ISR | Known: `getStaticPaths()` / New: SSR fallback `/ssr/tool/[slug]` |
 | `/badge/[slug]` | Static + ISR | Known: `getStaticPaths()` / New: SSR fallback `/ssr/badge/[slug]` |
 | `/sitemap.xml` | Static | `loader.ts` (build data) |
@@ -75,12 +75,12 @@ workers/cron/             # Health checks, badge detection, data export
   - 7 tag dimensions: `category` (single-select, first in TAG_DEFINITIONS, 11 values), `data`, `privacy`, `type`, `hosting`, `offline`, `pricing`
   - `source` tag is auto-derived: if `repo_url` is set, `source:Open Source` is automatically added during submit/resubmit/tool-update (not in TAG_DEFINITIONS, but still stored in tags table for backward compatibility)
   - `category` tags use blue chip styling (`.chip-category`), displayed value-only (no `category:` prefix)
-- **Homepage**: Minimalist list-style single page (Hacker News-inspired). All tools displayed on one page, no search, no pagination, no cards. Grouped by category per `TAG_DEFINITIONS` order, each group sorted by recommendation score descending. Tools without a category go to "Other" group at the end.
-  - **Hero**: Simple title (`nologin.tools`), tagline, stats line (`X verified tools across Y categories`), bookmark hint (`Ctrl+D` / `⌘+D` on Mac, detected via JS `navigator.platform`).
+- **Homepage**: Minimalist list-style single page (Hacker News-inspired), **no Header** (`hideHeader` prop on Layout). All tools displayed on one page, no search, no pagination, no cards. Grouped by category per `TAG_DEFINITIONS` order, each group sorted by recommendation score descending. Tools without a category go to "Other" group at the end.
+  - **Hero**: Simple title (`nologin.tools`), tagline, then a combined stats+nav line (`X verified tools · Submit · Badge · About`). No bookmark hint, no client-side JS.
   - **Category navigation**: Inline anchor links (`AI · Design · Writing · ...`) at top, scroll to `#cat-{name}` sections.
   - **Tool list item** (`.tool-item`): Single line per tool — 16px favicon + ★ (featured only, gold) + bold name (link to `/tool/[slug]`) + `—` hostname (external link) + `—` description + right-aligned health status (`✓ Online` / `⚠ Unstable` / `✗ Offline`). Mobile: name+hostname on first line, description wraps to second line.
   - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
-  - No client-side JS except Mac/Win bookmark hint detection (few lines in IIFE).
+  - No client-side JS on homepage.
 - **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to hiding on error via inline `onerror`. Used on homepage list and ToolCard component.
 - **Featured tools**: Admin can mark approved tools as "featured" for higher visibility:
   - `POST /api/admin/tool-feature` — toggle `isFeatured` + `featuredAt` (only approved tools)
@@ -219,7 +219,7 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 - **Public page buttons**: `.btn-minimal` (text link with underline), `.btn-minimal-primary` (simple green solid, no shadow/hover-lift). Admin pages keep `.btn-primary` / `.btn-secondary` / `.btn-danger`.
 - **Public page sections**: Use `border-b pb-6 mb-6` or `border-t pt-8` dividers instead of cards. No `glass-card` on public pages.
 - **Tool detail page**: Single-column layout, inline favicon (w-6 h-6) next to title, plain text social links, comma-separated tags, `border-l-2 border-green-500` for core task, health/github/badge info below main content.
-- **Header**: Plain `bg-white border-b`, compact height (`h-14 sm:h-16`), no backdrop-blur, no shadow. Submit button is a simple bordered link.
+- **Header**: Plain `bg-white border-b`, compact `h-12`, no backdrop-blur, no shadow, no logo block (text-only brand name). Submit is a plain text nav link (same level as Tools/Badge/About), no bordered button. Font weights: `font-bold` brand, `font-medium` nav links.
 - **Footer**: `max-w-4xl`, `mt-10 py-6`, minimal text.
 - **Homepage list styles**: `.tool-item` (flex row, hover bg-neutral-50, border-bottom), `.category-heading` (bold, border-b-2 separator)
 - **Chip variants**: `.chip` (base), `.chip-default` / `.chip-active` (states), `.chip-category` (blue), `.chip-toggle` (interactive form variant with check icon, used in TagPicker). Chips are used in TagPicker and admin; tool detail page uses plain text for tags.

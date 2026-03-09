@@ -59,6 +59,7 @@ function catAnchor(cat: string): string {
 <Layout
   title="Privacy-Friendly Tools Without Login"
   description="Discover curated privacy-friendly tools that work without login or signup. Browse verified tools across design, development, productivity, and more."
+  hideHeader
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -77,11 +78,14 @@ function catAnchor(cat: string): string {
     <div class="mb-10 sm:mb-14">
       <h1 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">nologin.tools</h1>
       <p class="text-neutral-500 mb-3">Privacy-friendly tools. No login required.</p>
-      <p class="text-sm text-neutral-400 mb-3">
-        {totalTools} verified tools across {totalCategories} categories
-      </p>
-      <p class="text-xs text-neutral-400" id="bookmark-hint">
-        <span class="text-neutral-500">⌨</span> Press <kbd class="px-1.5 py-0.5 bg-neutral-100 border border-neutral-200 rounded text-[11px] font-mono" id="bookmark-key">Ctrl+D</kbd> to bookmark this page
+      <p class="text-sm text-neutral-400">
+        {totalTools} verified tools
+        <span class="text-neutral-300 mx-0.5">·</span>
+        <a href="/submit" class="text-neutral-500 hover:text-neutral-900 transition-colors">Submit</a>
+        <span class="text-neutral-300 mx-0.5">·</span>
+        <a href="/badge" class="text-neutral-500 hover:text-neutral-900 transition-colors">Badge</a>
+        <span class="text-neutral-300 mx-0.5">·</span>
+        <a href="/about" class="text-neutral-500 hover:text-neutral-900 transition-colors">About</a>
       </p>
     </div>
 
@@ -167,14 +171,4 @@ function catAnchor(cat: string): string {
     </div>
   </div>
 
-  <script is:inline>
-    // Detect Mac for bookmark shortcut hint
-    (function() {
-      var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || '') || /Macintosh/.test(navigator.userAgent || '');
-      if (isMac) {
-        var keyEl = document.getElementById('bookmark-key');
-        if (keyEl) keyEl.textContent = '⌘+D';
-      }
-    })();
-  </script>
 </Layout>

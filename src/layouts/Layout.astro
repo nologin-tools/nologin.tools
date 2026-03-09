@@ -10,6 +10,7 @@ interface Props {
   ogImage?: string;
   ogImagePath?: string;
   bare?: boolean;
+  hideHeader?: boolean;
   canonicalOverride?: string;
   publishedTime?: string;
 }
@@ -21,6 +22,7 @@ const {
   ogImage = '/og-default.png',
   ogImagePath,
   bare = false,
+  hideHeader = false,
   canonicalOverride,
   publishedTime,
 } = Astro.props;
@@ -70,7 +72,7 @@ const ogImageHeight = ogImagePath ? 630 : 630;
     <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body>
-    {!bare && <Header />}
+    {!bare && !hideHeader && <Header />}
     <main>
       <slot />
     </main>
