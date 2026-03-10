@@ -27,7 +27,7 @@ jobs:
 
       - name: Create PR and enable auto-merge
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           # Find the branch Claude pushed
