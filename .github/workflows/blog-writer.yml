@@ -1,0 +1,40 @@
+name: Blog Writer
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  write-blog:
+    if: contains(toJSON(github.event.issue.labels), '"auto-blog"')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Write blog post
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          allowed_tools: |
+            Bash(git:*)
+            Bash(curl:*)
+            Bash(mkdir:*)
+            Bash(gh:*)
+            Bash(date:*)
+            Bash(wc:*)
+            Write
+            Read
+            Edit
+            Glob
+            Grep
+            WebSearch
+            WebFetch
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
