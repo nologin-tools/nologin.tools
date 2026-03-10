@@ -18,6 +18,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Configure git author
+        run: |
+          git config user.name "blog-bot"
+          git config user.email "blog-bot@nologin.tools"
+
       - name: Write blog post
         uses: anthropics/claude-code-action@v1
         with:
