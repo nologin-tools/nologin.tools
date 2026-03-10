@@ -37,7 +37,7 @@ jobs:
 
       - name: Create Issue for Claude
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
         run: |
           gh issue create \
             --title "${{ steps.prep.outputs.title }}" \
