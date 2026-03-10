@@ -327,14 +327,9 @@ Then add the image right after frontmatter:
 \`\`\`
 If Unsplash API is unavailable (no API key or error), skip the image — the post is still valid without one.
 
-### Publish steps
-1. Create branch: \`blog/${today}-{slug}\`
-2. \`git add src/content/blog/{slug}.md public/blog/images/\` (if image exists)
-3. \`git commit -m "feat(blog): add post — {title}"\`
-4. \`git push origin blog/${today}-{slug}\`
-5. \`gh pr create --title "Blog: {title}" --label "auto-blog" --base main\`
-6. \`gh pr merge --auto --squash\`
-7. Close this issue with a comment summarizing what was written
+### After writing
+Just commit and push your changes. The CI workflow will automatically create a PR and enable auto-merge.
+Do NOT run \`gh pr create\` or \`gh pr merge\` — that is handled by the workflow.
 `;
 }
 
