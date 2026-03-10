@@ -1,0 +1,47 @@
+---
+import { getAllTools } from '../../../data/loader';
+import BadgeDetailPage from '../../../components/BadgeDetailPage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  const tools = getAllTools();
+  return LOCALES.filter(l => l !== DEFAULT_LOCALE).flatMap(lang =>
+    tools.map(tool => ({
+      params: { lang, slug: tool.slug },
+      props: { tool, locale: lang as Locale },
+    }))
+  );
+}
+
+const { tool, locale } = Astro.props;
+const siteUrl = import.meta.env.SITE || 'https://nologin.tools';
+
+const toolData = {
+  id: tool.id,
+  slug: tool.slug,
+  name: tool.name,
+  url: tool.url,
+  coreTask: tool.coreTask,
+  status: tool.status,
+  approvedAt: tool.approvedAt,
+};
+
+const toolTags = tool.tags.map((t: any) => ({
+  tagKey: t.tagKey,
+  tagValue: t.tagValue,
+}));
+
+const latestHealthRaw = tool.healthChecks[0] ?? null;
+const latestHealth = latestHealthRaw
+  ? { isOnline: latestHealthRaw.isOnline, checkedAt: new Date(latestHealthRaw.checkedAt) }
+  : null;
+---
+
+<BadgeDetailPage
+  tool={toolData}
+  toolTags={toolTags}
+  latestHealth={latestHealth}
+  slug={tool.slug}
+  siteUrl={siteUrl}
+  locale={locale}
+/>

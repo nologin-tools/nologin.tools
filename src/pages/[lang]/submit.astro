@@ -1,0 +1,12 @@
+---
+import SubmitPage from '../../components/SubmitPage.astro';
+import { LOCALES, DEFAULT_LOCALE } from '../../i18n/config';
+
+export function getStaticPaths() {
+  return LOCALES.filter(l => l !== DEFAULT_LOCALE).map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+---
+
+<SubmitPage locale={lang} />
