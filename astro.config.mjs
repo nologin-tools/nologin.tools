@@ -12,6 +12,13 @@ export default defineConfig({
       configPath: 'wrangler.jsonc',
     },
   }),
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh', 'ja', 'ko', 'es', 'fr', 'de', 'pt'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
