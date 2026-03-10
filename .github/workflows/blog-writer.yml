@@ -2,11 +2,7 @@ name: Blog Writer
 
 on:
   issues:
-    types: [opened, labeled]
-
-concurrency:
-  group: blog-writer-${{ github.event.issue.number }}
-  cancel-in-progress: true
+    types: [opened]
 
 jobs:
   write-blog:
