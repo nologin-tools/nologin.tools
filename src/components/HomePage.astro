@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { TAG_DEFINITIONS } from '../lib/tags';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore } from '../data/loader';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+await loadTranslations(locale);
+
+const approvedTools = getApprovedTools();
+
+const toolsWithMeta = approvedTools.map(tool => {
+  const health = getToolHealthStatus(tool);
+  const score = computeToolScore(tool, health);
+  return { ...tool, health, score };
+});
+
+const allTools = [...toolsWithMeta].sort((a, b) => b.score - a.score);
+
+// Group tools by category
+const categoryDef = TAG_DEFINITIONS.find(d => d.key === 'category');
+const categoryOrder = categoryDef ? categoryDef.values : [];
+type ToolType = (typeof allTools)[number];
+const groupMap = new Map<string, ToolType[]>();
+for (const cat of categoryOrder) groupMap.set(cat, []);
+
+for (const tool of allTools) {
+  const catTag = tool.tags.find(t => t.tagKey === 'category');
+  const cat = catTag ? catTag.tagValue : 'Other';
+  if (!groupMap.has(cat)) groupMap.set(cat, []);
+  groupMap.get(cat)!.push(tool);
+}
+
+const categoryGroups: { category: string; tools: ToolType[] }[] = [];
+for (const cat of categoryOrder) {
+  const catTools = groupMap.get(cat) || [];
+  if (catTools.length > 0) categoryGroups.push({ category: cat, tools: catTools });
+}
+const otherGroupTools = groupMap.get('Other') || [];
+if (otherGroupTools.length > 0) categoryGroups.push({ category: 'Other', tools: otherGroupTools });
+
+const totalTools = allTools.length;
+
+function getHostname(url: string): string {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+}
+
+function catAnchor(cat: string): string {
+  return 'cat-' + cat.toLowerCase().replace(/\s+/g, '-');
+}
+
+function translateCategory(cat: string): string {
+  const key = `tag.category.${cat}`;
+  const translated = t(locale, key);
+  return translated === key ? cat : translated;
+}
+---
+
+<Layout
+  title={t(locale, 'home.title')}
+  description={t(locale, 'home.description')}
+  hideHeader
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "nologin.tools",
+    "url": "https://nologin.tools",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://nologin.tools/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": t(locale, 'home.jsonLd.itemListName'),
+    "numberOfItems": allTools.length,
+    "itemListElement": allTools.map((tool, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": tool.name,
+      "url": `https://nologin.tools/tool/${tool.slug}`,
+    })),
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NoLoginTools.org",
+    "url": "https://nologintools.org",
+    "logo": "https://nologin.tools/og-default.png",
+    "description": t(locale, 'home.jsonLd.orgDescription'),
+    "sameAs": [
+      "https://x.com/nologin_tools",
+      "https://github.com/nologin-tools",
+    ],
+  })} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <!-- Hero -->
+    <header class="mb-16 border-b-4 border-neutral-900 pb-8">
+      <div class="flex items-start justify-between">
+        <h1 class="text-4xl sm:text-5xl font-black text-neutral-900 mb-4 tracking-tight uppercase italic">
+          nologin.tools
+        </h1>
+        <LanguageSwitcher locale={locale} />
+      </div>
+      <p class="text-xl text-neutral-700 font-medium mb-6">
+        {t(locale, 'home.tagline')} <span class="bg-yellow-200 px-1">{t(locale, 'home.taglineHighlight')}</span>
+      </p>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-retro-mono font-bold uppercase tracking-wider items-center">
+        <span class="text-neutral-500">{t(locale, 'home.toolsVerified', { count: totalTools })}</span>
+        <a href={getLocalizedPath('/submit', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.submit')}</a>
+        <a href={getLocalizedPath('/blog', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.blog')}</a>
+        <a href={getLocalizedPath('/badge', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.badge')}</a>
+        <a href={getLocalizedPath('/about', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.about')}</a>
+
+        <button id="bookmark-btn" class="hidden sm:inline-flex items-center gap-2 px-2 py-1 bg-yellow-300 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-[11px] font-black uppercase tracking-tight hover:bg-yellow-400 transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none ml-2 cursor-pointer">
+          <span class="text-sm">★</span>
+          <span>{t(locale, 'nav.bookmark')} <span id="bookmark-key" class="bg-white/50 px-1 rounded">Ctrl+D</span></span>
+        </button>
+      </div>
+    </header>
+
+    <script define:vars={{ bookmarkAlert: t(locale, 'nav.bookmarkAlert', { shortcut: '{shortcut}' }) }}>
+      const bookmarkKey = document.getElementById('bookmark-key');
+      const bookmarkBtn = document.getElementById('bookmark-btn');
+
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      if (bookmarkKey) {
+        bookmarkKey.textContent = isMac ? '⌘+D' : 'Ctrl+D';
+      }
+
+      bookmarkBtn?.addEventListener('click', () => {
+        const shortcut = isMac ? 'Command/Cmd + D' : 'Control/Ctrl + D';
+        alert(bookmarkAlert.replace('{shortcut}', shortcut));
+      });
+    </script>
+
+    <!-- Category Navigation -->
+    <nav class="mb-16 text-sm text-retro-mono" aria-label="Category navigation">
+      <div class="flex flex-wrap gap-x-3 gap-y-2">
+        {categoryGroups.map((group) => (
+          <a
+            href={`#${catAnchor(group.category)}`}
+            class="px-2 py-1 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase font-bold"
+          >
+            {translateCategory(group.category)}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Tool Lists by Category -->
+    <div class="space-y-16">
+      {categoryGroups.map((group) => (
+        <section id={catAnchor(group.category)} class="scroll-mt-10">
+          <h2 class="category-heading uppercase">
+            {translateCategory(group.category)} <span class="ml-2 text-sm font-normal text-neutral-400">[{group.tools.length}]</span>
+          </h2>
+          <ul class="mt-4">
+            {group.tools.map((tool) => {
+              const hostname = getHostname(tool.url);
+              return (
+                <li class="tool-item group">
+                  <div class="flex items-start gap-3 min-w-0 flex-1">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
+                      alt=""
+                      width="16"
+                      height="16"
+                      class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
+                      loading="lazy"
+                      onerror={`this.style.display='none'`}
+                    />
+                    <div class="min-w-0 flex flex-col flex-1">
+                      <div class="flex items-center gap-2 min-w-0">
+                        {tool.isFeatured && (
+                          <span class="text-yellow-600 shrink-0 text-xs" title={t(locale, 'common.featured')}>★</span>
+                        )}
+                        <a
+                          href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                          class="font-bold text-lg text-neutral-900 hover:underline decoration-2 underline-offset-4"
+                        >
+                          {tool.name}
+                        </a>
+                        <a
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-neutral-400 hover:text-neutral-600 text-xs font-mono transition-colors hidden sm:inline"
+                        >
+                          ({hostname})
+                        </a>
+                      </div>
+                      {tool.description && (
+                        <p class="text-neutral-600 text-sm">
+                          {tool.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+
+</Layout>

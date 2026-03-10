@@ -1,39 +1,46 @@
 ---
 import { timeAgo } from '../lib/utils';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { t, loadTranslations } from '../i18n/utils';
 import type { EffectiveStatus } from '../lib/health';
 
 interface Props {
-  status: EffectiveStatus | null;
+  status?: EffectiveStatus | null;
+  isOnline?: boolean | null;
   lastCheckedAt: Date | null;
+  locale?: Locale;
 }
 
-const { status, lastCheckedAt } = Astro.props;
+const { status, isOnline, lastCheckedAt, locale = DEFAULT_LOCALE } = Astro.props;
+await loadTranslations(locale);
+
+// Support both status-based and isOnline-based usage
+const effectiveStatus = status !== undefined ? status : (isOnline === null ? null : isOnline ? 'online' : 'offline');
 ---
 
 {
-  status === null ? (
+  effectiveStatus === null ? (
     <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold text-neutral-400">
       <span class="w-2 h-2 border border-neutral-300" />
-      No checks
+      {t(locale, 'health.noChecks')}
     </span>
-  ) : status === 'online' ? (
+  ) : effectiveStatus === 'online' ? (
     <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-green-700">
       <span class="w-2 h-2 bg-green-500 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" />
-      Online
+      {t(locale, 'health.online')}
       {lastCheckedAt && <span class="text-neutral-400 font-mono tracking-tighter">&middot; {timeAgo(lastCheckedAt)}</span>}
     </span>
-  ) : status === 'unstable' ? (
+  ) : effectiveStatus === 'unstable' ? (
     <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-amber-700">
       <span class="w-2 h-2 bg-amber-400 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" />
-      Unstable
+      {t(locale, 'health.unstable')}
       {lastCheckedAt && <span class="text-neutral-400 font-mono tracking-tighter">&middot; {timeAgo(lastCheckedAt)}</span>}
     </span>
   ) : (
     <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-red-700">
       <span class="w-2 h-2 bg-red-500 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" />
-      Offline
+      {t(locale, 'health.offline')}
       {lastCheckedAt && <span class="text-neutral-400 font-mono tracking-tighter">&middot; {timeAgo(lastCheckedAt)}</span>}
     </span>
   )
 }
-

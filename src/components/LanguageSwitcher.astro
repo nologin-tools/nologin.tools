@@ -1,0 +1,45 @@
+---
+import { LOCALES, LOCALE_LABELS, DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { getPathWithoutLocale, getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const currentPath = getPathWithoutLocale(Astro.url.pathname);
+---
+
+<div class="flex flex-wrap items-center gap-1 text-xs font-bold uppercase tracking-wider text-retro-mono">
+  {LOCALES.map((l) => {
+    const href = getLocalizedPath(currentPath, l);
+    const isActive = l === locale;
+    return (
+      <a
+        href={href}
+        class:list={[
+          'px-1.5 py-0.5 transition-all',
+          isActive
+            ? 'bg-neutral-900 text-white'
+            : 'text-neutral-400 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4',
+        ]}
+        data-lang={l}
+        aria-current={isActive ? 'true' : undefined}
+      >
+        {l.toUpperCase()}
+      </a>
+    );
+  })}
+</div>
+
+<script>
+  // Set lang cookie when clicking a language link
+  document.querySelectorAll('[data-lang]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const lang = (link as HTMLElement).dataset.lang;
+      if (lang) {
+        document.cookie = `lang=${lang};path=/;max-age=31536000;SameSite=Lax`;
+      }
+    });
+  });
+</script>

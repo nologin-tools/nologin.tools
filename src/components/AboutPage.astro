@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+await loadTranslations(locale);
+---
+
+<Layout title={t(locale, 'about.title')} description={t(locale, 'about.description')} locale={locale}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+    logo: 'https://nologin.tools/og-default.png',
+    description: t(locale, 'home.jsonLd.orgDescription'),
+    sameAs: [
+      'https://x.com/nologin_tools',
+      'https://github.com/nologin-tools',
+    ],
+  })} />
+
+  <div class="max-w-4xl mx-auto px-6 py-16 sm:py-24">
+    <div class="mb-12">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-3">{t(locale, 'about.heading')}</h1>
+      <p class="text-base text-neutral-500 max-w-2xl leading-relaxed">
+        {t(locale, 'about.intro')}
+      </p>
+      <p class="text-sm text-neutral-400 mt-2">
+        {t(locale, 'about.openInitiative')} <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors font-semibold">NoLoginTools.org</a>
+      </p>
+    </div>
+
+    <section class="border-b pb-8 mb-8">
+      <h2 class="text-xl font-semibold text-neutral-900 mb-4">{t(locale, 'about.missionTitle')}</h2>
+      <div class="text-base text-neutral-600 leading-relaxed space-y-3">
+        <p>{t(locale, 'about.missionP1')}</p>
+        <p class="font-semibold text-neutral-900">{t(locale, 'about.missionP2')}</p>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-b pb-8 mb-8">
+      <section class="border rounded-lg p-6">
+        <h2 class="text-lg font-semibold text-neutral-900 mb-4">{t(locale, 'about.verificationTitle')}</h2>
+        <ul class="space-y-3">
+          {[
+            t(locale, 'about.verification1'),
+            t(locale, 'about.verification2'),
+            t(locale, 'about.verification3'),
+            t(locale, 'about.verification4'),
+          ].map(item => (
+            <li class="flex items-start gap-2 text-neutral-600 text-sm">
+              <svg class="mt-0.5 shrink-0 text-green-500" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="border rounded-lg p-6">
+        <h2 class="text-lg font-semibold text-neutral-900 mb-4">{t(locale, 'about.badgeTitle')}</h2>
+        <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+          {t(locale, 'about.badgeDesc')}
+        </p>
+        <div class="flex items-center justify-center p-4 border rounded-lg mb-4">
+           <img src="/badges/for-the-badge.svg" alt="NoLogin Verified" class="h-8" />
+        </div>
+        <a href={getLocalizedPath('/badge', locale)} class="btn-minimal">{t(locale, 'about.badgeLearnMore')} &rarr;</a>
+      </section>
+    </div>
+
+    <section class="pb-8">
+      <p class="text-base text-neutral-600 leading-relaxed">
+        {t(locale, 'about.outroP1')} <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors font-semibold">NoLoginTools.org</a>. {t(locale, 'about.outroP2')}
+        <a href="https://github.com/nologin-tools" target="_blank" rel="noopener noreferrer" class="btn-minimal">{t(locale, 'about.exploreGithub')}</a> · <a href={getLocalizedPath('/submit', locale)} class="btn-minimal">{t(locale, 'about.submitTool')}</a>
+      </p>
+    </section>
+  </div>
+</Layout>

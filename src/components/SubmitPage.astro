@@ -1,0 +1,441 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TagPicker from './TagPicker.astro';
+import { t, loadTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+await loadTranslations(locale);
+---
+
+<Layout
+  title={t(locale, 'submit.title')}
+  description={t(locale, 'submit.description')}
+  locale={locale}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
+    <div class="text-center mb-12 sm:mb-16">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-4">{t(locale, 'submit.heading')}</h1>
+      <p class="text-base text-neutral-500 max-w-xl mx-auto leading-relaxed">
+        {t(locale, 'submit.intro')}
+      </p>
+    </div>
+
+    <form id="submit-form" class="space-y-0" novalidate>
+      <!-- Tool Information -->
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">{t(locale, 'submit.toolInfoTitle')}</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-neutral-600 mb-2">
+              {t(locale, 'submit.toolName')} <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              minlength="2"
+              maxlength="100"
+              placeholder="e.g. Excalidraw"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="name"></p>
+          </div>
+
+          <div>
+            <label for="url" class="block text-sm font-medium text-neutral-600 mb-2">
+              {t(locale, 'submit.toolUrl')} <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              placeholder="https://excalidraw.com"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="url"></p>
+          </div>
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm font-medium text-neutral-600 mb-2">
+            {t(locale, 'submit.descriptionLabel')} <span class="text-red-500">*</span>
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            required
+            maxlength="500"
+            rows="4"
+            placeholder="A brief description of what this tool does..."
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition-all"
+          ></textarea>
+          <div class="flex justify-end mt-2">
+            <span class="text-xs text-neutral-400" id="char-count">0/500</span>
+          </div>
+          <p class="text-xs text-red-500 mt-1 font-bold hidden" data-error="description"></p>
+        </div>
+      </section>
+
+      <!-- Links & Repository (Optional) -->
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">
+          {t(locale, 'submit.linksTitle')}
+          <span class="text-xs font-normal text-neutral-400">{t(locale, 'common.optional')}</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label for="repoUrl" class="block text-sm font-medium text-neutral-600 mb-2">
+              {t(locale, 'submit.repoUrl')}
+            </label>
+            <input
+              type="url"
+              id="repoUrl"
+              name="repoUrl"
+              placeholder="https://github.com/owner/repo"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-neutral-400 mt-2 italic">
+              {t(locale, 'submit.repoUrlHint')}
+            </p>
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="repoUrl"></p>
+          </div>
+
+          <div>
+            <label for="twitterUrl" class="block text-sm font-medium text-neutral-600 mb-2">
+              {t(locale, 'submit.twitterLabel')}
+            </label>
+            <input
+              type="url"
+              id="twitterUrl"
+              name="twitterUrl"
+              placeholder="https://x.com/username"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="twitterUrl"></p>
+          </div>
+
+          <div>
+            <label for="githubUrl" class="block text-sm font-medium text-neutral-600 mb-2">
+              {t(locale, 'submit.githubProfile')}
+            </label>
+            <input
+              type="url"
+              id="githubUrl"
+              name="githubUrl"
+              placeholder="https://github.com/username"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="githubUrl"></p>
+          </div>
+
+          <div>
+            <label for="discordUrl" class="block text-sm font-medium text-neutral-600 mb-2">
+              {t(locale, 'submit.discordLabel')}
+            </label>
+            <input
+              type="url"
+              id="discordUrl"
+              name="discordUrl"
+              placeholder="https://discord.gg/invite-code"
+              class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+            />
+            <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="discordUrl"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- No-Login Verification -->
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">{t(locale, 'submit.verificationTitle')}</h2>
+
+        <div class="flex items-start gap-3">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              id="pledge"
+              name="pledge"
+              required
+              class="mt-1 w-5 h-5 text-green-600 border-neutral-300 rounded focus:ring-green-500 transition-all"
+            />
+            <span class="text-sm text-neutral-700 leading-relaxed">
+              {t(locale, 'submit.pledge')} <span class="text-red-500">*</span>
+            </span>
+          </label>
+        </div>
+        <p class="text-xs text-red-500 mt-3 font-bold hidden" data-error="pledge"></p>
+
+        <div>
+          <label for="coreTask" class="block text-sm font-medium text-neutral-600 mb-2">
+            {t(locale, 'submit.coreTaskLabel')} <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="coreTask"
+            name="coreTask"
+            required
+            maxlength="200"
+            placeholder='e.g. "Draw diagrams and export to PNG"'
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+          />
+          <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="coreTask"></p>
+        </div>
+      </section>
+
+      <!-- Tags -->
+      <section class="border-b pb-6 mb-6 space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">{t(locale, 'submit.classificationTitle')}</h2>
+        <TagPicker />
+      </section>
+
+      <!-- Contact Email -->
+      <section class="space-y-6">
+        <h2 class="text-lg font-semibold text-neutral-900">
+          {t(locale, 'submit.contactTitle')}
+          <span class="text-xs font-normal text-neutral-400">{t(locale, 'common.optional')}</span>
+        </h2>
+
+        <div>
+          <label for="submitterEmail" class="block text-sm font-medium text-neutral-600 mb-2">
+            {t(locale, 'submit.emailLabel')}
+          </label>
+          <input
+            type="email"
+            id="submitterEmail"
+            name="submitterEmail"
+            maxlength="254"
+            placeholder="you@example.com"
+            class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+          />
+          <p class="text-xs text-neutral-400 mt-2 italic">
+            {t(locale, 'submit.emailHint')}
+          </p>
+          <p class="text-xs text-red-500 mt-2 font-bold hidden" data-error="submitterEmail"></p>
+        </div>
+      </section>
+
+      <!-- Error message -->
+      <div
+        id="form-error"
+        class="hidden mt-6 p-5 bg-red-50 border border-red-200 rounded text-sm text-red-700 font-bold"
+      ></div>
+
+      <!-- Submit -->
+      <div class="pt-8">
+        <button
+          type="submit"
+          id="submit-btn"
+          class="btn-minimal-primary w-full py-3"
+        >
+          {t(locale, 'submit.submitBtn')}
+        </button>
+        <p class="text-center text-xs text-neutral-400 mt-6">
+          {t(locale, 'submit.submitDisclaimer')}
+        </p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('submit-form') as HTMLFormElement;
+    const charCount = document.getElementById('char-count')!;
+    const description = document.getElementById('description') as HTMLTextAreaElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const formError = document.getElementById('form-error')!;
+
+    description.addEventListener('input', () => {
+      charCount.textContent = `${description.value.length}/500`;
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Clear errors
+      document.querySelectorAll('[data-error]').forEach((el) => {
+        el.classList.add('hidden');
+        el.parentElement?.querySelector('input, textarea')?.classList.remove('border-red-500', 'bg-red-50/50', 'ring-2', 'ring-red-500/20');
+      });
+      formError.classList.add('hidden');
+
+      const formData = new FormData(form);
+      const data: Record<string, any> = {
+        name: formData.get('name'),
+        url: formData.get('url'),
+        description: formData.get('description'),
+        pledge: formData.get('pledge') === 'on',
+        coreTask: formData.get('coreTask'),
+        submitterEmail: formData.get('submitterEmail') || '',
+        repoUrl: formData.get('repoUrl') || '',
+        twitterUrl: formData.get('twitterUrl') || '',
+        githubUrl: formData.get('githubUrl') || '',
+        discordUrl: formData.get('discordUrl') || '',
+        tags: [] as { key: string; value: string }[],
+      };
+
+      // Collect tags
+      for (const [key, value] of formData.entries()) {
+        if (key.startsWith('tag_')) {
+          const tagKey = key.replace('tag_', '').replace('[]', '');
+          data.tags.push({ key: tagKey, value: value as string });
+        }
+      }
+
+      // Client-side validation
+      let hasError = false;
+      if (!data.name || (data.name as string).length < 2) {
+        showError('name', 'Please enter a valid tool name (min 2 chars).');
+        hasError = true;
+      }
+      if (!data.url) {
+        showError('url', 'A valid URL is required.');
+        hasError = true;
+      } else {
+        try {
+          new URL(data.url as string);
+        } catch {
+          showError('url', 'Please enter a complete URL (e.g., https://...).');
+          hasError = true;
+        }
+      }
+      if (!data.description) {
+        showError('description', 'A description is required so users know what the tool does.');
+        hasError = true;
+      }
+      if (!data.pledge) {
+        showError('pledge', 'You must confirm the no-login pledge to submit.');
+        hasError = true;
+      }
+      if (!data.coreTask) {
+        showError('coreTask', 'Please explain what users can do without logging in.');
+        hasError = true;
+      }
+      if (data.submitterEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.submitterEmail as string)) {
+        showError('submitterEmail', 'Please enter a valid email address.');
+        hasError = true;
+      }
+      if (data.repoUrl) {
+        try {
+          const u = new URL(data.repoUrl as string);
+          if (u.hostname !== 'github.com') {
+            showError('repoUrl', 'Please enter a GitHub repository URL.');
+            hasError = true;
+          }
+        } catch { showError('repoUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+      if (data.twitterUrl) {
+        try {
+          const u = new URL(data.twitterUrl as string);
+          if (!['x.com', 'www.x.com', 'twitter.com', 'www.twitter.com'].includes(u.hostname)) {
+            showError('twitterUrl', 'Please enter a Twitter/X URL.');
+            hasError = true;
+          }
+        } catch { showError('twitterUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+      if (data.githubUrl) {
+        try {
+          const u = new URL(data.githubUrl as string);
+          if (u.hostname !== 'github.com' && u.hostname !== 'www.github.com') {
+            showError('githubUrl', 'Please enter a GitHub URL.');
+            hasError = true;
+          }
+        } catch { showError('githubUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+      if (data.discordUrl) {
+        try {
+          const u = new URL(data.discordUrl as string);
+          if (!['discord.gg', 'www.discord.gg', 'discord.com', 'www.discord.com'].includes(u.hostname)) {
+            showError('discordUrl', 'Please enter a Discord URL.');
+            hasError = true;
+          }
+        } catch { showError('discordUrl', 'Please enter a valid URL.'); hasError = true; }
+      }
+
+      if (hasError) {
+        formError.innerHTML = `
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>Please correct the errors highlighted above before submitting.</span>
+          </div>
+        `;
+        formError.classList.remove('hidden');
+        formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Verifying & Submitting...
+      `;
+
+      try {
+        const res = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.ok) {
+          window.location.href = `/submit/success?slug=${result.data.slug}`;
+        } else {
+          if (result.details) {
+            if (result.details.slug) {
+              formError.innerHTML = `
+                <div class="flex items-center gap-3">
+                  <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  <span>This tool has already been submitted. <a href="/tool/${result.details.slug}" class="underline font-black hover:text-red-900 transition-colors">View it here &rarr;</a></span>
+                </div>
+              `;
+            } else {
+              for (const [field, msg] of Object.entries(result.details)) {
+                showError(field, msg as string);
+              }
+              formError.textContent = result.error || 'Submission failed. Please check your inputs.';
+            }
+          } else {
+            formError.textContent = result.error || 'An unexpected error occurred. Please try again.';
+          }
+          formError.classList.remove('hidden');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } catch {
+        formError.textContent = 'Network error. Please check your connection and try again.';
+        formError.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Tool for Review';
+      }
+    });
+
+    function showError(field: string, message: string) {
+      const el = document.querySelector(`[data-error="${field}"]`);
+      if (el) {
+        el.innerHTML = `
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            ${message}
+          </div>
+        `;
+        el.classList.remove('hidden');
+
+        const input = el.parentElement?.querySelector('input, textarea');
+        if (input) {
+          input.classList.add('border-red-500', 'bg-red-50/50', 'ring-2', 'ring-red-500/20');
+        }
+      }
+    }
+  </script>
+</Layout>

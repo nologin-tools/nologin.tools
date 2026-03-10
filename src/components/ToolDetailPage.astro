@@ -5,6 +5,8 @@ import TagPicker from './TagPicker.astro';
 import { formatDate, timeAgo } from '../lib/utils';
 import { sortTagsCategoryFirst } from '../lib/tags';
 import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 
 interface Props {
   tool: {
@@ -34,9 +36,11 @@ interface Props {
   recentChecks: { isOnline: boolean; httpStatus?: number | null; responseTimeMs?: number | null; checkedAt: Date }[];
   healthHistory: { isOnline: boolean; checkedAt: Date }[];
   slug: string;
+  locale?: Locale;
 }
 
-const { tool, toolTags, recentChecks, healthHistory, slug } = Astro.props;
+const { tool, toolTags, recentChecks, healthHistory, slug, locale = DEFAULT_LOCALE } = Astro.props;
+await loadTranslations(locale);
 
 const effectiveStatus = resolveEffectiveStatus(recentChecks);
 const latestHealth = recentChecks[0] ?? null;
@@ -120,11 +124,12 @@ const breadcrumbLd = {
 
 <Layout
   title={tool.name}
-  description={tool.description || `${tool.name} — a tool that works without login.`}
+  description={tool.description || t(locale, 'tool.defaultDescription', { name: tool.name })}
   ogType="article"
   canonicalOverride={`/tool/${slug}`}
   publishedTime={approvedDate}
   ogImagePath={`/api/og/${slug}`}
+  locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
@@ -134,7 +139,7 @@ const breadcrumbLd = {
     <nav aria-label="Breadcrumb" class="mb-8 sm:mb-10">
       <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
         <li>
-          <a href="/" class="hover:text-neutral-900 transition-colors">Home</a>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
         </li>
         <li aria-hidden="true">
           <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
@@ -146,9 +151,9 @@ const breadcrumbLd = {
     <!-- Status banners -->
     {isPending && (
       <div class="border-l-4 border-amber-500 pl-4 py-2 bg-amber-50 mb-8">
-        <p class="text-amber-900 font-bold text-sm">Pending Review</p>
+        <p class="text-amber-900 font-bold text-sm">{t(locale, 'tool.pendingReview')}</p>
         <p class="text-xs text-amber-800/70 leading-relaxed">
-          This tool is currently being reviewed. It will appear in the public directory once approved.
+          {t(locale, 'tool.pendingDesc')}
         </p>
       </div>
     )}
@@ -168,7 +173,7 @@ const breadcrumbLd = {
           />
           <h1 class="text-2xl font-bold text-neutral-900">{tool.name}</h1>
           {tool.isFeatured && (
-            <span class="text-yellow-500 text-sm" title="Featured">★</span>
+            <span class="text-yellow-500 text-sm" title={t(locale, 'common.featured')}>★</span>
           )}
         </div>
 
@@ -177,11 +182,11 @@ const breadcrumbLd = {
           {isVerified && tool.approvedAt && (
             <>
               <span class="text-neutral-300">·</span>
-              <span>Verified {formatDate(tool.approvedAt)}</span>
+              <span>{t(locale, 'tool.verified', { date: formatDate(tool.approvedAt) })}</span>
             </>
           )}
           <span class="text-neutral-300">·</span>
-          <HealthBadge status={effectiveStatus} lastCheckedAt={latestHealth?.checkedAt ?? null} />
+          <HealthBadge status={effectiveStatus} lastCheckedAt={latestHealth?.checkedAt ?? null} locale={locale} />
         </div>
 
         {hasSocialLinks && (
@@ -207,16 +212,16 @@ const breadcrumbLd = {
         <div class="flex items-center gap-4">
           {isOffline ? (
             <>
-              <button class="btn-minimal-primary opacity-50 cursor-not-allowed" disabled>Tool Offline</button>
+              <button class="btn-minimal-primary opacity-50 cursor-not-allowed" disabled>{t(locale, 'tool.toolOffline')}</button>
               {tool.archiveUrl && (
                 <a href={tool.archiveUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
-                  View Archive
+                  {t(locale, 'tool.viewArchive')}
                 </a>
               )}
             </>
           ) : (
             <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-minimal-primary">
-              Open Tool
+              {t(locale, 'tool.openTool')}
               <svg class="ml-1.5 w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 010-1.06l7.22-7.22H5.75a.75.75 0 010-1.5h8.5a.75.75 0 01.75.75v8.5a.75.75 0 01-1.5 0V6.56l-7.22 7.22a.75.75 0 01-1.06 0z" clip-rule="evenodd" />
               </svg>
@@ -224,7 +229,7 @@ const breadcrumbLd = {
           )}
           {isVerified && (
             <button id="suggest-edit-btn" class="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">
-              Suggest Edit
+              {t(locale, 'tool.suggestEdit')}
             </button>
           )}
         </div>
@@ -232,13 +237,13 @@ const breadcrumbLd = {
 
       <!-- Description -->
       <div class="border-t border-neutral-100 pt-8">
-        <h2 class="text-sm font-medium text-neutral-500 mb-3">Description</h2>
+        <h2 class="text-sm font-medium text-neutral-500 mb-3">{t(locale, 'tool.descriptionLabel')}</h2>
         <p class="text-neutral-700 text-base leading-relaxed">{tool.description}</p>
       </div>
 
       <!-- No-Login Task -->
       <div class="border-l-2 border-green-500 pl-4">
-        <h2 class="text-sm font-medium text-neutral-500 mb-1">No-Login Task</h2>
+        <h2 class="text-sm font-medium text-neutral-500 mb-1">{t(locale, 'tool.noLoginTask')}</h2>
         <p class="text-neutral-900 font-medium text-base italic">
           "{tool.coreTask}"
         </p>
@@ -247,7 +252,7 @@ const breadcrumbLd = {
       <!-- Tags -->
       {toolTags.length > 0 && (
         <div>
-          <h2 class="text-sm font-medium text-neutral-500 mb-3">Tags</h2>
+          <h2 class="text-sm font-medium text-neutral-500 mb-3">{t(locale, 'tool.tagsLabel')}</h2>
           <div class="flex flex-wrap items-center gap-x-1 text-sm text-neutral-600">
             {sortTagsCategoryFirst(toolTags).map((tag, i) => (
               <>
@@ -270,7 +275,7 @@ const breadcrumbLd = {
 
       <!-- Health History -->
       <div class="border-t border-neutral-100 pt-8">
-        <h2 class="text-sm font-medium text-neutral-500 mb-3">Health History</h2>
+        <h2 class="text-sm font-medium text-neutral-500 mb-3">{t(locale, 'tool.healthHistory')}</h2>
         <div class="flex flex-wrap items-center gap-1 mb-3">
           {days.map((day) => (
             <div
@@ -284,22 +289,22 @@ const breadcrumbLd = {
                       ? 'bg-amber-400'
                       : 'bg-red-400',
               ]}
-              title={`${day.label}: ${day.status === null ? 'No data' : day.status === 'online' ? 'Online' : day.status === 'unstable' ? 'Unstable' : 'Offline'}`}
+              title={`${day.label}: ${day.status === null ? t(locale, 'health.noData') : day.status === 'online' ? t(locale, 'health.online') : day.status === 'unstable' ? t(locale, 'health.unstable') : t(locale, 'health.offline')}`}
             >
             </div>
           ))}
         </div>
         <div class="flex items-center gap-4 text-xs text-neutral-400">
-          <span>14 days ago &rarr; Today</span>
+          <span>{t(locale, 'tool.daysAgoToday')}</span>
           <span class="text-neutral-300">·</span>
-          <span>Uptime: {Math.round((days.filter(d => d.status === 'online').length / days.filter(d => d.status !== null).length || 0) * 100)}%</span>
+          <span>{t(locale, 'tool.uptime', { percent: Math.round((days.filter(d => d.status === 'online').length / days.filter(d => d.status !== null).length || 0) * 100) })}</span>
         </div>
       </div>
 
       <!-- GitHub Repository -->
       {hasRepoData && (
         <div class="border-t border-neutral-100 pt-8">
-          <h2 class="text-sm font-medium text-neutral-500 mb-3">Repository</h2>
+          <h2 class="text-sm font-medium text-neutral-500 mb-3">{t(locale, 'tool.repository')}</h2>
           <p class="text-sm mb-2">
             <a href={tool.repoUrl!} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{repoPath}</a>
           </p>
@@ -328,7 +333,7 @@ const breadcrumbLd = {
             {tool.githubUpdatedAt && (
               <>
                 <span class="text-neutral-300">·</span>
-                <span>Updated {timeAgo(tool.githubUpdatedAt)}</span>
+                <span>{t(locale, 'tool.updated', { time: timeAgo(tool.githubUpdatedAt) })}</span>
               </>
             )}
           </div>
@@ -338,8 +343,8 @@ const breadcrumbLd = {
       <!-- Badge Preview -->
       {(isVerified || isPending) && (
         <div class="border-t border-neutral-100 pt-8">
-          <a href={`/badge/${slug}${isVerified ? '#embed' : ''}`} class="text-sm text-blue-600 hover:underline">
-            {isVerified ? 'View badge page & get embed code' : 'View badge page'} &rarr;
+          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-sm text-blue-600 hover:underline">
+            {isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')} &rarr;
           </a>
         </div>
       )}
@@ -347,7 +352,7 @@ const breadcrumbLd = {
       {/* Resubmit form if rejected */}
       {isRejected && (
         <div class="border-t pt-8 mt-8">
-          <h3 class="text-xl font-bold text-neutral-900 mb-6">Resubmit Tool</h3>
+          <h3 class="text-xl font-bold text-neutral-900 mb-6">{t(locale, 'tool.resubmitTitle')}</h3>
           <form id="resubmit-form" class="space-y-6" novalidate>
             <input type="hidden" name="toolId" value={tool.id} />
 
@@ -533,7 +538,7 @@ const breadcrumbLd = {
   <div id="edit-form" class="hidden fixed inset-0 z-[60] flex items-center justify-center px-6">
     <div class="absolute inset-0 bg-neutral-900/40 backdrop-blur-sm"></div>
     <div class="relative bg-white border rounded-lg w-full max-w-xl max-h-[90vh] overflow-y-auto p-8">
-      <h3 class="text-xl font-bold text-neutral-900 mb-6">Suggest an Edit</h3>
+      <h3 class="text-xl font-bold text-neutral-900 mb-6">{t(locale, 'tool.suggestEditTitle')}</h3>
       <form id="edit-suggestion-form" class="space-y-6">
         <input type="hidden" name="toolId" value={tool.id} />
         <div>

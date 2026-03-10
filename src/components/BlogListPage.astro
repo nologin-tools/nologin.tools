@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+await loadTranslations(locale);
+
+const allPosts = await getCollection('blog');
+
+// Filter by locale: root-level posts are English, posts in locale subdirs match that locale
+const posts = allPosts
+  .filter((post) => {
+    if (locale === 'en') {
+      // English: only root-level posts (no slash in id)
+      return !post.id.includes('/');
+    }
+    // Other locales: posts in {locale}/ subdirectory
+    return post.id.startsWith(`${locale}/`);
+  })
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// If no posts for this locale, fall back to English
+const displayPosts = posts.length > 0
+  ? posts
+  : allPosts
+      .filter((post) => !post.id.includes('/'))
+      .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+function formatDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
+const blogLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'nologin.tools Blog',
+  url: 'https://nologin.tools/blog',
+  description: t(locale, 'blog.description'),
+  blogPost: displayPosts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: formatDate(post.data.publishedAt),
+    ...(post.data.updatedAt ? { dateModified: formatDate(post.data.updatedAt) } : {}),
+    url: `https://nologin.tools/blog/${post.id}`,
+    author: {
+      '@type': 'Organization',
+      name: post.data.author,
+    },
+  })),
+};
+
+function getPostSlug(postId: string): string {
+  // For locale posts like "zh/welcome", strip the locale prefix
+  return postId.includes('/') ? postId.split('/').slice(1).join('/') : postId;
+}
+---
+
+<Layout
+  title={t(locale, 'blog.title')}
+  description={t(locale, 'blog.description')}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(blogLd)} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <header class="mb-12 border-b-4 border-neutral-900 pb-6">
+      <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight uppercase italic">
+        {t(locale, 'blog.heading')}
+      </h1>
+      <p class="text-base text-neutral-600 mt-3">
+        {t(locale, 'blog.subtitle')}
+      </p>
+    </header>
+
+    {displayPosts.length === 0 ? (
+      <p class="text-neutral-500">{t(locale, 'blog.noPosts')}</p>
+    ) : (
+      <ul class="divide-y divide-neutral-200">
+        {displayPosts.map((post) => (
+          <li class="py-6 first:pt-0">
+            <a href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)} class="group block">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                <time
+                  datetime={formatDate(post.data.publishedAt)}
+                  class="text-xs text-neutral-400 font-mono shrink-0"
+                >
+                  {formatDate(post.data.publishedAt)}
+                </time>
+                <h2 class="text-lg font-bold text-neutral-900 group-hover:underline decoration-2 underline-offset-4">
+                  {post.data.title}
+                </h2>
+              </div>
+              <p class="text-sm text-neutral-600 mt-2 sm:ml-[calc(10ch+1rem)]">
+                {post.data.description}
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</Layout>
