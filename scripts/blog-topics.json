@@ -1,0 +1,120 @@
+{
+  "categories": [
+    {
+      "id": "tool-reviews",
+      "name": "Tool Reviews",
+      "description": "In-depth reviews of specific no-login tools",
+      "examples": [
+        "Excalidraw: the whiteboard tool that respects your privacy",
+        "Why Squoosh beats every online image compressor",
+        "TinyWow review: 50+ free tools, zero signup required"
+      ]
+    },
+    {
+      "id": "privacy-guides",
+      "name": "Privacy Guides",
+      "description": "Practical privacy protection tips and guides",
+      "examples": [
+        "How to browse the web without leaving a trace",
+        "Your browser is leaking data — here's how to stop it",
+        "A practical guide to using tools without handing over your email"
+      ]
+    },
+    {
+      "id": "tutorials",
+      "name": "Tutorials",
+      "description": "Step-by-step tutorials using no-login tools",
+      "examples": [
+        "Edit a PDF without installing anything or signing up",
+        "Build a presentation using only browser tools",
+        "How to compress, convert, and resize images — no account needed"
+      ]
+    },
+    {
+      "id": "industry-analysis",
+      "name": "Industry Analysis",
+      "description": "Trends and analysis in the privacy-first tools space",
+      "examples": [
+        "Why more SaaS tools are dropping the login wall",
+        "The rise of browser-based tools and what it means for privacy",
+        "WebAssembly is making login-free tools better — here's how"
+      ]
+    },
+    {
+      "id": "comparisons",
+      "name": "Comparisons",
+      "description": "No-login alternatives vs mainstream services",
+      "examples": [
+        "Photopea vs Canva: which no-login design tool wins?",
+        "Google Docs alternatives that work without an account",
+        "Free vs paid: when no-login tools are actually better"
+      ]
+    },
+    {
+      "id": "digital-rights",
+      "name": "Digital Rights",
+      "description": "Digital rights, open source, and open web topics",
+      "examples": [
+        "Why forced account creation is a dark pattern",
+        "Open source tools that prove you don't need a login",
+        "The hidden cost of free accounts: what you trade for convenience"
+      ]
+    },
+    {
+      "id": "time-roundups",
+      "name": "Roundups",
+      "description": "Monthly/quarterly best tools roundups",
+      "examples": [
+        "Best new no-login tools we found this month",
+        "Q1 2026: the best privacy-friendly tools so far",
+        "10 tools that launched this quarter — no signup required"
+      ]
+    },
+    {
+      "id": "tool-alternatives",
+      "name": "Tool Alternatives",
+      "description": "No-login/free alternatives to popular tools",
+      "examples": [
+        "5 no-login alternatives to Canva for quick design",
+        "Replace Google Docs: browser-based editors that need no account",
+        "Notion alternatives that work without signup"
+      ]
+    },
+    {
+      "id": "new-discoveries",
+      "name": "New Discoveries",
+      "description": "Newly discovered no-login tools and first impressions",
+      "examples": [
+        "3 no-login tools I discovered this week and can't stop using",
+        "Hidden gems: tools most people don't know work without login",
+        "First look: new browser tools that skip the signup page"
+      ]
+    }
+  ],
+  "hn_keywords": [
+    "privacy",
+    "open source",
+    "browser",
+    "no-login",
+    "no login",
+    "no signup",
+    "no sign up",
+    "WASM",
+    "WebAssembly",
+    "self-hosted",
+    "client-side",
+    "offline",
+    "local-first",
+    "serverless",
+    "static site",
+    "free tool",
+    "no account",
+    "anonymous",
+    "private",
+    "encryption",
+    "end-to-end",
+    "peer-to-peer",
+    "P2P",
+    "decentralized"
+  ]
+}
