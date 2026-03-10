@@ -239,6 +239,22 @@ score = badge_weight (0/5/10) + freshness (1/3/5) + health (0/1/3) + featured (0
 - **Admin styles**: `.admin-tab` / `.admin-tab-active` / `.admin-tab-inactive` (tab navigation), `.status-badge` + `.status-approved` / `.status-pending` / `.status-rejected` (pill badges), `.admin-table` (data tables). Admin retains `glass-card`, `btn-primary`, `btn-secondary`, `btn-danger`.
 - **Spotlight Carousel** (deprecated, kept in CSS for potential reuse): `.spotlight-track`, `.spotlight-slide`, `.spotlight-slide-active`, `.spotlight-slide-exit`, `.spotlight-slide-enter-right` / `.spotlight-slide-enter-left`, `.spotlight-dot` / `.spotlight-dot-active`
 
+## Auto Blog Pipeline
+
+Automated daily blog publishing pipeline: cron → topic preparation → Claude writes → auto-merge → deploy.
+
+- **Architecture**: Three-stage pipeline:
+  1. `blog-autopublish.yml` (cron UTC 22:00): runs `scripts/prepare-blog-topic.mjs` → creates GitHub Issue with `auto-blog` label
+  2. `blog-writer.yml` (Issue trigger): `claude-code-action` reads Issue → writes blog post → creates PR with `--auto --squash`
+  3. `blog-quality-check.yml` (PR trigger): runs `scripts/validate-blog-post.mjs` → quality gate
+- **Topic selection**: `scripts/blog-topics.json` defines 9 categories. Script picks least-covered category, fetches HN trending topics as inspiration, includes tool list for internal links.
+- **Time-based roundups**: Month start (days 1-3) → monthly roundup; quarter start (1/4/7/10 month, days 1-5) → quarterly roundup.
+- **Quality validation** (`scripts/validate-blog-post.mjs`): Checks frontmatter completeness, word count (≥1000), H2 count, internal links, AI phrase detection. Errors fail CI, warnings are informational.
+- **AI phrase blocklist**: "delve", "seamless", "leverage", "robust", "cutting-edge", "game-changer", "in conclusion", "dive in", etc. Metaphorical use of "navigate"/"landscape"/"comprehensive" also flagged.
+- **`claude.yml` exclusion**: auto-blog Issues are excluded from the general Claude Code workflow to avoid duplicate triggers.
+- **Tests**: `node --test scripts/__tests__/validate-blog-post.test.mjs` — 20 test cases covering frontmatter, word count, AI phrases, boundary values.
+- **Secrets required**: `CLAUDE_CODE_OAUTH_TOKEN` (existing), `UNSPLASH_ACCESS_KEY` (optional, for hero images).
+
 ## CI/CD
 
 - **Workflow**: `.github/workflows/deploy.yml`
