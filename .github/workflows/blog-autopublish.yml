@@ -2,7 +2,7 @@ name: Auto Blog Publisher
 
 on:
   schedule:
-    - cron: '0 22 * * *' # UTC 22:00 = Beijing 06:00
+    - cron: '0 20 * * *' # UTC 20:00 = Beijing 04:00
   workflow_dispatch:
     inputs:
       topic_hint:
