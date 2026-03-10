@@ -32,6 +32,9 @@ const currentPath = Astro.url.pathname;
           );
         })}
       </nav>
+      <button id="header-bookmark-btn" class="hidden lg:flex items-center gap-1.5 px-2 py-1 bg-yellow-300 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-[10px] font-black uppercase tracking-tight hover:bg-yellow-400 transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none ml-6 cursor-pointer">
+        ★ <span id="header-bookmark-key">Ctrl+D</span>
+      </button>
     </div>
     <button
       id="mobile-menu-btn"
@@ -118,5 +121,18 @@ const currentPath = Astro.url.pathname;
   const menu = document.getElementById('mobile-menu');
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
+  });
+
+  const headerBookmarkKey = document.getElementById('header-bookmark-key');
+  const headerBookmarkBtn = document.getElementById('header-bookmark-btn');
+  
+  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  if (headerBookmarkKey) {
+    headerBookmarkKey.textContent = isMac ? '⌘+D' : 'Ctrl+D';
+  }
+
+  headerBookmarkBtn?.addEventListener('click', () => {
+    const shortcut = isMac ? 'Command/Cmd + D' : 'Control/Ctrl + D';
+    alert(`Press ${shortcut} to bookmark this site.`);
   });
 </script>
