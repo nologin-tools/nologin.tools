@@ -1,0 +1,45 @@
+name: Auto Blog Publisher
+
+on:
+  schedule:
+    - cron: '0 22 * * *' # UTC 22:00 = Beijing 06:00
+  workflow_dispatch:
+    inputs:
+      topic_hint:
+        description: 'Optional: suggest a specific topic'
+        required: false
+        type: string
+
+concurrency:
+  group: blog-autopublish
+  cancel-in-progress: true
+
+jobs:
+  create-blog-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch build data (for tool list + internal links)
+        run: node scripts/fetch-build-data.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        continue-on-error: true # Script degrades gracefully without build data
+
+      - name: Prepare blog topic
+        id: prep
+        run: node scripts/prepare-blog-topic.mjs
+        env:
+          TOPIC_HINT: ${{ github.event.inputs.topic_hint || '' }}
+
+      - name: Create Issue for Claude
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "${{ steps.prep.outputs.title }}" \
+            --body-file /tmp/blog-issue-body.md \
+            --label "auto-blog"
