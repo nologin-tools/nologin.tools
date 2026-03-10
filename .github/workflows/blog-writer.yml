@@ -4,6 +4,10 @@ on:
   issues:
     types: [opened, labeled]
 
+concurrency:
+  group: blog-writer-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   write-blog:
     if: contains(toJSON(github.event.issue.labels), '"auto-blog"')
@@ -22,19 +26,12 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          allowed_tools: |
-            Bash(git:*)
-            Bash(curl:*)
-            Bash(mkdir:*)
-            Bash(gh:*)
-            Bash(date:*)
-            Bash(wc:*)
-            Write
-            Read
-            Edit
-            Glob
-            Grep
-            WebSearch
-            WebFetch
+          claude_args: >-
+            --allowed-tools
+            "Bash(curl:*)"
+            "Bash(mkdir:*)"
+            "Bash(gh:*)"
+            "Bash(date:*)"
+            "Bash(wc:*)"
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
