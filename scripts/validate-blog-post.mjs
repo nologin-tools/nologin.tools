@@ -278,7 +278,17 @@ function main() {
 
   let hasErrors = false;
 
+  const LOCALE_DIRS = ['zh', 'ja', 'ko', 'es', 'fr', 'de', 'pt'];
+
   for (const file of files) {
+    // Skip translated blog posts (in locale subdirectories)
+    const relativePath = file.replace(BLOG_DIR + '/', '');
+    const firstSegment = relativePath.split('/')[0];
+    if (LOCALE_DIRS.includes(firstSegment)) {
+      console.log(`⊘ ${file} (skipped: translated post)`);
+      continue;
+    }
+
     const content = readFileSync(file, 'utf-8');
     const issues = validatePost(file, content);
 
