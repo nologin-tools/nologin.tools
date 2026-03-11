@@ -22,12 +22,55 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: >-
-            --allowed-tools
-            "Bash(curl:*)"
-            "Bash(mkdir:*)"
-            "Bash(gh:*)"
-            "Bash(date:*)"
-            "Bash(wc:*)"
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+
+      - name: Rewrite commit author and create PR
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          # Find the branch Claude pushed
+          BRANCH=$(git ls-remote --heads origin "claude/issue-${ISSUE_NUMBER}-*" \
+            | awk '{print $2}' | sed 's|refs/heads/||' | sort -r | head -1)
+
+          if [ -z "$BRANCH" ]; then
+            echo "No branch found for issue #${ISSUE_NUMBER}, skipping PR creation"
+            exit 0
+          fi
+          echo "Found branch: $BRANCH"
+
+          # Rewrite commit author to blog-bot
+          git config user.name "blog-bot"
+          git config user.email "blog-bot@nologin.tools"
+          REPO="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git remote set-url origin "$REPO"
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+          git commit --amend --author="blog-bot <blog-bot@nologin.tools>" --no-edit
+          git push origin "$BRANCH" --force
+
+          # Check if PR already exists
+          EXISTING=$(gh pr list --head "$BRANCH" --json number --jq '.[0].number' 2>/dev/null || true)
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING already exists, skipping"
+            exit 0
+          fi
+
+          # Extract topic from issue title (strip "[Auto Blog] " prefix)
+          TOPIC=$(gh issue view "$ISSUE_NUMBER" --json title --jq '.title' | sed 's/^\[Auto Blog\] //')
+
+          # Create PR
+          PR_URL=$(gh pr create \
+            --head "$BRANCH" \
+            --title "Blog: ${TOPIC}" \
+            --body "Auto-generated blog post.
+
+          Closes #${ISSUE_NUMBER}" \
+            --label "auto-blog" \
+            --base main)
+
+          echo "Created PR: $PR_URL"
+
+          # Enable auto-merge
+          gh pr merge --auto --squash "$PR_URL" || echo "Auto-merge not available (branch protection may not be configured)"
