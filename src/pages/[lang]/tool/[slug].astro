@@ -1,0 +1,67 @@
+---
+import { getAllTools } from '../../../data/loader';
+import ToolDetailPage from '../../../components/ToolDetailPage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  const tools = getAllTools();
+  return LOCALES.filter(l => l !== DEFAULT_LOCALE).flatMap(lang =>
+    tools.map(tool => ({
+      params: { lang, slug: tool.slug },
+      props: { tool, locale: lang as Locale },
+    }))
+  );
+}
+
+const { tool, locale } = Astro.props;
+
+const toolData = {
+  id: tool.id,
+  slug: tool.slug,
+  name: tool.name,
+  url: tool.url,
+  description: tool.description,
+  coreTask: tool.coreTask,
+  status: tool.status,
+  approvedAt: tool.approvedAt,
+  archiveUrl: tool.archiveUrl,
+  isFeatured: tool.isFeatured,
+  submitterEmail: tool.submitterEmail,
+  twitterUrl: tool.twitterUrl,
+  githubUrl: tool.githubUrl,
+  discordUrl: tool.discordUrl,
+  repoUrl: tool.repoUrl,
+  githubStars: tool.githubStars,
+  githubForks: tool.githubForks,
+  githubLicense: tool.githubLicense,
+  githubLanguage: tool.githubLanguage,
+  githubUpdatedAt: tool.githubUpdatedAt,
+  githubFetchedAt: tool.githubFetchedAt,
+};
+
+const toolTags = tool.tags.map((t: any) => ({
+  tagKey: t.tagKey,
+  tagValue: t.tagValue,
+}));
+
+const recentChecks = tool.healthChecks.map((c: any) => ({
+  isOnline: c.isOnline,
+  httpStatus: c.httpStatus,
+  responseTimeMs: c.responseTimeMs,
+  checkedAt: new Date(c.checkedAt),
+}));
+
+const healthHistory = tool.healthHistory.map((h: any) => ({
+  isOnline: h.isOnline,
+  checkedAt: new Date(h.checkedAt),
+}));
+---
+
+<ToolDetailPage
+  tool={toolData}
+  toolTags={toolTags}
+  recentChecks={recentChecks}
+  healthHistory={healthHistory}
+  slug={tool.slug}
+  locale={locale}
+/>

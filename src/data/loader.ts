@@ -1,4 +1,44 @@
 import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
+import type { Locale } from '../i18n/config';
+
+type ToolTranslation = {
+  _hash?: string;
+  description?: string;
+  coreTask?: string;
+};
+
+type TranslationsFile = Record<string, ToolTranslation>;
+
+const translationCache = new Map<string, TranslationsFile>();
+
+function loadToolTranslations(locale: Locale): TranslationsFile {
+  if (locale === 'en') return {};
+  if (translationCache.has(locale)) return translationCache.get(locale)!;
+
+  try {
+    // Use Vite's glob import at build time
+    const modules = import.meta.glob<{ default: TranslationsFile }>('./translations/*.json', { eager: true });
+    const key = `./translations/${locale}.json`;
+    const data = modules[key]?.default ?? {};
+    translationCache.set(locale, data);
+    return data;
+  } catch {
+    translationCache.set(locale, {});
+    return {};
+  }
+}
+
+export function getLocalizedDescription(tool: BuildDataTool, locale: Locale): string | null {
+  if (locale === 'en') return tool.description;
+  const translations = loadToolTranslations(locale);
+  return translations[tool.slug]?.description ?? tool.description;
+}
+
+export function getLocalizedCoreTask(tool: BuildDataTool, locale: Locale): string {
+  if (locale === 'en') return tool.coreTask;
+  const translations = loadToolTranslations(locale);
+  return translations[tool.slug]?.coreTask ?? tool.coreTask;
+}
 
 interface BuildDataTag {
   tagKey: string;

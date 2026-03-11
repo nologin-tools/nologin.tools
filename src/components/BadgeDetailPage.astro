@@ -4,6 +4,8 @@ import HealthBadge from './HealthBadge.astro';
 import { formatDate } from '../lib/utils';
 import { getBadgeEmbedCode, BADGE_STYLES, BADGE_GROUPS, ORIGINAL_BADGE } from '../lib/badge';
 import { sortTagsCategoryFirst } from '../lib/tags';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 
 interface Props {
   tool: {
@@ -19,9 +21,11 @@ interface Props {
   latestHealth: { isOnline: boolean; checkedAt: Date } | null;
   slug: string;
   siteUrl: string;
+  locale?: Locale;
 }
 
-const { tool, toolTags, latestHealth, slug, siteUrl } = Astro.props;
+const { tool, toolTags, latestHealth, slug, siteUrl, locale = DEFAULT_LOCALE } = Astro.props;
+await loadTranslations(locale);
 
 const isPending = tool.status === 'pending';
 
@@ -43,9 +47,10 @@ const allEmbedCodes = Object.fromEntries(
 
 <Layout
   bare
-  title={`${tool.name} — ${isPending ? 'Pending Verification' : 'NoLogin Verified'}`}
+  title={`${tool.name} — ${isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}`}
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
   canonicalOverride={`/badge/${slug}`}
+  locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
 
@@ -54,18 +59,18 @@ const allEmbedCodes = Object.fromEntries(
     <nav aria-label="Breadcrumb" class="mb-8">
       <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
         <li>
-          <a href="/" class="hover:text-neutral-900 transition-colors">Home</a>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
         </li>
         <li aria-hidden="true">
           <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
         </li>
         <li>
-          <a href={`/tool/${slug}`} class="hover:text-neutral-900 transition-colors truncate max-w-[150px] sm:max-w-none inline-block">{tool.name}</a>
+          <a href={getLocalizedPath(`/tool/${slug}`, locale)} class="hover:text-neutral-900 transition-colors truncate max-w-[150px] sm:max-w-none inline-block">{tool.name}</a>
         </li>
         <li aria-hidden="true">
           <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
         </li>
-        <li aria-current="page" class="text-neutral-900">{isPending ? 'Pending Verification' : 'NoLogin Verified'}</li>
+        <li aria-current="page" class="text-neutral-900">{isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}</li>
       </ol>
     </nav>
 
@@ -90,14 +95,14 @@ const allEmbedCodes = Object.fromEntries(
           class="tab-btn px-8 py-2.5 text-sm font-black rounded-xl transition-all duration-300 border-none outline-none ring-0 cursor-pointer
                  aria-selected:bg-white aria-selected:text-neutral-900 aria-selected:shadow-sm aria-selected:ring-1 aria-selected:ring-neutral-200
                  text-neutral-400 hover:text-neutral-600">
-          Verification Certificate
+          {t(locale, 'badgeDetail.verificationTab')}
         </button>
         <button role="tab" aria-selected="false" aria-controls="panel-embed"
           id="tab-embed"
           class="tab-btn px-8 py-2.5 text-sm font-black rounded-xl transition-all duration-300 border-none outline-none ring-0 cursor-pointer
                  aria-selected:bg-white aria-selected:text-neutral-900 aria-selected:shadow-sm aria-selected:ring-1 aria-selected:ring-neutral-200
                  text-neutral-400 hover:text-neutral-600">
-          Embed Code
+          {t(locale, 'badgeDetail.embedTab')}
         </button>
       </div>
     </div>
@@ -120,9 +125,9 @@ const allEmbedCodes = Object.fromEntries(
           </div>
         </div>
         <h1 class:list={['text-4xl font-black tracking-tight', isPending ? 'text-amber-600' : 'text-green-600']}>
-          {isPending ? 'Verification Pending' : 'NoLogin Verified'}
+          {isPending ? t(locale, 'badgeDetail.pendingTitle') : t(locale, 'badgeDetail.verifiedTitle')}
         </h1>
-        <p class="text-lg text-neutral-400 mt-2 font-medium">Digital trust certificate for <span class="text-neutral-900 font-bold">{tool.name}</span></p>
+        <p class="text-lg text-neutral-400 mt-2 font-medium">{t(locale, 'badgeDetail.certificate')} <span class="text-neutral-900 font-bold">{tool.name}</span></p>
       </div>
 
       <!-- Certificate Details Card -->
@@ -130,48 +135,49 @@ const allEmbedCodes = Object.fromEntries(
         'bg-white border rounded-lg p-8 sm:p-12',
         isPending ? 'border-amber-200' : 'border-green-200',
       ]}>
-        <h2 class="text-sm font-medium text-neutral-500 mb-10">Verification Details</h2>
+        <h2 class="text-sm font-medium text-neutral-500 mb-10">{t(locale, 'badgeDetail.detailsTitle')}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
           <div class="space-y-1">
-            <dt class="text-sm font-medium text-neutral-500">Tool Name</dt>
+            <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.toolName')}</dt>
             <dd class="text-xl font-black text-neutral-950">{tool.name}</dd>
           </div>
           <div class="space-y-1">
-            <dt class="text-sm font-medium text-neutral-500">Status</dt>
+            <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.status')}</dt>
             <dd>
               <span class:list={['status-badge px-4 py-1.5 rounded-xl font-black uppercase tracking-tight text-[10px]', isPending ? 'status-pending' : 'status-approved']}>
-                {isPending ? 'Review in progress' : 'Verified & Approved'}
+                {isPending ? t(locale, 'badgeDetail.reviewInProgress') : t(locale, 'badgeDetail.verifiedApproved')}
               </span>
             </dd>
           </div>
           <div class="space-y-1">
-            <dt class="text-sm font-medium text-neutral-500">Issued By</dt>
+            <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.issuedBy')}</dt>
             <dd class="text-lg font-bold text-neutral-700"><a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors">NoLoginTools.org</a></dd>
           </div>
           <div class="space-y-1 md:col-span-2">
-            <dt class="text-sm font-medium text-neutral-500">Tool URL</dt>
+            <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.toolUrl')}</dt>
             <dd>
               <a href={tool.url} target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-blue-600 hover:text-blue-700 break-all underline decoration-blue-200 underline-offset-4">{tool.url}</a>
             </dd>
           </div>
           <div class="space-y-1 md:col-span-2">
-            <dt class="text-sm font-medium text-neutral-500">Certified Core Task</dt>
+            <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.certifiedCoreTask')}</dt>
             <dd class="text-lg font-bold text-neutral-700 leading-relaxed italic">"{tool.coreTask}"</dd>
           </div>
 
           {!isPending && tool.approvedAt && (
             <div class="space-y-1">
-              <dt class="text-sm font-medium text-neutral-500">Verified Since</dt>
+              <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.verifiedSince')}</dt>
               <dd class="text-lg font-bold text-neutral-700">{formatDate(tool.approvedAt)}</dd>
             </div>
           )}
           {!isPending && (
             <div class="space-y-1">
-              <dt class="text-sm font-medium text-neutral-500">Current Health</dt>
+              <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.currentHealth')}</dt>
               <dd>
                 <HealthBadge
                   isOnline={latestHealth?.isOnline ?? null}
+                  locale={locale}
                   lastCheckedAt={latestHealth?.checkedAt ?? null}
                 />
               </dd>
@@ -181,7 +187,7 @@ const allEmbedCodes = Object.fromEntries(
 
         {toolTags.length > 0 && (
           <div class="mt-12 pt-8 border-t border-neutral-200">
-            <dt class="text-sm font-medium text-neutral-500 mb-4">Classifications</dt>
+            <dt class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'badgeDetail.classifications')}</dt>
             <div class="flex flex-wrap gap-2">
               {sortTagsCategoryFirst(toolTags).map((tag) => (
                 <span class:list={['chip px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]', tag.tagKey === 'category' ? 'chip-category' : 'chip-default']}>
@@ -200,7 +206,7 @@ const allEmbedCodes = Object.fromEntries(
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <div>
-            <h2 class="text-lg font-bold text-neutral-900 mb-1">What is NoLogin Verified?</h2>
+            <h2 class="text-lg font-bold text-neutral-900 mb-1">{t(locale, 'badgeDetail.whatIsTitle')}</h2>
             <p class="text-neutral-600 text-sm leading-relaxed">
               This certificate, issued by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 font-semibold hover:text-green-700 transition-colors">NoLoginTools.org</a>, confirms that <span class="font-semibold">{tool.name}</span> has been manually audited. It guarantees that users can access its core features <strong>immediately</strong>—without ever needing to sign up or log in.
             </p>
@@ -211,10 +217,10 @@ const allEmbedCodes = Object.fromEntries(
       <!-- Trust Signals Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {[
-          { title: "Manual Review", desc: "Individually tested by humans to ensure a login-free experience.", icon: "M" },
-          { title: "Privacy First", desc: "Core tasks are accessible without harvesting personal data.", icon: "P" },
-          { title: "24/7 Monitoring", desc: "Automated checks ensure the tool stays active and accessible.", icon: "H" },
-          { title: "Archive Proof", desc: "Public snapshots preserved on the Internet Archive for audit.", icon: "A" }
+          { title: t(locale, 'badgeDetail.trustManualReview'), desc: t(locale, 'badgeDetail.trustManualReviewDesc'), icon: "M" },
+          { title: t(locale, 'badgeDetail.trustPrivacy'), desc: t(locale, 'badgeDetail.trustPrivacyDesc'), icon: "P" },
+          { title: t(locale, 'badgeDetail.trustMonitoring'), desc: t(locale, 'badgeDetail.trustMonitoringDesc'), icon: "H" },
+          { title: t(locale, 'badgeDetail.trustArchive'), desc: t(locale, 'badgeDetail.trustArchiveDesc'), icon: "A" }
         ].map(item => (
           <div class="border border-neutral-200 rounded-lg p-5 flex gap-4">
             <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 font-black shrink-0 border border-green-100">
@@ -230,8 +236,8 @@ const allEmbedCodes = Object.fromEntries(
 
       <!-- Actions -->
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-minimal-primary px-8 py-3 rounded-lg font-semibold">Visit Verified Tool</a>
-        <a href={`/tool/${slug}`} class="inline-flex items-center justify-center text-sm font-medium text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-500 transition-colors px-8 py-3">Directory Listing</a>
+        <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn-minimal-primary px-8 py-3 rounded-lg font-semibold">{t(locale, 'badgeDetail.visitTool')}</a>
+        <a href={getLocalizedPath(`/tool/${slug}`, locale)} class="inline-flex items-center justify-center text-sm font-medium text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-500 transition-colors px-8 py-3">{t(locale, 'badgeDetail.directoryListing')}</a>
       </div>
 
       <!-- Bottom attribution -->
@@ -244,7 +250,7 @@ const allEmbedCodes = Object.fromEntries(
     <div id="panel-embed" role="tabpanel" aria-labelledby="tab-embed" class="hidden space-y-12">
 
       <section class="border border-neutral-200 rounded-lg p-8 sm:p-12 text-center">
-        <h2 class="text-3xl font-black text-neutral-900 mb-4">Add to Your Site</h2>
+        <h2 class="text-3xl font-black text-neutral-900 mb-4">{t(locale, 'badgeDetail.addToSite')}</h2>
         <p class="text-neutral-500 max-w-xl mx-auto font-medium mb-10">
           Display the NoLogin Verified badge to signal your commitment to a frictionless user experience.
           Tools with active badges receive a ranking boost.
@@ -260,7 +266,7 @@ const allEmbedCodes = Object.fromEntries(
 
         <!-- Badge Style Selector -->
         <div class="mb-12 text-left">
-          <h3 class="text-sm font-medium text-neutral-500 mb-8 text-center">Customize Style</h3>
+          <h3 class="text-sm font-medium text-neutral-500 mb-8 text-center">{t(locale, 'badgeDetail.customizeStyle')}</h3>
           <div class="space-y-10">
             {BADGE_GROUPS.map((group) => {
               const groupStyles = BADGE_STYLES.filter((s) => s.group === group.id);
@@ -298,7 +304,7 @@ const allEmbedCodes = Object.fromEntries(
           <!-- SVG Badge -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <h3 class="text-sm font-medium text-neutral-500">SVG Badge (Recommended)</h3>
+              <h3 class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.svgRecommended')}</h3>
               <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="svg">Copy Code</button>
             </div>
             <div class="p-6 bg-white border border-neutral-200 rounded-lg flex justify-center mb-4">
@@ -310,7 +316,7 @@ const allEmbedCodes = Object.fromEntries(
           <!-- Meta tag -->
           <div class="space-y-3">
              <div class="flex items-center justify-between">
-              <h3 class="text-sm font-medium text-neutral-500">Meta Tag</h3>
+              <h3 class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.metaTag')}</h3>
               <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="meta">Copy Code</button>
             </div>
             <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{embedCode.meta}</code></pre>

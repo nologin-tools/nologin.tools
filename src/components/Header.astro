@@ -1,25 +1,39 @@
 ---
-const currentPath = Astro.url.pathname;
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { t, loadTranslations, getLocalizedPath, getPathWithoutLocale } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+await loadTranslations(locale);
+
+const currentPath = getPathWithoutLocale(Astro.url.pathname);
+
+const navItems = [
+  { label: t(locale, 'nav.tools'), path: '/' },
+  { label: t(locale, 'nav.blog'), path: '/blog' },
+  { label: t(locale, 'nav.badge'), path: '/badge' },
+  { label: t(locale, 'nav.about'), path: '/about' },
+  { label: t(locale, 'nav.submit'), path: '/submit' },
+];
 ---
 
 <header class="bg-[#fdfdfc] border-b-2 border-neutral-900">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <div class="flex items-center gap-8">
-      <a href="/" class="font-black text-xl tracking-tighter text-neutral-900 uppercase italic">
+      <a href={getLocalizedPath('/', locale)} class="font-black text-xl tracking-tighter text-neutral-900 uppercase italic">
         nologin.tools
       </a>
       <nav class="hidden md:flex items-center gap-6 text-retro-mono" aria-label="Main navigation">
-        {[
-          { label: 'Tools', path: '/' },
-          { label: 'Blog', path: '/blog' },
-          { label: 'Badge', path: '/badge' },
-          { label: 'About', path: '/about' },
-          { label: 'Submit', path: '/submit' },
-        ].map((item) => {
+        {navItems.map((item) => {
+          const localizedPath = getLocalizedPath(item.path, locale);
           const isActive = item.path === '/' ? currentPath === '/' : currentPath.startsWith(item.path);
           return (
             <a
-              href={item.path}
+              href={localizedPath}
               class:list={[
                 'text-xs font-bold uppercase tracking-widest transition-all px-1',
                 isActive
@@ -36,82 +50,52 @@ const currentPath = Astro.url.pathname;
         ★ <span id="header-bookmark-key">Ctrl+D</span>
       </button>
     </div>
-    <button
-      id="mobile-menu-btn"
-      class="md:hidden p-2 text-neutral-900 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
-      aria-label="Toggle menu"
-    >
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="square"
+    <div class="flex items-center gap-4">
+      <div class="hidden md:block">
+        <LanguageSwitcher locale={locale} />
+      </div>
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-neutral-900 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+        aria-label={t(locale, 'nav.toggleMenu')}
       >
-        <path d="M3 12h18M3 6h18M3 18h18"></path>
-      </svg>
-    </button>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="square"
+        >
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
+    </div>
   </div>
   <nav
     id="mobile-menu"
     class="hidden md:hidden border-t-2 border-neutral-900 bg-white px-6 py-8 space-y-6 text-retro-mono"
     aria-label="Mobile navigation"
   >
-    <a
-      href="/"
-      class:list={[
-        'block text-sm font-bold uppercase tracking-widest',
-        currentPath === '/' ? 'text-neutral-900 underline decoration-2' : 'text-neutral-500',
-      ]}
-    >
-      Tools
-    </a>
-    <a
-      href="/blog"
-      class:list={[
-        'block text-sm font-bold uppercase tracking-widest',
-        currentPath.startsWith('/blog')
-          ? 'text-neutral-900 underline decoration-2'
-          : 'text-neutral-500',
-      ]}
-    >
-      Blog
-    </a>
-    <a
-      href="/badge"
-      class:list={[
-        'block text-sm font-bold uppercase tracking-widest',
-        currentPath.startsWith('/badge')
-          ? 'text-neutral-900 underline decoration-2'
-          : 'text-neutral-500',
-      ]}
-    >
-      Badge
-    </a>
-    <a
-      href="/about"
-      class:list={[
-        'block text-sm font-bold uppercase tracking-widest',
-        currentPath === '/about'
-          ? 'text-neutral-900 underline decoration-2'
-          : 'text-neutral-500',
-      ]}
-    >
-      About
-    </a>
-    <a
-      href="/submit"
-      class:list={[
-        'block text-sm font-bold uppercase tracking-widest',
-        currentPath === '/submit'
-          ? 'text-neutral-900 underline decoration-2'
-          : 'text-neutral-500',
-      ]}
-    >
-      Submit
-    </a>
+    {navItems.map((item) => {
+      const localizedPath = getLocalizedPath(item.path, locale);
+      const isActive = item.path === '/' ? currentPath === '/' : currentPath.startsWith(item.path);
+      return (
+        <a
+          href={localizedPath}
+          class:list={[
+            'block text-sm font-bold uppercase tracking-widest',
+            isActive ? 'text-neutral-900 underline decoration-2' : 'text-neutral-500',
+          ]}
+        >
+          {item.label}
+        </a>
+      );
+    })}
+    <div class="pt-4 border-t border-neutral-200">
+      <LanguageSwitcher locale={locale} />
+    </div>
   </nav>
 </header>
 
@@ -125,7 +109,7 @@ const currentPath = Astro.url.pathname;
 
   const headerBookmarkKey = document.getElementById('header-bookmark-key');
   const headerBookmarkBtn = document.getElementById('header-bookmark-btn');
-  
+
   const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   if (headerBookmarkKey) {
     headerBookmarkKey.textContent = isMac ? '⌘+D' : 'Ctrl+D';
