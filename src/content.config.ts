@@ -11,6 +11,9 @@ const blog = defineCollection({
     author: z.string().default('nologin.tools'),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
+    locale: z.string().default('en'),
+    originalSlug: z.string().optional(),
+    sourceHash: z.string().optional(),
   }),
 });
 

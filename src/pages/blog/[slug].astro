@@ -1,10 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
+import { t, getLocalizedPath } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+
+const locale: Locale = 'en';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
+  // Only English (root-level) posts
+  return posts.filter(p => !p.id.includes('/')).map((post) => ({
     params: { slug: post.id },
     props: { post },
   }));
@@ -23,7 +28,7 @@ const modifiedDate = post.data.updatedAt ? formatDate(post.data.updatedAt) : und
 // Related posts: same tags
 const allPosts = await getCollection('blog');
 const related = allPosts
-  .filter((p) => p.id !== post.id && p.data.tags.some((t: string) => post.data.tags.includes(t)))
+  .filter((p) => p.id !== post.id && !p.id.includes('/') && p.data.tags.some((t: string) => post.data.tags.includes(t)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
   .slice(0, 3);
 
@@ -56,8 +61,8 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologin.tools' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://nologin.tools/blog' },
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: 'https://nologin.tools' },
+    { '@type': 'ListItem', position: 2, name: t(locale, 'blog.title'), item: 'https://nologin.tools/blog' },
     { '@type': 'ListItem', position: 3, name: post.data.title, item: `https://nologin.tools/blog/${post.id}` },
   ],
 };
@@ -68,6 +73,7 @@ const breadcrumbLd = {
   description={post.data.description}
   ogType="article"
   publishedTime={publishedDate}
+  locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(postLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
@@ -77,13 +83,13 @@ const breadcrumbLd = {
     <nav aria-label="Breadcrumb" class="mb-8">
       <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
         <li>
-          <a href="/" class="hover:text-neutral-900 transition-colors">Home</a>
+          <a href="/" class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
         </li>
         <li aria-hidden="true">
           <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
         </li>
         <li>
-          <a href="/blog" class="hover:text-neutral-900 transition-colors">Blog</a>
+          <a href="/blog" class="hover:text-neutral-900 transition-colors">{t(locale, 'blog.title')}</a>
         </li>
         <li aria-hidden="true">
           <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
@@ -102,7 +108,7 @@ const breadcrumbLd = {
         {modifiedDate && (
           <>
             <span class="text-neutral-300">·</span>
-            <span>Updated {modifiedDate}</span>
+            <span>{t(locale, 'blog.updated', { date: modifiedDate })}</span>
           </>
         )}
         <span class="text-neutral-300">·</span>
@@ -127,7 +133,7 @@ const breadcrumbLd = {
     <!-- Related Posts -->
     {related.length > 0 && (
       <aside class="mt-16 border-t border-neutral-200 pt-8">
-        <h2 class="text-sm font-bold text-neutral-500 uppercase tracking-wider mb-6">Related Posts</h2>
+        <h2 class="text-sm font-bold text-neutral-500 uppercase tracking-wider mb-6">{t(locale, 'blog.relatedPosts')}</h2>
         <ul class="space-y-4">
           {related.map((r) => (
             <li>

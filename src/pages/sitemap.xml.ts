@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { getApprovedTools } from '../data/loader';
+import { LOCALES, DEFAULT_LOCALE } from '../i18n/config';
+import { getLocalizedPath } from '../i18n/utils';
 
 export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
@@ -8,7 +10,6 @@ export const GET: APIRoute = async () => {
 
   const staticLastmod = new Date().toISOString().split('T')[0];
 
-  // Homepage lastmod: use the most recent approvedAt date among all tools
   const homepageLastmod = approvedTools.reduce((latest, t) => {
     if (!t.approvedAt) return latest;
     const d = new Date(t.approvedAt).toISOString().split('T')[0];
@@ -36,12 +37,13 @@ export const GET: APIRoute = async () => {
     lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
   }));
 
-  // Blog pages
+  // Blog pages (only English root-level posts)
   const blogPosts = await getCollection('blog');
+  const englishPosts = blogPosts.filter((p) => !p.id.includes('/'));
   const blogListPage = [
     { url: '/blog', priority: '0.8', changefreq: 'daily', lastmod: staticLastmod },
   ];
-  const blogPostPages = blogPosts.map((post) => ({
+  const blogPostPages = englishPosts.map((post) => ({
     url: `/blog/${post.id}`,
     priority: '0.7',
     changefreq: 'weekly',
@@ -50,14 +52,23 @@ export const GET: APIRoute = async () => {
 
   const allPages = [...staticPages, ...toolPages, ...badgePages, ...blogListPage, ...blogPostPages];
 
+  function generateHreflangLinks(path: string): string {
+    return LOCALES.map((locale) => {
+      const href = `${siteUrl}${getLocalizedPath(path, locale)}`;
+      return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}"/>`;
+    }).join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}${getLocalizedPath(path, DEFAULT_LOCALE)}"/>`;
+  }
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${allPages
   .map(
     (page) => `  <url>
     <loc>${siteUrl}${page.url}</loc>${page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : ''}
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
+${generateHreflangLinks(page.url)}
   </url>`
   )
   .join('\n')}
