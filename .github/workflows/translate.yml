@@ -60,7 +60,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
         run: |
           cat > /tmp/translate-issue-body.md << 'ISSUE_BODY'
-          You are a translation agent for nologin.tools.
+          @claude You are a translation agent for nologin.tools.
           Target languages: zh, ja, ko, es, fr, de, pt.
 
           ## Task 1: UI Strings
