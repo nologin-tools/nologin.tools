@@ -41,6 +41,11 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         continue-on-error: true
 
+      - name: Configure git author
+        run: |
+          git config user.name "translator-bot"
+          git config user.email "translator-bot@nologin.tools"
+
       - name: Check if translation needed
         id: check
         run: node scripts/check-translation-needed.mjs
@@ -93,9 +98,12 @@ jobs:
 
             ## After translating:
             If any files were changed:
-            1. Create a new branch named i18n/auto-translate-$(date +%Y%m%d)
-            2. Commit all changes with message "i18n: auto-translate content"
-            3. Create a PR targeting main with title "i18n: auto-translate content" and auto-merge with squash
+            1. Configure git author:
+               git config user.name "translator-bot"
+               git config user.email "translator-bot@nologin.tools"
+            2. Create a new branch named i18n/auto-translate-$(date +%Y%m%d)
+            3. Commit all changes with message "i18n: auto-translate content"
+            4. Create a PR targeting main with title "i18n: auto-translate content" and auto-merge with squash
             If no changes needed, just report "All translations up to date" and exit.
           claude_args: >-
             --allowed-tools
