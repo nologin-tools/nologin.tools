@@ -1,0 +1,97 @@
+name: Translate Writer
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  translate:
+    if: contains(toJSON(github.event.issue.labels), '"auto-translate"')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Fetch build data
+        run: node scripts/fetch-build-data.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        continue-on-error: true
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: >-
+            --allowed-tools
+            "Bash(git:*)"
+            "Bash(gh:*)"
+            "Bash(mkdir:*)"
+            "Bash(node:*)"
+            "Bash(date:*)"
+            "Read"
+            "Write"
+            "Edit"
+            "Glob"
+            "Grep"
+
+      - name: Rewrite commit author and create PR
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          # Find the branch Claude pushed
+          BRANCH=$(git ls-remote --heads origin "claude/issue-${ISSUE_NUMBER}-*" \
+            | awk '{print $2}' | sed 's|refs/heads/||' | sort -r | head -1)
+
+          if [ -z "$BRANCH" ]; then
+            echo "No branch found for issue #${ISSUE_NUMBER}, skipping PR creation"
+            exit 0
+          fi
+          echo "Found branch: $BRANCH"
+
+          # Rewrite commit author to translator-bot
+          git config user.name "translator-bot"
+          git config user.email "translator-bot@nologin.tools"
+          REPO="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git remote set-url origin "$REPO"
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+          git commit --amend --author="translator-bot <translator-bot@nologin.tools>" --no-edit
+          git push origin "$BRANCH" --force
+
+          # Check if PR already exists
+          EXISTING=$(gh pr list --head "$BRANCH" --json number --jq '.[0].number' 2>/dev/null || true)
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING already exists, skipping"
+            exit 0
+          fi
+
+          # Create PR
+          PR_URL=$(gh pr create \
+            --head "$BRANCH" \
+            --title "i18n: auto-translate content" \
+            --body "Auto-generated translation update.
+
+          Closes #${ISSUE_NUMBER}" \
+            --label "auto-translate" \
+            --base main)
+
+          echo "Created PR: $PR_URL"
+
+          # Enable auto-merge
+          gh pr merge --auto --squash "$PR_URL" || echo "Auto-merge not available (branch protection may not be configured)"
