@@ -25,10 +25,11 @@ jobs:
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
 
-      - name: Rewrite commit author and create PR
+      - name: Post-process, add hero image, and create PR
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: |
           # Find the branch Claude pushed
           BRANCH=$(git ls-remote --heads origin "claude/issue-${ISSUE_NUMBER}-*" \
@@ -40,13 +41,52 @@ jobs:
           fi
           echo "Found branch: $BRANCH"
 
-          # Rewrite commit author to blog-bot
+          # Setup git auth and checkout branch
           git config user.name "blog-bot"
           git config user.email "blog-bot@nologin.tools"
           REPO="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git remote set-url origin "$REPO"
           git fetch origin "$BRANCH"
           git checkout "$BRANCH"
+
+          # Download hero image from Unsplash
+          TOPIC=$(gh issue view "$ISSUE_NUMBER" --json title --jq '.title' | sed 's/^\[Auto Blog\] //')
+          BLOG_FILE=$(git diff --name-only HEAD~1 -- src/content/blog/ | head -1)
+          SLUG=$(basename "$BLOG_FILE" .md)
+
+          IMAGE_ADDED=false
+          if [ -n "$UNSPLASH_ACCESS_KEY" ] && [ -n "$SLUG" ]; then
+            QUERY=$(echo "$TOPIC" | sed 's/ /+/g')
+            mkdir -p "public/blog/images/${SLUG}"
+            IMAGE_URL=$(curl -sf "https://api.unsplash.com/photos/random?query=${QUERY}&orientation=landscape&w=1200" \
+              -H "Authorization: Client-ID ${UNSPLASH_ACCESS_KEY}" \
+              | node -e "const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')); console.log(d.urls.regular)" 2>/dev/null) || true
+
+            if [ -n "$IMAGE_URL" ]; then
+              curl -sfL -o "public/blog/images/${SLUG}/hero.jpg" "$IMAGE_URL" || true
+              if [ -f "public/blog/images/${SLUG}/hero.jpg" ]; then
+                # Insert image after frontmatter using node
+                HERO_ALT="$TOPIC" HERO_SLUG="$SLUG" node -e "
+                  const fs = require('fs');
+                  const f = 'src/content/blog/' + process.env.HERO_SLUG + '.md';
+                  let c = fs.readFileSync(f, 'utf8');
+                  const second = c.indexOf('---', c.indexOf('---') + 3);
+                  if (second !== -1) {
+                    const nl = c.indexOf('\n', second);
+                    const img = '\n\n![' + process.env.HERO_ALT + '](/blog/images/' + process.env.HERO_SLUG + '/hero.jpg)\n';
+                    c = c.slice(0, nl + 1) + img + c.slice(nl + 1);
+                    fs.writeFileSync(f, c);
+                  }
+                "
+                git add "public/blog/images/${SLUG}/hero.jpg" "src/content/blog/${SLUG}.md"
+                IMAGE_ADDED=true
+                echo "Hero image added for ${SLUG}"
+              fi
+            fi
+          fi
+          [ "$IMAGE_ADDED" = false ] && echo "Hero image skipped (no API key or download failed)"
+
+          # Rewrite commit author (amend includes staged image if added)
           git commit --amend --author="blog-bot <blog-bot@nologin.tools>" --no-edit
           git push origin "$BRANCH" --force
 
@@ -56,9 +96,6 @@ jobs:
             echo "PR #$EXISTING already exists, skipping"
             exit 0
           fi
-
-          # Extract topic from issue title (strip "[Auto Blog] " prefix)
-          TOPIC=$(gh issue view "$ISSUE_NUMBER" --json title --jq '.title' | sed 's/^\[Auto Blog\] //')
 
           # Create PR
           PR_URL=$(gh pr create \
