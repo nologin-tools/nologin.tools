@@ -1,0 +1,111 @@
+name: Auto Translate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/blog/*.md'
+      - 'src/i18n/en.json'
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: auto-translate
+  cancel-in-progress: true
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Fetch build data
+        run: node scripts/fetch-build-data.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        continue-on-error: true
+
+      - name: Check if translation needed
+        id: check
+        run: node scripts/check-translation-needed.mjs
+
+      - name: Translate content
+        if: steps.check.outputs.needs_translation == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            You are a translation agent for nologin.tools.
+            Target languages: zh, ja, ko, es, fr, de, pt.
+
+            ## Task 1: UI Strings
+            Read src/i18n/en.json. Compute its SHA-256 hash (first 16 hex chars).
+            For each target locale, read src/i18n/{locale}.json:
+            - If `_sourceHash` differs from current en.json hash → re-translate ALL keys
+            - If `_sourceHash` matches → only translate keys missing in locale file
+            - Keep brand names (nologin.tools, NoLoginTools.org) untranslated
+            - Preserve {placeholder} syntax exactly
+            - Store updated `_sourceHash` as the first key in each locale file
+            - Write valid JSON with 2-space indentation
+
+            ## Task 2: Blog Posts
+            Scan src/content/blog/*.md (root-level only = English sources).
+            For each post and each locale, check src/content/blog/{locale}/{filename}:
+            - If translation missing → translate full Markdown, create the directory if needed
+            - If translation exists but `sourceHash` in frontmatter differs from
+              current English content hash → re-translate (content was updated)
+            - Translate title and description in frontmatter
+            - Add locale, originalSlug, sourceHash to frontmatter
+            - Keep all links, code blocks, brand names, and URLs unchanged
+            - Keep the same Markdown structure (headings, lists, etc.)
+
+            ## Task 3: Tool Descriptions (if build-data.json exists)
+            Read src/data/build-data.json if it exists. For each approved tool and each locale,
+            check src/data/translations/{locale}.json:
+            - Compute SHA-256 hash (first 16 chars) of English description+"|"+coreTask
+            - If tool missing or `_hash` differs → translate description and coreTask
+            - Keep tool names in English
+            - Store `_hash` alongside each translation
+            - Write valid JSON with 2-space indentation
+
+            ## Translation Quality Guidelines
+            - Use natural, fluent language appropriate for each locale
+            - Maintain technical accuracy
+            - Do NOT translate: brand names, URLs, code snippets, {placeholders}
+            - For Chinese (zh): use Simplified Chinese
+            - For Portuguese (pt): use Brazilian Portuguese
+
+            ## After translating:
+            If any files were changed:
+            1. Create a new branch named i18n/auto-translate-$(date +%Y%m%d)
+            2. Commit all changes with message "i18n: auto-translate content"
+            3. Create a PR targeting main with title "i18n: auto-translate content" and auto-merge with squash
+            If no changes needed, just report "All translations up to date" and exit.
+          claude_args: >-
+            --allowed-tools
+            "Bash(git:*)"
+            "Bash(gh:*)"
+            "Bash(mkdir:*)"
+            "Bash(node:*)"
+            "Bash(date:*)"
+            "Read"
+            "Write"
+            "Edit"
+            "Glob"
+            "Grep"
