@@ -37,10 +37,6 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.PAT_GITHUB_TOKEN }}
-          # Do NOT use allowed_tools — it replaces action defaults and loses
-          # mcp__github_comment__update_claude_comment (comment updates) and LS.
-          # Use claude_args to ADD extra bash tools on top of defaults.
-          claude_args: '--allowed-tools "Bash(node:*)" "Bash(sha256sum:*)" "Bash(shasum:*)"'
 
       - name: Rewrite commit author and create PR
         env:
