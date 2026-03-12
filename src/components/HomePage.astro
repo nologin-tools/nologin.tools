@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { TAG_DEFINITIONS } from '../lib/tags';
-import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore } from '../data/loader';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import LanguageSwitcher from './LanguageSwitcher.astro';
@@ -203,9 +203,9 @@ function translateCategory(cat: string): string {
                           ({hostname})
                         </a>
                       </div>
-                      {tool.description && (
+                      {getLocalizedDescription(tool, locale) && (
                         <p class="text-neutral-600 text-sm">
-                          {tool.description}
+                          {getLocalizedDescription(tool, locale)}
                         </p>
                       )}
                     </div>
