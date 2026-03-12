@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "image compression file size browser tool"
 ---
 
+![Hero image](/blog/images/compress-convert-resize-images-no-login/hero.jpg)
+
 Images are responsible for roughly half the weight of the average web page. Not JavaScript, not CSS — images. And yet the tools most people reach for when they need to compress a photo, convert a PNG to WebP, or resize something for a specific platform all want an account before you can touch a slider.
 
 That's a bad trade for a five-second task.
