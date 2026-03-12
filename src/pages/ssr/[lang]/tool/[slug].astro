@@ -7,6 +7,7 @@ import { eq, desc, sql } from 'drizzle-orm';
 import { HEALTH_TOLERANCE } from '../../../../lib/health';
 import ToolDetailPage from '../../../../components/ToolDetailPage.astro';
 import type { Locale } from '../../../../i18n/config';
+import { getLocalizedDescription, getLocalizedCoreTask, type BuildDataTool } from '../../../../data/loader';
 
 const { slug, lang } = Astro.params;
 const locale = lang as Locale;
@@ -57,7 +58,7 @@ const healthHistory = await db
 ---
 
 <ToolDetailPage
-  tool={tool}
+  tool={{ ...tool, description: getLocalizedDescription(tool as unknown as BuildDataTool, locale), coreTask: getLocalizedCoreTask(tool as unknown as BuildDataTool, locale) }}
   toolTags={toolTags}
   recentChecks={recentChecks}
   healthHistory={healthHistory}

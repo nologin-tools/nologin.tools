@@ -1,5 +1,5 @@
 ---
-import { getAllTools } from '../../../data/loader';
+import { getAllTools, getLocalizedDescription, getLocalizedCoreTask } from '../../../data/loader';
 import ToolDetailPage from '../../../components/ToolDetailPage.astro';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 
@@ -20,8 +20,8 @@ const toolData = {
   slug: tool.slug,
   name: tool.name,
   url: tool.url,
-  description: tool.description,
-  coreTask: tool.coreTask,
+  description: getLocalizedDescription(tool, locale),
+  coreTask: getLocalizedCoreTask(tool, locale),
   status: tool.status,
   approvedAt: tool.approvedAt,
   archiveUrl: tool.archiveUrl,
