@@ -1,5 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
+  "_sourceHash": "",
   "nav.tools": "工具",
   "nav.blog": "博客",
   "nav.badge": "徽章",
@@ -8,11 +8,9 @@
   "nav.toggleMenu": "切换菜单",
   "nav.bookmark": "书签",
   "nav.bookmarkAlert": "按 {shortcut} 将此网站添加到书签。",
-
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "项目由",
-
   "common.home": "首页",
   "common.featured": "精选",
   "common.other": "其他",
@@ -22,7 +20,6 @@
   "common.copyCode": "复制代码",
   "common.cancel": "取消",
   "common.loading": "加载中...",
-
   "home.title": "无需登录的隐私友好工具",
   "home.description": "发现精选的隐私友好工具，无需登录或注册即可使用。浏览设计、开发、效率等各类已验证工具。",
   "home.tagline": "隐私友好的工具。",
@@ -30,7 +27,6 @@
   "home.toolsVerified": "{count} 个工具已认证",
   "home.jsonLd.itemListName": "无需登录的隐私友好工具",
   "home.jsonLd.orgDescription": "精选无需登录即可使用的隐私友好工具目录。",
-
   "about.title": "关于",
   "about.description": "关于 nologin.tools —— 精选无需登录即可使用的工具目录。",
   "about.heading": "关于 nologin.tools",
@@ -51,14 +47,12 @@
   "about.outroP2": "我们的代码是开源的，我们的数据库定期导出，以帮助其他人构建隐私优先的应用程序。",
   "about.exploreGithub": "在 GitHub 上查看",
   "about.submitTool": "提交工具",
-
   "notFound.title": "页面未找到",
   "notFound.description": "您查找的页面不存在。",
   "notFound.heading": "404",
   "notFound.message": "页面未找到",
   "notFound.detail": "您查找的页面不存在或已被移动。",
   "notFound.backHome": "返回首页",
-
   "submit.title": "提交工具",
   "submit.description": "向 nologin.tools 目录提交一个无需登录即可使用的工具。",
   "submit.heading": "提交工具",
@@ -101,7 +95,6 @@
   "submit.errGeneral": "提交失败。请检查您的输入。",
   "submit.errNetwork": "网络错误。请检查您的连接并重试。",
   "submit.errUnexpected": "发生意外错误。请重试。",
-
   "submitSuccess.title": "工具已提交",
   "submitSuccess.description": "您的工具已提交审核。",
   "submitSuccess.heading": "提交成功！",
@@ -116,7 +109,6 @@
   "submitSuccess.svgBadge": "SVG 徽章",
   "submitSuccess.metaTag": "Meta 标签",
   "submitSuccess.backToDirectory": "返回目录",
-
   "tool.defaultDescription": "{name} —— 无需登录即可使用的工具。",
   "tool.pendingReview": "待审核",
   "tool.pendingDesc": "此工具目前正在审核中。审核通过后将出现在公共目录中。",
@@ -159,13 +151,11 @@
   "tool.editCoreTaskLength": "核心任务最多200个字符。",
   "tool.editInvalidUrl": "请输入有效的网址。",
   "tool.updated": "更新于 {time}",
-
   "health.noChecks": "无检查记录",
   "health.online": "在线",
   "health.unstable": "不稳定",
   "health.offline": "离线",
   "health.noData": "无数据",
-
   "badge.title": "无需登录认证徽章",
   "badge.description": "什么是无需登录认证？了解认证工具无需登录的徽章。",
   "badge.heroTitle": "NoLogin 标准",
@@ -203,7 +193,6 @@
   "badge.noBadge": "无徽章",
   "badge.rankPoints": "排名积分",
   "badge.submitYourTool": "提交您的工具",
-
   "badgeDetail.verificationTab": "验证证书",
   "badgeDetail.embedTab": "嵌入代码",
   "badgeDetail.pendingTitle": "验证待处理",
@@ -241,7 +230,6 @@
   "badgeDetail.collection": "{name} 系列",
   "badgeDetail.svgRecommended": "SVG 徽章（推荐）",
   "badgeDetail.metaTag": "Meta 标签",
-
   "blog.title": "博客",
   "blog.description": "关于隐私友好工具、无需登录的工作流程和开放网络的文章。",
   "blog.heading": "博客",
@@ -249,9 +237,7 @@
   "blog.noPosts": "暂无文章。请稍后再来。",
   "blog.updated": "更新于 {date}",
   "blog.relatedPosts": "相关文章",
-
   "layout.defaultDescription": "发现尊重您隐私的工具——无需登录。",
-
   "tag.category.AI": "AI",
   "tag.category.Design": "设计",
   "tag.category.Writing": "写作",

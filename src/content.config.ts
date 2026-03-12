@@ -14,6 +14,7 @@ const blog = defineCollection({
     locale: z.string().default('en'),
     originalSlug: z.string().optional(),
     sourceHash: z.string().optional(),
+    heroImageQuery: z.string().optional(),
   }),
 });
 

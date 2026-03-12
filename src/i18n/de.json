@@ -1,6 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
-
+  "_sourceHash": "",
   "nav.tools": "Tools",
   "nav.blog": "Blog",
   "nav.badge": "Badge",
@@ -9,11 +8,9 @@
   "nav.toggleMenu": "Menü umschalten",
   "nav.bookmark": "Lesezeichen",
   "nav.bookmarkAlert": "Drücke {shortcut}, um diese Seite zu bookmarken.",
-
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "Ein Projekt von",
-
   "common.home": "Startseite",
   "common.featured": "Empfohlen",
   "common.other": "Sonstiges",
@@ -23,7 +20,6 @@
   "common.copyCode": "Code kopieren",
   "common.cancel": "Abbrechen",
   "common.loading": "Lädt...",
-
   "home.title": "Datenschutzfreundliche Tools ohne Login",
   "home.description": "Entdecke kuratierte datenschutzfreundliche Tools, die ohne Login oder Registrierung funktionieren. Durchsuche verifizierte Tools aus den Bereichen Design, Entwicklung, Produktivität und mehr.",
   "home.tagline": "Datenschutzfreundliche Tools.",
@@ -31,7 +27,6 @@
   "home.toolsVerified": "{count} Tools verifiziert",
   "home.jsonLd.itemListName": "Datenschutzfreundliche Tools ohne Login",
   "home.jsonLd.orgDescription": "Ein kuratiertes Verzeichnis datenschutzfreundlicher Tools, die ohne Login funktionieren.",
-
   "about.title": "Über uns",
   "about.description": "Über nologin.tools — ein kuratiertes Verzeichnis von Tools, die ohne Login funktionieren.",
   "about.heading": "Über nologin.tools",
@@ -52,14 +47,12 @@
   "about.outroP2": "Unser Code ist Open Source und unsere Datenbank wird regelmäßig exportiert, um anderen beim Aufbau datenschutzfreundlicher Anwendungen zu helfen.",
   "about.exploreGithub": "Auf GitHub erkunden",
   "about.submitTool": "Tool einreichen",
-
   "notFound.title": "Seite nicht gefunden",
   "notFound.description": "Die gesuchte Seite existiert nicht.",
   "notFound.heading": "404",
   "notFound.message": "Seite nicht gefunden",
   "notFound.detail": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
   "notFound.backHome": "Zurück zur Startseite",
-
   "submit.title": "Tool einreichen",
   "submit.description": "Reiche ein Tool, das ohne Login funktioniert, im nologin.tools-Verzeichnis ein.",
   "submit.heading": "Tool einreichen",
@@ -102,7 +95,6 @@
   "submit.errGeneral": "Einreichung fehlgeschlagen. Bitte überprüfe deine Eingaben.",
   "submit.errNetwork": "Netzwerkfehler. Bitte überprüfe deine Verbindung und versuche es erneut.",
   "submit.errUnexpected": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
-
   "submitSuccess.title": "Tool eingereicht",
   "submitSuccess.description": "Dein Tool wurde zur Überprüfung eingereicht.",
   "submitSuccess.heading": "Einreichung erhalten!",
@@ -117,7 +109,6 @@
   "submitSuccess.svgBadge": "SVG-Badge",
   "submitSuccess.metaTag": "Meta-Tag",
   "submitSuccess.backToDirectory": "Zurück zum Verzeichnis",
-
   "tool.defaultDescription": "{name} — ein Tool, das ohne Login funktioniert.",
   "tool.pendingReview": "Ausstehende Überprüfung",
   "tool.pendingDesc": "Dieses Tool wird derzeit geprüft. Es erscheint im öffentlichen Verzeichnis, sobald es genehmigt wurde.",
@@ -160,13 +151,11 @@
   "tool.editCoreTaskLength": "Kernaufgabe darf maximal 200 Zeichen lang sein.",
   "tool.editInvalidUrl": "Bitte gib eine gültige URL ein.",
   "tool.updated": "Aktualisiert {time}",
-
   "health.noChecks": "Keine Prüfungen",
   "health.online": "Online",
   "health.unstable": "Instabil",
   "health.offline": "Offline",
   "health.noData": "Keine Daten",
-
   "badge.title": "NoLogin Verified Badge",
   "badge.description": "Was ist NoLogin Verified? Erfahre mehr über das Badge, das bestätigt, dass Tools ohne Login funktionieren.",
   "badge.heroTitle": "Der NoLogin-Standard",
@@ -204,7 +193,6 @@
   "badge.noBadge": "Kein Badge",
   "badge.rankPoints": "Ranking-Punkte",
   "badge.submitYourTool": "Dein Tool einreichen",
-
   "badgeDetail.verificationTab": "Verifizierungszertifikat",
   "badgeDetail.embedTab": "Einbettungscode",
   "badgeDetail.pendingTitle": "Verifizierung ausstehend",
@@ -242,7 +230,6 @@
   "badgeDetail.collection": "{name}-Kollektion",
   "badgeDetail.svgRecommended": "SVG-Badge (Empfohlen)",
   "badgeDetail.metaTag": "Meta-Tag",
-
   "blog.title": "Blog",
   "blog.description": "Artikel über datenschutzfreundliche Tools, No-Login-Workflows und das offene Web.",
   "blog.heading": "Blog",
@@ -250,9 +237,7 @@
   "blog.noPosts": "Noch keine Beiträge. Schau bald wieder vorbei.",
   "blog.updated": "Aktualisiert {date}",
   "blog.relatedPosts": "Verwandte Beiträge",
-
   "layout.defaultDescription": "Entdecke Tools, die deine Privatsphäre respektieren – kein Login erforderlich.",
-
   "tag.category.AI": "AI",
   "tag.category.Design": "Design",
   "tag.category.Writing": "Schreiben",

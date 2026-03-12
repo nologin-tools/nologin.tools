@@ -241,4 +241,20 @@ describe('validatePost', () => {
     const landErrors = issues.filter((i) => i.message.includes('landscape'));
     assert.equal(landErrors.length, 0);
   });
+
+  it('should warn when post has no image', () => {
+    const content = buildPost();
+    const issues = validatePost('test.md', content);
+    assert.ok(issues.some((i) => i.level === 'warning' && i.message.includes('No image')));
+  });
+
+  it('should not warn when post contains an image', () => {
+    const content = buildPost().replace(
+      '## Why Browser Tools Matter',
+      '![Hero image](/blog/images/test/hero.jpg)\n\n## Why Browser Tools Matter'
+    );
+    const issues = validatePost('test.md', content);
+    const imageWarnings = issues.filter((i) => i.level === 'warning' && i.message.includes('No image'));
+    assert.equal(imageWarnings.length, 0);
+  });
 });

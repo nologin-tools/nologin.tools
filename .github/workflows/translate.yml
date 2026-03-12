@@ -94,11 +94,21 @@ jobs:
           - Write valid JSON with 2-space indentation
 
           ## Translation Quality Guidelines
-          - Use natural, fluent language appropriate for each locale
-          - Maintain technical accuracy
+          **FIRST**: Read `scripts/translation-guidelines.md` for detailed per-language style instructions. Follow them precisely.
+
+          Core principle: REWRITE, don't translate. The output must read as if originally written in the target language.
+          - Break long English sentences into shorter target-language sentences
+          - Replace English idioms with natural target-language equivalents
+          - Adapt paragraph structure and rhythm for target-language reading habits
+          - For blog posts: match the tone of popular tech blogs in each locale's culture (see guidelines for specific references)
           - Do NOT translate: brand names, URLs, code snippets, {placeholders}
-          - For Chinese (zh): use Simplified Chinese
-          - For Portuguese (pt): use Brazilian Portuguese
+          - For Chinese (zh): use Simplified Chinese, 少数派/V2EX style
+          - For Japanese (ja): use 敬体 (です/ます調), Zenn.dev/Qiita style
+          - For Korean (ko): use 해요체, velog.io style
+          - For Spanish (es): use tú, Xataka/Genbeta style
+          - For French (fr): use tu, Korben.info style; respect French punctuation spacing
+          - For German (de): use du, t3n.de/heise.de style
+          - For Portuguese (pt): use Brazilian Portuguese (pt-BR), Tecnoblog style
 
           ## Important
           - Only modify translation files. Do NOT modify any English source files.

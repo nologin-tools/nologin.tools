@@ -1,6 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
-
+  "_sourceHash": "",
   "nav.tools": "Ferramentas",
   "nav.blog": "Blog",
   "nav.badge": "Selo",
@@ -9,11 +8,9 @@
   "nav.toggleMenu": "Alternar menu",
   "nav.bookmark": "Favoritar",
   "nav.bookmarkAlert": "Pressione {shortcut} para favoritar este site.",
-
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "Um projeto de",
-
   "common.home": "Início",
   "common.featured": "Destaque",
   "common.other": "Outros",
@@ -23,7 +20,6 @@
   "common.copyCode": "Copiar código",
   "common.cancel": "Cancelar",
   "common.loading": "Carregando...",
-
   "home.title": "Ferramentas Sem Login que Respeitam sua Privacidade",
   "home.description": "Descubra ferramentas selecionadas que respeitam sua privacidade e funcionam sem login ou cadastro. Explore ferramentas verificadas em design, desenvolvimento, produtividade e muito mais.",
   "home.tagline": "Ferramentas que respeitam sua privacidade.",
@@ -31,7 +27,6 @@
   "home.toolsVerified": "{count} Ferramentas Verificadas",
   "home.jsonLd.itemListName": "Ferramentas Sem Login que Respeitam sua Privacidade",
   "home.jsonLd.orgDescription": "Um diretório selecionado de ferramentas que respeitam sua privacidade e funcionam sem login.",
-
   "about.title": "Sobre",
   "about.description": "Sobre nologin.tools — um diretório selecionado de ferramentas que funcionam sem login.",
   "about.heading": "Sobre nologin.tools",
@@ -52,14 +47,12 @@
   "about.outroP2": "Nosso código é open source e nosso banco de dados é exportado regularmente para ajudar outros a criar aplicações que priorizam a privacidade.",
   "about.exploreGithub": "Explorar no GitHub",
   "about.submitTool": "Enviar uma Ferramenta",
-
   "notFound.title": "Página Não Encontrada",
   "notFound.description": "A página que você está procurando não existe.",
   "notFound.heading": "404",
   "notFound.message": "Página não encontrada",
   "notFound.detail": "A página que você está procurando não existe ou foi movida.",
   "notFound.backHome": "Voltar ao início",
-
   "submit.title": "Enviar uma Ferramenta",
   "submit.description": "Envie uma ferramenta que funciona sem login para o diretório nologin.tools.",
   "submit.heading": "Enviar uma Ferramenta",
@@ -102,7 +95,6 @@
   "submit.errGeneral": "Envio falhou. Por favor, verifique suas entradas.",
   "submit.errNetwork": "Erro de rede. Por favor, verifique sua conexão e tente novamente.",
   "submit.errUnexpected": "Ocorreu um erro inesperado. Por favor, tente novamente.",
-
   "submitSuccess.title": "Ferramenta Enviada",
   "submitSuccess.description": "Sua ferramenta foi enviada para revisão.",
   "submitSuccess.heading": "Envio Recebido!",
@@ -117,7 +109,6 @@
   "submitSuccess.svgBadge": "Selo SVG",
   "submitSuccess.metaTag": "Meta Tag",
   "submitSuccess.backToDirectory": "Voltar ao Diretório",
-
   "tool.defaultDescription": "{name} — uma ferramenta que funciona sem login.",
   "tool.pendingReview": "Revisão Pendente",
   "tool.pendingDesc": "Esta ferramenta está sendo revisada. Ela aparecerá no diretório público após ser aprovada.",
@@ -160,13 +151,11 @@
   "tool.editCoreTaskLength": "A tarefa principal deve ter no máximo 200 caracteres.",
   "tool.editInvalidUrl": "Por favor, insira uma URL válida.",
   "tool.updated": "Atualizado {time}",
-
   "health.noChecks": "Sem verificações",
   "health.online": "Online",
   "health.unstable": "Instável",
   "health.offline": "Offline",
   "health.noData": "Sem dados",
-
   "badge.title": "Selo Verificado NoLogin",
   "badge.description": "O que é NoLogin Verificado? Saiba sobre o selo que certifica que ferramentas funcionam sem login.",
   "badge.heroTitle": "O Padrão NoLogin",
@@ -204,7 +193,6 @@
   "badge.noBadge": "Sem Selo",
   "badge.rankPoints": "Pontos de Ranking",
   "badge.submitYourTool": "Envie sua Ferramenta",
-
   "badgeDetail.verificationTab": "Certificado de Verificação",
   "badgeDetail.embedTab": "Código de Incorporação",
   "badgeDetail.pendingTitle": "Verificação Pendente",
@@ -242,7 +230,6 @@
   "badgeDetail.collection": "Coleção {name}",
   "badgeDetail.svgRecommended": "Selo SVG (Recomendado)",
   "badgeDetail.metaTag": "Meta Tag",
-
   "blog.title": "Blog",
   "blog.description": "Artigos sobre ferramentas que respeitam a privacidade, fluxos de trabalho sem login e a web aberta.",
   "blog.heading": "Blog",
@@ -250,9 +237,7 @@
   "blog.noPosts": "Nenhuma publicação ainda. Volte em breve.",
   "blog.updated": "Atualizado em {date}",
   "blog.relatedPosts": "Publicações Relacionadas",
-
   "layout.defaultDescription": "Descubra ferramentas que respeitam sua privacidade — sem login necessário.",
-
   "tag.category.AI": "AI",
   "tag.category.Design": "Design",
   "tag.category.Writing": "Escrita",

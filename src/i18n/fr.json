@@ -1,5 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
+  "_sourceHash": "",
   "nav.tools": "Outils",
   "nav.blog": "Blog",
   "nav.badge": "Badge",
@@ -8,11 +8,9 @@
   "nav.toggleMenu": "Basculer le menu",
   "nav.bookmark": "Marquer",
   "nav.bookmarkAlert": "Appuyez sur {shortcut} pour mettre ce site en favori.",
-
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "Un projet par",
-
   "common.home": "Accueil",
   "common.featured": "En vedette",
   "common.other": "Autre",
@@ -22,7 +20,6 @@
   "common.copyCode": "Copier le code",
   "common.cancel": "Annuler",
   "common.loading": "Chargement...",
-
   "home.title": "Outils respectueux de la vie privée sans connexion",
   "home.description": "Découvrez des outils respectueux de la vie privée qui fonctionnent sans connexion ni inscription. Parcourez les outils vérifiés dans les domaines du design, du développement, de la productivité et plus encore.",
   "home.tagline": "Des outils respectueux de la vie privée.",
@@ -30,7 +27,6 @@
   "home.toolsVerified": "{count} outils vérifiés",
   "home.jsonLd.itemListName": "Outils respectueux de la vie privée sans connexion",
   "home.jsonLd.orgDescription": "Un répertoire organisé d'outils respectueux de la vie privée qui fonctionnent sans connexion.",
-
   "about.title": "À propos",
   "about.description": "À propos de nologin.tools — un répertoire organisé d'outils qui fonctionnent sans connexion.",
   "about.heading": "À propos de nologin.tools",
@@ -51,14 +47,12 @@
   "about.outroP2": "Notre code est open source, et notre base de données est exportée régulièrement pour aider d'autres à créer des applications axées sur la vie privée.",
   "about.exploreGithub": "Explorer sur GitHub",
   "about.submitTool": "Soumettre un outil",
-
   "notFound.title": "Page introuvable",
   "notFound.description": "La page que vous recherchez n'existe pas.",
   "notFound.heading": "404",
   "notFound.message": "Page introuvable",
   "notFound.detail": "La page que vous recherchez n'existe pas ou a été déplacée.",
   "notFound.backHome": "Retour à l'accueil",
-
   "submit.title": "Soumettre un outil",
   "submit.description": "Soumettez un outil qui fonctionne sans connexion au répertoire nologin.tools.",
   "submit.heading": "Soumettre un outil",
@@ -101,7 +95,6 @@
   "submit.errGeneral": "La soumission a échoué. Veuillez vérifier vos saisies.",
   "submit.errNetwork": "Erreur réseau. Veuillez vérifier votre connexion et réessayer.",
   "submit.errUnexpected": "Une erreur inattendue s'est produite. Veuillez réessayer.",
-
   "submitSuccess.title": "Outil soumis",
   "submitSuccess.description": "Votre outil a été soumis pour examen.",
   "submitSuccess.heading": "Soumission reçue !",
@@ -116,7 +109,6 @@
   "submitSuccess.svgBadge": "Badge SVG",
   "submitSuccess.metaTag": "Balise Meta",
   "submitSuccess.backToDirectory": "Retour au répertoire",
-
   "tool.defaultDescription": "{name} — un outil qui fonctionne sans connexion.",
   "tool.pendingReview": "En attente d'examen",
   "tool.pendingDesc": "Cet outil est actuellement en cours d'examen. Il apparaîtra dans le répertoire public une fois approuvé.",
@@ -159,13 +151,11 @@
   "tool.editCoreTaskLength": "La tâche principale doit faire au maximum 200 caractères.",
   "tool.editInvalidUrl": "Veuillez saisir une URL valide.",
   "tool.updated": "Mis à jour {time}",
-
   "health.noChecks": "Aucun contrôle",
   "health.online": "En ligne",
   "health.unstable": "Instable",
   "health.offline": "Hors ligne",
   "health.noData": "Aucune donnée",
-
   "badge.title": "Badge NoLogin vérifié",
   "badge.description": "Qu'est-ce que NoLogin Verified ? Découvrez le badge qui certifie que les outils fonctionnent sans connexion.",
   "badge.heroTitle": "La norme NoLogin",
@@ -203,7 +193,6 @@
   "badge.noBadge": "Aucun badge",
   "badge.rankPoints": "Points de classement",
   "badge.submitYourTool": "Soumettez votre outil",
-
   "badgeDetail.verificationTab": "Certificat de vérification",
   "badgeDetail.embedTab": "Code d'intégration",
   "badgeDetail.pendingTitle": "Vérification en attente",
@@ -241,7 +230,6 @@
   "badgeDetail.collection": "Collection {name}",
   "badgeDetail.svgRecommended": "Badge SVG (recommandé)",
   "badgeDetail.metaTag": "Balise Meta",
-
   "blog.title": "Blog",
   "blog.description": "Articles sur les outils respectueux de la vie privée, les flux de travail sans connexion et le web ouvert.",
   "blog.heading": "Blog",
@@ -249,9 +237,7 @@
   "blog.noPosts": "Aucun article pour l'instant. Revenez bientôt.",
   "blog.updated": "Mis à jour le {date}",
   "blog.relatedPosts": "Articles connexes",
-
   "layout.defaultDescription": "Découvrez des outils qui respectent votre vie privée — aucune connexion requise.",
-
   "tag.category.AI": "IA",
   "tag.category.Design": "Design",
   "tag.category.Writing": "Rédaction",

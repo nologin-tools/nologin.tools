@@ -1,6 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
-
+  "_sourceHash": "",
   "nav.tools": "ツール",
   "nav.blog": "ブログ",
   "nav.badge": "バッジ",
@@ -9,11 +8,9 @@
   "nav.toggleMenu": "メニューを切り替え",
   "nav.bookmark": "ブックマーク",
   "nav.bookmarkAlert": "{shortcut} を押してこのサイトをブックマークしてください。",
-
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "製作者：",
-
   "common.home": "ホーム",
   "common.featured": "おすすめ",
   "common.other": "その他",
@@ -23,7 +20,6 @@
   "common.copyCode": "コードをコピー",
   "common.cancel": "キャンセル",
   "common.loading": "読み込み中...",
-
   "home.title": "ログイン不要のプライバシー重視ツール",
   "home.description": "ログインや登録なしで使えるプライバシー重視のツールを厳選してご紹介。デザイン、開発、生産性など、さまざまなカテゴリの認証済みツールをブラウズできます。",
   "home.tagline": "プライバシー重視のツール。",
@@ -31,7 +27,6 @@
   "home.toolsVerified": "{count}件のツールが認証済み",
   "home.jsonLd.itemListName": "ログイン不要のプライバシー重視ツール",
   "home.jsonLd.orgDescription": "ログインなしで使えるプライバシー重視のツールを厳選したディレクトリ。",
-
   "about.title": "サイトについて",
   "about.description": "nologin.tools について — ログイン不要で使えるツールを厳選したディレクトリ。",
   "about.heading": "nologin.tools について",
@@ -52,14 +47,12 @@
   "about.outroP2": "コードはオープンソースで公開されており、データベースは定期的にエクスポートされ、プライバシーファーストのアプリケーション開発に活用できます。",
   "about.exploreGithub": "GitHub で見る",
   "about.submitTool": "ツールを申請する",
-
   "notFound.title": "ページが見つかりません",
   "notFound.description": "お探しのページは存在しません。",
   "notFound.heading": "404",
   "notFound.message": "ページが見つかりません",
   "notFound.detail": "お探しのページは存在しないか、移動された可能性があります。",
   "notFound.backHome": "ホームに戻る",
-
   "submit.title": "ツールを申請する",
   "submit.description": "ログイン不要で使えるツールを nologin.tools ディレクトリに申請してください。",
   "submit.heading": "ツールを申請する",
@@ -102,7 +95,6 @@
   "submit.errGeneral": "申請に失敗しました。入力内容を確認してください。",
   "submit.errNetwork": "ネットワークエラーです。接続を確認して再試行してください。",
   "submit.errUnexpected": "予期しないエラーが発生しました。再試行してください。",
-
   "submitSuccess.title": "ツールを申請しました",
   "submitSuccess.description": "ツールがレビュー用に申請されました。",
   "submitSuccess.heading": "申請を受け付けました！",
@@ -117,7 +109,6 @@
   "submitSuccess.svgBadge": "SVG バッジ",
   "submitSuccess.metaTag": "メタタグ",
   "submitSuccess.backToDirectory": "ディレクトリに戻る",
-
   "tool.defaultDescription": "{name} — ログイン不要で使えるツール。",
   "tool.pendingReview": "審査中",
   "tool.pendingDesc": "このツールは現在審査中です。承認後に公開ディレクトリに表示されます。",
@@ -160,13 +151,11 @@
   "tool.editCoreTaskLength": "コアタスクは最大200文字です。",
   "tool.editInvalidUrl": "有効な URL を入力してください。",
   "tool.updated": "{time} に更新済み",
-
   "health.noChecks": "チェックなし",
   "health.online": "オンライン",
   "health.unstable": "不安定",
   "health.offline": "オフライン",
   "health.noData": "データなし",
-
   "badge.title": "NoLogin認証済みバッジ",
   "badge.description": "NoLogin認証済みとは？ ログインなしで動作するツールを認証するバッジについて説明します。",
   "badge.heroTitle": "NoLogin スタンダード",
@@ -204,7 +193,6 @@
   "badge.noBadge": "バッジなし",
   "badge.rankPoints": "ランクポイント",
   "badge.submitYourTool": "ツールを申請する",
-
   "badgeDetail.verificationTab": "認証証明書",
   "badgeDetail.embedTab": "埋め込みコード",
   "badgeDetail.pendingTitle": "認証待ち",
@@ -242,7 +230,6 @@
   "badgeDetail.collection": "{name} コレクション",
   "badgeDetail.svgRecommended": "SVG バッジ（推奨）",
   "badgeDetail.metaTag": "メタタグ",
-
   "blog.title": "ブログ",
   "blog.description": "プライバシー重視のツール、ログイン不要のワークフロー、オープンウェブに関する記事。",
   "blog.heading": "ブログ",
@@ -250,9 +237,7 @@
   "blog.noPosts": "まだ記事がありません。またご覧ください。",
   "blog.updated": "{date} 更新",
   "blog.relatedPosts": "関連記事",
-
   "layout.defaultDescription": "プライバシーを尊重するツールを発見しましょう — ログイン不要。",
-
   "tag.category.AI": "AI",
   "tag.category.Design": "デザイン",
   "tag.category.Writing": "ライティング",

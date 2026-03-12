@@ -25,6 +25,13 @@ jobs:
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
 
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
       - name: Post-process, add hero image, and create PR
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
@@ -49,46 +56,33 @@ jobs:
           git fetch origin "$BRANCH"
           git checkout "$BRANCH"
 
-          # Download hero image from Unsplash
-          TOPIC=$(gh issue view "$ISSUE_NUMBER" --json title --jq '.title' | sed 's/^\[Auto Blog\] //')
-          BLOG_FILE=$(git diff --name-only HEAD~1 -- src/content/blog/ | head -1)
-          SLUG=$(basename "$BLOG_FILE" .md)
+          # Find new blog file(s) — compare against origin/main to handle multi-commit branches
+          BLOG_FILE=$(git diff --name-only origin/main..."$BRANCH" -- 'src/content/blog/*.md' | head -1)
+          SLUG=$(basename "$BLOG_FILE" .md 2>/dev/null || true)
 
-          IMAGE_ADDED=false
-          if [ -n "$UNSPLASH_ACCESS_KEY" ] && [ -n "$SLUG" ]; then
-            QUERY=$(echo "$TOPIC" | sed 's/ /+/g')
-            mkdir -p "public/blog/images/${SLUG}"
-            IMAGE_URL=$(curl -sf "https://api.unsplash.com/photos/random?query=${QUERY}&orientation=landscape&w=1200" \
-              -H "Authorization: Client-ID ${UNSPLASH_ACCESS_KEY}" \
-              | node -e "const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')); console.log(d.urls.regular)" 2>/dev/null) || true
+          if [ -z "$SLUG" ] || [ "$SLUG" = ".md" ]; then
+            echo "No blog file found in branch diff, skipping hero image"
+          else
+            echo "Found blog file: $BLOG_FILE (slug: $SLUG)"
 
-            if [ -n "$IMAGE_URL" ]; then
-              curl -sfL -o "public/blog/images/${SLUG}/hero.jpg" "$IMAGE_URL" || true
-              if [ -f "public/blog/images/${SLUG}/hero.jpg" ]; then
-                # Insert image after frontmatter using node
-                HERO_ALT="$TOPIC" HERO_SLUG="$SLUG" node -e "
-                  const fs = require('fs');
-                  const f = 'src/content/blog/' + process.env.HERO_SLUG + '.md';
-                  let c = fs.readFileSync(f, 'utf8');
-                  const second = c.indexOf('---', c.indexOf('---') + 3);
-                  if (second !== -1) {
-                    const nl = c.indexOf('\n', second);
-                    const img = '\n\n![' + process.env.HERO_ALT + '](/blog/images/' + process.env.HERO_SLUG + '/hero.jpg)\n';
-                    c = c.slice(0, nl + 1) + img + c.slice(nl + 1);
-                    fs.writeFileSync(f, c);
-                  }
-                "
-                git add "public/blog/images/${SLUG}/hero.jpg" "src/content/blog/${SLUG}.md"
-                IMAGE_ADDED=true
-                echo "Hero image added for ${SLUG}"
-              fi
+            # Run hero image script with fallback chain
+            API_KEY_ARG=""
+            if [ -n "$UNSPLASH_ACCESS_KEY" ]; then
+              API_KEY_ARG="--api-key $UNSPLASH_ACCESS_KEY"
+            fi
+
+            if node scripts/add-blog-hero-image.mjs --slug "$SLUG" $API_KEY_ARG; then
+              echo "Hero image added successfully"
+              git add "public/blog/images/${SLUG}/" "src/content/blog/${SLUG}.md"
+              git commit -m "feat(blog): add hero image for ${SLUG}"
+              git push origin "$BRANCH"
+            else
+              echo "Hero image failed (non-blocking), continuing without image"
             fi
           fi
-          [ "$IMAGE_ADDED" = false ] && echo "Hero image skipped (no API key or download failed)"
 
-          # Rewrite commit author (amend includes staged image if added)
-          git commit --amend --author="blog-bot <blog-bot@nologin.tools>" --no-edit
-          git push origin "$BRANCH" --force
+          # Extract topic from issue title
+          TOPIC=$(gh issue view "$ISSUE_NUMBER" --json title --jq '.title' | sed 's/^\[Auto Blog\] //')
 
           # Check if PR already exists
           EXISTING=$(gh pr list --head "$BRANCH" --json number --jq '.[0].number' 2>/dev/null || true)

@@ -304,6 +304,10 @@ delve, landscape (as metaphor), "in this article we will", "it's worth noting", 
 - Paragraphs: 2-4 sentences max, minimize bullet lists
 - Include at least one of: blockquote, code snippet, comparison table
 - End with a forward-looking thought or call to action, not a summary
+- Start each tool introduction with a **concrete use scenario** — describe the objective situation ("When you need to edit a PSD without Photoshop...", "If you're looking for a quick way to remove image backgrounds..."), **do NOT fabricate personal experiences** (no "I tried", "Last week I...", "I've been using")
+- Avoid information dumps — one point per paragraph, let each idea breathe
+- Make comparisons specific ("Unlike Canva which requires signup, Photopea lets you open PSD files instantly")
+- Support claims with objective facts and specific details, not invented anecdotes
 
 ### Content requirements
 - **Word count**: 1500-2500 words
@@ -313,19 +317,12 @@ delve, landscape (as metaphor), "in this article we will", "it's worth noting", 
 - Research the topic using WebSearch to include accurate, current information
 
 ### Image
-Use Unsplash API to download a relevant hero image:
-\`\`\`bash
-mkdir -p public/blog/images/{slug}/
-curl -s "https://api.unsplash.com/photos/random?query={relevant+search+term}&orientation=landscape&w=1200" \\
-  -H "Authorization: Client-ID $UNSPLASH_ACCESS_KEY" \\
-  | node -e "const d=JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')); console.log(d.urls.regular)" \\
-  | xargs -I {} curl -sL -o public/blog/images/{slug}/hero.jpg "{}"
+Do NOT download images yourself. The CI workflow handles hero images automatically after your commit.
+To suggest an image search term, add to frontmatter:
+\`\`\`yaml
+heroImageQuery: "relevant search term"
 \`\`\`
-Then add the image right after frontmatter:
-\`\`\`markdown
-![descriptive alt text](/blog/images/{slug}/hero.jpg)
-\`\`\`
-If Unsplash API is unavailable (no API key or error), skip the image — the post is still valid without one.
+If omitted, the CI will extract keywords from the title. Either way, no action needed from you.
 
 ### After writing
 Just commit and push your changes. The CI workflow will automatically create a PR and enable auto-merge.

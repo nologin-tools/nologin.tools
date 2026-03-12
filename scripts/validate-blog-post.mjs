@@ -210,6 +210,12 @@ export function validatePost(filePath, content) {
     pattern.lastIndex = 0;
   }
 
+  // Image check (warning only)
+  const hasImage = /!\[.*?\]\(.*?\)/.test(body);
+  if (!hasImage) {
+    issues.push({ level: 'warning', message: 'No image found in post (recommend adding a hero image)' });
+  }
+
   return issues;
 }
 

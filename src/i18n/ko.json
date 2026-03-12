@@ -1,5 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
+  "_sourceHash": "",
   "nav.tools": "도구",
   "nav.blog": "블로그",
   "nav.badge": "배지",
@@ -8,11 +8,9 @@
   "nav.toggleMenu": "메뉴 토글",
   "nav.bookmark": "북마크",
   "nav.bookmarkAlert": "{shortcut}을 눌러 이 사이트를 북마크하세요.",
-
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "제작",
-
   "common.home": "홈",
   "common.featured": "추천",
   "common.other": "기타",
@@ -22,7 +20,6 @@
   "common.copyCode": "코드 복사",
   "common.cancel": "취소",
   "common.loading": "로딩 중...",
-
   "home.title": "로그인 없이 사용하는 개인정보 친화적 도구",
   "home.description": "로그인이나 회원가입 없이 사용할 수 있는 개인정보 친화적 도구를 발견하세요. 디자인, 개발, 생산성 등 다양한 분야의 검증된 도구를 탐색하세요.",
   "home.tagline": "개인정보 친화적 도구.",
@@ -30,7 +27,6 @@
   "home.toolsVerified": "{count}개 도구 검증됨",
   "home.jsonLd.itemListName": "로그인 없이 사용하는 개인정보 친화적 도구",
   "home.jsonLd.orgDescription": "로그인 없이 사용할 수 있는 개인정보 친화적 도구의 큐레이션 디렉토리.",
-
   "about.title": "소개",
   "about.description": "nologin.tools 소개 — 로그인 없이 사용할 수 있는 도구의 큐레이션 디렉토리.",
   "about.heading": "nologin.tools 소개",
@@ -51,14 +47,12 @@
   "about.outroP2": "코드는 오픈 소스이며, 데이터베이스는 다른 사람들이 개인정보 우선 애플리케이션을 구축할 수 있도록 정기적으로 내보내집니다.",
   "about.exploreGithub": "GitHub에서 탐색",
   "about.submitTool": "도구 제출",
-
   "notFound.title": "페이지를 찾을 수 없음",
   "notFound.description": "찾고 있는 페이지가 존재하지 않습니다.",
   "notFound.heading": "404",
   "notFound.message": "페이지를 찾을 수 없음",
   "notFound.detail": "찾고 있는 페이지가 존재하지 않거나 이동되었습니다.",
   "notFound.backHome": "홈으로 돌아가기",
-
   "submit.title": "도구 제출",
   "submit.description": "nologin.tools 디렉토리에 로그인 없이 사용할 수 있는 도구를 제출하세요.",
   "submit.heading": "도구 제출",
@@ -101,7 +95,6 @@
   "submit.errGeneral": "제출 실패. 입력 내용을 확인해 주세요.",
   "submit.errNetwork": "네트워크 오류. 연결 상태를 확인하고 다시 시도해 주세요.",
   "submit.errUnexpected": "예상치 못한 오류가 발생했습니다. 다시 시도해 주세요.",
-
   "submitSuccess.title": "도구 제출됨",
   "submitSuccess.description": "도구가 검토를 위해 제출되었습니다.",
   "submitSuccess.heading": "제출이 접수되었습니다!",
@@ -116,7 +109,6 @@
   "submitSuccess.svgBadge": "SVG 배지",
   "submitSuccess.metaTag": "메타 태그",
   "submitSuccess.backToDirectory": "디렉토리로 돌아가기",
-
   "tool.defaultDescription": "{name} — 로그인 없이 사용할 수 있는 도구.",
   "tool.pendingReview": "검토 대기 중",
   "tool.pendingDesc": "이 도구는 현재 검토 중입니다. 승인되면 공개 디렉토리에 나타납니다.",
@@ -159,13 +151,11 @@
   "tool.editCoreTaskLength": "핵심 작업은 최대 200자여야 합니다.",
   "tool.editInvalidUrl": "유효한 URL을 입력해 주세요.",
   "tool.updated": "{time} 업데이트됨",
-
   "health.noChecks": "체크 없음",
   "health.online": "온라인",
   "health.unstable": "불안정",
   "health.offline": "오프라인",
   "health.noData": "데이터 없음",
-
   "badge.title": "NoLogin 검증 배지",
   "badge.description": "NoLogin 검증이란 무엇인가요? 로그인 없이 작동하는 도구를 인증하는 배지에 대해 알아보세요.",
   "badge.heroTitle": "NoLogin 표준",
@@ -203,7 +193,6 @@
   "badge.noBadge": "배지 없음",
   "badge.rankPoints": "순위 점수",
   "badge.submitYourTool": "도구 제출하기",
-
   "badgeDetail.verificationTab": "검증 인증서",
   "badgeDetail.embedTab": "임베드 코드",
   "badgeDetail.pendingTitle": "검증 대기 중",
@@ -241,7 +230,6 @@
   "badgeDetail.collection": "{name} 컬렉션",
   "badgeDetail.svgRecommended": "SVG 배지 (추천)",
   "badgeDetail.metaTag": "메타 태그",
-
   "blog.title": "블로그",
   "blog.description": "개인정보 친화적 도구, 로그인 없는 워크플로우, 오픈 웹에 관한 글.",
   "blog.heading": "블로그",
@@ -249,9 +237,7 @@
   "blog.noPosts": "아직 게시물이 없습니다. 나중에 다시 확인해 주세요.",
   "blog.updated": "{date} 업데이트됨",
   "blog.relatedPosts": "관련 게시물",
-
   "layout.defaultDescription": "개인정보를 존중하는 도구를 발견하세요 — 로그인 불필요.",
-
   "tag.category.AI": "AI",
   "tag.category.Design": "디자인",
   "tag.category.Writing": "글쓰기",
