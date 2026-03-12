@@ -1,0 +1,702 @@
+{
+  "nologin-tools": {
+    "_hash": "4ea08c8c5c7d022a",
+    "description": "Um diretório curado de ferramentas e serviços que funcionam sem criar conta ou fazer login. Navegue, pesquise e filtre ferramentas por categoria, privacidade, preço e muito mais — tudo sem cadastro.",
+    "coreTask": "Navegar e pesquisar o diretório completo de ferramentas sem login, filtrar por categoria e tags, ver detalhes das ferramentas"
+  },
+  "led-run": {
+    "_hash": "a1b2c3d4e5f60718",
+    "description": "Um kit de ferramentas de exibição baseado em navegador que transforma qualquer tela em painel de LED, efeitos de luz, visualizador de som, relógio, QR code ou filtro de câmera. Suporta dezenas de temas e modos — sem app, sem conta, só uma URL.",
+    "coreTask": "Exibir texto rolante, efeitos de luz, visualizadores de som, relógios, QR codes e filtros de câmera diretamente no navegador sem login ou conta"
+  },
+  "tmp-tf": {
+    "_hash": "b2c3d4e5f6071829",
+    "description": "Ferramenta de área de transferência temporária para sincronizar texto e conteúdo entre dispositivos em segundos. Sem cadastro, criptografia de ponta a ponta e conteúdo que se autodestrói. Abra um canal nomeado e cole em qualquer dispositivo.",
+    "coreTask": "Abrir um canal e sincronizar texto entre dispositivos sem conta ou login"
+  },
+  "til-re": {
+    "_hash": "c3d4e5f60718293a",
+    "description": "Ferramenta de tempo baseada em URL para criar contagens regressivas, progressivas, relógios e ciclos recorrentes — tudo embutido no próprio link. Sem cadastro, crie sua URL e compartilhe. Suporta vários temas e unidades de tempo.",
+    "coreTask": "Criar e compartilhar timers de contagem regressiva, progressiva e relógios via URL — sem conta"
+  },
+  "excalidraw-com": {
+    "_hash": "d4e5f60718293a4b",
+    "description": "Quadro branco virtual para esboçar diagramas em estilo desenhado à mão. Suporta colaboração em tempo real, exportação PNG/SVG e uma biblioteca de formas e ícones.",
+    "coreTask": "Criar diagramas e esboços em estilo desenhado à mão de forma colaborativa"
+  },
+  "photopea-com": {
+    "_hash": "e5f60718293a4b5c",
+    "description": "Editor de imagens online avançado que suporta os formatos PSD, XCF, Sketch, XD e CDR. Funciona como o Photoshop diretamente no navegador com camadas, filtros e ferramentas avançadas de edição.",
+    "coreTask": "Editar fotos e criar designs gráficos em um editor de navegador similar ao Photoshop"
+  },
+  "tldraw-com": {
+    "_hash": "f60718293a4b5c6d",
+    "description": "Quadro branco digital colaborativo com uma interface limpa e minimalista. Desenhe à mão livre, adicione formas, setas, texto e post-its para criar diagramas e notas visuais.",
+    "coreTask": "Desenhar diagramas e notas visuais em uma tela infinita"
+  },
+  "squoosh-app": {
+    "_hash": "60718293a4b5c6d7",
+    "description": "Ferramenta de compressão de imagens criada pelo Google que roda inteiramente no navegador. Compara original vs. comprimido lado a lado, suporta WebP, AVIF, MozJPEG e mais.",
+    "coreTask": "Comprimir e otimizar imagens com comparação visual de qualidade"
+  },
+  "svgedit-netlify-app-editor-index-html": {
+    "_hash": "718293a4b5c6d7e8",
+    "description": "Editor de desenho SVG rápido, baseado na web e em JavaScript. Crie e edite imagens SVG diretamente no navegador com uma interface familiar de aplicativo de desenho.",
+    "coreTask": "Criar e editar gráficos vetoriais SVG no navegador"
+  },
+  "remove-bg": {
+    "_hash": "8293a4b5c6d7e8f9",
+    "description": "Ferramenta com IA que remove automaticamente o fundo de fotos em segundos. Faça upload de uma imagem e receba um PNG transparente instantaneamente.",
+    "coreTask": "Remover fundos de imagens automaticamente com IA"
+  },
+  "hemingwayapp-com": {
+    "_hash": "93a4b5c6d7e8f901",
+    "description": "Assistente de escrita que destaca frases complexas, voz passiva, advérbios e textos difíceis de ler. Ajuda a tornar a escrita mais direta e clara.",
+    "coreTask": "Melhorar a clareza da escrita destacando textos complexos e difíceis de ler"
+  },
+  "languagetool-org": {
+    "_hash": "a4b5c6d7e8f90112",
+    "description": "Verificador de gramática, estilo e ortografia multilíngue que suporta mais de 30 idiomas. Detecta erros que verificadores ortográficos simples não conseguem encontrar.",
+    "coreTask": "Verificar gramática, ortografia e estilo em mais de 30 idiomas"
+  },
+  "dillinger-io": {
+    "_hash": "b5c6d7e8f9011223",
+    "description": "Editor de Markdown compatível com nuvem, mobile e armazenamento offline. Visualize o Markdown renderizado em tempo real enquanto digita.",
+    "coreTask": "Escrever e visualizar documentos Markdown com prévia ao vivo"
+  },
+  "regex101-com": {
+    "_hash": "c6d7e8f901122334",
+    "description": "Testador e depurador de expressões regulares online para PHP, PCRE, Python, Golang e JavaScript. Construa, teste e depure padrões regex com explicação em tempo real e destaque de correspondências.",
+    "coreTask": "Construir, testar e depurar expressões regulares com feedback em tempo real"
+  },
+  "caniuse-com": {
+    "_hash": "d7e8f90112233445",
+    "description": "Tabelas atualizadas de suporte de navegadores para tecnologias web incluindo HTML5, CSS3, SVG e APIs JavaScript. Referência essencial para desenvolvedores web.",
+    "coreTask": "Verificar compatibilidade de navegadores para tecnologias web"
+  },
+  "devdocs-io": {
+    "_hash": "e8f9011223344556",
+    "description": "Reúne várias documentações de API em uma interface rápida, organizada e com pesquisa. Cobre JavaScript, HTML, CSS, Node.js, Ruby, Python e centenas de outras.",
+    "coreTask": "Pesquisar e navegar pela documentação de desenvolvedor para centenas de APIs"
+  },
+  "carbon-now-sh": {
+    "_hash": "f901122334455667",
+    "description": "Crie e compartilhe imagens bonitas do seu código-fonte. Escolha entre dezenas de temas de sintaxe, linguagens e exporte como PNG ou SVG.",
+    "coreTask": "Gerar imagens bonitas de snippets de código-fonte"
+  },
+  "jsonformatter-org": {
+    "_hash": "01122334455667a1",
+    "description": "Formatador, validador e visualizador de JSON online. Cole ou faça upload de dados JSON para formatar, validar, minificar e converter entre JSON e outros formatos.",
+    "coreTask": "Formatar, validar e embelezar dados JSON"
+  },
+  "tools-pdf24-org-en": {
+    "_hash": "1122334455667a1b",
+    "description": "Ferramentas PDF online gratuitas e fáceis de usar: mesclar, dividir, comprimir, converter, girar, adicionar marcas d'água e mais. Todo o processamento acontece no navegador.",
+    "coreTask": "Mesclar, dividir, comprimir e converter arquivos PDF"
+  },
+  "tinywow-com": {
+    "_hash": "22334455667a1b2c",
+    "description": "Coleção de ferramentas online gratuitas para PDF, vídeo, imagem e conversão de arquivos. Os arquivos são excluídos após o processamento. Sem marca d'água, sem limite de tamanho de arquivo.",
+    "coreTask": "Converter e processar PDFs, imagens, vídeos e documentos"
+  },
+  "pomofocus-io": {
+    "_hash": "334455667a1b2c3d",
+    "description": "Timer Pomodoro personalizável que funciona em desktop e mobile. Acompanhe suas sessões de foco, configure durações personalizadas e gerencie tarefas com uma interface limpa.",
+    "coreTask": "Cronometrar sessões de trabalho com a técnica Pomodoro"
+  },
+  "omnicalculator-com": {
+    "_hash": "4455667a1b2c3d4e",
+    "description": "Coleção de mais de 3.000 calculadoras gratuitas para matemática, física, finanças, saúde e cotidiano. Cada calculadora explica as fórmulas e conceitos subjacentes.",
+    "coreTask": "Calcular qualquer coisa com mais de 3.000 calculadoras especializadas"
+  },
+  "ezgif-com": {
+    "_hash": "55667a1b2c3d4e5f",
+    "description": "Criador de GIF e editor de imagens online. Crie, redimensione, recorte, inverta, otimize GIFs e converta vídeos em GIF. Suporta também WebP, APNG e AVIF.",
+    "coreTask": "Criar, editar e otimizar GIFs e imagens animadas"
+  },
+  "audiotrimmer-com": {
+    "_hash": "667a1b2c3d4e5f60",
+    "description": "Ferramenta online simples para cortar arquivos de áudio. Faça upload do seu áudio, selecione a parte que deseja manter e baixe o arquivo cortado. Suporta MP3, WAV e outros formatos.",
+    "coreTask": "Cortar e aparar arquivos de áudio online"
+  },
+  "convertio-co": {
+    "_hash": "7a1b2c3d4e5f6071",
+    "description": "Conversor de arquivos online avançado com suporte a mais de 300 formatos. Converta documentos, imagens, áudio, vídeo, eBooks, arquivos compactados e mais com uma simples interface de arrastar e soltar.",
+    "coreTask": "Converter arquivos entre mais de 300 formatos por arrastar e soltar"
+  },
+  "haveibeenpwned-com": {
+    "_hash": "1b2c3d4e5f607182",
+    "description": "Verifica se seu endereço de e-mail ou número de telefone foi comprometido em uma violação de dados. Cobre bilhões de registros de violações conhecidas e pastebins.",
+    "coreTask": "Verificar se seu e-mail ou telefone foi exposto em vazamentos de dados"
+  },
+  "temp-mail-org": {
+    "_hash": "2c3d4e5f60718293",
+    "description": "Serviço de e-mail temporário e descartável. Obtenha instantaneamente um endereço de e-mail anônimo para receber e-mails sem revelar seu endereço real. Exclusão automática após um período.",
+    "coreTask": "Gerar endereços de e-mail descartáveis para cadastros anônimos"
+  },
+  "privacytests-org": {
+    "_hash": "3d4e5f6071829300",
+    "description": "Testes open source de privacidade de navegadores web. Compara proteção contra rastreamento, resistência a fingerprinting e outros recursos de privacidade entre os principais navegadores.",
+    "coreTask": "Comparar recursos de privacidade e proteção contra rastreamento de navegadores web"
+  },
+  "csvjson-com": {
+    "_hash": "4e5f607182930011",
+    "description": "Ferramenta online de conversão entre os formatos CSV, JSON e SQL. Inclui também utilitários de limpeza e transformação de dados. Todo o processamento acontece no navegador.",
+    "coreTask": "Converter entre os formatos de dados CSV, JSON e SQL"
+  },
+  "jsoncrack-com": {
+    "_hash": "5f60718293001122",
+    "description": "Visualiza dados JSON como grafos interativos. Explore estruturas JSON complexas com uma visualização em grafo de árvore, pesquisa e filtros.",
+    "coreTask": "Visualizar dados JSON como grafos de nós interativos"
+  },
+  "tableconvert-com": {
+    "_hash": "607182930011223a",
+    "description": "Converte entre formatos de tabela: Excel, CSV, JSON, HTML, SQL, Markdown, LaTeX e mais. Edite tabelas visualmente e exporte no formato desejado.",
+    "coreTask": "Converter tabelas entre Excel, CSV, JSON, Markdown e mais"
+  },
+  "meet-jit-si": {
+    "_hash": "718293001122334b",
+    "description": "Videoconferência gratuita e open source que funciona diretamente no navegador. Crie uma sala e compartilhe o link — sem conta, download ou plugin.",
+    "coreTask": "Iniciar chamadas de vídeo instantâneas sem conta ou download"
+  },
+  "desmos-com-calculator": {
+    "_hash": "8293001122334b5c",
+    "description": "Calculadora gráfica avançada implementada como aplicativo web interativo. Plote funções, crie tabelas, adicione controles deslizantes, anime gráficos e explore matemática visualmente.",
+    "coreTask": "Plotar funções matemáticas e explorar equações visualmente"
+  },
+  "wolframalpha-com": {
+    "_hash": "93001122334b5c6d",
+    "description": "Motor de conhecimento computacional que responde perguntas factuais calculando respostas a partir de dados estruturados. Cobre matemática, ciências, geografia, história e mais.",
+    "coreTask": "Calcular respostas e resolver problemas matemáticos passo a passo"
+  },
+  "geogebra-org-calculator": {
+    "_hash": "001122334b5c6d7e",
+    "description": "Software matemático dinâmico gratuito para todos os níveis de ensino. Combina geometria, álgebra, planilhas, gráficos, estatística e cálculo em uma única ferramenta interativa.",
+    "coreTask": "Explorar geometria, álgebra e cálculo com ferramentas matemáticas interativas"
+  },
+  "xe-com-currencyconverter": {
+    "_hash": "1122334b5c6d7e8f",
+    "description": "Conversor de moedas confiável mundialmente com taxas de câmbio em tempo real. Converta entre mais de 300 moedas e metais preciosos com taxas médias de mercado atualizadas a cada minuto.",
+    "coreTask": "Converter moedas com taxas médias de mercado em tempo real"
+  },
+  "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
+    "_hash": "22334b5c6d7e8f90",
+    "description": "Calculadora oficial de juros compostos da SEC. Estime como suas economias ou investimentos podem crescer ao longo do tempo com juros compostos. Simples, confiável, sem anúncios.",
+    "coreTask": "Calcular o crescimento por juros compostos em economias e investimentos"
+  },
+  "wise-com-gb-currency-converter": {
+    "_hash": "334b5c6d7e8f9001",
+    "description": "Conversor de moedas que exibe a taxa média real de mercado. Compare as taxas de bancos e serviços de transferência para ver quanto você poderia economizar.",
+    "coreTask": "Comparar as taxas de câmbio reais entre bancos e serviços"
+  },
+  "quickstart-to": {
+    "_hash": "4b5c6d7e8f900112",
+    "description": "Coleção open source de guias de início rápido mantida pela comunidade (\"O TL;DR de tudo\"). Fornece mais de 124 guias gratuitos para ferramentas e tecnologias como Docker — sem necessidade de conta ou login.",
+    "coreTask": "Navegar e ler guias de início rápido para ferramentas e tecnologias sem conta"
+  },
+  "coolors-co": {
+    "_hash": "5c6d7e8f90011223",
+    "description": "Gera instantaneamente paletas de cores harmoniosas. Pressione a barra de espaço para criar belas combinações de cores para seus projetos de design.",
+    "coreTask": "Gerar e explorar paletas de cores"
+  },
+  "jakearchibald-github-io-svgomg": {
+    "_hash": "6d7e8f9001122334",
+    "description": "Otimize e comprima arquivos SVG com uma interface visual. Criado por Jake Archibald, baseado no SVGO.",
+    "coreTask": "Otimizar e comprimir arquivos SVG"
+  },
+  "favicon-io": {
+    "_hash": "7e8f900112233445",
+    "description": "Gere favicons a partir de texto, imagens ou emojis. Baixe em vários tamanhos e formatos para o seu site.",
+    "coreTask": "Gerar favicons para sites"
+  },
+  "tinypng-com": {
+    "_hash": "8f90011223344556",
+    "description": "Compressão inteligente com perda para imagens PNG, JPEG e WebP. Reduz o tamanho dos arquivos preservando a qualidade visual.",
+    "coreTask": "Comprimir imagens PNG, JPEG e WebP"
+  },
+  "app-diagrams-net": {
+    "_hash": "9001122334455667",
+    "description": "Crie fluxogramas, diagramas UML, diagramas de rede e mais. Antigamente draw.io, a ferramenta de diagramas online gratuita mais poderosa.",
+    "coreTask": "Criar fluxogramas e diagramas"
+  },
+  "gchq-github-io-cyberchef": {
+    "_hash": "011223344556677a",
+    "description": "O canivete suíço cibernético — codifique, decodifique, criptografe, comprima e analise dados com um construtor de receitas por arrastar e soltar.",
+    "coreTask": "Codificar, decodificar e transformar dados"
+  },
+  "typescriptlang-org-play": {
+    "_hash": "122334455667a1b2",
+    "description": "Escreva, compile e execute código TypeScript no navegador. Ferramenta oficial da Microsoft com verificação completa de tipos e IntelliSense.",
+    "coreTask": "Escrever e testar código TypeScript online"
+  },
+  "crontab-guru": {
+    "_hash": "2334455667a1b2c3",
+    "description": "Editor visual de expressões cron com explicações em linguagem natural. Construa e valide rapidamente agendamentos cron.",
+    "coreTask": "Editar e entender expressões cron"
+  },
+  "bundlephobia-com": {
+    "_hash": "34455667a1b2c3d4",
+    "description": "Descubra o custo de adicionar um pacote npm ao seu bundle. Veja o tamanho, tempo de download e composição de qualquer pacote.",
+    "coreTask": "Analisar o tamanho do bundle de pacotes npm"
+  },
+  "explainshell-com": {
+    "_hash": "455667a1b2c3d4e5",
+    "description": "Analisa e explica comandos shell. Cole qualquer linha de comando para obter um detalhamento de cada argumento e flag.",
+    "coreTask": "Explicar a sintaxe de comandos shell"
+  },
+  "webhook-site": {
+    "_hash": "5667a1b2c3d4e5f6",
+    "description": "Teste e depure webhooks e requisições HTTP instantaneamente. Obtenha uma URL única para inspecionar requisições recebidas em tempo real.",
+    "coreTask": "Testar e depurar webhooks"
+  },
+  "it-tools-tech": {
+    "_hash": "667a1b2c3d4e5f60",
+    "description": "Coleção de mais de 70 utilitários para desenvolvedores: geradores de hash, codificadores, conversores, formatadores e mais — tudo em um só lugar.",
+    "coreTask": "Acessar mais de 70 utilitários para desenvolvedores"
+  },
+  "ray-so": {
+    "_hash": "7a1b2c3d4e5f6071",
+    "description": "Crie capturas de tela bonitas do seu código com temas, fundos e margens personalizáveis. Da Raycast.",
+    "coreTask": "Gerar capturas de tela bonitas de código"
+  },
+  "fast-com": {
+    "_hash": "1b2c3d4e5f607183",
+    "description": "Teste simples de velocidade de internet da Netflix. Abra a página e ele começa imediatamente a medir sua velocidade de download.",
+    "coreTask": "Testar a velocidade da conexão à internet"
+  },
+  "worldtimebuddy-com": {
+    "_hash": "2c3d4e5f60718294",
+    "description": "Conversor visual de fusos horários para planejar entre diferentes zonas. Compare várias cidades lado a lado para encontrar o melhor horário para reuniões.",
+    "coreTask": "Comparar e converter fusos horários"
+  },
+  "excalideck-com": {
+    "_hash": "3d4e5f6071829305",
+    "description": "Crie slides de apresentação em estilo desenhado à mão com o motor Excalidraw. Construa apresentações únicas no estilo de esboço.",
+    "coreTask": "Criar apresentações em estilo desenhado à mão"
+  },
+  "unscreen-com": {
+    "_hash": "4e5f607182930416",
+    "description": "Remove automaticamente fundos de vídeos com IA. Faça upload de um clipe de vídeo e receba uma versão com fundo transparente.",
+    "coreTask": "Remover fundos de vídeos com IA"
+  },
+  "vocalremover-org": {
+    "_hash": "5f60718293041527",
+    "description": "Removedor de vocal com IA que separa vozes dos instrumentais em qualquer música. Perfeito para criar faixas de karaokê ou remixes.",
+    "coreTask": "Separar vozes dos instrumentais"
+  },
+  "browserleaks-com": {
+    "_hash": "607182930415263a",
+    "description": "Conjunto completo de testes de fingerprinting do navegador. Verifique quais informações seu navegador revela: IP, WebRTC, Canvas, fontes e mais.",
+    "coreTask": "Detectar vazamentos de fingerprint do navegador"
+  },
+  "coveryourtracks-eff-org": {
+    "_hash": "71829304152638b4",
+    "description": "Testa o quanto seu navegador protege você do rastreamento. Da Electronic Frontier Foundation (EFF).",
+    "coreTask": "Testar a proteção contra rastreamento do navegador"
+  },
+  "virustotal-com": {
+    "_hash": "82930415263849c5",
+    "description": "Analisa arquivos e URLs para detectar malware com mais de 70 motores antivírus. Serviço abrangente de detecção de ameaças pertencente ao Google.",
+    "coreTask": "Escanear arquivos e URLs em busca de malware"
+  },
+  "pairdrop-net": {
+    "_hash": "9304152638495ad6",
+    "description": "Compartilhe arquivos instantaneamente com dispositivos próximos na sua rede local. Sucessor open source do Snapdrop com transferência P2P.",
+    "coreTask": "Compartilhar arquivos entre dispositivos na LAN"
+  },
+  "privnote-com": {
+    "_hash": "04152638495a6be7",
+    "description": "Envie notas criptografadas que se autodestroem. A mensagem é automaticamente excluída após a leitura — ideal para compartilhar informações sensíveis.",
+    "coreTask": "Enviar notas criptografadas que se autodestroem ao serem lidas"
+  },
+  "sharedrop-io": {
+    "_hash": "152638495a6b7cf8",
+    "description": "Compartilhamento de arquivos P2P no navegador. Como o Apple AirDrop, mas funciona em todas as plataformas — sem instalação de app.",
+    "coreTask": "Transferência de arquivos P2P entre dispositivos"
+  },
+  "db-fiddle-com": {
+    "_hash": "2638495a6b7c8d09",
+    "description": "Execute consultas SQL online contra MySQL, PostgreSQL e SQLite. Teste esquemas e consultas sem precisar instalar um banco de dados.",
+    "coreTask": "Executar consultas SQL online"
+  },
+  "mockaroo-com": {
+    "_hash": "38495a6b7c8d9e1a",
+    "description": "Gere dados de teste realistas nos formatos CSV, JSON, SQL e Excel. Personalize esquemas com mais de 100 tipos de dados.",
+    "coreTask": "Gerar dados de teste realistas"
+  },
+  "flexboxfroggy-com": {
+    "_hash": "495a6b7c8d9e1a2b",
+    "description": "Aprenda CSS Flexbox através de um jogo divertido com tema de sapos. Complete 24 níveis para dominar propriedades flexbox como justify-content e align-items.",
+    "coreTask": "Aprender CSS Flexbox através de um jogo"
+  },
+  "cssgridgarden-com": {
+    "_hash": "5a6b7c8d9e1a2b3c",
+    "description": "Aprenda layout CSS Grid cuidando de um jardim virtual. Regue suas cenouras através de 28 níveis progressivamente mais difíceis.",
+    "coreTask": "Aprender CSS Grid através de um jogo"
+  },
+  "numbeo-com": {
+    "_hash": "6b7c8d9e1a2b3c4d",
+    "description": "O maior banco de dados de custo de vida do mundo. Compare preços, aluguéis, alimentação e qualidade de vida em cidades do mundo todo.",
+    "coreTask": "Comparar o custo de vida entre cidades"
+  },
+  "themeasureofaplan-com": {
+    "_hash": "7c8d9e1a2b3c4d5e",
+    "description": "Calculadoras bonitas de finanças pessoais para aposentadoria, investimentos, financiamentos e orçamento. Visualizações interativas sem coleta de dados.",
+    "coreTask": "Calculadoras de finanças pessoais e planejamento"
+  },
+  "godbolt-org": {
+    "_hash": "8d9e1a2b3c4d5e6f",
+    "description": "Explorador de compiladores interativo que mostra a saída em assembly para mais de 60 linguagens. Compare compiladores e níveis de otimização lado a lado.",
+    "coreTask": "Ver a saída do compilador em assembly de forma interativa"
+  },
+  "play-rust-lang-org": {
+    "_hash": "9e1a2b3c4d5e6f70",
+    "description": "Compilador e ambiente de execução Rust oficial online. Escreva, compile e execute código Rust diretamente no navegador.",
+    "coreTask": "Compilar e executar código Rust online"
+  },
+  "go-dev-play": {
+    "_hash": "1a2b3c4d5e6f7081",
+    "description": "Compilador e ambiente de execução Go oficial online. Escreva, compile e execute código Go diretamente no navegador.",
+    "coreTask": "Compilar e executar código Go online"
+  },
+  "hoppscotch-io": {
+    "_hash": "2b3c4d5e6f708192",
+    "description": "Ecossistema de desenvolvimento de API open source. Teste REST, GraphQL, WebSocket e mais — uma alternativa leve ao Postman.",
+    "coreTask": "Testar e depurar APIs"
+  },
+  "astexplorer-net": {
+    "_hash": "3c4d5e6f70819203",
+    "description": "Visualize e explore árvores de sintaxe abstrata para muitas linguagens e parsers. Ferramenta essencial para desenvolvimento de compiladores e tooling.",
+    "coreTask": "Explorar árvores de sintaxe abstrata do código"
+  },
+  "mermaid-live": {
+    "_hash": "4d5e6f7081920314",
+    "description": "Crie fluxogramas, diagramas de sequência, diagramas de Gantt e mais com sintaxe textual simples. Prévia ao vivo com exportação SVG/PNG.",
+    "coreTask": "Criar diagramas com sintaxe textual"
+  },
+  "caniemail-com": {
+    "_hash": "5e6f708192031425",
+    "description": "Verifica suporte a HTML e CSS em clientes de e-mail. Como o Can I Use, mas para e-mail — saiba o que funciona no Gmail, Outlook, Apple Mail e mais.",
+    "coreTask": "Verificar suporte a HTML/CSS em clientes de e-mail"
+  },
+  "npmtrends-com": {
+    "_hash": "6f70819203142536",
+    "description": "Compara tendências de download de pacotes npm ao longo do tempo. Veja tamanhos de pacotes, estrelas no GitHub e tome decisões informadas sobre dependências.",
+    "coreTask": "Comparar tendências de download de pacotes npm"
+  },
+  "shields-io": {
+    "_hash": "70819203142536a7",
+    "description": "Gere badges de qualidade para seu README e documentação. Centenas de integrações para status de build, cobertura, versão e mais.",
+    "coreTask": "Gerar badges de status para README"
+  },
+  "httpbin-org": {
+    "_hash": "8192031425368ab9",
+    "description": "Serviço simples de requisição e resposta HTTP para testes. Inspecione headers, cookies, autenticação, redirecionamentos e formatos de resposta.",
+    "coreTask": "Testar requisições e respostas HTTP"
+  },
+  "prettier-io-playground": {
+    "_hash": "9203142536a8bac0",
+    "description": "Visualize os resultados da formatação de código Prettier online. Experimente com opções e veja a saída formatada para JavaScript, TypeScript, CSS e mais.",
+    "coreTask": "Visualizar a formatação de código Prettier"
+  },
+  "wave-webaim-org": {
+    "_hash": "031425368abcd1e2",
+    "description": "Ferramenta de avaliação de acessibilidade web da WebAIM. Digite qualquer URL para obter um relatório detalhado de acessibilidade com verificações de conformidade WCAG.",
+    "coreTask": "Avaliar acessibilidade web"
+  },
+  "metatags-io": {
+    "_hash": "14253679abcde2f3",
+    "description": "Visualize e gere meta tags para redes sociais. Veja como sua página aparece no Google, Facebook, Twitter, LinkedIn e mais.",
+    "coreTask": "Visualizar e gerar meta tags"
+  },
+  "haikei-app": {
+    "_hash": "2536a8bcdef3f405",
+    "description": "Gere formas de fundo SVG únicas — ondas, blobs, gradientes, empilhamentos e mais. Exporte como SVG ou PNG para seus designs.",
+    "coreTask": "Gerar padrões de fundo SVG"
+  },
+  "cssgradient-io": {
+    "_hash": "36a8bdef04051627",
+    "description": "Gerador visual de gradientes CSS com uma interface bonita. Crie gradientes lineares, radiais e cônicos com saída de código instantânea.",
+    "coreTask": "Gerar código de gradientes CSS visualmente"
+  },
+  "getwaves-io": {
+    "_hash": "a8bef00516274839",
+    "description": "Gere formas de onda SVG bonitas para separadores de seção. Personalize camadas, cores e complexidade com uma interface simples.",
+    "coreTask": "Gerar separadores de onda SVG"
+  },
+  "realtimecolors-com": {
+    "_hash": "bef001627394a05b",
+    "description": "Visualize paletas de cores em um layout real em tempo real. Veja exatamente como suas cores aparecem em texto, botões e fundos.",
+    "coreTask": "Visualizar esquemas de cores em layouts reais"
+  },
+  "colorhunt-co": {
+    "_hash": "f0016273849a5b6c",
+    "description": "Coleção curada de paletas de cores bonitas. Navegue pelas paletas em tendência ou pesquise por cor — copie os códigos hex com um clique.",
+    "coreTask": "Navegar por paletas de cores curadas"
+  },
+  "neumorphism-io": {
+    "_hash": "01627384950b6c7d",
+    "description": "Gerador visual de CSS neumorfismo. Ajuste tamanho, raio, distância, intensidade e cor para criar efeitos suaves de sombra de UI.",
+    "coreTask": "Gerar efeitos CSS de neumorfismo"
+  },
+  "fontjoy-com": {
+    "_hash": "1627394a5b0c7d8e",
+    "description": "Gerador de combinação de fontes com IA usando deep learning. Gere combinações harmoniosas de fontes para títulos, subtítulos e corpo do texto.",
+    "coreTask": "Gerar combinações de fontes com IA"
+  },
+  "typescale-com": {
+    "_hash": "27394a5b6c0d8e9f",
+    "description": "Calculadora visual de escala tipográfica para construir tipografia harmoniosa. Escolha um tamanho base, uma proporção de escala e visualize sua hierarquia tipográfica.",
+    "coreTask": "Gerar uma escala tipográfica"
+  },
+  "uicolors-app": {
+    "_hash": "394a5b6c7d0e9f10",
+    "description": "Gere escalas de cores Tailwind CSS a partir de qualquer cor. Obtenha uma paleta completa de tons 50–950 com um clique, pronta para sua configuração.",
+    "coreTask": "Gerar escalas de cores Tailwind CSS"
+  },
+  "happyhues-co": {
+    "_hash": "4a5b6c7d8e0f1021",
+    "description": "Inspiração de paletas de cores com contexto real. Veja como os esquemas de cores se aplicam a um layout real de site — não apenas amostras.",
+    "coreTask": "Visualizar paletas de cores em contexto"
+  },
+  "cubic-bezier-com": {
+    "_hash": "5b6c7d8e9f102132",
+    "description": "Editor visual de função de temporização CSS cubic-bezier. Arraste os pontos de controle para criar curvas de easing personalizadas e compare com predefinições.",
+    "coreTask": "Editar curvas de easing CSS bezier"
+  },
+  "stackedit-io": {
+    "_hash": "6c7d8e9f10213243",
+    "description": "Editor Markdown completo no navegador. Sincronize com Google Drive e GitHub, prévia ao vivo, sincronização de rolagem e suporte offline.",
+    "coreTask": "Editar Markdown no navegador"
+  },
+  "rentry-co": {
+    "_hash": "7d8e9f1021324354",
+    "description": "Serviço de paste com Markdown. Escreva, publique e compartilhe texto formatado instantaneamente — com códigos de edição para atualizações futuras.",
+    "coreTask": "Publicar e compartilhar Markdown rapidamente"
+  },
+  "monkeytype-com": {
+    "_hash": "8e9f102132435465",
+    "description": "Teste de velocidade de digitação minimalista e personalizável. Acompanhe PPM, precisão e consistência com vários modos de teste e temas.",
+    "coreTask": "Testar e melhorar a velocidade de digitação"
+  },
+  "zenpen-io": {
+    "_hash": "9f10213243546576",
+    "description": "Ambiente de escrita minimalista e sem distrações. Abra e comece a escrever — sem barra de ferramentas cheia, sem distrações.",
+    "coreTask": "Escrever em um editor sem distrações"
+  },
+  "visualgo-net": {
+    "_hash": "1021324354657687",
+    "description": "Visualizações animadas de estruturas de dados e algoritmos. Avance passo a passo pela ordenação, travessia de grafos, operações em árvores e mais no seu próprio ritmo.",
+    "coreTask": "Visualizar algoritmos e estruturas de dados"
+  },
+  "flukeout-github-io": {
+    "_hash": "21324354657687a9",
+    "description": "Aprenda seletores CSS jogando um jogo com tema de jantar. Complete 32 níveis de seletores básicos até pseudo-classes avançadas.",
+    "coreTask": "Aprender seletores CSS através de um jogo"
+  },
+  "pythontutor-com": {
+    "_hash": "324354657687a9b0",
+    "description": "Visualize a execução do código passo a passo. Veja variáveis, frames da pilha e objetos heap para Python, Java, C, C++ e JavaScript.",
+    "coreTask": "Visualizar a execução do código passo a passo"
+  },
+  "regexlearn-com": {
+    "_hash": "4354657687a9b0c1",
+    "description": "Tutorial interativo de regex com lições passo a passo. Aprenda expressões regulares desde padrões básicos até lookaheads avançados.",
+    "coreTask": "Aprender expressões regulares de forma interativa"
+  },
+  "mystery-knightlab-com": {
+    "_hash": "54657687a9b0c1d2",
+    "description": "Aprenda SQL resolvendo um mistério de assassinato. Use SELECT, JOIN, WHERE e mais para consultar o banco de dados e pegar o culpado.",
+    "coreTask": "Aprender SQL através de um jogo de detetive"
+  },
+  "sortvisualizer-com": {
+    "_hash": "657687a9b0c1d2e3",
+    "description": "Veja algoritmos de ordenação em ação com gráficos de barras animados. Compare bubble sort, quicksort, merge sort e mais lado a lado.",
+    "coreTask": "Visualizar algoritmos de ordenação"
+  },
+  "dnsleaktest-com": {
+    "_hash": "7687a9b0c1d2e3f4",
+    "description": "Verifica se suas consultas DNS estão vazando fora do túnel VPN. Execute testes padrão ou estendidos para checar a privacidade do DNS.",
+    "coreTask": "Detectar vazamentos de DNS"
+  },
+  "ipleak-net": {
+    "_hash": "87a9b0c1d2e3f405",
+    "description": "Detecção abrangente de vazamentos: endereço IP, servidores DNS, WebRTC, geolocalização e impressão digital do navegador. Ferramenta essencial de verificação de VPN.",
+    "coreTask": "Detectar vazamentos de IP e DNS"
+  },
+  "securityheaders-com": {
+    "_hash": "a9b0c1d2e3f40516",
+    "description": "Analisa os headers de segurança HTTP de qualquer site. Obtenha uma nota e recomendações para CSP, HSTS, X-Frame-Options e mais.",
+    "coreTask": "Analisar headers de segurança HTTP"
+  },
+  "rawgraphs-io": {
+    "_hash": "b0c1d2e3f4051627",
+    "description": "Framework de visualização de dados open source. Cole seus dados, escolha um tipo de gráfico e exporte visualizações bonitas em SVG ou PNG.",
+    "coreTask": "Visualizar dados sem programar"
+  },
+  "transform-tools": {
+    "_hash": "c1d2e3f405162738",
+    "description": "Transformador de código e dados em múltiplos formatos. Converta instantaneamente entre JSON, YAML, CSV, TypeScript, GraphQL e muitos outros formatos.",
+    "coreTask": "Converter entre formatos de dados"
+  },
+  "geojson-io": {
+    "_hash": "d2e3f40516273849",
+    "description": "Crie, edite e visualize dados GeoJSON em um mapa interativo. Desenhe pontos, linhas e polígonos com saída de código instantânea.",
+    "coreTask": "Criar e editar GeoJSON em um mapa"
+  },
+  "markmap-js-org": {
+    "_hash": "e3f4051627384950",
+    "description": "Converta Markdown em mapas mentais interativos. Escreva Markdown estruturado e veja-o se transformar em uma visualização de árvore navegável e com zoom.",
+    "coreTask": "Converter Markdown em mapas mentais"
+  },
+  "photomosh-com": {
+    "_hash": "f405162738495a61",
+    "description": "Aplique efeitos glitch em imagens e vídeos. 27 efeitos mosh incluindo pixel sort, RGB shift, jitter e VHS — tudo no navegador.",
+    "coreTask": "Aplicar efeitos de arte glitch"
+  },
+  "animista-net": {
+    "_hash": "0516273849a5b672",
+    "description": "Coleção de animações CSS prontas para uso. Visualize, personalize o timing e easing e então copie o código CSS gerado.",
+    "coreTask": "Gerar código de animações CSS"
+  },
+  "mp3cut-net": {
+    "_hash": "162738495a6b7c83",
+    "description": "Corte e apare arquivos de áudio online. Suporte a MP3, WAV, OGG e mais de 300 formatos — processa os arquivos diretamente no navegador.",
+    "coreTask": "Cortar e aparar arquivos de áudio online"
+  },
+  "svgrepo-com": {
+    "_hash": "27384950a6b7c8d9",
+    "description": "Navegue e baixe mais de 500.000 ícones e vetores SVG gratuitos. Pesquise por palavra-chave, personalize as cores e copie o código SVG diretamente.",
+    "coreTask": "Encontrar e baixar ícones SVG gratuitos"
+  },
+  "speed-cloudflare-com": {
+    "_hash": "384950a6b7c8d9ea",
+    "description": "Teste abrangente de velocidade de internet e latência da Cloudflare. Meça download, upload, latência, jitter e perda de pacotes.",
+    "coreTask": "Testar velocidade e latência de internet"
+  },
+  "musicforprogramming-net": {
+    "_hash": "4950a6b7c8d9eafb",
+    "description": "Mixagens de música ambiente e eletrônica curadas, projetadas para ajudar a focar enquanto programa. Mais de 60 episódios de música de concentração.",
+    "coreTask": "Ouvir música de foco para programar"
+  },
+  "copychar-cc": {
+    "_hash": "50a6b7c8d9eafb0c",
+    "description": "Copie caracteres especiais, símbolos e emojis com um clique. Navegue por categorias ou pesquise — clique em qualquer caractere para copiá-lo instantaneamente.",
+    "coreTask": "Copiar caracteres especiais e símbolos"
+  },
+  "time-is": {
+    "_hash": "a6b7c8d9eafb0c1d",
+    "description": "Hora atual exata sincronizada com relógios atômicos. Relógio mundial, conversor de fusos horários e timers de contagem regressiva com precisão de milissegundos.",
+    "coreTask": "Verificar a hora mundial exata"
+  },
+  "archive-today": {
+    "_hash": "b7c8d9eafb0c1d2e",
+    "description": "Salve snapshots permanentes de páginas web. Archive qualquer URL para preservar seu conteúdo — útil para citações, pesquisa e para contornar paywalls.",
+    "coreTask": "Arquivar snapshots de páginas web"
+  },
+  "qrcode-monkey-com": {
+    "_hash": "c8d9eafb0c1d2e3f",
+    "description": "Crie QR codes personalizados com logos, cores e formas. Saída em alta resolução nos formatos PNG, SVG, PDF e EPS.",
+    "coreTask": "Gerar QR codes personalizados"
+  },
+  "yopass-se": {
+    "_hash": "d9eafb0c1d2e3f40",
+    "description": "Compartilhe segredos com segurança usando criptografia de ponta a ponta. As mensagens se autodestroem após a leitura ou após um tempo de expiração definido.",
+    "coreTask": "Compartilhar segredos criptografados que se autodestroem"
+  },
+  "wormhole-app": {
+    "_hash": "eafb0c1d2e3f4051",
+    "description": "Transferência de arquivos com criptografia de ponta a ponta de até 10 GB. Os arquivos são criptografados no navegador antes do envio — ninguém mais pode lê-los.",
+    "coreTask": "Transferir arquivos com criptografia E2E"
+  },
+  "ficalc-app": {
+    "_hash": "fb0c1d2e3f405162",
+    "description": "Calculadora de aposentadoria para independência financeira. Simule estratégias de retirada com dados históricos do mercado e análise de Monte Carlo.",
+    "coreTask": "Calcular taxas de retirada para a aposentadoria"
+  },
+  "financier-io": {
+    "_hash": "0c1d2e3f40516273",
+    "description": "Gerenciador de orçamento pessoal offline-first inspirado no YNAB. Orçamento por envelopes com sincronização automática — todos os dados permanecem no seu dispositivo.",
+    "coreTask": "Gerenciar orçamentos pessoais offline"
+  },
+  "duck-ai": {
+    "_hash": "1d2e3f4051627384",
+    "description": "Chat com IA focado em privacidade com Claude, Llama, Mistral e GPT-4o mini. Todos os chats são anônimos e nunca usados para treinar a IA.",
+    "coreTask": "Conversar com modelos de IA com privacidade"
+  },
+  "chatgpt-com": {
+    "_hash": "2e3f405162738495",
+    "description": "Assistente de IA da OpenAI disponível sem login. Lida com escrita, análise, código, matemática e conversação com GPT-4o.",
+    "coreTask": "Conversar com IA para escrita, código e análise"
+  },
+  "perplexity-ai": {
+    "_hash": "3f4051627384950a",
+    "description": "Motor de busca com IA que fornece respostas precisas com fontes citadas. Sem necessidade de cadastro para pesquisas básicas.",
+    "coreTask": "Pesquisar na web com respostas e citações geradas por IA"
+  },
+  "z-ai": {
+    "_hash": "405162738495a0b1",
+    "description": "Chatbot de IA gratuito desenvolvido pelos modelos GLM-5 e GLM-4.7 da Zhipu AI. Suporta conversação multilíngue, assistência em código e análise de dados.",
+    "coreTask": "Conversar com os modelos GLM AI para escrita, código e análise"
+  },
+  "deepl-com-translator": {
+    "_hash": "51627384950ab1c2",
+    "description": "Motor de tradução com IA de precisão superior em mais de 30 idiomas. A versão web gratuita traduz até 1.500 caracteres por solicitação.",
+    "coreTask": "Traduzir texto entre idiomas com precisão de IA"
+  },
+  "quillbot-com": {
+    "_hash": "627384950ab1c2d3",
+    "description": "Ferramenta de paráfrase com IA que reformula o texto para mais clareza e estilo. A versão gratuita oferece os modos Padrão e Fluido com paráfrases ilimitadas, sem cadastro.",
+    "coreTask": "Parafrasear e reescrever texto com IA"
+  },
+  "craiyon-com": {
+    "_hash": "7384950ab1c2d3e4",
+    "description": "Gerador de imagens com IA gratuito que cria 9 imagens a partir de descrições textuais. Sem login, gerações ilimitadas, uso comercial permitido com crédito.",
+    "coreTask": "Gerar imagens a partir de descrições textuais com IA"
+  },
+  "teachablemachine-withgoogle-com": {
+    "_hash": "84950ab1c2d3e4f5",
+    "description": "Ferramenta sem código do Google para treinar modelos de machine learning no navegador. Treine modelos de reconhecimento de imagem, som ou pose com seus próprios dados — todo o processamento é feito no lado do cliente.",
+    "coreTask": "Treinar modelos de machine learning sem programar"
+  },
+  "playground-tensorflow-org": {
+    "_hash": "950ab1c2d3e4f506",
+    "description": "Visualização interativa de redes neurais no navegador. Experimente com camadas, neurônios, funções de ativação e taxas de aprendizado para entender como as redes neurais aprendem.",
+    "coreTask": "Visualizar e experimentar redes neurais de forma interativa"
+  },
+  "goblin-tools": {
+    "_hash": "0ab1c2d3e4f50617",
+    "description": "Coleção de ferramentas de gerenciamento de tarefas com IA projetada para usuários neurodivergentes. O Magic ToDo divide tarefas avassaladoras em etapas gerenciáveis com complexidade ajustável. Gratuito para sempre, sem anúncios.",
+    "coreTask": "Dividir tarefas complexas em etapas gerenciáveis com IA"
+  },
+  "askmeanythi-ng": {
+    "_hash": "ab1c2d3e4f506178",
+    "description": "A forma mais simples de organizar uma sessão de AMA. Crie um espaço, compartilhe o link e comece a responder. Sem cadastro.",
+    "coreTask": "Criar e moderar sessões de AMA, compartilhar links, fazer e responder perguntas"
+  },
+  "cookies-extractor-chekun-me": {
+    "_hash": "b1c2d3e4f5061789",
+    "description": "Uma extensão simples, porém poderosa, para Chrome que ajuda a extrair e exportar cookies de qualquer site com um clique.",
+    "coreTask": "Extrair cookies"
+  },
+  "siteage-org": {
+    "_hash": "c2d3e4f50617890a",
+    "description": "Rastreia as origens de qualquer site através do Internet Archive. Pesquise qualquer domínio para receber um badge de idade certificado com data de nascimento, ranking de longevidade, linha do tempo histórica e badges SVG incorporáveis para seu site ou README.",
+    "coreTask": "Pesquisar a idade de qualquer domínio, ver a linha do tempo histórica e obter badges SVG de idade incorporáveis"
+  },
+  "next-tools-dev": {
+    "_hash": "d3e4f5061789ab1c",
+    "description": "Um site de ferramentas derivado do it-tools, contendo mais de 100 ferramentas.",
+    "coreTask": "Usar diversas ferramentas"
+  },
+  "ps-keepmot-com": {
+    "_hash": "e4f506178ab1c2d3",
+    "description": "Ferramenta gratuita de colagem e edição de imagens online. Sem login, totalmente gratuita. Construída inteiramente no frontend, garantindo privacidade e segurança absolutas para suas imagens. Baixe resultados em alta resolução sem marca d'água. Uma ferramenta limpa e profissional para criar obras visuais bonitas.",
+    "coreTask": "Colagem em grade, colagem de parede de fotos, junção de imagens longas, corte de imagens e efeitos de imagem"
+  },
+  "kuakua-app": {
+    "_hash": "f5061789abc1d2e3",
+    "description": "O Kuakua.app é o seu hub com IA para recursos de saúde mental, meditação mindfulness e jogos de psicologia positiva. Participe de quizzes baseados em ciência, jogue tarefas estimulantes para o cérebro e desbloqueie afirmações diárias para se sentir mais feliz, tranquilo e resiliente — a qualquer hora, em qualquer dispositivo.",
+    "coreTask": "Coleção mundial abrangente de recursos de psicologia, conteúdo de psicologia experiencial e diversas ferramentas de psicologia positiva"
+  }
+}
