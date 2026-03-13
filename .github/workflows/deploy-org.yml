@@ -3,10 +3,10 @@ name: Deploy Org Site
 on:
   push:
     branches: [main]
-    paths: ['sites/org/**']
+    paths: ['sites/org/**', '.github/workflows/deploy-org.yml']
   pull_request:
     branches: [main]
-    paths: ['sites/org/**']
+    paths: ['sites/org/**', '.github/workflows/deploy-org.yml']
   workflow_dispatch:
 
 concurrency:
