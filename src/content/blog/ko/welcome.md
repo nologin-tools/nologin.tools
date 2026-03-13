@@ -7,7 +7,7 @@ tags: ["announcement", "privacy"]
 featured: true
 locale: ko
 originalSlug: welcome
-sourceHash: 82626fa3ad4d442e
+sourceHash: 2b29ce4ed19772d3
 ---
 
 ## 왜 nologin.tools를 만들었나요?

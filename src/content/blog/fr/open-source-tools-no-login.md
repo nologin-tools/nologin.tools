@@ -7,7 +7,7 @@ tags: ["open-source", "privacy", "tools", "browser", "analysis"]
 featured: false
 locale: fr
 originalSlug: open-source-tools-no-login
-sourceHash: 0272eee5b5e3e843
+sourceHash: ef4252eec67dbc61
 ---
 
 Le terme « respectueux de la vie privée » apparaît sur environ la moitié des outils web que tu rencontres. Aucun ne peut le prouver sans une politique de confidentialité que tu ne liras jamais en entier. L'open source change ça. Quand le code source est public et que l'outil tourne dans ton navigateur, l'affirmation devient auditable. Ce n'est pas une distinction mineure.

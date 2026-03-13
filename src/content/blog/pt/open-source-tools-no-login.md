@@ -7,7 +7,7 @@ tags: ["open-source", "privacy", "tools", "browser", "analysis"]
 featured: false
 locale: pt
 originalSlug: open-source-tools-no-login
-sourceHash: 0272eee5b5e3e843
+sourceHash: ef4252eec67dbc61
 ---
 
 A expressão "respeitoso com a privacidade" aparece em aproximadamente metade das ferramentas web que você encontra. Nenhuma consegue provar isso sem uma política de privacidade que você nunca vai ler por completo. O open source muda isso. Quando o código-fonte é público e a ferramenta roda no navegador, a afirmação se torna auditável. Essa não é uma distinção menor.

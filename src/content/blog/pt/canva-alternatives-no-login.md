@@ -7,7 +7,7 @@ tags: ["alternatives", "tools", "browser", "comparison", "review"]
 featured: false
 locale: pt
 originalSlug: canva-alternatives-no-login
-sourceHash: a080314573e1964a
+sourceHash: b53d9bd8b467aa68
 ---
 
 O plano gratuito do Canva é bom de verdade. É isso que torna esse artigo um pouco difícil de escrever. O Canva é polido, rápido e tem milhares de templates que fazem não-designers parecerem competentes. Mas ele exige uma conta. E esse requisito de conta faz muito mais trabalho do que aparenta.

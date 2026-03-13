@@ -7,7 +7,7 @@ tags: ["open-source", "privacy", "tools", "browser", "analysis"]
 featured: false
 locale: de
 originalSlug: open-source-tools-no-login
-sourceHash: 0272eee5b5e3e843
+sourceHash: ef4252eec67dbc61
 ---
 
 „Datenschutzfreundlich" steht bei ungefähr der Hälfte der Web-Tools, die du so findest. Beweisen kann das keines davon, ohne auf eine Datenschutzerklärung zu verweisen, die du nie vollständig lesen wirst. Open Source ändert das. Wenn der Quellcode öffentlich ist und das Tool im Browser läuft, wird die Behauptung prüfbar. Das ist kein kleiner Unterschied.

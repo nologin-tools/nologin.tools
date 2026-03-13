@@ -7,7 +7,7 @@ tags: ["open-source", "privacy", "tools", "browser", "analysis"]
 featured: false
 locale: ko
 originalSlug: open-source-tools-no-login
-sourceHash: 0272eee5b5e3e843
+sourceHash: ef4252eec67dbc61
 ---
 
 「개인정보 친화적」이라는 말은 당신이 마주치는 웹 도구의 절반쯤 되는 곳에 적혀 있어요. 하지만 전부 읽지도 않을 개인정보처리방침에 의존하지 않고 그걸 증명할 수 있는 도구는 없어요. 오픈 소스가 이걸 바꿔요. 소스 코드가 공개되어 있고 도구가 브라우저에서 실행될 때, 그 주장은 감사가 가능해져요. 이건 사소한 차이가 아니에요.
