@@ -41,7 +41,7 @@ jobs:
           cache-dependency-path: sites/org/pnpm-lock.yaml
       - run: cd sites/org && pnpm install --frozen-lockfile
       - name: Ensure Pages project exists
-        run: wrangler pages project create nologintools-org --production-branch main 2>/dev/null || true
+        run: cd sites/org && npx wrangler pages project create nologintools-org --production-branch main || true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
