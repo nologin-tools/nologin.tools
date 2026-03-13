@@ -7,7 +7,7 @@ tags: ["open-source", "privacy", "tools", "browser", "analysis"]
 featured: false
 locale: zh
 originalSlug: open-source-tools-no-login
-sourceHash: 0272eee5b5e3e843
+sourceHash: ef4252eec67dbc61
 ---
 
 「隐私友好」这个词出现在你遇到的大约一半的网络工具上。没有一个能在不依赖你永远读不完的隐私政策的前提下证明这一点。开源改变了这一切。当源代码公开、工具在浏览器中运行时，这个声明就变得可以被审计了。这不是小事。
@@ -34,7 +34,7 @@ sourceHash: 0272eee5b5e3e843
 
 [Hoppscotch](/tool/hoppscotch-io) 是 Postman 的无需登录替代品。无需创建账号即可测试 REST、GraphQL、WebSocket 和 SSE 端点。它是开源的（MIT 许可），所有操作都在浏览器中完成——你的 API 请求直接从浏览器发送到目标端点，不经过 Hoppscotch 的服务器。这很重要，尤其是当你测试内部 API 或处理不想通过第三方路由的凭证时。Postman 在账号要求上越来越强硬；Hoppscotch 是干净利落的替代方案。
 
-还有 [IT Tools](/tool/it-tools-tech)——一个包含 70 多个开发者工具（哈希生成器、编码器、日期转换器、正则表达式测试器、颜色选择器等）的集合，全部基于开源代码构建，所有内容在客户端运行。整个项目在 GitHub 上，可以自托管。对于你经常使用的工具，这类应用其实很适合在本地运行。
+还有 [IT Tools](/tool/it-tools-tech)——一个包含 70 多个开发者工具（哈希生成器、UUID 工具、日期转换器、正则表达式测试器、颜色选择器等）的集合，全部基于开源代码构建，所有内容在客户端运行。整个项目在 GitHub 上，可以自托管。对于你经常使用的工具，这类应用其实很适合在本地运行。
 
 | 工具 | 许可证 | 可自托管 | 处理方式 |
 |------|--------|---------|---------|

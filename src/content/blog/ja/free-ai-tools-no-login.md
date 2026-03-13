@@ -7,7 +7,8 @@ tags: ["tools", "comparison", "privacy", "browser"]
 featured: false
 locale: ja
 originalSlug: free-ai-tools-no-login
-sourceHash: 8a3f2c1e9d4b7a5f
+sourceHash: dc88e7153719aec3
+heroImageQuery: "artificial intelligence tools browser no signup"
 ---
 
 ![Hero image](/blog/images/free-ai-tools-no-login/hero.jpg)
@@ -59,7 +60,7 @@ AIチャットボットが一般に普及した瞬間、それらは壁の向こ
 
 [LanguageTool](/tool/languagetool-org)は30以上の言語で動作する文法チェッカーです。ブラウザ拡張機能またはウェブ版で英語、ドイツ語、フランス語、スペイン語などのミスを検出します。コアとなるチェック機能はログイン不要——アカウントで追加されるのは同義語サジェストと個人辞書ですが、基本的な文法・スペルチェックはなしで動作します。
 
-これらの実際的な違い：QuillBootは積極的に書き換え、DeepLは美しく翻訳し、LanguageToolは保守的に修正します。異なる目的に使いましょう。
+これらの実際的な違い：QuillBotは積極的に書き換え、DeepLは美しく翻訳し、LanguageToolは保守的に修正します。異なる目的に使いましょう。
 
 ## サインアップ不要のAI画像生成
 
@@ -67,7 +68,7 @@ AIチャットボットが一般に普及した瞬間、それらは壁の向こ
 
 [Craiyon](/tool/craiyon-com)（旧DALL-E mini）は独自モデルで動作し、アカウントなしでプロンプトごとに9枚の画像を生成します。MidjourneyやSDXLと比べてクオリティは明らかに劣ります——フォトリアリスティックな結果ではなく、絵画的でときに超現実的なアウトプットを期待してください。しかし、コンセプトスケッチ、ムードボードのプレースホルダー、プロンプト遊びには全く摩擦がありません。
 
-AI支援の画像編集（生成ではなく）であれば、[remove.bg](/tool/remove-bg)は数秒で背景を削除します。写真をアップロードすると背景が消えます。ウェブ版はアカウント不要ですが、高解像度ダウンロードはレート制限があります。ブラウザのみの性質上、画像はサーバーで処理されますが長期保存はされません（[プライバシーポリシー](https://www.remove.bg/privacy)によると無料ユーザーは24時間保持）。
+AI支援の画像編集（生成ではなく）であれば、[remove.bg](/tool/remove-bg)は数秒で背景を削除します。写真をアップロードすると背景が消えます。ウェブ版はアカウント不要ですが、高解像度ダウンロードはレート制限があります。画像はサーバーで処理されますが長期保存はされません（[プライバシーポリシー](https://www.remove.bg/privacy)によると無料ユーザーは24時間保持）。
 
 [Unscreen](/tool/unscreen-com)は動画に対して同じことをします——グリーンスクリーンなしで動画の背景を削除します。短いクリップはログインなしで動作します。より長いクリップはアカウントが必要です。小さな製品デモやプロフィール動画クリップに適しています。
 

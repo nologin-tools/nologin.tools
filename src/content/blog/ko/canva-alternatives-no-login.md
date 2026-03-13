@@ -7,7 +7,7 @@ tags: ["alternatives", "tools", "browser", "comparison", "review"]
 featured: false
 locale: ko
 originalSlug: canva-alternatives-no-login
-sourceHash: a080314573e1964a
+sourceHash: b53d9bd8b467aa68
 ---
 
 솔직히 말하면, Canva 무료 플랜은 진짜 잘 만들어져 있어요. 그래서 이 글을 쓰기가 좀 어색하기도 해요. Canva는 세련되고, 빠르고, 디자인 비전문가도 그럴듯한 결과물을 낼 수 있는 수천 개의 템플릿이 있거든요. 하지만 계정이 필요해요. 그리고 그 계정 요구사항은 보이는 것보다 훨씬 많은 걸 하고 있어요.

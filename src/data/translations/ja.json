@@ -5,697 +5,697 @@
     "coreTask": "ログイン不要ツールの完全ディレクトリを閲覧・検索し、カテゴリとタグで絞り込んでツール詳細を確認する"
   },
   "led-run": {
-    "_hash": "a1b2c3d4e5f60718",
+    "_hash": "756b58b5afcc304c",
     "description": "任意の画面をLEDサイン、ライトエフェクト、サウンドビジュアライザー、時計、QRコード、カメラフィルターに変えるブラウザベースの表示ツールキット。数十のテーマとモードをサポート——アプリ不要、アカウント不要、URLだけでOK。",
     "coreTask": "スクロールテキスト、ライトエフェクト、サウンドビジュアライザー、時計、QRコード、カメラフィルターをログインやアカウントなしで直接ブラウザに表示する"
   },
   "tmp-tf": {
-    "_hash": "b2c3d4e5f6071829",
+    "_hash": "17041765046cba97",
     "description": "数秒でデバイス間にテキストとコンテンツを同期できる一時クリップボードツール。サインアップ不要、エンドツーエンド暗号化、コンテンツは自動的に自己消滅します。名前付きチャンネルを開いて任意のデバイスから貼り付けるだけ。",
     "coreTask": "アカウントやログインなしでチャンネルを開いてデバイス間でテキストを同期する"
   },
   "til-re": {
-    "_hash": "c3d4e5f60718293a",
+    "_hash": "77f9fa8a849b9a42",
     "description": "カウントダウン、カウントアップ、時計、繰り返しサイクルを作成できるURLベースのタイムツール——すべてリンク自体に埋め込まれています。サインアップ不要、URLを作ってシェアするだけ。複数のテーマと時間単位をサポート。",
     "coreTask": "URLでカウントダウンタイマー、カウントアップタイマー、時計を作成・共有する——アカウント不要"
   },
   "excalidraw-com": {
-    "_hash": "d4e5f60718293a4b",
+    "_hash": "aa4d4e0bc8d184ad",
     "description": "手書き風ダイアグラムを描くためのバーチャルホワイトボード。リアルタイムコラボレーション、PNG/SVGエクスポート、図形とアイコンのライブラリをサポート。",
     "coreTask": "手書き風ダイアグラムやスケッチを協力して作成する"
   },
   "photopea-com": {
-    "_hash": "e5f60718293a4b5c",
+    "_hash": "c46a80a9c1178363",
     "description": "PSD、XCF、Sketch、XD、CDR形式をサポートする高度なオンライン画像エディター。レイヤー、フィルター、高度な編集ツールを使ってブラウザ上でPhotoshopのように操作できます。",
     "coreTask": "Photoshop風のブラウザエディターで写真編集とグラフィックデザインを行う"
   },
   "tldraw-com": {
-    "_hash": "f60718293a4b5c6d",
+    "_hash": "b80f172d5af76f63",
     "description": "シンプルでミニマルなインターフェースの協調デジタルホワイトボード。フリーハンド描画、図形・矢印・テキスト・付箋の追加でダイアグラムやビジュアルノートを作成できます。",
     "coreTask": "無限キャンバス上でダイアグラムやビジュアルノートを描く"
   },
   "squoosh-app": {
-    "_hash": "60718293a4b5c6d7",
+    "_hash": "dba0ab956b3c4dc1",
     "description": "Googleが開発したブラウザ上で完全に動作する画像圧縮ツール。オリジナルと圧縮後を並べて比較でき、WebP、AVIF、MozJPEGなどをサポート。",
     "coreTask": "視覚的な品質比較で画像を圧縮・最適化する"
   },
   "svgedit-netlify-app-editor-index-html": {
-    "_hash": "718293a4b5c6d7e8",
+    "_hash": "e314a79bf3c9abc5",
     "description": "高速なWebベースのJavaScript製SVGドローイングエディター。使い慣れたドローイングアプリのインターフェースでブラウザ上でSVG画像を作成・編集できます。",
     "coreTask": "ブラウザでSVGベクターグラフィックを作成・編集する"
   },
   "remove-bg": {
-    "_hash": "8293a4b5c6d7e8f9",
+    "_hash": "70570a7528d22e21",
     "description": "AIを使って数秒で自動的に写真の背景を除去するツール。画像をアップロードするとすぐに透明なPNGが得られます。",
     "coreTask": "AIを使って画像の背景を自動的に除去する"
   },
   "hemingwayapp-com": {
-    "_hash": "93a4b5c6d7e8f901",
+    "_hash": "bdc68b9bc25eb8db",
     "description": "複雑な文、受動態、副詞、読みにくいフレーズをハイライトするライティングアシスタント。太く明確な文章を書く助けになります。",
     "coreTask": "複雑で読みにくいテキストをハイライトして文章の明瞭さを改善する"
   },
   "languagetool-org": {
-    "_hash": "a4b5c6d7e8f90112",
+    "_hash": "499823a696dd03a2",
     "description": "30以上の言語をサポートする多言語の文法・スタイル・スペルチェッカー。単純なスペルチェッカーでは見つけられないエラーを検出します。",
     "coreTask": "30以上の言語で文法、スペル、文体をチェックする"
   },
   "dillinger-io": {
-    "_hash": "b5c6d7e8f9011223",
+    "_hash": "102e776207fe9d16",
     "description": "クラウド対応、モバイル対応、オフラインストレージ互換のMarkdownエディター。入力しながらリアルタイムでレンダリングされたMarkdownをプレビューできます。",
     "coreTask": "Markdownドキュメントをリアルタイムプレビューしながら作成する"
   },
   "regex101-com": {
-    "_hash": "c6d7e8f901122334",
+    "_hash": "d7afffa45d3b7d23",
     "description": "PHP、PCRE、Python、Golang、JavaScript向けのオンライン正規表現テスターとデバッガー。リアルタイムの説明とマッチハイライトで正規表現パターンを構築・テスト・デバッグできます。",
     "coreTask": "リアルタイムフィードバックで正規表現を構築・テスト・デバッグする"
   },
   "caniuse-com": {
-    "_hash": "d7e8f90112233445",
+    "_hash": "d87b515cca692de7",
     "description": "HTML5、CSS3、SVG、JavaScript APIなどのWeb技術の最新ブラウザサポート表。Web開発者に必須のリファレンス。",
     "coreTask": "Web技術のブラウザ互換性を確認する"
   },
   "devdocs-io": {
-    "_hash": "e8f9011223344556",
+    "_hash": "6f58b876bb930e2e",
     "description": "複数のAPIドキュメントを高速で整理された検索可能なインターフェースに統合。JavaScript、HTML、CSS、Node.js、Ruby、Pythonなど数百の言語をカバー。",
     "coreTask": "数百のAPIの開発者ドキュメントを検索・閲覧する"
   },
   "carbon-now-sh": {
-    "_hash": "f901122334455667",
+    "_hash": "86f277ac70df84cd",
     "description": "ソースコードの美しい画像を作成・共有できます。数十のシンタックステーマと言語から選択し、PNGまたはSVGでエクスポート。",
     "coreTask": "ソースコードの美しいスニペット画像を生成する"
   },
   "jsonformatter-org": {
-    "_hash": "01122334455667a1",
+    "_hash": "dc29a04e71799559",
     "description": "オンラインJSONフォーマッター、バリデーター、ビューワー。JSONデータを貼り付けるかアップロードして、フォーマット、検証、最小化、他の形式に変換できます。",
     "coreTask": "JSONデータをフォーマット・検証・美化する"
   },
   "tools-pdf24-org-en": {
-    "_hash": "1122334455667a1b",
+    "_hash": "c9afe1d7526899d1",
     "description": "無料で使いやすいオンラインPDFツール：結合、分割、圧縮、変換、回転、透かしなど。すべての処理はブラウザ上で行われます。",
     "coreTask": "PDFファイルを結合・分割・圧縮・変換する"
   },
   "tinywow-com": {
-    "_hash": "22334455667a1b2c",
+    "_hash": "c49f7aecec8125e1",
     "description": "PDF、ビデオ、画像、ファイル変換用の無料オンラインツール集。処理後はファイルを削除。透かしなし、ファイルサイズ制限なし。",
     "coreTask": "PDF、画像、ビデオ、ドキュメントを変換・処理する"
   },
   "pomofocus-io": {
-    "_hash": "334455667a1b2c3d",
+    "_hash": "4e0ece4c6eac0025",
     "description": "デスクトップとモバイルで動作するカスタマイズ可能なポモドーロタイマー。集中セッションをトラッキングし、カスタム時間を設定し、すっきりしたインターフェースでタスクを管理できます。",
     "coreTask": "ポモドーロテクニックを使って作業セッションを計測する"
   },
   "omnicalculator-com": {
-    "_hash": "4455667a1b2c3d4e",
+    "_hash": "17046b0f8c128eb1",
     "description": "数学、物理、金融、健康、日常生活向けの3,000以上の無料計算機のコレクション。各計算機はその背後にある公式と概念を説明します。",
     "coreTask": "3,000以上の専門計算機で何でも計算する"
   },
   "ezgif-com": {
-    "_hash": "55667a1b2c3d4e5f",
+    "_hash": "ece501a1d4969e57",
     "description": "オンラインGIFメーカーと画像エディター。GIFの作成、リサイズ、切り抜き、反転、最適化、動画からGIFへの変換。WebP、APNG、AVIFもサポート。",
     "coreTask": "GIFやアニメーション画像を作成・編集・最適化する"
   },
   "audiotrimmer-com": {
-    "_hash": "667a1b2c3d4e5f60",
+    "_hash": "6401934ecd7b3783",
     "description": "シンプルなオンライン音声トリミングツール。音声をアップロードし、残したい部分を選択してダウンロード。MP3、WAVなどの形式をサポート。",
     "coreTask": "オンラインで音声ファイルをトリム・カットする"
   },
   "convertio-co": {
-    "_hash": "7a1b2c3d4e5f6071",
+    "_hash": "2d7c1e2e92e3e38e",
     "description": "300以上の形式をサポートする高度なオンラインファイルコンバーター。シンプルなドラッグ&ドロップインターフェースでドキュメント、画像、音声、動画、電子書籍、アーカイブなどを変換できます。",
     "coreTask": "ドラッグ&ドロップで300以上の形式間でファイルを変換する"
   },
   "haveibeenpwned-com": {
-    "_hash": "1b2c3d4e5f607182",
+    "_hash": "49efb8eee51ca4e3",
     "description": "メールアドレスまたは電話番号がデータ漏洩で侵害されたか確認できます。既知の漏洩とペーストから数十億件のレコードをカバー。",
     "coreTask": "メールや電話番号がデータ漏洩で公開されていないか確認する"
   },
   "temp-mail-org": {
-    "_hash": "2c3d4e5f60718293",
+    "_hash": "3fc66217ae495ec3",
     "description": "使い捨ての一時メールサービス。本当のアドレスを明かさずにメールを受信するための即時匿名メールアドレスを取得できます。一定期間後に自動削除。",
     "coreTask": "匿名サインアップ用の使い捨てメールアドレスを生成する"
   },
   "privacytests-org": {
-    "_hash": "3d4e5f6071829300",
+    "_hash": "d829316edc2e7b1d",
     "description": "Webブラウザのプライバシーのオープンソーステスト。主要ブラウザのトラッキング保護、フィンガープリンティング耐性、その他のプライバシー機能を比較します。",
     "coreTask": "Webブラウザのプライバシー機能とトラッキング保護を比較する"
   },
   "csvjson-com": {
-    "_hash": "4e5f607182930011",
+    "_hash": "027d25258c2e433b",
     "description": "CSV、JSON、SQL形式間を変換するオンラインツール。データクリーニングと変換ユーティリティも含まれています。すべての処理はブラウザ上で行われます。",
     "coreTask": "CSV、JSON、SQLデータ形式間を変換する"
   },
   "jsoncrack-com": {
-    "_hash": "5f60718293001122",
+    "_hash": "7a5fd5f5dd2f5dfa",
     "description": "JSONデータをインタラクティブなグラフに可視化します。ツリー状のグラフビューで複雑なJSON構造をシームレスに探索でき、検索とフィルタリング機能つき。",
     "coreTask": "JSONデータをインタラクティブなノードグラフとして可視化する"
   },
   "tableconvert-com": {
-    "_hash": "607182930011223a",
+    "_hash": "f7dc3c15041aa1ea",
     "description": "テーブル形式間を変換：Excel、CSV、JSON、HTML、SQL、Markdown、LaTeXなど。テーブルをビジュアルで編集し、希望の形式でエクスポートできます。",
     "coreTask": "Excel、CSV、JSON、Markdownなどの形式間でテーブルを変換する"
   },
   "meet-jit-si": {
-    "_hash": "718293001122334b",
+    "_hash": "4f803307140790a3",
     "description": "ブラウザ上で直接動作する無料のオープンソースビデオ会議。ルームを作成してリンクを共有するだけ——アカウント、ダウンロード、プラグイン不要。",
     "coreTask": "アカウントやダウンロードなしでビデオ通話を開始する"
   },
   "desmos-com-calculator": {
-    "_hash": "8293001122334b5c",
+    "_hash": "6835fcf0d7a1e132",
     "description": "インタラクティブなWebアプリとして実装された高度なグラフ電卓。関数のプロット、表の作成、スライダーの追加、グラフのアニメーション、数学のビジュアル探索ができます。",
     "coreTask": "数学関数をグラフ化して方程式を視覚的に探索する"
   },
   "wolframalpha-com": {
-    "_hash": "93001122334b5c6d",
+    "_hash": "b511d320ab337609",
     "description": "構造化データから答えを計算して事実に関する質問に答える計算知識エンジン。数学、科学、地理、歴史などをカバー。",
     "coreTask": "答えを計算し数学の問題をステップバイステップで解く"
   },
   "geogebra-org-calculator": {
-    "_hash": "001122334b5c6d7e",
+    "_hash": "000ff4f102fb266e",
     "description": "あらゆるレベルの教育向けの無料動的数学ソフトウェア。幾何、代数、スプレッドシート、グラフ、統計、微積分を一つのインタラクティブなツールに統合。",
     "coreTask": "インタラクティブな数学ツールで幾何、代数、微積分を探索する"
   },
   "xe-com-currencyconverter": {
-    "_hash": "1122334b5c6d7e8f",
+    "_hash": "4ac760ca63320a8d",
     "description": "ライブ為替レートで世界中に信頼されている通貨コンバーター。毎分更新される中間市場レートで300以上の通貨と貴金属を変換できます。",
     "coreTask": "ライブ中間市場レートで通貨を変換する"
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
-    "_hash": "22334b5c6d7e8f90",
+    "_hash": "78c0d5e3b1bc8501",
     "description": "SECの公式複利計算機。複利で貯蓄や投資が時間とともにどれだけ成長するかを推定できます。シンプルで信頼性が高く、広告なし。",
     "coreTask": "貯蓄や投資の複利成長を計算する"
   },
   "wise-com-gb-currency-converter": {
-    "_hash": "334b5c6d7e8f9001",
+    "_hash": "2580b052b16f7b05",
     "description": "実際の中間市場レートを表示する通貨コンバーター。銀行や送金サービスのレートを比較して節約できる金額を確認できます。",
     "coreTask": "銀行とサービス間の実際の為替レートを比較する"
   },
   "quickstart-to": {
-    "_hash": "4b5c6d7e8f900112",
+    "_hash": "3f4560130485b244",
     "description": "コミュニティ主導のオープンソースクイックスタートガイド集（「すべてのTL;DR」）。Dockerなどのツールや技術向けの124以上の無料ガイドを提供——アカウントやログイン不要。",
     "coreTask": "アカウントなしでツールや技術のクイックスタートガイドを閲覧・読む"
   },
   "coolors-co": {
-    "_hash": "5c6d7e8f90011223",
+    "_hash": "7f48ea05286727d3",
     "description": "調和のとれたカラーパレットを即座に生成。スペースバーを押してデザインプロジェクト用の美しい配色を作成できます。",
     "coreTask": "カラーパレットを生成・探索する"
   },
   "jakearchibald-github-io-svgomg": {
-    "_hash": "6d7e8f9001122334",
+    "_hash": "e786f654ff556c91",
     "description": "ビジュアルインターフェースでSVGファイルを最適化・圧縮。Jake ArchibaldがSVGOをベースに開発。",
     "coreTask": "SVGファイルを最適化・圧縮する"
   },
   "favicon-io": {
-    "_hash": "7e8f900112233445",
+    "_hash": "222a95b514158c65",
     "description": "テキスト、画像、絵文字からファビコンを生成。ウェブサイト用に複数のサイズと形式でダウンロードできます。",
     "coreTask": "ウェブサイトのファビコンを生成する"
   },
   "tinypng-com": {
-    "_hash": "8f90011223344556",
+    "_hash": "d3978d5c04b6d68f",
     "description": "PNG、JPEG、WebP画像のスマートな非可逆圧縮。視覚的な品質を保ちながらファイルサイズを削減します。",
     "coreTask": "PNG、JPEG、WebP画像を圧縮する"
   },
   "app-diagrams-net": {
-    "_hash": "9001122334455667",
+    "_hash": "c5614cc0205aa2e5",
     "description": "フローチャート、UML図、ネットワーク図などを作成。以前はdraw.ioとして知られ、最も強力な無料オンライン作図ツール。",
     "coreTask": "フローチャートと図を作成する"
   },
   "gchq-github-io-cyberchef": {
-    "_hash": "011223344556677a",
+    "_hash": "b90f16a2d5e51090",
     "description": "サイバー万能ナイフ——ドラッグ&ドロップのレシピビルダーでデータをエンコード、デコード、暗号化、圧縮、分析。",
     "coreTask": "データをエンコード・デコード・変換する"
   },
   "typescriptlang-org-play": {
-    "_hash": "122334455667a1b2",
+    "_hash": "747d7c9bbc800d02",
     "description": "ブラウザでTypeScriptコードを作成・コンパイル・実行。完全な型チェックとIntelliSenseを備えたMicrosoftの公式ツール。",
     "coreTask": "オンラインでTypeScriptコードを作成・テストする"
   },
   "crontab-guru": {
-    "_hash": "2334455667a1b2c3",
+    "_hash": "9d145f38b85a61e6",
     "description": "人間が読みやすい説明つきのビジュアルcron式エディター。cronスケジュールを素早く構築・検証できます。",
     "coreTask": "cron式を編集・理解する"
   },
   "bundlephobia-com": {
-    "_hash": "34455667a1b2c3d4",
+    "_hash": "97b58f7c750bc931",
     "description": "npmパッケージをバンドルに追加するコストを確認。任意のパッケージのサイズ、ダウンロード時間、構成を表示します。",
     "coreTask": "npmパッケージのバンドルサイズを分析する"
   },
   "explainshell-com": {
-    "_hash": "455667a1b2c3d4e5",
+    "_hash": "f239fc07203c16ef",
     "description": "シェルコマンドを解析・説明します。任意のコマンドラインを貼り付けると各引数とフラグの詳細な説明が得られます。",
     "coreTask": "シェルコマンドの構文を説明する"
   },
   "webhook-site": {
-    "_hash": "5667a1b2c3d4e5f6",
+    "_hash": "49b5e9bba88354c0",
     "description": "WebhookとHTTPリクエストを即座にテスト・デバッグ。ユニークなURLを取得してリアルタイムで受信リクエストを検査できます。",
     "coreTask": "Webhookをテスト・デバッグする"
   },
   "it-tools-tech": {
-    "_hash": "667a1b2c3d4e5f60",
+    "_hash": "5dc951d0e9224f1b",
     "description": "70以上の開発者ユーティリティのコレクション：ハッシュジェネレーター、エンコーダー、コンバーター、フォーマッターなど——すべてが一か所に。",
     "coreTask": "70以上の開発者ユーティリティにアクセスする"
   },
   "ray-so": {
-    "_hash": "7a1b2c3d4e5f6071",
+    "_hash": "1027514b98153879",
     "description": "カスタマイズ可能なテーマ、背景、パディングで美しいコードのスクリーンショットを作成。Raycast製。",
     "coreTask": "美しいコードのスクリーンショットを生成する"
   },
   "fast-com": {
-    "_hash": "1b2c3d4e5f607183",
+    "_hash": "2e7ff04fb4638567",
     "description": "Netflixによるシンプルなインターネット速度テスト。ページを開くとすぐにダウンロード速度の計測が始まります。",
     "coreTask": "インターネット接続速度をテストする"
   },
   "worldtimebuddy-com": {
-    "_hash": "2c3d4e5f60718294",
+    "_hash": "97171003baa00098",
     "description": "タイムゾーンをまたいだスケジュール調整のためのビジュアルタイムゾーンコンバーター。複数の都市を並べて表示して最適なミーティング時間を見つけられます。",
     "coreTask": "タイムゾーンを比較・変換する"
   },
   "excalideck-com": {
-    "_hash": "3d4e5f6071829305",
+    "_hash": "0913dcfd0f269e00",
     "description": "Excalidrawエンジンを使って手書き風のプレゼンテーションスライドを作成。ユニークなスケッチ風スライドデッキを構築できます。",
     "coreTask": "手書き風プレゼンテーションを作成する"
   },
   "unscreen-com": {
-    "_hash": "4e5f607182930416",
+    "_hash": "99ee9aeaaa4f082c",
     "description": "AIでビデオの背景を自動的に除去。ビデオクリップをアップロードすると透明な背景バージョンが得られます。",
     "coreTask": "AIでビデオ背景を除去する"
   },
   "vocalremover-org": {
-    "_hash": "5f60718293041527",
+    "_hash": "e5779577ea36c92b",
     "description": "あらゆる曲からボーカルと伴奏を分離するAIボーカルリムーバー。カラオケやリミックス制作に最適。",
     "coreTask": "ボーカルとインストゥルメンタルを分離する"
   },
   "browserleaks-com": {
-    "_hash": "607182930415263a",
+    "_hash": "4c0973e992734168",
     "description": "包括的なブラウザフィンガープリンティングテストスイート。ブラウザが明かす情報を確認：IP、WebRTC、Canvas、フォントなど。",
     "coreTask": "ブラウザのフィンガープリント漏洩を検出する"
   },
   "coveryourtracks-eff-org": {
-    "_hash": "71829304152638b4",
+    "_hash": "c339376a9a28a0be",
     "description": "ブラウザがどれだけトラッキングから保護しているかをテスト。電子フロンティア財団（EFF）製。",
     "coreTask": "ブラウザのトラッキング保護をテストする"
   },
   "virustotal-com": {
-    "_hash": "82930415263849c5",
+    "_hash": "5eba7383bddd13a7",
     "description": "70以上のウイルス対策エンジンを使ってファイルとURLをマルウェアスキャン。Googleが所有する包括的な脅威検出サービス。",
     "coreTask": "ファイルとURLのマルウェアをスキャンする"
   },
   "pairdrop-net": {
-    "_hash": "9304152638495ad6",
+    "_hash": "998be398f726b994",
     "description": "ローカルネットワーク上の近くのデバイスとファイルを即座に共有。SnapdropのオープンソースサクセサーでP2P転送をサポート。",
     "coreTask": "LAN上のデバイス間でファイルを共有する"
   },
   "privnote-com": {
-    "_hash": "04152638495a6be7",
+    "_hash": "54aac5b778f0499b",
     "description": "自己消滅する暗号化メモを送信。メッセージは読まれた後に自動的に削除——機密情報の共有に最適。",
     "coreTask": "読んだら消える暗号化メモを送信する"
   },
   "sharedrop-io": {
-    "_hash": "152638495a6b7cf8",
+    "_hash": "dfc76e0b49dccea6",
     "description": "ブラウザでのP2Pファイル共有。Apple AirDropに似ていますがすべてのプラットフォームで動作——アプリのインストール不要。",
     "coreTask": "デバイス間でP2Pファイル共有を行う"
   },
   "db-fiddle-com": {
-    "_hash": "2638495a6b7c8d09",
+    "_hash": "306aa35ce395f7b3",
     "description": "MySQL、PostgreSQL、SQLiteに対してオンラインでSQLクエリを実行。データベースをインストールせずにスキーマとクエリをテストできます。",
     "coreTask": "オンラインでSQLクエリを実行する"
   },
   "mockaroo-com": {
-    "_hash": "38495a6b7c8d9e1a",
+    "_hash": "f1f6784a9b8de76f",
     "description": "CSV、JSON、SQL、Excel形式でリアルなテストデータを生成。100以上のデータ型でスキーマをカスタマイズできます。",
     "coreTask": "リアルなテストデータを生成する"
   },
   "flexboxfroggy-com": {
-    "_hash": "495a6b7c8d9e1a2b",
+    "_hash": "7c8cb8af34415c68",
     "description": "カエルをテーマにした楽しいゲームでCSS Flexboxを学ぶ。24のレベルをクリアしてjustify-contentとalign-itemsなどのflexboxプロパティをマスターしましょう。",
     "coreTask": "ゲームを通じてCSS Flexboxを学ぶ"
   },
   "cssgridgarden-com": {
-    "_hash": "5a6b7c8d9e1a2b3c",
+    "_hash": "acc1428e97cc1a57",
     "description": "バーチャルガーデンの世話をしながらCSS Gridレイアウトを学ぶ。28の徐々に難しくなるレベルでにんじんに水をあげましょう。",
     "coreTask": "ゲームを通じてCSS Gridを学ぶ"
   },
   "numbeo-com": {
-    "_hash": "6b7c8d9e1a2b3c4d",
+    "_hash": "39bd04251a15e7cb",
     "description": "世界最大の生活費データベース。世界中の都市の物価、家賃、食料品、生活の質を比較できます。",
     "coreTask": "都市間の生活費を比較する"
   },
   "themeasureofaplan-com": {
-    "_hash": "7c8d9e1a2b3c4d5e",
+    "_hash": "7df7b2db9b44f905",
     "description": "退職、投資、住宅ローン、予算のための美しい個人財務計算機。データ収集なしのインタラクティブな可視化。",
     "coreTask": "個人財務計算機と計画ツール"
   },
   "godbolt-org": {
-    "_hash": "8d9e1a2b3c4d5e6f",
+    "_hash": "7c43d81755822e12",
     "description": "60以上の言語のアセンブリ出力を表示するインタラクティブコンパイラーエクスプローラー。コンパイラーと最適化レベルを並べて比較できます。",
     "coreTask": "コンパイラのアセンブリ出力をインタラクティブに表示する"
   },
   "play-rust-lang-org": {
-    "_hash": "9e1a2b3c4d5e6f70",
+    "_hash": "7f82ca6f60770e74",
     "description": "公式Rustオンラインコンパイラーと実行環境。ブラウザ上でRustコードを直接作成・コンパイル・実行できます。",
     "coreTask": "オンラインでRustコードをコンパイル・実行する"
   },
   "go-dev-play": {
-    "_hash": "1a2b3c4d5e6f7081",
+    "_hash": "a2c330e4261fe500",
     "description": "公式Goオンラインコンパイラーと実行環境。ブラウザ上でGoコードを直接作成・コンパイル・実行できます。",
     "coreTask": "オンラインでGoコードをコンパイル・実行する"
   },
   "hoppscotch-io": {
-    "_hash": "2b3c4d5e6f708192",
+    "_hash": "eedefc36b3aa13bd",
     "description": "オープンソースのAPI開発エコシステム。REST、GraphQL、WebSocketなどをテスト——Postmanの軽量な代替品。",
     "coreTask": "APIをテスト・デバッグする"
   },
   "astexplorer-net": {
-    "_hash": "3c4d5e6f70819203",
+    "_hash": "02ffae7ddfba6ec4",
     "description": "多くの言語とパーサーの抽象構文ツリーを可視化・探索。コンパイラーとツール開発に欠かせないツール。",
     "coreTask": "コードの抽象構文ツリーを探索する"
   },
   "mermaid-live": {
-    "_hash": "4d5e6f7081920314",
+    "_hash": "14f3dffcd6f3fcc5",
     "description": "シンプルなテキスト構文でフローチャート、シーケンス図、ガントチャートなどを作成。SVG/PNGへのエクスポートつきのライブプレビュー。",
     "coreTask": "テキスト構文で図を作成する"
   },
   "caniemail-com": {
-    "_hash": "5e6f708192031425",
+    "_hash": "283b4a196b633e69",
     "description": "メールクライアント全体でのHTMLとCSSのサポートを確認。Can I Useのようなものですが、メール向け——Gmail、Outlook、Apple Mailなどで何が動くかを把握できます。",
     "coreTask": "メールクライアントのHTML/CSSサポートを確認する"
   },
   "npmtrends-com": {
-    "_hash": "6f70819203142536",
+    "_hash": "a1c11ea2dc6db58b",
     "description": "時間の経過とともにnpmパッケージのダウンロードトレンドを比較。パッケージサイズ、GitHubスターを確認して適切な依存関係の決定を下せます。",
     "coreTask": "npmパッケージのダウンロードトレンドを比較する"
   },
   "shields-io": {
-    "_hash": "70819203142536a7",
+    "_hash": "0afed0dea779f32e",
     "description": "READMEとドキュメント用の高品質バッジを生成。ビルドステータス、カバレッジ、バージョンなど数百のインテグレーション。",
     "coreTask": "READMEのステータスバッジを生成する"
   },
   "httpbin-org": {
-    "_hash": "8192031425368ab9",
+    "_hash": "9c304d8077252593",
     "description": "テスト用のシンプルなHTTPリクエストとレスポンスサービス。ヘッダー、Cookie、認証、リダイレクト、レスポンス形式を検査できます。",
     "coreTask": "HTTPリクエストとレスポンスをテストする"
   },
   "prettier-io-playground": {
-    "_hash": "9203142536a8bac0",
+    "_hash": "e81da02fee4e8133",
     "description": "Prettierコードフォーマット結果をオンラインでプレビュー。オプションを試してJavaScript、TypeScript、CSSなどのフォーマット済み出力を確認できます。",
     "coreTask": "Prettierのコードフォーマットをプレビューする"
   },
   "wave-webaim-org": {
-    "_hash": "031425368abcd1e2",
+    "_hash": "d7fb5def5f09d15d",
     "description": "WebAIMのWebアクセシビリティ評価ツール。任意のURLを入力すると、WCAGコンプライアンスチェックつきの詳細なアクセシビリティレポートが得られます。",
     "coreTask": "Webアクセシビリティを評価する"
   },
   "metatags-io": {
-    "_hash": "14253679abcde2f3",
+    "_hash": "baa7f3c0bcd93884",
     "description": "ソーシャルメディアのメタタグをプレビュー・生成。Google、Facebook、Twitter、LinkedInなどでのページの見え方を確認できます。",
     "coreTask": "メタタグをプレビュー・生成する"
   },
   "haikei-app": {
-    "_hash": "2536a8bcdef3f405",
+    "_hash": "a44fefba8efa28b7",
     "description": "ユニークなSVG背景シェイプを生成——波、ブロブ、グラデーション、スタック、その他。デザイン用にSVGまたはPNGでエクスポート。",
     "coreTask": "SVG背景パターンを生成する"
   },
   "cssgradient-io": {
-    "_hash": "36a8bdef04051627",
+    "_hash": "9e454410496d9be7",
     "description": "美しいUIを持つビジュアルCSSグラジェントジェネレーター。線形、放射状、円錐グラジェントをリアルタイムのコード出力で作成できます。",
     "coreTask": "CSSグラジェントコードを視覚的に生成する"
   },
   "getwaves-io": {
-    "_hash": "a8bef00516274839",
+    "_hash": "5ce9ebcb1212103e",
     "description": "セクション区切り用の美しいSVG波形を生成。シンプルなUIでレイヤー、色、複雑さをカスタマイズできます。",
     "coreTask": "SVGウェーブ区切りを生成する"
   },
   "realtimecolors-com": {
-    "_hash": "bef001627394a05b",
+    "_hash": "fec6cda9154abbb5",
     "description": "リアルタイムで実際のページレイアウトにカラーパレットをプレビュー。テキスト、ボタン、背景での色の見え方を正確に確認できます。",
     "coreTask": "実際のレイアウトで配色をプレビューする"
   },
   "colorhunt-co": {
-    "_hash": "f0016273849a5b6c",
+    "_hash": "be32db9f71fa100a",
     "description": "美しいカラーパレットの厳選コレクション。トレンドのパレットを閲覧したり色で検索したり——ワンクリックで16進コードをコピー。",
     "coreTask": "厳選カラーパレットを閲覧する"
   },
   "neumorphism-io": {
-    "_hash": "01627384950b6c7d",
+    "_hash": "9a86ef5ead1eb339",
     "description": "ビジュアルニューモーフィズムCSSジェネレーター。サイズ、半径、距離、強度、色を調整してソフトなUIシャドウエフェクトを作成できます。",
     "coreTask": "CSSニューモーフィズムエフェクトを生成する"
   },
   "fontjoy-com": {
-    "_hash": "1627394a5b0c7d8e",
+    "_hash": "f6542c3254fe45a0",
     "description": "深層学習を使ったAIフォントペアリングジェネレーター。見出し、サブ見出し、本文用の調和したフォントの組み合わせを生成します。",
     "coreTask": "AIフォントペアリングを生成する"
   },
   "typescale-com": {
-    "_hash": "27394a5b6c0d8e9f",
+    "_hash": "fce51177f7788316",
     "description": "調和のとれたタイポグラフィを構築するためのビジュアルタイプスケール計算機。ベースサイズとスケール比率を選択し、タイプ階層をプレビューできます。",
     "coreTask": "タイポグラフィスケールを生成する"
   },
   "uicolors-app": {
-    "_hash": "394a5b6c7d0e9f10",
+    "_hash": "e93ca12290e0c17d",
     "description": "任意の色からTailwind CSSカラースケールを生成。ワンクリックで完全な50〜950のシェードパレットを取得し、設定ファイルにすぐ使えます。",
     "coreTask": "Tailwind CSSカラースケールを生成する"
   },
   "happyhues-co": {
-    "_hash": "4a5b6c7d8e0f1021",
+    "_hash": "03b3b9509fcc25d8",
     "description": "実際の文脈でのカラーパレットのインスピレーション。色見本だけでなく、実際のウェブサイトレイアウトに配色がどのように適用されるかを確認できます。",
     "coreTask": "実際の文脈でカラーパレットをプレビューする"
   },
   "cubic-bezier-com": {
-    "_hash": "5b6c7d8e9f102132",
+    "_hash": "4c415964d3c97c93",
     "description": "ビジュアルCSSのcubic-bezierタイミング関数エディター。コントロールポイントをドラッグしてカスタムイージングカーブを作成し、プリセットと比較できます。",
     "coreTask": "CSSベジェイージングカーブを編集する"
   },
   "stackedit-io": {
-    "_hash": "6c7d8e9f10213243",
+    "_hash": "4d6413e29e1cca44",
     "description": "フル機能のブラウザ内Markdownエディター。Google DriveとGitHubへの同期、ライブプレビュー、スクロール同期、オフラインサポートつき。",
     "coreTask": "ブラウザでMarkdownを編集する"
   },
   "rentry-co": {
-    "_hash": "7d8e9f1021324354",
+    "_hash": "75a85e7be91b06f3",
     "description": "Markdown対応のペーストサービス。フォーマットされたテキストを即座に書いて発行・共有——後から更新するための編集コードつき。",
     "coreTask": "Markdownをすばやく発行・共有する"
   },
   "monkeytype-com": {
-    "_hash": "8e9f102132435465",
+    "_hash": "95f3472a6d81a3db",
     "description": "ミニマルでカスタマイズ可能なタイピング速度テスト。複数のテストモードとテーマでWPM、正確さ、安定性をトラッキング。",
     "coreTask": "タイピング速度をテスト・改善する"
   },
   "zenpen-io": {
-    "_hash": "9f10213243546576",
+    "_hash": "0931fe2498cd04e4",
     "description": "ミニマルな集中できる執筆環境。開いてすぐ書き始められる——ツールバーの煩雑さも気が散るものも何もない。",
     "coreTask": "気を散らせないエディターで執筆する"
   },
   "visualgo-net": {
-    "_hash": "1021324354657687",
+    "_hash": "988dc6934f124805",
     "description": "データ構造とアルゴリズムのアニメーション可視化。ソート、グラフ探索、ツリー操作などを自分のペースで追えます。",
     "coreTask": "アルゴリズムとデータ構造を可視化する"
   },
   "flukeout-github-io": {
-    "_hash": "21324354657687a9",
+    "_hash": "e7bb9b31c9803f71",
     "description": "ディナーをテーマにしたゲームでCSSセレクターを学ぶ。基本セレクターから高度な疑似クラスまで32のレベルを完了しましょう。",
     "coreTask": "ゲームを通じてCSSセレクターを学ぶ"
   },
   "pythontutor-com": {
-    "_hash": "324354657687a9b0",
+    "_hash": "5c03708926065fd5",
     "description": "コードの実行をステップバイステップで可視化。Python、Java、C、C++、JavaScriptの変数、スタックフレーム、ヒープオブジェクトを確認できます。",
     "coreTask": "コードの実行をステップバイステップで可視化する"
   },
   "regexlearn-com": {
-    "_hash": "4354657687a9b0c1",
+    "_hash": "c361865bc770ca05",
     "description": "段階的なレッスンを持つインタラクティブな正規表現チュートリアル。基本パターンから高度な先読みまで正規表現を学べます。",
     "coreTask": "正規表現をインタラクティブに学ぶ"
   },
   "mystery-knightlab-com": {
-    "_hash": "54657687a9b0c1d2",
+    "_hash": "bd3943b575e83982",
     "description": "殺人ミステリーを解きながらSQLを学ぶ。SELECT、JOIN、WHEREなどを使ってデータベースを照会し、犯人を捕まえましょう。",
     "coreTask": "探偵ゲームを通じてSQLを学ぶ"
   },
   "sortvisualizer-com": {
-    "_hash": "657687a9b0c1d2e3",
+    "_hash": "74929ffd51606b4e",
     "description": "アニメーション棒グラフでソートアルゴリズムの動作を見る。バブルソート、クイックソート、マージソートなどを並べて比較できます。",
     "coreTask": "ソートアルゴリズムを可視化する"
   },
   "dnsleaktest-com": {
-    "_hash": "7687a9b0c1d2e3f4",
+    "_hash": "aec0fd3af8e267ed",
     "description": "DNSリクエストがVPNトンネルの外に漏洩していないか確認。標準または拡張テストを実行してDNSプライバシーを確認できます。",
     "coreTask": "DNSリークを検出する"
   },
   "ipleak-net": {
-    "_hash": "87a9b0c1d2e3f405",
+    "_hash": "f817a02ec58f2a77",
     "description": "包括的な漏洩検出：IPアドレス、DNSサーバー、WebRTC、位置情報、ブラウザフィンガープリント。VPN確認に欠かせないツール。",
     "coreTask": "IPとDNSの漏洩を検出する"
   },
   "securityheaders-com": {
-    "_hash": "a9b0c1d2e3f40516",
+    "_hash": "c643295064399500",
     "description": "任意のウェブサイトのHTTPセキュリティヘッダーを分析。CSP、HSTS、X-Frame-Optionsなどのグレードと推奨事項を取得できます。",
     "coreTask": "HTTPセキュリティヘッダーを分析する"
   },
   "rawgraphs-io": {
-    "_hash": "b0c1d2e3f4051627",
+    "_hash": "1039f3c637da75a7",
     "description": "オープンソースのデータビジュアライゼーションフレームワーク。データを貼り付け、チャートタイプを選択し、美しいSVGまたはPNGの可視化をエクスポートできます。",
     "coreTask": "コーディングなしでデータを可視化する"
   },
   "transform-tools": {
-    "_hash": "c1d2e3f405162738",
+    "_hash": "4e938feaf3f92fcd",
     "description": "マルチフォーマットのコードとデータトランスフォーマー。JSON、YAML、CSV、TypeScript、GraphQLなど多くの形式間を即座に変換できます。",
     "coreTask": "データ形式間を変換する"
   },
   "geojson-io": {
-    "_hash": "d2e3f40516273849",
+    "_hash": "b71d576d2bc158b3",
     "description": "インタラクティブな地図でGeoJSONデータを作成、編集、可視化。ポイント、ライン、ポリゴンを描いて即座にコード出力できます。",
     "coreTask": "地図上でGeoJSONを作成・編集する"
   },
   "markmap-js-org": {
-    "_hash": "e3f4051627384950",
+    "_hash": "3e44e5fc985068d2",
     "description": "Markdownをインタラクティブなマインドマップに変換。構造化されたMarkdownを書くとズーム可能でナビゲーション可能なツリー可視化に変わります。",
     "coreTask": "MarkdownをマインドマップJSONに変換する"
   },
   "photomosh-com": {
-    "_hash": "f405162738495a61",
+    "_hash": "e674a3180156fb6a",
     "description": "画像と動画にグリッチエフェクトを適用。ピクセルソート、RGBシフト、ジッター、VHSを含む27のモッシュエフェクト——すべてブラウザ内。",
     "coreTask": "グリッチアートエフェクトを適用する"
   },
   "animista-net": {
-    "_hash": "0516273849a5b672",
+    "_hash": "7f79a860f05abd40",
     "description": "すぐに使えるCSSアニメーションのコレクション。タイミングとイージングをプレビュー・カスタマイズして生成されたCSSコードをコピーできます。",
     "coreTask": "CSSアニメーションコードを生成する"
   },
   "mp3cut-net": {
-    "_hash": "162738495a6b7c83",
+    "_hash": "2271d409a7815799",
     "description": "オンラインで音声ファイルをカット・トリム。MP3、WAV、OGGと300以上の形式をサポート——ブラウザ上で直接ファイルを処理できます。",
     "coreTask": "オンラインで音声ファイルをカット・トリムする"
   },
   "svgrepo-com": {
-    "_hash": "27384950a6b7c8d9",
+    "_hash": "84d4d462cc55af98",
     "description": "500,000以上の無料SVGアイコンとベクターを閲覧・ダウンロード。キーワードで検索し、色をカスタマイズし、SVGコードを直接コピーできます。",
     "coreTask": "無料のSVGアイコンを検索・ダウンロードする"
   },
   "speed-cloudflare-com": {
-    "_hash": "384950a6b7c8d9ea",
+    "_hash": "a3e67dd0d6341fa0",
     "description": "Cloudflareによる包括的なインターネット速度と遅延テスト。ダウンロード、アップロード、遅延、ジッター、パケット損失を測定します。",
     "coreTask": "インターネット速度と遅延をテストする"
   },
   "musicforprogramming-net": {
-    "_hash": "4950a6b7c8d9eafb",
+    "_hash": "4e50abfd645f8cdf",
     "description": "プログラミング中の集中を助けるよう設計された厳選アンビエントと電子音楽ミックス。60以上のフォーカスミュージックエピソード。",
     "coreTask": "コーディング用のフォーカスミュージックを聴く"
   },
   "copychar-cc": {
-    "_hash": "50a6b7c8d9eafb0c",
+    "_hash": "413d30b0f5627378",
     "description": "特殊文字、記号、絵文字をワンクリックでコピー。カテゴリを閲覧したり検索したり——任意の文字をクリックしてすぐにコピーできます。",
     "coreTask": "特殊文字と記号をコピーする"
   },
   "time-is": {
-    "_hash": "a6b7c8d9eafb0c1d",
+    "_hash": "8a2c5ebac73d3129",
     "description": "原子時計と同期した正確な現在時刻。ミリ秒精度の世界時計、タイムゾーンコンバーター、カウントダウンタイマー。",
     "coreTask": "正確な世界時刻を確認する"
   },
   "archive-today": {
-    "_hash": "b7c8d9eafb0c1d2e",
+    "_hash": "83ec9b0800f4ec0f",
     "description": "ウェブページの永続的なスナップショットを保存。任意のURLをアーカイブしてコンテンツを保存——引用、研究、ペイウォール回避に役立ちます。",
     "coreTask": "ウェブページのスナップショットをアーカイブする"
   },
   "qrcode-monkey-com": {
-    "_hash": "c8d9eafb0c1d2e3f",
+    "_hash": "80a6b99fba310c48",
     "description": "ロゴ、色、形状を使ったカスタムQRコードを作成。PNG、SVG、PDF、EPS形式で高解像度出力できます。",
     "coreTask": "カスタムQRコードを生成する"
   },
   "yopass-se": {
-    "_hash": "d9eafb0c1d2e3f40",
+    "_hash": "f36156f4040a4d6c",
     "description": "エンドツーエンド暗号化で機密情報を安全に共有。メッセージは読まれた後または設定した有効期限後に自己消滅します。",
     "coreTask": "暗号化された自己消滅する機密情報を共有する"
   },
   "wormhole-app": {
-    "_hash": "eafb0c1d2e3f4051",
+    "_hash": "c43504b3b90b69e0",
     "description": "最大10 GBのエンドツーエンド暗号化ファイル転送。ファイルはアップロード前にブラウザ内で暗号化——誰も読めません。",
     "coreTask": "E2E暗号化でファイルを転送する"
   },
   "ficalc-app": {
-    "_hash": "fb0c1d2e3f405162",
+    "_hash": "db82b670a916268e",
     "description": "経済的自立の退職計算機。歴史的な市場データとモンテカルロ分析で引き出し戦略をシミュレート。",
     "coreTask": "退職引き出し率を計算する"
   },
   "financier-io": {
-    "_hash": "0c1d2e3f40516273",
+    "_hash": "13c54671530741b0",
     "description": "YNABにインスパイアされたオフラインファーストの個人予算管理ツール。自動同期つきの封筒予算法——すべてのデータがデバイスに保存されます。",
     "coreTask": "オフラインで個人予算を管理する"
   },
   "duck-ai": {
-    "_hash": "1d2e3f4051627384",
+    "_hash": "85fc6a5685f23697",
     "description": "Claude、Llama、Mistral、GPT-4o miniで動作するプライバシー重視のAIチャット。すべての会話は匿名でAIトレーニングに使われません。",
     "coreTask": "プライベートにAIモデルとチャットする"
   },
   "chatgpt-com": {
-    "_hash": "2e3f405162738495",
+    "_hash": "9306bf0e5f3260eb",
     "description": "ログインなしで利用できるOpenAIのAIアシスタント。GPT-4oで執筆、分析、コーディング、数学、会話を処理します。",
     "coreTask": "執筆、コーディング、分析のためにAIとチャットする"
   },
   "perplexity-ai": {
-    "_hash": "3f4051627384950a",
+    "_hash": "5a6c4f5d95a0fd09",
     "description": "引用源つきの正確な回答を提供するAI対応検索エンジン。基本的な検索クエリはサインアップ不要。",
     "coreTask": "AI対応の回答と引用で検索する"
   },
   "z-ai": {
-    "_hash": "405162738495a0b1",
+    "_hash": "b6a83c525320950d",
     "description": "Zhipu AIのGLM-5とGLM-4.7で動作する無料AIチャットボット。多言語会話、コーディング支援、データ分析をサポート。",
     "coreTask": "GLM AIモデルで執筆、コーディング、分析のチャットをする"
   },
   "deepl-com-translator": {
-    "_hash": "51627384950ab1c2",
+    "_hash": "0711e8baebda18ee",
     "description": "30以上の言語で卓越した精度を誇るAI翻訳エンジン。無料のWeb版は1リクエストあたり最大1,500文字を翻訳できます。",
     "coreTask": "AIの精度で言語間のテキストを翻訳する"
   },
   "quillbot-com": {
-    "_hash": "627384950ab1c2d3",
+    "_hash": "34b7220182f26e1e",
     "description": "明瞭さとスタイルのためにテキストを書き換えるAI言い換えツール。無料版はサインアップ不要で無制限の言い換えを提供するStandardとFluencyモードを搭載。",
     "coreTask": "AIでテキストを言い換えて書き換える"
   },
   "craiyon-com": {
-    "_hash": "7384950ab1c2d3e4",
+    "_hash": "d5a12c6808145c1b",
     "description": "テキストプロンプトから9枚の画像を生成する無料AIイメージジェネレーター。ログイン不要、無制限生成、クレジット表示で商用利用可。",
     "coreTask": "AIでテキストの説明から画像を生成する"
   },
   "teachablemachine-withgoogle-com": {
-    "_hash": "84950ab1c2d3e4f5",
+    "_hash": "0cbc36b77cc6e7d1",
     "description": "Googleのブラウザ内機械学習モデルトレーニングノーコードツール。自分のデータを使って画像、音、ポーズ認識モデルをトレーニング——すべてクライアントサイドで処理。",
     "coreTask": "コーディングなしで機械学習モデルをトレーニングする"
   },
   "playground-tensorflow-org": {
-    "_hash": "950ab1c2d3e4f506",
+    "_hash": "36d847cd487d9a6d",
     "description": "ブラウザ内のインタラクティブなニューラルネットワーク可視化。レイヤー、ニューロン、活性化関数、学習率を試してニューラルネットワークがどのように学習するかを理解できます。",
     "coreTask": "ニューラルネットワークをインタラクティブに可視化・実験する"
   },
   "goblin-tools": {
-    "_hash": "0ab1c2d3e4f50617",
+    "_hash": "bf14247e3be6d506",
     "description": "神経多様性ユーザー向けに設計されたAIタスク管理ツール集。Magic ToDoは圧倒的なタスクを調整可能な複雑さで管理しやすいステップに分解します。永遠に無料、広告なし。",
     "coreTask": "AIで複雑なタスクを管理しやすいステップに分解する"
   },
   "askmeanythi-ng": {
-    "_hash": "ab1c2d3e4f506178",
+    "_hash": "c790a95a32cdcfd7",
     "description": "AMAセッションを主催する最もシンプルな方法。スペースを作り、リンクを共有し、回答を始めましょう。登録不要。",
     "coreTask": "AMAセッションを作成・主催し、リンクを共有し、質問に回答する"
   },
   "cookies-extractor-chekun-me": {
-    "_hash": "b1c2d3e4f5061789",
+    "_hash": "6c8994b535ce8df4",
     "description": "任意のウェブサイトからワンクリックでCookieを抽出・エクスポートできるシンプルで強力なChrome拡張機能。",
     "coreTask": "Cookieを抽出する"
   },
   "siteage-org": {
-    "_hash": "c2d3e4f50617890a",
+    "_hash": "3d1478a7df22e44e",
     "description": "インターネットアーカイブを通じて任意のウェブサイトの起源を辿る。任意のドメインを検索して、誕生日、長寿ランキング、歴史的なタイムライン、ウェブサイトやREADME用の埋め込みSVGバッジつきの認定年齢バッジを取得できます。",
     "coreTask": "任意のドメインの年齢を調べ、歴史的なタイムラインを見て、埋め込み可能なSVG年齢バッジを取得する"
   },
   "next-tools-dev": {
-    "_hash": "d3e4f5061789ab1c",
+    "_hash": "95b88aac9d106818",
     "description": "it-toolsからフォークされた100以上のツールを含むツールウェブサイト。",
     "coreTask": "様々なツールを使用する"
   },
   "ps-keepmot-com": {
-    "_hash": "e4f506178ab1c2d3",
+    "_hash": "dfc2de5c065adeb4",
     "description": "無料のオンラインコラージュと画像編集ツール。ログイン不要、完全無料で使用可能。フロントエンド上で完全に構築されており、画像の絶対的なプライバシーとセキュリティを保証します。透かしなしで高解像度の結果をダウンロード。美しいビジュアル作品を作成するためのすっきりとしたプロフェッショナルなツール。",
     "coreTask": "グリッドコラージュ、フォトウォールコラージュ、長い画像の結合、画像のクロップ、画像エフェクト"
   },
   "kuakua-app": {
-    "_hash": "f5061789abc1d2e3",
+    "_hash": "78d09821fc306d22",
     "description": "Kuakua.appはメンタルヘルスリソース、マインドフルネス瞑想、ポジティブ心理学ゲームのためのAI搭載ハブです。科学に基づいたクイズに参加し、脳を鍛えるタスクに取り組み、毎日のアファーメーションを解除して、いつでもどこでも幸せで穏やかで回復力のある気分になりましょう。",
     "coreTask": "心理学リソースの包括的なグローバルコレクション、体験型心理学コンテンツ、様々なポジティブ心理学ツールを提供する"
   }

@@ -7,12 +7,13 @@ tags: ["tools", "tutorial", "browser", "guide"]
 featured: false
 locale: zh
 originalSlug: compress-convert-resize-images-no-login
-sourceHash: 9b4e1d2a7f8c3e6b
+sourceHash: 18af3124efd343de
+heroImageQuery: "image compression file size browser tool"
 ---
 
 ![Hero image](/blog/images/compress-convert-resize-images-no-login/hero.jpg)
 
-图片大约占据了普通网页重量的一半。不是 JavaScript，不是 CSS——是图片。然而，大多数人在需要压缩照片、把 PNG 转成 WebP，或者调整图片尺寸时，随手找到的工具都要求先注册账号才能动一个滑块。
+图片大约占据了普通网页重量的一半。不是 JavaScript，不是 CSS——是图片。然而，大多数人在需要压缩照片、把 PNG 转成 WebP，或者为特定平台调整图片尺寸时，随手找到的工具都要求先注册账号才能动一个滑块。
 
 这对于一个五秒钟就能完成的任务来说，代价实在太高了。
 
@@ -32,7 +33,7 @@ sourceHash: 9b4e1d2a7f8c3e6b
 
 工作流程是左右并排对比视图：左边原图，右边压缩预览。选择输出格式（MozJPEG、WebP、AVIF、JPEG XL、PNG、OxiPNG 等），拖动质量滑块，实时查看大小估算更新。差异显示会告诉你准确节省了多少 KB，以及相对于原图的百分比。
 
-Squoosh 比大多数替代品更好的地方在于它不过度简化。如果你知道这些是什么，可以调整色度子采样、选择编码速度、微调高级编解码器设置。或者忽略这些，只移动质量滑块。无论如何，你在确认之前都能看到实时预览——这在无登录工具中相当罕见。
+Squoosh 比大多数替代品更好的地方在于它不过度简化。如果你知道这些概念，可以调整色度子采样、选择编码速度、微调高级编解码器设置。或者忽略这些，只移动质量滑块。无论如何，你在确认之前都能看到实时预览——这在无登录工具中相当罕见。
 
 它还支持调整尺寸：宽高带可选锁定长宽比，以及多种缩放算法（Lanczos 适合锐度，Mitchell 适合边缘略有振铃的照片）。完整功能列表见 [nologin.tools 上的 Squoosh 收录页](/tool/squoosh-app)。唯一限制：每次只处理一张图片，如果你有一整个文件夹的 50 张照片，这就有点麻烦了。
 
