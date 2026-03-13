@@ -1,0 +1,31 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b-2 border-neutral-900 bg-white">
+  <div class="max-w-3xl mx-auto px-6 h-12 flex items-center justify-between">
+    <a href="/" class="text-sm font-black text-neutral-900 tracking-tight text-retro-mono hover:text-green-600 transition-colors">
+      NoLoginTools.org
+    </a>
+    <nav aria-label="Main navigation" class="flex items-center gap-6">
+      <a
+        href="/"
+        class:list={['text-xs font-bold uppercase tracking-wider transition-colors', currentPath === '/' ? 'text-neutral-900 underline decoration-2 underline-offset-4' : 'text-neutral-500 hover:text-neutral-900']}
+      >
+        Home
+      </a>
+      <a
+        href="/about"
+        class:list={['text-xs font-bold uppercase tracking-wider transition-colors', currentPath === '/about' ? 'text-neutral-900 underline decoration-2 underline-offset-4' : 'text-neutral-500 hover:text-neutral-900']}
+      >
+        About
+      </a>
+      <a
+        href="/reports"
+        class:list={['text-xs font-bold uppercase tracking-wider transition-colors', currentPath.startsWith('/reports') ? 'text-neutral-900 underline decoration-2 underline-offset-4' : 'text-neutral-500 hover:text-neutral-900']}
+      >
+        Reports
+      </a>
+    </nav>
+  </div>
+</header>

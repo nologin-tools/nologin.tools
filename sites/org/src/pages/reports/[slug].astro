@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const reports = await getCollection('reports');
+  return reports.map((report) => ({
+    params: { slug: report.id },
+    props: { report },
+  }));
+}
+
+const { report } = Astro.props;
+const { Content, headings } = await render(report);
+
+function formatDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
+const publishedDate = formatDate(report.data.publishedAt);
+const modifiedDate = report.data.updatedAt ? formatDate(report.data.updatedAt) : undefined;
+
+// Word count estimation from rendered content
+const rawBody = report.body || '';
+const wordCount = rawBody.split(/\s+/).filter(Boolean).length;
+const readingTime = Math.ceil(wordCount / 200);
+
+// TOC from H2/H3 headings
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  headline: report.data.title,
+  ...(report.data.subtitle ? { alternativeHeadline: report.data.subtitle } : {}),
+  description: report.data.description,
+  url: `https://nologintools.org/reports/${report.id}`,
+  datePublished: publishedDate,
+  ...(modifiedDate ? { dateModified: modifiedDate } : {}),
+  wordCount,
+  inLanguage: 'en',
+  author: { '@id': 'https://nologintools.org/#organization' },
+  publisher: { '@id': 'https://nologintools.org/#organization' },
+  image: 'https://nologintools.org/og-default.png',
+  keywords: report.data.tags,
+  about: [
+    { '@type': 'Thing', name: 'Web Privacy' },
+    { '@type': 'Thing', name: 'No-Login Tools' },
+    { '@type': 'Thing', name: 'Data Protection' },
+  ],
+  citation: [
+    {
+      '@type': 'WebSite',
+      name: 'nologin.tools',
+      url: 'https://nologin.tools',
+      description: 'Primary data source: 140+ verified no-login tools',
+    },
+  ],
+  isPartOf: {
+    '@type': 'Periodical',
+    name: 'State of No-Login Web',
+    publisher: { '@id': 'https://nologintools.org/#organization' },
+  },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologintools.org' },
+    { '@type': 'ListItem', position: 2, name: 'Reports', item: 'https://nologintools.org/reports' },
+    { '@type': 'ListItem', position: 3, name: report.data.title },
+  ],
+};
+---
+
+<Layout
+  title={report.data.title}
+  description={report.data.description}
+  ogType="article"
+  publishedTime={publishedDate}
+  modifiedTime={modifiedDate}
+  isReport={true}
+  tags={report.data.tags}
+>
+  <script type="application/ld+json" set:html={JSON.stringify([articleLd, breadcrumbLd])} />
+
+  <div class="max-w-3xl mx-auto px-6 py-12 sm:py-16">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400 text-retro-mono">
+        <li><a href="/" class="hover:text-neutral-900 transition-colors">Home</a></li>
+        <li aria-hidden="true" class="text-neutral-300">/</li>
+        <li><a href="/reports" class="hover:text-neutral-900 transition-colors">Reports</a></li>
+        <li aria-hidden="true" class="text-neutral-300">/</li>
+        <li aria-current="page" class="text-neutral-900 truncate max-w-[200px] sm:max-w-none">{report.data.title}</li>
+      </ol>
+    </nav>
+
+    <!-- Report Header -->
+    <header class="mb-10 border-b border-neutral-200 pb-8">
+      <h1 class="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight mb-3 text-retro-mono">
+        {report.data.title}
+      </h1>
+      {report.data.subtitle && (
+        <p class="text-lg text-neutral-500 font-bold tracking-tight text-retro-mono mb-4">
+          {report.data.subtitle}
+        </p>
+      )}
+      <div class="flex flex-wrap items-center gap-4 text-xs text-neutral-500 font-bold uppercase tracking-wider text-retro-mono">
+        <time datetime={report.data.publishedAt.toISOString()}>
+          Published {publishedDate}
+        </time>
+        <span class="text-neutral-300">&middot;</span>
+        <span>{readingTime} min read</span>
+        <span class="text-neutral-300">&middot;</span>
+        <span>{wordCount.toLocaleString()} words</span>
+        <span class="text-neutral-300">&middot;</span>
+        <span>v{report.data.version}</span>
+      </div>
+      {report.data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-4">
+          {report.data.tags.map((tag: string) => (
+            <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 border border-neutral-200 px-2 py-0.5 text-retro-mono">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Abstract -->
+    {report.data.abstract && (
+      <div class="border-l-2 border-green-500 pl-6 mb-10 text-neutral-600 italic leading-relaxed">
+        {report.data.abstract}
+      </div>
+    )}
+
+    <!-- Table of Contents -->
+    {report.data.tableOfContents && tocHeadings.length > 0 && (
+      <aside class="border-2 border-neutral-900 p-6 mb-10">
+        <h2 class="text-sm font-black uppercase tracking-widest mb-4 text-retro-mono">Table of Contents</h2>
+        <nav aria-label="Table of contents">
+          <ol class="space-y-2 text-sm">
+            {tocHeadings.map((h) => (
+              <li class={h.depth === 3 ? 'ml-4' : ''}>
+                <a
+                  href={`#${h.slug}`}
+                  class="text-neutral-600 hover:text-neutral-900 hover:underline decoration-1 underline-offset-4"
+                >
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+    )}
+
+    <!-- Report Content -->
+    <article class="prose prose-neutral max-w-none">
+      <Content />
+    </article>
+
+    <!-- Footer navigation -->
+    <div class="mt-16 border-t-2 border-neutral-900 pt-8 flex items-center justify-between">
+      <a href="/reports" class="btn-retro text-xs">&larr; All Reports</a>
+      <a href="https://nologin.tools" class="text-sm text-neutral-500 hover:text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">
+        Explore verified tools on nologin.tools
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -93,6 +93,7 @@ src/
 │   ├── sitemap.xml.ts        # Static (with xhtml:link for all locales)
 │   └── api/              # submit, review, edit, resubmit, tools/[slug], admin/*, og/[slug]
 ├── middleware.ts          # ISR rewrite logic + Cache API + Accept-Language redirect
+sites/org/                # NologinTools.org — organization authority site (independent Astro project)
 workers/cron/             # Health checks, badge detection, data export
 ```
 
@@ -336,3 +337,17 @@ Automated daily blog publishing pipeline: cron → topic preparation → Claude 
 - **Concurrency**: Same workflow + branch combo cancels in-progress runs
 - **Observability**: Both the main app (`wrangler.jsonc`) and cron worker (`workers/cron/wrangler.jsonc`) have `"observability": { "enabled": true }` for Cloudflare Dashboard logs
 - **Data freshness**: Static pages updated every 6h via scheduled rebuild. New tools between rebuilds served via ISR (SSR fallback + 6h Cache API TTL). Admin can trigger immediate rebuild via `workflow_dispatch`.
+
+## NologinTools.org (Organization Site)
+
+- **Location**: `sites/org/` — independent Astro project within the monorepo (like `workers/cron/`)
+- **Purpose**: Organization authority website at `https://nologintools.org`, publishing annual whitepapers (e.g. "The State of No-Login Web 2026"), organization identity, and research reports
+- **Architecture**: Pure static Astro site — no database, no SSR, no cron, no i18n
+- **Deployment**: `sites/org/wrangler.jsonc` → Cloudflare Pages project `nologintools-org`; deployed via `.github/workflows/deploy-org.yml` (triggers on `sites/org/**` changes)
+- **Design**: Shares retro minimalist design language with main site (`ui-serif` body, `ui-monospace` headings, `#fdfdfc` bg, `green-500` brand, `retro-card`, `btn-retro`, `prose` typography). Max-width `3xl` (768px) for comfortable reading.
+- **Content Collections**: `reports` collection (`sites/org/src/content/reports/`) with `ScholarlyArticle` JSON-LD, TOC generation, reading time, word count
+- **SEO strategy**: Dual-site SEO topology — org site as **authority source** (Organization schema, ScholarlyArticle), main site as **execution platform** (WebSite, SoftwareApplication). Bidirectional dofollow links. `@id` fragment identifiers for cross-page schema references.
+- **Cross-site links**: org → nologin.tools (5+ dofollow: hero, stats, footer, whitepaper body, about page); nologin.tools → org (footer "Project by NoLoginTools.org" already exists)
+- **Pages**: `/` (home), `/about`, `/reports` (list), `/reports/[slug]` (detail), `/404`, `/sitemap.xml`
+- **Commands**: `cd sites/org && pnpm dev` / `pnpm build` / `pnpm deploy`
+- **Tests**: `node --test sites/org/scripts/__tests__/validate-report.test.mjs` — 14 test cases covering frontmatter validation, word count, headings, edge cases

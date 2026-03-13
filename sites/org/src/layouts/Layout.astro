@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  isReport?: boolean;
+  tags?: string[];
+}
+
+const {
+  title,
+  description,
+  ogType = 'website',
+  ogImage = '/og-default.png',
+  publishedTime,
+  modifiedTime,
+  isReport = false,
+  tags = [],
+} = Astro.props;
+
+const defaultDescription = 'An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.';
+const desc = description || defaultDescription;
+
+const fullTitle = `${title} | NoLoginTools.org`;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://nologintools.org').href;
+const ogImageUrl = new URL(ogImage, 'https://nologintools.org').href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#22c55e" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={fullTitle} />
+    <meta property="og:site_name" content="NoLoginTools.org" />
+    <meta property="og:locale" content="en_US" />
+
+    {ogType === 'article' && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {ogType === 'article' && modifiedTime && (
+      <meta property="article:modified_time" content={modifiedTime} />
+    )}
+    {ogType === 'article' && (
+      <>
+        <meta property="article:author" content="NoLoginTools.org" />
+        <meta property="article:section" content="Research" />
+        {tags.map(tag => (
+          <meta property="article:tag" content={tag} />
+        ))}
+      </>
+    )}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nologin_tools" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    {isReport && publishedTime && (
+      <>
+        <meta name="citation_title" content={title} />
+        <meta name="citation_author" content="NoLoginTools.org" />
+        <meta name="citation_publication_date" content={publishedTime} />
+        <meta name="citation_publisher" content="NoLoginTools.org" />
+        <meta name="citation_language" content="en" />
+      </>
+    )}
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

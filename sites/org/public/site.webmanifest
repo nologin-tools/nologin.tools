@@ -1,0 +1,16 @@
+{
+  "name": "NoLoginTools.org",
+  "short_name": "NoLoginTools",
+  "description": "An independent organization advocating for the No-Login Web.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#22c55e",
+  "background_color": "#fdfdfc",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

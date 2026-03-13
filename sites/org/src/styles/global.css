@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#fdfdfc] text-neutral-900 min-h-screen flex flex-col;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+  main {
+    @apply flex-1;
+  }
+
+  code, pre, kbd, samp {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+}
+
+@layer components {
+  /* Retro Card */
+  .retro-card {
+    @apply bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
+  }
+
+  /* Retro Button */
+  .btn-retro {
+    @apply inline-flex items-center px-4 py-2 bg-white border-2 border-neutral-900 text-sm font-bold text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+  }
+
+  .btn-retro-primary {
+    @apply inline-flex items-center px-4 py-2 bg-green-400 border-2 border-neutral-900 text-sm font-bold text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-green-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply text-neutral-600 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 transition-colors font-bold uppercase;
+  }
+
+  /* Typography helpers */
+  .text-retro-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  /* Prose overrides for reports */
+  .prose {
+    --tw-prose-body: var(--color-neutral-700);
+    --tw-prose-headings: var(--color-neutral-900);
+    --tw-prose-links: var(--color-neutral-900);
+    --tw-prose-bold: var(--color-neutral-900);
+    --tw-prose-code: var(--color-neutral-800);
+    --tw-prose-quotes: var(--color-neutral-600);
+    --tw-prose-quote-borders: var(--color-neutral-300);
+  }
+  .prose h2 {
+    @apply text-xl font-black tracking-tight uppercase;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .prose h3 {
+    @apply text-lg font-bold;
+  }
+  .prose a {
+    @apply underline decoration-1 underline-offset-4 hover:decoration-2 transition-all;
+  }
+  .prose blockquote {
+    @apply border-l-2 border-neutral-300 italic;
+  }
+  .prose code {
+    @apply text-sm px-1 py-0.5 bg-neutral-100 rounded;
+  }
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+}

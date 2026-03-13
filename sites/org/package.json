@@ -1,0 +1,21 @@
+{
+  "name": "nologintools-org",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.27.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "wrangler pages dev ./dist",
+    "deploy": "astro build && wrangler pages deploy dist/ --project-name nologintools-org"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.0",
+    "astro": "^5.17.1",
+    "tailwindcss": "^4.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.66.0"
+  }
+}

@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const reports = await getCollection('reports');
+const latestReport = reports.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://nologintools.org/#organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  description: 'An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.',
+  foundingDate: '2026-03',
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+    'https://nologin.tools',
+  ],
+  subOrganization: {
+    '@type': 'WebSite',
+    '@id': 'https://nologin.tools/#website',
+    name: 'nologin.tools',
+    url: 'https://nologin.tools',
+    description: 'A curated directory of privacy-friendly tools that work without login.',
+  },
+  knowsAbout: ['privacy', 'no-login tools', 'web privacy', 'open source software'],
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://nologintools.org/og-default.png',
+  },
+};
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://nologintools.org/#website',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  publisher: { '@id': 'https://nologintools.org/#organization' },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://nologintools.org/reports?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+---
+
+<Layout title="Home" description="An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.">
+  <script type="application/ld+json" set:html={JSON.stringify([orgLd, websiteLd])} />
+
+  <div class="max-w-3xl mx-auto px-6 py-16 sm:py-24">
+    <!-- Hero -->
+    <section class="mb-16">
+      <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight mb-4 text-retro-mono">
+        NoLoginTools.org
+      </h1>
+      <p class="text-lg text-neutral-600 leading-relaxed max-w-2xl">
+        An independent organization dedicated to documenting, verifying, and advocating for the <strong class="text-neutral-900">No-Login Web</strong> &mdash; tools and services that work without signup, login, or personal data.
+      </p>
+      <p class="text-sm text-neutral-500 mt-4 text-retro-mono font-bold uppercase tracking-wider">
+        The web should work without walls.
+      </p>
+    </section>
+
+    <!-- Latest Report CTA -->
+    {latestReport && (
+      <section class="mb-16">
+        <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-6 text-retro-mono">Latest Report</h2>
+        <a href={`/reports/${latestReport.id}`} class="block retro-card p-8 group">
+          <div class="text-xs text-neutral-500 font-bold uppercase tracking-wider text-retro-mono mb-3">
+            <time datetime={latestReport.data.publishedAt.toISOString()}>
+              {latestReport.data.publishedAt.toISOString().split('T')[0]}
+            </time>
+            <span class="mx-2 text-neutral-300">&middot;</span>
+            <span>v{latestReport.data.version}</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-neutral-900 tracking-tight mb-3 group-hover:text-green-600 transition-colors text-retro-mono">
+            {latestReport.data.title}
+          </h3>
+          {latestReport.data.subtitle && (
+            <p class="text-sm text-neutral-500 font-bold uppercase tracking-wider text-retro-mono mb-3">
+              {latestReport.data.subtitle}
+            </p>
+          )}
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            {latestReport.data.description}
+          </p>
+          <span class="btn-retro-primary text-xs">
+            Read the full report &rarr;
+          </span>
+        </a>
+      </section>
+    )}
+
+    <!-- Flagship Project -->
+    <section class="mb-16">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-6 text-retro-mono">Flagship Project</h2>
+      <a href="https://nologin.tools" class="block retro-card p-8 group">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="inline-flex items-center justify-center w-8 h-8 bg-green-400 border-2 border-neutral-900 text-white">
+            <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          <h3 class="text-lg font-black text-neutral-900 tracking-tight group-hover:text-green-600 transition-colors text-retro-mono">
+            nologin.tools
+          </h3>
+        </div>
+        <p class="text-neutral-600 leading-relaxed mb-2">
+          The world's first verified no-login tool directory. Over <strong>140 verified tools</strong> across 11 categories, monitored with automated health checks every 6 hours, accessible in 8 languages.
+        </p>
+        <p class="text-sm text-neutral-500">
+          Tracking data from <strong class="text-neutral-700">nologin.tools</strong> forms the primary data source for our industry reports and research.
+        </p>
+      </a>
+    </section>
+
+    <!-- What We Do -->
+    <section class="border-t-2 border-neutral-900 pt-12">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-8 text-retro-mono">What We Do</h2>
+      <div class="grid gap-6 sm:grid-cols-3">
+        <div class="border-b pb-6 sm:border-b-0 sm:pb-0">
+          <h3 class="font-black text-neutral-900 mb-2 text-retro-mono text-sm">Document</h3>
+          <p class="text-sm text-neutral-600">
+            We catalog and track no-login tools across the web through our flagship platform, <a href="https://nologin.tools" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">nologin.tools</a>.
+          </p>
+        </div>
+        <div class="border-b pb-6 sm:border-b-0 sm:pb-0">
+          <h3 class="font-black text-neutral-900 mb-2 text-retro-mono text-sm">Verify</h3>
+          <p class="text-sm text-neutral-600">
+            Our <a href="https://nologin.tools/badge" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">NoLogin Verified</a> certification confirms tools work without registration or personal data collection.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-black text-neutral-900 mb-2 text-retro-mono text-sm">Advocate</h3>
+          <p class="text-sm text-neutral-600">
+            Through annual research reports like <em>The State of No-Login Web</em>, we track and amplify the movement toward a more accessible internet.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,47 @@
+name: Deploy Org Site
+
+on:
+  push:
+    branches: [main]
+    paths: ['sites/org/**']
+  pull_request:
+    branches: [main]
+    paths: ['sites/org/**']
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: sites/org/pnpm-lock.yaml
+      - run: cd sites/org && pnpm install --frozen-lockfile
+      - run: cd sites/org && pnpm build
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: sites/org/pnpm-lock.yaml
+      - run: cd sites/org && pnpm install --frozen-lockfile
+      - name: Build and deploy
+        run: cd sites/org && pnpm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://nologintools.org/#organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  description: 'An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.',
+  foundingDate: '2026-03',
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+    'https://nologin.tools',
+  ],
+  subOrganization: {
+    '@id': 'https://nologin.tools/#website',
+  },
+  knowsAbout: ['privacy', 'no-login tools', 'web privacy', 'open source'],
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is NoLoginTools.org?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'NoLoginTools.org is an independent organization dedicated to documenting, verifying, and advocating for the No-Login Web — tools and services whose core functionality works without signup, login, or submission of personal data.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the No-Login Web?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The No-Login Web refers to web-based tools and services whose primary functionality can be used immediately — without creating an account, providing an email address, or submitting any form of personally identifiable information.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does NoLogin Verified certification work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'NoLogin Verified is a certification issued through nologin.tools. Tools are submitted, reviewed for no-login access, and continuously monitored with automated health checks every 6 hours. Verified tools receive an embeddable badge.',
+      },
+    },
+  ],
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologintools.org' },
+    { '@type': 'ListItem', position: 2, name: 'About' },
+  ],
+};
+---
+
+<Layout title="About" description="Learn about NoLoginTools.org — our mission, projects, and the No-Login Web movement.">
+  <script type="application/ld+json" set:html={JSON.stringify([orgLd, faqLd, breadcrumbLd])} />
+
+  <div class="max-w-3xl mx-auto px-6 py-12 sm:py-16">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400 text-retro-mono">
+        <li><a href="/" class="hover:text-neutral-900 transition-colors">Home</a></li>
+        <li aria-hidden="true" class="text-neutral-300">/</li>
+        <li aria-current="page" class="text-neutral-900">About</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight mb-8 text-retro-mono">
+      About NoLoginTools.org
+    </h1>
+
+    <!-- Mission -->
+    <section class="mb-12 border-b border-neutral-200 pb-12">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-4 text-retro-mono">Our Mission</h2>
+      <p class="text-neutral-700 leading-relaxed mb-4">
+        NoLoginTools.org is an independent organization founded in March 2026. We believe the web should be accessible to everyone — without requiring personal data as an entry fee.
+      </p>
+      <p class="text-neutral-700 leading-relaxed">
+        Our mission is to <strong>document</strong>, <strong>verify</strong>, and <strong>advocate</strong> for the No-Login Web: tools and services that deliver full functionality without signup, login, or collection of personal data.
+      </p>
+    </section>
+
+    <!-- Core Beliefs -->
+    <section class="mb-12 border-b border-neutral-200 pb-12">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-4 text-retro-mono">Core Beliefs</h2>
+      <ul class="space-y-4 text-neutral-700">
+        <li class="flex gap-3">
+          <span class="text-green-500 font-bold text-retro-mono shrink-0">01</span>
+          <span><strong>Privacy is a right, not a feature.</strong> Tools should not require personal data to function.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-green-500 font-bold text-retro-mono shrink-0">02</span>
+          <span><strong>Access should be immediate.</strong> If a tool works in the browser, it should work when you open it.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-green-500 font-bold text-retro-mono shrink-0">03</span>
+          <span><strong>Verification builds trust.</strong> Independent certification helps users and builders alike.</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-green-500 font-bold text-retro-mono shrink-0">04</span>
+          <span><strong>Open data empowers the ecosystem.</strong> Our research and tools data are freely available.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section class="mb-12 border-b border-neutral-200 pb-12">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-4 text-retro-mono">Projects</h2>
+
+      <div class="space-y-6">
+        <div class="border-l-2 border-green-500 pl-4">
+          <h3 class="font-black text-neutral-900 mb-1 text-retro-mono text-sm">nologin.tools</h3>
+          <p class="text-sm text-neutral-600">
+            Our flagship platform — <a href="https://nologin.tools" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">nologin.tools</a> is the world's first verified no-login tool directory. It tracks over 140 tools across 11 categories with automated health monitoring, available in 8 languages.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-green-500 pl-4">
+          <h3 class="font-black text-neutral-900 mb-1 text-retro-mono text-sm">NoLogin Verified</h3>
+          <p class="text-sm text-neutral-600">
+            A certification program for tools that meet our no-login criteria. Verified tools receive embeddable badges and are continuously monitored. Learn more on the <a href="https://nologin.tools/badge" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">NoLogin Verified badge page</a>.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-green-500 pl-4">
+          <h3 class="font-black text-neutral-900 mb-1 text-retro-mono text-sm">State of No-Login Web</h3>
+          <p class="text-sm text-neutral-600">
+            An annual industry report examining the structural forces driving the No-Login Web. Read the latest edition in our <a href="/reports" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">Reports section</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-4 text-retro-mono">Connect</h2>
+      <div class="flex flex-wrap gap-6 text-sm">
+        <a href="https://github.com/nologin-tools" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">
+          GitHub
+        </a>
+        <a href="https://x.com/nologin_tools" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">
+          @nologin_tools
+        </a>
+        <a href="https://nologin.tools/submit" class="text-neutral-600 hover:text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">
+          Submit a tool
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

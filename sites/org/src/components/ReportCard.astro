@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  publishedAt: Date;
+  slug: string;
+  tags?: string[];
+  wordCount?: number;
+  version?: string;
+}
+
+const { title, description, publishedAt, slug, tags = [], wordCount, version } = Astro.props;
+
+function formatDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
+const readingTime = wordCount ? Math.ceil(wordCount / 200) : undefined;
+---
+
+<a href={`/reports/${slug}`} class="block retro-card p-6 group">
+  <div class="flex flex-wrap items-center gap-3 text-xs text-neutral-500 font-bold uppercase tracking-wider text-retro-mono mb-3">
+    <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
+    {readingTime && (
+      <>
+        <span class="text-neutral-300">&middot;</span>
+        <span>{readingTime} min read</span>
+      </>
+    )}
+    {version && (
+      <>
+        <span class="text-neutral-300">&middot;</span>
+        <span>v{version}</span>
+      </>
+    )}
+  </div>
+  <h2 class="text-lg font-black text-neutral-900 tracking-tight mb-2 group-hover:text-green-600 transition-colors text-retro-mono">
+    {title}
+  </h2>
+  <p class="text-sm text-neutral-600 leading-relaxed mb-3">
+    {description}
+  </p>
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 border border-neutral-200 px-2 py-0.5 text-retro-mono">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</a>
