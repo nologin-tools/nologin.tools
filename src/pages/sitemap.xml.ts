@@ -1,8 +1,12 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { getApprovedTools } from '../data/loader';
-import { LOCALES, DEFAULT_LOCALE } from '../i18n/config';
-import { getLocalizedPath } from '../i18n/utils';
+import {
+  buildBlogTranslationMap,
+  expandToAllLocales,
+  generateHreflangLinks,
+  type SitemapPage,
+} from '../lib/sitemap';
 
 export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
@@ -16,59 +20,66 @@ export const GET: APIRoute = async () => {
     return d > latest ? d : latest;
   }, staticLastmod);
 
-  const staticPages = [
+  const staticPages: SitemapPage[] = [
     { url: '/', priority: '1.0', changefreq: 'daily', lastmod: homepageLastmod },
     { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: staticLastmod },
   ];
 
-  const toolPages = approvedTools.map((t) => ({
+  const toolPages: SitemapPage[] = approvedTools.map((t) => ({
     url: `/tool/${t.slug}`,
     priority: '0.8',
     changefreq: 'weekly',
     lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
   }));
 
-  const badgePages = approvedTools.map((t) => ({
+  const badgePages: SitemapPage[] = approvedTools.map((t) => ({
     url: `/badge/${t.slug}`,
     priority: '0.6',
     changefreq: 'weekly',
     lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
   }));
 
-  // Blog pages (only English root-level posts)
+  // Blog pages
   const blogPosts = await getCollection('blog');
   const englishPosts = blogPosts.filter((p) => !p.id.includes('/'));
-  const blogListPage = [
+  const blogTranslationMap = buildBlogTranslationMap(blogPosts);
+
+  const blogListPage: SitemapPage[] = [
     { url: '/blog', priority: '0.8', changefreq: 'daily', lastmod: staticLastmod },
   ];
-  const blogPostPages = englishPosts.map((post) => ({
+
+  const blogPostPages: SitemapPage[] = englishPosts.map((post) => ({
     url: `/blog/${post.id}`,
     priority: '0.7',
     changefreq: 'weekly',
     lastmod: (post.data.updatedAt || post.data.publishedAt).toISOString().split('T')[0],
+    isBlogPost: true,
   }));
 
-  const allPages = [...staticPages, ...toolPages, ...badgePages, ...blogListPage, ...blogPostPages];
-
-  function generateHreflangLinks(path: string): string {
-    return LOCALES.map((locale) => {
-      const href = `${siteUrl}${getLocalizedPath(path, locale)}`;
-      return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}"/>`;
-    }).join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}${getLocalizedPath(path, DEFAULT_LOCALE)}"/>`;
-  }
+  // Expand all pages to multi-locale entries
+  const allPages = [
+    ...staticPages,
+    ...toolPages,
+    ...badgePages,
+    ...blogListPage,
+  ];
+  const allEntries = [
+    ...expandToAllLocales(allPages),
+    ...expandToAllLocales(blogPostPages, blogTranslationMap),
+  ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${allPages
+${allEntries
   .map(
-    (page) => `  <url>
-    <loc>${siteUrl}${page.url}</loc>${page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : ''}
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-${generateHreflangLinks(page.url)}
+    (entry) => `  <url>
+    <loc>${siteUrl}${entry.url}</loc>${entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : ''}
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority}</priority>
+${generateHreflangLinks(entry.englishPath, siteUrl, entry.availableLocales)}
   </url>`
   )
   .join('\n')}
