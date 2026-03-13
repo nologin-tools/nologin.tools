@@ -25,7 +25,19 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
 
+      - name: Check if tool translations needed
+        id: check-tools
+        run: |
+          if echo "$ISSUE_BODY" | grep -q "Tool Descriptions"; then
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+
       - name: Fetch build data
+        if: steps.check-tools.outputs.needed == 'true'
         run: node scripts/fetch-build-data.mjs
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

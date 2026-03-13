@@ -25,13 +25,16 @@ Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTo
 ```
 scripts/
 ├── fetch-build-data.mjs  # D1 REST API → build-data.json (run at build time, supports --mock)
-├── check-translation-needed.mjs  # Pre-check: hash comparison to determine if translation needed
+├── check-translation-needed.mjs  # Pre-check: outputs structured change_manifest JSON (locales × content type status)
+├── generate-translate-issue.mjs  # Converts change_manifest into targeted Issue body for Claude Code
 ├── translation-guidelines.md     # Per-language translation style guide (referenced by translate.yml)
 ├── add-blog-hero-image.mjs       # Hero image downloader with 3-level fallback (Unsplash API → Unsplash Source → Picsum)
 └── __tests__/
     ├── validate-blog-post.test.mjs
     ├── translation-guidelines.test.mjs  # Translation guidelines validation (14 cases)
     ├── add-blog-hero-image.test.mjs     # Hero image script tests (18 cases)
+    ├── check-translation-needed.test.mjs # Change manifest generation tests (22 cases)
+    ├── generate-translate-issue.test.mjs # Issue body generation tests (15 cases)
     └── i18n-utils.test.mjs       # i18n utility function tests (29 cases)
 src/
 ├── i18n/
@@ -231,7 +234,7 @@ workers/cron/             # Health checks, badge detection, data export
 - **Language switcher**: `LanguageSwitcher.astro` component, sets `lang` cookie for middleware preference persistence
 - **Middleware**: Accept-Language auto-redirect (cookie → header → no redirect); ISR regex supports optional locale prefix
 - **SEO**: `<html lang={locale}>`, hreflang `<link>` tags for all locales + x-default, sitemap `<xhtml:link>`, `og:locale` per locale
-- **Auto-translation**: `.github/workflows/translate.yml` runs `claude-code-action` to translate UI strings, blog posts, and tool descriptions. Pre-check script `scripts/check-translation-needed.mjs` uses hash comparison to skip unnecessary runs. Translation quality guided by `scripts/translation-guidelines.md` — per-language style instructions (tone, formality, sentence structure, common pitfalls).
+- **Auto-translation**: `.github/workflows/translate.yml` runs `claude-code-action` to translate UI strings, blog posts, and tool descriptions. Pre-check script `scripts/check-translation-needed.mjs` outputs a structured `change_manifest` JSON (locale × content type status) and `task_types` list. `scripts/generate-translate-issue.mjs` converts the manifest into a targeted Issue body — only changed content appears, with source hashes pre-computed so Claude skips redundant file reads. Translation quality guided by `scripts/translation-guidelines.md` — per-language style instructions (tone, formality, sentence structure, common pitfalls).
 - **Tests**: `node --test scripts/__tests__/i18n-utils.test.mjs` — 29 test cases covering `t()`, `getLocaleFromUrl()`, `getLocalizedPath()`, `getPathWithoutLocale()`
 
 ## Commands
