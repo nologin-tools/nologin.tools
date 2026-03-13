@@ -96,5 +96,27 @@ const ogImageUrl = new URL(ogImage, 'https://nologintools.org').href;
       <slot />
     </main>
     <Footer />
+    <script>
+      // Client-side Mermaid rendering for code blocks
+      // Astro/Shiki outputs: <pre data-language="mermaid"><code>...</code></pre>
+      const mermaidBlocks = document.querySelectorAll('pre[data-language="mermaid"]');
+      if (mermaidBlocks.length > 0) {
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.textContent = `
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+          mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+          document.querySelectorAll('pre[data-language="mermaid"]').forEach((pre) => {
+            const code = pre.querySelector('code');
+            const container = document.createElement('div');
+            container.classList.add('mermaid');
+            container.textContent = code ? code.textContent : pre.textContent;
+            pre.replaceWith(container);
+          });
+          await mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+        `;
+        document.body.appendChild(script);
+      }
+    </script>
   </body>
 </html>
