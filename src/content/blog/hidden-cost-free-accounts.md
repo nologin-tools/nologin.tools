@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "digital privacy data collection surveillance"
 ---
 
+![Hero image](/blog/images/hidden-cost-free-accounts/hero.jpg)
+
 Meta earned approximately $233 from each US and Canadian user in 2024. Not from subscriptions. From selling access to behavioral profiles built from everything you typed, clicked, hovered over, and ignored while using their "free" products.
 
 That number comes straight from their quarterly earnings filings. It's not a privacy advocate's estimate. It's what the advertising market thinks your attention and behavioral data are worth — and it's gone up every year.
