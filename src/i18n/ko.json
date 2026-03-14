@@ -1,5 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
+  "_sourceHash": "53427f304e4c8090",
   "nav.tools": "도구",
   "nav.blog": "블로그",
   "nav.badge": "배지",
@@ -182,6 +182,7 @@
   "badge.digitalPreservationDesc": "장기적 투명성을 위해 검증된 도구를 아카이브합니다.",
   "badge.joinTitle": "디렉토리에 참여",
   "badge.joinDesc": "개인정보 우선 도구를 만들고 계신가요? 등록 없는 경험에 대한 헌신을 인정받으세요.",
+  "badge.howToName": "NoLogin 검증 배지 받는 방법",
   "badge.step1": "도구 세부 정보 제출",
   "badge.step2": "검증 검토 (~48시간)",
   "badge.step3": "승인 및 디렉토리 등록",

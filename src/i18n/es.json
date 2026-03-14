@@ -1,5 +1,5 @@
 {
-  "_sourceHash": "d10c990239b51281",
+  "_sourceHash": "53427f304e4c8090",
   "nav.tools": "Herramientas",
   "nav.blog": "Blog",
   "nav.badge": "Insignia",
@@ -182,6 +182,7 @@
   "badge.digitalPreservationDesc": "Las herramientas verificadas se archivan para garantizar la transparencia a largo plazo.",
   "badge.joinTitle": "Únete al directorio",
   "badge.joinDesc": "¿Construyendo una herramienta que prioriza la privacidad? Obtén reconocimiento por tu compromiso con una experiencia sin registro.",
+  "badge.howToName": "Cómo obtener la insignia NoLogin Verificado",
   "badge.step1": "Envía los detalles de tu herramienta",
   "badge.step2": "Revisión de verificación (~48h)",
   "badge.step3": "Aprobación e inclusión en el directorio",
