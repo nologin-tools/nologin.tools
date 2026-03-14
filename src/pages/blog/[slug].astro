@@ -25,6 +25,11 @@ function formatDate(date: Date): string {
 const publishedDate = formatDate(post.data.publishedAt);
 const modifiedDate = post.data.updatedAt ? formatDate(post.data.updatedAt) : undefined;
 
+// Hero image OG
+const heroImagePath = `/blog/images/${post.id}/hero.jpg`;
+const hasHeroImage = !!post.data.heroImageQuery;
+const ogImageForPost = hasHeroImage ? heroImagePath : '/og-default.png';
+
 // Related posts: same tags
 const allPosts = await getCollection('blog');
 const related = allPosts
@@ -40,7 +45,7 @@ const postLd = {
   datePublished: publishedDate,
   ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   url: `https://nologin.tools/blog/${post.id}`,
-  image: 'https://nologin.tools/og-default.png',
+  image: `https://nologin.tools${ogImageForPost}`,
   author: {
     '@type': 'Organization',
     name: post.data.author,
@@ -72,7 +77,9 @@ const breadcrumbLd = {
   title={post.data.title}
   description={post.data.description}
   ogType="article"
+  ogImage={ogImageForPost}
   publishedTime={publishedDate}
+  modifiedTime={modifiedDate}
   locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(postLd)} />

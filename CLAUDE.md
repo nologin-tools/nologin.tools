@@ -36,7 +36,9 @@ scripts/
     ├── check-translation-needed.test.mjs # Change manifest generation tests (22 cases)
     ├── generate-translate-issue.test.mjs # Issue body generation tests (15 cases)
     ├── i18n-utils.test.mjs       # i18n utility function tests (29 cases)
-    └── sitemap.test.mjs          # Sitemap multi-locale generation tests (20 cases)
+    ├── sitemap.test.mjs          # Sitemap multi-locale generation tests (23 cases)
+    ├── rss.test.mjs              # RSS feed generation tests (10 cases)
+    └── headers.test.mjs          # Cache-Control headers validation tests (8 cases)
 src/
 ├── i18n/
 │   ├── config.ts         # Locale constants, types, labels, OG locale map
@@ -91,7 +93,8 @@ src/
 │   ├── ssr/[lang]/tool/[slug].astro   # ★ Multi-language ISR fallback
 │   ├── ssr/[lang]/badge/[slug].astro  # ★ Multi-language ISR fallback
 │   ├── admin/index.astro     # Full admin dashboard (SSR, secret-protected)
-│   ├── sitemap.xml.ts        # Static (with xhtml:link for all locales)
+│   ├── sitemap.xml.ts        # Static (with xhtml:link for all locales, image:image extension)
+│   ├── rss.xml.ts            # Static RSS 2.0 feed (English blog posts)
 │   └── api/              # submit, review, edit, resubmit, tools/[slug], admin/*, og/[slug]
 ├── middleware.ts          # ISR rewrite logic + Cache API + Accept-Language redirect
 sites/org/                # NologinTools.org — organization authority site (independent Astro project)
@@ -106,6 +109,7 @@ workers/cron/             # Health checks, badge detection, data export
 | `/tool/[slug]` | Static + ISR | Known: `getStaticPaths()` / New: SSR fallback `/ssr/tool/[slug]` |
 | `/badge/[slug]` | Static + ISR | Known: `getStaticPaths()` / New: SSR fallback `/ssr/badge/[slug]` |
 | `/sitemap.xml` | Static | `loader.ts` (build data) |
+| `/rss.xml` | Static | Content Collection (`getCollection('blog')`) |
 | `/blog` | Static | Content Collection (`getCollection('blog')`) |
 | `/blog/[slug]` | Static | Content Collection + `render()` |
 | `/{lang}/` (all pages) | Static | Same as English + locale prop |
@@ -201,12 +205,17 @@ workers/cron/             # Health checks, badge detection, data export
 - **SEO — Web App Manifest**: `public/site.webmanifest` with minimal config, linked from Layout `<head>`.
 - **SEO — robots.txt**: `public/robots.txt` blocks `/admin`, `/api/`, `/ssr/` from crawlers and declares sitemap location.
 - **SEO — OG image**: Default OG image is `public/og-default.png` (1200×630, brand logo + tagline). Layout defaults to `/og-default.png`. Dynamic per-tool OG images generated at `/api/og/[slug]` using `satori` + `@resvg/resvg-wasm` (SSR, 6h cache). Layout accepts `ogImagePath` prop; `ToolDetailPage` passes `/api/og/${slug}`.
-- **SEO — Layout props**: `Layout.astro` supports optional `canonicalOverride` (string path, resolves against `https://nologin.tools`), `publishedTime` (ISO date string for `article:published_time`), and `ogImagePath` (path for dynamic OG image). Canonical URL uses `Astro.url.pathname` to strip query params. `ToolDetailPage` and `BadgeDetailPage` use `canonicalOverride` to ensure ISR pages (`/ssr/tool/*`, `/ssr/badge/*`) point canonical to `/tool/*` and `/badge/*`.
+- **SEO — Layout props**: `Layout.astro` supports optional `canonicalOverride` (string path, resolves against `https://nologin.tools`), `publishedTime` (ISO date string for `article:published_time`), `modifiedTime` (ISO date string for `article:modified_time`), and `ogImagePath` (path for dynamic OG image). Canonical URL uses `Astro.url.pathname` to strip query params. `ToolDetailPage` and `BadgeDetailPage` use `canonicalOverride` to ensure ISR pages (`/ssr/tool/*`, `/ssr/badge/*`) point canonical to `/tool/*` and `/badge/*`.
 - **SEO — Sitemap multi-locale**: `sitemap.xml.ts` generates a `<url>` entry for every locale variant of every page (8 locales × N pages). Core logic extracted to `src/lib/sitemap.ts` (pure functions: `buildBlogTranslationMap`, `expandToAllLocales`, `generateHreflangLinks`). Non-blog pages expand to all 8 locales; blog posts only expand to locales with actual translations (determined by `buildBlogTranslationMap`). Each `<url>` includes hreflang links matching its available locales + `x-default` (English). Tests: `node --test scripts/__tests__/sitemap.test.mjs` (20 cases).
 - **SEO — Sitemap lastmod**: `sitemap.xml.ts` includes `<lastmod>` for tool/badge pages (from `approvedAt`). Static pages use build-time date.
-- **SEO — JSON-LD**: Homepage has `WebSite` + `SearchAction` (supports Sitelinks Searchbox). Tool detail pages have `SoftwareApplication` (with `offers`, `operatingSystem`, `datePublished`) + `BreadcrumbList`. Badge pages have `BreadcrumbList`. About page has `Organization`. Badge info page (`/badge`) has `FAQPage`.
+- **SEO — JSON-LD**: Homepage has `WebSite` + `SearchAction` (supports Sitelinks Searchbox). Tool detail pages have `SoftwareApplication` (with `offers`, `operatingSystem`, `datePublished`, `dateModified`) + `BreadcrumbList`. Badge pages have `BreadcrumbList`. About page has `Organization`. Badge info page (`/badge`) has `FAQPage` + `HowTo`. Blog list page has `Blog` + `BreadcrumbList`. Blog post pages have `BlogPosting` + `BreadcrumbList`.
 - **SEO — Meta tags**: Layout includes `og:site_name`, `og:locale`, `twitter:site` (`@nologin_tools`), explicit `twitter:title`/`twitter:description`/`twitter:image`, `og:image:width`/`og:image:height`/`og:image:alt`, `theme-color` (`#22c55e`), `<link rel="sitemap">`, and `<link rel="preconnect">` for Google Fonts.
 - **SEO — Security headers**: `public/_headers` sets `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (no camera/mic/geo).
+- **SEO — Cache-Control**: `public/_headers` sets long-term cache for static assets: `/_astro/*` (1 year, immutable), `/blog/images/*` (30 days), `/favicon.svg`, `/og-default.png`, `/badges/*` (7 days each).
+- **SEO — RSS feed**: `rss.xml.ts` generates RSS 2.0 feed with `atom:link` self-reference, English blog posts only, sorted by date descending. Posts with `heroImageQuery` include `<enclosure>` for hero images. Layout `<head>` includes `<link rel="alternate" type="application/rss+xml">`. Footer has RSS link.
+- **SEO — HowTo schema**: `BadgeInfoPage.astro` includes `HowTo` JSON-LD alongside `FAQPage`, mapping the 4-step "For Creators" flow to `HowToStep` entries.
+- **SEO — Sitemap image extension**: `sitemap.xml.ts` includes `xmlns:image` namespace and `<image:image>` tags for tool pages (OG images) and blog posts (hero images).
+- **SEO — Blog OG images**: Blog posts with `heroImageQuery` use `/blog/images/{slug}/hero.jpg` as OG image instead of default. Multi-language posts use `originalSlug` to find the hero image.
 - **SEO — Breadcrumbs**: Tool detail pages and badge detail pages have visible HTML `<nav aria-label="Breadcrumb">` with structured `<ol>` lists. Tool: Home > {name}. Badge: Home > {name} > Verified/Pending.
 - **SEO — Accessibility**: Header nav elements have `aria-label` ("Main navigation" / "Mobile navigation"). Homepage category navigation has `aria-label` ("Category navigation").
 

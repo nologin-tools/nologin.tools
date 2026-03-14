@@ -108,6 +108,9 @@ const jsonLd = {
     availability: 'https://schema.org/InStock',
   },
   ...(approvedDate ? { datePublished: approvedDate } : {}),
+  ...(tool.githubUpdatedAt
+    ? { dateModified: new Date(tool.githubUpdatedAt).toISOString().split('T')[0] }
+    : approvedDate ? { dateModified: approvedDate } : {}),
   ...(sameAs.length > 0 ? { sameAs } : {}),
   ...(keywords ? { keywords } : {}),
 };

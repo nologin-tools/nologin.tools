@@ -8,6 +8,8 @@ export interface SitemapPage {
   lastmod?: string;
   /** If true, this is a blog post page (locale availability may be limited) */
   isBlogPost?: boolean;
+  /** Optional image URL for image sitemap extension */
+  imageUrl?: string;
 }
 
 export interface SitemapEntry {
@@ -19,6 +21,8 @@ export interface SitemapEntry {
   englishPath: string;
   /** Available locales for hreflang (undefined = all locales) */
   availableLocales?: Set<Locale>;
+  /** Optional image URL for image sitemap extension */
+  imageUrl?: string;
 }
 
 /**
@@ -82,6 +86,7 @@ export function expandToAllLocales(
           lastmod: page.lastmod,
           englishPath: page.url,
           availableLocales,
+          imageUrl: page.imageUrl,
         });
       }
     } else {
@@ -93,6 +98,7 @@ export function expandToAllLocales(
           changefreq: page.changefreq,
           lastmod: page.lastmod,
           englishPath: page.url,
+          imageUrl: page.imageUrl,
         });
       }
     }

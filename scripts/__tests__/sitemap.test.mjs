@@ -49,6 +49,7 @@ function expandToAllLocales(pages, blogTranslationMap) {
           lastmod: page.lastmod,
           englishPath: page.url,
           availableLocales,
+          imageUrl: page.imageUrl,
         });
       }
     } else {
@@ -59,6 +60,7 @@ function expandToAllLocales(pages, blogTranslationMap) {
           changefreq: page.changefreq,
           lastmod: page.lastmod,
           englishPath: page.url,
+          imageUrl: page.imageUrl,
         });
       }
     }
@@ -254,5 +256,30 @@ describe('generateHreflangLinks', () => {
     const result = generateHreflangLinks('/', siteUrl);
     assert.ok(result.includes('hreflang="en" href="https://nologin.tools/"'));
     assert.ok(result.includes('hreflang="zh" href="https://nologin.tools/zh/"'));
+  });
+});
+
+describe('sitemap image extension', () => {
+  it('expandToAllLocales passes through imageUrl for non-blog pages', () => {
+    const pages = [{ url: '/tool/test', priority: '0.8', changefreq: 'weekly', imageUrl: '/api/og/test' }];
+    const entries = expandToAllLocales(pages);
+    assert.equal(entries.length, 8);
+    assert.ok(entries.every((e) => e.imageUrl === '/api/og/test'));
+  });
+
+  it('expandToAllLocales passes through imageUrl for blog posts', () => {
+    const pages = [
+      { url: '/blog/welcome', priority: '0.7', changefreq: 'weekly', isBlogPost: true, imageUrl: '/blog/images/welcome/hero.jpg' },
+    ];
+    const blogMap = new Map([['welcome', new Set(['en', 'zh'])]]);
+    const entries = expandToAllLocales(pages, blogMap);
+    assert.equal(entries.length, 2);
+    assert.ok(entries.every((e) => e.imageUrl === '/blog/images/welcome/hero.jpg'));
+  });
+
+  it('entries without imageUrl have undefined imageUrl', () => {
+    const pages = [{ url: '/about', priority: '0.5', changefreq: 'monthly' }];
+    const entries = expandToAllLocales(pages);
+    assert.ok(entries.every((e) => e.imageUrl === undefined));
   });
 });
