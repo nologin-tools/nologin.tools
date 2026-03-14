@@ -48,6 +48,12 @@ function formatDate(date: Date): string {
 const publishedDate = formatDate(post.data.publishedAt);
 const modifiedDate = post.data.updatedAt ? formatDate(post.data.updatedAt) : undefined;
 
+// Hero image OG — use originalSlug for translated posts
+const originalSlug = post.data.originalSlug || getPostSlug(post.id);
+const heroImagePath = `/blog/images/${originalSlug}/hero.jpg`;
+const hasHeroImage = !!post.data.heroImageQuery;
+const ogImageForPost = hasHeroImage ? heroImagePath : '/og-default.png';
+
 const allPosts = await getCollection('blog');
 const related = allPosts
   .filter((p) => p.id !== post.id && p.data.tags.some((tag: string) => post.data.tags.includes(tag)))
@@ -66,7 +72,7 @@ const postLd = {
   datePublished: publishedDate,
   ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   url: `https://nologin.tools/blog/${getPostSlug(post.id)}`,
-  image: 'https://nologin.tools/og-default.png',
+  image: `https://nologin.tools${ogImageForPost}`,
   author: {
     '@type': 'Organization',
     name: post.data.author,
@@ -98,7 +104,9 @@ const breadcrumbLd = {
   title={post.data.title}
   description={post.data.description}
   ogType="article"
+  ogImage={ogImageForPost}
   publishedTime={publishedDate}
+  modifiedTime={modifiedDate}
   locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(postLd)} />

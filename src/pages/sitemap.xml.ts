@@ -32,6 +32,7 @@ export const GET: APIRoute = async () => {
     priority: '0.8',
     changefreq: 'weekly',
     lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
+    imageUrl: `/api/og/${t.slug}`,
   }));
 
   const badgePages: SitemapPage[] = approvedTools.map((t) => ({
@@ -56,6 +57,7 @@ export const GET: APIRoute = async () => {
     changefreq: 'weekly',
     lastmod: (post.data.updatedAt || post.data.publishedAt).toISOString().split('T')[0],
     isBlogPost: true,
+    imageUrl: post.data.heroImageQuery ? `/blog/images/${post.id}/hero.jpg` : undefined,
   }));
 
   // Expand all pages to multi-locale entries
@@ -72,14 +74,15 @@ export const GET: APIRoute = async () => {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${allEntries
   .map(
     (entry) => `  <url>
     <loc>${siteUrl}${entry.url}</loc>${entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : ''}
     <changefreq>${entry.changefreq}</changefreq>
     <priority>${entry.priority}</priority>
-${generateHreflangLinks(entry.englishPath, siteUrl, entry.availableLocales)}
+${generateHreflangLinks(entry.englishPath, siteUrl, entry.availableLocales)}${entry.imageUrl ? `\n    <image:image>\n      <image:loc>${siteUrl}${entry.imageUrl}</image:loc>\n    </image:image>` : ''}
   </url>`
   )
   .join('\n')}
