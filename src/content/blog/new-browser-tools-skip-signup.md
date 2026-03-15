@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser web tools privacy no signup"
 ---
 
+![Hero image](/blog/images/new-browser-tools-skip-signup/hero.jpg)
+
 Most "free" tools aren't actually free. The real cost is your email address — or your name, your country, your job title, the "how did you hear about us?" field — and the fifteen minutes you spend confirming email addresses and dismissing onboarding tooltips before you can do the thing you came to do.
 
 The interesting counterexample: a growing number of browser tools just... work. No gate. No form. No "Start your free trial." You open a URL and the tool is there.
