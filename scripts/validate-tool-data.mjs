@@ -17,19 +17,10 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // ---------------------------------------------------------------------------
-// Tag definitions (mirror of src/lib/tags.ts TAG_DEFINITIONS)
+// Tag definitions (shared with src/lib/tags.ts — single source for scripts)
 // ---------------------------------------------------------------------------
 
-const TAG_DEFINITIONS = [
-  { key: 'category', values: ['AI', 'Design', 'Writing', 'Development', 'Productivity', 'Media', 'Privacy', 'Data', 'Communication', 'Education', 'Finance'], multiSelect: false },
-  { key: 'data', values: ['Client-Side Only', 'Server-Side'], multiSelect: false },
-  { key: 'privacy', values: ['No Trackers', 'Privacy Focused'], multiSelect: true },
-  { key: 'type', values: ['PWA', 'Web App', 'CLI', 'Desktop App', 'Browser Extension'], multiSelect: false },
-  { key: 'hosting', values: ['Self-Hostable', 'Cloud Only'], multiSelect: false },
-  { key: 'offline', values: ['Works Offline', 'Online Only'], multiSelect: false },
-  { key: 'pricing', values: ['Free', 'Freemium', 'Ad-Supported'], multiSelect: false },
-];
-
+const TAG_DEFINITIONS = JSON.parse(readFileSync(resolve(__dirname, 'tag-definitions.json'), 'utf-8'));
 const TAG_KEY_MAP = new Map(TAG_DEFINITIONS.map((d) => [d.key, d]));
 
 // Load exclude hostnames from sources config

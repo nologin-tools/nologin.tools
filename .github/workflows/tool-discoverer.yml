@@ -154,7 +154,19 @@ jobs:
             fi
           fi
 
-          # --- 6. Create PR with auto-merge ---
+          # --- 6. Clean up old auto-tool data files from previous runs ---
+          OLD_FILES=$(find .github/auto-tools -name "*.json" \
+            -not -name "$(basename "$TOOL_JSON")" -not -name "_*" \
+            2>/dev/null || true)
+          if [ -n "$OLD_FILES" ]; then
+            echo "$OLD_FILES" | xargs git rm -f 2>/dev/null || true
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: clean up old auto-tool data files"
+              git push origin "$BRANCH"
+            fi
+          fi
+
+          # --- 7. Create PR with auto-merge ---
           TOOL_NAME=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$TOOL_JSON','utf8')).name)")
 
           EXISTING=$(gh pr list --head "$BRANCH" --json number \

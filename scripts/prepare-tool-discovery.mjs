@@ -22,13 +22,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
 // ---------------------------------------------------------------------------
-// TAG_DEFINITIONS categories (mirror of src/lib/tags.ts)
+// TAG_DEFINITIONS categories (from shared tag-definitions.json)
 // ---------------------------------------------------------------------------
 
-const CATEGORIES = [
-  'AI', 'Design', 'Writing', 'Development', 'Productivity', 'Media',
-  'Privacy', 'Data', 'Communication', 'Education', 'Finance',
-];
+const TAG_DEFINITIONS = JSON.parse(readFileSync(resolve(__dirname, 'tag-definitions.json'), 'utf-8'));
+const CATEGORIES = TAG_DEFINITIONS.find((d) => d.key === 'category').values;
 
 // ---------------------------------------------------------------------------
 // 1. Read existing tools for deduplication
@@ -298,7 +296,15 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(`[prepare-tool] Fatal error: ${err.message}`);
-  process.exit(1);
-});
+// Only run main when executed directly (not imported for testing)
+const isMainModule =
+  process.argv[1] &&
+  (process.argv[1] === fileURLToPath(import.meta.url) ||
+    process.argv[1].endsWith('/prepare-tool-discovery.mjs'));
+
+if (isMainModule) {
+  main().catch((err) => {
+    console.error(`[prepare-tool] Fatal error: ${err.message}`);
+    process.exit(1);
+  });
+}

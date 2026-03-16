@@ -134,7 +134,7 @@ export async function submitTool(filePath, config) {
   }
 
   // INSERT tool
-  const insertResult = await queryD1(d1Api, apiToken, `
+  await queryD1(d1Api, apiToken, `
     INSERT INTO tools (slug, name, url, description, core_task, no_login_pledge, status, submitted_at, approved_at, repo_url, twitter_url, github_url, discord_url)
     VALUES (?, ?, ?, ?, ?, 1, 'approved', ?, ?, ?, ?, ?, ?)
   `, [
@@ -170,10 +170,12 @@ export async function submitTool(filePath, config) {
     }
   }
 
-  for (const tag of tagsToInsert) {
+  if (tagsToInsert.length > 0) {
+    const placeholders = tagsToInsert.map(() => '(?, ?, ?)').join(', ');
+    const params = tagsToInsert.flatMap((t) => [toolId, t.key, t.value]);
     await queryD1(d1Api, apiToken,
-      'INSERT INTO tags (tool_id, tag_key, tag_value) VALUES (?, ?, ?)',
-      [toolId, tag.key, tag.value]
+      `INSERT INTO tags (tool_id, tag_key, tag_value) VALUES ${placeholders}`,
+      params
     );
   }
   console.log(`[submit-tool] Inserted ${tagsToInsert.length} tag(s)`);

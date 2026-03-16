@@ -1,0 +1,9 @@
+[
+  { "key": "category", "values": ["AI", "Design", "Writing", "Development", "Productivity", "Media", "Privacy", "Data", "Communication", "Education", "Finance"], "multiSelect": false },
+  { "key": "data", "values": ["Client-Side Only", "Server-Side"], "multiSelect": false },
+  { "key": "privacy", "values": ["No Trackers", "Privacy Focused"], "multiSelect": true },
+  { "key": "type", "values": ["PWA", "Web App", "CLI", "Desktop App", "Browser Extension"], "multiSelect": false },
+  { "key": "hosting", "values": ["Self-Hostable", "Cloud Only"], "multiSelect": false },
+  { "key": "offline", "values": ["Works Offline", "Online Only"], "multiSelect": false },
+  { "key": "pricing", "values": ["Free", "Freemium", "Ad-Supported"], "multiSelect": false }
+]

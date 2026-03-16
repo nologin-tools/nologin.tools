@@ -33,6 +33,7 @@ scripts/
 ├── validate-tool-data.mjs        # Tool data JSON validation (field checks, tag validation, URL exclusion)
 ├── submit-discovered-tool.mjs    # D1 REST API write: insert discovered tool as approved
 ├── tool-discovery-sources.json   # Per-category search queries and sources for tool discovery
+├── tag-definitions.json          # Shared TAG_DEFINITIONS for scripts (single source, mirrors src/lib/tags.ts)
 └── __tests__/
     ├── validate-blog-post.test.mjs
     ├── translation-guidelines.test.mjs  # Translation guidelines validation (14 cases)
