@@ -1,4 +1,9 @@
 {
+  "phind-com": {
+    "_hash": "92a72751ad8c9492",
+    "description": "Un motor de búsqueda con IA diseñado para desarrolladores. Phind busca en la web en tiempo real y sintetiza respuestas técnicas con ejemplos de código, referencias a documentación y fuentes relevantes — sin necesidad de cuenta para el uso básico.",
+    "coreTask": "Obtener respuestas generadas por IA a preguntas de programación y técnicas con búsqueda web en tiempo real y ejemplos de código funcionales"
+  },
   "nologin-tools": {
     "_hash": "4ea08c8c5c7d022a",
     "description": "Un directorio curado de herramientas y servicios que funcionan sin crear cuenta ni iniciar sesión. Navega, busca y filtra herramientas por categoría, privacidad, precio y más — todo sin registro.",

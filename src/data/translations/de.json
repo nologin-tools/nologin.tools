@@ -1,4 +1,9 @@
 {
+  "phind-com": {
+    "_hash": "92a72751ad8c9492",
+    "description": "Eine KI-Suchmaschine, die speziell für Entwickler entwickelt wurde. Phind durchsucht das Web in Echtzeit und synthetisiert technische Antworten mit Code-Beispielen, Dokumentationsreferenzen und relevanten Quellen — für die Grundnutzung kein Account erforderlich.",
+    "coreTask": "KI-generierte Antworten auf Programmier- und technische Fragen mit Echtzeit-Websuche und funktionierenden Code-Beispielen erhalten"
+  },
   "nologin-tools": {
     "_hash": "4ea08c8c5c7d022a",
     "description": "Ein kuratiertes Verzeichnis von Tools und Diensten, die ohne Account oder Login funktionieren. Stöbere, suche und filtere Tools nach Kategorie, Datenschutz, Preis und mehr – ganz ohne Registrierung.",
