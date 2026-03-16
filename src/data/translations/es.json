@@ -698,5 +698,10 @@
     "_hash": "78d09821fc306d22",
     "description": "Kuakua.app es tu centro impulsado por IA para recursos de salud mental, meditación mindfulness y juegos de psicología positiva. Realiza cuestionarios basados en ciencia, juega a tareas que estimulan el cerebro y desbloquea afirmaciones diarias para sentirte más feliz, tranquilo y resiliente — en cualquier momento, en cualquier dispositivo.",
     "coreTask": "Colección global integral de recursos de psicología, contenido de psicología experiencial y diversas herramientas de psicología positiva"
+  },
+  "phet-colorado-edu": {
+    "_hash": "127b2e0cabbb0a5f",
+    "description": "Simulaciones gratuitas de ciencias y matemáticas para el navegador, creadas por la Universidad de Colorado Boulder. Más de 150 simulaciones interactivas en HTML5 que cubren física, química, biología, ciencias de la tierra y matemáticas — todo directamente en el navegador, sin cuenta.",
+    "coreTask": "Ejecutar simulaciones STEM interactivas en el navegador para explorar conceptos científicos y matemáticos de forma visual"
   }
 }
