@@ -1,0 +1,15 @@
+{
+  "name": "PhET Interactive Simulations",
+  "url": "https://phet.colorado.edu",
+  "description": "Free browser-based science and math simulations from the University of Colorado Boulder. Over 150 interactive HTML5 simulations covering physics, chemistry, biology, earth science, and math — all usable directly in the browser with no account required.",
+  "coreTask": "Run interactive STEM simulations in the browser to explore science and math concepts visually",
+  "tags": [
+    { "key": "category", "value": "Education" },
+    { "key": "pricing", "value": "Free" },
+    { "key": "type", "value": "Web App" },
+    { "key": "data", "value": "Client-Side Only" },
+    { "key": "hosting", "value": "Cloud Only" }
+  ],
+  "repoUrl": "https://github.com/phetsims/phet-info",
+  "githubUrl": "https://github.com/phetsims"
+}
