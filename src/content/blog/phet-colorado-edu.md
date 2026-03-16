@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "interactive science experiment simulation laboratory"
 ---
 
+![Hero image](/blog/images/phet-colorado-edu/hero.jpg)
+
 Picture a physics lab where you can slow time to a crawl, make gravity disappear, or build a circuit without worrying about blowing a fuse. Now picture all of that running inside a browser tab, with zero signup and zero cost. That's PhET Interactive Simulations — and it's been quietly transforming STEM education for over two decades.
 
 ## What PhET Actually Is
