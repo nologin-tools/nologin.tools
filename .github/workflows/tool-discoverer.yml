@@ -1,0 +1,186 @@
+name: Tool Discoverer
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  discover-tool:
+    if: contains(toJSON(github.event.issue.labels), '"auto-tool"')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Install Playwright browser for MCP
+      - name: Install Playwright
+        run: npx playwright install chromium --with-deps
+
+      # Configure Playwright MCP (Claude Code auto-reads .mcp.json)
+      - name: Configure Playwright MCP
+        run: |
+          cat > .mcp.json << 'EOF'
+          {
+            "mcpServers": {
+              "playwright": {
+                "type": "stdio",
+                "command": "npx",
+                "args": ["-y", "@playwright/mcp@latest"],
+                "env": { "HEADLESS": "true" }
+              }
+            }
+          }
+          EOF
+          # Prevent Claude from committing .mcp.json
+          echo ".mcp.json" >> .git/info/exclude
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # Fetch existing tools for dedup (best-effort)
+      - name: Fetch build data
+        run: node scripts/fetch-build-data.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        continue-on-error: true
+
+      # Ensure auto-tools directory exists
+      - name: Prepare directories
+        run: mkdir -p .github/auto-tools
+
+      # Claude Code: search, browse, verify, write blog + tool JSON
+      - name: Discover and verify tool
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.PAT_GITHUB_TOKEN }}
+
+      # Post-processing: validate, submit to D1, hero image, create PR
+      - name: Post-process and create PR
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: |
+          # --- 1. Find Claude's branch ---
+          BRANCH=$(git ls-remote --heads origin "claude/issue-${ISSUE_NUMBER}-*" \
+            | awk '{print $2}' | sed 's|refs/heads/||' | sort -r | head -1)
+
+          if [ -z "$BRANCH" ]; then
+            echo "No branch found for issue #${ISSUE_NUMBER}"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "No tool discovered today — Claude did not push any changes."
+            gh issue close "$ISSUE_NUMBER"
+            exit 0
+          fi
+          echo "Found branch: $BRANCH"
+
+          git config user.name "tool-bot"
+          git config user.email "tool-bot@nologin.tools"
+          REPO="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git remote set-url origin "$REPO"
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+
+          # --- 2. Check for skip file (no tool found) ---
+          SKIP_FILE=$(find .github/auto-tools -name "_skip-*" 2>/dev/null | head -1)
+          if [ -n "$SKIP_FILE" ]; then
+            REASON=$(cat "$SKIP_FILE")
+            echo "No suitable tool found: $REASON"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "No suitable tool found today. Reason: ${REASON}"
+            gh issue close "$ISSUE_NUMBER"
+            exit 0
+          fi
+
+          # --- 3. Find and validate tool JSON ---
+          TOOL_JSON=$(find .github/auto-tools -name "*.json" -not -name "_*" \
+            2>/dev/null | sort -r | head -1)
+          if [ -z "$TOOL_JSON" ]; then
+            echo "No tool data JSON found"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "No tool data file found in the branch."
+            gh issue close "$ISSUE_NUMBER"
+            exit 0
+          fi
+          echo "Found tool data: $TOOL_JSON"
+
+          if ! node scripts/validate-tool-data.mjs "$TOOL_JSON"; then
+            echo "Tool data validation failed"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "Tool data validation failed. See CI logs."
+            gh issue close "$ISSUE_NUMBER"
+            exit 1
+          fi
+
+          # --- 4. Submit to D1 (non-blocking) ---
+          if node scripts/submit-discovered-tool.mjs --file "$TOOL_JSON"; then
+            echo "Tool submitted to D1 successfully"
+          else
+            echo "D1 submission failed (non-blocking)"
+          fi
+
+          # --- 5. Add hero image for blog post ---
+          BLOG_FILE=$(git diff --name-only origin/main..."$BRANCH" \
+            -- 'src/content/blog/*.md' | head -1)
+          SLUG=$(basename "$BLOG_FILE" .md 2>/dev/null || true)
+
+          if [ -n "$SLUG" ] && [ "$SLUG" != ".md" ]; then
+            echo "Found blog: $BLOG_FILE (slug: $SLUG)"
+            API_KEY_ARG=""
+            if [ -n "$UNSPLASH_ACCESS_KEY" ]; then
+              API_KEY_ARG="--api-key $UNSPLASH_ACCESS_KEY"
+            fi
+            if node scripts/add-blog-hero-image.mjs --slug "$SLUG" $API_KEY_ARG; then
+              git add "public/blog/images/${SLUG}/" "src/content/blog/${SLUG}.md"
+              git commit -m "feat(blog): add hero image for ${SLUG}"
+              git push origin "$BRANCH"
+            else
+              echo "Hero image failed (non-blocking)"
+            fi
+          fi
+
+          # --- 6. Create PR with auto-merge ---
+          TOOL_NAME=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$TOOL_JSON','utf8')).name)")
+
+          EXISTING=$(gh pr list --head "$BRANCH" --json number \
+            --jq '.[0].number' 2>/dev/null || true)
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING already exists"
+            exit 0
+          fi
+
+          PR_URL=$(gh pr create \
+            --head "$BRANCH" \
+            --title "Tool: ${TOOL_NAME}" \
+            --body "$(cat <<EOF
+          Auto-discovered and verified no-login tool.
+
+          Closes #${ISSUE_NUMBER}
+
+          ## Verification
+          - Claude Code searched, browsed, and verified via Playwright MCP
+          - No login wall detected — core functionality accessible without signup
+          - Tool submitted to D1 as approved
+          EOF
+          )" \
+            --label "auto-tool" \
+            --base main)
+
+          echo "Created PR: $PR_URL"
+          gh pr merge --auto --squash "$PR_URL" \
+            || echo "Auto-merge not available"
