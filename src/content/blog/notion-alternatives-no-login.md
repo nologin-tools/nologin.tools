@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "minimalist workspace notes writing desk"
 ---
 
+![Hero image](/blog/images/notion-alternatives-no-login/hero.jpg)
+
 Notion asks for your email address before you can type a single word. That's the deal — and for millions of people, it's fine. But if you need a quick scratch pad for meeting notes, a whiteboard for a one-off brainstorm, or a Markdown file to share with a colleague, creating an account first is friction you didn't ask for.
 
 The good news: most of what people actually use Notion for can be done without signing up for anything.
