@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "developer coding AI search programming"
 ---
 
+![Hero image](/blog/images/phind-com/hero.jpg)
+
 Six tabs open. Three Stack Overflow threads half-read. The official docs explaining the thing you already know, not the error staring back at you. Then you copy the error into a general-purpose AI chatbot and get a confident answer using a function that doesn't exist in the version you're running.
 
 Every developer has lived this. The problem isn't that search engines are slow — it's that they weren't built for how developers actually think about problems. And general AI chat tools, while impressive, drift away from ground truth the moment the topic gets specific or recent.
