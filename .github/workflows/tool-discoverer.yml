@@ -97,7 +97,9 @@ jobs:
           git checkout "$BRANCH"
 
           # --- 2. Check for skip file (no tool found) ---
-          SKIP_FILE=$(find .github/auto-tools -name "_skip-*" 2>/dev/null | head -1)
+          # Use git diff to only find files NEW in this branch (not inherited from main)
+          SKIP_FILE=$(git diff --name-only --diff-filter=A origin/main..."$BRANCH" \
+            -- '.github/auto-tools/_skip-*' | head -1)
           if [ -n "$SKIP_FILE" ]; then
             REASON=$(cat "$SKIP_FILE")
             echo "No suitable tool found: $REASON"
@@ -107,11 +109,11 @@ jobs:
             exit 0
           fi
 
-          # --- 3. Find and validate tool JSON ---
-          TOOL_JSON=$(find .github/auto-tools -name "*.json" -not -name "_*" \
-            2>/dev/null | sort -r | head -1)
+          # --- 3. Find and validate tool JSON (only NEW files in this branch) ---
+          TOOL_JSON=$(git diff --name-only --diff-filter=A origin/main..."$BRANCH" \
+            -- '.github/auto-tools/*.json' | head -1)
           if [ -z "$TOOL_JSON" ]; then
-            echo "No tool data JSON found"
+            echo "No NEW tool data JSON found in this branch"
             gh issue comment "$ISSUE_NUMBER" \
               --body "No tool data file found in the branch."
             gh issue close "$ISSUE_NUMBER"
@@ -154,7 +156,7 @@ jobs:
             fi
           fi
 
-          # --- 6. Clean up old auto-tool data files from previous runs ---
+          # --- 6. Clean up old auto-tool data files inherited from main ---
           OLD_FILES=$(find .github/auto-tools -name "*.json" \
             -not -name "$(basename "$TOOL_JSON")" -not -name "_*" \
             2>/dev/null || true)
