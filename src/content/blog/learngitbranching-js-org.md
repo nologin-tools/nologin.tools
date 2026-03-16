@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "git branching visualization colorful diagram"
 ---
 
+![Hero image](/blog/images/learngitbranching-js-org/hero.jpg)
+
 Most developers have a confession: they've been using Git for years, but branches still make their head spin. You type `git rebase`, something breaks, you `git reset --hard`, and you swear to never touch rebase again. Sound familiar?
 
 Here's the thing — Git's underlying model is actually elegant. The confusion comes from learning it backwards: memorizing command syntax before understanding what those commands actually do to your repository. **Learn Git Branching** (https://learngitbranching.js.org) flips this approach entirely, and you can start using it in under thirty seconds without creating an account.
