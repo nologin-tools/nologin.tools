@@ -1,0 +1,30 @@
+name: Tool Quality Check
+
+on:
+  pull_request:
+    paths:
+      - '.github/auto-tools/**'
+      - 'scripts/validate-tool-data.mjs'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate tool data
+        run: |
+          FOUND=0
+          for f in $(git diff --name-only --diff-filter=ACMR origin/main...HEAD \
+            -- '.github/auto-tools/*.json' | grep -v '_skip'); do
+            echo "Validating: $f"
+            node scripts/validate-tool-data.mjs "$f"
+            FOUND=1
+          done
+          if [ "$FOUND" = "0" ]; then
+            echo "No tool data files to validate."
+          fi

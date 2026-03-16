@@ -29,6 +29,11 @@ scripts/
 ├── generate-translate-issue.mjs  # Converts change_manifest into targeted Issue body for Claude Code
 ├── translation-guidelines.md     # Per-language translation style guide (referenced by translate.yml)
 ├── add-blog-hero-image.mjs       # Hero image downloader with 3-level fallback (Unsplash API → Unsplash Source → Picsum)
+├── prepare-tool-discovery.mjs    # Auto tool discovery: category rotation → Issue body for Claude Code
+├── validate-tool-data.mjs        # Tool data JSON validation (field checks, tag validation, URL exclusion)
+├── submit-discovered-tool.mjs    # D1 REST API write: insert discovered tool as approved
+├── tool-discovery-sources.json   # Per-category search queries and sources for tool discovery
+├── tag-definitions.json          # Shared TAG_DEFINITIONS for scripts (single source, mirrors src/lib/tags.ts)
 └── __tests__/
     ├── validate-blog-post.test.mjs
     ├── translation-guidelines.test.mjs  # Translation guidelines validation (14 cases)
@@ -38,7 +43,10 @@ scripts/
     ├── i18n-utils.test.mjs       # i18n utility function tests (29 cases)
     ├── sitemap.test.mjs          # Sitemap multi-locale generation tests (23 cases)
     ├── rss.test.mjs              # RSS feed generation tests (10 cases)
-    └── headers.test.mjs          # Cache-Control headers validation tests (8 cases)
+    ├── headers.test.mjs          # Cache-Control headers validation tests (8 cases)
+    ├── validate-tool-data.test.mjs      # Tool data validation tests (28 cases)
+    ├── submit-discovered-tool.test.mjs  # Tool D1 submission tests (12 cases)
+    └── prepare-tool-discovery.test.mjs  # Tool discovery preparation tests (22 cases)
 src/
 ├── i18n/
 │   ├── config.ts         # Locale constants, types, labels, OG locale map
@@ -336,6 +344,27 @@ Automated daily blog publishing pipeline: cron → topic preparation → Claude 
 - **Hero image pipeline**: `blog-writer.yml` post-processing step runs `scripts/add-blog-hero-image.mjs` with 3-level fallback: Unsplash API (with `UNSPLASH_ACCESS_KEY`) → Unsplash Source (no key) → Picsum (random). Blog posts can specify `heroImageQuery` in frontmatter to guide image search. Image saved to `public/blog/images/{slug}/hero.jpg`, markdown reference inserted after frontmatter.
 - **Tests**: `node --test scripts/__tests__/validate-blog-post.test.mjs` — 22 test cases covering frontmatter, word count, AI phrases, image presence, boundary values.
 - **Secrets required**: `CLAUDE_CODE_OAUTH_TOKEN` (existing), `UNSPLASH_ACCESS_KEY` (optional, for hero images — pipeline works without it via fallback chain).
+
+## Auto Tool Discovery Pipeline
+
+Automated daily tool discovery pipeline: cron → category rotation → Claude searches + Playwright MCP browser verification → D1 submission + blog PR.
+
+- **Architecture**: Three-stage pipeline:
+  1. `tool-autodiscover.yml` (cron UTC 18:00): runs `scripts/prepare-tool-discovery.mjs` → creates GitHub Issue with `auto-tool` label
+  2. `tool-discoverer.yml` (Issue trigger): installs Playwright MCP → `claude-code-action` searches, browses, verifies tools → post-processing validates, submits to D1, adds hero image, creates PR with `--auto --squash`
+  3. `tool-quality-check.yml` (PR trigger): runs `scripts/validate-tool-data.mjs` on `.github/auto-tools/*.json`
+- **Category rotation**: `scripts/prepare-tool-discovery.mjs` rotates through 11 TAG_DEFINITIONS categories via `dayOfYear % 11`. Supports `CATEGORY_HINT` env var override.
+- **Search strategy**: `scripts/tool-discovery-sources.json` defines per-category search queries and recommended sources. Claude uses WebSearch + Playwright MCP to discover and verify candidates.
+- **Playwright MCP integration**: `.mcp.json` configured at runtime in CI with `@playwright/mcp@latest` (headless). Provides `browser_navigate`, `browser_screenshot`, `browser_snapshot`, `browser_click`, `browser_type` tools. Excluded from git via `.git/info/exclude`.
+- **Tool validation** (`scripts/validate-tool-data.mjs`): Validates `.github/auto-tools/*.json` — required fields (name, url, description, coreTask), field length limits, URL format + exclude list, tag key/value validation against TAG_DEFINITIONS, exactly one category tag, optional field format checks (repoUrl, twitterUrl, githubUrl, discordUrl). Exports `validateToolData(data)` returning `{ valid, errors[] }`.
+- **D1 submission** (`scripts/submit-discovered-tool.mjs`): Writes tool to D1 as `status='approved'` via REST API. Deduplicates by slug. Auto-adds `source:Open Source` tag when `repoUrl` is set. Inserts initial health check record. Uses `urlToSlug()` consistent with `src/lib/utils.ts`.
+- **"宁缺勿滥" policy**: Claude creates `.github/auto-tools/_skip-{date}.md` when no suitable tool found → Issue closed with reason. No hardcoded verification rules — all judgment by Claude AI via browser interaction.
+- **`claude.yml` exclusion**: auto-tool Issues are excluded from the general Claude Code workflow to avoid duplicate triggers.
+- **Tests**:
+  - `node --test scripts/__tests__/validate-tool-data.test.mjs` — 28 test cases
+  - `node --test scripts/__tests__/submit-discovered-tool.test.mjs` — 12 test cases
+  - `node --test scripts/__tests__/prepare-tool-discovery.test.mjs` — 22 test cases
+- **Secrets required**: All reused from existing pipelines — `CLAUDE_CODE_OAUTH_TOKEN`, `PAT_GITHUB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `UNSPLASH_ACCESS_KEY` (optional).
 
 ## CI/CD
 

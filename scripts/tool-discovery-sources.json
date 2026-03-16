@@ -1,0 +1,110 @@
+{
+  "categories": {
+    "AI": {
+      "searchQueries": [
+        "free AI tools no login required",
+        "browser-based AI tools without signup",
+        "open source AI web apps no account needed"
+      ],
+      "sources": ["HuggingFace Spaces", "GitHub trending", "Product Hunt"]
+    },
+    "Design": {
+      "searchQueries": [
+        "free online design tools no signup",
+        "browser-based design tools without account",
+        "no-login graphic design web apps"
+      ],
+      "sources": ["Product Hunt", "GitHub trending", "Designer News"]
+    },
+    "Writing": {
+      "searchQueries": [
+        "free online writing tools no login",
+        "browser-based text editors without signup",
+        "no-account writing and editing web tools"
+      ],
+      "sources": ["Product Hunt", "Hacker News", "GitHub trending"]
+    },
+    "Development": {
+      "searchQueries": [
+        "free developer tools no login required",
+        "browser-based coding tools without signup",
+        "online developer utilities no account needed"
+      ],
+      "sources": ["GitHub trending", "Hacker News", "Dev.to"]
+    },
+    "Productivity": {
+      "searchQueries": [
+        "free productivity tools no login",
+        "browser-based productivity apps without signup",
+        "no-account online productivity utilities"
+      ],
+      "sources": ["Product Hunt", "Hacker News", "GitHub trending"]
+    },
+    "Media": {
+      "searchQueries": [
+        "free online media tools no signup",
+        "browser-based audio video tools without login",
+        "no-account media conversion web tools"
+      ],
+      "sources": ["Product Hunt", "GitHub trending", "Hacker News"]
+    },
+    "Privacy": {
+      "searchQueries": [
+        "free privacy tools no login required",
+        "browser-based encryption tools without signup",
+        "no-account privacy and security web tools"
+      ],
+      "sources": ["Privacy Guides", "GitHub trending", "Hacker News"]
+    },
+    "Data": {
+      "searchQueries": [
+        "free data tools no login",
+        "browser-based data analysis tools without signup",
+        "no-account data conversion web utilities"
+      ],
+      "sources": ["GitHub trending", "Hacker News", "Product Hunt"]
+    },
+    "Communication": {
+      "searchQueries": [
+        "free communication tools no signup",
+        "browser-based messaging tools without login",
+        "no-account online communication utilities"
+      ],
+      "sources": ["Product Hunt", "Hacker News", "GitHub trending"]
+    },
+    "Education": {
+      "searchQueries": [
+        "free education tools no login",
+        "browser-based learning tools without signup",
+        "no-account online education web apps"
+      ],
+      "sources": ["Product Hunt", "GitHub trending", "Hacker News"]
+    },
+    "Finance": {
+      "searchQueries": [
+        "free finance tools no login required",
+        "browser-based calculator tools without signup",
+        "no-account online finance utilities"
+      ],
+      "sources": ["Product Hunt", "GitHub trending", "Hacker News"]
+    }
+  },
+  "excludeHostnames": [
+    "google.com",
+    "microsoft.com",
+    "apple.com",
+    "amazon.com",
+    "facebook.com",
+    "twitter.com",
+    "instagram.com",
+    "linkedin.com",
+    "youtube.com",
+    "tiktok.com",
+    "reddit.com",
+    "wikipedia.org",
+    "github.com",
+    "stackoverflow.com",
+    "medium.com",
+    "substack.com"
+  ]
+}
