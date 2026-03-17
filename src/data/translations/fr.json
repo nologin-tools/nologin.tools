@@ -708,5 +708,10 @@
     "_hash": "127b2e0cabbb0a5f",
     "description": "Simulations gratuites de sciences et de mathématiques pour le navigateur, créées par l'Université du Colorado Boulder. Plus de 150 simulations HTML5 interactives couvrant la physique, la chimie, la biologie, les sciences de la Terre et les mathématiques — utilisables directement dans le navigateur, sans compte.",
     "coreTask": "Lancer des simulations STEM interactives dans le navigateur pour explorer visuellement les concepts scientifiques et mathématiques"
+  },
+  "cfiresim-com": {
+    "_hash": "a31fdf35c27ceeb4",
+    "description": "Simulateur de portefeuille de retraite FIRE open source qui confronte ton plan à plus de 150 ans de données historiques du marché américain. Configure la taille du portefeuille, les dépenses annuelles, l'allocation d'actifs, les stratégies de retrait, les revenus de la sécurité sociale et bien plus pour voir quel pourcentage de scénarios historiques ta retraite survit.",
+    "coreTask": "Simuler la longévité d'un portefeuille de retraite à partir de séquences de marché historiques et d'analyses Monte Carlo, avec des stratégies de retrait et des sources de revenus configurables"
   }
 }

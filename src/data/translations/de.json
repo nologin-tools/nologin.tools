@@ -708,5 +708,10 @@
     "_hash": "127b2e0cabbb0a5f",
     "description": "Kostenlose, browserbasierte Wissenschafts- und Mathematiksimulationen der University of Colorado Boulder. Über 150 interaktive HTML5-Simulationen aus Physik, Chemie, Biologie, Geowissenschaften und Mathematik — direkt im Browser nutzbar, ohne Account.",
     "coreTask": "Interaktive STEM-Simulationen im Browser ausführen, um Natur- und Mathematikkonzepte visuell zu erkunden"
+  },
+  "cfiresim-com": {
+    "_hash": "a31fdf35c27ceeb4",
+    "description": "Open-Source-FIRE-Rentenportfolio-Simulator, der deinen Plan gegen mehr als 150 Jahre historische US-Marktdaten testet. Konfiguriere Portfoliogröße, Jahresausgaben, Asset-Allokation, Entnahmestrategien, Renteneinkommen und mehr, um zu sehen, in wie vielen historischen Szenarien deine Altersvorsorge durchhält.",
+    "coreTask": "Langlebigkeit eines Rentenportfolios mithilfe historischer Marktsequenzen und Monte-Carlo-Analyse simulieren, mit konfigurierbaren Entnahmestrategien und Einkommensquellen"
   }
 }
