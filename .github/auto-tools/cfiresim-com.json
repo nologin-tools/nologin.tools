@@ -1,0 +1,13 @@
+{
+  "name": "cFIREsim",
+  "url": "https://cfiresim.com",
+  "description": "Open-source FIRE retirement portfolio simulator that runs your plan against 150+ years of historical US market data. Configure portfolio size, annual spending, asset allocation, withdrawal strategies, Social Security income, and more to see what percentage of historical scenarios your retirement survives.",
+  "coreTask": "Simulate retirement portfolio longevity using historical market sequences and Monte Carlo analysis, with configurable withdrawal strategies and income sources",
+  "tags": [
+    { "key": "category", "value": "Finance" },
+    { "key": "pricing", "value": "Free" },
+    { "key": "type", "value": "Web App" },
+    { "key": "data", "value": "Client-Side Only" },
+    { "key": "hosting", "value": "Cloud Only" }
+  ]
+}
