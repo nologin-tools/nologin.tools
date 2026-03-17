@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "image format comparison compression web optimization"
 ---
 
+![Hero image](/blog/images/png-jpeg-webp-image-optimization-tutorial/hero.jpg)
+
 Most people pick a file format by accident. They export from Figma, save from Photoshop, or take a screenshot — and whatever format comes out is what they use. Then they run it through a compressor hoping it gets smaller, without understanding why it might not shrink as much as expected.
 
 Format choice matters more than compression settings. A JPEG compressed at quality 85 will be smaller than a PNG compressed at quality 85 — not because the compressor worked harder, but because JPEG and PNG encode image data differently at a fundamental level. Getting this decision right before you reach for a compression tool will save more bytes than any slider.
