@@ -708,5 +708,10 @@
     "_hash": "127b2e0cabbb0a5f",
     "description": "Simulaciones gratuitas de ciencias y matemáticas para el navegador, creadas por la Universidad de Colorado Boulder. Más de 150 simulaciones interactivas en HTML5 que cubren física, química, biología, ciencias de la tierra y matemáticas — todo directamente en el navegador, sin cuenta.",
     "coreTask": "Ejecutar simulaciones STEM interactivas en el navegador para explorar conceptos científicos y matemáticos de forma visual"
+  },
+  "cfiresim-com": {
+    "_hash": "a31fdf35c27ceeb4",
+    "description": "Simulador de cartera de jubilación FIRE de código abierto que contrasta tu plan con más de 150 años de datos históricos del mercado estadounidense. Configura el tamaño de la cartera, el gasto anual, la asignación de activos, las estrategias de retiro, los ingresos de la Seguridad Social y más para ver qué porcentaje de escenarios históricos sobrevive tu jubilación.",
+    "coreTask": "Simular la longevidad de una cartera de jubilación usando secuencias históricas del mercado y análisis Monte Carlo, con estrategias de retiro e ingresos configurables"
   }
 }
