@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "retirement financial planning calculator investment chart"
 ---
 
+![Hero image](/blog/images/cfiresim-com/hero.jpg)
+
 The "4% rule" is one of the most repeated pieces of retirement advice on the internet. Withdraw 4% of your portfolio in year one, adjust for inflation each year, and your money should last 30 years. Simple. Clean. Easy to remember.
 
 Also, not necessarily true for your situation.
