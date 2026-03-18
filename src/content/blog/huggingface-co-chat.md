@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "open source AI chat conversation interface"
 ---
 
+![Hero image](/blog/images/huggingface-co-chat/hero.jpg)
+
 What if you could test every major open-source language model released in the last two years — all in one place, right now, without handing over your email address? That's not a hypothetical. It's what HuggingChat delivers today.
 
 Most AI chat tools either lock you behind a login wall or limit you to a single proprietary model. HuggingChat takes the opposite approach: open the URL, pick from 100+ models, and start talking. No account. No credit card. No waiting for approval.
