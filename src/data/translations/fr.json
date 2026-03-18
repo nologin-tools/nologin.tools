@@ -718,5 +718,10 @@
     "_hash": "5f17b2cc5a9fcc9e",
     "description": "Convertis tes fichiers entre plus de 200 formats avec une précision remarquable. Audio, vidéo, images, documents — le tout propulsé par des outils de niveau professionnel.",
     "coreTask": "Glisse le fichier et convertis-le"
+  },
+  "huggingface-co-chat": {
+    "_hash": "b7df5e35ce86306e",
+    "description": "Interface de chat IA open source développée par Hugging Face, qui te permet de discuter avec plus de 100 modèles de langage de pointe — dont Llama, DeepSeek, Qwen et Mistral — directement dans ton navigateur. Aucun compte nécessaire pour l'utilisation de base. Passe librement d'un modèle à l'autre ; une connexion n'est requise que pour sauvegarder l'historique des conversations.",
+    "coreTask": "Discute avec des modèles d'IA open source comme Llama, DeepSeek, Qwen et Mistral sans te connecter"
   }
 }

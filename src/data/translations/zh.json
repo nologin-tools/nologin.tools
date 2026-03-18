@@ -718,5 +718,10 @@
     "_hash": "5f17b2cc5a9fcc9e",
     "description": "支持 200 多种格式的精准转换。音频、视频、图片、文档，一站搞定——底层由专业级工具驱动。",
     "coreTask": "拖入文件，完成格式转换"
+  },
+  "huggingface-co-chat": {
+    "_hash": "b7df5e35ce86306e",
+    "description": "Hugging Face 推出的开源 AI 聊天界面，可直接在浏览器中与 100+ 主流语言模型对话，涵盖 Llama、DeepSeek、Qwen 和 Mistral，基础功能无需账号。模型可随时切换，仅需要保存对话记录时才登录。",
+    "coreTask": "无需注册，与 Llama、DeepSeek、Qwen、Mistral 等开源 AI 模型直接对话"
   }
 }
