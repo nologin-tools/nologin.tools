@@ -718,5 +718,10 @@
     "_hash": "5f17b2cc5a9fcc9e",
     "description": "Konvertiere zwischen über 200 Formaten mit hoher Präzision. Audio, Video, Bilder, Dokumente — alles auf Basis professioneller Tools.",
     "coreTask": "Datei hineinziehen und konvertieren"
+  },
+  "huggingface-co-chat": {
+    "_hash": "b7df5e35ce86306e",
+    "description": "Open-Source-KI-Chat-Interface von Hugging Face, mit dem du direkt im Browser mit über 100 hochmodernen Sprachmodellen chattest — darunter Llama, DeepSeek, Qwen und Mistral. Für die Grundnutzung kein Account erforderlich. Wechsle frei zwischen Modellen; Login wird nur zum Speichern des Gesprächsverlaufs benötigt.",
+    "coreTask": "Ohne Anmeldung mit Open-Source-KI-Modellen wie Llama, DeepSeek, Qwen und Mistral chatten"
   }
 }

@@ -718,5 +718,10 @@
     "_hash": "5f17b2cc5a9fcc9e",
     "description": "200가지 이상의 형식을 정밀하게 변환할 수 있어요. 오디오, 동영상, 이미지, 문서 등 다양한 파일을 전문가 수준의 도구로 처리해요.",
     "coreTask": "파일을 드래그해서 변환하기"
+  },
+  "huggingface-co-chat": {
+    "_hash": "b7df5e35ce86306e",
+    "description": "Hugging Face가 개발한 오픈소스 AI 채팅 인터페이스로, Llama, DeepSeek, Qwen, Mistral 등 100개 이상의 최신 언어 모델과 브라우저에서 직접 대화할 수 있어요. 기본 사용에는 계정이 필요 없고, 모델을 자유롭게 전환하며 대화 기록 저장 시에만 로그인이 필요해요.",
+    "coreTask": "Llama, DeepSeek, Qwen, Mistral 등 오픈소스 AI 모델과 회원가입 없이 대화하기"
   }
 }
