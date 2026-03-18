@@ -713,5 +713,10 @@
     "_hash": "a31fdf35c27ceeb4",
     "description": "Simulador de carteira de aposentadoria FIRE de código aberto que testa seu plano contra mais de 150 anos de dados históricos do mercado americano. Configure o tamanho da carteira, os gastos anuais, a alocação de ativos, as estratégias de retirada, a renda da previdência social e muito mais para ver em qual porcentagem dos cenários históricos a sua aposentadoria sobrevive.",
     "coreTask": "Simular a longevidade de uma carteira de aposentadoria usando sequências históricas do mercado e análise de Monte Carlo, com estratégias de retirada e fontes de renda configuráveis"
+  },
+  "convertio-com": {
+    "_hash": "5f17b2cc5a9fcc9e",
+    "description": "Converta entre mais de 200 formatos com precisão. Áudio, vídeo, imagens, documentos — tudo processado com ferramentas de nível profissional.",
+    "coreTask": "Arraste o arquivo e converta"
   }
 }

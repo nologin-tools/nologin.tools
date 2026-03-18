@@ -713,5 +713,10 @@
     "_hash": "a31fdf35c27ceeb4",
     "description": "Simulateur de portefeuille de retraite FIRE open source qui confronte ton plan à plus de 150 ans de données historiques du marché américain. Configure la taille du portefeuille, les dépenses annuelles, l'allocation d'actifs, les stratégies de retrait, les revenus de la sécurité sociale et bien plus pour voir quel pourcentage de scénarios historiques ta retraite survit.",
     "coreTask": "Simuler la longévité d'un portefeuille de retraite à partir de séquences de marché historiques et d'analyses Monte Carlo, avec des stratégies de retrait et des sources de revenus configurables"
+  },
+  "convertio-com": {
+    "_hash": "5f17b2cc5a9fcc9e",
+    "description": "Convertis tes fichiers entre plus de 200 formats avec une précision remarquable. Audio, vidéo, images, documents — le tout propulsé par des outils de niveau professionnel.",
+    "coreTask": "Glisse le fichier et convertis-le"
   }
 }

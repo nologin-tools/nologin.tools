@@ -713,5 +713,10 @@
     "_hash": "a31fdf35c27ceeb4",
     "description": "Open-Source-FIRE-Rentenportfolio-Simulator, der deinen Plan gegen mehr als 150 Jahre historische US-Marktdaten testet. Konfiguriere Portfoliogröße, Jahresausgaben, Asset-Allokation, Entnahmestrategien, Renteneinkommen und mehr, um zu sehen, in wie vielen historischen Szenarien deine Altersvorsorge durchhält.",
     "coreTask": "Langlebigkeit eines Rentenportfolios mithilfe historischer Marktsequenzen und Monte-Carlo-Analyse simulieren, mit konfigurierbaren Entnahmestrategien und Einkommensquellen"
+  },
+  "convertio-com": {
+    "_hash": "5f17b2cc5a9fcc9e",
+    "description": "Konvertiere zwischen über 200 Formaten mit hoher Präzision. Audio, Video, Bilder, Dokumente — alles auf Basis professioneller Tools.",
+    "coreTask": "Datei hineinziehen und konvertieren"
   }
 }
