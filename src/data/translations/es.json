@@ -713,5 +713,10 @@
     "_hash": "a31fdf35c27ceeb4",
     "description": "Simulador de cartera de jubilación FIRE de código abierto que contrasta tu plan con más de 150 años de datos históricos del mercado estadounidense. Configura el tamaño de la cartera, el gasto anual, la asignación de activos, las estrategias de retiro, los ingresos de la Seguridad Social y más para ver qué porcentaje de escenarios históricos sobrevive tu jubilación.",
     "coreTask": "Simular la longevidad de una cartera de jubilación usando secuencias históricas del mercado y análisis Monte Carlo, con estrategias de retiro e ingresos configurables"
+  },
+  "convertio-com": {
+    "_hash": "5f17b2cc5a9fcc9e",
+    "description": "Convierte entre más de 200 formatos con total precisión. Audio, vídeo, imágenes, documentos — todo con herramientas de nivel profesional.",
+    "coreTask": "Arrastra el archivo y conviértelo"
   }
 }
