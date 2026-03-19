@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "colorful SVG gradient design tool"
 ---
 
+![Hero image](/blog/images/fffuel-co/hero.jpg)
+
 Most designers know the feeling: you need a custom SVG background for a landing page, you have 20 minutes, and the last thing you want is another SaaS subscription form asking for your email address.
 
 That friction adds up. According to a [2024 UX benchmark study by Baymard Institute](https://baymard.com/blog/unnecessary-account-creation), 28% of users abandon a checkout when forced to create an account — and the same frustration applies to any web tool that gates basic functionality behind a login wall. If the tool's core value is generating a gradient or a wavy SVG blob, there's no reason you should need credentials to use it.
