@@ -723,5 +723,10 @@
     "_hash": "b7df5e35ce86306e",
     "description": "Hugging Face 推出的开源 AI 聊天界面，可直接在浏览器中与 100+ 主流语言模型对话，涵盖 Llama、DeepSeek、Qwen 和 Mistral，基础功能无需账号。模型可随时切换，仅需要保存对话记录时才登录。",
     "coreTask": "无需注册，与 Llama、DeepSeek、Qwen、Mistral 等开源 AI 模型直接对话"
+  },
+  "fffuel-co": {
+    "_hash": "60b8944fe0a15d45",
+    "description": "超过 40 款免费的浏览器端配色工具和 SVG 生成器，轻松创建背景、图案、纹理、渐变和形状。每款工具直接在浏览器中运行，零注册，零门槛。非常适合需要自定义视觉素材的网页设计师和开发者——无需打开笨重的设计软件。",
+    "coreTask": "在浏览器中直接生成自定义 SVG 背景、图案、渐变和纹理，无需任何账号"
   }
 }
