@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "login wall signup form frustration computer"
 ---
 
+![Hero image](/blog/images/forced-account-creation-dark-pattern/hero.jpg)
+
 You just want to convert a PDF to Word. Or generate a quick color palette. Or trim an audio clip. Simple tasks. Thirty seconds of work at most.
 
 Then the wall appears: *"Create a free account to continue."*
