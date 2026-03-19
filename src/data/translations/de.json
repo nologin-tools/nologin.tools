@@ -723,5 +723,10 @@
     "_hash": "b7df5e35ce86306e",
     "description": "Open-Source-KI-Chat-Interface von Hugging Face, mit dem du direkt im Browser mit über 100 hochmodernen Sprachmodellen chattest — darunter Llama, DeepSeek, Qwen und Mistral. Für die Grundnutzung kein Account erforderlich. Wechsle frei zwischen Modellen; Login wird nur zum Speichern des Gesprächsverlaufs benötigt.",
     "coreTask": "Ohne Anmeldung mit Open-Source-KI-Modellen wie Llama, DeepSeek, Qwen und Mistral chatten"
+  },
+  "fffuel-co": {
+    "_hash": "60b8944fe0a15d45",
+    "description": "Eine Sammlung von über 40 kostenlosen, browserbasierten Farbtools und SVG-Generatoren zum Erstellen von Hintergründen, Mustern, Texturen, Verläufen und Formen. Jedes Tool läuft direkt im Browser, ohne Registrierung. Ideal für Webdesigner und Entwickler, die individuelle Visualisierungen brauchen — ohne schwere Design-Software zu öffnen.",
+    "coreTask": "Erstelle benutzerdefinierte SVG-Hintergründe, Muster, Verläufe und Texturen für Webdesign-Projekte — direkt im Browser, ohne Account."
   }
 }

@@ -723,5 +723,10 @@
     "_hash": "b7df5e35ce86306e",
     "description": "Interfaz de chat IA de código abierto creada por Hugging Face que te permite hablar con más de 100 modelos de lenguaje de última generación — como Llama, DeepSeek, Qwen y Mistral — directamente en tu navegador. Sin cuenta para el uso básico. Cambia libremente entre modelos; solo necesitas iniciar sesión para guardar el historial de conversaciones.",
     "coreTask": "Chatea con modelos de IA de código abierto como Llama, DeepSeek, Qwen y Mistral sin registrarte"
+  },
+  "fffuel-co": {
+    "_hash": "60b8944fe0a15d45",
+    "description": "Una colección de más de 40 herramientas de color y generadores SVG gratuitos y basados en el navegador para crear fondos, patrones, texturas, degradados y formas. Cada herramienta funciona directamente en el navegador sin necesidad de registrarse. Perfecta para diseñadores web y desarrolladores que necesitan recursos visuales personalizados sin abrir software de diseño pesado.",
+    "coreTask": "Genera fondos SVG personalizados, patrones, degradados y texturas para proyectos de diseño web, todo desde el navegador y sin ninguna cuenta."
   }
 }
