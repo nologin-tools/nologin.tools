@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "minimal writing desk notebook pen"
 ---
 
+![Hero image](/blog/images/write-as/hero.jpg)
+
 Most publishing platforms start the same way: an email field, a password field, and a Terms of Service checkbox you'll never read. You haven't written a word yet, and already someone is building a profile on you.
 
 Write.as skips all of that. Open the site, start typing, hit publish. You get a permanent URL. That's it.
