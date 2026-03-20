@@ -1,0 +1,16 @@
+{
+  "name": "Write.as",
+  "url": "https://write.as",
+  "description": "A privacy-first writing and publishing platform that requires no account to use. Write anything, click publish, and instantly get a permanent shareable URL. No ads, no tracking, no required signup — just a clean editor that gets out of your way.",
+  "coreTask": "Write and publish text to the web instantly without an account — get a permanent shareable URL in seconds.",
+  "tags": [
+    { "key": "category", "value": "Writing" },
+    { "key": "pricing", "value": "Freemium" },
+    { "key": "type", "value": "Web App" },
+    { "key": "privacy", "value": "Privacy Focused" },
+    { "key": "data", "value": "Server-Side" },
+    { "key": "hosting", "value": "Self-Hostable" }
+  ],
+  "repoUrl": "https://github.com/writefreely/writefreely",
+  "githubUrl": "https://github.com/writefreely"
+}
