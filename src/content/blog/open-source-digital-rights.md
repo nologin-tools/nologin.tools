@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "digital rights open source privacy freedom"
 ---
 
+![Hero image](/blog/images/open-source-digital-rights/hero.jpg)
+
 Here's a question worth sitting with: when you join a video call using Zoom, what have you agreed to share? Your name. Your email. Your IP address. Your device metadata. Your usage patterns. The contents of your calls, depending on which plan your host pays for. All of that before the call even starts.
 
 [Jitsi Meet](/tool/meet-jit-si) runs entirely in your browser. No account. No download. No registration. The call starts the moment someone shares a link. Jitsi is open source (Apache 2.0 license), self-hostable, and used by [millions of people globally](https://jitsi.org/) — including organizations that handle genuinely sensitive communications. The source code is public and has been audited independently. The architecture uses WebRTC, which means media travels peer-to-peer when possible, not through Jitsi's servers.
