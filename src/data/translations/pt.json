@@ -728,5 +728,10 @@
     "_hash": "60b8944fe0a15d45",
     "description": "Uma coleção de mais de 40 ferramentas de cor e geradores SVG gratuitos e baseados no navegador para criar fundos, padrões, texturas, gradientes e formas. Cada ferramenta funciona diretamente no navegador, sem precisar de cadastro. Perfeito para designers web e desenvolvedores que precisam de visuais personalizados sem abrir softwares de design pesados.",
     "coreTask": "Gere fundos SVG personalizados, padrões, gradientes e texturas para projetos de design web, tudo no navegador e sem nenhuma conta."
+  },
+  "write-as": {
+    "_hash": "d11d4afdd18eee55",
+    "description": "Plataforma de escrita e publicação focada em privacidade que não exige conta. Escreva o que quiser, clique em publicar e obtenha instantaneamente uma URL permanente para compartilhar. Sem anúncios, sem rastreamento, sem cadastro obrigatório — só um editor limpo que não atrapalha.",
+    "coreTask": "Escreva e publique texto na web na hora sem conta — obtenha uma URL permanente compartilhável em segundos"
   }
 }

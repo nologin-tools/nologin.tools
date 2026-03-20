@@ -728,5 +728,10 @@
     "_hash": "60b8944fe0a15d45",
     "description": "Eine Sammlung von über 40 kostenlosen, browserbasierten Farbtools und SVG-Generatoren zum Erstellen von Hintergründen, Mustern, Texturen, Verläufen und Formen. Jedes Tool läuft direkt im Browser, ohne Registrierung. Ideal für Webdesigner und Entwickler, die individuelle Visualisierungen brauchen — ohne schwere Design-Software zu öffnen.",
     "coreTask": "Erstelle benutzerdefinierte SVG-Hintergründe, Muster, Verläufe und Texturen für Webdesign-Projekte — direkt im Browser, ohne Account."
+  },
+  "write-as": {
+    "_hash": "d11d4afdd18eee55",
+    "description": "Eine datenschutzorientierte Schreib- und Publikationsplattform, die kein Konto erfordert. Schreib, klick auf Veröffentlichen und erhalte sofort eine permanente URL zum Teilen. Keine Werbung, kein Tracking, keine Pflichtregistrierung — nur ein schlichter Editor, der dich nicht ablenkt.",
+    "coreTask": "Texte ohne Konto sofort im Web veröffentlichen — in Sekunden eine permanente, teilbare URL erhalten"
   }
 }

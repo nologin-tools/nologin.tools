@@ -728,5 +728,10 @@
     "_hash": "60b8944fe0a15d45",
     "description": "Une collection de plus de 40 outils de couleur et générateurs SVG gratuits et basés sur le navigateur pour créer des arrière-plans, motifs, textures, dégradés et formes. Chaque outil fonctionne directement dans le navigateur, sans inscription requise. Idéal pour les designers web et développeurs qui ont besoin de visuels personnalisés sans ouvrir un logiciel de design lourd.",
     "coreTask": "Génère des arrière-plans SVG personnalisés, des motifs, des dégradés et des textures pour des projets de design web, depuis le navigateur et sans aucun compte."
+  },
+  "write-as": {
+    "_hash": "d11d4afdd18eee55",
+    "description": "Une plateforme d'écriture et de publication axée sur la vie privée, sans compte requis. Écris ce que tu veux, clique sur Publier et obtiens instantanément une URL permanente. Aucune pub, aucun pistage, aucune inscription obligatoire — juste un éditeur épuré qui ne se met pas en travers de ton chemin.",
+    "coreTask": "Écris et publie du texte sur le web instantanément sans compte — obtiens une URL permanente partageable en quelques secondes"
   }
 }
