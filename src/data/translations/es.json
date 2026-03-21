@@ -733,5 +733,10 @@
     "_hash": "d11d4afdd18eee55",
     "description": "Plataforma de escritura y publicación que prioriza la privacidad y no requiere cuenta. Escribe lo que quieras, pulsa publicar y obtén al instante una URL permanente. Sin anuncios, sin rastreo, sin registro obligatorio — solo un editor limpio que no se interpone en tu camino.",
     "coreTask": "Escribe y publica texto en la web al instante sin cuenta — obtén una URL permanente compartible en segundos"
+  },
+  "jwt-io": {
+    "_hash": "117ed0d2da477110",
+    "description": "Un depurador basado en el navegador para JSON Web Tokens. Pega cualquier JWT para decodificar al instante su header, payload y firma. Verifica las firmas de los tokens con tu secreto o clave pública. Compatible con HS256, RS256, ES256 y otros algoritmos comunes — todo el procesamiento ocurre en tu navegador sin necesidad de cuenta.",
+    "coreTask": "Decodifica y verifica JSON Web Tokens directamente en tu navegador sin enviar los tokens a ningún servidor"
   }
 }

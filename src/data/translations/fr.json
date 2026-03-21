@@ -733,5 +733,10 @@
     "_hash": "d11d4afdd18eee55",
     "description": "Une plateforme d'écriture et de publication axée sur la vie privée, sans compte requis. Écris ce que tu veux, clique sur Publier et obtiens instantanément une URL permanente. Aucune pub, aucun pistage, aucune inscription obligatoire — juste un éditeur épuré qui ne se met pas en travers de ton chemin.",
     "coreTask": "Écris et publie du texte sur le web instantanément sans compte — obtiens une URL permanente partageable en quelques secondes"
+  },
+  "jwt-io": {
+    "_hash": "117ed0d2da477110",
+    "description": "Un débogueur basé sur le navigateur pour les JSON Web Tokens. Colle n'importe quel JWT pour décoder instantanément son header, son payload et sa signature. Vérifie les signatures des tokens avec ton secret ou ta clé publique. Compatible avec HS256, RS256, ES256 et d'autres algorithmes courants — tout le traitement se fait dans ton navigateur, sans compte requis.",
+    "coreTask": "Décode et vérifie les JSON Web Tokens directement dans ton navigateur sans envoyer les tokens à un quelconque serveur"
   }
 }
