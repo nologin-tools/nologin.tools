@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "JSON web token authentication security developer"
 ---
 
+![Hero image](/blog/images/jwt-io/hero.jpg)
+
 Here is a fact that catches many developers off guard: every JWT you receive from an authentication server is not encrypted by default — it is only *signed*. That means the header and payload are plain Base64-encoded text that anyone can read. The only thing protecting the token's integrity is the signature, which proves it has not been tampered with.
 
 Knowing this, you might expect every developer to have a quick way to look inside a JWT at any time. And yet, when a mysterious `401 Unauthorized` error shows up at 2 AM, the most common next step is opening a new file, writing a quick `atob()` call, splitting on dots, and trying to parse the JSON manually — when a far faster option exists.
