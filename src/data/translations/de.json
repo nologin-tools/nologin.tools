@@ -733,5 +733,10 @@
     "_hash": "d11d4afdd18eee55",
     "description": "Eine datenschutzorientierte Schreib- und Publikationsplattform, die kein Konto erfordert. Schreib, klick auf Veröffentlichen und erhalte sofort eine permanente URL zum Teilen. Keine Werbung, kein Tracking, keine Pflichtregistrierung — nur ein schlichter Editor, der dich nicht ablenkt.",
     "coreTask": "Texte ohne Konto sofort im Web veröffentlichen — in Sekunden eine permanente, teilbare URL erhalten"
+  },
+  "jwt-io": {
+    "_hash": "117ed0d2da477110",
+    "description": "Ein browserbasierer Debugger für JSON Web Tokens. Füge einen beliebigen JWT ein, um Header, Payload und Signatur sofort zu dekodieren. Verifiziere Token-Signaturen mit deinem Secret oder öffentlichen Schlüssel. Unterstützt HS256, RS256, ES256 und andere gängige Algorithmen — die gesamte Verarbeitung läuft im Browser, kein Account erforderlich.",
+    "coreTask": "JSON Web Tokens direkt im Browser dekodieren und verifizieren, ohne Tokens an einen Server zu senden"
   }
 }
