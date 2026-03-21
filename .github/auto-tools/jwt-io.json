@@ -1,0 +1,14 @@
+{
+  "name": "JWT.io",
+  "url": "https://jwt.io",
+  "description": "A browser-based debugger for JSON Web Tokens. Paste any JWT to instantly decode its header, payload, and signature. Verify token signatures with your secret or public key. Supports HS256, RS256, ES256, and other common algorithms — all processing happens in your browser with no account required.",
+  "coreTask": "Decode and verify JSON Web Tokens directly in your browser without sending tokens to any server",
+  "tags": [
+    { "key": "category", "value": "Development" },
+    { "key": "pricing", "value": "Free" },
+    { "key": "type", "value": "Web App" },
+    { "key": "data", "value": "Client-Side Only" }
+  ],
+  "repoUrl": "https://github.com/auth0/jwt.io",
+  "githubUrl": "https://github.com/auth0"
+}
