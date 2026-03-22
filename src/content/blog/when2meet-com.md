@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "team scheduling calendar meeting planning"
 ---
 
+![Hero image](/blog/images/when2meet-com/hero.jpg)
+
 How many emails does it take to schedule a simple meeting? For a group of four people, the back-and-forth can easily stretch to a dozen messages — and that's before anyone mentions a conflict. [Research published in Harvard Business Review](https://hbr.org/2017/07/stop-the-meeting-madness) has documented how unproductive meeting culture costs organizations billions of hours annually, and scheduling is a large part of that problem. Most of the time, the friction isn't the meeting itself. It's finding the meeting time.
 
 when2meet solves this problem with a beautifully simple idea: a shared grid where everyone marks when they're free, and the overlapping slots turn green. No accounts. No calendar integrations. No subscriptions. Just a URL you share, and a heat map that shows the answer.
