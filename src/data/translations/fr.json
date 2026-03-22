@@ -738,5 +738,10 @@
     "_hash": "117ed0d2da477110",
     "description": "Un débogueur basé sur le navigateur pour les JSON Web Tokens. Colle n'importe quel JWT pour décoder instantanément son header, son payload et sa signature. Vérifie les signatures des tokens avec ton secret ou ta clé publique. Compatible avec HS256, RS256, ES256 et d'autres algorithmes courants — tout le traitement se fait dans ton navigateur, sans compte requis.",
     "coreTask": "Décode et vérifie les JSON Web Tokens directement dans ton navigateur sans envoyer les tokens à un quelconque serveur"
+  },
+  "www-when2meet-com": {
+    "_hash": "d76683360177b5ed",
+    "description": "Un outil gratuit pour coordonner les disponibilités d'un groupe, sans aucune inscription. Les participants indiquent leurs créneaux libres sur une grille partagée, et la meilleure plage horaire ressort sous forme de carte de chaleur colorée. Ni l'organisateur ni les participants n'ont besoin de compte.",
+    "coreTask": "Trouve le meilleur créneau pour une réunion en collectant les disponibilités de tous sur une grille partagée — sans connexion requise"
   }
 }
