@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser-based graphic design tools workflow"
 ---
 
+![Hero image](/blog/images/five-design-tools-no-account/hero.jpg)
+
 Canva isn't one tool — it's five different jobs bundled into a single product. Pick a color palette. Choose fonts that work together. Remove a background from a photo. Build a slide deck. Make a flowchart. Each of those jobs has a dedicated no-login alternative that handles it better than Canva does, without collecting your email address in the process.
 
 The tradeoff with Canva's bundle is that you pay for convenience with your identity. Every session builds a profile: which templates you like, how long you spend editing, what you export. The product learns from that usage to push you toward the Pro subscription. That's not surprising given the business model, but it's a real exchange, and it's worth knowing what you're exchanging.
