@@ -1,0 +1,12 @@
+{
+  "name": "when2meet",
+  "url": "https://www.when2meet.com",
+  "description": "A free group scheduling tool that lets anyone create a meeting availability poll and collect responses without accounts or signups. Participants mark their available times on a shared visual grid, and the best meeting window emerges as a color-coded heat map. No login required for organizers or participants.",
+  "coreTask": "Find the best meeting time for a group by collecting everyone's availability on a shared grid—no login required for organizers or participants.",
+  "tags": [
+    { "key": "category", "value": "Productivity" },
+    { "key": "pricing", "value": "Free" },
+    { "key": "type", "value": "Web App" },
+    { "key": "data", "value": "Server-Side" }
+  ]
+}
