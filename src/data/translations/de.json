@@ -738,5 +738,10 @@
     "_hash": "117ed0d2da477110",
     "description": "Ein browserbasierer Debugger für JSON Web Tokens. Füge einen beliebigen JWT ein, um Header, Payload und Signatur sofort zu dekodieren. Verifiziere Token-Signaturen mit deinem Secret oder öffentlichen Schlüssel. Unterstützt HS256, RS256, ES256 und andere gängige Algorithmen — die gesamte Verarbeitung läuft im Browser, kein Account erforderlich.",
     "coreTask": "JSON Web Tokens direkt im Browser dekodieren und verifizieren, ohne Tokens an einen Server zu senden"
+  },
+  "www-when2meet-com": {
+    "_hash": "d76683360177b5ed",
+    "description": "Ein kostenloses Gruppen-Terminplanungstool, bei dem weder Organisatoren noch Teilnehmer ein Konto benötigen. Alle tragen ihre verfügbaren Zeiten in ein gemeinsames Raster ein, und das beste Zeitfenster erscheint automatisch als farbige Heatmap.",
+    "coreTask": "Den besten Termin für eine Gruppe finden, indem alle ihre Verfügbarkeiten in ein gemeinsames Raster eintragen — ohne Login"
   }
 }

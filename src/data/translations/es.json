@@ -738,5 +738,10 @@
     "_hash": "117ed0d2da477110",
     "description": "Un depurador basado en el navegador para JSON Web Tokens. Pega cualquier JWT para decodificar al instante su header, payload y firma. Verifica las firmas de los tokens con tu secreto o clave pública. Compatible con HS256, RS256, ES256 y otros algoritmos comunes — todo el procesamiento ocurre en tu navegador sin necesidad de cuenta.",
     "coreTask": "Decodifica y verifica JSON Web Tokens directamente en tu navegador sin enviar los tokens a ningún servidor"
+  },
+  "www-when2meet-com": {
+    "_hash": "d76683360177b5ed",
+    "description": "Herramienta gratuita para coordinar horarios en grupo sin necesidad de registrarse. Los participantes marcan su disponibilidad en una cuadrícula compartida y el mejor momento para reunirse aparece como un mapa de calor visual. Ni el organizador ni los participantes necesitan cuenta.",
+    "coreTask": "Encuentra el mejor horario para reunir a un grupo recopilando la disponibilidad de todos en una cuadrícula compartida — sin que nadie inicie sesión"
   }
 }
