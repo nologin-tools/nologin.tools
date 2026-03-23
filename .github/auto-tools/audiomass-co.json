@@ -1,0 +1,15 @@
+{
+  "name": "AudioMass",
+  "url": "https://audiomass.co",
+  "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
+  "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
+  "tags": [
+    { "key": "category", "value": "Media" },
+    { "key": "type", "value": "Web App" },
+    { "key": "pricing", "value": "Free" },
+    { "key": "data", "value": "Client-Side Only" },
+    { "key": "hosting", "value": "Self-Hostable" },
+    { "key": "privacy", "value": "No Trackers" }
+  ],
+  "repoUrl": "https://github.com/pkalogiros/AudioMass"
+}
