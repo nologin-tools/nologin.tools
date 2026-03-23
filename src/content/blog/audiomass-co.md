@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "audio waveform editing studio"
 ---
 
+![Hero image](/blog/images/audiomass-co/hero.jpg)
+
 What if you could open a capable audio editor the same way you open a Google Doc — just a URL, no download prompt, no signup screen? For a long time, serious audio editing meant installing Audacity, GarageBand, or Adobe Audition. Those are excellent tools, but they require commitment: disk space, an operating system that supports them, and in Adobe's case, a subscription.
 
 AudioMass changes that equation. It's a browser-based audio editor that gives you waveform editing, effects, and multi-format export — entirely within a browser tab, with your audio files never leaving your machine.
