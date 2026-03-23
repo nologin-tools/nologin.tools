@@ -743,5 +743,10 @@
     "_hash": "d76683360177b5ed",
     "description": "Ein kostenloses Gruppen-Terminplanungstool, bei dem weder Organisatoren noch Teilnehmer ein Konto benötigen. Alle tragen ihre verfügbaren Zeiten in ein gemeinsames Raster ein, und das beste Zeitfenster erscheint automatisch als farbige Heatmap.",
     "coreTask": "Den besten Termin für eine Gruppe finden, indem alle ihre Verfügbarkeiten in ein gemeinsames Raster eintragen — ohne Login"
+  },
+  "audiomass-co": {
+    "_hash": "a5b65d12a07ccfc7",
+    "description": "Open-Source-Browser-Audioeditor mit Wellenformvisualisierung, Ausschneiden/Kopieren/Einfügen und Effekten wie Normalisieren, Einblenden/Ausblenden, Umkehren und Verstärken. Alle Audioverarbeitung findet im Browser statt — keine Uploads auf Server.",
+    "coreTask": "Bearbeite Audiodateien direkt im Browser mit Wellenformbearbeitung, Effekten und Export — ohne Installation oder Konto."
   }
 }

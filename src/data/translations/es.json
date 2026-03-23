@@ -743,5 +743,10 @@
     "_hash": "d76683360177b5ed",
     "description": "Herramienta gratuita para coordinar horarios en grupo sin necesidad de registrarse. Los participantes marcan su disponibilidad en una cuadrícula compartida y el mejor momento para reunirse aparece como un mapa de calor visual. Ni el organizador ni los participantes necesitan cuenta.",
     "coreTask": "Encuentra el mejor horario para reunir a un grupo recopilando la disponibilidad de todos en una cuadrícula compartida — sin que nadie inicie sesión"
+  },
+  "audiomass-co": {
+    "_hash": "a5b65d12a07ccfc7",
+    "description": "Editor de audio web de código abierto con visualización de forma de onda, edición cortar/copiar/pegar y efectos como normalizar, fundido de entrada/salida, inversión y amplificación. Procesa el audio completamente en tu navegador, sin subir nada a ningún servidor.",
+    "coreTask": "Edita archivos de audio directamente en tu navegador con edición de forma de onda, efectos y exportación, sin instalación ni cuenta."
   }
 }

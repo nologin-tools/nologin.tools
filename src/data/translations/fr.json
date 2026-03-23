@@ -743,5 +743,10 @@
     "_hash": "d76683360177b5ed",
     "description": "Un outil gratuit pour coordonner les disponibilités d'un groupe, sans aucune inscription. Les participants indiquent leurs créneaux libres sur une grille partagée, et la meilleure plage horaire ressort sous forme de carte de chaleur colorée. Ni l'organisateur ni les participants n'ont besoin de compte.",
     "coreTask": "Trouve le meilleur créneau pour une réunion en collectant les disponibilités de tous sur une grille partagée — sans connexion requise"
+  },
+  "audiomass-co": {
+    "_hash": "a5b65d12a07ccfc7",
+    "description": "Éditeur audio web open source avec visualisation de la forme d'onde, édition couper/copier/coller et effets comme la normalisation, le fondu entrant/sortant, l'inversion et l'amplification. Tout le traitement audio s'effectue dans ton navigateur — sans aucun envoi vers un serveur.",
+    "coreTask": "Modifie des fichiers audio directement dans ton navigateur avec édition de forme d'onde, effets et export — sans installation ni compte."
   }
 }
