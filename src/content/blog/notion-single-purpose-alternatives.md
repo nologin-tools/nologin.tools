@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "focused single purpose desk minimal productivity"
 ---
 
+![Hero image](/blog/images/notion-single-purpose-alternatives/hero.jpg)
+
 Swiss Army knives are great in theory. In practice, most people use the same two blades and ignore the rest. Notion is productivity software's version of that knife — it promises to handle notes, databases, wikis, kanban boards, whiteboards, and documents all in one place. And it requires a signup before you get to use any of it.
 
 Here's the thing: the tools Notion bundles together are available separately, often better-designed for their specific purpose, and almost always accessible without creating an account. The tradeoff isn't features — it's convenience for heavy cross-feature workflows, which most people don't actually have.
