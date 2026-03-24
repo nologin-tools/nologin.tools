@@ -748,5 +748,10 @@
     "_hash": "a5b65d12a07ccfc7",
     "description": "Editor de áudio web open source com visualização de forma de onda, edição de cortar/copiar/colar e efeitos como normalização, fade in/out, reverso e amplificação. Todo o processamento de áudio acontece no seu navegador — sem enviar arquivos para nenhum servidor.",
     "coreTask": "Edite arquivos de áudio diretamente no seu navegador com edição de forma de onda, efeitos e exportação — sem instalação ou conta."
+  },
+  "hat-sh": {
+    "_hash": "8986c26529a06d50",
+    "description": "Ferramenta de criptografia de arquivos que funciona inteiramente no lado do cliente, direto no navegador. O hat.sh usa AES-256-GCM com senha ou par de chaves pública/privada. Os arquivos nunca saem do seu navegador: sem uploads, sem servidores, sem contas.",
+    "coreTask": "Criptografar e descriptografar arquivos com segurança no navegador usando AES-256-GCM, sem uploads nem servidores envolvidos."
   }
 }
