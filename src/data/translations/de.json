@@ -748,5 +748,10 @@
     "_hash": "a5b65d12a07ccfc7",
     "description": "Open-Source-Browser-Audioeditor mit Wellenformvisualisierung, Ausschneiden/Kopieren/Einfügen und Effekten wie Normalisieren, Einblenden/Ausblenden, Umkehren und Verstärken. Alle Audioverarbeitung findet im Browser statt — keine Uploads auf Server.",
     "coreTask": "Bearbeite Audiodateien direkt im Browser mit Wellenformbearbeitung, Effekten und Export — ohne Installation oder Konto."
+  },
+  "hat-sh": {
+    "_hash": "8986c26529a06d50",
+    "description": "Datei-Verschlüsselungstool, das vollständig im Browser und ohne Serverbeteiligung läuft. hat.sh nutzt AES-256-GCM — entweder mit Passwort oder mit einem öffentlichen/privaten Schlüsselpaar. Dateien verlassen deinen Browser nicht: kein Upload, kein Server, kein Konto.",
+    "coreTask": "Dateien sicher im Browser mit AES-256-GCM ver- und entschlüsseln — ohne Uploads und ohne Server."
   }
 }
