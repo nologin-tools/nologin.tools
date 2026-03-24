@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "file encryption security lock browser"
 ---
 
+![Hero image](/blog/images/hat-sh/hero.jpg)
+
 Every cloud storage service, every file-sharing platform, every "secure" upload tool has one thing in common: your files travel through someone else's computer. You're trusting the provider's encryption, their key management, their employees, and their legal obligations to whoever might ask for your data. That's a lot of trust to extend to a company you've never met.
 
 What if encryption happened before the file left your machine — in your browser, with no server ever seeing the plaintext?
