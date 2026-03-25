@@ -753,5 +753,10 @@
     "_hash": "8986c26529a06d50",
     "description": "完全在客户端运行的浏览器文件加密工具。hat.sh 支持密码和公私钥两种加密方式，使用 AES-256-GCM 算法。文件永不离开浏览器——无需上传，无需服务器，无需账号。",
     "coreTask": "在浏览器中使用 AES-256-GCM 安全地加密和解密文件，无需上传，无需服务器"
+  },
+  "lite-datasette-io": {
+    "_hash": "02a75358d3035e44",
+    "description": "通过 WebAssembly（Pyodide）完全在浏览器中运行的 Datasette。上传 SQLite 数据库或 CSV 文件，用完整的 SQL 界面直接探索数据——无需服务器，无需账号，数据始终留在你的设备上。基于 Simon Willison 开发的知名 Datasette 数据探索框架。",
+    "coreTask": "无需安装或注册，直接在浏览器中用 SQL 查询和探索 SQLite 数据库与 CSV 文件"
   }
 }

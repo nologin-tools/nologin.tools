@@ -753,5 +753,10 @@
     "_hash": "8986c26529a06d50",
     "description": "Outil de chiffrement de fichiers entièrement côté client, qui tourne dans ton navigateur. hat.sh utilise AES-256-GCM avec un mot de passe ou une paire de clés publique/privée. Les fichiers ne quittent jamais ton navigateur : pas d'upload, pas de serveur, pas de compte.",
     "coreTask": "Chiffrer et déchiffrer des fichiers en toute sécurité dans ton navigateur avec AES-256-GCM, sans upload ni serveur."
+  },
+  "lite-datasette-io": {
+    "_hash": "02a75358d3035e44",
+    "description": "Datasette qui tourne entièrement dans ton navigateur grâce à WebAssembly (Pyodide). Charge des bases de données SQLite ou des fichiers CSV et explore-les avec une interface SQL complète — sans serveur, sans compte, et tes données ne quittent jamais ton appareil. Basé sur le populaire framework d'exploration de données Datasette de Simon Willison.",
+    "coreTask": "Explorer et interroger des bases de données SQLite et des fichiers CSV directement dans ton navigateur avec SQL, sans installation ni compte."
   }
 }
