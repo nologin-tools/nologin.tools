@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser productivity tools discovery"
 ---
 
+![Hero image](/blog/images/3-no-login-browser-tools-worth-bookmarking/hero.jpg)
+
 Most useful tools don't announce themselves. They show up as a link in a Stack Overflow answer, a mention in a thread somewhere, or a recommendation from a colleague who assumes you already know about it. You try it once, it works exactly as advertised, and then it just becomes part of how you work.
 
 Here are three privacy-friendly no-login tools that earn that status. No frills, no accounts, no tracking you need to worry about.
