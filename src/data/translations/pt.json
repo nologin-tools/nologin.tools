@@ -753,5 +753,10 @@
     "_hash": "8986c26529a06d50",
     "description": "Ferramenta de criptografia de arquivos que funciona inteiramente no lado do cliente, direto no navegador. O hat.sh usa AES-256-GCM com senha ou par de chaves pública/privada. Os arquivos nunca saem do seu navegador: sem uploads, sem servidores, sem contas.",
     "coreTask": "Criptografar e descriptografar arquivos com segurança no navegador usando AES-256-GCM, sem uploads nem servidores envolvidos."
+  },
+  "lite-datasette-io": {
+    "_hash": "02a75358d3035e44",
+    "description": "O Datasette rodando completamente no seu navegador via WebAssembly (Pyodide). Faça upload de bancos de dados SQLite ou arquivos CSV e explore-os com uma interface SQL completa — sem servidor, sem conta e seus dados nunca saem do seu dispositivo. Construído sobre o popular framework de exploração de dados Datasette, criado por Simon Willison.",
+    "coreTask": "Explorar e consultar bancos de dados SQLite e arquivos CSV diretamente no navegador usando SQL, sem instalação nem conta."
   }
 }
