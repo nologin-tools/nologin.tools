@@ -1,0 +1,17 @@
+{
+  "name": "Datasette Lite",
+  "url": "https://lite.datasette.io",
+  "description": "Datasette running entirely in your browser via WebAssembly (Pyodide). Upload SQLite databases or CSV files and explore them with a full SQL interface — no server, no account, and your data never leaves your device. Built on the popular Datasette data exploration framework by Simon Willison.",
+  "coreTask": "Explore and query SQLite databases and CSV files directly in your browser using SQL, with no installation or account needed.",
+  "tags": [
+    { "key": "category", "value": "Data" },
+    { "key": "data", "value": "Client-Side Only" },
+    { "key": "privacy", "value": "Privacy Focused" },
+    { "key": "type", "value": "Web App" },
+    { "key": "hosting", "value": "Self-Hostable" },
+    { "key": "offline", "value": "Works Offline" },
+    { "key": "pricing", "value": "Free" }
+  ],
+  "repoUrl": "https://github.com/simonw/datasette-lite",
+  "githubUrl": "https://github.com/simonw"
+}
