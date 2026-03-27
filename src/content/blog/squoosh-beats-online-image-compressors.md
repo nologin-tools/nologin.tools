@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "image compression WebAssembly browser tool"
 ---
 
+![Hero image](/blog/images/squoosh-beats-online-image-compressors/hero.jpg)
+
 Most online image compressors work the same way: you upload your file to someone's server, their backend runs the compression, and they send you back a smaller file. Simple enough. But that means your images — product shots, client photos, confidential mockups — are sitting on a stranger's server for some amount of time. You're trusting their retention policy. And their security.
 
 [Squoosh](https://squoosh.app) does it differently. Every byte of compression happens inside your browser tab. Nothing leaves your machine. And somehow, despite running entirely client-side, it produces smaller files than most server-based alternatives.
