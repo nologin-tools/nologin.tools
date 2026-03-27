@@ -758,5 +758,15 @@
     "_hash": "02a75358d3035e44",
     "description": "WebAssembly(Pyodide)를 통해 브라우저에서 완전히 실행되는 Datasette예요. SQLite 데이터베이스나 CSV 파일을 업로드하고 완전한 SQL 인터페이스로 직접 탐색할 수 있어요. 서버도 없고 계정도 필요 없으며, 데이터는 기기를 벗어나지 않아요. Simon Willison이 개발한 인기 데이터 탐색 프레임워크 Datasette를 기반으로 해요.",
     "coreTask": "설치나 계정 없이 브라우저에서 SQL로 SQLite 데이터베이스와 CSV 파일을 바로 쿼리하고 탐색해요."
+  },
+  "lowrisktradesmart-org": {
+    "_hash": "3cb0201d20aaeaa0",
+    "description": "저위험 투자 전략, ETF, 배당주, 스마트 포트폴리오 관리에 대한 전문 가이드를 제공해요. 안정적인 자산 증식을 원하는 보수적 투자자를 위한 3개 국어 콘텐츠예요.",
+    "coreTask": "투자 가이드 읽기, ETF 비교 탐색, 금융 계산기 이용"
+  },
+  "iformat-io": {
+    "_hash": "3bdec29870f1a126",
+    "description": "iFormat.io는 500가지 이상의 형식 변환을 지원하는 무료 온라인 파일 변환 도구예요. 설치나 회원 가입 없이 브라우저에서 바로 사용할 수 있어요. 이미지, PDF, 오디오, 동영상, 문서 파일을 빠르고 안전하게 변환할 수 있어요.\n\n지원 카테고리：\n- 이미지：JPG, PNG, WebP, HEIC, GIF, TIFF 등\n- PDF：변환, 압축, 병합, 분할, 텍스트 추출\n- 오디오：MP3, WAV, FLAC, AAC, OGG 등\n- 동영상：MP4, AVI, MOV 등의 형식\n- 문서",
+    "coreTask": "이미지, PDF, 오디오, 동영상, 문서를 포함한 500가지 이상의 형식을 지원하는 무료 온라인 멀티 포맷 변환기예요. 계정이나 회원 가입 없이 브라우저에서 완전히 작동해요."
   }
 }

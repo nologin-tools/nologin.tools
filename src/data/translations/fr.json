@@ -758,5 +758,15 @@
     "_hash": "02a75358d3035e44",
     "description": "Datasette qui tourne entièrement dans ton navigateur grâce à WebAssembly (Pyodide). Charge des bases de données SQLite ou des fichiers CSV et explore-les avec une interface SQL complète — sans serveur, sans compte, et tes données ne quittent jamais ton appareil. Basé sur le populaire framework d'exploration de données Datasette de Simon Willison.",
     "coreTask": "Explorer et interroger des bases de données SQLite et des fichiers CSV directement dans ton navigateur avec SQL, sans installation ni compte."
+  },
+  "lowrisktradesmart-org": {
+    "_hash": "3cb0201d20aaeaa0",
+    "description": "Des guides experts sur les stratégies d'investissement à faible risque, les ETF, les actions à dividendes et la gestion intelligente de portefeuille. Contenu trilingue pensé pour les investisseurs prudents qui veulent faire fructifier leur patrimoine progressivement.",
+    "coreTask": "Consulter les guides d'investissement, parcourir les comparatifs d'ETF, accéder aux calculateurs financiers"
+  },
+  "iformat-io": {
+    "_hash": "3bdec29870f1a126",
+    "description": "iFormat.io est un convertisseur de fichiers en ligne et gratuit qui prend en charge plus de 500 conversions de formats. L'outil fonctionne directement dans ton navigateur — sans installation ni inscription. Tu peux convertir rapidement et en toute sécurité des images, des PDF, des fichiers audio et vidéo, ainsi que des documents Office.\n\nCatégories prises en charge :\n- Images : JPG, PNG, WebP, HEIC, GIF, TIFF et plus\n- PDF : Convertir, compresser, fusionner, diviser et extraire du texte\n- Audio : MP3, WAV, FLAC, AAC, OGG et plus\n- Vidéo : MP4, AVI, MOV et autres formats\n- Documents",
+    "coreTask": "Convertisseur multi-formats en ligne et gratuit prenant en charge plus de 500 conversions entre images, PDF, audio, vidéo et documents. Fonctionne entièrement dans le navigateur, sans compte ni inscription requis."
   }
 }

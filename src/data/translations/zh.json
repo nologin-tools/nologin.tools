@@ -758,5 +758,15 @@
     "_hash": "02a75358d3035e44",
     "description": "通过 WebAssembly（Pyodide）完全在浏览器中运行的 Datasette。上传 SQLite 数据库或 CSV 文件，用完整的 SQL 界面直接探索数据——无需服务器，无需账号，数据始终留在你的设备上。基于 Simon Willison 开发的知名 Datasette 数据探索框架。",
     "coreTask": "无需安装或注册，直接在浏览器中用 SQL 查询和探索 SQLite 数据库与 CSV 文件"
+  },
+  "lowrisktradesmart-org": {
+    "_hash": "3cb0201d20aaeaa0",
+    "description": "提供低风险投资策略、ETF、分红股票及智能投资组合管理的专家指南。内容支持三种语言，面向稳健型投资者，助力财富稳步增长。",
+    "coreTask": "阅读投资指南、浏览 ETF 对比分析、使用金融计算器"
+  },
+  "iformat-io": {
+    "_hash": "3bdec29870f1a126",
+    "description": "iFormat.io 是一款免费的在线文件转换工具，支持超过 500 种格式转换。直接在浏览器中运行，无需安装或注册。可快速安全地转换图片、PDF、音视频文件及 Office 文档。\n\n支持类别：\n- 图片：JPG、PNG、WebP、HEIC、GIF、TIFF 等\n- PDF：转换、压缩、合并、拆分及提取文字\n- 音频：MP3、WAV、FLAC、AAC、OGG 等\n- 视频：MP4、AVI、MOV 及其他格式\n- 文档",
+    "coreTask": "免费在线多格式转换工具，支持 500+ 种格式转换，涵盖图片、PDF、音频、视频和文档。完全在浏览器中运行，无需账号或注册"
   }
 }
