@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "PDF document editing browser online"
 ---
 
+![Hero image](/blog/images/edit-pdf-without-installing-anything/hero.jpg)
+
 PDFs were designed in 1993 to look identical on every computer — same fonts, same layout, no matter who opened them. That design goal made them perfect for sharing final documents, and completely annoying to edit. For three decades, if you needed to change a PDF, you needed Adobe Acrobat ($24.99/month), a pirated copy, or a fresh Word document and a lot of patience.
 
 That's changed. Not completely — true PDF editing is still more capable in desktop software — but for the tasks most people actually need (merging files, compressing large PDFs, filling forms, adding annotations), you can do almost all of it in a browser tab. No account required.
