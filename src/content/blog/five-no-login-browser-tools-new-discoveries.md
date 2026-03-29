@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools no signup privacy web app"
 ---
 
+![Hero image](/blog/images/five-no-login-browser-tools-new-discoveries/hero.jpg)
+
 Someone submitted [BreezePDF](https://breezepdf.com/?v=3) to Hacker News recently with the tagline "free, in-browser PDF editor." It hit the front page. The top comment wasn't about features — it was about the fact that you could actually use it without handing over an email address first. That detail landed.
 
 That reaction tells you something about where expectations sit in 2026. People are so accustomed to signup walls that a tool that simply works gets flagged as noteworthy. Which is backwards. The signup wall is the unusual choice. Processing everything in the browser — no server, no account, no stored data — is often the more technically straightforward path. It just requires caring about user experience more than growth metrics.
