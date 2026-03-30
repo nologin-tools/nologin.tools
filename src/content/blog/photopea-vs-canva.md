@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "graphic design browser tools comparison"
 ---
 
+![Hero image](/blog/images/photopea-vs-canva/hero.jpg)
+
 Here's something that surprises a lot of people: Canva, the tool that markets itself as "free," requires an account before you can save a single design. Photopea — the browser-based image editor that can open Photoshop files — asks for nothing.
 
 That's the central tension in this comparison. Both tools are useful. But they serve different people with different priorities. If you're here because you want to design something right now, without handing over your email address, the answer is already clear. Keep reading if you want to understand why, and when you might choose differently.
