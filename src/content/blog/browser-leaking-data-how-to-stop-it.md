@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser privacy fingerprinting data leak surveillance"
 ---
 
+![Hero image](/blog/images/browser-leaking-data-how-to-stop-it/hero.jpg)
+
 Open a fresh incognito tab. No cookies, no history, no login. You feel anonymous.
 
 You're not. Not even close.
