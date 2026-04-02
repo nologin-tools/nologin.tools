@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools productivity privacy 2026"
 ---
 
+![Hero image](/blog/images/q1-2026-no-login-tools-that-mattered/hero.jpg)
+
 The first quarter of 2026 had a clear theme: AI wants your email address. Almost every new AI product launched with a signup wall, a waitlist, or a free tier that expires in 14 days. Meanwhile, the tools that *don't* ask for anything kept getting better. Quietly.
 
 This is our Q1 2026 pickup — tools that stood out not for their launch announcements, but for what they actually let you do, right now, without handing over your data.
