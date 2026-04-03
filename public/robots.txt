@@ -3,5 +3,6 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 Disallow: /ssr/
+Disallow: /*?
 
 Sitemap: https://nologin.tools/sitemap.xml

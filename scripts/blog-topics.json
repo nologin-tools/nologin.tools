@@ -8,6 +8,12 @@
         "Excalidraw: the whiteboard tool that respects your privacy",
         "Why Squoosh beats every online image compressor",
         "TinyWow review: 50+ free tools, zero signup required"
+      ],
+      "seoKeywords": [
+        "free online {tool} no sign up",
+        "{tool} review",
+        "best free {tool} no account needed",
+        "{tool} alternative free no login"
       ]
     },
     {
@@ -18,6 +24,13 @@
         "How to browse the web without leaving a trace",
         "Your browser is leaking data — here's how to stop it",
         "A practical guide to using tools without handing over your email"
+      ],
+      "seoKeywords": [
+        "how to protect privacy online",
+        "use tools without giving email",
+        "browser privacy tips",
+        "anonymous online tools free",
+        "no account required tools"
       ]
     },
     {
@@ -28,6 +41,13 @@
         "Edit a PDF without installing anything or signing up",
         "Build a presentation using only browser tools",
         "How to compress, convert, and resize images — no account needed"
+      ],
+      "seoKeywords": [
+        "how to {action} online free",
+        "{action} without downloading software",
+        "free online {tool} tutorial",
+        "{action} in browser no install",
+        "how to {action} without signing up"
       ]
     },
     {
@@ -38,6 +58,12 @@
         "Why more SaaS tools are dropping the login wall",
         "The rise of browser-based tools and what it means for privacy",
         "WebAssembly is making login-free tools better — here's how"
+      ],
+      "seoKeywords": [
+        "browser-based tools vs desktop apps",
+        "why websites require accounts",
+        "future of online tools",
+        "SaaS tools that work without login"
       ]
     },
     {
@@ -48,6 +74,13 @@
         "Photopea vs Canva: which no-login design tool wins?",
         "Google Docs alternatives that work without an account",
         "Free vs paid: when no-login tools are actually better"
+      ],
+      "seoKeywords": [
+        "{tool} vs {tool} free",
+        "{tool} alternatives free no signup",
+        "best free alternative to {tool}",
+        "{tool} without account",
+        "free {category} tools comparison"
       ]
     },
     {
@@ -58,6 +91,13 @@
         "Why forced account creation is a dark pattern",
         "Open source tools that prove you don't need a login",
         "The hidden cost of free accounts: what you trade for convenience"
+      ],
+      "seoKeywords": [
+        "dark patterns sign up",
+        "why do websites force account creation",
+        "open source tools free to use",
+        "hidden cost of free accounts",
+        "data collection by free apps"
       ]
     },
     {
@@ -68,6 +108,12 @@
         "Best new no-login tools we found this month",
         "Q1 2026: the best privacy-friendly tools so far",
         "10 tools that launched this quarter — no signup required"
+      ],
+      "seoKeywords": [
+        "best free online tools {year}",
+        "new free tools {month} {year}",
+        "best no signup tools {year}",
+        "top free browser tools {quarter} {year}"
       ]
     },
     {
@@ -78,6 +124,13 @@
         "5 no-login alternatives to Canva for quick design",
         "Replace Google Docs: browser-based editors that need no account",
         "Notion alternatives that work without signup"
+      ],
+      "seoKeywords": [
+        "free {tool} alternatives no login",
+        "{tool} alternative no sign up",
+        "best free {category} tools without account",
+        "websites like {tool} but free",
+        "{tool} replacement free online"
       ]
     },
     {
@@ -88,6 +141,13 @@
         "3 no-login tools I discovered this week and can't stop using",
         "Hidden gems: tools most people don't know work without login",
         "First look: new browser tools that skip the signup page"
+      ],
+      "seoKeywords": [
+        "free online tools you didn't know about",
+        "hidden gem websites free tools",
+        "useful websites no signup",
+        "cool free tools online",
+        "underrated free online tools"
       ]
     }
   ],
@@ -116,5 +176,27 @@
     "peer-to-peer",
     "P2P",
     "decentralized"
-  ]
+  ],
+  "seoGuidance": {
+    "titlePatterns": [
+      "Best Free {Tool} Alternatives (No Login Required)",
+      "How to {Action} Online — Free, No Signup",
+      "{N} Free {Category} Tools That Don't Need an Account",
+      "{Tool} vs {Tool}: Which Free Tool Is Better?",
+      "Free Online {Tool} Without Signing Up ({Year})"
+    ],
+    "highValueKeywords": [
+      "free online tools",
+      "no sign up",
+      "no login required",
+      "without account",
+      "no registration",
+      "free browser tool",
+      "online tool free",
+      "no download needed",
+      "no install",
+      "privacy friendly",
+      "open source free tools"
+    ]
+  }
 }

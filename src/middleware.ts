@@ -17,6 +17,25 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url } = context;
   const { pathname } = url;
 
+  // www → non-www redirect
+  if (url.hostname === 'www.nologin.tools') {
+    const target = new URL(url);
+    target.hostname = 'nologin.tools';
+    return new Response(null, {
+      status: 301,
+      headers: { Location: target.href },
+    });
+  }
+
+  // Trailing slash redirect (except root /)
+  if (request.method === 'GET' && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
+    const cleaned = pathname.replace(/\/+$/, '') || '/';
+    return new Response(null, {
+      status: 301,
+      headers: { Location: cleaned + url.search },
+    });
+  }
+
   // Accept-Language redirect for paths without locale prefix
   if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
     const firstSegment = pathname.split('/').filter(Boolean)[0];

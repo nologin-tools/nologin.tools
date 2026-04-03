@@ -253,6 +253,18 @@ function buildIssueBody({ category, existingPosts, hnTrending, toolList, topicHi
 
   const today = new Date().toISOString().split('T')[0];
 
+  // Build SEO keywords section
+  const seoKeywordsSection = category.seoKeywords
+    ? category.seoKeywords.map((k) => `- "${k}"`).join('\n')
+    : '- "free online tools no login"\n- "no signup required"';
+
+  const topicsData = JSON.parse(
+    readFileSync(resolve(__dirname, 'blog-topics.json'), 'utf-8')
+  );
+  const seoGuidance = topicsData.seoGuidance || {};
+  const titlePatterns = (seoGuidance.titlePatterns || []).map((p) => `- ${p}`).join('\n');
+  const highValueKeywords = (seoGuidance.highValueKeywords || []).map((k) => `"${k}"`).join(', ');
+
   return `@claude Please write a blog post for nologin.tools based on the instructions below.
 
 ## Topic
@@ -286,6 +298,26 @@ tags: ["tag1", "tag2"]            # 2-5 tags from: privacy, tools, tutorial, com
 featured: false
 ---
 \`\`\`
+
+### SEO optimization (IMPORTANT for search rankings)
+
+**Title**: Must include a primary keyword that people actually search for. Follow these patterns for high click-through:
+${titlePatterns}
+
+**Target search keywords** for this category:
+${seoKeywordsSection}
+
+**High-value keywords** to naturally include in the post (use 3-5 of these throughout):
+${highValueKeywords}
+
+**SEO checklist:**
+- Title should contain the primary keyword within the first 50 characters
+- Description should include 1-2 target keywords and a compelling reason to click
+- Use the primary keyword in the first paragraph
+- Use H2 headings that contain secondary keywords (e.g., "Best Free PDF Editor Without Signup" instead of just "PDF Editors")
+- Include question-based H2/H3 headings that match "People Also Ask" queries (e.g., "Is there a free online PDF editor without login?")
+- Include the slug's primary keyword — slugs like "free-pdf-editor-no-login" rank better than "my-favorite-tools"
+- Mention specific tool names that people search for (brand keywords drive traffic)
 
 ### Writing style (CRITICAL — zero AI feel)
 
