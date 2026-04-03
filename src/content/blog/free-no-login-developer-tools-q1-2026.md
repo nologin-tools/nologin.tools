@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "developer tools browser coding workspace"
 ---
 
+![Hero image](/blog/images/free-no-login-developer-tools-q1-2026/hero.jpg)
+
 Something changed quietly over the past few years. The browser became a runtime — not just for web apps, but for actual developer tooling. You can now compile Go, run Python, inspect assembly output, debug JSON data structures, and test REST APIs without opening a terminal or creating an account anywhere.
 
 WebAssembly accelerated this shift. Projects like [TinyGo](https://tinygo.org/) — which compiles Go for embedded systems and WebAssembly targets — demonstrate that "running in the browser" no longer means "limited." The tools in this roundup are proof: serious developer utilities, zero friction, no login required.
