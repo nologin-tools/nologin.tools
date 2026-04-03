@@ -345,6 +345,20 @@ Automated daily blog publishing pipeline: cron → topic preparation → Claude 
 - **Tests**: `node --test scripts/__tests__/validate-blog-post.test.mjs` — 22 test cases covering frontmatter, word count, AI phrases, image presence, boundary values.
 - **Secrets required**: `CLAUDE_CODE_OAUTH_TOKEN` (existing), `UNSPLASH_ACCESS_KEY` (optional, for hero images — pipeline works without it via fallback chain).
 
+## Blog Syndication
+
+Automated blog cross-posting triggered after Deploy workflow completes on main.
+
+- **Architecture**: `blog-syndicate.yml` (`workflow_run` on Deploy + `workflow_dispatch`) runs `scripts/syndicate-blog.mjs`
+- **Platforms**: Dev.to (full article with `canonical_url`), Mastodon (social post with hero image), Bluesky (social post with link card + thumbnail)
+- **Detection**: `git diff HEAD~1 --name-only --diff-filter=A` — only newly added English blog posts (locale subdirectories excluded by git pathspec)
+- **Dev.to**: Full markdown body, relative URLs converted to absolute, tag mapping (always includes `nologin` brand tag, max 4). Idempotent via `canonical_url` check.
+- **Mastodon**: Hero image uploaded as media attachment via `/api/v2/media`, post with title + description + URL + hashtags. Image upload failure degrades to text-only.
+- **Bluesky**: AT Protocol `createSession` → `uploadBlob` (thumbnail) → `createRecord` with rich text facets and external embed. 300 grapheme limit with truncation.
+- **Error handling**: `Promise.allSettled` — each platform independent, partial success acceptable. GitHub Step Summary reports per-platform results. Exit 1 only if ALL fail.
+- **Tests**: `node --test scripts/__tests__/syndicate-blog.test.mjs` — 29 test cases covering tag mapping, content formatting, facet building, frontmatter parsing
+- **Secrets required**: `DEV_TO_API_KEY`, `MASTODON_INSTANCE_URL`, `MASTODON_ACCESS_TOKEN`, `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD`
+
 ## Auto Tool Discovery Pipeline
 
 Automated daily tool discovery pipeline: cron → category rotation → Claude searches + Playwright MCP browser verification → D1 submission + blog PR.
