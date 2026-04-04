@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser productivity privacy tools 2026"
 ---
 
+![Hero image](/blog/images/best-browser-only-tools-q1-2026/hero.jpg)
+
 Something changed quietly in Q1 2026. Not the concept of tools that don't need your email address — those have been around for years. What changed is *how* the best ones work. More and more of the genuinely useful no-login tools this quarter process everything client-side, entirely in your browser, without touching a remote server. Your files, your data, your inputs stay on your machine.
 
 That's not just a privacy win. It also means these tools work offline, load fast, and can't be shut down by a policy change. The WebAssembly standard — which lets languages like Python, Rust, and C run at near-native speed inside a browser tab — is a big part of why this is suddenly practical. When Show HN threads start featuring [TurboQuant-WASM](https://github.com/teamchong/turboquant-wasm), Google's vector quantization running entirely in the browser, you know client-side computing has crossed a threshold.
