@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "PDF document conversion Word file browser"
 ---
 
+![Hero image](/blog/images/convert-pdf-to-word-online-free-no-signup/hero.jpg)
+
 Someone sends you a PDF. Maybe it's a contract you need to revise. Maybe it's a price list your company exported from some legacy system, and all the numbers are locked inside a document format that was designed never to be edited. You try selecting the text and pasting it into Word. It comes out mangled — one word per line, spaces missing, every table exploded into a single column of disconnected cells.
 
 There's a reason for this. And there are free tools that handle it properly, with no account required.
