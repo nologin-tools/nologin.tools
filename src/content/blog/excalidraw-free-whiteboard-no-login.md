@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "whiteboard sketching digital drawing hand-drawn"
 ---
 
+![Hero image](/blog/images/excalidraw-free-whiteboard-no-login/hero.jpg)
+
 Most whiteboard tools ask you to create an account before you draw your first line. Miro wants your email. FigJam wants your Figma account. Lucidchart puts a paywall after five shapes. And if you pay, they can see everything you draw.
 
 [Excalidraw](https://excalidraw.com) opens to a blank canvas, ready to use. No signup. No login. No pop-up asking for your email address. Just a whiteboard.
