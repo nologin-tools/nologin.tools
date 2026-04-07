@@ -46,7 +46,8 @@ scripts/
     ├── headers.test.mjs          # Cache-Control headers validation tests (8 cases)
     ├── validate-tool-data.test.mjs      # Tool data validation tests (28 cases)
     ├── submit-discovered-tool.test.mjs  # Tool D1 submission tests (12 cases)
-    └── prepare-tool-discovery.test.mjs  # Tool discovery preparation tests (22 cases)
+    ├── prepare-tool-discovery.test.mjs  # Tool discovery preparation tests (22 cases)
+    └── category-pages.test.mjs          # Category slug utility tests (9 cases)
 src/
 ├── i18n/
 │   ├── config.ts         # Locale constants, types, labels, OG locale map
@@ -73,6 +74,7 @@ src/
 │   ├── BlogListPage.astro    # Blog list renderer (extracted from blog/index.astro)
 │   ├── ToolDetailPage.astro  # Shared tool detail renderer (used by static + SSR)
 │   ├── BadgeDetailPage.astro # Shared badge detail renderer (used by static + SSR)
+│   ├── CategoryPage.astro     # Category landing page renderer (accepts locale + category props)
 │   ├── LanguageSwitcher.astro # Language selector with cookie-based preference
 │   └── ...               # Header, Footer, ToolCard, HealthBadge, TagPicker
 ├── pages/
@@ -86,6 +88,7 @@ src/
 │   ├── badge/[slug].astro    # English badge detail static
 │   ├── blog/index.astro      # English blog list → <BlogListPage locale="en" />
 │   ├── blog/[slug].astro     # English blog post static
+│   ├── category/[slug].astro # English category landing page static
 │   ├── [lang]/               # ★ Multi-language dynamic routes
 │   │   ├── index.astro       # getStaticPaths() for zh/ja/ko/es/fr/de/pt
 │   │   ├── about.astro
@@ -95,7 +98,8 @@ src/
 │   │   ├── badge/index.astro
 │   │   ├── badge/[slug].astro
 │   │   ├── blog/index.astro
-│   │   └── blog/[slug].astro
+│   │   ├── blog/[slug].astro
+│   │   └── category/[slug].astro # getStaticPaths() → lang × category
 │   ├── ssr/tool/[slug].astro    # English ISR fallback
 │   ├── ssr/badge/[slug].astro   # English ISR fallback
 │   ├── ssr/[lang]/tool/[slug].astro   # ★ Multi-language ISR fallback
@@ -122,6 +126,7 @@ workers/cron/             # Health checks, badge detection, data export
 | `/blog/[slug]` | Static | Content Collection + `render()` |
 | `/{lang}/` (all pages) | Static | Same as English + locale prop |
 | `/{lang}/tool/[slug]` | Static + ISR | Same as English + locale prop |
+| `/category/[slug]` | Static | `loader.ts` + `tags.ts` (11 categories × 8 locales) |
 | `/about`, `/submit`, `/badge`, `/404` | Static | No data needed |
 | `/submit/success` | SSR | URL params |
 | `/admin` | SSR | D1 (batch queries) |
@@ -213,10 +218,10 @@ workers/cron/             # Health checks, badge detection, data export
 - **SEO — Web App Manifest**: `public/site.webmanifest` with minimal config, linked from Layout `<head>`.
 - **SEO — robots.txt**: `public/robots.txt` blocks `/admin`, `/api/`, `/ssr/` from crawlers and declares sitemap location.
 - **SEO — OG image**: Default OG image is `public/og-default.png` (1200×630, brand logo + tagline). Layout defaults to `/og-default.png`. Dynamic per-tool OG images generated at `/api/og/[slug]` using `satori` + `@resvg/resvg-wasm` (SSR, 6h cache). Layout accepts `ogImagePath` prop; `ToolDetailPage` passes `/api/og/${slug}`.
-- **SEO — Layout props**: `Layout.astro` supports optional `canonicalOverride` (string path, resolves against `https://nologin.tools`), `publishedTime` (ISO date string for `article:published_time`), `modifiedTime` (ISO date string for `article:modified_time`), and `ogImagePath` (path for dynamic OG image). Canonical URL uses `Astro.url.pathname` to strip query params. `ToolDetailPage` and `BadgeDetailPage` use `canonicalOverride` to ensure ISR pages (`/ssr/tool/*`, `/ssr/badge/*`) point canonical to `/tool/*` and `/badge/*`.
+- **SEO — Layout props**: `Layout.astro` supports optional `canonicalOverride` (string path, resolves against `https://nologin.tools`), `publishedTime` (ISO date string for `article:published_time`), `modifiedTime` (ISO date string for `article:modified_time`), `articleTags` (string array for `article:tag` meta, used by blog posts), and `ogImagePath` (path for dynamic OG image). Canonical URL uses `Astro.url.pathname` to strip query params. `ToolDetailPage` and `BadgeDetailPage` use `canonicalOverride` to ensure ISR pages (`/ssr/tool/*`, `/ssr/badge/*`) point canonical to `/tool/*` and `/badge/*`.
 - **SEO — Sitemap multi-locale**: `sitemap.xml.ts` generates a `<url>` entry for every locale variant of every page (8 locales × N pages). Core logic extracted to `src/lib/sitemap.ts` (pure functions: `buildBlogTranslationMap`, `expandToAllLocales`, `generateHreflangLinks`). Non-blog pages expand to all 8 locales; blog posts only expand to locales with actual translations (determined by `buildBlogTranslationMap`). Each `<url>` includes hreflang links matching its available locales + `x-default` (English). Tests: `node --test scripts/__tests__/sitemap.test.mjs` (20 cases).
 - **SEO — Sitemap lastmod**: `sitemap.xml.ts` includes `<lastmod>` for tool/badge pages (from `approvedAt`). Static pages use build-time date.
-- **SEO — JSON-LD**: Homepage has `WebSite` + `SearchAction` (supports Sitelinks Searchbox). Tool detail pages have `SoftwareApplication` (with `offers`, `operatingSystem`, `datePublished`, `dateModified`) + `BreadcrumbList`. Badge pages have `BreadcrumbList`. About page has `Organization`. Badge info page (`/badge`) has `FAQPage` + `HowTo`. Blog list page has `Blog` + `BreadcrumbList`. Blog post pages have `BlogPosting` + `BreadcrumbList`.
+- **SEO — JSON-LD**: Homepage has `WebSite` + `SearchAction` (supports Sitelinks Searchbox). Tool detail pages have `SoftwareApplication` (with `offers`, `operatingSystem`, `datePublished`, `dateModified`) + `BreadcrumbList`. Badge pages have `BreadcrumbList`. About page has `Organization`. Badge info page (`/badge`) has `FAQPage` + `HowTo`. Blog list page has `Blog` + `BreadcrumbList`. Blog post pages have `BlogPosting` + `BreadcrumbList`. Category pages have `CollectionPage` (with `ItemList` mainEntity) + `BreadcrumbList`.
 - **SEO — Meta tags**: Layout includes `og:site_name`, `og:locale`, `twitter:site` (`@nologin_tools`), explicit `twitter:title`/`twitter:description`/`twitter:image`, `og:image:width`/`og:image:height`/`og:image:alt`, `theme-color` (`#22c55e`), `<link rel="sitemap">`, and `<link rel="preconnect">` for Google Fonts.
 - **SEO — Security headers**: `public/_headers` sets `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (no camera/mic/geo).
 - **SEO — Cache-Control**: `public/_headers` sets long-term cache for static assets: `/_astro/*` (1 year, immutable), `/blog/images/*` (30 days), `/favicon.svg`, `/og-default.png`, `/badges/*` (7 days each).
@@ -225,7 +230,10 @@ workers/cron/             # Health checks, badge detection, data export
 - **SEO — Sitemap image extension**: `sitemap.xml.ts` includes `xmlns:image` namespace and `<image:image>` tags for tool pages (OG images) and blog posts (hero images).
 - **SEO — Blog OG images**: Blog posts with `heroImageQuery` use `/blog/images/{slug}/hero.jpg` as OG image instead of default. Multi-language posts use `originalSlug` to find the hero image.
 - **SEO — Breadcrumbs**: Tool detail pages and badge detail pages have visible HTML `<nav aria-label="Breadcrumb">` with structured `<ol>` lists. Tool: Home > {name}. Badge: Home > {name} > Verified/Pending.
-- **SEO — Accessibility**: Header nav elements have `aria-label` ("Main navigation" / "Mobile navigation"). Homepage category navigation has `aria-label` ("Category navigation").
+- **SEO — Accessibility**: Header nav elements have `aria-label` ("Main navigation" / "Mobile navigation") and `aria-current="page"` on active nav items. Homepage category navigation has `aria-label` ("Category navigation"). Footer links wrapped in `<nav aria-label="Footer navigation">`.
+- **SEO — apple-touch-icon**: `public/apple-touch-icon.png` (180×180) linked in Layout `<head>` for iOS home screen.
+- **SEO — Blog article:tag**: Blog post pages include `<meta property="article:tag">` for each tag from frontmatter.
+- **SEO — Category pages**: `/category/[slug]` landing pages for each of the 11 TAG_DEFINITIONS categories (AI, Design, etc.). Category slug utilities (`categoryToSlug`, `slugToCategory`) in `src/lib/tags.ts`. Homepage category headings link to category pages via "View all →". Category pages included in sitemap with priority 0.7. Tests: `node --test scripts/__tests__/category-pages.test.mjs` (9 cases).
 
 ## i18n (Internationalization)
 

@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  category: string;
+}
+
+const { locale, category } = Astro.props;
+await loadTranslations(locale);
+
+const approvedTools = getApprovedTools();
+
+const categoryTools = approvedTools
+  .filter((tool) => tool.tags.some((tag) => tag.tagKey === 'category' && tag.tagValue === category))
+  .map((tool) => {
+    const health = getToolHealthStatus(tool);
+    const score = computeToolScore(tool, health);
+    return { ...tool, health, score };
+  })
+  .sort((a, b) => b.score - a.score);
+
+const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+const allCategories = categoryDef ? categoryDef.values : [];
+
+function getHostname(url: string): string {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+}
+
+function translateCategory(cat: string): string {
+  const key = `tag.category.${cat}`;
+  const translated = t(locale, key);
+  return translated === key ? cat : translated;
+}
+
+const translatedCategory = translateCategory(category);
+const pageTitle = t(locale, 'category.page.title', { category: translatedCategory });
+const pageDescription = t(locale, 'category.page.description', { category: translatedCategory });
+
+const collectionLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: pageTitle,
+  description: pageDescription,
+  url: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(category)}`, locale)}`,
+  mainEntity: {
+    '@type': 'ItemList',
+    name: t(locale, 'category.page.heading', { category: translatedCategory }),
+    numberOfItems: categoryTools.length,
+    itemListElement: categoryTools.map((tool, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: tool.name,
+      url: `https://nologin.tools/tool/${tool.slug}`,
+    })),
+  },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: 'https://nologin.tools' },
+    { '@type': 'ListItem', position: 2, name: t(locale, 'category.page.heading', { category: translatedCategory }), item: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(category)}`, locale)}` },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">
+          {t(locale, 'category.page.heading', { category: translatedCategory })}
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-12 border-b-4 border-neutral-900 pb-6">
+      <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight uppercase italic">
+        {t(locale, 'category.page.heading', { category: translatedCategory })}
+      </h1>
+      <p class="mt-2 text-sm text-neutral-500 font-bold uppercase tracking-wider">
+        {t(locale, 'category.page.toolCount', { count: categoryTools.length })}
+      </p>
+    </header>
+
+    <!-- Category Navigation -->
+    <nav class="mb-12 text-sm text-retro-mono" aria-label="Category navigation">
+      <div class="flex flex-wrap gap-x-3 gap-y-2">
+        {allCategories.map((cat) => (
+          <a
+            href={getLocalizedPath(`/category/${categoryToSlug(cat)}`, locale)}
+            aria-current={cat === category ? 'page' : undefined}
+            class:list={[
+              'px-2 py-1 border uppercase font-bold transition-all',
+              cat === category
+                ? 'border-neutral-900 bg-neutral-900 text-white'
+                : 'border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white',
+            ]}
+          >
+            {translateCategory(cat)}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Tool List -->
+    <ul>
+      {categoryTools.map((tool) => {
+        const hostname = getHostname(tool.url);
+        return (
+          <li class="tool-item group">
+            <div class="flex items-start gap-3 min-w-0 flex-1">
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
+                alt=""
+                width="16"
+                height="16"
+                class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
+                loading="lazy"
+                onerror={`this.style.display='none'`}
+              />
+              <div class="min-w-0 flex flex-col flex-1">
+                <div class="flex items-center gap-2 min-w-0">
+                  {tool.isFeatured && (
+                    <span class="text-yellow-600 shrink-0 text-xs" title={t(locale, 'common.featured')}>★</span>
+                  )}
+                  <a
+                    href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                    class="font-bold text-lg text-neutral-900 hover:underline decoration-2 underline-offset-4"
+                  >
+                    {tool.name}
+                  </a>
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-neutral-400 hover:text-neutral-600 text-xs font-mono transition-colors hidden sm:inline"
+                  >
+                    ({hostname})
+                  </a>
+                </div>
+                {getLocalizedDescription(tool, locale) && (
+                  <p class="text-neutral-600 text-sm">
+                    {getLocalizedDescription(tool, locale)}
+                  </p>
+                )}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+
+    <!-- Browse All -->
+    <div class="mt-12 pt-8 border-t border-neutral-200">
+      <a
+        href={getLocalizedPath('/', locale)}
+        class="text-sm font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+      >
+        ← {t(locale, 'category.page.browseAll')}
+      </a>
+    </div>
+  </div>
+</Layout>

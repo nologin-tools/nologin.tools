@@ -1,0 +1,20 @@
+---
+import CategoryPage from '../../../components/CategoryPage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+import { TAG_DEFINITIONS, categoryToSlug } from '../../../lib/tags';
+
+export function getStaticPaths() {
+  const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+  if (!categoryDef) return [];
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>
+    categoryDef.values.map((cat) => ({
+      params: { lang, slug: categoryToSlug(cat) },
+      props: { category: cat, locale: lang as Locale },
+    }))
+  );
+}
+
+const { category, locale } = Astro.props;
+---
+
+<CategoryPage locale={locale} category={category} />

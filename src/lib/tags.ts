@@ -61,6 +61,16 @@ export function getAllTagValues(): { key: string; value: string }[] {
   );
 }
 
+export function categoryToSlug(category: string): string {
+  return category.toLowerCase().replace(/\s+/g, '-');
+}
+
+export function slugToCategory(slug: string): string | undefined {
+  const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+  if (!categoryDef) return undefined;
+  return categoryDef.values.find((v) => categoryToSlug(v) === slug);
+}
+
 export function sortTagsCategoryFirst(
   tags: { tagKey: string; tagValue: string }[]
 ): { tagKey: string; tagValue: string }[] {

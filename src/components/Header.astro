@@ -34,6 +34,7 @@ const navItems = [
           return (
             <a
               href={localizedPath}
+              aria-current={isActive ? 'page' : undefined}
               class:list={[
                 'text-xs font-bold uppercase tracking-widest transition-all px-1',
                 isActive
@@ -84,6 +85,7 @@ const navItems = [
       return (
         <a
           href={localizedPath}
+          aria-current={isActive ? 'page' : undefined}
           class:list={[
             'block text-sm font-bold uppercase tracking-widest',
             isActive ? 'text-neutral-900 underline decoration-2' : 'text-neutral-500',

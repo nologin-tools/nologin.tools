@@ -15,25 +15,27 @@ await loadTranslations(locale);
     class="max-w-4xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-8 text-retro-mono"
   >
     <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-xs font-bold uppercase tracking-wider">
-      <a href={getLocalizedPath('/about', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
-        >{t(locale, 'nav.about')}</a
-      >
-      <a
-        href="https://github.com/nologin-tools"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">GitHub</a
-      >
-      <a
-        href="https://x.com/nologin_tools"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">𝕏</a
-      >
-      <a
-        href="/rss.xml"
-        class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">RSS</a
-      >
+      <nav aria-label={t(locale, 'footer.navLabel')} class="contents">
+        <a href={getLocalizedPath('/about', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+          >{t(locale, 'nav.about')}</a
+        >
+        <a
+          href="https://github.com/nologin-tools"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">GitHub</a
+        >
+        <a
+          href="https://x.com/nologin_tools"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">𝕏</a
+        >
+        <a
+          href="/rss.xml"
+          class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">RSS</a
+        >
+      </nav>
       <span class="text-neutral-400">{t(locale, 'footer.mitLicense')}</span>
     </div>
     <div class="text-[10px] text-neutral-400 text-center sm:text-right font-bold uppercase tracking-tighter">

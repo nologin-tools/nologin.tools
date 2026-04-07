@@ -8,6 +8,7 @@
   "nav.bookmark": "Bookmark",
   "nav.bookmarkAlert": "Press {shortcut} to bookmark this site.",
 
+  "footer.navLabel": "Footer navigation",
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "A project by",
@@ -21,6 +22,14 @@
   "common.copyCode": "Copy Code",
   "common.cancel": "Cancel",
   "common.loading": "Loading...",
+
+  "category.page.title": "{category} Tools — No Login Required",
+  "category.page.description": "Discover free {category} tools that work without login or signup.",
+  "category.page.heading": "{category} Tools",
+  "category.page.toolCount": "{count} verified tools",
+  "category.page.allCategories": "All Categories",
+  "category.page.browseAll": "Browse all tools",
+  "category.page.viewAll": "View all →",
 
   "home.title": "Privacy-Friendly Tools Without Login",
   "home.description": "Discover curated privacy-friendly tools that work without login or signup. Browse verified tools across design, development, productivity, and more.",

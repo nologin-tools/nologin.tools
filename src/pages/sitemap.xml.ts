@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { getApprovedTools } from '../data/loader';
+import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
 import {
   buildBlogTranslationMap,
   expandToAllLocales,
@@ -26,6 +27,14 @@ export const GET: APIRoute = async () => {
     { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: staticLastmod },
   ];
+
+  const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
+  const categoryPages: SitemapPage[] = (categoryDef?.values ?? []).map((cat) => ({
+    url: `/category/${categoryToSlug(cat)}`,
+    priority: '0.7',
+    changefreq: 'weekly',
+    lastmod: homepageLastmod,
+  }));
 
   const toolPages: SitemapPage[] = approvedTools.map((t) => ({
     url: `/tool/${t.slug}`,
@@ -63,6 +72,7 @@ export const GET: APIRoute = async () => {
   // Expand all pages to multi-locale entries
   const allPages = [
     ...staticPages,
+    ...categoryPages,
     ...toolPages,
     ...badgePages,
     ...blogListPage,

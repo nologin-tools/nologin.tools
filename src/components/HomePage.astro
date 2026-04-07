@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { TAG_DEFINITIONS } from '../lib/tags';
+import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
 import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
@@ -165,8 +165,16 @@ function translateCategory(cat: string): string {
     <div class="space-y-16">
       {categoryGroups.map((group) => (
         <section id={catAnchor(group.category)} class="scroll-mt-10">
-          <h2 class="category-heading uppercase">
-            {translateCategory(group.category)} <span class="ml-2 text-sm font-normal text-neutral-400">[{group.tools.length}]</span>
+          <h2 class="category-heading uppercase flex items-baseline justify-between">
+            <span>
+              {translateCategory(group.category)} <span class="ml-2 text-sm font-normal text-neutral-400">[{group.tools.length}]</span>
+            </span>
+            <a
+              href={getLocalizedPath(`/category/${categoryToSlug(group.category)}`, locale)}
+              class="text-xs font-bold text-neutral-400 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 normal-case not-italic"
+            >
+              {t(locale, 'category.page.viewAll')}
+            </a>
           </h2>
           <ul class="mt-4">
             {group.tools.map((tool) => {

@@ -107,6 +107,7 @@ const breadcrumbLd = {
   ogImage={ogImageForPost}
   publishedTime={publishedDate}
   modifiedTime={modifiedDate}
+  articleTags={post.data.tags}
   locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(postLd)} />
