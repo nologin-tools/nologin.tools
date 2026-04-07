@@ -169,12 +169,14 @@ function translateCategory(cat: string): string {
             <span>
               {translateCategory(group.category)} <span class="ml-2 text-sm font-normal text-neutral-400">[{group.tools.length}]</span>
             </span>
-            <a
-              href={getLocalizedPath(`/category/${categoryToSlug(group.category)}`, locale)}
-              class="text-xs font-bold text-neutral-400 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 normal-case not-italic"
-            >
-              {t(locale, 'category.page.viewAll')}
-            </a>
+            {group.category !== 'Other' && (
+              <a
+                href={getLocalizedPath(`/category/${categoryToSlug(group.category)}`, locale)}
+                class="text-xs font-bold text-neutral-400 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 normal-case not-italic"
+              >
+                {t(locale, 'category.page.viewAll')}
+              </a>
+            )}
           </h2>
           <ul class="mt-4">
             {group.tools.map((tool) => {
