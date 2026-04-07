@@ -64,6 +64,8 @@ function getPostSlug(postId: string): string {
   return postId.includes('/') ? postId.split('/').slice(1).join('/') : postId;
 }
 
+const wordCount = post.body ? post.body.trim().split(/\s+/).length : undefined;
+
 const postLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -71,8 +73,14 @@ const postLd = {
   description: post.data.description,
   datePublished: publishedDate,
   ...(modifiedDate ? { dateModified: modifiedDate } : {}),
-  url: `https://nologin.tools/blog/${getPostSlug(post.id)}`,
+  url: `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)}`,
   image: `https://nologin.tools${ogImageForPost}`,
+  inLanguage: locale,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)}`,
+  },
+  ...(wordCount ? { wordCount } : {}),
   author: {
     '@type': 'Organization',
     name: post.data.author,
@@ -93,9 +101,9 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: 'https://nologin.tools' },
-    { '@type': 'ListItem', position: 2, name: t(locale, 'blog.title'), item: 'https://nologin.tools/blog' },
-    { '@type': 'ListItem', position: 3, name: post.data.title, item: `https://nologin.tools/blog/${getPostSlug(post.id)}` },
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
+    { '@type': 'ListItem', position: 2, name: t(locale, 'blog.title'), item: `https://nologin.tools${getLocalizedPath('/blog', locale)}` },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)}` },
   ],
 };
 ---

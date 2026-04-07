@@ -59,7 +59,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
         const redirectUrl = new URL(`/${targetLocale}${pathname === '/' ? '' : pathname}`, url);
         return new Response(null, {
           status: 302,
-          headers: { Location: redirectUrl.pathname + url.search },
+          headers: {
+            Location: redirectUrl.pathname + url.search,
+            Vary: 'Accept-Language',
+          },
         });
       }
     }

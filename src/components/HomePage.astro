@@ -73,6 +73,7 @@ function translateCategory(cat: string): string {
     "@type": "WebSite",
     "name": "nologin.tools",
     "url": "https://nologin.tools",
+    "inLanguage": locale,
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://nologin.tools/?q={search_term_string}",
@@ -85,11 +86,12 @@ function translateCategory(cat: string): string {
     "@type": "ItemList",
     "name": t(locale, 'home.jsonLd.itemListName'),
     "numberOfItems": allTools.length,
+    "inLanguage": locale,
     "itemListElement": allTools.map((tool, i) => ({
       "@type": "ListItem",
       "position": i + 1,
       "name": tool.name,
-      "url": `https://nologin.tools/tool/${tool.slug}`,
+      "url": `https://nologin.tools${getLocalizedPath(`/tool/${tool.slug}`, locale)}`,
     })),
   })} />
 

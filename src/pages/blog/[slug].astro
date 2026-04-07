@@ -37,6 +37,8 @@ const related = allPosts
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
   .slice(0, 3);
 
+const wordCount = post.body ? post.body.trim().split(/\s+/).length : undefined;
+
 const postLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -46,6 +48,12 @@ const postLd = {
   ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   url: `https://nologin.tools/blog/${post.id}`,
   image: `https://nologin.tools${ogImageForPost}`,
+  inLanguage: 'en',
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://nologin.tools/blog/${post.id}`,
+  },
+  ...(wordCount ? { wordCount } : {}),
   author: {
     '@type': 'Organization',
     name: post.data.author,

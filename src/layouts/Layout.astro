@@ -13,6 +13,7 @@ interface Props {
   ogImagePath?: string;
   bare?: boolean;
   hideHeader?: boolean;
+  noindex?: boolean;
   canonicalOverride?: string;
   publishedTime?: string;
   modifiedTime?: string;
@@ -28,6 +29,7 @@ const {
   ogImagePath,
   bare = false,
   hideHeader = false,
+  noindex = false,
   canonicalOverride,
   publishedTime,
   modifiedTime,
@@ -77,6 +79,7 @@ const hreflangLinks = LOCALES.map((l) => ({
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex" />}
     {hreflangLinks.map(({ locale: l, href }) => (
       <link rel="alternate" hreflang={l} href={href} />
     ))}

@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TagPicker from './TagPicker.astro';
-import { t, loadTranslations } from '../i18n/utils';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 
 interface Props {
@@ -17,7 +17,29 @@ await loadTranslations(locale);
   description={t(locale, 'submit.description')}
   locale={locale}
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
+      { '@type': 'ListItem', position: 2, name: t(locale, 'submit.heading'), item: `https://nologin.tools${getLocalizedPath('/submit', locale)}` },
+    ],
+  })} />
+
   <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">{t(locale, 'submit.heading')}</li>
+      </ol>
+    </nav>
+
     <div class="text-center mb-12 sm:mb-16">
       <h1 class="text-2xl font-bold tracking-tight text-neutral-900 mb-4">{t(locale, 'submit.heading')}</h1>
       <p class="text-base text-neutral-500 max-w-xl mx-auto leading-relaxed">

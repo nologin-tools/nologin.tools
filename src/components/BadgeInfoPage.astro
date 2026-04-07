@@ -19,6 +19,7 @@ await loadTranslations(locale);
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: locale,
     mainEntity: [
       {
         '@type': 'Question',
@@ -57,6 +58,7 @@ await loadTranslations(locale);
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'HowTo',
+    inLanguage: locale,
     name: t(locale, 'badge.howToName'),
     description: t(locale, 'badge.joinDesc'),
     step: [

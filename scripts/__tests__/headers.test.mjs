@@ -100,4 +100,14 @@ describe('_headers file', () => {
     const ogBlock = blocks.find((b) => b.path === '/og-default.png');
     assert.ok(ogBlock, '/og-default.png block should exist');
   });
+
+  it('/* has Vary: Accept-Language header', () => {
+    content = readFileSync(headersPath, 'utf-8');
+    blocks = parseHeaders(content);
+    const globalBlock = blocks.find((b) => b.path === '/*');
+    assert.ok(globalBlock, '/* block should exist');
+    const varyHeader = globalBlock.headers.find((h) => h.startsWith('Vary:'));
+    assert.ok(varyHeader, 'Vary header should exist');
+    assert.ok(varyHeader.includes('Accept-Language'), 'Vary should include Accept-Language');
+  });
 });

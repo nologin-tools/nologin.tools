@@ -47,6 +47,7 @@ const collectionLd = {
   name: pageTitle,
   description: pageDescription,
   url: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(category)}`, locale)}`,
+  inLanguage: locale,
   mainEntity: {
     '@type': 'ItemList',
     name: t(locale, 'category.page.heading', { category: translatedCategory }),
@@ -55,7 +56,7 @@ const collectionLd = {
       '@type': 'ListItem',
       position: i + 1,
       name: tool.name,
-      url: `https://nologin.tools/tool/${tool.slug}`,
+      url: `https://nologin.tools${getLocalizedPath(`/tool/${tool.slug}`, locale)}`,
     })),
   },
 };
@@ -64,7 +65,7 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: 'https://nologin.tools' },
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
     { '@type': 'ListItem', position: 2, name: t(locale, 'category.page.heading', { category: translatedCategory }), item: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(category)}`, locale)}` },
   ],
 };
