@@ -60,8 +60,8 @@
   "tag.faq.q3": "How are {tag} tools verified?",
   "tag.faq.a3": "Each tool is manually tested by the nologin.tools team to confirm that its core features work without creating an account. We also run automated health checks to ensure tools remain accessible.",
 
-  "home.title": "Privacy-Friendly Tools Without Login",
-  "home.description": "Discover curated privacy-friendly tools that work without login or signup. Browse verified tools across design, development, productivity, and more.",
+  "home.title": "No-Login Tools — Free, Private, No Signup Needed",
+  "home.description": "Find {count}+ verified no-login tools for design, AI, development, writing and more. Every tool works instantly without creating an account. 100% free and private.",
   "home.tagline": "Privacy-friendly tools.",
   "home.taglineHighlight": "No login required.",
   "home.toolsVerified": "{count} Tools Verified",

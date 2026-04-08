@@ -11,71 +11,90 @@ import { getLocalizedDescription, getLocalizedCoreTask, type BuildDataTool } fro
 
 const { slug, lang } = Astro.params;
 const locale = lang as Locale;
-const db = getDb(Astro.locals.runtime.env.DB);
 
-// Fetch tool
-const [tool] = await db
-  .select()
-  .from(tools)
-  .where(eq(tools.slug, slug!))
-  .limit(1);
-
-if (!tool) {
-  return Astro.redirect('/404');
-}
-
-// Fetch tags
-const toolTags = await db
-  .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
-  .from(tags)
-  .where(eq(tags.toolId, tool.id));
-
-// Fetch recent health checks for tolerance
-const recentChecks = await db
-  .select({
-    isOnline: healthChecks.isOnline,
-    httpStatus: healthChecks.httpStatus,
-    responseTimeMs: healthChecks.responseTimeMs,
-    checkedAt: healthChecks.checkedAt,
-  })
-  .from(healthChecks)
-  .where(eq(healthChecks.toolId, tool.id))
-  .orderBy(desc(healthChecks.checkedAt))
-  .limit(HEALTH_TOLERANCE);
-
-// Fetch health history (last 14 days)
-const fourteenDaysAgo = new Date(Date.now() - 14 * 86400000);
-const healthHistory = await db
-  .select({
-    checkedAt: healthChecks.checkedAt,
-    isOnline: healthChecks.isOnline,
-  })
-  .from(healthChecks)
-  .where(
-    sql`${healthChecks.toolId} = ${tool.id} AND ${healthChecks.checkedAt} > ${Math.floor(fourteenDaysAgo.getTime() / 1000)}`
-  )
-  .orderBy(desc(healthChecks.checkedAt));
-
-// Fetch related tools (same category)
-const categoryTag = toolTags.find(t => t.tagKey === 'category');
+let tool: any;
+let toolTags: { tagKey: string; tagValue: string }[] = [];
+let recentChecks: any[] = [];
+let healthHistory: any[] = [];
 let relatedTools: { slug: string; name: string; url: string; description: string | null }[] = [];
-if (categoryTag) {
-  const relatedToolIds = await db
-    .select({ toolId: tags.toolId })
-    .from(tags)
-    .where(and(eq(tags.tagKey, 'category'), eq(tags.tagValue, categoryTag.tagValue)));
-  const relatedIds = relatedToolIds.map(r => r.toolId).filter(id => id !== tool.id);
-  if (relatedIds.length > 0) {
-    const related = await db
-      .select({ slug: tools.slug, name: tools.name, url: tools.url, description: tools.description })
-      .from(tools)
-      .where(and(eq(tools.status, 'approved'), inArray(tools.id, relatedIds)))
-      .limit(6);
-    relatedTools = related.map(rt => ({
-      ...rt,
-      description: getLocalizedDescription(rt as unknown as BuildDataTool, locale),
-    }));
+
+try {
+  const db = getDb(Astro.locals.runtime.env.DB);
+
+  // Fetch tool
+  const [result] = await db
+    .select()
+    .from(tools)
+    .where(eq(tools.slug, slug!))
+    .limit(1);
+
+  tool = result;
+
+  if (!tool) {
+    return new Response('<html><head><meta name="robots" content="noindex"><title>404 Not Found</title></head><body>Not Found</body></html>', {
+      status: 404,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    });
   }
+
+  // Fetch tags
+  toolTags = await db
+    .select({ tagKey: tags.tagKey, tagValue: tags.tagValue })
+    .from(tags)
+    .where(eq(tags.toolId, tool.id));
+
+  // Fetch recent health checks for tolerance
+  recentChecks = await db
+    .select({
+      isOnline: healthChecks.isOnline,
+      httpStatus: healthChecks.httpStatus,
+      responseTimeMs: healthChecks.responseTimeMs,
+      checkedAt: healthChecks.checkedAt,
+    })
+    .from(healthChecks)
+    .where(eq(healthChecks.toolId, tool.id))
+    .orderBy(desc(healthChecks.checkedAt))
+    .limit(HEALTH_TOLERANCE);
+
+  // Fetch health history (last 14 days)
+  const fourteenDaysAgo = new Date(Date.now() - 14 * 86400000);
+  healthHistory = await db
+    .select({
+      checkedAt: healthChecks.checkedAt,
+      isOnline: healthChecks.isOnline,
+    })
+    .from(healthChecks)
+    .where(
+      sql`${healthChecks.toolId} = ${tool.id} AND ${healthChecks.checkedAt} > ${Math.floor(fourteenDaysAgo.getTime() / 1000)}`
+    )
+    .orderBy(desc(healthChecks.checkedAt));
+
+  // Fetch related tools (same category)
+  const categoryTag = toolTags.find(t => t.tagKey === 'category');
+  if (categoryTag) {
+    const relatedToolIds = await db
+      .select({ toolId: tags.toolId })
+      .from(tags)
+      .where(and(eq(tags.tagKey, 'category'), eq(tags.tagValue, categoryTag.tagValue)));
+    const relatedIds = relatedToolIds.map(r => r.toolId).filter(id => id !== tool.id);
+    if (relatedIds.length > 0) {
+      const related = await db
+        .select({ slug: tools.slug, name: tools.name, url: tools.url, description: tools.description })
+        .from(tools)
+        .where(and(eq(tools.status, 'approved'), inArray(tools.id, relatedIds)))
+        .limit(6);
+      relatedTools = related.map(rt => ({
+        ...rt,
+        description: getLocalizedDescription(rt as unknown as BuildDataTool, locale),
+      }));
+    }
+  }
+} catch (err) {
+  console.error('[ssr] tool page error:', err);
+  return new Response('Internal Server Error', {
+    status: 502,
+    headers: { 'Content-Type': 'text/plain' },
+  });
 }
 ---
 

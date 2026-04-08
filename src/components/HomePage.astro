@@ -64,7 +64,7 @@ function translateCategory(cat: string): string {
 
 <Layout
   title={t(locale, 'home.title')}
-  description={t(locale, 'home.description')}
+  description={t(locale, 'home.description', { count: String(approvedTools.length) })}
   hideHeader
   locale={locale}
 >

@@ -25,6 +25,15 @@ export const onRequest = defineMiddleware(async (context, next) => {
     });
   }
 
+  // Trailing slash normalization: /path/ → /path (301, GET only to avoid breaking POST forms)
+  if (request.method === 'GET' && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
+    const cleanPath = pathname.replace(/\/+$/, '');
+    return new Response(null, {
+      status: 301,
+      headers: { Location: cleanPath + url.search },
+    });
+  }
+
   // Accept-Language redirect for paths without locale prefix
   if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
     const firstSegment = pathname.split('/').filter(Boolean)[0];
