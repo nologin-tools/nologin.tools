@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { getApprovedTools } from '../data/loader';
-import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
+import { TAG_DEFINITIONS, categoryToSlug, TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../lib/tags';
 import {
   buildBlogTranslationMap,
   expandToAllLocales,
@@ -32,6 +32,13 @@ export const GET: APIRoute = async () => {
   const categoryPages: SitemapPage[] = (categoryDef?.values ?? []).map((cat) => ({
     url: `/category/${categoryToSlug(cat)}`,
     priority: '0.7',
+    changefreq: 'weekly',
+    lastmod: homepageLastmod,
+  }));
+
+  const tagPages: SitemapPage[] = TAG_PAGES_ALLOWLIST.map((item) => ({
+    url: `/tag/${tagValueToSlug(item.value)}`,
+    priority: '0.6',
     changefreq: 'weekly',
     lastmod: homepageLastmod,
   }));
@@ -73,6 +80,7 @@ export const GET: APIRoute = async () => {
   const allPages = [
     ...staticPages,
     ...categoryPages,
+    ...tagPages,
     ...toolPages,
     ...badgePages,
     ...blogListPage,

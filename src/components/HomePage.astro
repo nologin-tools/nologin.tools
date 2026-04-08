@@ -252,6 +252,23 @@ function translateCategory(cat: string): string {
         </section>
       ))}
     </div>
+
+    <!-- FAQ -->
+    <section class="mt-16 border-t border-neutral-200 pt-8">
+      <h2 class="text-lg font-bold text-neutral-900 mb-6 uppercase">{t(locale, 'home.faq.heading')}</h2>
+      <dl class="space-y-4">
+        {[
+          { q: t(locale, 'home.faq.q1'), a: t(locale, 'home.faq.a1') },
+          { q: t(locale, 'home.faq.q2'), a: t(locale, 'home.faq.a2') },
+          { q: t(locale, 'home.faq.q3'), a: t(locale, 'home.faq.a3') },
+        ].map((faq) => (
+          <div>
+            <dt class="text-sm font-bold text-neutral-700">{faq.q}</dt>
+            <dd class="mt-1 text-sm text-neutral-500">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   </div>
 
 </Layout>

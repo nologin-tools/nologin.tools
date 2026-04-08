@@ -1,0 +1,15 @@
+---
+import TagPage from '../../components/TagPage.astro';
+import { TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../../lib/tags';
+
+export function getStaticPaths() {
+  return TAG_PAGES_ALLOWLIST.map((item) => ({
+    params: { slug: tagValueToSlug(item.value) },
+    props: { tagKey: item.key, tagValue: item.value },
+  }));
+}
+
+const { tagKey, tagValue } = Astro.props;
+---
+
+<TagPage locale="en" tagKey={tagKey} tagValue={tagValue} />

@@ -1,0 +1,18 @@
+---
+import TagPage from '../../../components/TagPage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+import { TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../../../lib/tags';
+
+export function getStaticPaths() {
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>
+    TAG_PAGES_ALLOWLIST.map((item) => ({
+      params: { lang, slug: tagValueToSlug(item.value) },
+      props: { tagKey: item.key, tagValue: item.value, locale: lang as Locale },
+    }))
+  );
+}
+
+const { tagKey, tagValue, locale } = Astro.props;
+---
+
+<TagPage locale={locale} tagKey={tagKey} tagValue={tagValue} />

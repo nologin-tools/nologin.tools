@@ -42,7 +42,9 @@ function getLocalizedPath(path, locale) {
   if (locale === DEFAULT_LOCALE) {
     return cleanPath;
   }
-  return `/${locale}${cleanPath}`;
+  // Avoid trailing slash: /zh/ → /zh
+  const localized = `/${locale}${cleanPath}`;
+  return localized.endsWith('/') && localized.length > 1 ? localized.slice(0, -1) : localized;
 }
 
 // --- getPathWithoutLocale() ---
@@ -161,7 +163,7 @@ describe('getLocalizedPath()', () => {
   });
 
   it('handles root path for non-default locale', () => {
-    assert.equal(getLocalizedPath('/', 'ja'), '/ja/');
+    assert.equal(getLocalizedPath('/', 'ja'), '/ja');
   });
 
   it('handles root path for default locale', () => {

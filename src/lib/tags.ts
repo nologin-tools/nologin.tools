@@ -71,6 +71,33 @@ export function slugToCategory(slug: string): string | undefined {
   return categoryDef.values.find((v) => categoryToSlug(v) === slug);
 }
 
+// Tag values that get their own landing page.
+// Excludes: reverse tags (Online Only, Cloud Only, Server-Side), overly broad (Web App),
+// thin content (Browser Extension <3 tools), and zero-tool values (CLI, Desktop App).
+export const TAG_PAGES_ALLOWLIST: { key: string; value: string }[] = [
+  { key: 'pricing', value: 'Free' },
+  { key: 'data', value: 'Client-Side Only' },
+  { key: 'privacy', value: 'Privacy Focused' },
+  { key: 'hosting', value: 'Self-Hostable' },
+  { key: 'pricing', value: 'Freemium' },
+  { key: 'privacy', value: 'No Trackers' },
+  { key: 'offline', value: 'Works Offline' },
+  { key: 'pricing', value: 'Ad-Supported' },
+  { key: 'type', value: 'PWA' },
+];
+
+export function tagValueToSlug(value: string): string {
+  return value.toLowerCase().replace(/\s+/g, '-');
+}
+
+export function slugToTagInfo(slug: string): { key: string; value: string } | undefined {
+  return TAG_PAGES_ALLOWLIST.find((t) => tagValueToSlug(t.value) === slug);
+}
+
+export function isTagPageAllowed(key: string, value: string): boolean {
+  return TAG_PAGES_ALLOWLIST.some((t) => t.key === key && t.value === value);
+}
+
 export function sortTagsCategoryFirst(
   tags: { tagKey: string; tagValue: string }[]
 ): { tagKey: string; tagValue: string }[] {

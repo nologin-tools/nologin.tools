@@ -88,7 +88,9 @@ export function getLocalizedPath(path: string, locale: Locale): string {
   if (locale === DEFAULT_LOCALE) {
     return cleanPath;
   }
-  return `/${locale}${cleanPath}`;
+  // Avoid trailing slash: /zh/ → /zh
+  const localized = `/${locale}${cleanPath}`;
+  return localized.endsWith('/') && localized.length > 1 ? localized.slice(0, -1) : localized;
 }
 
 /**
