@@ -3,7 +3,7 @@ export const prerender = false;
 
 import { getDb } from '../../../../db';
 import { tools, tags, healthChecks } from '../../../../db/schema';
-import { eq, desc, sql } from 'drizzle-orm';
+import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { HEALTH_TOLERANCE } from '../../../../lib/health';
 import ToolDetailPage from '../../../../components/ToolDetailPage.astro';
 import type { Locale } from '../../../../i18n/config';
@@ -55,6 +55,28 @@ const healthHistory = await db
     sql`${healthChecks.toolId} = ${tool.id} AND ${healthChecks.checkedAt} > ${Math.floor(fourteenDaysAgo.getTime() / 1000)}`
   )
   .orderBy(desc(healthChecks.checkedAt));
+
+// Fetch related tools (same category)
+const categoryTag = toolTags.find(t => t.tagKey === 'category');
+let relatedTools: { slug: string; name: string; url: string; description: string | null }[] = [];
+if (categoryTag) {
+  const relatedToolIds = await db
+    .select({ toolId: tags.toolId })
+    .from(tags)
+    .where(and(eq(tags.tagKey, 'category'), eq(tags.tagValue, categoryTag.tagValue)));
+  const relatedIds = relatedToolIds.map(r => r.toolId).filter(id => id !== tool.id);
+  if (relatedIds.length > 0) {
+    const related = await db
+      .select({ slug: tools.slug, name: tools.name, url: tools.url, description: tools.description })
+      .from(tools)
+      .where(and(eq(tools.status, 'approved'), inArray(tools.id, relatedIds)))
+      .limit(6);
+    relatedTools = related.map(rt => ({
+      ...rt,
+      description: getLocalizedDescription(rt as unknown as BuildDataTool, locale),
+    }));
+  }
+}
 ---
 
 <ToolDetailPage
@@ -64,4 +86,5 @@ const healthHistory = await db
   healthHistory={healthHistory}
   slug={slug!}
   locale={locale}
+  relatedTools={relatedTools}
 />

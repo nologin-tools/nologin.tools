@@ -37,9 +37,10 @@ interface Props {
   healthHistory: { isOnline: boolean; checkedAt: Date }[];
   slug: string;
   locale?: Locale;
+  relatedTools?: { slug: string; name: string; url: string; description: string | null }[];
 }
 
-const { tool, toolTags, recentChecks, healthHistory, slug, locale = DEFAULT_LOCALE } = Astro.props;
+const { tool, toolTags, recentChecks, healthHistory, slug, locale = DEFAULT_LOCALE, relatedTools = [] } = Astro.props;
 await loadTranslations(locale);
 
 const effectiveStatus = resolveEffectiveStatus(recentChecks);
@@ -124,6 +125,24 @@ const breadcrumbLd = {
     { '@type': 'ListItem', position: 2, name: tool.name, item: `https://nologin.tools${getLocalizedPath(`/tool/${slug}`, locale)}` },
   ],
 };
+
+const faqLd = isVerified ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale,
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: t(locale, 'tool.faq.q1', { name: tool.name }),
+      acceptedAnswer: { '@type': 'Answer', text: t(locale, 'tool.faq.a1', { name: tool.name }) },
+    },
+    {
+      '@type': 'Question',
+      name: t(locale, 'tool.faq.q2', { name: tool.name }),
+      acceptedAnswer: { '@type': 'Answer', text: t(locale, 'tool.faq.a2', { name: tool.name, coreTask: tool.coreTask }) },
+    },
+  ],
+} : null;
 ---
 
 <Layout
@@ -137,6 +156,7 @@ const breadcrumbLd = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <!-- Breadcrumb -->
@@ -350,6 +370,38 @@ const breadcrumbLd = {
           <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-sm text-blue-600 hover:underline">
             {isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')} &rarr;
           </a>
+        </div>
+      )}
+
+      {/* Related Tools */}
+      {relatedTools.length > 0 && (
+        <div class="border-t border-neutral-100 pt-8">
+          <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.relatedTools')}</h2>
+          <div class="space-y-3">
+            {relatedTools.map((rt) => (
+              <div class="flex items-start gap-3 py-2">
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${new URL(rt.url).hostname}&sz=32`}
+                  alt=""
+                  width="16"
+                  height="16"
+                  class="w-4 h-4 object-contain mt-0.5 shrink-0"
+                  loading="lazy"
+                  onerror={`this.style.display='none'`}
+                />
+                <div class="min-w-0">
+                  <span class="text-sm">
+                    <a href={getLocalizedPath(`/tool/${rt.slug}`, locale)} class="font-bold text-neutral-900 hover:underline">{rt.name}</a>
+                    <span class="text-neutral-400 mx-1">&mdash;</span>
+                    <span class="text-neutral-400">{new URL(rt.url).hostname}</span>
+                  </span>
+                  {rt.description && (
+                    <p class="text-sm text-neutral-500 mt-0.5 line-clamp-1">{rt.description}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

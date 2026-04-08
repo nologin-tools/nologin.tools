@@ -74,7 +74,12 @@ const postLd = {
   datePublished: publishedDate,
   ...(modifiedDate ? { dateModified: modifiedDate } : {}),
   url: `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)}`,
-  image: `https://nologin.tools${ogImageForPost}`,
+  image: {
+    '@type': 'ImageObject',
+    url: `https://nologin.tools${ogImageForPost}`,
+    width: 1200,
+    height: 630,
+  },
   inLanguage: locale,
   mainEntityOfPage: {
     '@type': 'WebPage',

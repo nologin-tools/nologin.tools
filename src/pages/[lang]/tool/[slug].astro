@@ -1,5 +1,5 @@
 ---
-import { getAllTools, getLocalizedDescription, getLocalizedCoreTask } from '../../../data/loader';
+import { getAllTools, getLocalizedDescription, getLocalizedCoreTask, getRelatedTools } from '../../../data/loader';
 import ToolDetailPage from '../../../components/ToolDetailPage.astro';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 
@@ -55,6 +55,14 @@ const healthHistory = tool.healthHistory.map((h: any) => ({
   isOnline: h.isOnline,
   checkedAt: new Date(h.checkedAt),
 }));
+
+const categoryTag = tool.tags.find((t: any) => t.tagKey === 'category')?.tagValue;
+const related = getRelatedTools(tool.slug, categoryTag).map((rt) => ({
+  slug: rt.slug,
+  name: rt.name,
+  url: rt.url,
+  description: getLocalizedDescription(rt, locale),
+}));
 ---
 
 <ToolDetailPage
@@ -64,4 +72,5 @@ const healthHistory = tool.healthHistory.map((h: any) => ({
   healthHistory={healthHistory}
   slug={tool.slug}
   locale={locale}
+  relatedTools={related}
 />

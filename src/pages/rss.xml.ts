@@ -28,12 +28,18 @@ export const GET: APIRoute = async () => {
       const enclosure = post.data.heroImageQuery
         ? `\n      <enclosure url="${escapeXml(`${siteUrl}/blog/images/${post.id}/hero.jpg`)}" length="0" type="image/jpeg" />`
         : '';
+      const categories = (post.data.tags || [])
+        .map((tag: string) => `\n      <category>${escapeXml(tag)}</category>`)
+        .join('');
+      const author = post.data.author ? `\n      <dc:creator>${escapeXml(post.data.author)}</dc:creator>` : `\n      <dc:creator>nologin.tools</dc:creator>`;
+      const rawLink = `${siteUrl}/blog/${post.id}`;
+      const contentEncoded = `\n      <content:encoded><![CDATA[<p>${post.data.description}</p><p><a href="${rawLink}">Read more on nologin.tools</a></p>]]></content:encoded>`;
       return `    <item>
       <title>${escapeXml(post.data.title)}</title>
       <link>${link}</link>
       <description>${escapeXml(post.data.description)}</description>
       <pubDate>${toRFC822(post.data.publishedAt)}</pubDate>
-      <guid>${link}</guid>${enclosure}
+      <guid>${link}</guid>${enclosure}${author}${categories}${contentEncoded}
     </item>`;
     })
     .join('\n');
@@ -41,7 +47,7 @@ export const GET: APIRoute = async () => {
   const lastBuildDate = englishPosts.length > 0 ? toRFC822(englishPosts[0].data.publishedAt) : toRFC822(new Date());
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>nologin.tools Blog</title>
     <link>${siteUrl}/blog</link>

@@ -149,6 +149,16 @@ export function computeScore(
   return badgeWeight + freshness + healthScore + featuredBoost;
 }
 
+export function getRelatedTools(currentSlug: string, categoryTag: string | undefined, limit = 6): BuildDataTool[] {
+  if (!categoryTag) return [];
+  return getApprovedTools()
+    .filter(t => t.slug !== currentSlug && t.tags.some(tag => tag.tagKey === 'category' && tag.tagValue === categoryTag))
+    .map(t => ({ tool: t, score: computeScore(t, getToolHealthStatus(t)) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(x => x.tool);
+}
+
 export function getBuildDataGeneratedAt(): string {
   return buildData.generatedAt;
 }

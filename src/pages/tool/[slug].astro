@@ -1,5 +1,5 @@
 ---
-import { getAllTools } from '../../data/loader';
+import { getAllTools, getRelatedTools } from '../../data/loader';
 import ToolDetailPage from '../../components/ToolDetailPage.astro';
 
 export function getStaticPaths() {
@@ -54,6 +54,14 @@ const healthHistory = tool.healthHistory.map((h) => ({
   isOnline: h.isOnline,
   checkedAt: new Date(h.checkedAt),
 }));
+
+const categoryTag = tool.tags.find((t) => t.tagKey === 'category')?.tagValue;
+const related = getRelatedTools(tool.slug, categoryTag).map((rt) => ({
+  slug: rt.slug,
+  name: rt.name,
+  url: rt.url,
+  description: rt.description,
+}));
 ---
 
 <ToolDetailPage
@@ -62,4 +70,5 @@ const healthHistory = tool.healthHistory.map((h) => ({
   recentChecks={recentChecks}
   healthHistory={healthHistory}
   slug={tool.slug}
+  relatedTools={related}
 />

@@ -23,35 +23,23 @@ await loadTranslations(locale);
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is NoLogin Verified?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'NoLogin Verified is a digital trust certificate issued by NoLoginTools.org to web applications that have been manually audited. It guarantees that the core functionality of a tool is accessible without sign-up or login.',
-        },
+        name: t(locale, 'badge.faq.q1'),
+        acceptedAnswer: { '@type': 'Answer', text: t(locale, 'badge.faq.a1') },
       },
       {
         '@type': 'Question',
-        name: 'What does the NoLogin Verified badge mean?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'The badge means the tool has been manually reviewed and confirmed to provide its core functionality without requiring users to create an account or log in. It signals a commitment to privacy and frictionless access.',
-        },
+        name: t(locale, 'badge.faq.q2'),
+        acceptedAnswer: { '@type': 'Answer', text: t(locale, 'badge.faq.a2') },
       },
       {
         '@type': 'Question',
-        name: 'How can I get the NoLogin Verified badge for my tool?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Submit your tool at nologin.tools/submit. Our team will manually review it within approximately 48 hours. If approved, you will receive a unique badge embed code to display on your site.',
-        },
+        name: t(locale, 'badge.faq.q3'),
+        acceptedAnswer: { '@type': 'Answer', text: t(locale, 'badge.faq.a3') },
       },
       {
         '@type': 'Question',
-        name: 'Does displaying the badge affect my ranking on nologin.tools?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. Tools that display the NoLogin Verified SVG badge on their site receive +10 ranking points, while those using a meta tag or link get +5 points. Tools without a badge receive no bonus.',
-        },
+        name: t(locale, 'badge.faq.q4'),
+        acceptedAnswer: { '@type': 'Answer', text: t(locale, 'badge.faq.a4') },
       },
     ],
   })} />
@@ -68,8 +56,28 @@ await loadTranslations(locale);
       { '@type': 'HowToStep', position: 4, name: t(locale, 'badge.step4'), text: t(locale, 'badge.step4') },
     ],
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
+      { '@type': 'ListItem', position: 2, name: t(locale, 'badge.title'), item: `https://nologin.tools${getLocalizedPath('/badge', locale)}` },
+    ],
+  })} />
 
   <div class="max-w-4xl mx-auto px-6 py-16 sm:py-24">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">{t(locale, 'badge.title')}</li>
+      </ol>
+    </nav>
     <!-- Hero -->
     <div class="text-center mb-16">
       <div class="mb-8">
