@@ -26,3 +26,6 @@
 
 /rss.xml
   Cache-Control: public, max-age=3600
+
+/*/rss.xml
+  Cache-Control: public, max-age=3600

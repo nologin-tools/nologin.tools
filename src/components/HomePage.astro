@@ -74,11 +74,6 @@ function translateCategory(cat: string): string {
     "name": "nologin.tools",
     "url": "https://nologin.tools",
     "inLanguage": locale,
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://nologin.tools/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
   })} />
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -218,7 +213,7 @@ function translateCategory(cat: string): string {
                   <div class="flex items-start gap-3 min-w-0 flex-1">
                     <img
                       src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
-                      alt=""
+                      alt={tool.name}
                       width="16"
                       height="16"
                       class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"

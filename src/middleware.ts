@@ -3,8 +3,6 @@ import { defineMiddleware } from 'astro:middleware';
 const ISR_CACHE_TTL = 21600; // 6 hours in seconds
 
 const NON_DEFAULT_LOCALES = ['zh', 'ja', 'ko', 'es', 'fr', 'de', 'pt'];
-const ALL_LOCALES = ['en', ...NON_DEFAULT_LOCALES];
-
 // Match /tool/slug, /badge/slug, /zh/tool/slug, /zh/badge/slug, etc.
 const LOCALE_PREFIX = `(?:\\/(?:${NON_DEFAULT_LOCALES.join('|')}))?`;
 const ISR_REGEX = new RegExp(`^${LOCALE_PREFIX}\\/(?:tool|badge)\\/[^/]+\\/?$`);
@@ -70,7 +68,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   // Only handle GET requests for ISR paths
   if (request.method !== 'GET' || !isISRPath(pathname)) {
-    return next();
+    const response = await next();
+    return withContentLanguage(response, pathname);
   }
 
   // Phase 1: Check Cache API for previously cached SSR responses
@@ -83,11 +82,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
       cacheKey = new Request(url.toString(), { method: 'GET' });
       const cached = await cache.match(cacheKey);
       if (cached) {
-        return new Response(cached.body, {
+        const cachedResp = new Response(cached.body, {
           status: cached.status,
           statusText: cached.statusText,
           headers: new Headers(cached.headers),
         });
+        return withContentLanguage(cachedResp, pathname);
       }
     }
   } catch (err) {
@@ -109,6 +109,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
           const cloned = ssrResponse.clone();
           const headers = new Headers(cloned.headers);
           headers.set('Cache-Control', `public, max-age=${ISR_CACHE_TTL}`);
+          headers.set('Content-Language', getLocaleFromPath(pathname));
 
           const cachedResponse = new Response(cloned.body, {
             status: cloned.status,
@@ -125,15 +126,38 @@ export const onRequest = defineMiddleware(async (context, next) => {
         }
       }
 
-      return ssrResponse;
+      return withContentLanguage(ssrResponse, pathname);
     } catch (err) {
       console.error('[isr] rewrite error:', err);
-      return response; // Return original 404
+      return withContentLanguage(response, pathname); // Return original 404
     }
   }
 
-  return response;
+  return withContentLanguage(response, pathname);
 });
+
+function getLocaleFromPath(pathname: string): string {
+  const firstSegment = pathname.split('/').filter(Boolean)[0];
+  if (firstSegment && NON_DEFAULT_LOCALES.includes(firstSegment)) {
+    return firstSegment;
+  }
+  return 'en';
+}
+
+function withContentLanguage(response: Response, pathname: string): Response {
+  const contentType = response.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    return response;
+  }
+  const locale = getLocaleFromPath(pathname);
+  const newResponse = new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: new Headers(response.headers),
+  });
+  newResponse.headers.set('Content-Language', locale);
+  return newResponse;
+}
 
 function isISRPath(pathname: string): boolean {
   return ISR_REGEX.test(pathname);
