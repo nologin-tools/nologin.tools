@@ -3,19 +3,21 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { t, getLocalizedPath } from '../../i18n/utils';
 import type { Locale } from '../../i18n/config';
+import { buildBlogTranslationMap } from '../../lib/sitemap';
 
 const locale: Locale = 'en';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
+  const blogTranslationMap = buildBlogTranslationMap(posts);
   // Only English (root-level) posts
   return posts.filter(p => !p.id.includes('/')).map((post) => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, availableLocales: blogTranslationMap.get(post.id) || new Set(['en'] as Locale[]) },
   }));
 }
 
-const { post } = Astro.props;
+const { post, availableLocales } = Astro.props;
 const { Content } = await render(post);
 
 function formatDate(date: Date): string {
@@ -100,6 +102,7 @@ const breadcrumbLd = {
   modifiedTime={modifiedDate}
   articleTags={post.data.tags}
   locale={locale}
+  availableLocales={availableLocales}
 >
   <script type="application/ld+json" set:html={JSON.stringify(postLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

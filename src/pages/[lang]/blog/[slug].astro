@@ -3,41 +3,33 @@ import Layout from '../../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 import { t, loadTranslations, getLocalizedPath } from '../../../i18n/utils';
+import { buildBlogTranslationMap } from '../../../lib/sitemap';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
+  const blogTranslationMap = buildBlogTranslationMap(posts);
   const paths: any[] = [];
 
   for (const lang of LOCALES.filter(l => l !== DEFAULT_LOCALE)) {
-    // For each language, get posts: translated version if exists, otherwise English
+    // Only generate pages for posts that have actual translations
     const localePosts = posts.filter(p => p.id.startsWith(`${lang}/`));
-    const englishPosts = posts.filter(p => !p.id.includes('/'));
 
-    // Use locale-specific posts
     for (const post of localePosts) {
       const slug = post.id.split('/').slice(1).join('/');
+      const originalSlug = post.data.originalSlug || slug;
+      const availableLocales = blogTranslationMap.get(originalSlug) || new Set(['en'] as Locale[]);
+
       paths.push({
         params: { lang, slug },
-        props: { post, locale: lang as Locale },
+        props: { post, locale: lang as Locale, availableLocales },
       });
-    }
-
-    // For English posts without a translated version, still generate the page
-    for (const post of englishPosts) {
-      const hasTranslation = localePosts.some(p => p.id === `${lang}/${post.id}`);
-      if (!hasTranslation) {
-        paths.push({
-          params: { lang, slug: post.id },
-          props: { post, locale: lang as Locale },
-        });
-      }
     }
   }
 
   return paths;
 }
 
-const { post, locale } = Astro.props;
+const { post, locale, availableLocales } = Astro.props;
 await loadTranslations(locale);
 const { Content } = await render(post);
 
@@ -55,8 +47,9 @@ const hasHeroImage = !!post.data.heroImageQuery;
 const ogImageForPost = hasHeroImage ? heroImagePath : '/og-default.png';
 
 const allPosts = await getCollection('blog');
+// Only show related posts that exist in the current locale
 const related = allPosts
-  .filter((p) => p.id !== post.id && p.data.tags.some((tag: string) => post.data.tags.includes(tag)))
+  .filter((p) => p.id !== post.id && p.id.startsWith(`${locale}/`) && p.data.tags.some((tag: string) => post.data.tags.includes(tag)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
   .slice(0, 3);
 
@@ -127,6 +120,7 @@ const breadcrumbLd = {
   modifiedTime={modifiedDate}
   articleTags={post.data.tags}
   locale={locale}
+  availableLocales={availableLocales}
 >
   <script type="application/ld+json" set:html={JSON.stringify(postLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

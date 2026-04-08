@@ -19,6 +19,7 @@ interface Props {
   modifiedTime?: string;
   articleTags?: string[];
   locale?: Locale;
+  availableLocales?: Set<Locale>;
 }
 
 const {
@@ -35,6 +36,7 @@ const {
   modifiedTime,
   articleTags = [],
   locale = DEFAULT_LOCALE,
+  availableLocales,
 } = Astro.props;
 
 await loadTranslations(locale);
@@ -55,9 +57,12 @@ const ogImageHeight = ogImagePath ? 630 : 630;
 
 const ogLocale = LOCALE_OG_MAP[locale] || 'en_US';
 
-// Generate hreflang links
+// Generate hreflang links (only for available locales when specified)
 const basePath = getPathWithoutLocale(canonicalOverride || Astro.url.pathname);
-const hreflangLinks = LOCALES.map((l) => ({
+const hreflangLocales = availableLocales
+  ? LOCALES.filter((l) => availableLocales.has(l))
+  : LOCALES;
+const hreflangLinks = hreflangLocales.map((l) => ({
   locale: l,
   href: new URL(getLocalizedPath(basePath, l), 'https://nologin.tools').href,
 }));

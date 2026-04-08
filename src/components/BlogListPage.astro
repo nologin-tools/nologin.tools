@@ -26,11 +26,14 @@ const posts = allPosts
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 // If no posts for this locale, fall back to English
-const displayPosts = posts.length > 0
+const isFallback = posts.length === 0;
+const displayPosts = !isFallback
   ? posts
   : allPosts
       .filter((post) => !post.id.includes('/'))
       .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+// When falling back to English posts, links should use English paths (no locale prefix)
+const linkLocale = isFallback ? 'en' as const : locale;
 
 function formatDate(date: Date): string {
   return date.toISOString().split('T')[0];
@@ -49,7 +52,7 @@ const blogLd = {
     description: post.data.description,
     datePublished: formatDate(post.data.publishedAt),
     ...(post.data.updatedAt ? { dateModified: formatDate(post.data.updatedAt) } : {}),
-    url: `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)}`,
+    url: `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, linkLocale)}`,
     author: {
       '@type': 'Organization',
       name: post.data.author,
@@ -109,7 +112,7 @@ const breadcrumbLd = {
       <ul class="divide-y divide-neutral-200">
         {displayPosts.map((post) => (
           <li class="py-6 first:pt-0">
-            <a href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)} class="group block">
+            <a href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, linkLocale)} class="group block">
               <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
                 <time
                   datetime={formatDate(post.data.publishedAt)}
