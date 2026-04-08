@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "privacy encryption whiteboard digital security"
 ---
 
+![Hero image](/blog/images/excalidraw-privacy-review/hero.jpg)
+
 Think about the last diagram you drew in a collaborative online whiteboard. Maybe it was an architecture sketch for a product you haven't announced. A process map that shows how your team actually operates. A competitor analysis. A fundraising timeline.
 
 That content lives somewhere. On most whiteboard platforms, it lives on their servers — readable by their employees, accessible to legal requests, subject to whatever the privacy policy says. Most people don't consider this until they do.
