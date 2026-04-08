@@ -93,10 +93,13 @@ const postLd = {
   },
   publisher: {
     '@type': 'Organization',
+    '@id': 'https://nologin.tools/#organization',
     name: 'NoLoginTools.org',
     logo: {
       '@type': 'ImageObject',
       url: 'https://nologin.tools/og-default.png',
+      width: 1200,
+      height: 630,
     },
   },
   ...(post.data.tags.length > 0 ? { keywords: post.data.tags.join(', ') } : {}),
@@ -165,9 +168,9 @@ const breadcrumbLd = {
       {post.data.tags.length > 0 && (
         <div class="flex flex-wrap gap-2 mt-4">
           {post.data.tags.map((tag: string) => (
-            <span class="text-xs font-mono text-neutral-500 border border-neutral-200 px-2 py-0.5">
+            <a href={getLocalizedPath(`/blog/tag/${tag.toLowerCase()}`, locale)} class="text-xs font-mono text-neutral-500 border border-neutral-200 px-2 py-0.5 hover:border-neutral-900 hover:text-neutral-900 transition-colors">
               {tag}
-            </span>
+            </a>
           ))}
         </div>
       )}

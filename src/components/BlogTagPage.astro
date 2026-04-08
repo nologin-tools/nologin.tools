@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  tag: string;
+}
+
+const { locale, tag } = Astro.props;
+await loadTranslations(locale);
+
+const allPosts = await getCollection('blog');
+
+// Filter by locale
+const localePosts = allPosts
+  .filter((post) => {
+    if (locale === 'en') return !post.id.includes('/');
+    return post.id.startsWith(`${locale}/`);
+  })
+  .filter((post) => post.data.tags.some((v: string) => v.toLowerCase() === tag))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// Fallback to English if no posts for this locale
+const englishPosts = allPosts
+  .filter((post) => !post.id.includes('/'))
+  .filter((post) => post.data.tags.some((v: string) => v.toLowerCase() === tag))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const displayPosts = localePosts.length > 0 ? localePosts : englishPosts;
+
+// Collect all unique tags from English posts for navigation
+const allEnglishPosts = allPosts.filter((p) => !p.id.includes('/'));
+const allTags = [...new Set(allEnglishPosts.flatMap((p) => p.data.tags.map((v: string) => v.toLowerCase())))].sort();
+
+// Find display name for the tag (preserve original casing from first occurrence)
+const tagDisplayMap = new Map<string, string>();
+for (const post of allEnglishPosts) {
+  for (const v of post.data.tags) {
+    const lower = v.toLowerCase();
+    if (!tagDisplayMap.has(lower)) tagDisplayMap.set(lower, v);
+  }
+}
+const tagDisplay = tagDisplayMap.get(tag) || tag;
+
+function getPostSlug(postId: string): string {
+  return postId.includes('/') ? postId.split('/').slice(1).join('/') : postId;
+}
+
+function formatDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
+const pageTitle = t(locale, 'blogTag.title', { tag: tagDisplay });
+const pageDescription = t(locale, 'blogTag.description', { tag: tagDisplay });
+
+const collectionLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: pageTitle,
+  description: pageDescription,
+  url: `https://nologin.tools${getLocalizedPath(`/blog/tag/${tag}`, locale)}`,
+  inLanguage: locale,
+  mainEntity: {
+    '@type': 'ItemList',
+    name: t(locale, 'blogTag.heading', { tag: tagDisplay }),
+    numberOfItems: displayPosts.length,
+    itemListElement: displayPosts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: post.data.title,
+      url: `https://nologin.tools${getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)}`,
+    })),
+  },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
+    { '@type': 'ListItem', position: 2, name: t(locale, 'blog.title'), item: `https://nologin.tools${getLocalizedPath('/blog', locale)}` },
+    { '@type': 'ListItem', position: 3, name: t(locale, 'blogTag.heading', { tag: tagDisplay }), item: `https://nologin.tools${getLocalizedPath(`/blog/tag/${tag}`, locale)}` },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li>
+          <a href={getLocalizedPath('/blog', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'blog.title')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">
+          {t(locale, 'blogTag.heading', { tag: tagDisplay })}
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-12 border-b-4 border-neutral-900 pb-6">
+      <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight uppercase italic">
+        {t(locale, 'blogTag.heading', { tag: tagDisplay })}
+      </h1>
+      <p class="mt-2 text-sm text-neutral-500 font-bold uppercase tracking-wider">
+        {t(locale, 'blogTag.postCount', { count: displayPosts.length })}
+      </p>
+    </header>
+
+    <!-- Tag Navigation -->
+    <nav class="mb-12 text-sm text-retro-mono" aria-label="Blog tag navigation">
+      <p class="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">{t(locale, 'blogTag.allTags')}</p>
+      <div class="flex flex-wrap gap-x-3 gap-y-2">
+        {allTags.map((tagSlug) => (
+          <a
+            href={getLocalizedPath(`/blog/tag/${tagSlug}`, locale)}
+            aria-current={tagSlug === tag ? 'page' : undefined}
+            class:list={[
+              'px-2 py-1 border uppercase font-bold transition-all',
+              tagSlug === tag
+                ? 'border-neutral-900 bg-neutral-900 text-white'
+                : 'border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white',
+            ]}
+          >
+            {tagDisplayMap.get(tagSlug) || tagSlug}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Post List -->
+    {displayPosts.length === 0 ? (
+      <p class="text-neutral-500">{t(locale, 'blog.noPosts')}</p>
+    ) : (
+      <ul class="divide-y divide-neutral-200">
+        {displayPosts.map((post) => (
+          <li class="py-6 first:pt-0">
+            <a href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)} class="group block">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                <time
+                  datetime={formatDate(post.data.publishedAt)}
+                  class="text-xs text-neutral-400 font-mono shrink-0"
+                >
+                  {formatDate(post.data.publishedAt)}
+                </time>
+                <h2 class="text-lg font-bold text-neutral-900 group-hover:underline decoration-2 underline-offset-4">
+                  {post.data.title}
+                </h2>
+              </div>
+              <p class="text-sm text-neutral-600 mt-2 sm:ml-[calc(10ch+1rem)]">
+                {post.data.description}
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <!-- Browse All -->
+    <div class="mt-12 pt-8 border-t border-neutral-200">
+      <a
+        href={getLocalizedPath('/blog', locale)}
+        class="text-sm font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+      >
+        ← {t(locale, 'blogTag.browseAll')}
+      </a>
+    </div>
+  </div>
+</Layout>

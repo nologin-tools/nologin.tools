@@ -76,6 +76,20 @@ export const GET: APIRoute = async () => {
     imageUrl: post.data.heroImageQuery ? `/blog/images/${post.id}/hero.jpg` : undefined,
   }));
 
+  // Blog tag pages
+  const blogTagSet = new Set<string>();
+  for (const post of englishPosts) {
+    for (const tag of post.data.tags) {
+      blogTagSet.add(tag.toLowerCase());
+    }
+  }
+  const blogTagPages: SitemapPage[] = [...blogTagSet].map((tag) => ({
+    url: `/blog/tag/${tag}`,
+    priority: '0.5',
+    changefreq: 'weekly',
+    lastmod: staticLastmod,
+  }));
+
   // Expand all pages to multi-locale entries
   const allPages = [
     ...staticPages,
@@ -84,6 +98,7 @@ export const GET: APIRoute = async () => {
     ...toolPages,
     ...badgePages,
     ...blogListPage,
+    ...blogTagPages,
   ];
   const allEntries = [
     ...expandToAllLocales(allPages),

@@ -23,10 +23,17 @@ await loadTranslations(locale);
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://nologin.tools/#organization',
     name: 'NoLoginTools.org',
     url: 'https://nologintools.org',
-    logo: 'https://nologin.tools/og-default.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://nologin.tools/og-default.png',
+      width: 1200,
+      height: 630,
+    },
     description: t(locale, 'home.jsonLd.orgDescription'),
+    foundingDate: '2025',
     sameAs: [
       'https://x.com/nologin_tools',
       'https://github.com/nologin-tools',

@@ -1,0 +1,23 @@
+---
+import BlogTagPage from '../../../components/BlogTagPage.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const englishPosts = posts.filter((p) => !p.id.includes('/'));
+  const allTags = new Set<string>();
+  for (const post of englishPosts) {
+    for (const tag of post.data.tags) {
+      allTags.add(tag.toLowerCase());
+    }
+  }
+  return [...allTags].map((tag) => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+---
+
+<BlogTagPage locale="en" tag={tag} />

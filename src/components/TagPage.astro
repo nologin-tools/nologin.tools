@@ -63,6 +63,23 @@ const collectionLd = {
   },
 };
 
+const faqQuestions = [
+  { q: t(locale, 'tag.faq.q1', { tag: translatedValue }), a: t(locale, 'tag.faq.a1', { tag: translatedValue, count: tagTools.length }) },
+  { q: t(locale, 'tag.faq.q2', { tag: translatedValue }), a: t(locale, 'tag.faq.a2', { tag: translatedValue }) },
+  { q: t(locale, 'tag.faq.q3', { tag: translatedValue }), a: t(locale, 'tag.faq.a3', { tag: translatedValue }) },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale,
+  mainEntity: faqQuestions.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
 const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -80,6 +97,7 @@ const breadcrumbLd = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <!-- Breadcrumb -->
@@ -185,6 +203,19 @@ const breadcrumbLd = {
         );
       })}
     </ul>
+
+    <!-- FAQ -->
+    <section class="mt-16 border-t border-neutral-200 pt-8">
+      <h2 class="text-lg font-bold text-neutral-900 mb-6 uppercase">{t(locale, 'tag.faq.heading')}</h2>
+      <dl class="space-y-4">
+        {faqQuestions.map((faq) => (
+          <div>
+            <dt class="text-sm font-bold text-neutral-700">{faq.q}</dt>
+            <dd class="mt-1 text-sm text-neutral-500">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
 
     <!-- Browse All -->
     <div class="mt-12 pt-8 border-t border-neutral-200">
