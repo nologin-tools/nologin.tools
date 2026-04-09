@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools discovery hidden gems laptop screen"
 ---
 
+![Hero image](/blog/images/free-browser-tools-hidden-gems-no-signup/hero.jpg)
+
 Most browser tools find their audience the same way: a viral tweet, a Reddit front page hit, and suddenly everyone is bookmarking the same handful of apps. The tools that miss that window stay invisible — even when they're excellent. Even when they've been quietly running for years.
 
 This is a first look at six free browser tools that work without any account at all. No email address, no account creation, no password to forget. Some are recent; some have existed for years without finding a wide audience. All of them do something genuinely useful, and none of them will ask you to sign up before they'll let you start.
