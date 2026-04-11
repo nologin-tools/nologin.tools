@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "dark pattern website sign up form manipulation design"
 ---
 
+![Hero image](/blog/images/why-websites-force-account-creation/hero.jpg)
+
 Somewhere in the late 2010s, "create a free account to continue" became a reflex response to any useful thing on the internet. You need to convert a file. Crop a photo. Run a quick calculation. The tool loads. The wall appears.
 
 Most people now close the tab and look for something else. The ones who don't are often walking into a system designed to extract as much data as possible from that moment of compliance.
