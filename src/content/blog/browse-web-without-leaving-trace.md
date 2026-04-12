@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "anonymous private web browsing privacy"
 ---
 
+![Hero image](/blog/images/browse-web-without-leaving-trace/hero.jpg)
+
 Most people think private browsing means no one can see what they're doing. Open an incognito tab, visit a few sensitive sites, close it. Done. Safe.
 
 It isn't. Not even close.
