@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "WebAssembly browser code performance"
 ---
 
+![Hero image](/blog/images/webassembly-no-login-browser-tools/hero.jpg)
+
 There's a reason [Squoosh](/tool/squoosh-app) can compress your images using codecs that rival desktop apps — and it has nothing to do with server power. The compression happens entirely in your browser tab, using a technology called WebAssembly. No upload required, no account needed, no waiting for a remote server to process your file and send it back.
 
 This changes what "free browser tool" means. A lot of them.
