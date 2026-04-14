@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "hidden gem browser tools no signup minimalist"
 ---
 
+![Hero image](/blog/images/3-underrated-free-online-tools-no-signup/hero.jpg)
+
 The privacy opt-out process shouldn't be this complicated. [A recent account of trying to opt out of Flock — a license plate surveillance company — illustrates what signing up for services actually means](https://honeypot.net/2026/04/14/i-wrote-to-flocks-privacy.html): you're not handing over your email for convenience. You're entering a database that may take real effort to leave.
 
 Most of us have absorbed this reality and still keep signing up, because the tools we rely on demand it. But a surprising number of useful free online tools have skipped the account system entirely. Not out of principle — just because the tool is simple enough to run in your browser tab without needing to know who you are. You open a URL, do the thing, close the tab. No account, no registration, no trail.
