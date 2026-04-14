@@ -768,5 +768,10 @@
     "_hash": "3bdec29870f1a126",
     "description": "iFormat.io ist ein kostenloser Online-Dateikonverter, der über 500 Formatkonvertierungen unterstützt. Das Tool läuft direkt im Browser — ohne Installation oder Registrierung. Du kannst Bilder, PDFs, Audio- und Videodateien sowie Office-Dokumente schnell und sicher konvertieren.\n\nUnterstützte Kategorien:\n- Bilder: JPG, PNG, WebP, HEIC, GIF, TIFF und mehr\n- PDFs: Konvertieren, komprimieren, zusammenführen, teilen und Text extrahieren\n- Audio: MP3, WAV, FLAC, AAC, OGG und mehr\n- Video: MP4, AVI, MOV und andere Formate\n- Dokumente",
     "coreTask": "Kostenloser Online-Multi-Format-Konverter mit Unterstützung für über 500 Konvertierungen von Bildern, PDFs, Audio, Video und Dokumenten. Funktioniert vollständig im Browser, ohne Konto oder Registrierung."
+  },
+  "clideo-com": {
+    "_hash": "4eb5340366292d78",
+    "description": "Clideo ist ein browserbasietes Medien-Toolkit mit über 20 Video- und Audio-Bearbeitungswerkzeugen: Schneiden, Komprimieren, Formate konvertieren, Clips zusammenführen, Audio stummschalten, Untertitel hinzufügen, Audio extrahieren, Videos loopen, Geschwindigkeit ändern und GIFs erstellen. Die wichtigsten Tools funktionieren ohne Konto — lade eine Datei hoch, sie wird auf deren Servern verarbeitet, und du lädst das Ergebnis herunter. Der kostenlose Tarif fügt ein Wasserzeichen hinzu; bezahlte Tarife entfernen es.",
+    "coreTask": "Video- und Audiodateien direkt im Browser bearbeiten, konvertieren, schneiden und komprimieren — ohne Software-Installation oder Konto."
   }
 }
