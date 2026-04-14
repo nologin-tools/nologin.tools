@@ -18,6 +18,11 @@ function buildToolData(overrides = {}) {
     url: 'https://excalidraw.com',
     description: 'A virtual whiteboard for sketching hand-drawn like diagrams.',
     coreTask: 'Create hand-drawn style diagrams in the browser',
+    seoTitle: 'Excalidraw: Create hand-drawn style diagrams in the browser',
+    seoDescription: 'Excalidraw helps you create hand-drawn style diagrams in the browser without signup. Sketch ideas fast in a browser-based whiteboard with no account required.',
+    seoFocusKeyword: 'Excalidraw no login diagram tool',
+    seoIntent: 'task',
+    seoTaskPhrase: 'create hand-drawn style diagrams in the browser without signup',
     tags: [
       { key: 'category', value: 'Design' },
       { key: 'pricing', value: 'Free' },
@@ -64,6 +69,24 @@ describe('validateToolData', () => {
     assert.ok(result.errors.some((e) => e.includes('coreTask')));
   });
 
+  it('should error when seoTitle is missing', () => {
+    const result = validateToolData(buildToolData({ seoTitle: '' }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoTitle')));
+  });
+
+  it('should error when seoDescription is missing', () => {
+    const result = validateToolData(buildToolData({ seoDescription: '' }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoDescription')));
+  });
+
+  it('should error when seoTaskPhrase is missing', () => {
+    const result = validateToolData(buildToolData({ seoTaskPhrase: '' }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoTaskPhrase')));
+  });
+
   // --- Field length limits ---
 
   it('should error when name is too short', () => {
@@ -88,6 +111,46 @@ describe('validateToolData', () => {
     const result = validateToolData(buildToolData({ coreTask: 'C'.repeat(201) }));
     assert.equal(result.valid, false);
     assert.ok(result.errors.some((e) => e.includes('coreTask too long')));
+  });
+
+  it('should error when seoTitle exceeds 80 characters', () => {
+    const result = validateToolData(buildToolData({ seoTitle: 'T'.repeat(81) }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoTitle too long')));
+  });
+
+  it('should error when seoDescription exceeds 180 characters', () => {
+    const result = validateToolData(buildToolData({ seoDescription: 'D'.repeat(181) }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoDescription too long')));
+  });
+
+  it('should error when seoTaskPhrase exceeds 120 characters', () => {
+    const result = validateToolData(buildToolData({ seoTaskPhrase: 'P'.repeat(121) }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoTaskPhrase too long')));
+  });
+
+  it('should error when seoIntent is invalid', () => {
+    const result = validateToolData(buildToolData({ seoIntent: 'homepage' }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoIntent')));
+  });
+
+  it('should error when seoDescription duplicates description', () => {
+    const result = validateToolData(buildToolData({
+      seoDescription: 'A virtual whiteboard for sketching hand-drawn like diagrams.',
+    }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoDescription should add search-specific context')));
+  });
+
+  it('should error when seoTaskPhrase does not mention no-login intent', () => {
+    const result = validateToolData(buildToolData({
+      seoTaskPhrase: 'create hand-drawn style diagrams in the browser',
+    }));
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('seoTaskPhrase')));
   });
 
   // --- URL validation ---
@@ -227,6 +290,22 @@ describe('validateToolData', () => {
 
   it('should pass with coreTask exactly 200 chars', () => {
     const result = validateToolData(buildToolData({ coreTask: 'C'.repeat(200) }));
+    assert.equal(result.valid, true);
+  });
+
+  it('should pass with seoTitle exactly 80 chars', () => {
+    const result = validateToolData(buildToolData({ seoTitle: 'T'.repeat(80) }));
+    assert.equal(result.valid, true);
+  });
+
+  it('should pass with seoDescription exactly 180 chars', () => {
+    const result = validateToolData(buildToolData({ seoDescription: 'D'.repeat(180) }));
+    assert.equal(result.valid, true);
+  });
+
+  it('should pass with seoTaskPhrase exactly 120 chars when it mentions no signup', () => {
+    const phrase = `${'a'.repeat(110)} no signup`;
+    const result = validateToolData(buildToolData({ seoTaskPhrase: phrase }));
     assert.equal(result.valid, true);
   });
 });

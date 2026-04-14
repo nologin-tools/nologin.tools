@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { getApprovedTools } from '../data/loader';
+import { getApprovedTools, getAvailableToolLocales } from '../data/loader';
 import { TAG_DEFINITIONS, categoryToSlug, TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../lib/tags';
 import {
   buildBlogTranslationMap,
@@ -48,6 +48,7 @@ export const GET: APIRoute = async () => {
     priority: '0.8',
     changefreq: 'weekly',
     lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
+    availableLocales: getAvailableToolLocales(t),
     imageUrl: `/api/og/${t.slug}`,
   }));
 

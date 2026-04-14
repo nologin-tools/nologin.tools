@@ -274,13 +274,27 @@ describe('checkTools()', () => {
   it('detects hash_mismatch when tool content changed', async () => {
     const desc = 'Draw stuff';
     const core = 'Drawing';
+    const seoTitle = 'Tool A: Draw stuff without login';
+    const seoDescription = 'Tool A helps you draw stuff without login. Open a browser and start sketching immediately.';
+    const seoTaskPhrase = 'draw stuff without login';
+    const seoFocusKeyword = 'Tool A drawing without login';
     writeBuildData([
-      { slug: 'tool-a', description: desc, coreTask: core, status: 'approved' },
+      { slug: 'tool-a', description: desc, coreTask: core, seoTitle, seoDescription, seoTaskPhrase, seoFocusKeyword, status: 'approved' },
     ]);
 
-    const correctHash = hash(`${desc}|${core}`);
+    const correctHash = hash(`${desc}|${core}|${seoTitle}|${seoDescription}|${seoTaskPhrase}|${seoFocusKeyword}`);
     writeToolTranslations('zh', { 'tool-a': { description: '画画', coreTask: '绘图', _hash: 'wronghash' } });
-    writeToolTranslations('ja', { 'tool-a': { description: '描く', coreTask: '描画', _hash: correctHash } });
+    writeToolTranslations('ja', {
+      'tool-a': {
+        description: '描く',
+        coreTask: '描画',
+        seoTitle: 'Tool A: ログイン不要で描く',
+        seoDescription: 'Tool A ならログイン不要で描けます。',
+        seoFocusKeyword: 'Tool A ログイン不要 お絵描きツール',
+        seoTaskPhrase: 'ログイン不要で描く',
+        _hash: correctHash,
+      },
+    });
 
     await runInTmp(({ checkTools }) => {
       const result = checkTools();
@@ -303,11 +317,25 @@ describe('checkTools()', () => {
   it('omits tools where all locales are up_to_date', async () => {
     const desc = 'Done tool';
     const core = 'Task';
-    writeBuildData([{ slug: 'done-tool', description: desc, coreTask: core, status: 'approved' }]);
-    const h = hash(`${desc}|${core}`);
+    const seoTitle = 'Done tool: Complete a task without login';
+    const seoDescription = 'Done tool helps you complete a task without login. Use it directly in the browser with no account required.';
+    const seoTaskPhrase = 'complete a task without login';
+    const seoFocusKeyword = 'Done tool no login task';
+    writeBuildData([{ slug: 'done-tool', description: desc, coreTask: core, seoTitle, seoDescription, seoTaskPhrase, seoFocusKeyword, status: 'approved' }]);
+    const h = hash(`${desc}|${core}|${seoTitle}|${seoDescription}|${seoTaskPhrase}|${seoFocusKeyword}`);
 
     for (const locale of LOCALES) {
-      writeToolTranslations(locale, { 'done-tool': { description: 'X', coreTask: 'Y', _hash: h } });
+      writeToolTranslations(locale, {
+        'done-tool': {
+          description: 'X',
+          coreTask: 'Y',
+          seoTitle: 'Z',
+          seoDescription: 'Q',
+          seoFocusKeyword: 'R',
+          seoTaskPhrase: 'without login',
+          _hash: h,
+        },
+      });
     }
 
     await runInTmp(({ checkTools }) => {
@@ -382,13 +410,75 @@ describe('buildManifest()', () => {
     writeEnJson(enData);
 
     writeBlogPost('p.md', '---\ntitle: P\n---\nBody text');
-    writeBuildData([{ slug: 's', description: 'D', coreTask: 'C', status: 'approved' }]);
+    writeBuildData([{ slug: 's', description: 'D', coreTask: 'C', seoTitle: 'S: Do C without login', seoDescription: 'S helps you do C without login.', seoTaskPhrase: 'do C without login', status: 'approved' }]);
 
     await runInTmp(({ buildManifest }) => {
       const { manifest } = buildManifest();
       assert.ok(manifest.ui.sourceHash);
       assert.ok(manifest.blog.posts['p.md'].sourceHash);
       assert.ok(manifest.tools.items['s'].sourceHash);
+    });
+  });
+
+  it('treats missing SEO translation fields as hash_mismatch', async () => {
+    const desc = 'Draw stuff';
+    const core = 'Drawing';
+    writeBuildData([
+      {
+        slug: 'tool-seo',
+        description: desc,
+        coreTask: core,
+        seoTitle: 'Tool SEO: Draw stuff without login',
+        seoDescription: 'Tool SEO helps you draw stuff without login. Open a browser and sketch instantly.',
+        seoFocusKeyword: 'Tool SEO drawing without login',
+        seoTaskPhrase: 'draw stuff without login',
+        status: 'approved',
+      },
+    ]);
+
+    writeToolTranslations('zh', { 'tool-seo': { description: '画画', coreTask: '绘图', _hash: hash(`${desc}|${core}`) } });
+
+    await runInTmp(({ checkTools }) => {
+      const result = checkTools();
+      assert.equal(result.items['tool-seo'].locales['zh'], 'hash_mismatch');
+    });
+  });
+
+  it('treats seoFocusKeyword changes as translation updates', async () => {
+    const desc = 'Draw stuff';
+    const core = 'Drawing';
+    const seoTitle = 'Tool Focus: Draw stuff without login';
+    const seoDescription = 'Tool Focus helps you draw stuff without login.';
+    const seoTaskPhrase = 'draw stuff without login';
+    writeBuildData([
+      {
+        slug: 'tool-focus',
+        description: desc,
+        coreTask: core,
+        seoTitle,
+        seoDescription,
+        seoFocusKeyword: 'Tool Focus drawing without login',
+        seoTaskPhrase,
+        status: 'approved',
+      },
+    ]);
+
+    const staleHash = hash(`${desc}|${core}|${seoTitle}|${seoDescription}|${seoTaskPhrase}|old keyword`);
+    writeToolTranslations('zh', {
+      'tool-focus': {
+        description: '画画',
+        coreTask: '绘图',
+        seoTitle: 'Tool Focus：免登录绘图',
+        seoDescription: 'Tool Focus 可免登录绘图。',
+        seoFocusKeyword: 'Tool Focus 免登录绘图工具',
+        seoTaskPhrase: '免登录绘图',
+        _hash: staleHash,
+      },
+    });
+
+    await runInTmp(({ checkTools }) => {
+      const result = checkTools();
+      assert.equal(result.items['tool-focus'].locales['zh'], 'hash_mismatch');
     });
   });
 });

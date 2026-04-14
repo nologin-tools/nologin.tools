@@ -195,6 +195,11 @@ For the best verified tool, create TWO files:
   "url": "https://tool-url.com",
   "description": "A concise description of what the tool does (max 500 chars)",
   "coreTask": "The main thing this tool helps you do (max 200 chars)",
+  "seoTitle": "Search result title for the tool page (max 80 chars)",
+  "seoDescription": "Search result description that combines the tool and its no-login task (max 180 chars)",
+  "seoFocusKeyword": "Primary keyword or query intent this tool page should target (max 120 chars)",
+  "seoIntent": "task",
+  "seoTaskPhrase": "A task-focused phrase that explicitly includes no-login intent, e.g. 'encrypt files in the browser without signup' (max 120 chars)",
   "tags": [
     { "key": "category", "value": "${category}" },
     { "key": "pricing", "value": "Free" },
@@ -206,6 +211,13 @@ For the best verified tool, create TWO files:
   "discordUrl": "https://discord.gg/invite (optional)"
 }
 \`\`\`
+
+**SEO rules for the JSON fields:**
+- \`description\` is for the on-page summary
+- \`seoDescription\` is for CTR in Google, and must combine the tool with its **no-login task**
+- \`seoTaskPhrase\` MUST mention the zero-login angle explicitly ("without signup", "no account required", etc.)
+- \`seoTitle\` should lead with the tool name, then the task
+- \`seoIntent\` must be one of: \`task\`, \`review\`, \`alternative\`
 
 **Valid tag keys and values:**
 - \`category\`: AI, Design, Writing, Development, Productivity, Media, Privacy, Data, Communication, Education, Finance (REQUIRED, exactly one)

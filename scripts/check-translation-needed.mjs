@@ -176,7 +176,7 @@ export function checkTools() {
     }
 
     for (const tool of tools) {
-      const contentToHash = `${tool.description || ''}|${tool.coreTask || ''}`;
+      const contentToHash = `${tool.description || ''}|${tool.coreTask || ''}|${tool.seoTitle || ''}|${tool.seoDescription || ''}|${tool.seoTaskPhrase || ''}|${tool.seoFocusKeyword || ''}`;
       const sourceHash = hash(contentToHash);
 
       const localeStatuses = {};

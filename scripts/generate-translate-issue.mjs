@@ -115,7 +115,7 @@ export function generateIssueBody(manifest) {
 
     sections.push('');
     sections.push('Rules:');
-    sections.push('- Translate `description` and `coreTask` fields');
+    sections.push('- Translate `description`, `coreTask`, `seoTitle`, `seoDescription`, `seoFocusKeyword`, and `seoTaskPhrase` fields');
     sections.push('- Keep tool names in English');
     sections.push('- Store `_hash` alongside each translation');
     sections.push('- Write valid JSON with 2-space indentation');

@@ -5,6 +5,7 @@ import TagPicker from './TagPicker.astro';
 import { formatDate, timeAgo } from '../lib/utils';
 import { sortTagsCategoryFirst, categoryToSlug, isTagPageAllowed, tagValueToSlug } from '../lib/tags';
 import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
+import { buildToolSeoMeta, getToolCanonicalPath, resolveToolCanonicalLocale } from '../lib/tool-seo.mjs';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 
@@ -16,6 +17,11 @@ interface Props {
     url: string;
     description: string | null;
     coreTask: string;
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+    seoFocusKeyword?: string | null;
+    seoIntent?: string | null;
+    seoTaskPhrase?: string | null;
     status: string;
     approvedAt: Date | string | null;
     archiveUrl: string | null;
@@ -37,10 +43,20 @@ interface Props {
   healthHistory: { isOnline: boolean; checkedAt: Date }[];
   slug: string;
   locale?: Locale;
+  availableLocales?: Set<Locale>;
   relatedTools?: { slug: string; name: string; url: string; description: string | null }[];
 }
 
-const { tool, toolTags, recentChecks, healthHistory, slug, locale = DEFAULT_LOCALE, relatedTools = [] } = Astro.props;
+const {
+  tool,
+  toolTags,
+  recentChecks,
+  healthHistory,
+  slug,
+  locale = DEFAULT_LOCALE,
+  availableLocales,
+  relatedTools = [],
+} = Astro.props;
 await loadTranslations(locale);
 
 const effectiveStatus = resolveEffectiveStatus(recentChecks);
@@ -88,10 +104,12 @@ const isRejected = tool.status === 'rejected';
 const isOffline = effectiveStatus === 'offline';
 
 const approvedDate = tool.approvedAt ? new Date(tool.approvedAt).toISOString().split('T')[0] : undefined;
+const seo = buildToolSeoMeta(tool, locale);
+const canonicalLocale = resolveToolCanonicalLocale(locale, availableLocales);
 
 const categoryTag = toolTags.find(t => t.tagKey === 'category');
 const sameAs = [tool.twitterUrl, tool.githubUrl, tool.discordUrl, tool.repoUrl].filter(Boolean) as string[];
-const keywords = toolTags.map(t => t.tagValue).join(', ');
+const keywords = [seo.focusKeyword, ...toolTags.map(t => t.tagValue)].filter(Boolean).join(', ');
 
 const pricingTag = toolTags.find(t => t.tagKey === 'pricing');
 const pricingValue = pricingTag?.tagValue;
@@ -117,7 +135,7 @@ const jsonLd = {
   '@type': 'SoftwareApplication',
   name: tool.name,
   url: tool.url,
-  description: tool.description || '',
+  description: seo.description,
   applicationCategory: 'WebApplication',
   operatingSystem: 'All',
   image: `https://nologin.tools/api/og/${slug}`,
@@ -161,13 +179,14 @@ const faqLd = isVerified ? {
 ---
 
 <Layout
-  title={tool.name}
-  description={tool.description || t(locale, 'tool.defaultDescription', { name: tool.name })}
+  title={seo.title}
+  description={seo.description || t(locale, 'tool.defaultDescription', { name: tool.name })}
   ogType="article"
-  canonicalOverride={`/tool/${slug}`}
+  canonicalOverride={getToolCanonicalPath(slug, canonicalLocale)}
   publishedTime={approvedDate}
   ogImagePath={`/api/og/${slug}`}
   locale={locale}
+  availableLocales={availableLocales}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

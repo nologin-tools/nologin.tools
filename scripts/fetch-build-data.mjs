@@ -113,7 +113,8 @@ console.log('[build-data] Fetching data from D1...');
 
 // Query 1: All non-rejected tools
 const toolRows = await queryD1(`
-  SELECT id, slug, name, url, description, core_task, status,
+  SELECT id, slug, name, url, description, core_task, seo_title, seo_description,
+         seo_focus_keyword, seo_intent, seo_task_phrase, status,
          submitted_at, approved_at, rejection_reason, submitter_email,
          archive_url, is_featured, featured_at, submitter_ip_hash,
          twitter_url, github_url, discord_url, repo_url,
@@ -218,6 +219,11 @@ const tools = toolRows.map((t) => {
     url: t.url,
     description: t.description,
     coreTask: t.core_task,
+    seoTitle: t.seo_title || null,
+    seoDescription: t.seo_description || null,
+    seoFocusKeyword: t.seo_focus_keyword || null,
+    seoIntent: t.seo_intent || null,
+    seoTaskPhrase: t.seo_task_phrase || null,
     status: t.status,
     submittedAt: toISO(t.submitted_at),
     approvedAt: toISO(t.approved_at),

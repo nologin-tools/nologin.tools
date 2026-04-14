@@ -170,6 +170,19 @@ describe('buildIssueBody', () => {
     assert.ok(body.includes('Free'));
   });
 
+  it('should require SEO fields in the generated tool JSON', () => {
+    const body = buildIssueBody({
+      category: 'AI',
+      searchConfig: { searchQueries: ['test'], sources: [] },
+      existingTools: [],
+    });
+    assert.ok(body.includes('"seoTitle"'));
+    assert.ok(body.includes('"seoDescription"'));
+    assert.ok(body.includes('"seoTaskPhrase"'));
+    assert.ok(body.includes('"seoIntent"'));
+    assert.ok(body.includes('"seoFocusKeyword"'));
+  });
+
   it('should include Playwright MCP instructions', () => {
     const body = buildIssueBody({
       category: 'AI',

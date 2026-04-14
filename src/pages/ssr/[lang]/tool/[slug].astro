@@ -7,10 +7,16 @@ import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { HEALTH_TOLERANCE } from '../../../../lib/health';
 import ToolDetailPage from '../../../../components/ToolDetailPage.astro';
 import type { Locale } from '../../../../i18n/config';
-import { getLocalizedDescription, getLocalizedCoreTask, type BuildDataTool } from '../../../../data/loader';
+import {
+  getAvailableToolLocales,
+  getLocalizedDescription,
+  getLocalizedTool,
+  type BuildDataTool,
+} from '../../../../data/loader';
 
 const { slug, lang } = Astro.params;
 const locale = lang as Locale;
+let availableLocales = new Set<Locale>(['en']);
 
 let tool: any;
 let toolTags: { tagKey: string; tagValue: string }[] = [];
@@ -31,6 +37,14 @@ try {
   tool = result;
 
   if (!tool) {
+    return new Response('<html><head><meta name="robots" content="noindex"><title>404 Not Found</title></head><body>Not Found</body></html>', {
+      status: 404,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' },
+    });
+  }
+
+  availableLocales = getAvailableToolLocales(tool as unknown as BuildDataTool);
+  if (!availableLocales.has(locale)) {
     return new Response('<html><head><meta name="robots" content="noindex"><title>404 Not Found</title></head><body>Not Found</body></html>', {
       status: 404,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -99,11 +113,12 @@ try {
 ---
 
 <ToolDetailPage
-  tool={{ ...tool, description: getLocalizedDescription(tool as unknown as BuildDataTool, locale), coreTask: getLocalizedCoreTask(tool as unknown as BuildDataTool, locale) }}
+  tool={getLocalizedTool(tool as unknown as BuildDataTool, locale)}
   toolTags={toolTags}
   recentChecks={recentChecks}
   healthHistory={healthHistory}
   slug={slug!}
   locale={locale}
+  availableLocales={availableLocales}
   relatedTools={relatedTools}
 />

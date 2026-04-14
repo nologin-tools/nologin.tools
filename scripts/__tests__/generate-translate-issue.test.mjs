@@ -118,6 +118,22 @@ describe('generateIssueBody()', () => {
     assert.ok(body.includes('update:'));
   });
 
+  it('asks translators to translate SEO fields for tools', () => {
+    const manifest = emptyManifest();
+    manifest.tools.items = {
+      'excalidraw-com': {
+        sourceHash: 'ghi789',
+        locales: { zh: 'missing' },
+      },
+    };
+
+    const body = generateIssueBody(manifest);
+    assert.ok(body.includes('seoTitle'));
+    assert.ok(body.includes('seoDescription'));
+    assert.ok(body.includes('seoFocusKeyword'));
+    assert.ok(body.includes('seoTaskPhrase'));
+  });
+
   it('includes all 3 task sections when all have changes', () => {
     const manifest = {
       ui: {

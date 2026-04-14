@@ -1,43 +1,30 @@
 ---
-import { getAllTools, getLocalizedDescription, getLocalizedCoreTask, getRelatedTools } from '../../../data/loader';
+import {
+  getAvailableToolLocales,
+  getAllTools,
+  getLocalizedDescription,
+  getLocalizedTool,
+  getRelatedTools,
+} from '../../../data/loader';
 import ToolDetailPage from '../../../components/ToolDetailPage.astro';
+import { buildLocalizedToolStaticPaths } from '../../../lib/tool-seo.mjs';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 
 export function getStaticPaths() {
-  const tools = getAllTools();
-  return LOCALES.filter(l => l !== DEFAULT_LOCALE).flatMap(lang =>
-    tools.map(tool => ({
-      params: { lang, slug: tool.slug },
-      props: { tool, locale: lang as Locale },
-    }))
-  );
+  return buildLocalizedToolStaticPaths(
+    getAllTools(),
+    LOCALES,
+    DEFAULT_LOCALE,
+    (tool) => getAvailableToolLocales(tool)
+  ).map((path) => ({
+    ...path,
+    props: { ...path.props, locale: path.props.locale as Locale },
+  }));
 }
 
 const { tool, locale } = Astro.props;
-
-const toolData = {
-  id: tool.id,
-  slug: tool.slug,
-  name: tool.name,
-  url: tool.url,
-  description: getLocalizedDescription(tool, locale),
-  coreTask: getLocalizedCoreTask(tool, locale),
-  status: tool.status,
-  approvedAt: tool.approvedAt,
-  archiveUrl: tool.archiveUrl,
-  isFeatured: tool.isFeatured,
-  submitterEmail: tool.submitterEmail,
-  twitterUrl: tool.twitterUrl,
-  githubUrl: tool.githubUrl,
-  discordUrl: tool.discordUrl,
-  repoUrl: tool.repoUrl,
-  githubStars: tool.githubStars,
-  githubForks: tool.githubForks,
-  githubLicense: tool.githubLicense,
-  githubLanguage: tool.githubLanguage,
-  githubUpdatedAt: tool.githubUpdatedAt,
-  githubFetchedAt: tool.githubFetchedAt,
-};
+const availableLocales = getAvailableToolLocales(tool);
+const toolData = getLocalizedTool(tool, locale);
 
 const toolTags = tool.tags.map((t: any) => ({
   tagKey: t.tagKey,
@@ -72,5 +59,6 @@ const related = getRelatedTools(tool.slug, categoryTag).map((rt) => ({
   healthHistory={healthHistory}
   slug={tool.slug}
   locale={locale}
+  availableLocales={availableLocales}
   relatedTools={related}
 />

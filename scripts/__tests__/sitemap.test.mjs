@@ -37,9 +37,10 @@ function buildBlogTranslationMap(posts) {
 function expandToAllLocales(pages, blogTranslationMap) {
   const entries = [];
   for (const page of pages) {
+    const pageAvailableLocales = page.availableLocales;
     if (page.isBlogPost && blogTranslationMap) {
       const slug = page.url.replace(/^\/blog\//, '');
-      const availableLocales = blogTranslationMap.get(slug) || new Set(['en']);
+      const availableLocales = pageAvailableLocales || blogTranslationMap.get(slug) || new Set(['en']);
       for (const locale of LOCALES) {
         if (!availableLocales.has(locale)) continue;
         entries.push({
@@ -53,13 +54,16 @@ function expandToAllLocales(pages, blogTranslationMap) {
         });
       }
     } else {
+      const availableLocales = pageAvailableLocales || new Set(LOCALES);
       for (const locale of LOCALES) {
+        if (!availableLocales.has(locale)) continue;
         entries.push({
           url: getLocalizedPath(page.url, locale),
           priority: page.priority,
           changefreq: page.changefreq,
           lastmod: page.lastmod,
           englishPath: page.url,
+          availableLocales: pageAvailableLocales,
           imageUrl: page.imageUrl,
         });
       }
@@ -213,6 +217,24 @@ describe('expandToAllLocales', () => {
     assert.equal(entries.length, 2);
     assert.ok(entries[0].availableLocales);
     assert.deepEqual(entries[0].availableLocales, new Set(['en', 'ja']));
+  });
+
+  it('non-blog pages honor explicit availableLocales', () => {
+    const pages = [
+      {
+        url: '/tool/when2meet-com',
+        priority: '0.8',
+        changefreq: 'weekly',
+        availableLocales: new Set(['en', 'de']),
+      },
+    ];
+    const entries = expandToAllLocales(pages);
+    assert.equal(entries.length, 2);
+    assert.deepEqual(
+      entries.map((entry) => entry.url),
+      ['/tool/when2meet-com', '/de/tool/when2meet-com']
+    );
+    assert.deepEqual(entries[0].availableLocales, new Set(['en', 'de']));
   });
 });
 

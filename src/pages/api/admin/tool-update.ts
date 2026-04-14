@@ -8,6 +8,7 @@ import { urlToSlug } from '../../../lib/utils';
 import { api } from '../../../lib/api';
 import { TAG_DEFINITIONS } from '../../../lib/tags';
 import { validateTwitterUrl, validateGitHubProfileUrl, validateDiscordUrl, validateRepoUrl, parseGitHubRepoUrl, fetchGitHubRepoData } from '../../../lib/github';
+import { SEO_INTENTS, includesNoLoginIntent } from '../../../lib/tool-seo.mjs';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const env = locals.runtime.env;
@@ -94,6 +95,51 @@ export const POST: APIRoute = async ({ request, locals }) => {
       errors.coreTask = 'Core task must be max 200 characters.';
     } else {
       updateData.coreTask = ct;
+    }
+  }
+
+  if (body.seoTitle !== undefined) {
+    const val = String(body.seoTitle).trim();
+    if (!val || val.length > 80) {
+      errors.seoTitle = 'SEO title is required and must be max 80 characters.';
+    } else {
+      updateData.seoTitle = val;
+    }
+  }
+
+  if (body.seoDescription !== undefined) {
+    const val = String(body.seoDescription).trim();
+    if (!val || val.length > 180) {
+      errors.seoDescription = 'SEO description is required and must be max 180 characters.';
+    } else {
+      updateData.seoDescription = val;
+    }
+  }
+
+  if (body.seoFocusKeyword !== undefined) {
+    const val = String(body.seoFocusKeyword).trim();
+    if (!val || val.length > 120) {
+      errors.seoFocusKeyword = 'SEO focus keyword is required and must be max 120 characters.';
+    } else {
+      updateData.seoFocusKeyword = val;
+    }
+  }
+
+  if (body.seoIntent !== undefined) {
+    const val = String(body.seoIntent).trim();
+    if (!SEO_INTENTS.includes(val)) {
+      errors.seoIntent = `SEO intent must be one of: ${SEO_INTENTS.join(', ')}.`;
+    } else {
+      updateData.seoIntent = val;
+    }
+  }
+
+  if (body.seoTaskPhrase !== undefined) {
+    const val = String(body.seoTaskPhrase).trim();
+    if (!val || val.length > 120 || !includesNoLoginIntent(val)) {
+      errors.seoTaskPhrase = 'SEO task phrase must be max 120 characters and explicitly mention the no-login angle.';
+    } else {
+      updateData.seoTaskPhrase = val;
     }
   }
 

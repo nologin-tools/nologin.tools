@@ -7,6 +7,11 @@ export const tools = sqliteTable('tools', {
   url: text('url').notNull(),
   description: text('description'),
   coreTask: text('core_task').notNull(),
+  seoTitle: text('seo_title'),
+  seoDescription: text('seo_description'),
+  seoFocusKeyword: text('seo_focus_keyword'),
+  seoIntent: text('seo_intent'),
+  seoTaskPhrase: text('seo_task_phrase'),
   noLoginPledge: integer('no_login_pledge', { mode: 'boolean' })
     .notNull()
     .default(false),

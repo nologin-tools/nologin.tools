@@ -1,5 +1,5 @@
 ---
-import { getAllTools, getRelatedTools } from '../../data/loader';
+import { getAllTools, getAvailableToolLocales, getRelatedTools } from '../../data/loader';
 import ToolDetailPage from '../../components/ToolDetailPage.astro';
 
 export function getStaticPaths() {
@@ -11,6 +11,7 @@ export function getStaticPaths() {
 }
 
 const { tool } = Astro.props;
+const availableLocales = getAvailableToolLocales(tool);
 
 // Convert build data to ToolDetailPage prop format
 const toolData = {
@@ -20,6 +21,11 @@ const toolData = {
   url: tool.url,
   description: tool.description,
   coreTask: tool.coreTask,
+  seoTitle: tool.seoTitle,
+  seoDescription: tool.seoDescription,
+  seoFocusKeyword: tool.seoFocusKeyword,
+  seoIntent: tool.seoIntent,
+  seoTaskPhrase: tool.seoTaskPhrase,
   status: tool.status,
   approvedAt: tool.approvedAt,
   archiveUrl: tool.archiveUrl,
@@ -70,5 +76,6 @@ const related = getRelatedTools(tool.slug, categoryTag).map((rt) => ({
   recentChecks={recentChecks}
   healthHistory={healthHistory}
   slug={tool.slug}
+  availableLocales={availableLocales}
   relatedTools={related}
 />

@@ -6,6 +6,8 @@ export interface SitemapPage {
   priority: string;
   changefreq: string;
   lastmod?: string;
+  /** Optional locale availability for hreflang expansion */
+  availableLocales?: Set<Locale>;
   /** If true, this is a blog post page (locale availability may be limited) */
   isBlogPost?: boolean;
   /** Optional image URL for image sitemap extension */
@@ -72,10 +74,12 @@ export function expandToAllLocales(
   const entries: SitemapEntry[] = [];
 
   for (const page of pages) {
+    const pageAvailableLocales = page.availableLocales;
+
     if (page.isBlogPost && blogTranslationMap) {
       // Extract slug from /blog/{slug}
       const slug = page.url.replace(/^\/blog\//, '');
-      const availableLocales = blogTranslationMap.get(slug) || new Set(['en' as Locale]);
+      const availableLocales = pageAvailableLocales || blogTranslationMap.get(slug) || new Set(['en' as Locale]);
 
       for (const locale of LOCALES) {
         if (!availableLocales.has(locale)) continue;
@@ -90,14 +94,17 @@ export function expandToAllLocales(
         });
       }
     } else {
-      // Static/tool/badge/blog-list pages: all locales
+      const availableLocales = pageAvailableLocales || new Set(LOCALES);
+
       for (const locale of LOCALES) {
+        if (!availableLocales.has(locale)) continue;
         entries.push({
           url: getLocalizedPath(page.url, locale),
           priority: page.priority,
           changefreq: page.changefreq,
           lastmod: page.lastmod,
           englishPath: page.url,
+          availableLocales: pageAvailableLocales,
           imageUrl: page.imageUrl,
         });
       }

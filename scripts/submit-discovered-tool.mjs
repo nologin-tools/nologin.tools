@@ -135,14 +135,23 @@ export async function submitTool(filePath, config) {
 
   // INSERT tool
   await queryD1(d1Api, apiToken, `
-    INSERT INTO tools (slug, name, url, description, core_task, no_login_pledge, status, submitted_at, approved_at, repo_url, twitter_url, github_url, discord_url)
-    VALUES (?, ?, ?, ?, ?, 1, 'approved', ?, ?, ?, ?, ?, ?)
+    INSERT INTO tools (
+      slug, name, url, description, core_task,
+      seo_title, seo_description, seo_focus_keyword, seo_intent, seo_task_phrase,
+      no_login_pledge, status, submitted_at, approved_at, repo_url, twitter_url, github_url, discord_url
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 'approved', ?, ?, ?, ?, ?, ?)
   `, [
     slug,
     data.name,
     data.url,
     data.description,
     data.coreTask,
+    data.seoTitle,
+    data.seoDescription,
+    data.seoFocusKeyword,
+    data.seoIntent,
+    data.seoTaskPhrase,
     now,
     now,
     data.repoUrl || null,

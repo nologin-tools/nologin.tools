@@ -1,10 +1,15 @@
 import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
-import type { Locale } from '../i18n/config';
+import { hasLocalizedToolContent, getLocalizedToolFields as buildLocalizedToolFields } from '../lib/tool-seo.mjs';
+import { LOCALES, type Locale } from '../i18n/config';
 
 type ToolTranslation = {
   _hash?: string;
   description?: string;
   coreTask?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoFocusKeyword?: string;
+  seoTaskPhrase?: string;
 };
 
 type TranslationsFile = Record<string, ToolTranslation>;
@@ -28,16 +33,54 @@ function loadToolTranslations(locale: Locale): TranslationsFile {
   }
 }
 
-export function getLocalizedDescription(tool: BuildDataTool, locale: Locale): string | null {
-  if (locale === 'en') return tool.description;
+function getToolTranslation(tool: BuildDataTool, locale: Locale): ToolTranslation | null {
+  if (locale === 'en') return null;
   const translations = loadToolTranslations(locale);
-  return translations[tool.slug]?.description ?? tool.description;
+  return translations[tool.slug] ?? null;
+}
+
+export function hasLocalizedToolCopy(tool: BuildDataTool, locale: Locale): boolean {
+  if (locale === 'en') return true;
+  return hasLocalizedToolContent(getToolTranslation(tool, locale));
+}
+
+export function getAvailableToolLocales(tool: BuildDataTool): Set<Locale> {
+  const locales = new Set<Locale>(['en']);
+  for (const locale of LOCALES) {
+    if (locale === 'en') continue;
+    if (hasLocalizedToolCopy(tool, locale)) {
+      locales.add(locale);
+    }
+  }
+  return locales;
+}
+
+export function getLocalizedTool(tool: BuildDataTool, locale: Locale) {
+  return buildLocalizedToolFields(tool, getToolTranslation(tool, locale), locale);
+}
+
+export function getLocalizedDescription(tool: BuildDataTool, locale: Locale): string | null {
+  return getLocalizedTool(tool, locale).description;
 }
 
 export function getLocalizedCoreTask(tool: BuildDataTool, locale: Locale): string {
-  if (locale === 'en') return tool.coreTask;
-  const translations = loadToolTranslations(locale);
-  return translations[tool.slug]?.coreTask ?? tool.coreTask;
+  return getLocalizedTool(tool, locale).coreTask;
+}
+
+export function getLocalizedSeoTitle(tool: BuildDataTool, locale: Locale): string | null {
+  return getLocalizedTool(tool, locale).seoTitle;
+}
+
+export function getLocalizedSeoDescription(tool: BuildDataTool, locale: Locale): string | null {
+  return getLocalizedTool(tool, locale).seoDescription;
+}
+
+export function getLocalizedSeoTaskPhrase(tool: BuildDataTool, locale: Locale): string | null {
+  return getLocalizedTool(tool, locale).seoTaskPhrase;
+}
+
+export function getLocalizedSeoFocusKeyword(tool: BuildDataTool, locale: Locale): string | null {
+  return getLocalizedTool(tool, locale).seoFocusKeyword;
 }
 
 interface BuildDataTag {
@@ -64,6 +107,11 @@ export interface BuildDataTool {
   url: string;
   description: string | null;
   coreTask: string;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  seoFocusKeyword: string | null;
+  seoIntent: string | null;
+  seoTaskPhrase: string | null;
   status: string;
   submittedAt: string;
   approvedAt: string | null;

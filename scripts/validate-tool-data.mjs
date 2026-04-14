@@ -13,6 +13,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SEO_INTENTS, includesNoLoginIntent } from '../src/lib/tool-seo.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -83,6 +84,40 @@ export function validateToolData(data) {
     errors.push('Missing or empty required field: coreTask');
   } else if (data.coreTask.length > 200) {
     errors.push(`coreTask too long (${data.coreTask.length} chars, maximum 200)`);
+  }
+
+  if (!data.seoTitle || typeof data.seoTitle !== 'string' || data.seoTitle.trim() === '') {
+    errors.push('Missing or empty required field: seoTitle');
+  } else if (data.seoTitle.length > 80) {
+    errors.push(`seoTitle too long (${data.seoTitle.length} chars, maximum 80)`);
+  }
+
+  if (!data.seoDescription || typeof data.seoDescription !== 'string' || data.seoDescription.trim() === '') {
+    errors.push('Missing or empty required field: seoDescription');
+  } else if (data.seoDescription.length > 180) {
+    errors.push(`seoDescription too long (${data.seoDescription.length} chars, maximum 180)`);
+  } else if (data.description && data.seoDescription.trim() === data.description.trim()) {
+    errors.push('seoDescription should add search-specific context beyond description');
+  }
+
+  if (!data.seoTaskPhrase || typeof data.seoTaskPhrase !== 'string' || data.seoTaskPhrase.trim() === '') {
+    errors.push('Missing or empty required field: seoTaskPhrase');
+  } else if (data.seoTaskPhrase.length > 120) {
+    errors.push(`seoTaskPhrase too long (${data.seoTaskPhrase.length} chars, maximum 120)`);
+  } else if (!includesNoLoginIntent(data.seoTaskPhrase)) {
+    errors.push('seoTaskPhrase must express no-login intent (for example: without signup, no account required)');
+  }
+
+  if (!data.seoFocusKeyword || typeof data.seoFocusKeyword !== 'string' || data.seoFocusKeyword.trim() === '') {
+    errors.push('Missing or empty required field: seoFocusKeyword');
+  } else if (data.seoFocusKeyword.length > 120) {
+    errors.push(`seoFocusKeyword too long (${data.seoFocusKeyword.length} chars, maximum 120)`);
+  }
+
+  if (!data.seoIntent || typeof data.seoIntent !== 'string' || data.seoIntent.trim() === '') {
+    errors.push('Missing or empty required field: seoIntent');
+  } else if (!SEO_INTENTS.includes(data.seoIntent)) {
+    errors.push(`seoIntent must be one of: ${SEO_INTENTS.join(', ')}`);
   }
 
   // --- Tags validation ---
