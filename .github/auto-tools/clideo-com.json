@@ -1,0 +1,13 @@
+{
+  "name": "Clideo",
+  "url": "https://clideo.com",
+  "description": "Clideo is a browser-based media toolkit with 20+ tools for video and audio editing: trim, compress, convert formats, merge clips, mute audio, add subtitles, extract audio, loop video, change speed, and create GIFs. Core tools work without an account — upload a file, process it on their servers, and download the result. Free tier adds a watermark; paid plans remove it.",
+  "coreTask": "Edit, convert, trim, and compress video and audio files directly in your browser without installing software or creating an account.",
+  "tags": [
+    { "key": "category", "value": "Media" },
+    { "key": "pricing", "value": "Freemium" },
+    { "key": "type", "value": "Web App" },
+    { "key": "data", "value": "Server-Side" },
+    { "key": "offline", "value": "Online Only" }
+  ]
+}
