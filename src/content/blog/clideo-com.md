@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "online video editing browser media tools"
 ---
 
+![Hero image](/blog/images/clideo-com/hero.jpg)
+
 Most video editing tasks are not complicated. You need to cut ten seconds from the beginning of a clip, compress a file that's too large to email, or convert MOV footage to MP4 because the platform you're uploading to won't accept anything else. These are not creative challenges — they're logistics. And yet they've historically required you to install software, learn a new interface, or hand your file over to a service that demands an account before it will help you.
 
 Clideo is a straightforward answer to that problem. It's a collection of browser-based video and audio tools that handle the routine work without requiring a download or a signup. You navigate to the tool you need, upload your file, adjust a few settings, and download the result.
