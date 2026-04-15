@@ -137,9 +137,11 @@ For each tool, generate a JSON file \`.github/auto-seo/{slug}.json\` with these 
  */
 export function buildIssueBody(tools, tagMap) {
   const lines = [
+    '@claude Please generate SEO metadata for the tools listed below.',
+    '',
     `# SEO Fill: ${tools.length} tool(s) need SEO metadata`,
     '',
-    'Generate SEO metadata for each tool listed below. Create one JSON file per tool at `.github/auto-seo/{slug}.json`.',
+    'Create one JSON file per tool at `.github/auto-seo/{slug}.json`.',
     '',
     SEO_STANDARDS,
     '---',
