@@ -1,0 +1,88 @@
+name: SEO Writer
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  write-seo:
+    if: contains(toJSON(github.event.issue.labels), '"auto-seo"')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Prepare directories
+        run: mkdir -p .github/auto-seo
+
+      # Claude Code: read Issue body, generate SEO JSON files
+      - name: Generate SEO metadata
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.PAT_GITHUB_TOKEN }}
+
+      # Post-processing: find Claude's branch, validate, push to D1
+      - name: Push SEO to D1
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # --- 1. Find Claude's branch ---
+          BRANCH=$(git ls-remote --heads origin "claude/issue-${ISSUE_NUMBER}-*" \
+            | awk '{print $2}' | sed 's|refs/heads/||' | sort -r | head -1)
+
+          if [ -z "$BRANCH" ]; then
+            echo "No branch found for issue #${ISSUE_NUMBER}"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "SEO generation failed — Claude did not push any changes."
+            gh issue close "$ISSUE_NUMBER"
+            exit 0
+          fi
+          echo "Found branch: $BRANCH"
+
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+
+          # --- 2. Check for SEO JSON files ---
+          SEO_FILES=$(find .github/auto-seo -name "*.json" 2>/dev/null || true)
+          if [ -z "$SEO_FILES" ]; then
+            echo "No SEO JSON files found"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "No SEO data files found in the branch."
+            gh issue close "$ISSUE_NUMBER"
+            exit 0
+          fi
+
+          FILE_COUNT=$(echo "$SEO_FILES" | wc -l | tr -d ' ')
+          echo "Found $FILE_COUNT SEO file(s)"
+
+          # --- 3. Validate and push to D1 ---
+          if node scripts/push-seo-update.mjs --write; then
+            echo "SEO data pushed to D1 successfully"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "✅ SEO metadata updated for $FILE_COUNT tool(s)."
+          else
+            echo "Some SEO updates failed"
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "⚠️ SEO update completed with errors. Check CI logs for details."
+          fi
+
+          # --- 4. Clean up: close issue, delete branch ---
+          gh issue close "$ISSUE_NUMBER"
+          git push origin --delete "$BRANCH" 2>/dev/null || true

@@ -30,7 +30,9 @@ scripts/
 ├── translation-guidelines.md     # Per-language translation style guide (referenced by translate.yml)
 ├── add-blog-hero-image.mjs       # Hero image downloader with 3-level fallback (Unsplash API → Unsplash Source → Picsum)
 ├── prepare-tool-discovery.mjs    # Auto tool discovery: category rotation → Issue body for Claude Code
-├── validate-tool-data.mjs        # Tool data JSON validation (field checks, tag validation, URL exclusion)
+├── validate-tool-data.mjs        # Tool data JSON validation (field checks, tag validation, URL exclusion, optional SEO)
+├── prepare-seo-fill.mjs          # SEO fill: query D1 for empty SEO → Issue body for Claude Agent (batch 15)
+├── push-seo-update.mjs           # SEO fill: validate + push .github/auto-seo/*.json to D1
 ├── submit-discovered-tool.mjs    # D1 REST API write: insert discovered tool as approved
 ├── tool-discovery-sources.json   # Per-category search queries and sources for tool discovery
 ├── tag-definitions.json          # Shared TAG_DEFINITIONS for scripts (single source, mirrors src/lib/tags.ts)
@@ -44,7 +46,9 @@ scripts/
     ├── sitemap.test.mjs          # Sitemap multi-locale generation tests (23 cases)
     ├── rss.test.mjs              # RSS feed generation tests (10 cases)
     ├── headers.test.mjs          # Cache-Control headers validation tests (8 cases)
-    ├── validate-tool-data.test.mjs      # Tool data validation tests (28 cases)
+    ├── validate-tool-data.test.mjs      # Tool data validation tests (40 cases)
+    ├── prepare-seo-fill.test.mjs        # SEO fill preparation tests (11 cases)
+    ├── push-seo-update.test.mjs         # SEO push validation tests (21 cases)
     ├── submit-discovered-tool.test.mjs  # Tool D1 submission tests (12 cases)
     ├── prepare-tool-discovery.test.mjs  # Tool discovery preparation tests (22 cases)
     └── category-pages.test.mjs          # Category slug utility tests (9 cases)
@@ -380,15 +384,33 @@ Automated daily tool discovery pipeline: cron → category rotation → Claude s
 - **Category rotation**: `scripts/prepare-tool-discovery.mjs` rotates through 11 TAG_DEFINITIONS categories via `dayOfYear % 11`. Supports `CATEGORY_HINT` env var override.
 - **Search strategy**: `scripts/tool-discovery-sources.json` defines per-category search queries and recommended sources. Claude uses WebSearch + Playwright MCP to discover and verify candidates.
 - **Playwright MCP integration**: `.mcp.json` configured at runtime in CI with `@playwright/mcp@latest` (headless). Provides `browser_navigate`, `browser_screenshot`, `browser_snapshot`, `browser_click`, `browser_type` tools. Excluded from git via `.git/info/exclude`.
-- **Tool validation** (`scripts/validate-tool-data.mjs`): Validates `.github/auto-tools/*.json` — required fields (name, url, description, coreTask), field length limits, URL format + exclude list, tag key/value validation against TAG_DEFINITIONS, exactly one category tag, optional field format checks (repoUrl, twitterUrl, githubUrl, discordUrl). Exports `validateToolData(data)` returning `{ valid, errors[] }`.
+- **Tool validation** (`scripts/validate-tool-data.mjs`): Validates `.github/auto-tools/*.json` — required fields (name, url, description, coreTask), field length limits, URL format + exclude list, tag key/value validation against TAG_DEFINITIONS, exactly one category tag, optional SEO fields (validated when provided but not required — SEO is handled by the separate seo-fill workflow), optional field format checks (repoUrl, twitterUrl, githubUrl, discordUrl). Exports `validateToolData(data)` returning `{ valid, errors[] }`.
 - **D1 submission** (`scripts/submit-discovered-tool.mjs`): Writes tool to D1 as `status='approved'` via REST API. Deduplicates by slug. Auto-adds `source:Open Source` tag when `repoUrl` is set. Inserts initial health check record. Uses `urlToSlug()` consistent with `src/lib/utils.ts`.
 - **"宁缺勿滥" policy**: Claude creates `.github/auto-tools/_skip-{date}.md` when no suitable tool found → Issue closed with reason. No hardcoded verification rules — all judgment by Claude AI via browser interaction.
 - **`claude.yml` exclusion**: auto-tool Issues are excluded from the general Claude Code workflow to avoid duplicate triggers.
 - **Tests**:
-  - `node --test scripts/__tests__/validate-tool-data.test.mjs` — 28 test cases
+  - `node --test scripts/__tests__/validate-tool-data.test.mjs` — 40 test cases
   - `node --test scripts/__tests__/submit-discovered-tool.test.mjs` — 12 test cases
-  - `node --test scripts/__tests__/prepare-tool-discovery.test.mjs` — 22 test cases
+  - `node --test scripts/__tests__/prepare-tool-discovery.test.mjs` — 23 test cases
 - **Secrets required**: All reused from existing pipelines — `CLAUDE_CODE_OAUTH_TOKEN`, `PAT_GITHUB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `UNSPLASH_ACCESS_KEY` (optional).
+
+## Auto SEO Fill Pipeline
+
+Automated daily SEO metadata generation: cron → find tools with empty SEO → Claude Agent writes high-quality SEO → push to D1.
+
+- **Architecture**: Two-stage pipeline:
+  1. `seo-fill.yml` (cron UTC 20:30 = Beijing 04:30, or `workflow_dispatch`): runs `scripts/prepare-seo-fill.mjs` → creates GitHub Issue with `auto-seo` label (max 15 tools per batch)
+  2. `seo-writer.yml` (Issue trigger): `claude-code-action` reads Issue → generates `.github/auto-seo/{slug}.json` per tool → post-processing runs `scripts/push-seo-update.mjs --write` to validate and push to D1 → closes Issue, deletes branch
+- **SEO title budget**: `seoTitle` should be ≤ 44 chars because `Layout.astro` appends `" | nologin.tools"` (16 chars), and Google displays ~60 chars total. The DB column allows 80 chars max.
+- **SEO fields are not part of tool discovery**: Tool discovery (`tool-discoverer.yml`) does not generate SEO fields. SEO is handled by this separate pipeline, which covers both newly discovered tools and manually submitted tools.
+- **Batch control**: `prepare-seo-fill.mjs` queries D1 for approved tools with any NULL/empty SEO field, limited to 15 per Issue. Skips if an open `auto-seo` Issue already exists.
+- **Validation** (`scripts/push-seo-update.mjs`): Validates `.github/auto-seo/{slug}.json` — all 5 SEO fields required, length limits, `seoTaskPhrase` must include no-login intent, `seoIntent` must be valid. Exports `validateSeoData(data)` returning `{ valid, errors[] }`.
+- **Runtime fallback**: `src/lib/tool-seo.mjs` `buildToolSeoMeta()` generates fallback SEO at render time when DB fields are NULL. This does NOT write to the DB.
+- **`claude.yml` exclusion**: auto-seo Issues are excluded from the general Claude Code workflow.
+- **Tests**:
+  - `node --test scripts/__tests__/prepare-seo-fill.test.mjs` — 11 test cases
+  - `node --test scripts/__tests__/push-seo-update.test.mjs` — 21 test cases
+- **Secrets required**: `CLAUDE_CODE_OAUTH_TOKEN`, `PAT_GITHUB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
 ## CI/CD
 

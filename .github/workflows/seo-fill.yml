@@ -1,0 +1,48 @@
+name: SEO Fill
+
+on:
+  schedule:
+    - cron: '30 20 * * *' # UTC 20:30 = Beijing 04:30
+  workflow_dispatch:
+
+concurrency:
+  group: seo-fill
+  cancel-in-progress: true
+
+jobs:
+  create-seo-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Find tools needing SEO
+        id: prep
+        run: node scripts/prepare-seo-fill.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Check for existing open auto-seo Issue
+        if: steps.prep.outputs.count != '0'
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+        run: |
+          EXISTING=$(gh issue list --label "auto-seo" --state open --json number --jq '.[0].number' 2>/dev/null || true)
+          echo "existing=$EXISTING" >> "$GITHUB_OUTPUT"
+
+      - name: Create Issue
+        if: steps.prep.outputs.count != '0' && steps.check.outputs.existing == ''
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "${{ steps.prep.outputs.title }}" \
+            --body-file /tmp/seo-issue-body.md \
+            --label "auto-seo"

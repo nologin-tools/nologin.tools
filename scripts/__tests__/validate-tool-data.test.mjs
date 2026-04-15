@@ -69,22 +69,37 @@ describe('validateToolData', () => {
     assert.ok(result.errors.some((e) => e.includes('coreTask')));
   });
 
-  it('should error when seoTitle is missing', () => {
-    const result = validateToolData(buildToolData({ seoTitle: '' }));
-    assert.equal(result.valid, false);
-    assert.ok(result.errors.some((e) => e.includes('seoTitle')));
+  it('should pass when all SEO fields are omitted (optional)', () => {
+    const data = buildToolData();
+    delete data.seoTitle;
+    delete data.seoDescription;
+    delete data.seoFocusKeyword;
+    delete data.seoIntent;
+    delete data.seoTaskPhrase;
+    const result = validateToolData(data);
+    assert.equal(result.valid, true);
   });
 
-  it('should error when seoDescription is missing', () => {
-    const result = validateToolData(buildToolData({ seoDescription: '' }));
-    assert.equal(result.valid, false);
-    assert.ok(result.errors.some((e) => e.includes('seoDescription')));
+  it('should pass when SEO fields are empty strings (optional)', () => {
+    const result = validateToolData(buildToolData({
+      seoTitle: '',
+      seoDescription: '',
+      seoFocusKeyword: '',
+      seoIntent: '',
+      seoTaskPhrase: '',
+    }));
+    assert.equal(result.valid, true);
   });
 
-  it('should error when seoTaskPhrase is missing', () => {
-    const result = validateToolData(buildToolData({ seoTaskPhrase: '' }));
-    assert.equal(result.valid, false);
-    assert.ok(result.errors.some((e) => e.includes('seoTaskPhrase')));
+  it('should pass when SEO fields are null (optional)', () => {
+    const result = validateToolData(buildToolData({
+      seoTitle: null,
+      seoDescription: null,
+      seoFocusKeyword: null,
+      seoIntent: null,
+      seoTaskPhrase: null,
+    }));
+    assert.equal(result.valid, true);
   });
 
   // --- Field length limits ---

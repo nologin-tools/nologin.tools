@@ -22,6 +22,7 @@ jobs:
       && !contains(toJSON(github.event.issue.labels), '"auto-blog"')
       && !contains(toJSON(github.event.issue.labels), '"auto-translate"')
       && !contains(toJSON(github.event.issue.labels), '"auto-tool"')
+      && !contains(toJSON(github.event.issue.labels), '"auto-seo"')
     runs-on: ubuntu-latest
     permissions:
       contents: read
