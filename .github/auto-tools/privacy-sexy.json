@@ -1,0 +1,15 @@
+{
+  "name": "privacy.sexy",
+  "url": "https://privacy.sexy",
+  "description": "Open-source browser tool that generates customizable privacy hardening scripts for Windows, macOS, and Linux. Browse 900+ organized tweaks — disable telemetry, advertising IDs, data collection services, and more — select what you want, and download a ready-to-run script. All script generation runs client-side: no account, no uploads, nothing leaves your browser.",
+  "coreTask": "Generate OS privacy hardening scripts for Windows, macOS, or Linux directly in your browser — select the tweaks you want and download a ready-to-run script.",
+  "tags": [
+    { "key": "category", "value": "Privacy" },
+    { "key": "pricing", "value": "Free" },
+    { "key": "type", "value": "Web App" },
+    { "key": "data", "value": "Client-Side Only" },
+    { "key": "privacy", "value": "Privacy Focused" },
+    { "key": "hosting", "value": "Self-Hostable" }
+  ],
+  "repoUrl": "https://github.com/undergroundwires/privacy.sexy"
+}
