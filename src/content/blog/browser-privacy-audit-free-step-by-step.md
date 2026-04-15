@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser privacy security audit magnifying glass"
 ---
 
+![Hero image](/blog/images/browser-privacy-audit-free-step-by-step/hero.jpg)
+
 Most privacy advice skips the part where you check what's actually happening. Settings changes and extensions are easy to recommend. What's harder — and more useful — is running specific tests to see what your browser is actually exposing right now, before changing anything.
 
 This is that guide. Ten minutes, no account creation, no software to install. Just a set of free browser tools that show you exactly what's leaking, with specific numbers you can act on.
