@@ -201,7 +201,7 @@ async function main() {
   const toolIds = tools.map((t) => t.id);
   const placeholders = toolIds.map(() => '?').join(',');
   const tags = await queryD1(d1Api, apiToken,
-    `SELECT tool_id, key, value FROM tags WHERE tool_id IN (${placeholders})`,
+    `SELECT tool_id, tag_key, tag_value FROM tags WHERE tool_id IN (${placeholders})`,
     toolIds
   );
 
@@ -209,7 +209,7 @@ async function main() {
   const tagMap = new Map();
   for (const tag of tags) {
     if (!tagMap.has(tag.tool_id)) tagMap.set(tag.tool_id, []);
-    tagMap.get(tag.tool_id).push(`${tag.key}:${tag.value}`);
+    tagMap.get(tag.tool_id).push(`${tag.tag_key}:${tag.tag_value}`);
   }
 
   const body = buildIssueBody(tools, tagMap);
