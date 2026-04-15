@@ -1,777 +1,842 @@
 {
   "phind-com": {
-    "_hash": "92a72751ad8c9492",
+    "_hash": "46378e72d8a727cc",
     "description": "专为开发者打造的 AI 搜索引擎。Phind 实时搜索网络，整合代码示例、文档引用和相关来源，提供技术性解答——基础功能无需账号。",
     "coreTask": "通过实时网络搜索和可运行代码示例，获取编程和技术问题的 AI 解答"
   },
   "nologin-tools": {
-    "_hash": "4ea08c8c5c7d022a",
+    "_hash": "87c68339344dc359",
     "description": "一个精心整理的工具和服务目录，无需创建账号或登录即可使用。按分类、隐私、价格等条件浏览、搜索和筛选工具——全程无需注册。",
-    "coreTask": "浏览和搜索完整的无需登录工具目录，按分类和标签筛选，查看工具详情"
+    "coreTask": "浏览和搜索完整的无需登录工具目录，按分类和标签筛选，查看工具详情",
+    "seoTitle": "nologin.tools — 无需登录的工具目录",
+    "seoDescription": "发现数百款无需登录即可使用的工具。按分类浏览，按隐私或价格筛选，精准找到你需要的——无需注册账号。",
+    "seoFocusKeyword": "免费工具无需登录",
+    "seoTaskPhrase": "无需登录浏览隐私工具"
   },
   "led-run": {
-    "_hash": "756b58b5afcc304c",
+    "_hash": "d3f58b6ec49dc42d",
     "description": "基于浏览器的显示工具包，可将任何屏幕变成 LED 标牌、灯光效果、声音可视化器、时钟、二维码或摄像头滤镜。支持数十种主题和模式——无需应用，无需账号，只需一个网址。",
-    "coreTask": "在浏览器中直接显示滚动文字、灯光效果、声音可视化、时钟、二维码和摄像头滤镜——无需任何登录或账号"
+    "coreTask": "在浏览器中直接显示滚动文字、灯光效果、声音可视化、时钟、二维码和摄像头滤镜——无需任何登录或账号",
+    "seoTitle": "led.run — 浏览器 LED 显示工具包",
+    "seoDescription": "将任何屏幕变成滚动 LED 标牌、时钟、声音可视化器或二维码显示屏。数十种主题，即开即用——无需账号。",
+    "seoFocusKeyword": "浏览器 LED 显示无需注册",
+    "seoTaskPhrase": "无需账号在浏览器中显示 LED 标牌"
   },
   "tmp-tf": {
-    "_hash": "17041765046cba97",
+    "_hash": "09347eccf16aa556",
     "description": "临时剪贴板工具，可在几秒钟内跨设备同步文字和内容。无需注册，端对端加密，内容会自动销毁。只需打开一个命名频道，从任何设备粘贴即可。",
-    "coreTask": "打开频道，无需账号或登录即可跨设备同步文字"
+    "coreTask": "打开频道，无需账号或登录即可跨设备同步文字",
+    "seoTitle": "tmp.tf — 加密临时剪贴板同步",
+    "seoDescription": "端对端加密跨设备同步文字。打开命名频道，粘贴内容，即刻分享——无需注册。",
+    "seoFocusKeyword": "加密剪贴板同步无需注册",
+    "seoTaskPhrase": "无需注册跨设备同步文字"
   },
   "til-re": {
-    "_hash": "77f9fa8a849b9a42",
+    "_hash": "7c613b80a2aadfbd",
     "description": "基于网址的时间工具，可创建倒计时、正计时、时钟和循环周期——全部嵌入链接本身。无需注册，只需构造网址并分享。支持多种主题和时间单位。",
-    "coreTask": "通过网址创建和分享倒计时、正计时和时钟——无需账号"
+    "coreTask": "通过网址创建和分享倒计时、正计时和时钟——无需账号",
+    "seoTitle": "til.re — 基于网址的倒计时创建工具",
+    "seoDescription": "创建完全嵌入在网址中的可分享倒计时和时钟。构建你的计时器链接并即刻分享——无需账号或注册。",
+    "seoFocusKeyword": "网址倒计时计时器无需注册",
+    "seoTaskPhrase": "通过网址创建倒计时计时器无需注册"
   },
   "excalidraw-com": {
-    "_hash": "aa4d4e0bc8d184ad",
+    "_hash": "6b40346f7aca37d9",
     "description": "用于绘制手绘风格图表的虚拟白板。支持实时协作、导出为 PNG/SVG，并提供丰富的图形和图标库。",
-    "coreTask": "协作创建手绘风格图表和草图"
+    "coreTask": "协作创建手绘风格图表和草图",
+    "seoTitle": "Excalidraw — 免费在线白板",
+    "seoDescription": "在浏览器中直接绘制手绘风格的图表和线框图。实时协作，支持 PNG/SVG 导出——无需注册。",
+    "seoFocusKeyword": "免费在线白板无需注册",
+    "seoTaskPhrase": "无需注册协作绘制图表"
   },
   "photopea-com": {
-    "_hash": "c46a80a9c1178363",
+    "_hash": "cdfdb9c4754f3f8c",
     "description": "高级在线图像编辑器，支持 PSD、XCF、Sketch、XD 和 CDR 格式。直接在浏览器中以类似 Photoshop 的方式使用图层、滤镜和高级编辑工具。",
-    "coreTask": "在类 Photoshop 的浏览器编辑器中编辑照片和设计图形"
+    "coreTask": "在类 Photoshop 的浏览器编辑器中编辑照片和设计图形",
+    "seoTitle": "Photopea — 免费 Photoshop 替代品",
+    "seoDescription": "在浏览器中完整支持图层、滤镜和蒙版编辑 PSD、XCF 和 Sketch 文件——强大的类 Photoshop 编辑器，无需账号。",
+    "seoFocusKeyword": "免费在线 Photoshop 替代品",
+    "seoTaskPhrase": "无需注册在线编辑 PSD 文件"
   },
   "tldraw-com": {
-    "_hash": "b80f172d5af76f63",
+    "_hash": "b236e9d063d6751d",
     "description": "简洁、极简界面的协作数字白板。手绘、添加形状、箭头、文字和便利贴，创建图表和视觉笔记。",
-    "coreTask": "在无限画布上绘制图表和视觉笔记"
+    "coreTask": "在无限画布上绘制图表和视觉笔记",
+    "seoTitle": "tldraw — 协作数字画布",
+    "seoDescription": "在无限数字画布上草绘图表和视觉笔记。添加形状、箭头、文字和便利贴进行实时协作——无需登录。",
+    "seoFocusKeyword": "协作白板无需注册",
+    "seoTaskPhrase": "无需登录在无限画布上绘制图表"
   },
   "squoosh-app": {
-    "_hash": "dba0ab956b3c4dc1",
+    "_hash": "0b0143efc81e2e27",
     "description": "谷歌开发的图像压缩工具，完全在浏览器中运行。并排对比原图与压缩图，支持 WebP、AVIF、MozJPEG 等格式。",
-    "coreTask": "通过直观的质量对比压缩和优化图像"
+    "coreTask": "通过直观的质量对比压缩和优化图像",
+    "seoTitle": "Squoosh — 浏览器图像压缩工具",
+    "seoDescription": "在浏览器内将照片压缩为 WebP、AVIF 或 MozJPEG，并提供并排质量对比。零服务器上传，无需账号。",
+    "seoFocusKeyword": "浏览器图像压缩免费",
+    "seoTaskPhrase": "无需登录在浏览器中压缩图像"
   },
   "svgedit-netlify-app-editor-index-html": {
-    "_hash": "e314a79bf3c9abc5",
+    "_hash": "a74fa84c2c0fde6a",
     "description": "快速、基于网页的 JavaScript SVG 绘图编辑器。直接在浏览器中以熟悉的绘图界面创建和编辑 SVG 图像。",
-    "coreTask": "在浏览器中创建和编辑 SVG 矢量图形"
+    "coreTask": "在浏览器中创建和编辑 SVG 矢量图形",
+    "seoTitle": "SVG Edit — 免费在线 SVG 编辑器",
+    "seoDescription": "在浏览器中使用熟悉的绘图应用界面创建和编辑可缩放 SVG 矢量图形。导出干净的 SVG 文件——无需登录。",
+    "seoFocusKeyword": "在线 SVG 编辑器免费",
+    "seoTaskPhrase": "无需登录编辑 SVG 矢量图形"
   },
   "remove-bg": {
-    "_hash": "70570a7528d22e21",
+    "_hash": "d0ce8c2823c96dfb",
     "description": "AI 驱动的工具，可在几秒钟内自动去除照片背景。上传图像，立即获得透明 PNG。",
-    "coreTask": "使用 AI 自动去除图像背景"
+    "coreTask": "使用 AI 自动去除图像背景",
+    "seoTitle": "remove.bg — AI 背景去除工具",
+    "seoDescription": "几秒内用 AI 精准抠出照片背景。上传图像，立即获得透明 PNG——无需账号或软件。",
+    "seoFocusKeyword": "免费去除照片背景",
+    "seoTaskPhrase": "无需注册去除图像背景"
   },
   "hemingwayapp-com": {
-    "_hash": "bdc68b9bc25eb8db",
+    "_hash": "cbdebf8cb21fdf61",
     "description": "写作助手，能高亮显示复杂句子、被动语态、副词和难以阅读的短语。帮助你写出简洁有力的文字。",
-    "coreTask": "通过高亮复杂和难以阅读的文字来提升写作清晰度"
+    "coreTask": "通过高亮复杂和难以阅读的文字来提升写作清晰度",
+    "seoTitle": "Hemingway Editor — 写作清晰度提升",
+    "seoDescription": "粘贴文字，立即获得复杂句子、被动语态和副词的彩色编码反馈。写得更简洁有力——无需注册。",
+    "seoFocusKeyword": "在线写作清晰度检查",
+    "seoTaskPhrase": "无需注册提升写作清晰度"
   },
   "languagetool-org": {
-    "_hash": "499823a696dd03a2",
+    "_hash": "3446ed68ac96dc6d",
     "description": "多语言语法、风格和拼写检查器，支持 30 多种语言。能检测出简单拼写检查器无法发现的错误。",
-    "coreTask": "检查 30 多种语言的语法、拼写和文风"
+    "coreTask": "检查 30 多种语言的语法、拼写和文风",
+    "seoTitle": "LanguageTool — 免费语法检查器",
+    "seoDescription": "一键检查 30 多种语言的语法、拼写和文风错误。比基础拼写检查更强大——无需账号即可开始使用。",
+    "seoFocusKeyword": "免费在线语法检查器",
+    "seoTaskPhrase": "无需登录检查 30 种语言的语法"
   },
   "dillinger-io": {
-    "_hash": "102e776207fe9d16",
+    "_hash": "9184aa4dc288bb0e",
     "description": "支持云端、移动端和离线存储的 Markdown 编辑器。实时预览渲染后的 Markdown 效果。",
-    "coreTask": "编写并实时预览 Markdown 文档"
+    "coreTask": "编写并实时预览 Markdown 文档",
+    "seoTitle": "Dillinger — 在线 Markdown 编辑器",
+    "seoDescription": "在浏览器中编写 Markdown，并实时并排预览渲染效果。可导出为 HTML、PDF 或美化 HTML——无需注册或安装。",
+    "seoFocusKeyword": "在线 Markdown 编辑器免费",
+    "seoTaskPhrase": "无需注册编写和预览 Markdown"
   },
   "regex101-com": {
-    "_hash": "d7afffa45d3b7d23",
+    "_hash": "309dfff8fe9e27bb",
     "description": "支持 PHP、PCRE、Python、Golang 和 JavaScript 的在线正则表达式测试和调试工具。实时解释和高亮匹配结果，构建、测试和调试正则表达式模式。",
-    "coreTask": "实时构建、测试和调试正则表达式"
+    "coreTask": "实时构建、测试和调试正则表达式",
+    "seoTitle": "Regex101 — 在线正则表达式测试器",
+    "seoDescription": "测试和调试 PHP、Python、JavaScript 等语言的正则表达式。实时匹配高亮和详细解释——无需登录。",
+    "seoFocusKeyword": "在线正则表达式测试调试",
+    "seoTaskPhrase": "无需登录在线测试正则表达式"
   },
   "caniuse-com": {
-    "_hash": "d87b515cca692de7",
+    "_hash": "a089bfea9a1ed986",
     "description": "最新的 Web 技术浏览器支持表，涵盖 HTML5、CSS3、SVG 和 JavaScript API。Web 开发者的必备参考。",
-    "coreTask": "查看 Web 技术的浏览器兼容性"
+    "coreTask": "查看 Web 技术的浏览器兼容性",
+    "seoTitle": "Can I Use — 浏览器兼容性查询",
+    "seoDescription": "即时查询所有主流浏览器对 HTML5、CSS3 和 JavaScript 的支持情况。Web 开发必备兼容性参考——无需注册。",
+    "seoFocusKeyword": "浏览器兼容性检查免费",
+    "seoTaskPhrase": "无需登录查询 CSS HTML 浏览器支持"
   },
   "devdocs-io": {
-    "_hash": "6f58b876bb930e2e",
+    "_hash": "3c753fa3294265a8",
     "description": "将多个 API 文档整合为快速、有序、可搜索的界面。覆盖 JavaScript、HTML、CSS、Node.js、Ruby、Python 等数百种技术。",
     "coreTask": "搜索和浏览数百个 API 的开发者文档"
   },
   "carbon-now-sh": {
-    "_hash": "86f277ac70df84cd",
+    "_hash": "b1ab94be84607347",
     "description": "创建并分享精美的源代码图片。从数十种语法主题和语言中选择，导出为 PNG 或 SVG。",
     "coreTask": "生成精美的源代码片段图片"
   },
   "jsonformatter-org": {
-    "_hash": "dc29a04e71799559",
+    "_hash": "eb34e39fc7e25976",
     "description": "在线 JSON 格式化、验证和查看工具。粘贴或上传 JSON 数据进行格式化、验证、压缩和格式转换。",
     "coreTask": "格式化、验证和美化 JSON 数据"
   },
   "tools-pdf24-org-en": {
-    "_hash": "c9afe1d7526899d1",
+    "_hash": "3cb1868df2a40a72",
     "description": "免费易用的在线 PDF 工具：合并、拆分、压缩、转换、旋转、添加水印等。所有处理均在浏览器中完成。",
     "coreTask": "合并、拆分、压缩和转换 PDF 文件"
   },
   "tinywow-com": {
-    "_hash": "c49f7aecec8125e1",
+    "_hash": "8f67ad42c5f48cc4",
     "description": "免费在线工具集合，支持 PDF、视频、图像和文件转换。文件处理后即删除，无水印，无文件大小限制。",
     "coreTask": "转换和处理 PDF、图像、视频和文档"
   },
   "pomofocus-io": {
-    "_hash": "4e0ece4c6eac0025",
+    "_hash": "c7e7d9716c859f65",
     "description": "可自定义的番茄计时器，适用于桌面和移动端。追踪专注时段，设置自定义时长，以简洁界面管理任务。",
     "coreTask": "使用番茄工作法计时工作时段"
   },
   "omnicalculator-com": {
-    "_hash": "17046b0f8c128eb1",
+    "_hash": "06fda7c3152e9120",
     "description": "超过 3000 个免费计算器的集合，涵盖数学、物理、金融、健康和日常生活。每个计算器都会解释背后的公式和概念。",
     "coreTask": "使用 3000+ 个专业计算器计算任何问题"
   },
   "ezgif-com": {
-    "_hash": "ece501a1d4969e57",
+    "_hash": "c5222b53ca129c79",
     "description": "在线 GIF 制作和图像编辑器。创建、调整大小、裁剪、反转、优化 GIF，将视频转换为 GIF。也支持 WebP、APNG 和 AVIF。",
     "coreTask": "创建、编辑和优化 GIF 及动态图像"
   },
   "audiotrimmer-com": {
-    "_hash": "6401934ecd7b3783",
+    "_hash": "5d27d73fbe4a089d",
     "description": "简单的在线音频剪辑工具。上传音频，选择要保留的部分，下载剪辑后的文件。支持 MP3、WAV 等格式。",
     "coreTask": "在线裁剪和剪切音频文件"
   },
   "convertio-co": {
-    "_hash": "2d7c1e2e92e3e38e",
+    "_hash": "094f51e6f0351bbc",
     "description": "高级在线文件转换器，支持 300 多种格式。通过简单的拖放界面转换文档、图像、音频、视频、电子书、压缩包等。",
     "coreTask": "通过拖放方式在 300 多种格式之间转换文件"
   },
   "haveibeenpwned-com": {
-    "_hash": "49efb8eee51ca4e3",
+    "_hash": "7b05bb4a2c2de6f6",
     "description": "检查你的电子邮件或电话号码是否在数据泄露事件中被暴露。覆盖来自已知泄露事件和粘贴站点的数十亿条记录。",
     "coreTask": "检查你的邮箱或电话是否在数据泄露中暴露"
   },
   "temp-mail-org": {
-    "_hash": "3fc66217ae495ec3",
+    "_hash": "f0311e9f9b669262",
     "description": "一次性临时邮件服务。获取即时匿名邮箱地址，无需暴露真实邮件接收邮件。一段时间后自动删除。",
     "coreTask": "生成一次性邮箱地址用于匿名注册"
   },
   "privacytests-org": {
-    "_hash": "d829316edc2e7b1d",
+    "_hash": "0ea02a082edba65a",
     "description": "开源的 Web 浏览器隐私测试。比较主流浏览器的追踪防护、抗指纹识别能力和其他隐私功能。",
     "coreTask": "比较各主流浏览器的隐私功能和追踪防护"
   },
   "csvjson-com": {
-    "_hash": "027d25258c2e433b",
+    "_hash": "7f849e71fb07a1a4",
     "description": "在线 CSV、JSON 和 SQL 格式转换工具。还包括数据清理和转换实用工具。所有处理均在浏览器中完成。",
     "coreTask": "在 CSV、JSON 和 SQL 数据格式之间转换"
   },
   "jsoncrack-com": {
-    "_hash": "7a5fd5f5dd2f5dfa",
+    "_hash": "7694d385c6c8a7f2",
     "description": "将 JSON 数据可视化为交互式图形。以树状图的形式无缝探索复杂的 JSON 结构，支持搜索和过滤。",
     "coreTask": "将 JSON 数据可视化为交互式节点图"
   },
   "tableconvert-com": {
-    "_hash": "f7dc3c15041aa1ea",
+    "_hash": "4ff584f6bac0fa70",
     "description": "在表格格式之间转换：Excel、CSV、JSON、HTML、SQL、Markdown、LaTeX 等。可视化编辑表格并以所需格式导出。",
     "coreTask": "在 Excel、CSV、JSON、Markdown 等格式之间转换表格"
   },
   "meet-jit-si": {
-    "_hash": "4f803307140790a3",
+    "_hash": "367a9d19bf298f27",
     "description": "免费、开源的视频会议，直接在浏览器中运行。创建房间并分享链接——无需账号、下载或插件。",
     "coreTask": "无需账号或下载即可发起即时视频通话"
   },
   "desmos-com-calculator": {
-    "_hash": "6835fcf0d7a1e132",
+    "_hash": "1086a8ed714bc8d1",
     "description": "以交互式 Web 应用形式实现的高级图形计算器。绘制函数、创建表格、添加滑块、动画图形，可视化探索数学。",
     "coreTask": "绘制数学函数图像，直观探索方程"
   },
   "wolframalpha-com": {
-    "_hash": "b511d320ab337609",
+    "_hash": "d25c5b493810010c",
     "description": "计算知识引擎，通过计算结构化数据来回答事实性问题。覆盖数学、科学、地理、历史等领域。",
     "coreTask": "计算答案并逐步解决数学问题"
   },
   "geogebra-org-calculator": {
-    "_hash": "000ff4f102fb266e",
+    "_hash": "3d450d3911d6a415",
     "description": "适用于各级教育的免费动态数学软件。在一个交互式工具中整合几何、代数、电子表格、图形、统计和微积分。",
     "coreTask": "用交互式数学工具探索几何、代数和微积分"
   },
   "xe-com-currencyconverter": {
-    "_hash": "4ac760ca63320a8d",
+    "_hash": "c0f00ea1f923d3a3",
     "description": "全球信赖的货币转换器，提供实时汇率。每分钟更新中间市场汇率，可在 300 多种货币和贵金属之间转换。",
     "coreTask": "以实时中间市场汇率转换货币"
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
-    "_hash": "78c0d5e3b1bc8501",
+    "_hash": "104086bc9584a44d",
     "description": "美国证券交易委员会官方复利计算器。估算储蓄或投资随时间增长的潜力。简单、可靠、无广告。",
     "coreTask": "计算储蓄和投资的复利增长"
   },
   "wise-com-gb-currency-converter": {
-    "_hash": "2580b052b16f7b05",
+    "_hash": "82ad3b7b3937a97a",
     "description": "显示真实中间市场汇率的货币转换器。对比银行和汇款服务的汇率，看看你能省多少钱。",
     "coreTask": "比较各银行和服务的真实汇率"
   },
   "quickstart-to": {
-    "_hash": "3f4560130485b244",
+    "_hash": "ee2d2bcc21a41b8c",
     "description": "社区驱动的开源快速入门指南合集（「万物的 TL;DR」）。提供 124 个以上适用于 Docker 等工具和技术的免费指南，无需任何账号或登录。",
     "coreTask": "无需账号即可浏览和阅读工具与技术的快速入门指南"
   },
   "coolors-co": {
-    "_hash": "7f48ea05286727d3",
+    "_hash": "63d9198f29392ce8",
     "description": "即时生成和谐的配色方案。按空格键为设计项目创建精美的色彩组合。",
     "coreTask": "生成和探索配色方案"
   },
   "jakearchibald-github-io-svgomg": {
-    "_hash": "e786f654ff556c91",
+    "_hash": "e61fbede71540124",
     "description": "带有可视化界面的 SVG 文件优化和压缩工具。由 Jake Archibald 开发，基于 SVGO。",
     "coreTask": "优化和压缩 SVG 文件"
   },
   "favicon-io": {
-    "_hash": "222a95b514158c65",
+    "_hash": "7e810461c767ef82",
     "description": "从文字、图片或 emoji 生成网站图标。以多种尺寸和格式下载，适用于各类网站。",
     "coreTask": "生成网站图标"
   },
   "tinypng-com": {
-    "_hash": "d3978d5c04b6d68f",
+    "_hash": "9c3c0bf8ceeefb94",
     "description": "智能有损压缩 PNG、JPEG 和 WebP 图像。在保持视觉质量的同时减小文件大小。",
     "coreTask": "压缩 PNG、JPEG 和 WebP 图像"
   },
   "app-diagrams-net": {
-    "_hash": "c5614cc0205aa2e5",
+    "_hash": "4a6838929a3e3f5d",
     "description": "创建流程图、UML 图、网络图等。前身为 draw.io，是功能最强大的免费在线绘图工具。",
     "coreTask": "创建流程图和各类图表"
   },
   "gchq-github-io-cyberchef": {
-    "_hash": "b90f16a2d5e51090",
+    "_hash": "e82237e93e5a193b",
     "description": "网络瑞士军刀——通过拖放式配方构建器编码、解码、加密、压缩和分析数据。",
     "coreTask": "编码、解码和转换数据"
   },
   "typescriptlang-org-play": {
-    "_hash": "747d7c9bbc800d02",
+    "_hash": "c1f4f0f91e6a68c7",
     "description": "在浏览器中编写、编译和运行 TypeScript 代码。微软官方工具，支持完整类型检查和 IntelliSense。",
     "coreTask": "在线编写和测试 TypeScript 代码"
   },
   "crontab-guru": {
-    "_hash": "9d145f38b85a61e6",
+    "_hash": "5688064aba7dbe2b",
     "description": "带有人类可读解释的可视化 cron 表达式编辑器。快速构建和验证 cron 定时任务。",
     "coreTask": "编辑和理解 cron 表达式"
   },
   "bundlephobia-com": {
-    "_hash": "97b58f7c750bc931",
+    "_hash": "47c6969436044ca3",
     "description": "查找添加 npm 包到构建包的成本。查看任意包的大小、下载时间和组成。",
     "coreTask": "分析 npm 包的打包大小"
   },
   "explainshell-com": {
-    "_hash": "f239fc07203c16ef",
+    "_hash": "a771295a72ecba3d",
     "description": "解析并解释 shell 命令。粘贴任意命令行，获取每个参数和标志的详细说明。",
     "coreTask": "解释 shell 命令语法"
   },
   "webhook-site": {
-    "_hash": "49b5e9bba88354c0",
+    "_hash": "b247add031841c22",
     "description": "即时测试和调试 Webhook 和 HTTP 请求。获取唯一 URL 以实时检查传入请求。",
     "coreTask": "测试和调试 Webhook"
   },
   "it-tools-tech": {
-    "_hash": "5dc951d0e9224f1b",
+    "_hash": "5389867c21326cce",
     "description": "70 多个开发者实用工具合集：哈希生成器、编码器、转换器、格式化工具等——尽在一处。",
     "coreTask": "访问 70 多个开发者实用工具"
   },
   "ray-so": {
-    "_hash": "1027514b98153879",
+    "_hash": "50e8060a598c4bfb",
     "description": "创建带有可自定义主题、背景和内边距的精美代码截图。由 Raycast 出品。",
     "coreTask": "生成精美的代码截图"
   },
   "fast-com": {
-    "_hash": "2e7ff04fb4638567",
+    "_hash": "13279a43b37b751d",
     "description": "Netflix 出品的简单网速测试。打开页面即刻开始测量下载速度。",
     "coreTask": "测试网络连接速度"
   },
   "worldtimebuddy-com": {
-    "_hash": "97171003baa00098",
+    "_hash": "795846e5e84b83d6",
     "description": "用于跨时区排期的可视化时区转换器。并排对比多个城市，找出最佳会议时间。",
     "coreTask": "比较和转换时区"
   },
   "excalideck-com": {
-    "_hash": "0913dcfd0f269e00",
+    "_hash": "33344e8a80e5345e",
     "description": "使用 Excalidraw 引擎创建手绘风格演示幻灯片。打造独特的草图风格幻灯片组。",
     "coreTask": "创建手绘风格演示文稿"
   },
   "unscreen-com": {
-    "_hash": "99ee9aeaaa4f082c",
+    "_hash": "caa06fea0aaec5b5",
     "description": "使用 AI 自动去除视频背景。上传视频片段，获得透明背景版本。",
     "coreTask": "使用 AI 去除视频背景"
   },
   "vocalremover-org": {
-    "_hash": "e5779577ea36c92b",
+    "_hash": "e86d371624ea4a27",
     "description": "AI 人声去除工具，可将任意歌曲的人声与伴奏分离。适合制作卡拉 OK 伴奏或混音。",
     "coreTask": "从伴奏中分离人声"
   },
   "browserleaks-com": {
-    "_hash": "4c0973e992734168",
+    "_hash": "7a4a7987f3763d3b",
     "description": "全面的浏览器指纹测试套件。检查浏览器泄露的信息：IP、WebRTC、Canvas、字体等。",
     "coreTask": "检测浏览器指纹泄露"
   },
   "coveryourtracks-eff-org": {
-    "_hash": "c339376a9a28a0be",
+    "_hash": "4295ae6533624086",
     "description": "测试浏览器对追踪的防护能力。由电子前哨基金会（EFF）出品。",
     "coreTask": "测试浏览器的追踪防护"
   },
   "virustotal-com": {
-    "_hash": "5eba7383bddd13a7",
+    "_hash": "8100c406cdd30476",
     "description": "使用 70 多个杀毒引擎扫描文件和网址中的恶意软件。谷歌旗下的综合威胁检测服务。",
     "coreTask": "扫描文件和 URL 中的恶意软件"
   },
   "pairdrop-net": {
-    "_hash": "998be398f726b994",
+    "_hash": "afb926fcd3ec7f85",
     "description": "与本地网络中的附近设备即时共享文件。Snapdrop 的开源继任者，支持点对点传输。",
     "coreTask": "在局域网设备间共享文件"
   },
   "privnote-com": {
-    "_hash": "54aac5b778f0499b",
+    "_hash": "d4361f9edcc8eb74",
     "description": "发送阅后即焚的加密备忘录。消息被阅读后自动删除——非常适合分享敏感信息。",
     "coreTask": "发送阅后即焚的加密备忘录"
   },
   "sharedrop-io": {
-    "_hash": "dfc76e0b49dccea6",
+    "_hash": "d604388a21e49b7f",
     "description": "在浏览器中进行点对点文件共享。类似苹果 AirDrop 但支持所有平台——无需安装应用。",
     "coreTask": "跨设备点对点文件共享"
   },
   "db-fiddle-com": {
-    "_hash": "306aa35ce395f7b3",
+    "_hash": "bb9133d9e7e6bfec",
     "description": "在线运行 MySQL、PostgreSQL 和 SQLite 的 SQL 查询。无需安装数据库即可测试模式和查询。",
     "coreTask": "在线运行 SQL 查询"
   },
   "mockaroo-com": {
-    "_hash": "f1f6784a9b8de76f",
+    "_hash": "4f45de4e56b480d2",
     "description": "生成 CSV、JSON、SQL 和 Excel 格式的真实测试数据。使用 100 多种数据类型自定义模式。",
     "coreTask": "生成真实的测试数据"
   },
   "flexboxfroggy-com": {
-    "_hash": "7c8cb8af34415c68",
+    "_hash": "660459e64baef9ca",
     "description": "通过有趣的青蛙主题游戏学习 CSS Flexbox。完成 24 关卡，掌握 justify-content 和 align-items 等 flexbox 属性。",
     "coreTask": "通过游戏学习 CSS Flexbox"
   },
   "cssgridgarden-com": {
-    "_hash": "acc1428e97cc1a57",
+    "_hash": "dfd6fd568f47eaf2",
     "description": "通过打理虚拟花园学习 CSS Grid 布局。通过 28 个逐渐升级的关卡浇灌你的胡萝卜。",
     "coreTask": "通过游戏学习 CSS Grid"
   },
   "numbeo-com": {
-    "_hash": "39bd04251a15e7cb",
+    "_hash": "f44b6346ad0ce59f",
     "description": "全球最大的生活成本数据库。比较全球各城市的物价、房租、食品杂货和生活质量。",
     "coreTask": "比较各城市的生活成本"
   },
   "themeasureofaplan-com": {
-    "_hash": "7df7b2db9b44f905",
+    "_hash": "a6caf0776055340e",
     "description": "精美的个人理财计算器，涵盖退休、投资、房贷和预算规划。交互式可视化，不收集任何数据。",
     "coreTask": "个人理财计算器和规划工具"
   },
   "godbolt-org": {
-    "_hash": "7c43d81755822e12",
+    "_hash": "cb0c8164c6bbbcf2",
     "description": "交互式编译器浏览器，显示 60 多种语言的汇编输出。并排比较编译器和优化级别。",
     "coreTask": "交互式查看编译器汇编输出"
   },
   "play-rust-lang-org": {
-    "_hash": "7f82ca6f60770e74",
+    "_hash": "5da5b01db33288e8",
     "description": "官方 Rust 在线编译器和执行环境。直接在浏览器中编写、编译和运行 Rust 代码。",
     "coreTask": "在线编译和运行 Rust 代码"
   },
   "go-dev-play": {
-    "_hash": "a2c330e4261fe500",
+    "_hash": "e66be1dc4d48a77b",
     "description": "官方 Go 在线编译器和执行环境。直接在浏览器中编写、编译和运行 Go 代码。",
     "coreTask": "在线编译和运行 Go 代码"
   },
   "hoppscotch-io": {
-    "_hash": "eedefc36b3aa13bd",
+    "_hash": "88276df1cbcc8aa3",
     "description": "开源 API 开发生态系统。测试 REST、GraphQL、WebSocket 等——Postman 的轻量级替代品。",
     "coreTask": "测试和调试 API"
   },
   "astexplorer-net": {
-    "_hash": "02ffae7ddfba6ec4",
+    "_hash": "51ca7d43477b7567",
     "description": "可视化探索多种语言和解析器的抽象语法树。编译器和工具链开发的必备工具。",
     "coreTask": "探索代码抽象语法树"
   },
   "mermaid-live": {
-    "_hash": "14f3dffcd6f3fcc5",
+    "_hash": "808f8b0df1e954dd",
     "description": "使用简单文本语法创建流程图、时序图、甘特图等。实时预览，可导出为 SVG/PNG。",
     "coreTask": "使用文本语法创建图表"
   },
   "caniemail-com": {
-    "_hash": "283b4a196b633e69",
+    "_hash": "d979431cd4421ec0",
     "description": "检查各邮件客户端对 HTML 和 CSS 的支持情况。类似 Can I Use，但专为邮件设计——了解 Gmail、Outlook、Apple Mail 等的支持情况。",
     "coreTask": "检查各邮件客户端的 HTML/CSS 支持"
   },
   "npmtrends-com": {
-    "_hash": "a1c11ea2dc6db58b",
+    "_hash": "9c85077ee9f94f35",
     "description": "比较 npm 包的下载量趋势。查看包大小、GitHub 星数，做出明智的依赖选择。",
     "coreTask": "比较 npm 包的下载量趋势"
   },
   "shields-io": {
-    "_hash": "0afed0dea779f32e",
+    "_hash": "bf17ab820f3f1420",
     "description": "为 README 和文档生成高质量的徽章。数百种集成，支持构建状态、覆盖率、版本等。",
     "coreTask": "生成 README 状态徽章"
   },
   "httpbin-org": {
-    "_hash": "9c304d8077252593",
+    "_hash": "63c036ec23ebc188",
     "description": "用于测试的简单 HTTP 请求和响应服务。检查请求头、Cookie、认证、重定向和响应格式。",
     "coreTask": "测试 HTTP 请求和响应"
   },
   "prettier-io-playground": {
-    "_hash": "e81da02fee4e8133",
+    "_hash": "6402db2467058cd2",
     "description": "在线预览 Prettier 代码格式化结果。尝试各种选项，查看 JavaScript、TypeScript、CSS 等的格式化输出。",
     "coreTask": "预览 Prettier 代码格式化效果"
   },
   "wave-webaim-org": {
-    "_hash": "d7fb5def5f09d15d",
+    "_hash": "045daa4eef7a5355",
     "description": "WebAIM 的 Web 无障碍评估工具。输入任意网址，获取包含 WCAG 合规性检查的详细无障碍报告。",
     "coreTask": "评估 Web 无障碍性"
   },
   "metatags-io": {
-    "_hash": "baa7f3c0bcd93884",
+    "_hash": "c80287feca2fa83c",
     "description": "预览和生成社交媒体 meta 标签。查看页面在 Google、Facebook、Twitter、LinkedIn 等平台上的展示效果。",
     "coreTask": "预览和生成 meta 标签"
   },
   "haikei-app": {
-    "_hash": "a44fefba8efa28b7",
+    "_hash": "06db3a60b652a26c",
     "description": "生成独特的 SVG 背景形状——波浪、斑点、渐变、堆叠等。导出为 SVG 或 PNG 用于设计。",
     "coreTask": "生成 SVG 背景图案"
   },
   "cssgradient-io": {
-    "_hash": "9e454410496d9be7",
+    "_hash": "2ef7e8f90d77a835",
     "description": "界面精美的可视化 CSS 渐变生成器。创建线性、径向和圆锥渐变，即时输出代码。",
     "coreTask": "可视化生成 CSS 渐变代码"
   },
   "getwaves-io": {
-    "_hash": "5ce9ebcb1212103e",
+    "_hash": "1e21cbf881521fa3",
     "description": "为分区分隔符生成精美的 SVG 波浪形状。通过简单 UI 自定义层数、颜色和复杂度。",
     "coreTask": "生成 SVG 波浪分隔符"
   },
   "realtimecolors-com": {
-    "_hash": "fec6cda9154abbb5",
+    "_hash": "093e3df2113223e0",
     "description": "实时在真实页面布局上预览配色方案。准确查看颜色在文字、按钮和背景上的效果。",
     "coreTask": "在真实布局上预览配色方案"
   },
   "colorhunt-co": {
-    "_hash": "be32db9f71fa100a",
+    "_hash": "add188da1aa0fd40",
     "description": "精心策划的精美配色方案合集。浏览热门配色或按颜色搜索——一键复制十六进制代码。",
     "coreTask": "浏览精选配色方案"
   },
   "neumorphism-io": {
-    "_hash": "9a86ef5ead1eb339",
+    "_hash": "ad2cd23af9a4ea45",
     "description": "可视化拟态 CSS 生成器。调整大小、圆角、距离、强度和颜色，创建柔和的 UI 阴影效果。",
     "coreTask": "生成 CSS 拟态效果"
   },
   "fontjoy-com": {
-    "_hash": "f6542c3254fe45a0",
+    "_hash": "962325de66817db6",
     "description": "基于深度学习的 AI 字体搭配生成器。为标题、副标题和正文生成和谐的字体组合。",
     "coreTask": "生成 AI 字体搭配方案"
   },
   "typescale-com": {
-    "_hash": "fce51177f7788316",
+    "_hash": "1d68f02102786e24",
     "description": "用于构建和谐排版的视觉字体比例计算器。选择基础大小和比例，预览字体层次结构。",
     "coreTask": "生成排版比例"
   },
   "uicolors-app": {
-    "_hash": "e93ca12290e0c17d",
+    "_hash": "1da01cb02001c1d1",
     "description": "从任意颜色生成 Tailwind CSS 色阶。一键获取完整的 50-950 色调调色板，可直接用于配置文件。",
     "coreTask": "生成 Tailwind CSS 色阶"
   },
   "happyhues-co": {
-    "_hash": "03b3b9509fcc25d8",
+    "_hash": "996bd7957e6adcc2",
     "description": "结合真实场景的配色灵感。查看配色方案应用于实际网站布局的效果，而非仅仅是色块。",
     "coreTask": "在实际场景中预览配色方案"
   },
   "cubic-bezier-com": {
-    "_hash": "4c415964d3c97c93",
+    "_hash": "aa190b1b29ce6c37",
     "description": "可视化 CSS cubic-bezier 时序函数编辑器。拖动控制点创建自定义缓动曲线，并与预设对比。",
     "coreTask": "编辑 CSS 贝塞尔缓动曲线"
   },
   "stackedit-io": {
-    "_hash": "4d6413e29e1cca44",
+    "_hash": "e6cf0704134dc97c",
     "description": "功能完整的浏览器内 Markdown 编辑器。支持同步 Google Drive 和 GitHub、实时预览、滚动同步和离线使用。",
     "coreTask": "在浏览器中编辑 Markdown"
   },
   "rentry-co": {
-    "_hash": "75a85e7be91b06f3",
+    "_hash": "cb6d2dd9b2c79cb4",
     "description": "Markdown 支持的内容发布服务。即时编写、发布和分享格式化文字——支持编辑码供后续更新。",
     "coreTask": "快速发布和分享 Markdown 内容"
   },
   "monkeytype-com": {
-    "_hash": "95f3472a6d81a3db",
+    "_hash": "107f6d063ced7b0b",
     "description": "极简、可自定义的打字速度测试。通过多种测试模式和主题追踪每分钟字数、准确率和稳定性。",
     "coreTask": "测试和提升打字速度"
   },
   "zenpen-io": {
-    "_hash": "0931fe2498cd04e4",
+    "_hash": "2a48a0679487e369",
     "description": "极简无干扰写作环境。打开即写——没有工具栏杂乱，没有任何干扰。",
     "coreTask": "在无干扰编辑器中写作"
   },
   "visualgo-net": {
-    "_hash": "988dc6934f124805",
+    "_hash": "76ec1f2df3a1e887",
     "description": "数据结构和算法的动画可视化。以自己的节奏逐步了解排序、图遍历、树操作等。",
     "coreTask": "可视化算法和数据结构"
   },
   "flukeout-github-io": {
-    "_hash": "e7bb9b31c9803f71",
+    "_hash": "19908709cbf028a2",
     "description": "通过晚餐主题游戏学习 CSS 选择器。完成 32 关卡，从基础选择器到高级伪类。",
     "coreTask": "通过游戏学习 CSS 选择器"
   },
   "pythontutor-com": {
-    "_hash": "5c03708926065fd5",
+    "_hash": "833183ed664c9c1a",
     "description": "逐步可视化代码执行过程。查看 Python、Java、C、C++ 和 JavaScript 的变量、调用栈和堆对象。",
     "coreTask": "逐步可视化代码执行过程"
   },
   "regexlearn-com": {
-    "_hash": "c361865bc770ca05",
+    "_hash": "30f6ec7f1bbed86a",
     "description": "带有逐步课程的交互式正则表达式教程。从基础模式到高级前瞻断言，系统学习正则表达式。",
     "coreTask": "交互式学习正则表达式"
   },
   "mystery-knightlab-com": {
-    "_hash": "bd3943b575e83982",
+    "_hash": "d67d51b1385f4f92",
     "description": "通过解决谋杀悬案来学习 SQL。使用 SELECT、JOIN、WHERE 等查询数据库，找出凶手。",
     "coreTask": "通过侦探游戏学习 SQL"
   },
   "sortvisualizer-com": {
-    "_hash": "74929ffd51606b4e",
+    "_hash": "25ec098bf0cfab0a",
     "description": "通过动态条形图观看排序算法的运行过程。并排比较冒泡排序、快速排序、归并排序等。",
     "coreTask": "可视化排序算法"
   },
   "dnsleaktest-com": {
-    "_hash": "aec0fd3af8e267ed",
+    "_hash": "29e4850d2c360f37",
     "description": "检查 DNS 请求是否泄漏到 VPN 隧道之外。运行标准或扩展测试以验证 DNS 隐私。",
     "coreTask": "检测 DNS 泄漏"
   },
   "ipleak-net": {
-    "_hash": "f817a02ec58f2a77",
+    "_hash": "e9c6d3f281099372",
     "description": "全面的泄漏检测：IP 地址、DNS 服务器、WebRTC、地理位置和浏览器指纹。VPN 验证的必备工具。",
     "coreTask": "检测 IP 和 DNS 泄漏"
   },
   "securityheaders-com": {
-    "_hash": "c643295064399500",
+    "_hash": "61e9205b80e018ab",
     "description": "分析任意网站的 HTTP 安全响应头。获取评分和 CSP、HSTS、X-Frame-Options 等方面的改进建议。",
     "coreTask": "分析 HTTP 安全响应头"
   },
   "rawgraphs-io": {
-    "_hash": "1039f3c637da75a7",
+    "_hash": "e4f54a4b1faf0367",
     "description": "开源数据可视化框架。粘贴数据，选择图表类型，导出精美的 SVG 或 PNG 可视化结果。",
     "coreTask": "无需编码即可可视化数据"
   },
   "transform-tools": {
-    "_hash": "4e938feaf3f92fcd",
+    "_hash": "52c555641aea06cb",
     "description": "多格式代码和数据转换工具。即时在 JSON、YAML、CSV、TypeScript、GraphQL 等众多格式之间转换。",
     "coreTask": "在各种数据格式之间转换"
   },
   "geojson-io": {
-    "_hash": "b71d576d2bc158b3",
+    "_hash": "4729e497adaa966a",
     "description": "在交互式地图上创建、编辑和可视化 GeoJSON 数据。绘制点、线和多边形，即时输出代码。",
     "coreTask": "在地图上创建和编辑 GeoJSON"
   },
   "markmap-js-org": {
-    "_hash": "3e44e5fc985068d2",
+    "_hash": "4b34f5e048ec3b3c",
     "description": "将 Markdown 转换为交互式思维导图。编写结构化 Markdown，看它变成可缩放、可导航的树状可视化图。",
     "coreTask": "将 Markdown 转换为思维导图"
   },
   "photomosh-com": {
-    "_hash": "e674a3180156fb6a",
+    "_hash": "e5ee5e0d010c18b3",
     "description": "为图像和视频添加故障艺术效果。27 种 mosh 效果，包括像素排序、RGB 偏移、抖动和 VHS——全在浏览器中完成。",
     "coreTask": "应用故障艺术效果"
   },
   "animista-net": {
-    "_hash": "7f79a860f05abd40",
+    "_hash": "95a8f358d1a82f8c",
     "description": "即用型 CSS 动画合集。预览、自定义时序和缓动，然后复制生成的 CSS 代码。",
     "coreTask": "生成 CSS 动画代码"
   },
   "mp3cut-net": {
-    "_hash": "2271d409a7815799",
+    "_hash": "b5af830b325d39a0",
     "description": "在线剪切和修剪音频文件。支持 MP3、WAV、OGG 和 300 多种格式——直接在浏览器中处理文件。",
     "coreTask": "在线剪切和修剪音频文件"
   },
   "svgrepo-com": {
-    "_hash": "84d4d462cc55af98",
+    "_hash": "ceee662933e3185c",
     "description": "浏览和下载 500,000 多个免费 SVG 图标和矢量图。按关键词搜索，自定义颜色，直接复制 SVG 代码。",
     "coreTask": "查找和下载免费 SVG 图标"
   },
   "speed-cloudflare-com": {
-    "_hash": "a3e67dd0d6341fa0",
+    "_hash": "38ca28449aa49f9f",
     "description": "Cloudflare 出品的全面网速和延迟测试。测量下载、上传、延迟、抖动和丢包率。",
     "coreTask": "测试网络速度和延迟"
   },
   "musicforprogramming-net": {
-    "_hash": "4e50abfd645f8cdf",
+    "_hash": "40a44cf3074bf142",
     "description": "精心策划的环境音乐和电子音乐混音，旨在帮助编程时保持专注。60 多集专注音乐。",
     "coreTask": "收听编程专注音乐"
   },
   "copychar-cc": {
-    "_hash": "413d30b0f5627378",
+    "_hash": "1f492d42da0e709a",
     "description": "一键复制特殊字符、符号和 emoji。按类别浏览或搜索——点击任意字符即可复制。",
     "coreTask": "复制特殊字符和符号"
   },
   "time-is": {
-    "_hash": "8a2c5ebac73d3129",
+    "_hash": "e5d3fb33604f856c",
     "description": "与原子钟同步的精确当前时间。世界时钟、时区转换器和毫秒精度的倒计时。",
     "coreTask": "查看精确的世界时间"
   },
   "archive-today": {
-    "_hash": "83ec9b0800f4ec0f",
+    "_hash": "a256745cd797564c",
     "description": "保存网页的永久快照。归档任意网址以保存其内容——适合引用、研究和绕过付费墙。",
     "coreTask": "归档网页快照"
   },
   "qrcode-monkey-com": {
-    "_hash": "80a6b99fba310c48",
+    "_hash": "95f88bc1344eb99b",
     "description": "创建带有 Logo、颜色和形状的自定义二维码。以 PNG、SVG、PDF 和 EPS 格式输出高分辨率结果。",
     "coreTask": "生成自定义二维码"
   },
   "yopass-se": {
-    "_hash": "f36156f4040a4d6c",
+    "_hash": "42b52eb3b37c2c03",
     "description": "使用端对端加密安全分享秘密。消息在被阅读或达到设定的过期时间后自毁。",
     "coreTask": "分享加密的自毁秘密"
   },
   "wormhole-app": {
-    "_hash": "c43504b3b90b69e0",
+    "_hash": "90641e147578b70e",
     "description": "支持最大 10 GB 的端对端加密文件传输。文件在上传前在浏览器中加密——没有人能读取它们。",
     "coreTask": "使用端对端加密传输文件"
   },
   "ficalc-app": {
-    "_hash": "db82b670a916268e",
+    "_hash": "216ba13ef3c19900",
     "description": "财务独立退休计算器。使用历史市场数据和蒙特卡洛分析模拟提款策略。",
     "coreTask": "计算退休提款率"
   },
   "financier-io": {
-    "_hash": "13c54671530741b0",
+    "_hash": "c5f8e6215065b496",
     "description": "受 YNAB 启发的离线优先个人预算管理器。信封预算法配合自动同步——所有数据保留在你的设备上。",
     "coreTask": "离线管理个人预算"
   },
   "duck-ai": {
-    "_hash": "85fc6a5685f23697",
+    "_hash": "515c2a91f909df11",
     "description": "以隐私为中心的 AI 聊天，由 Claude、Llama、Mistral 和 GPT-4o mini 提供支持。所有对话匿名且永不用于 AI 训练。",
     "coreTask": "私密地与 AI 模型聊天"
   },
   "chatgpt-com": {
-    "_hash": "9306bf0e5f3260eb",
+    "_hash": "c711355aa0101eeb",
     "description": "无需登录即可使用的 OpenAI AI 助手。通过 GPT-4o 处理写作、分析、编程、数学和对话。",
     "coreTask": "与 AI 聊天，用于写作、编程和分析"
   },
   "perplexity-ai": {
-    "_hash": "5a6c4f5d95a0fd09",
+    "_hash": "17b9ed99cdcad38c",
     "description": "AI 驱动的搜索引擎，提供带有引用来源的准确答案。基础搜索查询无需注册。",
     "coreTask": "通过 AI 获得带来源引用的搜索答案"
   },
   "z-ai": {
-    "_hash": "b6a83c525320950d",
+    "_hash": "fc17d89b870d4c6c",
     "description": "由智谱 AI 的 GLM-5 和 GLM-4.7 驱动的免费 AI 聊天机器人。支持多语言对话、编程辅助和数据分析。",
     "coreTask": "使用 GLM AI 模型进行写作、编程和分析聊天"
   },
   "deepl-com-translator": {
-    "_hash": "0711e8baebda18ee",
+    "_hash": "b8147456583d5bbd",
     "description": "具有卓越准确性的 AI 翻译引擎，支持 30 多种语言。免费网页版每次请求最多翻译 1500 个字符。",
     "coreTask": "使用 AI 在各语言之间翻译文字"
   },
   "quillbot-com": {
-    "_hash": "34b7220182f26e1e",
+    "_hash": "38b4eb38c82294cc",
     "description": "AI 改写工具，可重写文字以提升清晰度和文风。免费版提供标准和流畅两种模式，支持无限次改写，无需注册。",
     "coreTask": "使用 AI 改写和重述文字"
   },
   "craiyon-com": {
-    "_hash": "d5a12c6808145c1b",
+    "_hash": "4f7b79e6f1f91fa6",
     "description": "免费的 AI 图像生成器，可根据文字提示创建 9 张图像。无需登录，无限生成，注明来源后可商业使用。",
     "coreTask": "根据文字描述使用 AI 生成图像"
   },
   "teachablemachine-withgoogle-com": {
-    "_hash": "0cbc36b77cc6e7d1",
+    "_hash": "336f6d1a3e015ed4",
     "description": "谷歌的无代码浏览器端机器学习模型训练工具。使用自己的数据训练图像、声音或姿势识别模型，全程在客户端处理。",
     "coreTask": "无需编码即可训练机器学习模型"
   },
   "playground-tensorflow-org": {
-    "_hash": "36d847cd487d9a6d",
+    "_hash": "a5c1e3972d60655e",
     "description": "浏览器中的交互式神经网络可视化。通过实验层数、神经元、激活函数和学习率来理解神经网络的学习过程。",
     "coreTask": "交互式可视化和实验神经网络"
   },
   "goblin-tools": {
-    "_hash": "bf14247e3be6d506",
+    "_hash": "2a62a6b38f9a7918",
     "description": "专为神经多样性用户设计的 AI 任务管理工具集。Magic ToDo 可将压倒性的任务分解为可管理的步骤，支持调整复杂度。永久免费，无广告。",
     "coreTask": "使用 AI 将复杂任务分解为可管理的步骤"
   },
   "askmeanythi-ng": {
-    "_hash": "c790a95a32cdcfd7",
+    "_hash": "d25aa391b2b90551",
     "description": "举办 AMA（Ask Me Anything）会话最简单的方式。创建空间，分享链接，开始回答问题。无需注册。",
     "coreTask": "创建和主持 AMA 会话，分享链接，提问和回答"
   },
   "cookies-extractor-chekun-me": {
-    "_hash": "6c8994b535ce8df4",
+    "_hash": "8df2771e44e6395a",
     "description": "简单而强大的 Chrome 扩展，只需一键即可提取和导出任意网站的 Cookie。",
     "coreTask": "提取 Cookie"
   },
   "siteage-org": {
-    "_hash": "3d1478a7df22e44e",
+    "_hash": "affe6193ee9eff15",
     "description": "通过互联网档案馆追溯任意网站的起源。查询任意域名，获取包含建立日期、寿命排名、历史时间线和可嵌入 SVG 徽章的认证年龄报告。",
     "coreTask": "查询任意域名的年龄，查看历史时间线，获取可嵌入的 SVG 年龄徽章"
   },
   "next-tools-dev": {
-    "_hash": "95b88aac9d106818",
+    "_hash": "8b2b2275c266b430",
     "description": "从 it-tools 分叉的工具网站，包含 100 多个工具。",
     "coreTask": "使用各种工具"
   },
   "ps-keepmot-com": {
-    "_hash": "dfc2de5c065adeb4",
+    "_hash": "d7f18389cc80a647",
     "description": "免费在线拼图和图像编辑工具。无需登录，完全免费使用。完全基于前端构建，确保图像的绝对隐私和安全。下载无水印的高分辨率结果。简洁专业的视觉创作工具。",
     "coreTask": "网格拼图、照片墙拼图、长图拼接、图像裁剪和图像效果"
   },
   "kuakua-app": {
-    "_hash": "78d09821fc306d22",
+    "_hash": "92294a736326ef5b",
     "description": "Kuakua.app 是您的 AI 驱动心理健康资源、正念冥想和积极心理学游戏中心。参加科学测验，玩益脑任务，解锁每日肯定语，随时随地感受更幸福、更平静、更有韧性。",
     "coreTask": "提供全球心理学资源综合集合、体验式心理学内容和各种积极心理学工具"
   },
   "phet-colorado-edu": {
-    "_hash": "127b2e0cabbb0a5f",
+    "_hash": "cf876754fdb5e746",
     "description": "来自科罗拉多大学博尔德分校的免费浏览器科学与数学模拟工具。超过 150 个交互式 HTML5 模拟，涵盖物理、化学、生物、地球科学和数学——无需账号，直接在浏览器中使用。",
     "coreTask": "在浏览器中运行 STEM 互动模拟，直观探索科学和数学概念"
   },
   "cfiresim-com": {
-    "_hash": "a31fdf35c27ceeb4",
+    "_hash": "6a26813a78ccca0b",
     "description": "开源的 FIRE 退休投资组合模拟器，将你的计划与 150 年以上的美国历史市场数据进行对比验证。配置投资组合规模、年支出、资产配置、取款策略、社保收入等，直观看到你的退休计划在多少比例的历史场景中能够存活。",
     "coreTask": "利用历史市场序列和蒙特卡洛分析模拟退休投资组合的持久性，支持自定义取款策略和收入来源"
   },
   "convertio-com": {
-    "_hash": "5f17b2cc5a9fcc9e",
+    "_hash": "e64475b66a6b23d0",
     "description": "支持 200 多种格式的精准转换。音频、视频、图片、文档，一站搞定——底层由专业级工具驱动。",
     "coreTask": "拖入文件，完成格式转换"
   },
   "huggingface-co-chat": {
-    "_hash": "b7df5e35ce86306e",
+    "_hash": "7d9089cdfdb2693e",
     "description": "Hugging Face 推出的开源 AI 聊天界面，可直接在浏览器中与 100+ 主流语言模型对话，涵盖 Llama、DeepSeek、Qwen 和 Mistral，基础功能无需账号。模型可随时切换，仅需要保存对话记录时才登录。",
     "coreTask": "无需注册，与 Llama、DeepSeek、Qwen、Mistral 等开源 AI 模型直接对话"
   },
   "fffuel-co": {
-    "_hash": "60b8944fe0a15d45",
+    "_hash": "be69aa2d262ff5e2",
     "description": "超过 40 款免费的浏览器端配色工具和 SVG 生成器，轻松创建背景、图案、纹理、渐变和形状。每款工具直接在浏览器中运行，零注册，零门槛。非常适合需要自定义视觉素材的网页设计师和开发者——无需打开笨重的设计软件。",
     "coreTask": "在浏览器中直接生成自定义 SVG 背景、图案、渐变和纹理，无需任何账号"
   },
   "write-as": {
-    "_hash": "d11d4afdd18eee55",
+    "_hash": "e920a6e0bda35623",
     "description": "注重隐私的写作与发布平台，使用无需账号。写完就发，立即获得永久可分享的链接。无广告，无追踪，无需注册——只有一个简洁的编辑器，不干扰你的创作。",
     "coreTask": "无需账号直接将文字发布到网络，几秒内获得永久可分享的链接"
   },
   "jwt-io": {
-    "_hash": "117ed0d2da477110",
+    "_hash": "ea55818112716a98",
     "description": "专为 JSON Web Token 调试设计的浏览器工具。粘贴任意 JWT，即刻解码其 Header、Payload 和签名。支持使用密钥或公钥验证 Token 签名，兼容 HS256、RS256、ES256 等常见算法——所有处理均在浏览器本地完成，无需账号。",
     "coreTask": "直接在浏览器中解码和验证 JSON Web Token，无需将 Token 发送至任何服务器"
   },
   "www-when2meet-com": {
-    "_hash": "d76683360177b5ed",
+    "_hash": "c7e3c206ca425169",
     "description": "免费的团队时间协调工具，无需注册即可发起投票、收集所有人的空闲时段。参与者在共享网格上标注可用时间，系统自动生成热力图，一眼找出最佳会议时段——组织者和参与者均无需登录。",
     "coreTask": "在共享网格上收集所有人的空闲时段，快速找到最适合团队的会议时间——无需任何账号"
   },
   "audiomass-co": {
-    "_hash": "a5b65d12a07ccfc7",
+    "_hash": "3f95d68d37b701c6",
     "description": "开源浏览器端音频编辑器，支持波形可视化、剪切/复制/粘贴编辑及音量标准化、淡入淡出、反转、放大等效果。所有音频处理均在浏览器本地完成——不向任何服务器上传文件。",
     "coreTask": "直接在浏览器中编辑音频文件，支持波形编辑、效果处理和导出——无需安装，无需账号。"
   },
   "hat-sh": {
-    "_hash": "8986c26529a06d50",
+    "_hash": "d362cd6e5ef865ce",
     "description": "完全在客户端运行的浏览器文件加密工具。hat.sh 支持密码和公私钥两种加密方式，使用 AES-256-GCM 算法。文件永不离开浏览器——无需上传，无需服务器，无需账号。",
     "coreTask": "在浏览器中使用 AES-256-GCM 安全地加密和解密文件，无需上传，无需服务器"
   },
   "lite-datasette-io": {
-    "_hash": "02a75358d3035e44",
+    "_hash": "c14de1e6cf05bccf",
     "description": "通过 WebAssembly（Pyodide）完全在浏览器中运行的 Datasette。上传 SQLite 数据库或 CSV 文件，用完整的 SQL 界面直接探索数据——无需服务器，无需账号，数据始终留在你的设备上。基于 Simon Willison 开发的知名 Datasette 数据探索框架。",
     "coreTask": "无需安装或注册，直接在浏览器中用 SQL 查询和探索 SQLite 数据库与 CSV 文件"
   },
   "lowrisktradesmart-org": {
-    "_hash": "3cb0201d20aaeaa0",
+    "_hash": "c5d2032cbde99c56",
     "description": "提供低风险投资策略、ETF、分红股票及智能投资组合管理的专家指南。内容支持三种语言，面向稳健型投资者，助力财富稳步增长。",
     "coreTask": "阅读投资指南、浏览 ETF 对比分析、使用金融计算器"
   },
   "iformat-io": {
-    "_hash": "3bdec29870f1a126",
+    "_hash": "735a2d718c5d22e9",
     "description": "iFormat.io 是一款免费的在线文件转换工具，支持超过 500 种格式转换。直接在浏览器中运行，无需安装或注册。可快速安全地转换图片、PDF、音视频文件及 Office 文档。\n\n支持类别：\n- 图片：JPG、PNG、WebP、HEIC、GIF、TIFF 等\n- PDF：转换、压缩、合并、拆分及提取文字\n- 音频：MP3、WAV、FLAC、AAC、OGG 等\n- 视频：MP4、AVI、MOV 及其他格式\n- 文档",
     "coreTask": "免费在线多格式转换工具，支持 500+ 种格式转换，涵盖图片、PDF、音频、视频和文档。完全在浏览器中运行，无需账号或注册"
   },
   "clideo-com": {
-    "_hash": "4eb5340366292d78",
+    "_hash": "80ee725a5ade828f",
     "description": "Clideo 是一款基于浏览器的媒体工具包，提供 20 多种视频和音频编辑工具：剪辑、压缩、格式转换、合并片段、静音、添加字幕、提取音频、循环视频、调整速度以及创建 GIF。核心工具无需账号即可使用——上传文件，在其服务器上处理，然后下载结果。免费版会添加水印，付费版可去除。",
     "coreTask": "无需安装软件或注册账号，直接在浏览器中编辑、转换、剪切和压缩视频及音频文件"
+  },
+  "privacy-sexy": {
+    "_hash": "966b15f83aace66e",
+    "description": "开源浏览器工具，可为 Windows、macOS 和 Linux 生成可自定义的隐私加固脚本。浏览 900 多个分类整理的优化项——禁用遥测、广告 ID、数据收集服务等——选择你需要的，下载即可运行的脚本。所有脚本生成均在客户端完成：无需账号，无需上传，数据不离开你的浏览器。",
+    "coreTask": "在浏览器中直接为 Windows、macOS 或 Linux 生成操作系统隐私加固脚本——选择所需优化项，下载即可运行的脚本"
   }
 }
