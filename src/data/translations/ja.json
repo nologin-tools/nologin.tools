@@ -275,9 +275,13 @@
     "seoTaskPhrase": "サインアップなしでJSONデータを可視化する"
   },
   "tableconvert-com": {
-    "_hash": "4ff584f6bac0fa70",
-    "description": "テーブル形式間を変換：Excel、CSV、JSON、HTML、SQL、Markdown、LaTeXなど。テーブルをビジュアルで編集し、希望の形式でエクスポートできます。",
-    "coreTask": "Excel、CSV、JSON、Markdownなどの形式間でテーブルを変換する"
+    "_hash": "db350e16bf4d34c8",
+    "description": "テーブル形式間を変換できます：Excel、CSV、JSON、HTML、SQL、Markdown、LaTeXなど。テーブルをビジュアルで編集し、希望の形式でエクスポートできます。",
+    "coreTask": "Excel、CSV、JSON、Markdownなどの形式間でテーブルを変換する",
+    "seoTitle": "TableConvert — テーブル変換ツール",
+    "seoDescription": "Excel、CSV、JSON、Markdown、HTML、SQLのテーブルを一か所で変換。ビジュアルエディターで即座にエクスポート — サインアップ不要、ブラウザで完結。",
+    "seoFocusKeyword": "テーブル形式変換 オンライン 無料",
+    "seoTaskPhrase": "サインアップなしでテーブルを別形式に変換"
   },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
@@ -285,69 +289,121 @@
     "coreTask": "アカウントやダウンロードなしでビデオ通話を開始する"
   },
   "desmos-com-calculator": {
-    "_hash": "1086a8ed714bc8d1",
-    "description": "インタラクティブなWebアプリとして実装された高度なグラフ電卓。関数のプロット、表の作成、スライダーの追加、グラフのアニメーション、数学のビジュアル探索ができます。",
-    "coreTask": "数学関数をグラフ化して方程式を視覚的に探索する"
+    "_hash": "da440801d36038a2",
+    "description": "インタラクティブなWebアプリとして実装された高機能グラフ電卓です。関数のプロット、表の作成、スライダーの追加、グラフのアニメーション化など、数学を視覚的に探求できます。",
+    "coreTask": "数学関数をグラフ化して方程式を視覚的に探索する",
+    "seoTitle": "Desmos — インタラクティブグラフ電卓",
+    "seoDescription": "関数のプロット、表の作成、スライダーの追加、グラフのアニメーション化 — すべてリアルタイムで視覚的に確認できます。ブラウザで使えるフル機能のグラフ体験、サインアップ不要。",
+    "seoFocusKeyword": "無料グラフ計算機 オンライン",
+    "seoTaskPhrase": "サインアップなしで数学関数をオンラインでグラフ化"
   },
   "wolframalpha-com": {
-    "_hash": "d25c5b493810010c",
-    "description": "構造化データから答えを計算して事実に関する質問に答える計算知識エンジン。数学、科学、地理、歴史などをカバー。",
-    "coreTask": "答えを計算し数学の問題をステップバイステップで解く"
+    "_hash": "b162a644eaf90f6c",
+    "description": "構造化データから回答を計算することで、事実に関する質問に答える計算知識エンジンです。数学、科学、地理、歴史など、幅広い分野に対応しています。",
+    "coreTask": "答えを計算し数学の問題をステップバイステップで解く",
+    "seoTitle": "WolframAlpha — 計算知識エンジン",
+    "seoDescription": "数学・化学・物理・事実確認の分野で、ステップごとの解答が得られます。微積分から歴史まで — オンデマンドで計算、ログイン不要。",
+    "seoFocusKeyword": "WolframAlpha 数学ソルバー オンライン",
+    "seoTaskPhrase": "ログインなしで数学問題を計算・解決"
   },
   "geogebra-org-calculator": {
-    "_hash": "3d450d3911d6a415",
-    "description": "あらゆるレベルの教育向けの無料動的数学ソフトウェア。幾何、代数、スプレッドシート、グラフ、統計、微積分を一つのインタラクティブなツールに統合。",
-    "coreTask": "インタラクティブな数学ツールで幾何、代数、微積分を探索する"
+    "_hash": "7bd371b224c9a0d3",
+    "description": "あらゆる教育レベルに対応した無料の動的数学ソフトウェアです。幾何、代数、表計算、グラフ、統計、微積分を一つのインタラクティブなツールに統合しています。",
+    "coreTask": "インタラクティブな数学ツールで幾何、代数、微積分を探索する",
+    "seoTitle": "GeoGebra — 無料動的数学ソフト",
+    "seoDescription": "幾何・代数・微積分を一つのインタラクティブな画面で組み合わせられます。学生にも教師にも最適 — オフライン対応、完全無料、サインアップ不要。",
+    "seoFocusKeyword": "無料インタラクティブ幾何計算ツール",
+    "seoTaskPhrase": "サインアップなしで幾何と代数を探索"
   },
   "xe-com-currencyconverter": {
-    "_hash": "c0f00ea1f923d3a3",
-    "description": "ライブ為替レートで世界中に信頼されている通貨コンバーター。毎分更新される中間市場レートで300以上の通貨と貴金属を変換できます。",
-    "coreTask": "ライブ中間市場レートで通貨を変換する"
+    "_hash": "c1bb28b570aa2ef5",
+    "description": "リアルタイム為替レートで世界中に信頼されている通貨コンバーターです。毎分更新される中間市場レートで、300以上の通貨と貴金属を変換できます。",
+    "coreTask": "ライブ中間市場レートで通貨を変換する",
+    "seoTitle": "XE通貨コンバーター — ライブレート",
+    "seoDescription": "300以上の通貨と貴金属のリアルタイム中間市場レートを毎分更新。世界で最も信頼されるレート参照 — アカウント不要。",
+    "seoFocusKeyword": "リアルタイム通貨換算 登録不要",
+    "seoTaskPhrase": "ログインなしでリアルタイムレートで通貨を変換"
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
-    "_hash": "104086bc9584a44d",
-    "description": "SECの公式複利計算機。複利で貯蓄や投資が時間とともにどれだけ成長するかを推定できます。シンプルで信頼性が高く、広告なし。",
-    "coreTask": "貯蓄や投資の複利成長を計算する"
+    "_hash": "4e5e5672fe99e96a",
+    "description": "SECの公式複利計算機です。複利を利用して貯蓄や投資が時間とともにどれだけ成長するかを推定できます。シンプルで信頼性が高く、広告も一切ありません。",
+    "coreTask": "貯蓄や投資の複利成長を計算する",
+    "seoTitle": "SEC複利計算機",
+    "seoDescription": "貯蓄や投資が複利でどのように成長するかを推定するSEC公式ツール。広告なし、トラッキングなし、サインアップ不要 — 明快な金融計算だけ。",
+    "seoFocusKeyword": "複利計算機 無料",
+    "seoTaskPhrase": "サインアップなしで複利成長を計算"
   },
   "wise-com-gb-currency-converter": {
-    "_hash": "82ad3b7b3937a97a",
-    "description": "実際の中間市場レートを表示する通貨コンバーター。銀行や送金サービスのレートを比較して節約できる金額を確認できます。",
-    "coreTask": "銀行とサービス間の実際の為替レートを比較する"
+    "_hash": "3329786899877607",
+    "description": "実際の中間市場レートを表示する通貨コンバーターです。銀行や送金サービスのレートを比較して、どれだけ節約できるかを確認できます。",
+    "coreTask": "銀行とサービス間の実際の為替レートを比較する",
+    "seoTitle": "Wise通貨コンバーター — 実レート",
+    "seoDescription": "実際の中間市場レートを確認し、銀行手数料と比較できます。送金でどれだけ節約できるかを正確に把握 — ログインやアカウント不要。",
+    "seoFocusKeyword": "Wise 実際の為替レート",
+    "seoTaskPhrase": "ログインなしで実際の為替レートを比較"
   },
   "quickstart-to": {
-    "_hash": "ee2d2bcc21a41b8c",
-    "description": "コミュニティ主導のオープンソースクイックスタートガイド集（「すべてのTL;DR」）。Dockerなどのツールや技術向けの124以上の無料ガイドを提供——アカウントやログイン不要。",
-    "coreTask": "アカウントなしでツールや技術のクイックスタートガイドを閲覧・読む"
+    "_hash": "45e252ec0e8c71f9",
+    "description": "コミュニティ主導のオープンソース版クイックスタートガイド集です（「すべてのTL;DR」）。Dockerなどのツールや技術向けの124以上の無料ガイドを提供——アカウントやログインは不要です。",
+    "coreTask": "アカウントなしでツールや技術のクイックスタートガイドを閲覧・読む",
+    "seoTitle": "quickstart.to — 開発者向け速習ガイド",
+    "seoDescription": "ドキュメントをスキップして要点を掴もう。Docker、Gitなど124以上のクイックスタートガイドを収録。コミュニティ主導、オープンソース、アカウント不要。",
+    "seoFocusKeyword": "開発者向け速習ガイド 無料",
+    "seoTaskPhrase": "サインアップなしで開発者向けクイックスタートガイドを読む"
   },
   "coolors-co": {
-    "_hash": "63d9198f29392ce8",
-    "description": "調和のとれたカラーパレットを即座に生成。スペースバーを押してデザインプロジェクト用の美しい配色を作成できます。",
-    "coreTask": "カラーパレットを生成・探索する"
+    "_hash": "160eab2b9a8d7413",
+    "description": "調和のとれたカラーパレットを瞬時に生成します。スペースバーを押すだけで、デザインプロジェクト向けの美しい配色を作成できます。",
+    "coreTask": "カラーパレットを生成・探索する",
+    "seoTitle": "Coolors — カラーパレットジェネレーター",
+    "seoDescription": "スペースバーを押すとパレットのアイデアが即座に表示。気に入った色をロックして細かく調整できます。あらゆるデザインプロジェクトに — サインアップ不要。",
+    "seoFocusKeyword": "カラーパレット生成 登録不要",
+    "seoTaskPhrase": "サインアップなしで即座にカラーパレットを生成"
   },
   "jakearchibald-github-io-svgomg": {
-    "_hash": "e61fbede71540124",
-    "description": "ビジュアルインターフェースでSVGファイルを最適化・圧縮。Jake ArchibaldがSVGOをベースに開発。",
-    "coreTask": "SVGファイルを最適化・圧縮する"
+    "_hash": "d9df8d7d8cff6906",
+    "description": "ビジュアルインターフェースでSVGファイルを最適化・圧縮できます。Jake ArchibaldがSVGOをベースに開発しました。",
+    "coreTask": "SVGファイルを最適化・圧縮する",
+    "seoTitle": "SVGOMG — オンラインSVG最適化ツール",
+    "seoDescription": "SVGをアップロードまたは貼り付けると、品質を落とさずファイルサイズが縮小します。ブラウザ上で動作、SVGOを採用 — アップロード制限なし、アカウント不要。",
+    "seoFocusKeyword": "オンラインSVG最適化 無料",
+    "seoTaskPhrase": "サインアップなしでSVGファイルを最適化・圧縮"
   },
   "favicon-io": {
-    "_hash": "7e810461c767ef82",
-    "description": "テキスト、画像、絵文字からファビコンを生成。ウェブサイト用に複数のサイズと形式でダウンロードできます。",
-    "coreTask": "ウェブサイトのファビコンを生成する"
+    "_hash": "23d2e28493595703",
+    "description": "テキスト、画像、絵文字からファビコンを生成できます。ウェブサイト用に複数のサイズと形式でダウンロード可能です。",
+    "coreTask": "ウェブサイトのファビコンを生成する",
+    "seoTitle": "Favicon.io — 無料ファビコン生成ツール",
+    "seoDescription": "テキスト、画像、絵文字を数秒で完全なファビコンセットに変換。ICO、PNG、Webマニフェストファイルをダウンロードしてすぐに使用可能 — アカウント不要。",
+    "seoFocusKeyword": "ファビコン生成 無料 オンライン",
+    "seoTaskPhrase": "サインアップなしでウェブサイトのファビコンを生成"
   },
   "tinypng-com": {
-    "_hash": "9c3c0bf8ceeefb94",
-    "description": "PNG、JPEG、WebP画像のスマートな非可逆圧縮。視覚的な品質を保ちながらファイルサイズを削減します。",
-    "coreTask": "PNG、JPEG、WebP画像を圧縮する"
+    "_hash": "a192b0dd7649433b",
+    "description": "PNG、JPEG、WebP画像のスマートな非可逆圧縮ツールです。視覚的な品質を保ちながら、ファイルサイズを大幅に削減できます。",
+    "coreTask": "PNG、JPEG、WebP画像を圧縮する",
+    "seoTitle": "TinyPNG — スマート画像圧縮ツール",
+    "seoDescription": "PNG、JPEG、WebPファイルをドロップすると、目に見えない品質低下なしに圧縮されます。数百万の開発者が信頼するスマート非可逆圧縮 — ログイン不要。",
+    "seoFocusKeyword": "PNG JPEG 画像圧縮 オンライン",
+    "seoTaskPhrase": "サインアップなしでPNGとJPEG画像を圧縮"
   },
   "app-diagrams-net": {
-    "_hash": "4a6838929a3e3f5d",
-    "description": "フローチャート、UML図、ネットワーク図などを作成。以前はdraw.ioとして知られ、最も強力な無料オンライン作図ツール。",
-    "coreTask": "フローチャートと図を作成する"
+    "_hash": "0404bd761e12e740",
+    "description": "フローチャート、UML図、ネットワーク図などを作成できます。以前はdraw.ioとして知られていた、最も強力な無料オンライン作図ツールです。",
+    "coreTask": "フローチャートと図を作成する",
+    "seoTitle": "Diagrams.net — 無料オンライン作図ツール",
+    "seoDescription": "フル機能の無料エディターでフローチャート、UML、ネットワーク図を作成。Google Driveやデバイスに保存可能 — アカウント不要ですぐ始められます。",
+    "seoFocusKeyword": "無料オンライン図形作成ツール",
+    "seoTaskPhrase": "ログインなしでフローチャートと図を作成"
   },
   "gchq-github-io-cyberchef": {
-    "_hash": "e82237e93e5a193b",
-    "description": "サイバー万能ナイフ——ドラッグ&ドロップのレシピビルダーでデータをエンコード、デコード、暗号化、圧縮、分析。",
-    "coreTask": "データをエンコード・デコード・変換する"
+    "_hash": "466296fab180166e",
+    "description": "サイバー万能ナイフ——ドラッグ＆ドロップのレシピビルダーで、データのエンコード・デコード・暗号化・圧縮・分析ができます。",
+    "coreTask": "データをエンコード・デコード・変換する",
+    "seoTitle": "CyberChef — データエンコード＆変換",
+    "seoDescription": "300以上の操作をチェーンしてあらゆるデータをエンコード・デコード・暗号化・変換——すべてブラウザのローカルで処理。ドラッグ＆ドロップのレシピビルダー、ログイン不要。",
+    "seoFocusKeyword": "オンラインエンコード デコード 無料",
+    "seoTaskPhrase": "アカウントなしでデータをエンコード・デコード"
   },
   "typescriptlang-org-play": {
     "_hash": "c1f4f0f91e6a68c7",

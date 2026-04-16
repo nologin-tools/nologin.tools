@@ -275,9 +275,13 @@
     "seoTaskPhrase": "visualizar datos JSON sin registro"
   },
   "tableconvert-com": {
-    "_hash": "4ff584f6bac0fa70",
-    "description": "Convierte entre formatos de tabla: Excel, CSV, JSON, HTML, SQL, Markdown, LaTeX y más. Edita tablas visualmente y exporta en tu formato preferido.",
-    "coreTask": "Convertir tablas entre Excel, CSV, JSON, Markdown y más"
+    "_hash": "db350e16bf4d34c8",
+    "description": "Convierte entre formatos de tabla: Excel, CSV, JSON, HTML, SQL, Markdown, LaTeX y más. Edita las tablas visualmente y exporta en el formato que prefieras.",
+    "coreTask": "Convertir tablas entre Excel, CSV, JSON, Markdown y más",
+    "seoTitle": "TableConvert — Conversor de Tablas",
+    "seoDescription": "Convierte tablas de Excel, CSV, JSON, Markdown, HTML y SQL en un solo lugar. Editor visual con exportación instantánea — sin registro, funciona en el navegador.",
+    "seoFocusKeyword": "conversor de tablas online gratis",
+    "seoTaskPhrase": "convertir tablas entre formatos sin registro"
   },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
@@ -285,69 +289,121 @@
     "coreTask": "Iniciar videollamadas instantáneas sin cuentas ni descargas"
   },
   "desmos-com-calculator": {
-    "_hash": "1086a8ed714bc8d1",
-    "description": "Calculadora gráfica avanzada implementada como una aplicación web interactiva. Traza funciones, crea tablas, añade deslizadores, anima gráficas y explora las matemáticas visualmente.",
-    "coreTask": "Graficar funciones matemáticas y explorar ecuaciones visualmente"
+    "_hash": "da440801d36038a2",
+    "description": "Calculadora gráfica avanzada implementada como una aplicación web interactiva. Traza funciones, crea tablas, añade deslizadores, anima gráficas y explora las matemáticas de forma visual.",
+    "coreTask": "Graficar funciones matemáticas y explorar ecuaciones visualmente",
+    "seoTitle": "Desmos — Calculadora Gráfica Interactiva",
+    "seoDescription": "Traza funciones, crea tablas, añade deslizadores y anima gráficas — todo con retroalimentación visual instantánea. Una experiencia gráfica completa en el navegador, sin registro.",
+    "seoFocusKeyword": "calculadora gráfica gratis online",
+    "seoTaskPhrase": "graficar funciones matemáticas online sin registro"
   },
   "wolframalpha-com": {
-    "_hash": "d25c5b493810010c",
-    "description": "Motor de conocimiento computacional que responde preguntas factuales calculando respuestas a partir de datos estructurados. Cubre matemáticas, ciencia, geografía, historia y más.",
-    "coreTask": "Calcular respuestas y resolver problemas matemáticos paso a paso"
+    "_hash": "b162a644eaf90f6c",
+    "description": "Motor de conocimiento computacional que responde preguntas factuales calculando respuestas a partir de datos estructurados. Cubre matemáticas, ciencias, geografía, historia y mucho más.",
+    "coreTask": "Calcular respuestas y resolver problemas matemáticos paso a paso",
+    "seoTitle": "WolframAlpha — Conocimiento Computacional",
+    "seoDescription": "Obtén soluciones paso a paso para matemáticas, química, física y preguntas factuales. Del cálculo a la historia — respuestas calculadas al instante, sin necesidad de login.",
+    "seoFocusKeyword": "wolframalpha resolución matemática online",
+    "seoTaskPhrase": "calcular y resolver problemas matemáticos sin login"
   },
   "geogebra-org-calculator": {
-    "_hash": "3d450d3911d6a415",
-    "description": "Software matemático dinámico gratuito para todos los niveles educativos. Combina geometría, álgebra, hojas de cálculo, gráficas, estadística y cálculo en una herramienta interactiva.",
-    "coreTask": "Explorar geometría, álgebra y cálculo con herramientas matemáticas interactivas"
+    "_hash": "7bd371b224c9a0d3",
+    "description": "Software matemático dinámico y gratuito para todos los niveles educativos. Combina geometría, álgebra, hojas de cálculo, gráficas, estadística y cálculo en una sola herramienta interactiva.",
+    "coreTask": "Explorar geometría, álgebra y cálculo con herramientas matemáticas interactivas",
+    "seoTitle": "GeoGebra — Software Matemático Gratuito",
+    "seoDescription": "Combina geometría, álgebra y cálculo en un lienzo interactivo. Ideal para estudiantes y profesores — funciona sin conexión y es gratis, sin registro.",
+    "seoFocusKeyword": "calculadora de geometría interactiva gratis",
+    "seoTaskPhrase": "explorar geometría y álgebra sin registro"
   },
   "xe-com-currencyconverter": {
-    "_hash": "c0f00ea1f923d3a3",
+    "_hash": "c1bb28b570aa2ef5",
     "description": "Convertidor de divisas de confianza mundial con tipos de cambio en tiempo real. Convierte entre más de 300 monedas y metales preciosos con tasas de mercado intermedias actualizadas cada minuto.",
-    "coreTask": "Convertir monedas con tipos de cambio de mercado en tiempo real"
+    "coreTask": "Convertir monedas con tipos de cambio de mercado en tiempo real",
+    "seoTitle": "XE — Conversor de Divisas en Vivo",
+    "seoDescription": "Tipos de cambio intermedios en tiempo real para más de 300 monedas y metales preciosos, actualizados cada minuto. La referencia de tasas más confiable del mundo — sin cuenta.",
+    "seoFocusKeyword": "conversor de divisas en vivo sin registro",
+    "seoTaskPhrase": "convertir divisas con tasas en vivo sin login"
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
-    "_hash": "104086bc9584a44d",
-    "description": "Calculadora oficial de interés compuesto de la SEC. Estima cómo podrían crecer tus ahorros o inversiones con el tiempo con interés compuesto. Simple, confiable, sin anuncios.",
-    "coreTask": "Calcular el crecimiento por interés compuesto de ahorros e inversiones"
+    "_hash": "4e5e5672fe99e96a",
+    "description": "Calculadora oficial de interés compuesto de la SEC. Estima cómo podrían crecer tus ahorros o inversiones con el tiempo gracias al interés compuesto. Simple, confiable, sin anuncios.",
+    "coreTask": "Calcular el crecimiento por interés compuesto de ahorros e inversiones",
+    "seoTitle": "Calculadora de Interés Compuesto SEC",
+    "seoDescription": "Herramienta oficial de la SEC para estimar cómo crecen tus ahorros o inversiones con interés compuesto. Sin anuncios, sin rastreo, sin registro — solo matemáticas financieras claras.",
+    "seoFocusKeyword": "calculadora de interés compuesto gratis",
+    "seoTaskPhrase": "calcular crecimiento por interés compuesto sin registro"
   },
   "wise-com-gb-currency-converter": {
-    "_hash": "82ad3b7b3937a97a",
-    "description": "Convertidor de divisas que muestra el tipo de cambio real del mercado. Compara tasas de bancos y servicios de transferencia para ver cuánto podrías ahorrar.",
-    "coreTask": "Comparar tipos de cambio reales entre bancos y servicios"
+    "_hash": "3329786899877607",
+    "description": "Convertidor de divisas que muestra el tipo de cambio real del mercado. Compara las tasas de bancos y servicios de transferencia para ver cuánto podrías ahorrar.",
+    "coreTask": "Comparar tipos de cambio reales entre bancos y servicios",
+    "seoTitle": "Wise — Conversor con Tasas Reales",
+    "seoDescription": "Consulta el tipo de cambio real del mercado y compáralo con lo que cobran los bancos. Descubre exactamente cuánto ahorras en transferencias — sin login ni cuenta.",
+    "seoFocusKeyword": "wise tasa de cambio real",
+    "seoTaskPhrase": "comparar tipos de cambio reales sin login"
   },
   "quickstart-to": {
-    "_hash": "ee2d2bcc21a41b8c",
-    "description": "Colección de guías de inicio rápido de código abierto impulsada por la comunidad (\"El TL;DR de todo\"). Proporciona más de 124 guías gratuitas para herramientas y tecnologías como Docker, sin requerir ninguna cuenta ni login.",
-    "coreTask": "Navegar y leer guías de inicio rápido para herramientas y tecnologías sin ninguna cuenta"
+    "_hash": "45e252ec0e8c71f9",
+    "description": "Colección de guías de inicio rápido de código abierto impulsada por la comunidad (\"El TL;DR de todo\"). Ofrece más de 124 guías gratuitas para herramientas y tecnologías como Docker, sin necesitar cuenta ni login.",
+    "coreTask": "Navegar y leer guías de inicio rápido para herramientas y tecnologías sin cuenta",
+    "seoTitle": "quickstart.to — Guías TL;DR para Devs",
+    "seoDescription": "Sáltate la documentación y ve al grano con más de 124 guías de inicio rápido para Docker, Git y más. Impulsado por la comunidad, código abierto, sin cuenta.",
+    "seoFocusKeyword": "guías de inicio rápido para desarrolladores gratis",
+    "seoTaskPhrase": "leer guías de inicio rápido para desarrolladores sin registro"
   },
   "coolors-co": {
-    "_hash": "63d9198f29392ce8",
-    "description": "Genera paletas de colores armoniosas al instante. Presiona la barra espaciadora para crear combinaciones de colores hermosas para tus proyectos de diseño.",
-    "coreTask": "Generar y explorar paletas de colores"
+    "_hash": "160eab2b9a8d7413",
+    "description": "Genera paletas de colores armoniosas al instante. Pulsa la barra espaciadora para crear combinaciones de colores perfectas para tus proyectos de diseño.",
+    "coreTask": "Generar y explorar paletas de colores",
+    "seoTitle": "Coolors — Generador de Paletas de Color",
+    "seoDescription": "Pulsa espacio para ideas de paleta al instante, bloquea tus favoritos y ajusta cada tono. Esquemas de colores para cualquier proyecto de diseño — sin registro.",
+    "seoFocusKeyword": "generador de paletas de color sin registro",
+    "seoTaskPhrase": "generar paletas de color al instante sin registro"
   },
   "jakearchibald-github-io-svgomg": {
-    "_hash": "e61fbede71540124",
-    "description": "Optimiza y comprime archivos SVG con una interfaz visual. Creado por Jake Archibald, impulsado por SVGO.",
-    "coreTask": "Optimizar y comprimir archivos SVG"
+    "_hash": "d9df8d7d8cff6906",
+    "description": "Optimiza y comprime archivos SVG con una interfaz visual. Creado por Jake Archibald y basado en SVGO.",
+    "coreTask": "Optimizar y comprimir archivos SVG",
+    "seoTitle": "SVGOMG — Optimizador SVG Online",
+    "seoDescription": "Sube o pega tu SVG y observa cómo se reduce el tamaño sin perder calidad. Funciona en el navegador, basado en SVGO — sin límites de subida, sin cuenta.",
+    "seoFocusKeyword": "optimizador svg online gratis",
+    "seoTaskPhrase": "optimizar y comprimir archivos SVG sin registro"
   },
   "favicon-io": {
-    "_hash": "7e810461c767ef82",
-    "description": "Genera favicons a partir de texto, imágenes o emojis. Descarga en múltiples tamaños y formatos para tu sitio web.",
-    "coreTask": "Generar favicons para sitios web"
+    "_hash": "23d2e28493595703",
+    "description": "Genera favicons a partir de texto, imágenes o emojis. Descárgalos en múltiples tamaños y formatos para tu sitio web.",
+    "coreTask": "Generar favicons para sitios web",
+    "seoTitle": "Favicon.io — Generador de Favicons Gratis",
+    "seoDescription": "Transforma texto, imágenes o emojis en un set completo de favicons en segundos. Descarga archivos ICO, PNG y web manifest listos para tu sitio — sin cuenta.",
+    "seoFocusKeyword": "generador de favicon gratis online",
+    "seoTaskPhrase": "generar favicons para sitios web sin registro"
   },
   "tinypng-com": {
-    "_hash": "9c3c0bf8ceeefb94",
-    "description": "Compresión inteligente con pérdida para imágenes PNG, JPEG y WebP. Reduce el tamaño del archivo preservando la calidad visual.",
-    "coreTask": "Comprimir imágenes PNG, JPEG y WebP"
+    "_hash": "a192b0dd7649433b",
+    "description": "Compresión inteligente con pérdida para imágenes PNG, JPEG y WebP. Reduce el tamaño de los archivos sin comprometer la calidad visual.",
+    "coreTask": "Comprimir imágenes PNG, JPEG y WebP",
+    "seoTitle": "TinyPNG — Compresor de Imágenes",
+    "seoDescription": "Arrastra archivos PNG, JPEG o WebP para reducirlos sin pérdida visible de calidad. Compresión inteligente en la que confían millones de desarrolladores — sin login.",
+    "seoFocusKeyword": "comprimir imágenes png jpeg online",
+    "seoTaskPhrase": "comprimir imágenes PNG y JPEG sin registro"
   },
   "app-diagrams-net": {
-    "_hash": "4a6838929a3e3f5d",
-    "description": "Crea diagramas de flujo, diagramas UML, diagramas de red y más. Anteriormente draw.io, la herramienta de diagramas online gratuita más poderosa.",
-    "coreTask": "Crear diagramas de flujo y diagramas"
+    "_hash": "0404bd761e12e740",
+    "description": "Crea diagramas de flujo, diagramas UML, diagramas de red y más. Antes conocido como draw.io, la herramienta de diagramas online gratuita más potente.",
+    "coreTask": "Crear diagramas de flujo y diagramas",
+    "seoTitle": "Diagrams.net — Diagramas Online Gratis",
+    "seoDescription": "Crea diagramas de flujo, UML y de red en un editor completo y gratuito. Guarda en Google Drive o en tu dispositivo — sin cuenta para empezar a diagramar.",
+    "seoFocusKeyword": "herramienta de diagramas online gratis",
+    "seoTaskPhrase": "crear diagramas de flujo y diagramas sin login"
   },
   "gchq-github-io-cyberchef": {
-    "_hash": "e82237e93e5a193b",
+    "_hash": "466296fab180166e",
     "description": "La navaja suiza cibernética — codifica, decodifica, cifra, comprime y analiza datos con un constructor de recetas de arrastrar y soltar.",
-    "coreTask": "Codificar, decodificar y transformar datos"
+    "coreTask": "Codificar, decodificar y transformar datos",
+    "seoTitle": "CyberChef — Codificación de Datos",
+    "seoDescription": "Encadena más de 300 operaciones para codificar, decodificar, cifrar y transformar cualquier dato — todo localmente en tu navegador. Constructor drag-and-drop, sin login.",
+    "seoFocusKeyword": "codificar decodificar datos online gratis",
+    "seoTaskPhrase": "codificar y decodificar datos sin cuenta"
   },
   "typescriptlang-org-play": {
     "_hash": "c1f4f0f91e6a68c7",
