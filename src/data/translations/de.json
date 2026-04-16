@@ -275,9 +275,13 @@
     "seoTaskPhrase": "JSON-Daten ohne Registrierung visualisieren"
   },
   "tableconvert-com": {
-    "_hash": "4ff584f6bac0fa70",
-    "description": "Konvertiert zwischen Tabellenformaten: Excel, CSV, JSON, HTML, SQL, Markdown, LaTeX und mehr. Tabellen visuell bearbeiten und in das gewünschte Format exportieren.",
-    "coreTask": "Tabellen zwischen Excel, CSV, JSON, Markdown und mehr konvertieren"
+    "_hash": "db350e16bf4d34c8",
+    "description": "Konvertiert zwischen Tabellenformaten: Excel, CSV, JSON, HTML, SQL, Markdown, LaTeX und mehr. Tabellen visuell bearbeiten und im gewünschten Format exportieren.",
+    "coreTask": "Tabellen zwischen Excel, CSV, JSON, Markdown und mehr konvertieren",
+    "seoTitle": "TableConvert — Tabellenformat-Konverter",
+    "seoDescription": "Excel-, CSV-, JSON-, Markdown-, HTML- und SQL-Tabellen an einem Ort konvertieren. Visueller Tabelleneditor mit Sofortexport — kein Konto, läuft komplett im Browser.",
+    "seoFocusKeyword": "Tabellenformat-Konverter online kostenlos",
+    "seoTaskPhrase": "Tabellen ohne Registrierung zwischen Formaten konvertieren"
   },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
@@ -285,69 +289,121 @@
     "coreTask": "Sofortige Videoanrufe ohne Account oder Download starten"
   },
   "desmos-com-calculator": {
-    "_hash": "1086a8ed714bc8d1",
+    "_hash": "da440801d36038a2",
     "description": "Erweiterter grafischer Taschenrechner als interaktive Web-App. Funktionen plotten, Tabellen erstellen, Schieberegler hinzufügen, Graphen animieren und Mathematik visuell erkunden.",
-    "coreTask": "Mathematische Funktionen plotten und Gleichungen visuell erkunden"
+    "coreTask": "Mathematische Funktionen plotten und Gleichungen visuell erkunden",
+    "seoTitle": "Desmos — Interaktiver Graphikrechner",
+    "seoDescription": "Funktionen plotten, Tabellen erstellen, Schieberegler hinzufügen und Graphen animieren — alles mit sofortigem visuellem Feedback. Vollständige Graphing-Erfahrung im Browser, ohne Anmeldung.",
+    "seoFocusKeyword": "kostenloser Graphikrechner online",
+    "seoTaskPhrase": "Mathematikfunktionen online ohne Registrierung grafisch darstellen"
   },
   "wolframalpha-com": {
-    "_hash": "d25c5b493810010c",
-    "description": "Computerbasierte Wissensmaschine, die sachliche Fragen durch Berechnung von Antworten aus strukturierten Daten beantwortet. Deckt Mathematik, Wissenschaften, Geografie, Geschichte und mehr ab.",
-    "coreTask": "Antworten berechnen und mathematische Probleme Schritt für Schritt lösen"
+    "_hash": "b162a644eaf90f6c",
+    "description": "Computerbasierte Wissensmaschine, die sachliche Fragen beantwortet, indem sie Antworten aus strukturierten Daten berechnet. Deckt Mathematik, Wissenschaften, Geografie, Geschichte und mehr ab.",
+    "coreTask": "Antworten berechnen und mathematische Probleme Schritt für Schritt lösen",
+    "seoTitle": "WolframAlpha — Computerwissen",
+    "seoDescription": "Schritt-für-Schritt-Lösungen für Mathe, Chemie, Physik und Faktenfragen. Von Analysis bis Geschichte — berechnete Antworten auf Abruf, kein Login erforderlich.",
+    "seoFocusKeyword": "wolframalpha Mathematik-Löser online",
+    "seoTaskPhrase": "Mathematikprobleme ohne Login berechnen und lösen"
   },
   "geogebra-org-calculator": {
-    "_hash": "3d450d3911d6a415",
-    "description": "Kostenlose dynamische Mathematiksoftware für alle Bildungsstufen. Kombiniert Geometrie, Algebra, Tabellenkalkulation, Graphen, Statistik und Kalkulus in einem interaktiven Tool.",
-    "coreTask": "Geometrie, Algebra und Analysis mit interaktiven mathematischen Werkzeugen erkunden"
+    "_hash": "7bd371b224c9a0d3",
+    "description": "Kostenlose dynamische Mathematiksoftware für alle Bildungsstufen. Kombiniert Geometrie, Algebra, Tabellenkalkulation, Graphen, Statistik und Analysis in einem interaktiven Werkzeug.",
+    "coreTask": "Geometrie, Algebra und Analysis mit interaktiven mathematischen Werkzeugen erkunden",
+    "seoTitle": "GeoGebra — Kostenlose Mathe-Software",
+    "seoDescription": "Geometrie, Algebra und Analysis in einem interaktiven Arbeitsbereich kombinieren. Ideal für Schüler und Lehrer — funktioniert offline, kostenlos, ohne Anmeldung.",
+    "seoFocusKeyword": "kostenloser interaktiver Geometrierechner",
+    "seoTaskPhrase": "Geometrie und Algebra ohne Registrierung erkunden"
   },
   "xe-com-currencyconverter": {
-    "_hash": "c0f00ea1f923d3a3",
+    "_hash": "c1bb28b570aa2ef5",
     "description": "Weltweit zuverlässiger Währungsrechner mit Echtzeit-Wechselkursen. Zwischen mehr als 300 Währungen und Edelmetallen zu minütlich aktualisierten Mittelkursen konvertieren.",
-    "coreTask": "Währungen zu Echtzeit-Mittelkursen konvertieren"
+    "coreTask": "Währungen zu Echtzeit-Mittelkursen konvertieren",
+    "seoTitle": "XE — Echtzeit-Währungsrechner",
+    "seoDescription": "Live-Mittelkurse für 300+ Währungen und Edelmetalle, jede Minute aktualisiert. Die weltweit vertrauenswürdigste Kursreferenz — kein Konto erforderlich.",
+    "seoFocusKeyword": "Live-Währungsrechner ohne Anmeldung",
+    "seoTaskPhrase": "Währungen ohne Login mit Live-Kursen umrechnen"
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
-    "_hash": "104086bc9584a44d",
+    "_hash": "4e5e5672fe99e96a",
     "description": "Offizieller Zinseszinsrechner der SEC. Schätzt, wie deine Ersparnisse oder Investitionen mit der Zeit durch Zinseszinsen wachsen könnten. Einfach, zuverlässig, keine Werbung.",
-    "coreTask": "Zinseszinswachstum auf Ersparnisse und Investitionen berechnen"
+    "coreTask": "Zinseszinswachstum auf Ersparnisse und Investitionen berechnen",
+    "seoTitle": "SEC Zinseszinsrechner",
+    "seoDescription": "Offizielles SEC-Tool zum Abschätzen, wie deine Ersparnisse oder Investitionen mit Zinseszinsen wachsen. Keine Werbung, kein Tracking, keine Anmeldung — nur klare Finanzrechnung.",
+    "seoFocusKeyword": "Zinseszinsrechner kostenlos",
+    "seoTaskPhrase": "Zinseszinswachstum ohne Registrierung berechnen"
   },
   "wise-com-gb-currency-converter": {
-    "_hash": "82ad3b7b3937a97a",
+    "_hash": "3329786899877607",
     "description": "Währungsrechner, der den echten Mittelkurs anzeigt. Vergleicht Kurse von Banken und Überweisungsdiensten, um zu sehen, wie viel du sparen könntest.",
-    "coreTask": "Echte Wechselkurse zwischen Banken und Diensten vergleichen"
+    "coreTask": "Echte Wechselkurse zwischen Banken und Diensten vergleichen",
+    "seoTitle": "Wise — Währungsrechner mit Echtpreisen",
+    "seoDescription": "Den echten Mittelkurs sehen und mit Bankgebühren vergleichen. Herausfinden, wie viel du bei Überweisungen sparst — ohne Login oder Konto.",
+    "seoFocusKeyword": "wise echter Wechselkurs",
+    "seoTaskPhrase": "echte Wechselkurse ohne Login vergleichen"
   },
   "quickstart-to": {
-    "_hash": "ee2d2bcc21a41b8c",
-    "description": "Community-gesteuerte Open-Source-Sammlung von Schnellstart-Anleitungen (\"Das TL;DR von allem\"). Bietet mehr als 124 kostenlose Leitfäden für Tools und Technologien wie Docker – kein Account oder Login erforderlich.",
-    "coreTask": "Schnellstart-Anleitungen für Tools und Technologien ohne Account lesen und durchsuchen"
+    "_hash": "45e252ec0e8c71f9",
+    "description": "Community-gesteuerte Open-Source-Sammlung von Schnellstart-Anleitungen (\"Das TL;DR von allem\"). Bietet mehr als 124 kostenlose Leitfäden für Tools und Technologien wie Docker — kein Account oder Login erforderlich.",
+    "coreTask": "Schnellstart-Anleitungen für Tools und Technologien ohne Account lesen und durchsuchen",
+    "seoTitle": "quickstart.to — TL;DR-Guides für Devs",
+    "seoDescription": "Dokumentation überspringen, direkt zum Wesentlichen. Über 124 Schnellstart-Guides für Docker, Git und mehr. Community-getrieben, Open Source, kein Konto nötig.",
+    "seoFocusKeyword": "Schnellstart-Guides für Entwickler kostenlos",
+    "seoTaskPhrase": "Schnellstart-Guides für Entwickler ohne Registrierung lesen"
   },
   "coolors-co": {
-    "_hash": "63d9198f29392ce8",
-    "description": "Generiert sofort harmonische Farbpaletten. Drücke die Leertaste, um schöne Farbkombinationen für deine Designprojekte zu erstellen.",
-    "coreTask": "Farbpaletten generieren und erkunden"
+    "_hash": "160eab2b9a8d7413",
+    "description": "Generiert sofort harmonische Farbpaletten. Leertaste drücken und schöne Farbkombinationen für Designprojekte erstellen.",
+    "coreTask": "Farbpaletten generieren und erkunden",
+    "seoTitle": "Coolors — Farbpaletten-Generator",
+    "seoDescription": "Leertaste drücken für sofortige Palettenideen, Favoriten sperren, jeden Ton feinabstimmen. Wunderschöne Farbkombinationen für jedes Designprojekt — ohne Anmeldung.",
+    "seoFocusKeyword": "Farbpaletten-Generator ohne Anmeldung",
+    "seoTaskPhrase": "Farbpaletten sofort ohne Registrierung generieren"
   },
   "jakearchibald-github-io-svgomg": {
-    "_hash": "e61fbede71540124",
-    "description": "Optimiere und komprimiere SVG-Dateien mit einer visuellen Oberfläche. Von Jake Archibald, betrieben von SVGO.",
-    "coreTask": "SVG-Dateien optimieren und komprimieren"
+    "_hash": "d9df8d7d8cff6906",
+    "description": "SVG-Dateien mit einer visuellen Oberfläche optimieren und komprimieren. Von Jake Archibald, betrieben von SVGO.",
+    "coreTask": "SVG-Dateien optimieren und komprimieren",
+    "seoTitle": "SVGOMG — Online SVG-Optimierer",
+    "seoDescription": "SVG hochladen oder einfügen und die Dateigröße ohne Qualitätsverlust schrumpfen lassen. Browserbasiert, von SVGO betrieben — ohne Upload-Limits, ohne Konto.",
+    "seoFocusKeyword": "Online SVG-Optimierer kostenlos",
+    "seoTaskPhrase": "SVG-Dateien ohne Registrierung optimieren und komprimieren"
   },
   "favicon-io": {
-    "_hash": "7e810461c767ef82",
-    "description": "Favicons aus Text, Bildern oder Emojis generieren. In mehreren Größen und Formaten für deine Website herunterladen.",
-    "coreTask": "Favicons für Websites generieren"
+    "_hash": "23d2e28493595703",
+    "description": "Favicons aus Text, Bildern oder Emojis generieren. In mehreren Größen und Formaten für die eigene Website herunterladen.",
+    "coreTask": "Favicons für Websites generieren",
+    "seoTitle": "Favicon.io — Favicon-Generator Kostenlos",
+    "seoDescription": "Text, Bilder oder Emojis in Sekunden in komplette Favicon-Sets umwandeln. ICO, PNG und Web-Manifest-Dateien für die eigene Website herunterladen — kein Konto nötig.",
+    "seoFocusKeyword": "Favicon-Generator kostenlos online",
+    "seoTaskPhrase": "Website-Favicons ohne Registrierung generieren"
   },
   "tinypng-com": {
-    "_hash": "9c3c0bf8ceeefb94",
+    "_hash": "a192b0dd7649433b",
     "description": "Intelligente verlustbehaftete Komprimierung für PNG-, JPEG- und WebP-Bilder. Reduziert die Dateigröße bei gleichzeitiger Beibehaltung der visuellen Qualität.",
-    "coreTask": "PNG-, JPEG- und WebP-Bilder komprimieren"
+    "coreTask": "PNG-, JPEG- und WebP-Bilder komprimieren",
+    "seoTitle": "TinyPNG — Intelligenter Bildkompressor",
+    "seoDescription": "PNG-, JPEG- oder WebP-Dateien ablegen und ohne sichtbaren Qualitätsverlust verkleinern. Von Millionen Entwicklern genutzte intelligente Komprimierung — ohne Login.",
+    "seoFocusKeyword": "PNG JPEG Bilder online komprimieren",
+    "seoTaskPhrase": "PNG- und JPEG-Bilder ohne Registrierung komprimieren"
   },
   "app-diagrams-net": {
-    "_hash": "4a6838929a3e3f5d",
+    "_hash": "0404bd761e12e740",
     "description": "Flussdiagramme, UML-Diagramme, Netzwerkdiagramme und mehr erstellen. Früher draw.io, das leistungsstärkste kostenlose Online-Diagramm-Tool.",
-    "coreTask": "Flussdiagramme und Diagramme erstellen"
+    "coreTask": "Flussdiagramme und Diagramme erstellen",
+    "seoTitle": "Diagrams.net — Diagramme Kostenlos Online",
+    "seoDescription": "Flussdiagramme, UML- und Netzwerkdiagramme in einem voll ausgestatteten kostenlosen Editor erstellen. Auf Google Drive oder dem Gerät speichern — kein Konto zum Starten nötig.",
+    "seoFocusKeyword": "kostenloses Online-Diagramm-Tool",
+    "seoTaskPhrase": "Flussdiagramme und Diagramme ohne Login erstellen"
   },
   "gchq-github-io-cyberchef": {
-    "_hash": "e82237e93e5a193b",
-    "description": "Das Cyber-Schweizer-Taschenmesser – kodiere, dekodiere, verschlüssele, komprimiere und analysiere Daten mit einem Drag-and-Drop-Recipe-Builder.",
-    "coreTask": "Daten kodieren, dekodieren und transformieren"
+    "_hash": "466296fab180166e",
+    "description": "Das Cyber-Schweizer-Taschenmesser — Daten mit einem Drag-and-Drop-Recipe-Builder kodieren, dekodieren, verschlüsseln, komprimieren und analysieren.",
+    "coreTask": "Daten kodieren, dekodieren und transformieren",
+    "seoTitle": "CyberChef — Daten kodieren & transformieren",
+    "seoDescription": "Über 300 Operationen verketten, um beliebige Daten zu kodieren, dekodieren, verschlüsseln und transformieren — alles lokal im Browser. Drag-and-Drop-Recipe-Builder, kein Login.",
+    "seoFocusKeyword": "Daten online kodieren dekodieren kostenlos",
+    "seoTaskPhrase": "Daten ohne Konto kodieren und dekodieren"
   },
   "typescriptlang-org-play": {
     "_hash": "c1f4f0f91e6a68c7",

@@ -275,9 +275,13 @@
     "seoTaskPhrase": "无需注册可视化 JSON 数据"
   },
   "tableconvert-com": {
-    "_hash": "4ff584f6bac0fa70",
+    "_hash": "db350e16bf4d34c8",
     "description": "在表格格式之间转换：Excel、CSV、JSON、HTML、SQL、Markdown、LaTeX 等。可视化编辑表格并以所需格式导出。",
-    "coreTask": "在 Excel、CSV、JSON、Markdown 等格式之间转换表格"
+    "coreTask": "在 Excel、CSV、JSON、Markdown 等格式之间转换表格",
+    "seoTitle": "TableConvert — 表格格式转换器",
+    "seoDescription": "在一处转换 Excel、CSV、JSON、Markdown、HTML 和 SQL 表格。可视化表格编辑器，即时导出——无需注册，完全在浏览器中运行。",
+    "seoFocusKeyword": "在线表格格式转换免费",
+    "seoTaskPhrase": "无需注册转换表格格式"
   },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
@@ -285,69 +289,121 @@
     "coreTask": "无需账号或下载即可发起即时视频通话"
   },
   "desmos-com-calculator": {
-    "_hash": "1086a8ed714bc8d1",
-    "description": "以交互式 Web 应用形式实现的高级图形计算器。绘制函数、创建表格、添加滑块、动画图形，可视化探索数学。",
-    "coreTask": "绘制数学函数图像，直观探索方程"
+    "_hash": "da440801d36038a2",
+    "description": "以交互式 Web 应用形式实现的高级图形计算器。绘制函数、创建表格、添加滑块、制作动画图形，以可视化方式探索数学。",
+    "coreTask": "绘制数学函数图像，直观探索方程",
+    "seoTitle": "Desmos — 交互式图形计算器",
+    "seoDescription": "绘制函数、创建表格、添加滑块、制作动画图形——全程即时视觉反馈。完整的图形体验，浏览器直接用，无需注册。",
+    "seoFocusKeyword": "在线图形计算器免费",
+    "seoTaskPhrase": "无需注册在线绘制数学函数"
   },
   "wolframalpha-com": {
-    "_hash": "d25c5b493810010c",
-    "description": "计算知识引擎，通过计算结构化数据来回答事实性问题。覆盖数学、科学、地理、历史等领域。",
-    "coreTask": "计算答案并逐步解决数学问题"
+    "_hash": "b162a644eaf90f6c",
+    "description": "通过计算结构化数据来回答事实性问题的计算知识引擎。覆盖数学、科学、地理、历史等众多领域。",
+    "coreTask": "计算答案并逐步解决数学问题",
+    "seoTitle": "WolframAlpha — 计算知识引擎",
+    "seoDescription": "获取数学、化学、物理和事实性问题的分步解答。从微积分到历史——按需计算答案，无需登录。",
+    "seoFocusKeyword": "WolframAlpha 数学求解在线",
+    "seoTaskPhrase": "无需登录计算和解决数学问题"
   },
   "geogebra-org-calculator": {
-    "_hash": "3d450d3911d6a415",
+    "_hash": "7bd371b224c9a0d3",
     "description": "适用于各级教育的免费动态数学软件。在一个交互式工具中整合几何、代数、电子表格、图形、统计和微积分。",
-    "coreTask": "用交互式数学工具探索几何、代数和微积分"
+    "coreTask": "用交互式数学工具探索几何、代数和微积分",
+    "seoTitle": "GeoGebra — 免费动态数学软件",
+    "seoDescription": "在单一交互式画布中整合几何、代数和微积分。学生和教师的首选——支持离线使用，完全免费，无需注册。",
+    "seoFocusKeyword": "免费交互式几何计算器",
+    "seoTaskPhrase": "无需注册探索几何与代数"
   },
   "xe-com-currencyconverter": {
-    "_hash": "c0f00ea1f923d3a3",
-    "description": "全球信赖的货币转换器，提供实时汇率。每分钟更新中间市场汇率，可在 300 多种货币和贵金属之间转换。",
-    "coreTask": "以实时中间市场汇率转换货币"
+    "_hash": "c1bb28b570aa2ef5",
+    "description": "全球信赖的货币转换器，提供实时汇率。每分钟更新中间市场汇率，支持 300 多种货币和贵金属之间的换算。",
+    "coreTask": "以实时中间市场汇率转换货币",
+    "seoTitle": "XE 货币转换器 — 实时汇率",
+    "seoDescription": "获取 300 多种货币和贵金属的实时中间市场汇率，每分钟更新。全球最受信赖的汇率参考——无需注册账号。",
+    "seoFocusKeyword": "实时货币转换无需注册",
+    "seoTaskPhrase": "无需登录以实时汇率转换货币"
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
-    "_hash": "104086bc9584a44d",
-    "description": "美国证券交易委员会官方复利计算器。估算储蓄或投资随时间增长的潜力。简单、可靠、无广告。",
-    "coreTask": "计算储蓄和投资的复利增长"
+    "_hash": "4e5e5672fe99e96a",
+    "description": "美国证券交易委员会官方复利计算器。估算储蓄或投资随时间增长的潜力。操作简单，数据可靠，无广告。",
+    "coreTask": "计算储蓄和投资的复利增长",
+    "seoTitle": "SEC 复利计算器",
+    "seoDescription": "官方 SEC 工具，用于估算储蓄或投资在复利下的增长情况。无广告、无追踪、无需注册——只有清晰的财务计算。",
+    "seoFocusKeyword": "复利计算器免费",
+    "seoTaskPhrase": "无需注册计算复利增长"
   },
   "wise-com-gb-currency-converter": {
-    "_hash": "82ad3b7b3937a97a",
+    "_hash": "3329786899877607",
     "description": "显示真实中间市场汇率的货币转换器。对比银行和汇款服务的汇率，看看你能省多少钱。",
-    "coreTask": "比较各银行和服务的真实汇率"
+    "coreTask": "比较各银行和服务的真实汇率",
+    "seoTitle": "Wise 货币转换器 — 真实汇率",
+    "seoDescription": "查看真实中间市场汇率，并与银行收费对比。了解你在转账中能节省多少——无需登录或注册账号。",
+    "seoFocusKeyword": "Wise 真实汇率",
+    "seoTaskPhrase": "无需登录比较真实汇率"
   },
   "quickstart-to": {
-    "_hash": "ee2d2bcc21a41b8c",
+    "_hash": "45e252ec0e8c71f9",
     "description": "社区驱动的开源快速入门指南合集（「万物的 TL;DR」）。提供 124 个以上适用于 Docker 等工具和技术的免费指南，无需任何账号或登录。",
-    "coreTask": "无需账号即可浏览和阅读工具与技术的快速入门指南"
+    "coreTask": "无需账号即可浏览和阅读工具与技术的快速入门指南",
+    "seoTitle": "quickstart.to — 开发者速查指南",
+    "seoDescription": "跳过繁琐文档，用 124 个以上的快速入门指南直达重点，覆盖 Docker、Git 等主流工具。社区驱动，开源，无需注册。",
+    "seoFocusKeyword": "开发者快速入门指南免费",
+    "seoTaskPhrase": "无需注册阅读开发者快速入门指南"
   },
   "coolors-co": {
-    "_hash": "63d9198f29392ce8",
-    "description": "即时生成和谐的配色方案。按空格键为设计项目创建精美的色彩组合。",
-    "coreTask": "生成和探索配色方案"
+    "_hash": "160eab2b9a8d7413",
+    "description": "即刻生成和谐的配色方案。按空格键，为设计项目创建精美的色彩组合。",
+    "coreTask": "生成和探索配色方案",
+    "seoTitle": "Coolors — 配色方案生成器",
+    "seoDescription": "按空格键即得调色板灵感，锁定喜欢的颜色，微调每一个色调。适合任何设计项目的精美配色——无需注册。",
+    "seoFocusKeyword": "配色方案生成器无需注册",
+    "seoTaskPhrase": "无需注册即时生成配色方案"
   },
   "jakearchibald-github-io-svgomg": {
-    "_hash": "e61fbede71540124",
-    "description": "带有可视化界面的 SVG 文件优化和压缩工具。由 Jake Archibald 开发，基于 SVGO。",
-    "coreTask": "优化和压缩 SVG 文件"
+    "_hash": "d9df8d7d8cff6906",
+    "description": "带有可视化界面的 SVG 文件优化和压缩工具。由 Jake Archibald 开发，基于 SVGO 构建。",
+    "coreTask": "优化和压缩 SVG 文件",
+    "seoTitle": "SVGOMG — 在线 SVG 优化器",
+    "seoDescription": "上传或粘贴 SVG，文件大小立即缩减，画质无损。基于浏览器，由 SVGO 驱动——无上传限制，无需账号。",
+    "seoFocusKeyword": "在线 SVG 优化器免费",
+    "seoTaskPhrase": "无需注册优化和压缩 SVG 文件"
   },
   "favicon-io": {
-    "_hash": "7e810461c767ef82",
+    "_hash": "23d2e28493595703",
     "description": "从文字、图片或 emoji 生成网站图标。以多种尺寸和格式下载，适用于各类网站。",
-    "coreTask": "生成网站图标"
+    "coreTask": "生成网站图标",
+    "seoTitle": "Favicon.io — 免费图标生成器",
+    "seoDescription": "几秒内将文字、图片或 emoji 转为完整的图标套装。下载 ICO、PNG 和 Web Manifest 文件，直接用于你的网站——无需账号。",
+    "seoFocusKeyword": "网站图标生成器免费在线",
+    "seoTaskPhrase": "无需注册生成网站图标"
   },
   "tinypng-com": {
-    "_hash": "9c3c0bf8ceeefb94",
-    "description": "智能有损压缩 PNG、JPEG 和 WebP 图像。在保持视觉质量的同时减小文件大小。",
-    "coreTask": "压缩 PNG、JPEG 和 WebP 图像"
+    "_hash": "a192b0dd7649433b",
+    "description": "针对 PNG、JPEG 和 WebP 图像的智能有损压缩。在保持视觉质量的同时大幅缩减文件体积。",
+    "coreTask": "压缩 PNG、JPEG 和 WebP 图像",
+    "seoTitle": "TinyPNG — 智能图像压缩工具",
+    "seoDescription": "拖入 PNG、JPEG 或 WebP 文件，无损画质压缩。数百万开发者信赖的智能有损压缩——无需登录。",
+    "seoFocusKeyword": "在线压缩 PNG JPEG 图片",
+    "seoTaskPhrase": "无需注册压缩 PNG 和 JPEG 图片"
   },
   "app-diagrams-net": {
-    "_hash": "4a6838929a3e3f5d",
-    "description": "创建流程图、UML 图、网络图等。前身为 draw.io，是功能最强大的免费在线绘图工具。",
-    "coreTask": "创建流程图和各类图表"
+    "_hash": "0404bd761e12e740",
+    "description": "创建流程图、UML 图、网络图等各类图表。前身为 draw.io，是功能最强大的免费在线绘图工具。",
+    "coreTask": "创建流程图和各类图表",
+    "seoTitle": "Diagrams.net — 免费在线绘图工具",
+    "seoDescription": "在功能齐全的免费编辑器中绘制流程图、UML 和网络图。保存到 Google Drive 或本地——无需账号，即刻开始。",
+    "seoFocusKeyword": "免费在线绘图工具",
+    "seoTaskPhrase": "无需登录创建流程图和图表"
   },
   "gchq-github-io-cyberchef": {
-    "_hash": "e82237e93e5a193b",
-    "description": "网络瑞士军刀——通过拖放式配方构建器编码、解码、加密、压缩和分析数据。",
-    "coreTask": "编码、解码和转换数据"
+    "_hash": "466296fab180166e",
+    "description": "网络瑞士军刀——通过拖放式配方构建器对数据进行编码、解码、加密、压缩和分析。",
+    "coreTask": "编码、解码和转换数据",
+    "seoTitle": "CyberChef — 数据编码与转换",
+    "seoDescription": "链接 300 多个操作，对任意数据进行编码、解码、加密和转换——全程在浏览器本地运行。拖放式配方构建器，无需登录。",
+    "seoFocusKeyword": "在线编码解码数据免费",
+    "seoTaskPhrase": "无需账号编码和解码数据"
   },
   "typescriptlang-org-play": {
     "_hash": "c1f4f0f91e6a68c7",
