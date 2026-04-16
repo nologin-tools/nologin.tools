@@ -140,79 +140,139 @@
     "seoTaskPhrase": "无需登录查询 CSS HTML 浏览器支持"
   },
   "devdocs-io": {
-    "_hash": "3c753fa3294265a8",
-    "description": "将多个 API 文档整合为快速、有序、可搜索的界面。覆盖 JavaScript、HTML、CSS、Node.js、Ruby、Python 等数百种技术。",
-    "coreTask": "搜索和浏览数百个 API 的开发者文档"
+    "_hash": "244a3f00471af2a3",
+    "description": "将数百个 API 文档整合进一个快速、有序、可全文检索的界面。覆盖 JavaScript、HTML、CSS、Node.js、Ruby、Python 等数百种技术栈。",
+    "coreTask": "搜索和浏览数百个 API 的开发者文档",
+    "seoTitle": "DevDocs — 开发者 API 文档中心",
+    "seoDescription": "一站式浏览 700+ 技术的 API 文档——JavaScript、Python、Ruby 等，支持离线使用。无需账号。",
+    "seoFocusKeyword": "开发者文档浏览器免费",
+    "seoTaskPhrase": "无需登录浏览 API 文档"
   },
   "carbon-now-sh": {
-    "_hash": "b1ab94be84607347",
-    "description": "创建并分享精美的源代码图片。从数十种语法主题和语言中选择，导出为 PNG 或 SVG。",
-    "coreTask": "生成精美的源代码片段图片"
+    "_hash": "32bd95fc07b6e4b3",
+    "description": "生成并分享精美的源代码截图。从数十种语法主题和编程语言中选择，导出为 PNG 或 SVG。",
+    "coreTask": "生成精美的源代码截图",
+    "seoTitle": "Carbon — 代码截图生成工具",
+    "seoDescription": "几秒钟把代码变成精美的可分享截图。挑选语法主题和语言，导出 PNG 或 SVG——无需注册。",
+    "seoFocusKeyword": "代码截图生成器免费",
+    "seoTaskPhrase": "无需注册生成代码图片"
   },
   "jsonformatter-org": {
-    "_hash": "eb34e39fc7e25976",
-    "description": "在线 JSON 格式化、验证和查看工具。粘贴或上传 JSON 数据进行格式化、验证、压缩和格式转换。",
-    "coreTask": "格式化、验证和美化 JSON 数据"
+    "_hash": "e1a49dba06db94c6",
+    "description": "在线 JSON 格式化、验证和查看工具。粘贴或上传 JSON 数据，即可完成格式化、校验、压缩和格式转换。",
+    "coreTask": "格式化、验证和美化 JSON 数据",
+    "seoTitle": "JSON Formatter — 格式化与校验",
+    "seoDescription": "浏览器内即时格式化、验证和压缩 JSON。粘贴原始数据，获得整洁可读的输出和错误提示——无需注册。",
+    "seoFocusKeyword": "在线 JSON 格式化验证免费",
+    "seoTaskPhrase": "无需登录格式化和验证 JSON"
   },
   "tools-pdf24-org-en": {
-    "_hash": "3cb1868df2a40a72",
-    "description": "免费易用的在线 PDF 工具：合并、拆分、压缩、转换、旋转、添加水印等。所有处理均在浏览器中完成。",
-    "coreTask": "合并、拆分、压缩和转换 PDF 文件"
+    "_hash": "5231e2bd16a01766",
+    "description": "免费好用的在线 PDF 工具集：合并、拆分、压缩、转换、旋转、添加水印等应有尽有。所有处理均在浏览器本地完成。",
+    "coreTask": "合并、拆分、压缩和转换 PDF 文件",
+    "seoTitle": "PDF24 — 免费在线 PDF 工具集",
+    "seoDescription": "无需安装任何软件，直接在浏览器中合并、拆分、压缩和转换 PDF——文件不离开你的设备。无需登录。",
+    "seoFocusKeyword": "免费在线 PDF 工具",
+    "seoTaskPhrase": "无需注册合并和压缩 PDF"
   },
   "tinywow-com": {
-    "_hash": "8f67ad42c5f48cc4",
-    "description": "免费在线工具集合，支持 PDF、视频、图像和文件转换。文件处理后即删除，无水印，无文件大小限制。",
-    "coreTask": "转换和处理 PDF、图像、视频和文档"
+    "_hash": "b79aa559cf863a87",
+    "description": "涵盖 PDF、视频、图片和文件转换的免费在线工具集合。处理完成后文件自动删除，无水印，无文件大小限制。",
+    "coreTask": "转换和处理 PDF、图片、视频和文档",
+    "seoTitle": "TinyWow — 免费文件转换工具",
+    "seoDescription": "PDF、图片、视频和文档的免费工具箱。处理后自动删除——无水印、无大小限制、无需账号。",
+    "seoFocusKeyword": "免费 PDF 图片转换器在线",
+    "seoTaskPhrase": "无需登录在线转换文件"
   },
   "pomofocus-io": {
-    "_hash": "c7e7d9716c859f65",
-    "description": "可自定义的番茄计时器，适用于桌面和移动端。追踪专注时段，设置自定义时长，以简洁界面管理任务。",
-    "coreTask": "使用番茄工作法计时工作时段"
+    "_hash": "352dcf3a278feb85",
+    "description": "可自定义的番茄计时器，桌面和手机均可使用。追踪专注时段，自由设置时长，以简洁界面管理任务。",
+    "coreTask": "用番茄工作法为工作时段计时",
+    "seoTitle": "Pomofocus — 免费番茄计时器",
+    "seoDescription": "桌面和手机均可使用的可定制番茄计时器。记录专注时段、设置休息时长、管理任务——无需账号。",
+    "seoFocusKeyword": "免费番茄计时器在线",
+    "seoTaskPhrase": "无需注册追踪专注时段"
   },
   "omnicalculator-com": {
-    "_hash": "06fda7c3152e9120",
-    "description": "超过 3000 个免费计算器的集合，涵盖数学、物理、金融、健康和日常生活。每个计算器都会解释背后的公式和概念。",
-    "coreTask": "使用 3000+ 个专业计算器计算任何问题"
+    "_hash": "25a47764bf47fb6b",
+    "description": "超过 3000 个免费计算器，覆盖数学、物理、金融、健康和日常生活各类场景。每个计算器都附带公式和概念说明。",
+    "coreTask": "用 3000+ 个专业计算器解决各类计算需求",
+    "seoTitle": "Omni Calculator — 3000+ 计算器",
+    "seoDescription": "涵盖数学、金融、健康等领域的 3000+ 免费计算器，每个都附带公式解释——无需注册，即问即答。",
+    "seoFocusKeyword": "免费在线计算器大全",
+    "seoTaskPhrase": "无需注册在线计算任何问题"
   },
   "ezgif-com": {
-    "_hash": "c5222b53ca129c79",
-    "description": "在线 GIF 制作和图像编辑器。创建、调整大小、裁剪、反转、优化 GIF，将视频转换为 GIF。也支持 WebP、APNG 和 AVIF。",
-    "coreTask": "创建、编辑和优化 GIF 及动态图像"
+    "_hash": "008de212e0de04ef",
+    "description": "在线 GIF 制作和图片编辑工具。创建、调整大小、裁剪、倒放、优化 GIF，还能将视频转换为 GIF。同时支持 WebP、APNG 和 AVIF。",
+    "coreTask": "创建、编辑和优化 GIF 及动态图片",
+    "seoTitle": "ezGIF — 在线 GIF 制作与编辑",
+    "seoDescription": "直接在浏览器中制作、裁剪和优化 GIF。视频转 GIF，添加效果，压缩体积——全部免费，无需登录。",
+    "seoFocusKeyword": "在线 GIF 制作编辑器免费",
+    "seoTaskPhrase": "无需登录制作和编辑 GIF"
   },
   "audiotrimmer-com": {
-    "_hash": "5d27d73fbe4a089d",
-    "description": "简单的在线音频剪辑工具。上传音频，选择要保留的部分，下载剪辑后的文件。支持 MP3、WAV 等格式。",
-    "coreTask": "在线裁剪和剪切音频文件"
+    "_hash": "e420216a8973e148",
+    "description": "简单易用的在线音频裁剪工具。上传音频文件，选择要保留的片段，下载裁剪结果。支持 MP3、WAV 等常见格式。",
+    "coreTask": "在线裁剪和剪辑音频文件",
+    "seoTitle": "Audio Trimmer — 在线音频裁剪",
+    "seoDescription": "上传音频，选好片段，几秒内下载结果。支持 MP3、WAV 等格式——无需注册，无需安装软件。",
+    "seoFocusKeyword": "在线音频裁剪免费 MP3",
+    "seoTaskPhrase": "无需注册在线裁剪音频文件"
   },
   "convertio-co": {
-    "_hash": "094f51e6f0351bbc",
-    "description": "高级在线文件转换器，支持 300 多种格式。通过简单的拖放界面转换文档、图像、音频、视频、电子书、压缩包等。",
-    "coreTask": "通过拖放方式在 300 多种格式之间转换文件"
+    "_hash": "82b7cfc21e8151b6",
+    "description": "支持 300+ 格式的高级在线文件转换器。通过简单的拖放操作转换文档、图片、音频、视频、电子书和压缩包。",
+    "coreTask": "拖放即可在 300+ 种格式之间互转文件",
+    "seoTitle": "Convertio — 支持 300+ 格式的文件转换器",
+    "seoDescription": "转换文档、图片、音频、视频等——支持 300+ 格式。拖放文件，云端即时输出结果。无需登录。",
+    "seoFocusKeyword": "在线文件转换器 300 种格式",
+    "seoTaskPhrase": "无需登录在线转换文件格式"
   },
   "haveibeenpwned-com": {
-    "_hash": "7b05bb4a2c2de6f6",
-    "description": "检查你的电子邮件或电话号码是否在数据泄露事件中被暴露。覆盖来自已知泄露事件和粘贴站点的数十亿条记录。",
-    "coreTask": "检查你的邮箱或电话是否在数据泄露中暴露"
+    "_hash": "9fae9ffc0bbc71bb",
+    "description": "检查你的邮箱或手机号是否在数据泄露事件中被暴露。覆盖来自已知泄露事件和粘贴站的数十亿条记录。",
+    "coreTask": "查询邮箱或手机号是否在数据泄露中被暴露",
+    "seoTitle": "Have I Been Pwned — 泄露查询",
+    "seoDescription": "查询你的邮箱或手机号是否在数据泄露中曝光。覆盖数百次已知泄露的数十亿条记录——免费、即时、无需账号。",
+    "seoFocusKeyword": "邮箱数据泄露查询免费",
+    "seoTaskPhrase": "无需注册查询邮箱数据泄露"
   },
   "temp-mail-org": {
-    "_hash": "f0311e9f9b669262",
-    "description": "一次性临时邮件服务。获取即时匿名邮箱地址，无需暴露真实邮件接收邮件。一段时间后自动删除。",
-    "coreTask": "生成一次性邮箱地址用于匿名注册"
+    "_hash": "1ab0b70580d2a532",
+    "description": "一次性临时邮件服务。即时获取匿名邮箱地址，无需暴露真实邮件即可接收邮件，到期后自动删除。",
+    "coreTask": "生成一次性邮箱地址用于匿名注册",
+    "seoTitle": "Temp Mail — 临时一次性邮箱",
+    "seoDescription": "即时获取匿名临时邮箱——无需注册，无需提供个人信息。适合一次性注册，使用后自动删除。",
+    "seoFocusKeyword": "临时一次性邮箱地址",
+    "seoTaskPhrase": "无需注册获取一次性邮箱"
   },
   "privacytests-org": {
-    "_hash": "0ea02a082edba65a",
-    "description": "开源的 Web 浏览器隐私测试。比较主流浏览器的追踪防护、抗指纹识别能力和其他隐私功能。",
-    "coreTask": "比较各主流浏览器的隐私功能和追踪防护"
+    "_hash": "72f54b02d3f54c8b",
+    "description": "开源的浏览器隐私测试项目。对比各主流浏览器在追踪防护、抗指纹识别和其他隐私保护方面的表现。",
+    "coreTask": "对比各主流浏览器的隐私功能和追踪防护能力",
+    "seoTitle": "PrivacyTests — 浏览器隐私评分",
+    "seoDescription": "对比各主流浏览器的追踪防护、抗指纹识别和隐私功能。开源持续更新——无需登录即可查阅。",
+    "seoFocusKeyword": "浏览器隐私对比测试",
+    "seoTaskPhrase": "无需登录对比浏览器隐私"
   },
   "csvjson-com": {
-    "_hash": "7f849e71fb07a1a4",
-    "description": "在线 CSV、JSON 和 SQL 格式转换工具。还包括数据清理和转换实用工具。所有处理均在浏览器中完成。",
-    "coreTask": "在 CSV、JSON 和 SQL 数据格式之间转换"
+    "_hash": "49d9c2cfd2234496",
+    "description": "在线 CSV、JSON 和 SQL 格式互转工具，还包含数据清洗和转换实用功能。所有处理均在浏览器本地完成。",
+    "coreTask": "在 CSV、JSON 和 SQL 数据格式之间互转",
+    "seoTitle": "CSVJSON — 在线 CSV 转 JSON",
+    "seoDescription": "在浏览器中转换 CSV 与 JSON、JSON 与 CSV，或解析 SQL 导出文件——数据不离开设备。简洁、快速、无需注册。",
+    "seoFocusKeyword": "CSV 转 JSON 转换器免费",
+    "seoTaskPhrase": "无需登录转换 CSV 和 JSON"
   },
   "jsoncrack-com": {
-    "_hash": "7694d385c6c8a7f2",
-    "description": "将 JSON 数据可视化为交互式图形。以树状图的形式无缝探索复杂的 JSON 结构，支持搜索和过滤。",
-    "coreTask": "将 JSON 数据可视化为交互式节点图"
+    "_hash": "9eb60dfe6ddf6c93",
+    "description": "将 JSON 数据可视化为交互式图形。以树状节点图的形式探索复杂 JSON 结构，支持搜索和过滤。",
+    "coreTask": "将 JSON 数据可视化为交互式节点图",
+    "seoTitle": "JSON Crack — JSON 图形可视化",
+    "seoDescription": "以交互式节点图探索复杂 JSON 结构。可视化搜索和过滤深层嵌套数据——无需注册，完全在浏览器中运行。",
+    "seoFocusKeyword": "JSON 可视化图形浏览器",
+    "seoTaskPhrase": "无需注册可视化 JSON 数据"
   },
   "tableconvert-com": {
     "_hash": "4ff584f6bac0fa70",

@@ -140,79 +140,139 @@
     "seoTaskPhrase": "CSS- und HTML-Browserunterstützung ohne Login prüfen"
   },
   "devdocs-io": {
-    "_hash": "3c753fa3294265a8",
-    "description": "Bündelt mehrere API-Dokumentationen in einer schnellen, organisierten und suchbaren Oberfläche. Deckt JavaScript, HTML, CSS, Node.js, Ruby, Python und Hunderte weitere ab.",
-    "coreTask": "Entwicklerdokumentation für Hunderte von APIs suchen und durchsuchen"
+    "_hash": "244a3f00471af2a3",
+    "description": "Bündelt mehrere API-Dokumentationen in einer schnellen, organisierten und durchsuchbaren Oberfläche. Deckt JavaScript, HTML, CSS, Node.js, Ruby, Python und Hunderte weitere ab.",
+    "coreTask": "Entwicklerdokumentation für Hunderte von APIs suchen und durchsuchen",
+    "seoTitle": "DevDocs — API-Dokumentation für Entwickler",
+    "seoDescription": "Durchsuche API-Docs für 700+ Technologien — JavaScript, Python, Ruby und mehr — in einer schnellen, offline-fähigen Oberfläche. Kein Account nötig.",
+    "seoFocusKeyword": "Entwicklerdokumentation Browser kostenlos",
+    "seoTaskPhrase": "API-Docs ohne Login durchsuchen"
   },
   "carbon-now-sh": {
-    "_hash": "b1ab94be84607347",
-    "description": "Erstelle und teile schöne Bilder von deinem Quellcode. Wähle aus Dutzenden Syntax-Themes, Sprachen und exportiere als PNG oder SVG.",
-    "coreTask": "Schöne Bilder von Quellcode-Snippets generieren"
+    "_hash": "32bd95fc07b6e4b3",
+    "description": "Erstelle und teile ansprechende Bilder deines Quellcodes. Wähle aus Dutzenden Syntax-Themes und Sprachen, und exportiere als PNG oder SVG.",
+    "coreTask": "Ansprechende Bilder von Quellcode-Snippets erstellen",
+    "seoTitle": "Carbon — Schöne Code-Screenshots",
+    "seoDescription": "Wandle deinen Code in polierte, teilbare Screenshots um. Syntax-Theme wählen, Sprache festlegen, PNG oder SVG exportieren — ohne Registrierung.",
+    "seoFocusKeyword": "Code-Screenshot-Generator kostenlos",
+    "seoTaskPhrase": "Code-Bilder ohne Registrierung erstellen"
   },
   "jsonformatter-org": {
-    "_hash": "eb34e39fc7e25976",
-    "description": "Online JSON-Formatierer, -Validierer und -Viewer. Füge JSON-Daten ein oder lade sie hoch, um sie zu formatieren, zu validieren, zu minifizieren und zwischen JSON und anderen Formaten zu konvertieren.",
-    "coreTask": "JSON-Daten formatieren, validieren und verschönern"
+    "_hash": "e1a49dba06db94c6",
+    "description": "Online JSON-Formatierer, -Validator und -Viewer. JSON-Daten einfügen oder hochladen, um sie zu formatieren, zu validieren, zu minifizieren und zwischen JSON und anderen Formaten zu konvertieren.",
+    "coreTask": "JSON-Daten formatieren, validieren und verschönern",
+    "seoTitle": "JSON Formatter — Validieren und formatieren",
+    "seoDescription": "JSON sofort im Browser formatieren, validieren und minifizieren. Rohdaten einfügen und saubere, lesbare Ausgabe mit Fehlererkennung erhalten — ohne Registrierung.",
+    "seoFocusKeyword": "Online JSON Formatierer Validator kostenlos",
+    "seoTaskPhrase": "JSON ohne Login formatieren und validieren"
   },
   "tools-pdf24-org-en": {
-    "_hash": "3cb1868df2a40a72",
+    "_hash": "5231e2bd16a01766",
     "description": "Kostenlose und einfach zu bedienende Online-PDF-Tools: zusammenführen, aufteilen, komprimieren, konvertieren, drehen, Wasserzeichen hinzufügen und mehr. Die gesamte Verarbeitung erfolgt im Browser.",
-    "coreTask": "PDF-Dateien zusammenführen, aufteilen, komprimieren und konvertieren"
+    "coreTask": "PDF-Dateien zusammenführen, aufteilen, komprimieren und konvertieren",
+    "seoTitle": "PDF24 — Kostenlose Online-PDF-Tools",
+    "seoDescription": "PDFs zusammenführen, aufteilen, komprimieren und konvertieren — ohne Installation. Alle Verarbeitung im Browser, deine Dateien bleiben privat. Kein Login nötig.",
+    "seoFocusKeyword": "kostenlose Online PDF Tools",
+    "seoTaskPhrase": "PDFs ohne Registrierung zusammenführen und komprimieren"
   },
   "tinywow-com": {
-    "_hash": "8f67ad42c5f48cc4",
+    "_hash": "b79aa559cf863a87",
     "description": "Sammlung kostenloser Online-Tools für PDF, Video, Bild und Dateikonvertierung. Dateien werden nach der Verarbeitung gelöscht. Kein Wasserzeichen, keine Dateigrößenbeschränkung.",
-    "coreTask": "PDFs, Bilder, Videos und Dokumente konvertieren und verarbeiten"
+    "coreTask": "PDFs, Bilder, Videos und Dokumente konvertieren und verarbeiten",
+    "seoTitle": "TinyWow — Kostenloser Dateikonverter",
+    "seoDescription": "Kostenloses Toolkit für PDFs, Bilder, Videos und Dokumente. Dateien nach der Verarbeitung gelöscht — kein Wasserzeichen, kein Größenlimit, kein Account.",
+    "seoFocusKeyword": "kostenloser PDF Bildkonverter Online",
+    "seoTaskPhrase": "Dateien online ohne Login konvertieren"
   },
   "pomofocus-io": {
-    "_hash": "c7e7d9716c859f65",
-    "description": "Anpassbarer Pomodoro-Timer, der auf Desktop und Mobilgeräten funktioniert. Verfolge Fokus-Sessions, konfiguriere individuelle Dauern und verwalte Aufgaben mit einer aufgeräumten Oberfläche.",
-    "coreTask": "Arbeitssessions mit der Pomodoro-Technik timen"
+    "_hash": "352dcf3a278feb85",
+    "description": "Anpassbarer Pomodoro-Timer, der auf Desktop und Mobilgeräten funktioniert. Fokus-Sessions verfolgen, individuelle Dauern einstellen und Aufgaben mit einer aufgeräumten Oberfläche verwalten.",
+    "coreTask": "Arbeitssessions mit der Pomodoro-Technik timen",
+    "seoTitle": "Pomofocus — Kostenloser Pomodoro-Timer",
+    "seoDescription": "Anpassbarer Pomodoro-Timer für Desktop und Mobilgeräte. Fokus-Sessions protokollieren, Pausenzeiten einstellen und Aufgaben verwalten — kein Account nötig.",
+    "seoFocusKeyword": "kostenloser Pomodoro Timer Online",
+    "seoTaskPhrase": "Fokus-Sessions ohne Registrierung verfolgen"
   },
   "omnicalculator-com": {
-    "_hash": "06fda7c3152e9120",
-    "description": "Sammlung von mehr als 3.000 kostenlosen Rechnern für Mathematik, Physik, Finanzen, Gesundheit und Alltag. Jeder Rechner erklärt die zugrunde liegenden Formeln und Konzepte.",
-    "coreTask": "Mit mehr als 3.000 spezialisierten Rechnern alles berechnen"
+    "_hash": "25a47764bf47fb6b",
+    "description": "Sammlung von über 3.000 kostenlosen Rechnern für Mathematik, Physik, Finanzen, Gesundheit und Alltag. Jeder Rechner erklärt die zugrunde liegenden Formeln und Konzepte.",
+    "coreTask": "Mit über 3.000 spezialisierten Rechnern alles berechnen",
+    "seoTitle": "Omni Calculator — Über 3.000 Rechner",
+    "seoDescription": "3.000+ kostenlose Rechner für Mathe, Finanzen, Gesundheit und mehr. Jeder erklärt die Formel dahinter — ohne Registrierung, sofortige Antworten.",
+    "seoFocusKeyword": "kostenlose Online-Rechner-Sammlung",
+    "seoTaskPhrase": "alles online ohne Registrierung berechnen"
   },
   "ezgif-com": {
-    "_hash": "c5222b53ca129c79",
-    "description": "Online GIF-Ersteller und Bildbearbeitungsprogramm. Erstelle, skaliere, schneide, kehre um, optimiere GIFs und konvertiere Videos in GIFs. Unterstützt auch WebP, APNG und AVIF.",
-    "coreTask": "GIFs und animierte Bilder erstellen, bearbeiten und optimieren"
+    "_hash": "008de212e0de04ef",
+    "description": "Online GIF-Ersteller und Bildbearbeitungsprogramm. GIFs erstellen, skalieren, zuschneiden, umkehren und optimieren sowie Videos in GIFs konvertieren. Unterstützt auch WebP, APNG und AVIF.",
+    "coreTask": "GIFs und animierte Bilder erstellen, bearbeiten und optimieren",
+    "seoTitle": "ezGIF — Online GIF-Ersteller und -Editor",
+    "seoDescription": "GIFs direkt im Browser erstellen, zuschneiden und optimieren. Videos in GIFs konvertieren, Effekte hinzufügen — alles kostenlos, kein Login.",
+    "seoFocusKeyword": "Online GIF Ersteller Editor kostenlos",
+    "seoTaskPhrase": "GIFs ohne Login erstellen und bearbeiten"
   },
   "audiotrimmer-com": {
-    "_hash": "5d27d73fbe4a089d",
-    "description": "Einfaches Online-Tool zum Zuschneiden von Audiodateien. Lade dein Audio hoch, wähle den Teil aus, den du behalten möchtest, und lade die zugeschnittene Datei herunter. Unterstützt MP3, WAV und andere Formate.",
-    "coreTask": "Audiodateien online zuschneiden und kürzen"
+    "_hash": "e420216a8973e148",
+    "description": "Einfaches Online-Tool zum Zuschneiden von Audiodateien. Audio hochladen, den gewünschten Teil auswählen und die zugeschnittene Datei herunterladen. Unterstützt MP3, WAV und andere Formate.",
+    "coreTask": "Audiodateien online zuschneiden und kürzen",
+    "seoTitle": "Audio Trimmer — Audio online zuschneiden",
+    "seoDescription": "Audiodatei hochladen, Clip auswählen und in Sekunden herunterladen. Funktioniert mit MP3, WAV und mehr — ohne Registrierung, ohne Software-Installation.",
+    "seoFocusKeyword": "Online Audio Trimmer kostenlos MP3",
+    "seoTaskPhrase": "Audiodateien online ohne Registrierung zuschneiden"
   },
   "convertio-co": {
-    "_hash": "094f51e6f0351bbc",
-    "description": "Erweiterter Online-Dateikonverter mit Unterstützung für mehr als 300 Formate. Konvertiere Dokumente, Bilder, Audio, Video, eBooks, Archive und mehr per Drag-and-Drop.",
-    "coreTask": "Dateien per Drag-and-Drop zwischen mehr als 300 Formaten konvertieren"
+    "_hash": "82b7cfc21e8151b6",
+    "description": "Erweiterter Online-Dateikonverter mit Unterstützung für mehr als 300 Formate. Dokumente, Bilder, Audio, Video, eBooks und Archive per Drag-and-Drop konvertieren.",
+    "coreTask": "Dateien per Drag-and-Drop zwischen mehr als 300 Formaten konvertieren",
+    "seoTitle": "Convertio — Konverter für 300+ Formate",
+    "seoDescription": "Dokumente, Bilder, Audio, Video und mehr konvertieren — 300+ unterstützte Formate. Dateien per Drag-and-Drop hochladen, sofortige Cloud-Ergebnisse. Kein Login.",
+    "seoFocusKeyword": "Online Dateikonverter 300 Formate",
+    "seoTaskPhrase": "Dateien ohne Login zwischen Formaten konvertieren"
   },
   "haveibeenpwned-com": {
-    "_hash": "7b05bb4a2c2de6f6",
-    "description": "Prüft, ob deine E-Mail-Adresse oder Handynummer in einem Datenleck kompromittiert wurde. Enthält Milliarden von Einträgen aus bekannten Datenschutzverletzungen und Pastebin-Dumps.",
-    "coreTask": "Prüfen, ob deine E-Mail oder dein Telefon in Datenlecks aufgetaucht ist"
+    "_hash": "9fae9ffc0bbc71bb",
+    "description": "Prüft, ob deine E-Mail-Adresse oder Handynummer in einem Datenleck kompromittiert wurde. Enthält Milliarden von Einträgen aus bekannten Sicherheitsverletzungen und Pastebin-Dumps.",
+    "coreTask": "Prüfen, ob deine E-Mail oder Telefonnummer in Datenlecks aufgetaucht ist",
+    "seoTitle": "Have I Been Pwned — Datenleck-Checker",
+    "seoDescription": "Herausfinden, ob deine E-Mail oder Telefonnummer in einem Datenleck auftauchte. Milliarden Einträge aus hunderten bekannter Leaks — kostenlos, sofort, kein Account.",
+    "seoFocusKeyword": "E-Mail Datenleck Checker kostenlos",
+    "seoTaskPhrase": "E-Mail auf Datenlecks ohne Registrierung prüfen"
   },
   "temp-mail-org": {
-    "_hash": "f0311e9f9b669262",
-    "description": "Temporärer und wegwerfbarer E-Mail-Dienst. Erhalte sofort eine anonyme E-Mail-Adresse, um E-Mails zu empfangen, ohne deine echte Adresse preiszugeben. Automatische Löschung nach einer bestimmten Zeit.",
-    "coreTask": "Wegwerf-E-Mail-Adressen für anonyme Registrierungen generieren"
+    "_hash": "1ab0b70580d2a532",
+    "description": "Temporärer und wegwerfbarer E-Mail-Dienst. Sofort eine anonyme E-Mail-Adresse erhalten, um Nachrichten zu empfangen, ohne die echte Adresse preiszugeben. Automatische Löschung nach einer Weile.",
+    "coreTask": "Wegwerf-E-Mail-Adressen für anonyme Registrierungen generieren",
+    "seoTitle": "Temp Mail — Temporäre E-Mail-Adresse",
+    "seoDescription": "Sofort eine anonyme, wegwerfbare E-Mail-Adresse erhalten — ohne Registrierung, ohne persönliche Daten. Perfekt für Einmal-Anmeldungen. Automatische Löschung.",
+    "seoFocusKeyword": "temporäre wegwerfbare E-Mail-Adresse",
+    "seoTaskPhrase": "Wegwerf-E-Mail ohne Registrierung erhalten"
   },
   "privacytests-org": {
-    "_hash": "0ea02a082edba65a",
+    "_hash": "72f54b02d3f54c8b",
     "description": "Open-Source-Tests der Datenschutzfunktionen von Webbrowsern. Vergleicht Tracking-Schutz, Fingerprinting-Resistenz und andere Datenschutzfunktionen der wichtigsten Browser.",
-    "coreTask": "Datenschutzfunktionen und Tracking-Schutz von Webbrowsern vergleichen"
+    "coreTask": "Datenschutzfunktionen und Tracking-Schutz von Webbrowsern vergleichen",
+    "seoTitle": "PrivacyTests — Browser-Datenschutzscores",
+    "seoDescription": "Tracking-Schutz, Fingerprinting-Resistenz und Datenschutzfunktionen der wichtigsten Browser vergleichen. Open Source, regelmäßig aktualisiert — ohne Login erkunden.",
+    "seoFocusKeyword": "Browser Datenschutz Vergleich Test",
+    "seoTaskPhrase": "Browser-Datenschutz ohne Login vergleichen"
   },
   "csvjson-com": {
-    "_hash": "7f849e71fb07a1a4",
+    "_hash": "49d9c2cfd2234496",
     "description": "Online-Tool zur Konvertierung zwischen CSV-, JSON- und SQL-Formaten. Enthält auch Hilfsprogramme zur Datenbereinigung und -transformation. Alle Verarbeitungen erfolgen im Browser.",
-    "coreTask": "Zwischen den Datenformaten CSV, JSON und SQL konvertieren"
+    "coreTask": "Zwischen den Datenformaten CSV, JSON und SQL konvertieren",
+    "seoTitle": "CSVJSON — CSV online in JSON umwandeln",
+    "seoDescription": "CSV in JSON, JSON in CSV oder SQL-Dumps parsen — alles im Browser, ohne dass Daten das Gerät verlassen. Sauber, schnell, ohne Registrierung.",
+    "seoFocusKeyword": "CSV JSON Konverter kostenlos",
+    "seoTaskPhrase": "CSV ohne Login in JSON umwandeln"
   },
   "jsoncrack-com": {
-    "_hash": "7694d385c6c8a7f2",
-    "description": "Visualisiert JSON-Daten als interaktive Graphen. Erkunde komplexe JSON-Strukturen mit einer Baumgraph-Ansicht, Suche und Filtern.",
-    "coreTask": "JSON-Daten als interaktive Knoten-Graphen visualisieren"
+    "_hash": "9eb60dfe6ddf6c93",
+    "description": "Visualisiert JSON-Daten als interaktive Graphen. Komplexe JSON-Strukturen mit einer Baumgraph-Ansicht, Suche und Filtern erkunden.",
+    "coreTask": "JSON-Daten als interaktive Knoten-Graphen visualisieren",
+    "seoTitle": "JSON Crack — JSON als Graph visualisieren",
+    "seoDescription": "Komplexe JSON-Strukturen als interaktive Knoten-Graphen erkunden. Tief verschachtelte Daten visuell suchen und filtern — ohne Registrierung, läuft im Browser.",
+    "seoFocusKeyword": "JSON Visualisierer Graph Explorer",
+    "seoTaskPhrase": "JSON-Daten ohne Registrierung visualisieren"
   },
   "tableconvert-com": {
     "_hash": "4ff584f6bac0fa70",

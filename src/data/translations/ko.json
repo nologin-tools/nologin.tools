@@ -140,79 +140,139 @@
     "seoTaskPhrase": "가입 없이 웹 기술 브라우저 지원 여부 확인"
   },
   "devdocs-io": {
-    "_hash": "3c753fa3294265a8",
-    "description": "여러 API 문서를 빠르고 체계적이며 검색 가능한 인터페이스에 통합해요. JavaScript, HTML, CSS, Node.js, Ruby, Python 등 수백 가지를 커버해요.",
-    "coreTask": "수백 개의 API에 대한 개발자 문서를 검색하고 탐색해요"
+    "_hash": "244a3f00471af2a3",
+    "description": "여러 API 문서를 빠르고 체계적이며 검색 가능한 하나의 인터페이스에 통합해요. JavaScript, HTML, CSS, Node.js, Ruby, Python 등 수백 가지 기술을 커버해요.",
+    "coreTask": "수백 개의 API에 대한 개발자 문서를 검색하고 탐색해요",
+    "seoTitle": "DevDocs — 개발자 API 문서 브라우저",
+    "seoDescription": "700가지 이상의 기술 API 문서를 한 곳에서 검색하고 탐색할 수 있어요. 오프라인 지원, 계정 불필요.",
+    "seoFocusKeyword": "개발자 문서 브라우저 무료",
+    "seoTaskPhrase": "로그인 없이 API 문서 탐색하기"
   },
   "carbon-now-sh": {
-    "_hash": "b1ab94be84607347",
-    "description": "소스 코드의 아름다운 이미지를 만들고 공유해요. 수십 가지 문법 테마와 언어에서 선택하고, PNG 또는 SVG로 내보낼 수 있어요.",
-    "coreTask": "소스 코드 스니펫의 아름다운 이미지를 생성해요"
+    "_hash": "32bd95fc07b6e4b3",
+    "description": "소스 코드의 아름다운 이미지를 만들고 공유해요. 수십 가지 문법 테마와 언어 중에서 선택하고, PNG 또는 SVG로 내보낼 수 있어요.",
+    "coreTask": "소스 코드 스니펫의 아름다운 이미지를 생성해요",
+    "seoTitle": "Carbon — 코드 스크린샷 생성기",
+    "seoDescription": "코드를 몇 초 만에 세련된 공유 가능한 스크린샷으로 변환해요. 문법 테마를 고르고 PNG나 SVG로 내보내기——회원가입 불필요.",
+    "seoFocusKeyword": "코드 스크린샷 생성기 무료",
+    "seoTaskPhrase": "회원가입 없이 코드 이미지 만들기"
   },
   "jsonformatter-org": {
-    "_hash": "eb34e39fc7e25976",
-    "description": "온라인 JSON 포매터, 유효성 검사기, 뷰어예요. JSON 데이터를 붙여넣거나 업로드해서 포맷, 유효성 검사, 최소화, JSON과 다른 형식 간 변환을 할 수 있어요.",
-    "coreTask": "JSON 데이터를 포맷·유효성 검사·정리해요"
+    "_hash": "e1a49dba06db94c6",
+    "description": "온라인 JSON 포매터, 유효성 검사기, 뷰어예요. JSON 데이터를 붙여넣거나 업로드해서 포맷 정리, 유효성 검사, 최소화, 다른 형식으로 변환할 수 있어요.",
+    "coreTask": "JSON 데이터를 포맷 정리, 유효성 검사, 정돈해요",
+    "seoTitle": "JSON Formatter — 유효성 검사 & 정돈",
+    "seoDescription": "브라우저에서 즉시 JSON을 포맷 정리, 검증, 최소화해요. 원시 데이터를 붙여넣으면 오류 감지와 함께 깔끔한 출력이 나와요——회원가입 불필요.",
+    "seoFocusKeyword": "온라인 JSON 포매터 유효성 검사 무료",
+    "seoTaskPhrase": "로그인 없이 JSON 포맷 정리 및 검증하기"
   },
   "tools-pdf24-org-en": {
-    "_hash": "3cb1868df2a40a72",
-    "description": "무료로 사용하기 쉬운 온라인 PDF 도구: 병합, 분할, 압축, 변환, 회전, 워터마크 등. 모든 처리는 브라우저에서 이루어져요.",
-    "coreTask": "PDF 파일을 병합·분할·압축·변환해요"
+    "_hash": "5231e2bd16a01766",
+    "description": "무료로 사용하기 쉬운 온라인 PDF 도구 모음: 병합, 분할, 압축, 변환, 회전, 워터마크 추가 등 다양해요. 모든 처리는 브라우저 안에서 이루어져요.",
+    "coreTask": "PDF 파일을 병합, 분할, 압축, 변환해요",
+    "seoTitle": "PDF24 — 무료 온라인 PDF 도구 모음",
+    "seoDescription": "아무것도 설치하지 않고 PDF를 병합, 분할, 압축, 변환할 수 있어요. 모든 처리가 브라우저 내에서 완결——파일이 기기를 벗어나지 않아요. 로그인 불필요.",
+    "seoFocusKeyword": "무료 온라인 PDF 도구",
+    "seoTaskPhrase": "회원가입 없이 PDF 병합 및 압축하기"
   },
   "tinywow-com": {
-    "_hash": "8f67ad42c5f48cc4",
-    "description": "PDF, 비디오, 이미지, 파일 변환을 위한 무료 온라인 도구 모음이에요. 처리 후 파일 삭제, 워터마크 없음, 파일 크기 제한 없음.",
-    "coreTask": "PDF, 이미지, 비디오, 문서를 변환하고 처리해요"
+    "_hash": "b79aa559cf863a87",
+    "description": "PDF, 비디오, 이미지, 파일 변환을 위한 무료 온라인 도구 모음이에요. 처리 후 파일이 삭제되고, 워터마크도 파일 크기 제한도 없어요.",
+    "coreTask": "PDF, 이미지, 비디오, 문서를 변환하고 처리해요",
+    "seoTitle": "TinyWow — 무료 파일 변환기",
+    "seoDescription": "PDF, 이미지, 비디오, 문서를 위한 무료 툴킷. 처리 후 자동 삭제——워터마크 없음, 크기 제한 없음, 계정 불필요.",
+    "seoFocusKeyword": "무료 PDF 이미지 변환기 온라인",
+    "seoTaskPhrase": "로그인 없이 온라인 파일 변환하기"
   },
   "pomofocus-io": {
-    "_hash": "c7e7d9716c859f65",
-    "description": "데스크톱과 모바일에서 작동하는 커스터마이즈 가능한 포모도로 타이머예요. 집중 세션을 추적하고, 사용자 정의 시간을 설정하고, 깔끔한 인터페이스로 작업을 관리해요.",
-    "coreTask": "포모도로 기법으로 작업 세션을 타이밍해요"
+    "_hash": "352dcf3a278feb85",
+    "description": "데스크톱과 모바일에서 작동하는 맞춤형 포모도로 타이머예요. 집중 세션을 추적하고, 사용자 정의 시간을 설정하고, 깔끔한 인터페이스로 작업을 관리해요.",
+    "coreTask": "포모도로 기법으로 작업 세션을 타이밍해요",
+    "seoTitle": "Pomofocus — 무료 포모도로 타이머",
+    "seoDescription": "데스크톱과 모바일 모두 지원하는 맞춤형 포모도로 타이머. 집중 세션 기록, 휴식 시간 설정, 작업 관리——계정 불필요.",
+    "seoFocusKeyword": "무료 포모도로 타이머 온라인",
+    "seoTaskPhrase": "회원가입 없이 집중 세션 추적하기"
   },
   "omnicalculator-com": {
-    "_hash": "06fda7c3152e9120",
-    "description": "수학, 물리, 금융, 건강, 일상생활을 위한 3,000개 이상의 무료 계산기 모음이에요. 각 계산기는 그 뒤의 공식과 개념을 설명해요.",
-    "coreTask": "3,000개 이상의 전문 계산기로 무엇이든 계산해요"
+    "_hash": "25a47764bf47fb6b",
+    "description": "수학, 물리, 금융, 건강, 일상생활을 위한 3,000개 이상의 무료 계산기 모음이에요. 각 계산기는 그 뒤의 공식과 개념을 알기 쉽게 설명해요.",
+    "coreTask": "3,000개 이상의 전문 계산기로 무엇이든 계산해요",
+    "seoTitle": "Omni Calculator — 3,000개 이상의 계산기",
+    "seoDescription": "수학, 금융, 건강 등 분야의 3,000개 이상 무료 계산기. 각각 공식 설명 포함——회원가입 없이, 일상의 궁금증에 즉시 답해요.",
+    "seoFocusKeyword": "무료 온라인 계산기 모음",
+    "seoTaskPhrase": "회원가입 없이 온라인으로 계산하기"
   },
   "ezgif-com": {
-    "_hash": "c5222b53ca129c79",
-    "description": "온라인 GIF 메이커이자 이미지 편집기예요. GIF 생성, 크기 조정, 자르기, 반전, 최적화, 비디오에서 GIF로 변환이 가능해요. WebP, APNG, AVIF도 지원해요.",
-    "coreTask": "GIF와 애니메이션 이미지를 만들고 편집하고 최적화해요"
+    "_hash": "008de212e0de04ef",
+    "description": "온라인 GIF 제작기이자 이미지 편집기예요. GIF 생성, 크기 조정, 자르기, 반전, 최적화, 비디오에서 GIF 변환이 가능해요. WebP, APNG, AVIF도 지원해요.",
+    "coreTask": "GIF와 애니메이션 이미지를 만들고 편집하고 최적화해요",
+    "seoTitle": "ezGIF — 온라인 GIF 제작기 & 편집기",
+    "seoDescription": "브라우저에서 바로 GIF를 만들고, 자르고, 최적화해요. 비디오를 GIF로 변환하고 효과 추가——모두 무료, 로그인 불필요.",
+    "seoFocusKeyword": "온라인 GIF 제작기 편집기 무료",
+    "seoTaskPhrase": "로그인 없이 GIF 만들고 편집하기"
   },
   "audiotrimmer-com": {
-    "_hash": "5d27d73fbe4a089d",
-    "description": "간단한 온라인 오디오 파일 트리밍 도구예요. 오디오를 업로드하고, 유지할 부분을 선택하고, 트리밍된 파일을 다운로드해요. MP3, WAV 등의 형식을 지원해요.",
-    "coreTask": "오디오 파일을 온라인에서 트리밍하고 자르기해요"
+    "_hash": "e420216a8973e148",
+    "description": "오디오 파일을 트리밍하는 간단한 온라인 도구예요. 오디오를 업로드하고 남길 부분을 선택하면 트리밍된 파일을 다운로드할 수 있어요. MP3, WAV 등 형식을 지원해요.",
+    "coreTask": "오디오 파일을 온라인에서 트리밍하고 잘라요",
+    "seoTitle": "Audio Trimmer — 온라인 오디오 자르기",
+    "seoDescription": "오디오 파일을 업로드하고 구간을 선택하면 몇 초 만에 다운로드할 수 있어요. MP3, WAV 등 지원——회원가입 불필요, 소프트웨어 설치 필요 없음.",
+    "seoFocusKeyword": "온라인 오디오 트리머 무료 MP3",
+    "seoTaskPhrase": "회원가입 없이 온라인으로 오디오 트리밍하기"
   },
   "convertio-co": {
-    "_hash": "094f51e6f0351bbc",
-    "description": "300개 이상의 형식을 지원하는 고급 온라인 파일 변환기예요. 간단한 드래그 앤 드롭 인터페이스로 문서, 이미지, 오디오, 비디오, 전자책, 아카이브 등을 변환해요.",
-    "coreTask": "드래그 앤 드롭으로 300개 이상의 형식 간에 파일을 변환해요"
+    "_hash": "82b7cfc21e8151b6",
+    "description": "300가지 이상의 형식을 지원하는 고급 온라인 파일 변환기예요. 간단한 드래그 앤 드롭으로 문서, 이미지, 오디오, 비디오, 전자책, 압축 파일 등을 변환해요.",
+    "coreTask": "드래그 앤 드롭으로 300가지 이상 형식 간에 파일을 변환해요",
+    "seoTitle": "Convertio — 300가지 이상 형식 지원 변환기",
+    "seoDescription": "문서, 이미지, 오디오, 비디오 등 300가지 이상 형식을 변환해요. 파일을 드래그 앤 드롭하면 클라우드에서 즉시 결과가 나와요. 로그인 불필요.",
+    "seoFocusKeyword": "온라인 파일 변환기 300 형식",
+    "seoTaskPhrase": "로그인 없이 파일 형식 변환하기"
   },
   "haveibeenpwned-com": {
-    "_hash": "7b05bb4a2c2de6f6",
-    "description": "이메일 주소나 전화번호가 데이터 유출에 노출됐는지 확인해요. 알려진 유출과 페이스트에서 수십억 건의 기록을 커버해요.",
-    "coreTask": "이메일이나 전화번호가 데이터 유출에 노출됐는지 확인해요"
+    "_hash": "9fae9ffc0bbc71bb",
+    "description": "이메일 주소나 전화번호가 데이터 침해에 노출됐는지 확인해요. 알려진 침해와 페이스트에서 수십억 건의 기록을 커버해요.",
+    "coreTask": "이메일이나 전화번호가 데이터 침해에 노출됐는지 확인해요",
+    "seoTitle": "Have I Been Pwned — 침해 확인기",
+    "seoDescription": "이메일이나 전화번호가 데이터 침해에 노출됐는지 알아볼 수 있어요. 수백 건의 알려진 유출에서 수십억 건의 기록 커버——무료, 즉시, 계정 불필요.",
+    "seoFocusKeyword": "이메일 데이터 침해 확인기 무료",
+    "seoTaskPhrase": "회원가입 없이 이메일 데이터 침해 확인하기"
   },
   "temp-mail-org": {
-    "_hash": "f0311e9f9b669262",
-    "description": "일회용 임시 이메일 서비스예요. 실제 주소를 밝히지 않고 이메일을 받을 수 있는 즉석 익명 이메일 주소를 얻어요. 일정 기간 후 자동 삭제돼요.",
-    "coreTask": "익명 가입을 위한 일회용 이메일 주소를 생성해요"
+    "_hash": "1ab0b70580d2a532",
+    "description": "일회용 임시 이메일 서비스예요. 실제 주소를 밝히지 않고 이메일을 받을 수 있는 즉석 익명 이메일 주소를 받아요. 일정 기간 후 자동으로 삭제돼요.",
+    "coreTask": "익명 가입을 위한 일회용 이메일 주소를 생성해요",
+    "seoTitle": "Temp Mail — 일회용 이메일 주소",
+    "seoDescription": "등록 없이, 개인정보 없이 즉시 익명 이메일 주소를 받을 수 있어요. 일회성 가입에 최적. 사용 후 자동 삭제.",
+    "seoFocusKeyword": "일회용 임시 이메일 주소",
+    "seoTaskPhrase": "회원가입 없이 일회용 이메일 받기"
   },
   "privacytests-org": {
-    "_hash": "0ea02a082edba65a",
-    "description": "웹 브라우저 개인정보 보호의 오픈 소스 테스트예요. 주요 브라우저의 추적 보호, 핑거프린팅 저항성, 기타 개인정보 보호 기능을 비교해요.",
-    "coreTask": "웹 브라우저의 개인정보 보호 기능과 추적 방지를 비교해요"
+    "_hash": "72f54b02d3f54c8b",
+    "description": "웹 브라우저 개인정보 보호에 관한 오픈 소스 테스트예요. 주요 브라우저의 추적 방지, 핑거프린팅 저항성, 기타 개인정보 기능을 비교해요.",
+    "coreTask": "웹 브라우저의 개인정보 기능과 추적 방지를 비교해요",
+    "seoTitle": "PrivacyTests — 브라우저 개인정보 점수",
+    "seoDescription": "주요 브라우저의 추적 방지, 핑거프린팅 저항성, 개인정보 기능을 비교해요. 오픈 소스로 정기 업데이트——로그인 없이 탐색 가능.",
+    "seoFocusKeyword": "브라우저 개인정보 비교 테스트",
+    "seoTaskPhrase": "로그인 없이 브라우저 개인정보 비교하기"
   },
   "csvjson-com": {
-    "_hash": "7f849e71fb07a1a4",
-    "description": "CSV, JSON, SQL 형식 간 변환을 위한 온라인 도구예요. 데이터 정리 및 변환 유틸리티도 포함돼요. 모든 처리는 브라우저에서 이루어져요.",
-    "coreTask": "CSV, JSON, SQL 데이터 형식 간을 변환해요"
+    "_hash": "49d9c2cfd2234496",
+    "description": "CSV, JSON, SQL 형식 간 변환을 위한 온라인 도구예요. 데이터 정리와 변환 유틸리티도 포함돼요. 모든 처리가 브라우저 내에서 이루어져요.",
+    "coreTask": "CSV, JSON, SQL 데이터 형식 간을 변환해요",
+    "seoTitle": "CSVJSON — 온라인 CSV를 JSON으로 변환",
+    "seoDescription": "CSV에서 JSON, JSON에서 CSV, 또는 SQL 덤프 파싱이 브라우저에서 완결——데이터가 기기를 벗어나지 않아요. 깔끔하고, 빠르고, 회원가입 불필요.",
+    "seoFocusKeyword": "CSV JSON 변환기 무료",
+    "seoTaskPhrase": "로그인 없이 CSV를 JSON으로 변환하기"
   },
   "jsoncrack-com": {
-    "_hash": "7694d385c6c8a7f2",
-    "description": "JSON 데이터를 인터랙티브 그래프로 시각화해요. 트리 형태의 그래프 뷰로 복잡한 JSON 구조를 원활하게 탐색하고 검색 및 필터링 기능을 사용할 수 있어요.",
-    "coreTask": "JSON 데이터를 인터랙티브 노드 그래프로 시각화해요"
+    "_hash": "9eb60dfe6ddf6c93",
+    "description": "JSON 데이터를 인터랙티브 그래프로 시각화해요. 트리형 그래프 뷰로 복잡한 JSON 구조를 원활하게 탐색하고, 검색과 필터링 기능도 사용할 수 있어요.",
+    "coreTask": "JSON 데이터를 인터랙티브 노드 그래프로 시각화해요",
+    "seoTitle": "JSON Crack — JSON을 그래프로 시각화",
+    "seoDescription": "복잡한 JSON 구조를 인터랙티브 노드 그래프로 탐색해요. 깊이 중첩된 데이터를 시각적으로 검색하고 필터링——회원가입 없이, 브라우저에서 완전 실행.",
+    "seoFocusKeyword": "JSON 시각화 그래프 탐색기",
+    "seoTaskPhrase": "회원가입 없이 JSON 데이터 시각화하기"
   },
   "tableconvert-com": {
     "_hash": "4ff584f6bac0fa70",
