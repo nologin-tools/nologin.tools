@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "image compression browser WebAssembly optimize"
 ---
 
+![Hero image](/blog/images/squoosh-free-image-compression-guide/hero.jpg)
+
 You need to compress an image. Ideally right now, without creating an account, without uploading your files to a server you don't control, and without playing quality-roulette with a tool that just outputs "compressed!" and tells you nothing. The usual suspects either cap you at 5MB on the free plan, watermark the output, or give you zero visibility into what they actually did to your file.
 
 [Squoosh](https://squoosh.app) solves all of this. Open it in a browser tab, drop in your image, adjust the settings, download the result. No login required. No upload to a remote server. The compression happens inside your browser using WebAssembly modules compiled from the same codecs that production systems use — MozJPEG, libavif, OxiPNG, libwebp.
