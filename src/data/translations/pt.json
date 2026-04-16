@@ -140,79 +140,139 @@
     "seoTaskPhrase": "verificar suporte de CSS e HTML sem login"
   },
   "devdocs-io": {
-    "_hash": "3c753fa3294265a8",
-    "description": "Reúne várias documentações de API em uma interface rápida, organizada e com pesquisa. Cobre JavaScript, HTML, CSS, Node.js, Ruby, Python e centenas de outras.",
-    "coreTask": "Pesquisar e navegar pela documentação de desenvolvedor para centenas de APIs"
+    "_hash": "244a3f00471af2a3",
+    "description": "Reúne várias documentações de API em uma interface rápida, organizada e com pesquisa integrada. Cobre JavaScript, HTML, CSS, Node.js, Ruby, Python e centenas de outras tecnologias.",
+    "coreTask": "Pesquisar e navegar pela documentação de desenvolvedor para centenas de APIs",
+    "seoTitle": "DevDocs — Documentação API para Devs",
+    "seoDescription": "Navegue e pesquise docs de API para 700+ tecnologias — JavaScript, Python, Ruby e mais — em uma interface rápida com suporte offline. Sem conta.",
+    "seoFocusKeyword": "documentação desenvolvedor gratuita browser",
+    "seoTaskPhrase": "navegar em docs de API sem login"
   },
   "carbon-now-sh": {
-    "_hash": "b1ab94be84607347",
-    "description": "Crie e compartilhe imagens bonitas do seu código-fonte. Escolha entre dezenas de temas de sintaxe, linguagens e exporte como PNG ou SVG.",
-    "coreTask": "Gerar imagens bonitas de snippets de código-fonte"
+    "_hash": "32bd95fc07b6e4b3",
+    "description": "Crie e compartilhe imagens lindas do seu código-fonte. Escolha entre dezenas de temas de sintaxe e linguagens, e exporte como PNG ou SVG.",
+    "coreTask": "Gerar imagens bonitas de trechos de código-fonte",
+    "seoTitle": "Carbon — Screenshots de Código Bonitos",
+    "seoDescription": "Transforme seu código em screenshots polidos e compartilháveis em segundos. Escolha o tema de sintaxe e exporte PNG ou SVG — sem cadastro.",
+    "seoFocusKeyword": "gerador screenshot código gratuito",
+    "seoTaskPhrase": "criar imagens de código sem cadastro"
   },
   "jsonformatter-org": {
-    "_hash": "eb34e39fc7e25976",
+    "_hash": "e1a49dba06db94c6",
     "description": "Formatador, validador e visualizador de JSON online. Cole ou faça upload de dados JSON para formatar, validar, minificar e converter entre JSON e outros formatos.",
-    "coreTask": "Formatar, validar e embelezar dados JSON"
+    "coreTask": "Formatar, validar e embelezar dados JSON",
+    "seoTitle": "JSON Formatter — Validar e Formatar",
+    "seoDescription": "Formate, valide e minifique JSON instantaneamente no navegador. Cole dados brutos e obtenha saída limpa com detecção de erros — sem cadastro.",
+    "seoFocusKeyword": "formatador json online gratuito",
+    "seoTaskPhrase": "formatar e validar JSON sem login"
   },
   "tools-pdf24-org-en": {
-    "_hash": "3cb1868df2a40a72",
-    "description": "Ferramentas PDF online gratuitas e fáceis de usar: mesclar, dividir, comprimir, converter, girar, adicionar marcas d'água e mais. Todo o processamento acontece no navegador.",
-    "coreTask": "Mesclar, dividir, comprimir e converter arquivos PDF"
+    "_hash": "5231e2bd16a01766",
+    "description": "Ferramentas PDF online gratuitas e fáceis de usar: mesclar, dividir, comprimir, converter, girar, adicionar marcas d'água e muito mais. Todo o processamento acontece no navegador.",
+    "coreTask": "Mesclar, dividir, comprimir e converter arquivos PDF",
+    "seoTitle": "PDF24 — Ferramentas PDF Online Grátis",
+    "seoDescription": "Mescle, divida, comprima e converta PDFs sem instalar nada. Tudo processado no navegador — seus arquivos ficam no seu dispositivo. Sem login.",
+    "seoFocusKeyword": "ferramentas pdf online grátis",
+    "seoTaskPhrase": "mesclar e comprimir PDFs sem cadastro"
   },
   "tinywow-com": {
-    "_hash": "8f67ad42c5f48cc4",
-    "description": "Coleção de ferramentas online gratuitas para PDF, vídeo, imagem e conversão de arquivos. Os arquivos são excluídos após o processamento. Sem marca d'água, sem limite de tamanho de arquivo.",
-    "coreTask": "Converter e processar PDFs, imagens, vídeos e documentos"
+    "_hash": "b79aa559cf863a87",
+    "description": "Coleção de ferramentas online gratuitas para PDF, vídeo, imagem e conversão de arquivos. Os arquivos são excluídos após o processamento. Sem marca d'água nem limite de tamanho.",
+    "coreTask": "Converter e processar PDFs, imagens, vídeos e documentos",
+    "seoTitle": "TinyWow — Conversor de Arquivos Grátis",
+    "seoDescription": "Kit de ferramentas gratuito para PDFs, imagens, vídeos e docs. Arquivos excluídos após o processamento — sem marca d'água, sem limites, sem conta.",
+    "seoFocusKeyword": "conversor pdf imagem online grátis",
+    "seoTaskPhrase": "converter arquivos online sem login"
   },
   "pomofocus-io": {
-    "_hash": "c7e7d9716c859f65",
-    "description": "Timer Pomodoro personalizável que funciona em desktop e mobile. Acompanhe suas sessões de foco, configure durações personalizadas e gerencie tarefas com uma interface limpa.",
-    "coreTask": "Cronometrar sessões de trabalho com a técnica Pomodoro"
+    "_hash": "352dcf3a278feb85",
+    "description": "Timer Pomodoro personalizável que funciona no desktop e no celular. Acompanhe suas sessões de foco, configure durações personalizadas e gerencie tarefas com uma interface limpa.",
+    "coreTask": "Cronometrar sessões de trabalho com a técnica Pomodoro",
+    "seoTitle": "Pomofocus — Timer Pomodoro Gratuito",
+    "seoDescription": "Timer Pomodoro personalizável para desktop e celular. Registre sessões de foco, configure pausas e gerencie tarefas — sem conta.",
+    "seoFocusKeyword": "timer pomodoro online gratuito",
+    "seoTaskPhrase": "registrar sessões de foco sem cadastro"
   },
   "omnicalculator-com": {
-    "_hash": "06fda7c3152e9120",
-    "description": "Coleção de mais de 3.000 calculadoras gratuitas para matemática, física, finanças, saúde e cotidiano. Cada calculadora explica as fórmulas e conceitos subjacentes.",
-    "coreTask": "Calcular qualquer coisa com mais de 3.000 calculadoras especializadas"
+    "_hash": "25a47764bf47fb6b",
+    "description": "Coleção de mais de 3.000 calculadoras gratuitas para matemática, física, finanças, saúde e cotidiano. Cada calculadora explica as fórmulas e conceitos por trás do cálculo.",
+    "coreTask": "Calcular qualquer coisa com mais de 3.000 calculadoras especializadas",
+    "seoTitle": "Omni Calculator — Mais de 3.000 Calculadoras",
+    "seoDescription": "Acesse 3.000+ calculadoras gratuitas para matemática, finanças, saúde e mais. Cada uma explica a fórmula — sem cadastro, respostas na hora.",
+    "seoFocusKeyword": "coleção calculadoras online grátis",
+    "seoTaskPhrase": "calcular qualquer coisa online sem cadastro"
   },
   "ezgif-com": {
-    "_hash": "c5222b53ca129c79",
-    "description": "Criador de GIF e editor de imagens online. Crie, redimensione, recorte, inverta, otimize GIFs e converta vídeos em GIF. Suporta também WebP, APNG e AVIF.",
-    "coreTask": "Criar, editar e otimizar GIFs e imagens animadas"
+    "_hash": "008de212e0de04ef",
+    "description": "Criador de GIFs e editor de imagens online. Crie, redimensione, recorte, inverta e otimize GIFs, e converta vídeos em GIF. Também suporta WebP, APNG e AVIF.",
+    "coreTask": "Criar, editar e otimizar GIFs e imagens animadas",
+    "seoTitle": "ezGIF — Criador e Editor de GIFs Online",
+    "seoDescription": "Crie, recorte e otimize GIFs direto no navegador. Converta vídeos em GIF, adicione efeitos e reduza tamanhos — tudo gratuito, sem login.",
+    "seoFocusKeyword": "criador gif online gratuito",
+    "seoTaskPhrase": "criar e editar GIFs sem login"
   },
   "audiotrimmer-com": {
-    "_hash": "5d27d73fbe4a089d",
-    "description": "Ferramenta online simples para cortar arquivos de áudio. Faça upload do seu áudio, selecione a parte que deseja manter e baixe o arquivo cortado. Suporta MP3, WAV e outros formatos.",
-    "coreTask": "Cortar e aparar arquivos de áudio online"
+    "_hash": "e420216a8973e148",
+    "description": "Ferramenta online simples para cortar arquivos de áudio. Faça upload do seu áudio, selecione a parte que quer manter e baixe o arquivo cortado. Suporta MP3, WAV e outros formatos.",
+    "coreTask": "Cortar e aparar arquivos de áudio online",
+    "seoTitle": "Audio Trimmer — Cortar Áudio Online",
+    "seoDescription": "Faça upload de um arquivo de áudio, selecione o trecho e baixe o resultado em segundos. Funciona com MP3, WAV e mais — sem cadastro, sem software.",
+    "seoFocusKeyword": "cortador áudio online gratuito mp3",
+    "seoTaskPhrase": "cortar arquivos de áudio sem cadastro"
   },
   "convertio-co": {
-    "_hash": "094f51e6f0351bbc",
-    "description": "Conversor de arquivos online avançado com suporte a mais de 300 formatos. Converta documentos, imagens, áudio, vídeo, eBooks, arquivos compactados e mais com uma simples interface de arrastar e soltar.",
-    "coreTask": "Converter arquivos entre mais de 300 formatos por arrastar e soltar"
+    "_hash": "82b7cfc21e8151b6",
+    "description": "Conversor de arquivos online avançado com suporte a mais de 300 formatos. Converta documentos, imagens, áudio, vídeo, eBooks e arquivos compactados com uma simples interface de arrastar e soltar.",
+    "coreTask": "Converter arquivos entre mais de 300 formatos com arrastar e soltar",
+    "seoTitle": "Convertio — Conversor de 300+ Formatos",
+    "seoDescription": "Converta documentos, imagens, áudio, vídeo e mais — 300+ formatos suportados. Arraste e solte os arquivos para resultados instantâneos na nuvem. Sem login.",
+    "seoFocusKeyword": "conversor arquivos online 300 formatos",
+    "seoTaskPhrase": "converter arquivos entre formatos sem login"
   },
   "haveibeenpwned-com": {
-    "_hash": "7b05bb4a2c2de6f6",
-    "description": "Verifica se seu endereço de e-mail ou número de telefone foi comprometido em uma violação de dados. Cobre bilhões de registros de violações conhecidas e pastebins.",
-    "coreTask": "Verificar se seu e-mail ou telefone foi exposto em vazamentos de dados"
+    "_hash": "9fae9ffc0bbc71bb",
+    "description": "Verifique se seu endereço de e-mail ou número de telefone foi comprometido em uma violação de dados. Cobre bilhões de registros de violações conhecidas e pastebins.",
+    "coreTask": "Verificar se seu e-mail ou telefone foi exposto em vazamentos de dados",
+    "seoTitle": "Have I Been Pwned — Verificador de Vazamentos",
+    "seoDescription": "Descubra se seu e-mail ou telefone foi exposto em um vazamento de dados. Cobre bilhões de registros de centenas de violações — gratuito, imediato, sem conta.",
+    "seoFocusKeyword": "verificador vazamento email gratuito",
+    "seoTaskPhrase": "verificar vazamentos de e-mail sem cadastro"
   },
   "temp-mail-org": {
-    "_hash": "f0311e9f9b669262",
-    "description": "Serviço de e-mail temporário e descartável. Obtenha instantaneamente um endereço de e-mail anônimo para receber e-mails sem revelar seu endereço real. Exclusão automática após um período.",
-    "coreTask": "Gerar endereços de e-mail descartáveis para cadastros anônimos"
+    "_hash": "1ab0b70580d2a532",
+    "description": "Serviço de e-mail temporário e descartável. Obtenha instantaneamente um endereço de e-mail anônimo para receber mensagens sem revelar seu endereço real. Exclusão automática após um período.",
+    "coreTask": "Gerar endereços de e-mail descartáveis para cadastros anônimos",
+    "seoTitle": "Temp Mail — Endereço de E-mail Temporário",
+    "seoDescription": "Obtenha instantaneamente um e-mail anônimo e descartável — sem cadastro, sem dados pessoais. Ideal para cadastros únicos. Exclusão automática após o uso.",
+    "seoFocusKeyword": "endereço email temporário descartável",
+    "seoTaskPhrase": "obter e-mail descartável sem cadastro"
   },
   "privacytests-org": {
-    "_hash": "0ea02a082edba65a",
-    "description": "Testes open source de privacidade de navegadores web. Compara proteção contra rastreamento, resistência a fingerprinting e outros recursos de privacidade entre os principais navegadores.",
-    "coreTask": "Comparar recursos de privacidade e proteção contra rastreamento de navegadores web"
+    "_hash": "72f54b02d3f54c8b",
+    "description": "Testes open source de privacidade de navegadores web. Compara proteção contra rastreamento, resistência a fingerprinting e outros recursos de privacidade dos principais navegadores.",
+    "coreTask": "Comparar recursos de privacidade e proteção contra rastreamento de navegadores",
+    "seoTitle": "PrivacyTests — Scores de Privacidade",
+    "seoDescription": "Compare proteção contra rastreamento, resistência a fingerprinting e privacidade dos principais navegadores. Open source e atualizado regularmente — sem login.",
+    "seoFocusKeyword": "comparativo privacidade navegadores",
+    "seoTaskPhrase": "comparar privacidade de navegadores sem login"
   },
   "csvjson-com": {
-    "_hash": "7f849e71fb07a1a4",
+    "_hash": "49d9c2cfd2234496",
     "description": "Ferramenta online de conversão entre os formatos CSV, JSON e SQL. Inclui também utilitários de limpeza e transformação de dados. Todo o processamento acontece no navegador.",
-    "coreTask": "Converter entre os formatos de dados CSV, JSON e SQL"
+    "coreTask": "Converter entre os formatos de dados CSV, JSON e SQL",
+    "seoTitle": "CSVJSON — Converter CSV para JSON Online",
+    "seoDescription": "Converta CSV para JSON, JSON para CSV ou analise dumps SQL — tudo no navegador sem que seus dados saiam do dispositivo. Limpo, rápido e sem cadastro.",
+    "seoFocusKeyword": "conversor csv json gratuito",
+    "seoTaskPhrase": "converter CSV para JSON sem login"
   },
   "jsoncrack-com": {
-    "_hash": "7694d385c6c8a7f2",
+    "_hash": "9eb60dfe6ddf6c93",
     "description": "Visualiza dados JSON como grafos interativos. Explore estruturas JSON complexas com uma visualização em grafo de árvore, pesquisa e filtros.",
-    "coreTask": "Visualizar dados JSON como grafos de nós interativos"
+    "coreTask": "Visualizar dados JSON como grafos de nós interativos",
+    "seoTitle": "JSON Crack — Visualizar JSON como Grafos",
+    "seoDescription": "Explore estruturas JSON complexas como grafos de nós interativos. Pesquise e filtre dados profundamente aninhados visualmente — sem cadastro, roda no navegador.",
+    "seoFocusKeyword": "visualizador json grafo explorador",
+    "seoTaskPhrase": "visualizar dados JSON sem cadastro"
   },
   "tableconvert-com": {
     "_hash": "4ff584f6bac0fa70",

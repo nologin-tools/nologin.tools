@@ -140,79 +140,139 @@
     "seoTaskPhrase": "vérifier le support CSS HTML sans connexion"
   },
   "devdocs-io": {
-    "_hash": "3c753fa3294265a8",
-    "description": "Regroupe plusieurs documentations d'API dans une interface rapide, organisée et avec recherche. Couvre JavaScript, HTML, CSS, Node.js, Ruby, Python et des centaines d'autres.",
-    "coreTask": "Rechercher et parcourir la documentation développeur pour des centaines d'APIs"
+    "_hash": "244a3f00471af2a3",
+    "description": "Regroupe plusieurs documentations d'API dans une interface rapide, organisée et dotée d'une recherche intégrée. Couvre JavaScript, HTML, CSS, Node.js, Ruby, Python et des centaines d'autres.",
+    "coreTask": "Rechercher et parcourir la documentation développeur pour des centaines d'APIs",
+    "seoTitle": "DevDocs — Documentation API développeur",
+    "seoDescription": "Parcours et recherche les docs API de 700+ technologies — JavaScript, Python, Ruby et plus — dans une interface rapide avec support offline. Sans compte.",
+    "seoFocusKeyword": "documentation développeur gratuite",
+    "seoTaskPhrase": "parcourir les docs API sans login"
   },
   "carbon-now-sh": {
-    "_hash": "b1ab94be84607347",
-    "description": "Crée et partage de belles images de ton code source. Choisis parmi des dizaines de thèmes de syntaxe, de langages et exporte en PNG ou SVG.",
-    "coreTask": "Générer de belles images de snippets de code source"
+    "_hash": "32bd95fc07b6e4b3",
+    "description": "Crée et partage de belles images de ton code source. Choisis parmi des dizaines de thèmes de syntaxe et de langages, et exporte en PNG ou SVG.",
+    "coreTask": "Générer de belles images de snippets de code source",
+    "seoTitle": "Carbon — Captures de code magnifiques",
+    "seoDescription": "Transforme ton code en captures soignées et partageables en quelques secondes. Choisis ton thème et exporte en PNG ou SVG — sans inscription.",
+    "seoFocusKeyword": "générateur captures code gratuit",
+    "seoTaskPhrase": "créer des images de code sans inscription"
   },
   "jsonformatter-org": {
-    "_hash": "eb34e39fc7e25976",
-    "description": "Formateur, validateur et visualiseur JSON en ligne. Colle ou télécharge des données JSON pour les formater, valider, minifier et convertir entre JSON et d'autres formats.",
-    "coreTask": "Formater, valider et embellir des données JSON"
+    "_hash": "e1a49dba06db94c6",
+    "description": "Formateur, validateur et visionneur JSON en ligne. Colle ou télécharge des données JSON pour les formater, valider, minifier et convertir entre JSON et d'autres formats.",
+    "coreTask": "Formater, valider et embellir des données JSON",
+    "seoTitle": "JSON Formatter — Valider et formater",
+    "seoDescription": "Formate, valide et minifie du JSON instantanément dans ton navigateur. Colle des données brutes et obtiens une sortie propre avec détection d'erreurs — sans inscription.",
+    "seoFocusKeyword": "formateur json en ligne gratuit",
+    "seoTaskPhrase": "formater et valider du JSON sans login"
   },
   "tools-pdf24-org-en": {
-    "_hash": "3cb1868df2a40a72",
-    "description": "Outils PDF en ligne gratuits et faciles à utiliser : fusionner, diviser, compresser, convertir, faire pivoter, ajouter des filigranes et plus. Tout le traitement se passe dans le navigateur.",
-    "coreTask": "Fusionner, diviser, compresser et convertir des fichiers PDF"
+    "_hash": "5231e2bd16a01766",
+    "description": "Outils PDF en ligne gratuits et faciles à utiliser : fusionner, diviser, compresser, convertir, faire pivoter, ajouter des filigranes et bien plus. Tout le traitement se passe dans le navigateur.",
+    "coreTask": "Fusionner, diviser, compresser et convertir des fichiers PDF",
+    "seoTitle": "PDF24 — Outils PDF en ligne gratuits",
+    "seoDescription": "Fusionne, divise, compresse et convertis des PDFs sans rien installer. Le traitement se passe dans ton navigateur — tes fichiers restent privés. Sans login.",
+    "seoFocusKeyword": "outils pdf en ligne gratuits",
+    "seoTaskPhrase": "fusionner et compresser des PDFs sans inscription"
   },
   "tinywow-com": {
-    "_hash": "8f67ad42c5f48cc4",
-    "description": "Collection d'outils en ligne gratuits pour PDF, vidéo, image et conversion de fichiers. Les fichiers sont supprimés après traitement. Sans filigrane ni limite de taille de fichier.",
-    "coreTask": "Convertir et traiter PDFs, images, vidéos et documents"
+    "_hash": "b79aa559cf863a87",
+    "description": "Collection d'outils en ligne gratuits pour PDF, vidéo, image et conversion de fichiers. Les fichiers sont supprimés après traitement. Sans filigrane ni limite de taille.",
+    "coreTask": "Convertir et traiter PDFs, images, vidéos et documents",
+    "seoTitle": "TinyWow — Convertisseur de fichiers gratuit",
+    "seoDescription": "Boîte à outils gratuite pour PDFs, images, vidéos et docs. Fichiers supprimés après traitement — sans filigrane, sans limite, sans compte.",
+    "seoFocusKeyword": "convertisseur pdf image en ligne gratuit",
+    "seoTaskPhrase": "convertir des fichiers en ligne sans login"
   },
   "pomofocus-io": {
-    "_hash": "c7e7d9716c859f65",
+    "_hash": "352dcf3a278feb85",
     "description": "Minuteur Pomodoro personnalisable qui fonctionne sur ordinateur et mobile. Suis tes sessions de concentration, configure des durées personnalisées et gère tes tâches avec une interface épurée.",
-    "coreTask": "Chronométrer des sessions de travail avec la technique Pomodoro"
+    "coreTask": "Chronométrer des sessions de travail avec la technique Pomodoro",
+    "seoTitle": "Pomofocus — Minuteur Pomodoro gratuit",
+    "seoDescription": "Minuteur Pomodoro personnalisable pour bureau et mobile. Enregistre les sessions de focus, configure les pauses et gère les tâches — sans compte.",
+    "seoFocusKeyword": "minuteur pomodoro en ligne gratuit",
+    "seoTaskPhrase": "suivre les sessions de focus sans inscription"
   },
   "omnicalculator-com": {
-    "_hash": "06fda7c3152e9120",
-    "description": "Collection de plus de 3 000 calculatrices gratuites pour les mathématiques, la physique, la finance, la santé et la vie quotidienne. Chaque calculatrice explique les formules et concepts sous-jacents.",
-    "coreTask": "Calculer n'importe quoi avec plus de 3 000 calculatrices spécialisées"
+    "_hash": "25a47764bf47fb6b",
+    "description": "Collection de plus de 3 000 calculatrices gratuites pour les mathématiques, la physique, la finance, la santé et la vie quotidienne. Chaque calculatrice explique les formules et les concepts sous-jacents.",
+    "coreTask": "Calculer n'importe quoi avec plus de 3 000 calculatrices spécialisées",
+    "seoTitle": "Omni Calculator — Plus de 3 000 calculatrices",
+    "seoDescription": "Accède à 3 000+ calculatrices gratuites pour les maths, la finance, la santé et plus. Chacune explique la formule — sans inscription, réponses instantanées.",
+    "seoFocusKeyword": "collection calculatrices en ligne gratuites",
+    "seoTaskPhrase": "calculer n'importe quoi en ligne sans inscription"
   },
   "ezgif-com": {
-    "_hash": "c5222b53ca129c79",
-    "description": "Créateur de GIF et éditeur d'images en ligne. Crée, redimensionne, recadre, inverse, optimise des GIFs et convertis de la vidéo en GIF. Supporte aussi WebP, APNG et AVIF.",
-    "coreTask": "Créer, éditer et optimiser des GIFs et images animées"
+    "_hash": "008de212e0de04ef",
+    "description": "Créateur de GIFs et éditeur d'images en ligne. Crée, redimensionne, recadre, inverse et optimise des GIFs, et convertis des vidéos en GIF. Supporte aussi WebP, APNG et AVIF.",
+    "coreTask": "Créer, éditer et optimiser des GIFs et images animées",
+    "seoTitle": "ezGIF — Créateur et éditeur de GIFs",
+    "seoDescription": "Crée, recadre et optimise des GIFs directement dans ton navigateur. Convertis des vidéos en GIF, ajoute des effets — tout gratuit, sans login.",
+    "seoFocusKeyword": "créateur gif en ligne gratuit",
+    "seoTaskPhrase": "créer et éditer des GIFs sans login"
   },
   "audiotrimmer-com": {
-    "_hash": "5d27d73fbe4a089d",
+    "_hash": "e420216a8973e148",
     "description": "Outil simple en ligne pour recadrer des fichiers audio. Télécharge ton audio, sélectionne la partie à conserver et télécharge le fichier recadré. Supporte MP3, WAV et d'autres formats.",
-    "coreTask": "Recadrer et couper des fichiers audio en ligne"
+    "coreTask": "Recadrer et couper des fichiers audio en ligne",
+    "seoTitle": "Audio Trimmer — Couper de l'audio en ligne",
+    "seoDescription": "Télécharge un fichier audio, sélectionne ton clip et télécharge le résultat en quelques secondes. Compatible MP3, WAV et plus — sans inscription, sans logiciel.",
+    "seoFocusKeyword": "recadreur audio en ligne gratuit mp3",
+    "seoTaskPhrase": "recadrer des fichiers audio sans inscription"
   },
   "convertio-co": {
-    "_hash": "094f51e6f0351bbc",
-    "description": "Convertisseur de fichiers en ligne avancé supportant plus de 300 formats. Convertis des documents, images, audio, vidéo, ebooks, archives et plus avec une simple interface glisser-déposer.",
-    "coreTask": "Convertir des fichiers entre plus de 300 formats par glisser-déposer"
+    "_hash": "82b7cfc21e8151b6",
+    "description": "Convertisseur de fichiers en ligne avancé supportant plus de 300 formats. Convertis des documents, images, audio, vidéo, ebooks et archives avec une simple interface glisser-déposer.",
+    "coreTask": "Convertir des fichiers entre plus de 300 formats par glisser-déposer",
+    "seoTitle": "Convertio — Convertisseur 300+ formats",
+    "seoDescription": "Convertis documents, images, audio, vidéo et plus — 300+ formats supportés. Glisse-dépose tes fichiers pour des résultats instantanés. Sans login.",
+    "seoFocusKeyword": "convertisseur fichiers en ligne 300 formats",
+    "seoTaskPhrase": "convertir des fichiers entre formats sans login"
   },
   "haveibeenpwned-com": {
-    "_hash": "7b05bb4a2c2de6f6",
-    "description": "Vérifie si ton adresse email ou ton numéro de téléphone a été compromis lors d'une violation de données. Couvre des milliards d'enregistrements de violations et de pastebins connus.",
-    "coreTask": "Vérifier si ton email ou téléphone a été exposé dans des fuites de données"
+    "_hash": "9fae9ffc0bbc71bb",
+    "description": "Vérifie si ton adresse e-mail ou ton numéro de téléphone a été compromis lors d'une violation de données. Couvre des milliards d'enregistrements issus de violations et de pastebins connus.",
+    "coreTask": "Vérifier si ton e-mail ou téléphone a été exposé dans des fuites de données",
+    "seoTitle": "Have I Been Pwned — Vérificateur de fuites",
+    "seoDescription": "Découvre si ton e-mail ou téléphone a été exposé dans une fuite de données. Couvre des milliards d'enregistrements de centaines de violations — gratuit, instantané, sans compte.",
+    "seoFocusKeyword": "vérificateur fuites email gratuit",
+    "seoTaskPhrase": "vérifier les fuites de données email sans inscription"
   },
   "temp-mail-org": {
-    "_hash": "f0311e9f9b669262",
-    "description": "Service d'email temporaire et jetable. Obtiens instantanément une adresse email anonyme pour recevoir des emails sans révéler ta vraie adresse. Suppression automatique après une période.",
-    "coreTask": "Générer des adresses email jetables pour les inscriptions anonymes"
+    "_hash": "1ab0b70580d2a532",
+    "description": "Service d'e-mail temporaire et jetable. Obtiens instantanément une adresse e-mail anonyme pour recevoir des messages sans révéler ta vraie adresse. Suppression automatique après une période.",
+    "coreTask": "Générer des adresses e-mail jetables pour les inscriptions anonymes",
+    "seoTitle": "Temp Mail — Adresse e-mail temporaire",
+    "seoDescription": "Obtiens instantanément une adresse e-mail anonyme et jetable — sans inscription, sans données personnelles. Parfait pour les inscriptions uniques. Suppression automatique.",
+    "seoFocusKeyword": "adresse email temporaire jetable",
+    "seoTaskPhrase": "obtenir un e-mail jetable sans inscription"
   },
   "privacytests-org": {
-    "_hash": "0ea02a082edba65a",
+    "_hash": "72f54b02d3f54c8b",
     "description": "Tests open source de la confidentialité des navigateurs web. Compare la protection contre le pistage, la résistance au fingerprinting et d'autres fonctionnalités de confidentialité entre les principaux navigateurs.",
-    "coreTask": "Comparer les fonctionnalités de confidentialité et la protection anti-pistage des navigateurs web"
+    "coreTask": "Comparer les fonctionnalités de confidentialité et la protection anti-pistage des navigateurs",
+    "seoTitle": "PrivacyTests — Scores de confidentialité",
+    "seoDescription": "Compare la protection anti-pistage, la résistance au fingerprinting et la confidentialité entre les principaux navigateurs. Open source et mis à jour régulièrement — sans login.",
+    "seoFocusKeyword": "comparatif confidentialité navigateurs",
+    "seoTaskPhrase": "comparer la confidentialité des navigateurs sans login"
   },
   "csvjson-com": {
-    "_hash": "7f849e71fb07a1a4",
-    "description": "Outil en ligne de conversion entre les formats CSV, JSON et SQL. Inclut aussi des utilitaires de nettoyage et transformation de données. Tout le traitement se passe dans le navigateur.",
-    "coreTask": "Convertir entre les formats de données CSV, JSON et SQL"
+    "_hash": "49d9c2cfd2234496",
+    "description": "Outil en ligne de conversion entre les formats CSV, JSON et SQL. Inclut aussi des utilitaires de nettoyage et de transformation de données. Tout le traitement se passe dans le navigateur.",
+    "coreTask": "Convertir entre les formats de données CSV, JSON et SQL",
+    "seoTitle": "CSVJSON — Convertir CSV en JSON en ligne",
+    "seoDescription": "Convertis CSV en JSON, JSON en CSV ou analyse des dumps SQL — tout dans ton navigateur sans que tes données ne quittent ton appareil. Propre, rapide, sans inscription.",
+    "seoFocusKeyword": "convertisseur csv json gratuit",
+    "seoTaskPhrase": "convertir CSV en JSON sans login"
   },
   "jsoncrack-com": {
-    "_hash": "7694d385c6c8a7f2",
-    "description": "Visualise des données JSON en graphes interactifs. Explore des structures JSON complexes avec une vue graphe en arbre, une recherche et des filtres.",
-    "coreTask": "Visualiser des données JSON sous forme de graphes de nœuds interactifs"
+    "_hash": "9eb60dfe6ddf6c93",
+    "description": "Visualise des données JSON sous forme de graphes interactifs. Explore des structures JSON complexes avec une vue en arbre, une recherche et des filtres.",
+    "coreTask": "Visualiser des données JSON sous forme de graphes de nœuds interactifs",
+    "seoTitle": "JSON Crack — Visualiser JSON en graphes",
+    "seoDescription": "Explore des structures JSON complexes sous forme de graphes de nœuds interactifs. Recherche et filtre visuellement des données imbriquées — sans inscription, tout dans le navigateur.",
+    "seoFocusKeyword": "visualiseur json graphe explorateur",
+    "seoTaskPhrase": "visualiser des données JSON sans inscription"
   },
   "tableconvert-com": {
     "_hash": "4ff584f6bac0fa70",
