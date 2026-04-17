@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "PDF editing online free browser no account"
 ---
 
+![Hero image](/blog/images/free-pdf-editing-online-no-signup/hero.jpg)
+
 You've done everything right. Uploaded the PDF. Waited for the tool to process it. Clicked "Download." And then a signup wall appears. Enter your email. Confirm it. Now you can have the file you already processed.
 
 This has become the default pattern for most online PDF tools. The processing is technically free. The download requires your email address. It's a reasonable trade if you want ongoing access — but it's not what "free" implies when you first land on the page.
