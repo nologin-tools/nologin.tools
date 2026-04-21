@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "open source code terminal privacy security lock"
 ---
 
+![Hero image](/blog/images/open-source-tools-cant-track-you/hero.jpg)
+
 Most no-login tools skip the signup form as a product decision — they want low friction, broad reach, maybe a freemium upsell later. But there's a different category entirely: tools built for contexts where tracking users was never a real option. Security researchers. Government analysts. Investigative journalists. Academics working with sensitive datasets. For these tools, "no login" isn't a feature. It's a consequence of who built them and why.
 
 Understanding this distinction matters for practical reasons. A tool that *could* add login and tracking but chose not to is making a business decision that can change. A tool built from the ground up for users who would immediately abandon it if it phoned home is structurally different. The no-login architecture is load-bearing — remove it, and the user base disappears.
