@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "private notes writing privacy secure minimal desk"
 ---
 
+![Hero image](/blog/images/notion-privacy-free-alternatives/hero.jpg)
+
 The average person takes notes without thinking about who else can read them. A grocery list — fine. A journal entry about a difficult conversation — different. Career notes tracking salary negotiations and performance reviews — very different.
 
 Notion has become the default note-taking workspace for millions of people. The free tier is generous, the interface is flexible, and it requires no credit card. What it does require is an account, which puts everything you type into Notion's servers, under a privacy policy that most users accepted in about two seconds.
