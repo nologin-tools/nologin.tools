@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser privacy fingerprinting data leak security"
 ---
 
+![Hero image](/blog/images/what-your-browser-leaks-free-privacy-tests/hero.jpg)
+
 A security research team recently published something worth reading twice: they found a stable identifier inside Firefox that persisted across Tor Browser sessions. Not an exploit. Not a bug in the traditional sense. Just Firefox's IndexedDB API storing data with site-specific paths — paths stable enough to link "anonymous" sessions together into a single traceable identity.
 
 Tor Browser is specifically designed to make you look like everyone else. That's the entire model: uniform fingerprint, no persistent state, a fresh identity per session. Yet a core browser storage API was quietly threading an identifier through all of it. You can read the full technical breakdown in [Fingerprint's research post](https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/).
