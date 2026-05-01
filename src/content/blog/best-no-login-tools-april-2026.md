@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools productivity april 2026"
 ---
 
+![Hero image](/blog/images/best-no-login-tools-april-2026/hero.jpg)
+
 Something happened this month that got almost no mainstream attention: a developer [ran Adobe's 1991 PostScript interpreter entirely inside a browser tab](https://www.pagetable.com/?p=1854). No install. No server. Just a URL, and suddenly a 35-year-old page description language is rendering graphics in Chrome.
 
 That's not a party trick. It's a sign of how capable browsers have become as a runtime environment. WebAssembly now makes it possible to take software that once required dedicated workstations and run it locally, in the browser, without shipping anything to a server. And the practical tools built on that capability — ones that process your data locally, require no sign up, and close cleanly when you shut the tab — are getting genuinely useful.
