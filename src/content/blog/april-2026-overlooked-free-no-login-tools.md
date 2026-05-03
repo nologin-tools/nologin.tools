@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools productivity workspace"
 ---
 
+![Hero image](/blog/images/april-2026-overlooked-free-no-login-tools/hero.jpg)
+
 Apple's SHARP image sharpening algorithm now runs in a browser tab. [No install, no account](https://github.com/bring-shrubbery/ml-sharp-web) — just open the page. That's one of the more striking examples from April 2026 of what a modern browser can do without asking anything from you. This month also saw the launch of [chromium-drift.pages.dev](https://chromium-drift.pages.dev/), a reference tool that tracks exactly how far behind each major Chromium browser lags from the upstream codebase — Edge, Brave, Vivaldi, all of them measured and charted, no account required.
 
 Both of those capture a pattern that April reinforced repeatedly: the browser keeps absorbing functionality that used to require servers and desktop apps. The tools built on that foundation keep improving. Here are seven free no-login tools from this month — all verified to work without registration — that deserve attention they probably haven't gotten yet.
