@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "minimalist browser document editor writing"
 ---
 
+![Hero image](/blog/images/google-docs-alternatives-no-login/hero.jpg)
+
 Google Docs is a fine word processor. The problem isn't the product — it's the gate in front of it. To create a document, you need a Google account. To share it with someone who doesn't have one, things get complicated fast. And if you're on a borrowed laptop, a work machine, or just don't want another service tied to your Google identity, you're stuck.
 
 The alternative isn't to install LibreOffice or fire up Microsoft Word. There are browser-based tools that let you start typing in seconds — no account, no login required, and no registration form in your way. Some support real-time collaboration. Some encrypt your content end-to-end. All of them open instantly in any modern browser.
