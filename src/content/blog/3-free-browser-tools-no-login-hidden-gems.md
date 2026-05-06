@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools discovery hidden gems online"
 ---
 
+![Hero image](/blog/images/3-free-browser-tools-no-login-hidden-gems/hero.jpg)
+
 Most tools that do something genuinely useful put a signup page between you and using them. That's become the default expectation. You want to run SQL queries on a dataset? Install software, probably pay. You want to turn your notes into a mind map? SaaS subscription. You want to move text from your laptop to your phone without signing into a cloud service? Email it to yourself, apparently.
 
 Three tools break this expectation entirely. All free, all running in your browser without any account required, and all doing something you might not expect was even possible without a backend. They aren't obscure in the way that means "poorly made" — they're obscure in the way that means "good enough that they don't need to advertise."
