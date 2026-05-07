@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "open source code browser privacy tools"
 ---
 
+![Hero image](/blog/images/why-open-source-tools-dont-need-login/hero.jpg)
+
 There's a question worth asking about "free" software: free for whom?
 
 Most free commercial apps extract a price you don't see on any checkout page. Your usage patterns, your documents, your behavioral data — these get packaged and sold, used to train models, or used to target you with ads. The service is free. The data collection is the business model. The signup form is the first step in that process.
