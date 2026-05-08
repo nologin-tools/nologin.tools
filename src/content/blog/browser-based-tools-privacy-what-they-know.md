@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser privacy fingerprint digital identity"
 ---
 
+![Hero image](/blog/images/browser-based-tools-privacy-what-they-know/hero.jpg)
+
 Visit [sinceyouarrived.world/taken](https://sinceyouarrived.world/taken) and you'll see something unsettling. Without clicking anything, without creating an account, a web page assembles a detailed portrait of you: your IP address and rough location, your screen dimensions, your operating system and browser version, your device's battery level, the fonts installed on your system, your timezone, your network type. All of it. Volunteered by your browser before you typed a single character.
 
 This is the tension at the heart of browser-based tools: the same browser that enables powerful, free, no-login-required software is also the most sophisticated surveillance instrument most people carry. Understanding which side a given tool falls on is the most important privacy question you can ask.
