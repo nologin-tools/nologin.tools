@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "WebAssembly browser performance wasm technology"
 ---
 
+![Hero image](/blog/images/webassembly-login-free-tools-better/hero.jpg)
+
 Here's something that didn't happen with an announcement: the floor for what a browser can compute, without sending your data anywhere, has risen considerably in the past two years. Not because browsers got flashy new APIs, but because specific WebAssembly capabilities — SIMD instructions, the GC proposal, threading — matured enough that tool developers could actually rely on them.
 
 The tools that benefited are exactly the ones that don't require a login. That's not a coincidence. When computation moves fully into the browser, the justification for user accounts evaporates. No server processing means no job to track, no identity to associate with a request, no email required to retrieve your results.
