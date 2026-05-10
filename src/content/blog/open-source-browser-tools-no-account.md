@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "open source software code privacy browser digital"
 ---
 
+![Hero image](/blog/images/open-source-browser-tools-no-account/hero.jpg)
+
 Every few months, a popular tool that used to work without an account quietly adds a login wall. Postman did it. Figma tightened its free tier. Notion started blocking exports. The pattern is consistent: tools get funding, growth targets appear, and suddenly "free" means "free with an account we can market to."
 
 Open source browser tools break this cycle structurally. Not as a policy, not as a promise — structurally. When the code is public and runs in your browser, there's nothing to log in to, no server-side session to create, and no business model that requires knowing who you are.
