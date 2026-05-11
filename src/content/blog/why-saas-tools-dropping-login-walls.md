@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "open door no barrier digital freedom software"
 ---
 
+![Hero image](/blog/images/why-saas-tools-dropping-login-walls/hero.jpg)
+
 Something quiet happened to the web over the last few years. Tools that used to demand your email address before showing you anything now just... work. You open a browser tab, and the tool is there. No form, no verification email, no password to invent.
 
 This isn't accidental. It's the result of three separate forces — economic, technical, and legal — converging at the same time. And it's reshaping what users expect from online tools.
