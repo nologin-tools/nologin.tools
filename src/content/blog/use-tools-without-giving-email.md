@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "email privacy protection browser tools"
 ---
 
+![Hero image](/blog/images/use-tools-without-giving-email/hero.jpg)
+
 Somewhere right now, a website is asking you to create an account to use a tool that runs entirely in your browser. The server never needs to remember you. The task — compressing an image, converting a PDF, generating a color palette — doesn't require your identity. The email address request is optional from a technical standpoint. It's not optional from a business standpoint.
 
 Your email is a persistent identifier. It connects your activity across sessions, makes you reachable for marketing, and links your usage data to a real person. According to [Have I Been Pwned](https://haveibeenpwned.com), which tracks known data breaches, billions of email addresses have been exposed — not through any carelessness on your part, but because every service holding your data is a liability waiting to materialize. The less you hand out your email, the smaller your exposure.
