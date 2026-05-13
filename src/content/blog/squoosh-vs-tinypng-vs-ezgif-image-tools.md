@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "image compression tools browser comparison"
 ---
 
+![Hero image](/blog/images/squoosh-vs-tinypng-vs-ezgif-image-tools/hero.jpg)
+
 Most people pick the first image tool that appears in a Google search, create an account when asked, and never think about it again. That's a reasonable path — until you realize you've handed your email to three different services just to resize photos you could have processed in 30 seconds for free.
 
 There are four free browser image tools that cover every common task without any registration. The problem isn't that they're hard to find. It's that each one has a specific strength, and using the wrong tool for the job means worse results or unnecessary steps. This guide breaks down when to use which one.
