@@ -1,0 +1,36 @@
+{
+    "coreTask":  "Extract Kindle highlights and notes from My Clippings.txt into structured formats",
+    "url":  "https://xueboyang1985.github.io/kindle-exporter/",
+    "name":  "Kindle Highlights Exporter",
+    "description":  "Export Kindle highlights and notes to Markdown, CSV, or JSON. 100% browser-based, no upload required - your data never leaves your device.",
+    "tags":  [
+                 {
+                     "key":  "category",
+                     "value":  "Productivity"
+                 },
+                 {
+                     "key":  "data",
+                     "value":  "Client-Side Only"
+                 },
+                 {
+                     "key":  "privacy",
+                     "value":  "Privacy Focused"
+                 },
+                 {
+                     "key":  "type",
+                     "value":  "Web App"
+                 },
+                 {
+                     "key":  "hosting",
+                     "value":  "Cloud Only"
+                 },
+                 {
+                     "key":  "offline",
+                     "value":  "Works Offline"
+                 },
+                 {
+                     "key":  "pricing",
+                     "value":  "Freemium"
+                 }
+             ]
+}
