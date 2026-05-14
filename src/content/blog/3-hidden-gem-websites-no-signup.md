@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "hidden gem browser tools discovery"
 ---
 
+![Hero image](/blog/images/3-hidden-gem-websites-no-signup/hero.jpg)
+
 Most "useful websites" lists are full of tools you've heard of. Another image compressor. Another PDF editor. Another Notion alternative. This is not that list.
 
 These three tools came up in different contexts — one from a developer thread, one while trying to solve an annoying cross-device problem, one while scheduling a meeting across four time zones. What they share: they're free online tools, they require no account, and once you find them, you keep going back.
