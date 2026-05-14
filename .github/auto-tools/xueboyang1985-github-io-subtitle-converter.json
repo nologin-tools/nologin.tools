@@ -1,0 +1,28 @@
+{
+    "coreTask":  "Convert subtitle formats and extract transcript text from SRT/VTT/ASS files",
+    "url":  "https://xueboyang1985.github.io/subtitle-converter/",
+    "name":  "Subtitle Converter",
+    "description":  "Convert SRT, VTT, and ASS subtitle files to TXT, Markdown, CSV, or JSON directly in your browser. No upload, 100% client-side.",
+    "tags":  [
+                 {
+                     "key":  "category",
+                     "value":  "Media"
+                 },
+                 {
+                     "key":  "data",
+                     "value":  "Client-Side Only"
+                 },
+                 {
+                     "key":  "privacy",
+                     "value":  "Privacy Focused"
+                 },
+                 {
+                     "key":  "type",
+                     "value":  "Web App"
+                 },
+                 {
+                     "key":  "pricing",
+                     "value":  "Freemium"
+                 }
+             ]
+}
