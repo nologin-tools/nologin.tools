@@ -1,0 +1,28 @@
+{
+    "coreTask":  "Convert WhatsApp chat export .txt files into readable and structured formats",
+    "url":  "https://xueboyang1985.github.io/whatsapp-chat-formatter/",
+    "name":  "WhatsApp Chat Formatter",
+    "description":  "Format WhatsApp chat exports into clean Markdown, HTML, TXT, CSV, or JSON. 100% browser-based, no upload, privacy first.",
+    "tags":  [
+                 {
+                     "key":  "category",
+                     "value":  "Productivity"
+                 },
+                 {
+                     "key":  "data",
+                     "value":  "Client-Side Only"
+                 },
+                 {
+                     "key":  "privacy",
+                     "value":  "Privacy Focused"
+                 },
+                 {
+                     "key":  "type",
+                     "value":  "Web App"
+                 },
+                 {
+                     "key":  "pricing",
+                     "value":  "Freemium"
+                 }
+             ]
+}
