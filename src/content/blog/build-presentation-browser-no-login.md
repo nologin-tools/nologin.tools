@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "presentation slides browser design tools"
 ---
 
+![Hero image](/blog/images/build-presentation-browser-no-login/hero.jpg)
+
 Your boss asks for a slide deck by end of day. PowerPoint isn't installed on this machine. Canva wants your email address before showing you a blank canvas. Google Slides needs a Google account. Gamma.app is behind a signup wall.
 
 Every mainstream presentation tool now treats account creation as the price of admission. This tutorial walks through a complete workflow for building a polished, shareable slide deck entirely in your browser — no login required, no download needed, no account to create.
