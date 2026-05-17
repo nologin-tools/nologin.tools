@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "PDF document editing browser free online"
 ---
 
+![Hero image](/blog/images/edit-pdf-without-adobe-free-no-login/hero.jpg)
+
 Adobe Acrobat Pro costs around $19.99 a month. Billed annually, that's roughly $240 a year for software that — for most people — sits unused 350 days out of 365.
 
 The pitch is that you need it to edit PDFs. You don't. Several free browser tools handle every common PDF task without an account, without a download, and without a credit card field appearing somewhere in the flow. This guide covers which tools to use, for which tasks, and what to watch out for.
