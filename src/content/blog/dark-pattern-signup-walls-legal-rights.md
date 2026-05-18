@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "manipulative sign up wall dark pattern user interface design"
 ---
 
+![Hero image](/blog/images/dark-pattern-signup-walls-legal-rights/hero.jpg)
+
 You open a website to quickly convert an audio file. The interface is right there. The Convert button practically begs to be clicked. Then the wall appears: "Create a free account to continue."
 
 Nothing about converting an audio file requires a database record tied to your email address. The processing can happen entirely in your browser. The wall is there because someone decided your email address is worth more than your goodwill.
