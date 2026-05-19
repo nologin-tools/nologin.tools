@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "private browsing incognito mode browser privacy security lock"
 ---
 
+![Hero image](/blog/images/incognito-mode-browser-privacy-what-actually-works/hero.jpg)
+
 Every browser has a private mode. Chrome calls it Incognito. Firefox calls it Private Window. Safari calls it Private Browsing. They all do roughly the same thing, and they're all misunderstood in roughly the same way.
 
 Private mode does one thing well: it stops your browser from storing a local record of your session. No history saved. Cookies deleted when the window closes. Form data not remembered. If you share a computer with someone, private mode keeps your session out of the shared history.
