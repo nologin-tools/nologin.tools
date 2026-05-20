@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools discovery hidden gems no signup"
 ---
 
+![Hero image](/blog/images/six-free-tools-specific-problems-no-signup/hero.jpg)
+
 There's a category of browser tool that almost nobody talks about.
 
 Not because it's secret. The tools exist, they're often open source, you can find them with the right search query. But they're built around problems specific enough that most people don't know to look for a browser-based solution at all. They don't show up in "top 10 productivity tools" lists. They don't have 40,000 GitHub stars or a Product Hunt launch post. They just quietly work.
