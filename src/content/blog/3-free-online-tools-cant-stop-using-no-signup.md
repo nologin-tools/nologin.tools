@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser productivity tools free online"
 ---
 
+![Hero image](/blog/images/3-free-online-tools-cant-stop-using-no-signup/hero.jpg)
+
 The best tool discovery happens sideways. You're not looking for a new productivity app — you're trying to send a 200MB video from your phone to a computer that doesn't support AirDrop, and suddenly you're on a website you've never heard of that just works. No account. No download. Done.
 
 That's how all three tools in this post turned up. Each one solves exactly one specific problem. Each one is free with no login required, no install, no email. And each one is good enough that it's replaced something else in the workflow.
