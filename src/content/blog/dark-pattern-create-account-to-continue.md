@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "dark pattern website signup wall manipulation psychology"
 ---
 
+![Hero image](/blog/images/dark-pattern-create-account-to-continue/hero.jpg)
+
 You've spent 15 minutes resizing a batch of images. The tool has done its job — the preview looks right, quality is good. One button left: Download. Then: *"Create a free account to download your files."*
 
 That's not a feature. That's a hostage situation.
