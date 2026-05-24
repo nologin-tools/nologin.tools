@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "email privacy lock digital security"
 ---
 
+![Hero image](/blog/images/practical-guide-tools-without-email/hero.jpg)
+
 You want to compress an image. Or convert a PDF. Or run a quick calculation. The tool looks exactly right. Then the signup wall appears: "Enter your email to continue."
 
 You're not opening a bank account. You're resizing a photo. And yet here you are, deciding whether your real email is worth it. Most people give in. Most people probably shouldn't.
