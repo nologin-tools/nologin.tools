@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser tools laptop screen modern workspace no login"
 ---
 
+![Hero image](/blog/images/five-fresh-browser-tools-no-signup-2026/hero.jpg)
+
 Most "no account required" roundups cover the same ground: Squoosh, Excalidraw, Photopea. Those tools deserve the attention they get. But they're not discoveries anymore.
 
 These five are different. A browser-based LED marquee. A clipboard that syncs across devices via a short URL. A countdown timer that lives entirely inside the link itself. An open-source script generator for locking down your OS privacy settings. And a full SQL query interface that runs in your browser tab — no server, no sign up, no download needed.
