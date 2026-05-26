@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "sustainable free software open source business model"
 ---
 
+![Hero image](/blog/images/how-free-online-tools-survive-without-collecting-email/hero.jpg)
+
 The question comes up every time someone recommends a free, no-account tool: "How does this even stay online? How are they paying for servers?"
 
 It's a fair question. Free tools have to exist somewhere. Bandwidth costs money. Developer time costs money. Even a static website at scale costs something to serve. The assumption is that if you're not paying with money, you're paying with data — your email address, your behavioral patterns, your willingness to be retargeted.
