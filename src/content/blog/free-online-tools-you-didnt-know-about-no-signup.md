@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "hidden gem browser tools discovery no login laptop"
 ---
 
+![Hero image](/blog/images/free-online-tools-you-didnt-know-about-no-signup/hero.jpg)
+
 The famous tools get all the attention. Everyone knows Figma, Notion, Canva — and everyone's been through the onboarding tooltip sequence for at least one of them. The less famous tools sit quietly in a small group's bookmarks bars, solving the same problems for a much smaller audience.
 
 This is a first look at five of those quieter tools. None of them are particularly new — some have been running for years — but all of them remain genuinely underrated. They're free online tools that require no sign up at all. They solve specific problems well. And they're almost certainly not in the "popular apps" section of any app store or Product Hunt digest.
