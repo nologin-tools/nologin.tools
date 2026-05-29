@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "open source code transparency verification magnifying glass"
 ---
 
+![Hero image](/blog/images/open-source-no-login-tools-you-can-verify/hero.jpg)
+
 Every free online tool promises not to track you. Most can't prove it.
 
 "No login required" shows up in product descriptions the same way "artisan" shows up on packaged bread. It sounds meaningful until you realize there's no verification behind it. A tool can skip the signup form entirely and still fingerprint your browser, log your usage, sell aggregate data, or simply change its privacy policy the moment it gets acquired.
