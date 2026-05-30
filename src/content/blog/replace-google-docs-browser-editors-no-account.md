@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "browser writing editor minimal clean interface"
 ---
 
+![Hero image](/blog/images/replace-google-docs-browser-editors-no-account/hero.jpg)
+
 Google Docs is convenient. It's also a commitment — you need a Google account, you agree to Google's data practices, and your documents live on Google's servers indefinitely. For most people that trade feels fine. But for a growing number of writers, students, journalists, and freelancers, handing a document to Google's infrastructure feels like more than they signed up for.
 
 The good news is that "browser-based document editing" and "Google account" are not the same thing. There's a full category of editors that open in your browser, require no sign-up, no registration, no login, and in several cases store nothing on any external server at all. They're not all identical to Google Docs — some are more focused, some more minimal — but for the tasks most people actually use Google Docs for, they cover the ground.
