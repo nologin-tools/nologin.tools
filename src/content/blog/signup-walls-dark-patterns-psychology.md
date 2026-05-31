@@ -8,6 +8,8 @@ featured: false
 heroImageQuery: "psychological manipulation dark pattern user interface design"
 ---
 
+![Hero image](/blog/images/signup-walls-dark-patterns-psychology/hero.jpg)
+
 You find a free tool online. It does exactly what you need. You paste your data in, configure your settings, spend two minutes getting things just right — and then the wall appears.
 
 "Create a free account to download your results."
