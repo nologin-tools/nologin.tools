@@ -345,5 +345,6 @@
   "about.methodologyPoint1": "가입 불필요 검증: 계정이나 결제 정보 없이 핵심 기능이 완결되는지 확인합니다.",
   "about.methodologyPoint2": "개발자 도구 네트워크 감사: 데이터가 로컬에서 처리되는지 서버로 전송되는지 검증합니다.",
   "about.methodologyPoint3": "트래커 및 원격 측정 감사: 타사 분석 및 핑거프린팅 스크립트 존재 여부를 검사합니다.",
-  "about.methodologyPoint4": "6시간 주기 자동 헬스체크 및 웨이백 머신(Wayback Machine) 자동 연결 지원."
+  "about.methodologyPoint4": "6시간 주기 자동 헬스체크 및 웨이백 머신(Wayback Machine) 자동 연결 지원.",
+  "blog.readMore": "가이드 읽기"
 }

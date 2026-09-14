@@ -345,5 +345,6 @@
   "about.methodologyPoint1": "Verificación sin barreras: confirmamos que la tarea se completa sin registro ni tarjeta.",
   "about.methodologyPoint2": "Auditoría de red en DevTools: comprobamos si el procesamiento es local o en servidor.",
   "about.methodologyPoint3": "Auditoría de rastreadores: comprobamos la ausencia de scripts de telemetría y publicidad.",
-  "about.methodologyPoint4": "Supervisión automatizada cada 6 horas con respaldo en Wayback Machine."
+  "about.methodologyPoint4": "Supervisión automatizada cada 6 horas con respaldo en Wayback Machine.",
+  "blog.readMore": "Leer guía"
 }

@@ -345,5 +345,6 @@
   "about.methodologyPoint1": "Verificação sem barreiras: conclusão da tarefa sem login ou dados de pagamento.",
   "about.methodologyPoint2": "Auditoria de rede no DevTools: verificação do processamento local vs. servidor.",
   "about.methodologyPoint3": "Auditoria de rastreadores: ausência de scripts de publicidade e telemetria.",
-  "about.methodologyPoint4": "Monitoramento automatizado a cada 6 horas com fallback do Wayback Machine."
+  "about.methodologyPoint4": "Monitoramento automatizado a cada 6 horas com fallback do Wayback Machine.",
+  "blog.readMore": "Ler guia"
 }

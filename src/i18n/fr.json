@@ -345,5 +345,6 @@
   "about.methodologyPoint1": "Vérification sans barrière : accomplissement de la tâche sans compte ni carte bancaire.",
   "about.methodologyPoint2": "Audit réseau DevTools : vérification du traitement local ou distant des données.",
   "about.methodologyPoint3": "Audit des traceurs : contrôle de l'absence de scripts tiers de suivi.",
-  "about.methodologyPoint4": "Surveillance automatique toutes les 6 heures avec archive de secours Wayback Machine."
+  "about.methodologyPoint4": "Surveillance automatique toutes les 6 heures avec archive de secours Wayback Machine.",
+  "blog.readMore": "Lire le guide"
 }

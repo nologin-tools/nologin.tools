@@ -345,5 +345,6 @@
   "about.methodologyPoint1": "Null-Barrieren-Prüfung: Keine Anmeldung, keine E-Mail, keine Kreditkarte erforderlich.",
   "about.methodologyPoint2": "DevTools-Netzwerkaudit: Überprüfung der lokalen vs. Server-Datenverarbeitung.",
   "about.methodologyPoint3": "Tracker-Audit: Prüfung auf Analyseskripte und Browser-Fingerprinting.",
-  "about.methodologyPoint4": "Automatisierte Verfügbarkeitsprüfung alle 6 Stunden mit Wayback Machine-Fallback."
+  "about.methodologyPoint4": "Automatisierte Verfügbarkeitsprüfung alle 6 Stunden mit Wayback Machine-Fallback.",
+  "blog.readMore": "Leitfaden lesen"
 }

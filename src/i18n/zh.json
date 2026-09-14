@@ -357,5 +357,6 @@
   "about.methodologyPoint1": "零门槛全流程验证：亲自测试工具核心功能，确保从开始到最终导出完全无需账号、邮箱、手机号或信用卡信息。",
   "about.methodologyPoint2": "DevTools 网络抓包审计：检查所有 HTTP 请求与负载，精确核验数据是在本地浏览器沙箱（WebAssembly/Canvas）处理还是上传至远程服务器。",
   "about.methodologyPoint3": "第三方追踪与遥测审计：审查 DOM 源码与网络流量，排查 Google Analytics、Meta Pixel、Hotjar 等跟踪脚本与指纹收集行为。",
-  "about.methodologyPoint4": "6 小时自动化健康巡检：审核通过后由自动化 Worker 每 6 小时监控可用性；若工具宕机则自动路由至 web.archive.org 历史可用快照。"
+  "about.methodologyPoint4": "6 小时自动化健康巡检：审核通过后由自动化 Worker 每 6 小时监控可用性；若工具宕机则自动路由至 web.archive.org 历史可用快照。",
+  "blog.readMore": "阅读指南"
 }

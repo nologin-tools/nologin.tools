@@ -89,38 +89,19 @@ export function generateRedirectsContent() {
     '# Cloudflare Pages Redirects (_redirects)',
     '# SEO Consolidation & Recovery Configuration for nologin.tools',
     '# =========================================================================',
-    '',
-    '# --- 1. Trailing Slash Normalization (Avoid Split Rankings in GSC) ---',
-    '/about/ /about 301',
-    '/submit/ /submit 301',
-    '/badge/ /badge 301',
-    '/blog/ /blog 301',
+    '# --- Blog Pruning & Pillar Article Consolidation (301 Permanent) ---',
     '',
   ];
 
-  for (const lang of ALL_LOCALES) {
-    lines.push(
-      `/${lang}/about/ /${lang}/about 301`,
-      `/${lang}/submit/ /${lang}/submit 301`,
-      `/${lang}/badge/ /${lang}/badge 301`,
-      `/${lang}/blog/ /${lang}/blog 301`
-    );
-  }
-
-  lines.push(
-    '',
-    '# --- 2. Blog Pruning & Pillar Article Consolidation (301 Permanent) ---'
-  );
-
   for (const [fromSlug, toSlug] of Object.entries(REDIRECT_MAP)) {
-    // English version
-    lines.push(`/blog/${fromSlug} /blog/${toSlug} 301`);
-    lines.push(`/blog/${fromSlug}/ /blog/${toSlug} 301`);
+    // English version (pointing directly to canonical directory URL on Cloudflare Pages)
+    lines.push(`/blog/${fromSlug} /blog/${toSlug}/ 301`);
+    lines.push(`/blog/${fromSlug}/ /blog/${toSlug}/ 301`);
 
     // Multi-locale versions
     for (const lang of ALL_LOCALES) {
-      lines.push(`/${lang}/blog/${fromSlug} /${lang}/blog/${toSlug} 301`);
-      lines.push(`/${lang}/blog/${fromSlug}/ /${lang}/blog/${toSlug} 301`);
+      lines.push(`/${lang}/blog/${fromSlug} /${lang}/blog/${toSlug}/ 301`);
+      lines.push(`/${lang}/blog/${fromSlug}/ /${lang}/blog/${toSlug}/ 301`);
     }
   }
 

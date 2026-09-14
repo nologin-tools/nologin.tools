@@ -356,5 +356,6 @@
   "about.methodologyPoint1": "Zero-Gate Verification: We verify that the core task completes end-to-end without login, signup, credit card entry, or email collection prompts.",
   "about.methodologyPoint2": "DevTools Network Audit: We inspect HTTP request headers and payloads to verify whether data is processed locally (client-side via WebAssembly/Canvas) or transferred to a backend server.",
   "about.methodologyPoint3": "Tracker & Telemetry Audit: We audit the DOM and network traffic for third-party analytics (Google Analytics, Meta Pixel, Hotjar) and browser fingerprinting scripts.",
-  "about.methodologyPoint4": "Automated Health Checks: Once approved, tools are monitored every 6 hours by automated workers. If a tool goes offline, we automatically link to its latest working snapshot on web.archive.org."
+  "about.methodologyPoint4": "Automated Health Checks: Once approved, tools are monitored every 6 hours by automated workers. If a tool goes offline, we automatically link to its latest working snapshot on web.archive.org.",
+  "blog.readMore": "Read guide"
 }

@@ -49,11 +49,10 @@ describe('SEO Recovery - Redirects & Content Pruning', () => {
     assert.equal(files.length, 34, 'Should leave exactly 34 curated pillar posts and tool reviews');
   });
 
-  it('public/_redirects includes trailing slash normalization for core routes', () => {
+  it('public/_redirects redirects to canonical directory URLs with trailing slash', () => {
     const content = readFileSync(resolve(ROOT, 'public/_redirects'), 'utf-8');
-    assert.ok(content.includes('/about/ /about 301'));
-    assert.ok(content.includes('/submit/ /submit 301'));
-    assert.ok(content.includes('/badge/ /badge 301'));
-    assert.ok(content.includes('/blog/ /blog 301'));
+    assert.ok(content.includes('/blog/edit-pdf-without-adobe-free-no-login /blog/edit-pdf-without-installing-anything/ 301'));
+    assert.ok(!content.includes('/about/ /about 301'), 'Must not create redirect loop on /about/');
+    assert.ok(!content.includes('/blog/ /blog 301'), 'Must not create redirect loop on /blog/');
   });
 });
