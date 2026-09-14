@@ -62,5 +62,6 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('<link rel="alternate" hreflang="x-default"'), 'Must include x-default hreflang');
     assert.ok(content.includes('<meta property="og:image" content={ogImageUrl} />'), 'Must include OpenGraph image');
     assert.ok(content.includes('<meta name="twitter:card" content="summary_large_image" />'), 'Must include Twitter large card');
+    assert.ok(content.includes('INDEXABLE_LOCALES.filter'), 'Must filter hreflang links to INDEXABLE_LOCALES to avoid noindex conflicts');
   });
 });

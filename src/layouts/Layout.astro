@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { DEFAULT_LOCALE, LOCALES, LOCALE_OG_MAP, isIndexableLocale, type Locale } from '../i18n/config';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_OG_MAP, INDEXABLE_LOCALES, isIndexableLocale, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath, getPathWithoutLocale } from '../i18n/utils';
 
 interface Props {
@@ -57,11 +57,11 @@ const ogImageHeight = ogImagePath ? 630 : 630;
 
 const ogLocale = LOCALE_OG_MAP[locale] || 'en_US';
 
-// Generate hreflang links (only for available locales when specified)
+// Generate hreflang links (only for indexable locales to prevent noindex conflicts)
 const basePath = getPathWithoutLocale(canonicalOverride || Astro.url.pathname);
 const hreflangLocales = availableLocales
-  ? LOCALES.filter((l) => availableLocales.has(l))
-  : LOCALES;
+  ? INDEXABLE_LOCALES.filter((l) => availableLocales.has(l))
+  : INDEXABLE_LOCALES;
 const hreflangLinks = hreflangLocales.map((l) => ({
   locale: l,
   href: new URL(getLocalizedPath(basePath, l), 'https://nologin.tools').href,
