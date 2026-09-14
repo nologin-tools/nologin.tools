@@ -14,7 +14,7 @@
  *   node scripts/daily-seo-audit.mjs [--local] [--remote] [--limit <n>]
  */
 
-import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync, appendFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -193,6 +193,31 @@ async function main() {
     }
 
     console.log('✅  PASS: All technical SEO criteria met (0 broken pages, 0 schema errors, valid canonicals & robots).\n');
+
+    // Output GitHub Actions step summary if running in CI
+    const summaryFile = process.env.GITHUB_STEP_SUMMARY;
+    if (summaryFile) {
+      const summaryContent = [
+        '### 📊 Daily Technical SEO & Crawl Audit Report',
+        '',
+        '| Metric | Value / Status |',
+        '| :--- | :--- |',
+        `| **Total Indexable Pages Audited** | **${result.totalAudited}** |`,
+        '| **HTTP 200 & File Integrity** | ✅ 100% PASS |',
+        '| **Canonical Tag Consistency** | ✅ Validated |',
+        '| **Multi-locale noindex Isolation** | ✅ Strict |',
+        '| **Schema.org JSON-LD Markup** | ✅ Validated |',
+        '| **Internal Link & Loop Defense** | ✅ Clean (0 loops) |',
+        '',
+        result.warnings.length > 0
+          ? `> [!NOTE]\n> **${result.warnings.length} Warning(s):**\n` + result.warnings.map(w => `- ${w}`).join('\n')
+          : '> [!TIP]\n> Zero warnings encountered. All technical SEO indicators are in perfect health.',
+        '',
+      ].join('\n');
+
+      appendFileSync(summaryFile, summaryContent + '\n', 'utf-8');
+    }
+
     process.exit(0);
   } catch (err) {
     console.error(`\n❌  Audit crashed: ${err.message}`);
