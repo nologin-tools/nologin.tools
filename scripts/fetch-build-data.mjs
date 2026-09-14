@@ -127,6 +127,26 @@ const toolRows = await queryD1(`
 
 console.log(`[build-data] Fetched ${toolRows.length} tools`);
 
+// Filter out tools with invalid or excessively long slugs (e.g. spam/malformed submissions)
+// Linux file system limit is 255 bytes (NAME_MAX), and legitimate slugs are under 80 chars.
+const validSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const validTools = toolRows.filter((t) => {
+  if (!t.slug || typeof t.slug !== 'string') {
+    console.warn(`[build-data] Skipping tool ID ${t.id}: missing slug`);
+    return false;
+  }
+  if (t.slug.length > 80 || t.slug.length < 2) {
+    console.warn(`[build-data] Skipping tool ID ${t.id} (${t.name}): invalid slug length (${t.slug.length} chars)`);
+    return false;
+  }
+  if (!validSlugPattern.test(t.slug)) {
+    console.warn(`[build-data] Skipping tool ID ${t.id} (${t.name}): invalid slug format (${t.slug})`);
+    return false;
+  }
+  return true;
+});
+console.log(`[build-data] Kept ${validTools.length} valid tools after slug validation`);
+
 // Query 2: All tags for non-rejected tools
 const tagRows = await queryD1(`
   SELECT t.tool_id, t.tag_key, t.tag_value
@@ -194,7 +214,7 @@ function toISO(ts) {
 }
 
 // Assemble output
-const tools = toolRows.map((t) => {
+const tools = validTools.map((t) => {
   const id = t.id;
   const allChecks = healthPerTool.get(id) || [];
 

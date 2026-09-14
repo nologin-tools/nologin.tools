@@ -85,6 +85,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   // Generate slug
   const slug = urlToSlug(url);
+  if (!slug || slug.length < 2 || slug.length > 80 || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    return api.error('Unable to generate a valid slug from URL.', 400, {
+      url: 'The URL does not yield a valid tool slug.',
+    });
+  }
 
   // Check for duplicate
   const existing = await db

@@ -30,10 +30,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export function urlToSlug(url) {
   const parsed = new URL(url);
   const raw = (parsed.hostname + parsed.pathname).replace(/\/+$/, '');
-  return raw
+  const slug = raw
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+  return slug.slice(0, 80).replace(/-+$/, '');
 }
 
 // ---------------------------------------------------------------------------

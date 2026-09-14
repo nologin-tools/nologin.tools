@@ -3,7 +3,9 @@ import { getAllTools } from '../../data/loader';
 import BadgeDetailPage from '../../components/BadgeDetailPage.astro';
 
 export function getStaticPaths() {
-  const tools = getAllTools();
+  const tools = getAllTools().filter(
+    (tool) => tool.slug && tool.slug.length <= 80 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug)
+  );
   return tools.map((tool) => ({
     params: { slug: tool.slug },
     props: { tool },

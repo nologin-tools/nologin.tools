@@ -1,10 +1,11 @@
 export function urlToSlug(url: string): string {
   const parsed = new URL(url);
   const raw = (parsed.hostname + parsed.pathname).replace(/\/+$/, '');
-  return raw
+  const slug = raw
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+  return slug.slice(0, 80).replace(/-+$/, '');
 }
 
 export async function hashIp(ip: string): Promise<string> {

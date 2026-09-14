@@ -4,7 +4,9 @@ import BadgeDetailPage from '../../../components/BadgeDetailPage.astro';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 
 export function getStaticPaths() {
-  const tools = getAllTools();
+  const tools = getAllTools().filter(
+    (tool) => tool.slug && tool.slug.length <= 80 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug)
+  );
   return LOCALES.filter(l => l !== DEFAULT_LOCALE).flatMap(lang =>
     tools.map(tool => ({
       params: { lang, slug: tool.slug },
