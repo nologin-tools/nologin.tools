@@ -334,5 +334,16 @@
   "tag.editorial.heading": "Guia de arquitetura e verificação",
   "tag.editorial.architecture": "Mecanismo técnico",
   "tag.editorial.verification": "Como verificar por conta própria (DevTools)",
-  "tag.editorial.tradeoff": "Vantagens e limitações"
+  "tag.editorial.tradeoff": "Vantagens e limitações",
+  "home.featuredGuides": "Guias detalhados e análises em destaque",
+  "home.viewAllArticles": "Ver todos os {count} artigos →",
+  "home.trustTags": "Navegar por padrão de verificação",
+  "notFound.popularCategories": "Categorias populares",
+  "notFound.featuredTools": "Ferramentas verificadas populares",
+  "about.methodologyTitle": "Metodologia prática de verificação",
+  "about.methodologyIntro": "Todas as ferramentas passam por rigorosa inspeção baseada em navegador antes da aprovação.",
+  "about.methodologyPoint1": "Verificação sem barreiras: conclusão da tarefa sem login ou dados de pagamento.",
+  "about.methodologyPoint2": "Auditoria de rede no DevTools: verificação do processamento local vs. servidor.",
+  "about.methodologyPoint3": "Auditoria de rastreadores: ausência de scripts de publicidade e telemetria.",
+  "about.methodologyPoint4": "Monitoramento automatizado a cada 6 horas com fallback do Wayback Machine."
 }

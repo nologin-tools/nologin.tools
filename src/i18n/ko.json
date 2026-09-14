@@ -334,5 +334,16 @@
   "tag.editorial.heading": "기술 아키텍처 및 검증 가이드",
   "tag.editorial.architecture": "기술적 작동 원리",
   "tag.editorial.verification": "직접 검증하는 방법 (개발자 도구)",
-  "tag.editorial.tradeoff": "트레이드오프 및 한계"
+  "tag.editorial.tradeoff": "트레이드오프 및 한계",
+  "home.featuredGuides": "주목할 심층 가이드 및 분석",
+  "home.viewAllArticles": "전체 {count}개 기사 보기 →",
+  "home.trustTags": "검증 기준별로 찾아보기",
+  "notFound.popularCategories": "인기 카테고리",
+  "notFound.featuredTools": "인기 검증 도구",
+  "about.methodologyTitle": "실제 검증 평가 기준 및 테스트 프로세스",
+  "about.methodologyIntro": "등록되는 모든 도구는 승인 전 엄격한 브라우저 실측 및 개발자 도구 네트워크 검사를 거칩니다.",
+  "about.methodologyPoint1": "가입 불필요 검증: 계정이나 결제 정보 없이 핵심 기능이 완결되는지 확인합니다.",
+  "about.methodologyPoint2": "개발자 도구 네트워크 감사: 데이터가 로컬에서 처리되는지 서버로 전송되는지 검증합니다.",
+  "about.methodologyPoint3": "트래커 및 원격 측정 감사: 타사 분석 및 핑거프린팅 스크립트 존재 여부를 검사합니다.",
+  "about.methodologyPoint4": "6시간 주기 자동 헬스체크 및 웨이백 머신(Wayback Machine) 자동 연결 지원."
 }

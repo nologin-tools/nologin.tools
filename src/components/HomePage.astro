@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
+import { getCollection } from 'astro:content';
+import { TAG_DEFINITIONS, categoryToSlug, TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../lib/tags';
 import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
@@ -47,6 +48,34 @@ if (otherGroupTools.length > 0) categoryGroups.push({ category: 'Other', tools: 
 
 const totalTools = allTools.length;
 
+// Fetch blog posts for featured guides
+const allPosts = await getCollection('blog');
+const localePosts = allPosts
+  .filter((post) => {
+    if (locale === 'en') {
+      return !post.id.includes('/');
+    }
+    return post.id.startsWith(`${locale}/`);
+  })
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const isBlogFallback = localePosts.length === 0;
+const displayPosts = !isBlogFallback
+  ? localePosts
+  : allPosts
+      .filter((post) => !post.id.includes('/'))
+      .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const blogLinkLocale = isBlogFallback ? 'en' as const : locale;
+const featuredPosts = displayPosts.slice(0, 4);
+
+function getPostSlug(postId: string): string {
+  return postId.includes('/') ? postId.split('/').slice(1).join('/') : postId;
+}
+
+function formatDate(date: Date): string {
+  return date.toISOString().split('T')[0];
+}
+
 function getHostname(url: string): string {
   try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
 }
@@ -59,6 +88,12 @@ function translateCategory(cat: string): string {
   const key = `tag.category.${cat}`;
   const translated = t(locale, key);
   return translated === key ? cat : translated;
+}
+
+function translateTagValue(key: string, value: string): string {
+  const i18nKey = `tag.${key}.${value}`;
+  const translated = t(locale, i18nKey);
+  return translated === i18nKey ? value : translated;
 }
 ---
 
@@ -191,7 +226,7 @@ function translateCategory(cat: string): string {
     </script>
 
     <!-- Category Navigation -->
-    <nav class="mb-16 text-sm text-retro-mono" aria-label="Category navigation">
+    <nav class="mb-6 text-sm text-retro-mono" aria-label="Category navigation">
       <div class="flex flex-wrap gap-x-3 gap-y-2">
         {categoryGroups.map((group) => (
           <a
@@ -203,6 +238,72 @@ function translateCategory(cat: string): string {
         ))}
       </div>
     </nav>
+
+    <!-- Trust Tags / Verification Standards -->
+    <div class="mb-12">
+      <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">
+        {t(locale, 'home.trustTags')}
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {TAG_PAGES_ALLOWLIST.map((tag) => (
+          <a
+            href={getLocalizedPath(`/tag/${tagValueToSlug(tag.value)}`, locale)}
+            class="px-2.5 py-1 text-xs font-mono font-bold bg-neutral-50 text-neutral-700 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+          >
+            #{translateTagValue(tag.key, tag.value)}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Featured In-Depth Guides & Analysis -->
+    {featuredPosts.length > 0 && (
+      <section class="mb-16 border-t-2 border-b-2 border-neutral-900 py-8 bg-neutral-50/50" aria-label="Featured guides">
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+          <h2 class="text-base font-black uppercase tracking-tight text-neutral-900 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 bg-neutral-900 inline-block"></span>
+            {t(locale, 'home.featuredGuides')}
+          </h2>
+          <a
+            href={getLocalizedPath('/blog', locale)}
+            class="text-xs font-bold text-neutral-600 hover:text-neutral-900 hover:underline uppercase tracking-wider font-mono"
+          >
+            {t(locale, 'home.viewAllArticles', { count: String(displayPosts.length) })}
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {featuredPosts.map((post) => (
+            <article class="border border-neutral-200 bg-white p-5 hover:border-neutral-900 transition-all flex flex-col justify-between">
+              <div>
+                <time class="text-[11px] font-mono font-bold text-neutral-400 uppercase tracking-wider">
+                  {formatDate(post.data.publishedAt)}
+                </time>
+                <h3 class="text-base font-bold text-neutral-900 mt-1 mb-2 leading-snug">
+                  <a
+                    href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, blogLinkLocale)}
+                    class="hover:underline decoration-1 underline-offset-2"
+                  >
+                    {post.data.title}
+                  </a>
+                </h3>
+                <p class="text-neutral-600 text-xs leading-relaxed line-clamp-2 mb-4">
+                  {post.data.description}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs font-mono">
+                <span class="text-neutral-400">{post.data.author}</span>
+                <a
+                  href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, blogLinkLocale)}
+                  class="font-bold text-neutral-900 hover:underline"
+                >
+                  {t(locale, 'blog.readMore')} &rarr;
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Tool Lists by Category -->
     <div class="space-y-16">

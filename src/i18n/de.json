@@ -334,5 +334,16 @@
   "tag.editorial.heading": "Architektur- & Verifizierungsleitfaden",
   "tag.editorial.architecture": "Technischer Mechanismus",
   "tag.editorial.verification": "Selbst überprüfen (DevTools)",
-  "tag.editorial.tradeoff": "Abwägungen & Grenzen"
+  "tag.editorial.tradeoff": "Abwägungen & Grenzen",
+  "home.featuredGuides": "Ausgewählte ausführliche Anleitungen & Analysen",
+  "home.viewAllArticles": "Alle {count} Artikel ansehen →",
+  "home.trustTags": "Nach Verifizierungsstandard durchsuchen",
+  "notFound.popularCategories": "Beliebte Kategorien",
+  "notFound.featuredTools": "Beliebte verifizierte Tools",
+  "about.methodologyTitle": "Praktische Verifizierungsmethodik",
+  "about.methodologyIntro": "Jedes in unserem Verzeichnis aufgeführte Tool wird vor der Genehmigung einer strengen browserbasierten Prüfung unterzogen.",
+  "about.methodologyPoint1": "Null-Barrieren-Prüfung: Keine Anmeldung, keine E-Mail, keine Kreditkarte erforderlich.",
+  "about.methodologyPoint2": "DevTools-Netzwerkaudit: Überprüfung der lokalen vs. Server-Datenverarbeitung.",
+  "about.methodologyPoint3": "Tracker-Audit: Prüfung auf Analyseskripte und Browser-Fingerprinting.",
+  "about.methodologyPoint4": "Automatisierte Verfügbarkeitsprüfung alle 6 Stunden mit Wayback Machine-Fallback."
 }

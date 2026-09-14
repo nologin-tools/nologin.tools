@@ -334,5 +334,16 @@
   "tag.editorial.heading": "Guía de arquitectura y verificación",
   "tag.editorial.architecture": "Mecanismo técnico",
   "tag.editorial.verification": "Cómo verificarlo tú mismo (DevTools)",
-  "tag.editorial.tradeoff": "Compromisos y límites"
+  "tag.editorial.tradeoff": "Compromisos y límites",
+  "home.featuredGuides": "Guías detalladas y análisis destacados",
+  "home.viewAllArticles": "Ver todos los {count} artículos →",
+  "home.trustTags": "Explorar por estándar de verificación",
+  "notFound.popularCategories": "Categorías populares",
+  "notFound.featuredTools": "Herramientas verificadas populares",
+  "about.methodologyTitle": "Metodología de verificación práctica",
+  "about.methodologyIntro": "Cada herramienta incluida en nuestro directorio pasa por una rigurosa inspección antes de su aprobación.",
+  "about.methodologyPoint1": "Verificación sin barreras: confirmamos que la tarea se completa sin registro ni tarjeta.",
+  "about.methodologyPoint2": "Auditoría de red en DevTools: comprobamos si el procesamiento es local o en servidor.",
+  "about.methodologyPoint3": "Auditoría de rastreadores: comprobamos la ausencia de scripts de telemetría y publicidad.",
+  "about.methodologyPoint4": "Supervisión automatizada cada 6 horas con respaldo en Wayback Machine."
 }

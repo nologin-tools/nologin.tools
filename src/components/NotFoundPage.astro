@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import { categoryToSlug } from '../lib/tags';
+import { getApprovedTools, getLocalizedDescription } from '../data/loader';
 import type { Locale } from '../i18n/config';
 
 interface Props {
@@ -9,17 +11,84 @@ interface Props {
 
 const { locale } = Astro.props;
 await loadTranslations(locale);
+
+const approvedTools = getApprovedTools();
+const featuredSlugs = ['photopea-com', 'excalidraw-com', 'squoosh-app', 'tools-pdf24-org-en'];
+const popularTools = featuredSlugs
+  .map(slug => approvedTools.find(t => t.slug === slug))
+  .filter((tool): tool is NonNullable<typeof tool> => Boolean(tool));
+
+const popularCategories = ['AI', 'Design', 'Development', 'Privacy', 'Productivity'];
+
+function translateCategory(cat: string): string {
+  const key = `tag.category.${cat}`;
+  const translated = t(locale, key);
+  return translated === key ? cat : translated;
+}
 ---
 
 <Layout title={t(locale, 'notFound.title')} description={t(locale, 'notFound.description')} locale={locale} noindex>
-  <div class="max-w-4xl mx-auto px-6 py-24 text-center">
-    <h1 class="text-6xl font-bold text-neutral-200 mb-6">{t(locale, 'notFound.heading')}</h1>
-    <p class="text-lg text-neutral-600 mb-2">{t(locale, 'notFound.message')}</p>
-    <p class="text-sm text-neutral-400 mb-8">
-      {t(locale, 'notFound.detail')}
-    </p>
-    <a href={getLocalizedPath('/', locale)} class="text-sm font-medium text-green-600 hover:text-green-700 underline underline-offset-4">
-      {t(locale, 'notFound.backHome')}
-    </a>
+  <div class="max-w-3xl mx-auto px-6 py-16 text-center">
+    <div class="border-b-4 border-neutral-900 pb-8 mb-12">
+      <h1 class="text-7xl font-black text-neutral-900 mb-4 tracking-tight uppercase italic">{t(locale, 'notFound.heading')}</h1>
+      <p class="text-xl font-bold text-neutral-800 mb-2">{t(locale, 'notFound.message')}</p>
+      <p class="text-sm text-neutral-500 max-w-md mx-auto">
+        {t(locale, 'notFound.detail')}
+      </p>
+    </div>
+
+    <!-- Recovery Navigation -->
+    <div class="text-left space-y-10">
+      <!-- Popular Categories -->
+      <section>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-3">
+          {t(locale, 'notFound.popularCategories')}
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {popularCategories.map((cat) => (
+            <a
+              href={getLocalizedPath(`/category/${categoryToSlug(cat)}`, locale)}
+              class="px-3 py-1.5 text-xs font-mono font-bold border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase"
+            >
+              {translateCategory(cat)}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Popular Verified Tools -->
+      <section>
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-3">
+          {t(locale, 'notFound.featuredTools')}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {popularTools.map((tool) => (
+            <a
+              href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+              class="border border-neutral-200 p-4 hover:border-neutral-900 bg-neutral-50 hover:bg-white transition-all block group"
+            >
+              <div class="font-bold text-sm text-neutral-900 group-hover:underline decoration-1 underline-offset-2 flex items-center justify-between">
+                <span>{tool.name}</span>
+                <span class="text-xs font-mono text-neutral-400 group-hover:text-neutral-900">&rarr;</span>
+              </div>
+              {getLocalizedDescription(tool, locale) && (
+                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                  {getLocalizedDescription(tool, locale)}
+                </p>
+              )}
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-neutral-200">
+      <a
+        href={getLocalizedPath('/', locale)}
+        class="inline-block px-5 py-2.5 bg-neutral-900 text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-neutral-800 transition-colors"
+      >
+        &larr; {t(locale, 'notFound.backHome')}
+      </a>
+    </div>
   </div>
 </Layout>

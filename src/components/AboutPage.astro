@@ -104,6 +104,35 @@ await loadTranslations(locale);
       </section>
     </div>
 
+    <!-- Hands-on Verification Methodology -->
+    <section class="border-b pb-8 mb-8">
+      <h2 class="text-xl font-semibold text-neutral-900 mb-2">{t(locale, 'about.methodologyTitle')}</h2>
+      <p class="text-sm text-neutral-600 leading-relaxed mb-6">
+        {t(locale, 'about.methodologyIntro')}
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { step: '01', text: t(locale, 'about.methodologyPoint1') },
+          { step: '02', text: t(locale, 'about.methodologyPoint2') },
+          { step: '03', text: t(locale, 'about.methodologyPoint3') },
+          { step: '04', text: t(locale, 'about.methodologyPoint4') },
+        ].map((item) => {
+          const match = item.text.match(/^(.*?)(?:: |：)(.*)$/);
+          const label = match ? match[1] : item.text;
+          const desc = match ? match[2] : '';
+          return (
+            <div class="border border-neutral-200 bg-neutral-50/70 p-4">
+              <div class="text-[11px] font-mono font-bold text-neutral-400 mb-1">METHODOLOGY #{item.step}</div>
+              <h3 class="text-sm font-bold text-neutral-900 mb-1">{label}</h3>
+              {desc ? (
+                <p class="text-xs text-neutral-600 leading-relaxed">{desc}</p>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
     <section class="pb-8">
       <p class="text-base text-neutral-600 leading-relaxed">
         {t(locale, 'about.outroP1')} <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 transition-colors font-semibold">NoLoginTools.org</a>. {t(locale, 'about.outroP2')}

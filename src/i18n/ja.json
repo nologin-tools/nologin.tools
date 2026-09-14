@@ -334,5 +334,16 @@
   "tag.editorial.heading": "技術アーキテクチャ・検証ガイド",
   "tag.editorial.architecture": "技術的な仕組み",
   "tag.editorial.verification": "開発者ツールで検証する手順",
-  "tag.editorial.tradeoff": "メリットと制約事項"
+  "tag.editorial.tradeoff": "メリットと制約事項",
+  "home.featuredGuides": "注目の詳細ガイド・技術解説",
+  "home.viewAllArticles": "全 {count} 件の記事を見る →",
+  "home.trustTags": "検証基準別で探す",
+  "notFound.popularCategories": "人気のカテゴリ",
+  "notFound.featuredTools": "注目の検証済みツール",
+  "about.methodologyTitle": "実機検証の評価基準とテスト手法",
+  "about.methodologyIntro": "掲載されるすべてのツールは、承認前に厳格なブラウザ実機テストとDevTools解析を受けています。",
+  "about.methodologyPoint1": "完全ゼロ登録検証：アカウントやメールアドレスなしで作業が完結するかを確認。",
+  "about.methodologyPoint2": "DevToolsネットワーク監査：ブラウザ内ローカル処理かサーバー送信かを厳密に検証。",
+  "about.methodologyPoint3": "トラッカー監査：Google Analyticsや外部広告トラッカーの有無を監査。",
+  "about.methodologyPoint4": "6時間ごとの自動ヘルスチェックとWayback Machineフォールバック。"
 }

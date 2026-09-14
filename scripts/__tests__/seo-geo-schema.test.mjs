@@ -288,6 +288,56 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.equal(photopeaTools[0].name, 'Photopea');
     assert.ok(photopeaTools[0].description.length > 10);
   });
+
+  it('HomePage renders Featured In-Depth Guides and Trust Tags', () => {
+    const homeContent = readFileSync(HOME_PAGE, 'utf-8');
+    assert.ok(homeContent.includes('getCollection'), 'HomePage must import getCollection');
+    assert.ok(homeContent.includes('TAG_PAGES_ALLOWLIST'), 'HomePage must import TAG_PAGES_ALLOWLIST');
+    assert.ok(homeContent.includes('home.featuredGuides'), 'HomePage must render featuredGuides');
+    assert.ok(homeContent.includes('home.viewAllArticles'), 'HomePage must render viewAllArticles');
+    assert.ok(homeContent.includes('home.trustTags'), 'HomePage must render trustTags');
+  });
+
+  it('AboutPage renders Hands-on Verification Methodology section', () => {
+    const aboutContent = readFileSync(resolve(ROOT, 'src/components/AboutPage.astro'), 'utf-8');
+    assert.ok(aboutContent.includes('about.methodologyTitle'), 'AboutPage must render methodologyTitle');
+    assert.ok(aboutContent.includes('about.methodologyIntro'), 'AboutPage must render methodologyIntro');
+    assert.ok(aboutContent.includes('about.methodologyPoint1'), 'AboutPage must render methodologyPoint1');
+    assert.ok(aboutContent.includes('about.methodologyPoint4'), 'AboutPage must render methodologyPoint4');
+  });
+
+  it('NotFoundPage renders Popular Categories and Featured Tools recovery paths', () => {
+    const notFoundContent = readFileSync(resolve(ROOT, 'src/components/NotFoundPage.astro'), 'utf-8');
+    assert.ok(notFoundContent.includes('notFound.popularCategories'), 'NotFoundPage must render popularCategories');
+    assert.ok(notFoundContent.includes('notFound.featuredTools'), 'NotFoundPage must render featuredTools');
+    assert.ok(notFoundContent.includes('categoryToSlug'), 'NotFoundPage must import categoryToSlug');
+    assert.ok(notFoundContent.includes('getApprovedTools'), 'NotFoundPage must import getApprovedTools');
+  });
+
+  it('All 8 i18n locales have Milestone 5 keys', () => {
+    const locales = ['en', 'zh', 'de', 'es', 'fr', 'ja', 'ko', 'pt'];
+    const requiredKeys = [
+      'home.featuredGuides',
+      'home.viewAllArticles',
+      'home.trustTags',
+      'notFound.popularCategories',
+      'notFound.featuredTools',
+      'about.methodologyTitle',
+      'about.methodologyIntro',
+      'about.methodologyPoint1',
+      'about.methodologyPoint2',
+      'about.methodologyPoint3',
+      'about.methodologyPoint4',
+    ];
+
+    for (const locale of locales) {
+      const data = JSON.parse(readFileSync(resolve(ROOT, `src/i18n/${locale}.json`), 'utf-8'));
+      for (const key of requiredKeys) {
+        assert.ok(data[key], `${locale}.json missing required key: ${key}`);
+      }
+    }
+  });
 });
+
 
 

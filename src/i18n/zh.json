@@ -346,5 +346,16 @@
   "tag.editorial.heading": "技术架构与实操验证指南",
   "tag.editorial.architecture": "技术实现原理",
   "tag.editorial.verification": "如何自主验证（DevTools 实操）",
-  "tag.editorial.tradeoff": "权衡与适用边界"
+  "tag.editorial.tradeoff": "权衡与适用边界",
+  "home.featuredGuides": "精选深度评测与实操指南",
+  "home.viewAllArticles": "查看全部 {count} 篇深度指南 →",
+  "home.trustTags": "按技术验证标准浏览",
+  "notFound.popularCategories": "热门分类",
+  "notFound.featuredTools": "热门免登录工具",
+  "about.methodologyTitle": "一手实测评测标准与测试流程",
+  "about.methodologyIntro": "收录到我们目录中的每一款工具，在通过审核前都必须经过严格的浏览器实机检测。我们在多款操作系统与主流浏览器中结合 DevTools 网络抓包进行全流程测试。",
+  "about.methodologyPoint1": "零门槛全流程验证：亲自测试工具核心功能，确保从开始到最终导出完全无需账号、邮箱、手机号或信用卡信息。",
+  "about.methodologyPoint2": "DevTools 网络抓包审计：检查所有 HTTP 请求与负载，精确核验数据是在本地浏览器沙箱（WebAssembly/Canvas）处理还是上传至远程服务器。",
+  "about.methodologyPoint3": "第三方追踪与遥测审计：审查 DOM 源码与网络流量，排查 Google Analytics、Meta Pixel、Hotjar 等跟踪脚本与指纹收集行为。",
+  "about.methodologyPoint4": "6 小时自动化健康巡检：审核通过后由自动化 Worker 每 6 小时监控可用性；若工具宕机则自动路由至 web.archive.org 历史可用快照。"
 }
