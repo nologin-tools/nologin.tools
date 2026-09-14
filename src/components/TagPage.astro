@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { TAG_PAGES_ALLOWLIST, tagValueToSlug, categoryToSlug } from '../lib/tags';
-import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription, getTagEditorial } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 
@@ -38,6 +38,7 @@ function translateTagValue(key: string, value: string): string {
 
 const translatedValue = translateTagValue(tagKey, tagValue);
 const tagSlug = tagValueToSlug(tagValue);
+const tagEditorial = getTagEditorial(tagSlug, locale);
 const pageTitle = t(locale, 'tag.page.title', { tag: translatedValue });
 const pageDescription = t(locale, 'tag.page.description', { tag: translatedValue });
 const pageIntro = t(locale, `tag.page.intro.${tagSlug}`);
@@ -50,6 +51,11 @@ const collectionLd = {
   description: pageDescription,
   url: `https://nologin.tools${getLocalizedPath(`/tag/${tagSlug}`, locale)}`,
   inLanguage: locale,
+  about: {
+    '@type': 'Thing',
+    name: tagEditorial ? tagEditorial.name : translatedValue,
+    description: tagEditorial ? tagEditorial.tagline : pageDescription,
+  },
   mainEntity: {
     '@type': 'ItemList',
     name: t(locale, 'tag.page.heading', { tag: translatedValue }),
@@ -125,6 +131,33 @@ const breadcrumbLd = {
       </p>
       {hasIntro && (
         <p class="mt-4 text-sm text-neutral-600 leading-relaxed">{pageIntro}</p>
+      )}
+
+      {/* Technical Architecture & Verification Guide */}
+      {tagEditorial && (
+        <div class="mt-6 p-5 bg-neutral-50 border border-neutral-200 rounded-sm">
+          <div class="flex items-center gap-2 mb-3 text-xs font-mono text-neutral-500 uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-neutral-900" />
+            <span class="font-bold text-neutral-900">{t(locale, 'tag.editorial.heading')}</span>
+            <span class="text-neutral-300">|</span>
+            <span class="italic text-neutral-600 font-normal">{tagEditorial.tagline}</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mt-3">
+            <div class="p-3 bg-white border border-neutral-200 rounded-sm">
+              <span class="block font-bold text-neutral-900 mb-1">{t(locale, 'tag.editorial.architecture')}</span>
+              <p class="text-neutral-600 leading-relaxed">{tagEditorial.architecture}</p>
+            </div>
+            <div class="p-3 bg-white border border-neutral-200 rounded-sm">
+              <span class="block font-bold text-neutral-900 mb-1">{t(locale, 'tag.editorial.verification')}</span>
+              <p class="text-neutral-600 leading-relaxed">{tagEditorial.verification}</p>
+            </div>
+            <div class="p-3 bg-white border border-neutral-200 rounded-sm">
+              <span class="block font-bold text-neutral-900 mb-1">{t(locale, 'tag.editorial.tradeoff')}</span>
+              <p class="text-neutral-600 leading-relaxed">{tagEditorial.tradeoff}</p>
+            </div>
+          </div>
+        </div>
       )}
     </header>
 

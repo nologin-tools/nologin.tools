@@ -328,5 +328,11 @@
   "tag.offline.Online Only": "オンラインのみ",
   "tag.pricing.Free": "無料",
   "tag.pricing.Freemium": "フリーミアム",
-  "tag.pricing.Ad-Supported": "広告サポート"
+  "tag.pricing.Ad-Supported": "広告サポート",
+  "blog.mentionedTools": "この記事でレビュー・紹介したツール",
+  "blog.viewVerification": "検証詳細を見る",
+  "tag.editorial.heading": "技術アーキテクチャ・検証ガイド",
+  "tag.editorial.architecture": "技術的な仕組み",
+  "tag.editorial.verification": "開発者ツールで検証する手順",
+  "tag.editorial.tradeoff": "メリットと制約事項"
 }

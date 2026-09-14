@@ -340,5 +340,11 @@
   "tag.offline.Online Only": "仅在线",
   "tag.pricing.Free": "免费",
   "tag.pricing.Freemium": "免费增值",
-  "tag.pricing.Ad-Supported": "广告支持"
+  "tag.pricing.Ad-Supported": "广告支持",
+  "blog.mentionedTools": "本文评测与推荐的免登录工具",
+  "blog.viewVerification": "查看免登验证",
+  "tag.editorial.heading": "技术架构与实操验证指南",
+  "tag.editorial.architecture": "技术实现原理",
+  "tag.editorial.verification": "如何自主验证（DevTools 实操）",
+  "tag.editorial.tradeoff": "权衡与适用边界"
 }

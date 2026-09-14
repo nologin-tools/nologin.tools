@@ -238,6 +238,56 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(llmsContent.includes('https://nologin.tools/blog/photopea-vs-canva'), 'Must link to Photopea comparison');
     assert.ok(llmsContent.includes('https://nologin.tools/category/design'), 'Must link to Design category hub');
   });
+
+  it('tag-editorial.json has valid architectural guides for all 9 allowed tags', () => {
+    const raw = readFileSync(resolve(ROOT, 'src/data/tag-editorial.json'), 'utf-8');
+    const tags = JSON.parse(raw);
+    const allowedTags = ['client-side-only', 'privacy-focused', 'works-offline', 'self-hostable', 'no-trackers', 'pwa', 'free', 'freemium', 'ad-supported'];
+
+    assert.equal(Object.keys(tags).length, 9, 'Must contain exactly 9 tags');
+
+    for (const tag of allowedTags) {
+      assert.ok(tags[tag], `Missing tag: ${tag}`);
+      for (const lang of ['en', 'zh']) {
+        const item = tags[tag][lang];
+        assert.ok(item, `Missing ${lang} guide for tag ${tag}`);
+        assert.ok(typeof item.name === 'string' && item.name.length > 2, `${tag}.${lang}.name must be non-empty`);
+        assert.ok(typeof item.tagline === 'string' && item.tagline.length > 10, `${tag}.${lang}.tagline must be descriptive`);
+        assert.ok(typeof item.architecture === 'string' && item.architecture.length > 30, `${tag}.${lang}.architecture must explain mechanism`);
+        assert.ok(typeof item.verification === 'string' && item.verification.length > 20, `${tag}.${lang}.verification must explain DevTools test`);
+        assert.ok(typeof item.tradeoff === 'string' && item.tradeoff.length > 10, `${tag}.${lang}.tradeoff must explain boundaries`);
+      }
+    }
+  });
+
+  it('TagPage renders Tag Editorial Guide and CollectionPage about schema', () => {
+    const tagPageContent = readFileSync(resolve(ROOT, 'src/components/TagPage.astro'), 'utf-8');
+    assert.ok(tagPageContent.includes('getTagEditorial'), 'TagPage must import getTagEditorial');
+    assert.ok(tagPageContent.includes('tag.editorial.heading'), 'TagPage must render editorial heading');
+    assert.ok(tagPageContent.includes('tag.editorial.architecture'), 'TagPage must render architecture heading');
+    assert.ok(tagPageContent.includes('tag.editorial.verification'), 'TagPage must render verification heading');
+    assert.ok(tagPageContent.includes('tag.editorial.tradeoff'), 'TagPage must render tradeoff heading');
+    assert.ok(tagPageContent.includes("about: {"), 'TagPage JSON-LD must include about Thing');
+  });
+
+  it('Blog pages render Mentioned Tools and SoftwareApplication about schema', async () => {
+    const blogEnContent = readFileSync(resolve(ROOT, 'src/pages/blog/[slug].astro'), 'utf-8');
+    assert.ok(blogEnContent.includes('getToolsForBlogArticle'), 'Blog EN must import getToolsForBlogArticle');
+    assert.ok(blogEnContent.includes('blog.mentionedTools'), 'Blog EN must render mentionedTools heading');
+    assert.ok(blogEnContent.includes("'@type': 'SoftwareApplication'"), 'Blog EN must include SoftwareApplication about in postLd');
+
+    const blogLangContent = readFileSync(resolve(ROOT, 'src/pages/[lang]/blog/[slug].astro'), 'utf-8');
+    assert.ok(blogLangContent.includes('getToolsForBlogArticle'), 'Blog Lang must import getToolsForBlogArticle');
+    assert.ok(blogLangContent.includes('blog.mentionedTools'), 'Blog Lang must render mentionedTools heading');
+    assert.ok(blogLangContent.includes("'@type': 'SoftwareApplication'"), 'Blog Lang must include SoftwareApplication about in postLd');
+
+    const { getToolsForBlogArticle } = await import('../../src/lib/tool-blogs.ts');
+    const photopeaTools = getToolsForBlogArticle('photopea-vs-canva', 'en');
+    assert.ok(photopeaTools.length >= 1, 'photopea-vs-canva must have at least 1 mentioned tool');
+    assert.equal(photopeaTools[0].slug, 'photopea-com');
+    assert.equal(photopeaTools[0].name, 'Photopea');
+    assert.ok(photopeaTools[0].description.length > 10);
+  });
 });
 
 

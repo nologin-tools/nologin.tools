@@ -7,12 +7,10 @@
   "nav.toggleMenu": "Toggle menu",
   "nav.bookmark": "Bookmark",
   "nav.bookmarkAlert": "Press {shortcut} to bookmark this site.",
-
   "footer.navLabel": "Footer navigation",
   "footer.mitLicense": "MIT License",
   "footer.copyright": "© {year} nologin.tools",
   "footer.projectBy": "A project by",
-
   "common.home": "Home",
   "common.featured": "Featured",
   "common.other": "Other",
@@ -22,7 +20,6 @@
   "common.copyCode": "Copy Code",
   "common.cancel": "Cancel",
   "common.loading": "Loading...",
-
   "category.page.title": "{category} Tools — No Login Required",
   "category.page.description": "Discover free {category} tools that work without login or signup.",
   "category.page.heading": "{category} Tools",
@@ -43,7 +40,6 @@
   "category.faq.a2": "Most {category} tools listed here offer free core functionality without login. Some may have optional premium features, but you can always use the essentials without payment or registration.",
   "category.faq.q3": "How are {category} tools verified?",
   "category.faq.a3": "Each tool is manually tested by the nologin.tools team to confirm that its core features work without creating an account. We also run automated health checks to ensure tools remain accessible.",
-
   "tag.page.title": "{tag} Tools — No Login Required",
   "tag.page.description": "Browse verified {tag} tools that work without login or signup.",
   "tag.page.heading": "{tag} Tools",
@@ -65,7 +61,6 @@
   "tag.faq.a2": "Most {tag} tools listed here offer free core functionality without login. Some may have optional premium features, but you can always use the essentials without payment or registration.",
   "tag.faq.q3": "How are {tag} tools verified?",
   "tag.faq.a3": "Each tool is manually tested by the nologin.tools team to confirm that its core features work without creating an account. We also run automated health checks to ensure tools remain accessible.",
-
   "home.title": "No-Login Tools — Free, Private, No Signup Needed",
   "home.description": "Find {count}+ verified no-login tools for design, AI, development, writing and more. Every tool works instantly without creating an account. 100% free and private.",
   "home.tagline": "Privacy-friendly tools.",
@@ -80,7 +75,6 @@
   "home.faq.a2": "Most tools listed on nologin.tools are free to use. Some may offer premium features, but their core functionality is always accessible without payment or signup.",
   "home.faq.q3": "How are tools verified?",
   "home.faq.a3": "Each tool is manually reviewed by our team. We verify that the core functionality works without requiring any account creation, login, or personal data submission.",
-
   "about.title": "About",
   "about.description": "About nologin.tools — a curated directory of tools that work without login.",
   "about.heading": "About nologin.tools",
@@ -101,14 +95,12 @@
   "about.outroP2": "Our code is open source, and our database is exported regularly to help others build privacy-first applications.",
   "about.exploreGithub": "Explore on GitHub",
   "about.submitTool": "Submit a Tool",
-
   "notFound.title": "Page Not Found",
   "notFound.description": "The page you're looking for doesn't exist.",
   "notFound.heading": "404",
   "notFound.message": "Page not found",
   "notFound.detail": "The page you're looking for doesn't exist or has been moved.",
   "notFound.backHome": "Back to home",
-
   "submit.title": "Submit a Tool",
   "submit.description": "Submit a tool that works without login to the nologin.tools directory.",
   "submit.heading": "Submit a Tool",
@@ -151,7 +143,6 @@
   "submit.errGeneral": "Submission failed. Please check your inputs.",
   "submit.errNetwork": "Network error. Please check your connection and try again.",
   "submit.errUnexpected": "An unexpected error occurred. Please try again.",
-
   "submitSuccess.title": "Tool Submitted",
   "submitSuccess.description": "Your tool has been submitted for review.",
   "submitSuccess.heading": "Submission Received!",
@@ -166,7 +157,6 @@
   "submitSuccess.svgBadge": "SVG Badge",
   "submitSuccess.metaTag": "Meta Tag",
   "submitSuccess.backToDirectory": "Back to Directory",
-
   "tool.defaultDescription": "{name} — a tool that works without login.",
   "tool.pendingReview": "Pending Review",
   "tool.pendingDesc": "This tool is currently being reviewed. It will appear in the public directory once approved.",
@@ -221,13 +211,11 @@
   "tool.editCoreTaskLength": "Core task must be max 200 characters.",
   "tool.editInvalidUrl": "Please enter a valid URL.",
   "tool.updated": "Updated {time}",
-
   "health.noChecks": "No checks",
   "health.online": "Online",
   "health.unstable": "Unstable",
   "health.offline": "Offline",
   "health.noData": "No data",
-
   "badge.title": "NoLogin Verified Badge",
   "badge.description": "What is NoLogin Verified? Learn about the badge that certifies tools work without login.",
   "badge.heroTitle": "The NoLogin Standard",
@@ -274,7 +262,6 @@
   "badge.faq.a3": "Submit your tool at nologin.tools/submit. Our team will manually review it within approximately 48 hours. If approved, you will receive a unique badge embed code to display on your site.",
   "badge.faq.q4": "Does displaying the badge affect my ranking on nologin.tools?",
   "badge.faq.a4": "Yes. Tools that display the NoLogin Verified SVG badge on their site receive +10 ranking points, while those using a meta tag or link get +5 points. Tools without a badge receive no bonus.",
-
   "badgeDetail.verificationTab": "Verification Certificate",
   "badgeDetail.embedTab": "Embed Code",
   "badgeDetail.pendingTitle": "Verification Pending",
@@ -312,7 +299,6 @@
   "badgeDetail.collection": "{name} Collection",
   "badgeDetail.svgRecommended": "SVG Badge (Recommended)",
   "badgeDetail.metaTag": "Meta Tag",
-
   "blog.title": "Blog",
   "blog.description": "Articles about privacy-friendly tools, no-login workflows, and the open web.",
   "blog.heading": "Blog",
@@ -326,9 +312,7 @@
   "blogTag.postCount": "{count} articles",
   "blogTag.browseAll": "All blog posts",
   "blogTag.allTags": "All Tags",
-
   "layout.defaultDescription": "Discover tools that respect your privacy — no login required.",
-
   "tag.category.AI": "AI",
   "tag.category.Design": "Design",
   "tag.category.Writing": "Writing",
@@ -355,5 +339,11 @@
   "tag.offline.Online Only": "Online Only",
   "tag.pricing.Free": "Free",
   "tag.pricing.Freemium": "Freemium",
-  "tag.pricing.Ad-Supported": "Ad-Supported"
+  "tag.pricing.Ad-Supported": "Ad-Supported",
+  "blog.mentionedTools": "Featured Tools Reviewed in This Guide",
+  "blog.viewVerification": "View Verification",
+  "tag.editorial.heading": "Architecture & Verification Guide",
+  "tag.editorial.architecture": "Technical Mechanism",
+  "tag.editorial.verification": "How to Verify Yourself (DevTools)",
+  "tag.editorial.tradeoff": "Trade-offs & Boundaries"
 }

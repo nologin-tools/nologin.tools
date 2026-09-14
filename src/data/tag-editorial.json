@@ -1,0 +1,146 @@
+{
+  "client-side-only": {
+    "en": {
+      "name": "Client-Side Only",
+      "tagline": "Zero data leaves your machine — computation runs entirely within your browser sandbox.",
+      "architecture": "Client-side only tools execute 100% of their logic using WebAssembly (WASM), Canvas API, Web Workers, or client-side JavaScript. Files you drag and drop are read into memory via the File API (`FileReader` or `URL.createObjectURL`) without opening an upload socket to any remote server.",
+      "verification": "Open DevTools (F12 or Cmd+Option+I), switch to the 'Network' tab, and check 'Preserve log'. Drop a file into the tool and perform the task. You will observe zero HTTP POST or PUT requests transferring file payloads across the wire.",
+      "tradeoff": "Maximum privacy and instant processing for modest file sizes; limited by available system RAM and browser CPU sandboxing on massive gigabyte files."
+    },
+    "zh": {
+      "name": "纯前端本地计算 (Client-Side Only)",
+      "tagline": "数据绝不离机——所有运算完全在你的浏览器沙箱内部完成。",
+      "architecture": "纯前端工具利用 WebAssembly (WASM)、Canvas API、Web Workers 与原生 JavaScript 在浏览器内完成全部计算。你拖入的文件通过浏览器的 File API (`FileReader` 或 `URL.createObjectURL`) 直接读入本机内存处理，绝不向任何外部服务器建立文件上传通道。",
+      "verification": "按 F12（或 Cmd+Option+I）打开开发者工具，切换到 Network（网络）标签页并勾选 Preserve log（保留日志）。将文件拖入工具并执行操作，你会发现没有任何携带文件数据的 HTTP POST/PUT 请求发出。",
+      "tradeoff": "带来极致的隐私保护与瞬时响应；处理上限受限于本机可用内存与浏览器沙箱分配的 CPU 资源。"
+    }
+  },
+  "privacy-focused": {
+    "en": {
+      "name": "Privacy-Focused",
+      "tagline": "Engineered with strict zero-knowledge principles, data minimization, and no behavioral surveillance.",
+      "architecture": "Privacy-focused utilities strip telemetry scripts, enforce ephemeral in-memory processing, and employ cryptographic primitives (such as WebCrypto AES-GCM or zero-knowledge end-to-end encryption) so even the hosting infrastructure cannot access plaintext user data.",
+      "verification": "Inspect the document source code and Network requests for tracking beacons. Notice the absence of Google Analytics, Meta Pixel, Hotjar, or fingerprinting scripts. Any storage used is scoped strictly to local session memory.",
+      "tradeoff": "Guaranteed confidentiality and peace of mind; lacks cross-device cloud sync unless self-managed keys or manual export files are used."
+    },
+    "zh": {
+      "name": "隐私优先 (Privacy-Focused)",
+      "tagline": "遵循严格的零知识原则与数据最小化架构，拒绝任何行为监控。",
+      "architecture": "隐私优先工具彻底剔除远程遥测脚本，坚持阅后即焚式内存计算，并采用现代密码学原语（如 WebCrypto AES-GCM 或客户端端到端加密），确保即便是服务器运维方也无法窥探明文内容。",
+      "verification": "审查网页源码与网络请求，验证是否存在 Google Analytics、Meta Pixel、Hotjar 或任何第三方指纹收集脚本；数据存储严格限制在本地会话中。",
+      "tradeoff": "获得绝对的数据自主权与安全感；不提供开箱即用的跨设备云同步，需通过导出文件或自管密钥同步。"
+    }
+  },
+  "works-offline": {
+    "en": {
+      "name": "Works Offline",
+      "tagline": "Fully functional without an active internet connection after initial browser caching.",
+      "architecture": "These tools leverage W3C Service Workers and the CacheStorage API to intercept network requests and serve static assets, WebAssembly binaries, and application logic directly from the local disk cache. They operate autonomously in disconnected environments.",
+      "verification": "Load the tool once, then turn on Airplane Mode or disconnect your Wi-Fi (or select 'Offline' in DevTools Network throttling). Refresh the tab — the application continues to boot and perform its core workflow without errors.",
+      "tradeoff": "Resilient against network drops, flights, and remote travel; requires manual page cache invalidation or update prompts to receive new application releases."
+    },
+    "zh": {
+      "name": "支持离线运行 (Works Offline)",
+      "tagline": "首次加载缓存后，在断网飞行模式下依然能完整使用全部核心功能。",
+      "architecture": "此类工具利用 W3C Service Workers 与 CacheStorage API 拦截网络请求，将应用核心代码、静态资源与 WebAssembly 模块直接保存在本地磁盘。无需持续联网即可独立运算。",
+      "verification": "首次访问加载完成后，断开 Wi-Fi 或开启飞行模式（或在 DevTools 网络面板中将 Throttling 设为 Offline）。刷新页面，应用依然秒开且能正常完成全部核心任务。",
+      "tradeoff": "在航班、差旅及网络不稳定场景下极其可靠；新版本发布时需通过后台 Service Worker 缓存更新机制刷新获取。"
+    }
+  },
+  "self-hostable": {
+    "en": {
+      "name": "Self-Hostable",
+      "tagline": "Open-source software you can independently deploy on private hardware or a local homelab.",
+      "architecture": "Self-hostable tools publish open-source codebases (typically under MIT, Apache 2.0, or AGPL licenses) with containerized deployment recipes (Dockerfiles, Docker Compose). Users retain complete control over DNS, hosting environment, and security perimeter.",
+      "verification": "Check the project's official GitHub/GitLab repository link. Verify the presence of a Dockerfile, release binaries, or static build instructions (`docker compose up -d`).",
+      "tradeoff": "Complete data sovereignty and immunity to SaaS shutdown or policy changes; requires self-managed server maintenance, backups, and SSL configuration."
+    },
+    "zh": {
+      "name": "可自主私有化部署 (Self-Hostable)",
+      "tagline": "代码完全开源，可独立部署到自己的 VPS、局域网 NAS 或私有服务器。",
+      "architecture": "提供清晰的开源代码仓库（通常遵循 MIT、Apache 2.0 或 AGPL 等开源许可协议），并附带标准化的容器配置（Dockerfile、Docker Compose）。用户拥有绝对的域名、服务器与安全网络边界控制权。",
+      "verification": "点击仓库链接进入 GitHub/GitLab，确认仓库包含完整的 Dockerfile、开源协议与构建指南（如 `docker compose up -d` 命令即可启动运行）。",
+      "tradeoff": "彻底掌控数据资产，无惧商业 SaaS 倒闭或协议变更；但需要自主承担服务器维护、日常备份与 SSL 证书续期成本。"
+    }
+  },
+  "no-trackers": {
+    "en": {
+      "name": "No Trackers",
+      "tagline": "Audited clean of third-party advertising cookies, marketing pixels, and fingerprinting scripts.",
+      "architecture": "The tool codebase excludes third-party analytics SDKs, tag managers, and cross-site tracking iframes. The Content Security Policy (CSP) and HTTP headers prevent unauthorized third-party beacons from exfiltrating browsing behavior.",
+      "verification": "Load the page with ad/tracker blockers such as uBlock Origin or Privacy Badger. The extension counter displays '0 trackers blocked' because no surveillance code exists to block.",
+      "tradeoff": "Clean, uncluttered browsing with fast page loads; tool developers forfeit automated behavioral funnel analytics and must rely on direct user feedback."
+    },
+    "zh": {
+      "name": "无追踪器 (No Trackers)",
+      "tagline": "经过严谨代码审计，不含任何第三方广告 Cookie、营销代码或指纹脚本。",
+      "architecture": "产品代码彻底剔除第三方分析统计 SDK、标签管理器与跨站跟踪 iframe。HTTP 响应头及内容安全策略（CSP）严格限制未经授权的外部通信，确保用户的浏览轨迹不被外泄。",
+      "verification": "使用 uBlock Origin 或 Privacy Badger 等隐私保护插件访问页面，插件拦截列表计数显示为 0，因为页面本身没有任何追踪脚本。",
+      "tradeoff": "页面加载速度极快、无任何冗余脚本消耗性能；开发者放弃了自动化的用户漏斗埋点，完全依靠真实用户口碑迭代。"
+    }
+  },
+  "pwa": {
+    "en": {
+      "name": "Progressive Web App (PWA)",
+      "tagline": "Installable directly from the browser onto desktop or mobile with native-like window performance.",
+      "architecture": "PWAs declare a valid W3C `manifest.json` (specifying application name, icons, start URL, and display modes like `standalone`), paired with an active Service Worker for caching and background lifecycle management.",
+      "verification": "Look for the 'Install App' icon on the right side of the desktop browser URL bar, or choose 'Add to Home Screen' in mobile Safari/Chrome. The app launches in an independent window without browser address bars.",
+      "tradeoff": "Native app conveniences (dock icon, window shortcuts, offline storage) without app store friction; background synchronization and push notifications may be restricted by some OS vendors."
+    },
+    "zh": {
+      "name": "渐进式 Web 应用 (PWA)",
+      "tagline": "可直接从浏览器安装到桌面或手机主屏，享受独立窗口与类原生应用体验。",
+      "architecture": "严格遵循 W3C 标准声明 `manifest.json` 清单文件（配置应用名称、高清图标、启动路径与 `standalone` 独立显示模式），配合 Service Worker 管理缓存与生命周期。",
+      "verification": "在 Chrome/Edge 浏览器地址栏右侧点击“安装应用”图标，或在手机 Safari/Chrome 中选择“添加到主屏幕”。安装后以独立无边框窗口运行，拥有专属系统 Dock 图标。",
+      "tradeoff": "兼具原生应用的启动便捷度与轻量特性，免去应用商店下载与审核烦恼；但系统深层后台常驻能力受宿主操作系统权限限制。"
+    }
+  },
+  "free": {
+    "en": {
+      "name": "100% Free",
+      "tagline": "Completely free core utility with no hidden subscription traps, paywalls, or feature limits.",
+      "architecture": "The software is designed as a public utility or open-source community gift. It does not gate export resolutions, inject watermarks, restrict conversion counts, or ask for credit card billing info.",
+      "verification": "Test the entire task cycle from file input to final export/download. No popups asking for payment details or trial expirations will interrupt your workflow.",
+      "tradeoff": "Zero financial barrier to entry; funded either by developer altruism, grants, optional donations, or non-intrusive ethical sponsorships."
+    },
+    "zh": {
+      "name": "完全免费 (100% Free)",
+      "tagline": "纯粹的免费公共数字工具，绝无隐藏收费套路、付费墙或功能阉割。",
+      "architecture": "作为公共数字基础设施或开源社区成果呈现。不限制导出分辨率、不强制添加商业水印、不限制每日使用次数，更不会索要信用卡预授权。",
+      "verification": "完整执行一次从文件载入、编辑到最终保存导出的全流程，绝不会弹出任何支付账单、会员充值或试用期截止提示。",
+      "tradeoff": "零门槛自由使用；通常由个人开发者开源奉献、非营利基金会资助或极简赞助支持。"
+    }
+  },
+  "freemium": {
+    "en": {
+      "name": "Freemium",
+      "tagline": "Generous free tier with full core task capability — optional paid upgrades exist for heavy cloud usage.",
+      "architecture": "The zero-login experience covers all single-user core operations without payment. Paid tiers typically add multi-seat team workspaces, managed server storage, or priority GPU queues.",
+      "verification": "Verify that the essential advertised function executes without requiring an account or checkout. Pricing tables clearly delineate where free local utility ends and premium cloud collaboration begins.",
+      "tradeoff": "Access to professionally maintained, high-polish software; power users may occasionally encounter soft upsells for advanced cloud features."
+    },
+    "zh": {
+      "name": "免费增值 (Freemium)",
+      "tagline": "免登录状态下核心功能完全可用且免费，仅为团队协作或高阶云服务提供可选付费方案。",
+      "architecture": "免登录模式下即可顺畅完成全部基础单人操作。商业付费版本通常仅针对跨成员团队空间、中心化超大云存储或专属 GPU 计算队列收费。",
+      "verification": "实际操作确认核心功能无需注册即可完整导出。定价页面清晰透明地标明了免登录本地功能的完整性与高阶企业特性的边界。",
+      "tradeoff": "享受商业级软件的持续维护与极致打磨体验；但极少数针对企业级的复杂批量功能可能需要升级。"
+    }
+  },
+  "ad-supported": {
+    "en": {
+      "name": "Ad-Supported",
+      "tagline": "Free to use without accounts, sustainably supported by non-intrusive ethical display ads.",
+      "architecture": "Instead of forcing paid subscriptions or selling user data, the service monetizes through static or sandboxed display ad placements. Ads do not compromise core task execution or harvest personal files.",
+      "verification": "Notice that ads reside in separate sidebars or footer slots without modal overlays, pop-unders, or forced countdown timers before downloading your files.",
+      "tradeoff": "Sustains long-term hosting and infrastructure for heavy tools; visual layout includes display banners."
+    },
+    "zh": {
+      "name": "广告支持免费 (Ad-Supported)",
+      "tagline": "无需注册即可免费使用，通过非侵入式的侧边展示广告实现长久可持续运营。",
+      "architecture": "不通过强制订阅收费，也不出卖用户隐私数据，而是通过固定版位展示广告维持昂贵的服务器带宽与算力成本。广告与核心工作区严格物理隔离，不读取任何文件数据。",
+      "verification": "广告仅呈现在侧边栏或页面底部，没有全屏弹窗、恶意跳转或强迫观看倒计时的流氓下载陷阱。",
+      "tradeoff": "为重度工具（如 Photopea、TinyPNG 等）提供了长效健康的商业存续可能；界面中会保留适度视觉展示广告。"
+    }
+  }
+}

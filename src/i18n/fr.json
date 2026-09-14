@@ -328,5 +328,11 @@
   "tag.offline.Online Only": "En ligne uniquement",
   "tag.pricing.Free": "Gratuit",
   "tag.pricing.Freemium": "Freemium",
-  "tag.pricing.Ad-Supported": "Financé par la pub"
+  "tag.pricing.Ad-Supported": "Financé par la pub",
+  "blog.mentionedTools": "Outils présentés dans ce guide",
+  "blog.viewVerification": "Voir la vérification",
+  "tag.editorial.heading": "Guide d'architecture et de vérification",
+  "tag.editorial.architecture": "Mécanisme technique",
+  "tag.editorial.verification": "Comment vérifier par vous-même (DevTools)",
+  "tag.editorial.tradeoff": "Compromis et limites"
 }

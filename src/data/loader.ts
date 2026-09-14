@@ -182,6 +182,23 @@ export function getCategoryEditorial(category: string, locale: Locale = 'en'): C
   return catEntry[locale] ?? catEntry.en ?? null;
 }
 
+export interface TagEditorial {
+  name: string;
+  tagline: string;
+  architecture: string;
+  verification: string;
+  tradeoff: string;
+}
+
+import tagEditorialJson from './tag-editorial.json';
+const tagEditorialData = tagEditorialJson as Record<string, Record<string, TagEditorial>>;
+
+export function getTagEditorial(tagSlug: string, locale: Locale = 'en'): TagEditorial | null {
+  const entry = tagEditorialData[tagSlug];
+  if (!entry) return null;
+  return entry[locale] ?? entry.en ?? null;
+}
+
 
 
 export function getApprovedTools(): BuildDataTool[] {

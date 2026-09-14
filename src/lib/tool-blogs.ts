@@ -416,3 +416,263 @@ export function getRelatedArticlesForTool(toolSlug: string, locale: string = 'en
     })
     .filter((a): a is RelatedArticle => a !== null);
 }
+
+export interface MentionedTool {
+  slug: string;
+  name: string;
+  hostname: string;
+  url: string;
+  description: string;
+  category: string;
+}
+
+interface ToolMetaItem {
+  name: string;
+  url: string;
+  category: string;
+  en: string;
+  zh: string;
+}
+
+const TOOLS_META: Record<string, ToolMetaItem> = {
+  "photopea-com": {
+    "name": "Photopea",
+    "url": "https://www.photopea.com",
+    "category": "Design",
+    "en": "Advanced in-browser raster and vector image editor supporting PSD, XCF, and Sketch.",
+    "zh": "功能强大的免登录在线图像设计与 PSD/Sketch 编辑器。"
+  },
+  "excalidraw-com": {
+    "name": "Excalidraw",
+    "url": "https://excalidraw.com",
+    "category": "Design",
+    "en": "End-to-end encrypted virtual whiteboard for hand-drawn style sketches and diagrams.",
+    "zh": "支持端到端加密、零数据泄露的手绘风格协同白板。"
+  },
+  "squoosh-app": {
+    "name": "Squoosh",
+    "url": "https://squoosh.app",
+    "category": "Design",
+    "en": "Google-engineered in-browser image compressor utilizing client-side WebAssembly.",
+    "zh": "基于 WebAssembly 的纯本地无损/有损图片压缩工具。"
+  },
+  "tinypng-com": {
+    "name": "TinyPNG",
+    "url": "https://tinypng.com",
+    "category": "Design",
+    "en": "Smart lossy compression for WebP, PNG, and JPEG images.",
+    "zh": "老牌高效的 WebP/PNG/JPEG 智能图片有损压缩工具。"
+  },
+  "tools-pdf24-org-en": {
+    "name": "PDF24 Tools",
+    "url": "https://tools.pdf24.org/en/",
+    "category": "Productivity",
+    "en": "Complete browser-based PDF toolbox for merging, splitting, compressing, and editing.",
+    "zh": "无限制的在线 PDF 工具箱，支持合并、拆分、压缩与格式转换。"
+  },
+  "hat-sh": {
+    "name": "hat.sh",
+    "url": "https://hat.sh",
+    "category": "Privacy",
+    "en": "Client-side AES-256-GCM file encryption and decryption in your browser.",
+    "zh": "基于 Web Crypto API 的纯浏览器端 AES-256-GCM 文件强加密工具。"
+  },
+  "jwt-io": {
+    "name": "JWT.io",
+    "url": "https://jwt.io",
+    "category": "Development",
+    "en": "Decode, verify, and generate JSON Web Tokens directly in the browser.",
+    "zh": "主流的 JWT 令牌在线解码与有效性验证工具。"
+  },
+  "audiomass-co": {
+    "name": "AudioMass",
+    "url": "https://audiomass.co",
+    "category": "Media",
+    "en": "Full-featured in-browser digital audio workstation (DAW) and waveform editor.",
+    "zh": "完全运行在浏览器中的开源音频剪辑工作站与波形编辑器。"
+  },
+  "audiotrimmer-com": {
+    "name": "AudioTrimmer",
+    "url": "https://audiotrimmer.com",
+    "category": "Media",
+    "en": "Fast, simple online audio cutter and MP3 trimmer.",
+    "zh": "快速易用的在线音频剪切与铃声裁剪工具。"
+  },
+  "cfiresim-com": {
+    "name": "cFIREsim",
+    "url": "https://cfiresim.com",
+    "category": "Finance",
+    "en": "Retirement portfolio Monte Carlo and historical market independence simulator.",
+    "zh": "基于 150 年真实市场数据的退休投资组合独立性模拟器。"
+  },
+  "fffuel-co": {
+    "name": "Fffuel",
+    "url": "https://fffuel.co",
+    "category": "Design",
+    "en": "Generative SVG design asset tools for textures, blobs, waves, and organic meshes.",
+    "zh": "拥有 40+ 种矢量生成器的 SVG 纹理、渐变与流体背景工具箱。"
+  },
+  "learngitbranching-js-org": {
+    "name": "Learn Git Branching",
+    "url": "https://learngitbranching.js.org",
+    "category": "Education",
+    "en": "Interactive visual simulation game to master Git branching and commands.",
+    "zh": "交互式 Git 分支可视化沙盒模拟教学游戏。"
+  },
+  "phet-colorado-edu": {
+    "name": "PhET Interactive Simulations",
+    "url": "https://phet.colorado.edu",
+    "category": "Education",
+    "en": "150+ interactive science and math simulations from University of Colorado.",
+    "zh": "科罗拉多大学出品的 150+ 物理/化学/数学交互式 STEM 科学实验室。"
+  },
+  "phind-com": {
+    "name": "Phind",
+    "url": "https://www.phind.com",
+    "category": "AI",
+    "en": "AI-powered technical search engine delivering direct answers and code snippets.",
+    "zh": "面向程序员的高质量技术问答 AI 搜索引擎。"
+  },
+  "tinywow-com": {
+    "name": "TinyWow",
+    "url": "https://tinywow.com",
+    "category": "Productivity",
+    "en": "Multi-utility platform offering 50+ free tools for PDF, image, and video editing.",
+    "zh": "整合 50+ 款 PDF、图像及音视频处理工具的免费多功能平台。"
+  },
+  "privacytests-org": {
+    "name": "PrivacyTests",
+    "url": "https://privacytests.org",
+    "category": "Privacy",
+    "en": "Open-source tests auditing web browser privacy and fingerprint resistance.",
+    "zh": "开源透明的主流网页浏览器隐私泄露与指纹防御测试平台。"
+  },
+  "temp-mail-org": {
+    "name": "Temp Mail",
+    "url": "https://temp-mail.org",
+    "category": "Privacy",
+    "en": "Disposable temporary email address generator to protect your primary inbox.",
+    "zh": "无需注册的一次性临时邮箱服务，专用于拦截垃圾邮件与绕过注册墙。"
+  },
+  "haveibeenpwned-com": {
+    "name": "Have I Been Pwned",
+    "url": "https://haveibeenpwned.com",
+    "category": "Privacy",
+    "en": "Check if your email or password has been exposed in a known data breach.",
+    "zh": "权威的数据泄露排查工具，利用 k-匿名机制安全查询泄露记录。"
+  },
+  "dillinger-io": {
+    "name": "Dillinger",
+    "url": "https://dillinger.io",
+    "category": "Writing",
+    "en": "Cloud-enabled browser markdown editor with styled HTML and PDF export.",
+    "zh": "优雅好用的云就绪 Markdown 在线编辑器，支持导出排版 HTML 与 PDF。"
+  },
+  "tldraw-com": {
+    "name": "tldraw",
+    "url": "https://www.tldraw.com",
+    "category": "Design",
+    "en": "Infinite canvas virtual whiteboard for fast sketching, notes, and architecture diagrams.",
+    "zh": "极简流畅的无限画布在线绘图、草图与架构白板工具。"
+  },
+  "remove-bg": {
+    "name": "Remove.bg",
+    "url": "https://www.remove.bg",
+    "category": "Design",
+    "en": "Instant AI background removal for photos and product images.",
+    "zh": "一键智能自动识别人像与主体的在线抠图去背景工具。"
+  },
+  "coolors-co": {
+    "name": "Coolors",
+    "url": "https://coolors.co",
+    "category": "Design",
+    "en": "Superfast color palette generator with instant lock, randomize, and export.",
+    "zh": "深受设计师喜爱的超快在线调色板与色彩搭配生成器。"
+  },
+  "favicon-io": {
+    "name": "Favicon.io",
+    "url": "https://favicon.io",
+    "category": "Design",
+    "en": "Generate web favicons instantly from text, images, or emojis.",
+    "zh": "支持从文本、图片或 Emoji 瞬间生成多尺寸网页 Favicon 图标。"
+  },
+  "gchq-github-io-cyberchef": {
+    "name": "CyberChef",
+    "url": "https://gchq.github.io/CyberChef",
+    "category": "Development",
+    "en": "The Cyber Swiss Army Knife for encryption, encoding, compression, and analysis.",
+    "zh": "英国政府通信总部 (GCHQ) 开源的网络瑞士军刀，支持百种编码转换。"
+  },
+  "devdocs-io": {
+    "name": "DevDocs",
+    "url": "https://devdocs.io",
+    "category": "Development",
+    "en": "Fast, offline-capable unified developer API documentation search.",
+    "zh": "全能离线开发者 API 文档检索工具，毫秒级即时搜索。"
+  },
+  "svgedit-netlify-app-editor-index-html": {
+    "name": "SVG-Edit",
+    "url": "https://svgedit.netlify.app/editor/index.html",
+    "category": "Design",
+    "en": "Browser-based open-source vector graphics editor.",
+    "zh": "基于浏览器的成熟开源矢量图形（SVG）在线编辑器。"
+  },
+  "clideo-com": {
+    "name": "Clideo",
+    "url": "https://clideo.com",
+    "category": "Media",
+    "en": "All-in-one browser video and audio manipulation suite.",
+    "zh": "涵盖视频剪切、合并、压缩与格式转换的在线多媒体套件。"
+  },
+  "huggingface-co-chat": {
+    "name": "HuggingChat",
+    "url": "https://huggingface.co/chat",
+    "category": "AI",
+    "en": "Instant access to open-source LLMs without mandatory signups.",
+    "zh": "Hugging Face 出品的免注册开源大模型在线对话体验平台。"
+  },
+  "when2meet-com": {
+    "name": "When2meet",
+    "url": "https://www.when2meet.com",
+    "category": "Communication",
+    "en": "Dead-simple group meeting scheduling grid without accounts.",
+    "zh": "零账号门槛、极简直观的多人聚会与会议时间投票工具。"
+  },
+  "write-as": {
+    "name": "Write.as",
+    "url": "https://write.as",
+    "category": "Writing",
+    "en": "Minimalist, distraction-free publishing platform with zero accounts required.",
+    "zh": "主打极简纯粹、开箱即写即发布的无账号匿名写作平台。"
+  }
+};
+
+export function getToolsForBlogArticle(articleSlug: string, locale: string = 'en'): MentionedTool[] {
+  const isZh = locale === 'zh';
+  const matchedSlugs: string[] = [];
+
+  for (const [toolSlug, blogSlugs] of Object.entries(TOOL_TO_BLOG_MAP)) {
+    if (blogSlugs.includes(articleSlug)) {
+      matchedSlugs.push(toolSlug);
+    }
+  }
+
+  return matchedSlugs
+    .map((slug) => {
+      const tool = TOOLS_META[slug];
+      if (!tool) return null;
+      let hostname = '';
+      try {
+        hostname = new URL(tool.url).hostname.replace(/^www\./, '');
+      } catch {}
+      return {
+        slug,
+        name: tool.name,
+        hostname,
+        url: tool.url,
+        description: isZh && tool.zh ? tool.zh : tool.en,
+        category: tool.category,
+      };
+    })
+    .filter((t): t is MentionedTool => t !== null);
+}
