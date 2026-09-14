@@ -1,0 +1,1142 @@
+{
+  "photopea-com": {
+    "en": {
+      "bestFor": "Advanced photo editing and PSD/vector design without installing software or creating an Adobe account.",
+      "pros": [
+        "Comprehensive support for PSD, AI, Sketch, and XD formats with layer masks and smart objects",
+        "Runs 100% in-browser; all canvas operations execute locally via WebAssembly with zero image uploads",
+        "Instant launch with keyboard shortcuts and interface nearly identical to Adobe Photoshop"
+      ],
+      "cons": [
+        "Displays non-intrusive sidebar advertisements in the free tier",
+        "Can experience browser memory lag when opening complex layered files exceeding 150MB"
+      ],
+      "privacyVerdict": "Client-side processing verified. All rendering and filter calculations run locally in browser memory. Network inspection confirms zero image payload transmission to remote servers.",
+      "alternativeTo": [
+        "Adobe Photoshop",
+        "Canva",
+        "Pixlr"
+      ]
+    },
+    "zh": {
+      "bestFor": "无需安装大型本地软件或注册 Adobe 账号的专业级照片修图与 PSD/矢量图编辑。",
+      "pros": [
+        "完整支持 PSD、AI、Sketch、XD 格式，保留图层、蒙版与智能对象",
+        "100% 浏览器本地运算，所有画布操作均通过 WebAssembly 本地执行，图片零上传",
+        "免注册即开即用，快捷键和工具栏操作习惯与 Adobe Photoshop 完全一致"
+      ],
+      "cons": [
+        "免费版右侧包含不影响主界面的非侵入式广告",
+        "打开超过 150MB 的超大复杂分层工程文件时受浏览器内存限制可能偶发卡顿"
+      ],
+      "privacyVerdict": "已验证纯前端客户端计算。所有图像栅格化与滤镜操作均在本地浏览器内存中完成，网络抓包监控显示零文件上传行为。",
+      "alternativeTo": [
+        "Adobe Photoshop",
+        "Canva",
+        "Pixlr"
+      ]
+    }
+  },
+  "excalidraw-com": {
+    "en": {
+      "bestFor": "Quick hand-drawn architecture diagrams, wireframes, and collaborative brainstorming sessions.",
+      "pros": [
+        "Distinctive sketchy aesthetic prevents bikeshedding on visual polish during early design phases",
+        "End-to-end encrypted real-time collaboration links without needing a login or workspace",
+        "Exports high-resolution SVG and PNG with embedded scene data for later re-editing"
+      ],
+      "cons": [
+        "Free no-login live rooms expire after inactivity and have limited multi-canvas management",
+        "Lacks formal flowchart auto-layout or complex UML syntax features"
+      ],
+      "privacyVerdict": "End-to-end encryption verified for shared collaboration rooms (cryptographic key stored in the URL fragment hash, invisible to Excalidraw servers). Local canvases stay in browser localStorage.",
+      "alternativeTo": [
+        "Miro",
+        "Lucidchart",
+        "Figma FigJam"
+      ]
+    },
+    "zh": {
+      "bestFor": "快速绘制手绘风格的架构图、产品原型线框图以及团队无账号头脑风暴。",
+      "pros": [
+        "独特的手绘涂鸦风格，让早期方案讨论免于纠结视觉像素细节",
+        "支持端到端加密的免登录实时协同白板链接，点击即可入会协作",
+        "支持导出高保真 SVG/PNG，且导出的图片中内置场景源数据，重新导入可无损二次编辑"
+      ],
+      "cons": [
+        "免费免登录协同房间不适合超长周期持久归档，多画布组织能力较弱",
+        "缺少复杂自动化流程图排版与严格的 UML 语法树支持"
+      ],
+      "privacyVerdict": "协同白板通过 URL Hash 携带解密密钥实现端到端加密，服务器无法解密画布内容；单人绘制完全保存在浏览器本地 localStorage 中。",
+      "alternativeTo": [
+        "Miro",
+        "Lucidchart",
+        "Figma FigJam"
+      ]
+    }
+  },
+  "tldraw-com": {
+    "en": {
+      "bestFor": "Infinite vector canvas sketching, mind mapping, and rapid visual note-taking.",
+      "pros": [
+        "Ultra-lightweight and butter-smooth pan/zoom engine on desktop and touch devices",
+        "Minimalist modern UI with zero onboarding steps or forced account dialogs",
+        "Excellent vector stroke smoothing and freehand drawing feel"
+      ],
+      "cons": [
+        "Collaborative link persistence is temporary in the free public instance",
+        "Fewer built-in diagram stencil libraries compared to draw.io"
+      ],
+      "privacyVerdict": "Client-first execution. Local canvas state is saved purely in IndexedDB/localStorage. Multi-user rooms use ephemeral peer synchronizations.",
+      "alternativeTo": [
+        "Miro",
+        "FigJam",
+        "Apple Freeform"
+      ]
+    },
+    "zh": {
+      "bestFor": "无限画布矢量涂鸦、思维导图整理与敏捷视觉笔记记录。",
+      "pros": [
+        "极致轻量的渲染引擎，在桌面端和触控设备上缩放和平移极度丝滑",
+        "极简现代 UI 设计，零引导步骤，绝无任何强制弹窗或注册挽留",
+        "手写矢量笔迹平滑算法极佳，手感接近实体白板"
+      ],
+      "cons": [
+        "公共免费协同实例的持久化保存时间有限",
+        "相较于 draw.io，内置的工业级图元与标准流程图模版较少"
+      ],
+      "privacyVerdict": "本地优先架构。画布数据默认纯离线保存在浏览器 IndexedDB/localStorage 中，协同会话采用临时点对点广播同步。",
+      "alternativeTo": [
+        "Miro",
+        "FigJam",
+        "Apple Freeform"
+      ]
+    }
+  },
+  "squoosh-app": {
+    "en": {
+      "bestFor": "Lossy and lossless image compression with real-time visual side-by-side comparison slider.",
+      "pros": [
+        "Powered by Google Chrome Labs using WebAssembly codecs (MozJPEG, WebP, AVIF, OxiPNG)",
+        "Zero server uploads: every byte is encoded directly on your local CPU",
+        "Interactive before-and-after slider lets you inspect compression artifacts in real time"
+      ],
+      "cons": [
+        "Batch compression is limited compared to command-line tools like ImageOptim or CLI cwebp",
+        "High CPU consumption when encoding cutting-edge AVIF formats on older hardware"
+      ],
+      "privacyVerdict": "100% offline client-side compression verified. Squoosh functions completely offline even after disconnecting your internet connection. No image payload ever leaves your device.",
+      "alternativeTo": [
+        "TinyPNG",
+        "ImageOptim",
+        "Kraken.io"
+      ]
+    },
+    "zh": {
+      "bestFor": "带实时左右画质对比滑块的单图有损/无损压缩与新一代 WebP/AVIF 格式转换。",
+      "pros": [
+        "Google Chrome 实验室出品，内置顶尖 WebAssembly 编码器（MozJPEG、WebP、AVIF、OxiPNG）",
+        "纯离线计算：断开网络仍可正常压缩，图片数据绝不离开本地设备",
+        "提供可自由拖拽的压前/压后画质实时对比分割条，肉眼微调压缩参数"
+      ],
+      "cons": [
+        "相较于桌面命令行工具，不支持大批量上百张图片的自动化并发批处理",
+        "在老旧设备上使用高级 AVIF 编码器时本地 CPU 占用较高"
+      ],
+      "privacyVerdict": "已验证 100% 纯前端离线压缩。加载页面后即使完全断网也能正常处理图片，网络面板监控零数据外发，隐私安全评级最高级。",
+      "alternativeTo": [
+        "TinyPNG",
+        "ImageOptim",
+        "Kraken.io"
+      ]
+    }
+  },
+  "tinypng-com": {
+    "en": {
+      "bestFor": "Quick drag-and-drop compression of WebP, PNG, and JPEG images with smart lossy palette reduction.",
+      "pros": [
+        "Industry-standard intelligent color quantization that preserves transparency with minimal quality loss",
+        "Supports dragging and dropping up to 20 images at once with simple one-click zip download",
+        "No signup or payment required for typical day-to-day web optimization tasks"
+      ],
+      "cons": [
+        "Free tier limits individual file sizes to 5MB and batches to 20 images",
+        "Relies on remote server-side processing rather than local browser WebAssembly"
+      ],
+      "privacyVerdict": "Server-side processing. Images are transmitted via HTTPS to TinyPNG compression servers and stored temporarily before being deleted automatically within 48 hours.",
+      "alternativeTo": [
+        "Kraken.io",
+        "OptimiZilla",
+        "Compressor.io"
+      ]
+    },
+    "zh": {
+      "bestFor": "日常网页开发与配图的 WebP、PNG、JPEG 图片智能量化压缩（支持批量拖拽）。",
+      "pros": [
+        "行业标杆级的智能色彩量化算法，在保留透明通道的同时大幅减小体积且肉眼难辨失真",
+        "支持一次性批量拖入最多 20 张图片，一键打包下载压缩后文件",
+        "日常使用完全免注册、免订阅、即拖即压"
+      ],
+      "cons": [
+        "单张图片限制 5MB 以内，单次批处理上限 20 张",
+        "采用远程云端服务器处理，非纯浏览器前端 WebAssembly 离线编码"
+      ],
+      "privacyVerdict": "云端服务器处理。图片经由加密 HTTPS 链路上传至压缩集群，官方承诺文件在处理后 48 小时内自动安全销毁。",
+      "alternativeTo": [
+        "Kraken.io",
+        "OptimiZilla",
+        "Compressor.io"
+      ]
+    }
+  },
+  "remove-bg": {
+    "en": {
+      "bestFor": "Automated one-click AI background removal for portraits, products, and graphic assets.",
+      "pros": [
+        "Exceptional edge detection and hair strand separation powered by dedicated computer vision models",
+        "Instant background isolation in under 5 seconds with zero manual lassoing",
+        "No login required for standard preview resolutions and basic downloads"
+      ],
+      "cons": [
+        "Full original high-resolution downloads require paid credits or an account",
+        "Server-side AI inference means your image is sent to their cloud pipeline"
+      ],
+      "privacyVerdict": "Server-side AI processing. Uploaded files are processed on remote GPU infrastructure and automatically purged after temporary session delivery.",
+      "alternativeTo": [
+        "Adobe Photoshop Select Subject",
+        "Canva Pro Background Remover",
+        "PhotoRoom"
+      ]
+    },
+    "zh": {
+      "bestFor": "人像、商品实物与电商素材的秒级全自动 AI 智能抠图去背景。",
+      "pros": [
+        "行业领先的人发丝级精细边缘识别模型，省去人工繁琐套索抠图",
+        "上传后 5 秒内自动出图，支持即时替换背景底色或透明导出",
+        "常规分辨率免注册直接下载，无需绑定任何个人信息"
+      ],
+      "cons": [
+        "超高清原始分辨率（HD/4K）下载需要消耗付费点数或登录账号",
+        "依赖云端 GPU 推理服务，图片需上传至服务器进行计算"
+      ],
+      "privacyVerdict": "云端模型处理。图片通过安全连接传输到推理服务器，处理完毕并在生成下载预览后短期自动销毁。",
+      "alternativeTo": [
+        "Adobe Photoshop 抠图",
+        "Canva Pro 一键去背景",
+        "PhotoRoom"
+      ]
+    }
+  },
+  "tools-pdf24-org-en": {
+    "en": {
+      "bestFor": "Complete all-in-one PDF toolkit (merge, split, compress, sign, OCR, and convert) without paywalls.",
+      "pros": [
+        "100% free with no file count limits, hidden watermarks, or locked premium tiers",
+        "Comprehensive suite covering over 30 specialized PDF operations in a single clean portal",
+        "Offers optional desktop offline tools alongside the browser-based workflow"
+      ],
+      "cons": [
+        "Interface is utilitarian and functional rather than modern minimal design",
+        "OCR text recognition on scanned books can take longer on multi-page files"
+      ],
+      "privacyVerdict": "Server-assisted processing with strict GDPR compliance. Files are automatically deleted from German PDF24 processing servers within one hour. No registration or email collected.",
+      "alternativeTo": [
+        "Adobe Acrobat Pro",
+        "Smallpdf",
+        "ILovePDF"
+      ]
+    },
+    "zh": {
+      "bestFor": "无任何收费陷阱、无水印的万能 PDF 工具箱（合并、拆分、压缩、签名、OCR、格式转换）。",
+      "pros": [
+        "真正 100% 永久免费，无文件数量限制，绝无导出强制水印或锁定高级功能",
+        "涵盖 30+ 项专业 PDF 工具，一站式解决所有办公文件格式转换需求",
+        "除在线网页版外还提供完全离线的独立桌面客户端"
+      ],
+      "cons": [
+        "界面偏向实用工业风，相较于现代设计工具略显质朴",
+        "对数百页以上大型扫描文档进行 OCR 光学字符识别时云端处理耗时较长"
+      ],
+      "privacyVerdict": "严格遵循欧盟 GDPR 隐私保护准则。文件通过加密通道上传至德国服务器处理，并在 1 小时内自动从物理磁盘彻底擦除，无需留下任何邮箱或个人信息。",
+      "alternativeTo": [
+        "Adobe Acrobat Pro",
+        "Smallpdf",
+        "ILovePDF"
+      ]
+    }
+  },
+  "gchq-github-io-cyberchef": {
+    "en": {
+      "bestFor": "The Swiss Army Knife for developers, security analysts, and engineers to encode, decode, parse, and format data.",
+      "pros": [
+        "Over 300 modular operations (AES, Base64, Hex, Hashing, Regex, JWT, Protobuf, Deflate)",
+        "Intuitive visual recipe pipeline that lets you chain transformations together",
+        "Completely open-source, maintained by GCHQ, and executes 100% client-side in your browser"
+      ],
+      "cons": [
+        "Steep initial learning curve for non-technical users unfamiliar with cryptographic terminology",
+        "Browser thread can hang if executing complex regular expressions on multi-megabyte payloads"
+      ],
+      "privacyVerdict": "100% client-side execution verified. CyberChef can be downloaded as a standalone HTML file and run completely offline without an internet connection. Sensitive secrets, tokens, and payloads never leave your computer.",
+      "alternativeTo": [
+        "Burp Suite Decoder",
+        "Custom Python scripts",
+        "Online JSON/Base64 converters"
+      ]
+    },
+    "zh": {
+      "bestFor": "开发者、安全研究员与运维工程师进行数据编解码、加密解密、哈希计算与格式转换的“瑞士军刀”。",
+      "pros": [
+        "内置 300+ 项模块化原子操作（Base64、AES、SHA、URL、JWT、Protobuf、Gzip 压缩等）",
+        "直观的“配方流水线（Recipe）”管道，可自由拖拽拼接多重转换链路",
+        "英国政府通信总部（GCHQ）开源维护，100% 纯前端离线运行，安全可靠"
+      ],
+      "cons": [
+        "对非技术人员或不熟悉加密概念的用户门槛较高",
+        "在数兆字节的超大文本上执行复杂正则表达式反向引用时可能造成浏览器主线程阻塞"
+      ],
+      "privacyVerdict": "已验证 100% 纯前端离线执行。支持下载单文件离线使用，数据、密钥和敏感 Token 绝不上报任何网络服务器，深受全球信息安全从业人员信赖。",
+      "alternativeTo": [
+        "Burp Suite Decoder",
+        "自写 Python 转换脚本",
+        "不可信的在线编解码网站"
+      ]
+    }
+  },
+  "devdocs-io": {
+    "en": {
+      "bestFor": "Blazing-fast unified API documentation browser with offline access for developers.",
+      "pros": [
+        "Instant fuzzy search across hundreds of programming languages, libraries, and frameworks",
+        "Full offline support via Service Workers and indexed caching; browse docs on flights or train commutes",
+        "Clean, distraction-free reading interface with dark mode and configurable keyboard shortcuts"
+      ],
+      "cons": [
+        "Doc updates depend on community scraper runs, occasionally lagging bleeding-edge library releases",
+        "Requires manual enabling of specific docsets in the sidebar preferences"
+      ],
+      "privacyVerdict": "Client-cached architecture. Documentation is fetched once and stored locally in browser CacheStorage/IndexedDB. Search queries execute entirely in local browser memory with zero tracking.",
+      "alternativeTo": [
+        "Dash (macOS)",
+        "Zeal",
+        "Devhints"
+      ]
+    },
+    "zh": {
+      "bestFor": "全栈开发者多语言/多框架 API 文档统一秒级模糊检索与离线查阅。",
+      "pros": [
+        "涵盖数百种主流编程语言、前端/后端框架与工具库，键盘敲击即刻全局模糊搜索",
+        "基于 Service Worker 实现强大的离线缓存，出差断网或飞机高铁上依然能流畅查阅文档",
+        "极致克制的阅读排版，支持深色模式与全键盘快捷键无缝导航"
+      ],
+      "cons": [
+        "文档版本依赖社区爬虫抓取同步，偶发落后于最前沿的 beta 发行版",
+        "初次使用需在侧边栏手动勾选并启用所需的开发文档库"
+      ],
+      "privacyVerdict": "本地缓存架构。文档索引离线存储于浏览器 CacheStorage 中，搜索关键词完全在本地内存运算匹配，绝不上报开发者的搜索行为与 IP。",
+      "alternativeTo": [
+        "Dash (macOS 付费软件)",
+        "Zeal",
+        "繁琐的各官网分散查阅"
+      ]
+    }
+  },
+  "regex101-com": {
+    "en": {
+      "bestFor": "Interactive regular expression building, testing, debugging, and syntax breakdown.",
+      "pros": [
+        "Real-time regex match highlighting with step-by-step regex engine explanation",
+        "Supports multiple regex flavors: PCRE2, JavaScript, Python, Go, and Java",
+        "Built-in regex debugger that visualizes execution steps and catastrophic backtracking"
+      ],
+      "cons": [
+        "Permanent link generation saves the regex pattern to their public database",
+        "High complexity patterns can trigger catastrophic backtracking timeouts"
+      ],
+      "privacyVerdict": "Client-side evaluation for standard JavaScript flavor; server-side regex engines (PCRE/Python/Golang) evaluate through ephemeral API calls without persistent data storage unless explicitly shared.",
+      "alternativeTo": [
+        "RegexBuddy",
+        "RegExr",
+        "Local terminal grep/sed"
+      ]
+    },
+    "zh": {
+      "bestFor": "交互式正则表达式编写、实时测试、语法逐段解析与回溯调试。",
+      "pros": [
+        "实时高亮匹配结果，并附带保姆级的正则表达式每个 token 的逻辑拆解与语法释义",
+        "支持多种正则引擎方言切换（PCRE2、JavaScript、Python、Golang、Java）",
+        "内置执行步骤调试器，能直观图形化回溯灾难性回溯（Catastrophic Backtracking）"
+      ],
+      "cons": [
+        "点击生成永久分享链接时会将正则和测试用例保存至公共数据库，敏感数据需谨慎",
+        "非 JS 引擎（如 PCRE/Python）的深层调试需要经过无状态 API 代理"
+      ],
+      "privacyVerdict": "默认 JavaScript 引擎完全在浏览器本地计算；切换服务端引擎时只进行临时无状态匹配计算，不留存个人测试数据。",
+      "alternativeTo": [
+        "RegexBuddy (桌面收费软件)",
+        "RegExr",
+        "终端反复调试"
+      ]
+    }
+  },
+  "carbon-now-sh": {
+    "en": {
+      "bestFor": "Generating beautiful, aesthetically pleasing screenshot graphics of source code for social media and documentation.",
+      "pros": [
+        "Extensive customization of syntax themes, window controls, background gradients, and fonts",
+        "Exports crisp PNG and SVG images with custom padding and drop shadows",
+        "One-click URL sharing that embeds code snippet and layout settings directly in the link"
+      ],
+      "cons": [
+        "Not suited for large multi-page code repositories or animated code walkthroughs",
+        "Heavy code snippets can cause minor rendering delay in browser canvas export"
+      ],
+      "privacyVerdict": "Client-side rendering verified. The code snippet is parsed, highlighted, and rasterized to canvas entirely in your local browser window.",
+      "alternativeTo": [
+        "Ray.so",
+        "Snappify",
+        "Manual IDE screenshots"
+      ]
+    },
+    "zh": {
+      "bestFor": "一键生成高颜值代码美化卡片与技术分享长图（用于社交媒体、PPT 和技术博客）。",
+      "pros": [
+        "极其丰富的配色主题、窗口控制按钮、渐变背景阴影和等宽编程字体选项",
+        "支持高分辨率 PNG 与无损矢量 SVG 导出，支持自定义内边距与视网膜高分屏适配",
+        "支持将代码内容和排版参数全部编码进 URL 参数，免登录一键分享复现"
+      ],
+      "cons": [
+        "不适合超长代码段或多文件项目的动态演示代码",
+        "超大代码块在导出超高倍率图片时渲染需要数秒"
+      ],
+      "privacyVerdict": "纯前端渲染验证。代码语法高亮与 Canvas 栅格化生成均在本地浏览器内完成，代码内容绝不会被截留保存到服务器。",
+      "alternativeTo": [
+        "Ray.so",
+        "Snappify",
+        "IDE 简陋截图"
+      ]
+    }
+  },
+  "jsoncrack-com": {
+    "en": {
+      "bestFor": "Visualizing complex nested JSON, YAML, and CSV structures into interactive node graphs.",
+      "pros": [
+        "Transforms dense JSON into intuitive visual tree diagrams with searchable and collapsible nodes",
+        "Supports direct schema validation and format conversion on the fly",
+        "Seamless image and SVG export of rendered graph representations"
+      ],
+      "cons": [
+        "Massive JSON files with over 10,000 nodes can experience graph rendering slowdowns",
+        "Cloud workspace sharing and persistent team storage require a premium account"
+      ],
+      "privacyVerdict": "Local graph rendering. Node layout and parser algorithms execute in the client browser. No private payload is synced to servers during anonymous sessions.",
+      "alternativeTo": [
+        "Postman Visualizer",
+        "JSON Hero",
+        "Standard JSON tree formatters"
+      ]
+    },
+    "zh": {
+      "bestFor": "将复杂的深层嵌套 JSON、YAML、CSV 数据结构即时转换为可视化交互式拓扑关系图。",
+      "pros": [
+        "将晦涩难懂的深层 JSON 瞬间转化为清晰的树状节点图，支持节点搜索、缩放与折叠",
+        "内置实时语法校验纠错与双向数据流联动编辑",
+        "支持一键将拓扑关系图无损导出为高清 PNG、SVG 图片"
+      ],
+      "cons": [
+        "超过万级节点数的超大体积 JSON 会占用大量图形显存，导致缩放微卡",
+        "云端多端同步与团队协作知识库属于高级版功能"
+      ],
+      "privacyVerdict": "本地前端图算法计算。节点拓扑与画布渲染完全在用户浏览器端运行，匿名模式下私有业务数据绝不同步到第三方服务器。",
+      "alternativeTo": [
+        "Postman Visualizer",
+        "JSON Hero",
+        "传统纯文本 JSON 格式化器"
+      ]
+    }
+  },
+  "app-diagrams-net": {
+    "en": {
+      "bestFor": "Professional enterprise-grade flowchart, UML, network architecture, and process diagramming.",
+      "pros": [
+        "Fully featured equivalent to Microsoft Visio and Lucidchart without any subscription fees",
+        "Save files directly to your device, Google Drive, OneDrive, or GitHub repository",
+        "Zero registration required; launch immediately with rich stencil libraries for AWS, Azure, GCP, and Cisco"
+      ],
+      "cons": [
+        "User interface prioritizes deep functionality over modern simplified aesthetics",
+        "Real-time multi-user live cursors require integrating with external cloud storage providers"
+      ],
+      "privacyVerdict": "Client-side diagram builder. All vector shapes, layout algorithms, and files remain on your local machine unless you explicitly authorize cloud storage connectors.",
+      "alternativeTo": [
+        "Microsoft Visio",
+        "Lucidchart",
+        "OmniGraffle"
+      ]
+    },
+    "zh": {
+      "bestFor": "企业级专业流程图、UML 建模、网络拓扑图与系统架构图绘制（完全免费且无功能阉割）。",
+      "pros": [
+        "功能全面对标 Microsoft Visio 和 Lucidchart，无任何订阅费与图纸数量限制",
+        "支持直接将源文件保存到本地硬盘、Google Drive、OneDrive 或 GitHub 仓库",
+        "免注册即开即用，内置完整的 AWS、Azure、GCP、Cisco 等工业级官方图元库"
+      ],
+      "cons": [
+        "界面偏向传统专业制图软件，视觉风格略显厚重严肃",
+        "多用户实时协同需要配合外部网盘或特定配置"
+      ],
+      "privacyVerdict": "已验证客户端独立运行。所有图元绘制与文件导出均在本地完成，默认不向任何服务器传输绘图数据，是企业内网和高合规场景的首选。",
+      "alternativeTo": [
+        "Microsoft Visio",
+        "Lucidchart",
+        "OmniGraffle"
+      ]
+    }
+  },
+  "pomofocus-io": {
+    "en": {
+      "bestFor": "Clean, distraction-free Pomodoro technique time management with task tracking.",
+      "pros": [
+        "Customizable work/short-break/long-break intervals with gentle audio notifications",
+        "Built-in task estimation checklist that saves progress locally in your browser",
+        "Zero onboarding: timer is ready to run the moment you open the page"
+      ],
+      "cons": [
+        "Local browser clearing or incognito windows will reset your task history",
+        "Advanced cloud sync across multiple mobile devices requires signing up"
+      ],
+      "privacyVerdict": "100% client-side execution. Settings, tasks, and timer timestamps are stored exclusively in browser localStorage without server tracking.",
+      "alternativeTo": [
+        "Forest App",
+        "Toggl Track",
+        "Be Focused"
+      ]
+    },
+    "zh": {
+      "bestFor": "极简无干扰的番茄工作法时间管理与轻量待办任务专注追踪。",
+      "pros": [
+        "支持自定义专注时间、短休与长休时段，配备温和的声音提示",
+        "内置任务清单与番茄钟预估统计，无需账号自动在本地持久化",
+        "即开即用，页面打开瞬间即可进入专注状态，无任何引导弹窗"
+      ],
+      "cons": [
+        "清理浏览器缓存或在无痕模式下会导致历史任务记录丢失",
+        "跨设备多端实时云同步需要注册账号"
+      ],
+      "privacyVerdict": "100% 浏览器本地存储。所有设置、任务项和计时数据全部保存在浏览器的 localStorage 中，不向服务器回传个人作息习惯。",
+      "alternativeTo": [
+        "Forest 专注森林",
+        "Toggl Track",
+        "Be Focused"
+      ]
+    }
+  },
+  "ezgif-com": {
+    "en": {
+      "bestFor": "Quick online GIF creation, video-to-GIF conversion, cropping, resizing, and frame-by-frame optimization.",
+      "pros": [
+        "Direct tools to slice, speed up, reverse, and optimize GIF color palettes",
+        "Reliable video-to-GIF converter supporting MP4, WebM, AVI, and MOV files",
+        "Completely free to use with zero registration requirements"
+      ],
+      "cons": [
+        "Legacy retro web design with multiple ad units on page",
+        "File upload limit capped at 100MB per video and 50MB per GIF"
+      ],
+      "privacyVerdict": "Server-side processing with automated purge. Uploaded media files are processed on transient servers and automatically deleted within a few hours.",
+      "alternativeTo": [
+        "Adobe Photoshop Save for Web",
+        "Kapwing",
+        "Giphy GIF Maker"
+      ]
+    },
+    "zh": {
+      "bestFor": "快速在线 GIF 动图制作、视频转 GIF、逐帧裁剪、缩放与色板极限压缩优化。",
+      "pros": [
+        "提供专业的动图逐帧切割、变速、倒放、色彩表抽稀压缩等核心操作",
+        "转换效果稳定，支持将 MP4、WebM、AVI 等视频快速高保真转为 GIF",
+        "真正免注册、无水印、完全免费使用"
+      ],
+      "cons": [
+        "界面保持复古早期 Web 风格，页面包含展示型广告位",
+        "单次处理文件限制视频 100MB、动图 50MB"
+      ],
+      "privacyVerdict": "服务器临时托管处理。上传的素材文件在临时处理服务器生成目标动图后，会在数小时内由定时任务自动物理销毁。",
+      "alternativeTo": [
+        "Photoshop Web 格式导出",
+        "Kapwing",
+        "Giphy GIF Maker"
+      ]
+    }
+  },
+  "haveibeenpwned-com": {
+    "en": {
+      "bestFor": "Verifying whether your email address or password has been compromised in known data breaches.",
+      "pros": [
+        "Authoritative, globally respected database maintained by cybersecurity expert Troy Hunt",
+        "Uses k-anonymity mathematical model for password checks so your full password is never sent over the wire",
+        "Completely free public service with zero tracking or advertising"
+      ],
+      "cons": [
+        "Database reflects known historical breaches; zero-day compromises will not appear until publicly verified",
+        "Detailed notifications for newly exposed accounts require signing up for alerts"
+      ],
+      "privacyVerdict": "Pioneering privacy protection: password checking uses k-Anonymity (only the first 5 characters of the SHA-1 hash are sent to the API, making it mathematically impossible for HIBP to discover your password).",
+      "alternativeTo": [
+        "Identity Guard",
+        "Experian IdentityWorks",
+        "Paid breach monitoring services"
+      ]
+    },
+    "zh": {
+      "bestFor": "权威查询个人邮箱账号或密码是否曾在全球公开已知的数据泄露事件中遭泄露。",
+      "pros": [
+        "由国际知名网络安全专家 Troy Hunt 维护，是全球公认最权威的数据泄露核验库",
+        "密码查询首创 k-匿名性数学模型，明文密码绝对不会发送给服务器",
+        "纯公益性质公开服务，零追踪脚本、零商业广告干扰"
+      ],
+      "cons": [
+        "数据库基于已公开确认的泄露事件，最新的未公开 0day 泄露无法被提前捕捉",
+        "如需未来发生新泄露时获得主动邮件预警需订阅提醒"
+      ],
+      "privacyVerdict": "开创性的隐私设计：密码核验采用 k-Anonymity（仅将 SHA-1 哈希值前 5 位发往 API，服务器在数学上绝不可能推导或知晓你的原始密码）。",
+      "alternativeTo": [
+        "商业身份防盗服务",
+        "Experian IdentityWorks",
+        "收费泄露监控软件"
+      ]
+    }
+  },
+  "temp-mail-org": {
+    "en": {
+      "bestFor": "Instant disposable email inbox to receive verification codes and avoid marketing spam.",
+      "pros": [
+        "Instant randomized email address generated automatically on page load with zero clicks",
+        "Live-updating websocket inbox receives incoming emails and OTP codes in real time",
+        "Shields your personal mailbox from spam lists, promotional newsletters, and data brokers"
+      ],
+      "cons": [
+        "Temporary email domains are occasionally blocked by strict fraud detection systems",
+        "Public shared domain pools mean inbox is ephemeral and unsuited for sensitive account recoveries"
+      ],
+      "privacyVerdict": "Ephemeral messaging. Disposable addresses automatically rotate and incoming messages are permanently purged after a short expiration window. No personal identity is ever linked.",
+      "alternativeTo": [
+        "10MinuteMail",
+        "Guerrilla Mail",
+        "Mailinator"
+      ]
+    },
+    "zh": {
+      "bestFor": "秒级获取一次性临时邮箱地址，接收网站验证码并彻底阻断垃圾营销骚扰。",
+      "pros": [
+        "打开页面瞬间自动生成全新随机邮箱地址，无需点击任何按钮",
+        "WebSocket 实时监听收件箱，验证码邮件秒级推送到屏幕",
+        "有效保护个人真实邮箱，防止被第三方网站转卖给广告数据商"
+      ],
+      "cons": [
+        "部分风控极严的网站可能会屏蔽常见的临时邮箱公共域名",
+        "收件箱属于临时无状态，过期后无法找回，不可用于长期账号绑定"
+      ],
+      "privacyVerdict": "临时无状态消息通道。临时邮箱在关闭或刷新后生命周期终止，邮件在存储周期后自动彻底销毁，完全无个人真实身份关联。",
+      "alternativeTo": [
+        "10MinuteMail",
+        "Guerrilla Mail",
+        "Mailinator"
+      ]
+    }
+  },
+  "privacytests-org": {
+    "en": {
+      "bestFor": "Independent, open-source benchmarking of web browser privacy and tracking protections.",
+      "pros": [
+        "Rigorous automated testing of Brave, Safari, Firefox, Tor, Chrome, and Edge across dozens of leak vectors",
+        "Evaluates state partitioning, finger-printing resistance, CNAME cloaking, and bounce tracking",
+        "Completely transparent open-source test suite with no corporate affiliate bias"
+      ],
+      "cons": [
+        "Data is highly technical and aimed primarily at privacy researchers and power users",
+        "Does not provide browser configuration automation; users must adjust flags manually"
+      ],
+      "privacyVerdict": "100% static educational analysis. The website is an open-source static report hosted on GitHub Pages. No telemetry, cookies, or user tracking are collected.",
+      "alternativeTo": [
+        "Cover Your Tracks (EFF)",
+        "Browserleaks",
+        "Commercial VPN marketing tests"
+      ]
+    },
+    "zh": {
+      "bestFor": "独立开源核验主流浏览器（Chrome、Safari、Firefox、Brave、Edge、Tor）真实防追踪与隐私保护能力。",
+      "pros": [
+        "严格自动化评测状态隔离、防浏览器指纹、CNAME 隐式追踪与跳转追踪等数十项漏洞",
+        "清晰直观的红绿对照表，直击各家浏览器是否真正保护用户数据",
+        "测试源码完全公开透明，无任何商业浏览器赞助商偏袒"
+      ],
+      "cons": [
+        "测试指标偏底层硬核，更适合极客、安全研究员与进阶用户理解",
+        "仅提供评测事实，无法一键帮用户自动修改本地浏览器配置"
+      ],
+      "privacyVerdict": "100% 静态透明知识库。基于 GitHub Pages 托管的纯静态报告，网站不含任何分析追踪代码、Cookie 或商业广告。",
+      "alternativeTo": [
+        "Cover Your Tracks (EFF)",
+        "Browserleaks",
+        "虚假的商业 VPN 测评软文"
+      ]
+    }
+  },
+  "crontab-guru": {
+    "en": {
+      "bestFor": "Quick plain-English translation and verification of cron schedule expressions.",
+      "pros": [
+        "Instant human-readable breakdown of cron syntax (minute, hour, day of month, month, day of week)",
+        "Calculates and displays next scheduled execution timestamps",
+        "Random example generator helps engineers learn complex cron schedules"
+      ],
+      "cons": [
+        "Does not simulate non-standard second-precision extended cron engines like Quartz",
+        "Single-purpose utility without multi-cron pipeline scheduling"
+      ],
+      "privacyVerdict": "100% client-side calculation verified. Cron expressions are parsed instantly via client-side JavaScript regex. No schedule data is sent to a backend server.",
+      "alternativeTo": [
+        "Crontab generator",
+        "Manual cron man page parsing",
+        "ChatGPT cron prompts"
+      ]
+    },
+    "zh": {
+      "bestFor": "Linux 定时任务 Cron 表达式的秒级可读性翻译、语法纠错与未来执行时间预览。",
+      "pros": [
+        "输入五个字段即可即时翻译为直白的人类自然语言，绝不会搞错分/时/星期顺序",
+        "动态计算并显示接下来数次定时任务的精确触发时间点",
+        "提供随机范例生成器，帮助开发者快速掌握各种间隔与通配符语法"
+      ],
+      "cons": [
+        "不额外支持 Spring/Quartz 等带“秒级”或年份的 6-7 位非标扩展 cron 语法",
+        "专一垂直单工具，不提供复杂多定时任务的工作流编排"
+      ],
+      "privacyVerdict": "已验证 100% 纯前端计算。Cron 表达式由前端 JavaScript 正则即时解析计算，输入内容完全不会发送至任何后台服务器。",
+      "alternativeTo": [
+        "在线 Cron 生成器",
+        "反复翻阅 man crontab",
+        "询问 ChatGPT 确认语法"
+      ]
+    }
+  },
+  "bundlephobia-com": {
+    "en": {
+      "bestFor": "Checking the bundle size impact, download time, and dependency footprint of any npm package.",
+      "pros": [
+        "Displays precise minified and gzipped bundle size metrics before you run npm install",
+        "Visualizes dependency trees and suggests smaller, lighter alternative libraries",
+        "Supports version-by-version size progression history"
+      ],
+      "cons": [
+        "Occasionally takes time to build and analyze newly released or uncached package versions",
+        "Does not account for custom tree-shaking efficiencies in sophisticated mono-repo setups"
+      ],
+      "privacyVerdict": "Public registry lookup. Only package name strings are queried against public npm registry builds. No client source code or internal project structure is ever transmitted.",
+      "alternativeTo": [
+        "Webpack Bundle Analyzer",
+        "Source Map Explorer",
+        "npm audit"
+      ]
+    },
+    "zh": {
+      "bestFor": "前端工程师在执行 npm install 前查询任意 npm 包的体积大小、Gzip 开销与依赖树。",
+      "pros": [
+        "精准展示 Minified 和 Gzipped 后的真实网络加载开销与预估下载耗时",
+        "直观解析包依赖层级，并主动推荐更轻量级的现代替代库",
+        "提供历史版本体积走势图，直观看出依赖库版本迭代是否发生体积劣化"
+      ],
+      "cons": [
+        "对于刚刚发布数分钟的冷门 npm 包版本，云端首次打包分析需要等待数十秒",
+        "无法直接结合本地工程特定的 Tree-shaking 复杂配置进行动态裁剪估算"
+      ],
+      "privacyVerdict": "公共包名元数据检索。仅以包名查询公共 npm 仓库的预打包分析结果，绝不触碰或上传开发者的本地源码与业务配置。",
+      "alternativeTo": [
+        "Webpack Bundle Analyzer",
+        "Source Map Explorer",
+        "盲目安装后发现体积爆炸"
+      ]
+    }
+  },
+  "caniuse-com": {
+    "en": {
+      "bestFor": "Verifying browser support and compatibility for modern HTML, CSS, JavaScript, and Web APIs.",
+      "pros": [
+        "The definitive industry-standard compatibility matrix referenced by MDN and W3C",
+        "Displays global and regional user-share coverage percentages for every web feature",
+        "Detailed sub-feature compatibility notes and known engine vendor bugs"
+      ],
+      "cons": [
+        "High density of tables can be overwhelming for beginners",
+        "Tracking experimental draft features requires switching view toggles"
+      ],
+      "privacyVerdict": "Completely static public knowledge base. Compatibility databases are served as cached assets without collecting user coding environments.",
+      "alternativeTo": [
+        "MDN Compatibility Tables",
+        "BrowserStack",
+        "Local manual browser testing"
+      ]
+    },
+    "zh": {
+      "bestFor": "前端与全栈工程师查阅现代 HTML5、CSS3、JavaScript 和 Web API 在全球各浏览器的兼容性支持。",
+      "pros": [
+        "全球前端开发的行业基准指南，数据被 MDN 与 W3C 官方广泛引用",
+        "精准提供各项特性的全球与地区级用户覆盖率百分比，辅助技术选型决策",
+        "附带详尽的厂商兼容 Bug 说明、前缀要求与历史遗留问题修复建议"
+      ],
+      "cons": [
+        "密集的色块矩阵对新手略显硬核，需要一定的浏览器内核认知基础",
+        "前沿试验性草案特性需要手动在偏好设置中开启展示"
+      ],
+      "privacyVerdict": "纯静态公开知识库。所有兼容性数据作为预编译静态资源分发，不采集任何用户开发环境数据或个人标识。",
+      "alternativeTo": [
+        "MDN 兼容性表格",
+        "BrowserStack 昂贵云测",
+        "逐个真机反复验证"
+      ]
+    }
+  },
+  "audiotrimmer-com": {
+    "en": {
+      "bestFor": "Fast online audio slicing, trimming, and phone ringtone creation directly in the browser.",
+      "pros": [
+        "Simple visual waveform scrubbing to select precise start and end points",
+        "Supports MP3, WAV, WMA, OGG, M4R, AAC, and FLAC audio files",
+        "Includes subtle fade-in and fade-out transition effects"
+      ],
+      "cons": [
+        "File upload limit restricted to 100MB per track",
+        "Single-track editing only; does not support multi-track audio mixing"
+      ],
+      "privacyVerdict": "Temporary processing. Uploaded audio tracks are processed on transient servers and automatically deleted from the disk shortly after editing is finished.",
+      "alternativeTo": [
+        "Audacity",
+        "GarageBand",
+        "Adobe Audition"
+      ]
+    },
+    "zh": {
+      "bestFor": "快速在线音频裁剪、MP3 片段截取与手机铃声一键制作。",
+      "pros": [
+        "直观的波形图拖拽手柄，精确到毫秒级设定开始与结束播放时间点",
+        "全面支持 MP3、WAV、WMA、OGG、M4R、AAC、FLAC 等主流音频格式",
+        "支持淡入淡出（Fade-in/out）平滑过渡，避免铃声开头爆音"
+      ],
+      "cons": [
+        "单个音频文件上限 100MB",
+        "仅支持单轨道线性裁剪，不支持多音轨混音叠加"
+      ],
+      "privacyVerdict": "临时无状态处理。上传音频在服务器完成裁剪后生成临时下载，并在短时间内由系统自动彻底清除，无需注册留存个人信息。",
+      "alternativeTo": [
+        "Audacity",
+        "GarageBand",
+        "Adobe Audition"
+      ]
+    }
+  },
+  "convertio-co": {
+    "en": {
+      "bestFor": "Universal online file conversion supporting more than 300 different formats across documents, audio, and video.",
+      "pros": [
+        "Huge library of format conversions: PDF, DOCX, EPUB, MP4, MP3, SVG, ZIP, and RAW",
+        "Drag-and-drop batch conversion with advanced codec, aspect ratio, and bitrate settings",
+        "Works smoothly across desktop, tablet, and mobile browsers without software installs"
+      ],
+      "cons": [
+        "Free tier limits maximum individual file size to 100MB",
+        "Daily conversion count is capped for anonymous users"
+      ],
+      "privacyVerdict": "Secure cloud conversion pipeline. Files are transferred via TLS encryption and permanently deleted from Convertio servers within 24 hours.",
+      "alternativeTo": [
+        "CloudConvert",
+        "Handbrake",
+        "Zamzar"
+      ]
+    },
+    "zh": {
+      "bestFor": "跨文档、图片、音视频、电子书与归档文件的全能在线格式万能转换（支持 300+ 格式）。",
+      "pros": [
+        "支持几乎所有已知常见格式（PDF、Word、EPUB、MP4、MP3、SVG、RAW 等）之间的任意互转",
+        "支持多文件拖拽批量处理，并提供编解码器、旋转、比特率等高级参数调节",
+        "全平台浏览器即开即用，手机端无需下载沉重 App"
+      ],
+      "cons": [
+        "免费版单文件体积上限为 100MB",
+        "免登录匿名用户每日转换并发次数有一定频次限制"
+      ],
+      "privacyVerdict": "加密云端转换管道。所有文件均通过端到端 TLS 安全链路上传，官方保证文件在转换完成后 24 小时内从服务器彻底永久销毁。",
+      "alternativeTo": [
+        "CloudConvert",
+        "Handbrake",
+        "Zamzar"
+      ]
+    }
+  },
+  "hemingwayapp-com": {
+    "en": {
+      "bestFor": "Improving prose clarity, readability, and highlighting dense or passive sentences.",
+      "pros": [
+        "Color-coded highlights pinpoint overly complex sentences, passive voice, and weak adverbs",
+        "Assigns an immediate readability grade level suited for public and business writing",
+        "Clean, distraction-free typographic writing canvas"
+      ],
+      "cons": [
+        "Web version does not auto-save drafts across sessions unless you keep the tab open",
+        "Does not offer automated AI generative paraphrasing in the classic no-login interface"
+      ],
+      "privacyVerdict": "100% client-side text analysis verified. Sentences are parsed and styled locally in your browser. Your written drafts are never logged or stored on remote servers.",
+      "alternativeTo": [
+        "Grammarly",
+        "ProWritingAid",
+        "Microsoft Word Editor"
+      ]
+    },
+    "zh": {
+      "bestFor": "英文写作润色、可读性等级评定、冗余副词排查与被动语态纠错。",
+      "pros": [
+        "用不同色彩直观高亮过长复杂句、被动语态和弱化语气的无用副词",
+        "实时给出美国年级阅读难度评级，帮助文章更通俗利落、掷地有声",
+        "如打字机般纯粹的极简排版界面，提供无干扰的沉浸式码字体验"
+      ],
+      "cons": [
+        "网页端不具备跨设备持久草稿箱，关闭标签页前需及时复制保存",
+        "经典免费版不提供大语言模型一键自动重写生成功能"
+      ],
+      "privacyVerdict": "已验证 100% 纯前端文本分析。语法规则匹配完全在本地浏览器 JavaScript 引擎中运行，文稿内容绝对不会上传或沉淀为 AI 训练语料。",
+      "alternativeTo": [
+        "Grammarly",
+        "ProWritingAid",
+        "Word 内置语法检查"
+      ]
+    }
+  },
+  "languagetool-org": {
+    "en": {
+      "bestFor": "Multilingual grammar, style, and spell checking across English, German, Spanish, French, and 30+ languages.",
+      "pros": [
+        "Detects grammatical nuances, punctuation errors, and false friends far beyond simple spell check",
+        "Strong support for dozens of non-English languages with native linguistic rules",
+        "Respects user privacy with transparent open-source core algorithms"
+      ],
+      "cons": [
+        "Free anonymous text inspection is limited to 10,000 characters per check",
+        "Advanced stylistic vocabulary rephrasing requires the premium tier"
+      ],
+      "privacyVerdict": "Encrypted transient processing. Text entered for checking is transmitted over HTTPS, processed in memory to identify errors, and never permanently stored or used to train public models.",
+      "alternativeTo": [
+        "Grammarly",
+        "QuillBot",
+        "Ginger Software"
+      ]
+    },
+    "zh": {
+      "bestFor": "支持 30+ 种主流语言（德语、英语、西语、法语等）的多语种语法纠错、拼写检查与表达润色。",
+      "pros": [
+        "精准识别细微的时态错误、标点失误与形似混淆词，远超传统浏览器拼写检查",
+        "在德语、法语等多语言语系中表现极其专业，深受母语者与外语写作者推崇",
+        "核心算法基于开源社区沉淀，比商业闭源写作软件更注重隐私边界"
+      ],
+      "cons": [
+        "免登录单次检查字数上限为 10,000 字符",
+        "超高级长难句高级改写和同义词丰富度推荐属于付费扩展"
+      ],
+      "privacyVerdict": "加密瞬时处理。文案经由 HTTPS 安全通道发送至内存引擎检查后即时返回结果，官方明确承诺不永久保存内容，绝不拿用户隐私用于公共模型训练。",
+      "alternativeTo": [
+        "Grammarly",
+        "QuillBot",
+        "Ginger Software"
+      ]
+    }
+  },
+  "coolors-co": {
+    "en": {
+      "bestFor": "Superfast color palette generation, harmony exploration, and color-scheme export for designers.",
+      "pros": [
+        "Generate stunning, harmonious 5-color palettes simply by hitting the spacebar",
+        "Lock favorite hex values while randomizing complementary companion shades",
+        "Comprehensive export options: PDF, PNG, SVG, CSS code, and URL permalinks"
+      ],
+      "cons": [
+        "Occasional promotional banners encouraging pro subscription and mobile app installs",
+        "Advanced features like unlimited custom palette collections require an account"
+      ],
+      "privacyVerdict": "100% client-side color math. Palette generation algorithms execute directly in your browser. URLs contain color parameters in the slug for zero-server sharing.",
+      "alternativeTo": [
+        "Adobe Color",
+        "Colormind",
+        "Paletton"
+      ]
+    },
+    "zh": {
+      "bestFor": "设计师与前端开发者极速生成高质感和谐配色方案、调色板微调与颜色提取。",
+      "pros": [
+        "敲击空格键即可瞬间生成和谐悦目的五色配色卡，找灵感如行云流水",
+        "支持一键锁定满意的色值（Hex），仅对未锁定的颜色进行随机重roll与对比度优化",
+        "导出格式丰富，支持直接复制 CSS 变量、HEX/RGB 代码或导出 PDF/SVG"
+      ],
+      "cons": [
+        "页面包含引导开通 Pro 会员与下载移动 App 的推广横幅",
+        "创建无限调色板云端收藏夹需要注册账户"
+      ],
+      "privacyVerdict": "已验证纯前端色彩算法计算。调色板生成由本地脚本即时算出，配色参数直接编码在 URL 地址栏中，无需向后端存储任何隐私偏好。",
+      "alternativeTo": [
+        "Adobe Color",
+        "Colormind",
+        "Paletton"
+      ]
+    }
+  },
+  "favicon-io": {
+    "en": {
+      "bestFor": "Generating complete cross-platform favicon packages from text, emojis, or existing images.",
+      "pros": [
+        "Generates all required sizes (16x16, 32x32, 192x192, 512x512, and apple-touch-icon) in one click",
+        "Outputs ready-to-paste HTML header code and site.webmanifest configuration",
+        "Zero-click text and emoji favicon generator with customizable fonts and backgrounds"
+      ],
+      "cons": [
+        "Does not offer advanced vector graphic node editing inside the web interface",
+        "Image upscaling can be pixelated if source asset resolution is under 128px"
+      ],
+      "privacyVerdict": "Client-side image generation verified. All canvas resizing, emoji rasterization, and zip bundling execute locally in your browser memory.",
+      "alternativeTo": [
+        "RealFaviconGenerator",
+        "Photoshop ICO plugins",
+        "Favicon.cc"
+      ]
+    },
+    "zh": {
+      "bestFor": "一键从文本、Emoji 表情或本地图片生成适配全平台（iOS/Android/Web）的完整 Favicon 图标包。",
+      "pros": [
+        "单次生成所有标准尺寸（16x16、32x32、Apple Touch Icon、Android 512x512）与 ico 文件",
+        "自动附带已格式化好的 HTML <link> 标签代码和 site.webmanifest 配置文件",
+        "免任何作图工具，直接用文字和 Emoji 即可定制心仪的网站图标"
+      ],
+      "cons": [
+        "网页内不提供复杂的矢量节点二次绘制功能",
+        "如果上传的原始图片分辨率过低（小于 128px），生成大图标时会略带像素感"
+      ],
+      "privacyVerdict": "纯前端 Canvas 渲染验证。图标缩放、Emoji 栅格化与 Zip 打包压缩均在浏览器本地内存中完成，素材图片绝不上传服务器。",
+      "alternativeTo": [
+        "RealFaviconGenerator",
+        "Photoshop ICO 插件",
+        "Favicon.cc"
+      ]
+    }
+  },
+  "meet-jit-si": {
+    "en": {
+      "bestFor": "Instant, encrypted, open-source video meetings without creating an account or downloading software.",
+      "pros": [
+        "Start or join a video meeting in one second just by typing a room name into the browser",
+        "100% open-source with optional end-to-end encryption (E2EE) and screen sharing",
+        "No forced desktop app installation or signup popups for participants"
+      ],
+      "cons": [
+        "Video quality can adapt down on bandwidth-constrained networks with many video participants",
+        "Moderator host capabilities are basic compared to enterprise Zoom administrative dashboards"
+      ],
+      "privacyVerdict": "Decentralized audio/video routing. Media streams are encrypted in transit via WebRTC (DTLS-SRTP). Open-source architecture ensures zero user profiling or meeting telemetry harvesting.",
+      "alternativeTo": [
+        "Zoom",
+        "Google Meet",
+        "Microsoft Teams"
+      ]
+    },
+    "zh": {
+      "bestFor": "免安装客户端、免注册账号、点击即可入会的极速开源高清视频会议与屏幕共享。",
+      "pros": [
+        "只需在浏览器输入自定义房间名，1 秒即可发起或加入视频会议",
+        "100% 纯正开源项目，支持端到端加密（E2EE）、高清屏幕共享与内置文字聊天",
+        "参会者无需下载几百兆的客户端，也无需注册账号，对外部客户极其友好"
+      ],
+      "cons": [
+        "参会人数较多且网络条件不佳时，WebRTC 会自动降低视频画质以保音频顺畅",
+        "主持人管理权限相对克制，缺少商业会议软件繁复的企业层级审批与考勤"
+      ],
+      "privacyVerdict": "WebRTC 通信保护。音视频流在传输中经过标准的 DTLS-SRTP 强加密，开源架构杜绝任何暗中收集会议录音或用户画像的行径。",
+      "alternativeTo": [
+        "Zoom",
+        "腾讯会议",
+        "Google Meet"
+      ]
+    }
+  },
+  "typescriptlang-org-play": {
+    "en": {
+      "bestFor": "Interactive TypeScript experimentation, type-gymnastics debugging, and sharing code reproductions.",
+      "pros": [
+        "Official Microsoft playground supporting all TypeScript compiler flags and version targets",
+        "Instant side-by-side transpiled JavaScript output and .d.ts type definitions preview",
+        "Compiles the full project state and settings directly into a shareable URL hash"
+      ],
+      "cons": [
+        "Not designed to build multi-file enterprise applications with complex bundler setups",
+        "Large npm package imports can take a few seconds to resolve typings from CDN"
+      ],
+      "privacyVerdict": "Client-side compiler execution. The official Monaco editor and TypeScript compiler run locally inside the browser via Web Workers. No proprietary code is stored remotely.",
+      "alternativeTo": [
+        "Local VS Code scratchpad",
+        "StackBlitz",
+        "CodeSandbox"
+      ]
+    },
+    "zh": {
+      "bestFor": "TypeScript 类型体操推导、语法特性试水、即时转译调试与 Bug 最小化用例复现分享。",
+      "pros": [
+        "微软官方演练场，支持自由切换所有 TS 编译器配置开关（tsconfig）与历史历史版本",
+        "左右分栏实时对照转译后的纯 JavaScript 代码与生成的 .d.ts 类型声明文件",
+        "支持将完整代码、光标状态和编译器配置压缩编码进 URL Hash，免登录一键分享复现"
+      ],
+      "cons": [
+        "仅适合单文件或微型代码推演，无法替代多工程文件复杂的现代 Webpack/Vite 脚手架",
+        "首次引入外部 npm 第三方依赖时需要通过 CDN 拉取类型定义，有数秒网络延迟"
+      ],
+      "privacyVerdict": "纯前端 Web Worker 编译运行。Monaco 编辑器与 TS 编译器均在本地浏览器多线程中完成类型推导，私有代码绝不上报至微软服务器。",
+      "alternativeTo": [
+        "本地临时起 VS Code 项目",
+        "StackBlitz",
+        "CodeSandbox"
+      ]
+    }
+  },
+  "explainshell-com": {
+    "en": {
+      "bestFor": "Deconstructing and understanding complex Linux/Unix shell commands and CLI flags.",
+      "pros": [
+        "Parses command-line strings and maps each individual flag to its exact paragraph in Ubuntu man pages",
+        "Helps developers and sysadmins safely understand piped bash scripts before executing in terminal",
+        "Simple, fast, and completely free without any user accounts"
+      ],
+      "cons": [
+        "Database is based on standard Ubuntu man pages; custom CLI utilities like kubectl or docker might have limited flag coverage",
+        "Cannot simulate the runtime environment or variable expansions"
+      ],
+      "privacyVerdict": "Lookup query privacy. Only the shell command line is parsed to retrieve public documentation snippets. No server-side execution of the entered command ever occurs.",
+      "alternativeTo": [
+        "Man pages terminal lookup",
+        "ChatGPT shell explanation",
+        "ShellCheck"
+      ]
+    },
+    "zh": {
+      "bestFor": "拆解解析复杂的 Linux / Unix Shell 命令与 CLI 参数，避免在生产终端误执行危险脚本。",
+      "pros": [
+        "输入一行复杂的 shell 命令，自动精准将每个参数与选项关联到官方 Ubuntu man 手册对应释义段落",
+        "帮助运维与开发者透彻理解从网上复制的管道（Pipe）脚本，避免成为“删库跑路”受害者",
+        "即输即解，纯净极简，绝无任何账号或广告阻拦"
+      ],
+      "cons": [
+        "文档库主要收录 Linux 系统底层命令，对新型专用 CLI（如 kubectl、docker）的覆盖略有不足",
+        "仅解析静态语法与参数释义，不提供真实的动态环境运行模拟与环境变量展开"
+      ],
+      "privacyVerdict": "公开手册语法关联检索。输入命令仅在后台进行纯文本参数分词并匹配公开 Linux 手册库，输入的命令绝对不会在服务器上执行，安全可信。",
+      "alternativeTo": [
+        "繁琐的终端 man 指令翻阅",
+        "询问 ChatGPT 命令解释",
+        "ShellCheck"
+      ]
+    }
+  }
+}

@@ -145,6 +145,24 @@ interface BuildData {
 import data from './build-data.json';
 const buildData = data as BuildData;
 
+export interface ToolEditorial {
+  bestFor: string;
+  pros: string[];
+  cons: string[];
+  privacyVerdict: string;
+  alternativeTo: string[];
+}
+
+import editorialJson from './tool-editorial.json';
+const editorialData = editorialJson as Record<string, Record<string, ToolEditorial>>;
+
+export function getToolEditorial(slug: string, locale: Locale = 'en'): ToolEditorial | null {
+  const toolEntry = editorialData[slug];
+  if (!toolEntry) return null;
+  return toolEntry[locale] ?? toolEntry.en ?? null;
+}
+
+
 export function getApprovedTools(): BuildDataTool[] {
   return buildData.tools.filter((t) => t.status === 'approved');
 }

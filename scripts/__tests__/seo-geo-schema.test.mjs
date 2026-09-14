@@ -64,4 +64,74 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('<meta name="twitter:card" content="summary_large_image" />'), 'Must include Twitter large card');
     assert.ok(content.includes('INDEXABLE_LOCALES.filter'), 'Must filter hreflang links to INDEXABLE_LOCALES to avoid noindex conflicts');
   });
+
+  it('tool-editorial.json has valid E-E-A-T reviews for at least 30 core tools', () => {
+    const raw = readFileSync(resolve(ROOT, 'src/data/tool-editorial.json'), 'utf-8');
+    const editorial = JSON.parse(raw);
+    const slugs = Object.keys(editorial);
+
+    assert.ok(slugs.length >= 30, `Must have at least 30 core tools, found ${slugs.length}`);
+
+    const coreTools = [
+      'photopea-com', 'excalidraw-com', 'tldraw-com', 'squoosh-app', 'tinypng-com',
+      'remove-bg', 'tools-pdf24-org-en', 'gchq-github-io-cyberchef', 'devdocs-io',
+      'regex101-com', 'carbon-now-sh', 'jsoncrack-com', 'app-diagrams-net',
+      'pomofocus-io', 'ezgif-com', 'haveibeenpwned-com', 'temp-mail-org',
+      'privacytests-org', 'crontab-guru', 'bundlephobia-com', 'caniuse-com',
+      'audiotrimmer-com', 'convertio-co', 'hemingwayapp-com', 'languagetool-org',
+      'coolors-co', 'favicon-io', 'meet-jit-si', 'typescriptlang-org-play', 'explainshell-com'
+    ];
+
+    for (const slug of coreTools) {
+      assert.ok(editorial[slug], `Missing editorial entry for ${slug}`);
+      for (const lang of ['en', 'zh']) {
+        const item = editorial[slug][lang];
+        assert.ok(item, `Missing ${lang} review for ${slug}`);
+        assert.ok(typeof item.bestFor === 'string' && item.bestFor.length > 10, `${slug}.${lang}.bestFor must be non-empty`);
+        assert.ok(Array.isArray(item.pros) && item.pros.length >= 2, `${slug}.${lang}.pros must have at least 2 items`);
+        assert.ok(Array.isArray(item.cons) && item.cons.length >= 1, `${slug}.${lang}.cons must have at least 1 item`);
+        assert.ok(typeof item.privacyVerdict === 'string' && item.privacyVerdict.length > 10, `${slug}.${lang}.privacyVerdict must be non-empty`);
+        assert.ok(Array.isArray(item.alternativeTo) && item.alternativeTo.length >= 1, `${slug}.${lang}.alternativeTo must have at least 1 item`);
+      }
+    }
+  });
+
+  it('ToolDetailPage renders Editorial Review, Pros & Cons, and Schema Review with positiveNotes/negativeNotes', () => {
+    const content = readFileSync(TOOL_DETAIL_PAGE, 'utf-8');
+
+    // UI elements
+    assert.ok(content.includes('getToolEditorial'), 'Must import and use getToolEditorial');
+    assert.ok(content.includes('tool.editorial.heading'), 'Must render editorial heading');
+    assert.ok(content.includes('tool.editorial.bestFor'), 'Must render bestFor label');
+    assert.ok(content.includes('tool.editorial.alternatives'), 'Must render alternatives label');
+    assert.ok(content.includes('tool.editorial.pros'), 'Must render pros label');
+    assert.ok(content.includes('tool.editorial.cons'), 'Must render cons label');
+    assert.ok(content.includes('tool.editorial.privacy'), 'Must render privacy verdict label');
+
+    // Schema.org Review & Pros/Cons enhancement
+    assert.ok(content.includes("'@type': 'Review'"), 'Must include Review in JSON-LD');
+    assert.ok(content.includes('positiveNotes: {'), 'Must include positiveNotes in JSON-LD');
+    assert.ok(content.includes('negativeNotes: {'), 'Must include negativeNotes in JSON-LD');
+    assert.ok(content.includes('isSimilarTo:'), 'Must map alternativeTo to isSimilarTo in JSON-LD');
+  });
+
+  it('i18n files include tool.editorial keys', () => {
+    const en = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/en.json'), 'utf-8'));
+    const zh = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/zh.json'), 'utf-8'));
+
+    const requiredKeys = [
+      'tool.editorial.heading',
+      'tool.editorial.bestFor',
+      'tool.editorial.alternatives',
+      'tool.editorial.pros',
+      'tool.editorial.cons',
+      'tool.editorial.privacy',
+    ];
+
+    for (const key of requiredKeys) {
+      assert.ok(en[key], `en.json missing key: ${key}`);
+      assert.ok(zh[key], `zh.json missing key: ${key}`);
+    }
+  });
 });
+
