@@ -162,6 +162,27 @@ export function getToolEditorial(slug: string, locale: Locale = 'en'): ToolEdito
   return toolEntry[locale] ?? toolEntry.en ?? null;
 }
 
+export interface CategoryEditorial {
+  title: string;
+  overview: string;
+  architectureInsights: string;
+  tradeoffs: {
+    gain: string;
+    sacrifice: string;
+  };
+  recommendedWorkflow: string;
+}
+
+import categoryEditorialJson from './category-editorial.json';
+const categoryEditorialData = categoryEditorialJson as Record<string, Record<string, CategoryEditorial>>;
+
+export function getCategoryEditorial(category: string, locale: Locale = 'en'): CategoryEditorial | null {
+  const catEntry = categoryEditorialData[category];
+  if (!catEntry) return null;
+  return catEntry[locale] ?? catEntry.en ?? null;
+}
+
+
 
 export function getApprovedTools(): BuildDataTool[] {
   return buildData.tools.filter((t) => t.status === 'approved');

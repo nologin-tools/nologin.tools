@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
-import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription, getCategoryEditorial } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 
@@ -12,6 +12,8 @@ interface Props {
 
 const { locale, category } = Astro.props;
 await loadTranslations(locale);
+
+const editorial = getCategoryEditorial(category, locale);
 
 const approvedTools = getApprovedTools();
 
@@ -45,9 +47,17 @@ const collectionLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: pageTitle,
-  description: pageDescription,
+  description: editorial?.overview ? `${editorial.overview.slice(0, 160)}...` : pageDescription,
   url: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(category)}`, locale)}`,
   inLanguage: locale,
+  ...(editorial ? {
+    about: {
+      '@type': 'Thing',
+      name: translatedCategory,
+      description: editorial.overview,
+    },
+  } : {}),
+
   mainEntity: {
     '@type': 'ItemList',
     name: t(locale, 'category.page.heading', { category: translatedCategory }),
@@ -142,6 +152,73 @@ const breadcrumbLd = {
         ))}
       </div>
     </nav>
+
+    <!-- Editorial Guide & Selection Matrix (E-E-A-T) -->
+    {editorial && (
+      <section class="mb-12 border-2 border-neutral-900 bg-neutral-50 p-6 sm:p-8 space-y-6" aria-labelledby="category-guide-heading">
+        <div class="flex items-center justify-between border-b border-neutral-200 pb-3">
+          <h2 id="category-guide-heading" class="text-xs font-bold text-neutral-500 uppercase tracking-widest font-mono">
+            {t(locale, 'category.editorial.heading')}
+          </h2>
+          <span class="text-[10px] uppercase font-mono tracking-widest px-2 py-0.5 border border-neutral-900 bg-white font-bold">
+            Curated Analysis
+          </span>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">
+            {editorial.title}
+          </h3>
+          <p class="text-neutral-700 text-sm sm:text-base leading-relaxed">
+            {editorial.overview}
+          </p>
+        </div>
+
+        <!-- Architecture & Privacy -->
+        <div class="bg-white border border-neutral-200 p-4 sm:p-5">
+          <h4 class="text-xs font-bold font-mono uppercase text-neutral-500 mb-1.5">
+            {t(locale, 'category.editorial.architecture')}
+          </h4>
+          <p class="text-neutral-700 text-sm leading-relaxed">
+            {editorial.architectureInsights}
+          </p>
+        </div>
+
+        <!-- Tradeoffs Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white border border-neutral-200 p-4">
+            <h4 class="text-xs font-bold font-mono uppercase text-green-700 mb-1.5 flex items-center gap-1.5">
+              <span class="w-3.5 h-3.5 rounded-full bg-green-100 text-green-800 flex items-center justify-center text-[10px] font-bold">+</span>
+              {t(locale, 'category.editorial.gain')}
+            </h4>
+            <p class="text-neutral-700 text-xs sm:text-sm leading-relaxed">
+              {editorial.tradeoffs.gain}
+            </p>
+          </div>
+          <div class="bg-white border border-neutral-200 p-4">
+            <h4 class="text-xs font-bold font-mono uppercase text-neutral-600 mb-1.5 flex items-center gap-1.5">
+              <span class="w-3.5 h-3.5 rounded-full bg-neutral-100 text-neutral-700 flex items-center justify-center text-[10px] font-bold">&minus;</span>
+              {t(locale, 'category.editorial.sacrifice')}
+            </h4>
+            <p class="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+              {editorial.tradeoffs.sacrifice}
+            </p>
+          </div>
+        </div>
+
+        <!-- Recommended Workflow -->
+        {editorial.recommendedWorkflow && (
+          <div class="border-t border-neutral-200/80 pt-4 flex flex-col sm:flex-row sm:items-baseline gap-2">
+            <span class="text-xs font-bold font-mono uppercase text-neutral-500 shrink-0">
+              {t(locale, 'category.editorial.workflow')}:
+            </span>
+            <p class="text-neutral-800 text-xs sm:text-sm font-medium leading-relaxed">
+              {editorial.recommendedWorkflow}
+            </p>
+          </div>
+        )}
+      </section>
+    )}
 
     <!-- Tool List -->
     <ul>

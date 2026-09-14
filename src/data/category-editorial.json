@@ -1,0 +1,244 @@
+{
+  "AI": {
+    "en": {
+      "title": "Registration-Free AI Tools & Prompt Privacy Guide",
+      "overview": "The modern AI landscape is heavily dominated by accounts, persistent user profiling, and aggressive prompt telemetry used to train commercial foundation models. No-login AI tools offer an essential counterweight: instant access to machine learning capabilities (code generation, search synthesis, background removal, voice conversion) without attaching your personal identity, email address, or payment records to your queries.",
+      "architectureInsights": "No-login AI services typically operate under two architectural paradigms: stateless server-side inference (where requests are processed in volatile GPU memory and immediately purged without persistent logging) or client-side WebAssembly inference (using ONNX Runtime or WebGPU to execute lightweight neural networks directly inside your browser).",
+      "tradeoffs": {
+        "gain": "Zero prompt-to-identity linkage, immunity to credential leaks, and immediate workflow access without credit card forms or waiting lists.",
+        "sacrifice": "Absence of persistent cloud chat histories, personalized system prompts, and hard token generation caps on resource-intensive models."
+      },
+      "recommendedWorkflow": "For technical problem solving, pair Phind (developer-tuned search synthesis without accounts) with specialized client-side utilities like Squoosh or Remove.bg for media preprocessing."
+    },
+    "zh": {
+      "title": "无需登录的 AI 工具与提示词隐私保护指南",
+      "overview": "当今主流 AI 商业生态被强制注册、多端行为追踪和提示词语料回流高度垄断。免登录 AI 工具为用户提供了一道坚实的隐私屏障：在完全不泄露个人邮箱、手机号或支付凭据的前提下，即开即用代码推理、技术检索、智能去背景与图像修复等前沿算力。",
+      "architectureInsights": "免登录 AI 工具主要依托两种架构实现：无状态云端推理（请求在易失性 GPU 显存中完成推理后立即释放会话，不进行持久化入库）与纯前端 WebAssembly/WebGPU 推理（利用 ONNX Runtime 在本地浏览器内直接运行量化小模型，数据零出海）。",
+      "tradeoffs": {
+        "gain": "个人真实身份与输入内容彻底解耦，杜绝数据泄露隐患，无需经历繁琐审核与信用卡绑定门槛。",
+        "sacrifice": "无法跨设备自动留存历史对话，单次对话上下文长度和每日生成频次有一定无状态配额限制。"
+      },
+      "recommendedWorkflow": "针对技术调研场景，推荐使用 Phind（免登录技术搜索引擎）直接获取可运行代码范例，搭配本地图片压缩与格式工具完成研发闭环。"
+    }
+  },
+  "Design": {
+    "en": {
+      "title": "Client-Side Vector & Graphic Design Without Cloud Lock-In",
+      "overview": "Graphic design software has increasingly shifted toward closed SaaS subscriptions that hold your raw project files hostage behind paywalls and account logins. Browser-based, no-login design applications demonstrate that the modern web platform is capable of running complex vector rendering engines, canvas manipulations, and raster image editing with zero external dependencies.",
+      "architectureInsights": "Tools in this category rely heavily on client-side WebAssembly (WASM), WebGL/WebGPU hardware acceleration, and the Canvas/SVG APIs. When you edit a 100-layer PSD file in Photopea or draw an architectural diagram in Excalidraw, all matrix math and pixel computations occur locally on your machine. Your design assets are never transmitted across the network.",
+      "tradeoffs": {
+        "gain": "100% data sovereignty, zero risk of asset leakage before product launches, and zero subscription costs for routine visual production.",
+        "sacrifice": "File sharing requires manual file export or ephemeral peer-to-peer rooms rather than persistent organization-wide cloud libraries."
+      },
+      "recommendedWorkflow": "Use Excalidraw or tldraw for early-stage system architecture sketches, transition to Photopea for layer-based graphic refinement, and finish with Squoosh or SVGOMG for production web asset optimization."
+    },
+    "zh": {
+      "title": "纯前端矢量图与图形设计技术选型（摆脱云端锁定）",
+      "overview": "图形设计领域长期被商业软件的订阅制与格式垄断所绑架，源工程文件往往被封闭在大厂云端平台中。基于浏览器的免登录设计工具证明了现代 Web 平台已完全具备支撑专业级矢量引擎、复杂图层混合与高保真画布渲染的硬核实力。",
+      "architectureInsights": "本分类工具核心依赖 WebAssembly（WASM）、WebGL/WebGPU 硬件加速与 Canvas/SVG 底层 API。当你在 Photopea 中拆解复杂 PSD 稿件或在 Excalidraw 中绘制架构图时，所有图形变换矩阵与栅格化计算均在本地硬件完成，原图资产绝不上报服务器。",
+      "tradeoffs": {
+        "gain": "数字资产完全自主可控，新产品立项前期绝无设计原稿泄露风险，无需支付昂贵月费。",
+        "sacrifice": "缺少商业套件的企业级多端自动云同步与组织团队素材库管理功能。"
+      },
+      "recommendedWorkflow": "原型与技术架构推演推荐 Excalidraw，位图修图与 PSD 分层编辑选用 Photopea，最后经由 Squoosh 或 SVGOMG 压缩导出上线。"
+    }
+  },
+  "Writing": {
+    "en": {
+      "title": "Distraction-Free Text Composition & Local Linguistic Analysis",
+      "overview": "Modern word processors have become bloated with intrusive collaboration features, aggressive telemetry, and automated cloud sync that can expose sensitive drafts. No-login writing utilities return to the core essence of the craft: minimalist typographic canvases, markdown parsing, and client-side stylistic audits that respect intellectual property.",
+      "architectureInsights": "Linguistic engines like LanguageTool and Hemingway utilize deterministic grammar rule-sets and localized dictionary indices. In client-side editors like Dillinger and Hemingway, the document AST (Abstract Syntax Tree) is evaluated entirely in browser memory, providing real-time readability metrics and syntax highlighting without background network requests.",
+      "tradeoffs": {
+        "gain": "Undivided mental focus, absolute confidentiality for unreleased manuscripts or confidential executive notes, and zero startup lag.",
+        "sacrifice": "Absence of real-time multi-cursor cloud autosave across distributed teams; requires diligent manual file export or local caching."
+      },
+      "recommendedWorkflow": "Draft raw prose in Dillinger with markdown shortcuts, paste into Hemingway Editor to audit readability grade levels, and use LanguageTool for final cross-lingual grammar verification."
+    },
+    "zh": {
+      "title": "无干扰沉浸式写作与本地文本可读性优化指南",
+      "overview": "现代文字处理软件普遍充斥着冗余的云端协同插件与后台行为采集，商业机密草稿与未发表手稿在不知不觉中被上传至云端。免登录写作工具旨在重塑创作的纯粹性：极简打字机质感排版、实时 Markdown 渲染以及对知识产权最高级别的物理隔离。",
+      "architectureInsights": "本分类工具采用确定性语法规则库与轻量词法分词引擎。例如在 Dillinger 或 Hemingway 中，文档的抽象语法树（AST）与被动语态正则扫描完全在本地 JavaScript 引擎中完成，敲击键盘的每一行字均不会触发任何后台监控上传。",
+      "tradeoffs": {
+        "gain": "极致专注的纯净排版体验，敏感商业计划书与创作底稿安全可控，即开即写零启动耗时。",
+        "sacrifice": "缺少跨设备的实时多人协同光标；需养成完成文稿后手动导出 Markdown 或复制保存的良好习惯。"
+      },
+      "recommendedWorkflow": "在 Dillinger 中使用 Markdown 专注排版初稿，复制至 Hemingway 进行可读性难度精修与复杂句式精简，最后通过 LanguageTool 消除多语种语法遗漏。"
+    }
+  },
+  "Development": {
+    "en": {
+      "title": "Essential In-Browser Utilities for Fast Developer Workflows",
+      "overview": "Software engineers frequently encounter small, repetitive micro-tasks: testing regular expressions, inspecting JWT tokens, reading documentation, or benchmarking dependency costs. Installing heavy desktop GUI tools or logging into enterprise SaaS dashboards introduces unnecessary context switching. No-login developer tools act as instant, high-efficiency primitives.",
+      "architectureInsights": "High-grade developer tools operate as sandboxed execution environments. DevDocs caches entire multi-gigabyte API databases via IndexedDB and Service Workers for offline use. CyberChef and Regex101 evaluate parsing logic locally within dedicated Web Workers, ensuring that proprietary tokens and environment credentials remain isolated from network eavesdropping.",
+      "tradeoffs": {
+        "gain": "Sub-second workflow execution, zero configuration overhead, and safe debugging of non-production test tokens without account creation.",
+        "sacrifice": "Cannot directly bind to internal corporate CI/CD pipelines or automate continuous production deployment workflows."
+      },
+      "recommendedWorkflow": "Keep DevDocs offline-pinned for instant API lookups, test parsing rules in Regex101, decode test payloads with JWT.io or CyberChef, and check package impact via Bundlephobia before adding npm dependencies."
+    },
+    "zh": {
+      "title": "开发者即开即用的高频在线调试与语法诊断工具链",
+      "overview": "在日常软件工程开发中，测试正则表达式、解析 JWT 令牌、查阅第三方库 API 或评估 npm 依赖体积属于超高频场景。为此安装数十款重量级桌面软件或逐一登录商业平台会严重打断开发心流。免登录开发者工具正是为追求极致敏捷而生的“极客原子积木”。",
+      "architectureInsights": "优质的开发者工具普遍采用沙盒化与离线缓存架构。例如 DevDocs 利用 Service Worker 将数吉字节的完整文档库沉淀于浏览器 IndexedDB 实现断网秒级查阅；CyberChef 与 Regex101 借助独立 Web Worker 多线程计算，保障测试数据与私有 Token 物理隔离于外网。",
+      "tradeoffs": {
+        "gain": "毫秒级快速启动，零配置开箱即用，无惧敏感测试凭据或数据结构泄露。",
+        "sacrifice": "无法直接无缝集成到复杂的企业内部 CI/CD 自动化编排与权限审计流水线中。"
+      },
+      "recommendedWorkflow": "固定 DevDocs 作为离线核心手册，使用 Regex101 调试复杂正则，用 JWT.io 或 CyberChef 解构签名载荷，在 `npm install` 前用 Bundlephobia 预估体积。"
+    }
+  },
+  "Productivity": {
+    "en": {
+      "title": "Local-First Productivity Tools & Frictionless Time Tracking",
+      "overview": "Productivity apps often paradoxically reduce productivity through complex onboarding funnels, compulsory email verifications, and endless gamification popups. No-login productivity tools embrace the local-first philosophy: you open the URL, your workspace is ready immediately, and your session state is securely preserved in your own browser.",
+      "architectureInsights": "State persistence in these tools is managed entirely through client-side Web Storage (localStorage, IndexedDB). Time tracking engines utilize Web Audio for alerts and Web Workers to maintain accurate millisecond-level timers even when the browser tab is running in the background.",
+      "tradeoffs": {
+        "gain": "Immediate immersion in focused work, zero intrusive spam newsletters, and complete privacy regarding daily working habits.",
+        "sacrifice": "Clearing browser cookies or switching between different physical machines resets local task tracking progress unless manually exported."
+      },
+      "recommendedWorkflow": "Launch Pomofocus for distraction-free 25-minute sprint intervals and manage visual daily brainstorms on Excalidraw or tldraw."
+    },
+    "zh": {
+      "title": "本地优先（Local-First）效率工具与极简无压时间管理",
+      "overview": "许多商业效率软件在设计上往往本末倒置：繁冗的团队注册流程、强制的邮箱激活与漫天飞舞的商业推销弹窗极大地破坏了专注状态。免登录效率工具坚守“本地优先（Local-First）”哲学：打开网址工作台即刻就绪，任务与时间数据牢牢保存在自己的设备中。",
+      "architectureInsights": "这类工具的数据持久化完全由浏览器 Web Storage（localStorage / IndexedDB）接管。番茄钟与计时器借助 Web Worker 即使在后台标签页休眠时也能精准计算毫秒级耗时，并调用 Web Audio API 播放温和的本地提示音。",
+      "tradeoffs": {
+        "gain": "零干扰秒级进入心流状态，摆脱垃圾营销邮件轰炸，个人作息习惯与工作负荷绝无泄露风险。",
+        "sacrifice": "在无痕模式或清理浏览器缓存时需提前导出本地数据，无法跨手机与电脑自动无缝同步进度。"
+      },
+      "recommendedWorkflow": "开启 Pomofocus 进行标准的 25 分钟番茄冲刺，配合 tldraw 无限画布梳理当天的优先级清单与关键任务。"
+    }
+  },
+  "Media": {
+    "en": {
+      "title": "In-Browser Audio, Video, and Image Processing Architecture",
+      "overview": "Converting media formats, slicing audio, and compressing images have historically required sending multi-gigabyte video files to cloud rendering farms. Thanks to WebAssembly ports of FFmpeg and specialized codecs, modern browsers can now transcode, cut, and optimize media directly on the user device, eliminating upload bottlenecks entirely.",
+      "architectureInsights": "Modern browser media tools leverage WebCodecs, WebAssembly threads, and SharedArrayBuffer to process video frames and audio sample buffers in memory. The CPU and GPU of your laptop perform the mathematical transcoding without sending a single byte over the wire.",
+      "tradeoffs": {
+        "gain": "Instant processing without waiting for multi-gigabyte file uploads, zero privacy risk for private family videos or corporate footage, and no monthly export quotas.",
+        "sacrifice": "Complex multi-hour 4K video rendering projects will run slower than dedicated server GPU farms with hardware NVENC encoders."
+      },
+      "recommendedWorkflow": "Trim and optimize podcasts in AudioMass or AudioTrimmer, convert animated graphics via EZGIF, and compress web imagery using Squoosh."
+    },
+    "zh": {
+      "title": "浏览器内多媒体编解码、音频剪辑与画质压缩架构",
+      "overview": "传统的音视频格式转换、音频裁剪与动图生成往往需要将数 GB 的原始大文件上传到云端排队等待渲染。随着 WebAssembly 技术对 FFmpeg 及专业编解码器的移植，现代浏览器已经完全能够在本地内存中直接完成音视频转码与无损裁剪，彻底消除了网络上传瓶颈。",
+      "architectureInsights": "先进的 Web 多媒体工具深度整合 WebCodecs 与多线程 SharedArrayBuffer，在浏览器进程中直接对音视频帧进行解复用与流式编码。所有数学变换均直接调用本地 CPU/GPU 完成，杜绝了多媒体素材在公网传输的泄密隐患。",
+      "tradeoffs": {
+        "gain": "免去数十分钟的超大文件上传等待，家庭私密视频与企业机密录音绝无外泄风险，无单日导出次数限制。",
+        "sacrifice": "对于数小时的 4K 60帧工业级超长视频渲染，浏览器单线程性能受限于沙盒，耗时会高于专业工作站。"
+      },
+      "recommendedWorkflow": "播客与背景音乐片段使用 AudioMass 或 AudioTrimmer 进行微秒级波形裁剪，动图素材利用 EZGIF 变速优化，静态图片通过 Squoosh 本地极限压缩。"
+    }
+  },
+  "Privacy": {
+    "en": {
+      "title": "Zero-Knowledge Encryption & Ephemeral Security Primitives",
+      "overview": "Privacy tools should never demand personal identifiers to protect personal data. The privacy utilities curated here represent the gold standard of zero-knowledge architecture: they operate entirely without user registration, collect no device telemetry, and utilize mathematical encryption standards to guarantee security.",
+      "architectureInsights": "These utilities make extensive use of the Web Cryptography API (SubtleCrypto) to execute AES-GCM-256 and RSA encryption on the client. Keys are derived locally using PBKDF2/Argon2. In file encryption tools like Hat.sh, the browser never transmits files or decryption keys to a server, ensuring mathematical confidentiality.",
+      "tradeoffs": {
+        "gain": "Cryptographic guarantee of privacy, immunity to server subpoena or cloud data breaches, and zero account trail.",
+        "sacrifice": "Lost passwords or encryption keys cannot be recovered by customer support due to true zero-knowledge design."
+      },
+      "recommendedWorkflow": "Encrypt sensitive attachments with Hat.sh before sending, verify breach exposure with Have I Been Pwned via k-anonymity, and audit your browser posture using PrivacyTests."
+    },
+    "zh": {
+      "title": "零知识加密体系与端到端隐私安全实战指南",
+      "overview": "真正的隐私保护工具绝不应要求用户先交出个人信息才能保护个人信息。本目录收录的隐私类工具遵循严格的“零知识（Zero-Knowledge）”架构：全程无需注册任何账号、零收集设备指纹，完全通过公开严密的密码学数学算法来保障信息安全。",
+      "architectureInsights": "核心工具调用现代浏览器的 Web Cryptography API（SubtleCrypto）执行高强度的客户端 AES-GCM-256 本地加解密，密钥使用 PBKDF2 或 Argon2 并在本地由密码推导。例如在 Hat.sh 中，明文文件与加密密钥从未脱离本地设备，即使服务器被完全劫持也无法解密内容。",
+      "tradeoffs": {
+        "gain": "密码学级别的物理隐私保障，从底层杜绝服务商被黑或数据遭合法调取带来的外泄风险，全网无个人痕迹。",
+        "sacrifice": "由于是纯正的零知识体系，一旦遗忘自设密码或解密文件，任何客服或后台均无法提供“找回密码”协助。"
+      },
+      "recommendedWorkflow": "在通过第三方渠道传输私密文件前使用 Hat.sh 本地加密打包，通过 Have I Been Pwned 的 k-匿名算法排查历史账号泄露，定期在 PrivacyTests 评估所用浏览器的反追踪能力。"
+    }
+  },
+  "Data": {
+    "en": {
+      "title": "Client-Side Structured Data Manipulation & Format Conversion",
+      "overview": "Engineers and data analysts frequently need to transform datasets between JSON, CSV, YAML, SQL, and XML formats. Pasting confidential corporate data, customer lists, or internal schemas into random web converters is a major enterprise data breach vector. No-login, client-side data tools provide the solution.",
+      "architectureInsights": "Data manipulation engines in this category operate exclusively inside the browser runtime. Parsing libraries parse input strings into in-memory JavaScript object trees and serialize them to destination formats without making outbound HTTP calls.",
+      "tradeoffs": {
+        "gain": "Zero corporate compliance violations, absolute data security for internal customer CSVs, and instant real-time parsing.",
+        "sacrifice": "Datasets exceeding hundreds of megabytes may encounter browser tab memory boundaries (V8 heap limit)."
+      },
+      "recommendedWorkflow": "Visualize deep JSON trees with JSON Crack, convert tabular datasets across CSV and SQL with CSVJSON or TableConvert, and beautify schemas with JSON Formatter."
+    },
+    "zh": {
+      "title": "纯前端结构化数据清洗、格式转换与可视化选型",
+      "overview": "数据分析师与工程师日常经常需要在 JSON、CSV、YAML、SQL 与 Markdown 表格之间相互转换。将包含企业内部客户名单、私有配置或敏感指标的明文数据随手粘贴进不可信的在线格式化网站，是引发企业数据泄露的最常见漏洞。纯前端免登录工具正是针对此痛点的解法。",
+      "architectureInsights": "本分类工具的底层解析流水线 100% 封闭在本地浏览器环境内。词法与语法分析器将输入文本直接解析为内存中的数据对象树，并调用序列化程序直接输出转换结果，整个过程网络监控显示零数据包向外发送。",
+      "tradeoffs": {
+        "gain": "完全符合企业内部合规安全红线，敏感业务 CSV 和账单数据零外泄，转换即时无延迟。",
+        "sacrifice": "单次处理上百兆字节的超大数据库全量 Dump 导出文件时，容易触及浏览器 V8 引擎的最大内存堆栈限制。"
+      },
+      "recommendedWorkflow": "使用 JSON Crack 直观洞察深层嵌套的 JSON 依赖关系，跨格式数据迁移选用 CSVJSON 或 TableConvert，日常排版校验使用 JSON Formatter。"
+    }
+  },
+  "Communication": {
+    "en": {
+      "title": "Ephemeral WebRTC Meetings & Frictionless Anonymous Chat",
+      "overview": "Commercial conferencing platforms have erected walled gardens that require participants to download proprietary software, register accounts, and submit to extensive behavioral tracking. No-login communication tools return to the open standards of the web: disposable rooms, instant WebRTC handshakes, and zero participant tracking.",
+      "architectureInsights": "By leveraging peer-to-peer WebRTC protocols (DTLS-SRTP encryption), audio and video streams flow directly between participants whenever possible. Ephemeral signaling servers establish the initial connection handshake and discard all room metadata as soon as participants disconnect.",
+      "tradeoffs": {
+        "gain": "Instant one-click meeting entry for external clients, zero software installation barriers, and no post-meeting telemetry harvesting.",
+        "sacrifice": "Lacks enterprise organization charts, mandatory corporate single sign-on (SSO), and perpetual meeting transcript storage."
+      },
+      "recommendedWorkflow": "Type a random room name into Jitsi Meet for instant encrypted video conferencing with clients without asking them to sign up."
+    },
+    "zh": {
+      "title": "即时 WebRTC 视频会议与临时无痕沟通方案",
+      "overview": "主流商业会议软件普遍构筑了封闭的生态壁垒：参会各方必须强制下载客户端、注册账号并忍受详尽的参会行为分析。免登录通信工具回归开放 Web 标准协议：只需一个专属临时房间链接，参会者点击即可入会畅聊，散会后不留任何痕迹。",
+      "architectureInsights": "利用原生 WebRTC 点对点流媒体通信（基于 DTLS-SRTP 强加密），参会者的音视频流在网络允许下直接在各端之间直连流动。无状态信令中继服务器仅负责握手建联，在会议结束断开连接后即刻销毁全部会话元数据。",
+      "tradeoffs": {
+        "gain": "对外部客户或临时合作伙伴极度友好，一键点击入会，零软件安装包门槛，绝不抓取个人画像。",
+        "sacrifice": "缺少商业套件的企业级组织架构树、强制 SSO 统一身份认证与云端永久会议纪要归档功能。"
+      },
+      "recommendedWorkflow": "与外部客户临时对齐时，直接在 Jitsi Meet 输入自定义房间名生成入会链接，无需对方注册账号即可享受高清加密视频交流。"
+    }
+  },
+  "Education": {
+    "en": {
+      "title": "Interactive STEM Simulations & Open Learning Without Tracking",
+      "overview": "Educational technology platforms increasingly trap students and educators behind account paywalls, displaying ads and harvesting behavioral data on minors. The no-login education directory spotlights freely accessible STEM learning tools: interactive physics engines, graphing calculators, and computational solvers accessible to every classroom on earth.",
+      "architectureInsights": "Tools like PhET Interactive Simulations and Desmos execute high-precision physics simulations and mathematical graphing engines purely inside the browser Canvas/WebGL runtime. They require no backend account authentication and function seamlessly on low-cost Chromebooks and tablets.",
+      "tradeoffs": {
+        "gain": "Universal equitable access for students worldwide, strict student privacy protection, and zero classroom setup delays.",
+        "sacrifice": "Teachers cannot automatically aggregate student homework scores or enforce account-based assignment submissions."
+      },
+      "recommendedWorkflow": "Model calculus and algebraic functions in Desmos, explore complex physical phenomena through PhET Interactive Simulations, and solve symbolic mathematics via WolframAlpha."
+    },
+    "zh": {
+      "title": "交互式理科科学仿真、图形计算与无痕智慧学习",
+      "overview": "许多商业教育平台正在将知识与互动探索锁死在付费账号与商业广告之后，甚至针对未成年人采集学习行为画像。免登录教育分类专注于真正无门槛开放的数理工具：互动物理仿真、高精度图形计算器与科学计算引擎，面向全球每一个教室平等开放。",
+      "architectureInsights": "以科罗拉多大学的 PhET 互动仿真和 Desmos 图形计算器为代表，数理方程与粒子物理引擎完全在浏览器 Canvas/WebGL 运行时中实时推演。即使在千元级低成本平板或老旧机房电脑上也能平稳运行，无需任何账号激活。",
+      "tradeoffs": {
+        "gain": "全员平等的优质教育资源获取体验，百分之百保护学生隐私，课堂教学即点即练零等待。",
+        "sacrifice": "缺少商业网校的作业集中批改系统、打卡排名与强制学情追踪大屏。"
+      },
+      "recommendedWorkflow": "使用 Desmos 动态可视化几何与微积分函数曲线，借助 PhET 进行直观的电磁学与热力学实验模拟，利用 WolframAlpha 快速验证符号数学推导结果。"
+    }
+  },
+  "Finance": {
+    "en": {
+      "title": "Client-Side Financial Calculators & Sovereign Asset Planning",
+      "overview": "Entering your exact savings balance, monthly income, debt parameters, or investment return targets into commercial financial advisory websites is an enormous privacy hazard. No-login financial tools calculate compound interest, retirement trajectories, and currency conversions completely on your own device.",
+      "architectureInsights": "Financial simulation algorithms operate on deterministic mathematical formulas executed locally via JavaScript. Parameters like principal, annual yield, and inflation rates never leave your browser DOM, safeguarding your financial privacy.",
+      "tradeoffs": {
+        "gain": "Zero risk of financial profile harvesting by predatory lenders or marketers, completely offline calculation capability, and immediate answers.",
+        "sacrifice": "Cannot automatically aggregate live bank balances or pull live portfolio transaction feeds from financial institutions."
+      },
+      "recommendedWorkflow": "Simulate early retirement horizons using cFIREsim with historical Monte Carlo models, project investment growth with Compound Interest Calculator, and check real-time exchange rates via Wise or XE."
+    },
+    "zh": {
+      "title": "本地金融复利计算、资产规划与隐私安全理财测算",
+      "overview": "将个人的真实银行存款额、月薪收入、负债明细与资产增值目标随手输入不可信的理财网站或 App，会直接导致个人核心财务状况暴露给广告商甚至信贷推销机构。免登录金融工具让你在完全离线的本地浏览器内自主完成复利、汇率与养老模拟计算。",
+      "architectureInsights": "金融仿真模型本质上是确定性代数方程与蒙特卡洛（Monte Carlo）统计推演，完全由本地 JavaScript 引擎执行。本金、收益率、定投周期与通胀系数全程仅存在于本地 DOM 变量中，杜绝了财务隐私上网的隐患。",
+      "tradeoffs": {
+        "gain": "从根本上切断个人资产隐私被外部机构建档的风险，支持断网离线计算，参数自由无拘束。",
+        "sacrifice": "无法像聚合记账软件那样自动拉取银行实时流水或绑定券商持仓数据。"
+      },
+      "recommendedWorkflow": "借助 cFIREsim 结合历史百年数据进行财务自由（FIRE）蒙特卡洛模拟，使用复利计算器测算长周期投资收益，通过 Wise 或 XE 获取公开无中间费的汇率基准。"
+    }
+  }
+}

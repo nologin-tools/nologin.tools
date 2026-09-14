@@ -65,24 +65,30 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('INDEXABLE_LOCALES.filter'), 'Must filter hreflang links to INDEXABLE_LOCALES to avoid noindex conflicts');
   });
 
-  it('tool-editorial.json has valid E-E-A-T reviews for at least 30 core tools', () => {
+  it('tool-editorial.json has valid E-E-A-T reviews for at least 50 core tools', () => {
     const raw = readFileSync(resolve(ROOT, 'src/data/tool-editorial.json'), 'utf-8');
     const editorial = JSON.parse(raw);
     const slugs = Object.keys(editorial);
 
-    assert.ok(slugs.length >= 30, `Must have at least 30 core tools, found ${slugs.length}`);
+    assert.ok(slugs.length >= 50, `Must have at least 50 core tools, found ${slugs.length}`);
 
-    const coreTools = [
+    const core50Tools = [
       'photopea-com', 'excalidraw-com', 'tldraw-com', 'squoosh-app', 'tinypng-com',
       'remove-bg', 'tools-pdf24-org-en', 'gchq-github-io-cyberchef', 'devdocs-io',
       'regex101-com', 'carbon-now-sh', 'jsoncrack-com', 'app-diagrams-net',
       'pomofocus-io', 'ezgif-com', 'haveibeenpwned-com', 'temp-mail-org',
       'privacytests-org', 'crontab-guru', 'bundlephobia-com', 'caniuse-com',
       'audiotrimmer-com', 'convertio-co', 'hemingwayapp-com', 'languagetool-org',
-      'coolors-co', 'favicon-io', 'meet-jit-si', 'typescriptlang-org-play', 'explainshell-com'
+      'coolors-co', 'favicon-io', 'meet-jit-si', 'typescriptlang-org-play', 'explainshell-com',
+      'phind-com', 'svgedit-netlify-app-editor-index-html', 'dillinger-io', 'jsonformatter-org',
+      'tinywow-com', 'omnicalculator-com', 'csvjson-com', 'tableconvert-com',
+      'desmos-com-calculator', 'wolframalpha-com', 'geogebra-org-calculator',
+      'xe-com-currencyconverter', 'wise-com-gb-currency-converter', 'quickstart-to',
+      'jakearchibald-github-io-svgomg', 'hat-sh', 'audiomass-co', 'cfiresim-com',
+      'fffuel-co', 'jwt-io'
     ];
 
-    for (const slug of coreTools) {
+    for (const slug of core50Tools) {
       assert.ok(editorial[slug], `Missing editorial entry for ${slug}`);
       for (const lang of ['en', 'zh']) {
         const item = editorial[slug][lang];
@@ -94,6 +100,39 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
         assert.ok(Array.isArray(item.alternativeTo) && item.alternativeTo.length >= 1, `${slug}.${lang}.alternativeTo must have at least 1 item`);
       }
     }
+  });
+
+  it('category-editorial.json has valid guides for all 11 core categories', () => {
+    const raw = readFileSync(resolve(ROOT, 'src/data/category-editorial.json'), 'utf-8');
+    const categories = JSON.parse(raw);
+    const expectedCategories = ['AI', 'Design', 'Writing', 'Development', 'Productivity', 'Media', 'Privacy', 'Data', 'Communication', 'Education', 'Finance'];
+
+    assert.equal(Object.keys(categories).length, 11, 'Must contain exactly 11 categories');
+
+    for (const cat of expectedCategories) {
+      assert.ok(categories[cat], `Missing category: ${cat}`);
+      for (const lang of ['en', 'zh']) {
+        const guide = categories[cat][lang];
+        assert.ok(guide, `Missing ${lang} guide for category ${cat}`);
+        assert.ok(typeof guide.title === 'string' && guide.title.length > 5, `${cat}.${lang}.title must be non-empty`);
+        assert.ok(typeof guide.overview === 'string' && guide.overview.length > 50, `${cat}.${lang}.overview must be comprehensive`);
+        assert.ok(typeof guide.architectureInsights === 'string' && guide.architectureInsights.length > 30, `${cat}.${lang}.architectureInsights must be detailed`);
+        assert.ok(guide.tradeoffs && typeof guide.tradeoffs.gain === 'string' && typeof guide.tradeoffs.sacrifice === 'string', `${cat}.${lang}.tradeoffs must be defined`);
+        assert.ok(typeof guide.recommendedWorkflow === 'string' && guide.recommendedWorkflow.length > 10, `${cat}.${lang}.recommendedWorkflow must be non-empty`);
+      }
+    }
+  });
+
+  it('CategoryPage renders Editorial Guide and Schema metadata', () => {
+    const categoryPageContent = readFileSync(resolve(ROOT, 'src/components/CategoryPage.astro'), 'utf-8');
+
+    assert.ok(categoryPageContent.includes('getCategoryEditorial'), 'CategoryPage must import getCategoryEditorial');
+    assert.ok(categoryPageContent.includes('category.editorial.heading'), 'CategoryPage must render editorial heading');
+    assert.ok(categoryPageContent.includes('category.editorial.architecture'), 'CategoryPage must render architecture heading');
+    assert.ok(categoryPageContent.includes('category.editorial.gain'), 'CategoryPage must render gain label');
+    assert.ok(categoryPageContent.includes('category.editorial.sacrifice'), 'CategoryPage must render sacrifice label');
+    assert.ok(categoryPageContent.includes('category.editorial.workflow'), 'CategoryPage must render workflow label');
+    assert.ok(categoryPageContent.includes("about: {"), 'CategoryPage JSON-LD must include about Thing');
   });
 
   it('ToolDetailPage renders Editorial Review, Pros & Cons, and Schema Review with positiveNotes/negativeNotes', () => {
@@ -115,7 +154,7 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('isSimilarTo:'), 'Must map alternativeTo to isSimilarTo in JSON-LD');
   });
 
-  it('i18n files include tool.editorial keys', () => {
+  it('i18n files include tool.editorial and category.editorial keys', () => {
     const en = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/en.json'), 'utf-8'));
     const zh = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/zh.json'), 'utf-8'));
 
@@ -126,6 +165,12 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
       'tool.editorial.pros',
       'tool.editorial.cons',
       'tool.editorial.privacy',
+      'category.editorial.heading',
+      'category.editorial.architecture',
+      'category.editorial.tradeoffs',
+      'category.editorial.gain',
+      'category.editorial.sacrifice',
+      'category.editorial.workflow',
     ];
 
     for (const key of requiredKeys) {
@@ -134,4 +179,5 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     }
   });
 });
+
 
