@@ -6,10 +6,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'src/content/blog/*.md'
       - 'src/i18n/en.json'
-  schedule:
-    - cron: '0 21 * * *'
+  # schedule:
+  #   - cron: '0 21 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -41,6 +40,8 @@ jobs:
       - name: Check if translation needed
         id: check
         run: node scripts/check-translation-needed.mjs
+        env:
+          SKIP_BLOG_TRANSLATE: 'true'
 
       - name: Check for existing open Issue
         if: steps.check.outputs.needs_translation == 'true'

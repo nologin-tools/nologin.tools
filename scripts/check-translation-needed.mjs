@@ -210,9 +210,10 @@ export function checkTools() {
 /**
  * Build the full change manifest and determine task types.
  */
-export function buildManifest() {
+export function buildManifest(options = {}) {
   const ui = checkUI();
-  const blog = checkBlog();
+  const skipBlog = options.skipBlog ?? (process.env.SKIP_BLOG_TRANSLATE === 'true');
+  const blog = skipBlog ? { posts: {} } : checkBlog();
   const tools = checkTools();
 
   const manifest = { ui, blog, tools };
@@ -236,7 +237,9 @@ const isMain = !process.argv[1] || import.meta.url.endsWith(process.argv[1].repl
 const isTestEnv = !!process.env.NODE_TEST_CONTEXT;
 
 if (isMain && !isTestEnv) {
-  const { manifest, taskTypes, needsTranslation } = buildManifest();
+  // Blog auto-translation is permanently decommissioned to prevent thin machine-translated content
+  const skipBlog = process.env.ENABLE_BLOG_TRANSLATE !== 'true';
+  const { manifest, taskTypes, needsTranslation } = buildManifest({ skipBlog });
 
   setOutput('needs_translation', needsTranslation ? 'true' : 'false');
   if (taskTypes.length > 0) {
