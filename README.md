@@ -23,6 +23,7 @@ A curated directory of privacy-friendly tools that work without login. Built to 
 - **Web Archive Integration** — Automatic archival via web.archive.org for offline tools
 - **Data Export** — Daily export to an [awesome-list](https://github.com/nologin-tools/awesome-nologin-tools) on GitHub
 - **Badge Display Detection** — Detect and reward tools that display the NoLogin Verified badge
+- **SEO & GEO Optimization** — Full Schema.org JSON-LD, multi-lingual hreflang sitemaps, and llms.txt standard for AI search engines (Perplexity, SearchGPT, Claude, Google AI)
 
 ## Tech Stack
 

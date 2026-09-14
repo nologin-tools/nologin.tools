@@ -108,11 +108,30 @@ const seo = buildToolSeoMeta(tool, locale);
 const canonicalLocale = resolveToolCanonicalLocale(locale, availableLocales);
 
 const categoryTag = toolTags.find(t => t.tagKey === 'category');
+const dataTag = toolTags.find(t => t.tagKey === 'data');
+const privacyTag = toolTags.find(t => t.tagKey === 'privacy');
+const hostingTag = toolTags.find(t => t.tagKey === 'hosting');
+const offlineTag = toolTags.find(t => t.tagKey === 'offline');
 const sameAs = [tool.twitterUrl, tool.githubUrl, tool.discordUrl, tool.repoUrl].filter(Boolean) as string[];
 const keywords = [seo.focusKeyword, ...toolTags.map(t => t.tagValue)].filter(Boolean).join(', ');
 
 const pricingTag = toolTags.find(t => t.tagKey === 'pricing');
 const pricingValue = pricingTag?.tagValue;
+
+function getApplicationCategory(cat?: string): string {
+  switch (cat) {
+    case 'AI': return 'AIApplication';
+    case 'Design': return 'DesignApplication';
+    case 'Writing': return 'BusinessApplication';
+    case 'Development': return 'DeveloperApplication';
+    case 'Productivity': return 'ProductivityApplication';
+    case 'Media': return 'MultimediaApplication';
+    case 'Privacy': return 'SecurityApplication';
+    case 'Finance': return 'FinanceApplication';
+    case 'Education': return 'EducationalApplication';
+    default: return 'WebApplication';
+  }
+}
 
 function buildOffers() {
   const base: Record<string, unknown> = {
@@ -130,17 +149,31 @@ function buildOffers() {
   return base;
 }
 
+const featureList = [
+  tool.coreTask,
+  'No account or login required',
+  ...toolTags.map(t => t.tagValue),
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: tool.name,
   url: tool.url,
   description: seo.description,
-  applicationCategory: 'WebApplication',
-  operatingSystem: 'All',
+  applicationCategory: getApplicationCategory(categoryTag?.tagValue),
+  operatingSystem: 'All, Web Browser',
+  isAccessibleForFree: true,
   image: `https://nologin.tools/api/og/${slug}`,
   inLanguage: locale,
   offers: buildOffers(),
+  featureList,
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+  ...(tool.repoUrl ? { downloadUrl: tool.repoUrl, codeRepository: tool.repoUrl } : {}),
   ...(approvedDate ? { datePublished: approvedDate } : {}),
   ...(tool.githubUpdatedAt
     ? { dateModified: new Date(tool.githubUpdatedAt).toISOString().split('T')[0] }
@@ -166,13 +199,13 @@ const faqLd = isVerified ? {
   mainEntity: [
     {
       '@type': 'Question',
-      name: t(locale, 'tool.faq.q1', { name: tool.name }),
-      acceptedAnswer: { '@type': 'Answer', text: t(locale, 'tool.faq.a1', { name: tool.name }) },
+      name: t(locale, 'tool.faq.q2', { name: tool.name }),
+      acceptedAnswer: { '@type': 'Answer', text: t(locale, 'tool.faq.a2', { name: tool.name, coreTask: tool.coreTask }) },
     },
     {
       '@type': 'Question',
-      name: t(locale, 'tool.faq.q2', { name: tool.name }),
-      acceptedAnswer: { '@type': 'Answer', text: t(locale, 'tool.faq.a2', { name: tool.name, coreTask: tool.coreTask }) },
+      name: t(locale, 'tool.faq.q1', { name: tool.name }),
+      acceptedAnswer: { '@type': 'Answer', text: t(locale, 'tool.faq.a1', { name: tool.name }) },
     },
   ],
 } : null;
@@ -317,6 +350,29 @@ const faqLd = isVerified ? {
         </p>
       </div>
 
+      <!-- Verification Details (GEO-friendly factsheet) -->
+      <div class="border-t border-neutral-100 pt-6">
+        <h2 class="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">Verification Details</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm bg-neutral-50 p-4 border border-neutral-200">
+          <div>
+            <span class="block text-xs text-neutral-400 font-mono">Account</span>
+            <span class="font-bold text-green-700">None Required</span>
+          </div>
+          <div>
+            <span class="block text-xs text-neutral-400 font-mono">Category</span>
+            <span class="font-bold text-neutral-800">{categoryTag?.tagValue || 'General'}</span>
+          </div>
+          <div>
+            <span class="block text-xs text-neutral-400 font-mono">Processing</span>
+            <span class="font-bold text-neutral-800">{dataTag?.tagValue || 'Browser / Web'}</span>
+          </div>
+          <div>
+            <span class="block text-xs text-neutral-400 font-mono">Pricing</span>
+            <span class="font-bold text-neutral-800">{pricingValue || 'Free'}</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Tags -->
       {toolTags.length > 0 && (
         <div>
@@ -422,6 +478,23 @@ const faqLd = isVerified ? {
             {isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')} &rarr;
           </a>
         </div>
+      )}
+
+      <!-- FAQ (Visible & synchronized with FAQPage JSON-LD) -->
+      {isVerified && (
+        <section class="border-t border-neutral-100 pt-8" aria-labelledby="tool-faq-heading">
+          <h2 id="tool-faq-heading" class="text-sm font-medium text-neutral-500 mb-4 uppercase">{t(locale, 'home.faq.heading')}</h2>
+          <dl class="space-y-4">
+            <div>
+              <dt class="text-base font-bold text-neutral-900">{t(locale, 'tool.faq.q2', { name: tool.name })}</dt>
+              <dd class="mt-1 text-sm text-neutral-600 leading-relaxed">{t(locale, 'tool.faq.a2', { name: tool.name, coreTask: tool.coreTask })}</dd>
+            </div>
+            <div>
+              <dt class="text-base font-bold text-neutral-900">{t(locale, 'tool.faq.q1', { name: tool.name })}</dt>
+              <dd class="mt-1 text-sm text-neutral-600 leading-relaxed">{t(locale, 'tool.faq.a1', { name: tool.name })}</dd>
+            </div>
+          </dl>
+        </section>
       )}
 
       {/* Related Tools */}

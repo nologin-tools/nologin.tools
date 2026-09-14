@@ -1,8 +1,35 @@
-User-agent: *
+# Robots.txt for nologin.tools
+# Optimized for traditional search engines and generative AI search agents
+
+# Generative AI & Search Bots (Welcome to crawl public directory & content)
+User-agent: PerplexityBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /admin
 Disallow: /api/
 Disallow: /ssr/
 Disallow: /*?
 
+# Standard Search Engines
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /admin
+Disallow: /api/
+Disallow: /ssr/
+Disallow: /*?
+
+# Sitemaps & LLM Context
 Sitemap: https://nologin.tools/sitemap.xml
+llms-txt: https://nologin.tools/llms.txt

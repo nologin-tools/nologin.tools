@@ -73,7 +73,16 @@ function translateCategory(cat: string): string {
     "@type": "WebSite",
     "name": "nologin.tools",
     "url": "https://nologin.tools",
+    "description": t(locale, 'home.description', { count: String(approvedTools.length) }),
     "inLanguage": locale,
+    "publisher": {
+      "@id": "https://nologin.tools/#organization"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "No-Login Web Tools",
+      "description": "A curated directory of privacy-friendly online tools that work without login or accounts."
+    }
   })} />
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -107,6 +116,13 @@ function translateCategory(cat: string): string {
     "sameAs": [
       "https://x.com/nologin_tools",
       "https://github.com/nologin-tools",
+    ],
+    "knowsAbout": [
+      "Privacy Tools",
+      "No-Login Web Software",
+      "Client-Side Data Processing",
+      "Open Source Software",
+      "Browser Utilities"
     ],
   })} />
 

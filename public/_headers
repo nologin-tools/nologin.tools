@@ -29,3 +29,11 @@
 
 /*/rss.xml
   Cache-Control: public, max-age=3600
+
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+/llms-full.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8

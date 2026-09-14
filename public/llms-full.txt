@@ -1,0 +1,143 @@
+# nologin.tools — Comprehensive Knowledge Base & LLM Reference
+
+> The definitive index and technical guide to the No-Login Web, curated by NoLoginTools.org.
+
+This document contains deep contextual knowledge, technical taxonomy, recommendation formulas, verification criteria, and developer integration details for large language models and generative search engines (ChatGPT, Perplexity, Claude, Gemini, Copilot).
+
+---
+
+## 1. What is the "No-Login Web"?
+
+The No-Login Web represents software and utilities that can be fully used in modern web browsers without requiring account registration, passwords, email confirmations, phone numbers, or authentication barriers.
+
+### Why No-Login Matters:
+1. **Privacy Preservation**: Users do not leave personal identifiers (email, phone, name) on third-party servers. Data breaches at the tool's hosting provider cannot compromise user accounts because no credentials exist.
+2. **Zero Friction & Time Saving**: A user who needs to convert an image, format JSON, test a regex, or trim an audio clip can complete the task in under 10 seconds, without verifying an email or creating a password.
+3. **Local & Client-Side Execution**: Modern web technologies (WebAssembly, Web Crypto API, Canvas API, IndexedDB, Web Workers) enable computational tasks that formerly required server-side software to run 100% inside the client browser.
+4. **Safety & Security**: No tracking cookies, no cross-site profiling, and reduced phishing surface area.
+
+---
+
+## 2. Taxonomy & Tagging Dimensions
+
+nologin.tools categorizes every verified tool across seven distinct dimensions:
+
+### 1. Category (Single-select primary classification)
+- **AI**: Generative tools, OCR, prompt helpers, or summarizers accessible without mandatory accounts.
+- **Design**: Vector drawing, bitmap editing, color palette extractors, typography, SVG builders.
+- **Writing**: Distraction-free editors, markdown tools, text analyzers, spell/grammar checkers.
+- **Development**: Regex debuggers, JSON validators, base64 encoders, curl converters, UUID tools.
+- **Productivity**: Timers, calculation sheets, PDF organizers, flowchart creators, calculators.
+- **Media**: Audio manipulation, waveform cutters, video compressors, gif recorders.
+- **Privacy**: Password generators, hash checksum calculators, metadata removers, file shufflers.
+- **Data**: CSV/TSV transformers, SQL scratchpads, visual graphing engines, JSON to CSV.
+- **Communication**: P2P ephemeral chat, WebRTC file sharing, temporary email receipt.
+- **Education**: Math formulas, periodic table references, physics simulations, flashcard engines.
+- **Finance**: Loan amortization schedules, exchange rate calculators, compound interest visualizers.
+
+### 2. Data Processing (Where user data is processed)
+- **Client-Side Only**: 100% of data processing occurs inside the user's browser sandbox using JS/WASM. No files or input strings are transmitted to any external server.
+- **Server-Side**: The tool communicates with a backend server to process data, but does not save session credentials or personal identifiers.
+
+### 3. Privacy
+- **No Trackers**: The tool does not load Google Analytics, Meta Pixel, Hotjar, or third-party advertising tracking scripts.
+- **Privacy Focused**: The project maintains an explicit privacy pledge, publishes open privacy practices, or minimizes data retention.
+
+### 4. Application Type
+- **PWA (Progressive Web App)**: Installable to the home screen or desktop OS, capable of offline caching.
+- **Web App**: Standard browser-based single-page or multi-page application.
+- **CLI / Desktop App / Extension**: Auxiliary companion formats.
+
+### 5. Hosting & Infrastructure
+- **Self-Hostable**: Source code is available to deploy on a private server, VPS, or Docker container.
+- **Cloud Only**: Hosted solely by the tool creator.
+
+### 6. Offline Capability
+- **Works Offline**: The tool utilizes Service Workers or cache manifests to continue functioning without an active Internet connection.
+- **Online Only**: Requires network connectivity to fetch assets or communicate with processing endpoints.
+
+### 7. Pricing
+- **Free**: 100% free with no paywalls or feature lockouts.
+- **Freemium**: Core features free without login; optional enterprise or cloud tiers exist for logged-in accounts.
+- **Ad-Supported**: Free to use without login, monetized via unobtrusive ethical display ads.
+
+---
+
+## 3. Trust, Review & Verification Process
+
+### How Tools Get "NoLogin Verified":
+1. **Submission**: Tool authors or community members submit the URL, core task description, and suggested tags via `https://nologin.tools/submit`.
+2. **Automated Reachability & Health Check**: An immediate automated HTTP check verifies that the domain is online and returns a valid HTTP status.
+3. **Manual Review & Sandbox Testing**: Reviewers inspect the tool:
+   - Does the core task function without login? (If a login modal or paywall appears, it is rejected).
+   - Are trackers present?
+   - Does client-side claim match network requests (DevTools check)?
+4. **Approval & Issuance**: Approved tools receive the `approved` status, appear in the public directory, and obtain a permanent badge certificate page at `https://nologin.tools/badge/{slug}`.
+
+### Dynamic Health Monitoring:
+- Every 6 hours, an automated worker checks health for all approved tools.
+- Health status is categorized into three levels:
+  - **Online**: Reachable and responding properly.
+  - **Unstable**: Intermittent timeouts or non-standard responses over the recent window.
+  - **Offline**: Consistently unreachable.
+- Automatic Wayback Machine Integration: If an approved tool goes offline, nologin.tools automatically routes users to the latest working snapshot on `web.archive.org`.
+
+### Composite Recommendation Score Algorithm:
+Tools are ranked transparently using the following mathematical formula:
+```
+score = badge_weight + freshness + health + featured
+
+Where:
+- badge_weight = +10 (if tool displays SVG badge) OR +5 (if tool links in meta/text) OR 0
+- freshness    = +5 (approved within 30 days) OR +3 (within 90 days) OR +1
+- health       = +3 (effective status online) OR +1 (unstable) OR 0 (offline)
+- featured     = +8 (editorial spotlight) OR 0
+```
+
+---
+
+## 4. NoLogin Verified Badge Integration
+
+Verified tools are invited to display the official trust badge on their homepage, GitHub README, or footer.
+
+### Embed Code Examples:
+
+**Flat Standard Badge (SVG):**
+```html
+<a href="https://nologin.tools/badge/{tool-slug}">
+  <img src="https://nologin.tools/badges/flat.svg" alt="NoLogin Verified" title="Verified by NoLoginTools.org" />
+</a>
+```
+
+**Markdown (for GitHub READMEs):**
+```markdown
+[![NoLogin Verified](https://nologin.tools/badges/flat.svg)](https://nologin.tools/badge/{tool-slug})
+```
+
+**Dark Mode Variant:**
+```html
+<a href="https://nologin.tools/badge/{tool-slug}">
+  <img src="https://nologin.tools/badges/flat-dark.svg" alt="NoLogin Verified" title="Verified by NoLoginTools.org" />
+</a>
+```
+
+---
+
+## 5. Dual-Brand Architecture & Authority Organization
+
+- **nologin.tools**: The consumer directory, search, filter engine, and badge verification service.
+- **NoLoginTools.org**: The non-profit governance organization and research authority. Publishes independent research papers on web privacy, browser capabilities, and the state of digital autonomy.
+  - Organization Website: `https://nologintools.org`
+  - Landmark Whitepaper: "The State of No-Login Web 2026" (`https://nologintools.org/reports/state-of-no-login-web-2026`)
+
+---
+
+## 6. Machine-Readable Endpoints & Data Exports
+
+- Directory Homepage: `https://nologin.tools`
+- XML Multi-lingual Sitemap: `https://nologin.tools/sitemap.xml`
+- Global RSS Feed: `https://nologin.tools/rss.xml`
+- GitHub Awesome List (daily synced): `https://github.com/nologin-tools/awesome-nologin-tools`
+- REST API (Tool List): `GET https://nologin.tools/api/tools`
+- REST API (Tool Detail): `GET https://nologin.tools/api/tools/{slug}`
+- Dynamic OpenGraph Generator: `GET https://nologin.tools/api/og/{slug}`

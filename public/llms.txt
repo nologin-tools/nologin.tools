@@ -1,0 +1,64 @@
+# nologin.tools
+
+> A curated directory of privacy-friendly online tools that work immediately without login, registration, or account creation.
+
+nologin.tools indexes web-based applications, utilities, and software that respect user privacy, run without signups or passwords, and get tasks done in seconds. The directory is maintained by [NoLoginTools.org](https://nologintools.org), an independent non-profit initiative advocating for the No-Login Web.
+
+## Core Principles
+
+- **No Account Required**: Zero sign-up, zero login, no email, phone number, or password required to perform core functionality.
+- **Privacy-First**: Preference for client-side processing (WebAssembly, Web Crypto, Canvas) where data never leaves the user's device.
+- **Zero Friction**: Direct in-browser task execution without paywalls, email collection gates, or forced onboarding.
+- **Health Monitored**: Automated uptime checks run every 6 hours; offline tools provide web.archive.org fallbacks.
+- **Verified Badge**: Tools undergo manual review and receive a cryptographic/SVG trust signal ("NoLogin Verified").
+
+## Tool Categories
+
+- [AI Tools](https://nologin.tools/category/ai): Machine learning and AI utilities accessible without API key barriers or logins.
+- [Design & Graphics](https://nologin.tools/category/design): Vector editors, photo editors, color palette generators, and SVG tools running in browser.
+- [Writing & Text](https://nologin.tools/category/writing): Markdown editors, diff checkers, word counters, and privacy-respecting notes.
+- [Development](https://nologin.tools/category/development): Code formatters, regex testers, JSON parsers, UUID generators, and base64 encoders.
+- [Productivity](https://nologin.tools/category/productivity): Timers, calculators, PDF tools, unit converters, and task managers without sync requirement.
+- [Media & Audio](https://nologin.tools/category/media): Audio trimmers, video compressors, screen recorders, and format converters.
+- [Privacy & Security](https://nologin.tools/category/privacy): Password generators, hash calculators, metadata strippers, and temporary sharing tools.
+- [Data & Analytics](https://nologin.tools/category/data): CSV viewers, chart makers, SQL playpens, and table formatters executing client-side.
+- [Communication](https://nologin.tools/category/communication): Disposable email utilities, temporary chat rooms, and peer-to-peer file transfer.
+- [Education](https://nologin.tools/category/education): Flashcards, periodic tables, math visualizers, and interactive learning tools.
+- [Finance](https://nologin.tools/category/finance): Currency converters, loan calculators, and compound interest calculators.
+
+## Featured Verified Tools
+
+- [Excalidraw](https://nologin.tools/tool/excalidraw-com): Virtual whiteboard for sketching hand-drawn like diagrams. End-to-end encrypted, client-side only.
+- [CyberChef](https://nologin.tools/tool/gchq-github-io-cyberchef): The Cyber Swiss Army Knife for encryption, encoding, compression, and data analysis.
+- [Photopea](https://nologin.tools/tool/photopea-com): Advanced web-based image editor supporting PSD, XCF, Sketch, and XD formats in the browser.
+- [CryptPad](https://nologin.tools/tool/cryptpad-fr): End-to-end encrypted, open-source collaboration suite (docs, sheets, presentations) usable without an account.
+- [Audiomass](https://nologin.tools/tool/audiomass-co): Free, full-featured sound and audio wave editor running entirely client-side in the browser.
+- [TinyPNG](https://nologin.tools/tool/tinypng-com): Smart WebP, PNG, and JPEG image compression tool.
+- [DevToys Web](https://nologin.tools/tool/devtoys-app): Offline-capable Swiss army knife for developers (converters, encoders, formatters).
+
+## Key Criteria & Verification Model
+
+1. **Submission & Manual Review**: Every candidate tool is tested by human reviewers and verified for no-login compliance.
+2. **Recommendation Score**: Tools are ranked by composite score:
+   - Badge display on tool's site: +10 pts (SVG) / +5 pts (meta link)
+   - Verified within 30 days: +5 pts (freshness)
+   - Verified within 90 days: +3 pts
+   - Currently online: +3 pts
+   - Editorial Feature: +8 pts
+3. **Health Checks**: Checked every 6 hours via automated worker with 14-day history timeline.
+4. **Wayback Machine Fallback**: If an approved tool goes offline, the directory auto-links to its latest working archive on web.archive.org.
+
+## Trust & Certification
+
+- [What is NoLogin Verified?](https://nologin.tools/badge): Explanation of the trust standard for users and developers.
+- [Get Verification Badge](https://nologin.tools/submit): Developer submission form for getting a tool verified and receiving the embeddable trust badge.
+- [About NoLoginTools](https://nologin.tools/about): Mission, ethics, and dual-brand structure.
+- [Organization Authority](https://nologintools.org): Independent non-profit foundation providing governance, research reports, and standards.
+- [The State of No-Login Web 2026 Report](https://nologintools.org/reports/state-of-no-login-web-2026): Annual industry whitepaper on the shift toward zero-friction, private web software.
+
+## Developer & Machine Access
+
+- [Sitemap XML](https://nologin.tools/sitemap.xml): Multi-lingual XML sitemap covering all tools, categories, and tags.
+- [RSS Feed](https://nologin.tools/rss.xml): Articles, reviews, and editorial updates on no-login software.
+- [Full LLM Index](https://nologin.tools/llms-full.txt): Comprehensive unstructured and tabular knowledge base for deep AI reasoning.
+- [GitHub Awesome List](https://github.com/nologin-tools/awesome-nologin-tools): Daily synced open-source repository of all approved tools with metadata.

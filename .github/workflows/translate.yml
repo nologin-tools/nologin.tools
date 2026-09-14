@@ -1,4 +1,6 @@
 name: Auto Translate
+# Auto-translation pipeline referencing scripts/translation-guidelines.md
+# Adheres to the core REWRITE principle for authentic localized content
 
 on:
   push:

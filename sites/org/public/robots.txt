@@ -1,4 +1,24 @@
+# Robots.txt for NoLoginTools.org (Organization & Research Site)
+# Optimized for research indexing and generative AI citations
+
+# Generative AI & Academic Crawlers
+User-agent: PerplexityBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+Allow: /
+Allow: /llms.txt
+
+# General Search Engines
 User-agent: *
 Allow: /
+Allow: /llms.txt
 
+# Sitemaps & LLM Context
 Sitemap: https://nologintools.org/sitemap.xml
+llms-txt: https://nologintools.org/llms.txt

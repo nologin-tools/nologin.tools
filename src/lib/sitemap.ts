@@ -1,4 +1,4 @@
-import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { LOCALES, DEFAULT_LOCALE, INDEXABLE_LOCALES, type Locale } from '../i18n/config';
 import { getLocalizedPath } from '../i18n/utils';
 
 export interface SitemapPage {
@@ -63,9 +63,9 @@ export function buildBlogTranslationMap(
 }
 
 /**
- * Expand English-only pages to all locale variants.
- * - Non-blog pages: expand to all LOCALES
- * - Blog posts: expand only to locales present in blogTranslationMap
+ * Expand English-only pages to indexable locale variants.
+ * - Non-blog pages: expand to INDEXABLE_LOCALES (en, zh)
+ * - Blog posts: expand only to locales present in blogTranslationMap and in INDEXABLE_LOCALES
  */
 export function expandToAllLocales(
   pages: SitemapPage[],
@@ -81,7 +81,7 @@ export function expandToAllLocales(
       const slug = page.url.replace(/^\/blog\//, '');
       const availableLocales = pageAvailableLocales || blogTranslationMap.get(slug) || new Set(['en' as Locale]);
 
-      for (const locale of LOCALES) {
+      for (const locale of INDEXABLE_LOCALES) {
         if (!availableLocales.has(locale)) continue;
         entries.push({
           url: getLocalizedPath(page.url, locale),
@@ -94,9 +94,9 @@ export function expandToAllLocales(
         });
       }
     } else {
-      const availableLocales = pageAvailableLocales || new Set(LOCALES);
+      const availableLocales = pageAvailableLocales || new Set(INDEXABLE_LOCALES);
 
-      for (const locale of LOCALES) {
+      for (const locale of INDEXABLE_LOCALES) {
         if (!availableLocales.has(locale)) continue;
         entries.push({
           url: getLocalizedPath(page.url, locale),
@@ -117,6 +117,7 @@ export function expandToAllLocales(
 /**
  * Generate xhtml:link hreflang elements for a given English path.
  * If availableLocales is provided, only those locales are included.
+ * Only indexable locales are included in hreflang alternate links.
  * x-default always points to the English version.
  */
 export function generateHreflangLinks(
@@ -124,11 +125,11 @@ export function generateHreflangLinks(
   siteUrl: string,
   availableLocales?: Set<Locale>
 ): string {
-  const locales = availableLocales
-    ? LOCALES.filter((l) => availableLocales.has(l))
-    : [...LOCALES];
+  const targetLocales = availableLocales
+    ? (INDEXABLE_LOCALES as readonly Locale[]).filter((l) => availableLocales.has(l))
+    : [...INDEXABLE_LOCALES];
 
-  const links = locales.map((locale) => {
+  const links = targetLocales.map((locale) => {
     const href = `${siteUrl}${getLocalizedPath(path, locale)}`;
     return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}"/>`;
   });

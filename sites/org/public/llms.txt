@@ -1,0 +1,30 @@
+# NoLoginTools.org
+
+> An independent non-profit organization dedicated to researching, verifying, and advocating for the No-Login Web.
+
+NoLoginTools.org is the governance authority and research institution behind the [nologin.tools](https://nologin.tools) directory and the "NoLogin Verified" trust certification. The organization publishes annual research, whitepapers, and technical guidelines on privacy-respecting, zero-friction software.
+
+## Core Mission & Research Focus
+
+- **Digital Autonomy**: Advocating for software that operates without requiring user identity, surveillance capital, or credential lock-in.
+- **Client-Side Technologies**: Researching advances in WebAssembly, WebGPU, Web Crypto, and local-first architectures that eliminate the need for server-side user data processing.
+- **Verification Standards**: Establishing objective, auditable criteria for privacy-preserving web software.
+- **Ecosystem Health**: Continuous uptime monitoring and historical archiving of public web utilities.
+
+## Landmark Publications & Reports
+
+- [The State of No-Login Web 2026](https://nologintools.org/reports/state-of-no-login-web-2026): Comprehensive annual whitepaper analyzing over 1,000 web tools, privacy metrics, browser engine capabilities, and the growing transition toward client-side compute.
+- [Reports Index](https://nologintools.org/reports): Archive of research papers, data analyses, and technical benchmarks published by NoLoginTools.org.
+
+## Standards & Certification
+
+- [NoLogin Verified Standard](https://nologin.tools/badge): The 7-dimension criteria (category, data processing, privacy, type, hosting, offline capability, pricing) used to evaluate software transparency and account-free accessibility.
+- [Tool Verification Directory](https://nologin.tools): The live execution platform cataloging verified tools.
+
+## Organization Identity & Contact
+
+- Organization: NoLoginTools.org (Independent Research & Governance)
+- Execution Platform: [nologin.tools](https://nologin.tools)
+- Research Archive: [https://nologintools.org/reports](https://nologintools.org/reports)
+- Open Source Repositories: [https://github.com/nologin-tools](https://github.com/nologin-tools)
+- Social Communication: [https://x.com/nologin_tools](https://x.com/nologin_tools)

@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { DEFAULT_LOCALE, LOCALES, LOCALE_OG_MAP, type Locale } from '../i18n/config';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_OG_MAP, isIndexableLocale, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath, getPathWithoutLocale } from '../i18n/utils';
 
 interface Props {
@@ -84,8 +84,8 @@ const hreflangLinks = hreflangLocales.map((l) => ({
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonicalUrl} />
-    {noindex
-      ? <meta name="robots" content="noindex" />
+    {noindex || !isIndexableLocale(locale)
+      ? <meta name="robots" content="noindex, follow" />
       : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     }
     {hreflangLinks.map(({ locale: l, href }) => (
