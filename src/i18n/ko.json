@@ -168,6 +168,7 @@
   "tool.uptime": "가동률: {percent}%",
   "tool.repository": "저장소",
   "tool.relatedTools": "유사한 도구",
+  "tool.relatedArticles": "관련 심층 가이드 및 리뷰",
   "tool.faq.q1": "{name}은 무료로 사용할 수 있나요?",
   "tool.faq.a1": "{name}은 nologin.tools에 계정 없이 사용할 수 있는 도구로 등록되어 있습니다. 요금제나 유료 기능에 대한 자세한 내용은 해당 도구의 공식 사이트를 확인하세요.",
   "tool.faq.q2": "{name}을 사용하려면 계정이 필요한가요?",

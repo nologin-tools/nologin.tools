@@ -171,12 +171,72 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
       'category.editorial.gain',
       'category.editorial.sacrifice',
       'category.editorial.workflow',
+      'tool.relatedArticles',
     ];
 
     for (const key of requiredKeys) {
       assert.ok(en[key], `en.json missing key: ${key}`);
       assert.ok(zh[key], `zh.json missing key: ${key}`);
     }
+  });
+
+  it('all 9 allowed tag pages have valid intros in en.json and zh.json', () => {
+    const en = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/en.json'), 'utf-8'));
+    const zh = JSON.parse(readFileSync(resolve(ROOT, 'src/i18n/zh.json'), 'utf-8'));
+
+    const allowedTags = [
+      'free',
+      'client-side-only',
+      'privacy-focused',
+      'self-hostable',
+      'freemium',
+      'no-trackers',
+      'works-offline',
+      'ad-supported',
+      'pwa',
+    ];
+
+    for (const tag of allowedTags) {
+      const key = `tag.page.intro.${tag}`;
+      assert.ok(en[key] && en[key].length > 20, `en.json must have descriptive ${key}`);
+      assert.ok(zh[key] && zh[key].length > 10, `zh.json must have descriptive ${key}`);
+    }
+  });
+
+  it('tool-to-blog internal linking is bi-directional and valid', async () => {
+    const toolDetailPageContent = readFileSync(TOOL_DETAIL_PAGE, 'utf-8');
+    assert.ok(toolDetailPageContent.includes('getRelatedArticlesForTool'), 'ToolDetailPage must import getRelatedArticlesForTool');
+    assert.ok(toolDetailPageContent.includes('tool.relatedArticles'), 'ToolDetailPage must render relatedArticles heading');
+    assert.ok(toolDetailPageContent.includes('subjectOf: relatedArticles.map'), 'ToolDetailPage JSON-LD must include subjectOf articles');
+
+    const { getRelatedArticlesForTool } = await import('../../src/lib/tool-blogs.ts');
+
+    // Test specific high-impact tools
+    const photopeaArticlesEn = getRelatedArticlesForTool('photopea-com', 'en');
+    assert.ok(photopeaArticlesEn.length >= 2, 'Photopea must have at least 2 related articles');
+    assert.ok(photopeaArticlesEn[0].url.startsWith('/blog/'), 'Article URL must be valid in EN');
+
+    const photopeaArticlesZh = getRelatedArticlesForTool('photopea-com', 'zh');
+    assert.ok(photopeaArticlesZh.length >= 2, 'Photopea must have at least 2 related articles in ZH');
+    assert.ok(photopeaArticlesZh[0].url.startsWith('/zh/blog/'), 'Article URL must be localized in ZH');
+
+    // Verify all articles mapped exist in filesystem in both EN and ZH
+    const excalidrawArticles = getRelatedArticlesForTool('excalidraw-com', 'en');
+    for (const article of excalidrawArticles) {
+      const enFile = resolve(ROOT, `src/content/blog/${article.slug}.md`);
+      const zhFile = resolve(ROOT, `src/content/blog/zh/${article.slug}.md`);
+      assert.ok(readFileSync(enFile, 'utf-8'), `File must exist: ${enFile}`);
+      assert.ok(readFileSync(zhFile, 'utf-8'), `File must exist: ${zhFile}`);
+    }
+  });
+
+  it('llms.txt documents 11 category hubs and core verified tools for AI agents', () => {
+    const llmsContent = readFileSync(resolve(ROOT, 'public/llms.txt'), 'utf-8');
+    assert.ok(llmsContent.includes('Tool Categories & Architectural Hubs'), 'Must document Category Architectural Hubs');
+    assert.ok(llmsContent.includes('Featured Verified Tools (50 Core Tools)'), 'Must document 50 Core Tools');
+    assert.ok(llmsContent.includes('In-Depth Editorial Reviews & Comparison Guides'), 'Must document In-Depth Guides');
+    assert.ok(llmsContent.includes('https://nologin.tools/blog/photopea-vs-canva'), 'Must link to Photopea comparison');
+    assert.ok(llmsContent.includes('https://nologin.tools/category/design'), 'Must link to Design category hub');
   });
 });
 

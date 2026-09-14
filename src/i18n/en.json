@@ -183,6 +183,7 @@
   "tool.uptime": "Uptime: {percent}%",
   "tool.repository": "Repository",
   "tool.relatedTools": "Similar Tools",
+  "tool.relatedArticles": "Related In-Depth Guides",
   "tool.editorial.heading": "Editorial Review & Verification",
   "tool.editorial.bestFor": "Best For",
   "tool.editorial.alternatives": "No-Login Alternative To",

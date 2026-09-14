@@ -168,6 +168,7 @@
   "tool.uptime": "稼働率：{percent}%",
   "tool.repository": "リポジトリ",
   "tool.relatedTools": "関連ツール",
+  "tool.relatedArticles": "関連する詳細ガイド・レビュー",
   "tool.faq.q1": "{name} は無料で使えますか？",
   "tool.faq.a1": "{name} は nologin.tools にアカウント不要で使えるツールとして掲載されています。料金やプレミアム機能の詳細は、ツールの公式サイトをご確認ください。",
   "tool.faq.q2": "{name} にはアカウントが必要ですか？",

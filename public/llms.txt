@@ -12,43 +12,119 @@ nologin.tools indexes web-based applications, utilities, and software that respe
 - **Health Monitored**: Automated uptime checks run every 6 hours; offline tools provide web.archive.org fallbacks.
 - **Verified Badge**: Tools undergo manual review and receive a cryptographic/SVG trust signal ("NoLogin Verified").
 
-## Tool Categories
+## Tool Categories & Architectural Hubs
 
-- [AI Tools](https://nologin.tools/category/ai): Machine learning and AI utilities accessible without API key barriers or logins.
-- [Design & Graphics](https://nologin.tools/category/design): Vector editors, photo editors, color palette generators, and SVG tools running in browser.
-- [Writing & Text](https://nologin.tools/category/writing): Markdown editors, diff checkers, word counters, and privacy-respecting notes.
-- [Development](https://nologin.tools/category/development): Code formatters, regex testers, JSON parsers, UUID generators, and base64 encoders.
-- [Productivity](https://nologin.tools/category/productivity): Timers, calculators, PDF tools, unit converters, and task managers without sync requirement.
-- [Media & Audio](https://nologin.tools/category/media): Audio trimmers, video compressors, screen recorders, and format converters.
-- [Privacy & Security](https://nologin.tools/category/privacy): Password generators, hash calculators, metadata strippers, and temporary sharing tools.
-- [Data & Analytics](https://nologin.tools/category/data): CSV viewers, chart makers, SQL playpens, and table formatters executing client-side.
-- [Communication](https://nologin.tools/category/communication): Disposable email utilities, temporary chat rooms, and peer-to-peer file transfer.
-- [Education](https://nologin.tools/category/education): Flashcards, periodic tables, math visualizers, and interactive learning tools.
-- [Finance](https://nologin.tools/category/finance): Currency converters, loan calculators, and compound interest calculators.
+Each category hub includes architectural deep-dives, client-side technology trade-off matrices, and curated zero-signup toolchains:
 
-## Featured Verified Tools
+- [AI Tools](https://nologin.tools/category/ai): Client-side WebLLM/ONNX vs stateless proxy APIs without login barriers.
+- [Design & Graphics](https://nologin.tools/category/design): In-browser raster, vector, and SVG generation via Canvas and WebAssembly.
+- [Writing & Text](https://nologin.tools/category/writing): Local-first markdown editors, spell checkers, and distraction-free document workspaces.
+- [Development](https://nologin.tools/category/development): Code formatters, regex debuggers, AST parsers, and WebAssembly compilation sandboxes.
+- [Productivity](https://nologin.tools/category/productivity): WebAssembly PDF manipulation, timers, and standalone browser utilities.
+- [Media & Audio](https://nologin.tools/category/media): Web Audio API DAWs, client-side video trimmers, and FFmpeg.wasm transcoders.
+- [Privacy & Security](https://nologin.tools/category/privacy): Web Crypto API AES-GCM encryption, ephemeral file sharing, and browser fingerprint auditors.
+- [Data & Analytics](https://nologin.tools/category/data): DuckDB-WASM and client-side CSV/JSON/SQL transformation engines.
+- [Communication](https://nologin.tools/category/communication): Peer-to-peer WebRTC transfers, disposable inboxes, and accountless meeting pollers.
+- [Education](https://nologin.tools/category/education): Interactive STEM simulations, graphing calculators, and algorithmic visualizers.
+- [Finance](https://nologin.tools/category/finance): Monte Carlo retirement models, currency converters, and local-first amortization tools.
 
-- [Excalidraw](https://nologin.tools/tool/excalidraw-com): Virtual whiteboard for sketching hand-drawn like diagrams. End-to-end encrypted, client-side only.
-- [CyberChef](https://nologin.tools/tool/gchq-github-io-cyberchef): The Cyber Swiss Army Knife for encryption, encoding, compression, and data analysis.
-- [Photopea](https://nologin.tools/tool/photopea-com): Advanced web-based image editor supporting PSD, XCF, Sketch, and XD formats in the browser.
-- [CryptPad](https://nologin.tools/tool/cryptpad-fr): End-to-end encrypted, open-source collaboration suite (docs, sheets, presentations) usable without an account.
-- [Audiomass](https://nologin.tools/tool/audiomass-co): Free, full-featured sound and audio wave editor running entirely client-side in the browser.
-- [TinyPNG](https://nologin.tools/tool/tinypng-com): Smart WebP, PNG, and JPEG image compression tool.
-- [DevToys Web](https://nologin.tools/tool/devtoys-app): Offline-capable Swiss army knife for developers (converters, encoders, formatters).
+## Featured Verified Tools (50 Core Tools)
 
-## Key Criteria & Verification Model
+### Design & Graphics
+- [Photopea](https://nologin.tools/tool/photopea-com): Photoshop alternative running entirely in-browser supporting PSD, XCF, Sketch.
+- [Excalidraw](https://nologin.tools/tool/excalidraw-com): Hand-drawn virtual whiteboard with end-to-end encrypted real-time collaboration.
+- [tldraw](https://nologin.tools/tool/tldraw-com): Infinite canvas for vector sketching, wireframes, and diagrams.
+- [Squoosh](https://nologin.tools/tool/squoosh-app): Google-engineered image compression engine running MozJPEG/WebP entirely via WebAssembly.
+- [TinyPNG](https://nologin.tools/tool/tinypng-com): Smart lossy WebP, PNG, and JPEG image compression.
+- [SVGOMG](https://nologin.tools/tool/jakearchibald-github-io-svgomg): Client-side SVGO visual GUI for stripping bloat from SVG files.
+- [Fffuel](https://nologin.tools/tool/fffuel-co): 40+ generative SVG tools for gradient meshes, waves, and organic textures.
+- [SVG-Edit](https://nologin.tools/tool/svgedit-netlify-app-editor-index-html): In-browser open-source vector graphics editor.
+- [Coolors](https://nologin.tools/tool/coolors-co): Superfast color palette generator with hex export.
+- [Favicon.io](https://nologin.tools/tool/favicon-io): Instant favicon generator from text, image, or emoji.
+- [Remove.bg](https://nologin.tools/tool/remove-bg): AI-powered background remover for portraits and product photos.
 
-1. **Submission & Manual Review**: Every candidate tool is tested by human reviewers and verified for no-login compliance.
-2. **Recommendation Score**: Tools are ranked by composite score:
-   - Badge display on tool's site: +10 pts (SVG) / +5 pts (meta link)
-   - Verified within 30 days: +5 pts (freshness)
-   - Verified within 90 days: +3 pts
-   - Currently online: +3 pts
-   - Editorial Feature: +8 pts
-3. **Health Checks**: Checked every 6 hours via automated worker with 14-day history timeline.
-4. **Wayback Machine Fallback**: If an approved tool goes offline, the directory auto-links to its latest working archive on web.archive.org.
+### Development & Utilities
+- [CyberChef](https://nologin.tools/tool/gchq-github-io-cyberchef): GCHQ Swiss army knife for decoding, hashing, parsing, and hex dumps.
+- [Regex101](https://nologin.tools/tool/regex101-com): Interactive regular expression tester with regex breakdown and benchmarks.
+- [JWT.io](https://nologin.tools/tool/jwt-io): Auth0 token debugger and signature validator operating in browser.
+- [Carbon](https://nologin.tools/tool/carbon-now-sh): Beautiful source code screenshot generator with syntax themes.
+- [JSON Crack](https://nologin.tools/tool/jsoncrack-com): Visual tree-graph generator for complex JSON data.
+- [JSON Formatter](https://nologin.tools/tool/jsonformatter-org): Clean JSON validator, minifier, and structural beautifier.
+- [DevDocs](https://nologin.tools/tool/devdocs-io): Fast, offline-capable unified developer API documentation viewer.
+- [TypeScript Playground](https://nologin.tools/tool/typescriptlang-org-play): Official in-browser TypeScript compiler and AST explorer.
+- [ExplainShell](https://nologin.tools/tool/explainshell-com): Visual parser breaking down complex CLI commands against man pages.
+- [Learn Git Branching](https://nologin.tools/tool/learngitbranching-js-org): Visual interactive game teaching Git branching, rebase, and merge.
+- [Bundlephobia](https://nologin.tools/tool/bundlephobia-com): NPM package bundle size and dependency weight analyzer.
+- [Can I Use](https://nologin.tools/tool/caniuse-com): Up-to-date browser feature support matrix for HTML5 and CSS3.
+- [Crontab Guru](https://nologin.tools/tool/crontab-guru): Real-time human-readable cron schedule expression validator.
 
-## Trust & Certification
+### Privacy, Security & Data
+- [hat.sh](https://nologin.tools/tool/hat-sh): Client-side AES-256-GCM file encryption using WebCrypto API.
+- [Have I Been Pwned](https://nologin.tools/tool/haveibeenpwned-com): Data breach search using k-anonymity hash queries.
+- [Temp Mail](https://nologin.tools/tool/temp-mail-org): Disposable temporary email inbox for bypassing forced signups.
+- [PrivacyTests](https://nologin.tools/tool/privacytests-org): Open-source privacy and fingerprint resistance audits for web browsers.
+- [CSVJSON](https://nologin.tools/tool/csvjson-com): In-browser converter for CSV, JSON, and SQL data formats.
+- [TableConvert](https://nologin.tools/tool/tableconvert-com): Convert between Markdown, Excel, CSV, HTML, and LaTeX tables.
+
+### Writing & Document Processing
+- [PDF24 Tools](https://nologin.tools/tool/tools-pdf24-org-en): Comprehensive suite for merging, splitting, compressing, and converting PDFs.
+- [TinyWow](https://nologin.tools/tool/tinywow-com): 50+ conversion tools across PDF, media, and file utilities.
+- [Dillinger](https://nologin.tools/tool/dillinger-io): Cloud-agnostic browser markdown editor with styled HTML and PDF export.
+- [Hemingway Editor](https://nologin.tools/tool/hemingwayapp-com): Writing editor highlighting passive voice, readability, and wordiness.
+- [LanguageTool](https://nologin.tools/tool/languagetool-org): Multilingual grammar and style checker without login.
+- [Convertio](https://nologin.tools/tool/convertio-co): Universal file converter supporting 300+ formats.
+
+### Audio, Video & Media
+- [AudioMass](https://nologin.tools/tool/audiomass-co): In-browser Digital Audio Workstation (DAW) with visual waveform editor.
+- [AudioTrimmer](https://nologin.tools/tool/audiotrimmer-com): Fast browser audio cutter and ringtone creator.
+- [Ezgif](https://nologin.tools/tool/ezgif-com): Online animated GIF maker, video-to-GIF converter, and optimizer.
+
+### STEM, Education & Finance
+- [Desmos Calculator](https://nologin.tools/tool/desmos-com-calculator): Fast, responsive graphing calculator and equation visualizer.
+- [Wolfram Alpha](https://nologin.tools/tool/wolframalpha-com): Computational knowledge engine answering math and scientific queries.
+- [GeoGebra](https://nologin.tools/tool/geogebra-org-calculator): Dynamic geometry, 3D graphing, and algebra visualizer.
+- [Omni Calculator](https://nologin.tools/tool/omnicalculator-com): 3,000+ specialized smart calculators for science, finance, and daily life.
+- [cFIREsim](https://nologin.tools/tool/cfiresim-com): Historical Monte Carlo retirement portfolio independence simulator.
+- [Wise Currency Converter](https://nologin.tools/tool/wise-com-gb-currency-converter): Real mid-market foreign exchange rate calculator.
+- [XE Currency](https://nologin.tools/tool/xe-com-currencyconverter): Live forex rates and international currency conversion.
+
+### AI, Productivity & Communication
+- [Phind](https://nologin.tools/tool/phind-com): Developer-focused search engine providing direct answers with runnable code.
+- [Quickstart](https://nologin.tools/tool/quickstart-to): Instant project setup generator for modern web stacks.
+- [Diagrams.net](https://nologin.tools/tool/app-diagrams-net): Professional flowchart, UML, and architecture diagramming software.
+- [Pomofocus](https://nologin.tools/tool/pomofocus-io): Customizable Pomodoro timer for focus and productivity.
+- [Jitsi Meet](https://nologin.tools/tool/meet-jit-si): Fully encrypted, zero-signup video conference rooms.
+
+## In-Depth Editorial Reviews & Comparison Guides
+
+- [Photopea vs Canva: Which No-Login Tool Wins?](https://nologin.tools/blog/photopea-vs-canva): Detailed functional comparison for graphic design without signup.
+- [5 No-Login Alternatives to Canva](https://nologin.tools/blog/canva-alternatives-no-login): Browser tools that replace Canva's core features without demanding email.
+- [Excalidraw Privacy & Encryption Review](https://nologin.tools/blog/excalidraw-privacy-review): Technical breakdown of Excalidraw's cryptographic key architecture.
+- [Why Squoosh Beats Online Compressors](https://nologin.tools/blog/squoosh-beats-online-image-compressors): How WebAssembly image processing prevents remote file leakage.
+- [WebAssembly: Powering Zero-Signup Web Tools](https://nologin.tools/blog/webassembly-no-login-browser-tools): Technical exploration of near-native in-browser performance.
+- [Edit PDFs in Browser Without Installs](https://nologin.tools/blog/edit-pdf-without-installing-anything): Practical workflow for merging, signing, and converting PDFs.
+- [hat.sh: Zero-Knowledge Browser File Encryption](https://nologin.tools/blog/hat-sh): Client-side WebCrypto AES-GCM security architecture review.
+- [JWT.io: Instant Token Decoding & Verification](https://nologin.tools/blog/jwt-io): How in-browser token parsing prevents secret credential exposure.
+- [AudioMass: In-Browser Digital Audio Workstation](https://nologin.tools/blog/audiomass-co): In-depth examination of Web Audio API waveform editing.
+- [5 Free Google Docs Alternatives Without an Account](https://nologin.tools/blog/google-docs-alternatives-no-login): Collaborative and single-user editors skipping Google signin.
+- [Use Online Tools Without Giving Away Your Email](https://nologin.tools/blog/practical-guide-tools-without-email): Defensive guide against data broker harvesting and signup walls.
+- [Free AI Tools That Don't Need Your Email](https://nologin.tools/blog/free-ai-tools-no-login): AI coding assistants and image isolation tools without authentication barriers.
+
+## Verification Model & Ranking Formula
+
+Every tool submitted to nologin.tools is audited under a strict verification lifecycle:
+1. **Zero-Login Gate Check**: If any core function requires registration or payment, the tool is rejected.
+2. **Network & Tracker Audit**: DevTools traffic inspection to verify data processing claims (client-side vs remote).
+3. **Automated Health Monitoring**: Automated health workers verify HTTP reachability every 6 hours.
+4. **Wayback Machine Integration**: If an approved tool becomes unreachable, directory links automatically fallback to web.archive.org.
+
+Recommendation ranking score formula:
+```
+score = badge_weight + freshness + health + featured
+```
+Where badge_weight rewards tool authors displaying the official NoLogin trust badge (+10 pts SVG / +5 pts meta link), freshness rewards recently verified tools (+5 pts <30d, +3 pts <90d), health rewards active uptime (+3 pts), and featured highlights curated editorial spotlights (+8 pts).
+
+## Trust, Certification & Authority
 
 - [What is NoLogin Verified?](https://nologin.tools/badge): Explanation of the trust standard for users and developers.
 - [Get Verification Badge](https://nologin.tools/submit): Developer submission form for getting a tool verified and receiving the embeddable trust badge.
@@ -56,9 +132,11 @@ nologin.tools indexes web-based applications, utilities, and software that respe
 - [Organization Authority](https://nologintools.org): Independent non-profit foundation providing governance, research reports, and standards.
 - [The State of No-Login Web 2026 Report](https://nologintools.org/reports/state-of-no-login-web-2026): Annual industry whitepaper on the shift toward zero-friction, private web software.
 
-## Developer & Machine Access
+## Governance & Machine Access
 
-- [Sitemap XML](https://nologin.tools/sitemap.xml): Multi-lingual XML sitemap covering all tools, categories, and tags.
-- [RSS Feed](https://nologin.tools/rss.xml): Articles, reviews, and editorial updates on no-login software.
-- [Full LLM Index](https://nologin.tools/llms-full.txt): Comprehensive unstructured and tabular knowledge base for deep AI reasoning.
-- [GitHub Awesome List](https://github.com/nologin-tools/awesome-nologin-tools): Daily synced open-source repository of all approved tools with metadata.
+- **Organization**: [NoLoginTools.org](https://nologintools.org) (Independent non-profit authority)
+- **Directory**: [nologin.tools](https://nologin.tools)
+- **XML Sitemap**: [https://nologin.tools/sitemap.xml](https://nologin.tools/sitemap.xml)
+- **RSS Feed**: [https://nologin.tools/rss.xml](https://nologin.tools/rss.xml)
+- **Full LLM Index**: [https://nologin.tools/llms-full.txt](https://nologin.tools/llms-full.txt)
+- **GitHub Repository**: [https://github.com/nologin-tools/awesome-nologin-tools](https://github.com/nologin-tools/awesome-nologin-tools)

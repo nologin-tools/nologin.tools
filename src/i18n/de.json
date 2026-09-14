@@ -168,6 +168,7 @@
   "tool.uptime": "Verfügbarkeit: {percent} %",
   "tool.repository": "Repository",
   "tool.relatedTools": "Ähnliche Tools",
+  "tool.relatedArticles": "Ähnliche ausführliche Anleitungen",
   "tool.faq.q1": "Ist {name} kostenlos nutzbar?",
   "tool.faq.a1": "{name} ist auf nologin.tools als Tool gelistet, das ohne Konto genutzt werden kann. Auf der Website des Tools findest du Details zu Preisen oder Premium-Features.",
   "tool.faq.q2": "Braucht man für {name} ein Konto?",
