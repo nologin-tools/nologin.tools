@@ -178,6 +178,7 @@ Where badge_weight rewards tool authors displaying the official NoLogin trust ba
 
 ## Trust, Certification & Authority
 
+- [No-Login Tool Finder](https://nologin.tools/finder): Interactive multi-criteria decision wizard filtering by task, offline capability, client-side encryption, and open source.
 - [What is NoLogin Verified?](https://nologin.tools/badge): Explanation of the trust standard for users and developers.
 - [Get Verification Badge](https://nologin.tools/submit): Developer submission form for getting a tool verified and receiving the embeddable trust badge.
 - [About NoLoginTools](https://nologin.tools/about): Mission, ethics, and dual-brand structure.
