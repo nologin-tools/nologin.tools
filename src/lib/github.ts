@@ -212,44 +212,43 @@ export async function createGitHubNotificationIssue(
   const title = `[NoLogin Verified] ${toolName} has been verified by nologin.tools`;
   const body = `## 🎉 Congratulations!
 
-**${toolName}** has been verified by [nologin.tools](${siteUrl}/about) as a privacy-friendly tool that works without requiring user login.
+**${toolName}** has been officially verified by [nologin.tools](${siteUrl}/about) as a privacy-friendly tool that works completely without user login or sign-up.
 
 ### What is NoLogin Verified?
 
-[NoLogin Verified](${siteUrl}/badge/) is a trust badge for tools that respect user privacy. Your tool has been manually reviewed and confirmed to:
-- ✅ Work without requiring user registration or login
-- ✅ Respect user privacy
-- ✅ Be continuously monitored for availability
+[NoLogin Verified](${siteUrl}/badge/) is a trusted privacy certification. Your tool has been manually reviewed and confirmed to:
+- ✅ Provide its core functionality without requiring account creation or login
+- ✅ Respect user privacy with no unnecessary data collection
+- ✅ Be continuously monitored 24/7 for availability
 
-Learn more: [${siteUrl}/badge/](${siteUrl}/badge/)
+### Add the Badge & Boost Your Ranking
 
-### Add the NoLogin Verified badge
+Displaying the verified badge unlocks an automatic **+10 Algorithm Ranking Boost** on nologin.tools, giving your tool priority placement in category and directory searches. Our daily automated crawler scans your repository's \`README.md\` and activates your boost automatically!
 
-#### In your README
+#### For your README.md
 
-[![NoLogin Verified](${badgeUrl})](${badgePageUrl})
+[![NoLogin Verified](${badgeUrl})](${badgePageUrl} "Verified by NoLoginTools.org")
 
 \`\`\`markdown
-[![NoLogin Verified](${badgeUrl})](${badgePageUrl})
+[![NoLogin Verified](${badgeUrl})](${badgePageUrl} "Verified by NoLoginTools.org")
 \`\`\`
 
-#### On your landing page or footer
+#### For your Website Footer or Landing Page
 
 \`\`\`html
 <a href="${badgePageUrl}"><img src="${badgeUrl}" alt="NoLogin Verified" title="Verified by NoLoginTools.org" /></a>
 \`\`\`
 
-### More badge styles
+### Custom Badge Styles & Digital Certificate
 
-We offer 13+ badge styles including dark, social, and color variants. Visit your [badge page](${badgePageUrl}#embed) to find the one that best fits your site.
-
-### Your tool page
-
-View your verified tool page: [${toolPageUrl}](${toolPageUrl})
+We offer 13+ badge styles (Dark, Social, Flat-Square, Plastic, Minimalist, etc.).
+- Explore all styles & embed codes: [${badgePageUrl}#embed](${badgePageUrl}#embed)
+- View your live digital certificate: [${badgePageUrl}](${badgePageUrl})
+- Your directory listing: [${toolPageUrl}](${toolPageUrl})
 
 ---
 
-*This is an automated notification from [nologin.tools](${siteUrl}). If you have questions, visit our [about page](${siteUrl}/about).*`;
+*This is a one-time automated notification from [nologin.tools](${siteUrl}). Feel free to close this issue if you're not interested, or check out our [About page](${siteUrl}/about).*`;
 
   console.log(`[GitHub] Creating notification issue for ${owner}/${repo}`);
 

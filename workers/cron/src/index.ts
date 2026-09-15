@@ -295,7 +295,7 @@ function parseGitHubRepoUrl(url: string): { owner: string; repo: string } | null
 
 async function runBadgeDetection(env: Env, ctx: ExecutionContext) {
   const tools = await env.DB.prepare(
-    "SELECT id, url FROM tools WHERE status = 'approved'"
+    "SELECT id, url, repo_url FROM tools WHERE status = 'approved'"
   ).all<ToolRow>();
 
   const batch = tools.results || [];
@@ -306,6 +306,9 @@ async function runBadgeDetection(env: Env, ctx: ExecutionContext) {
     const chunk = batch.slice(i, i + batchSize);
     const results = await Promise.allSettled(
       chunk.map(async (tool) => {
+        let displayType: 'explicit' | 'implicit' | 'none' = 'none';
+
+        // 1. Check primary website URL
         try {
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 15000);
@@ -319,33 +322,74 @@ async function runBadgeDetection(env: Env, ctx: ExecutionContext) {
           });
           clearTimeout(timeout);
 
-          if (!response.ok) {
-            return { toolId: tool.id, displayType: 'none' as const };
+          if (response.ok) {
+            const html = await response.text();
+
+            // Check for explicit badge (img/a with nologin.tools/badge or nologintools.org)
+            if (
+              html.includes('nologin.tools/badge.svg') ||
+              html.includes('nologin.tools/badge/') ||
+              html.includes('nologin.tools/badges/') ||
+              html.includes('nologintools.org/badge') ||
+              html.includes('nologintools.org/badges')
+            ) {
+              displayType = 'explicit';
+            } else if (
+              html.includes('nologin-verified') ||
+              html.includes('nologin.tools') ||
+              html.includes('nologintools.org')
+            ) {
+              displayType = 'implicit';
+            }
           }
-
-          const html = await response.text();
-
-          // Check for explicit badge (img/a with nologin.tools/badge)
-          if (
-            html.includes('nologin.tools/badge.svg') ||
-            html.includes('nologin.tools/badge/') ||
-            html.includes('nologin.tools/badges/')
-          ) {
-            return { toolId: tool.id, displayType: 'explicit' as const };
-          }
-
-          // Check for implicit (meta tag or nologin.tools link)
-          if (
-            html.includes('nologin-verified') ||
-            html.includes('nologin.tools')
-          ) {
-            return { toolId: tool.id, displayType: 'implicit' as const };
-          }
-
-          return { toolId: tool.id, displayType: 'none' as const };
         } catch {
-          return { toolId: tool.id, displayType: 'none' as const };
+          // ignore primary fetch error
         }
+
+        // 2. If not already explicit, check GitHub repo README (if repo_url is set)
+        if (displayType !== 'explicit' && tool.repo_url) {
+          const parsed = parseGitHubRepoUrl(tool.repo_url);
+          if (parsed) {
+            try {
+              const controller = new AbortController();
+              const timeout = setTimeout(() => controller.abort(), 10000);
+
+              const readmeUrl = `https://raw.githubusercontent.com/${parsed.owner}/${parsed.repo}/HEAD/README.md`;
+              const readmeRes = await fetch(readmeUrl, {
+                signal: controller.signal,
+                headers: {
+                  'User-Agent': 'NoLoginTools-BadgeChecker/1.0',
+                },
+              });
+              clearTimeout(timeout);
+
+              if (readmeRes.ok) {
+                const markdown = await readmeRes.text();
+                if (
+                  markdown.includes('nologin.tools/badge.svg') ||
+                  markdown.includes('nologin.tools/badge/') ||
+                  markdown.includes('nologin.tools/badges/') ||
+                  markdown.includes('nologintools.org/badge') ||
+                  markdown.includes('nologintools.org/badges')
+                ) {
+                  displayType = 'explicit';
+                } else if (
+                  markdown.includes('nologin-verified') ||
+                  markdown.includes('nologin.tools') ||
+                  markdown.includes('nologintools.org')
+                ) {
+                  if (displayType === 'none') {
+                    displayType = 'implicit';
+                  }
+                }
+              }
+            } catch {
+              // ignore GitHub fetch error
+            }
+          }
+        }
+
+        return { toolId: tool.id, displayType };
       })
     );
 
@@ -401,6 +445,14 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
       });
     }
 
+    const badgeRows = await env.DB.prepare(
+      "SELECT tool_id, display_type FROM badge_displays"
+    ).all<{ tool_id: number; display_type: string }>();
+    const badgeMap = new Map<number, string>();
+    for (const b of badgeRows.results || []) {
+      badgeMap.set(b.tool_id, b.display_type);
+    }
+
     const toolsList = (tools.results || []).map((t) => {
       const toolTags = tagMap.get(t.id) || [];
       const category = toolTags.find((tag) => tag.key === 'category')?.value || null;
@@ -412,6 +464,7 @@ async function runDataExport(env: Env, ctx: ExecutionContext) {
         coreTask: t.core_task,
         category,
         featured: !!t.is_featured,
+        badge: badgeMap.get(t.id) || 'none',
         repoUrl: t.repo_url || null,
         githubStars: t.github_stars ?? null,
       };
@@ -463,6 +516,7 @@ function generateReadme(
     coreTask: string;
     category: string | null;
     featured: boolean;
+    badge?: string;
     repoUrl?: string | null;
     githubStars?: number | null;
   }[]
@@ -499,8 +553,9 @@ function generateReadme(
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
       const star = tool.featured ? ' ★' : '';
+      const badge = tool.badge === 'explicit' ? ' 🛡️' : '';
       const repoSuffix = tool.repoUrl ? ` ([Source](${tool.repoUrl})${tool.githubStars != null ? ` ⭐${tool.githubStars}` : ''})` : '';
-      md += `- **[${tool.name}${star}](${tool.url})**${repoSuffix} — ${tool.description || tool.coreTask}\n`;
+      md += `- **[${tool.name}${star}${badge}](${tool.url})**${repoSuffix} — ${tool.description || tool.coreTask}\n`;
       md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;

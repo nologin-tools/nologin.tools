@@ -2,7 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { getDb } from '../../../db';
-import { tools, tags, dataExports } from '../../../db/schema';
+import { tools, tags, dataExports, badgeDisplays } from '../../../db/schema';
 import { eq } from 'drizzle-orm';
 import { api } from '../../../lib/api';
 import { TAG_DEFINITIONS } from '../../../lib/tags';
@@ -66,6 +66,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
     tagMap.get(tag.toolId)!.push({ key: tag.tagKey, value: tag.tagValue });
   }
 
+  // Query badge displays
+  const allBadges = await db
+    .select({
+      toolId: badgeDisplays.toolId,
+      displayType: badgeDisplays.displayType,
+    })
+    .from(badgeDisplays);
+  const badgeMap = new Map<number, string>();
+  for (const b of allBadges) {
+    badgeMap.set(b.toolId, b.displayType);
+  }
+
   const toolsList = approvedTools.map((t) => {
     const toolTags = tagMap.get(t.id) || [];
     const category = toolTags.find((tag) => tag.key === 'category')?.value || null;
@@ -77,6 +89,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       coreTask: t.coreTask,
       category,
       featured: t.isFeatured || false,
+      badge: badgeMap.get(t.id) || 'none',
       repoUrl: t.repoUrl || null,
       githubStars: t.githubStars ?? null,
       githubLanguage: t.githubLanguage || null,
@@ -141,6 +154,7 @@ function generateReadme(
     coreTask: string;
     category: string | null;
     featured: boolean;
+    badge?: string;
     repoUrl?: string | null;
     githubStars?: number | null;
   }[]
@@ -177,8 +191,9 @@ function generateReadme(
     md += `## ${cat}\n\n`;
     for (const tool of catTools) {
       const star = tool.featured ? ' ★' : '';
+      const badge = tool.badge === 'explicit' ? ' 🛡️' : '';
       const repoSuffix = tool.repoUrl ? ` ([Source](${tool.repoUrl})${tool.githubStars != null ? ` ⭐${tool.githubStars}` : ''})` : '';
-      md += `- **[${tool.name}${star}](${tool.url})**${repoSuffix} — ${tool.description || tool.coreTask}\n`;
+      md += `- **[${tool.name}${star}${badge}](${tool.url})**${repoSuffix} — ${tool.description || tool.coreTask}\n`;
       md += `  > _No-login task: ${tool.coreTask}_\n`;
     }
     md += `\n`;

@@ -301,11 +301,23 @@ const allEmbedCodes = Object.fromEntries(
 
         <!-- Code Displays -->
         <div class="grid grid-cols-1 gap-8 text-left max-w-3xl mx-auto">
+          <!-- Markdown (GitHub README) -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium text-neutral-700 flex items-center gap-2">
+                <span>{t(locale, 'badgeDetail.markdownReadme')}</span>
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-neutral-100 text-neutral-600">README.md</span>
+              </h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors cursor-pointer" data-code="markdown" data-copied-text={t(locale, 'badgeDetail.copied')}>{t(locale, 'badgeDetail.copyCode')}</button>
+            </div>
+            <pre id="code-markdown" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{embedCode.markdown}</code></pre>
+          </div>
+
           <!-- SVG Badge -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <h3 class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.svgRecommended')}</h3>
-              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="svg">Copy Code</button>
+              <h3 class="text-sm font-medium text-neutral-700">{t(locale, 'badgeDetail.svgRecommended')}</h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors cursor-pointer" data-code="svg" data-copied-text={t(locale, 'badgeDetail.copied')}>{t(locale, 'badgeDetail.copyCode')}</button>
             </div>
             <div class="p-6 bg-white border border-neutral-200 rounded-lg flex justify-center mb-4">
               <img id="badge-preview" src="/badges/flat.svg" alt="NoLogin Verified" class="h-10" />
@@ -316,8 +328,8 @@ const allEmbedCodes = Object.fromEntries(
           <!-- Meta tag -->
           <div class="space-y-3">
              <div class="flex items-center justify-between">
-              <h3 class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.metaTag')}</h3>
-              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors" data-code="meta">Copy Code</button>
+              <h3 class="text-sm font-medium text-neutral-700">{t(locale, 'badgeDetail.metaTag')}</h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors cursor-pointer" data-code="meta" data-copied-text={t(locale, 'badgeDetail.copied')}>{t(locale, 'badgeDetail.copyCode')}</button>
             </div>
             <pre id="code-meta" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{embedCode.meta}</code></pre>
           </div>
@@ -376,11 +388,12 @@ const allEmbedCodes = Object.fromEntries(
     });
 
     // Badge style switching
-    const embedCodes: Record<string, { svg: string }> = JSON.parse(
+    const embedCodes: Record<string, { svg: string; markdown: string; meta: string }> = JSON.parse(
       document.getElementById('embed-codes-data')!.textContent!
     );
     const styleBtns = document.querySelectorAll('.badge-style-btn');
     const badgePreview = document.getElementById('badge-preview') as HTMLImageElement;
+    const codeMarkdown = document.getElementById('code-markdown');
     const codeSvg = document.getElementById('code-svg');
 
     styleBtns.forEach((btn) => {
@@ -391,7 +404,10 @@ const allEmbedCodes = Object.fromEntries(
         // Update preview image
         badgePreview.src = badgePath;
 
-        // Update SVG embed code
+        // Update Markdown and SVG embed code
+        if (codeMarkdown && embedCodes[style]) {
+          codeMarkdown.innerHTML = `<code>${embedCodes[style].markdown.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
+        }
         if (codeSvg && embedCodes[style]) {
           codeSvg.innerHTML = `<code>${embedCodes[style].svg.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
         }
@@ -424,9 +440,10 @@ const allEmbedCodes = Object.fromEntries(
         const codeEl = document.getElementById(codeId);
         if (codeEl) {
           navigator.clipboard.writeText(codeEl.textContent || '');
-          btn.textContent = 'Copied!';
+          const originalText = btn.textContent;
+          btn.textContent = (btn as HTMLElement).dataset.copiedText || 'Copied!';
           setTimeout(() => {
-            btn.textContent = 'Copy';
+            btn.textContent = originalText;
           }, 2000);
         }
       });

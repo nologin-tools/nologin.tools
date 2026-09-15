@@ -2,7 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { getDb } from '../../../db';
-import { tools, tags, healthChecks } from '../../../db/schema';
+import { tools, tags, healthChecks, badgeDisplays } from '../../../db/schema';
 import { eq, desc, like, or, sql, inArray } from 'drizzle-orm';
 import { api } from '../../../lib/api';
 import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../../lib/health';
@@ -67,10 +67,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
     .limit(PAGE_SIZE)
     .offset(offset);
 
-  // Batch fetch tags and health checks (avoids N+1 queries)
+  // Batch fetch tags, health checks, and badge displays (avoids N+1 queries)
   const toolIds = toolList.map((t) => t.id);
 
-  const [allTags, allHealthChecks] = toolIds.length > 0
+  const [allTags, allHealthChecks, allBadges] = toolIds.length > 0
     ? await Promise.all([
         db.select({ toolId: tags.toolId, tagKey: tags.tagKey, tagValue: tags.tagValue })
           .from(tags)
@@ -85,8 +85,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
           .from(healthChecks)
           .where(inArray(healthChecks.toolId, toolIds))
           .orderBy(desc(healthChecks.checkedAt)),
+        db.select({
+            toolId: badgeDisplays.toolId,
+            displayType: badgeDisplays.displayType,
+          })
+          .from(badgeDisplays)
+          .where(inArray(badgeDisplays.toolId, toolIds)),
       ])
-    : [[], []];
+    : [[], [], []];
 
   // Build tag map
   const tagMap = new Map<number, { tagKey: string; tagValue: string }[]>();
@@ -105,6 +111,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
   }
 
+  // Build badge map
+  const badgeMap = new Map<number, string>();
+  for (const b of allBadges) {
+    badgeMap.set(b.toolId, b.displayType);
+  }
+
   // Assemble result
   const result = toolList.map((tool) => {
     const toolTags = tagMap.get(tool.id) || [];
@@ -115,6 +127,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return {
       ...tool,
       tags: toolTags,
+      badgeDisplayType: badgeMap.get(tool.id) || null,
       latestHealth: latestHealth
         ? {
             ...latestHealth,

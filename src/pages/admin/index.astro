@@ -4,7 +4,7 @@ export const prerender = false;
 import Layout from '../../layouts/Layout.astro';
 import TagPicker from '../../components/TagPicker.astro';
 import { getDb } from '../../db';
-import { tools, tags, editSuggestions, healthChecks, dataExports, githubNotifications } from '../../db/schema';
+import { tools, tags, editSuggestions, healthChecks, dataExports, githubNotifications, badgeDisplays } from '../../db/schema';
 import { eq, desc, sql, and, inArray } from 'drizzle-orm';
 import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
@@ -27,6 +27,12 @@ const [pendingCount] = await db.select({ count: sql<number>`count(*)` }).from(to
 const [rejectedCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.status, 'rejected'));
 
 const [featuredCount] = await db.select({ count: sql<number>`count(*)` }).from(tools).where(eq(tools.isFeatured, true));
+
+const [badgeVerifiedCount] = await db
+  .select({ count: sql<number>`count(*)` })
+  .from(badgeDisplays)
+  .innerJoin(tools, eq(tools.id, badgeDisplays.toolId))
+  .where(and(eq(tools.status, 'approved'), eq(badgeDisplays.displayType, 'explicit')));
 
 // Count offline approved tools: latest check in 48h window AND latest is offline AND all last N offline
 const windowCutoff = Math.floor(Date.now() / 1000) - HEALTH_WINDOW_HOURS * 3600;
@@ -87,6 +93,18 @@ if (pendingIds.length > 0) {
     const arr = pendingToolTags.get(tag.toolId) || [];
     arr.push({ tagKey: tag.tagKey, tagValue: tag.tagValue });
     pendingToolTags.set(tag.toolId, arr);
+  }
+}
+
+// Fetch badge displays for pending tools (batch query)
+const pendingBadgeMap = new Map<number, string>();
+if (pendingIds.length > 0) {
+  const allPendingBadges = await db
+    .select({ toolId: badgeDisplays.toolId, displayType: badgeDisplays.displayType })
+    .from(badgeDisplays)
+    .where(inArray(badgeDisplays.toolId, pendingIds));
+  for (const b of allPendingBadges) {
+    pendingBadgeMap.set(b.toolId, b.displayType);
   }
 }
 
@@ -289,7 +307,7 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
     <!-- ==================== PANEL: Dashboard ==================== -->
     <div id="panel-dashboard" class="tab-panel">
       <!-- Stats grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 mb-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-8">
         <div class="border border-neutral-200 rounded-lg p-5">
           <p class="text-sm text-neutral-500 mb-1">Total Tools</p>
           <p class="text-3xl font-bold text-neutral-950">{totalCount.count}</p>
@@ -313,6 +331,10 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
         <div class="border border-yellow-200 rounded-lg p-5 bg-yellow-50">
           <p class="text-sm text-yellow-600 mb-1">Featured</p>
           <p class="text-3xl font-bold text-yellow-700">{featuredCount.count}</p>
+        </div>
+        <div class="border border-emerald-200 rounded-lg p-5 bg-emerald-50">
+          <p class="text-sm text-emerald-600 mb-1">Badge Verified</p>
+          <p class="text-3xl font-bold text-emerald-700">{badgeVerifiedCount.count}</p>
         </div>
       </div>
 
@@ -383,13 +405,21 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
           pendingTools.map((tool) => {
             const toolTags = pendingToolTags.get(tool.id) || [];
             const health = healthMap.get(tool.id);
+            const badgeType = pendingBadgeMap.get(tool.id);
             return (
               <div class="border border-neutral-200 rounded-lg p-5 tool-card" data-tool-id={tool.id} data-tool-status={tool.status}>
                 <div class="flex items-start justify-between mb-3">
                   <div class="flex-1 min-w-0">
-                    <div class="flex items-center gap-2 mb-1">
+                    <div class="flex items-center gap-2 mb-1 flex-wrap">
                       <h3 class="font-semibold text-neutral-950 tool-name">{tool.name}</h3>
                       <span class:list={['status-badge', `status-${tool.status}`]} data-field="status">{tool.status}</span>
+                      {badgeType === 'explicit' ? (
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-200 badge-status-pill" data-badge-type="explicit">🛡️ Badge Active</span>
+                      ) : badgeType === 'implicit' ? (
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200 badge-status-pill" data-badge-type="implicit">Badge Implicit</span>
+                      ) : (
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-neutral-100 text-neutral-500 border border-neutral-200 badge-status-pill" data-badge-type="none">No Badge</span>
+                      )}
                     </div>
                     <a href={tool.url} target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline tool-url">{tool.url}</a>
                   </div>
@@ -475,6 +505,7 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
                     <Fragment>
                       <button class="btn-primary text-sm approve-btn" data-tool-id={tool.id}>Approve</button>
                       <button class="btn-secondary text-sm reject-toggle-btn" data-tool-id={tool.id}>Reject</button>
+                      <button class="btn-secondary text-sm badge-check-btn" data-tool-id={tool.id}>Check Badge</button>
                     </Fragment>
                   )}
                   {tool.status === 'approved' && (
@@ -486,7 +517,10 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
                   )}
                   <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id={tool.id}>Edit</button>
                   {tool.status === 'approved' && (
-                    <button class="btn-secondary text-sm health-check-btn" data-tool-id={tool.id}>Health Check</button>
+                    <Fragment>
+                      <button class="btn-secondary text-sm health-check-btn" data-tool-id={tool.id}>Health Check</button>
+                      <button class="btn-secondary text-sm badge-check-btn" data-tool-id={tool.id}>Check Badge</button>
+                    </Fragment>
                   )}
                   <button class="btn-danger text-sm delete-btn" data-tool-id={tool.id}>Delete</button>
                 </div>
@@ -1190,6 +1224,16 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
       }
     }
 
+    function renderBadgePill(type?: string | null): string {
+      if (type === 'explicit') {
+        return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-200 badge-status-pill" data-badge-type="explicit">🛡️ Badge Active</span>';
+      }
+      if (type === 'implicit') {
+        return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200 badge-status-pill" data-badge-type="implicit">Badge Implicit</span>';
+      }
+      return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-neutral-100 text-neutral-500 border border-neutral-200 badge-status-pill" data-badge-type="none">No Badge</span>';
+    }
+
     function renderToolCard(tool: any): string {
       const tagsHtml = (tool.tags || [])
         .sort((a: any, b: any) => a.tagKey === 'category' ? -1 : b.tagKey === 'category' ? 1 : 0)
@@ -1233,10 +1277,14 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
         ${tool.status === 'pending' ? `
           <button class="btn-primary text-sm approve-btn" data-tool-id="${tool.id}">Approve</button>
           <button class="btn-secondary text-sm reject-toggle-btn" data-tool-id="${tool.id}">Reject</button>
+          <button class="btn-secondary text-sm badge-check-btn" data-tool-id="${tool.id}">Check Badge</button>
         ` : ''}
         ${featureBtnHtml}
         <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${tool.id}">Edit</button>
-        ${tool.status === 'approved' ? `<button class="btn-secondary text-sm health-check-btn" data-tool-id="${tool.id}">Health Check</button>` : ''}
+        ${tool.status === 'approved' ? `
+          <button class="btn-secondary text-sm health-check-btn" data-tool-id="${tool.id}">Health Check</button>
+          <button class="btn-secondary text-sm badge-check-btn" data-tool-id="${tool.id}">Check Badge</button>
+        ` : ''}
         <button class="btn-danger text-sm delete-btn" data-tool-id="${tool.id}">Delete</button>
       `;
 
@@ -1249,9 +1297,10 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
         <div class="border border-neutral-200 rounded-lg p-5 tool-card" data-tool-id="${tool.id}" data-tool-status="${tool.status}" data-tool-tags='${tagsDataAttr}'>
           <div class="flex items-start justify-between mb-3">
             <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
                 <h3 class="font-semibold text-neutral-950 tool-name">${escapeHtml(tool.name)}</h3>
                 <span class="status-badge status-${tool.status}" data-field="status">${tool.status}</span>
+                ${renderBadgePill(tool.badgeDisplayType)}
               </div>
               <a href="${escapeHtml(tool.url)}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline tool-url">${escapeHtml(tool.url)}</a>
             </div>
@@ -1356,6 +1405,7 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
               <button class="btn-secondary text-sm feature-btn" data-tool-id="${toolId}" data-featured="false">☆ Feature</button>
               <button class="btn-secondary text-sm edit-toggle-btn" data-tool-id="${toolId}">Edit</button>
               <button class="btn-secondary text-sm health-check-btn" data-tool-id="${toolId}">Health Check</button>
+              <button class="btn-secondary text-sm badge-check-btn" data-tool-id="${toolId}">Check Badge</button>
               <button class="btn-danger text-sm delete-btn" data-tool-id="${toolId}">Delete</button>
             `;
             // Hide reject form if visible
@@ -1627,6 +1677,50 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
           }
           b.disabled = false;
           b.textContent = 'Health Check';
+        });
+      });
+
+      // Badge check (tools tab)
+      document.querySelectorAll('.badge-check-btn').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const toolId = Number((btn as HTMLElement).dataset.toolId);
+          const b = btn as HTMLButtonElement;
+          b.disabled = true;
+          b.textContent = 'Checking...';
+
+          const result = await adminFetch('/api/admin/badge-check', { toolId });
+          if (result.ok) {
+            const d = result.data;
+            const dt = d.displayType;
+            const label = dt === 'explicit' ? '🛡️ Badge Active' : dt === 'implicit' ? 'Badge Implicit' : 'No Badge';
+            showToast(`Badge check: ${label}`);
+            const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`);
+            let pill = card?.querySelector('.badge-status-pill');
+            if (!pill && card) {
+              const titleRow = card.querySelector('.tool-name')?.parentElement;
+              if (titleRow) {
+                pill = document.createElement('span');
+                titleRow.appendChild(pill);
+              }
+            }
+            if (pill) {
+              pill.setAttribute('data-badge-type', dt);
+              if (dt === 'explicit') {
+                pill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700 border border-green-200 badge-status-pill';
+                pill.textContent = '🛡️ Badge Active';
+              } else if (dt === 'implicit') {
+                pill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200 badge-status-pill';
+                pill.textContent = 'Badge Implicit';
+              } else {
+                pill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-neutral-100 text-neutral-500 border border-neutral-200 badge-status-pill';
+                pill.textContent = 'No Badge';
+              }
+            }
+          } else {
+            showToast(result.error || 'Badge check failed.', 'error');
+          }
+          b.disabled = false;
+          b.textContent = 'Check Badge';
         });
       });
     }
