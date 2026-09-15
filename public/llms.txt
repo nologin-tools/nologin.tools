@@ -179,6 +179,7 @@ Where badge_weight rewards tool authors displaying the official NoLogin trust ba
 ## Trust, Certification & Authority
 
 - [No-Login Tool Finder](https://nologin.tools/finder): Interactive multi-criteria decision wizard filtering by task, offline capability, client-side encryption, and open source.
+- [NoLogin Quick Switcher Browser Extension](https://nologin.tools/extension): Contextual browser extension for Chrome, Brave, and Firefox that detects paywalled SaaS sites and provides instant one-click no-login private alternatives.
 - [Developer Open Platform](https://nologin.tools/developers): API documentation, SDK snippets, OpenAPI specs, and MCP server for AI agents.
 - [What is NoLogin Verified?](https://nologin.tools/badge): Explanation of the trust standard for users and developers.
 - [Get Verification Badge](https://nologin.tools/submit): Developer submission form for getting a tool verified and receiving the embeddable trust badge.
@@ -201,6 +202,7 @@ nologin.tools provides open, zero-friction programmatic APIs and protocol defini
 
 - **Organization**: [NoLoginTools.org](https://nologintools.org) (Independent non-profit authority)
 - **Directory**: [nologin.tools](https://nologin.tools)
+- **Browser Extension**: [https://nologin.tools/extension](https://nologin.tools/extension)
 - **Developer API**: [https://nologin.tools/api/v1/tools](https://nologin.tools/api/v1/tools)
 - **OpenAPI 3.1**: [https://nologin.tools/api/v1/openapi.json](https://nologin.tools/api/v1/openapi.json)
 - **MCP Server**: [https://nologin.tools/api/v1/mcp.json](https://nologin.tools/api/v1/mcp.json)

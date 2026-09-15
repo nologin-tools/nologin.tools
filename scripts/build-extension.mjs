@@ -139,6 +139,11 @@ try {
   const chromeZip = resolve(distExtDir, 'nologin-quick-switcher-chrome.zip');
   execSync(`cd "${extDir}" && zip -r "${chromeZip}" manifest.json background.js icons popup src -x "*.DS_Store"`, { stdio: 'inherit' });
   console.log(`Packaged Chrome extension: ${chromeZip}`);
+
+  const downloadsDir = resolve(ROOT, 'public/downloads');
+  mkdirSync(downloadsDir, { recursive: true });
+  copyFileSync(chromeZip, resolve(downloadsDir, 'nologin-quick-switcher-chrome.zip'));
+  console.log(`Published downloadable zip to: ${resolve(downloadsDir, 'nologin-quick-switcher-chrome.zip')}`);
 } catch (e) {
   console.log('Zip packaging skipped or failed:', e.message);
 }
