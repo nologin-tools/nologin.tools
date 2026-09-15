@@ -85,6 +85,7 @@ const allEmbedCodes = Object.fromEntries(
   title={`${tool.name} — ${isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}`}
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
   canonicalOverride={`/badge/${slug}`}
+  ogImagePath={`/api/og/badge/${slug}`}
   locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify([breadcrumbLd, certificateLd])} />
@@ -408,6 +409,21 @@ const allEmbedCodes = Object.fromEntries(
 
         <!-- Code Displays -->
         <div class="grid grid-cols-1 gap-8 text-left max-w-3xl mx-auto">
+          <!-- Dynamic Live Status Badge (Recommended) -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium text-neutral-700 flex items-center gap-2">
+                <span>Dynamic Live Status Badge</span>
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-800">ALWAYS CURRENT</span>
+              </h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors cursor-pointer" data-code="dynamic" data-copied-text={t(locale, 'badgeDetail.copied')}>{t(locale, 'badgeDetail.copyCode')}</button>
+            </div>
+            <pre id="code-dynamic" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{`[![NoLogin Verified](${siteUrl}/api/badge/${slug}.svg)](${siteUrl}/badge/${slug} "Verified by NoLoginTools.org")`}</code></pre>
+            <p class="text-[11px] text-neutral-500">
+              Dynamically updates when your tool unlocks Level 3 status or updates health signals.
+            </p>
+          </div>
+
           <!-- Markdown (GitHub README) -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
