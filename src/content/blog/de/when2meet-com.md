@@ -72,7 +72,7 @@ Das ist kein abstraktes Prinzip. Jedes Koordinierungstool, das Teilnehmer zur Ko
 
 ## Wer es gebaut hat und warum es noch immer funktioniert
 
-when2meet wurde von Phil Darnowsky entwickelt und 2008 gestartet. In Internet-Jahren ist das ein Relikt. Und doch gehört es zu den am häufigsten empfohlenen Terminplanungstools im Netz — es taucht regelmäßig in Hacker-News-Threads, Reddit-Empfehlungen und auf Uni-Websites auf, wo es zur Institution für Lerngruppen und Ausschussmeetings geworden ist.
+when2meet wurde von Dr. Don Engel entwickelt und 2008 gestartet. In Internet-Jahren ist das ein Relikt. Und doch gehört es zu den am häufigsten empfohlenen Terminplanungstools im Netz — es taucht regelmäßig in Hacker-News-Threads, Reddit-Empfehlungen und auf Uni-Websites auf, wo es zur Institution für Lerngruppen und Ausschussmeetings geworden ist.
 
 Der Grund für die Langlebigkeit: Es hat ein spezifisches Problem elegant gelöst und dann aufgehört. Keine Roadmap hin zum vollständigen Kalenderprodukt. Keine KI-Vorschläge, keine Premium-Stufen, keine App zum Herunterladen. Es macht eine Sache — den besten Zeitpunkt für ein Gruppenmeeting finden — und macht sie gut.
 

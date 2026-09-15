@@ -69,7 +69,7 @@ This isn't an abstract principle. Every scheduling tool that requires participan
 
 ## Who Built It and Why It Still Works
 
-when2meet was built by Phil Darnowsky and launched in 2008. By any measure of web years, this makes it ancient. Yet it remains one of the most consistently recommended scheduling tools online, regularly surfacing in Hacker News threads, Reddit recommendations, and university websites — where it has become something of an institution for coordinating study groups and committee meetings.
+when2meet was built by Dr. Don Engel and launched in 2008. By any measure of web years, this makes it ancient. Yet it remains one of the most consistently recommended scheduling tools online, regularly surfacing in Hacker News threads, Reddit recommendations, and university websites — where it has become something of an institution for coordinating study groups and committee meetings.
 
 The reason it endures is that it solved a specific problem elegantly and then stopped. There's no feature roadmap aimed at becoming a full calendar product. There are no AI-powered suggestions, no premium tiers, no mobile app to download. It does one thing — find the best time for a group to meet — and it does that well.
 

@@ -72,7 +72,7 @@ Ce n'est pas un principe abstrait. Chaque outil de coordination qui exige la cr�
 
 ## Qui l'a créé et pourquoi ça tient encore la route
 
-when2meet a été créé par Phil Darnowsky et lancé en 2008. En années internet, c'est presque de l'archéologie. Pourtant, il reste l'un des outils de coordination les plus recommandés en ligne, revenant régulièrement dans les fils Hacker News, les recommandations Reddit et les sites des universités — où il est devenu une sorte d'institution pour coordonner les groupes de travail et les réunions de comités.
+when2meet a été créé par Dr. Don Engel et lancé en 2008. En années internet, c'est presque de l'archéologie. Pourtant, il reste l'un des outils de coordination les plus recommandés en ligne, revenant régulièrement dans les fils Hacker News, les recommandations Reddit et les sites des universités — où il est devenu une sorte d'institution pour coordonner les groupes de travail et les réunions de comités.
 
 S'il dure, c'est parce qu'il a résolu un problème précis de façon élégante, puis s'est arrêté là. Pas de roadmap pour devenir un produit calendrier complet. Pas de suggestions par IA, pas de paliers premium, pas d'appli mobile à télécharger. Il fait une chose — trouver le meilleur créneau pour un groupe — et il la fait bien.
 
