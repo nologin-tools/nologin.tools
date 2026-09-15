@@ -179,16 +179,31 @@ Where badge_weight rewards tool authors displaying the official NoLogin trust ba
 ## Trust, Certification & Authority
 
 - [No-Login Tool Finder](https://nologin.tools/finder): Interactive multi-criteria decision wizard filtering by task, offline capability, client-side encryption, and open source.
+- [Developer Open Platform](https://nologin.tools/developers): API documentation, SDK snippets, OpenAPI specs, and MCP server for AI agents.
 - [What is NoLogin Verified?](https://nologin.tools/badge): Explanation of the trust standard for users and developers.
 - [Get Verification Badge](https://nologin.tools/submit): Developer submission form for getting a tool verified and receiving the embeddable trust badge.
 - [About NoLoginTools](https://nologin.tools/about): Mission, ethics, and dual-brand structure.
 - [Organization Authority](https://nologintools.org): Independent non-profit foundation providing governance, research reports, and standards.
 - [The State of No-Login Web 2026 Report](https://nologintools.org/reports/state-of-no-login-web-2026): Annual industry whitepaper on the shift toward zero-friction, private web software.
 
+## Developer API & AI Machine Protocols
+
+nologin.tools provides open, zero-friction programmatic APIs and protocol definitions for software engineers and AI agents:
+
+- [Developer Portal](https://nologin.tools/developers): Interactive API guide, endpoint documentation, badge integration, and MCP instructions.
+- [Public Tools API](https://nologin.tools/api/v1/tools): REST endpoint for querying, filtering, and searching verified tools (`?q=`, `?category=`, `?clientSide=`, `?offline=`, `?openSource=`, `?free=`).
+- [Workflows API](https://nologin.tools/api/v1/workflows): Programmatic retrieval of zero-signup multi-tool workflows and integration pipelines.
+- [OpenAPI 3.1.0 Specification](https://nologin.tools/api/v1/openapi.json): Complete machine-readable OpenAPI contract.
+- [Model Context Protocol (MCP) Server](https://nologin.tools/api/v1/mcp.json): Tool declarations (`search_nologin_tools`, `get_tool_details`, `list_workflows`) for LLM agents (Claude Desktop, Cursor, LangChain).
+- [Dynamic SVG Badge API](https://nologin.tools/api/badge/{slug}.svg): Real-time verification status badge for READMEs and websites.
+
 ## Governance & Machine Access
 
 - **Organization**: [NoLoginTools.org](https://nologintools.org) (Independent non-profit authority)
 - **Directory**: [nologin.tools](https://nologin.tools)
+- **Developer API**: [https://nologin.tools/api/v1/tools](https://nologin.tools/api/v1/tools)
+- **OpenAPI 3.1**: [https://nologin.tools/api/v1/openapi.json](https://nologin.tools/api/v1/openapi.json)
+- **MCP Server**: [https://nologin.tools/api/v1/mcp.json](https://nologin.tools/api/v1/mcp.json)
 - **XML Sitemap**: [https://nologin.tools/sitemap.xml](https://nologin.tools/sitemap.xml)
 - **RSS Feed**: [https://nologin.tools/rss.xml](https://nologin.tools/rss.xml)
 - **Full LLM Index**: [https://nologin.tools/llms-full.txt](https://nologin.tools/llms-full.txt)

@@ -37,3 +37,10 @@
 /llms-full.txt
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
+
+/api/v1/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+  Cache-Control: public, max-age=600, s-maxage=3600
+
