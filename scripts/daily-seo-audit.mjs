@@ -166,10 +166,96 @@ export async function runLocalAudit(limit) {
 }
 
 /**
+ * Runs remote audit against live production site
+ * @param {number} [limit]
+ * @param {string[]} [customUrls]
+ * @param {{ concurrency?: number, timeout?: number }} [options]
+ * @returns {Promise<{ success: boolean, totalAudited: number, errors: string[], warnings: string[], responseTimes: number[], avgResponseTimeMs: number }>}
+ */
+export async function runRemoteAudit(limit, customUrls, options = {}) {
+  const concurrency = options.concurrency || 5;
+  const timeoutMs = options.timeout || 10000;
+
+  let urls = customUrls;
+  if (!urls || urls.length === 0) {
+    const sitemapFile = resolve(DIST, 'sitemap.xml');
+    if (existsSync(sitemapFile)) {
+      urls = parseSitemapUrls(readFileSync(sitemapFile, 'utf-8'));
+    } else {
+      const res = await fetch('https://nologin.tools/sitemap.xml', {
+        headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
+      });
+      if (!res.ok) throw new Error(`Failed to fetch remote sitemap: HTTP ${res.status}`);
+      urls = parseSitemapUrls(await res.text());
+    }
+  }
+
+  const targetUrls = limit ? urls.slice(0, limit) : urls;
+  console.log(`[daily-seo-audit] Auditing ${targetUrls.length} live pages from production...`);
+
+  const allErrors = [];
+  const allWarnings = [];
+  const responseTimes = [];
+  let auditedCount = 0;
+
+  // Process in batches
+  for (let i = 0; i < targetUrls.length; i += concurrency) {
+    const batch = targetUrls.slice(i, i + concurrency);
+    await Promise.all(
+      batch.map(async (url) => {
+        const start = Date.now();
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+        try {
+          const res = await fetch(url, {
+            headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
+            redirect: 'follow',
+            signal: controller.signal,
+          });
+          const duration = Date.now() - start;
+          responseTimes.push(duration);
+
+          if (!res.ok) {
+            allErrors.push(`[${url}] HTTP status ${res.status}`);
+            return;
+          }
+
+          const html = await res.text();
+          const { errors, warnings } = validateHtmlSeo(html, url);
+          if (errors.length > 0) allErrors.push(...errors);
+          if (warnings.length > 0) allWarnings.push(...warnings);
+          auditedCount++;
+        } catch (err) {
+          allErrors.push(`[${url}] Network/fetch error: ${err.message}`);
+        } finally {
+          clearTimeout(timer);
+        }
+      })
+    );
+  }
+
+  const avgResponseTimeMs =
+    responseTimes.length > 0
+      ? Math.round(responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length)
+      : 0;
+
+  return {
+    success: allErrors.length === 0,
+    totalAudited: auditedCount,
+    errors: allErrors,
+    warnings: allWarnings,
+    responseTimes,
+    avgResponseTimeMs,
+  };
+}
+
+/**
  * Main execution
  */
 async function main() {
   const isRemote = process.argv.includes('--remote');
+  const isBoth = process.argv.includes('--both');
   const limitIndex = process.argv.indexOf('--limit');
   const limit = limitIndex !== -1 ? parseInt(process.argv[limitIndex + 1], 10) : undefined;
 
@@ -178,9 +264,31 @@ async function main() {
   console.log('================================================================');
 
   try {
-    const result = await runLocalAudit(limit);
+    let result;
+    if (isBoth) {
+      console.log('\n--- Phase 1: Local dist/ Audit ---');
+      const localResult = await runLocalAudit(limit);
+      console.log(`✓ Local dist/ audited ${localResult.totalAudited} pages.`);
 
-    console.log(`\n✓ Audited ${result.totalAudited} pages.`);
+      console.log('\n--- Phase 2: Remote Production Audit ---');
+      const remoteResult = await runRemoteAudit(limit);
+      console.log(`✓ Remote production audited ${remoteResult.totalAudited} pages (avg ${remoteResult.avgResponseTimeMs}ms).`);
+
+      result = {
+        success: localResult.success && remoteResult.success,
+        totalAudited: localResult.totalAudited + remoteResult.totalAudited,
+        errors: [...localResult.errors, ...remoteResult.errors],
+        warnings: [...localResult.warnings, ...remoteResult.warnings],
+        avgResponseTimeMs: remoteResult.avgResponseTimeMs,
+      };
+    } else if (isRemote) {
+      result = await runRemoteAudit(limit);
+      console.log(`\n✓ Audited ${result.totalAudited} remote pages (avg ${result.avgResponseTimeMs}ms).`);
+    } else {
+      result = await runLocalAudit(limit);
+      console.log(`\n✓ Audited ${result.totalAudited} local pages.`);
+    }
+
     if (result.warnings.length > 0) {
       console.log(`⚠️  ${result.warnings.length} warning(s):`);
       result.warnings.slice(0, 10).forEach(w => console.log(`   - ${w}`));
