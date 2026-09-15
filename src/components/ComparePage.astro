@@ -1,0 +1,476 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getComparisonBySlug, getComparisonPairs, resolveComparisonDetails } from '../lib/comparisons';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+import { getLocalizedDescription } from '../data/loader';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+await loadTranslations(locale);
+
+const pair = getComparisonBySlug(slug);
+if (!pair) {
+  throw new Error(`Comparison pair not found for slug: ${slug}`);
+}
+
+const { toolA, toolB } = resolveComparisonDetails(pair, locale);
+const allPairs = getComparisonPairs();
+
+function getHostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+const pageTitle = t(locale, 'compare.page.title', { toolA: toolA.name, toolB: toolB.name });
+const pageDescription = t(locale, 'compare.page.description', { toolA: toolA.name, toolB: toolB.name });
+const canonicalPath = getLocalizedPath(`/compare/${slug}`, locale);
+
+const hostnameA = getHostname(toolA.url);
+const hostnameB = getHostname(toolB.url);
+
+const descA = getLocalizedDescription(toolA, locale) || toolA.description || '';
+const descB = getLocalizedDescription(toolB, locale) || toolB.description || '';
+
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDescription,
+  url: `https://nologin.tools${canonicalPath}`,
+  inLanguage: locale,
+  mainEntity: {
+    '@type': 'ItemList',
+    name: t(locale, 'compare.page.heading', { toolA: toolA.name, toolB: toolB.name }),
+    numberOfItems: 2,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: toolA.name,
+        url: `https://nologin.tools${getLocalizedPath(`/tool/${toolA.slug}`, locale)}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: toolB.name,
+        url: `https://nologin.tools${getLocalizedPath(`/tool/${toolB.slug}`, locale)}`,
+      },
+    ],
+  },
+};
+
+const faqQuestions = [
+  {
+    q: t(locale, 'compare.faq.q1', { toolA: toolA.name, toolB: toolB.name }),
+    a: t(locale, 'compare.faq.a1', { toolA: toolA.name, toolB: toolB.name, summary: pair.verdict.summary }),
+  },
+  {
+    q: t(locale, 'compare.faq.q2', { toolA: toolA.name, toolB: toolB.name }),
+    a: t(locale, 'compare.faq.a2', { toolA: toolA.name, toolB: toolB.name }),
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale,
+  mainEntity: faqQuestions.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
+    { '@type': 'ListItem', position: 2, name: `${toolA.name} vs ${toolB.name}`, item: `https://nologin.tools${canonicalPath}` },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">
+          {toolA.name} vs {toolB.name}
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-10 border-b-4 border-neutral-900 pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-neutral-100 text-neutral-800 text-xs font-mono font-bold uppercase rounded mb-4">
+        <span>⚔️ {t(locale, 'compare.page.badge')}</span>
+        <span>&bull;</span>
+        <span>{pair.category}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
+        {toolA.name} <span class="text-neutral-400 font-normal italic">vs</span> {toolB.name}
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed max-w-3xl">
+        {pair.headline}.
+      </p>
+    </header>
+
+    <!-- Side-by-Side Quick Summary Cards -->
+    <section class="mb-14 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Tool A Card -->
+      <div class="border-2 border-neutral-900 rounded-xl p-6 bg-white shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center shrink-0 border border-neutral-200 overflow-hidden">
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${hostnameA}&sz=64`}
+                alt={toolA.name}
+                width="24"
+                height="24"
+                class="w-6 h-6 object-contain"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl font-black text-neutral-900">{toolA.name}</h2>
+                {toolA.isFeatured && <span class="text-yellow-600 text-sm">★</span>}
+              </div>
+              <span class="text-xs font-mono text-neutral-400">{hostnameA}</span>
+            </div>
+          </div>
+          <p class="text-xs text-neutral-600 leading-relaxed mb-4">
+            {toolA.bestFor || descA}
+          </p>
+        </div>
+        <div class="flex items-center gap-2 pt-4 border-t border-neutral-100">
+          <a
+            href={toolA.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex-1 text-center px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center justify-center gap-1.5"
+          >
+            <span>Launch {toolA.name}</span>
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <a
+            href={getLocalizedPath(`/tool/${toolA.slug}`, locale)}
+            class="px-3 py-2.5 border border-neutral-200 hover:border-neutral-400 text-neutral-700 text-xs font-bold rounded-lg transition-colors"
+          >
+            Audit
+          </a>
+        </div>
+      </div>
+
+      <!-- Tool B Card -->
+      <div class="border-2 border-neutral-900 rounded-xl p-6 bg-white shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center shrink-0 border border-neutral-200 overflow-hidden">
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${hostnameB}&sz=64`}
+                alt={toolB.name}
+                width="24"
+                height="24"
+                class="w-6 h-6 object-contain"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-xl font-black text-neutral-900">{toolB.name}</h2>
+                {toolB.isFeatured && <span class="text-yellow-600 text-sm">★</span>}
+              </div>
+              <span class="text-xs font-mono text-neutral-400">{hostnameB}</span>
+            </div>
+          </div>
+          <p class="text-xs text-neutral-600 leading-relaxed mb-4">
+            {toolB.bestFor || descB}
+          </p>
+        </div>
+        <div class="flex items-center gap-2 pt-4 border-t border-neutral-100">
+          <a
+            href={toolB.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex-1 text-center px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center justify-center gap-1.5"
+          >
+            <span>Launch {toolB.name}</span>
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <a
+            href={getLocalizedPath(`/tool/${toolB.slug}`, locale)}
+            class="px-3 py-2.5 border border-neutral-200 hover:border-neutral-400 text-neutral-700 text-xs font-bold rounded-lg transition-colors"
+          >
+            Audit
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Verdict Section -->
+    <section class="mb-16 border-2 border-emerald-600 bg-emerald-50/40 rounded-xl p-6 sm:p-8">
+      <div class="flex items-center gap-2 text-emerald-800 text-xs font-bold font-mono uppercase tracking-wider mb-2">
+        <span>🏆</span>
+        <span>{t(locale, 'compare.page.verdictHeading')}</span>
+      </div>
+      <p class="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium mb-6">
+        {pair.verdict.summary}
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-emerald-200/70">
+        <div>
+          <h3 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">A</span>
+            <span>{t(locale, 'compare.page.chooseA', { toolA: toolA.name })}</span>
+          </h3>
+          <ul class="space-y-2 text-xs text-neutral-700">
+            {pair.verdict.chooseAIf.map((point) => (
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-700 font-bold shrink-0 mt-0.5">✓</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-neutral-900 text-white flex items-center justify-center text-xs">B</span>
+            <span>{t(locale, 'compare.page.chooseB', { toolB: toolB.name })}</span>
+          </h3>
+          <ul class="space-y-2 text-xs text-neutral-700">
+            {pair.verdict.chooseBIf.map((point) => (
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-700 font-bold shrink-0 mt-0.5">✓</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Side-by-Side Feature & Technical Spec Table -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6">
+        {t(locale, 'compare.page.specHeading')}
+      </h2>
+
+      <div class="overflow-x-auto border border-neutral-200 rounded-xl shadow-xs">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-neutral-900 text-white font-mono">
+              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3">{t(locale, 'compare.page.specFeature')}</th>
+              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3 border-l border-neutral-700">{toolA.name}</th>
+              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3 border-l border-neutral-700">{toolB.name}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200 bg-white">
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specAccount')}</td>
+              <td class="p-3.5 sm:p-4 text-emerald-700 font-bold border-l border-neutral-100">✓ {t(locale, 'compare.page.specAccountVal')}</td>
+              <td class="p-3.5 sm:p-4 text-emerald-700 font-bold border-l border-neutral-100">✓ {t(locale, 'compare.page.specAccountVal')}</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specDataArch')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.dataTag || 'Client-Side'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.dataTag || 'Client-Side'}</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specPrivacy')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.privacyTag || 'Privacy Focused'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.privacyTag || 'Privacy Focused'}</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specOffline')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.offlineTag || 'Online Only'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.offlineTag || 'Online Only'}</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specPricing')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.pricingTag || 'Free'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.pricingTag || 'Free'}</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specLicense')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">
+                {toolA.githubLicense ? `Open Source (${toolA.githubLicense})` : 'Web Freeware'}
+              </td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">
+                {toolB.githubLicense ? `Open Source (${toolB.githubLicense})` : 'Web Freeware'}
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specHealth')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100 font-mono">
+                {toolA.health?.status === 'online' ? '✓ 100% Online' : 'Active'}
+              </td>
+              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100 font-mono">
+                {toolB.health?.status === 'online' ? '✓ 100% Online' : 'Active'}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Pros & Cons Head-to-Head -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-8">
+        {t(locale, 'compare.page.editorialHeading')}
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Tool A Pros/Cons -->
+        <div class="border border-neutral-200 rounded-xl p-5 bg-white shadow-xs">
+          <h3 class="text-lg font-black text-neutral-900 mb-4 flex items-center gap-2">
+            <span>{toolA.name}</span>
+          </h3>
+          {toolA.pros.length > 0 && (
+            <div class="mb-4">
+              <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.pros')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-700">
+                {toolA.pros.map((p) => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-emerald-600 font-bold shrink-0">•</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {toolA.cons.length > 0 && (
+            <div>
+              <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.cons')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-700">
+                {toolA.cons.map((c) => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-amber-600 font-bold shrink-0">•</span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <!-- Tool B Pros/Cons -->
+        <div class="border border-neutral-200 rounded-xl p-5 bg-white shadow-xs">
+          <h3 class="text-lg font-black text-neutral-900 mb-4 flex items-center gap-2">
+            <span>{toolB.name}</span>
+          </h3>
+          {toolB.pros.length > 0 && (
+            <div class="mb-4">
+              <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.pros')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-700">
+                {toolB.pros.map((p) => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-emerald-600 font-bold shrink-0">•</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {toolB.cons.length > 0 && (
+            <div>
+              <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.cons')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-700">
+                {toolB.cons.map((c) => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-amber-600 font-bold shrink-0">•</span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-16 border-t border-neutral-200 pt-10">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6">
+        {t(locale, 'compare.faq.heading')}
+      </h2>
+      <dl class="space-y-6">
+        {faqQuestions.map((faq) => (
+          <div class="border-b border-neutral-100 pb-5">
+            <dt class="text-base font-bold text-neutral-900 mb-1">{faq.q}</dt>
+            <dd class="text-sm text-neutral-600 leading-relaxed">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <!-- More Comparisons Grid -->
+    <section class="mb-16 border-t border-neutral-200 pt-10">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-500 mb-4">
+        {t(locale, 'compare.page.exploreOther')}
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {allPairs.map((p) => (
+          <a
+            href={getLocalizedPath(`/compare/${p.slug}`, locale)}
+            class:list={[
+              'px-3 py-1.5 rounded-md text-xs font-bold border transition-colors',
+              p.slug === slug
+                ? 'bg-neutral-900 text-white border-neutral-900'
+                : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:bg-neutral-100 hover:border-neutral-300',
+            ]}
+          >
+            {p.slug.replace(/-/g, ' ').replace(' vs ', ' ⚔️ ')}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Back to directory link -->
+    <div class="pt-6 border-t border-neutral-200">
+      <a
+        href={getLocalizedPath('/', locale)}
+        class="text-sm font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+      >
+        ← {t(locale, 'compare.page.browseAll')}
+      </a>
+    </div>
+  </div>
+</Layout>

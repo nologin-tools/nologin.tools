@@ -1,0 +1,19 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+import { getComparisonPairs } from '../../../lib/comparisons';
+
+export function getStaticPaths() {
+  const pairs = getComparisonPairs();
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>
+    pairs.map((pair) => ({
+      params: { lang, slug: pair.slug },
+      props: { slug: pair.slug, locale: lang as Locale },
+    }))
+  );
+}
+
+const { slug, locale } = Astro.props;
+---
+
+<ComparePage locale={locale} slug={slug} />

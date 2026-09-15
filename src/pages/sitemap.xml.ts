@@ -9,6 +9,7 @@ import {
   type SitemapPage,
 } from '../lib/sitemap';
 import { getAlternativeTargets } from '../lib/alternatives';
+import { getComparisonPairs } from '../lib/comparisons';
 
 export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
@@ -46,6 +47,13 @@ export const GET: APIRoute = async () => {
 
   const alternativePages: SitemapPage[] = getAlternativeTargets().map((alt) => ({
     url: `/alternative/${alt.slug}`,
+    priority: '0.8',
+    changefreq: 'weekly',
+    lastmod: homepageLastmod,
+  }));
+
+  const comparisonPages: SitemapPage[] = getComparisonPairs().map((pair) => ({
+    url: `/compare/${pair.slug}`,
     priority: '0.8',
     changefreq: 'weekly',
     lastmod: homepageLastmod,
@@ -105,6 +113,7 @@ export const GET: APIRoute = async () => {
     ...categoryPages,
     ...tagPages,
     ...alternativePages,
+    ...comparisonPages,
     ...toolPages,
     ...badgePages,
     ...blogListPage,

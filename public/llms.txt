@@ -131,6 +131,21 @@ Programmatic alternative indexes mapping closed-source or login-gated proprietar
 - [Visio Alternatives](https://nologin.tools/alternative/visio): Enterprise flowcharting and UML mapping with zero login.
 - [ILovePDF Alternatives](https://nologin.tools/alternative/ilovepdf): All-in-one PDF utilities running securely without uploading sensitive documents.
 
+## Head-to-Head No-Login Tool Comparisons
+
+Direct side-by-side technical benchmarks, privacy matrices, and scenario-based verdicts comparing verified no-login tools:
+
+- [Excalidraw vs tldraw](https://nologin.tools/compare/excalidraw-vs-tldraw): Hand-drawn encrypted whiteboard vs clean minimalist vector canvas.
+- [Squoosh vs TinyPNG](https://nologin.tools/compare/squoosh-vs-tinypng): Local WebAssembly codec engine vs cloud lossy image compression.
+- [Diagrams.net (Draw.io) vs Excalidraw](https://nologin.tools/compare/drawio-vs-excalidraw): Formal enterprise UML architecture vs rapid sketching.
+- [PDF24 Tools vs TinyWow](https://nologin.tools/compare/pdf24-vs-tinywow): Unlimited dedicated PDF toolkit vs 50+ multi-format utility suite.
+- [Hemingway Editor vs LanguageTool](https://nologin.tools/compare/hemingway-vs-languagetool): Readability style polishing vs multilingual grammar checking.
+- [AudioMass vs Audio Trimmer](https://nologin.tools/compare/audiomass-vs-audiotrimmer): Full WebAudio DAW studio vs instant ringtone audio cutter.
+- [JSON Crack vs JSON Formatter](https://nologin.tools/compare/jsoncrack-vs-jsonformatter): Visual interactive node graph vs fast payload minifier & validator.
+- [Photopea vs ezGIF](https://nologin.tools/compare/photopea-vs-ezgif): Full Photoshop-grade raster studio vs animated GIF creation suite.
+- [SVG-Edit vs SVGOMG](https://nologin.tools/compare/svgedit-vs-svgomg): Browser vector drawing canvas vs visual SVGO payload optimizer.
+- [CSVJSON vs TableConvert](https://nologin.tools/compare/csvjson-vs-tableconvert): Developer data parser & SQL generator vs documentation table converter.
+
 ## Verification Model & Ranking Formula
 
 Every tool submitted to nologin.tools is audited under a strict verification lifecycle:
