@@ -212,43 +212,52 @@ export async function createGitHubNotificationIssue(
   const title = `[NoLogin Verified] ${toolName} has been verified by nologin.tools`;
   const body = `## 🎉 Congratulations!
 
-**${toolName}** has been officially verified by [nologin.tools](${siteUrl}/about) as a privacy-friendly tool that works completely without user login or sign-up.
+**${toolName}** has been officially certified under the [NLW-STD-001 Verification Standard](https://nologintools.org/standards) by [NoLoginTools.org](https://nologintools.org) and listed on [nologin.tools](${siteUrl}).
 
 ### What is NoLogin Verified?
 
-[NoLogin Verified](${siteUrl}/badge/) is a trusted privacy certification. Your tool has been manually reviewed and confirmed to:
-- ✅ Provide its core functionality without requiring account creation or login
-- ✅ Respect user privacy with no unnecessary data collection
-- ✅ Be continuously monitored 24/7 for availability
+[NoLogin Verified](${siteUrl}/badge) confirms that your tool delivers immediate, zero-barrier utility:
+- ✅ Full access to core features without requiring sign-up or account creation
+- ✅ Zero unnecessary personal data collection or tracking walls
+- ✅ Continuous 6-hour automated uptime and reachability monitoring
 
-### Add the Badge & Boost Your Ranking
+### Unlock Level 3 Active Privileges (+10 Ranking Boost & 🛡️ Shield)
 
-Displaying the verified badge unlocks an automatic **+10 Algorithm Ranking Boost** on nologin.tools, giving your tool priority placement in category and directory searches. Our daily automated crawler scans your repository's \`README.md\` and activates your boost automatically!
+Displaying the verified badge unlocks **Level 3 Active Exhibitor** status:
+- 🚀 **+10 Algorithm Ranking Boost** for priority placement in category and directory searches
+- 🛡️ **Green Shield Badge** displayed prominently next to your tool name across nologin.tools
+- ⚡ **Instant Self-Service Verification**: Once merged, visit your certificate page to verify instantly!
 
-#### For your README.md
+#### 🚀 1-Click README Integration
 
-[![NoLogin Verified](${badgeUrl})](${badgePageUrl} "Verified by NoLoginTools.org")
+👉 **[Click here to edit your README directly in GitHub's web editor](https://github.com/${owner}/${repo}/edit/HEAD/README.md)**
+
+Add this markdown snippet to your \`README.md\`:
+
+[![Verified by NoLoginTools.org](${badgeUrl})](${badgePageUrl})
 
 \`\`\`markdown
-[![NoLogin Verified](${badgeUrl})](${badgePageUrl} "Verified by NoLoginTools.org")
+[![Verified by NoLoginTools.org](${badgeUrl})](${badgePageUrl})
 \`\`\`
 
 #### For your Website Footer or Landing Page
 
 \`\`\`html
-<a href="${badgePageUrl}"><img src="${badgeUrl}" alt="NoLogin Verified" title="Verified by NoLoginTools.org" /></a>
+<a href="${badgePageUrl}" target="_blank" rel="noopener">
+  <img src="${badgeUrl}" alt="Verified by NoLoginTools.org" title="Verified by NoLoginTools.org" />
+</a>
 \`\`\`
 
-### Custom Badge Styles & Digital Certificate
+### Digital Trust Certificate & 13 Badge Styles
 
-We offer 13+ badge styles (Dark, Social, Flat-Square, Plastic, Minimalist, etc.).
-- Explore all styles & embed codes: [${badgePageUrl}#embed](${badgePageUrl}#embed)
-- View your live digital certificate: [${badgePageUrl}](${badgePageUrl})
-- Your directory listing: [${toolPageUrl}](${toolPageUrl})
+- **Instant Badge Verification & 13 Styles**: [${badgePageUrl}#embed](${badgePageUrl}#embed)
+- **Live Trust Certificate**: [${badgePageUrl}](${badgePageUrl})
+- **Directory Listing**: [${toolPageUrl}](${toolPageUrl})
+- **Official Specification**: [NLW-STD-001 Standard](https://nologintools.org/standards)
 
 ---
 
-*This is a one-time automated notification from [nologin.tools](${siteUrl}). Feel free to close this issue if you're not interested, or check out our [About page](${siteUrl}/about).*`;
+*This is a one-time notification from [NoLoginTools.org](https://nologintools.org) & [nologin.tools](${siteUrl}). Feel free to close this issue if you are not interested.*`;
 
   console.log(`[GitHub] Creating notification issue for ${owner}/${repo}`);
 

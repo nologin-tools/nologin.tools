@@ -2,7 +2,7 @@
 export const prerender = false;
 
 import { getDb } from '../../../../db';
-import { tools, tags, healthChecks } from '../../../../db/schema';
+import { tools, tags, healthChecks, badgeDisplays } from '../../../../db/schema';
 import { eq, desc } from 'drizzle-orm';
 import BadgeDetailPage from '../../../../components/BadgeDetailPage.astro';
 import type { Locale } from '../../../../i18n/config';
@@ -48,6 +48,17 @@ try {
     .orderBy(desc(healthChecks.checkedAt))
     .limit(1);
   latestHealth = health;
+
+  // Fetch badge display status
+  const [badgeDisplay] = await db
+    .select({ displayType: badgeDisplays.displayType })
+    .from(badgeDisplays)
+    .where(eq(badgeDisplays.toolId, tool.id))
+    .limit(1);
+
+  if (badgeDisplay) {
+    tool.badgeDisplayType = badgeDisplay.displayType;
+  }
 } catch (err) {
   console.error('[ssr] badge page error:', err);
   return new Response('Internal Server Error', {
