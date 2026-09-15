@@ -1,4 +1,5 @@
 // @ts-check
+import { computePrivacyScorecard } from './privacy-scorecard.mjs';
 
 /**
  * Standard CORS headers for public API v1 endpoints
@@ -115,6 +116,7 @@ export function serializeApiTool(tool, locale = 'en', health = null, editorial =
       canonical: `https://nologin.tools/tool/${tool.slug}`,
       audit: `https://nologin.tools/tool/${tool.slug}`,
     },
+    scorecard: computePrivacyScorecard(tool, health, editorial),
     editorial: editorial
       ? {
           bestFor: editorial.bestFor || null,

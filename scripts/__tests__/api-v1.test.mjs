@@ -98,6 +98,13 @@ describe('Developer API v1 Core Logic', () => {
 
       // Links
       assert.equal(serialized.badges.certificatePage, 'https://nologin.tools/badge/gchq-github-io-cyberchef');
+
+      // Scorecard
+      assert.ok(serialized.scorecard, 'Expected scorecard to be present');
+      assert.equal(serialized.scorecard.overallGrade, 'A+');
+      assert.ok(serialized.scorecard.overallScore >= 90);
+      assert.ok(serialized.scorecard.dimensions.sandbox);
+
       assert.equal(serialized.links.canonical, 'https://nologin.tools/tool/gchq-github-io-cyberchef');
     });
 
