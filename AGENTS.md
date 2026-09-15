@@ -26,6 +26,7 @@ Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTo
 scripts/
 ├── fetch-build-data.mjs          # D1 REST API → build-data.json (run at build time, supports --mock)
 ├── add-blog-hero-image.mjs       # Hero image downloader with 3-level fallback (Unsplash API → Unsplash Source → Picsum)
+├── batch-reject-pending.mjs      # Batch reject non-compliant pending tools (dead links, bots, spam, excessive matrix)
 ├── daily-seo-audit.mjs           # Technical SEO audit & IndexNow pipeline
 ├── prune-blogs-and-generate-redirects.mjs # Blog post pruning and redirect generation
 ├── push-indexnow.mjs             # Push URLs to IndexNow
