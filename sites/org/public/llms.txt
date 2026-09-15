@@ -18,8 +18,9 @@ NoLoginTools.org is the governance authority and research institution behind the
 
 ## Standards & Certification
 
-- [NoLogin Verified Standard](https://nologin.tools/badge): The 7-dimension criteria (category, data processing, privacy, type, hosting, offline capability, pricing) used to evaluate software transparency and account-free accessibility.
-- [Tool Verification Directory](https://nologin.tools): The live execution platform cataloging verified tools.
+- [NLW-STD-001 Verification Standard](https://nologintools.org/standards): The normative specification defining zero-barrier web tools, 3-tier trust hierarchy (Directory Listed, Certified, Active Badge Exhibitor), 13 badge SVG criteria, and 6-hour automated crawler auditing.
+- [NoLogin Verified Badge Portal](https://nologin.tools/badge): The developer portal providing embed codes and certificate lookups for verified web software.
+- [Tool Verification Directory](https://nologin.tools): The live execution platform cataloging over 140 verified tools across 11 categories.
 
 ## Organization Identity & Contact
 

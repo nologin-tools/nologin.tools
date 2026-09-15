@@ -21,6 +21,12 @@ const currentPath = Astro.url.pathname;
         About
       </a>
       <a
+        href="/standards"
+        class:list={['text-xs font-bold uppercase tracking-wider transition-colors', currentPath === '/standards' ? 'text-neutral-900 underline decoration-2 underline-offset-4' : 'text-neutral-500 hover:text-neutral-900']}
+      >
+        Standards
+      </a>
+      <a
         href="/reports"
         class:list={['text-xs font-bold uppercase tracking-wider transition-colors', currentPath.startsWith('/reports') ? 'text-neutral-900 underline decoration-2 underline-offset-4' : 'text-neutral-500 hover:text-neutral-900']}
       >

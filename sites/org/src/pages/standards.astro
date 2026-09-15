@@ -1,0 +1,377 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const standardMeta = {
+  id: 'NLW-STD-001',
+  version: '1.2',
+  status: 'Active / Adopted',
+  publishedDate: '2026-03-01',
+  lastUpdated: '2026-03-15',
+  issuer: 'NoLoginTools.org Standards Committee',
+};
+
+const techArticleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  '@id': 'https://nologintools.org/standards#article',
+  headline: 'NLW-STD-001: No-Login Web Verification Specification & Badge Criteria',
+  description: 'The formal technical standard defining zero-barrier web tools, 3-tier trust hierarchy, badge embed protocols, and automated crawler verification.',
+  author: {
+    '@type': 'Organization',
+    '@id': 'https://nologintools.org/#organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://nologintools.org/#organization',
+  },
+  datePublished: standardMeta.publishedDate,
+  dateModified: standardMeta.lastUpdated,
+  proficiencyLevel: 'Beginner',
+  about: [
+    { '@type': 'Thing', name: 'Web Privacy' },
+    { '@type': 'Thing', name: 'Software Verification' },
+    { '@type': 'Thing', name: 'Zero-Barrier Computing' },
+    { '@type': 'Thing', name: 'Trust Signals' },
+  ],
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nologintools.org' },
+    { '@type': 'ListItem', position: 2, name: 'Standards' },
+  ],
+};
+---
+
+<Layout
+  title="Verification Standards (NLW-STD-001)"
+  description="Formal technical specification for zero-barrier web tools, 3-tier trust hierarchy, SVG badge embed criteria, and automated audit enforcement."
+  ogType="article"
+  publishedTime={standardMeta.publishedDate}
+  modifiedTime={standardMeta.lastUpdated}
+>
+  <script type="application/ld+json" set:html={JSON.stringify([techArticleLd, breadcrumbLd])} />
+
+  <div class="max-w-3xl mx-auto px-6 py-12 sm:py-16">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400 text-retro-mono">
+        <li><a href="/" class="hover:text-neutral-900 transition-colors">Home</a></li>
+        <li aria-hidden="true" class="text-neutral-300">/</li>
+        <li aria-current="page" class="text-neutral-900">Standards</li>
+      </ol>
+    </nav>
+
+    <!-- Header Metadata Box -->
+    <header class="mb-12 border-b-2 border-neutral-900 pb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-400 border-2 border-neutral-900 text-neutral-900 text-xs font-black uppercase tracking-wider text-retro-mono mb-4">
+        <span>Standard {standardMeta.id}</span>
+        <span class="text-neutral-900">&middot;</span>
+        <span>v{standardMeta.version}</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight mb-4 text-retro-mono">
+        No-Login Web Verification Specification &amp; Badge Criteria
+      </h1>
+
+      <p class="text-base sm:text-lg text-neutral-600 leading-relaxed mb-6 font-serif">
+        A normative technical standard defining zero-barrier web utilities, multi-tier trust certifications, cryptographically traceable badges, and continuous automated crawler auditing.
+      </p>
+
+      <!-- Metadata Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-neutral-50 border-2 border-neutral-900 text-retro-mono text-xs">
+        <div>
+          <span class="block text-neutral-400 font-bold uppercase">Status</span>
+          <span class="font-black text-green-700">{standardMeta.status}</span>
+        </div>
+        <div>
+          <span class="block text-neutral-400 font-bold uppercase">Effective Date</span>
+          <span class="font-bold text-neutral-800">{standardMeta.publishedDate}</span>
+        </div>
+        <div>
+          <span class="block text-neutral-400 font-bold uppercase">Last Revised</span>
+          <span class="font-bold text-neutral-800">{standardMeta.lastUpdated}</span>
+        </div>
+        <div>
+          <span class="block text-neutral-400 font-bold uppercase">Governance</span>
+          <span class="font-bold text-neutral-800">NoLoginTools.org</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <section class="retro-card p-6 mb-12 text-retro-mono">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-4">Table of Contents</h2>
+      <ol class="space-y-2 text-xs font-bold text-neutral-700">
+        <li><a href="#sec-1" class="hover:text-green-600 hover:underline">1. Abstract &amp; Scope</a></li>
+        <li><a href="#sec-2" class="hover:text-green-600 hover:underline">2. The Three Core Principles (Normative)</a></li>
+        <li><a href="#sec-3" class="hover:text-green-600 hover:underline">3. The 3-Tier Trust &amp; Verification Hierarchy</a></li>
+        <li><a href="#sec-4" class="hover:text-green-600 hover:underline">4. Badge Technical Specification (v1.2)</a></li>
+        <li><a href="#sec-5" class="hover:text-green-600 hover:underline">5. Automated Verification Engine &amp; Crawler Protocol</a></li>
+        <li><a href="#sec-6" class="hover:text-green-600 hover:underline">6. Anti-Gaming, Cloaking &amp; Revocation Protocol</a></li>
+        <li><a href="#sec-7" class="hover:text-green-600 hover:underline">7. Public Audit Trail &amp; Archival Footprint</a></li>
+      </ol>
+    </section>
+
+    <!-- Content Sections -->
+    <article class="prose max-w-none text-neutral-800">
+
+      <!-- Section 1 -->
+      <section id="sec-1" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          1. Abstract &amp; Scope
+        </h2>
+        <p>
+          The proliferation of mandatory authentication walls, opaque telemetry, and data extraction has degraded the fundamental accessibility of web software. Simple utilities&mdash;such as image compressors, SVG editors, regex analyzers, and markdown converters&mdash;frequently demand personal identifiers (email addresses, phone numbers, social credentials) as an artificial fee for entry.
+        </p>
+        <p>
+          This document establishes <strong>NLW-STD-001</strong>, the definitive technical standard for the No-Login Web. It defines the architectural requirements a web service must fulfill to receive official certification from <strong>NoLoginTools.org</strong>, the mechanical rules governing automated uptime and compliance crawling, and the semantic specifications for embeddable trust badges.
+        </p>
+        <div class="bg-neutral-50 border-l-4 border-neutral-900 p-4 my-4 text-xs font-mono text-neutral-700">
+          <strong>Terminology (RFC 2119):</strong> The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", and "MAY" in this document are to be interpreted as described in BCP 14, RFC 2119.
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="sec-2" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          2. The Three Core Principles (Normative)
+        </h2>
+        <p>
+          To qualify for No-Login Web certification, a tool <strong>MUST</strong> satisfy all three foundational principles across its core functional workflow:
+        </p>
+
+        <div class="space-y-6 my-6 not-prose">
+          <div class="retro-card p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="px-2 py-0.5 bg-neutral-900 text-white font-mono text-xs font-bold">P1</span>
+              <h3 class="font-black text-base text-neutral-900 text-retro-mono">Immediate Functional Utility</h3>
+            </div>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              The primary stated utility of the service <strong>MUST</strong> be usable immediately upon page load. The service <strong>MUST NOT</strong> block the primary action behind registration, login, phone verification, credit card input, or email confirmation modals.
+            </p>
+          </div>
+
+          <div class="retro-card p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="px-2 py-0.5 bg-neutral-900 text-white font-mono text-xs font-bold">P2</span>
+              <h3 class="font-black text-base text-neutral-900 text-retro-mono">Zero Arbitrary Data Retention</h3>
+            </div>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              User input processed by the tool <strong>SHOULD</strong> remain client-side (leveraging WebAssembly, Web Workers, Web Crypto, Canvas, or LocalStorage). If transient server processing is computationally mandatory, the system <strong>MUST NOT</strong> persist user payload data beyond the immediate request-response lifecycle, and <strong>MUST NOT</strong> correlate payloads with persistent tracking fingerprints.
+            </p>
+          </div>
+
+          <div class="retro-card p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="px-2 py-0.5 bg-neutral-900 text-white font-mono text-xs font-bold">P3</span>
+              <h3 class="font-black text-base text-neutral-900 text-retro-mono">Absence of Deceptive Coercion</h3>
+            </div>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              The service <strong>MUST NOT</strong> employ "bait-and-switch" friction patterns&mdash;such as permitting unrestricted file editing or generation, but gating the subsequent export, download, or copy button behind a mandatory sign-up wall.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="sec-3" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          3. The 3-Tier Trust &amp; Verification Hierarchy
+        </h2>
+        <p>
+          Certification is not a one-time binary badge, but a continuous trust lifecycle spanning three distinct operational tiers:
+        </p>
+
+        <div class="overflow-x-auto my-6 not-prose">
+          <table class="w-full text-left border-2 border-neutral-900 text-xs text-retro-mono bg-white">
+            <thead>
+              <tr class="bg-neutral-900 text-white font-black">
+                <th class="p-3 border-r border-neutral-700">Tier Level</th>
+                <th class="p-3 border-r border-neutral-700">Designation</th>
+                <th class="p-3 border-r border-neutral-700">Audit Mechanism</th>
+                <th class="p-3">Ecosystem Privileges</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y-2 divide-neutral-900">
+              <tr>
+                <td class="p-3 font-bold border-r border-neutral-300">Level 1</td>
+                <td class="p-3 font-bold border-r border-neutral-300 text-neutral-700">Directory Listed</td>
+                <td class="p-3 border-r border-neutral-300">Initial human UX audit + 7-dimension classification.</td>
+                <td class="p-3">Permanent listing in directory, multi-language cataloging.</td>
+              </tr>
+              <tr class="bg-neutral-50">
+                <td class="p-3 font-bold border-r border-neutral-300">Level 2</td>
+                <td class="p-3 font-bold border-r border-neutral-300 text-green-700">Certified by NoLoginTools.org</td>
+                <td class="p-3 border-r border-neutral-300">Continuous 6-hour health checks, latency &amp; SSL tracking.</td>
+                <td class="p-3">Unique Digital Trust Certificate at <code class="text-[11px] bg-white px-1 border">/badge/[slug]</code>.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold border-r border-neutral-300">Level 3</td>
+                <td class="p-3 font-bold border-r border-neutral-300 text-green-700 flex items-center gap-1.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                  Badge Verified Active
+                </td>
+                <td class="p-3 border-r border-neutral-300">Dual-surface automated crawler verifies badge on site or GitHub.</td>
+                <td class="p-3 font-bold text-neutral-900">
+                  Green shield icon (<span class="text-green-600">🛡️</span>), +10 algorithmic ranking boost, priority indexing.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Moving from <strong>Level 2</strong> to <strong>Level 3</strong> requires the tool author to embed the official badge into their production web page or public GitHub repository <code class="font-mono">README.md</code>, establishing a verifiable bi-directional link of authority.
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="sec-4" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          4. Badge Technical Specification (v1.2)
+        </h2>
+        <p>
+          Official badges issued by NoLoginTools.org are vector SVGs optimized for sub-millisecond rendering, zero tracking pixels, and universal screen readability.
+        </p>
+
+        <h3 class="text-base font-black text-neutral-900 text-retro-mono mt-6 mb-3">4.1 Visual Styles &amp; Metrics</h3>
+        <p>
+          The badge engine provides 13 officially certified variations categorized into four groups:
+        </p>
+        <ul class="text-sm">
+          <li><strong>Standard (4):</strong> <code class="font-mono">flat</code> (118&times;20), <code class="font-mono">flat-square</code> (118&times;20), <code class="font-mono">plastic</code> (116&times;18), <code class="font-mono">for-the-badge</code> (191&times;28). Left plate slate (<code class="font-mono">#555</code>), right plate green (<code class="font-mono">#4c1</code>).</li>
+          <li><strong>Social (1):</strong> <code class="font-mono">social</code> (142&times;20). Pill contour with light left plate (<code class="font-mono">#fafafa</code>) and green badge plate.</li>
+          <li><strong>Dark (4):</strong> <code class="font-mono">flat-dark</code>, <code class="font-mono">flat-square-dark</code>, <code class="font-mono">plastic-dark</code>, <code class="font-mono">for-the-badge-dark</code>. Left plate dark (<code class="font-mono">#2d2d2d</code>), right plate vibrant (<code class="font-mono">#3fb950</code>).</li>
+          <li><strong>Accent Color (3):</strong> <code class="font-mono">flat-blue</code> (<code class="font-mono">#07c</code>), <code class="font-mono">flat-purple</code> (<code class="font-mono">#8957e5</code>), <code class="font-mono">flat-orange</code> (<code class="font-mono">#fe7d37</code>).</li>
+          <li><strong>Original Legacy (1):</strong> High-contrast white background rectangular badge (<code class="font-mono">/badge.svg</code>).</li>
+        </ul>
+
+        <h3 class="text-base font-black text-neutral-900 text-retro-mono mt-6 mb-3">4.2 Required Shield Iconography &amp; Semantics</h3>
+        <p>
+          All modern variants (v1.1+) <strong>MUST</strong> incorporate the official vector shield insignia:
+        </p>
+        <div class="bg-neutral-50 p-4 border-2 border-neutral-900 text-xs font-mono my-4 space-y-1">
+          <div>&bull; <strong>Shield Vector:</strong> 12&times;12 viewBox base scale with embedded checkmark stroke.</div>
+          <div>&bull; <strong>Accessibility Tag:</strong> <code class="text-neutral-900">aria-label="Verified by NoLoginTools.org"</code></div>
+          <div>&bull; <strong>Native Tooltip:</strong> <code class="text-neutral-900">&lt;title&gt;Verified by NoLoginTools.org&lt;/title&gt;</code></div>
+        </div>
+
+        <h3 class="text-base font-black text-neutral-900 text-retro-mono mt-6 mb-3">4.3 Canonical Embedding Protocol</h3>
+        <p>
+          Maintainers <strong>MUST</strong> link the badge directly to their issued certificate URL to enable crawler verification:
+        </p>
+
+        <div class="not-prose space-y-4 my-4">
+          <div>
+            <span class="block text-xs font-mono font-bold text-neutral-500 uppercase mb-1">Markdown Standard</span>
+            <pre class="bg-neutral-900 text-green-400 p-3 text-xs font-mono overflow-x-auto border-2 border-neutral-900"><code>[![Verified by NoLoginTools.org](https://nologin.tools/badges/flat.svg)](https://nologin.tools/badge/YOUR-TOOL-SLUG)</code></pre>
+          </div>
+          <div>
+            <span class="block text-xs font-mono font-bold text-neutral-500 uppercase mb-1">HTML Standard</span>
+            <pre class="bg-neutral-900 text-green-400 p-3 text-xs font-mono overflow-x-auto border-2 border-neutral-900"><code>&lt;a href="https://nologin.tools/badge/YOUR-TOOL-SLUG" target="_blank" rel="noopener"&gt;
+  &lt;img src="https://nologin.tools/badges/flat.svg" alt="Verified by NoLoginTools.org" title="Verified by NoLoginTools.org" /&gt;
+&lt;/a&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="sec-5" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          5. Automated Verification Engine &amp; Crawler Protocol
+        </h2>
+        <p>
+          Compliance is enforced continuously through automated inspection daemons executed via edge workers:
+        </p>
+
+        <div class="space-y-4 my-6 text-sm">
+          <div class="p-4 bg-white border-2 border-neutral-900">
+            <h4 class="font-black text-neutral-900 text-retro-mono text-xs uppercase mb-1">Dual-Surface Discovery</h4>
+            <p class="text-neutral-600">
+              The crawler executes a dual-surface inspection pipeline. First, it analyzes the HTML DOM of the tool's homepage and footer. Second, if a public repository URL is registered, it requests the raw markdown payload of <code class="font-mono">README.md</code> directly from GitHub's raw CDN.
+            </p>
+          </div>
+
+          <div class="p-4 bg-white border-2 border-neutral-900">
+            <h4 class="font-black text-neutral-900 text-retro-mono text-xs uppercase mb-1">User-Agent Transparency</h4>
+            <p class="text-neutral-600 font-mono text-xs">
+              Crawler User-Agent: <strong>NoLoginTools-BadgeChecker/1.0</strong><br />
+              Health Auditor User-Agent: <strong>NoLoginTools-HealthChecker/1.0</strong>
+            </p>
+            <p class="text-neutral-600 mt-2">
+              All automated requests provide distinct, transparent User-Agents to prevent false bot triggers while adhering to standard web robotics protocols.
+            </p>
+          </div>
+
+          <div class="p-4 bg-white border-2 border-neutral-900">
+            <h4 class="font-black text-neutral-900 text-retro-mono text-xs uppercase mb-1">Fault-Tolerant Health Intelligence</h4>
+            <p class="text-neutral-600">
+              The health monitoring engine adopts an intelligent reachability model: HTTP responses including 403 (Cloudflare WAF challenges) or 429 (rate limits) confirm server existence and do not register as outages. Only total connection failure, DNS timeouts, or 404/410 not-found errors mark an unreachability event. A sliding window of 5 checks with fast-recovery safeguards prevents temporary network blips from penalizing verified maintainers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="sec-6" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          6. Anti-Gaming, Cloaking &amp; Revocation Protocol
+        </h2>
+        <p>
+          To maintain absolute trust integrity, the following practices are strictly prohibited:
+        </p>
+
+        <ul class="text-sm space-y-2 my-4">
+          <li><strong>User-Agent Cloaking:</strong> Serving an account-free interface to <code class="font-mono">NoLoginTools-HealthChecker</code> while serving login walls to real human visitors.</li>
+          <li><strong>Bait-and-Switch Gating:</strong> Updating a previously verified service to introduce compulsory signup steps for essential functionality.</li>
+          <li><strong>Badge Spoofing:</strong> Embedding badge SVGs linking to fraudulent certificate targets, competitor pages, or spoofed URLs.</li>
+          <li><strong>Tracker Injection:</strong> Embedding unauthorized third-party telemetry within badge delivery containers.</li>
+        </ul>
+
+        <div class="p-4 bg-red-50 border-2 border-red-900 my-4 text-xs font-retro-mono text-red-900">
+          <strong>Revocation Policy:</strong> Tools detected in violation of these rules will immediately have their certification revoked. Their certificate status will update to <code class="bg-red-200 px-1">REVOKED</code> or <code class="bg-red-200 px-1">REJECTED</code>, all directory boosts will be stripped, and the infraction will be permanently recorded in the public git commit audit trail.
+        </div>
+      </section>
+
+      <!-- Section 7 -->
+      <section id="sec-7" class="mb-12">
+        <h2 class="text-xl font-black text-neutral-900 text-retro-mono uppercase tracking-tight border-b border-neutral-200 pb-2 mb-4">
+          7. Public Audit Trail &amp; Archival Footprint
+        </h2>
+        <p>
+          Trust requires radical transparency. All evaluation states and health records maintained by NoLoginTools.org are permanently preserved across redundant public archives:
+        </p>
+        <ul class="text-sm space-y-2 my-4">
+          <li><strong>Open Data Feed:</strong> The complete directory database is synced every 6 hours to the public open-source repository <a href="https://github.com/nologin-tools/awesome-nologin-tools" target="_blank" rel="noopener noreferrer">awesome-nologin-tools</a> under the CC0 1.0 Universal license.</li>
+          <li><strong>Wayback Machine Integration:</strong> Every newly certified tool submission triggers an automated snapshot request to the Internet Archive Wayback Machine.</li>
+          <li><strong>Transparent Certificate URIs:</strong> Every certified tool possesses an immutable certificate endpoint (<code class="font-mono">https://nologin.tools/badge/[slug]</code>) displaying verification timestamps, uptime records, and audit history.</li>
+        </ul>
+      </section>
+
+      <!-- Adoption & Inquiries CTA -->
+      <section class="border-t-2 border-neutral-900 pt-8 not-prose">
+        <div class="retro-card p-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 class="text-base font-black text-neutral-900 text-retro-mono mb-1">Verify Your Tool Under NLW-STD-001</h3>
+            <p class="text-sm text-neutral-600 font-serif">
+              Submit your web application for human audit and automated trust certification.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <a href="https://nologin.tools/submit" class="btn-retro-primary text-xs text-retro-mono">
+              Submit Tool &rarr;
+            </a>
+            <a href="https://nologin.tools/badge" class="btn-retro text-xs text-retro-mono">
+              Badge Gallery
+            </a>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</Layout>

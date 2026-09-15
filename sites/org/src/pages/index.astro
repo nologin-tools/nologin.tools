@@ -25,7 +25,15 @@ const orgLd = {
     url: 'https://nologin.tools',
     description: 'A curated directory of privacy-friendly tools that work without login.',
   },
-  knowsAbout: ['privacy', 'no-login tools', 'web privacy', 'open source software'],
+  knowsAbout: ['privacy', 'no-login tools', 'web privacy', 'open source software', 'software verification standards'],
+  hasPart: [
+    {
+      '@type': 'TechArticle',
+      '@id': 'https://nologintools.org/standards#article',
+      name: 'NLW-STD-001: No-Login Web Verification Specification & Badge Criteria',
+      url: 'https://nologintools.org/standards',
+    },
+  ],
   logo: {
     '@type': 'ImageObject',
     url: 'https://nologintools.org/og-default.png',
@@ -129,9 +137,12 @@ const websiteLd = {
         </div>
         <div class="border-b pb-6 sm:border-b-0 sm:pb-0">
           <h3 class="font-black text-neutral-900 mb-2 text-retro-mono text-sm">Verify</h3>
-          <p class="text-sm text-neutral-600">
-            Our <a href="https://nologin.tools/badge" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">NoLogin Verified</a> certification confirms tools work without registration or personal data collection.
+          <p class="text-sm text-neutral-600 mb-2">
+            Our <a href="/standards" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2 font-bold">NLW-STD-001 Standard</a> governs the <a href="https://nologin.tools/badge" class="text-neutral-900 underline decoration-1 underline-offset-4 hover:decoration-2">NoLogin Verified</a> certification program with continuous 6-hour crawler auditing.
           </p>
+          <a href="/standards" class="text-xs font-bold text-retro-mono text-green-700 hover:text-green-800 hover:underline">
+            Read specification &rarr;
+          </a>
         </div>
         <div>
           <h3 class="font-black text-neutral-900 mb-2 text-retro-mono text-sm">Advocate</h3>
