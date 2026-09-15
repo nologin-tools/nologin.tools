@@ -10,6 +10,7 @@ import { formatDate, timeAgo } from '../../lib/utils';
 import { TAG_DEFINITIONS } from '../../lib/tags';
 import { sortTagsCategoryFirst } from '../../lib/tags';
 import { HEALTH_TOLERANCE, HEALTH_WINDOW_HOURS, resolveEffectiveStatus, type EffectiveStatus } from '../../lib/health';
+import { parseGitHubRepoUrl } from '../../lib/github';
 
 const secret = Astro.url.searchParams.get('secret');
 const adminSecret = Astro.locals.runtime.env.ADMIN_SECRET;
@@ -258,9 +259,30 @@ if (githubTools.length > 0) {
   }
 }
 
-// GitHub stats
+// Batch query badge displays for GitHub tools
+const githubBadgeMap = new Map<number, { displayType: string; lastCheckedAt: Date | null }>();
+if (githubTools.length > 0) {
+  const badgeRows = await db
+    .select()
+    .from(badgeDisplays)
+    .where(inArray(badgeDisplays.toolId, githubTools.map(t => t.id)));
+  for (const b of badgeRows) {
+    githubBadgeMap.set(b.toolId, {
+      displayType: b.displayType,
+      lastCheckedAt: b.lastCheckedAt,
+    });
+  }
+}
+
+// GitHub & outreach stats
 const githubTotalCount = githubTools.length;
 const githubNotifiedCount = Array.from(githubNotifMap.values()).filter(n => n.status === 'created').length;
+const githubBadgeActiveCount = Array.from(githubBadgeMap.values()).filter(b => b.displayType === 'explicit').length;
+const githubNeedOutreachCount = githubTools.filter(t => {
+  const notif = githubNotifMap.get(t.id);
+  const badge = githubBadgeMap.get(t.id);
+  return (!notif || notif.status !== 'created') && badge?.displayType !== 'explicit';
+}).length;
 const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 const githubStaleCount = githubTools.filter(t => t.githubFetchedAt && t.githubFetchedAt < sevenDaysAgo).length;
 const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).length;
@@ -831,22 +853,26 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
     <!-- ==================== PANEL: GitHub ==================== -->
     <div id="panel-github" class="tab-panel hidden">
       <!-- GitHub stats -->
-      <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
         <div class="border border-neutral-200 rounded-lg p-4">
           <p class="text-sm text-neutral-500 mb-1">With Repo</p>
           <p class="text-2xl font-bold text-neutral-700">{githubTotalCount}</p>
         </div>
-        <div class="border border-green-200 rounded-lg p-4 bg-green-50">
-          <p class="text-sm text-green-600 mb-1">Notified</p>
-          <p class="text-2xl font-bold text-green-700">{githubNotifiedCount}</p>
-        </div>
         <div class="border border-amber-200 rounded-lg p-4 bg-amber-50">
-          <p class="text-sm text-amber-600 mb-1">Data Stale (&gt;7d)</p>
-          <p class="text-2xl font-bold text-amber-700">{githubStaleCount}</p>
+          <p class="text-sm text-amber-700 font-medium mb-1">⚡ Need Outreach</p>
+          <p class="text-2xl font-bold text-amber-800">{githubNeedOutreachCount}</p>
+        </div>
+        <div class="border border-blue-200 rounded-lg p-4 bg-blue-50">
+          <p class="text-sm text-blue-700 font-medium mb-1">📬 Notified</p>
+          <p class="text-2xl font-bold text-blue-800">{githubNotifiedCount}</p>
+        </div>
+        <div class="border border-green-200 rounded-lg p-4 bg-green-50">
+          <p class="text-sm text-green-700 font-medium mb-1">🛡️ Badge Active</p>
+          <p class="text-2xl font-bold text-green-800">{githubBadgeActiveCount}</p>
         </div>
         <div class="border border-neutral-200 rounded-lg p-4">
-          <p class="text-sm text-neutral-500 mb-1">Never Fetched</p>
-          <p class="text-2xl font-bold text-neutral-700">{githubNeverFetchedCount}</p>
+          <p class="text-sm text-neutral-500 mb-1">Stale / Never</p>
+          <p class="text-2xl font-bold text-neutral-700">{githubStaleCount + githubNeverFetchedCount}</p>
         </div>
       </div>
 
@@ -910,14 +936,32 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
         )}
       </div>
 
-      <!-- Section 2: Badge Notification (GitHub Issues) -->
+      <!-- Section 2: Outreach & Badge Notification (GitHub Issues) -->
       <div>
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-lg font-semibold">Badge Notification (GitHub Issues)</h2>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-lg font-semibold">Outreach & Badge Notification (GitHub Issues)</h2>
+            <p class="text-xs text-neutral-500 mt-0.5">Track repo outreach status, jump to 1-click README edits, and notify maintainers with official NLW-STD-001 badges.</p>
+          </div>
           <div class="flex items-center gap-3">
             <span id="bulk-notify-progress" class="text-sm text-neutral-500 hidden"></span>
-            <button id="bulk-notify-btn" class="text-sm px-3 py-1.5 rounded-md font-medium bg-green-100 text-green-700 border border-green-300 hover:bg-green-200 transition-colors">Notify All Unnotified</button>
+            <button id="bulk-notify-btn" class="text-sm px-3 py-1.5 rounded-md font-medium bg-green-100 text-green-700 border border-green-300 hover:bg-green-200 transition-colors">Notify Need Outreach</button>
           </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 mb-4" id="outreach-filter-group">
+          <button class="outreach-filter-btn px-3 py-1 text-xs font-semibold rounded-md bg-neutral-900 text-white transition-colors cursor-pointer" data-filter="all">
+            All ({githubTotalCount})
+          </button>
+          <button class="outreach-filter-btn px-3 py-1 text-xs font-semibold rounded-md bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors cursor-pointer" data-filter="need_outreach">
+            ⚡ Need Outreach ({githubNeedOutreachCount})
+          </button>
+          <button class="outreach-filter-btn px-3 py-1 text-xs font-semibold rounded-md bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors cursor-pointer" data-filter="notified">
+            📬 Notified ({githubNotifiedCount})
+          </button>
+          <button class="outreach-filter-btn px-3 py-1 text-xs font-semibold rounded-md bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors cursor-pointer" data-filter="badge_active">
+            🛡️ Badge Active ({githubBadgeActiveCount})
+          </button>
         </div>
 
         {githubTools.length === 0 ? (
@@ -929,22 +973,46 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
                 <tr>
                   <th>Tool</th>
                   <th>Repository</th>
-                  <th>Status</th>
+                  <th>Badge Status</th>
+                  <th>Outreach Status</th>
                   <th>Issue</th>
-                  <th>Notified</th>
+                  <th>1-Click README</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 {githubTools.map((tool) => {
                   const notif = githubNotifMap.get(tool.id);
+                  const badge = githubBadgeMap.get(tool.id);
+                  const gh = tool.repoUrl ? parseGitHubRepoUrl(tool.repoUrl) : null;
+
+                  let outreachStatus = 'need_outreach';
+                  if (badge?.displayType === 'explicit') {
+                    outreachStatus = 'badge_active';
+                  } else if (notif?.status === 'created') {
+                    outreachStatus = 'notified';
+                  }
+
                   return (
-                    <tr class="github-notify-row" data-tool-id={tool.id} data-notify-status={notif?.status || 'none'}>
+                    <tr class="github-notify-row" data-tool-id={tool.id} data-notify-status={notif?.status || 'none'} data-outreach-status={outreachStatus}>
                       <td>
                         <a href={`/tool/${tool.slug}`} target="_blank" class="font-medium text-blue-600 hover:underline">{tool.name}</a>
                       </td>
                       <td class="text-neutral-500 text-sm">
                         <a href={tool.repoUrl!} target="_blank" rel="noopener noreferrer" class="hover:underline">{tool.repoUrl!.replace('https://github.com/', '')}</a>
+                      </td>
+                      <td>
+                        {badge?.displayType === 'explicit' ? (
+                          <span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200">
+                            🛡️ Active
+                          </span>
+                        ) : badge?.displayType === 'implicit' ? (
+                          <span class="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                            Implicit
+                          </span>
+                        ) : (
+                          <span class="text-neutral-400 text-xs">None</span>
+                        )}
                       </td>
                       <td>
                         <span class="notify-status">
@@ -966,8 +1034,18 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
                           <a href={notif.issueUrl} target="_blank" class="text-blue-600 hover:underline">#{notif.issueNumber}</a>
                         ) : '—'}
                       </td>
-                      <td class="notify-time text-neutral-500 text-xs">
-                        {notif?.createdAt ? timeAgo(notif.createdAt) : '—'}
+                      <td class="text-xs">
+                        {gh ? (
+                          <a
+                            href={`https://github.com/${gh.owner}/${gh.repo}/edit/HEAD/README.md`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-neutral-700 hover:text-blue-600 font-medium inline-flex items-center gap-1 hover:underline"
+                            title="Open GitHub web editor to add badge to README"
+                          >
+                            📝 Edit README ↗
+                          </a>
+                        ) : '—'}
                       </td>
                       <td>
                         {notif?.status === 'created' ? (
@@ -2141,6 +2219,30 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
     })();
 
     // ===== GitHub tab: notifications =====
+    // Outreach filter pills
+    const outreachFilterBtns = document.querySelectorAll('.outreach-filter-btn');
+    outreachFilterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = (btn as HTMLElement).dataset.filter;
+        outreachFilterBtns.forEach((b) => {
+          b.classList.remove('bg-neutral-900', 'text-white');
+          b.classList.add('bg-neutral-100', 'text-neutral-600');
+        });
+        btn.classList.remove('bg-neutral-100', 'text-neutral-600');
+        btn.classList.add('bg-neutral-900', 'text-white');
+
+        const rows = document.querySelectorAll('.github-notify-row');
+        rows.forEach((row) => {
+          const el = row as HTMLElement;
+          if (filter === 'all' || el.dataset.outreachStatus === filter) {
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        });
+      });
+    });
+
     document.querySelectorAll('.run-notify-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const toolId = Number((btn as HTMLElement).dataset.toolId);
@@ -2159,6 +2261,9 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
           const row = document.querySelector(`.github-notify-row[data-tool-id="${toolId}"]`) as HTMLElement;
           if (row) {
             row.dataset.notifyStatus = 'created';
+            if (row.dataset.outreachStatus !== 'badge_active') {
+              row.dataset.outreachStatus = 'notified';
+            }
             row.querySelector('.notify-status')!.innerHTML = '<span class="text-green-600 font-medium text-xs">✓ Notified</span>';
             row.querySelector('.notify-issue')!.innerHTML = `<a href="${escapeHtml(d.issueUrl)}" target="_blank" class="text-blue-600 hover:underline">#${d.issueNumber}</a>`;
             row.querySelector('.notify-time')!.textContent = 'just now';
@@ -2194,6 +2299,9 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
             const row = document.querySelector(`.github-notify-row[data-tool-id="${toolId}"]`) as HTMLElement;
             if (row) {
               row.dataset.notifyStatus = 'created';
+              if (row.dataset.outreachStatus !== 'badge_active') {
+                row.dataset.outreachStatus = 'notified';
+              }
               row.querySelector('.notify-status')!.innerHTML = '<span class="text-green-600 font-medium text-xs">✓ Notified</span>';
               row.querySelector('.notify-issue')!.innerHTML = `<a href="${escapeHtml(d.issueUrl)}" target="_blank" class="text-blue-600 hover:underline">#${d.issueNumber}</a>`;
               row.querySelector('.notify-time')!.textContent = 'just now';
@@ -2222,11 +2330,11 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
           return;
         }
 
-        // Only notify tools that are not yet notified or had errors
-        const rows = document.querySelectorAll('.github-notify-row[data-notify-status="none"], .github-notify-row[data-notify-status="error"]');
+        // Only notify tools that need outreach
+        const rows = document.querySelectorAll('.github-notify-row[data-outreach-status="need_outreach"]');
         const toolIds = Array.from(rows).map((r) => Number((r as HTMLElement).dataset.toolId));
         if (toolIds.length === 0) {
-          showToast('All tools have been notified already.', 'error');
+          showToast('All tools needing outreach have already been notified or verified.', 'error');
           return;
         }
 
@@ -2262,6 +2370,9 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
                 const row = document.querySelector(`.github-notify-row[data-tool-id="${toolId}"]`) as HTMLElement;
                 if (row) {
                   row.dataset.notifyStatus = 'created';
+                  if (row.dataset.outreachStatus !== 'badge_active') {
+                    row.dataset.outreachStatus = 'notified';
+                  }
                   row.querySelector('.notify-status')!.innerHTML = '<span class="text-green-600 font-medium text-xs">✓ Notified</span>';
                   row.querySelector('.notify-issue')!.innerHTML = `<a href="${escapeHtml(d.issueUrl)}" target="_blank" class="text-blue-600 hover:underline">#${d.issueNumber}</a>`;
                   row.querySelector('.notify-time')!.textContent = 'just now';
@@ -2287,7 +2398,7 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
 
         isRunning = false;
         abortController = null;
-        bulkBtn.textContent = 'Notify All Unnotified';
+        bulkBtn.textContent = 'Notify Need Outreach';
         bulkBtn.classList.remove('btn-danger');
         bulkBtn.classList.add('bg-green-100', 'text-green-700', 'border-green-300', 'hover:bg-green-200');
         document.querySelectorAll('.run-notify-btn').forEach((b) => { (b as HTMLButtonElement).disabled = false; });

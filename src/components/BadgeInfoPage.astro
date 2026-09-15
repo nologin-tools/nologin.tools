@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
+import { getApprovedTools, getLocalizedDescription } from '../data/loader';
 
 interface Props {
   locale: Locale;
@@ -9,6 +10,9 @@ interface Props {
 
 const { locale } = Astro.props;
 await loadTranslations(locale);
+
+const approvedTools = getApprovedTools();
+const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'explicit');
 ---
 
 <Layout
@@ -93,6 +97,42 @@ await loadTranslations(locale);
       <p class="text-base text-neutral-500 max-w-2xl mx-auto leading-relaxed">
         {t(locale, 'badge.heroDesc')}
       </p>
+    </div>
+
+    <!-- Certificate Quick Lookup -->
+    <div class="max-w-xl mx-auto mb-16">
+      <div class="border border-neutral-200 bg-neutral-50/70 rounded-xl p-5 shadow-xs">
+        <label for="cert-lookup-input" class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+          Verify a Tool's Digital Certificate
+        </label>
+        <form id="cert-lookup-form" class="flex flex-col sm:flex-row items-center gap-2">
+          <div class="relative w-full flex-1">
+            <input
+              type="text"
+              id="cert-lookup-input"
+              name="slug"
+              list="approved-tools-datalist"
+              placeholder="Search by tool name or slug (e.g. excalidraw-com)..."
+              class="w-full px-3.5 py-2 text-sm bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              autocomplete="off"
+            />
+            <datalist id="approved-tools-datalist">
+              {approvedTools.map((t) => (
+                <option value={t.slug}>{t.name} ({t.slug})</option>
+              ))}
+            </datalist>
+          </div>
+          <button
+            type="submit"
+            class="w-full sm:w-auto px-4 py-2 text-sm font-semibold text-white bg-neutral-900 rounded-lg hover:bg-neutral-800 transition-colors whitespace-nowrap cursor-pointer"
+          >
+            Inspect Certificate
+          </button>
+        </form>
+        <p class="text-[11px] text-neutral-400 mt-2">
+          Enter any verified tool name or slug to inspect its real-time SSL digital certificate, health monitoring, and trust signals.
+        </p>
+      </div>
     </div>
 
     <!-- What is NoLogin Verified? -->
@@ -207,6 +247,89 @@ await loadTranslations(locale);
         </div>
       </section>
 
+      <!-- Wall of Fame / Active Exhibitors -->
+      <section class="border-t pt-10 mt-10">
+        <div class="text-center mb-8">
+          <span class="inline-flex items-center gap-1 px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+            🛡️ Wall of Fame
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 mb-2">
+            Active Verified Exhibitors (Level 3)
+          </h2>
+          <p class="text-neutral-500 max-w-xl mx-auto text-sm leading-relaxed">
+            These tools proudly embed the official NoLogin Verified badge on their website or repository, earning our highest trust level and algorithm boost (+10 pts).
+          </p>
+        </div>
+
+        {verifiedExhibitors.length > 0 ? (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {verifiedExhibitors.map((tool) => {
+              const hostname = new URL(tool.url).hostname.replace(/^www\./, '');
+              const desc = getLocalizedDescription(tool, locale) || tool.description || '';
+              return (
+                <div class="p-4 rounded-xl border border-green-200 bg-gradient-to-b from-green-50/30 to-white flex flex-col justify-between hover:shadow-xs transition-shadow">
+                  <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                      <div class="flex items-center gap-2 min-w-0">
+                        <img
+                          src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
+                          alt=""
+                          class="w-4 h-4 rounded-xs shrink-0"
+                          loading="lazy"
+                          onerror="this.style.display='none'"
+                        />
+                        <a
+                          href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                          class="font-bold text-sm text-neutral-900 hover:text-blue-600 truncate"
+                        >
+                          {tool.name}
+                        </a>
+                      </div>
+                      <span class="inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-800 shrink-0">
+                        🛡️ Level 3
+                      </span>
+                    </div>
+                    <p class="text-xs text-neutral-500 line-clamp-2 mb-3 leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
+                  <div class="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs">
+                    <a
+                      href={getLocalizedPath(`/badge/${tool.slug}`, locale)}
+                      class="text-green-700 hover:text-green-800 font-semibold inline-flex items-center gap-1"
+                    >
+                      Certificate &rarr;
+                    </a>
+                    <a
+                      href={tool.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-neutral-400 hover:text-neutral-600 truncate max-w-[120px]"
+                    >
+                      {hostname} ↗
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="border border-dashed border-neutral-300 rounded-xl p-8 text-center bg-neutral-50/50 mb-8 max-w-xl mx-auto">
+            <div class="text-3xl mb-2">🛡️</div>
+            <h3 class="font-bold text-neutral-800 text-sm mb-1">Be the Next Level 3 Verified Exhibitor</h3>
+            <p class="text-xs text-neutral-500 max-w-md mx-auto leading-relaxed mb-4">
+              Add the badge to your website footer or GitHub README, and click "Verify Badge Now" on your certificate page to be instantly featured here.
+            </p>
+            <a
+              href={getLocalizedPath('/submit', locale)}
+              class="inline-flex items-center gap-1 text-xs font-semibold px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors"
+            >
+              Get Your Badge &rarr;
+            </a>
+          </div>
+        )}
+      </section>
+
       <!-- CTA -->
       <div class="text-center pt-4">
         <a href={getLocalizedPath('/submit', locale)} class="btn-minimal-primary">
@@ -215,4 +338,20 @@ await loadTranslations(locale);
       </div>
     </div>
   </div>
+
+  <script define:vars={{ locale }}>
+    const form = document.getElementById('cert-lookup-form');
+    const input = document.getElementById('cert-lookup-input');
+    if (form && input) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = input.value.trim().toLowerCase();
+        if (!val) return;
+        const match = val.match(/\(([^)]+)\)$/);
+        const slug = match ? match[1] : val;
+        const targetPath = locale === 'en' ? `/badge/${encodeURIComponent(slug)}` : `/${locale}/badge/${encodeURIComponent(slug)}`;
+        window.location.href = targetPath;
+      });
+    }
+  </script>
 </Layout>
