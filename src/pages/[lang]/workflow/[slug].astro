@@ -1,0 +1,19 @@
+---
+import WorkflowPage from '../../../components/WorkflowPage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+import { getWorkflowRecipes } from '../../../lib/workflows';
+
+export function getStaticPaths() {
+  const recipes = getWorkflowRecipes();
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>
+    recipes.map((recipe) => ({
+      params: { lang, slug: recipe.slug },
+      props: { slug: recipe.slug, locale: lang as Locale },
+    }))
+  );
+}
+
+const { slug, locale } = Astro.props;
+---
+
+<WorkflowPage locale={locale} slug={slug} />

@@ -10,6 +10,7 @@ import {
 } from '../lib/sitemap';
 import { getAlternativeTargets } from '../lib/alternatives';
 import { getComparisonPairs } from '../lib/comparisons';
+import { getWorkflowRecipes } from '../lib/workflows';
 
 export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
@@ -54,6 +55,13 @@ export const GET: APIRoute = async () => {
 
   const comparisonPages: SitemapPage[] = getComparisonPairs().map((pair) => ({
     url: `/compare/${pair.slug}`,
+    priority: '0.8',
+    changefreq: 'weekly',
+    lastmod: homepageLastmod,
+  }));
+
+  const workflowPages: SitemapPage[] = getWorkflowRecipes().map((workflow) => ({
+    url: `/workflow/${workflow.slug}`,
     priority: '0.8',
     changefreq: 'weekly',
     lastmod: homepageLastmod,
@@ -114,6 +122,7 @@ export const GET: APIRoute = async () => {
     ...tagPages,
     ...alternativePages,
     ...comparisonPages,
+    ...workflowPages,
     ...toolPages,
     ...badgePages,
     ...blogListPage,

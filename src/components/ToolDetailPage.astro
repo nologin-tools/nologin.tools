@@ -12,6 +12,7 @@ import { getToolEditorial } from '../data/loader';
 import { getRelatedArticlesForTool } from '../lib/tool-blogs';
 import { findAlternativeByAlias } from '../lib/alternatives';
 import { findComparisonsForTool } from '../lib/comparisons';
+import { findWorkflowsForTool } from '../lib/workflows';
 
 
 interface Props {
@@ -158,6 +159,7 @@ function buildOffers() {
 const editorial = getToolEditorial(slug, locale);
 const relatedArticles = getRelatedArticlesForTool(slug, locale);
 const toolComparisons = findComparisonsForTool(slug);
+const toolWorkflows = findWorkflowsForTool(slug);
 
 const featureList = [
   tool.coreTask,
@@ -728,6 +730,25 @@ const faqLd = isVerified ? {
                 <span>⚔️</span>
                 <span>{c.slug.replace(/-/g, ' ').replace(' vs ', ' ⚔️ ')}</span>
                 <span class="text-neutral-400">&rarr;</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Featured in No-Login Workflows */}
+      {toolWorkflows.length > 0 && (
+        <div class="border-t border-neutral-100 pt-8">
+          <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.partOfWorkflows')}</h2>
+          <div class="flex flex-wrap gap-3">
+            {toolWorkflows.map((w) => (
+              <a
+                href={getLocalizedPath(`/workflow/${w.slug}`, locale)}
+                class="px-3.5 py-2 bg-emerald-50/50 border border-emerald-200 hover:border-emerald-600 rounded-lg text-xs font-bold text-emerald-950 transition-all inline-flex items-center gap-2 shadow-2xs group"
+              >
+                <span>⚡</span>
+                <span>{w.title}</span>
+                <span class="text-emerald-500 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
               </a>
             ))}
           </div>

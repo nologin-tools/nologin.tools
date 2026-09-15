@@ -146,7 +146,23 @@ Direct side-by-side technical benchmarks, privacy matrices, and scenario-based v
 - [SVG-Edit vs SVGOMG](https://nologin.tools/compare/svgedit-vs-svgomg): Browser vector drawing canvas vs visual SVGO payload optimizer.
 - [CSVJSON vs TableConvert](https://nologin.tools/compare/csvjson-vs-tableconvert): Developer data parser & SQL generator vs documentation table converter.
 
+## Curated No-Login Workflow Recipes
+
+End-to-end procedural recipes chaining 2 to 4 verified no-login web tools to accomplish complete tasks without creating accounts or paying subscription fees:
+
+- [Private Podcast Production Pipeline](https://nologin.tools/workflow/private-podcast-production): AudioMass DAW recording → Audio Trimmer clip boundary editing → Squoosh cover art compression → Wormhole E2EE ephemeral sharing.
+- [Confidential PDF Redaction & Sharing](https://nologin.tools/workflow/secure-document-redaction): PDF24 document sanitization → CyberChef metadata stripping → hat.sh client-side AES-256 encryption → Wormhole self-destruct delivery.
+- [Vector Graphic to Production Web Asset](https://nologin.tools/workflow/vector-to-web-asset): Excalidraw conceptual sketch → SVG-Edit node refinement → SVGOMG SVGO XML minification → Squoosh responsive WebP/AVIF generation.
+- [Distraction-Free Anonymous Publishing](https://nologin.tools/workflow/anonymous-markdown-publishing): Dillinger split markdown writing → Hemingway Editor readability polish → LanguageTool grammar check → Write.as anonymous web publishing.
+- [Developer API Payload & Token Debugging](https://nologin.tools/workflow/api-payload-debugging): JSON Crack tree visualization → JSON Formatter RFC 8259 validation → transform.tools code type generation → JWT.io bearer token decoding.
+- [Ephemeral Zero-Account Team Meeting](https://nologin.tools/workflow/ephemeral-team-sync): When2meet participant time polling → Jitsi Meet encrypted video room → Excalidraw real-time collaborative E2EE whiteboard.
+- [Tabular Data Cleansing & Charting](https://nologin.tools/workflow/csv-data-cleansing-and-viz): CSVJSON delimited data normalization → TableConvert Markdown/LaTeX format bridging → RAWGraphs publication-ready D3 vector charts.
+- [Social Media Graphic & GIF Optimization](https://nologin.tools/workflow/social-media-media-prep): Photopea multi-layer raster composition → ezGIF frame trimming & lossy GIF optimizer → Squoosh WebP responsive image compression.
+- [Spatial Data Mapping & Format Pipeline](https://nologin.tools/workflow/geodata-to-interactive-map): GeoJSON.io geometry marker & polygon drawing → Convertio coordinate format conversion → RAWGraphs density and spatial distribution visualization.
+- [Complete Browser Leak & Security Audit](https://nologin.tools/workflow/browser-privacy-and-leak-audit): IPLeak WebRTC & IP leak audit → DNS Leak Test resolver integrity verification → Security Headers HTTP security evaluation → privacy.sexy OS telemetry removal scripts.
+
 ## Verification Model & Ranking Formula
+
 
 Every tool submitted to nologin.tools is audited under a strict verification lifecycle:
 1. **Zero-Login Gate Check**: If any core function requires registration or payment, the tool is rejected.

@@ -1,0 +1,16 @@
+---
+import WorkflowPage from '../../components/WorkflowPage.astro';
+import { getWorkflowRecipes } from '../../lib/workflows';
+
+export function getStaticPaths() {
+  const recipes = getWorkflowRecipes();
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.slug },
+    props: { slug: recipe.slug },
+  }));
+}
+
+const { slug } = Astro.props;
+---
+
+<WorkflowPage locale="en" slug={slug} />
