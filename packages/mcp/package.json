@@ -1,0 +1,33 @@
+{
+  "name": "nologin-tools-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for discovering verified zero-login, privacy-first web tools",
+  "type": "module",
+  "bin": {
+    "nologin-tools-mcp": "./bin/cli.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude-desktop",
+    "cursor",
+    "ai-agent",
+    "privacy-tools",
+    "nologin"
+  ],
+  "author": "NoLoginTools.org",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nologin-tools/nologin.tools.git",
+    "directory": "packages/mcp"
+  }
+}

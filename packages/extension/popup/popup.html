@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoLogin Quick Switcher</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-brand">
+      <span class="logo-mark">🛡️</span>
+      <div>
+        <h1 class="logo-text">nologin.tools</h1>
+        <p class="tagline">Zero Signup · Zero Telemetry</p>
+      </div>
+    </div>
+    <a href="https://nologin.tools" target="_blank" rel="noopener" class="header-link" title="Open Directory">
+      ↗
+    </a>
+  </header>
+
+  <!-- Contextual Alternatives Highlight -->
+  <div id="alternative-banner" class="alternative-banner hidden">
+    <div class="banner-header">
+      <span class="pulse-dot"></span>
+      <span id="banner-title" class="banner-title">Alternatives Available</span>
+    </div>
+    <p id="banner-desc" class="banner-desc"></p>
+    <div id="banner-tools" class="banner-tools"></div>
+  </div>
+
+  <!-- Search & Filter Controls -->
+  <div class="search-container">
+    <input
+      type="text"
+      id="search-input"
+      class="search-input"
+      placeholder="Search 180+ zero-login tools..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+  </div>
+
+  <!-- Categories -->
+  <div class="category-pills" id="category-pills">
+    <button class="pill active" data-cat="all">All</button>
+    <button class="pill" data-cat="AI">AI</button>
+    <button class="pill" data-cat="Design">Design</button>
+    <button class="pill" data-cat="Productivity">PDF & Office</button>
+    <button class="pill" data-cat="Media">Media</button>
+    <button class="pill" data-cat="Privacy">Privacy</button>
+    <button class="pill" data-cat="Development">Dev</button>
+  </div>
+
+  <!-- Stats & Count -->
+  <div class="stats-bar">
+    <span id="results-count" class="results-count">Loading tools...</span>
+    <span class="shortcut-hint">Esc to close</span>
+  </div>
+
+  <!-- Tool Results List -->
+  <main class="results-list" id="results-list">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer">
+    <span>Verified by <a href="https://nologintools.org" target="_blank" rel="noopener">NoLoginTools.org</a></span>
+    <div class="footer-links">
+      <a href="https://nologin.tools/finder" target="_blank" rel="noopener">Finder</a>
+      <a href="https://nologin.tools/submit" target="_blank" rel="noopener">Submit</a>
+    </div>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

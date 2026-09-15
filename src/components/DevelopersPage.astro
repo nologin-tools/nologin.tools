@@ -300,19 +300,23 @@ const breadcrumbLd = {
           {t(locale, 'dev.section.mcpDesc')}
         </p>
 
-        <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-3">
-          Claude Desktop Configuration (`claude_desktop_config.json`)
-        </h4>
-        <pre class="bg-neutral-950 text-neutral-200 text-xs font-mono p-4 rounded-xl overflow-x-auto border border-neutral-800 mb-6"><code>{JSON.stringify({
+        <div class="space-y-4 mb-6">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
+              Instant AI Assistant Setup (`claude_desktop_config.json` or `.cursor/mcp.json`)
+            </h4>
+            <pre class="bg-neutral-950 text-neutral-200 text-xs font-mono p-4 rounded-xl overflow-x-auto border border-neutral-800"><code>{JSON.stringify({
   mcpServers: {
-    nologin_tools: {
-      url: "https://nologin.tools/api/v1/mcp.json",
-      type: "sse",
+    "nologin-tools": {
+      command: "npx",
+      args: ["-y", "nologin-tools-mcp"]
     }
   }
 }, null, 2)}</code></pre>
+          </div>
+        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">search_nologin_tools</div>
             <div class="text-neutral-400 text-[11px]">Filter tools by query, offline status, and client-side execution.</div>
@@ -324,6 +328,10 @@ const breadcrumbLd = {
           <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">list_workflows</div>
             <div class="text-neutral-400 text-[11px]">Query multi-tool chained recipes for end-to-end tasks.</div>
+          </div>
+          <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
+            <div class="font-mono font-bold text-emerald-400 mb-1">find_alternatives</div>
+            <div class="text-neutral-400 text-[11px]">Instantly find zero-login replacements for closed SaaS (Canva, Photoshop, etc.).</div>
           </div>
         </div>
       </div>

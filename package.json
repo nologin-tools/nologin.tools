@@ -11,7 +11,9 @@
     "db:migrate:local": "wrangler d1 migrations apply nologin-tools-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply nologin-tools-db --remote",
     "deploy": "astro build && wrangler pages deploy dist/ --project-name nologin-tools",
-    "deploy:cron": "cd workers/cron && wrangler deploy"
+    "deploy:cron": "cd workers/cron && wrangler deploy",
+    "build:extension": "node scripts/build-extension.mjs",
+    "mcp": "node packages/mcp/bin/cli.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",

@@ -1,0 +1,874 @@
+{
+  "photoshop.adobe.com": {
+    "targetName": "Adobe Photoshop",
+    "targetSlug": "photoshop",
+    "category": "Design",
+    "headline": "In-browser raster graphics & photo editing without Adobe Creative Cloud subscriptions or signups",
+    "tools": [
+      {
+        "slug": "photopea-com",
+        "name": "Photopea",
+        "url": "https://photopea.com",
+        "hostname": "photopea.com",
+        "category": "Design",
+        "description": "Advanced online image editor that supports PSD, XCF, Sketch, XD, and CDR formats. Works like Photoshop directly in your browser with layers, filters, and advanced editing tools.",
+        "coreTask": "Edit photos and design graphics in a Photoshop-like browser editor",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "remove-bg",
+        "name": "remove.bg",
+        "url": "https://remove.bg",
+        "hostname": "remove.bg",
+        "category": "Design",
+        "description": "AI-powered tool that automatically removes backgrounds from photos in seconds. Upload an image and get a transparent PNG instantly.",
+        "coreTask": "Remove image backgrounds automatically using AI",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "ezgif-com",
+        "name": "ezGIF",
+        "url": "https://ezgif.com",
+        "hostname": "ezgif.com",
+        "category": "Media",
+        "description": "Online GIF maker and image editor. Create, resize, crop, reverse, optimize GIFs, and convert video to GIF. Also supports WebP, APNG, and AVIF.",
+        "coreTask": "Create, edit, and optimize GIFs and animated images",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "favicon-io",
+        "name": "Favicon.io",
+        "url": "https://favicon.io",
+        "hostname": "favicon.io",
+        "category": "Design",
+        "description": "Generate favicons from text, images, or emojis. Download in multiple sizes and formats for your website.",
+        "coreTask": "Generate website favicons",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "adobe.com": {
+    "targetName": "Adobe Photoshop",
+    "targetSlug": "photoshop",
+    "category": "Design",
+    "headline": "In-browser raster graphics & photo editing without Adobe Creative Cloud subscriptions or signups",
+    "tools": [
+      {
+        "slug": "photopea-com",
+        "name": "Photopea",
+        "url": "https://photopea.com",
+        "hostname": "photopea.com",
+        "category": "Design",
+        "description": "Advanced online image editor that supports PSD, XCF, Sketch, XD, and CDR formats. Works like Photoshop directly in your browser with layers, filters, and advanced editing tools.",
+        "coreTask": "Edit photos and design graphics in a Photoshop-like browser editor",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "remove-bg",
+        "name": "remove.bg",
+        "url": "https://remove.bg",
+        "hostname": "remove.bg",
+        "category": "Design",
+        "description": "AI-powered tool that automatically removes backgrounds from photos in seconds. Upload an image and get a transparent PNG instantly.",
+        "coreTask": "Remove image backgrounds automatically using AI",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "ezgif-com",
+        "name": "ezGIF",
+        "url": "https://ezgif.com",
+        "hostname": "ezgif.com",
+        "category": "Media",
+        "description": "Online GIF maker and image editor. Create, resize, crop, reverse, optimize GIFs, and convert video to GIF. Also supports WebP, APNG, and AVIF.",
+        "coreTask": "Create, edit, and optimize GIFs and animated images",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "favicon-io",
+        "name": "Favicon.io",
+        "url": "https://favicon.io",
+        "hostname": "favicon.io",
+        "category": "Design",
+        "description": "Generate favicons from text, images, or emojis. Download in multiple sizes and formats for your website.",
+        "coreTask": "Generate website favicons",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "canva.com": {
+    "targetName": "Canva",
+    "targetSlug": "canva",
+    "category": "Design",
+    "headline": "Instant graphic design, background removal, and layout creation without mandatory accounts",
+    "tools": [
+      {
+        "slug": "photopea-com",
+        "name": "Photopea",
+        "url": "https://photopea.com",
+        "hostname": "photopea.com",
+        "category": "Design",
+        "description": "Advanced online image editor that supports PSD, XCF, Sketch, XD, and CDR formats. Works like Photoshop directly in your browser with layers, filters, and advanced editing tools.",
+        "coreTask": "Edit photos and design graphics in a Photoshop-like browser editor",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "remove-bg",
+        "name": "remove.bg",
+        "url": "https://remove.bg",
+        "hostname": "remove.bg",
+        "category": "Design",
+        "description": "AI-powered tool that automatically removes backgrounds from photos in seconds. Upload an image and get a transparent PNG instantly.",
+        "coreTask": "Remove image backgrounds automatically using AI",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "fffuel-co",
+        "name": "Fffuel",
+        "url": "https://fffuel.co",
+        "hostname": "fffuel.co",
+        "category": "Design",
+        "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
+        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects, all in the browser without any account.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "figma.com": {
+    "targetName": "Figma",
+    "targetSlug": "figma",
+    "category": "Design",
+    "headline": "Vector wireframing, diagramming, and UI sketching without team workspace account walls",
+    "tools": [
+      {
+        "slug": "excalidraw-com",
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "hostname": "excalidraw.com",
+        "category": "Design",
+        "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
+        "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "tldraw-com",
+        "name": "tldraw",
+        "url": "https://tldraw.com",
+        "hostname": "tldraw.com",
+        "category": "Design",
+        "description": "A collaborative digital whiteboard with a clean, minimal interface. Draw freehand, add shapes, arrows, text, and sticky notes to create diagrams and visual notes.",
+        "coreTask": "Draw diagrams and visual notes on an infinite canvas",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "fffuel-co",
+        "name": "Fffuel",
+        "url": "https://fffuel.co",
+        "hostname": "fffuel.co",
+        "category": "Design",
+        "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
+        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects, all in the browser without any account.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "miro.com": {
+    "targetName": "Miro",
+    "targetSlug": "miro",
+    "category": "Productivity",
+    "headline": "Infinite digital whiteboard for brainstorming and architecture maps with zero registration",
+    "tools": [
+      {
+        "slug": "excalidraw-com",
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "hostname": "excalidraw.com",
+        "category": "Design",
+        "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
+        "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "tldraw-com",
+        "name": "tldraw",
+        "url": "https://tldraw.com",
+        "hostname": "tldraw.com",
+        "category": "Design",
+        "description": "A collaborative digital whiteboard with a clean, minimal interface. Draw freehand, add shapes, arrows, text, and sticky notes to create diagrams and visual notes.",
+        "coreTask": "Draw diagrams and visual notes on an infinite canvas",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "lucidchart.com": {
+    "targetName": "Lucidchart",
+    "targetSlug": "lucidchart",
+    "category": "Productivity",
+    "headline": "Architecture diagrams, flowcharts, and network topology maps with client-side privacy",
+    "tools": [
+      {
+        "slug": "excalidraw-com",
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "hostname": "excalidraw.com",
+        "category": "Design",
+        "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
+        "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "app-diagrams-net",
+        "name": "Diagrams.net",
+        "url": "https://app.diagrams.net",
+        "hostname": "app.diagrams.net",
+        "category": "Design",
+        "description": "Create flowcharts, UML diagrams, network diagrams, and more. Formerly draw.io, the most powerful free online diagramming tool.",
+        "coreTask": "Create flowcharts and diagrams",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "lucid.app": {
+    "targetName": "Lucidchart",
+    "targetSlug": "lucidchart",
+    "category": "Productivity",
+    "headline": "Architecture diagrams, flowcharts, and network topology maps with client-side privacy",
+    "tools": [
+      {
+        "slug": "excalidraw-com",
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "hostname": "excalidraw.com",
+        "category": "Design",
+        "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
+        "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "app-diagrams-net",
+        "name": "Diagrams.net",
+        "url": "https://app.diagrams.net",
+        "hostname": "app.diagrams.net",
+        "category": "Design",
+        "description": "Create flowcharts, UML diagrams, network diagrams, and more. Formerly draw.io, the most powerful free online diagramming tool.",
+        "coreTask": "Create flowcharts and diagrams",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "notion.so": {
+    "targetName": "Notion",
+    "targetSlug": "notion",
+    "category": "Writing",
+    "headline": "Distraction-free Markdown writing and local document drafting without account lock-in",
+    "tools": [
+      {
+        "slug": "dillinger-io",
+        "name": "Dillinger",
+        "url": "https://dillinger.io",
+        "hostname": "dillinger.io",
+        "category": "Writing",
+        "description": "Cloud-enabled, mobile-ready, offline-storage compatible Markdown editor. Preview rendered Markdown in real-time as you type.",
+        "coreTask": "Write and preview Markdown documents with live rendering",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "notion.site": {
+    "targetName": "Notion",
+    "targetSlug": "notion",
+    "category": "Writing",
+    "headline": "Distraction-free Markdown writing and local document drafting without account lock-in",
+    "tools": [
+      {
+        "slug": "dillinger-io",
+        "name": "Dillinger",
+        "url": "https://dillinger.io",
+        "hostname": "dillinger.io",
+        "category": "Writing",
+        "description": "Cloud-enabled, mobile-ready, offline-storage compatible Markdown editor. Preview rendered Markdown in real-time as you type.",
+        "coreTask": "Write and preview Markdown documents with live rendering",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "grammarly.com": {
+    "targetName": "Grammarly",
+    "targetSlug": "grammarly",
+    "category": "Writing",
+    "headline": "Real-time spelling, style, and grammar editing without telemetry or cloud keylogging",
+    "tools": [
+      {
+        "slug": "hemingwayapp-com",
+        "name": "Hemingway Editor",
+        "url": "https://hemingwayapp.com",
+        "hostname": "hemingwayapp.com",
+        "category": "Writing",
+        "description": "Writing assistant that highlights complex sentences, passive voice, adverbs, and hard-to-read phrases. Helps make your writing bold and clear.",
+        "coreTask": "Improve writing clarity by highlighting complex and hard-to-read text",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "languagetool-org",
+        "name": "LanguageTool",
+        "url": "https://languagetool.org",
+        "hostname": "languagetool.org",
+        "category": "Writing",
+        "description": "Multilingual grammar, style, and spell checker that supports over 30 languages. Detects errors that simple spell checkers cannot find.",
+        "coreTask": "Check grammar, spelling, and style in 30+ languages",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": false
+        }
+      }
+    ]
+  },
+  "zoom.us": {
+    "targetName": "Zoom",
+    "targetSlug": "zoom",
+    "category": "Communication",
+    "headline": "Encrypted video conferencing and instant meeting rooms with zero app installs or signups",
+    "tools": [
+      {
+        "slug": "meet-jit-si",
+        "name": "Jitsi Meet",
+        "url": "https://meet.jit.si",
+        "hostname": "meet.jit.si",
+        "category": "Communication",
+        "description": "Free, open-source video conferencing that works directly in your browser. Create a room and share the link — no account, download, or plugin needed.",
+        "coreTask": "Start instant video calls without accounts or downloads",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "smallpdf.com": {
+    "targetName": "Smallpdf",
+    "targetSlug": "smallpdf",
+    "category": "Productivity",
+    "headline": "PDF merging, compression, and format conversion executed locally in your browser",
+    "tools": [
+      {
+        "slug": "tools-pdf24-org-en",
+        "name": "PDF24 Tools",
+        "url": "https://tools.pdf24.org/en/",
+        "hostname": "tools.pdf24.org",
+        "category": "Productivity",
+        "description": "Free and easy-to-use online PDF tools: merge, split, compress, convert, rotate, watermark, and more. All processing happens in the browser.",
+        "coreTask": "Merge, split, compress, and convert PDF files",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "tinywow-com",
+        "name": "TinyWow",
+        "url": "https://tinywow.com",
+        "hostname": "tinywow.com",
+        "category": "Productivity",
+        "description": "Collection of free online tools for PDF, video, image, and file conversion. Files are deleted after processing. No watermarks or file size limits.",
+        "coreTask": "Convert and process PDFs, images, videos, and documents",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      }
+    ]
+  },
+  "postman.com": {
+    "targetName": "Postman",
+    "targetSlug": "postman",
+    "category": "Development",
+    "headline": "JSON payload visualization, tree structuring, and token inspection with zero telemetry",
+    "tools": [
+      {
+        "slug": "jsonformatter-org",
+        "name": "JSON Formatter",
+        "url": "https://jsonformatter.org",
+        "hostname": "jsonformatter.org",
+        "category": "Development",
+        "description": "Online JSON formatter, validator, and viewer. Paste or upload JSON data to format, validate, minify, and convert between JSON and other formats.",
+        "coreTask": "Format, validate, and beautify JSON data",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "jsoncrack-com",
+        "name": "JSON Crack",
+        "url": "https://jsoncrack.com",
+        "hostname": "jsoncrack.com",
+        "category": "Data",
+        "description": "Visualize JSON data into interactive graphs. Seamlessly explore complex JSON structures with a tree-like graph view, search, and filter capabilities.",
+        "coreTask": "Visualize JSON data as interactive node graphs",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": false
+        }
+      },
+      {
+        "slug": "jwt-io",
+        "name": "JWT.io",
+        "url": "https://jwt.io",
+        "hostname": "jwt.io",
+        "category": "Development",
+        "description": "A browser-based debugger for JSON Web Tokens. Paste any JWT to instantly decode its header, payload, and signature. Verify token signatures with your secret or public key. Supports HS256, RS256, ES256, and other common algorithms — all processing happens in your browser with no account required.",
+        "coreTask": "Decode and verify JSON Web Tokens directly in your browser without sending tokens to any server",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "audacityteam.org": {
+    "targetName": "Audacity",
+    "targetSlug": "audacity",
+    "category": "Media",
+    "headline": "Waveform audio trimming, multi-track mixing, and sound mastering via WebAudio API",
+    "tools": [
+      {
+        "slug": "audiotrimmer-com",
+        "name": "Audio Trimmer",
+        "url": "https://audiotrimmer.com",
+        "hostname": "audiotrimmer.com",
+        "category": "Media",
+        "description": "Simple online tool to trim audio files. Upload your audio, select the part you want to keep, and download the trimmed file. Supports MP3, WAV, and other formats.",
+        "coreTask": "Trim and cut audio files online",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "audiomass-co",
+        "name": "AudioMass",
+        "url": "https://audiomass.co",
+        "hostname": "audiomass.co",
+        "category": "Media",
+        "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
+        "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "tinypng.com": {
+    "targetName": "TinyPNG",
+    "targetSlug": "tinypng",
+    "category": "Media",
+    "headline": "Lossless & lossy image compression using WebAssembly with zero server uploads",
+    "tools": [
+      {
+        "slug": "squoosh-app",
+        "name": "Squoosh",
+        "url": "https://squoosh.app",
+        "hostname": "squoosh.app",
+        "category": "Design",
+        "description": "Google-built image compression tool that runs entirely in the browser. Compare original vs compressed side-by-side, supports WebP, AVIF, MozJPEG, and more.",
+        "coreTask": "Compress and optimize images with visual quality comparison",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "tinypng-com",
+        "name": "TinyPNG",
+        "url": "https://tinypng.com",
+        "hostname": "tinypng.com",
+        "category": "Design",
+        "description": "Smart lossy compression for PNG, JPEG, and WebP images. Reduce file sizes while preserving visual quality.",
+        "coreTask": "Compress PNG, JPEG, and WebP images",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": false
+        }
+      }
+    ]
+  },
+  "cloudconvert.com": {
+    "targetName": "CloudConvert",
+    "targetSlug": "cloudconvert",
+    "category": "Productivity",
+    "headline": "File format conversion for media, documents, and archives without account queues",
+    "tools": [
+      {
+        "slug": "convertio-co",
+        "name": "Convertio",
+        "url": "https://convertio.co",
+        "hostname": "convertio.co",
+        "category": "Media",
+        "description": "Advanced online file converter supporting 300+ formats. Convert documents, images, audio, video, ebooks, archives, and more with a simple drag-and-drop interface.",
+        "coreTask": "Convert files between 300+ formats with drag and drop",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": false
+        }
+      }
+    ]
+  },
+  "illustrator.adobe.com": {
+    "targetName": "Adobe Illustrator",
+    "targetSlug": "illustrator",
+    "category": "Design",
+    "headline": "Vector graphic editing and SVG optimization without expensive Creative Cloud plans",
+    "tools": [
+      {
+        "slug": "svgedit-netlify-app-editor-index-html",
+        "name": "SVG Edit",
+        "url": "https://svgedit.netlify.app/editor/index.html",
+        "hostname": "svgedit.netlify.app",
+        "category": "Design",
+        "description": "Fast, web-based, JavaScript-driven SVG drawing editor. Create and edit SVG images directly in the browser with a familiar drawing application interface.",
+        "coreTask": "Create and edit SVG vector graphics in the browser",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "jakearchibald-github-io-svgomg",
+        "name": "SVGOMG",
+        "url": "https://jakearchibald.github.io/svgomg/",
+        "hostname": "jakearchibald.github.io",
+        "category": "Design",
+        "description": "Optimize and compress SVG files with a visual interface. Built by Jake Archibald, powered by SVGO.",
+        "coreTask": "Optimize and compress SVG files",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "visio.office.com": {
+    "targetName": "Microsoft Visio",
+    "targetSlug": "visio",
+    "category": "Productivity",
+    "headline": "Enterprise flowcharting, network topology diagrams, and UML mapping with zero login",
+    "tools": [
+      {
+        "slug": "excalidraw-com",
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "hostname": "excalidraw.com",
+        "category": "Design",
+        "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
+        "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "app-diagrams-net",
+        "name": "Diagrams.net",
+        "url": "https://app.diagrams.net",
+        "hostname": "app.diagrams.net",
+        "category": "Design",
+        "description": "Create flowcharts, UML diagrams, network diagrams, and more. Formerly draw.io, the most powerful free online diagramming tool.",
+        "coreTask": "Create flowcharts and diagrams",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "ilovepdf.com": {
+    "targetName": "ILovePDF",
+    "targetSlug": "ilovepdf",
+    "category": "Productivity",
+    "headline": "All-in-one PDF utilities running securely without uploading sensitive documents",
+    "tools": [
+      {
+        "slug": "tools-pdf24-org-en",
+        "name": "PDF24 Tools",
+        "url": "https://tools.pdf24.org/en/",
+        "hostname": "tools.pdf24.org",
+        "category": "Productivity",
+        "description": "Free and easy-to-use online PDF tools: merge, split, compress, convert, rotate, watermark, and more. All processing happens in the browser.",
+        "coreTask": "Merge, split, compress, and convert PDF files",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "tinywow-com",
+        "name": "TinyWow",
+        "url": "https://tinywow.com",
+        "hostname": "tinywow.com",
+        "category": "Productivity",
+        "description": "Collection of free online tools for PDF, video, image, and file conversion. Files are deleted after processing. No watermarks or file size limits.",
+        "coreTask": "Convert and process PDFs, images, videos, and documents",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      }
+    ]
+  },
+  "wetransfer.com": {
+    "targetName": "WeTransfer",
+    "targetSlug": "wetransfer",
+    "category": "Privacy",
+    "headline": "Send files with end-to-end encryption without email capture or subscription gates",
+    "tools": [
+      {
+        "slug": "wormhole-app",
+        "name": "Wormhole",
+        "url": "https://wormhole.app",
+        "hostname": "wormhole.app",
+        "category": "Communication",
+        "description": "End-to-end encrypted file transfer up to 10 GB. Files are encrypted in the browser before upload — no one else can read them.",
+        "coreTask": "Transfer files with E2E encryption",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "hat-sh",
+        "name": "hat.sh",
+        "url": "https://hat.sh",
+        "hostname": "hat.sh",
+        "category": "Privacy",
+        "description": "A browser-based file encryption and decryption tool that works entirely client-side. hat.sh uses AES-256-GCM encryption with either a password or public/private key pair. Files never leave your browser — no uploads, no servers, no accounts.",
+        "coreTask": "Encrypt and decrypt files securely in your browser using AES-256-GCM, with no file uploads or server involvement.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "loom.com": {
+    "targetName": "Loom",
+    "targetSlug": "loom",
+    "category": "Media",
+    "headline": "Record screen and camera without account registration or video upload limits",
+    "tools": [
+      {
+        "slug": "audiomass-co",
+        "name": "AudioMass",
+        "url": "https://audiomass.co",
+        "hostname": "audiomass.co",
+        "category": "Media",
+        "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
+        "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  }
+}
