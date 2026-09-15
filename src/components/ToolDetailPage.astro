@@ -10,6 +10,7 @@ import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { getToolEditorial } from '../data/loader';
 import { getRelatedArticlesForTool } from '../lib/tool-blogs';
+import { findAlternativeByAlias } from '../lib/alternatives';
 
 
 interface Props {
@@ -440,11 +441,22 @@ const faqLd = isVerified ? {
                 <span class="text-xs text-neutral-500 font-mono">
                   {t(locale, 'tool.editorial.alternatives')}:
                 </span>
-                {editorial.alternativeTo.map((alt) => (
-                  <span class="inline-flex items-center px-2 py-0.5 bg-white border border-neutral-300 text-xs font-mono font-medium text-neutral-800 shadow-xs">
-                    {alt}
-                  </span>
-                ))}
+                {editorial.alternativeTo.map((alt) => {
+                  const target = findAlternativeByAlias(alt);
+                  return target ? (
+                    <a
+                      href={getLocalizedPath(`/alternative/${target.slug}`, locale)}
+                      class="inline-flex items-center px-2 py-0.5 bg-white border border-neutral-300 hover:border-neutral-900 hover:text-neutral-900 text-xs font-mono font-medium text-neutral-800 shadow-xs transition-colors"
+                      title={`View no-login alternatives to ${target.name}`}
+                    >
+                      {alt} &rarr;
+                    </a>
+                  ) : (
+                    <span class="inline-flex items-center px-2 py-0.5 bg-white border border-neutral-300 text-xs font-mono font-medium text-neutral-800 shadow-xs">
+                      {alt}
+                    </span>
+                  );
+                })}
               </div>
             )}
           </div>

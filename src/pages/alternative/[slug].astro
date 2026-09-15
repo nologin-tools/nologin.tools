@@ -1,0 +1,16 @@
+---
+import AlternativePage from '../../components/AlternativePage.astro';
+import { getAlternativeTargets } from '../../lib/alternatives';
+
+export function getStaticPaths() {
+  const targets = getAlternativeTargets();
+  return targets.map((target) => ({
+    params: { slug: target.slug },
+    props: { slug: target.slug },
+  }));
+}
+
+const { slug } = Astro.props;
+---
+
+<AlternativePage locale="en" slug={slug} />

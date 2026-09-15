@@ -8,6 +8,7 @@ import {
   generateHreflangLinks,
   type SitemapPage,
 } from '../lib/sitemap';
+import { getAlternativeTargets } from '../lib/alternatives';
 
 export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
@@ -39,6 +40,13 @@ export const GET: APIRoute = async () => {
   const tagPages: SitemapPage[] = TAG_PAGES_ALLOWLIST.map((item) => ({
     url: `/tag/${tagValueToSlug(item.value)}`,
     priority: '0.6',
+    changefreq: 'weekly',
+    lastmod: homepageLastmod,
+  }));
+
+  const alternativePages: SitemapPage[] = getAlternativeTargets().map((alt) => ({
+    url: `/alternative/${alt.slug}`,
+    priority: '0.8',
     changefreq: 'weekly',
     lastmod: homepageLastmod,
   }));
@@ -96,6 +104,7 @@ export const GET: APIRoute = async () => {
     ...staticPages,
     ...categoryPages,
     ...tagPages,
+    ...alternativePages,
     ...toolPages,
     ...badgePages,
     ...blogListPage,

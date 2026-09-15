@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getAlternativeBySlug, getAlternativeTargets, getToolsForAlternative } from '../lib/alternatives';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+import { getLocalizedDescription } from '../data/loader';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+await loadTranslations(locale);
+
+const target = getAlternativeBySlug(slug);
+if (!target) {
+  throw new Error(`Alternative target not found for slug: ${slug}`);
+}
+
+const tools = getToolsForAlternative(target, locale);
+const allTargets = getAlternativeTargets();
+
+function getHostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+const pageTitle = t(locale, 'alternative.page.title', { target: target.name, count: tools.length });
+const pageDescription = t(locale, 'alternative.page.description', { target: target.name, count: tools.length });
+
+const canonicalPath = getLocalizedPath(`/alternative/${slug}`, locale);
+
+const collectionLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: pageTitle,
+  description: pageDescription,
+  url: `https://nologin.tools${canonicalPath}`,
+  inLanguage: locale,
+  about: {
+    '@type': 'SoftwareApplication',
+    name: target.name,
+    applicationCategory: target.category,
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    name: t(locale, 'alternative.page.heading', { target: target.name }),
+    numberOfItems: tools.length,
+    itemListElement: tools.map((tool, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: tool.name,
+      url: `https://nologin.tools${getLocalizedPath(`/tool/${tool.slug}`, locale)}`,
+    })),
+  },
+};
+
+const faqQuestions = [
+  {
+    q: t(locale, 'alternative.faq.q1', { target: target.name }),
+    a: t(locale, 'alternative.faq.a1', { target: target.name }),
+  },
+  {
+    q: t(locale, 'alternative.faq.q2', { target: target.name }),
+    a: t(locale, 'alternative.faq.a2', { target: target.name }),
+  },
+  {
+    q: t(locale, 'alternative.faq.q3', { target: target.name }),
+    a: t(locale, 'alternative.faq.a3', { target: target.name }),
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale,
+  mainEntity: faqQuestions.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
+    { '@type': 'ListItem', position: 2, name: target.name, item: `https://nologin.tools${canonicalPath}` },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+        <li>
+          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
+        </li>
+        <li aria-hidden="true">
+          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </li>
+        <li aria-current="page" class="text-neutral-900">
+          {target.name}
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="mb-10 border-b-4 border-neutral-900 pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-neutral-100 text-neutral-800 text-xs font-mono font-bold uppercase rounded mb-4">
+        <span>🛡️ {t(locale, 'alternative.page.badge')}</span>
+        <span>&bull;</span>
+        <span>{target.category}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
+        {t(locale, 'alternative.page.heading', { target: target.name })}
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed max-w-3xl">
+        {target.headline}.
+      </p>
+      <div class="mt-4 flex items-center gap-3 text-sm font-bold text-neutral-500">
+        <span class="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          {t(locale, 'alternative.page.countVerified', { count: tools.length })}
+        </span>
+        <span class="text-neutral-300">&bull;</span>
+        <span>{target.primaryUtility}</span>
+      </div>
+    </header>
+
+    <!-- Why Switch / Trust Cards -->
+    <section class="mb-14 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="p-4 bg-neutral-50 border border-neutral-200 rounded-lg">
+        <div class="text-xl mb-2">⚡</div>
+        <h3 class="font-bold text-neutral-900 text-sm mb-1">{t(locale, 'alternative.page.whyCard1Title')}</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">{t(locale, 'alternative.page.whyCard1Desc')}</p>
+      </div>
+      <div class="p-4 bg-neutral-50 border border-neutral-200 rounded-lg">
+        <div class="text-xl mb-2">🔒</div>
+        <h3 class="font-bold text-neutral-900 text-sm mb-1">{t(locale, 'alternative.page.whyCard2Title')}</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">{t(locale, 'alternative.page.whyCard2Desc')}</p>
+      </div>
+      <div class="p-4 bg-neutral-50 border border-neutral-200 rounded-lg">
+        <div class="text-xl mb-2">🛡️</div>
+        <h3 class="font-bold text-neutral-900 text-sm mb-1">{t(locale, 'alternative.page.whyCard3Title')}</h3>
+        <p class="text-xs text-neutral-600 leading-relaxed">{t(locale, 'alternative.page.whyCard3Desc')}</p>
+      </div>
+    </section>
+
+    <!-- Tool Comparison / Cards List -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-8">
+        {t(locale, 'alternative.page.curatedHeading', { target: target.name })}
+      </h2>
+
+      <div class="space-y-8">
+        {tools.map((tool, index) => {
+          const hostname = getHostname(tool.url);
+          const localizedDesc = getLocalizedDescription(tool, locale) || tool.description || '';
+          return (
+            <article class="border border-neutral-200 rounded-xl p-5 sm:p-7 hover:border-neutral-400 transition-colors bg-white shadow-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 pb-5 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center shrink-0 border border-neutral-200 overflow-hidden">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=64`}
+                      alt={tool.name}
+                      width="24"
+                      height="24"
+                      class="w-6 h-6 object-contain"
+                      loading="lazy"
+                      onerror="this.style.display='none'"
+                    />
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <span class="text-xs font-mono font-bold text-neutral-400">#0{index + 1}</span>
+                      <a
+                        href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                        class="text-xl font-bold text-neutral-900 hover:underline"
+                      >
+                        {tool.name}
+                      </a>
+                      {tool.isFeatured && (
+                        <span class="text-yellow-600 text-sm" title={t(locale, 'common.featured')}>★</span>
+                      )}
+                      <span class="text-xs font-mono text-neutral-400">({hostname})</span>
+                    </div>
+                    <p class="text-xs text-neutral-500 mt-0.5">
+                      {tool.bestFor || localizedDesc}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0">
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>{t(locale, 'tool.openTool')}</span>
+                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                  <a
+                    href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                    class="px-3 py-2 border border-neutral-200 hover:border-neutral-400 text-neutral-700 text-xs font-bold rounded-lg transition-colors"
+                  >
+                    Audit
+                  </a>
+                </div>
+              </div>
+
+              <!-- Pros & Cons Grid -->
+              {(tool.pros.length > 0 || tool.cons.length > 0) && (
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5 text-xs">
+                  {tool.pros.length > 0 && (
+                    <div class="bg-emerald-50/50 border border-emerald-100 rounded-lg p-3">
+                      <div class="font-bold text-emerald-800 mb-2 flex items-center gap-1">
+                        <span>✓</span>
+                        <span>{t(locale, 'tool.editorial.pros')}</span>
+                      </div>
+                      <ul class="space-y-1.5 text-neutral-700">
+                        {tool.pros.map((pro: string) => (
+                          <li class="flex items-start gap-1.5">
+                            <span class="text-emerald-600 font-bold shrink-0">•</span>
+                            <span>{pro}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {tool.cons.length > 0 && (
+                    <div class="bg-amber-50/50 border border-amber-100 rounded-lg p-3">
+                      <div class="font-bold text-amber-900 mb-2 flex items-center gap-1">
+                        <span>&minus;</span>
+                        <span>{t(locale, 'tool.editorial.cons')}</span>
+                      </div>
+                      <ul class="space-y-1.5 text-neutral-700">
+                        {tool.cons.map((con: string) => (
+                          <li class="flex items-start gap-1.5">
+                            <span class="text-amber-600 font-bold shrink-0">•</span>
+                            <span>{con}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <!-- Privacy Architecture Verdict -->
+              {tool.privacyVerdict && (
+                <div class="bg-neutral-50 rounded-lg p-3 border border-neutral-200/70 text-xs flex items-start gap-2.5">
+                  <span class="text-base shrink-0">🛡️</span>
+                  <div>
+                    <span class="font-bold text-neutral-800 block mb-0.5">{t(locale, 'tool.editorial.privacy')}</span>
+                    <p class="text-neutral-600 leading-relaxed">{tool.privacyVerdict}</p>
+                  </div>
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-16 border-t border-neutral-200 pt-10">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6">
+        {t(locale, 'alternative.faq.heading')}
+      </h2>
+      <dl class="space-y-6">
+        {faqQuestions.map((faq) => (
+          <div class="border-b border-neutral-100 pb-5">
+            <dt class="text-base font-bold text-neutral-900 mb-1">{faq.q}</dt>
+            <dd class="text-sm text-neutral-600 leading-relaxed">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <!-- Cross-Linking: Explore More Software Targets -->
+    <section class="mb-16 border-t border-neutral-200 pt-10">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-500 mb-4">
+        {t(locale, 'alternative.page.exploreOther')}
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {allTargets.map((alt) => (
+          <a
+            href={getLocalizedPath(`/alternative/${alt.slug}`, locale)}
+            class:list={[
+              'px-3 py-1.5 rounded-md text-xs font-bold border transition-colors',
+              alt.slug === slug
+                ? 'bg-neutral-900 text-white border-neutral-900'
+                : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:bg-neutral-100 hover:border-neutral-300',
+            ]}
+          >
+            {alt.name}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Browse All Backlink -->
+    <div class="pt-6 border-t border-neutral-200">
+      <a
+        href={getLocalizedPath('/', locale)}
+        class="text-sm font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+      >
+        ← {t(locale, 'alternative.page.browseAll')}
+      </a>
+    </div>
+  </div>
+</Layout>

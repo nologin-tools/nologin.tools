@@ -110,6 +110,27 @@ Each category hub includes architectural deep-dives, client-side technology trad
 - [Use Online Tools Without Giving Away Your Email](https://nologin.tools/blog/practical-guide-tools-without-email): Defensive guide against data broker harvesting and signup walls.
 - [Free AI Tools That Don't Need Your Email](https://nologin.tools/blog/free-ai-tools-no-login): AI coding assistants and image isolation tools without authentication barriers.
 
+## No-Login Alternatives to Major Software
+
+Programmatic alternative indexes mapping closed-source or login-gated proprietary software to privacy-first, zero-signup web alternatives:
+
+- [Photoshop Alternatives](https://nologin.tools/alternative/photoshop): In-browser raster graphics & photo editing without Adobe Creative Cloud subscriptions.
+- [Canva Alternatives](https://nologin.tools/alternative/canva): Instant graphic design and background removal without mandatory accounts.
+- [Figma Alternatives](https://nologin.tools/alternative/figma): Vector wireframing, diagramming, and UI sketching without account walls.
+- [Miro Alternatives](https://nologin.tools/alternative/miro): Infinite digital whiteboard for brainstorming with zero registration.
+- [Lucidchart Alternatives](https://nologin.tools/alternative/lucidchart): Technical diagrams and architecture flowcharts with client-side privacy.
+- [Notion Alternatives](https://nologin.tools/alternative/notion): Distraction-free Markdown writing without account lock-in.
+- [Grammarly Alternatives](https://nologin.tools/alternative/grammarly): Real-time spelling and grammar editing without telemetry or cloud keylogging.
+- [Zoom Alternatives](https://nologin.tools/alternative/zoom): Encrypted video conferencing and instant meeting rooms without app installs or signups.
+- [Smallpdf Alternatives](https://nologin.tools/alternative/smallpdf): PDF merging, compression, and conversion executed locally in browser.
+- [Postman Alternatives](https://nologin.tools/alternative/postman): JSON payload visualization and token inspection with zero telemetry.
+- [Audacity Alternatives](https://nologin.tools/alternative/audacity): Waveform audio trimming and sound mastering via WebAudio API.
+- [TinyPNG Alternatives](https://nologin.tools/alternative/tinypng): Lossless & lossy image compression using WebAssembly with zero server uploads.
+- [CloudConvert Alternatives](https://nologin.tools/alternative/cloudconvert): Multi-format file conversion without account queues.
+- [Illustrator Alternatives](https://nologin.tools/alternative/illustrator): Vector graphic editing and SVG optimization without Creative Cloud plans.
+- [Visio Alternatives](https://nologin.tools/alternative/visio): Enterprise flowcharting and UML mapping with zero login.
+- [ILovePDF Alternatives](https://nologin.tools/alternative/ilovepdf): All-in-one PDF utilities running securely without uploading sensitive documents.
+
 ## Verification Model & Ranking Formula
 
 Every tool submitted to nologin.tools is audited under a strict verification lifecycle:

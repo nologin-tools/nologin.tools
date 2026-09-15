@@ -1,0 +1,19 @@
+---
+import AlternativePage from '../../../components/AlternativePage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+import { getAlternativeTargets } from '../../../lib/alternatives';
+
+export function getStaticPaths() {
+  const targets = getAlternativeTargets();
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>
+    targets.map((target) => ({
+      params: { lang, slug: target.slug },
+      props: { slug: target.slug, locale: lang as Locale },
+    }))
+  );
+}
+
+const { slug, locale } = Astro.props;
+---
+
+<AlternativePage locale={locale} slug={slug} />
