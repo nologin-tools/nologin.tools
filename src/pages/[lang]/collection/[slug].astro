@@ -1,0 +1,18 @@
+---
+import CollectionPage from '../../../components/CollectionPage.astro';
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
+import { CURATED_COLLECTIONS } from '../../../lib/collections';
+
+export function getStaticPaths() {
+  return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>
+    CURATED_COLLECTIONS.map((collection) => ({
+      params: { lang, slug: collection.slug },
+      props: { slug: collection.slug, locale: lang as Locale },
+    }))
+  );
+}
+
+const { slug, locale } = Astro.props;
+---
+
+<CollectionPage locale={locale} slug={slug} />

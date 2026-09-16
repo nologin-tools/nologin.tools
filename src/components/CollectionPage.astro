@@ -1,0 +1,347 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  getCollectionBySlug,
+  CURATED_COLLECTIONS,
+} from '../lib/collections';
+import { getToolBySlug } from '../data/loader';
+import { computePrivacyScorecard } from '../lib/privacy-scorecard.mjs';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+await loadTranslations(locale);
+
+const collection = getCollectionBySlug(slug);
+if (!collection) {
+  throw new Error(`Curated collection not found for slug: ${slug}`);
+}
+
+const resolvedItems = collection.items.map((item) => {
+  const tool = getToolBySlug(item.toolSlug);
+  const scorecard = tool ? computePrivacyScorecard(tool) : null;
+  return {
+    ...item,
+    tool,
+    scorecard,
+  };
+});
+
+const relatedCollections = collection.relatedSlugs
+  .map((s) => getCollectionBySlug(s))
+  .filter((c): c is NonNullable<typeof c> => Boolean(c));
+
+const allCollections = CURATED_COLLECTIONS.filter((c) => c.slug !== slug);
+
+function getHostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+const pageTitle = t(locale, 'collection.page.title', { title: collection.title });
+const pageDescription = t(locale, 'collection.page.description', {
+  tagline: collection.tagline,
+  persona: collection.persona,
+});
+const canonicalPath = getLocalizedPath(`/collection/${slug}`, locale);
+
+// Schema.org CollectionPage + ItemList structured data
+const collectionLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: collection.title,
+  description: collection.description,
+  url: `https://nologin.tools${canonicalPath}`,
+  mainEntity: {
+    '@type': 'ItemList',
+    name: `${collection.title} - Tool Stack`,
+    numberOfItems: resolvedItems.length,
+    itemListElement: resolvedItems.map((item, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: item.tool?.name || item.toolSlug,
+      url: item.tool ? `https://nologin.tools${getLocalizedPath(`/tool/${item.tool.slug}`, locale)}` : undefined,
+      description: item.roleTitle,
+    })),
+  },
+};
+
+// Schema.org FAQPage
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale,
+  mainEntity: collection.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
+
+// Schema.org Breadcrumb
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: t(locale, 'common.home'),
+      item: `https://nologin.tools${getLocalizedPath('/', locale)}`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: collection.title,
+      item: `https://nologin.tools${canonicalPath}`,
+    },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
+  <div class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+    {/* Breadcrumb Navigation */}
+    <nav class="flex items-center gap-2 text-xs text-neutral-500 mb-8 overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">
+        {t(locale, 'common.home')}
+      </a>
+      <span>/</span>
+      <span class="text-neutral-400">Collections</span>
+      <span>/</span>
+      <span class="text-neutral-900 font-medium truncate max-w-[240px]">{collection.title}</span>
+    </nav>
+
+    {/* Hero Header */}
+    <header class="mb-12">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="text-2xl">{collection.icon}</span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          {t(locale, 'collection.page.badge')}
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-700">
+          {collection.category}
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+          {collection.persona}
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-950 tracking-tight leading-[1.15] mb-4">
+        {collection.title}
+      </h1>
+
+      <p class="text-lg sm:text-xl text-neutral-600 font-medium leading-relaxed max-w-3xl mb-6">
+        {collection.tagline}
+      </p>
+
+      {collection.heroQuote && (
+        <blockquote class="border-l-4 border-emerald-500 pl-4 py-1 my-6 italic text-neutral-700 font-medium">
+          "{collection.heroQuote}"
+        </blockquote>
+      )}
+
+      <p class="text-sm sm:text-base text-neutral-700 leading-relaxed max-w-4xl">
+        {collection.description}
+      </p>
+    </header>
+
+    {/* Architectural Guarantees Grid */}
+    <section class="mb-14 bg-neutral-50 border border-neutral-200/90 rounded-2xl p-6 sm:p-8">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-neutral-500 mb-4">
+        {t(locale, 'collection.page.guaranteesHeading')}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        {collection.guarantees.map((guarantee) => (
+          <div class="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-neutral-200/80 shadow-xs">
+            <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xs shrink-0">
+              ✓
+            </span>
+            <span class="text-sm font-semibold text-neutral-800">
+              {guarantee}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Tool Arsenal */}
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-8 pb-3 border-b border-neutral-200">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900">
+          {t(locale, 'collection.page.arsenalHeading', { count: String(resolvedItems.length) })}
+        </h2>
+        <span class="text-xs font-mono font-bold text-neutral-400 uppercase">
+          Zero-Account Stack
+        </span>
+      </div>
+
+      <div class="space-y-6">
+        {resolvedItems.map((item, index) => {
+          const tool = item.tool;
+          const hostname = tool ? getHostname(tool.url) : '';
+          return (
+            <article class="bg-white border-2 border-neutral-200 hover:border-neutral-900 transition-all duration-200 rounded-2xl p-5 sm:p-6 shadow-xs">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5">
+                    {hostname ? (
+                      <img
+                        src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=64`}
+                        alt=""
+                        width="24"
+                        height="24"
+                        class="w-6 h-6 rounded-sm"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span class="font-bold text-neutral-400">{index + 1}</span>
+                    )}
+                  </div>
+
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="text-lg font-bold text-neutral-950">
+                        {tool ? (
+                          <a
+                            href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                            class="hover:text-emerald-700 transition-colors"
+                          >
+                            {tool.name}
+                          </a>
+                        ) : (
+                          item.toolSlug
+                        )}
+                      </h3>
+                      <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-neutral-100 text-neutral-700 border border-neutral-200">
+                        {item.roleTitle}
+                      </span>
+                      {tool && (
+                        <img
+                          src={`/api/badge/${tool.slug}.svg?type=grade`}
+                          alt="Privacy Grade"
+                          class="h-4 sm:h-4.5"
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
+
+                    {hostname && (
+                      <p class="text-xs text-neutral-400 font-mono mt-0.5">
+                        {hostname}
+                      </p>
+                    )}
+
+                    <p class="text-sm text-neutral-700 leading-relaxed mt-3">
+                      {item.whySelected}
+                    </p>
+                  </div>
+                </div>
+
+                {tool && (
+                  <div class="flex sm:flex-col items-center sm:items-end gap-2 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-neutral-100">
+                    <a
+                      href={tool.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-neutral-900 hover:bg-emerald-600 text-white text-xs font-bold transition-colors shadow-xs"
+                    >
+                      <span>{t(locale, 'collection.page.launchTool', { tool: tool.name })}</span>
+                      <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                    <a
+                      href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                      class="text-xs text-neutral-500 hover:text-neutral-900 font-medium underline underline-offset-2"
+                    >
+                      {t(locale, 'collection.page.viewDetails')}
+                    </a>
+                  </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    {/* Frequently Asked Questions */}
+    <section class="mb-16 border-t border-neutral-200 pt-12">
+      <h2 class="text-xl sm:text-2xl font-black text-neutral-900 mb-6">
+        {t(locale, 'collection.page.faqHeading')}
+      </h2>
+      <div class="space-y-4">
+        {collection.faqs.map((faq) => (
+          <div class="border border-neutral-200 rounded-xl p-5 bg-white">
+            <h3 class="text-base font-bold text-neutral-900 mb-2">
+              {faq.question}
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Related Stacks Navigation */}
+    {relatedCollections.length > 0 && (
+      <section class="mb-12 border-t border-neutral-200 pt-10">
+        <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-neutral-400 mb-4">
+          {t(locale, 'collection.page.exploreOther')}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {relatedCollections.map((rel) => (
+            <a
+              href={getLocalizedPath(`/collection/${rel.slug}`, locale)}
+              class="block p-5 bg-white border border-neutral-200 hover:border-neutral-900 rounded-xl transition-all group"
+            >
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xl">{rel.icon}</span>
+                <span class="font-bold text-sm text-neutral-900 group-hover:text-emerald-700 transition-colors">
+                  {rel.title}
+                </span>
+              </div>
+              <p class="text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+                {rel.tagline}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Footer Back Link */}
+    <div class="text-center pt-8 border-t border-neutral-100">
+      <a
+        href={getLocalizedPath('/', locale)}
+        class="inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 hover:text-neutral-900 transition-colors"
+      >
+        <span>&larr;</span>
+        <span>{t(locale, 'workflow.page.browseAll')}</span>
+      </a>
+    </div>
+  </div>
+</Layout>

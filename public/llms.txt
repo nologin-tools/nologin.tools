@@ -161,6 +161,17 @@ End-to-end procedural recipes chaining 2 to 4 verified no-login web tools to acc
 - [Spatial Data Mapping & Format Pipeline](https://nologin.tools/workflow/geodata-to-interactive-map): GeoJSON.io geometry marker & polygon drawing → Convertio coordinate format conversion → RAWGraphs density and spatial distribution visualization.
 - [Complete Browser Leak & Security Audit](https://nologin.tools/workflow/browser-privacy-and-leak-audit): IPLeak WebRTC & IP leak audit → DNS Leak Test resolver integrity verification → Security Headers HTTP security evaluation → privacy.sexy OS telemetry removal scripts.
 
+## Curated Persona Stacks & Toolkits
+
+- [Zero-Account Creative Studio](https://nologin.tools/collection/ephemeral-creative-suite): Full-spectrum design & audio suite (Photopea, Excalidraw, Squoosh, SVG-Edit, AudioMass, Coolors) operating 100% in local memory.
+- [Confidential Client Workflow Stack](https://nologin.tools/collection/secure-freelancer-toolkit): Air-tight freelancer toolkit (PDF24, Wormhole, PrivNote, Temp-Mail, Hemingway, Time.is) for zero-footprint client deliverables.
+- [Frictionless Dev & Debugging Arsenal](https://nologin.tools/collection/web-developer-quick-kit): Instant web engineering utilities (DevDocs, Regex101, JSON Crack, Hoppscotch, Carbon, Can I Use) without accounts.
+- [Air-Gapped Writing & Research Desk](https://nologin.tools/collection/academic-privacy-station): Sovereign academic research suite (Dillinger, LanguageTool, Desmos, WolframAlpha, PDF24, DuckDuckGo AI).
+- [Zero-KYC & Clean Machine Crypto Stack](https://nologin.tools/collection/crypto-investor-privacy-suite): High-assurance cryptographic station (Hat.sh, CyberChef, Yopass, PrivacyTests, DNS Leak Test, Archive.today).
+- [No-Track Meeting & Collab Stack](https://nologin.tools/collection/remote-meeting-clean-stack): Zero-friction collaboration arsenal (Jitsi Meet, When2meet, tldraw, til.re, PairDrop, PrivNote).
+- [Instant Creator Sandbox](https://nologin.tools/collection/social-media-growth-box): Fast-twitch social media production toolkit (ezGIF, remove.bg, MetaTags, AudioTrimmer, QR Code Monkey, Ray.so).
+- [Air-Gapped Data Wrangling Toolkit](https://nologin.tools/collection/data-analyst-sanitizer-box): Local data cleaning and querying (Datasette Lite WASM SQLite, CSVJSON, TableConvert, RAWGraphs, Mockaroo, CyberChef).
+
 ## Verification Model & Ranking Formula
 
 

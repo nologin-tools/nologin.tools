@@ -1,0 +1,15 @@
+---
+import CollectionPage from '../../components/CollectionPage.astro';
+import { CURATED_COLLECTIONS } from '../../lib/collections';
+
+export function getStaticPaths() {
+  return CURATED_COLLECTIONS.map((collection) => ({
+    params: { slug: collection.slug },
+    props: { slug: collection.slug },
+  }));
+}
+
+const { slug } = Astro.props;
+---
+
+<CollectionPage locale="en" slug={slug} />

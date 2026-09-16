@@ -13,6 +13,7 @@ import { getRelatedArticlesForTool } from '../lib/tool-blogs';
 import { findAlternativeByAlias } from '../lib/alternatives';
 import { findComparisonsForTool } from '../lib/comparisons';
 import { findWorkflowsForTool } from '../lib/workflows';
+import { findCollectionsForTool } from '../lib/collections';
 import { computePrivacyScorecard } from '../lib/privacy-scorecard.mjs';
 
 
@@ -162,6 +163,7 @@ const scorecard = computePrivacyScorecard({ ...tool, tags: toolTags }, recentChe
 const relatedArticles = getRelatedArticlesForTool(slug, locale);
 const toolComparisons = findComparisonsForTool(slug);
 const toolWorkflows = findWorkflowsForTool(slug);
+const toolCollections = findCollectionsForTool(slug);
 
 const featureList = [
   tool.coreTask,
@@ -940,6 +942,25 @@ const faqLd = isVerified ? {
                 <span>⚡</span>
                 <span>{w.title}</span>
                 <span class="text-emerald-500 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Featured in Curated Stacks */}
+      {toolCollections.length > 0 && (
+        <div class="border-t border-neutral-100 pt-8">
+          <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.partOfCollections')}</h2>
+          <div class="flex flex-wrap gap-3">
+            {toolCollections.map((col) => (
+              <a
+                href={getLocalizedPath(`/collection/${col.slug}`, locale)}
+                class="px-3.5 py-2 bg-blue-50/50 border border-blue-200 hover:border-blue-600 rounded-lg text-xs font-bold text-blue-950 transition-all inline-flex items-center gap-2 shadow-2xs group"
+              >
+                <span>{col.icon}</span>
+                <span>{col.title}</span>
+                <span class="text-blue-500 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
               </a>
             ))}
           </div>
