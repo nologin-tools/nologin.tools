@@ -284,6 +284,7 @@ const faqLd = isVerified ? {
   ogImagePath={`/api/og/${slug}`}
   locale={locale}
   availableLocales={availableLocales}
+  noindex={availableLocales ? !availableLocales.has(locale) : false}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
