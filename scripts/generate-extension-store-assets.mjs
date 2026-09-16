@@ -277,7 +277,32 @@ writeFileSync(resolve(storeDir, 'promo-small-440x280.svg'), smallPromoSvg, 'utf8
 writeFileSync(resolve(storeDir, 'marquee-1400x560.svg'), marqueeSvg, 'utf8');
 writeFileSync(resolve(storeDir, 'screenshot-1280x800.svg'), screenshotSvg, 'utf8');
 
-console.log('Generated extension store artwork assets:');
+console.log('Generated extension store artwork SVG assets:');
 console.log(' - promo-small-440x280.svg');
 console.log(' - marquee-1400x560.svg');
 console.log(' - screenshot-1280x800.svg');
+
+// Render PNG assets for Chrome Web Store upload forms
+import { execSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
+
+const chromeApp = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const pngTargets = [
+  { name: 'screenshot-1280x800', width: 1280, height: 800 },
+  { name: 'promo-small-440x280', width: 440, height: 280 },
+  { name: 'marquee-1400x560', width: 1400, height: 560 },
+];
+
+if (existsSync(chromeApp)) {
+  console.log('Rendering official PNG store assets via Chrome headless:');
+  for (const t of pngTargets) {
+    const svgPath = resolve(storeDir, `${t.name}.svg`);
+    const pngPath = resolve(storeDir, `${t.name}.png`);
+    try {
+      execSync(`"${chromeApp}" --headless=new --screenshot="${pngPath}" --window-size=${t.width},${t.height} --hide-scrollbars "file://${svgPath}"`, { stdio: 'ignore' });
+      console.log(` - ${t.name}.png (${t.width}x${t.height})`);
+    } catch (e) {
+      console.warn(`Failed rendering ${t.name}.png:`, e.message);
+    }
+  }
+}
