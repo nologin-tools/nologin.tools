@@ -46,7 +46,7 @@ describe('SEO Recovery - Redirects & Content Pruning', () => {
 
   it('pruned blog collection leaves only high-quality pillar posts', () => {
     const files = readdirSync(resolve(ROOT, 'src/content/blog')).filter(f => f.endsWith('.md'));
-    assert.equal(files.length, 34, 'Should leave exactly 34 curated pillar posts and tool reviews');
+    assert.equal(files.length, 35, 'Should leave exactly 35 curated pillar posts and tool reviews');
   });
 
   it('public/_redirects redirects to canonical directory URLs with trailing slash', () => {
