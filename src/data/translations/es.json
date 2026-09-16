@@ -954,5 +954,593 @@
     "_hash": "966b15f83aace66e",
     "description": "Herramienta de código abierto que genera scripts personalizables para endurecer la privacidad en Windows, macOS y Linux directamente en el navegador. Selecciona las opciones que desees y se generará al instante un script listo para ejecutar — sin cuenta, sin descarga.",
     "coreTask": "Generar scripts de fortalecimiento de privacidad para el sistema operativo con las opciones seleccionadas, directamente en el navegador — sin registro"
+  },
+  "pixotter-com": {
+    "coreTask": "Comprimir, redimensionar, convertir, recortar, quitar el fondo y añadir marcas de agua a imágenes en el navegador en un solo paso",
+    "description": "Optimizador de imágenes todo en uno en el navegador. Encadena compresión, redimensionado, conversión, recorte, eliminación de fondo y marcas de agua en un solo flujo, sin esperas de subida y sin registro. Todo se procesa localmente con WebAssembly; compatible con más de 15 formatos y procesamiento por lotes."
+  },
+  "playbacktimer-com-audiobook-speed-calculator": {
+    "coreTask": "Calcular el tiempo restante de audiolibros, el ritmo según la fecha de devolución y los objetivos diarios de escucha sin iniciar sesión",
+    "description": "Calcula el tiempo restante de audiolibros, el ritmo para fechas de entrega de Libby, metas diarias de reproducción y ajustes de velocidad seguros directamente en el navegador y sin cuenta."
+  },
+  "wordpad-online-com": {
+    "coreTask": "Escribir, formatear y guardar notas directamente en el navegador sin iniciar sesión",
+    "description": "Editor WordPad basado en navegador para escribir, aplicar formato y guardar notas sin necesidad de instalar programas ni crear una cuenta."
+  },
+  "wordtojpg-app": {
+    "coreTask": "Convertir archivos Word a imágenes JPG en línea sin iniciar sesión",
+    "description": "Convierte documentos Word a imágenes JPG en línea directamente desde el navegador y sin necesidad de crear una cuenta."
+  },
+  "signaturefont-net": {
+    "coreTask": "Generar y previsualizar texto con fuentes estilo firma en el navegador sin iniciar sesión",
+    "description": "Crea y previsualiza tipografías estilo firma para nombres, marcas y diseño personal sin crear una cuenta."
+  },
+  "textkit-tech": {
+    "coreTask": "Contar palabras, formatear y validar JSON, cambiar mayúsculas/minúsculas, comparar textos, buscar y reemplazar con regex y deduplicar listas en el navegador",
+    "description": "TextKit ofrece 19 herramientas de texto gratuitas en el navegador (contador de palabras, formateador JSON, conversor de mayúsculas/minúsculas, generador de slugs, comparación de texto, buscar y reemplazar, extractor de correos, tablas markdown, ordenación y deduplicación). Sin registro, sin rastreo y con procesamiento local sin salir de tu navegador."
+  },
+  "xueboyang1985-github-io-kindle-exporter": {
+    "coreTask": "Exportar notas y destacados de Kindle a Markdown, CSV o JSON sin subir archivos",
+    "description": "Exporta tus subrayados y notas de Kindle a Markdown, CSV o JSON. Arrastra y suelta tu archivo My Clippings.txt, previsualiza todos los libros y expórtalos en el formato que elijas. 100% en el navegador y sin subir archivos."
+  },
+  "geometry-formulas-com-geometry-calculator": {
+    "coreTask": "Utilizar hojas de fórmulas y calculadoras para problemas de geometría 2D y 3D sin crear una cuenta",
+    "description": "Fórmulas y calculadoras geométricas gratuitas en el navegador para figuras 2D y 3D habituales. Incluye fórmulas de área, perímetro, volumen y superficie, diagramas, ejemplos resueltos y resultados paso a paso sin registro."
+  },
+  "webutilslab-com-tools": {
+    "coreTask": "Utilizar herramientas para desarrolladores en el navegador como formateo de JSON, decodificación JWT, análisis de URL, calculadora chmod, cron, marcas de tiempo, hashes y UUID sin cuenta",
+    "description": "Herramientas locales en el navegador para desarrolladores: formateo de JSON, decodificación JWT, parseo de URLs, calculadoras chmod/umask, cron, timestamps, hashes, UUIDs y más. Sin inicio de sesión y con procesamiento en el navegador siempre que sea posible."
+  },
+  "heic-to-jpg-app": {
+    "coreTask": "Convertir fotos HEIC/HEIF de iPhone a JPG en el navegador sin crear una cuenta",
+    "description": "Herramienta gratuita y enfocada en la privacidad para convertir fotos HEIC/HEIF de iPhone a JPG en el navegador. Funciona sin registro ni subidas, con conversión por lotes, calidad ajustable, previsualización y descarga en ZIP."
+  },
+  "mdconvert-net-zh-markdown-to-word": {
+    "coreTask": "Convertir Markdown a documentos Word sin iniciar sesión",
+    "description": "Convierte documentos Markdown a Word en línea para flujos de redacción y documentación, sin necesidad de cuenta."
+  },
+  "file-converter-free-com": {
+    "coreTask": "Convertir archivos y utilizar herramientas de PDF, imágenes, texto, desarrollo y cálculo sin crear una cuenta",
+    "description": "Kit de herramientas gratuito y sin registro para convertir archivos entre más de 215 formatos y acceder a utilidades de PDF, imágenes, texto, desarrollo y cálculo. Muchas herramientas se ejecutan localmente en el navegador y las conversiones en servidor se eliminan automáticamente tras el proceso."
+  },
+  "printable-tools-lab-pages-dev": {
+    "coreTask": "Usar utilidades de PDF, imágenes, códigos QR y documentos y descargar los archivos generados sin iniciar sesión",
+    "description": "Herramientas gratuitas en el navegador y sin registro para tareas con PDF, imágenes, códigos QR y documentos impresos. Comprime imágenes a tamaños KB concretos, redimensiona fotos, convierte imágenes a PDF y crea códigos QR sin necesidad de cuenta."
+  },
+  "pdfinjpgumwandeln-com": {
+    "coreTask": "Convertir archivos PDF a imágenes JPG y combinar archivos JPG en PDF directamente en el navegador",
+    "description": "Herramienta de conversión de PDF y JPG en el navegador para convertir archivos rápidamente sin crear una cuenta. También permite combinar JPG en PDF y realizar tareas con documentos e imágenes."
+  },
+  "www-amortio-com": {
+    "coreTask": "Calcular cuotas de préstamos y tablas de amortización sin iniciar sesión",
+    "description": "Calculadora de amortización gratuita para hipotecas, préstamos para vehículos y préstamos personales, con calendarios de pago instantáneos y desglose de capital e intereses."
+  },
+  "bytepane-com": {
+    "coreTask": "Formatear JSON, codificar en Base64, probar expresiones regulares, generar UUIDs y usar utilidades de desarrollo en el navegador",
+    "description": "Utilidades gratuitas en el navegador para desarrolladores: formateo de JSON, codificación Base64, pruebas de regex, generación de UUID, conversión de colores y tareas diarias de programación."
+  },
+  "calorique-io": {
+    "coreTask": "Calcular TMB, calorías, IMC, grasa corporal y macronutrientes sin iniciar sesión",
+    "description": "Calculadoras gratuitas de salud y fitness para calorías, TMB, IMC, grasa corporal, macronutrientes y planificación nutricional, utilizables directamente en el navegador."
+  },
+  "www-whatsmyiplive-com": {
+    "coreTask": "Consultar la dirección IP pública, ubicación, ISP y herramientas de diagnóstico de red y privacidad sin iniciar sesión",
+    "description": "What's My IP Live es un comprobador de IP gratuito y sin registro que muestra al instante tu dirección pública IPv4 o IPv6, ubicación, proveedor y detalles de red. También incluye herramientas de privacidad como búsqueda de IP, detección de VPN, consulta DNS, WHOIS, comprobador SSL, info del navegador y test de velocidad."
+  },
+  "at-use-com-tools-json-formatter": {
+    "coreTask": "Formatear, validar y embellecer cadenas JSON en el navegador, alternando entre sangría y minificación con detección de errores por línea y columna",
+    "description": "Formatea, valida y embellece JSON al instante en tu navegador. Alterna entre vista formateada (sangría de 2 espacios) y minificación. Los errores de sintaxis muestran la línea y columna exactas. Utiliza el JSON.parse() nativo del navegador, sin enviar datos a ningún servidor. Gratis y sin cuenta."
+  },
+  "quickbgcut-com": {
+    "coreTask": "Quitar el fondo de imágenes y descargar un PNG transparente sin iniciar sesión",
+    "description": "QuickBGCut elimina el fondo de imágenes en línea y de forma gratuita. Sube fotos JPG, PNG o WebP y descarga un PNG transparente; el procesamiento se realiza localmente en el navegador, sin registro, sin marcas de agua y sin enviar archivos a servidores."
+  },
+  "decibelshield-app": {
+    "coreTask": "Medir niveles de sonido en tiempo real con el micrófono, realizar pruebas de audición y edad auditiva y consultar tablas de decibelios sin cuenta ni grabaciones",
+    "description": "Sonómetro online gratuito que mide niveles de ruido en el navegador mediante el micrófono (no se graba ni sube nada). Incluye también test de audición, prueba de edad auditiva por tonos, tabla de decibelios con fuentes de CDC/NIOSH y mapa de ruido de ciudades de EE. UU."
+  },
+  "fwd2-app": {
+    "coreTask": "Crear enlaces cortos revocables con clave, crear enlaces canario con alertas por webhook y cancelar enlaces sin iniciar sesión",
+    "description": "Acortador de enlaces sin registro con API completa. Cada URL generada incluye una clave de revocación que permite al usuario desactivar el enlace en cualquier momento sin necesidad de contar con una cuenta de usuario."
+  },
+  "syncwhen-com": {
+    "coreTask": "Crear encuestas de disponibilidad, compartir el enlace y recopilar votos (sí/tal vez/no) en franjas horarias con resultados en tiempo real y sin cuenta",
+    "description": "Encuesta gratuita y sin registro para coordinar reuniones. Comparte un enlace, los participantes votan sí/quizás/no en los horarios propuestos y los resultados se actualizan en tiempo real. Sin cuentas para organizadores ni votantes, sin anuncios y con exportación a Google Calendar o .ics. Disponible en 12 idiomas."
+  },
+  "tools-berry-com": {
+    "coreTask": "Calcular el salario neto para cualquier estado de EE. UU., contar palabras y generar códigos QR, facturas y contraseñas en el navegador sin cuenta",
+    "description": "Tools Berry es una colección gratuita de herramientas en línea sin registro: calculadoras de salario neto para los 50 estados de EE. UU., compresión y redimensionado de imágenes, generadores de QR y contraseñas, facturas, contador de palabras y decenas de calculadoras prácticas. Todo se ejecuta en tu navegador sin registro ni subidas."
+  },
+  "meeting-to-go-io": {
+    "coreTask": "Crear reuniones, marcar horas libres, compartir el enlace y visualizar la disponibilidad común convertida a la zona horaria de cada participante, sin registro ni correo",
+    "description": "Planificador gratuito de disponibilidad grupal al estilo de When2meet, con la ventaja de convertir automáticamente la disponibilidad de cada participante a su propia zona horaria local para evitar confusiones de horario. El organizador marca las fechas y horas propuestas y comparte un solo enlace: sin cuentas, sin correos y sin instalar aplicaciones. Permite intervalos de 15 minutos a días completos y contraseña opcional."
+  },
+  "lanternpathbooks-com-free-tools": {
+    "coreTask": "Generar e imprimir hojas de ejercicios de matemáticas con respuestas, sopas de letras, diplomas, fichas de caligrafía y ortografía, y tablas de rutinas, tareas, bingo y tarjetas",
+    "description": "Un conjunto gratuito de herramientas que funcionan directamente en el navegador, sin registro ni inicio de sesión, creado por una editorial infantil independiente australiana para padres y profesores. Incluye generador de ejercicios de matemáticas con soluciones, generadores de caligrafía y ortografía, creador de sopas de letras, diplomas de reconocimiento, tablas de rutinas y tareas, cartones de bingo y tarjetas educativas. Imprime juegos completos para clase en segundos, sin instalar nada ni facilitar correo electrónico."
+  },
+  "controllertester-co": {
+    "coreTask": "Probar cualquier mando de juegos (botones, sticks, gatillos y vibración) y obtener un veredicto de drift en el navegador",
+    "description": "Herramienta gratuita en el navegador para comprobar si tu mando funciona correctamente. Conecta cualquier gamepad por USB o Bluetooth y visualiza al instante pulsaciones de botones, movimiento de sticks analógicos, recorrido de gatillos y vibración. A diferencia de los visores de entrada sin procesar, ofrece un veredicto claro de drift: apto o no apto. Compatible con mandos de Xbox, PlayStation (DualSense / DualShock) y Switch Pro. Se ejecuta completamente en tu navegador sin enviar datos fuera de tu dispositivo. Sin registro ni instalación."
+  },
+  "pdfandimagetools-com": {
+    "coreTask": "Utilizar las 64 herramientas sin cuenta ni registro: combinar, dividir, comprimir y convertir PDF, comprimir/redimensionar/convertir imágenes, OCR y eliminar fondos",
+    "description": "64 herramientas gratuitas para PDF e imágenes que se ejecutan íntegramente en tu navegador, garantizando que tus archivos nunca se suban a un servidor. Combina, divide, comprime (a un tamaño exacto), convierte, organiza, firma y protege archivos PDF; comprime, redimensiona, convierte entre unos 20 formatos de imagen, aplica OCR y elimina fondos con un modelo de IA en el dispositivo. Sin cuenta, sin límites y sin marcas de agua. Puedes comprobarlo abriendo la pestaña Red del navegador: permanece vacía, y la mayoría de herramientas siguen funcionando sin conexión una vez cargada la página."
+  },
+  "converters-live": {
+    "coreTask": "Convertir imágenes a PDF, vídeo a GIF y formatos de audio directamente en el navegador sin registro",
+    "description": "Convertidor de archivos gratuito en línea para imágenes, vídeo y audio: funciona al instante sin necesidad de cuenta ni inicio de sesión."
+  },
+  "jottools-com": {
+    "coreTask": "Convertir HEIC, SVG e imágenes, comprimir y recortar fotos, combinar y comprimir PDF, generar códigos QR, selector de colores, gradientes CSS, formatear JSON y más de 130 herramientas sin cuenta",
+    "description": "JotTools es un conjunto gratuito de más de 130 herramientas en línea (PDF, imagen, texto, color, calculadoras y utilidades para desarrolladores) que se ejecutan por completo en tu navegador. Sin inicio de sesión, sin registro y sin subir archivos a ningún servidor: todo el procesamiento se realiza localmente en tu dispositivo. Disponible en 6 idiomas."
+  },
+  "salitronic-com-gerber-analyzer": {
+    "coreTask": "Visualizar archivos Gerber, ODB++ e IPC-2581, ejecutar DRC, comparar dos capas y ver posición de componentes en el navegador sin instalar ni subir nada",
+    "description": "Visor gratuito en el navegador para archivos de fabricación de PCB. Lee Gerber, ODB++ e IPC-2581, muestra cada capa y la placa ensamblada, y ejecuta comprobaciones DRC, diferencias entre capas y vista de montaje (pick-and-place). Todo se ejecuta localmente en tu navegador sin subir archivos ni registrarte."
+  },
+  "www-quackbuilds-com-apps-oee-pulse-html": {
+    "coreTask": "Supervisar la OEE por máquina y de toda la planta, registrar turnos, ver tendencias y exportar informes de turno en PDF sin cuenta",
+    "description": "Panel de OEE gratuito para talleres mecánicos y pequeñas fábricas: monitoriza Disponibilidad × Rendimiento × Calidad por máquina, consulta la OEE global de la planta en un indicador por colores, registra cada turno para crear un historial de tendencias y exporta informes en PDF para la reunión matinal. Sin suscripciones por máquina ni registros: funciona en la tablet del taller y en el PC de la oficina."
+  },
+  "ignlab-net": {
+    "coreTask": "Convertir y optimizar imágenes, generar efectos CSS/SVG, crear códigos QR, extraer datos de texto y más, sin necesidad de cuenta",
+    "description": "Colección gratuita de 14 herramientas web en el navegador para desarrolladores y diseñadores: conversor y optimizador de imágenes por lotes, generadores CSS y SVG, generador de códigos QR, extractor de datos, probador de plantillas de correo, tableros ágiles y más. Cada herramienta se ejecuta al 100 % en el navegador."
+  },
+  "comparediff-io": {
+    "coreTask": "Comparar texto, código, JSON y documentos, e inspeccionar cambios por líneas, palabras y caracteres",
+    "description": "Comparador de diferencias gratuito en el navegador para texto, código, JSON y documentos. Muestra los cambios por líneas, palabras y caracteres, manteniendo todo el contenido de forma segura en el dispositivo del usuario."
+  },
+  "max-agent-hub-github-io-browser-sop-builder": {
+    "coreTask": "Redactar un PNT/SOP, añadir o eliminar pasos, previsualizar el Markdown generado, copiarlo y descargar un archivo .md",
+    "description": "Browser SOP Builder es una hoja de trabajo en el navegador diseñada para redactar procedimientos normalizados a partir de notas rápidas. Registra responsables, activadores, pasos numerados, criterios de finalización, controles de calidad y vías de excepción, permitiendo previsualizar y exportar en Markdown. Todo se conserva exclusivamente en la memoria del navegador."
+  },
+  "hardenmyrepo-github-io-browser-audit": {
+    "coreTask": "Seleccionar una carpeta de repositorio local y obtener un informe privado de preparación para agentes de IA",
+    "description": "Audita un repositorio local para evaluar su preparación ante agentes de programación con IA sin subir el código fuente. Esta herramienta estática y de código abierto en el navegador analiza la configuración y documentación respecto a instrucciones, hooks, CI, tests, autoría, bloqueo de dependencias y gestión de secretos, generando una puntuación y mejoras concretas. Sin registro, sin cookies, sin analíticas, sin anuncios ni tráfico de red."
+  },
+  "findthescam-net": {
+    "coreTask": "Consultar señales de WHOIS, HTTPS, DNS y riesgo de fraude de dominios sin crear una cuenta",
+    "description": "Find The Scam ayuda a comprobar si un sitio web parece legítimo o sospechoso mediante la revisión de WHOIS, HTTPS, DNS, reputación, seguridad y alertas de fraude."
+  },
+  "imagecompressortokb-com": {
+    "coreTask": "Comprimir imágenes JPG, PNG y WebP a un límite de KB seleccionado, procesar varios archivos por lotes, previsualizar resultados y descargarlos",
+    "description": "Utilidad gratuita en el navegador para reducir archivos JPG, PNG y WebP al límite de KB que elijas. Admite procesamiento por lotes, vista previa con mediciones detalladas y tratamiento local sin subir archivos al servidor."
+  },
+  "retireclarity-com-calculator": {
+    "coreTask": "Elaborar un plan financiero familiar completo, proyecciones anuales, optimizador de conversión Roth y simulación Monte Carlo sin cuenta",
+    "description": "Planificador de jubilación completo sin inicio de sesión: proyecciones año a año, optimizador de conversiones Roth y simulación de Monte Carlo, todo calculado en tu navegador. Sin formularios de registro: tu plan se almacena localmente en tu dispositivo."
+  },
+  "kmag-ro-en": {
+    "coreTask": "Introducir una frase de compras en rumano o inglés, desglosar artículos y cantidades, agruparlos por pasillo de tienda y marcarlos en la demo sin cuenta",
+    "description": "Kmag es una PWA bilingüe de listas de la compra compartidas para el hogar. Su demostración pública sin cuenta convierte frases en lenguaje natural en listas organizadas con cantidades y pasillos del supermercado, permitiendo marcar los productos directamente en el navegador."
+  },
+  "whatthegif-com": {
+    "coreTask": "Todas las funciones sin sistema de cuentas: convertir, recortar fotograma a fotograma, subtitular, combinar hasta 10 clips y exportar a GIF, APNG o MP4 sin marca de agua",
+    "description": "Convierte vídeos, fotos o GIF existentes en GIF, MP4 sin sonido o APNG completamente en tu navegador. Nada se sube a servidores: todo el procesamiento se ejecuta en la pestaña, y la Política de Seguridad de Contenido (CSP) del sitio bloquea envíos cruzados, garantizando la privacidad mediante el propio navegador. Incluye recorte preciso por fotogramas, línea de tiempo de hasta 10 clips, subtítulos, reproducción invertida, filtros y optimizador integrado. Gratuito, sin cuenta, sin marcas de agua y sin instalar nada."
+  },
+  "countlink-app": {
+    "coreTask": "Iniciar una cuenta atrás sincronizada, compartir el enlace, usar la superposición para OBS/streaming e instalar como PWA",
+    "description": "Un temporizador de cuenta atrás gratuito y compartible: la fecha límite se codifica en el propio enlace, por lo que cualquiera que lo abra verá la cuenta atrás exactamente sincronizada. Sin cuentas ni servidores."
+  },
+  "diffhero-app": {
+    "coreTask": "Comparar dos textos o fragmentos de código con resaltado a nivel de palabra, diff con soporte de sintaxis para unas 17 lenguas y exportar en .diff",
+    "description": "Comparador de diferencias gratuito en el navegador para texto y código: pega dos versiones y observa cada línea añadida, eliminada y modificada con resaltado a nivel de palabra. Nada se sube a servidores."
+  },
+  "textbench-app": {
+    "coreTask": "Utilizar cualquiera de las 64 herramientas al instante: recuento, conversión, limpieza, codificación/decodificación, hashes o generación de texto",
+    "description": "64 herramientas gratuitas de texto en una sola página: conversión de mayúsculas/minúsculas, limpieza, codificación, hashing y generadores. Todo se ejecuta íntegramente en tu navegador sin subir nada a la red."
+  },
+  "t-8ma-co": {
+    "coreTask": "Enviar y recibir archivos grandes de forma gratuita mediante enlace, código QR o código de recogida, sin crear cuenta ni instalar software",
+    "description": "Transferencia gratuita de archivos de gran tamaño entre ordenadores y teléfonos desde el navegador. Comparte mediante enlace, código QR o código de recogida de 8 caracteres, sin registro ni instalación."
+  },
+  "sirenmix-com-tools": {
+    "coreTask": "Cambiar BPM y tono musical, convertir formatos de audio, inspeccionar espectros completos, previsualizar y exportar sin cuenta ni subidas",
+    "description": "Herramientas gratuitas en el navegador para DJs y edición de audio que permiten cambiar BPM y tono, convertir formatos e inspeccionar espectrogramas. Los archivos seleccionados se procesan localmente mediante WebAssembly y no se suben a la red."
+  },
+  "musictoolslab-com": {
+    "coreTask": "Analizar BPM y tono musical, usar metrónomos y afinadores, inspeccionar listas de reproducción y convertir o editar audio en el navegador",
+    "description": "Music Tools Lab es una colección gratuita de utilidades en el navegador para músicos y edición de sonido, que incluye detección de BPM y tono, metrónomos, afinadores, análisis de listas de reproducción, conversión de audio, recortes y reducción de voz. El procesamiento de audio se realiza de forma local en el navegador, sin subir archivos y sin cuenta."
+  },
+  "betterhabitsdaily-com-tracker": {
+    "coreTask": "Hacer seguimiento de tus hábitos diarios en el navegador",
+    "description": "Rastreador de hábitos gratuito y sin registro diseñado especialmente para desarrolladores."
+  },
+  "utilbear-com": {
+    "coreTask": "Contar palabras y caracteres, convertir fotos HEIC a JPG o PNG y convertir imágenes WebP a PNG. Todas las herramientas funcionan sin cuenta y procesan archivos y textos localmente en el navegador.",
+    "description": "UtilBear ofrece herramientas gratuitas y centradas en la privacidad para contar texto y convertir imágenes WebP y HEIC. El procesamiento se realiza localmente en el navegador, garantizando que los archivos nunca se suban. Sin cuentas ni marcas de agua, compatible con ordenadores y móviles, y con interfaz en ocho idiomas."
+  },
+  "blur-face-com-blur-face": {
+    "coreTask": "Detectar y difuminar caras automáticamente en fotos, procesar lotes, eliminar metadatos EXIF y descargar resultados sin crear una cuenta",
+    "description": "Herramienta gratuita en el navegador para proteger la privacidad en fotos que detecta y difumina rostros automáticamente. El procesamiento se realiza localmente en tu navegador, por lo que las imágenes nunca se suben. Admite procesamiento por lotes y eliminación de metadatos EXIF."
+  },
+  "pdftomdconverter-app": {
+    "description": "Convierte archivos PDF de texto y escaneos claros en inglés a Markdown editable directamente en tu navegador, gratis y sin registro.",
+    "coreTask": "Convertir PDF a Markdown directamente en el navegador sin crear una cuenta ni iniciar sesión"
+  },
+  "olivez-in-tool-image-compressor": {
+    "description": "Compresor de imágenes gratuito para JPG, PNG y WebP. Las imágenes se procesan localmente en el navegador y nunca se suben a ningún servidor. Admite lotes de hasta 40 imágenes, comparación antes y después, ajustes individuales de calidad, reducción de color en PNG y exportación en ZIP. Sin cuenta ni registro.",
+    "coreTask": "Comprimir y comparar lotes de imágenes JPG, PNG y WebP en local, ajustar resultados y descargar archivos o un ZIP"
+  },
+  "www-ottopoll-com": {
+    "description": "Otto es una herramienta de votación gratuita para organizar encuestas con amigos o equipos en 2 minutos, sin necesidad de cuenta. Elige fecha, lugar u horarios, comparte el enlace y todos votan en vivo, sin correo ni registro.",
+    "coreTask": "Crear una votación, compartir el enlace, votar y ver resultados en tiempo real sin registro"
+  },
+  "questionsgenerator-com": {
+    "description": "Generador gratuito de preguntas con más de 3.750 temas de conversación en 34 categorías: charlas profundas, humor, citas, juegos de fiesta (¿Qué prefieres?, Verdad o reto, Yo nunca) y dinámicas de equipo. Elige una categoría y genera preguntas al instante, sin registro.",
+    "coreTask": "Elegir una categoría y generar preguntas aleatorias al instante en el navegador sin crear cuenta"
+  },
+  "headlinecapitalization-com": {
+    "description": "Herramienta gratuita que aplica mayúsculas y minúsculas a títulos y titulares según las guías de estilo AP, APA, MLA y Chicago. Incluye guías de referencia para libros, ensayos, currículums y redes sociales. Funciona en el navegador sin cuenta ni registro.",
+    "coreTask": "Dar formato a títulos y titulares según estilos AP, APA, MLA o Chicago directamente en el navegador"
+  },
+  "alphabeticallyordered-com": {
+    "description": "Herramienta online gratuita para ordenar listas alfabéticamente y organizar textos. Pega nombres, palabras o líneas y ordénalos de la A a la Z o viceversa, con opciones de sensibilidad a mayúsculas, eliminación de duplicados y orden por columnas. Sin cuenta requerida.",
+    "coreTask": "Pegar una lista y ordenarla alfabéticamente sin necesidad de registro ni cuenta"
+  },
+  "preuveenmain-ca-app-index-html": {
+    "description": "Aplicación web bilingüe de Quebec que ayuda a personas que se autorepresentan a organizar hechos fechados, pruebas, comunicaciones, plazos y cronologías en un informe legal estructurado. Los datos permanecen en tu dispositivo durante el uso sin registro. Proporciona organización e información general, no asesoramiento legal.",
+    "coreTask": "Crear y gestionar expedientes, diarios con fecha y pruebas para generar informes estructurados en local sin iniciar sesión"
+  },
+  "extract-express": {
+    "description": "Herramienta en el navegador para descargar vídeo o audio desde sitios web compatibles y enlaces directos. Elige MP4 compatible o la máxima calidad disponible en el origen (hasta 4K), sin necesidad de cuenta.",
+    "coreTask": "Pegar un enlace multimedia compatible y descargar el resultado en alta calidad sin registro"
+  },
+  "comprimirpdf-app": {
+    "description": "Comprime archivos PDF íntegramente en tu navegador. Reduce el tamaño de tus PDF sin instalar software ni subir documentos a ningún servidor, protegiendo tu privacidad. Soporta varios niveles de compresión, funciona en cualquier dispositivo y genera el archivo al instante. Gratis, sin registro y tus archivos nunca salen de tu equipo.",
+    "coreTask": "Comprimir archivos PDF completamente en el navegador sin subirlos a ningún servidor"
+  },
+  "contadordepalabras-app": {
+    "description": "Cuenta palabras, caracteres, oraciones, párrafos y tiempo de lectura en tiempo real mientras escribes. Incluye análisis de legibilidad y densidad de palabras clave. Sin registro, funciona íntegramente en tu navegador y mantiene tu texto privado en tu propio dispositivo.",
+    "coreTask": "Contar palabras y caracteres en tiempo real en el navegador sin iniciar sesión"
+  },
+  "nawtch-app": {
+    "description": "Nawtch es un rastreador gratuito de nutrición y ejercicio que funciona íntegramente en el navegador. Registra comidas, calorías, macros, coste por porción, peso y rutinas deportivas; todo guardado localmente mediante IndexedDB sin enviar nada a servidores. Sin cuenta, sin correo ni barreras de registro. Incluye calculadoras con respaldo científico (TDEE, BMR, IMC, % grasa corporal).",
+    "coreTask": "Registrar comidas, calorías, macros, peso y rutinas de ejercicio en el navegador con guardado local y sin registro"
+  },
+  "productivitytimer-com": {
+    "description": "Paquete de temporizadores de productividad online gratuito: método Pomodoro, cuenta atrás, cronómetro, estimador de tareas, seguimiento de hábitos y registro de sesiones de enfoque. Sin cuenta ni inicio de sesión, funciona al instante en el navegador.",
+    "coreTask": "Usar temporizadores Pomodoro y de cuenta atrás, registrar sesiones de concentración y hábitos sin crear una cuenta"
+  },
+  "mojisuu-app": {
+    "description": "Mojisuu cuenta caracteres japoneses, líneas, párrafos, páginas de manuscrito (genkō yōshi) y longitud en bytes en tiempo real. Diseñado para redactores y editores de japonés, admite caracteres de ancho completo. Sin registro, funciona en el navegador y mantiene tu texto privado.",
+    "coreTask": "Contar caracteres japoneses y hojas de manuscrito en tiempo real en el navegador sin registrarse"
+  },
+  "kitparlor-com": {
+    "description": "27 herramientas gratuitas en el navegador para vendedores de Etsy, Amazon y print-on-demand: calculadoras de tarifas y costes de importación, redimensionadores de imágenes, verificador de archivos de impresión, generador de patrones continuos y creador de etiquetas. Todo se procesa en tu propio dispositivo sin enviar nada al servidor. Sin cuenta, sin periodos de prueba ni subidas.",
+    "coreTask": "Redimensionar fotos de productos, calcular tarifas de venta, crear patrones y etiquetas en local sin registrarse"
+  },
+  "contextwindowvramcalculator-com": {
+    "description": "Calcula la memoria VRAM para la ventana de contexto de LLM, caché KV por token, memoria GPU total y contexto máximo compatible con GQA o MQA, FP16, FP8, Q4, concurrencia y límites de presupuesto de GPU. Sin registro.",
+    "coreTask": "Calcular el contexto de LLM, la caché KV y la memoria total de GPU requerida sin registrarse"
+  },
+  "watermarkzero-org": {
+    "description": "Elimina marcas de agua visibles de imágenes de Gemini de forma local en el navegador con restauración de alta fidelidad. Sin necesidad de crear cuenta ni subir archivos a servidores.",
+    "coreTask": "Cargar una imagen, eliminar la marca de agua de Gemini en local y descargar el resultado sin registro"
+  },
+  "metadataremover-ai": {
+    "description": "Herramienta gratuita en el navegador para inspeccionar y eliminar metadatos compatibles (EXIF, GPS, XMP, IPTC y metadatos de IA) de imágenes JPG, PNG y WebP. Los archivos se procesan en local sin necesidad de cuenta.",
+    "coreTask": "Revisar y eliminar metadatos EXIF, GPS y de IA en imágenes JPG, PNG y WebP en local sin registro"
+  },
+  "untrackedtools-com-en": {
+    "description": "Más de 100 herramientas online gratuitas que funcionan íntegramente en el navegador. Unir, dividir, comprimir y convertir PDF; compresión y redimensionado de imágenes; formateadores JSON/YAML, editores Markdown, contador de tokens y conversor de unidades. Sin subidas a servidores remotos: tus datos nunca salen de tu dispositivo. Sin cuenta, sin rastreo y sin cookies. Funciona sin conexión tras la primera carga.",
+    "coreTask": "Unir archivos PDF y usar más de 100 utilidades en el navegador sin subir datos ni registrarse"
+  },
+  "articleformatter-com": {
+    "description": "Herramienta gratuita de formato de texto en el navegador. Corrige comillas curvas, convierte CSV a tablas HTML, cuenta palabras y caracteres, y formatea JSON. Todo funciona en el lado del cliente, sin subidas ni necesidad de crear cuenta.",
+    "coreTask": "Dar formato, limpiar y convertir texto directamente en el navegador sin registrarse"
+  },
+  "aspectratiocalculator-com": {
+    "description": "Calculadora gratuita de relación de aspecto para imagen y vídeo. Introduce dimensiones para hallar la proporción o elige preajustes (16:9, 4:3, 1:1) para calcular resoluciones equivalentes. También incluye densidad de píxeles y comparación visual de proporciones. Sin registro.",
+    "coreTask": "Calcular y comparar relaciones de aspecto, resoluciones y densidad de píxeles en el navegador"
+  },
+  "www-yhile-com": {
+    "description": "Sitio web con útiles herramientas gratuitas basadas en el navegador como HEIC a JPG, conversión de audio/vídeo, creador de collages y más. Sin marcas de agua, sin anuncios y con procesamiento local para que tus archivos no salgan de tu equipo. (100% gratis y sin cuenta)",
+    "coreTask": "Usar herramientas en el navegador como HEIC a JPG, conversión multimedia y collages sin registro"
+  },
+  "imgrove-com": {
+    "description": "Colección de herramientas gratuitas para imágenes en el navegador: conversión, compresión, redimensionado, edición, inspección de metadatos y exportación. Las imágenes permanecen en tu dispositivo, sin registro ni marcas de agua.",
+    "coreTask": "Convertir, comprimir, redimensionar, editar e inspeccionar metadatos de imágenes en local sin registro"
+  },
+  "bunengchi-com": {
+    "description": "BunengChi es una referencia pública para dudas sobre seguridad alimentaria y alimentos no aptos para mascotas, indicando niveles de riesgo, fuentes fiables, advertencias y recordatorios para acudir a profesionales en casos de emergencia. Sin inicio de sesión.",
+    "coreTask": "Consultar libremente guías de seguridad alimentaria y precauciones para mascotas sin necesidad de registrarse"
+  },
+  "decode-base64-com": {
+    "description": "Decodifica Base64 a texto o codifica texto a Base64, incluyendo entradas seguras para URL (URL-safe), directamente en el navegador y sin necesidad de cuenta.",
+    "coreTask": "Codificar o decodificar texto en Base64 al instante en el navegador sin registrarse"
+  },
+  "www-slabcalc-co": {
+    "description": "Calculadora de hormigón gratuita para losas, cilindros, bordillos y escaleras. Introduce dimensiones en sistema métrico o imperial para obtener volumen, número de sacos (40/50/60/80 lb), peso y coste estimado de instalación con factor de merma ajustable. Sin cuenta ni descargas.",
+    "coreTask": "Calcular volumen de hormigón, sacos necesarios, peso y costes para losas o escaleras sin cuenta"
+  },
+  "formatdrop-com": {
+    "coreTask": "Convertir archivos entre diferentes formatos sin subirlos a ningún servidor",
+    "description": "Convierte imágenes, vídeo, audio y documentos directamente en el navegador. Soporta HEIC a PNG, MP4 a GIF, DOCX a PDF y más de 200 combinaciones de formatos. Los archivos se procesan localmente en tu dispositivo y nunca se suben a un servidor, por lo que nada sale de la pestaña. Sin cuenta y sin instalación; las conversiones típicas tardan de 1 a 3 segundos."
+  },
+  "artboardlab-com": {
+    "coreTask": "Comprimir y convertir imágenes, ver y convertir archivos .ai de Illustrator, crear GIFs y más, todo en el navegador y sin subidas",
+    "description": "Herramientas gratuitas de imagen y diseño en el navegador. Todo se ejecuta localmente mediante WebAssembly, por lo que los archivos nunca se suben a un servidor. Sin necesidad de cuenta. Incluye compresor de imágenes (JPEG/PNG/WebP/AVIF), conversores de formato, visor y conversor de archivos .ai de Adobe Illustrator (a SVG/PNG/PDF) sin necesidad de tener Illustrator instalado, creador de GIFs, divisor de imágenes, generadores de texturas y medios tonos, comprobador de patrones sin costuras, selector de color, modificador de DPI y conversores de unidades."
+  },
+  "convertilo-io": {
+    "coreTask": "Comprimir imágenes, convertir y fusionar PDFs directamente en el navegador",
+    "description": "Más de 100 herramientas de archivos en el navegador: comprime y convierte imágenes, une y edita PDFs, herramientas de audio y OCR. Todo se ejecuta del lado del cliente mediante WebAssembly: sin subidas, sin registro y sin rastreo."
+  },
+  "banglatools-com": {
+    "coreTask": "Convertir texto bengalí entre Unicode y Bijoy en línea",
+    "description": "BanglaTools ofrece herramientas de conversión de texto bengalí entre Unicode y Bijoy para estudiantes, educadores y creadores de contenido. Todas las utilidades se pueden usar sin crear una cuenta."
+  },
+  "needgohome-netlify-app": {
+    "coreTask": "Generar y copiar un mensaje completo para salir antes del trabajo eligiendo idioma, motivo y tono",
+    "description": "Una herramienta gratuita y sin registro que redacta un mensaje claro y profesional para avisar a tu responsable de que necesitas marcharte antes. Elige motivo, tono y uno de los 12 idiomas disponibles (con soporte RTL para árabe y hebreo) para obtener un texto listo para enviar con alternativas para SMS, correo o chat. Funciona mediante reglas, sin IA, y todo se ejecuta en tu navegador."
+  },
+  "pdfzus-de": {
+    "coreTask": "Fusionar múltiples PDFs, reordenar páginas y comprimir archivos PDF directamente en el navegador",
+    "description": "Une, reordena y comprime archivos PDF directamente en tu navegador. Las funciones principales no requieren cuenta, no añaden marcas de agua y procesan los archivos en tu propio dispositivo."
+  },
+  "taimaa-net": {
+    "coreTask": "Configurar y ejecutar un temporizador de cuenta regresiva en el navegador sin crear cuenta",
+    "description": "Temporizador online gratuito y sin registro orientado a usuarios japoneses."
+  },
+  "morsecodetranslator-tools": {
+    "coreTask": "Traducir texto y código Morse en ambas direcciones sin crear una cuenta",
+    "description": "Traduce texto a código Morse y código Morse a texto al instante en tu navegador."
+  },
+  "gantt-chart-io": {
+    "coreTask": "Pegar tareas, generar barras y compartir un enlace; sin registro para probar",
+    "description": "Pega una lista de tareas o un párrafo y obtén un diagrama de Gantt en tiempo real. La IA puede proponer cambios de planificación, pero no modifica el cronograma hasta que lo apruebes. Prueba gratuita sin cuenta; plan de pago desde 12 $/mes para guardar proyectos."
+  },
+  "textunnel-com": {
+    "coreTask": "Transferir texto, enlaces, código y archivos entre ordenadores y móviles directamente en el navegador sin crear cuenta ni iniciar sesión",
+    "description": "Textunnel es una herramienta ligera para compartir entre dispositivos que te permite transferir texto, enlaces, código y archivos sin necesidad de cuenta ni inicio de sesión. Ofrece una forma sencilla de transferir datos entre ordenadores y dispositivos móviles directamente desde el navegador."
+  },
+  "lensup-ai": {
+    "coreTask": "Convertir una foto del móvil en un PDF limpio y listo para imprimir — sin subidas, sin registro",
+    "description": "LensUp es un escáner de documentos gratuito que funciona íntegramente en tu navegador. Fotografía un documento y conviértelo en un PDF nítido y listo para imprimir: recorte y corrección de perspectiva, eliminación de sombras, compresión a un tamaño objetivo, firma o marca de agua opcional y colocación de ambas caras de un documento de identidad en una sola hoja. Sin app, sin registro, sin marcas de agua forzadas y sin subir tus archivos."
+  },
+  "tools-pve-ch": {
+    "coreTask": "Utilizar todas las herramientas disponibles en el navegador sin necesidad de crear cuenta",
+    "description": "Herramientas gratuitas en el navegador sin registro: alfabeto tailandés, fichas, hojas de ejercicios, enlaces verificados de OSINT, guía de brunch de Berna, conversor de unidades, cuenta regresiva compartible, referencia ASCII y compositor de emoticonos. Mayoritariamente del lado del cliente en alojamiento estático."
+  },
+  "www-calculatorcampus-com": {
+    "coreTask": "Calcular magnitudes prácticas y realizar conversiones en el navegador sin crear una cuenta",
+    "description": "Calculator Campus es una colección gratuita de calculadoras prácticas basadas en navegador. Cada herramienta combina una interfaz sencilla con fórmulas, supuestos, ejemplos resueltos, preguntas frecuentes y fuentes de referencia. Las calculadoras principales funcionan sin cuenta."
+  },
+  "bitibybit-com-volunteer-roster": {
+    "coreTask": "Organizar y asignar turnos de voluntarios con un solo enlace — sin registro, sin app y sin rastreo",
+    "description": "Una herramienta web gratuita para clubes y colegios que necesitan voluntarios para cubrir turnos. El organizador publica los turnos, comparte un único enlace y los participantes entran para elegir puesto. Nadie tiene que registrarse ni instalar nada, no se recopilan correos y no hay anuncios, rastreadores ni cookies. Incluye plantillas reales de turnos preconfiguradas para clubes deportivos."
+  },
+  "piccollages-com": {
+    "coreTask": "Crear collages de fotos, cuadrículas, imágenes panorámicas, composiciones unidas y mosaicos sin crear una cuenta",
+    "description": "Pic Collage Maker es una herramienta gratuita en el navegador centrada en la privacidad para crear collages, composiciones en cuadrícula, imágenes alargadas y mosaicos. Arrastra y suelta fotos, añade texto, stickers, filtros y fondos, y exporta en alta resolución. El procesamiento de imagen permanece local en tu navegador y las herramientas principales funcionan sin registro."
+  },
+  "nutilz-com-caa-record-generator": {
+    "coreTask": "Construir y validar registros DNS CAA para controlar qué autoridades de certificación pueden emitir certificados SSL/TLS para tu dominio",
+    "description": "Genera y valida registros DNS CAA (Certificate Authority Authorization). Selecciona las CA permitidas, añade reglas de comodín e informes de infracción iodef, además de incluir un validador y analizador de registros en crudo. Funciona completamente en tu navegador y sin registro."
+  },
+  "www-textfixhub-com": {
+    "coreTask": "Ordenar listas alfabéticamente, eliminar saltos de línea, contar palabras/sílabas, voltear texto y más al instante sin cuenta",
+    "description": "Utilidades de texto rápidas y privadas que funcionan completamente en el navegador. Ordena listas por orden alfabético, elimina saltos de línea, cuenta oraciones y sílabas, crea texto reflejado, subíndices/superíndices y más. Sin registro ni inicio de sesión: tu texto nunca sale de tu dispositivo."
+  },
+  "webgpustress-com": {
+    "coreTask": "Ejecutar pruebas de estrés de GPU, comprobaciones de WebGL y pruebas de rendimiento directamente en el navegador",
+    "description": "Prueba gratuita de estrés para GPU en el navegador para comprobar el rendimiento gráfico sostenido sin instalar software. Ejecuta cargas de trabajo WebGL y supervisa FPS promedio, percentil 1% de caídas de FPS, estabilidad del tiempo de fotograma y pérdidas de frames a lo largo del tiempo."
+  },
+  "citefetch-com": {
+    "coreTask": "Verificar referencias, consultar bases de datos académicas reales y generar citas formateadas sin crear una cuenta",
+    "description": "CiteFetch verifica referencias académicas cotejándolas con CrossRef y OpenAlex, detecta fuentes falsas o mal transcritas y genera citas en los principales estilos bibliográficos. Es gratuito, sin cuenta y sin anuncios."
+  },
+  "dochost-io": {
+    "coreTask": "Pegar HTML o Markdown, previsualizarlo en tiempo real y publicarlo en una URL compartible sin crear cuenta",
+    "description": "Pega código HTML o Markdown y obtén un enlace limpio listo para compartir al instante. Sin cuenta, sin procesos de compilación y con vista previa en vivo de Markdown mientras escribes. También permite publicar directamente desde la terminal."
+  },
+  "csv-safecheck-pages-dev": {
+    "coreTask": "Validar archivos CSV de productos de Shopify, revisar riesgos de importación y descargar informes o correcciones seguras locales",
+    "description": "Verifica los CSV de productos de Shopify antes de importarlos. CSV SafeCheck detecta columnas obligatorias ausentes, valores inválidos, identificadores duplicados, riesgos de SKU y opciones, y celdas con fórmulas. Las correcciones seguras y los informes se generan localmente en el navegador, sin subidas, cuentas, rastreadores ni cookies."
+  },
+  "kivtools-com": {
+    "coreTask": "Utilizar utilidades de JSON/API, JWT/JWK, formateo de código, inspección de datos y DevOps directamente en el navegador",
+    "description": "Herramientas gratuitas en el navegador y de procesamiento local para JSON, APIs y OpenAPI, verificación de JWT/JWK, formateo de código, inspección de datos y flujos de trabajo DevOps."
+  },
+  "free-qr-codes-com": {
+    "coreTask": "Crear códigos QR estáticos, escanear y verificar contenido de QR directamente en el navegador sin crear una cuenta",
+    "description": "Herramientas de navegador centradas en la privacidad para crear, escanear y verificar códigos QR estáticos. Genera QR para URLs, Wi-Fi, datos de contacto y más, sin registro, sin marcas de agua y sin caducidad artificial."
+  },
+  "playfatelab-com": {
+    "coreTask": "Tirar dados, lanzar monedas, generar números aleatorios, tomar decisiones de sí/no y hacer sorteos de listas sin crear cuenta",
+    "description": "Herramientas de azar en el navegador con procesamiento local para tirar dados, lanzar monedas, números aleatorios, decisiones de sí/no y selección de listas o nombres. Sin cuenta; resultados, historial y datos se quedan en tu navegador."
+  },
+  "pixeltools-io": {
+    "coreTask": "Redimensionar, comprimir y convertir imágenes, PDFs, audio y vídeo completamente en el navegador: sin subidas y sin registro",
+    "description": "Una suite gratuita y 100% basada en navegador para imágenes, PDF, audio y vídeo (redimensionar, comprimir, convertir, unir PDFs, eliminar fondos y más). Todo se ejecuta en el lado del cliente mediante Canvas API, ffmpeg.wasm, pdf-lib y TensorFlow.js: sin subidas al servidor y sin necesidad de cuenta."
+  },
+  "herebytes-com-remove-image-gps": {
+    "description": "Herramienta gratuita en el navegador que elimina GPS, EXIF y otros metadatos que no son píxeles de imágenes JPEG, PNG y WebP localmente en el dispositivo antes de compartirlas.",
+    "coreTask": "Seleccionar una imagen, eliminar la ubicación y los metadatos incrustados de forma local, previsualizar el resultado limpio y descargarlo sin registro"
+  },
+  "fluxops-nanocorp-app-tools-reorder-calculator": {
+    "description": "Calculadora gratuita de exceso de inventario y reabastecimiento para marcas de comercio electrónico: visualiza el riesgo de rotura de stock y el tiempo ahorrado sin necesidad de cuenta.",
+    "coreTask": "Introduce el stock actual, ventas diarias promedio, plazo de entrega y stock de seguridad para ver al instante los días restantes, puntos de reorden, cantidad sugerida y alertas de sobrestock sin crear una cuenta"
+  },
+  "midiplayeronline-com": {
+    "description": "MIDI Player Online (MIDI Room) te permite cargar y reproducir archivos .mid/.midi en el navegador, ver el piano roll y ajustar tempo e instrumentos. Sin registro.",
+    "coreTask": "Reproducir y visualizar archivos MIDI en el navegador sin cuenta"
+  },
+  "quixcalc-com": {
+    "description": "QuixCalc es una colección gratuita de más de 60 calculadoras y herramientas online, desde finanzas hasta proyectos del hogar, que se ejecutan directamente en tu navegador sin registro.",
+    "coreTask": "Utilizar todas las calculadoras rápidas del sitio directamente en el navegador"
+  },
+  "polymarketscan-org": {
+    "description": "Herramienta analítica independiente y gratuita de Polymarket con registros públicos de ganadores en mercados de predicción. Explora carteras, mercados y alertas de ballenas sin cuenta.",
+    "coreTask": "Explorar billeteras de Polymarket, mercados, alertas de ballenas y registros de traders sin crear una cuenta"
+  },
+  "textlogo-app": {
+    "description": "Crea logotipos de texto personalizados, firmas y diseños tipográficos en tu navegador con fuentes, colores, iconos, formas y fondos editables, con exportación a SVG, PNG, WebP o ICO. Sin iniciar sesión.",
+    "coreTask": "Crear un logotipo de texto personalizado y exportarlo en SVG o PNG sin crear una cuenta ni iniciar sesión"
+  },
+  "tryink-me": {
+    "description": "TryInk es una herramienta de prueba virtual de tatuajes: sube una foto de tu cuerpo, coloca un diseño y comprueba el tamaño y la ubicación en tu propia piel antes de tu cita. Sin registro.",
+    "coreTask": "Subir una foto del cuerpo, colocar un diseño y previsualizar el tamaño y la ubicación sobre la propia piel"
+  },
+  "diagrflow-com": {
+    "description": "Diagrflow es una herramienta especializada para generar diagramas de flujo PRISMA 2020 listos para revistas científicas. Introduce los recuentos de revisiones sistemáticas, previsualiza las fases oficiales y exporta en SVG o PNG limpios y sin marcas de agua.",
+    "coreTask": "Introducir recuentos de revisiones sistemáticas, previsualizar los bloques del flujo PRISMA y exportar en SVG o PNG"
+  },
+  "studycalcpro-com": {
+    "description": "Calculadoras y herramientas de estudio online gratuitas para estudiantes: calculadora de GPA, nota final, porcentajes, GPA ponderado y acumulado, temporizador pomodoro, cuenta regresiva de exámenes y más. Sin registro y sin anuncios previos al resultado.",
+    "coreTask": "Utilizar al instante cualquier calculadora y consultar todas las guías de estudio sin cuenta"
+  },
+  "chordgen-app": {
+    "description": "Generador de progresiones de acordes online y gratuito. Elige una tonalidad y un estado de ánimo, pulsa reproducir y empieza a componer. Sin registros.",
+    "coreTask": "Generar y reproducir progresiones de acordes en el navegador sin crear una cuenta"
+  },
+  "codextheme-tools": {
+    "description": "Creador de temas gratuito y local en el navegador para Codex Desktop: convierte cualquier fondo de pantalla en un tema legible y personalizado con total privacidad.",
+    "coreTask": "Crear y exportar un tema para Codex Desktop a partir de un fondo de pantalla en el navegador sin cuenta"
+  },
+  "entityminder-smoke-web-app-em-lookup": {
+    "description": "Consulta la fecha límite de presentación de informes anuales o bienales para LLC o corporaciones en cualquier estado de EE. UU.: nombre oficial del informe, frecuencia, si aplica impuesto de franquicia y enlace directo al portal estatal. Los 50 estados más DC. Sin cuenta, sin correo y sin muro de pago.",
+    "coreTask": "Seleccionar cualquier estado de EE. UU. y ver de inmediato la fecha límite del informe anual de LLC/corporación, nombre oficial, nota fiscal y enlace a la página estatal de presentación"
+  },
+  "earchord-com": {
+    "description": "Buscador de acordes gratuito en el navegador que detecta progresiones de acordes, tonalidad y tempo a partir de archivos de audio. El procesamiento se ejecuta localmente en el dispositivo sin subir el audio y sin necesidad de cuenta.",
+    "coreTask": "Analizar un archivo de audio localmente para mostrar su progresión de acordes, tono y tempo sin cuenta"
+  },
+  "verifiedlimits-com": {
+    "description": "Calculadoras gratuitas de límites de aportación, elegibilidad y penalizaciones por exceso de aportación para HSA, IRA y 401(k), verificadas con las directrices del IRS. Todos los cálculos se realizan íntegramente en tu navegador sin enviar ni guardar datos y sin requerir cuenta.",
+    "coreTask": "Calcular límites exactos de aportación para HSA, IRA y 401(k), verificar elegibilidad HDHP y consultar penalizaciones por exceso de aportación sin necesidad de cuenta"
+  },
+  "1600-now": {
+    "description": "Práctica gratuita del SAT para estudiantes de secundaria: banco de preguntas filtrable por materia, habilidad y dificultad, explicaciones de respuestas, pruebas cronometradas, ejercicios de vocabulario y tutoriales en vídeo de matemáticas. Funciona sin iniciar sesión.",
+    "coreTask": "Practicar preguntas del SAT, leer explicaciones, hacer exámenes cronometrados y estudiar vocabulario sin necesidad de cuenta"
+  },
+  "telemetry-sh-sql-playground": {
+    "description": "Entorno interactivo de SQL gratuito de Telemetry: sin necesidad de registro, ejecuta consultas sobre eventos simulados en el navegador mediante DuckDB para ver tasas de error, volumen de solicitudes y latencia, practicando la validación tras un despliegue.",
+    "coreTask": "Seleccionar eventos simulados de ejemplo, editar y ejecutar SQL en el navegador para analizar volumen, tasa de errores y latencia sin cuenta"
+  },
+  "svgviewer-app": {
+    "description": "SVG Viewer es un conjunto de herramientas online y gratuito diseñado para que diseñadores y desarrolladores visualicen, editen, optimicen y conviertan archivos SVG directamente en el navegador. Pega tu código SVG o sube un archivo para ver una previsualización inmediata en tiempo real, sin registro.",
+    "coreTask": "Visualizar y editar archivos SVG con vista previa en tiempo real en el navegador sin cuenta"
+  },
+  "focus2grow-app-dealcove": {
+    "description": "Un CRM centrado en la privacidad para pequeñas empresas que guarda prospectos, tratos, seguimientos, notas, etapas de ventas y KPIs en el navegador. Importa y exporta contactos por CSV y gestiona ventas sin cuenta en la nube.",
+    "coreTask": "Crear y gestionar prospectos, tratos, tareas y etapas de ventas localmente en el navegador, con importación/exportación CSV y sin crear cuenta"
+  },
+  "gizmobench-com": {
+    "description": "GizmoBench es una colección de más de 130 utilidades gratuitas que se ejecutan enteramente en tu navegador: conversores de unidades y bases numéricas, calculadoras, formateador JSON, herramientas Base64 y Markdown, visor STL, selector de color, generador de códigos de barras y más. Todo funciona en local, sin subir archivos y sin cuenta.",
+    "coreTask": "Utilizar todas las herramientas al máximo: convertir unidades y bases, formatear JSON, extraer colores de imágenes y visualizar archivos STL en local"
+  },
+  "online-tone-generator-com": {
+    "description": "Genera y escucha tonos puros de 20 Hz a 20.000 Hz en el navegador. Elige ondas senoidales, cuadradas, triangulares o de sierra, ajusta volumen y balance, usa ajustes preestablecidos, copia enlaces o guarda en formato WAV sin registrarte.",
+    "coreTask": "Reproducir y detener tonos, cambiar frecuencia y forma de onda, ajustar volumen y balance, y guardar audio WAV sin iniciar sesión"
+  },
+  "visualpromptcompiler-com": {
+    "description": "Compila informes visuales localmente en prompts estructurados y JSON portátil para Seedream y Nano Banana, con reglas claras de conservación/cambio, roles de referencia, advertencias y adaptaciones para cada modelo. Sin cuenta ni subida de imágenes.",
+    "coreTask": "Compilar un informe visual en prompts estructurados y JSON portátil, definir límites de cambios y copiar instrucciones para cada modelo sin cuenta"
+  },
+  "readanytext-com": {
+    "description": "ReadAnyText convierte texto, PDFs, archivos Word, EPUBs y enlaces de artículos en audio hablado con 322 voces neuronales en 75 idiomas. Sin cuenta, sin registro y sin planes de pago. Exporta MP3 o WAV con subtítulos SRT y VTT precisos, admite diálogos multivoz y control de velocidad/tono. El procesamiento se ejecuta en el navegador y los archivos nunca salen de tu equipo.",
+    "coreTask": "Pegar texto o importar archivos/enlaces, elegir entre 322 voces, generar audio y descargar MP3, WAV y subtítulos sin cuenta"
+  },
+  "roascompare-com": {
+    "description": "Calculadora gratuita de ROAS de equilibrio para vendedores de comercio electrónico. Introduce ingresos, costes de producto, envíos y comisiones para calcular el ROAS mínimo, el CPA máximo y el ROAS objetivo. Compara escenarios de precios y exporta a CSV sin necesidad de cuenta; los datos no salen de tu navegador.",
+    "coreTask": "Calcular el ROAS de equilibrio y el CPA objetivo, comparar escenarios de pedidos y exportar resultados en CSV sin cuenta"
+  },
+  "www-pastecurl-com": {
+    "description": "Conversor gratuito de cURL a código en el navegador con soporte para 23 lenguajes y 40 librerías. Pega un comando cURL tipo Bash y copia el código generado para Python, JavaScript, Go y más. Sin cuenta; los comandos permanecen en tu dispositivo y no se realiza ninguna petición.",
+    "coreTask": "Convertir comandos cURL a código en 23 lenguajes y copiar el resultado sin necesidad de cuenta"
+  },
+  "subsuperscript-com": {
+    "description": "Convierte texto normal en superíndices o subíndices Unicode listos para copiar y pegar. El modo fórmula mantiene legible el texto habitual mientras convierte exponentes, índices y notación científica; el modo texto diminuto transforma cada carácter compatible. Incluye vista previa en tiempo real y copia en un clic sin registro.",
+    "coreTask": "Escribir o pegar texto, elegir superíndice o subíndice y el modo deseado, previsualizar el resultado en Unicode y copiarlo sin iniciar sesión"
+  },
+  "fomrix-com-stl-viewer": {
+    "coreTask": "Abrir una malla STL, rotarla, hacer zoom e inspeccionar el recuento de triángulos y dimensiones sin crear una cuenta.",
+    "description": "Fomrix STL Viewer es un visor STL gratuito en línea para abrir e inspeccionar geometría de mallas en el navegador sin cuenta. Permite rotar y hacer zoom en el modelo, inspeccionar el recuento de triángulos y dimensiones, manteniendo el archivo original intacto. El visor no certifica la imprimibilidad. Esta ficha cubre únicamente el visor STL independiente; la generación de modelos con IA de Fomrix es independiente y requiere cuenta y créditos."
+  },
+  "quicktinyv2-vercel-app": {
+    "coreTask": "Usar las 13 herramientas gratuitas al completo: comprimir imágenes individuales, formatear JSON, contar palabras, generar contraseñas, codificar/decodificar Base64 y URL, todo en el navegador.",
+    "description": "13 herramientas gratuitas en el navegador: compresor de imágenes, formateador JSON, contador de palabras, generador de contraseñas, codificador/decodificador Base64 y URL, y más. Todo se procesa completamente en el cliente, sin subir nada a servidores. También incluye un compresor por lotes opcional mediante un pago único de 4,99 $ vía PayPal, sin cuenta ni suscripción."
+  },
+  "drunkcalc-org": {
+    "coreTask": "Estimar el nivel de alcohol en sangre (BAC) y el tiempo aproximado para llegar a cero, comparar bebidas estándar y consultar guías sin registrarse.",
+    "description": "Estimador gratuito de contenido de alcohol en sangre (BAC) mediante la fórmula de Widmark modificada. Introduce peso, unidades estándar de alcohol o volumen y graduación (ABV), y tiempo transcurrido desde la primera copa para obtener estimaciones en tiempo real y el tiempo aproximado hasta la sobriedad. Cálculos locales en el navegador sin cuenta. Incluye guías de referencia. Solo para fines educativos; no es una medición médica ni apto para decidir si conducir."
+  },
+  "makehalftone-com": {
+    "coreTask": "Convertir una foto en un patrón de semitonos listo para imprimir directamente en el navegador.",
+    "description": "Transforma fotos en patrones de puntos de semitono listos para serigrafía, DTF y cartelería. Funciona completamente en el navegador: no se sube ningún archivo."
+  },
+  "kitelabs-netlify-app-kitchen": {
+    "coreTask": "Calcular el coste total de una receta, aplicar porcentajes de rendimiento y obtener el coste por porción, % de coste de alimentos y margen bruto sin registrarse.",
+    "description": "Calculadora de escandallos y precios de menú para cocinas. Convierte unidades de compra a unidades de receta y aplica mermas y rendimientos: por ejemplo, un lomo de salmón comprado a 22 $/kg con un 62 % de rendimiento se calcula a 35,48 $/kg de producto utilizable en lugar de 22 $, evitando el error más común en hostelería. Calcula coste por porción, porcentaje de coste y beneficio bruto. Funciona 100 % en el navegador, sin subidas, rastreo ni registro."
+  },
+  "icyzip-com": {
+    "coreTask": "Emparejar dos navegadores, transferir texto en tiempo real y enviar un archivo mediante código QR o enlace.",
+    "description": "IcyZip empareja dos navegadores mediante código QR o enlace para enviar texto en vivo o transferir un archivo entre móviles y ordenadores. Sin cuentas ni aplicaciones. El cliente cifra el contenido en el navegador antes de que el servidor retransmita el texto cifrado (el servicio puede ver metadatos de conexión y transferencia). Requiere acceso a Internet y un segundo dispositivo; no es almacenamiento en la nube ni sincronización de carpetas."
+  },
+  "formweft-com-tools-motion-workbench": {
+    "coreTask": "Importar un vídeo local y subtítulos SRT existentes, editar subtítulos y tarjetas animadas, ajustar tiempos y exportar el vídeo editado.",
+    "description": "Un editor de vídeo en el navegador para añadir subtítulos y tarjetas con animación a vídeos locales. Permite importar archivos SRT existentes, ajustar tiempos y exportar conservando el audio original. La edición básica es gratuita y sin login; los vídeos importados no se suben al servidor. La compatibilidad con MP4 depende del navegador (WebM como alternativa). La generación por IA opcional requiere configuración previa."
+  },
+  "monkeetools-surge-sh": {
+    "coreTask": "Todo funciona sin iniciar sesión: crear y editar facturas, descargar PDF, autorrellenado de empresa, autocompletado de clientes, duplicar facturas con numeración automática y seguimiento de cobros.",
+    "description": "Generador de facturas gratuito para autónomos y freelancers. Sin registro, sin cuenta y sin subir datos a servidores. Las facturas se generan en el navegador y los PDF se descargan directamente en tu equipo. Guarda tus datos localmente: autorrellenado de empresa, autocompletado de clientes, duplicación con numeración correlativa y control de cobros. Incluye kit para agentes de IA con enlaces predefinidos."
+  },
+  "heictopdf-dev": {
+    "coreTask": "Convertir fotos HEIC a PDF sin necesidad de cuenta.",
+    "description": "Convierte fotos Apple HEIC/HEIF a PDF directamente en la pestaña del navegador. No se sube nada al servidor. Convierte varias fotos a la vez o combínalas en un único PDF multipágina, ajustando el orden de página, el tamaño (original / A4 / US Letter) y la orientación antes de exportar. Sin cuenta ni instalaciones: entra en la web y arrastra las fotos."
+  },
+  "compressto100kb-com": {
+    "coreTask": "Comprimir imágenes a un límite de KB personalizado o predefinido, redimensionar píxeles y descargar de forma individual o en ZIP.",
+    "description": "Comprime imágenes JPG, PNG, WebP y HEIC al tamaño máximo en KB que elijas. Los archivos se procesan localmente en el navegador, con opción de redimensionar dimensiones y descargar individualmente o en lote como archivo ZIP. Gratis y sin registro."
+  },
+  "sizecompare-app": {
+    "coreTask": "Comparar dimensiones de objetos reales a escala real e introducir medidas personalizadas.",
+    "description": "SizeCompare es una herramienta visual y gratuita para comparar el tamaño de teléfonos, tabletas, portátiles, neumáticos, animales y objetos cotidianos. Compara dimensiones reales a escala, con calculadoras para neumáticos, altura, pantallas y medidas personalizadas."
+  },
+  "aup4-aivismonitor-com": {
+    "coreTask": "Abrir proyectos .aup4/.aup3, reproducir la mezcla y exportarla a WAV o MP3.",
+    "description": "Abre archivos de proyecto de Audacity (.aup4 de Audacity 4 y .aup3 de Audacity 3) directamente en el navegador: visualiza pistas y clips, reproduce la mezcla, exporta a WAV o MP3, genera informes de recuperación de proyectos dañados y convierte .aup4 para abrirlos en Audacity 3.7. El proyecto se procesa localmente con SQLite en WebAssembly sin subir nada. Abrir, reproducir y exportar es gratis; reconstrucción, downgrade y pistas individuales requieren licencia única de 19 $. Sin cuentas."
+  },
+  "dataformatkit-com": {
+    "coreTask": "Convertir texto, XML o JSON a CSV; crear archivos Excel desde CSV o JSON; previsualizar tablas y comprobar la estructura CSV sin registro.",
+    "description": "DataFormatKit ofrece herramientas gratuitas para convertir texto a CSV, XML a CSV, JSON a CSV o Excel, y CSV a Excel. Permite previsualizar filas y columnas, verificar la estructura de archivos CSV y descargar los resultados. Los archivos fuente se procesan localmente en el navegador y las herramientas principales no requieren cuenta."
+  },
+  "crochet-chart-maker-com": {
+    "coreTask": "Convertir una imagen en una cuadrícula de píxeles editable para ganchillo, crear cuadrículas en blanco, retocar colores y descargar un PNG numerado sin registro.",
+    "description": "Crochet Chart Maker es una herramienta web gratuita que transforma imágenes JPG, PNG o WebP en cuadrículas de píxeles en color editables, o permite empezar desde un lienzo en blanco. Ajusta el tamaño, recorta, reduce colores, edita cuadrados individuales y descarga un PNG en alta resolución con numeración y leyenda de colores. Las imágenes no salen de tu dispositivo y no requiere cuenta."
+  },
+  "pst-aivismonitor-com": {
+    "coreTask": "Abrir archivos PST, OST, OLM, MBOX o EML desde el disco, explorar sus carpetas, leer y buscar todos los mensajes.",
+    "description": "Mailward abre archivos PST y OST de Outlook, exportaciones OLM de Outlook para Mac, buzones MBOX (incluido Google Takeout) y correos EML/MSG directamente en el navegador. El archivo se analiza localmente en un Web Worker sin subirse a ningún servidor y sin necesidad de cuenta. La lectura y búsqueda son gratuitas; la exportación masiva y apertura simultánea tienen licencia única de 19 $. Funciona en Mac, Windows, Linux y ChromeOS sin tener Outlook instalado."
+  },
+  "markany-ai": {
+    "coreTask": "Convertir por lotes archivos compatibles o URL de archivos HTTPS públicas a Markdown, revisar el resultado, copiarlo y descargarlo sin crear cuenta.",
+    "description": "Convierte archivos PDF, Word, Excel, PowerPoint, HTML, EPUB e imágenes a Markdown estructurado con OCR automático, o exporta Markdown editable a formatos habituales de documentos, imágenes, libros electrónicos, diapositivas y hojas de cálculo."
+  },
+  "spritesheettool-com": {
+    "coreTask": "Generar una vista previa de hojas de sprites de forma anónima en el navegador sin registrarse.",
+    "description": "Crea hojas de sprites online en tu navegador: genera spritesheets para RPG, divide GIF u hojas en fotogramas individuales y construye atlas de texturas."
+  },
+  "www-allsubconverter-com": {
+    "coreTask": "Convertir, editar, limpiar, sincronizar, comprobar y exportar archivos de subtítulos en el navegador sin cuenta ni subidas.",
+    "description": "AllSubConverter es un conjunto gratuito de herramientas en el navegador para convertir, editar, depurar, sincronizar, validar y exportar subtítulos. Compatible con SRT, VTT, ASS, SSA, LRC y más, con flujos de trabajo por lotes y control de calidad."
+  },
+  "toolsphare-tech-en": {
+    "coreTask": "Usar herramientas de PDF, imagen, texto y utilidades de desarrollo al instante en el navegador sin crear una cuenta.",
+    "description": "ToolSphare es una suite gratuita en línea con más de 400 utilidades web para PDF, imágenes, texto y desarrolladores. Une o comprime PDF, redimensiona imágenes, formatea JSON y más, sin necesidad de cuenta. La mayoría de las herramientas se ejecutan localmente en tu dispositivo para mayor privacidad."
+  },
+  "bytepriva-com-merge-pdf": {
+    "coreTask": "Combinar varios archivos PDF, reordenar páginas y descargar el documento unificado, todo sin crear cuenta ni subir nada a un servidor.",
+    "description": "Une varios archivos PDF en uno solo directamente en tu navegador: sin subidas y sin registro. Los archivos se procesan 100 % en el cliente usando la potencia de tu propio dispositivo, por lo que nada sale de tu ordenador. Arrastra, suelta, reordena y descarga al instante."
+  },
+  "imageconverttools-app": {
+    "coreTask": "Convertir, comprimir, redimensionar, recortar, añadir marcas de agua o combinar imágenes en un PDF y descargar el resultado sin iniciar sesión.",
+    "description": "Image Convert es una suite gratuita en el navegador para siete tareas prácticas con imágenes: convertir HEIC/HEIF a JPG o PDF, convertir JPEG, PNG y WebP, comprimir a un tamaño objetivo, redimensionar, recortar y añadir marcas de agua de texto. Los archivos seleccionados y los resultados generados se procesan en el dispositivo sin subirse a ningún servidor. No se requiere inicio de sesión."
+  },
+  "nextreset-ai": {
+    "coreTask": "Consultar el historial de reinicios e informes oficiales de incidencias de IA, y guardar un temporizador local sin cuenta.",
+    "description": "Recurso gratuito e independiente para desarrolladores que usan herramientas de programación con IA. Consulta el historial de cuotas de Codex con enlaces a fuentes oficiales, incidencias de servicios de IA y actualizaciones de clientes, y guarda un temporizador de reinicio en tu dispositivo sin registrarte. No está afiliado a OpenAI ni Anthropic."
   }
 }

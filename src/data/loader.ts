@@ -1,6 +1,7 @@
 import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
 import { hasLocalizedToolContent, getLocalizedToolFields as buildLocalizedToolFields } from '../lib/tool-seo.mjs';
 import { LOCALES, type Locale } from '../i18n/config';
+import { isValidSlug } from '../lib/utils';
 
 type ToolTranslation = {
   _hash?: string;
@@ -202,11 +203,11 @@ export function getTagEditorial(tagSlug: string, locale: Locale = 'en'): TagEdit
 
 
 export function getApprovedTools(): BuildDataTool[] {
-  return buildData.tools.filter((t) => t.status === 'approved');
+  return buildData.tools.filter((t) => t.status === 'approved' && isValidSlug(t.slug));
 }
 
 export function getAllTools(): BuildDataTool[] {
-  return buildData.tools;
+  return buildData.tools.filter((t) => isValidSlug(t.slug));
 }
 
 export function getToolBySlug(slug: string): BuildDataTool | undefined {

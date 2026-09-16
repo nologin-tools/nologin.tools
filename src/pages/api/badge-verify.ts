@@ -6,6 +6,7 @@ import { tools, badgeDisplays } from '../../db/schema';
 import { eq } from 'drizzle-orm';
 import { api } from '../../lib/api';
 import { parseGitHubRepoUrl } from '../../lib/github';
+import { isValidSlug } from '../../lib/utils';
 
 const COOLDOWN_MS = 60 * 1000; // 60 seconds cooldown between self-service checks
 
@@ -18,7 +19,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   const { slug } = body ?? {};
-  if (!slug || typeof slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || slug.length > 80) {
+  if (!isValidSlug(slug)) {
     return api.error('Valid tool slug is required.', 400);
   }
 

@@ -384,3 +384,43 @@ Automated blog cross-posting triggered after Deploy workflow completes on main.
 - **Pages**: `/` (home), `/about`, `/reports` (list), `/reports/[slug]` (detail), `/404`, `/sitemap.xml`
 - **Commands**: `cd sites/org && pnpm dev` / `pnpm build` / `pnpm deploy`
 - **Tests**: `node --test sites/org/scripts/__tests__/validate-report.test.mjs` — 14 test cases covering frontmatter validation, word count, headings, edge cases
+
+## AI Review & Tool Curation Policy (Ego-Browser Verification)
+
+To uphold the highest quality bar for **nologin.tools**, any AI assistant or agent performing tool evaluation, auditing, or submission review **MUST** follow these mandatory rules:
+
+1. **Mandatory Ego-Browser Dogfooding**:
+   - AI agents must NOT judge a tool purely by its metadata, title, or description.
+   - AI agents **MUST invoke `ego-browser`** to navigate to the live website, interact with the UI, and verify the core workflow firsthand.
+   - Check specifically for:
+     - **Bait-and-Switch**: Does clicking "Download", "Export", or "Copy" suddenly demand login/signup or email? Does it lock down after 1 use?
+     - **Intrusive Ads & Dark Patterns**: Does it feature deceptive fake "Download" buttons, interstitial ads, or unclosable popups?
+     - **Architecture & Local Processing**: Does the tool run client-side (WebAssembly, Web Worker, HTML5 Canvas, WebRTC) or send files to private backends?
+2. **Five-Dimension Scorecard (25 Points)**:
+   - **No-Login Completeness (1–5)**: 5 = fully unrestricted without account; 1 = bait-and-switch / paywall.
+   - **Privacy & Architecture (1–5)**: 5 = local-first / Wasm / open-source; 3 = cloud server but privacy-respecting; 1 = heavy tracking / unclear privacy.
+   - **Utility & Independence (1–5)**: 5 = high-utility universal problem solver; 2–3 = niche or toy; 1 = doorway page / matrix slice / spam.
+   - **Clean UX & Design (1–5)**: 5 = modern, distraction-free; 1 = ad-cluttered, broken styling.
+   - **Health & Stability (1–5)**: 5 = fast HTTPS on dedicated domain; 1–2 = hobby subdomains, frequent timeouts, or 404s.
+3. **Decisions & Operational Roles**:
+   - **Tier S/A (≥ 22 pts)**: Top Rated Benchmark. High recommendation score boost. (Note: **Featured ★** is strictly an editorial operational badge reserved for ~8 canonical gems; high rating does NOT automatically grant Featured).
+   - **Tier B (16–21 pts)**: Approved / Kept.
+   - **Tier C (< 16 pts)**: Delist / Hard Reject.
+
+## Local Agent Operations (Review & Contextual Translation Policy)
+
+All ongoing operational tasks — including submission auditing, dogfooding, approval, database updates, and multi-language translation — are to be performed directly by the **Local AI Agent** rather than outsourced to mechanical scripts or third-party translation APIs:
+
+1. **Agent-Authored Contextual Translation**:
+   - Because the Local Agent performs live dogfooding with `ego-browser`, it possesses deep context on what each tool actually does, how it works, and its privacy characteristics.
+   - When a tool is approved, the Local Agent directly writes the localized translations for all 7 supported non-English locales (`zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`) into `src/data/translations/{locale}.json`.
+   - Each entry contains:
+     - `description`: 1–2 natural, fluent sentences explaining the core value, highlighting its zero-login / local-first / privacy nature using idiomatic localized phrasing (e.g. 纯前端/免登录/无需注册, ブラウザ完結/ログイン不要, 로그인 없이/로컬 처리, sin registro/en el navegador, sans inscription/côté client, ohne Anmeldung/lokal, sem login/no navegador).
+     - `coreTask`: A concise, action-oriented verb phrase summarizing what the user achieves.
+2. **End-to-End Autonomous Pipeline**:
+   - When new submissions arrive or backlog is reviewed:
+     1. Agent runs `ego-browser` to dogfood and score the tool.
+     2. Agent updates D1 database status (`approved` or `rejected` with clear reason).
+     3. Agent crafts authentic translations across 7 languages directly into `src/data/translations/`.
+     4. Agent refreshes `build-data.json`, verifies tests (`pnpm test`), and ensures clean builds (`pnpm run build`).
+

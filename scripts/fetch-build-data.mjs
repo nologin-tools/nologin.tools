@@ -69,45 +69,77 @@ if (!databaseId) {
   process.exit(1);
 }
 
+import { execSync } from 'node:child_process';
+
 const apiToken = process.env.CLOUDFLARE_API_TOKEN;
 const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+const useWranglerCli = !apiToken || !accountId;
 
-if (!apiToken || !accountId) {
-  console.error('[build-data] Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID');
-  process.exit(1);
+if (useWranglerCli) {
+  console.log('[build-data] CLOUDFLARE_API_TOKEN not set; falling back to wrangler CLI (remote D1)...');
 }
 
 const D1_API = `https://api.cloudflare.com/client/v4/accounts/${accountId}/d1/database/${databaseId}/query`;
 
 /**
- * Execute a SQL query against D1 REST API.
+ * Execute a SQL query against D1 (REST API or wrangler CLI).
  * @param {string} sql
  * @param {any[]} [params]
  * @returns {Promise<any[]>}
  */
 async function queryD1(sql, params = []) {
-  const body = { sql, params };
-  const res = await fetch(D1_API, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  });
+  if (!useWranglerCli) {
+    const body = { sql, params };
+    const res = await fetch(D1_API, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`D1 API error (${res.status}): ${text}`);
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`D1 API error (${res.status}): ${text}`);
+    }
+
+    const json = await res.json();
+    if (!json.success) {
+      throw new Error(`D1 query failed: ${JSON.stringify(json.errors)}`);
+    }
+
+    return json.result?.[0]?.results ?? [];
   }
 
-  const json = await res.json();
-  if (!json.success) {
-    throw new Error(`D1 query failed: ${JSON.stringify(json.errors)}`);
+  // Fallback via wrangler CLI with retry
+  let formattedSql = sql;
+  for (const p of params) {
+    const val = typeof p === 'string' ? `'${p.replace(/'/g, "''")}'` : p;
+    formattedSql = formattedSql.replace('?', String(val));
   }
-
-  return json.result?.[0]?.results ?? [];
+  const cleanSql = formattedSql.replace(/\n\s*/g, ' ').trim();
+  
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const out = execSync(
+        `npx wrangler d1 execute nologin-tools-db --remote --json --command "${cleanSql.replace(/"/g, '\\"')}"`,
+        {
+          cwd: resolve(__dirname, '..'),
+          encoding: 'utf-8',
+          maxBuffer: 20 * 1024 * 1024,
+        }
+      );
+      const parsed = JSON.parse(out);
+      return parsed[0]?.results ?? [];
+    } catch (err) {
+      if (attempt === 3) throw err;
+      console.log(`[build-data] Query attempt ${attempt} failed, retrying in 2s...`);
+      await new Promise((r) => setTimeout(r, 2000));
+    }
+  }
 }
+
 
 console.log('[build-data] Fetching data from D1...');
 
@@ -135,7 +167,7 @@ const validTools = toolRows.filter((t) => {
     console.warn(`[build-data] Skipping tool ID ${t.id}: missing slug`);
     return false;
   }
-  if (t.slug.length > 80 || t.slug.length < 2) {
+  if (t.slug.length > 100 || t.slug.length < 2) {
     console.warn(`[build-data] Skipping tool ID ${t.id} (${t.name}): invalid slug length (${t.slug.length} chars)`);
     return false;
   }

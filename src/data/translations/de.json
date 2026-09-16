@@ -954,5 +954,593 @@
     "_hash": "966b15f83aace66e",
     "description": "Open-Source-Browser-Tool, das anpassbare Datenschutz-Härtungs-Skripte für Windows, macOS und Linux generiert. Durchsuche 900+ organisierte Anpassungen — deaktiviere Telemetrie, Werbe-IDs, Datenerfassungsdienste und mehr — wähle aus, was du möchtest, und lade ein sofort ausführbares Skript herunter. Die gesamte Skriptgenerierung läuft clientseitig: kein Account, keine Uploads, nichts verlässt deinen Browser.",
     "coreTask": "OS-Datenschutz-Härtungs-Skripte für Windows, macOS oder Linux direkt im Browser generieren — wähle die gewünschten Anpassungen aus und lade ein sofort ausführbares Skript herunter"
+  },
+  "pixotter-com": {
+    "coreTask": "Bilder im Browser in einem Schritt komprimieren, skalieren, konvertieren, zuschneiden, freistellen und mit Wasserzeichen versehen",
+    "description": "All-in-One-Bildoptimierer im Browser. Verketten Sie Komprimierung, Größenänderung, Konvertierung, Zuschnitt, Hintergrundentfernung und Wasserzeichen in einem einzigen Workflow – ohne Upload-Wartezeit und ohne Anmeldung. Lokale Verarbeitung via WebAssembly, über 15 Formate, Stapelverarbeitung und sofortige Ergebnisse."
+  },
+  "playbacktimer-com-audiobook-speed-calculator": {
+    "coreTask": "Hörbuch-Restzeit, Rückgabefrist-Tempo und tägliche Hörziele ohne Anmeldung berechnen",
+    "description": "Berechnen Sie die verbleibende Hörbuchzeit, das Tempo für Libby-Leihfristen, tägliche Hörziele und empfohlene Wiedergabegeschwindigkeiten direkt im Browser – ganz ohne Konto."
+  },
+  "wordpad-online-com": {
+    "coreTask": "Notizen direkt im Browser schreiben, formatieren und speichern – ganz ohne Anmeldung",
+    "description": "Ein browserbasierter WordPad-Editor zum Schreiben, Formatieren und Speichern von Notizen – ohne Softwareinstallation und ohne Kontoerstellung."
+  },
+  "wordtojpg-app": {
+    "coreTask": "Word-Dateien online und ohne Anmeldung in JPG-Bilder umwandeln",
+    "description": "Konvertieren Sie Word-Dokumente direkt im Browser in JPG-Bilder – ohne Kontoerstellung."
+  },
+  "signaturefont-net": {
+    "coreTask": "Texte in handschriftlichen Signatur-Schriften im Browser ohne Anmeldung erstellen und in der Vorschau anzeigen",
+    "description": "Erstellen und testen Sie Unterschriften-Schriften für Namen, Branding und persönliche Designs direkt im Browser – ganz ohne Registrierung."
+  },
+  "textkit-tech": {
+    "coreTask": "Wörter zählen, JSON formatieren und validieren, Textvergleiche durchführen, Regex-Suchen und Listen deduplizieren – direkt im Browser ohne Konto",
+    "description": "TextKit bietet 19 kostenlose Textwerkzeuge im Browser (Wortzähler, JSON-Formatierer, Groß-/Kleinschreibung, Slug-Generator, Text-Diff, Suchen & Ersetzen, E-Mail-Extraktor, Markdown-Tabellen, Sortieren & Deduplizieren). Keine Registrierung, kein Tracking: alle Daten verbleiben lokal in Ihrem Browser."
+  },
+  "xueboyang1985-github-io-kindle-exporter": {
+    "coreTask": "Kindle-Markierungen und Notizen ohne Datei-Upload als Markdown, CSV oder JSON exportieren",
+    "description": "Exportieren Sie Ihre Kindle-Markierungen und Notizen als Markdown, CSV oder JSON. Ziehen Sie einfach My Clippings.txt hinein, sehen Sie alle Bücher in der Vorschau und exportieren Sie im gewünschten Format. 100 % im Browser, kein Upload."
+  },
+  "geometry-formulas-com-geometry-calculator": {
+    "coreTask": "Formelblätter und Rechner für 2D- und 3D-Geometrieprobleme ohne Registrierung nutzen",
+    "description": "Kostenlose Geometrieformeln und Rechner im Browser für gängige 2D- und 3D-Formen. Beinhaltet Formeln für Fläche, Umfang, Volumen und Oberfläche, Diagramme, Rechenbeispiele und Schritt-für-Schritt-Ergebnisse ohne Konto."
+  },
+  "webutilslab-com-tools": {
+    "coreTask": "Browser-Entwicklertools wie JSON-Formatierung, JWT-Decodierung, URL-Parsing, chmod-Rechner, Cron-Hilfen, Zeitstempel, Hash- und UUID-Generierung ohne Anmeldung nutzen",
+    "description": "Lokale Browser-Tools für Entwickler: JSON-Formatierung, JWT-Decodierung, URL-Query-Parsing, chmod/umask-Rechner, Cron-Hilfen, Zeitstempel, Hashes, UUIDs und mehr. Kein Login erforderlich; Eingaben werden im Browser verarbeitet."
+  },
+  "heic-to-jpg-app": {
+    "coreTask": "iPhone HEIC/HEIF-Fotos ohne Kontoerstellung direkt im Browser in JPG umwandeln",
+    "description": "Kostenloses, datenschutzfreundliches Browser-Tool zur Konvertierung von iPhone HEIC/HEIF-Fotos in JPG. Funktioniert ohne Anmeldung oder Uploads und bietet Stapelverarbeitung, einstellbare JPG-Qualität, Vorschau und ZIP-Download."
+  },
+  "mdconvert-net-zh-markdown-to-word": {
+    "coreTask": "Markdown ohne Anmeldung in ein Word-Dokument umwandeln",
+    "description": "Konvertieren Sie Markdown-Dokumente online in Word für Schreib- und Dokumentations-Workflows – ohne Login."
+  },
+  "file-converter-free-com": {
+    "coreTask": "Dateien konvertieren sowie PDF-, Bild-, Text-, Entwickler- und Rechner-Tools ohne Registrierung nutzen",
+    "description": "Kostenloses No-Login-Toolkit zur Konvertierung von über 215 Dateiformaten mit Dienstprogrammen für PDF, Bilder, Text, Entwicklung und Berechnungen. Viele Werkzeuge laufen lokal im Browser; serverseitige Konvertierungen werden nach der Verarbeitung automatisch bereinigt."
+  },
+  "printable-tools-lab-pages-dev": {
+    "coreTask": "PDF-, Bild-, QR- und Dokument-Tools nutzen und generierte Dateien ohne Anmeldung herunterladen",
+    "description": "Kostenlose Browser-Tools ohne Registrierung für PDF-, Bild-, QR- und Dokumentaufgaben. Komprimieren Sie Bilder auf bestimmte KB-Zielgrößen, ändern Sie Bildgrößen, konvertieren Sie Bilder in PDFs und erstellen Sie QR-Codes ohne Konto."
+  },
+  "pdfinjpgumwandeln-com": {
+    "coreTask": "PDF-Dateien in JPG-Bilder umwandeln und JPGs direkt im Browser zu einem PDF zusammenfügen",
+    "description": "Browserbasiertes PDF- und JPG-Konvertierungstool für schnelle Umwandlungen ohne Kontoerstellung. Unterstützt auch die Umwandlung von JPG in PDF und ähnliche Arbeitsabläufe."
+  },
+  "www-amortio-com": {
+    "coreTask": "Kreditraten und Tilgungspläne ohne Anmeldung berechnen",
+    "description": "Kostenloser Tilgungsrechner für Hypotheken, Autokredite und Privatdarlehen mit sofortigen Zahlungsplänen und Aufschlüsselung von Tilgung und Zinsen – ohne Konto."
+  },
+  "bytepane-com": {
+    "coreTask": "JSON formatieren, Base64 kodieren, Regex testen, UUIDs generieren und Browser-Entwicklertools nutzen",
+    "description": "Kostenlose browserbasierte Dienstprogramme für Entwickler zur JSON-Formatierung, Base64-Codierung, Regex-Prüfung, UUID-Erstellung, Farbumrechnung und tägliche Programmieraufgaben."
+  },
+  "calorique-io": {
+    "coreTask": "Grundumsatz (BMR), Kalorien, BMI, Körperfett und Makronährstoffe ohne Anmeldung berechnen",
+    "description": "Kostenlose Gesundheits- und Fitnessrechner für Kalorien, Grundumsatz, BMI, Körperfettanteil, Makronährstoffe und Ernährungsplanung direkt im Browser."
+  },
+  "www-whatsmyiplive-com": {
+    "coreTask": "Öffentliche IP-Adresse, Standort, ISP und Netzwerk-Datenschutztools ohne Anmeldung prüfen",
+    "description": "What's My IP Live ist ein kostenloser IP-Checker ohne Registrierung, der Ihre öffentliche IPv4- oder IPv6-Adresse, Standort, Internetanbieter und Netzwerkdetails sofort ermittelt. Enthält nützliche Tools für IP-Lookup, VPN-Erkennung, DNS-Abfrage, WHOIS, SSL-Prüfung, Browser-Info und Speedtest."
+  },
+  "at-use-com-tools-json-formatter": {
+    "coreTask": "JSON-Strings im Browser formatieren, validieren und bereinigen, zwischen Einrückung und Minifizierung wechseln und Syntaxfehler mit Zeilenangabe sehen",
+    "description": "JSON blitzschnell im Browser formatieren, validieren und verschönern. Wechseln Sie zwischen Pretty-Print (2 Leerzeichen Einrückung) und Minify. Syntaxfehler werden mit genauer Zeile und Spalte angezeigt. Nutzt natives JSON.parse() – es werden keinerlei Daten an einen Server gesendet. Kostenlos, kein Konto erforderlich."
+  },
+  "quickbgcut-com": {
+    "coreTask": "Bildhintergründe ohne Anmeldung entfernen und als transparentes PNG herunterladen",
+    "description": "QuickBGCut entfernt Bildhintergründe kostenlos online. Öffnen Sie JPG-, PNG- oder WebP-Bilder und laden Sie ein transparentes PNG herunter; die Verarbeitung erfolgt lokal im Browser – ohne Registrierung, ohne Wasserzeichen und ohne Server-Upload."
+  },
+  "decibelshield-app": {
+    "coreTask": "Schallpegel in Echtzeit mit dem Mikrofon messen, Hörtests und Höralterstests durchführen und Dezibel-Tabellen ohne Konto und ohne Aufzeichnung einsehen",
+    "description": "Ein kostenloses Online-Dezibelmeter, das den Geräuschpegel direkt im Browser über Ihr Mikrofon misst (nichts wird aufgezeichnet oder hochgeladen). Enthält zudem einen Hörtest, einen Höralter-Tontest, eine CDC/NIOSH-basierte Dezibel-Tabelle und eine Lärmkarte von US-Städten."
+  },
+  "fwd2-app": {
+    "coreTask": "Widerrufbare Kurzlinks mit Schlüssel erstellen, Canary-Links mit Webhook-Alarmen einrichten und Links ohne Anmeldung löschen",
+    "description": "Ein URL-Kürzer ohne Anmeldung mit vollwertiger API. Jede erstellte URL erhält einen eindeutigen Widerrufsschlüssel, mit dem der Link jederzeit ohne Benutzerkonto deaktiviert oder gelöscht werden kann."
+  },
+  "syncwhen-com": {
+    "coreTask": "Terminumfragen erstellen, Link teilen und Verfügbarkeiten (Ja/Vielleicht/Nein) in Echtzeit abstimmen – komplett ohne Konto",
+    "description": "Kostenlose Terminumfrage ohne Registrierung. Link teilen, Teilnehmer stimmen über Terminvorschläge ab und die Ergebnisse werden in Echtzeit aktualisiert. Weder für Organisatoren noch Teilnehmer ist ein Konto nötig; werbefrei und mit Export zu Google Kalender oder .ics. In 12 Sprachen verfügbar."
+  },
+  "tools-berry-com": {
+    "coreTask": "Netto-Gehalt für alle US-Bundesstaaten berechnen, Wörter zählen und QR-Codes, Rechnungen und Passwörter im Browser ohne Konto erstellen",
+    "description": "Tools Berry ist eine kostenlose Sammlung schneller Online-Tools ohne Login: Gehalts- und Nettolohnrechner für alle 50 US-Bundesstaaten, Bildbearbeitung und -komprimierung, QR-Code- und Passwortgeneratoren, Rechnungserstellung, Wortzähler und viele praktische Rechner. Alles läuft direkt im Browser ohne Anmeldung oder Uploads."
+  },
+  "meeting-to-go-io": {
+    "coreTask": "Meetings erstellen, freie Zeiten markieren, Link teilen und gemeinsame Verfügbarkeiten in der jeweiligen Zeitzone ohne Registrierung oder E-Mail einsehen",
+    "description": "Kostenloser Gruppen-Terminplaner im Stil von When2meet, der die Verfügbarkeit jedes Teilnehmers automatisch in dessen lokale Zeitzone umrechnet, sodass zeitübergreifende Überschneidungen immer exakt stimmen. Der Organisator markiert Terminvorschläge und teilt einen Link – ganz ohne Konto, E-Mail oder App-Installation. Mit flexiblen Zeitfenstern von 15 Minuten bis zu ganzen Tagen und optionalem Passwortschutz."
+  },
+  "lanternpathbooks-com-free-tools": {
+    "coreTask": "Erstellen und Drucken von Mathe-Arbeitsblättern mit Lösungsblatt, Wortsuchrätseln, Urkunden, Nachspur- und Rechtschreibübungen sowie Routine-, Aufgaben-, Bingo- und Karteikarten",
+    "description": "Eine kostenlose Sammlung von Tools ohne Anmeldung oder Registrierung, die direkt im Browser laufen – entwickelt von einem unabhängigen australischen Kinderbuchverlag für Eltern und Lehrkräfte. Enthält Generatoren für Mathe-Übungsblätter mit Lösungen, Namensnachspur- und Buchstabierübungen, Wortsuchrätsel, Urkunden, Routine- und Haushaltspläne, Bingokarten und Lernkarten. Druckfertige Klassensätze in Sekundenschnelle erstellen – ohne Installation und ohne Angabe einer E-Mail-Adresse."
+  },
+  "controllertester-co": {
+    "coreTask": "Beliebige Gamecontroller (Tasten, Sticks, Trigger, Rumble) im Browser testen und ein klares Urteil zu Stick-Drift erhalten",
+    "description": "Ein kostenloses Browser-Tool zur Überprüfung der Funktionsfähigkeit Ihres Gamecontrollers. Schließen Sie ein beliebiges Gamepad über USB oder Bluetooth an und sehen Sie Tastendrücke, Analogstick-Bewegungen, Trigger-Wege und Rumble-Vibrationen in Echtzeit. Im Gegensatz zu reinen Input-Viewern liefert es ein klares Ergebnis bei Stick-Drift (Bestanden/Nicht bestanden). Kompatibel mit Xbox-, PlayStation- (DualSense / DualShock) und Switch Pro-Controllern. Läuft komplett lokal im Browser, keine Eingabedaten verlassen Ihr Gerät. Ohne Anmeldung, ohne Installation."
+  },
+  "pdfandimagetools-com": {
+    "coreTask": "Alle 64 Tools ohne Konto oder Anmeldung nutzen: PDFs zusammenfügen, teilen, komprimieren und konvertieren, Bilder komprimieren/skalieren/umwandeln, OCR ausführen und Hintergründe entfernen",
+    "description": "64 kostenlose PDF- und Bild-Tools, die vollständig in Ihrem Browser laufen, sodass Ihre Dateien niemals hochgeladen werden. PDFs zusammenführen, teilen, auf eine exakte Zielgröße komprimieren, konvertieren, ordnen, signieren und schützen; Bilder in rund 20 Formaten komprimieren, skalieren und umwandeln, OCR ausführen und Bildhintergründe mit einem lokalen On-Device-KI-Modell entfernen. Ohne Konto, ohne Limits, ohne Wasserzeichen. Nachweisbar im Browser-Netzwerk-Tab (bleibt leer), die meisten Tools funktionieren nach dem Laden sogar offline ohne Internetverbindung."
+  },
+  "converters-live": {
+    "coreTask": "Bilder in PDF, Videos in GIF und Audioformate direkt im Browser ohne Registrierung umwandeln",
+    "description": "Kostenloser Online-Dateikonverter für Bilder, Videos und Audiodateien – funktioniert sofort ohne Konto oder Anmeldung."
+  },
+  "jottools-com": {
+    "coreTask": "HEIC-, SVG- und Bildformate umwandeln, Fotos komprimieren und zuschneiden, PDFs zusammenfügen und komprimieren, QR-Codes erstellen, Farben wählen und CSS-Verläufe generieren, JSON formatieren und über 130 weitere Tools ohne Konto nutzen",
+    "description": "JotTools ist eine kostenlose Sammlung von über 130 Online-Tools (PDF, Bild, Text, Farbe, Rechner und Entwickler-Tools), die vollständig in Ihrem Browser laufen. Keine Anmeldung, keine Registrierung und keine Uploads auf externe Server – die gesamte Verarbeitung findet lokal auf Ihrem Gerät statt. Verfügbar in 6 Sprachen."
+  },
+  "salitronic-com-gerber-analyzer": {
+    "coreTask": "Gerber-, ODB++- und IPC-2581-Dateien anzeigen, einen DRC ausführen, zwei Lagen vergleichen und eine Pick-and-Place-Ansicht betrachten – komplett im Browser ohne Installation und ohne Upload",
+    "description": "Kostenloser Browser-Viewer für PCB-Leiterplatten-Fertigungsdateien. Liest Gerber, ODB++ und IPC-2581, visualisiert jede Lage sowie die bestückte Platine und bietet DRC-Prüfungen, Lagen-Diffs sowie eine Pick-and-Place-Ansicht. Alles läuft lokal in Ihrem Browser – ohne Upload und ohne Registrierung."
+  },
+  "www-quackbuilds-com-apps-oee-pulse-html": {
+    "coreTask": "OEE pro Maschine und für die gesamte Anlage erfassen, Schichten protokollieren, Trends analysieren und Schichtberichte als PDF exportieren – ohne Konto",
+    "description": "Kostenloses OEE-Dashboard für Werkstätten und kleine Fertigungsbetriebe: Erfassen Sie Verfügbarkeit × Leistung × Qualität pro Maschine, überwachen Sie die Gesamtanlageneffektivität auf einer farbigen Skala, protokollieren Sie Schichten für Trendanalysen und exportieren Sie Schichtberichte als PDF für die Besprechung. Keine Lizenzgebühren pro Maschine, keine Registrierung – funktioniert auf Werkstatt-Tablets und Büro-PCs."
+  },
+  "ignlab-net": {
+    "coreTask": "Bilder konvertieren und optimieren, CSS/SVG-Effekte generieren, QR-Codes erstellen, Daten aus Texten extrahieren und mehr – alle Funktionen komplett ohne Konto nutzbar",
+    "description": "Eine kostenlose Sammlung von 14 browserbasierten Web-Tools für Entwickler und Designer: Batch-Bildkonverter & Optimierer, CSS- und SVG-Generatoren, QR-Code-Generator, Datenextraktor, E-Mail-Template-Tester, Agile-Boards und mehr. Jedes Tool läuft zu 100 % clientseitig im Browser."
+  },
+  "comparediff-io": {
+    "coreTask": "Texte, Code, JSON und Dokumente vergleichen und Änderungen in Zeilen-, Wort- und Zeichenansichten untersuchen",
+    "description": "Ein kostenloser Diff-Checker im Browser für Text, Code, JSON und Dokumente. Er zeigt Änderungen auf Zeilen-, Wort- und Zeichenebene an, während alle Daten sicher auf dem Gerät des Nutzers verbleiben."
+  },
+  "max-agent-hub-github-io-browser-sop-builder": {
+    "coreTask": "Einen Standardarbeitsanweisung (SOP) entwerfen, Schritte anpassen, generiertes Markdown voransichtigen, kopieren und als .md-Datei herunterladen",
+    "description": "Browser SOP Builder ist ein fokussiertes Arbeitsblatt, um aus kurzen Prozessnotizen strukturierte Standardarbeitsanweisungen (SOPs) zu formulieren. Es erfasst Verantwortliche, Auslöser, nummerierte Aktionen, Abschlusskriterien, Qualitätsprüfungen und Ausnahmebehandlungen, bietet eine Markdown-Vorschau und ermöglicht den Export. Alle Eingaben verbleiben rein im Speicher des Browsers."
+  },
+  "hardenmyrepo-github-io-browser-audit": {
+    "coreTask": "Einen lokalen Repository-Ordner auswählen und einen vertraulichen Prüfbericht zur Einsatzbereitschaft für KI-Agenten erhalten",
+    "description": "Überprüfen Sie ein lokales Repository auf die Einsatzbereitschaft für KI-Coding-Agenten, ohne den Quellcode hochzuladen. Dieses statische Open-Source-Browser-Tool analysiert Konfigurations- und Dokumentationsrichtlinien wie Anweisungsdateien, Hooks, CI, Tests, Ownership, Dependency-Locking und Secret-Hygiene und liefert einen Score mit konkreten Handlungsempfehlungen. Ohne Anmeldung, Cookies, Tracking, Werbung oder Netzwerkverkehr."
+  },
+  "findthescam-net": {
+    "coreTask": "Domains auf WHOIS, HTTPS, DNS und Betrugsrisiko-Signale prüfen – ganz ohne Kontoerstellung",
+    "description": "Find The Scam hilft Nutzern festzustellen, ob eine Website seriös oder riskant erscheint, indem WHOIS-, HTTPS- und DNS-Einträge sowie Reputations-, Sicherheits- und Betrugswarnsignale analysiert werden."
+  },
+  "imagecompressortokb-com": {
+    "coreTask": "JPG-, PNG- und WebP-Bilder auf ein gewähltes KB-Limit komprimieren, mehrere Dateien im Batch verarbeiten, Details voransichtigen und herunterladen",
+    "description": "Kostenloses Browser-Tool zur Verkleinerung von JPG-, PNG- und WebP-Dateien auf ein bestimmtes KB-Limit. Unterstützt Batch-Verarbeitung, detaillierte Ausgabevorschau und lokale Verarbeitung ohne Upload auf Webserver."
+  },
+  "retireclarity-com-calculator": {
+    "coreTask": "Einen vollständigen Haushaltsplan erstellen, Jahresprognosen berechnen, den Roth-Umwandlungs-Optimierer nutzen und Monte-Carlo-Simulationen ausführen – komplett ohne Konto",
+    "description": "Vollwertiger Altersvorsorge-Planer ohne Login: Jahr-für-Jahr-Prognosen, Roth-Umwandlungs-Optimierung und Monte-Carlo-Simulationen – komplett in Ihrem Browser berechnet. Keine Registrierung nötig, alle Plandaten verbleiben lokal auf Ihrem Gerät."
+  },
+  "kmag-ro-en": {
+    "coreTask": "Einkaufslisten-Sätze auf Rumänisch oder Englisch eingeben, Artikel und Mengenangaben automatisch parsen, nach Regalbereichen gruppieren und in der öffentlichen Browser-Demo abhaken",
+    "description": "Kmag ist eine zweisprachige PWA für gemeinsame Einkaufslisten im Haushalt. Die öffentlich zugängliche Demo ohne Konto verwandelt frei formulierte Einkaufssätze in strukturierte Listen mit Mengenangaben und Supermarkt-Gängen, die direkt im Browser abgehakt werden können."
+  },
+  "whatthegif-com": {
+    "coreTask": "Sämtliche Funktionen komplett ohne Konto: Konvertieren, Frame für Frame schneiden, untertiteln, bis zu 10 Clips auf einer Timeline kombinieren und als GIF, APNG oder stummes MP4 ohne Wasserzeichen exportieren",
+    "description": "Konvertieren Sie Videos, Fotos oder bestehende GIFs komplett in Ihrem Browser in GIFs, stumme MP4s oder APNGs. Keinerlei Uploads: Der gesamte Prozess läuft im Tab, und die Content-Security-Policy (CSP) der Website blockiert externe Verbindungen technisch zuverlässig. Bildgenauer Schnitt, bis zu 10 Clips auf einer Timeline, Untertitel, Clip-Umkehrung, Filter und ein integrierter Optimierer. Kostenlos, ohne Konto, ohne Wasserzeichen und ohne Installation."
+  },
+  "countlink-app": {
+    "coreTask": "Einen synchronisierten Countdown starten, den Link teilen, das OBS/Streaming-Overlay nutzen und als PWA installieren",
+    "description": "Ein kostenloser, teilbarer Countdown-Timer – der Zielzeitpunkt ist direkt im Link kodiert, sodass alle Personen mit dem Link denselben synchronen Countdown sehen. Ohne Benutzerkonto, ohne Server."
+  },
+  "diffhero-app": {
+    "coreTask": "Zwei Texte oder Code-Snippets mit Wort-Hervorhebung vergleichen, Syntax-Diffs für rund 17 Programmiersprachen nutzen und als .diff exportieren",
+    "description": "Kostenloser Diff-Checker im Browser für Text und Quellcode – fügen Sie zwei Versionen ein und sehen Sie jede hinzugefügte, entfernte und geänderte Zeile mit Wort-Hervorhebung. Keine Datenübertragung ins Netz."
+  },
+  "textbench-app": {
+    "coreTask": "Sofort 64 praktische Text-Tools nutzen – Zählen, Umwandeln, Bereinigen, Enkodieren/Dekodieren, Hashen oder Generieren von Text",
+    "description": "64 kostenlose Text-Tools auf einer einzigen Seite – Fall-Umwandlung, Bereinigung, Zeichenkodierung, Hashes, Generatoren – alles läuft vollständig in Ihrem Browser. Nichts wird hochgeladen."
+  },
+  "t-8ma-co": {
+    "coreTask": "Große Dateien kostenlos per Link, QR-Code oder Abholcode senden und empfangen – ohne Kontoerstellung und ohne Softwareinstallation",
+    "description": "Kostenlose Übertragung großer Dateien zwischen Computern und Smartphones direkt im Browser. Teilen per Link, QR-Code oder 8-stelligem Abholcode – ohne Registrierung oder Programminstallation."
+  },
+  "sirenmix-com-tools": {
+    "coreTask": "BPM und Tonart ändern, Audioformate konvertieren, Frequenzspektren analysieren, Probe hören und Audio exportieren – ohne Konto und ohne Datei-Upload",
+    "description": "Kostenlose DJ- und Audio-Tools im Browser zum Ändern von BPM und Tonart, Umwandeln von Audioformaten und Analysieren von Frequenzspektren. Ausgewählte Dateien werden lokal mit WebAssembly verarbeitet und nicht hochgeladen."
+  },
+  "musictoolslab-com": {
+    "coreTask": "BPM und Tonarten analysieren, Metronome und Stimmgeräte nutzen, Playlists prüfen sowie Audio direkt im Browser umwandeln und bearbeiten",
+    "description": "Music Tools Lab ist eine kostenlose Sammlung von Browser-Dienstprogrammen für Musiker und Audio-Workflows, darunter BPM- und Tonarterkennung, Metronome, Stimmgeräte, Playlist-Analysen, Audiokonvertierung, Schnitt und Vokalreduzierung. Die Kernverarbeitung erfolgt lokal im Browser, sodass gewählte Dateien nicht hochgeladen werden und kein Konto nötig ist."
+  },
+  "betterhabitsdaily-com-tracker": {
+    "coreTask": "Eigene Gewohnheiten direkt im Browser tracken und verfolgen",
+    "description": "Kostenloser Gewohnheits-Tracker ohne Anmeldung, speziell für Entwickler konzipiert."
+  },
+  "utilbear-com": {
+    "coreTask": "Wörter und Zeichen zählen, HEIC-Fotos in JPG oder PNG umwandeln und WebP-Bilder nach PNG konvertieren. Alle Tools funktionieren ohne Konto; Dateien und Texte werden lokal im Browser verarbeitet.",
+    "description": "UtilBear bietet kostenlose, datenschutzfreundliche Tools zum Zählen von Texten sowie zum Konvertieren von WebP- und HEIC-Bildern. Die Verarbeitung erfolgt rein lokal im Browser – Dateien werden niemals hochgeladen. Ohne Konto, ohne Wasserzeichen, für Desktop und Mobilgeräte optimiert und in acht Sprachen verfügbar."
+  },
+  "blur-face-com-blur-face": {
+    "coreTask": "Gesichter auf Fotos automatisch erkennen und unkenntlich machen, mehrere Bilder im Batch bearbeiten, EXIF-Metadaten entfernen und herunterladen – ohne Konto",
+    "description": "Kostenloses Browser-Tool zum Schutz der Privatsphäre auf Fotos, das Gesichter automatisch erkennt und weichzeichnet. Die Verarbeitung findet rein lokal im Browser statt – Bilder werden nicht auf Server hochgeladen. Unterstützt Batch-Verarbeitung und das Entfernen von EXIF-Metadaten."
+  },
+  "pdftomdconverter-app": {
+    "description": "Konvertieren Sie Text-PDFs und lesbare englische Scans direkt im Browser in bearbeitbares Markdown – kostenlos und ohne Anmeldung.",
+    "coreTask": "PDFs direkt im Browser in Markdown umwandeln, ohne Konto oder Login"
+  },
+  "olivez-in-tool-image-compressor": {
+    "description": "Kostenloser Bildkomprimierer für JPG, PNG und WebP. Bilder werden rein lokal im Browser verarbeitet und niemals hochgeladen. Unterstützt Stapel von bis zu 40 Bildern, Vorher-Nachher-Vergleich, individuelle Qualitätsregler, PNG-Farbreduktion und ZIP-Export. Kein Konto erforderlich.",
+    "coreTask": "JPG-, PNG- und WebP-Bilder im Stapel lokal komprimieren, vergleichen, anpassen und einzeln oder als ZIP herunterladen"
+  },
+  "www-ottopoll-com": {
+    "description": "Otto ist ein kostenloses Umfragetool, mit dem Sie in 2 Minuten Abstimmungen für Freunde oder Teams erstellen können – ganz ohne Konto. Datum, Ort oder Zeitfenster festlegen, Link teilen und in Echtzeit abstimmen, ohne E-Mail oder Registrierung.",
+    "coreTask": "Umfragen erstellen, Link teilen, abstimmen und Live-Ergebnisse ansehen – ohne Konto"
+  },
+  "questionsgenerator-com": {
+    "description": "Kostenloser Fragengenerator mit über 3.750 Gesprächsöffnern in 34 Kategorien: Deep Talk, Humor, Dating, Partyspiele (Würdest du eher, Wahrheit oder Pflicht, Ich hab noch nie) und Teambuilding. Vollständig im Browser, sofort zufällige Fragen generieren – ohne Anmeldung.",
+    "coreTask": "Kategorie auswählen und sofort zufällige Fragen generieren – rein im Browser, ohne Registrierung"
+  },
+  "headlinecapitalization-com": {
+    "description": "Kostenloses Tool zur automatischen Groß-/Kleinschreibung von Titeln und Überschriften nach AP-, APA-, MLA- und Chicago-Regeln. Inklusive Referenzleitfäden für Buchtitel, Aufsätze, Lebensläufe und Social-Media-Texte. Direkt im Browser, ohne Anmeldung.",
+    "coreTask": "Titel und Überschriften nach AP-, APA-, MLA- oder Chicago-Regeln direkt im Browser formatieren"
+  },
+  "alphabeticallyordered-com": {
+    "description": "Kostenloses Online-Tool zum alphabetischen Sortieren von Listen und Textzeilen. Fügen Sie Namen, Wörter oder Zeilen ein und sortieren Sie sofort von A–Z oder Z–A, inklusive Duplikatentfernung, Groß-/Kleinschreibungsoptionen und Spaltensortierung. Ohne Konto.",
+    "coreTask": "Listen einfügen und ohne Konto alphabetisch sortieren und deduplizieren"
+  },
+  "preuveenmain-ca-app-index-html": {
+    "description": "Zweisprachige kanadische Web-App (Quebec), die Selbstvertretern hilft, datierte Fakten, Beweise, Mitteilungen, Fristen und Chronologien in einem strukturierten Aktenbericht zu organisieren. Bei der Nutzung ohne Anmeldung bleiben alle Daten auf Ihrem Gerät. Dient der Strukturierung, keine Rechtsberatung.",
+    "coreTask": "Gerichtsunterlagen, Beweise und Zeitleisten direkt im Browser verwalten und Berichte lokal erstellen – ohne Konto"
+  },
+  "extract-express": {
+    "description": "Browserbasiertes Tool zum Herunterladen von Videos oder Audios von unterstützten Websites und direkten Medienlinks. Wählen Sie kompatibles MP4 oder die maximale Quellqualität bis zu 4K – ganz ohne Konto.",
+    "coreTask": "Unterstützte Medienlinks einfügen und Videos oder Audio bis zu 4K ohne Anmeldung herunterladen"
+  },
+  "comprimirpdf-app": {
+    "description": "PDF-Dateien vollständig im Browser komprimieren. Reduzieren Sie die Dateigröße, ohne Software zu installieren oder Dokumente auf fremde Server hochzuladen. Schützt Ihre Privatsphäre, bietet mehrere Komprimierungsstufen und funktioniert auf jedem Gerät. Kostenlos, ohne Registrierung – Dateien verlassen nie Ihr Gerät.",
+    "coreTask": "PDF-Dateien komplett im Browser komprimieren, ohne Upload auf Server"
+  },
+  "contadordepalabras-app": {
+    "description": "Zählt Wörter, Zeichen, Sätze, Absätze und Lesezeit in Echtzeit während des Tippens. Inklusive Lesbarkeitsanalyse und Keyword-Dichte. Ohne Registrierung, läuft komplett im Browser und schützt Ihre Texte lokal auf Ihrem Gerät.",
+    "coreTask": "Wörter und Zeichen in Echtzeit im Browser zählen – ohne Anmeldung und mit lokalem Datenschutz"
+  },
+  "nawtch-app": {
+    "description": "Nawtch ist ein kostenloser Fitness- und Ernährungstracker, der vollständig im Browser läuft. Erfassen Sie Mahlzeiten, Kalorien, Makronährstoffe, Portionskosten, Gewicht und Trainingspläne – alles wird lokal über IndexedDB gespeichert und nichts an Server gesendet. Kein Konto, keine E-Mail, keine Paywalls. Enthält wissenschaftlich fundierte Rechner (TDEE, BMR, BMI, Körperfettanteil).",
+    "coreTask": "Ernährung, Kalorien, Makros, Gewicht und Workouts lokal im Browser protokollieren und exportieren – ohne Anmeldung"
+  },
+  "productivitytimer-com": {
+    "description": "Kostenlose Online-Produktivitäts-Timer-Suite: Pomodoro-Timer, Countdown, Stoppuhr, Aufgabenschätzung, Gewohnheitstracker und Fokusprotokoll. Kein Konto oder Login erforderlich, funktioniert sofort im Browser.",
+    "coreTask": "Pomodoro- und Countdown-Timer starten, Fokusphasen protokollieren und Gewohnheiten ohne Konto erfassen"
+  },
+  "mojisuu-app": {
+    "description": "Mojisuu zählt japanische Zeichen, Zeilen, Absätze, Manuskriptseiten (Genkō Yōshi) und Byte-Länge in Echtzeit. Entwickelt für japanische Autoren und Lektoren, mit Unterstützung für Vollbreitenzeichen. Ohne Registrierung, läuft im Browser und schützt Ihre Daten lokal.",
+    "coreTask": "Japanische Zeichen und Manuskriptseiten in Echtzeit direkt im Browser zählen – ohne Anmeldung"
+  },
+  "kitparlor-com": {
+    "description": "27 kostenlose Browser-Tools für Verkäufer auf Etsy, Amazon und Print-on-Demand: Gebühren- und Gesamtkostenrechner, Bildskalierer, Druckdatei-Prüfer, nahtlose Mustergeneratoren und Etikettenersteller. Alle Tools laufen lokal im Browser – Bilder und Dateien werden niemals auf fremde Server übertragen. Kein Konto, keine Testphase, kein Upload-Schritt.",
+    "coreTask": "Produktbilder skalieren, Verkaufsgebühren berechnen, Muster und Etiketten erstellen – rein im Browser ohne Konto"
+  },
+  "contextwindowvramcalculator-com": {
+    "description": "Berechnen Sie den VRAM-Bedarf für das Kontextfenster von LLMs, KV-Cache pro Token, gesamten GPU-Speicher und maximalen Kontext mit GQA oder MQA, FP16, FP8, Q4, Nebenläufigkeit und GPU-Budget-Vorgaben. Ohne Anmeldung nutzbar.",
+    "coreTask": "LLM-Kontext, KV-Cache und gesamten GPU-Speicherbedarf direkt im Browser berechnen"
+  },
+  "watermarkzero-org": {
+    "description": "Entfernen Sie sichtbare Gemini-Wasserzeichen aus Bildern rein lokal im Browser mit hoher Wiederherstellungsqualität. Kein Konto und kein Upload auf externe Server erforderlich.",
+    "coreTask": "Gemini-Wasserzeichen lokal im Browser aus Bildern entfernen und das Original herunterladen – ohne Konto"
+  },
+  "metadataremover-ai": {
+    "description": "Kostenloses browserbasiertes Tool zum Einsehen und Entfernen von EXIF-, GPS-, XMP-, IPTC- und KI-Metadaten aus JPG-, PNG- und WebP-Bildern. Dateien bleiben vollständig lokal und es ist kein Konto erforderlich.",
+    "coreTask": "EXIF-, GPS- und KI-Metadaten aus Bildern prüfen und lokal entfernen – ohne Anmeldung"
+  },
+  "untrackedtools-com-en": {
+    "description": "Über 100 kostenlose Online-Tools, die komplett im Browser laufen. PDF zusammenfügen, teilen, komprimieren und konvertieren; Bildkomprimierung, Formatkonvertierung und Skalierung; JSON/YAML-Formatierer, Markdown-Editoren, Token-Zähler und Einheitenumrechner. Keine Uploads auf fremde Server – Ihre Daten verlassen nie Ihr Gerät. Ohne Konto, ohne Tracking, ohne Cookies. Funktioniert nach dem ersten Laden auch offline.",
+    "coreTask": "PDF-Dateien im Browser zusammenfügen und über 100 Tools lokal und ohne Anmeldung nutzen"
+  },
+  "articleformatter-com": {
+    "description": "Kostenloses browserbasiertes Werkzeug zur Textformatierung und -bereinigung. Korrigiert typografische Anführungszeichen, konvertiert CSV in HTML-Tabellen, zählt Wörter und Zeichen und formatiert JSON. Läuft vollständig clientseitig – kein Upload und kein Konto erforderlich.",
+    "coreTask": "Texte direkt im Browser formatieren, bereinigen und konvertieren – ohne Anmeldung"
+  },
+  "aspectratiocalculator-com": {
+    "description": "Kostenloser Rechner für Seitenverhältnisse von Bildern und Videos. Maße eingeben, um das Seitenverhältnis zu ermitteln, oder Voreinstellungen (16:9, 4:3, 1:1) wählen, um passende Auflösungen zu berechnen. Unterstützt auch Pixeldichte und Vergleiche nebeneinander. Ohne Anmeldung.",
+    "coreTask": "Seitenverhältnisse und Auflösungen berechnen, vergleichen und Pixeldichte prüfen – ohne Registrierung"
+  },
+  "www-yhile-com": {
+    "description": "Webseite mit nützlichen kostenlosen Browser-Tools wie HEIC zu JPG, Audio-/Video-Konvertierung, Collagen-Ersteller und mehr. Ohne Wasserzeichen, ohne Werbung und mit lokaler Verarbeitung, sodass Ihre Dateien auf Ihrem Gerät verbleiben. (100 % kostenlos und ohne Konto)",
+    "coreTask": "Sammlung nützlicher Browser-Tools wie HEIC-Konvertierung und Collagen-Erstellung lokal nutzen – ohne Anmeldung"
+  },
+  "imgrove-com": {
+    "description": "Sammlung kostenloser Bildwerkzeuge im Browser für Konvertierung, Komprimierung, Skalierung, Bearbeitung, Metadaten-Inspektion und Export. Bilder verbleiben auf Ihrem Gerät – ohne Anmeldung und ohne Wasserzeichen.",
+    "coreTask": "Bilder im Browser konvertieren, komprimieren, bearbeiten und Metadaten prüfen – rein lokal und ohne Konto"
+  },
+  "bunengchi-com": {
+    "description": "BunengChi ist ein öffentliches Nachschlagewerk für Fragen zur Lebensmittelsicherheit und für Haustiere ungeeignete Nahrungsmittel, mit Risikostufen, Quellenangaben und Hinweisen auf professionelle Hilfe bei Notfällen. Frei zugänglich ohne Anmeldung.",
+    "coreTask": "Öffentliche Leitfäden zu Lebensmittelsicherheit und Gefahren für Haustiere ohne Konto durchsuchen"
+  },
+  "decode-base64-com": {
+    "description": "Base64 in Text decodieren oder Text in Base64 encodieren, inklusive URL-sicherer Formate, direkt im Browser und ganz ohne Benutzerkonto.",
+    "coreTask": "Base64-Texte direkt im Browser ohne Konto sofort enkodieren oder dekodieren"
+  },
+  "www-slabcalc-co": {
+    "description": "Kostenloser Betonrechner für Platten, Säulen, Bordsteine und Treppen. Maße in metrischen oder imperialen Einheiten eingeben und Volumen, Sackanzahl (40/50/60/80 lb), Gewicht sowie geschätzte Einbaukosten inklusive Verschnittfaktor berechnen. Kein Konto und keine Installation erforderlich.",
+    "coreTask": "Betonvolumen, Sackanzahl, Gewicht und Kosten für Platten oder Treppen direkt im Browser ohne Konto berechnen"
+  },
+  "formatdrop-com": {
+    "coreTask": "Dateien zwischen verschiedenen Formaten konvertieren, ohne sie irgendwo hochzuladen",
+    "description": "Bilder, Videos, Audiodateien und Dokumente direkt im Browser konvertieren. HEIC zu PNG, MP4 zu GIF, DOCX zu PDF und über 200 weitere Formatpaare. Alle Dateien werden lokal auf deinem Gerät verarbeitet und niemals auf einen Server hochgeladen. Kein Konto erforderlich, keine Installation; typische Konvertierungen dauern nur ein bis drei Sekunden."
+  },
+  "artboardlab-com": {
+    "coreTask": "Bilder komprimieren und konvertieren, Illustrator .ai-Dateien ansehen und konvertieren, GIFs erstellen – alles im Browser ohne Upload",
+    "description": "Kostenlose browserbasierte Bild- und Designtools. Dank WebAssembly läuft alles lokal im Browser, sodass Dateien nie auf einen Server geladen werden. Kein Konto erforderlich. Beinhaltet Bildkompressor (JPEG/PNG/WebP/AVIF), Formatkonverter, Adobe Illustrator .ai-Viewer und -Konverter (.ai zu SVG/PNG/PDF) ohne installiertes Illustrator, GIF-Maker, Bildteiler, Halbton- und Rauschtexturgeneratoren, Musterprüfer, Farbwähler, DPI-Wechsler und Einheitenrechner."
+  },
+  "convertilo-io": {
+    "coreTask": "Bilder komprimieren, PDFs konvertieren und zusammenführen direkt im Browser",
+    "description": "Über 100 browserbasierte Dateitools: Bilder komprimieren und konvertieren, PDFs zusammenführen und bearbeiten, Audiotools sowie OCR. Alles läuft clientseitig per WebAssembly: keine Uploads, keine Registrierung, kein Tracking."
+  },
+  "banglatools-com": {
+    "coreTask": "Bengalischen Text online zwischen Unicode und Bijoy konvertieren",
+    "description": "BanglaTools bietet Online-Konvertierungstools für bengalischen Unicode- und Bijoy-Text für Lernende, Lehrende und Content-Ersteller. Die Tools lassen sich komplett ohne Konto nutzen."
+  },
+  "needgohome-netlify-app": {
+    "coreTask": "Eine vollständige Nachricht für vorzeitigen Feierabend nach Sprache, Grund und Tonfall generieren und kopieren",
+    "description": "Ein kostenloses Tool ohne Anmeldung, das eine klare und professionelle Nachricht verfasst, um deiner Führungskraft mitzuteilen, dass du früher gehen musst. Wähle Grund, Tonfall und eine von 12 Sprachen (inklusive RTL für Arabisch und Hebräisch) und erhalte sofort sendebereite Vorlagen für SMS, E-Mail oder Chat. Regelbasiert statt KI, komplett im Browser ausgeführt."
+  },
+  "pdfzus-de": {
+    "coreTask": "Mehrere PDFs zusammenführen, Seiten neu anordnen und PDF-Dateien direkt im Browser komprimieren",
+    "description": "Führe PDF-Dateien direkt im Browser zusammen, ordne Seiten neu an und komprimiere sie. Die Kernfunktionen erfordern kein Konto, fügen keine Wasserzeichen hinzu und verarbeiten Dateien direkt auf deinem Gerät."
+  },
+  "taimaa-net": {
+    "coreTask": "Einen browserbasierten Countdown-Timer ohne Registrierung einstellen und starten",
+    "description": "Kostenloser Online-Timer ohne Anmeldung für japanische Nutzer."
+  },
+  "morsecodetranslator-tools": {
+    "coreTask": "Text und Morsecodierung in beide Richtungen ohne Kontoerstellung übersetzen",
+    "description": "Übersetze Text sofort im Browser in Morsecode und Morsecode wieder in Text."
+  },
+  "gantt-chart-io": {
+    "coreTask": "Aufgaben einfügen, Balken generieren und Link teilen – unverbindlich ohne Anmeldung testen",
+    "description": "Füge ein Backlog oder einen Textabschnitt ein und erhalte ein interaktives Gantt-Diagramm. KI kann Terminverschiebungen vorschlagen, schreibt den Zeitplan jedoch erst nach deiner Freigabe fest. Ohne Account ausprobieren; kostenpflichtige Pläne ab 12 $/Monat zum Speichern."
+  },
+  "textunnel-com": {
+    "coreTask": "Texte, Links, Code und Dateien direkt im Browser zwischen Computern und Mobilgeräten ohne Konto oder Login übertragen",
+    "description": "Textunnel ist ein leichtgewichtiges Tool zur geräteübergreifenden Freigabe, mit dem du Texte, Links, Code und Dateien übertragen kannst – ohne Account und ohne Login. Eine unkomplizierte Lösung, um Daten direkt im Browser zwischen PCs und Mobilgeräten auszutauschen."
+  },
+  "lensup-ai": {
+    "coreTask": "Smartphone-Fotos in ein sauberes, druckbares PDF verwandeln – kein Upload, keine Registrierung",
+    "description": "LensUp ist ein kostenloser Online-Dokumentenscanner, der komplett im Browser läuft. Fotografiere ein Dokument und verwandle es in ein druckbereites PDF: Perspektivkorrektur und Zuschnitt, Schattenentfernung, Zielgrößen-Kompression, optionale Wasserzeichen oder Signaturen sowie Ausweis-Vorder- und Rückseite auf einer Seite. Keine App, keine Anmeldung, keine Zwangs-Wasserzeichen und keinerlei Uploads."
+  },
+  "tools-pve-ch": {
+    "coreTask": "Alle gelisteten Tools direkt im Browser ohne Kontoerstellung nutzen",
+    "description": "Kostenlose Browser-Tools ohne Anmeldung: Thai-Alphabet, Karteikarten, Übungsblätter und Lesehilfen, verifizierte OSINT-Linksammlung, Berner Brunch-Guide, Einheitenrechner, teilbarer Countdown, ASCII-Referenz und Smiley-Komponist. Läuft überwiegend clientseitig auf statischem Hosting."
+  },
+  "www-calculatorcampus-com": {
+    "coreTask": "Praktische Berechnungen und Umrechnungen im Browser ohne Konto durchführen",
+    "description": "Calculator Campus ist eine kostenlose Sammlung praktischer browserbasierter Rechner. Jedes Tool bietet eine klare Eingabemaske zusammen mit Formeln, Annahmen, Rechenbeispielen, FAQs und Quellenangaben. Die Hauptrechner funktionieren komplett ohne Konto."
+  },
+  "bitibybit-com-volunteer-roster": {
+    "coreTask": "Ehrenamtliche Schichten mit einem einzigen Link organisieren und belegen – ohne Anmeldung, ohne Installation und ohne Tracking",
+    "description": "Ein kostenloses Web-Tool für Vereine und Schulen zur Koordination von Helfer- und Dienstschichten. Die Leitung erstellt den Plan, teilt einen Link und alle Helfer wählen ihren Slot per Klick. Niemand muss sich registrieren oder etwas installieren, es werden keine E-Mail-Adressen erfasst und es gibt weder Werbung noch Tracker oder Cookies. Enthält einsatzbereite Vorlagen für verschiedene Vereinsaktivitäten."
+  },
+  "piccollages-com": {
+    "coreTask": "Fotocollagen, Raster-Layouts, lange Bilder, Bildzusammenstellungen und Fotomosaike erstellen und ohne Konto exportieren",
+    "description": "Pic Collage Maker ist ein kostenloses, datenschutzfreundliches Browser-Tool zum Erstellen von Fotocollagen, Gitternetzen, zusammengefügten Bildern und Mosaiken. Fotos per Drag-and-Drop anordnen, Text, Sticker, Filter und Hintergründe hinzufügen und hochauflösend exportieren. Die Bildverarbeitung bleibt lokal im Browser und alle Kernfunktionen sind ohne Registrierung nutzbar."
+  },
+  "nutilz-com-caa-record-generator": {
+    "coreTask": "CAA-DNS-Einträge erstellen und prüfen, um zu steuern, welche Zertifizierungsstellen SSL/TLS-Zertifikate für deine Domain ausstellen dürfen",
+    "description": "CAA-DNS-Records (Certificate Authority Authorization) generieren und validieren. Erlaubte CAs festlegen, Wildcard-Regeln und iodef-Verstoßmeldungen hinzufügen, ergänzt durch einen Parser und Prüfer für Rohdaten. Läuft komplett im Browser, ohne Anmeldung."
+  },
+  "www-textfixhub-com": {
+    "coreTask": "Listen alphabetisieren, Zeilenumbrüche entfernen, Wörter/Silben zählen, Text spiegeln und Hoch-/Tiefstellung sofort ohne Konto nutzen",
+    "description": "Schnelle, datenschutzfreundliche Text-Utilities, die komplett im Browser laufen. Listen alphabetisch sortieren, Zeilenumbrüche entfernen, Sätze und Silben zählen, Phantasiewörter erzeugen, Text spiegeln und mehr. Ohne Anmeldung oder Login – deine Texte verlassen nie dein Gerät."
+  },
+  "webgpustress-com": {
+    "coreTask": "GPU-Stresstests, WebGL-Funktionsprüfungen und Performance-Benchmarks direkt im Browser durchführen",
+    "description": "Kostenloser browserbasierter GPU-Stresstest zur Überprüfung dauerhafter Grafikleistung ohne Softwareinstallation. Führe WebGL-Workloads aus und überwache durchschnittliche FPS, 1%-Low-Werte, Frametime-Stabilität, Frame-Drops und Leistungsveränderungen im Zeitverlauf."
+  },
+  "citefetch-com": {
+    "coreTask": "Quellenangaben prüfen, reale Datenbankeinträge abrufen und formatierte Zitate ohne Konto erstellen",
+    "description": "CiteFetch gleicht wissenschaftliche Referenzen mit CrossRef und OpenAlex ab, weist auf fingierte oder fehlerhafte Quellen hin und formatiert Zitate in den gängigen Stilen. Kostenlos, werbefrei und ohne Account nutzbar."
+  },
+  "dochost-io": {
+    "coreTask": "HTML oder Markdown einfügen, live in der Vorschau ansehen und ohne Konto unter einer teilbaren URL veröffentlichen",
+    "description": "HTML oder Markdown einfügen und sofort eine saubere, teilbare Hosting-URL erhalten. Kein Account, kein Build-Schritt, mit Live-Markdown-Vorschau während der Eingabe. Auch direkt über die Kommandozeile veröffentlichbar."
+  },
+  "csv-safecheck-pages-dev": {
+    "coreTask": "Shopify-Produkt-CSVs validieren, Importrisiken prüfen und lokale Berichte oder deterministische Korrekturen herunterladen",
+    "description": "Prüfe Shopify-Produkt-CSVs vor dem Import. CSV SafeCheck erkennt fehlende Pflichtspalten, ungültige Werte, doppelte Handles, Risiken bei Optionen und SKUs sowie formelartige Zellen. Sichere Korrekturdateien und Berichte werden lokal im Browser erzeugt – ganz ohne Upload, Konto, Tracker oder Cookies."
+  },
+  "kivtools-com": {
+    "coreTask": "JSON/APIs, JWT/JWK-Verifizierung, Codeformatierung, Dateninspektion und DevOps-Tools direkt im Browser nutzen",
+    "description": "Kostenlose lokale Browser-Entwicklertools für JSON, APIs und OpenAPI, JWT/JWK-Überprüfung, Codeformatierung, Dateninspektion und DevOps-Workflows."
+  },
+  "free-qr-codes-com": {
+    "coreTask": "Statische QR-Codes erstellen, scannen und Inhalte prüfen direkt im Browser ohne Konto",
+    "description": "Datenschutzfreundliche Browser-Tools zum Erstellen, Scannen und Prüfen statischer QR-Codes. Erzeuge QR-Codes für URLs, WLAN, Kontaktdaten und mehr – ohne Anmeldung, ohne Wasserzeichen und ohne künstliches Ablaufdatum."
+  },
+  "playfatelab-com": {
+    "coreTask": "Würfeln, Münzen werfen, Zufallszahlen generieren, Ja/Nein-Entscheidungen treffen und aus eigenen Listen ziehen – ohne Konto",
+    "description": "Lokale Zufallstools im Browser für Würfel, Münzwurf, Zufallszahlen, Ja/Nein-Entscheidungen sowie Listen- und Namensziehungen. Kein Account erforderlich; aktuelle Ergebnisse, Verlauf und Auswahldaten verbleiben komplett im Browser."
+  },
+  "pixeltools-io": {
+    "coreTask": "Bilder, PDFs, Audio und Video komplett im Browser in der Größe anpassen, komprimieren und konvertieren – ohne Upload, ohne Registrierung",
+    "description": "Eine kostenlose, 100% browserbasierte Suite für Bilder, PDFs, Audio und Video (Skalieren, Komprimieren, Konvertieren, PDFs zusammenführen, Hintergrundentfernung und mehr). Alles läuft clientseitig über Canvas API, ffmpeg.wasm, pdf-lib und TensorFlow.js – kein Server-Upload, kein Konto erforderlich."
+  },
+  "herebytes-com-remove-image-gps": {
+    "description": "Ein kostenloses Browser-Tool, das vor dem Teilen GPS, EXIF und andere Nicht-Pixel-Metadaten aus JPEG-, PNG- und WebP-Bildern lokal auf dem Gerät entfernt – ganz ohne Upload.",
+    "coreTask": "Ein Bild auswählen, eingebettete Standortdaten und Metadaten lokal entfernen, das bereinigte Ergebnis in der Vorschau anzeigen und herunterladen (ohne Anmeldung)"
+  },
+  "fluxops-nanocorp-app-tools-reorder-calculator": {
+    "description": "Kostenloser Überbestands- und Nachbestellungsrechner für E-Commerce-Marken – Fehlbestandsrisiken erkennen und wöchentliche Arbeitszeit sparen, ganz ohne Konto.",
+    "coreTask": "Geben Sie aktuellen Bestand, durchschnittlichen Tagesabsatz, Lieferzeit und Sicherheitsbestand ein, um ohne Konto sofort verbleibende Tage, Meldebestände, Nachbestellvorschläge und Überbestandshinweise zu sehen"
+  },
+  "midiplayeronline-com": {
+    "description": "Mit MIDI Player Online (MIDI Room) können Sie .mid- und .midi-Dateien direkt im Browser hochladen und abspielen, die Piano-Roll-Ansicht prüfen sowie Tempo und Instrumente anpassen – ohne Registrierung.",
+    "coreTask": "MIDI-Dateien direkt im Browser abspielen und visualisieren, ohne ein Konto anzulegen"
+  },
+  "quixcalc-com": {
+    "description": "QuixCalc ist eine kostenlose Sammlung von über 60 Online-Rechnern und Tools, von Finanzen bis hin zu Heimwerkerprojekten, die direkt im Browser ausgeführt werden. Kein Konto erforderlich.",
+    "coreTask": "Jeden der schnellen Online-Rechner der Website direkt im Browser nutzen"
+  },
+  "polymarketscan-org": {
+    "description": "Kostenlose unabhängige Polymarket-Analysen und öffentliches Verzeichnis der Gewinner auf Prognosemärkten. Wallets, Märkte und Whale-Alerts ganz ohne Konto durchsuchen.",
+    "coreTask": "Polymarket-Wallets, Märkte, Wal-Warnungen und Trader-Historien ohne Konto durchstöbern"
+  },
+  "textlogo-app": {
+    "description": "Erstellen Sie individuelle Textlogos, Wortmarken und Typografie-Logos direkt im Browser – mit anpassbaren Schriftarten, Farben, Icons, Formen, Hintergründen und Export als SVG, PNG, WebP oder ICO. Ohne Login.",
+    "coreTask": "Ein individuelles Textlogo erstellen und ohne Anmeldung oder Konto als SVG oder PNG exportieren"
+  },
+  "tryink-me": {
+    "description": "TryInk ist ein virtuelles Tattoo-Anprobe-Tool: Laden Sie ein Foto Ihrer Körperstelle hoch, platzieren Sie ein Motiv und testen Sie Größe und Position vor dem Stechtermin auf der eigenen Haut. Ohne Registrierung.",
+    "coreTask": "Ein Körperfoto hochladen, ein Design platzieren und Größe sowie Position auf der eigenen Haut in der Vorschau prüfen"
+  },
+  "diagrflow-com": {
+    "description": "Diagrflow ist ein spezialisiertes Tool für publikationsreife PRISMA 2020-Flussdiagramme. Geben Sie die Fallzahlen Ihrer systematischen Übersichtsarbeit ein, prüfen Sie die standardisierten Phasen in der Vorschau und exportieren Sie saubere SVG- oder PNG-Dateien ohne Wasserzeichen.",
+    "coreTask": "Zahlen der systematischen Übersichtsarbeit eingeben, PRISMA-Diagrammphasen in der Vorschau prüfen und als SVG oder PNG exportieren"
+  },
+  "studycalcpro-com": {
+    "description": "Kostenlose Online-Rechner und Lernwerkzeuge für Studierende und Schüler: Notendurchschnittsrechner (GPA), Abschlussnoten-Planer, Prozentrechnung, Pomodoro-Timer, Prüfungscountdown und mehr. Ohne Anmeldung und ohne Werbeunterbrechungen vor den Ergebnissen.",
+    "coreTask": "Jeden Rechner sofort verwenden und sämtliche Lernanleitungen ohne Konto lesen"
+  },
+  "chordgen-app": {
+    "description": "Kostenloser Online-Akkordfolge-Generator. Tonart und Stimmung auswählen, auf Play drücken und direkt loskomponieren. Ohne Anmeldung oder Registrierung.",
+    "coreTask": "Akkordfolgen direkt im Browser generieren und abspielen, ohne ein Konto anzulegen"
+  },
+  "codextheme-tools": {
+    "description": "Kostenloser, browserlokaler Theme-Builder für Codex Desktop – verwandelt jedes Hintergrundbild in ein gut lesbares, individuelles Design bei vollem Datenschutz.",
+    "coreTask": "Ohne Konto direkt im Browser aus einem Hintergrundbild ein Codex Desktop-Theme erstellen und exportieren"
+  },
+  "entityminder-smoke-web-app-em-lookup": {
+    "description": "Fristen für Jahres- oder Zweijahresberichte von LLCs und Kapitalgesellschaften in allen US-Bundesstaaten nachschlagen: offizieller Berichtsname, Abgabeintervall, Franchise-Tax-Hinweise und Direktlink zum staatlichen Portal. Alle 50 Staaten plus DC. Ohne Konto, ohne E-Mail, ohne Bezahlschranke.",
+    "coreTask": "Einen US-Bundesstaat auswählen und sofort die Frist für den LLC-/Unternehmensjahresbericht, den offiziellen Namen, Steuerhinweise und den Link zur Einreichungsseite sehen"
+  },
+  "earchord-com": {
+    "description": "Kostenloser browserbasierter Akkord-Finder, der Akkordfolgen, Tonart und Tempo aus Audiodateien ermittelt. Die Verarbeitung erfolgt rein lokal auf Ihrem Gerät – kein Upload, kein Benutzerkonto erforderlich.",
+    "coreTask": "Eine Audiodatei lokal analysieren, um Akkordfolge, Tonart und Tempo anzuzeigen (ohne Anmeldung)"
+  },
+  "verifiedlimits-com": {
+    "description": "Kostenlose Rechner für Beitragsgrenzen, Förderfähigkeit und Strafen bei Überzahlung für HSA, IRA und 401(k), abgeglichen mit den IRS-Richtlinien. Alle Berechnungen laufen komplett im Browser – keine Serverübertragung, kein Konto nötig, keine Speicherung.",
+    "coreTask": "Genaue HSA-, IRA- und 401(k)-Beitragslimits berechnen, HDHP-Berechtigung prüfen und Strafen für Überzahlungen ermitteln – alle Rechner ohne Konto nutzbar"
+  },
+  "1600-now": {
+    "description": "Kostenlose SAT-Vorbereitung für Schüler: Fragenpool filterbar nach Fach, Fähigkeit und Schwierigkeit, ausführliche Erklärungen, Tests mit Zeitlimit, Vokabelübungen und Video-Walkthroughs für schwierige Matheaufgaben. Üben funktioniert ganz ohne Login.",
+    "coreTask": "SAT-Aufgaben üben, Erklärungen lesen, zeitgesteuerte Tests absolvieren und Vokabeln lernen, ohne ein Konto anzulegen"
+  },
+  "telemetry-sh-sql-playground": {
+    "description": "Kostenlose SQL-Playground von Telemetry: Führen Sie ohne Registrierung im Browser über DuckDB Abfragen auf simulierte Anwendungsereignisse aus, um Fehlerraten, Anfragevolumen und Latenzen nach einem Release zu analysieren.",
+    "coreTask": "Integrierte Beispiel-Events auswählen, SQL direkt im Browser bearbeiten und ausführen sowie Anfragezahlen, Fehlerraten und Latenzen ohne Konto prüfen"
+  },
+  "svgviewer-app": {
+    "description": "SVG Viewer ist ein kostenloses Online-Toolkit für Designer und Entwickler zum Anzeigen, Bearbeiten, Optimieren und Konvertieren von SVG-Dateien direkt im Webbrowser. Datei hochladen oder SVG-Code einfügen und sofort eine Echtzeit-Vorschau erhalten – komplett ohne Registrierung.",
+    "coreTask": "SVG-Dateien direkt im Browser mit Echtzeit-Vorschau anzeigen und bearbeiten, ganz ohne Konto"
+  },
+  "focus2grow-app-dealcove": {
+    "description": "Ein datenschutzfreundliches CRM für kleine Unternehmen, das Leads, Deals, Follow-ups, Notizen, Pipeline-Stufen und Vertriebs-KPIs direkt im Browser speichert. Kontakte per CSV im- und exportieren und ganz ohne Cloud-Konto arbeiten.",
+    "coreTask": "Leads, Deals, Folgeaufgaben, Notizen und Pipeline-Stufen lokal im Browser verwalten sowie Kontakte per CSV importieren und exportieren – ohne Konto"
+  },
+  "gizmobench-com": {
+    "description": "GizmoBench ist eine Sammlung von über 130 kostenlosen Dienstprogrammen, die vollständig im Browser laufen: Einheiten- und Zahlenbasis-Konverter, Rechner, JSON-Formatierer, Base64- und Markdown-Tools, STL-Viewer, Farbpipette, Barcode-Generator, Bildschirm- und Audiotests u.v.m. Lokale Verarbeitung, kein Upload, kein Konto.",
+    "coreTask": "Alle Tools uneingeschränkt nutzen: Einheiten und Basen konvertieren, JSON formatieren, Farben aus Bildern wählen, STL-Dateien ansehen"
+  },
+  "online-tone-generator-com": {
+    "description": "Erzeugen und hören Sie Reintöne von 20 Hz bis 20.000 Hz direkt im Browser. Wählen Sie Sinus-, Rechteck-, Dreieck- oder Sägezahnwellen, passen Sie Lautstärke und Balance an, nutzen Sie Voreinstellungen oder speichern Sie WAV-Dateien ohne Anmeldung.",
+    "coreTask": "Töne abspielen und stoppen, Frequenz und Wellenform ändern, Lautstärke und Balance anpassen sowie WAV-Audio ohne Anmeldung speichern"
+  },
+  "visualpromptcompiler-com": {
+    "description": "Kompilieren Sie visuelle Briefings lokal in strukturierte Prompts und portables JSON für Seedream und Nano Banana – mit klaren Beibehalten-/Ändern-Regeln, Referenzrollen, Warnhinweisen und Modellanpassungen. Weder Konto noch Bildupload erforderlich.",
+    "coreTask": "Ein visuelles Briefing in strukturierte Prompts und portables JSON kompilieren, Grenzen für Änderungen festlegen und modellspezifische Anweisungen kopieren"
+  },
+  "readanytext-com": {
+    "description": "ReadAnyText verwandelt Texte, PDFs, Word-Dateien, EPUBs und Artikel-Links mit 322 neuronalen Stimmen in 75 Sprachen in gesprochenes Audio. Kein Konto, keine Registrierung, keine Bezahlschranke. Exportiert MP3 oder WAV sowie wortgenaue SRT- und VTT-Untertitel; Dokumente werden im Browser verarbeitet und verlassen Ihr Gerät nie.",
+    "coreTask": "Text einfügen oder Dokumente/URLs importieren, aus 322 Stimmen wählen, Audio generieren und MP3, WAV sowie Untertitel ohne Konto herunterladen"
+  },
+  "roascompare-com": {
+    "description": "Kostenloser Break-Even-ROAS-Rechner für E-Commerce-Händler. Geben Sie Umsatz, Produktkosten, Versand und Gebühren ein, um den Break-Even-ROAS, den maximalen CPA und den Ziel-ROAS zu ermitteln. Preisszenarien vergleichen und als CSV exportieren – ohne Konto, alle Daten bleiben im Browser.",
+    "coreTask": "Break-Even-ROAS und Ziel-CPA berechnen, Bestellszenarien vergleichen und Ergebnisse als CSV exportieren (ohne Anmeldung)"
+  },
+  "www-pastecurl-com": {
+    "description": "Kostenloser browserbasierter cURL-zu-Code-Konverter für 23 Sprachen und 40 Bibliotheksoptionen. Fügen Sie einen cURL-Befehl ein und kopieren Sie den generierten Code für Python, JavaScript, Go u.v.m. Ohne Konto; Befehle verbleiben auf Ihrem Gerät und es werden keine Anfragen gesendet.",
+    "coreTask": "cURL-Befehle in Code für 23 Programmiersprachen umwandeln und das Ergebnis ohne Konto kopieren"
+  },
+  "subsuperscript-com": {
+    "description": "Normalen Text in kopierbare hochgestellte oder tiefgestellte Unicode-Zeichen umwandeln. Der Formelmodus hält Fließtext lesbar und passt Exponenten, Indizes und wissenschaftliche Notationen an; der Mini-Text-Modus konvertiert jedes unterstützte Zeichen. Mit Live-Vorschau und 1-Klick-Kopieren ohne Anmeldung.",
+    "coreTask": "Text eingeben oder einfügen, Hoch-/Tiefstellung wählen, das Unicode-Ergebnis in der Vorschau sehen und ohne Anmeldung kopieren"
+  },
+  "fomrix-com-stl-viewer": {
+    "coreTask": "Ein STL-Mesh öffnen, drehen, zoomen sowie Dreieckszahlen und Abmessungen ohne Kontoerstellung überprüfen.",
+    "description": "Fomrix STL Viewer ist ein kostenloser Online-STL-Viewer zum Öffnen und Prüfen von Mesh-Geometrien direkt im Browser ohne Konto. Drehen und zoomen Sie das Modell, prüfen Sie Dreiecksanzahl sowie Maße, während die Originaldatei unverändert bleibt. Der Viewer prüft keine Druckbarkeit. Dieser Eintrag umfasst nur den eigenständigen STL-Viewer; die KI-Modellgenerierung von Fomrix ist separat und erfordert ein Konto sowie Guthaben."
+  },
+  "quicktinyv2-vercel-app": {
+    "coreTask": "Alle 13 kostenlosen Tools uneingeschränkt nutzen: Einzelbilder komprimieren, JSON formatieren, Wörter zählen, Passwörter generieren, Base64/URLs en-/dekodieren – komplett im Browser.",
+    "description": "13 kostenlose browserbasierte Tools: Bildkomprimierer, JSON-Formatierer, Wortzähler, Passwortgenerator, Base64/URL-Kodierung und mehr. Alles läuft vollständig clientseitig ab, ohne Server-Uploads. Beinhaltet optional auch einen Stapel-Bildkomprimierer für eine einmalige Zahlung von 4,99 $ via PayPal – kein Konto oder Abo erforderlich."
+  },
+  "drunkcalc-org": {
+    "coreTask": "Blutalkoholkonzentration (BAC) und Abbauzeit schätzen, Standardgläser vergleichen und BAC-Referenzleitfäden ohne Registrierung einsehen.",
+    "description": "Kostenloser Blutalkoholrechner (BAC) nach der modifizierten Widmark-Formel. Geben Sie Körpergewicht, Standardgetränke oder Portionsgröße/Alkoholgehalt sowie die Zeit seit dem ersten Schluck ein, um Echtzeitschätzungen und die ungefähre Zeit bis zum vollständigen Abbau zu erhalten. Berechnungen laufen lokal im Browser ohne Konto. Inklusive BAC-Leitfäden. Nur zu Informations- und Bildungszwecken; kein Messgerät und keine Entscheidungsgrundlage für die Fahrtüchtigkeit."
+  },
+  "makehalftone-com": {
+    "coreTask": "Ein Foto direkt im Browser in ein druckfertiges Halbton-Rastermuster umwandeln.",
+    "description": "Verwandeln Sie Fotos in druckfertige Rasterpunktmuster für Siebdruck, DTF und Poster. Läuft komplett im Browser – es wird nichts hochgeladen."
+  },
+  "kitelabs-netlify-app-kitchen": {
+    "coreTask": "Vollständige Rezeptur kalkulieren, Ausbeutesätze anwenden und Portionskosten, Wareneinsatzquote sowie Rohertrag sofort ohne Konto berechnen.",
+    "description": "Rezeptur- und Menüpreiskalkulator für die Gastronomie. Rechnet Einkaufseinheiten in Rezeptureinheiten um und berücksichtigt Schnittverluste/Ausbeute: Ein für 22 $/kg gekaufter Lachs mit 62 % Ausbeute wird mit 35,48 $/kg berechnet – der häufigste Rechenfehler in Restaurantküchen. Ermittelt Portionskosten, Wareneinsatzquote und Rohgewinn pro Gericht. Läuft komplett im Browser ohne Uploads, Speicherung oder Registrierung."
+  },
+  "icyzip-com": {
+    "coreTask": "Zwei Browser koppeln, Live-Text austauschen und eine Datei per QR-Code oder Link versenden.",
+    "description": "IcyZip verbindet zwei Browser per QR-Code oder Link, um Live-Text zu übertragen oder einzelne Dateien zwischen Smartphones und PCs auszutauschen. Weder Konto noch App erforderlich. Inhalte werden im Browser verschlüsselt, bevor der Server den Geheimtext weiterleitet (Metadaten zu Verbindung und Dateianfragen sind für den Dienst sichtbar). Erfordert Internet und ein zweites Gerät; kein Cloud-Speicher oder LAN-Transfer."
+  },
+  "formweft-com-tools-motion-workbench": {
+    "coreTask": "Ein lokales Video und vorhandene SRT-Untertitel importieren, animierte Untertitel und Infokarten bearbeiten, Timings anpassen und exportieren.",
+    "description": "Ein Browser-Videoeditor zum Hinzufügen animierter Untertitel und Texteinblendungen zu lokalen Videos. Importieren Sie vorhandene SRT-Dateien, passen Sie das Timing an und exportieren Sie das Video mit Originalton. Die Basisbearbeitung ist kostenlos und ohne Anmeldung; Videos werden nicht hochgeladen. MP4-Export hängt von der Browserunterstützung ab (WebM als Fallback). Optionale KI-Funktionen erfordern separate Konfiguration."
+  },
+  "monkeetools-surge-sh": {
+    "coreTask": "Alles funktioniert ohne Anmeldung: Rechnungen erstellen/bearbeiten, PDFs herunterladen, Unternehmens-Autofill, Kunden-Autovervollständigung, Rechnungsduplikate mit fortlaufender Nummerierung und Zahlungsstatus-Tracking.",
+    "description": "Kostenloser Rechnungsgenerator für Freelancer. Keine Registrierung, kein Konto, keine Server-Uploads. Rechnungen werden direkt im Browser erstellt und PDFs lokal heruntergeladen. Merkt sich Eingaben auf Ihrem Gerät: Autofill von Unternehmensdaten, Kundenvervollständigung, 1-Klick-Duplizierung mit automatischer Nummerierung und Zahlungsüberwachung. Enthält ein AI-Agent-Kit zur Link-Vorbelegung."
+  },
+  "heictopdf-dev": {
+    "coreTask": "HEIC-Fotos ohne Kontoerstellung in PDF konvertieren.",
+    "description": "Konvertieren Sie Apple HEIC/HEIF-Fotos direkt im Browser-Tab in PDF-Dateien. Es wird nichts auf einen Server hochgeladen. Mehrere Fotos stapelweise umwandeln oder zu einem mehrseitigen PDF zusammenfügen – Seitenreihenfolge, Papierformat (Original / A4 / US Letter) und Ausrichtung sind vor dem Export anpassbar. Ohne Konto und ohne Installation: Seite öffnen und Dateien ablegen."
+  },
+  "compressto100kb-com": {
+    "coreTask": "Bilder auf eine benutzerdefinierte oder vordefinierte KB-Grenze komprimieren, optional skalieren und einzeln oder als ZIP herunterladen.",
+    "description": "Komprimieren Sie JPG-, PNG-, WebP- und HEIC-Bilder auf eine gewünschte maximale Dateigröße in KB. Dateien werden lokal im Browser verarbeitet, mit optionaler Pixel-Skalierung und Einzel- oder ZIP-Stapeldownload. Kostenlos und ohne Registrierung."
+  },
+  "sizecompare-app": {
+    "coreTask": "Maße realer Objekte im maßstabsgetreuen Größenvergleich gegenüberstellen und eigene Messwerte eingeben.",
+    "description": "SizeCompare ist ein kostenloses visuelles Tool zum Größenvergleich von Smartphones, Tablets, Laptops, Reifen, Tieren und Alltagsgegenständen. Vergleichen Sie geprüfte Abmessungen im echten Maßstab, inklusive Rechnern für Reifen, Körpergröße, Displays und individuelle Maße."
+  },
+  "aup4-aivismonitor-com": {
+    "coreTask": "Ein .aup4/.aup3-Projekt öffnen, den Mix abspielen und als WAV oder MP3 exportieren.",
+    "description": "Öffnet Audacity-Projektdateien (.aup4 aus Audacity 4, .aup3 aus Audacity 3) direkt im Browser: Spuren und Clips einsehen, Mix abspielen, WAV/MP3 exportieren, Wiederherstellungsbericht für beschädigte Projekte erstellen und .aup4 für Audacity 3.7 abwärtskompatibel umwandeln. Lokale Verarbeitung mittels WebAssembly-SQLite ohne Uploads. Öffnen, Abspielen und Mix-Export sind kostenlos; Wiederaufbau, Downgrade und Stems kosten einmalig 19 $. Für nichts ist ein Konto erforderlich."
+  },
+  "dataformatkit-com": {
+    "coreTask": "Text, XML oder JSON in CSV umwandeln, Excel-Dateien aus CSV oder JSON erstellen, tabellarische Daten vorschauen und CSV-Strukturen ohne Registrierung prüfen.",
+    "description": "DataFormatKit bietet kostenlose Werkzeuge zur Konvertierung von Text in CSV, XML in CSV, JSON in CSV oder Excel sowie CSV in Excel. Zeilen und Spalten in der Vorschau prüfen, CSV-Strukturen validieren und Ergebnisse herunterladen. Quelldateien werden lokal im Browser verarbeitet, und die Haupttools erfordern kein Konto."
+  },
+  "crochet-chart-maker-com": {
+    "coreTask": "Bilder in ein bearbeitbares Häkel-Pixelraster umwandeln, leere Raster erstellen, Farben und Felder anpassen und nummerierte PNG-Muster ohne Registrierung herunterladen.",
+    "description": "Crochet Chart Maker ist ein kostenloses Browser-Tool, das JPG-, PNG- oder WebP-Bilder in bearbeitbare Farbpixelraster umwandelt oder bei einem leeren Raster startet. Größe anpassen, zuschneiden, Farbpalette reduzieren, einzelne Quadrate bearbeiten und ein hochauflösendes PNG samt Nummerierung und Farblegende herunterladen. Bilder verbleiben auf Ihrem Gerät, kein Konto erforderlich."
+  },
+  "pst-aivismonitor-com": {
+    "coreTask": "PST-, OST-, OLM-, MBOX- oder EML-Archive von der Festplatte öffnen, Ordner durchsuchen sowie jede Nachricht lesen und durchsuchen.",
+    "description": "Mailward öffnet Outlook-PST- und OST-Archive, Outlook-für-Mac-OLM-Exporte, MBOX-Postfächer (einschließlich Google Takeout) und EML/MSG-Nachrichten direkt im Browser. Die Datei wird lokal in einem Web Worker verarbeitet und nie hochgeladen; kein Konto für irgendetwas erforderlich. Lesen und Suchen sind kostenlos; Stapel-Export und die parallele Ansicht zweier Archive kosten einmalig 19 $. Funktioniert auf Mac, Windows, Linux und ChromeOS ohne installiertes Outlook."
+  },
+  "markany-ai": {
+    "coreTask": "Unterstützte Dateien oder öffentliche HTTPS-Datei-URLs ohne Konto stapelweise in Markdown umwandeln, Ergebnisse prüfen, kopieren und herunterladen.",
+    "description": "Konvertieren Sie PDF-, Word-, Excel-, PowerPoint-, HTML-, EPUB- und Bilddateien mit automatischer OCR in strukturiertes Markdown oder exportieren Sie bearbeitbares Markdown in gängige Dokument-, Bild-, E-Book-, Präsentations- und Tabellenformate."
+  },
+  "spritesheettool-com": {
+    "coreTask": "Ohne Registrierung anonym eine Vorschau von Sprite-Sheets direkt im Browser generieren.",
+    "description": "Erstellen Sie Sprite-Sheets online in Ihrem Browser: Generieren Sie RPG-Sprite-Sheets, teilen Sie GIFs oder Sheets in Einzelbilder auf und erstellen Sie Textur-Atlanten."
+  },
+  "www-allsubconverter-com": {
+    "coreTask": "Untertiteldateien direkt im Browser konvertieren, bearbeiten, bereinigen, synchronisieren, prüfen und exportieren – ohne Konto und ohne Upload.",
+    "description": "AllSubConverter ist ein kostenloses browserbasiertes Toolkit zum Konvertieren, Bearbeiten, Bereinigen, Synchronisieren, Prüfen und Exportieren von Untertiteln. Unterstützt SRT, VTT, ASS, SSA, LRC und mehr, inklusive Stapelverarbeitung und Qualitätsprüfung."
+  },
+  "toolsphare-tech-en": {
+    "coreTask": "PDF-, Bild-, Text- und Entwickler-Tools sofort im Browser ohne Kontoerstellung verwenden.",
+    "description": "ToolSphare ist ein kostenloses Online-Toolkit mit über 400 browserbasierten Dienstprogrammen für PDFs, Bilder, Texte und Entwickler. PDFs zusammenfügen oder komprimieren, Bilder skalieren, JSON formatieren und mehr – kein Konto erforderlich. Die meisten Tools laufen aus Datenschutzgründen direkt auf Ihrem Gerät."
+  },
+  "bytepriva-com-merge-pdf": {
+    "coreTask": "Mehrere PDF-Dateien zusammenfügen, Seiten neu anordnen und die fertige Datei herunterladen – ganz ohne Kontoerstellung und ohne Server-Upload.",
+    "description": "Mehrere PDF-Dateien direkt im Browser zu einer Datei zusammenfügen – kein Upload, keine Registrierung. Die Verarbeitung erfolgt vollständig clientseitig auf Ihrem eigenen Gerät, sodass keine Daten Ihren Computer verlassen. Einfach per Drag-and-Drop anordnen und sofort herunterladen."
+  },
+  "imageconverttools-app": {
+    "coreTask": "Unterstützte Bilder ohne Anmeldung konvertieren, komprimieren, skalieren, zuschneiden, mit Wasserzeichen versehen oder zu einer PDF zusammenfügen und herunterladen.",
+    "description": "Image Convert ist eine kostenlose browserbasierte Suite für sieben praktische Bildbearbeitungsaufgaben: Konvertierung von HEIC/HEIF in JPG oder PDF, Konvertierung von JPEG, PNG und WebP, Komprimierung auf Zielgröße, Skalieren, Zuschneiden und Hinzufügen von Text-Wasserzeichen. Gewählte Dateien und Ergebnisse werden lokal auf dem Gerät verarbeitet und nicht hochgeladen. Keine Anmeldung erforderlich."
+  },
+  "nextreset-ai": {
+    "coreTask": "Reset-Verläufe und offizielle KI-Störungsberichte einsehen sowie einen persönlichen Reset-Timer lokal ohne Konto speichern.",
+    "description": "Kostenlose, unabhängige Informationsquelle für Entwickler, die KI-Coding-Tools nutzen. Durchsuchen Sie quellenbelegte Codex-Reset-Verläufe, offizielle KI-Störungsmeldungen und Client-Updates, und speichern Sie einen persönlichen Reset-Timer lokal auf Ihrem Gerät ohne Anmeldung. Nicht mit OpenAI oder Anthropic verbunden."
   }
 }

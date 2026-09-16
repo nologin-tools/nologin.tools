@@ -104,7 +104,7 @@ describe('getWorkflowBySlug', () => {
     const redaction = getWorkflowBySlug('secure-document-redaction');
     assert.ok(redaction);
     assert.equal(redaction.steps[0].toolSlug, 'tools-pdf24-org-en');
-    assert.equal(redaction.steps[2].toolSlug, 'hat-sh');
+    assert.equal(redaction.steps[2].toolSlug, 'yopass-se');
   });
 
   it('returns undefined for non-existent recipe slug', () => {

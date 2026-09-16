@@ -1,3 +1,10 @@
+export const MAX_SLUG_LENGTH = 100;
+export const SLUG_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+export function isValidSlug(slug: string | null | undefined): boolean {
+  return Boolean(slug && slug.length >= 2 && slug.length <= MAX_SLUG_LENGTH && SLUG_REGEX.test(slug));
+}
+
 export function urlToSlug(url: string): string {
   const parsed = new URL(url);
   const raw = (parsed.hostname + parsed.pathname).replace(/\/+$/, '');
@@ -5,7 +12,7 @@ export function urlToSlug(url: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  return slug.slice(0, 80).replace(/-+$/, '');
+  return slug.slice(0, MAX_SLUG_LENGTH).replace(/-+$/, '');
 }
 
 export async function hashIp(ip: string): Promise<string> {

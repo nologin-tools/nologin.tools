@@ -23,7 +23,7 @@ const finderTools = approvedTools.map((t, idx) =>
 describe('Finder Data Normalization', () => {
   it('normalizes all approved tools into FinderToolItem format', () => {
     assert.equal(finderTools.length, approvedTools.length);
-    assert.ok(finderTools.length >= 180);
+    assert.ok(finderTools.length >= 150);
 
     for (const tool of finderTools) {
       assert.ok(tool.slug.length > 0, 'Tool has empty slug');

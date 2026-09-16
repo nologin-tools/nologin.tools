@@ -63,9 +63,9 @@ export const CURATED_COLLECTIONS = [
         whySelected: 'Google-developed WebAssembly image codec providing real-time side-by-side visual diffs for MozJPEG, WebP, and AVIF.'
       },
       {
-        toolSlug: 'svgedit-netlify-app-editor-index-html',
-        roleTitle: 'Direct SVG Vector Construction',
-        whySelected: 'Lightweight, standalone vector graphic editor producing clean, human-readable SVG code without proprietary markup bloat.'
+        toolSlug: 'app-diagrams-net',
+        roleTitle: 'Precision Vector & Diagram Construction',
+        whySelected: 'Enterprise-grade diagram and vector editor producing clean, standards-compliant SVG code without proprietary cloud bloat.'
       },
       {
         toolSlug: 'audiomass-co',
@@ -284,9 +284,9 @@ export const CURATED_COLLECTIONS = [
     ],
     items: [
       {
-        toolSlug: 'hat-sh',
-        roleTitle: 'Local File & Seed Phrase AES Encryption',
-        whySelected: 'Pure browser-based AES-256-GCM encryption and decryption. Never transmits unencrypted file chunks or passphrases across the wire.'
+        toolSlug: 'privacy-sexy',
+        roleTitle: 'OS-Level Privacy Hardening & Telemetry Stripping',
+        whySelected: 'Generate automated bash and PowerShell scripts locally in the browser to strip telemetry, disable tracking services, and enforce OS-level zero-trust policies.'
       },
       {
         toolSlug: 'gchq-github-io-cyberchef',

@@ -6,3 +6,4 @@ dist-extension/
 .env
 .dev.vars
 src/data/build-data.json
+scripts/backups/

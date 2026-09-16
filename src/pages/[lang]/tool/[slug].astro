@@ -12,7 +12,7 @@ import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 
 export function getStaticPaths() {
   const tools = getAllTools().filter(
-    (tool) => tool.slug && tool.slug.length <= 80 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug)
+    (tool) => tool.slug && tool.slug.length <= 100 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug)
   );
   return buildLocalizedToolStaticPaths(
     tools,

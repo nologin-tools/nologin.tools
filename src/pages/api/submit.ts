@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
 import { getDb } from '../../db';
 import { tools, tags, healthChecks } from '../../db/schema';
 import { eq, and, sql } from 'drizzle-orm';
-import { urlToSlug, hashIp, getClientIp } from '../../lib/utils';
+import { urlToSlug, hashIp, getClientIp, isValidSlug } from '../../lib/utils';
 import { api } from '../../lib/api';
 import { archiveUrl } from '../../lib/archive';
 import { checkHealth } from '../../lib/health';
@@ -85,7 +85,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   // Generate slug
   const slug = urlToSlug(url);
-  if (!slug || slug.length < 2 || slug.length > 80 || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+  if (!isValidSlug(slug)) {
     return api.error('Unable to generate a valid slug from URL.', 400, {
       url: 'The URL does not yield a valid tool slug.',
     });
