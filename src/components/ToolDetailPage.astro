@@ -819,11 +819,16 @@ const faqLd = isVerified ? {
         </div>
       )}
 
-      <!-- Badge Preview -->
+      <!-- Badge & Privacy Shields Preview -->
       {(isVerified || isPending) && (
-        <div class="border-t border-neutral-100 pt-8">
-          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-sm text-blue-600 hover:underline">
-            {isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')} &rarr;
+        <div class="border-t border-neutral-100 pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <img src={`/api/badge/${slug}.svg`} alt="NoLogin Verified" class="h-5" />
+            <img src={`/api/badge/${slug}.svg?type=grade`} alt={`Privacy Grade ${scorecard.overallGrade}`} class="h-5" />
+          </div>
+          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-sm font-bold text-green-700 hover:text-green-800 underline flex items-center gap-1">
+            <span>{isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')}</span>
+            <span>&rarr;</span>
           </a>
         </div>
       )}

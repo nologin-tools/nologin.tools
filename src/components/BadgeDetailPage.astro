@@ -424,6 +424,42 @@ const allEmbedCodes = Object.fromEntries(
             </p>
           </div>
 
+          <!-- Dynamic Privacy Grade Badge -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium text-neutral-700 flex items-center gap-2">
+                <span>Dynamic Privacy Grade Shield</span>
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">AUDIT SHIELD</span>
+              </h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors cursor-pointer" data-code="grade" data-copied-text={t(locale, 'badgeDetail.copied')}>{t(locale, 'badgeDetail.copyCode')}</button>
+            </div>
+            <div class="p-4 bg-white border border-neutral-200 rounded-lg flex justify-center mb-2">
+              <img src={`${siteUrl}/api/badge/${slug}.svg?type=grade`} alt="Privacy Grade" class="h-6" />
+            </div>
+            <pre id="code-grade" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{`[![Privacy Grade](${siteUrl}/api/badge/${slug}.svg?type=grade)](${siteUrl}/tool/${slug} "Audited by NoLoginTools.org")`}</code></pre>
+            <p class="text-[11px] text-neutral-500">
+              Live shield reflecting the audited privacy grade (A+, A, B+, B) calculated from sandbox isolation, zero telemetry, and license terms.
+            </p>
+          </div>
+
+          <!-- Dynamic Sandbox Isolation Badge -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium text-neutral-700 flex items-center gap-2">
+                <span>Dynamic Sandbox Shield</span>
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">CLIENT ISOLATION</span>
+              </h3>
+              <button class="copy-btn text-xs font-medium text-green-600 hover:text-green-700 px-3 py-1 rounded bg-green-50 transition-colors cursor-pointer" data-code="sandbox" data-copied-text={t(locale, 'badgeDetail.copied')}>{t(locale, 'badgeDetail.copyCode')}</button>
+            </div>
+            <div class="p-4 bg-white border border-neutral-200 rounded-lg flex justify-center mb-2">
+              <img src={`${siteUrl}/api/badge/${slug}.svg?type=sandbox`} alt="Sandbox Isolation" class="h-6" />
+            </div>
+            <pre id="code-sandbox" class="bg-neutral-900 text-neutral-400 p-6 rounded-lg text-[11px] font-mono overflow-x-auto border border-neutral-800"><code>{`[![Sandbox Isolation](${siteUrl}/api/badge/${slug}.svg?type=sandbox)](${siteUrl}/tool/${slug} "Verified by NoLoginTools.org")`}</code></pre>
+            <p class="text-[11px] text-neutral-500">
+              Verifies whether compute and storage run 100% in-browser without server ingestion.
+            </p>
+          </div>
+
           <!-- Markdown (GitHub README) -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">

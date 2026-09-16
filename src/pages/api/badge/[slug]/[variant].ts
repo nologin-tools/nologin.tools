@@ -1,18 +1,25 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getDb } from '../../../db';
-import { tools, badgeDisplays } from '../../../db/schema';
+import { getDb } from '../../../../db';
+import { tools, badgeDisplays } from '../../../../db/schema';
 import { eq } from 'drizzle-orm';
-import { generateDynamicBadgeSvg, type BadgeStyle } from '../../../lib/badge';
-import { getToolBySlug } from '../../../data/loader';
-import { computePrivacyScorecard } from '../../../lib/privacy-scorecard.mjs';
+import { generateDynamicBadgeSvg, type BadgeStyle } from '../../../../lib/badge';
+import { getToolBySlug } from '../../../../data/loader';
+import { computePrivacyScorecard } from '../../../../lib/privacy-scorecard.mjs';
 
 export const GET: APIRoute = async ({ params, url, locals }) => {
   const rawSlug = params.slug || '';
   const slug = rawSlug.replace(/\.svg$/, '');
+  const rawVariant = (params.variant || '').replace(/\.svg$/, '');
   const style = (url.searchParams.get('style') as BadgeStyle) || 'flat';
-  const badgeType = (url.searchParams.get('type') || 'verified') as 'verified' | 'grade' | 'sandbox';
+
+  let badgeType: 'verified' | 'grade' | 'sandbox' = 'verified';
+  if (rawVariant === 'grade') {
+    badgeType = 'grade';
+  } else if (rawVariant === 'sandbox') {
+    badgeType = 'sandbox';
+  }
 
   let tool: { name: string; status: string; id?: number; tags?: any[]; repoUrl?: string | null; githubLicense?: string | null; githubStars?: number | null } | null = null;
   let badgeDisplayType: string | null = null;
