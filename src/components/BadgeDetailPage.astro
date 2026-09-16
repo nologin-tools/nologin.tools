@@ -7,6 +7,7 @@ import { sortTagsCategoryFirst } from '../lib/tags';
 import { parseGitHubRepoUrl } from '../lib/github';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   tool: {
@@ -90,88 +91,81 @@ const allEmbedCodes = Object.fromEntries(
 >
   <script type="application/ld+json" set:html={JSON.stringify([breadcrumbLd, certificateLd])} />
 
-  <div class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
-    <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="mb-8">
-      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
-        <li>
-          <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
-        </li>
-        <li aria-hidden="true">
-          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
-        </li>
-        <li>
-          <a href={getLocalizedPath(`/tool/${slug}`, locale)} class="hover:text-neutral-900 transition-colors truncate max-w-[150px] sm:max-w-none inline-block">{tool.name}</a>
-        </li>
-        <li aria-hidden="true">
-          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
-        </li>
-        <li aria-current="page" class="text-neutral-900">{isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}</li>
-      </ol>
-    </nav>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Top Bar: Breadcrumb + LanguageSwitcher -->
+    <div class="flex items-center justify-between gap-4 mb-10 pb-4 border-b border-neutral-200">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-500">
+          <li>
+            <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors uppercase">{t(locale, 'common.home')}</a>
+          </li>
+          <li aria-hidden="true" class="text-neutral-300">/</li>
+          <li>
+            <a href={getLocalizedPath(`/tool/${slug}`, locale)} class="hover:text-neutral-900 transition-colors truncate max-w-[150px] sm:max-w-none inline-block">{tool.name}</a>
+          </li>
+          <li aria-hidden="true" class="text-neutral-300">/</li>
+          <li aria-current="page" class="text-neutral-900">{isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}</li>
+        </ol>
+      </nav>
+      <LanguageSwitcher locale={locale} />
+    </div>
 
     <!-- Badge brand link -->
-    <div class="mb-12 flex justify-center">
-      <a href="/" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-black text-xl">
-          n
-        </div>
-        <span class="font-black text-xl tracking-tight text-neutral-900">
-          nologin<span class="text-green-600">.</span>tools
-        </span>
+    <div class="mb-12 text-center">
+      <a href={getLocalizedPath('/', locale)} class="font-black text-2xl sm:text-3xl tracking-tight text-neutral-900 uppercase italic">
+        nologin.tools
       </a>
-      <p class="text-xs text-neutral-400 mt-1 font-medium">by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-600 transition-colors">NoLoginTools.org</a></p>
+      <p class="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider">
+        Verified by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-neutral-900 font-bold">NoLoginTools.org</a>
+      </p>
     </div>
 
     <!-- Tab navigation -->
-    <div class="flex items-center justify-center mb-12">
-      <div class="inline-flex p-1 bg-neutral-100/50 rounded-2xl border border-neutral-200/50" role="tablist">
+    <div class="flex items-center justify-center mb-10">
+      <div class="inline-flex border-2 border-neutral-900 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" role="tablist">
         <button role="tab" aria-selected="true" aria-controls="panel-verification"
           id="tab-verification"
-          class="tab-btn px-8 py-2.5 text-sm font-black rounded-xl transition-all duration-300 border-none outline-none ring-0 cursor-pointer
-                 aria-selected:bg-white aria-selected:text-neutral-900 aria-selected:shadow-sm aria-selected:ring-1 aria-selected:ring-neutral-200
-                 text-neutral-400 hover:text-neutral-600">
+          class="tab-btn px-6 py-2 text-xs font-mono font-bold uppercase transition-all border-r-2 border-neutral-900 cursor-pointer
+                 aria-selected:bg-neutral-900 aria-selected:text-white
+                 text-neutral-600 hover:text-neutral-900">
           {t(locale, 'badgeDetail.verificationTab')}
         </button>
         <button role="tab" aria-selected="false" aria-controls="panel-embed"
           id="tab-embed"
-          class="tab-btn px-8 py-2.5 text-sm font-black rounded-xl transition-all duration-300 border-none outline-none ring-0 cursor-pointer
-                 aria-selected:bg-white aria-selected:text-neutral-900 aria-selected:shadow-sm aria-selected:ring-1 aria-selected:ring-neutral-200
-                 text-neutral-400 hover:text-neutral-600">
+          class="tab-btn px-6 py-2 text-xs font-mono font-bold uppercase transition-all cursor-pointer
+                 aria-selected:bg-neutral-900 aria-selected:text-white
+                 text-neutral-600 hover:text-neutral-900">
           {t(locale, 'badgeDetail.embedTab')}
         </button>
       </div>
     </div>
 
     <!-- Panel: Verification (default visible) -->
-    <div id="panel-verification" role="tabpanel" aria-labelledby="tab-verification" class="space-y-12">
+    <div id="panel-verification" role="tabpanel" aria-labelledby="tab-verification" class="space-y-10">
 
       <!-- Certificate Hero -->
       <div class="text-center">
-        <div class="inline-block mb-8">
+        <div class="inline-block mb-6">
           <div class:list={[
-            "w-24 h-24 rounded-[2.5rem] flex items-center justify-center border-2",
-            isPending ? "bg-amber-50 border-amber-200 text-amber-600" : "bg-green-50 border-green-200 text-green-600"
+            "w-20 h-20 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center",
+            isPending ? "bg-amber-100 text-amber-900" : "bg-green-300 text-neutral-900"
           ]}>
             {isPending ? (
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             ) : (
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             )}
           </div>
         </div>
-        <h1 class:list={['text-4xl font-black tracking-tight', isPending ? 'text-amber-600' : 'text-green-600']}>
+        <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight uppercase">
           {isPending ? t(locale, 'badgeDetail.pendingTitle') : t(locale, 'badgeDetail.verifiedTitle')}
         </h1>
-        <p class="text-lg text-neutral-400 mt-2 font-medium">{t(locale, 'badgeDetail.certificate')} <span class="text-neutral-900 font-bold">{tool.name}</span></p>
+        <p class="text-sm font-mono text-neutral-600 mt-2 uppercase tracking-wide">{t(locale, 'badgeDetail.certificate')} <span class="text-neutral-900 font-bold">{tool.name}</span></p>
       </div>
 
       <!-- Certificate Details Card -->
-      <div class:list={[
-        'bg-white border rounded-lg p-8 sm:p-12',
-        isPending ? 'border-amber-200' : 'border-green-200',
-      ]}>
-        <h2 class="text-sm font-medium text-neutral-500 mb-10">{t(locale, 'badgeDetail.detailsTitle')}</h2>
+      <div class="bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6 sm:p-10">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-8 border-b-2 border-neutral-900 pb-2">{t(locale, 'badgeDetail.detailsTitle')}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
           <div class="space-y-1">

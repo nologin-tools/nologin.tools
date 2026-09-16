@@ -61,26 +61,26 @@ const breadcrumbLd = {
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     {/* Breadcrumb Navigation */}
-    <nav class="flex items-center gap-2 text-xs text-neutral-500 mb-8 overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
+    <nav class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-500 mb-8 overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
       <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">
         {t(locale, 'common.home')}
       </a>
       <span>/</span>
-      <span class="text-neutral-900 font-medium">{t(locale, 'nav.developers')}</span>
+      <span class="text-neutral-900 font-bold">{t(locale, 'nav.developers')}</span>
     </nav>
 
     {/* Hero Section */}
-    <header class="mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-200 mb-4 shadow-2xs">
+    <header class="mb-12 border-b-2 border-neutral-900 pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-mono font-bold bg-yellow-300 text-neutral-900 border-2 border-neutral-900 mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wider">
         <span>⚡</span>
         <span>{t(locale, 'dev.hero.badge')}</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight mb-4">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight mb-4 font-mono">
         {t(locale, 'dev.hero.heading')}
       </h1>
 
-      <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-3xl mb-8">
+      <p class="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-3xl mb-8">
         {t(locale, 'dev.hero.subtitle')}
       </p>
 
@@ -88,7 +88,7 @@ const breadcrumbLd = {
         <a
           href="/api/v1/openapi.json"
           target="_blank"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold transition-all shadow-xs"
+          class="inline-flex items-center gap-2 px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white font-mono text-xs font-bold uppercase border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none"
         >
           <span>📜</span>
           <span>{t(locale, 'dev.btn.viewSpec')}</span>
@@ -97,47 +97,47 @@ const breadcrumbLd = {
         <a
           href="/api/v1/mcp.json"
           target="_blank"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold transition-all shadow-2xs"
+          class="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-yellow-50 text-neutral-900 font-mono text-xs font-bold uppercase border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none"
         >
           <span>🤖</span>
           <span>{t(locale, 'dev.btn.viewMcp')}</span>
-          <span class="text-purple-400">&nearr;</span>
+          <span class="text-neutral-500">&nearr;</span>
         </a>
       </div>
     </header>
 
     {/* Platform Specs Matrix */}
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14" aria-label="Platform Matrix">
-      <div class="bg-white border border-neutral-200 rounded-2xl p-5 shadow-2xs">
-        <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+      <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
           {t(locale, 'dev.card.baseUrl')}
         </div>
         <div class="text-xs font-mono font-bold text-neutral-900 truncate">
           https://nologin.tools/api/v1/
         </div>
       </div>
-      <div class="bg-white border border-neutral-200 rounded-2xl p-5 shadow-2xs">
-        <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+      <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
           {t(locale, 'dev.card.auth')}
         </div>
-        <div class="text-xs font-bold text-emerald-700 flex items-center gap-1.5">
-          <span>✓</span>
+        <div class="text-xs font-mono font-bold text-emerald-800 flex items-center gap-1.5">
+          <span>[✓]</span>
           <span>{t(locale, 'dev.card.authVal')}</span>
         </div>
       </div>
-      <div class="bg-white border border-neutral-200 rounded-2xl p-5 shadow-2xs">
-        <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+      <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
           {t(locale, 'dev.card.rateLimit')}
         </div>
-        <div class="text-xs font-bold text-neutral-800">
+        <div class="text-xs font-mono font-bold text-neutral-900">
           {t(locale, 'dev.card.rateLimitVal')}
         </div>
       </div>
-      <div class="bg-white border border-neutral-200 rounded-2xl p-5 shadow-2xs">
-        <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+      <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-1">
           {t(locale, 'dev.card.spec')}
         </div>
-        <div class="text-xs font-bold text-neutral-800">
+        <div class="text-xs font-mono font-bold text-neutral-900">
           {t(locale, 'dev.card.specVal')}
         </div>
       </div>
@@ -145,78 +145,78 @@ const breadcrumbLd = {
 
     {/* Endpoints Reference */}
     <section class="mb-16">
-      <h2 class="text-2xl font-bold text-neutral-900 tracking-tight mb-6">
+      <h2 class="text-2xl font-bold font-mono text-neutral-900 tracking-tight mb-6 uppercase tracking-wide">
         {t(locale, 'dev.section.endpoints')}
       </h2>
 
       <div class="space-y-8">
         {/* Endpoint 1: GET /api/v1/tools */}
-        <article class="bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-2xs">
-          <div class="p-6 border-b border-neutral-100 flex flex-wrap items-center justify-between gap-4">
+        <article class="bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div class="p-6 border-b-2 border-neutral-900 flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-              <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-mono text-xs font-bold">
+              <span class="px-2.5 py-1 bg-emerald-200 text-neutral-900 border border-neutral-900 font-mono text-xs font-bold">
                 GET
               </span>
               <span class="font-mono text-sm font-bold text-neutral-900">
                 /api/v1/tools
               </span>
             </div>
-            <span class="text-xs text-neutral-500 font-medium">
+            <span class="text-xs font-mono text-neutral-500">
               Search, filter, and paginate verified tools
             </span>
           </div>
 
           <div class="p-6 space-y-5">
             <div>
-              <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3">
+              <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-3">
                 Query Parameters
               </h4>
-              <div class="overflow-x-auto border border-neutral-200 rounded-xl">
+              <div class="overflow-x-auto border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <table class="w-full text-left text-xs">
-                  <thead class="bg-neutral-50 border-b border-neutral-200 font-mono font-bold text-neutral-700">
+                  <thead class="bg-neutral-900 border-b-2 border-neutral-900 font-mono font-bold text-white">
                     <tr>
-                      <th class="p-2.5">Parameter</th>
-                      <th class="p-2.5">Type</th>
-                      <th class="p-2.5">Description</th>
+                      <th class="p-2.5 border-r border-neutral-700">Parameter</th>
+                      <th class="p-2.5 border-r border-neutral-700">Type</th>
+                      <th class="p-2.5 border-r border-neutral-700">Description</th>
                       <th class="p-2.5">Example</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-neutral-100 font-mono">
+                  <tbody class="divide-y divide-neutral-200 font-mono bg-white">
                     <tr>
-                      <td class="p-2.5 font-bold text-neutral-900">q</td>
-                      <td class="p-2.5 text-neutral-500">string</td>
-                      <td class="p-2.5 font-sans text-neutral-600">Keyword search across name, task, and description</td>
-                      <td class="p-2.5 text-neutral-800">q=pdf</td>
+                      <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">q</td>
+                      <td class="p-2.5 text-neutral-500 border-r border-neutral-200">string</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Keyword search across name, task, and description</td>
+                      <td class="p-2.5 text-neutral-900 font-bold">q=pdf</td>
                     </tr>
                     <tr>
-                      <td class="p-2.5 font-bold text-neutral-900">category</td>
-                      <td class="p-2.5 text-neutral-500">string</td>
-                      <td class="p-2.5 font-sans text-neutral-600">Filter by category (AI, Design, Media, Privacy, etc.)</td>
-                      <td class="p-2.5 text-neutral-800">category=Design</td>
+                      <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">category</td>
+                      <td class="p-2.5 text-neutral-500 border-r border-neutral-200">string</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter by category (AI, Design, Media, Privacy, etc.)</td>
+                      <td class="p-2.5 text-neutral-900 font-bold">category=Design</td>
                     </tr>
                     <tr>
-                      <td class="p-2.5 font-bold text-neutral-900">clientSide</td>
-                      <td class="p-2.5 text-neutral-500">boolean</td>
-                      <td class="p-2.5 font-sans text-neutral-600">Filter for in-browser client-side memory processing</td>
-                      <td class="p-2.5 text-neutral-800">clientSide=1</td>
+                      <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">clientSide</td>
+                      <td class="p-2.5 text-neutral-500 border-r border-neutral-200">boolean</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter for in-browser client-side memory processing</td>
+                      <td class="p-2.5 text-neutral-900 font-bold">clientSide=1</td>
                     </tr>
                     <tr>
-                      <td class="p-2.5 font-bold text-neutral-900">offline</td>
-                      <td class="p-2.5 text-neutral-500">boolean</td>
-                      <td class="p-2.5 font-sans text-neutral-600">Filter for PWA offline-capable tools</td>
-                      <td class="p-2.5 text-neutral-800">offline=1</td>
+                      <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">offline</td>
+                      <td class="p-2.5 text-neutral-500 border-r border-neutral-200">boolean</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter for PWA offline-capable tools</td>
+                      <td class="p-2.5 text-neutral-900 font-bold">offline=1</td>
                     </tr>
                     <tr>
-                      <td class="p-2.5 font-bold text-neutral-900">openSource</td>
-                      <td class="p-2.5 text-neutral-500">boolean</td>
-                      <td class="p-2.5 font-sans text-neutral-600">Filter for verified open-source tools</td>
-                      <td class="p-2.5 text-neutral-800">openSource=1</td>
+                      <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">openSource</td>
+                      <td class="p-2.5 text-neutral-500 border-r border-neutral-200">boolean</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter for verified open-source tools</td>
+                      <td class="p-2.5 text-neutral-900 font-bold">openSource=1</td>
                     </tr>
                     <tr>
-                      <td class="p-2.5 font-bold text-neutral-900">limit / offset</td>
-                      <td class="p-2.5 text-neutral-500">integer</td>
-                      <td class="p-2.5 font-sans text-neutral-600">Pagination limit (max 100) and offset</td>
-                      <td class="p-2.5 text-neutral-800">limit=10&offset=0</td>
+                      <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">limit / offset</td>
+                      <td class="p-2.5 text-neutral-500 border-r border-neutral-200">integer</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Pagination limit (max 100) and offset</td>
+                      <td class="p-2.5 text-neutral-900 font-bold">limit=10&offset=0</td>
                     </tr>
                   </tbody>
                 </table>
@@ -224,62 +224,62 @@ const breadcrumbLd = {
             </div>
 
             <div>
-              <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+              <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-2">
                 Sample Request & Response
               </h4>
-              <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 rounded-xl overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/tools?category=Media&clientSide=1&limit=2"</code></pre>
+              <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/tools?category=Media&clientSide=1&limit=2"</code></pre>
             </div>
           </div>
         </article>
 
         {/* Endpoint 2: GET /api/v1/tools/{slug} */}
-        <article class="bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-2xs">
-          <div class="p-6 border-b border-neutral-100 flex flex-wrap items-center justify-between gap-4">
+        <article class="bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div class="p-6 border-b-2 border-neutral-900 flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-              <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-mono text-xs font-bold">
+              <span class="px-2.5 py-1 bg-emerald-200 text-neutral-900 border border-neutral-900 font-mono text-xs font-bold">
                 GET
               </span>
               <span class="font-mono text-sm font-bold text-neutral-900">
                 /api/v1/tools/:slug
               </span>
             </div>
-            <span class="text-xs text-neutral-500 font-medium">
+            <span class="text-xs font-mono text-neutral-500">
               Fetch full security audit, specs, and health for a single tool
             </span>
           </div>
 
           <div class="p-6 space-y-4">
             <div>
-              <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+              <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-2">
                 Sample Request
               </h4>
-              <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 rounded-xl overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/tools/excalidraw-com"</code></pre>
+              <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/tools/excalidraw-com"</code></pre>
             </div>
           </div>
         </article>
 
         {/* Endpoint 3: GET /api/v1/workflows */}
-        <article class="bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-2xs">
-          <div class="p-6 border-b border-neutral-100 flex flex-wrap items-center justify-between gap-4">
+        <article class="bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div class="p-6 border-b-2 border-neutral-900 flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-              <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-mono text-xs font-bold">
+              <span class="px-2.5 py-1 bg-emerald-200 text-neutral-900 border border-neutral-900 font-mono text-xs font-bold">
                 GET
               </span>
               <span class="font-mono text-sm font-bold text-neutral-900">
                 /api/v1/workflows
               </span>
             </div>
-            <span class="text-xs text-neutral-500 font-medium">
+            <span class="text-xs font-mono text-neutral-500">
               Retrieve curated multi-tool workflow recipes
             </span>
           </div>
 
           <div class="p-6 space-y-4">
             <div>
-              <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+              <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-2">
                 Sample Request
               </h4>
-              <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 rounded-xl overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/workflows?slug=private-podcast-production"</code></pre>
+              <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/workflows?slug=private-podcast-production"</code></pre>
             </div>
           </div>
         </article>
@@ -287,25 +287,25 @@ const breadcrumbLd = {
     </section>
 
     {/* AI & MCP Protocol Integration */}
-    <section class="mb-16 bg-neutral-900 text-white rounded-3xl p-8 sm:p-10 shadow-lg">
+    <section class="mb-16 bg-neutral-900 text-white border-2 border-neutral-900 p-8 sm:p-10 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-neutral-800 text-purple-400 border border-neutral-700 mb-4">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-mono font-bold bg-neutral-800 text-yellow-300 border border-neutral-700 mb-4">
           <span>🤖</span>
           <span>Model Context Protocol (MCP)</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-4 font-mono">
           {t(locale, 'dev.section.mcp')}
         </h2>
-        <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+        <p class="text-sm text-neutral-300 leading-relaxed mb-6 font-mono">
           {t(locale, 'dev.section.mcpDesc')}
         </p>
 
         <div class="space-y-4 mb-6">
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">
               Instant AI Assistant Setup (`claude_desktop_config.json` or `.cursor/mcp.json`)
             </h4>
-            <pre class="bg-neutral-950 text-neutral-200 text-xs font-mono p-4 rounded-xl overflow-x-auto border border-neutral-800"><code>{JSON.stringify({
+            <pre class="bg-neutral-950 text-neutral-200 text-xs font-mono p-4 border border-neutral-800 overflow-x-auto"><code>{JSON.stringify({
   mcpServers: {
     "nologin-tools": {
       command: "npx",
@@ -316,20 +316,20 @@ const breadcrumbLd = {
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+          <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">search_nologin_tools</div>
             <div class="text-neutral-400 text-[11px]">Filter tools by query, offline status, and client-side execution.</div>
           </div>
-          <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
+          <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">get_tool_details</div>
             <div class="text-neutral-400 text-[11px]">Retrieve security audit, privacy specs, and uptime stats.</div>
           </div>
-          <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
+          <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">list_workflows</div>
             <div class="text-neutral-400 text-[11px]">Query multi-tool chained recipes for end-to-end tasks.</div>
           </div>
-          <div class="p-3 bg-neutral-800/80 rounded-xl border border-neutral-700">
+          <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">find_alternatives</div>
             <div class="text-neutral-400 text-[11px]">Instantly find zero-login replacements for closed SaaS (Canva, Photoshop, etc.).</div>
           </div>
@@ -340,38 +340,38 @@ const breadcrumbLd = {
     {/* Embeddable Web Widget Generator */}
     <section class="mb-16">
       <div class="flex items-center gap-2 mb-2">
-        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+        <span class="px-2 py-0.5 text-xs font-mono font-bold bg-emerald-100 text-emerald-950 border border-neutral-900">
           Widget
         </span>
         <span class="text-xs text-neutral-500 font-mono">&lt;4KB · Shadow DOM · Zero Dependencies</span>
       </div>
-      <h2 class="text-2xl font-bold text-neutral-900 tracking-tight mb-2">
+      <h2 class="text-2xl font-bold text-neutral-900 tracking-tight mb-2 font-mono">
         {t(locale, 'dev.section.widget')}
       </h2>
-      <p class="text-sm text-neutral-600 leading-relaxed max-w-3xl mb-8">
+      <p class="text-sm text-neutral-700 leading-relaxed max-w-3xl mb-8">
         {t(locale, 'dev.section.widgetDesc')}
       </p>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Controls Card */}
-        <div class="lg:col-span-5 bg-white border border-neutral-200 rounded-2xl p-6 shadow-2xs space-y-5">
+        <div class="lg:col-span-5 bg-white border-2 border-neutral-900 p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-5">
           {/* Mode Switcher */}
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+            <label class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-2">
               {t(locale, 'dev.widget.filterType')}
             </label>
-            <div class="grid grid-cols-2 gap-2 p-1 bg-neutral-100 rounded-xl">
+            <div class="grid grid-cols-2 gap-2 p-1 bg-neutral-100 border-2 border-neutral-900">
               <button
                 type="button"
                 id="widget-mode-category"
-                class="py-2 px-3 text-xs font-bold rounded-lg transition-all bg-white text-neutral-900 shadow-2xs cursor-pointer"
+                class="py-2 px-3 text-xs font-mono font-bold border-2 border-neutral-900 bg-neutral-900 text-white cursor-pointer transition-none"
               >
                 {t(locale, 'dev.widget.byCategory')}
               </button>
               <button
                 type="button"
                 id="widget-mode-alternative"
-                class="py-2 px-3 text-xs font-bold rounded-lg transition-all text-neutral-600 hover:text-neutral-900 cursor-pointer"
+                class="py-2 px-3 text-xs font-mono font-bold border-2 border-transparent text-neutral-700 hover:text-neutral-900 cursor-pointer transition-none"
               >
                 {t(locale, 'dev.widget.byAlternative')}
               </button>
@@ -380,12 +380,12 @@ const breadcrumbLd = {
 
           {/* Category Select */}
           <div id="widget-category-group">
-            <label for="widget-category-select" class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+            <label for="widget-category-select" class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-2">
               {t(locale, 'dev.widget.categoryLabel')}
             </label>
             <select
               id="widget-category-select"
-              class="w-full text-xs font-semibold px-3 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:border-neutral-900"
+              class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
             >
               <option value="">All Categories (Featured)</option>
               <option value="Design" selected>Design</option>
@@ -403,12 +403,12 @@ const breadcrumbLd = {
 
           {/* Alternative Select */}
           <div id="widget-alternative-group" class="hidden">
-            <label for="widget-alternative-select" class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+            <label for="widget-alternative-select" class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-2">
               {t(locale, 'dev.widget.alternativeLabel')}
             </label>
             <select
               id="widget-alternative-select"
-              class="w-full text-xs font-semibold px-3 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:border-neutral-900"
+              class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
             >
               <option value="canva" selected>Canva (Graphics & Design)</option>
               <option value="figma">Figma (Vector & Wireframes)</option>
@@ -424,12 +424,12 @@ const breadcrumbLd = {
           {/* Theme & Max Items Grid */}
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label for="widget-theme-select" class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+              <label for="widget-theme-select" class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-2">
                 {t(locale, 'dev.widget.themeLabel')}
               </label>
               <select
                 id="widget-theme-select"
-                class="w-full text-xs font-semibold px-3 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:border-neutral-900"
+                class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
                 <option value="auto">Auto (System)</option>
                 <option value="light">Light</option>
@@ -438,12 +438,12 @@ const breadcrumbLd = {
             </div>
 
             <div>
-              <label for="widget-max-select" class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+              <label for="widget-max-select" class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-2">
                 {t(locale, 'dev.widget.maxLabel')}
               </label>
               <select
                 id="widget-max-select"
-                class="w-full text-xs font-semibold px-3 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:border-neutral-900"
+                class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
                 <option value="2">2 Tools</option>
                 <option value="3" selected>3 Tools</option>
@@ -454,34 +454,34 @@ const breadcrumbLd = {
           </div>
 
           {/* Embed Code & Copy */}
-          <div class="pt-2 border-t border-neutral-100">
+          <div class="pt-2 border-t-2 border-neutral-900">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-bold uppercase tracking-wider text-neutral-500">HTML Snippet</span>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">HTML Snippet</span>
               <button
                 type="button"
                 id="widget-copy-btn"
-                class="text-xs font-bold text-neutral-900 hover:text-emerald-700 inline-flex items-center gap-1 cursor-pointer transition-colors"
+                class="text-xs font-mono font-bold text-neutral-900 hover:text-emerald-700 underline inline-flex items-center gap-1 cursor-pointer"
               >
                 <span id="widget-copy-icon">📋</span>
                 <span id="widget-copy-text">{t(locale, 'dev.widget.copyCode')}</span>
               </button>
             </div>
-            <pre class="bg-neutral-900 text-neutral-200 text-[11px] font-mono p-3 rounded-xl overflow-x-auto leading-relaxed"><code id="widget-code-display">&lt;div class="nologin-widget" data-category="Design" data-theme="auto" data-max="3"&gt;&lt;/div&gt;
+            <pre class="bg-neutral-900 text-neutral-200 text-[11px] font-mono p-3 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto leading-relaxed"><code id="widget-code-display">&lt;div class="nologin-widget" data-category="Design" data-theme="auto" data-max="3"&gt;&lt;/div&gt;
 &lt;script src="https://nologin.tools/widget.js" async&gt;&lt;/script&gt;</code></pre>
           </div>
         </div>
 
         {/* Live Preview Card */}
         <div class="lg:col-span-7 space-y-3">
-          <div class="flex items-center justify-between text-xs text-neutral-500 px-1">
-            <span class="font-bold uppercase tracking-wider">{t(locale, 'dev.widget.preview')}</span>
-            <span class="font-mono text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+          <div class="flex items-center justify-between text-xs text-neutral-500 px-1 font-mono font-bold">
+            <span class="uppercase tracking-wider">{t(locale, 'dev.widget.preview')}</span>
+            <span class="text-[11px] text-emerald-800 flex items-center gap-1">
+              <span class="w-2 h-2 bg-emerald-600 inline-block"></span>
               Isolated Shadow DOM
             </span>
           </div>
 
-          <div class="p-4 sm:p-6 bg-neutral-100/80 border border-neutral-200 rounded-2xl min-h-[260px] flex flex-col justify-center">
+          <div class="p-4 sm:p-6 bg-neutral-50 border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] min-h-[260px] flex flex-col justify-center">
             <div id="widget-live-target"></div>
           </div>
         </div>
@@ -490,26 +490,26 @@ const breadcrumbLd = {
 
     {/* Dynamic Badges API */}
     <section class="mb-16">
-      <h2 class="text-2xl font-bold text-neutral-900 tracking-tight mb-6">
+      <h2 class="text-2xl font-bold font-mono text-neutral-900 tracking-tight mb-6 uppercase tracking-wide">
         {t(locale, 'dev.section.badges')}
       </h2>
 
-      <div class="bg-white border border-neutral-200 rounded-2xl p-6 shadow-2xs space-y-6">
-        <p class="text-sm text-neutral-600 leading-relaxed">
+      <div class="bg-white border-2 border-neutral-900 p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-6">
+        <p class="text-sm text-neutral-700 leading-relaxed font-mono">
           Embed official real-time verification shields into your open-source README, docs, or landing page:
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
-            <div class="text-xs font-bold text-neutral-800 mb-2">Live Dynamic SVG Badge:</div>
+          <div class="p-4 bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <div class="text-xs font-mono font-bold text-neutral-900 mb-2 uppercase">Live Dynamic SVG Badge:</div>
             <img src="/api/badge/excalidraw-com.svg" alt="NoLogin Verified" class="mb-3" />
-            <pre class="bg-neutral-900 text-neutral-200 text-[11px] font-mono p-2.5 rounded-lg overflow-x-auto"><code>[![NoLogin Verified](https://nologin.tools/api/badge/excalidraw-com.svg)](https://nologin.tools/badge/excalidraw-com)</code></pre>
+            <pre class="bg-neutral-900 text-neutral-200 text-[11px] font-mono p-2.5 border border-neutral-900 overflow-x-auto"><code>[![NoLogin Verified](https://nologin.tools/api/badge/excalidraw-com.svg)](https://nologin.tools/badge/excalidraw-com)</code></pre>
           </div>
 
-          <div class="p-4 bg-neutral-900 rounded-xl border border-neutral-800">
-            <div class="text-xs font-bold text-neutral-200 mb-2">Dark Theme SVG Shield:</div>
+          <div class="p-4 bg-neutral-900 text-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <div class="text-xs font-mono font-bold text-neutral-200 mb-2 uppercase">Dark Theme SVG Shield:</div>
             <img src="/badges/flat-dark.svg" alt="NoLogin Verified" class="mb-3" />
-            <pre class="bg-neutral-950 text-neutral-200 text-[11px] font-mono p-2.5 rounded-lg overflow-x-auto"><code>[![NoLogin Verified](https://nologin.tools/badges/flat-dark.svg)](https://nologin.tools/badge/excalidraw-com)</code></pre>
+            <pre class="bg-neutral-950 text-neutral-200 text-[11px] font-mono p-2.5 border border-neutral-800 overflow-x-auto"><code>[![NoLogin Verified](https://nologin.tools/badges/flat-dark.svg)](https://nologin.tools/badge/excalidraw-com)</code></pre>
           </div>
         </div>
       </div>
@@ -517,13 +517,13 @@ const breadcrumbLd = {
 
     {/* Code Examples */}
     <section class="mb-12">
-      <h2 class="text-2xl font-bold text-neutral-900 tracking-tight mb-6">
+      <h2 class="text-2xl font-bold font-mono text-neutral-900 tracking-tight mb-6 uppercase tracking-wide">
         {t(locale, 'dev.section.code')}
       </h2>
 
       <div class="space-y-4">
-        <div class="bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-2xs">
-          <div class="px-5 py-3 bg-neutral-100 border-b border-neutral-200 font-mono text-xs font-bold text-neutral-700">
+        <div class="bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+          <div class="px-5 py-3 bg-neutral-100 border-b-2 border-neutral-900 font-mono text-xs font-bold text-neutral-900 uppercase">
             TypeScript / JavaScript (Fetch API)
           </div>
           <pre class="p-5 bg-neutral-900 text-neutral-200 text-xs font-mono overflow-x-auto"><code>{`const res = await fetch('https://nologin.tools/api/v1/tools?category=Privacy&clientSide=1');
@@ -531,8 +531,8 @@ const { data } = await res.json();
 console.log('Found', data.total, 'private tools:', data.tools.map(t => t.name));`}</code></pre>
         </div>
 
-        <div class="bg-white border border-neutral-200 rounded-2xl overflow-hidden shadow-2xs">
-          <div class="px-5 py-3 bg-neutral-100 border-b border-neutral-200 font-mono text-xs font-bold text-neutral-700">
+        <div class="bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+          <div class="px-5 py-3 bg-neutral-100 border-b-2 border-neutral-900 font-mono text-xs font-bold text-neutral-900 uppercase">
             Python (requests)
           </div>
           <pre class="p-5 bg-neutral-900 text-neutral-200 text-xs font-mono overflow-x-auto"><code>{`import requests

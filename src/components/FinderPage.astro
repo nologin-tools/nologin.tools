@@ -90,11 +90,11 @@ const breadcrumbLd = {
 
     {/* Hero Section */}
     <header class="mb-10 text-center max-w-2xl mx-auto">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-neutral-100 text-neutral-800 border border-neutral-200 mb-4 shadow-2xs">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-yellow-300 text-neutral-900 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-xs font-mono font-bold uppercase tracking-wider mb-4">
         <span>🧭</span>
         <span>{t(locale, 'finder.hero.badge')}</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight mb-3">
+      <h1 class="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight uppercase italic mb-3">
         {t(locale, 'finder.hero.heading')}
       </h1>
       <p class="text-sm sm:text-base text-neutral-600 leading-relaxed">
@@ -103,7 +103,7 @@ const breadcrumbLd = {
     </header>
 
     {/* Control Deck */}
-    <section class="bg-neutral-50 border-2 border-neutral-900 rounded-2xl p-4 sm:p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-8" aria-label="Tool Filters">
+    <section class="bg-neutral-50 border-2 border-neutral-900 p-4 sm:p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-8" aria-label="Tool Filters">
       {/* Search Input Box */}
       <div class="relative mb-6">
         <span class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 select-none text-base">🔍</span>
@@ -111,13 +111,13 @@ const breadcrumbLd = {
           id="finder-search-input"
           type="text"
           placeholder={t(locale, 'finder.search.placeholder')}
-          class="w-full pl-11 pr-10 py-3.5 bg-white border-2 border-neutral-300 focus:border-neutral-900 rounded-xl text-sm font-medium text-neutral-900 placeholder:text-neutral-400 focus:outline-hidden transition-all shadow-2xs"
+          class="w-full pl-11 pr-10 py-3.5 bg-white border-2 border-neutral-900 text-sm font-mono font-bold text-neutral-900 placeholder:text-neutral-400 focus:outline-hidden transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
           autocomplete="off"
           spellcheck="false"
         />
         <button
           id="finder-clear-search-btn"
-          class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-neutral-200 hover:bg-neutral-300 text-neutral-600 text-xs font-bold flex items-center justify-center transition-colors cursor-pointer"
+          class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-neutral-200 hover:bg-neutral-900 hover:text-white border border-neutral-900 text-neutral-900 text-xs font-mono font-bold flex items-center justify-center transition-colors cursor-pointer"
           aria-label="Clear search"
         >
           ✕
@@ -126,14 +126,14 @@ const breadcrumbLd = {
 
       {/* Category Chips Carousel */}
       <div class="mb-6">
-        <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-2.5">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-2.5">
           {t(locale, 'tag.category')}
         </div>
         <div id="category-chips-container" class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none whitespace-nowrap">
           <button
             type="button"
             data-cat="all"
-            class="cat-chip active px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer bg-neutral-900 text-white border-neutral-900"
+            class="cat-chip active px-3 py-1.5 text-xs font-mono font-bold border-2 transition-all cursor-pointer bg-neutral-900 text-white border-neutral-900 uppercase"
           >
             {t(locale, 'finder.category.all')} ({totalToolsCount})
           </button>
@@ -141,7 +141,7 @@ const breadcrumbLd = {
             <button
               type="button"
               data-cat={cat.toLowerCase()}
-              class="cat-chip px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900"
+              class="cat-chip px-3 py-1.5 text-xs font-mono font-bold border-2 transition-all cursor-pointer bg-white text-neutral-800 border-neutral-300 hover:border-neutral-900 uppercase"
             >
               {translateCategory(cat)} ({categoryCounts[cat] || 0})
             </button>
@@ -151,15 +151,15 @@ const breadcrumbLd = {
 
       {/* Execution & Privacy Checkbox Toggles */}
       <div class="border-t border-neutral-200 pt-5 mb-5">
-        <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-3">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-3">
           {t(locale, 'finder.filter.heading')}
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           {/* Client-Side Only */}
-          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border border-neutral-300 hover:border-neutral-900 rounded-xl cursor-pointer select-none transition-all">
-            <input type="checkbox" id="filter-clientside" class="mt-0.5 rounded border-neutral-400 text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer" />
+          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border-2 border-neutral-300 hover:border-neutral-900 cursor-pointer select-none transition-all">
+            <input type="checkbox" id="filter-clientside" class="mt-0.5 border-2 border-neutral-900 text-neutral-900 focus:ring-0 w-4 h-4 cursor-pointer" />
             <div>
-              <div class="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+              <div class="text-xs font-mono font-bold text-neutral-900 flex items-center gap-1.5">
                 <span>🛡️</span>
                 <span>{t(locale, 'finder.filter.clientSide')}</span>
               </div>
@@ -170,10 +170,10 @@ const breadcrumbLd = {
           </label>
 
           {/* Works Offline */}
-          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border border-neutral-300 hover:border-neutral-900 rounded-xl cursor-pointer select-none transition-all">
-            <input type="checkbox" id="filter-offline" class="mt-0.5 rounded border-neutral-400 text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer" />
+          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border-2 border-neutral-300 hover:border-neutral-900 cursor-pointer select-none transition-all">
+            <input type="checkbox" id="filter-offline" class="mt-0.5 border-2 border-neutral-900 text-neutral-900 focus:ring-0 w-4 h-4 cursor-pointer" />
             <div>
-              <div class="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+              <div class="text-xs font-mono font-bold text-neutral-900 flex items-center gap-1.5">
                 <span>✈️</span>
                 <span>{t(locale, 'finder.filter.offline')}</span>
               </div>
@@ -184,10 +184,10 @@ const breadcrumbLd = {
           </label>
 
           {/* Open Source */}
-          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border border-neutral-300 hover:border-neutral-900 rounded-xl cursor-pointer select-none transition-all">
-            <input type="checkbox" id="filter-oss" class="mt-0.5 rounded border-neutral-400 text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer" />
+          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border-2 border-neutral-300 hover:border-neutral-900 cursor-pointer select-none transition-all">
+            <input type="checkbox" id="filter-oss" class="mt-0.5 border-2 border-neutral-900 text-neutral-900 focus:ring-0 w-4 h-4 cursor-pointer" />
             <div>
-              <div class="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+              <div class="text-xs font-mono font-bold text-neutral-900 flex items-center gap-1.5">
                 <span>💻</span>
                 <span>{t(locale, 'finder.filter.openSource')}</span>
               </div>
@@ -198,10 +198,10 @@ const breadcrumbLd = {
           </label>
 
           {/* 100% Free */}
-          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border border-neutral-300 hover:border-neutral-900 rounded-xl cursor-pointer select-none transition-all">
-            <input type="checkbox" id="filter-free" class="mt-0.5 rounded border-neutral-400 text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer" />
+          <label class="filter-toggle-card flex items-start gap-3 p-3 bg-white border-2 border-neutral-300 hover:border-neutral-900 cursor-pointer select-none transition-all">
+            <input type="checkbox" id="filter-free" class="mt-0.5 border-2 border-neutral-900 text-neutral-900 focus:ring-0 w-4 h-4 cursor-pointer" />
             <div>
-              <div class="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
+              <div class="text-xs font-mono font-bold text-neutral-900 flex items-center gap-1.5">
                 <span>🎁</span>
                 <span>{t(locale, 'finder.filter.free')}</span>
               </div>
@@ -215,7 +215,7 @@ const breadcrumbLd = {
 
       {/* Sort & Action Bar */}
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-4 border-t border-neutral-200">
-        <div class="flex items-center gap-2 text-xs font-bold text-neutral-800">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-800">
           <span id="match-counter-text">
             {t(locale, 'finder.results.matching', { count: String(totalToolsCount) })}
           </span>
@@ -229,12 +229,12 @@ const breadcrumbLd = {
         </div>
 
         <div class="flex items-center gap-2">
-          <label for="finder-sort-select" class="text-xs font-bold text-neutral-500 whitespace-nowrap">
+          <label for="finder-sort-select" class="text-xs font-mono font-bold text-neutral-500 whitespace-nowrap">
             {t(locale, 'finder.sort.label')}:
           </label>
           <select
             id="finder-sort-select"
-            class="bg-white border border-neutral-300 rounded-lg px-2.5 py-1.5 text-xs font-bold text-neutral-800 focus:outline-hidden focus:border-neutral-900 cursor-pointer"
+            class="bg-white border-2 border-neutral-900 px-2.5 py-1.5 text-xs font-mono font-bold text-neutral-900 focus:outline-hidden cursor-pointer"
           >
             <option value="score">{t(locale, 'finder.sort.recommended')}</option>
             <option value="name-asc">{t(locale, 'finder.sort.nameAsc')}</option>
@@ -248,7 +248,7 @@ const breadcrumbLd = {
     <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
       {tools.map((tool) => (
         <article
-          class="tool-card bg-white border border-neutral-200 hover:border-neutral-900 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+          class="tool-card bg-white border-2 border-neutral-900 rounded-none p-5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between"
           data-slug={tool.slug}
           data-name={tool.name}
           data-category={tool.category.toLowerCase()}
@@ -265,27 +265,27 @@ const breadcrumbLd = {
                 <img
                   src={`https://www.google.com/s2/favicons?domain=${tool.hostname}&sz=32`}
                   alt=""
-                  class="w-5 h-5 rounded-xs shrink-0"
+                  class="w-5 h-5 shrink-0"
                   loading="lazy"
                   onerror="this.style.display='none'"
                 />
                 <h3 class="text-base font-bold text-neutral-900 truncate">
-                  <a href={getLocalizedPath(`/tool/${tool.slug}`, locale)} class="hover:underline">
-                    {tool.isFeatured && <span class="text-yellow-500 mr-1 select-none">★</span>}
+                  <a href={getLocalizedPath(`/tool/${tool.slug}`, locale)} class="hover:underline decoration-2">
+                    {tool.isFeatured && <span class="text-yellow-500 mr-1 select-none font-mono">★</span>}
                     {tool.name}
                   </a>
                 </h3>
               </div>
 
               <div class="flex items-center gap-1.5 shrink-0">
-                <span class="text-[11px] px-2 py-0.5 rounded-md bg-neutral-100 text-neutral-600 font-medium">
+                <span class="text-[10px] uppercase font-mono font-bold px-2 py-0.5 border border-neutral-900 bg-neutral-100 text-neutral-800">
                   {translateCategory(tool.category)}
                 </span>
                 {tool.health && (
-                  <span class={`text-[10px] px-1.5 py-0.5 rounded-md font-bold ${
+                  <span class={`text-[10px] px-1.5 py-0.5 border border-neutral-900 font-mono font-bold ${
                     tool.health === 'online'
-                      ? 'bg-emerald-50 text-emerald-700'
-                      : 'bg-amber-50 text-amber-700'
+                      ? 'bg-green-200 text-green-900'
+                      : 'bg-amber-200 text-amber-900'
                   }`}>
                     {tool.health === 'online' ? '✓' : '⚠'}
                   </span>
@@ -296,7 +296,7 @@ const breadcrumbLd = {
             {/* Core Task Badge */}
             {tool.coreTask && (
               <div class="mb-3">
-                <span class="inline-block text-[11px] font-mono text-neutral-700 bg-neutral-100/80 px-2 py-0.5 rounded-md truncate max-w-full">
+                <span class="inline-block text-[11px] font-mono text-neutral-800 bg-neutral-100 px-2 py-0.5 border border-neutral-300 truncate max-w-full">
                   {tool.coreTask}
                 </span>
               </div>
@@ -310,25 +310,25 @@ const breadcrumbLd = {
             {/* Attribute Badges */}
             <div class="flex flex-wrap gap-1.5 mb-5">
               {tool.isClientSideOnly && (
-                <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100">
+                <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 bg-neutral-100 text-neutral-800 border border-neutral-900">
                   <span>🛡️</span>
                   <span>{t(locale, 'finder.filter.clientSide')}</span>
                 </span>
               )}
               {tool.worksOffline && (
-                <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-800 border border-blue-100">
+                <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 bg-neutral-100 text-neutral-800 border border-neutral-900">
                   <span>✈️</span>
                   <span>{t(locale, 'finder.filter.offline')}</span>
                 </span>
               )}
               {tool.isOpenSource && (
-                <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 border border-purple-100">
+                <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 bg-neutral-100 text-neutral-800 border border-neutral-900">
                   <span>💻</span>
                   <span>{t(locale, 'finder.filter.openSource')}</span>
                 </span>
               )}
               {tool.isFree && (
-                <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-100">
+                <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 bg-neutral-100 text-neutral-800 border border-neutral-900">
                   <span>🎁</span>
                   <span>{t(locale, 'finder.filter.free')}</span>
                 </span>
@@ -337,10 +337,10 @@ const breadcrumbLd = {
           </div>
 
           {/* Action CTAs */}
-          <div class="pt-3 border-t border-neutral-100 flex items-center justify-between gap-3 text-xs">
+          <div class="pt-3 border-t-2 border-neutral-900 flex items-center justify-between gap-3 text-xs">
             <a
               href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
-              class="font-bold text-neutral-500 hover:text-neutral-900 transition-colors inline-flex items-center gap-1"
+              class="font-mono font-bold text-neutral-700 hover:text-neutral-900 underline decoration-2 uppercase inline-flex items-center gap-1"
             >
               <span>{t(locale, 'finder.results.audit')}</span>
               <span>&rarr;</span>
@@ -349,7 +349,7 @@ const breadcrumbLd = {
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="px-3.5 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 active:bg-black text-white text-xs font-bold transition-all shadow-2xs inline-flex items-center gap-1 group"
+              class="px-3.5 py-1.5 bg-neutral-900 hover:bg-neutral-800 active:translate-x-[1px] active:translate-y-[1px] text-white text-xs font-mono font-bold uppercase tracking-wider border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-flex items-center gap-1.5 group"
             >
               <span>{t(locale, 'finder.results.launch')}</span>
               <span class="group-hover:translate-x-0.5 transition-transform">&nearr;</span>
@@ -360,7 +360,7 @@ const breadcrumbLd = {
     </div>
 
     {/* Empty State */}
-    <div id="finder-empty-state" class="hidden text-center py-16 px-4 bg-neutral-50 border-2 border-dashed border-neutral-300 rounded-2xl mb-16">
+    <div id="finder-empty-state" class="hidden text-center py-16 px-4 bg-neutral-50 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-16">
       <div class="text-4xl mb-3 select-none">🔍</div>
       <h3 class="text-lg font-bold text-neutral-900 mb-2">
         {t(locale, 'finder.empty.title')}

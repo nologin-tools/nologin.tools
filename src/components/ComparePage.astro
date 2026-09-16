@@ -111,32 +111,32 @@ const breadcrumbLd = {
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <!-- Breadcrumb -->
     <nav aria-label="Breadcrumb" class="mb-8">
-      <ol class="flex items-center gap-2 text-sm font-bold text-neutral-400">
+      <ol class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-500">
         <li>
           <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">{t(locale, 'common.home')}</a>
         </li>
         <li aria-hidden="true">
-          <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor">
+          <svg class="w-3.5 h-3.5 text-neutral-400" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
           </svg>
         </li>
-        <li aria-current="page" class="text-neutral-900">
+        <li aria-current="page" class="text-neutral-900 font-bold">
           {toolA.name} vs {toolB.name}
         </li>
       </ol>
     </nav>
 
     <!-- Header -->
-    <header class="mb-10 border-b-4 border-neutral-900 pb-8">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-neutral-100 text-neutral-800 text-xs font-mono font-bold uppercase rounded mb-4">
+    <header class="mb-10 border-b-2 border-neutral-900 pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-white text-neutral-900 text-xs font-mono font-bold uppercase border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
         <span>⚔️ {t(locale, 'compare.page.badge')}</span>
         <span>&bull;</span>
         <span>{pair.category}</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
-        {toolA.name} <span class="text-neutral-400 font-normal italic">vs</span> {toolB.name}
+      <h1 class="text-3xl sm:text-5xl font-black text-neutral-900 tracking-tight leading-tight font-mono">
+        {toolA.name} <span class="text-neutral-500 font-normal italic">vs</span> {toolB.name}
       </h1>
-      <p class="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed max-w-3xl">
+      <p class="mt-4 text-base sm:text-lg text-neutral-700 leading-relaxed max-w-3xl">
         {pair.headline}.
       </p>
     </header>
@@ -144,10 +144,10 @@ const breadcrumbLd = {
     <!-- Side-by-Side Quick Summary Cards -->
     <section class="mb-14 grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Tool A Card -->
-      <div class="border-2 border-neutral-900 rounded-xl p-6 bg-white shadow-xs flex flex-col justify-between">
+      <div class="border-2 border-neutral-900 p-6 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center shrink-0 border border-neutral-200 overflow-hidden">
+            <div class="w-10 h-10 border-2 border-neutral-900 bg-neutral-100 flex items-center justify-center shrink-0 overflow-hidden shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
               <img
                 src={`https://www.google.com/s2/favicons?domain=${hostnameA}&sz=64`}
                 alt={toolA.name}
@@ -161,21 +161,21 @@ const breadcrumbLd = {
             <div>
               <div class="flex items-center gap-2">
                 <h2 class="text-xl font-black text-neutral-900">{toolA.name}</h2>
-                {toolA.isFeatured && <span class="text-yellow-600 text-sm">★</span>}
+                {toolA.isFeatured && <span class="text-yellow-600 text-sm font-bold">★</span>}
               </div>
-              <span class="text-xs font-mono text-neutral-400">{hostnameA}</span>
+              <span class="text-xs font-mono text-neutral-500">{hostnameA}</span>
             </div>
           </div>
           <p class="text-xs text-neutral-600 leading-relaxed mb-4">
             {toolA.bestFor || descA}
           </p>
         </div>
-        <div class="flex items-center gap-2 pt-4 border-t border-neutral-100">
+        <div class="flex items-center gap-2 pt-4 border-t-2 border-neutral-900">
           <a
             href={toolA.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex-1 text-center px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center justify-center gap-1.5"
+            class="flex-1 text-center px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none inline-flex items-center justify-center gap-1.5"
           >
             <span>Launch {toolA.name}</span>
             <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -186,7 +186,7 @@ const breadcrumbLd = {
           </a>
           <a
             href={getLocalizedPath(`/tool/${toolA.slug}`, locale)}
-            class="px-3 py-2.5 border border-neutral-200 hover:border-neutral-400 text-neutral-700 text-xs font-bold rounded-lg transition-colors"
+            class="px-3 py-2.5 bg-white hover:bg-yellow-50 text-neutral-900 text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none"
           >
             Audit
           </a>
@@ -194,10 +194,10 @@ const breadcrumbLd = {
       </div>
 
       <!-- Tool B Card -->
-      <div class="border-2 border-neutral-900 rounded-xl p-6 bg-white shadow-xs flex flex-col justify-between">
+      <div class="border-2 border-neutral-900 p-6 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center shrink-0 border border-neutral-200 overflow-hidden">
+            <div class="w-10 h-10 border-2 border-neutral-900 bg-neutral-100 flex items-center justify-center shrink-0 overflow-hidden shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
               <img
                 src={`https://www.google.com/s2/favicons?domain=${hostnameB}&sz=64`}
                 alt={toolB.name}
@@ -211,21 +211,21 @@ const breadcrumbLd = {
             <div>
               <div class="flex items-center gap-2">
                 <h2 class="text-xl font-black text-neutral-900">{toolB.name}</h2>
-                {toolB.isFeatured && <span class="text-yellow-600 text-sm">★</span>}
+                {toolB.isFeatured && <span class="text-yellow-600 text-sm font-bold">★</span>}
               </div>
-              <span class="text-xs font-mono text-neutral-400">{hostnameB}</span>
+              <span class="text-xs font-mono text-neutral-500">{hostnameB}</span>
             </div>
           </div>
           <p class="text-xs text-neutral-600 leading-relaxed mb-4">
             {toolB.bestFor || descB}
           </p>
         </div>
-        <div class="flex items-center gap-2 pt-4 border-t border-neutral-100">
+        <div class="flex items-center gap-2 pt-4 border-t-2 border-neutral-900">
           <a
             href={toolB.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex-1 text-center px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center justify-center gap-1.5"
+            class="flex-1 text-center px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none inline-flex items-center justify-center gap-1.5"
           >
             <span>Launch {toolB.name}</span>
             <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -236,7 +236,7 @@ const breadcrumbLd = {
           </a>
           <a
             href={getLocalizedPath(`/tool/${toolB.slug}`, locale)}
-            class="px-3 py-2.5 border border-neutral-200 hover:border-neutral-400 text-neutral-700 text-xs font-bold rounded-lg transition-colors"
+            class="px-3 py-2.5 bg-white hover:bg-yellow-50 text-neutral-900 text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none"
           >
             Audit
           </a>
@@ -245,25 +245,25 @@ const breadcrumbLd = {
     </section>
 
     <!-- The Verdict Section -->
-    <section class="mb-16 border-2 border-emerald-600 bg-emerald-50/40 rounded-xl p-6 sm:p-8">
-      <div class="flex items-center gap-2 text-emerald-800 text-xs font-bold font-mono uppercase tracking-wider mb-2">
+    <section class="mb-16 border-2 border-neutral-900 bg-emerald-50 p-6 sm:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div class="flex items-center gap-2 text-emerald-900 text-xs font-bold font-mono uppercase tracking-wider mb-2">
         <span>🏆</span>
         <span>{t(locale, 'compare.page.verdictHeading')}</span>
       </div>
-      <p class="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium mb-6">
+      <p class="text-sm sm:text-base text-neutral-900 leading-relaxed font-mono font-medium mb-6">
         {pair.verdict.summary}
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-emerald-200/70">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t-2 border-neutral-900">
         <div>
-          <h3 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">A</span>
+          <h3 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2 font-mono">
+            <span class="w-5 h-5 bg-emerald-700 text-white flex items-center justify-center text-xs font-bold border border-neutral-900">A</span>
             <span>{t(locale, 'compare.page.chooseA', { toolA: toolA.name })}</span>
           </h3>
-          <ul class="space-y-2 text-xs text-neutral-700">
+          <ul class="space-y-2 text-xs text-neutral-800 font-mono">
             {pair.verdict.chooseAIf.map((point) => (
               <li class="flex items-start gap-2">
-                <span class="text-emerald-700 font-bold shrink-0 mt-0.5">✓</span>
+                <span class="text-emerald-800 font-bold shrink-0 mt-0.5">✓</span>
                 <span>{point}</span>
               </li>
             ))}
@@ -271,14 +271,14 @@ const breadcrumbLd = {
         </div>
 
         <div>
-          <h3 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full bg-neutral-900 text-white flex items-center justify-center text-xs">B</span>
+          <h3 class="font-bold text-sm text-neutral-900 mb-3 flex items-center gap-2 font-mono">
+            <span class="w-5 h-5 bg-neutral-900 text-white flex items-center justify-center text-xs font-bold border border-neutral-900">B</span>
             <span>{t(locale, 'compare.page.chooseB', { toolB: toolB.name })}</span>
           </h3>
-          <ul class="space-y-2 text-xs text-neutral-700">
+          <ul class="space-y-2 text-xs text-neutral-800 font-mono">
             {pair.verdict.chooseBIf.map((point) => (
               <li class="flex items-start gap-2">
-                <span class="text-emerald-700 font-bold shrink-0 mt-0.5">✓</span>
+                <span class="text-emerald-800 font-bold shrink-0 mt-0.5">✓</span>
                 <span>{point}</span>
               </li>
             ))}
@@ -289,60 +289,60 @@ const breadcrumbLd = {
 
     <!-- Side-by-Side Feature & Technical Spec Table -->
     <section class="mb-16">
-      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6 font-mono">
         {t(locale, 'compare.page.specHeading')}
       </h2>
 
-      <div class="overflow-x-auto border border-neutral-200 rounded-xl shadow-xs">
+      <div class="overflow-x-auto border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         <table class="w-full text-left border-collapse text-xs">
           <thead>
             <tr class="bg-neutral-900 text-white font-mono">
-              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3">{t(locale, 'compare.page.specFeature')}</th>
-              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3 border-l border-neutral-700">{toolA.name}</th>
-              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3 border-l border-neutral-700">{toolB.name}</th>
+              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3 border-r-2 border-neutral-800">{t(locale, 'compare.page.specFeature')}</th>
+              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3 border-r-2 border-neutral-800">{toolA.name}</th>
+              <th class="p-3.5 sm:p-4 font-bold uppercase tracking-wider w-1/3">{toolB.name}</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-neutral-200 bg-white">
+          <tbody class="divide-y-2 divide-neutral-900 bg-white font-mono">
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specAccount')}</td>
-              <td class="p-3.5 sm:p-4 text-emerald-700 font-bold border-l border-neutral-100">✓ {t(locale, 'compare.page.specAccountVal')}</td>
-              <td class="p-3.5 sm:p-4 text-emerald-700 font-bold border-l border-neutral-100">✓ {t(locale, 'compare.page.specAccountVal')}</td>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specAccount')}</td>
+              <td class="p-3.5 sm:p-4 text-emerald-800 font-bold border-r-2 border-neutral-900">[✓] {t(locale, 'compare.page.specAccountVal')}</td>
+              <td class="p-3.5 sm:p-4 text-emerald-800 font-bold">[✓] {t(locale, 'compare.page.specAccountVal')}</td>
             </tr>
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specDataArch')}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.dataTag || 'Client-Side'}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.dataTag || 'Client-Side'}</td>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specDataArch')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800 border-r-2 border-neutral-900">{toolA.dataTag || 'Client-Side'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800">{toolB.dataTag || 'Client-Side'}</td>
             </tr>
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specPrivacy')}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.privacyTag || 'Privacy Focused'}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.privacyTag || 'Privacy Focused'}</td>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specPrivacy')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800 border-r-2 border-neutral-900">{toolA.privacyTag || 'Privacy Focused'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800">{toolB.privacyTag || 'Privacy Focused'}</td>
             </tr>
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specOffline')}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.offlineTag || 'Online Only'}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.offlineTag || 'Online Only'}</td>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specOffline')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800 border-r-2 border-neutral-900">{toolA.offlineTag || 'Online Only'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800">{toolB.offlineTag || 'Online Only'}</td>
             </tr>
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specPricing')}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolA.pricingTag || 'Free'}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">{toolB.pricingTag || 'Free'}</td>
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specPricing')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800 border-r-2 border-neutral-900">{toolA.pricingTag || 'Free'}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800">{toolB.pricingTag || 'Free'}</td>
             </tr>
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specLicense')}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specLicense')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800 border-r-2 border-neutral-900">
                 {toolA.githubLicense ? `Open Source (${toolA.githubLicense})` : 'Web Freeware'}
               </td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100">
+              <td class="p-3.5 sm:p-4 text-neutral-800">
                 {toolB.githubLicense ? `Open Source (${toolB.githubLicense})` : 'Web Freeware'}
               </td>
             </tr>
             <tr>
-              <td class="p-3.5 sm:p-4 font-bold text-neutral-800 bg-neutral-50/50">{t(locale, 'compare.page.specHealth')}</td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100 font-mono">
+              <td class="p-3.5 sm:p-4 font-bold text-neutral-900 bg-neutral-100 border-r-2 border-neutral-900">{t(locale, 'compare.page.specHealth')}</td>
+              <td class="p-3.5 sm:p-4 text-neutral-800 border-r-2 border-neutral-900">
                 {toolA.health?.status === 'online' ? '✓ 100% Online' : 'Active'}
               </td>
-              <td class="p-3.5 sm:p-4 text-neutral-700 border-l border-neutral-100 font-mono">
+              <td class="p-3.5 sm:p-4 text-neutral-800">
                 {toolB.health?.status === 'online' ? '✓ 100% Online' : 'Active'}
               </td>
             </tr>
@@ -353,23 +353,23 @@ const breadcrumbLd = {
 
     <!-- Pros & Cons Head-to-Head -->
     <section class="mb-16">
-      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-8">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-8 font-mono">
         {t(locale, 'compare.page.editorialHeading')}
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Tool A Pros/Cons -->
-        <div class="border border-neutral-200 rounded-xl p-5 bg-white shadow-xs">
+        <div class="border-2 border-neutral-900 p-5 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
           <h3 class="text-lg font-black text-neutral-900 mb-4 flex items-center gap-2">
             <span>{toolA.name}</span>
           </h3>
           {toolA.pros.length > 0 && (
             <div class="mb-4">
-              <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.pros')}</span>
-              <ul class="space-y-1.5 text-xs text-neutral-700">
+              <span class="text-xs font-mono font-bold text-emerald-900 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.pros')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-800 font-mono">
                 {toolA.pros.map((p) => (
                   <li class="flex items-start gap-1.5">
-                    <span class="text-emerald-600 font-bold shrink-0">•</span>
+                    <span class="text-emerald-700 font-bold shrink-0">•</span>
                     <span>{p}</span>
                   </li>
                 ))}
@@ -378,11 +378,11 @@ const breadcrumbLd = {
           )}
           {toolA.cons.length > 0 && (
             <div>
-              <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.cons')}</span>
-              <ul class="space-y-1.5 text-xs text-neutral-700">
+              <span class="text-xs font-mono font-bold text-amber-950 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.cons')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-800 font-mono">
                 {toolA.cons.map((c) => (
                   <li class="flex items-start gap-1.5">
-                    <span class="text-amber-600 font-bold shrink-0">•</span>
+                    <span class="text-amber-700 font-bold shrink-0">•</span>
                     <span>{c}</span>
                   </li>
                 ))}
@@ -392,17 +392,17 @@ const breadcrumbLd = {
         </div>
 
         <!-- Tool B Pros/Cons -->
-        <div class="border border-neutral-200 rounded-xl p-5 bg-white shadow-xs">
+        <div class="border-2 border-neutral-900 p-5 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
           <h3 class="text-lg font-black text-neutral-900 mb-4 flex items-center gap-2">
             <span>{toolB.name}</span>
           </h3>
           {toolB.pros.length > 0 && (
             <div class="mb-4">
-              <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.pros')}</span>
-              <ul class="space-y-1.5 text-xs text-neutral-700">
+              <span class="text-xs font-mono font-bold text-emerald-900 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.pros')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-800 font-mono">
                 {toolB.pros.map((p) => (
                   <li class="flex items-start gap-1.5">
-                    <span class="text-emerald-600 font-bold shrink-0">•</span>
+                    <span class="text-emerald-700 font-bold shrink-0">•</span>
                     <span>{p}</span>
                   </li>
                 ))}
@@ -411,11 +411,11 @@ const breadcrumbLd = {
           )}
           {toolB.cons.length > 0 && (
             <div>
-              <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.cons')}</span>
-              <ul class="space-y-1.5 text-xs text-neutral-700">
+              <span class="text-xs font-mono font-bold text-amber-950 uppercase tracking-wider block mb-2">{t(locale, 'tool.editorial.cons')}</span>
+              <ul class="space-y-1.5 text-xs text-neutral-800 font-mono">
                 {toolB.cons.map((c) => (
                   <li class="flex items-start gap-1.5">
-                    <span class="text-amber-600 font-bold shrink-0">•</span>
+                    <span class="text-amber-700 font-bold shrink-0">•</span>
                     <span>{c}</span>
                   </li>
                 ))}
@@ -427,23 +427,23 @@ const breadcrumbLd = {
     </section>
 
     <!-- FAQ Section -->
-    <section class="mb-16 border-t border-neutral-200 pt-10">
-      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6">
+    <section class="mb-16 border-t-2 border-neutral-900 pt-10">
+      <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-6 font-mono">
         {t(locale, 'compare.faq.heading')}
       </h2>
       <dl class="space-y-6">
         {faqQuestions.map((faq) => (
-          <div class="border-b border-neutral-100 pb-5">
+          <div class="border-b-2 border-neutral-200 pb-5">
             <dt class="text-base font-bold text-neutral-900 mb-1">{faq.q}</dt>
-            <dd class="text-sm text-neutral-600 leading-relaxed">{faq.a}</dd>
+            <dd class="text-sm text-neutral-700 leading-relaxed">{faq.a}</dd>
           </div>
         ))}
       </dl>
     </section>
 
     <!-- More Comparisons Grid -->
-    <section class="mb-16 border-t border-neutral-200 pt-10">
-      <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-500 mb-4">
+    <section class="mb-16 border-t-2 border-neutral-900 pt-10">
+      <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-4">
         {t(locale, 'compare.page.exploreOther')}
       </h3>
       <div class="flex flex-wrap gap-2">
@@ -451,10 +451,10 @@ const breadcrumbLd = {
           <a
             href={getLocalizedPath(`/compare/${p.slug}`, locale)}
             class:list={[
-              'px-3 py-1.5 rounded-md text-xs font-bold border transition-colors',
+              'px-3 py-1.5 text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-none',
               p.slug === slug
-                ? 'bg-neutral-900 text-white border-neutral-900'
-                : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:bg-neutral-100 hover:border-neutral-300',
+                ? 'bg-neutral-900 text-white'
+                : 'bg-white text-neutral-900 hover:bg-yellow-50',
             ]}
           >
             {p.slug.replace(/-/g, ' ').replace(' vs ', ' ⚔️ ')}
@@ -464,10 +464,10 @@ const breadcrumbLd = {
     </section>
 
     <!-- Back to directory link -->
-    <div class="pt-6 border-t border-neutral-200">
+    <div class="pt-6 border-t-2 border-neutral-900">
       <a
         href={getLocalizedPath('/', locale)}
-        class="text-sm font-bold uppercase tracking-wider text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+        class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 hover:text-neutral-900 underline"
       >
         ← {t(locale, 'compare.page.browseAll')}
       </a>

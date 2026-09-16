@@ -14,13 +14,25 @@ await loadTranslations(locale);
   <div
     class="max-w-4xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-8 text-retro-mono"
   >
-    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-xs font-bold uppercase tracking-wider">
+    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-wider">
       <nav aria-label={t(locale, 'footer.navLabel')} class="contents">
+        <a href={getLocalizedPath('/', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+          >{t(locale, 'nav.tools')}</a
+        >
         <a href={getLocalizedPath('/finder', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
           >{t(locale, 'nav.finder')}</a
         >
         <a href={getLocalizedPath('/extension', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
           >{t(locale, 'nav.extension')}</a
+        >
+        <a href={getLocalizedPath('/blog', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+          >{t(locale, 'nav.blog')}</a
+        >
+        <a href={getLocalizedPath('/badge', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+          >{t(locale, 'nav.badge')}</a
+        >
+        <a href={getLocalizedPath('/submit', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
+          >{t(locale, 'nav.submit')}</a
         >
         <a href={getLocalizedPath('/developers', locale)} class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4"
           >{t(locale, 'nav.developers')}</a
@@ -41,7 +53,7 @@ await loadTranslations(locale);
           class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">𝕏</a
         >
         <a
-          href="/rss.xml"
+          href={locale === 'en' ? '/rss.xml' : `/${locale}/rss.xml`}
           class="text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4">RSS</a
         >
       </nav>

@@ -101,8 +101,8 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
 
     <!-- Certificate Quick Lookup -->
     <div class="max-w-xl mx-auto mb-16">
-      <div class="border border-neutral-200 bg-neutral-50/70 rounded-xl p-5 shadow-xs">
-        <label for="cert-lookup-input" class="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+      <div class="border-2 border-neutral-900 bg-white p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <label for="cert-lookup-input" class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-2">
           Verify a Tool's Digital Certificate
         </label>
         <form id="cert-lookup-form" class="flex flex-col sm:flex-row items-center gap-2">
@@ -113,7 +113,7 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
               name="slug"
               list="approved-tools-datalist"
               placeholder="Search by tool name or slug (e.g. excalidraw-com)..."
-              class="w-full px-3.5 py-2 text-sm bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              class="w-full px-3.5 py-2 text-xs sm:text-sm font-mono bg-white border-2 border-neutral-900 rounded-none focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               autocomplete="off"
             />
             <datalist id="approved-tools-datalist">
@@ -124,46 +124,46 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
           </div>
           <button
             type="submit"
-            class="w-full sm:w-auto px-4 py-2 text-sm font-semibold text-white bg-neutral-900 rounded-lg hover:bg-neutral-800 transition-colors whitespace-nowrap cursor-pointer"
+            class="w-full sm:w-auto px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-white bg-neutral-900 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-800 whitespace-nowrap cursor-pointer transition-none"
           >
             Inspect Certificate
           </button>
         </form>
-        <p class="text-[11px] text-neutral-400 mt-2">
+        <p class="text-[11px] font-mono text-neutral-500 mt-2.5">
           Enter any verified tool name or slug to inspect its real-time SSL digital certificate, health monitoring, and trust signals.
         </p>
       </div>
     </div>
 
     <!-- What is NoLogin Verified? -->
-    <div class="border-b pb-8 mb-8">
-      <h2 class="text-xl font-bold text-neutral-900 mb-4">{t(locale, 'badge.whatIsTitle')}</h2>
-      <div class="space-y-3 text-neutral-600 leading-relaxed">
+    <div class="border-b-2 border-neutral-900 pb-8 mb-8">
+      <h2 class="text-xl font-bold font-mono text-neutral-900 mb-4 uppercase tracking-wide">{t(locale, 'badge.whatIsTitle')}</h2>
+      <div class="space-y-3 text-neutral-700 leading-relaxed">
         <p>
-          {t(locale, 'badge.whatIsP1')} <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 font-semibold transition-colors">NoLoginTools.org</a> {t(locale, 'badge.whatIsP1Suffix')}
+          {t(locale, 'badge.whatIsP1')} <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-neutral-900 underline hover:text-emerald-700 font-bold transition-colors">NoLoginTools.org</a> {t(locale, 'badge.whatIsP1Suffix')}
         </p>
         <p>
           {t(locale, 'badge.whatIsP2')}
         </p>
-        <p class="text-sm text-neutral-500">
-          Governed by the <a href="https://nologintools.org/standards" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 font-semibold underline transition-colors">NLW-STD-001 Verification Standard</a>.
+        <p class="text-xs font-mono text-neutral-500">
+          Governed by the <a href="https://nologintools.org/standards" target="_blank" rel="noopener noreferrer" class="text-neutral-900 underline hover:text-emerald-700 font-bold transition-colors">NLW-STD-001 Verification Standard</a>.
         </p>
       </div>
     </div>
 
     <!-- Three-column grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-      <div class="border rounded-lg p-4 text-center">
-        <h3 class="font-bold text-neutral-900 mb-1 text-sm">{t(locale, 'badge.noAccountsTitle')}</h3>
-        <p class="text-sm text-neutral-500">{t(locale, 'badge.noAccountsDesc')}</p>
+      <div class="border-2 border-neutral-900 bg-white p-4 text-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <h3 class="font-bold font-mono text-neutral-900 mb-1 text-sm uppercase tracking-wide">{t(locale, 'badge.noAccountsTitle')}</h3>
+        <p class="text-xs text-neutral-600 font-mono">{t(locale, 'badge.noAccountsDesc')}</p>
       </div>
-      <div class="border rounded-lg p-4 text-center">
-        <h3 class="font-bold text-neutral-900 mb-1 text-sm">{t(locale, 'badge.privacyFirstTitle')}</h3>
-        <p class="text-sm text-neutral-500">{t(locale, 'badge.privacyFirstDesc')}</p>
+      <div class="border-2 border-neutral-900 bg-white p-4 text-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <h3 class="font-bold font-mono text-neutral-900 mb-1 text-sm uppercase tracking-wide">{t(locale, 'badge.privacyFirstTitle')}</h3>
+        <p class="text-xs text-neutral-600 font-mono">{t(locale, 'badge.privacyFirstDesc')}</p>
       </div>
-      <div class="border rounded-lg p-4 text-center">
-        <h3 class="font-bold text-neutral-900 mb-1 text-sm">{t(locale, 'badge.instantValueTitle')}</h3>
-        <p class="text-sm text-neutral-500">{t(locale, 'badge.instantValueDesc')}</p>
+      <div class="border-2 border-neutral-900 bg-white p-4 text-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <h3 class="font-bold font-mono text-neutral-900 mb-1 text-sm uppercase tracking-wide">{t(locale, 'badge.instantValueTitle')}</h3>
+        <p class="text-xs text-neutral-600 font-mono">{t(locale, 'badge.instantValueDesc')}</p>
       </div>
     </div>
 
@@ -171,12 +171,12 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
       <!-- Two Column Layout for Users/Creators -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- For Users -->
-        <section class="border rounded-lg p-6">
-          <h2 class="text-lg font-bold text-neutral-900 mb-4 flex items-center gap-2">
-            <span class="w-6 h-6 rounded bg-green-100 flex items-center justify-center text-green-600 text-xs font-bold">U</span>
+        <section class="border-2 border-neutral-900 bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <h2 class="text-lg font-bold font-mono text-neutral-900 mb-4 flex items-center gap-2 uppercase tracking-wide">
+            <span class="w-6 h-6 border-2 border-neutral-900 bg-emerald-200 flex items-center justify-center text-neutral-900 text-xs font-mono font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">U</span>
             {t(locale, 'badge.sealTitle')}
           </h2>
-          <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+          <p class="text-sm text-neutral-700 leading-relaxed mb-4">
             {t(locale, 'badge.sealDesc')}
           </p>
           <ul class="space-y-3">
@@ -187,12 +187,10 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
               { title: t(locale, 'badge.digitalPreservation'), desc: t(locale, 'badge.digitalPreservationDesc') },
             ].map(item => (
               <li class="flex items-start gap-3">
-                <svg class="mt-0.5 shrink-0 text-green-500" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
+                <span class="text-emerald-700 font-mono font-bold shrink-0 mt-0.5">[✓]</span>
                 <div>
-                  <p class="text-sm font-semibold text-neutral-900">{item.title}</p>
-                  <p class="text-xs text-neutral-500 mt-0.5 leading-relaxed">{item.desc}</p>
+                  <p class="text-sm font-bold text-neutral-900">{item.title}</p>
+                  <p class="text-xs text-neutral-600 mt-0.5 leading-relaxed">{item.desc}</p>
                 </div>
               </li>
             ))}
@@ -200,19 +198,19 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
         </section>
 
         <!-- For Creators -->
-        <section class="border rounded-lg p-6">
-          <h2 class="text-lg font-bold text-neutral-900 mb-4 flex items-center gap-2">
-            <span class="w-6 h-6 rounded bg-blue-100 flex items-center justify-center text-blue-600 text-xs font-bold">C</span>
+        <section class="border-2 border-neutral-900 bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <h2 class="text-lg font-bold font-mono text-neutral-900 mb-4 flex items-center gap-2 uppercase tracking-wide">
+            <span class="w-6 h-6 border-2 border-neutral-900 bg-blue-200 flex items-center justify-center text-neutral-900 text-xs font-mono font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">C</span>
             {t(locale, 'badge.joinTitle')}
           </h2>
-          <p class="text-sm text-neutral-600 leading-relaxed mb-6">
+          <p class="text-sm text-neutral-700 leading-relaxed mb-6">
             {t(locale, 'badge.joinDesc')}
           </p>
-          <div class="space-y-4">
+          <div class="space-y-4 font-mono">
             {[t(locale, 'badge.step1'), t(locale, 'badge.step2'), t(locale, 'badge.step3'), t(locale, 'badge.step4')].map((step, i) => (
               <div class="flex items-center gap-3">
-                 <div class="w-8 h-8 rounded bg-neutral-50 border border-neutral-200 flex items-center justify-center text-neutral-400 text-sm font-bold">{i + 1}</div>
-                 <p class="text-sm font-semibold text-neutral-700">{step}</p>
+                 <div class="w-7 h-7 bg-neutral-100 border-2 border-neutral-900 flex items-center justify-center text-neutral-900 text-xs font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">{i + 1}</div>
+                 <p class="text-xs sm:text-sm font-bold text-neutral-800">{step}</p>
               </div>
             ))}
           </div>
@@ -220,43 +218,43 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
       </div>
 
       <!-- Ranking Boost -->
-      <section class="border-t pt-8 mt-8">
-        <h2 class="text-xl font-bold text-neutral-900 mb-2 text-center">{t(locale, 'badge.rankingBoostTitle')}</h2>
-        <p class="text-neutral-500 mb-8 max-w-xl mx-auto text-center text-sm">
+      <section class="border-t-2 border-neutral-900 pt-8 mt-8">
+        <h2 class="text-xl font-bold font-mono text-neutral-900 mb-2 text-center uppercase tracking-wide">{t(locale, 'badge.rankingBoostTitle')}</h2>
+        <p class="text-neutral-600 mb-8 max-w-xl mx-auto text-center text-xs font-mono">
           {t(locale, 'badge.rankingBoostDesc')}
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="p-5 border rounded-lg text-center">
-            <p class="font-bold text-neutral-900 mb-1 text-sm uppercase tracking-tight">{t(locale, 'badge.svgBadge')}</p>
-            <p class="text-green-600 font-bold text-2xl">+10</p>
-            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-semibold mt-1">{t(locale, 'badge.rankPoints')}</p>
+          <div class="p-5 border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+            <p class="font-mono font-bold text-neutral-900 mb-1 text-xs uppercase tracking-wider">{t(locale, 'badge.svgBadge')}</p>
+            <p class="text-emerald-700 font-mono font-black text-3xl">+10</p>
+            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-widest font-bold mt-1">{t(locale, 'badge.rankPoints')}</p>
           </div>
 
-          <div class="p-5 border rounded-lg text-center">
-            <p class="font-bold text-neutral-900 mb-1 text-sm uppercase tracking-tight">{t(locale, 'badge.metaLink')}</p>
-            <p class="text-blue-600 font-bold text-2xl">+5</p>
-            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-semibold mt-1">{t(locale, 'badge.rankPoints')}</p>
+          <div class="p-5 border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+            <p class="font-mono font-bold text-neutral-900 mb-1 text-xs uppercase tracking-wider">{t(locale, 'badge.metaLink')}</p>
+            <p class="text-blue-700 font-mono font-black text-3xl">+5</p>
+            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-widest font-bold mt-1">{t(locale, 'badge.rankPoints')}</p>
           </div>
 
-          <div class="p-5 border rounded-lg text-center">
-            <p class="font-bold text-neutral-900 mb-1 text-sm uppercase tracking-tight">{t(locale, 'badge.noBadge')}</p>
-            <p class="text-neutral-400 font-bold text-2xl">0</p>
-            <p class="text-[10px] text-neutral-400 uppercase tracking-widest font-semibold mt-1">{t(locale, 'badge.rankPoints')}</p>
+          <div class="p-5 border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+            <p class="font-mono font-bold text-neutral-900 mb-1 text-xs uppercase tracking-wider">{t(locale, 'badge.noBadge')}</p>
+            <p class="text-neutral-400 font-mono font-black text-3xl">0</p>
+            <p class="text-[10px] text-neutral-500 font-mono uppercase tracking-widest font-bold mt-1">{t(locale, 'badge.rankPoints')}</p>
           </div>
         </div>
       </section>
 
       <!-- Wall of Fame / Active Exhibitors -->
-      <section class="border-t pt-10 mt-10">
+      <section class="border-t-2 border-neutral-900 pt-10 mt-10">
         <div class="text-center mb-8">
-          <span class="inline-flex items-center gap-1 px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-100 text-emerald-950 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-xs font-mono font-bold uppercase tracking-wider mb-3">
             🛡️ Wall of Fame
           </span>
-          <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 mb-2">
+          <h2 class="text-xl sm:text-2xl font-bold font-mono text-neutral-900 mb-2 uppercase">
             Active Verified Exhibitors (Level 3)
           </h2>
-          <p class="text-neutral-500 max-w-xl mx-auto text-sm leading-relaxed">
+          <p class="text-neutral-600 max-w-xl mx-auto text-xs font-mono leading-relaxed">
             These tools proudly embed the official NoLogin Verified badge on their website or repository, earning our highest trust level and algorithm boost (+10 pts).
           </p>
         </div>
@@ -267,36 +265,36 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
               const hostname = new URL(tool.url).hostname.replace(/^www\./, '');
               const desc = getLocalizedDescription(tool, locale) || tool.description || '';
               return (
-                <div class="p-4 rounded-xl border border-green-200 bg-gradient-to-b from-green-50/30 to-white flex flex-col justify-between hover:shadow-xs transition-shadow">
+                <div class="p-4 border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
                   <div>
                     <div class="flex items-center justify-between gap-2 mb-2">
                       <div class="flex items-center gap-2 min-w-0">
                         <img
                           src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
                           alt=""
-                          class="w-4 h-4 rounded-xs shrink-0"
+                          class="w-4 h-4 rounded-none shrink-0"
                           loading="lazy"
                           onerror="this.style.display='none'"
                         />
                         <a
                           href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
-                          class="font-bold text-sm text-neutral-900 hover:text-blue-600 truncate"
+                          class="font-bold text-sm text-neutral-900 hover:underline truncate"
                         >
                           {tool.name}
                         </a>
                       </div>
-                      <span class="inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-800 shrink-0">
+                      <span class="inline-flex items-center gap-0.5 text-[10px] font-mono font-bold px-1.5 py-0.5 bg-emerald-100 text-emerald-950 border border-neutral-900 shrink-0">
                         🛡️ Level 3
                       </span>
                     </div>
-                    <p class="text-xs text-neutral-500 line-clamp-2 mb-3 leading-relaxed">
+                    <p class="text-xs text-neutral-600 line-clamp-2 mb-3 leading-relaxed">
                       {desc}
                     </p>
                   </div>
-                  <div class="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs">
+                  <div class="pt-3 border-t-2 border-neutral-900 flex items-center justify-between text-xs font-mono">
                     <a
                       href={getLocalizedPath(`/badge/${tool.slug}`, locale)}
-                      class="text-green-700 hover:text-green-800 font-semibold inline-flex items-center gap-1"
+                      class="text-neutral-900 hover:underline font-bold inline-flex items-center gap-1"
                     >
                       Certificate &rarr;
                     </a>
@@ -304,7 +302,7 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
                       href={tool.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-neutral-400 hover:text-neutral-600 truncate max-w-[120px]"
+                      class="text-neutral-500 hover:text-neutral-900 truncate max-w-[120px]"
                     >
                       {hostname} ↗
                     </a>
@@ -314,15 +312,15 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
             })}
           </div>
         ) : (
-          <div class="border border-dashed border-neutral-300 rounded-xl p-8 text-center bg-neutral-50/50 mb-8 max-w-xl mx-auto">
+          <div class="border-2 border-dashed border-neutral-900 p-8 text-center bg-white mb-8 max-w-xl mx-auto shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
             <div class="text-3xl mb-2">🛡️</div>
-            <h3 class="font-bold text-neutral-800 text-sm mb-1">Be the Next Level 3 Verified Exhibitor</h3>
-            <p class="text-xs text-neutral-500 max-w-md mx-auto leading-relaxed mb-4">
+            <h3 class="font-bold font-mono text-neutral-900 text-sm mb-1 uppercase">Be the Next Level 3 Verified Exhibitor</h3>
+            <p class="text-xs text-neutral-600 font-mono max-w-md mx-auto leading-relaxed mb-4">
               Add the badge to your website footer or GitHub README, and click "Verify Badge Now" on your certificate page to be instantly featured here.
             </p>
             <a
               href={getLocalizedPath('/submit', locale)}
-              class="inline-flex items-center gap-1 text-xs font-semibold px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors"
+              class="btn-primary inline-flex items-center gap-1 text-xs font-mono font-bold uppercase px-4 py-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px]"
             >
               Get Your Badge &rarr;
             </a>
@@ -332,7 +330,10 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
 
       <!-- CTA -->
       <div class="text-center pt-4">
-        <a href={getLocalizedPath('/submit', locale)} class="btn-minimal-primary">
+        <a
+          href={getLocalizedPath('/submit', locale)}
+          class="btn-primary inline-block px-8 py-3 font-mono font-bold uppercase tracking-wider text-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+        >
           {t(locale, 'badge.submitYourTool')}
         </a>
       </div>

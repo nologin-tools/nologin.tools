@@ -9,7 +9,7 @@
   }
   body {
     @apply bg-[#fdfdfc] text-neutral-900 min-h-screen flex flex-col;
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   }
   main {
     @apply flex-1;
@@ -23,26 +23,26 @@
 @layer components {
   /* Retro Card */
   .retro-card {
-    @apply bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
+    @apply bg-white border-2 border-neutral-900 rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
   }
 
   /* Retro Button */
   .btn-retro {
-    @apply inline-flex items-center px-4 py-2 bg-white border-2 border-neutral-900 text-sm font-bold text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+    @apply inline-flex items-center justify-center px-4 py-2 bg-white border-2 border-neutral-900 text-xs font-mono font-bold text-neutral-900 uppercase tracking-wider rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-50 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer;
   }
   
   .btn-retro-primary {
-    @apply inline-flex items-center px-4 py-2 bg-green-400 border-2 border-neutral-900 text-sm font-bold text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-green-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all;
+    @apply inline-flex items-center justify-center px-4 py-2 bg-green-400 border-2 border-neutral-900 text-xs font-mono font-bold text-neutral-900 uppercase tracking-wider rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-green-300 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer;
   }
 
   /* Navigation Link */
   .nav-link {
-    @apply text-neutral-600 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 transition-colors font-bold uppercase;
+    @apply text-neutral-600 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4 transition-colors font-mono font-bold uppercase;
   }
 
-  /* Homepage tool list */
+  /* Homepage & list tool item */
   .tool-item {
-    @apply flex items-start sm:items-center justify-between gap-3 py-4 px-0 border-b border-neutral-200 transition-colors;
+    @apply flex items-start sm:items-center justify-between gap-3 py-3.5 px-0 border-b border-neutral-200 transition-colors;
   }
 
   .category-heading {
@@ -57,13 +57,13 @@
   }
 
   /* Admin components */
-  .admin-table { @apply w-full text-sm border-2 border-neutral-900; }
+  .admin-table { @apply w-full text-sm border-2 border-neutral-900 rounded-none; }
   .admin-table th { @apply text-left px-4 py-3 text-neutral-900 font-bold bg-neutral-100 border-b-2 border-neutral-900; }
   .admin-table td { @apply px-4 py-3 border-b border-neutral-900; }
   
   /* Status badge */
   .status-badge {
-    @apply inline-flex items-center px-2 py-0.5 border-2 border-neutral-900 text-[10px] uppercase font-bold tracking-widest;
+    @apply inline-flex items-center px-2 py-0.5 border-2 border-neutral-900 text-[10px] uppercase font-mono font-bold tracking-wider rounded-none;
   }
   .status-approved { @apply bg-green-200 text-green-900; }
   .status-pending { @apply bg-amber-200 text-amber-900; }
@@ -71,27 +71,27 @@
 
   /* Chips — retro style */
   .retro-chip {
-    @apply inline-flex items-center px-2 py-0.5 border border-neutral-900 text-[10px] uppercase font-bold tracking-tighter bg-white;
+    @apply inline-flex items-center px-2 py-0.5 border border-neutral-900 text-[10px] uppercase font-mono font-bold tracking-tight bg-white rounded-none;
   }
 
-  /* Chips — classic (used by Admin, TagPicker, BadgeDetailPage) */
+  /* Chips — classic (used by Admin, TagPicker, etc) */
   .chip {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border transition-all duration-200 cursor-pointer;
+    @apply inline-flex items-center px-2.5 py-1 text-xs font-mono font-bold border border-neutral-900 transition-all cursor-pointer rounded-none;
   }
   .chip-default {
-    @apply bg-white text-neutral-600 border-neutral-200/60 shadow-sm hover:border-neutral-300 hover:bg-neutral-50 hover:shadow-md active:scale-95;
+    @apply bg-white text-neutral-800 hover:bg-neutral-100;
   }
   .chip-active {
-    @apply bg-green-50 text-green-700 border-green-200 shadow-[0_2px_8px_-2px_rgba(34,197,94,0.2)] scale-105;
+    @apply bg-neutral-900 text-white border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)];
   }
   .chip-category {
-    @apply bg-blue-50/50 text-blue-700 border-blue-100 hover:bg-blue-100/50 hover:border-blue-200;
+    @apply bg-neutral-100 text-neutral-900 border-neutral-900 hover:bg-neutral-200;
   }
   .chip-toggle {
-    @apply gap-2 pl-3 pr-4 py-1.5 border-neutral-200/60 bg-white hover:border-green-200 hover:bg-green-50/30 transition-all duration-300;
+    @apply gap-2 px-3 py-1.5 border-2 border-neutral-900 bg-white hover:bg-neutral-50 transition-all;
   }
   .chip-toggle.chip-active {
-    @apply bg-green-600 text-white border-green-600 shadow-[0_4px_12px_-2px_rgba(22,163,74,0.3)] scale-105;
+    @apply bg-neutral-900 text-white border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
   }
   .chip-toggle .chip-check-icon {
     @apply hidden w-3.5 h-3.5;
@@ -100,31 +100,31 @@
     @apply block text-white;
   }
 
-  /* Buttons — admin */
+  /* Buttons — admin & generic */
   .btn-primary {
-    @apply inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold bg-green-600 text-white shadow-[0_4px_12px_-2px_rgba(22,163,74,0.3)] hover:bg-green-700 hover:shadow-[0_6px_16px_-2px_rgba(22,163,74,0.4)] hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95;
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-none text-xs font-mono font-bold uppercase tracking-wider bg-neutral-900 text-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-800 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer;
   }
   .btn-secondary {
-    @apply inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-medium bg-white text-neutral-700 border border-neutral-200/80 shadow-sm hover:bg-neutral-50 hover:border-neutral-300 hover:shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 active:scale-95;
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-none text-xs font-mono font-bold uppercase tracking-wider bg-white text-neutral-900 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-50 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer;
   }
   .btn-danger {
-    @apply inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-medium bg-red-500 text-white shadow-[0_4px_12px_-2px_rgba(239,68,68,0.3)] hover:bg-red-600 hover:shadow-[0_6px_16px_-2px_rgba(239,68,68,0.4)] transition-all focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-95;
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-none text-xs font-mono font-bold uppercase tracking-wider bg-red-500 text-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-red-600 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer;
   }
 
   /* Buttons — public pages */
   .btn-minimal {
-    @apply inline-flex items-center text-sm font-medium text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-500 transition-colors;
+    @apply inline-flex items-center text-xs font-mono font-bold text-neutral-600 underline underline-offset-4 decoration-neutral-300 hover:text-neutral-900 hover:decoration-neutral-900 transition-colors uppercase;
   }
   .btn-minimal-primary {
-    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold bg-green-600 text-white rounded hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider bg-neutral-900 text-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-800 rounded-none transition-all cursor-pointer;
   }
 
   /* Admin tabs */
   .admin-tab {
-    @apply px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors cursor-pointer;
+    @apply px-4 py-2.5 text-xs font-mono font-bold uppercase border-b-2 -mb-px transition-colors cursor-pointer;
   }
   .admin-tab-active {
-    @apply border-green-500 text-green-600;
+    @apply border-neutral-900 text-neutral-900 bg-neutral-100;
   }
   .admin-tab-inactive {
     @apply border-transparent text-neutral-500 hover:text-neutral-700;
@@ -148,22 +148,23 @@
   }
   .prose h3 {
     @apply text-lg font-bold;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
   .prose a {
     @apply underline decoration-1 underline-offset-4 hover:decoration-2 transition-all;
   }
   .prose blockquote {
-    @apply border-l-2 border-neutral-300 italic;
+    @apply border-l-2 border-neutral-900 italic pl-4;
   }
   .prose code {
-    @apply text-sm px-1 py-0.5 bg-neutral-100 rounded;
+    @apply text-xs px-1 py-0.5 bg-neutral-100 border border-neutral-300 rounded-none;
   }
   .prose pre code {
-    @apply bg-transparent p-0;
+    @apply bg-transparent p-0 border-none;
   }
 
-  /* Glass card — admin only */
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+  /* Non-blocking toast notification */
+  .toast-notification {
+    @apply fixed bottom-6 right-6 z-50 bg-neutral-900 text-white border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-xs font-mono font-bold flex items-center gap-3 transition-opacity duration-200 pointer-events-auto;
   }
 }

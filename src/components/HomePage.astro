@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HealthBadge from './HealthBadge.astro';
 import { getCollection } from 'astro:content';
 import { TAG_DEFINITIONS, categoryToSlug, TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../lib/tags';
 import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription } from '../data/loader';
@@ -206,23 +207,44 @@ function translateTagValue(key: string, value: string): string {
 
         <button id="bookmark-btn" class="hidden sm:inline-flex items-center gap-2 px-2 py-1 bg-yellow-300 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-[11px] font-black uppercase tracking-tight hover:bg-yellow-400 transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none ml-2 cursor-pointer">
           <span class="text-sm">★</span>
-          <span>{t(locale, 'nav.bookmark')} <span id="bookmark-key" class="bg-white/50 px-1 rounded">Ctrl+D</span></span>
+          <span>{t(locale, 'nav.bookmark')} <span id="bookmark-key" class="bg-white/50 px-1">Ctrl+D</span></span>
         </button>
+      </div>
+
+      <!-- Non-blocking toast -->
+      <div
+        id="home-toast"
+        role="status"
+        aria-live="polite"
+        class="hidden fixed bottom-6 right-6 z-50 bg-neutral-900 text-white border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] px-4 py-2.5 text-xs font-mono font-bold flex items-center gap-2 transition-opacity"
+      >
+        <span class="text-yellow-400">★</span>
+        <span id="home-toast-msg"></span>
       </div>
     </header>
 
-    <script define:vars={{ bookmarkAlert: t(locale, 'nav.bookmarkAlert', { shortcut: '{shortcut}' }) }}>
+    <script>
       const bookmarkKey = document.getElementById('bookmark-key');
       const bookmarkBtn = document.getElementById('bookmark-btn');
+      const toast = document.getElementById('home-toast');
+      const toastMsg = document.getElementById('home-toast-msg');
 
       const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
       if (bookmarkKey) {
         bookmarkKey.textContent = isMac ? '⌘+D' : 'Ctrl+D';
       }
 
+      let toastTimer: any = null;
       bookmarkBtn?.addEventListener('click', () => {
-        const shortcut = isMac ? 'Command/Cmd + D' : 'Control/Ctrl + D';
-        alert(bookmarkAlert.replace('{shortcut}', shortcut));
+        const shortcut = isMac ? '⌘+D' : 'Ctrl+D';
+        if (toast && toastMsg) {
+          toastMsg.textContent = `Press ${shortcut} to bookmark this site`;
+          toast.classList.remove('hidden');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => {
+            toast.classList.add('hidden');
+          }, 2500);
+        }
       });
     </script>
 
@@ -339,9 +361,9 @@ function translateTagValue(key: string, value: string): string {
                       onerror={`this.style.display='none'`}
                     />
                     <div class="min-w-0 flex flex-col flex-1">
-                      <div class="flex items-center gap-2 min-w-0">
+                      <div class="flex items-center gap-2 min-w-0 flex-wrap">
                         {tool.isFeatured && (
-                          <span class="text-yellow-600 shrink-0 text-xs" title={t(locale, 'common.featured')}>★</span>
+                          <span class="text-yellow-600 shrink-0 text-xs font-mono" title={t(locale, 'common.featured')}>★</span>
                         )}
                         {tool.badgeDisplayType === 'explicit' && (
                           <span class="text-green-600 shrink-0 inline-flex items-center" title={t(locale, 'tool.badgeActiveDesc')}>
@@ -361,17 +383,20 @@ function translateTagValue(key: string, value: string): string {
                           href={tool.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="text-neutral-400 hover:text-neutral-600 text-xs font-mono transition-colors hidden sm:inline"
+                          class="text-neutral-400 hover:text-neutral-900 text-xs font-mono transition-colors hidden sm:inline"
                         >
                           ({hostname})
                         </a>
                       </div>
                       {getLocalizedDescription(tool, locale) && (
-                        <p class="text-neutral-600 text-sm">
+                        <p class="text-neutral-600 text-sm leading-relaxed mt-0.5">
                           {getLocalizedDescription(tool, locale)}
                         </p>
                       )}
                     </div>
+                  </div>
+                  <div class="shrink-0 self-start sm:self-center pl-2">
+                    <HealthBadge status={tool.health?.status ?? null} lastCheckedAt={null} locale={locale} />
                   </div>
                 </li>
               );

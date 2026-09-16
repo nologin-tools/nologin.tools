@@ -41,14 +41,14 @@ function translateCategory(cat: string): string {
     <div class="text-left space-y-10">
       <!-- Popular Categories -->
       <section>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-3">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-3">
           {t(locale, 'notFound.popularCategories')}
         </h2>
         <div class="flex flex-wrap gap-2">
           {popularCategories.map((cat) => (
             <a
               href={getLocalizedPath(`/category/${categoryToSlug(cat)}`, locale)}
-              class="px-3 py-1.5 text-xs font-mono font-bold border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase"
+              class="px-3 py-1.5 text-xs font-mono font-bold border-2 border-neutral-900 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-50 transition-none uppercase"
             >
               {translateCategory(cat)}
             </a>
@@ -58,18 +58,18 @@ function translateCategory(cat: string): string {
 
       <!-- Popular Verified Tools -->
       <section>
-        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-3">
+        <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-3">
           {t(locale, 'notFound.featuredTools')}
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {popularTools.map((tool) => (
             <a
               href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
-              class="border border-neutral-200 p-4 hover:border-neutral-900 bg-neutral-50 hover:bg-white transition-all block group"
+              class="border-2 border-neutral-900 p-4 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-50 hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-none block group"
             >
               <div class="font-bold text-sm text-neutral-900 group-hover:underline decoration-1 underline-offset-2 flex items-center justify-between">
                 <span>{tool.name}</span>
-                <span class="text-xs font-mono text-neutral-400 group-hover:text-neutral-900">&rarr;</span>
+                <span class="text-xs font-mono text-neutral-500 group-hover:text-neutral-900">&rarr;</span>
               </div>
               {getLocalizedDescription(tool, locale) && (
                 <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
@@ -82,10 +82,10 @@ function translateCategory(cat: string): string {
       </section>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-neutral-200">
+    <div class="mt-12 pt-8 border-t-2 border-neutral-900">
       <a
         href={getLocalizedPath('/', locale)}
-        class="inline-block px-5 py-2.5 bg-neutral-900 text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-neutral-800 transition-colors"
+        class="btn-primary inline-block px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
       >
         &larr; {t(locale, 'notFound.backHome')}
       </a>

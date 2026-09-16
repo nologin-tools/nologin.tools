@@ -121,27 +121,27 @@ const breadcrumbLd = {
 
   <div class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
     {/* Breadcrumb Navigation */}
-    <nav class="flex items-center gap-2 text-xs text-neutral-500 mb-8 overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
+    <nav class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-500 mb-8 overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
       <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">
         {t(locale, 'common.home')}
       </a>
       <span>/</span>
       <span class="text-neutral-400">Collections</span>
       <span>/</span>
-      <span class="text-neutral-900 font-medium truncate max-w-[240px]">{collection.title}</span>
+      <span class="text-neutral-900 font-bold truncate max-w-[240px]">{collection.title}</span>
     </nav>
 
     {/* Hero Header */}
-    <header class="mb-12">
+    <header class="mb-12 border-b-2 border-neutral-900 pb-8">
       <div class="flex flex-wrap items-center gap-2 mb-4">
         <span class="text-2xl">{collection.icon}</span>
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-mono font-bold bg-emerald-100 text-emerald-950 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           {t(locale, 'collection.page.badge')}
         </span>
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-700">
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-900 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           {collection.category}
         </span>
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-mono font-bold bg-blue-100 text-blue-950 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           {collection.persona}
         </span>
       </div>
@@ -150,12 +150,12 @@ const breadcrumbLd = {
         {collection.title}
       </h1>
 
-      <p class="text-lg sm:text-xl text-neutral-600 font-medium leading-relaxed max-w-3xl mb-6">
+      <p class="text-lg sm:text-xl text-neutral-700 font-medium leading-relaxed max-w-3xl mb-6">
         {collection.tagline}
       </p>
 
       {collection.heroQuote && (
-        <blockquote class="border-l-4 border-emerald-500 pl-4 py-1 my-6 italic text-neutral-700 font-medium">
+        <blockquote class="border-l-4 border-neutral-900 bg-neutral-50 p-4 my-6 italic text-neutral-800 font-mono text-sm border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           "{collection.heroQuote}"
         </blockquote>
       )}
@@ -166,17 +166,17 @@ const breadcrumbLd = {
     </header>
 
     {/* Architectural Guarantees Grid */}
-    <section class="mb-14 bg-neutral-50 border border-neutral-200/90 rounded-2xl p-6 sm:p-8">
-      <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-neutral-500 mb-4">
+    <section class="mb-14 bg-neutral-50 border-2 border-neutral-900 p-6 sm:p-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+      <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-neutral-600 mb-4">
         {t(locale, 'collection.page.guaranteesHeading')}
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {collection.guarantees.map((guarantee) => (
-          <div class="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-neutral-200/80 shadow-xs">
-            <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xs shrink-0">
+          <div class="flex items-center gap-3 bg-white p-3.5 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <span class="w-5 h-5 bg-emerald-200 border border-neutral-900 text-neutral-900 font-mono font-bold flex items-center justify-center text-xs shrink-0">
               ✓
             </span>
-            <span class="text-sm font-semibold text-neutral-800">
+            <span class="text-xs sm:text-sm font-mono font-bold text-neutral-900">
               {guarantee}
             </span>
           </div>
@@ -186,11 +186,11 @@ const breadcrumbLd = {
 
     {/* Tool Arsenal */}
     <section class="mb-16">
-      <div class="flex items-center justify-between mb-8 pb-3 border-b border-neutral-200">
-        <h2 class="text-xl sm:text-2xl font-black text-neutral-900">
+      <div class="flex items-center justify-between mb-8 pb-3 border-b-2 border-neutral-900">
+        <h2 class="text-xl sm:text-2xl font-black text-neutral-900 font-mono">
           {t(locale, 'collection.page.arsenalHeading', { count: String(resolvedItems.length) })}
         </h2>
-        <span class="text-xs font-mono font-bold text-neutral-400 uppercase">
+        <span class="text-xs font-mono font-bold text-neutral-500 uppercase">
           Zero-Account Stack
         </span>
       </div>
@@ -200,21 +200,21 @@ const breadcrumbLd = {
           const tool = item.tool;
           const hostname = tool ? getHostname(tool.url) : '';
           return (
-            <article class="bg-white border-2 border-neutral-200 hover:border-neutral-900 transition-all duration-200 rounded-2xl p-5 sm:p-6 shadow-xs">
+            <article class="bg-white border-2 border-neutral-900 p-5 sm:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                 <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5">
+                  <div class="w-10 h-10 bg-neutral-100 border-2 border-neutral-900 flex items-center justify-center shrink-0 mt-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                     {hostname ? (
                       <img
                         src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=64`}
                         alt=""
                         width="24"
                         height="24"
-                        class="w-6 h-6 rounded-sm"
+                        class="w-6 h-6 rounded-none"
                         loading="lazy"
                       />
                     ) : (
-                      <span class="font-bold text-neutral-400">{index + 1}</span>
+                      <span class="font-mono font-bold text-neutral-500">{index + 1}</span>
                     )}
                   </div>
 
@@ -224,7 +224,7 @@ const breadcrumbLd = {
                         {tool ? (
                           <a
                             href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
-                            class="hover:text-emerald-700 transition-colors"
+                            class="hover:underline"
                           >
                             {tool.name}
                           </a>
@@ -232,7 +232,7 @@ const breadcrumbLd = {
                           item.toolSlug
                         )}
                       </h3>
-                      <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-neutral-100 text-neutral-700 border border-neutral-200">
+                      <span class="inline-flex items-center px-2 py-0.5 text-[11px] font-mono font-bold bg-neutral-100 text-neutral-800 border border-neutral-900">
                         {item.roleTitle}
                       </span>
                       {tool && (
@@ -246,7 +246,7 @@ const breadcrumbLd = {
                     </div>
 
                     {hostname && (
-                      <p class="text-xs text-neutral-400 font-mono mt-0.5">
+                      <p class="text-xs text-neutral-500 font-mono mt-0.5">
                         {hostname}
                       </p>
                     )}
@@ -258,12 +258,12 @@ const breadcrumbLd = {
                 </div>
 
                 {tool && (
-                  <div class="flex sm:flex-col items-center sm:items-end gap-2 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-neutral-100">
+                  <div class="flex sm:flex-col items-center sm:items-end gap-2 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-neutral-200">
                     <a
                       href={tool.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-neutral-900 hover:bg-emerald-600 text-white text-xs font-bold transition-colors shadow-xs"
+                      class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none"
                     >
                       <span>{t(locale, 'collection.page.launchTool', { tool: tool.name })}</span>
                       <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -274,7 +274,7 @@ const breadcrumbLd = {
                     </a>
                     <a
                       href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
-                      class="text-xs text-neutral-500 hover:text-neutral-900 font-medium underline underline-offset-2"
+                      class="text-xs font-mono font-bold text-neutral-700 hover:text-neutral-900 underline"
                     >
                       {t(locale, 'collection.page.viewDetails')}
                     </a>
@@ -288,17 +288,17 @@ const breadcrumbLd = {
     </section>
 
     {/* Frequently Asked Questions */}
-    <section class="mb-16 border-t border-neutral-200 pt-12">
-      <h2 class="text-xl sm:text-2xl font-black text-neutral-900 mb-6">
+    <section class="mb-16 border-t-2 border-neutral-900 pt-12">
+      <h2 class="text-xl sm:text-2xl font-black text-neutral-900 mb-6 font-mono">
         {t(locale, 'collection.page.faqHeading')}
       </h2>
       <div class="space-y-4">
         {collection.faqs.map((faq) => (
-          <div class="border border-neutral-200 rounded-xl p-5 bg-white">
-            <h3 class="text-base font-bold text-neutral-900 mb-2">
+          <div class="border-2 border-neutral-900 p-5 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+            <h3 class="text-base font-bold text-neutral-900 mb-2 font-mono">
               {faq.question}
             </h3>
-            <p class="text-sm text-neutral-600 leading-relaxed">
+            <p class="text-sm text-neutral-700 leading-relaxed">
               {faq.answer}
             </p>
           </div>
@@ -308,23 +308,23 @@ const breadcrumbLd = {
 
     {/* Related Stacks Navigation */}
     {relatedCollections.length > 0 && (
-      <section class="mb-12 border-t border-neutral-200 pt-10">
-        <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-neutral-400 mb-4">
+      <section class="mb-12 border-t-2 border-neutral-900 pt-10">
+        <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-neutral-500 mb-4">
           {t(locale, 'collection.page.exploreOther')}
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {relatedCollections.map((rel) => (
             <a
               href={getLocalizedPath(`/collection/${rel.slug}`, locale)}
-              class="block p-5 bg-white border border-neutral-200 hover:border-neutral-900 rounded-xl transition-all group"
+              class="block p-5 bg-white border-2 border-neutral-900 hover:bg-yellow-50 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-none group"
             >
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-xl">{rel.icon}</span>
-                <span class="font-bold text-sm text-neutral-900 group-hover:text-emerald-700 transition-colors">
+                <span class="font-bold text-sm text-neutral-900 group-hover:underline">
                   {rel.title}
                 </span>
               </div>
-              <p class="text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+              <p class="text-xs text-neutral-600 line-clamp-2 leading-relaxed">
                 {rel.tagline}
               </p>
             </a>
@@ -334,10 +334,10 @@ const breadcrumbLd = {
     )}
 
     {/* Footer Back Link */}
-    <div class="text-center pt-8 border-t border-neutral-100">
+    <div class="text-center pt-8 border-t-2 border-neutral-900">
       <a
         href={getLocalizedPath('/', locale)}
-        class="inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 hover:text-neutral-900 transition-colors"
+        class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 hover:text-neutral-900 underline"
       >
         <span>&larr;</span>
         <span>{t(locale, 'workflow.page.browseAll')}</span>

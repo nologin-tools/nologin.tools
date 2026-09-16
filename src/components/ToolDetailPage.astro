@@ -516,26 +516,26 @@ const faqLd = isVerified ? {
       <section class="border-t border-neutral-200 pt-8 space-y-6" aria-labelledby="scorecard-heading">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <h2 id="scorecard-heading" class="text-xs font-bold text-neutral-500 uppercase tracking-wider">
+            <span class="w-2.5 h-2.5 bg-emerald-500 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"></span>
+            <h2 id="scorecard-heading" class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-wider">
               {t(locale, 'tool.scorecard.heading')}
             </h2>
           </div>
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-neutral-100 border border-neutral-200 text-[11px] font-mono font-bold text-neutral-700">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-neutral-100 border border-neutral-900 text-[11px] font-mono font-bold text-neutral-800">
             <span>🛡️</span>
             <span>{t(locale, 'tool.scorecard.auditStatement')}</span>
           </div>
         </div>
 
         {/* Hero Grade & Overall Index Card */}
-        <div class="bg-white border-2 border-neutral-900 rounded-2xl p-5 sm:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div class="bg-white border-2 border-neutral-900 p-5 sm:p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-5 border-b border-neutral-200">
             <div class="flex items-center gap-4">
-              <div class={`w-16 h-16 rounded-xl flex items-center justify-center font-extrabold text-3xl font-mono shadow-xs ${
-                scorecard.overallGrade === 'A+' ? 'bg-emerald-500 text-white border-2 border-emerald-700' :
-                scorecard.overallGrade === 'A' ? 'bg-emerald-100 text-emerald-900 border-2 border-emerald-400' :
-                scorecard.overallGrade === 'B+' ? 'bg-sky-100 text-sky-900 border-2 border-sky-400' :
-                'bg-neutral-100 text-neutral-800 border-2 border-neutral-300'
+              <div class={`w-16 h-16 flex items-center justify-center font-black text-3xl font-mono border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${
+                scorecard.overallGrade === 'A+' ? 'bg-green-300 text-neutral-900' :
+                scorecard.overallGrade === 'A' ? 'bg-green-100 text-neutral-900' :
+                scorecard.overallGrade === 'B+' ? 'bg-sky-100 text-neutral-900' :
+                'bg-neutral-100 text-neutral-900'
               }`}>
                 {scorecard.overallGrade}
               </div>
@@ -571,28 +571,28 @@ const faqLd = isVerified ? {
         {/* 4 Inspection Dimensions Grid */}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Dimension 1: Sandbox */}
-          <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-4 sm:p-5 space-y-3">
+          <div class="bg-neutral-50 border-2 border-neutral-900 p-4 sm:p-5 space-y-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             <div class="flex items-center justify-between gap-2">
-              <span class="text-xs font-bold font-mono uppercase text-neutral-600">
+              <span class="text-xs font-bold font-mono uppercase text-neutral-800">
                 {t(locale, 'tool.scorecard.dimSandbox')}
               </span>
-              <span class="text-xs font-mono font-bold text-emerald-700">
+              <span class="text-xs font-mono font-bold text-neutral-900">
                 {scorecard.dimensions.sandbox.score} / 25
               </span>
             </div>
-            <div class="w-full bg-neutral-200 rounded-full h-1.5 overflow-hidden">
+            <div class="w-full bg-neutral-200 h-2 border border-neutral-900 overflow-hidden">
               <div
-                class="bg-emerald-500 h-1.5 rounded-full"
+                class="bg-neutral-900 h-full"
                 style={`width: ${(scorecard.dimensions.sandbox.score / 25) * 100}%`}
               ></div>
             </div>
-            <div class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-white border border-neutral-200 text-neutral-800">
+            <div class="inline-block px-2 py-0.5 text-[11px] font-mono font-bold bg-white border border-neutral-900 text-neutral-900">
               {scorecard.dimensions.sandbox.status}
             </div>
             <ul class="space-y-1.5 pt-1">
               {scorecard.dimensions.sandbox.highlights.map((h: string) => (
-                <li class="text-xs text-neutral-600 flex items-start gap-1.5 leading-normal">
-                  <span class="text-emerald-600 font-bold shrink-0">✓</span>
+                <li class="text-xs text-neutral-700 flex items-start gap-1.5 leading-normal">
+                  <span class="text-neutral-900 font-bold shrink-0">✓</span>
                   <span>{h}</span>
                 </li>
               ))}
@@ -600,28 +600,28 @@ const faqLd = isVerified ? {
           </div>
 
           {/* Dimension 2: Telemetry */}
-          <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-4 sm:p-5 space-y-3">
+          <div class="bg-neutral-50 border-2 border-neutral-900 p-4 sm:p-5 space-y-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             <div class="flex items-center justify-between gap-2">
-              <span class="text-xs font-bold font-mono uppercase text-neutral-600">
+              <span class="text-xs font-bold font-mono uppercase text-neutral-800">
                 {t(locale, 'tool.scorecard.dimTelemetry')}
               </span>
-              <span class="text-xs font-mono font-bold text-emerald-700">
+              <span class="text-xs font-mono font-bold text-neutral-900">
                 {scorecard.dimensions.telemetry.score} / 25
               </span>
             </div>
-            <div class="w-full bg-neutral-200 rounded-full h-1.5 overflow-hidden">
+            <div class="w-full bg-neutral-200 h-2 border border-neutral-900 overflow-hidden">
               <div
-                class="bg-emerald-500 h-1.5 rounded-full"
+                class="bg-neutral-900 h-full"
                 style={`width: ${(scorecard.dimensions.telemetry.score / 25) * 100}%`}
               ></div>
             </div>
-            <div class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-white border border-neutral-200 text-neutral-800">
+            <div class="inline-block px-2 py-0.5 text-[11px] font-mono font-bold bg-white border border-neutral-900 text-neutral-900">
               {scorecard.dimensions.telemetry.status}
             </div>
             <ul class="space-y-1.5 pt-1">
               {scorecard.dimensions.telemetry.highlights.map((h: string) => (
-                <li class="text-xs text-neutral-600 flex items-start gap-1.5 leading-normal">
-                  <span class="text-emerald-600 font-bold shrink-0">✓</span>
+                <li class="text-xs text-neutral-700 flex items-start gap-1.5 leading-normal">
+                  <span class="text-neutral-900 font-bold shrink-0">✓</span>
                   <span>{h}</span>
                 </li>
               ))}
@@ -629,28 +629,28 @@ const faqLd = isVerified ? {
           </div>
 
           {/* Dimension 3: Source */}
-          <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-4 sm:p-5 space-y-3">
+          <div class="bg-neutral-50 border-2 border-neutral-900 p-4 sm:p-5 space-y-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             <div class="flex items-center justify-between gap-2">
-              <span class="text-xs font-bold font-mono uppercase text-neutral-600">
+              <span class="text-xs font-bold font-mono uppercase text-neutral-800">
                 {t(locale, 'tool.scorecard.dimSource')}
               </span>
-              <span class="text-xs font-mono font-bold text-emerald-700">
+              <span class="text-xs font-mono font-bold text-neutral-900">
                 {scorecard.dimensions.source.score} / 25
               </span>
             </div>
-            <div class="w-full bg-neutral-200 rounded-full h-1.5 overflow-hidden">
+            <div class="w-full bg-neutral-200 h-2 border border-neutral-900 overflow-hidden">
               <div
-                class="bg-emerald-500 h-1.5 rounded-full"
+                class="bg-neutral-900 h-full"
                 style={`width: ${(scorecard.dimensions.source.score / 25) * 100}%`}
               ></div>
             </div>
-            <div class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-white border border-neutral-200 text-neutral-800">
+            <div class="inline-block px-2 py-0.5 text-[11px] font-mono font-bold bg-white border border-neutral-900 text-neutral-900">
               {scorecard.dimensions.source.status}
             </div>
             <ul class="space-y-1.5 pt-1">
               {scorecard.dimensions.source.highlights.map((h: string) => (
-                <li class="text-xs text-neutral-600 flex items-start gap-1.5 leading-normal">
-                  <span class="text-emerald-600 font-bold shrink-0">✓</span>
+                <li class="text-xs text-neutral-700 flex items-start gap-1.5 leading-normal">
+                  <span class="text-neutral-900 font-bold shrink-0">✓</span>
                   <span>{h}</span>
                 </li>
               ))}
@@ -658,28 +658,28 @@ const faqLd = isVerified ? {
           </div>
 
           {/* Dimension 4: Resilience */}
-          <div class="bg-neutral-50 border border-neutral-200 rounded-xl p-4 sm:p-5 space-y-3">
+          <div class="bg-neutral-50 border-2 border-neutral-900 p-4 sm:p-5 space-y-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             <div class="flex items-center justify-between gap-2">
-              <span class="text-xs font-bold font-mono uppercase text-neutral-600">
+              <span class="text-xs font-bold font-mono uppercase text-neutral-800">
                 {t(locale, 'tool.scorecard.dimResilience')}
               </span>
-              <span class="text-xs font-mono font-bold text-emerald-700">
+              <span class="text-xs font-mono font-bold text-neutral-900">
                 {scorecard.dimensions.resilience.score} / 25
               </span>
             </div>
-            <div class="w-full bg-neutral-200 rounded-full h-1.5 overflow-hidden">
+            <div class="w-full bg-neutral-200 h-2 border border-neutral-900 overflow-hidden">
               <div
-                class={`h-1.5 rounded-full ${scorecard.dimensions.resilience.score > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
+                class={`h-full ${scorecard.dimensions.resilience.score > 0 ? 'bg-neutral-900' : 'bg-red-500'}`}
                 style={`width: ${(scorecard.dimensions.resilience.score / 25) * 100}%`}
               ></div>
             </div>
-            <div class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-white border border-neutral-200 text-neutral-800">
+            <div class="inline-block px-2 py-0.5 text-[11px] font-mono font-bold bg-white border border-neutral-900 text-neutral-900">
               {scorecard.dimensions.resilience.status}
             </div>
             <ul class="space-y-1.5 pt-1">
               {scorecard.dimensions.resilience.highlights.map((h: string) => (
-                <li class="text-xs text-neutral-600 flex items-start gap-1.5 leading-normal">
-                  <span class={`${scorecard.dimensions.resilience.score > 0 ? 'text-emerald-600' : 'text-red-500'} font-bold shrink-0`}>
+                <li class="text-xs text-neutral-700 flex items-start gap-1.5 leading-normal">
+                  <span class={`${scorecard.dimensions.resilience.score > 0 ? 'text-neutral-900' : 'text-red-500'} font-bold shrink-0`}>
                     {scorecard.dimensions.resilience.score > 0 ? '✓' : '✗'}
                   </span>
                   <span>{h}</span>
@@ -691,31 +691,31 @@ const faqLd = isVerified ? {
 
         {/* Verification Details factsheet for GEO quotability */}
         <div class="border-t border-neutral-200/80 pt-4">
-          <h3 class="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">Verification Details</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm bg-neutral-50 p-4 border border-neutral-200 rounded-xl mb-3">
+          <h3 class="text-xs font-mono font-bold text-neutral-400 uppercase tracking-wider mb-3">Verification Details</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm bg-neutral-50 p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3">
             <div>
-              <span class="block text-xs text-neutral-400 font-mono">Account</span>
-              <span class="font-bold text-green-700">None Required</span>
+              <span class="block text-xs text-neutral-500 font-mono">Account</span>
+              <span class="font-bold text-neutral-900">None Required</span>
             </div>
             <div>
-              <span class="block text-xs text-neutral-400 font-mono">Category</span>
-              <span class="font-bold text-neutral-800">{categoryTag?.tagValue || 'General'}</span>
+              <span class="block text-xs text-neutral-500 font-mono">Category</span>
+              <span class="font-bold text-neutral-900">{categoryTag?.tagValue || 'General'}</span>
             </div>
             <div>
-              <span class="block text-xs text-neutral-400 font-mono">Processing</span>
-              <span class="font-bold text-neutral-800">{dataTag?.tagValue || 'Browser / Web'}</span>
+              <span class="block text-xs text-neutral-500 font-mono">Processing</span>
+              <span class="font-bold text-neutral-900">{dataTag?.tagValue || 'Browser / Web'}</span>
             </div>
             <div>
-              <span class="block text-xs text-neutral-400 font-mono">Pricing</span>
-              <span class="font-bold text-neutral-800">{pricingValue || 'Free'}</span>
+              <span class="block text-xs text-neutral-500 font-mono">Pricing</span>
+              <span class="font-bold text-neutral-900">{pricingValue || 'Free'}</span>
             </div>
           </div>
           {editorial?.privacyVerdict && (
-            <div class="bg-neutral-50 border border-neutral-200 p-3.5 sm:p-4 text-xs rounded-xl">
-              <span class="block font-mono font-bold uppercase text-neutral-500 mb-1">
+            <div class="bg-neutral-50 border-2 border-neutral-900 p-3.5 sm:p-4 text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <span class="block font-mono font-bold uppercase text-neutral-600 mb-1">
                 {t(locale, 'tool.editorial.privacy')}
               </span>
-              <p class="text-neutral-700 leading-relaxed font-sans">
+              <p class="text-neutral-800 leading-relaxed font-sans">
                 {editorial.privacyVerdict}
               </p>
             </div>
@@ -757,11 +757,11 @@ const faqLd = isVerified ? {
       <!-- Health History -->
       <div class="border-t border-neutral-100 pt-8">
         <h2 class="text-sm font-medium text-neutral-500 mb-3">{t(locale, 'tool.healthHistory')}</h2>
-        <div class="flex flex-wrap items-center gap-1 mb-3">
+        <div class="flex flex-wrap items-center gap-1.5 mb-3">
           {days.map((day) => (
             <div
               class:list={[
-                'w-5 h-5 rounded transition-all duration-300',
+                'w-4 h-4 border border-neutral-900 transition-all',
                 day.status === null
                   ? 'bg-neutral-100'
                   : day.status === 'online'
@@ -775,7 +775,7 @@ const faqLd = isVerified ? {
             </div>
           ))}
         </div>
-        <div class="flex items-center gap-4 text-xs text-neutral-400">
+        <div class="flex items-center gap-4 text-xs font-mono text-neutral-500">
           <span>{t(locale, 'tool.daysAgoToday')}</span>
           <span class="text-neutral-300">·</span>
           <span>{t(locale, 'tool.uptime', { percent: Math.round((days.filter(d => d.status === 'online').length / days.filter(d => d.status !== null).length || 0) * 100) })}</span>
@@ -828,7 +828,7 @@ const faqLd = isVerified ? {
             <img src={`/api/badge/${slug}.svg`} alt="NoLogin Verified" class="h-5" />
             <img src={`/api/badge/${slug}.svg?type=grade`} alt={`Privacy Grade ${scorecard.overallGrade}`} class="h-5" />
           </div>
-          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-sm font-bold text-green-700 hover:text-green-800 underline flex items-center gap-1">
+          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-xs font-mono font-bold text-neutral-900 underline decoration-2 uppercase flex items-center gap-1">
             <span>{isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')}</span>
             <span>&rarr;</span>
           </a>
@@ -858,7 +858,7 @@ const faqLd = isVerified ? {
           <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.relatedTools')}</h2>
           <div class="space-y-3">
             {relatedTools.map((rt) => (
-              <div class="flex items-start gap-3 py-2">
+              <div class="flex items-start gap-3 py-2 border-b border-neutral-100 last:border-0">
                 <img
                   src={`https://www.google.com/s2/favicons?domain=${new URL(rt.url).hostname}&sz=32`}
                   alt={rt.name}
@@ -870,9 +870,9 @@ const faqLd = isVerified ? {
                 />
                 <div class="min-w-0">
                   <span class="text-sm">
-                    <a href={getLocalizedPath(`/tool/${rt.slug}`, locale)} class="font-bold text-neutral-900 hover:underline">{rt.name}</a>
+                    <a href={getLocalizedPath(`/tool/${rt.slug}`, locale)} class="font-bold text-neutral-900 hover:underline decoration-2">{rt.name}</a>
                     <span class="text-neutral-400 mx-1">&mdash;</span>
-                    <span class="text-neutral-400">{new URL(rt.url).hostname}</span>
+                    <span class="text-neutral-400 font-mono text-xs">{new URL(rt.url).hostname}</span>
                   </span>
                   {rt.description && (
                     <p class="text-sm text-neutral-500 mt-0.5 line-clamp-1">{rt.description}</p>
@@ -892,10 +892,10 @@ const faqLd = isVerified ? {
             {relatedArticles.map((article) => (
               <a
                 href={article.url}
-                class="group block p-4 bg-neutral-50 border border-neutral-200 rounded hover:border-neutral-400 transition-colors"
+                class="group block p-4 bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
               >
                 <div class="flex items-center gap-2 text-xs font-mono text-neutral-500 mb-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-neutral-400 group-hover:bg-neutral-900 transition-colors" />
+                  <span class="w-1.5 h-1.5 bg-neutral-900 inline-block" />
                   <span>{locale === 'zh' ? '深度指南' : 'In-Depth Guide'}</span>
                 </div>
                 <h3 class="text-sm font-bold text-neutral-900 group-hover:underline leading-snug">
@@ -914,11 +914,11 @@ const faqLd = isVerified ? {
       {toolComparisons.length > 0 && (
         <div class="border-t border-neutral-100 pt-8">
           <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.compareWith')}</h2>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-2.5">
             {toolComparisons.map((c) => (
               <a
                 href={getLocalizedPath(`/compare/${c.slug}`, locale)}
-                class="px-3.5 py-2 bg-neutral-50 border border-neutral-200 rounded-lg hover:border-neutral-900 text-xs font-bold text-neutral-800 transition-all inline-flex items-center gap-2 shadow-2xs"
+                class="px-3 py-1.5 bg-white border-2 border-neutral-900 hover:bg-neutral-50 text-xs font-mono font-bold text-neutral-900 transition-all inline-flex items-center gap-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
                 <span>⚔️</span>
                 <span>{c.slug.replace(/-/g, ' ').replace(' vs ', ' ⚔️ ')}</span>
@@ -933,15 +933,15 @@ const faqLd = isVerified ? {
       {toolWorkflows.length > 0 && (
         <div class="border-t border-neutral-100 pt-8">
           <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.partOfWorkflows')}</h2>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-2.5">
             {toolWorkflows.map((w) => (
               <a
                 href={getLocalizedPath(`/workflow/${w.slug}`, locale)}
-                class="px-3.5 py-2 bg-emerald-50/50 border border-emerald-200 hover:border-emerald-600 rounded-lg text-xs font-bold text-emerald-950 transition-all inline-flex items-center gap-2 shadow-2xs group"
+                class="px-3 py-1.5 bg-white border-2 border-neutral-900 hover:bg-neutral-50 text-xs font-mono font-bold text-neutral-900 transition-all inline-flex items-center gap-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group"
               >
                 <span>⚡</span>
                 <span>{w.title}</span>
-                <span class="text-emerald-500 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+                <span class="text-neutral-400 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
               </a>
             ))}
           </div>
