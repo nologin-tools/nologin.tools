@@ -46,7 +46,12 @@ await loadTranslations(locale);
       </p>
     </div>
 
-    <form id="submit-form" class="space-y-6" novalidate>
+    <form
+      id="submit-form"
+      data-success-url={getLocalizedPath('/submit/success', locale)}
+      class="space-y-6"
+      novalidate
+    >
       <!-- Tool URL -->
       <div>
         <label for="url" class="block text-xs font-mono font-bold uppercase tracking-wider text-neutral-700 mb-1.5">
@@ -217,7 +222,8 @@ await loadTranslations(locale);
         const result = await res.json();
 
         if (result.ok) {
-          window.location.href = `/submit/success?slug=${result.data.slug}`;
+          const successBase = form.dataset.successUrl || '/submit/success';
+          window.location.href = `${successBase}?slug=${result.data.slug}`;
         } else {
           if (result.details?.slug) {
             formError.innerHTML = `

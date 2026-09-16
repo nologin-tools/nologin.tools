@@ -70,6 +70,7 @@ src/
 │   ├── HomePage.astro        # Homepage renderer (extracted from index.astro, accepts locale prop)
 │   ├── AboutPage.astro       # About page renderer (extracted from about.astro)
 │   ├── SubmitPage.astro      # Submit form renderer (extracted from submit.astro)
+│   ├── SubmitSuccessPage.astro # Submit success page renderer (extracted from submit/success.astro)
 │   ├── NotFoundPage.astro    # 404 page renderer (extracted from 404.astro)
 │   ├── BadgeInfoPage.astro   # Badge info page renderer (extracted from badge/index.astro)
 │   ├── BlogListPage.astro    # Blog list renderer (extracted from blog/index.astro)
@@ -83,7 +84,7 @@ src/
 │   ├── submit.astro      # English submit → <SubmitPage locale="en" />
 │   ├── about.astro       # English about → <AboutPage locale="en" />
 │   ├── 404.astro         # English 404 → <NotFoundPage locale="en" />
-│   ├── submit/success.astro  # SSR (reads URL params)
+│   ├── submit/success.astro  # SSR (reads URL params) → <SubmitSuccessPage />
 │   ├── tool/[slug].astro     # English static with getStaticPaths
 │   ├── badge/index.astro     # English badge info → <BadgeInfoPage locale="en" />
 │   ├── badge/[slug].astro    # English badge detail static
@@ -94,6 +95,7 @@ src/
 │   │   ├── index.astro       # getStaticPaths() for zh/ja/ko/es/fr/de/pt
 │   │   ├── about.astro
 │   │   ├── submit.astro
+│   │   ├── submit/success.astro # SSR (reads URL params) → <SubmitSuccessPage locale={lang} />
 │   │   ├── 404.astro
 │   │   ├── tool/[slug].astro # getStaticPaths() → lang × slug
 │   │   ├── badge/index.astro
