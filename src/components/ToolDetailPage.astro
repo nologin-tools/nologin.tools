@@ -970,181 +970,54 @@ const faqLd = isVerified ? {
       {/* Resubmit form if rejected */}
       {isRejected && (
         <div class="border-t pt-8 mt-8">
-          <h3 class="text-xl font-bold text-neutral-900 mb-6">{t(locale, 'tool.resubmitTitle')}</h3>
-          <form id="resubmit-form" class="space-y-6" novalidate>
+          <h3 class="text-xl font-bold text-neutral-900 mb-2">{t(locale, 'tool.resubmitTitle')}</h3>
+          <p class="text-sm text-neutral-500 mb-6">
+            Update your URL or email address to resubmit for verification. Metadata and tags will be automatically extracted during review.
+          </p>
+          <form id="resubmit-form" class="space-y-4 max-w-lg" novalidate data-success-url={getLocalizedPath(`/tool/${slug}`, locale)}>
             <input type="hidden" name="toolId" value={tool.id} />
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label for="rs-name" class="block text-sm font-medium text-neutral-500 mb-2">
-                  Tool Name <span class="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="rs-name"
-                  name="name"
-                  required
-                  value={tool.name}
-                  class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="name"></p>
-              </div>
-
-              <div>
-                <label for="rs-url" class="block text-sm font-medium text-neutral-500 mb-2">
-                  Tool URL <span class="text-red-500">*</span>
-                </label>
-                <input
-                  type="url"
-                  id="rs-url"
-                  name="url"
-                  required
-                  value={tool.url}
-                  class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="url"></p>
-              </div>
-            </div>
-
             <div>
-              <label for="rs-description" class="block text-sm font-medium text-neutral-500 mb-2">
-                Description <span class="text-red-500">*</span>
-              </label>
-              <textarea
-                id="rs-description"
-                name="description"
-                required
-                rows="4"
-                class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
-              >{tool.description}</textarea>
-              <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="description"></p>
-            </div>
-
-            <div>
-              <label for="rs-coreTask" class="block text-sm font-medium text-neutral-500 mb-2">
-                What can you do without login? <span class="text-red-500">*</span>
+              <label for="rs-url" class="block text-xs font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                Tool URL <span class="text-red-500">*</span>
               </label>
               <input
-                type="text"
-                id="rs-coreTask"
-                name="coreTask"
+                type="url"
+                id="rs-url"
+                name="url"
                 required
-                value={tool.coreTask}
-                class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                value={tool.url}
+                class="w-full px-4 py-2.5 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               />
-              <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="coreTask"></p>
+              <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="url"></p>
             </div>
 
             <div>
-              <label class="flex items-start gap-4 p-4 border border-neutral-200 rounded cursor-pointer hover:bg-neutral-50 transition-colors">
-                <input
-                  type="checkbox"
-                  id="rs-pledge"
-                  name="pledge"
-                  required
-                  checked
-                  class="mt-1 w-5 h-5 text-green-600 border-neutral-300 rounded focus:ring-green-500"
-                />
-                <span class="text-sm text-neutral-700 font-medium">
-                  I confirm this tool's core functionality works without creating an
-                  account or logging in. <span class="text-red-500 font-bold">*</span>
-                </span>
-              </label>
-              <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="pledge"></p>
-            </div>
-
-            <div>
-              <label for="rs-submitterEmail" class="block text-sm font-medium text-neutral-500 mb-2">
-                Email <span class="text-neutral-300">(optional)</span>
+              <label for="rs-submitterEmail" class="block text-xs font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2">
+                Email <span class="text-neutral-300 font-normal">(optional)</span>
               </label>
               <input
                 type="email"
                 id="rs-submitterEmail"
                 name="submitterEmail"
                 value={tool.submitterEmail || ''}
-                class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="contact@example.com"
+                class="w-full px-4 py-2.5 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               />
-              <p class="text-xs text-neutral-400 mt-2">
+              <p class="text-xs text-neutral-400 mt-1">
                 Only visible to reviewers.
               </p>
               <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="submitterEmail"></p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="md:col-span-2">
-                <label for="rs-repoUrl" class="block text-sm font-medium text-neutral-500 mb-2">
-                  Repository URL <span class="text-neutral-300">(optional)</span>
-                </label>
-                <input
-                  type="url"
-                  id="rs-repoUrl"
-                  name="repoUrl"
-                  value={tool.repoUrl || ''}
-                  placeholder="https://github.com/owner/repo"
-                  class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <p class="text-xs text-neutral-400 mt-2">
-                  Filling this will automatically mark the tool as open source.
-                </p>
-                <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="repoUrl"></p>
-              </div>
-              <div>
-                <label for="rs-twitterUrl" class="block text-sm font-medium text-neutral-500 mb-2">
-                  Twitter / X <span class="text-neutral-300">(optional)</span>
-                </label>
-                <input
-                  type="url"
-                  id="rs-twitterUrl"
-                  name="twitterUrl"
-                  value={tool.twitterUrl || ''}
-                  placeholder="https://x.com/username"
-                  class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="twitterUrl"></p>
-              </div>
-              <div>
-                <label for="rs-githubUrl" class="block text-sm font-medium text-neutral-500 mb-2">
-                  GitHub Profile <span class="text-neutral-300">(optional)</span>
-                </label>
-                <input
-                  type="url"
-                  id="rs-githubUrl"
-                  name="githubUrl"
-                  value={tool.githubUrl || ''}
-                  placeholder="https://github.com/username"
-                  class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="githubUrl"></p>
-              </div>
-              <div>
-                <label for="rs-discordUrl" class="block text-sm font-medium text-neutral-500 mb-2">
-                  Discord <span class="text-neutral-300">(optional)</span>
-                </label>
-                <input
-                  type="url"
-                  id="rs-discordUrl"
-                  name="discordUrl"
-                  value={tool.discordUrl || ''}
-                  placeholder="https://discord.gg/invite-code"
-                  class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
-                <p class="text-xs text-red-500 mt-1 hidden" data-rs-error="discordUrl"></p>
-              </div>
-            </div>
-
-            <div class="pt-4">
-              <h4 class="text-sm font-medium text-neutral-500 mb-4">Update Tags</h4>
-              <TagPicker selectedTags={toolTags.map(t => ({ key: t.tagKey, value: t.tagValue }))} />
-            </div>
-
-            <div id="resubmit-error" class="hidden p-4 bg-red-50 border border-red-200 rounded text-sm text-red-700 font-bold"></div>
+            <div id="resubmit-error" class="hidden p-3 bg-red-50 border border-red-200 rounded text-sm text-red-700 font-bold"></div>
 
             <button
               type="submit"
               id="resubmit-btn"
-              class="btn-minimal-primary w-full justify-center py-3"
+              class="btn-minimal-primary w-full justify-center py-2.5 cursor-pointer"
             >
-              Resubmit Tool
+              {t(locale, 'tool.resubmitBtn')}
             </button>
           </form>
         </div>
@@ -1344,32 +1217,16 @@ const faqLd = isVerified ? {
       resubmitError?.classList.add('hidden');
 
       const formData = new FormData(resubmitForm);
-      const data: Record<string, any> = {
+      const data = {
         toolId: Number(formData.get('toolId')),
-        name: formData.get('name'),
         url: formData.get('url'),
-        description: formData.get('description'),
-        pledge: formData.get('pledge') === 'on',
-        coreTask: formData.get('coreTask'),
         submitterEmail: formData.get('submitterEmail') || '',
-        repoUrl: formData.get('repoUrl') || '',
-        twitterUrl: formData.get('twitterUrl') || '',
-        githubUrl: formData.get('githubUrl') || '',
-        discordUrl: formData.get('discordUrl') || '',
-        tags: [] as { key: string; value: string }[],
       };
 
-      // Collect tags
-      for (const [key, value] of formData.entries()) {
-        if (key.startsWith('tag_')) {
-          const tagKey = key.replace('tag_', '').replace('[]', '');
-          data.tags.push({ key: tagKey, value: value as string });
-        }
-      }
-
+      const originalBtnText = resubmitBtn?.textContent || 'Resubmit Tool';
       if (resubmitBtn) {
         resubmitBtn.disabled = true;
-        resubmitBtn.textContent = 'Resubmitting...';
+        resubmitBtn.textContent = '...';
       }
 
       try {
@@ -1382,7 +1239,9 @@ const faqLd = isVerified ? {
         const result = await res.json();
 
         if (result.ok) {
-          window.location.href = `/tool/${result.data.slug}`;
+          const successBase = resubmitForm.dataset.successUrl || `/tool/${result.data.slug}`;
+          const targetUrl = successBase.replace(/\/tool\/[^/?#]+/, `/tool/${result.data.slug}`);
+          window.location.href = targetUrl;
         } else {
           if (result.details) {
             for (const [field, msg] of Object.entries(result.details)) {
@@ -1406,7 +1265,7 @@ const faqLd = isVerified ? {
       } finally {
         if (resubmitBtn) {
           resubmitBtn.disabled = false;
-          resubmitBtn.textContent = 'Resubmit Tool';
+          resubmitBtn.textContent = originalBtnText;
         }
       }
     });

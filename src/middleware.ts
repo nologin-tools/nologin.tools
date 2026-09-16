@@ -8,7 +8,7 @@ const LOCALE_PREFIX = `(?:\\/(?:${NON_DEFAULT_LOCALES.join('|')}))?`;
 const ISR_REGEX = new RegExp(`^${LOCALE_PREFIX}\\/(?:tool|badge)\\/[^/]+\\/?$`);
 
 // Paths that should never be redirected
-const SKIP_REDIRECT_REGEX = /^\/(api|admin|ssr|_astro)\//;
+const SKIP_REDIRECT_REGEX = /^\/(api|admin|ssr|_astro)(\/|$)/;
 const HAS_EXTENSION_REGEX = /\.\w+$/;
 
 export const onRequest = defineMiddleware(async (context, next) => {

@@ -9,20 +9,26 @@ import { getToolsForBlogArticle } from '../../../lib/tool-blogs';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const blogTranslationMap = buildBlogTranslationMap(posts);
+  const englishPosts = posts.filter((p) => !p.id.includes('/'));
   const paths: any[] = [];
 
-  for (const lang of LOCALES.filter(l => l !== DEFAULT_LOCALE)) {
-    // Only generate pages for posts that have actual translations
-    const localePosts = posts.filter(p => p.id.startsWith(`${lang}/`));
-
-    for (const post of localePosts) {
-      const slug = post.id.split('/').slice(1).join('/');
-      const originalSlug = post.data.originalSlug || slug;
+  for (const lang of LOCALES.filter((l) => l !== DEFAULT_LOCALE)) {
+    for (const englishPost of englishPosts) {
+      const slug = englishPost.id;
+      const translatedPost = posts.find(
+        (p) => p.id === `${lang}/${slug}` || (p.data.originalSlug === slug && p.id.startsWith(`${lang}/`))
+      );
+      const originalSlug = slug;
       const availableLocales = blogTranslationMap.get(originalSlug) || new Set(['en'] as Locale[]);
 
       paths.push({
         params: { lang, slug },
-        props: { post, locale: lang as Locale, availableLocales },
+        props: {
+          post: translatedPost || englishPost,
+          locale: lang as Locale,
+          availableLocales,
+          isFallback: !translatedPost,
+        },
       });
     }
   }
@@ -30,7 +36,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { post, locale, availableLocales } = Astro.props;
+const { post, locale, availableLocales, isFallback = false } = Astro.props;
 await loadTranslations(locale);
 const { Content } = await render(post);
 
@@ -127,6 +133,8 @@ const breadcrumbLd = {
   description={post.data.description}
   ogType="article"
   ogImage={ogImageForPost}
+  canonicalOverride={isFallback ? `/blog/${getPostSlug(post.id)}` : undefined}
+  noindex={isFallback}
   publishedTime={publishedDate}
   modifiedTime={modifiedDate}
   articleTags={post.data.tags}
