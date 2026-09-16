@@ -154,6 +154,7 @@ sites/org/                # NologinTools.org — organization authority site (in
   - Data export: `featured` boolean field in tools.json, ★ marker after tool name in README
   - Rejecting a tool auto-clears `isFeatured` and `featuredAt`
   - Admin dashboard: Featured count stat card (yellow theme), ★ Featured filter button, Feature/Unfeature toggle per approved tool
+- **Simplified tool submission**: Submissions via `/submit` and `POST /api/submit` require only `url` (required) and `submitterEmail` (optional). Full tool metadata (name, description, core_task, category, and tags) is automatically extracted and populated during review via `autonomous-patrol` using `ego-browser`.
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code

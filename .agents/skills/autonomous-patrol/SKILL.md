@@ -32,9 +32,11 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
 ### Phase 1: Clear Pending Queue (Submissions & Edit Suggestions)
 
 #### A. Pending Tools (`status = 'pending'`)
+> **Note on Simplified Submission**: Tools are now submitted with only `url` (and optional `submitter_email`). During review, the Agent uses `ego-browser` to inspect the live site, confirm no-login usability, extract official metadata, synthesize descriptions, and assign taxonomy tags automatically.
+
 1. Query pending tools:
    ```bash
-   npx wrangler d1 execute nologin-tools-db --remote --json --command "SELECT id, name, url, description, core_task, repo_url FROM tools WHERE status = 'pending';"
+   npx wrangler d1 execute nologin-tools-db --remote --json --command "SELECT id, name, url, description, core_task, submitter_email FROM tools WHERE status = 'pending';"
    ```
 2. For each pending tool, open with `ego-browser`:
    ```bash
@@ -46,17 +48,39 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
      const text = document.body.innerText;
      const hasLogin = /sign in|log in|create account|register/i.test(text);
      const fileInputs = document.querySelectorAll('input[type="file"]').length;
-     return { title: document.title, fileInputs, textSnippet: text.slice(0, 500) };
+     const metaDesc = document.querySelector('meta[name="description"]')?.getAttribute('content') ||
+                      document.querySelector('meta[property="og:description"]')?.getAttribute('content') || '';
+     const ogTitle = document.querySelector('meta[property="og:site_name"]')?.getAttribute('content') ||
+                     document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '';
+     const githubLink = document.querySelector('a[href*="github.com/"]')?.getAttribute('href') || '';
+     return { title: document.title, ogTitle, metaDesc, githubLink, hasLogin, fileInputs, textSnippet: text.slice(0, 1000) };
    });
    console.log(JSON.stringify(info));
    await task.finish({ keep: [] });
 INNER
    ```
 3. Evaluate criteria:
-   - **Approve**: Tool functions in the browser without mandatory login. Visitor usage or free quotas available.
-     - Set status: `UPDATE tools SET status = 'approved', approved_at = unixepoch() WHERE id = ?;`
-     - Ensure required tags exist in `tags` table (`category`, `pricing`, `type`, `data`, `hosting`, `offline`).
-     - If `repo_url` is provided and valid, ensure `source:Open Source` tag exists.
+   - **Approve**: Tool functions directly in the browser without mandatory login or account creation.
+     - **Synthesize Metadata**:
+       - `name`: Clean brand name from title/ogTitle (strip " - Free Online...", " | Best...", etc.).
+       - `description`: 1-2 objective, neutral English sentences explaining what the tool does.
+       - `core_task`: Action phrase summarizing the no-login utility (e.g., "Draw diagrams and export to PNG").
+       - `repo_url`: Extracted GitHub repo URL if found (or null).
+       - `category`: Exactly one of the 11 valid categories: `AI`, `Design`, `Writing`, `Development`, `Productivity`, `Utilities`, `Media`, `Security`, `Math`, `Finance`, `Privacy`.
+       - Other tags: `pricing` (Free/Freemium), `type` (Web App/API/CLI), `data` (Local Only/Cloud Processed), `hosting` (Self-Hostable/Cloud Only), `offline` (Offline Capable/Online Only).
+     - **Update Remote D1**:
+       ```sql
+       UPDATE tools SET
+         name = ?,
+         description = ?,
+         core_task = ?,
+         repo_url = ?,
+         status = 'approved',
+         approved_at = unixepoch()
+       WHERE id = ?;
+       ```
+     - **Insert Tags**:
+       Insert category and other taxonomy tags into `tags` table (`tool_id`, `tag_key`, `tag_value`). If `repo_url` is present, insert `source:Open Source`.
    - **Reject**:
      - Hard login wall (cannot use core task without account).
      - Dead link (404, 500, DNS failure, timeout).
