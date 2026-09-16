@@ -131,19 +131,60 @@ writeFileSync(resolve(srcDir, 'alternatives-data.json'), JSON.stringify(domainAl
 
 console.log(`Generated extension data: ${compactTools.length} tools, ${Object.keys(domainAlternatives).length} domain alternative mappings.`);
 
-// Package zip distribution if zip utility is available
+// Trigger store promotional artwork generation
+try {
+  const assetGenScript = resolve(ROOT, 'scripts/generate-extension-store-assets.mjs');
+  if (existsSync(assetGenScript)) {
+    execSync(`node "${assetGenScript}"`, { stdio: 'inherit' });
+  }
+} catch (e) {
+  console.warn('Store asset generation skipped:', e.message);
+}
+
+// Package dual zip distribution (Chrome MV3 + Firefox MV3)
 const distExtDir = resolve(ROOT, 'dist-extension');
+const downloadsDir = resolve(ROOT, 'public/downloads');
 mkdirSync(distExtDir, { recursive: true });
+mkdirSync(downloadsDir, { recursive: true });
 
 try {
+  // 1. Chrome Web Store Packaging
   const chromeZip = resolve(distExtDir, 'nologin-quick-switcher-chrome.zip');
   execSync(`cd "${extDir}" && zip -r "${chromeZip}" manifest.json background.js icons popup src -x "*.DS_Store"`, { stdio: 'inherit' });
   console.log(`Packaged Chrome extension: ${chromeZip}`);
-
-  const downloadsDir = resolve(ROOT, 'public/downloads');
-  mkdirSync(downloadsDir, { recursive: true });
   copyFileSync(chromeZip, resolve(downloadsDir, 'nologin-quick-switcher-chrome.zip'));
-  console.log(`Published downloadable zip to: ${resolve(downloadsDir, 'nologin-quick-switcher-chrome.zip')}`);
+
+  // 2. Firefox AMO Packaging (with gecko ID and Firefox-compatible background scripts)
+  const chromeManifestPath = resolve(extDir, 'manifest.json');
+  const baseManifest = JSON.parse(readFileSync(chromeManifestPath, 'utf8'));
+  const firefoxManifest = {
+    ...baseManifest,
+    browser_specific_settings: {
+      gecko: {
+        id: 'extension@nologin.tools',
+        strict_min_version: '109.0',
+      },
+    },
+    background: {
+      scripts: ['background.js'],
+    },
+  };
+
+  const firefoxManifestPath = resolve(extDir, 'manifest.firefox.json');
+  writeFileSync(firefoxManifestPath, JSON.stringify(firefoxManifest, null, 2), 'utf8');
+
+  const firefoxZip = resolve(distExtDir, 'nologin-quick-switcher-firefox.zip');
+  // Temporarily swap manifest for zip
+  execSync(`cd "${extDir}" && cp manifest.json manifest.chrome.bak && cp manifest.firefox.json manifest.json && zip -r "${firefoxZip}" manifest.json background.js icons popup src -x "*.DS_Store" && mv manifest.chrome.bak manifest.json && rm manifest.firefox.json`, { stdio: 'inherit' });
+  console.log(`Packaged Firefox extension: ${firefoxZip}`);
+  copyFileSync(firefoxZip, resolve(downloadsDir, 'nologin-quick-switcher-firefox.zip'));
+
+  // 3. Default bundle copy for backwards compatibility
+  copyFileSync(chromeZip, resolve(downloadsDir, 'nologin-extension.zip'));
+  console.log(`Published downloads to ${downloadsDir}:`);
+  console.log(' - nologin-quick-switcher-chrome.zip');
+  console.log(' - nologin-quick-switcher-firefox.zip');
+  console.log(' - nologin-extension.zip');
 } catch (e) {
   console.log('Zip packaging skipped or failed:', e.message);
 }
