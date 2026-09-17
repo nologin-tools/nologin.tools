@@ -393,7 +393,7 @@ To uphold the highest quality bar for **nologin.tools**, any AI assistant or age
 
 1. **Mandatory Ego-Browser Dogfooding**:
    - AI agents must NOT judge a tool purely by its metadata, title, or description.
-   - AI agents **MUST invoke `ego-browser`** to navigate to the live website, interact with the UI, and verify the core workflow firsthand.
+   - AI agents **MUST invoke `ego-browser`** (or the standardized inspection harness `node scripts/inspect-tool-dogfood.mjs <URL>`) to navigate to the live website, interact with the UI, and verify the core workflow firsthand.
    - Check specifically for:
      - **Bait-and-Switch**: Does clicking "Download", "Export", or "Copy" suddenly demand login/signup or email? Does it lock down after 1 use?
      - **Intrusive Ads & Dark Patterns**: Does it feature deceptive fake "Download" buttons, interstitial ads, or unclosable popups?

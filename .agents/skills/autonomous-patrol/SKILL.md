@@ -75,37 +75,59 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
      - Prioritize approval for client-side privacy-first web apps (e.g., CyberChef, SVGOMG).
      - Automatically populate `repo_url` and assign `source:Open Source`.
 
-5. For surviving candidates, open with `ego-browser`:
+5. **Interactive Ego-Browser Dogfooding & Verification Protocol**:
+   For surviving candidates, never rely solely on homepage text or meta descriptions. Execute the standardized dogfooding inspection script:
    ```bash
-   ego-browser nodejs <<'INNER'
-   const task = await taskSpace("inspect pending tool");
-   const page = task.page("p1");
-   await page.goto("<URL>", { waitUntil: "domcontentloaded", timeout: 20000 });
-   const info = await page.evaluate(() => {
-     const text = document.body.innerText;
-     const hasLogin = /sign in|log in|create account|register/i.test(text);
-     const fileInputs = document.querySelectorAll('input[type="file"]').length;
-     const metaDesc = document.querySelector('meta[name="description"]')?.getAttribute('content') ||
-                      document.querySelector('meta[property="og:description"]')?.getAttribute('content') || '';
-     const ogTitle = document.querySelector('meta[property="og:site_name"]')?.getAttribute('content') ||
-                     document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '';
-     const githubLink = document.querySelector('a[href*="github.com/"]')?.getAttribute('href') || '';
-     return { title: document.title, ogTitle, metaDesc, githubLink, hasLogin, fileInputs, textSnippet: text.slice(0, 1000) };
-   });
-   console.log(JSON.stringify(info));
-   await task.finish({ keep: [] });
-INNER
+   node scripts/inspect-tool-dogfood.mjs "<URL>" --json
+   ```
+   Or run with human-readable terminal report:
+   ```bash
+   node scripts/inspect-tool-dogfood.mjs "<URL>"
    ```
 
-6. Final evaluation & D1 write:
-   - **Approve**: Tool functions directly in the browser without mandatory login or account creation.
-     - **Synthesize Metadata**:
-       - `name`: Clean brand name from title/ogTitle (strip " - Free Online...", " | Best...", etc.).
-       - `description`: 1-2 objective, neutral English sentences explaining what the tool does.
-       - `core_task`: Action phrase summarizing the no-login utility (e.g., "Draw diagrams and export to PNG").
-       - `repo_url`: Extracted GitHub repo URL if found (or null).
-       - `category`: Exactly one of the 11 valid categories: `AI`, `Design`, `Writing`, `Development`, `Productivity`, `Utilities`, `Media`, `Security`, `Math`, `Finance`, `Privacy`.
-       - Other tags: `pricing` (Free/Freemium), `type` (Web App/API/CLI), `data` (Local Only/Cloud Processed), `hosting` (Self-Hostable/Cloud Only), `offline` (Offline Capable/Online Only).
+   **The Automated Dogfooding Harness Rigorously Verifies**:
+   1. **Initial Blocker & Auth Wall Scan**:
+      - Detects full-screen modal overlays, cookie consent vs blocking auth traps, and pure login/registration entry pages with `<input type="password">`.
+   2. **Interactive Surface Discovery**:
+      - Identifies active inputs (`textarea`, Monaco/CodeMirror editors, `contenteditable`), file dropzones/inputs (`input[type="file"]`), interactive HTML5 canvases, and operational action buttons.
+   3. **Live Core Functional Dogfooding**:
+      - Injects test payload (e.g. JSON structure / text) into input controls.
+      - Triggers core action buttons (`Format`, `Beautify`, `Convert`, `Generate`, `Run`, `Compress`, `Validate`, `Calculate`).
+      - Confirms whether live output/results are rendered without error.
+   4. **Export / Download Gatekeeper Check (Anti-Bait-and-Switch)**:
+      - Searches for and clicks `Download`, `Export`, `Copy`, `Save` controls.
+      - Arms browser download event listener (`page.waitForEvent('download')`).
+      - Strictly catches post-action deceptive traps: newly opened modals demanding "Sign in with Google", "Enter your email to download", or redirection to paywalls/auth routes.
+   5. **Network Traffic & Privacy Architecture Sniffing**:
+      - Hooks in-page `fetch` and `XMLHttpRequest` to capture outgoing network payloads (filtering standard CDN and privacy analytics).
+      - Classifies architecture:
+        - `data: Local Only` & `offline: Offline Capable`: Zero external backend POST payloads, executes client-side (WebAssembly, WebWorker, Canvas).
+        - `data: Cloud Processed` & `offline: Online Only`: User payload is transmitted to remote cloud APIs for server-side processing.
+   6. **Five-Dimension Scorecard (25 Points)**:
+      - `No-Login Completeness (1–5)`: 5 = completely free & unhindered; 1 = bait-and-switch or auth trap.
+      - `Privacy & Architecture (1–5)`: 5 = local-first / Wasm / open-source; 3 = cloud processed; 1 = heavy tracking / ad trap.
+      - `Utility & Independence (1–5)`: 5 = full universal utility; 1 = doorway page / empty template.
+      - `Clean UX & Design (1–5)`: 5 = modern, distraction-free; 1 = ad-cluttered.
+      - `Health & Stability (1–5)`: 5 = fast HTTPS on dedicated domain; 1–2 = hobby subdomains, 404/500 errors.
+
+6. **Final Evaluation, D1 Write & Multi-Language Translation**:
+   - **Approve (Tier S/A: ≥ 22 pts | Tier B: 16–21 pts)**:
+     - The tool functions directly without mandatory login, successfully passes the export/download gatekeeper check, and scores ≥ 16.
+     - **Synthesize Metadata** (from dogfood inspection results, stripping marketing buzzwords):
+       - `name`: Clean brand name from inspection `metadata.name`.
+       - `description`: 1-2 objective, factual English sentences explaining exact capabilities and processing mode.
+       - `core_task`: Action phrase summarizing the no-login utility (e.g., "Format and validate JSON data in browser").
+       - `repo_url`: Extracted GitHub repository URL if present.
+       - `category`: Exactly one of the 11 valid categories (`AI`, `Design`, `Writing`, `Development`, `Productivity`, `Utilities`, `Media`, `Security`, `Math`, `Finance`, `Privacy`).
+       - `tags`: Generated taxonomy tags:
+         - `category:<Cat>`
+         - `data:Local Only` or `data:Cloud Processed`
+         - `privacy:No Tracking` or `privacy:Minimal`
+         - `type:Web App` (or API/CLI)
+         - `hosting:Cloud Only` or `hosting:Self-Hostable`
+         - `offline:Offline Capable` or `offline:Online Only`
+         - `pricing:Free` or `pricing:Freemium`
+         - `source:Open Source` (if `repo_url` is present)
      - **Update Remote D1**:
        ```sql
        UPDATE tools SET
@@ -120,18 +142,23 @@ INNER
      - **Insert Tags**:
        Insert category and other taxonomy tags into `tags` table (`tool_id`, `tag_key`, `tag_value`). If `repo_url` is present, insert `source:Open Source`.
      - **Synchronize Multi-Language Translations (Required)**:
-       Whenever approving a tool, the Agent MUST immediately generate and commit translations for all 7 supported non-English locales (`zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`) into `src/data/translations/{locale}.json`.
-       1. Synthesize accurate, objective translations for `description` and `coreTask` (action-oriented phrase starting with an action verb, incorporating natural no-login phrasing like "无需登录", "ログイン不要", "sin registro", "ohne Anmeldung").
+       Whenever approving a tool, the Agent MUST immediately generate and commit translations for all 7 supported non-English locales (`zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`) into `src/data/translations/{locale}.json`:
+       1. Synthesize authentic, natural translations for `description` and `coreTask` (action-oriented phrase starting with an action verb, incorporating natural no-login phrasing like "无需登录", "ログイン不要", "sin registro", "ohne Anmeldung", "côté client").
        2. Write the payload to a scratch file and apply:
           ```bash
           node scripts/sync-tool-translations.mjs --apply <payload.json>
           ```
        3. Verify all 7 locales now contain the tool: `node scripts/sync-tool-translations.mjs --status`.
-   - **Reject**:
-     - Hard login wall (cannot use core task without account) -> `rejection_reason = '强制注册登录才能使用核心功能'`.
-     - Dead link (404, 500, DNS failure, timeout) -> `rejection_reason = '站点无法访问/已失效 (HTTP 404/DNS错误)'`.
-     - Domain parking ("domain for sale", registrar landing page) -> `rejection_reason = '域名停放/已过期转售'`.
-     - Update status: `UPDATE tools SET status = 'rejected', rejection_reason = ? WHERE id = ?;`
+   - **Reject (Tier C: < 16 pts or Hard Gate Blocker)**:
+     - Initial Auth Wall: `rejection_reason = '首屏强制要求注册/登录 (' || reason || ')'`
+     - Bait-and-Switch (Export gatekeeper failed): `rejection_reason = '诱导拦截 (Bait-and-Switch): 核心操作/导出时弹出强制登录 (' || details || ')'`
+     - Dead link / Timeout: `rejection_reason = '站点无法访问/已失效 (HTTP 404/DNS错误/超时)'`
+     - Domain parking: `rejection_reason = '域名停放/已过期转售'`
+     - Low Score / Poor UX: `rejection_reason = '综合评分过低 (< 16分)，工具体验或独立性不佳'`
+     - Update status:
+       ```sql
+       UPDATE tools SET status = 'rejected', rejection_reason = ? WHERE id = ?;
+       ```
 
 #### B. Pending Edit Suggestions (`status = 'pending'`)
 1. Query suggestions:
