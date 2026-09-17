@@ -17,7 +17,7 @@ Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTo
 - **Database**: Cloudflare D1 (SQLite) via Drizzle ORM
 - **Styling**: Tailwind CSS v4 + `@tailwindcss/typography` (prose styles for blog)
 - **Package Manager**: pnpm
-- **Cron & Automation**: Antigravity local agentic patrol (`.agents/skills/autonomous-patrol/`) + GitHub Actions daily export (`.github/workflows/data-export.yml`)
+- **Cron & Automation**: Antigravity local agentic patrol (`.agents/skills/autonomous-patrol/`) & daily SEO audit (`.agents/skills/daily-seo-audit/`) + GitHub Actions daily export (`.github/workflows/data-export.yml`)
 - **Build Data**: D1 REST API → `build-data.json` → static HTML (every 6h scheduled rebuild)
 
 ## Project Structure
