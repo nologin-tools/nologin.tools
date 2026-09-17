@@ -21,7 +21,12 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
    - Approve when no-login capability is verified on the live site.
    - Reject when mandatory login, dead-links (404/DNS failure), domain parking, or scam/spam is confirmed. Always record a clear `rejection_reason`.
    - Ambiguous/edge cases: Keep `status = 'pending'` and highlight in the daily summary.
-3. **Execution Environment**:
+3. **Domain Quality Gates & Anti-Spam Rigor**:
+   - Treat hosting domain as a primary signal of tool longevity and intent.
+   - Prohibit ephemeral tunnels, preview/branch builds, storefronts, and SEO multi-slicing.
+   - Fast-track verified open-source static tools (`*.github.io`) with active repositories.
+   - Strictly limit platform subdomains (`*.vercel.app`, `*.pages.dev`, `*.netlify.app`) to 1 high-quality tool per root host.
+4. **Execution Environment**:
    - Remote D1 CLI: `npx wrangler d1 execute nologin-tools-db --remote --json --command "<SQL>"`
    - Browser: Always use `ego-browser` with `{ waitUntil: "domcontentloaded", timeout: 20000 }` to avoid hanging on streaming connections.
 
@@ -32,13 +37,45 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
 ### Phase 1: Clear Pending Queue (Submissions & Edit Suggestions)
 
 #### A. Pending Tools (`status = 'pending'`)
-> **Note on Simplified Submission**: Tools are now submitted with only `url` (and optional `submitter_email`). During review, the Agent uses `ego-browser` to inspect the live site, confirm no-login usability, extract official metadata, synthesize descriptions, and assign taxonomy tags automatically.
+> **Note on Simplified Submission**: Tools are submitted with only `url` (and optional `submitter_email`). During review, the Agent inspects the URL against domain quality gates, opens valid candidates with `ego-browser`, confirms no-login usability, synthesizes objective metadata, and assigns taxonomy tags automatically.
 
 1. Query pending tools:
    ```bash
-   npx wrangler d1 execute nologin-tools-db --remote --json --command "SELECT id, name, url, description, core_task, submitter_email FROM tools WHERE status = 'pending';"
+   npx wrangler d1 execute nologin-tools-db --remote --json --command "SELECT id, name, url, description, core_task, submitter_email, repo_url FROM tools WHERE status = 'pending' ORDER BY id ASC;"
    ```
-2. For each pending tool, open with `ego-browser`:
+
+2. **Quality Gate 1: Immediate Hard Rejection Filters (Pre-Browser Checks)**
+   Before launching browser sessions, immediately reject non-compliant submissions matching any of the following patterns:
+   - **Ephemeral Tunnels & Temporary Hosts**: Host contains `trycloudflare.com`, `ngrok`, `localtunnel`, `catbox.moe`, `drive.google.com`, `dropbox.com`, or `*.chatgpt.site`.
+     - `rejection_reason = '临时穿透隧道/临时网盘直链/chatgpt.site临时子域'`
+   - **Preview & Branch Deployments**: Host matches `*-git-*.vercel.app`, `*-preview-*.pages.dev`, `*-preview.netlify.app`, or contains preview/PR hashes. Tools must be on a stable, production canonical URL.
+     - `rejection_reason = '临时构建预览/非生产环境部署分支链接'`
+   - **Direct Repositories & Non-Web Apps**: URL starts with `https://github.com/` (un-deployed code repo), or links to Chrome Web Store / desktop-only installers without an in-browser web app.
+     - `rejection_reason = '直接提交 GitHub 仓库链接 (未部署为在线 Web 工具)'` or `'本地客户端软件下载/Chrome扩展插件 (非免登录网页工具)'`
+   - **Commercial Stores & Paid Downloads**: Host contains `gumroad.com`, `lemonsqueezy.com`, `/shop/`, or task indicates paid digital downloads / Stripe checkout.
+     - `rejection_reason = '数字商品销售页/付费软件下载/Shopify商店'`
+   - **SEO Campaign & Tracking Pollution**: URL contains bulk marketing query parameters (`utm_campaign=`, `utm_source=nologin`, `utm_medium=directory`).
+     - `rejection_reason = '携带批量外链推广跟踪参数'`
+   - **Low-Quota Paywall Bait**: Description or task indicates 1 free query, 3 free tasks/day before a hard paywall.
+     - `rejection_reason = '极低单日免费额度诱饵/本质为付费漏斗'`
+   - **Entertainment & Divination**: Horoscope, tarot, astrology, casual mini-games, or quizzes that do not belong in productivity/utility/privacy directory.
+     - `rejection_reason = '游戏试玩/星座占卜/心理测试/娱乐休闲内容 (不符合生产力/隐私免登录工具定位)'`
+   - **Spam Bots & Dummy Submissions**: Submitter email from automated agent pools (`@agent.qq.com`, `foundagent.net`), or core_task is placeholder/trivial (length < 10, "use tool", "check", "所有事情").
+     - `rejection_reason = '自动化脚本提交/无意义核心任务描述'`
+
+3. **Quality Gate 2: Platform Subdomain Rules (`vercel.app`, `pages.dev`, `netlify.app`, `hf.space`, `streamlit.app`)**
+   - **Anti-Slicing Policy (Max 1 Tool Per Host)**: Check if the database already contains an approved or pending tool with the same hostname. If the submitter created multiple slices (e.g. `domain.pages.dev/tool-1`, `domain.pages.dev/tool-2`):
+     - Keep only the primary/most comprehensive root tool.
+     - Reject all redundant slices: `rejection_reason = '同一主域名重复切片/重复提交 (已存在首选条目)'`.
+   - **Finished Production State**: In `ego-browser`, verify the site is not an unfinished starter template, demo assignment, or sample app containing `Lorem ipsum` or blank placeholders.
+
+4. **Quality Gate 3: Open-Source Green Channel (`*.github.io`)**
+   - If URL is on `*.github.io` and has an associated GitHub repository:
+     - Verify the repo is active and not impersonated.
+     - Prioritize approval for client-side privacy-first web apps (e.g., CyberChef, SVGOMG).
+     - Automatically populate `repo_url` and assign `source:Open Source`.
+
+5. For surviving candidates, open with `ego-browser`:
    ```bash
    ego-browser nodejs <<'INNER'
    const task = await taskSpace("inspect pending tool");
@@ -59,7 +96,8 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
    await task.finish({ keep: [] });
 INNER
    ```
-3. Evaluate criteria:
+
+6. Final evaluation & D1 write:
    - **Approve**: Tool functions directly in the browser without mandatory login or account creation.
      - **Synthesize Metadata**:
        - `name`: Clean brand name from title/ogTitle (strip " - Free Online...", " | Best...", etc.).
@@ -82,11 +120,10 @@ INNER
      - **Insert Tags**:
        Insert category and other taxonomy tags into `tags` table (`tool_id`, `tag_key`, `tag_value`). If `repo_url` is present, insert `source:Open Source`.
    - **Reject**:
-     - Hard login wall (cannot use core task without account).
-     - Dead link (404, 500, DNS failure, timeout).
-     - Domain parking ("domain for sale", registrar landing page).
-     - Download-only desktop/mobile app or browser extension without online web interface.
-     - Set status: `UPDATE tools SET status = 'rejected', rejection_reason = ? WHERE id = ?;`
+     - Hard login wall (cannot use core task without account) -> `rejection_reason = '强制注册登录才能使用核心功能'`.
+     - Dead link (404, 500, DNS failure, timeout) -> `rejection_reason = '站点无法访问/已失效 (HTTP 404/DNS错误)'`.
+     - Domain parking ("domain for sale", registrar landing page) -> `rejection_reason = '域名停放/已过期转售'`.
+     - Update status: `UPDATE tools SET status = 'rejected', rejection_reason = ? WHERE id = ?;`
 
 #### B. Pending Edit Suggestions (`status = 'pending'`)
 1. Query suggestions:
@@ -94,7 +131,7 @@ INNER
    npx wrangler d1 execute nologin-tools-db --remote --json --command "SELECT * FROM edit_suggestions WHERE status = 'pending';"
    ```
 2. Verify proposed changes:
-   - New `url`: Verify it is accessible and resolves to the same legitimate service. If valid, update `tools.url` and `tools.slug`.
+   - New `url`: Verify it is accessible, adheres to domain quality gates, and resolves to the same legitimate service. If valid, update `tools.url` and `tools.slug`.
    - New `repo_url`: Verify GitHub repo exists and matches the tool.
    - Tag/Description updates: Ensure objective language and accuracy.
 3. Apply:
@@ -105,15 +142,20 @@ INNER
 
 ### Phase 2: Rolling Health & Dead-Link Patrol (100 Tools)
 
-1. Select 100 approved tools using dynamic priority:
+1. Select 100 approved tools using dynamic priority with platform subdomain risk weighting:
    - Priority 1: Tools currently marked `status = 'unstable'` (recheck for recovery).
-   - Priority 2: Tools with oldest or missing `last_checked_at` in `health_checks`.
+   - Priority 2: Tools on high-churn platform subdomains (`%.vercel.app%`, `%.pages.dev%`, `%.netlify.app%`, `%.hf.space%`) not checked in the last 24 hours.
+   - Priority 3: Tools with oldest or missing `last_checked_at` in `health_checks`.
    ```sql
    SELECT t.id, t.name, t.url, t.status, t.repo_url,
           (SELECT MAX(checked_at) FROM health_checks WHERE tool_id = t.id) as last_checked
    FROM tools t
    WHERE t.status IN ('approved', 'unstable')
-   ORDER BY (CASE WHEN t.status = 'unstable' THEN 0 ELSE 1 END), last_checked ASC NULLS FIRST
+   ORDER BY
+     (CASE WHEN t.status = 'unstable' THEN 0
+           WHEN t.url LIKE '%.vercel.app%' OR t.url LIKE '%.pages.dev%' OR t.url LIKE '%.netlify.app%' THEN 1
+           ELSE 2 END) ASC,
+     last_checked ASC NULLS FIRST
    LIMIT 100;
    ```
 2. For each tool:
@@ -180,7 +222,12 @@ At the conclusion of the run, format and output a concise report:
 
 - **Pending Submissions**:
   - Approved: X (list names & categories)
-  - Rejected: Y (list names & reasons)
+  - Rejected: Y
+    - 🚫 Hard Login Wall: Y1
+    - 🌐 Domain / Tunnel / Branch Preview: Y2
+    - ✂️ Slicing / SEO Spam / Bot: Y3
+    - 💀 Dead Link / DNS Failure: Y4
+    - 📦 Desktop Client / Storefront: Y5
   - Pending Review: Z (ambiguous items)
 - **Edit Suggestions**:
   - Approved: X | Rejected: Y
@@ -193,3 +240,4 @@ At the conclusion of the run, format and output a concise report:
 - **GitHub Sync**:
   - Repositories refreshed: E
 ```
+
