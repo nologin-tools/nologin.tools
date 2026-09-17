@@ -19,6 +19,7 @@ import { spawn } from 'node:child_process';
 import { writeFileSync, unlinkSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { withEgoLock, cleanOrphanTaskSpaces } from './ego-lock.mjs';
 
 const VALID_CATEGORIES = [
   'AI', 'Design', 'Writing', 'Development', 'Productivity',
@@ -31,6 +32,7 @@ Usage:
   node scripts/inspect-tool-dogfood.mjs <URL> [options]
 
 Options:
+  --timeout <sec>  Set max execution timeout in seconds (default: 180)
   --json       Output raw JSON results only (for agent programmatic consumption)
   --verbose    Print detailed real-time execution steps
   --help       Show this help message
@@ -38,7 +40,7 @@ Options:
 }
 
 // Generate the script that ego-browser nodejs will execute
-function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSession = false) {
+function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 180000, finishSession = true) {
   return `
 (async () => {
   const task = await taskSpace("nologin-audit-" + Date.now());
@@ -230,8 +232,6 @@ function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSess
     if (domInfo.initialAuthBlocker) {
       result.initialAuthGate.blocked = true;
       result.initialAuthGate.reason = domInfo.blockerText;
-      console.log(JSON.stringify(result));
-      await task.finish({ keep: [] });
       return;
     }
 
@@ -389,7 +389,7 @@ function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSess
       console.error("Failed to write result file:", e);
     }
     if (${Boolean(finishSession)}) {
-      await task.finish({ keep: [] });
+      await task.finish({ keep: [] }).catch(() => false);
     }
   }
 })();
@@ -538,24 +538,17 @@ function synthesizeEvaluation(res) {
   };
 }
 
-async function main() {
-  const args = process.argv.slice(2);
-  const targetUrl = args.find(a => !a.startsWith('--'));
-  const isJson = args.includes('--json');
-  const isVerbose = args.includes('--verbose');
-
-  if (!targetUrl || args.includes('--help')) {
-    printUsage();
-    process.exit(1);
-  }
+async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = null) {
+  const inPageTimeoutMs = customTimeoutSec ? customTimeoutSec * 1000 : 180000;
+  const procTimeout = inPageTimeoutMs + 60000;
 
   if (!isJson) {
     console.log(`\n🔍 [ego-browser Dogfooding] Inspecting: ${targetUrl}`);
-    console.log(`⏳ Launching Chromium session and running deep verification protocol...`);
+    console.log(`⏳ Launching Chromium session and running deep verification protocol (watchdog: ${(procTimeout / 1000).toFixed(0)}s)...`);
   }
 
   const resultFilePath = join(tmpdir(), `ego-dogfood-res-${Date.now()}.json`);
-  const scriptContent = buildEgoScript(targetUrl, resultFilePath);
+  const scriptContent = buildEgoScript(targetUrl, resultFilePath, inPageTimeoutMs, true);
   const tempScriptPath = join(tmpdir(), `ego-dogfood-${Date.now()}.js`);
   writeFileSync(tempScriptPath, scriptContent, 'utf-8');
 
@@ -581,9 +574,19 @@ async function main() {
         if (isVerbose) process.stderr.write(chunk);
       });
 
+      const killTimer = setTimeout(() => {
+        try { child.kill('SIGKILL'); } catch {}
+        cleanOrphanTaskSpaces({ verbose: isVerbose });
+        reject(new Error(`ego-browser dogfooding timed out after ${procTimeout}ms`));
+      }, procTimeout);
+
       child.on('close', code => {
+        clearTimeout(killTimer);
         if (code === 0) resolve();
-        else reject(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+        else {
+          cleanOrphanTaskSpaces({ verbose: isVerbose });
+          reject(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+        }
       });
     });
 
@@ -634,12 +637,43 @@ async function main() {
       console.log('============================================================\n');
     }
 
-  } catch (err) {
-    console.error(`❌ Inspection failed: ${err.message}`);
-    process.exit(1);
   } finally {
     try { unlinkSync(tempScriptPath); } catch {}
     try { unlinkSync(resultFilePath); } catch {}
+  }
+}
+
+async function main() {
+  const args = process.argv.slice(2);
+  const targetUrl = args.find(a => !a.startsWith('--'));
+  const isJson = args.includes('--json');
+  const isVerbose = args.includes('--verbose');
+
+  const timeoutIdx = args.indexOf('--timeout');
+  const customTimeoutSec = timeoutIdx !== -1 && timeoutIdx + 1 < args.length ? parseInt(args[timeoutIdx + 1], 10) : null;
+
+  if (!targetUrl || args.includes('--help')) {
+    printUsage();
+    process.exit(1);
+  }
+
+  let domain = 'tool';
+  try {
+    domain = new URL(targetUrl).hostname;
+  } catch {}
+
+  try {
+    await withEgoLock(async () => {
+      await runInspection(targetUrl, isJson, isVerbose, customTimeoutSec);
+    }, {
+      label: `dogfood-${domain}`,
+      preClean: true,
+      postClean: true,
+      verbose: isVerbose
+    });
+  } catch (err) {
+    console.error(`❌ Inspection failed: ${err.message}`);
+    process.exit(1);
   }
 }
 

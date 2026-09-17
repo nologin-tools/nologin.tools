@@ -405,6 +405,10 @@ To uphold the highest quality bar for **nologin.tools**, any AI assistant or age
      - **Bait-and-Switch**: Does clicking "Download", "Export", or "Copy" suddenly demand login/signup or email? Does it lock down after 1 use?
      - **Intrusive Ads & Dark Patterns**: Does it feature deceptive fake "Download" buttons, interstitial ads, or unclosable popups?
      - **Architecture & Local Processing**: Does the tool run client-side (WebAssembly, Web Worker, HTML5 Canvas, WebRTC) or send files to private backends?
+    - **Concurrency & Resource Management Guardrail**:
+      - Browser testing must be strictly serialized (**Concurrency = 1**). Never spawn parallel subagents to execute `ego-browser` simultaneously.
+      - Every browser session MUST close its TaskSpace upon completion via `await task.finish({ keep: [] })`.
+      - Use `node scripts/clean-browser-spaces.mjs` to inspect or clean up orphan browser spaces if system responsiveness degrades.
 2. **Five-Dimension Scorecard (25 Points)**:
    - **No-Login Completeness (1–5)**: 5 = fully unrestricted without account; 1 = bait-and-switch / paywall.
    - **Privacy & Architecture (1–5)**: 5 = local-first / Wasm / open-source; 3 = cloud server but privacy-respecting; 1 = heavy tracking / unclear privacy.

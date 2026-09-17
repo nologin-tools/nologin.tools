@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, unlinkSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { cleanOrphanTaskSpaces } from '../../ego-lock.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DIR = resolve(__dirname, '../fixtures');
@@ -319,7 +320,11 @@ function buildEgoScript(targetUrl, samplePayload, resultJsonPath, timeoutMs = 30
  * @param {boolean} [options.verbose=false]
  */
 export async function runDataBenchmark(targetUrl, options = {}) {
-  const { verbose = false } = options;
+  const {
+    verbose = false,
+    timeoutMs = 180000,
+    procTimeout = 240000
+  } = options;
   const fixturePath = resolve(FIXTURES_DIR, 'sample.json');
 
   if (!existsSync(fixturePath)) {
@@ -330,7 +335,7 @@ export async function runDataBenchmark(targetUrl, options = {}) {
   const payloadBytes = Buffer.byteLength(samplePayload);
   const resultJsonPath = join(tmpdir(), `lab-data-res-${Date.now()}.json`);
 
-  const egoScript = buildEgoScript(targetUrl, samplePayload, resultJsonPath);
+  const egoScript = buildEgoScript(targetUrl, samplePayload, resultJsonPath, timeoutMs);
 
   if (verbose) {
     console.log(`\n🔬 [NoLogin Lab] Initiating Developer & Data Tool Benchmark: ${targetUrl}`);
@@ -359,16 +364,19 @@ export async function runDataBenchmark(targetUrl, options = {}) {
       if (verbose) process.stderr.write(chunk);
     });
 
-    const procTimeout = 40000;
     const killTimer = setTimeout(() => {
       try { child.kill('SIGKILL'); } catch {}
+      cleanOrphanTaskSpaces({ verbose });
       rejectPromise(new Error(`ego-browser benchmark timed out after ${procTimeout}ms`));
     }, procTimeout);
 
     child.on('close', code => {
       clearTimeout(killTimer);
       if (code === 0) resolvePromise();
-      else rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      else {
+        cleanOrphanTaskSpaces({ verbose });
+        rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      }
     });
   });
 

@@ -17,6 +17,7 @@ import { runDataBenchmark } from './runners/data-runner.mjs';
 import { runWritingBenchmark } from './runners/writing-runner.mjs';
 import { runMediaBenchmark } from './runners/media-runner.mjs';
 import { runInteractiveBenchmark } from './runners/interactive-runner.mjs';
+import { withEgoLock } from '../ego-lock.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -38,6 +39,7 @@ Options:
   --runner <type>    Force runner: 'image' | 'data' | 'writing' | 'media' | 'interactive' (auto-detected if omitted)
   --limit <num>      Max number of tools to benchmark in category mode (default: 3)
   --fixture <type>   Fixture type: 'png' | 'svg' | 'wav' | 'pdf' (default: context-aware)
+  --timeout <sec>    Timeout in seconds for page evaluation (watchdog is +60s)
   --sync             Automatically write benchmark scores & lab notes to tool-editorial.json
   --verbose          Print detailed chromium and evaluation trace
   --help             Show this help message
@@ -71,6 +73,7 @@ async function main() {
   const limitArg = parseInt(getArg('--limit') || '3', 10);
   const fixtureType = getArg('--fixture') || 'png';
   const runnerArg = getArg('--runner'); // 'image' | 'data'
+  const timeoutSec = parseInt(getArg('--timeout') || '0', 10);
   const shouldSync = hasFlag('--sync');
   const verbose = hasFlag('--verbose');
 
@@ -187,109 +190,124 @@ async function main() {
     return 'interactive';
   }
 
-  console.log(`\n======================================================`);
-  console.log(`🧪 NoLogin Lab Empirical Benchmark Harness`);
-  console.log(`Tools in queue: ${toolsToBenchmark.length}`);
-  console.log(`Auto-sync to editorial: ${shouldSync ? 'ENABLED' : 'DISABLED'}`);
-  console.log(`======================================================\n`);
+  await withEgoLock(async () => {
+    console.log(`\n======================================================`);
+    console.log(`🧪 NoLogin Lab Empirical Benchmark Harness`);
+    console.log(`Tools in queue: ${toolsToBenchmark.length}`);
+    console.log(`Auto-sync to editorial: ${shouldSync ? 'ENABLED' : 'DISABLED'}`);
+    console.log(`======================================================\n`);
 
-  let editorialData = null;
-  if (shouldSync && existsSync(EDITORIAL_PATH)) {
-    editorialData = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
-  }
-
-  let syncCount = 0;
-
-  for (const item of toolsToBenchmark) {
-    const runnerType = resolveRunner(item);
-    const runnerLabels = {
-      image: 'Image & Design Runner (image-runner.mjs)',
-      data: 'Data & Code Runner (data-runner.mjs)',
-      writing: 'Writing & Markdown Runner (writing-runner.mjs)',
-      media: 'Media & Audio Runner (media-runner.mjs)',
-      interactive: `Interactive & Utility Runner (interactive-runner.mjs) [${item.category || 'Utility'}]`
-    };
-    console.log(`\n▶ Benchmarking: ${item.name || item.slug || item.url}`);
-    console.log(`  URL: ${item.url}`);
-    console.log(`  Runner: ${runnerLabels[runnerType] || runnerType}`);
-
-    try {
-      const startTime = Date.now();
-      let res;
-      if (runnerType === 'data') {
-        res = await runDataBenchmark(item.url, { verbose });
-      } else if (runnerType === 'writing') {
-        res = await runWritingBenchmark(item.url, { verbose });
-      } else if (runnerType === 'media') {
-        const mediaFixture = getArg('--fixture') || 'wav';
-        res = await runMediaBenchmark(item.url, { fixtureType: mediaFixture, verbose });
-      } else if (runnerType === 'interactive') {
-        res = await runInteractiveBenchmark(item.url, { category: item.category || 'Productivity', verbose });
-      } else {
-        res = await runImageBenchmark(item.url, { fixtureType, verbose });
-      }
-      const elapsedSec = ((Date.now() - startTime) / 1000).toFixed(1);
-
-      console.log(`\n  ✓ Benchmark Completed in ${elapsedSec}s`);
-      console.log(`  📊 Product Utility Score: ${res.productScore.overall}/100 [${res.verdictTier}]`);
-      const exportOk = res.downloadCaptured || res.downloadTriggered || res.copyOrExportTriggered;
-      console.log(`     • Frictionless UX:    ${res.productScore.frictionless}/25 (TTI: ${res.ttiMs}ms)`);
-      console.log(`     • Functional Depth:   ${res.productScore.depth}/30 (${res.hasWasm ? 'Wasm Acceleration' : 'Standard Pipeline'})`);
-      console.log(`     • Export Freedom:     ${res.productScore.exportFreedom}/25 (${exportOk ? 'Export/Copy Verified' : 'Standard Access'})`);
-      console.log(`     • Stability & Polish: ${res.productScore.polish}/20`);
-      console.log(`  📝 Lab Note (EN): "${res.labNotes.en}"`);
-      console.log(`  📝 Lab Note (ZH): "${res.labNotes.zh}"`);
-
-      if (shouldSync && item.slug && editorialData) {
-        if (!editorialData[item.slug]) {
-          editorialData[item.slug] = {
-            en: {
-              bestFor: `Instant ${item.category || categoryArg || 'online'} processing directly in browser.`,
-              pros: ["Zero registration required", "Immediate task execution"],
-              cons: ["Dependent on local browser performance"],
-              privacyVerdict: "No login required. Local processing verified.",
-              alternativeTo: ["Desktop software"]
-            },
-            zh: {
-              bestFor: `免注册直接在浏览器完成${item.category || categoryArg || '在线'}任务。`,
-              pros: ["免注册即开即用", "秒级进入工作流"],
-              cons: ["受本地浏览器内存限制"],
-              privacyVerdict: "无需登录，本地数据流处理验证通过。",
-              alternativeTo: ["本地商业软件"]
-            }
-          };
-        }
-
-        const testedAt = new Date().toISOString().slice(0, 7);
-
-        // Update EN
-        editorialData[item.slug].en.productScore = res.productScore;
-        editorialData[item.slug].en.verdictTier = res.verdictTier;
-        editorialData[item.slug].en.benchmarkNotes = res.labNotes.en;
-        editorialData[item.slug].en.testedAt = testedAt;
-
-        // Update ZH
-        editorialData[item.slug].zh.productScore = res.productScore;
-        editorialData[item.slug].zh.verdictTier = res.verdictTier;
-        editorialData[item.slug].zh.benchmarkNotes = res.labNotes.zh;
-        editorialData[item.slug].zh.testedAt = testedAt;
-
-        syncCount++;
-        console.log(`  💾 Synchronized benchmark data into tool-editorial.json for [${item.slug}]`);
-      }
-    } catch (err) {
-      console.error(`  ❌ Benchmark Failed for ${item.url}:`, err.message);
+    let editorialData = null;
+    if (shouldSync && existsSync(EDITORIAL_PATH)) {
+      editorialData = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
     }
-  }
 
-  if (shouldSync && syncCount > 0 && editorialData) {
-    writeFileSync(EDITORIAL_PATH, JSON.stringify(editorialData, null, 2) + '\n', 'utf-8');
-    console.log(`\n🎉 Successfully synced ${syncCount} benchmark lab records into ${EDITORIAL_PATH}`);
-  }
+    let syncCount = 0;
 
-  console.log(`\n======================================================`);
-  console.log(`🏁 Lab Run Finished.`);
-  console.log(`======================================================\n`);
+    for (const item of toolsToBenchmark) {
+      const runnerType = resolveRunner(item);
+      const runnerLabels = {
+        image: 'Image & Design Runner (image-runner.mjs)',
+        data: 'Data & Code Runner (data-runner.mjs)',
+        writing: 'Writing & Markdown Runner (writing-runner.mjs)',
+        media: 'Media & Audio Runner (media-runner.mjs)',
+        interactive: `Interactive & Utility Runner (interactive-runner.mjs) [${item.category || 'Utility'}]`
+      };
+      console.log(`\n▶ Benchmarking: ${item.name || item.slug || item.url}`);
+      console.log(`  URL: ${item.url}`);
+      console.log(`  Runner: ${runnerLabels[runnerType] || runnerType}`);
+
+      try {
+        const startTime = Date.now();
+        const commonOptions = {
+          verbose,
+          ...(timeoutSec > 0 ? {
+            timeoutMs: timeoutSec * 1000,
+            procTimeout: (timeoutSec + 60) * 1000
+          } : {})
+        };
+        let res;
+        if (runnerType === 'data') {
+          res = await runDataBenchmark(item.url, commonOptions);
+        } else if (runnerType === 'writing') {
+          res = await runWritingBenchmark(item.url, commonOptions);
+        } else if (runnerType === 'media') {
+          const mediaFixture = getArg('--fixture') || 'wav';
+          res = await runMediaBenchmark(item.url, { fixtureType: mediaFixture, ...commonOptions });
+        } else if (runnerType === 'interactive') {
+          res = await runInteractiveBenchmark(item.url, { category: item.category || 'Productivity', ...commonOptions });
+        } else {
+          res = await runImageBenchmark(item.url, { fixtureType, ...commonOptions });
+        }
+        const elapsedSec = ((Date.now() - startTime) / 1000).toFixed(1);
+
+        console.log(`\n  ✓ Benchmark Completed in ${elapsedSec}s`);
+        console.log(`  📊 Product Utility Score: ${res.productScore.overall}/100 [${res.verdictTier}]`);
+        const exportOk = res.downloadCaptured || res.downloadTriggered || res.copyOrExportTriggered;
+        console.log(`     • Frictionless UX:    ${res.productScore.frictionless}/25 (TTI: ${res.ttiMs}ms)`);
+        console.log(`     • Functional Depth:   ${res.productScore.depth}/30 (${res.hasWasm ? 'Wasm Acceleration' : 'Standard Pipeline'})`);
+        console.log(`     • Export Freedom:     ${res.productScore.exportFreedom}/25 (${exportOk ? 'Export/Copy Verified' : 'Standard Access'})`);
+        console.log(`     • Stability & Polish: ${res.productScore.polish}/20`);
+        console.log(`  📝 Lab Note (EN): "${res.labNotes.en}"`);
+        console.log(`  📝 Lab Note (ZH): "${res.labNotes.zh}"`);
+
+        if (shouldSync && item.slug && editorialData) {
+          if (!editorialData[item.slug]) {
+            editorialData[item.slug] = {
+              en: {
+                bestFor: `Instant ${item.category || categoryArg || 'online'} processing directly in browser.`,
+                pros: ["Zero registration required", "Immediate task execution"],
+                cons: ["Dependent on local browser performance"],
+                privacyVerdict: "No login required. Local processing verified.",
+                alternativeTo: ["Desktop software"]
+              },
+              zh: {
+                bestFor: `免注册直接在浏览器完成${item.category || categoryArg || '在线'}任务。`,
+                pros: ["免注册即开即用", "秒级进入工作流"],
+                cons: ["受本地浏览器内存限制"],
+                privacyVerdict: "无需登录，本地数据流处理验证通过。",
+                alternativeTo: ["本地商业软件"]
+              }
+            };
+          }
+
+          const testedAt = new Date().toISOString().slice(0, 7);
+
+          // Update EN
+          editorialData[item.slug].en.productScore = res.productScore;
+          editorialData[item.slug].en.verdictTier = res.verdictTier;
+          editorialData[item.slug].en.benchmarkNotes = res.labNotes.en;
+          editorialData[item.slug].en.testedAt = testedAt;
+
+          // Update ZH
+          editorialData[item.slug].zh.productScore = res.productScore;
+          editorialData[item.slug].zh.verdictTier = res.verdictTier;
+          editorialData[item.slug].zh.benchmarkNotes = res.labNotes.zh;
+          editorialData[item.slug].zh.testedAt = testedAt;
+
+          syncCount++;
+          console.log(`  💾 Synchronized benchmark data into tool-editorial.json for [${item.slug}]`);
+        }
+      } catch (err) {
+        console.error(`  ❌ Benchmark Failed for ${item.url}:`, err.message);
+      }
+    }
+
+    if (shouldSync && syncCount > 0 && editorialData) {
+      writeFileSync(EDITORIAL_PATH, JSON.stringify(editorialData, null, 2) + '\n', 'utf-8');
+      console.log(`\n🎉 Successfully synced ${syncCount} benchmark lab records into ${EDITORIAL_PATH}`);
+    }
+
+    console.log(`\n======================================================`);
+    console.log(`🏁 Lab Run Finished.`);
+    console.log(`======================================================\n`);
+  }, {
+    label: `benchmark-${toolsToBenchmark.length}-tools`,
+    timeoutMs: 900000,
+    preClean: true,
+    postClean: true,
+    verbose
+  });
 }
 
 main().catch(err => {

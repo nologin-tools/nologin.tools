@@ -18,6 +18,7 @@ import { tmpdir } from 'node:os';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { inspectArtifact } from '../inspectors/output-inspector.mjs';
+import { cleanOrphanTaskSpaces } from '../../ego-lock.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DIR = resolve(__dirname, '../fixtures');
@@ -64,8 +65,6 @@ function buildEgoScript(targetUrl, fixturePath, artifactDestPath, resultJsonPath
     if (/accounts\\.google\\.com|github\\.com\\/login|auth0\\.com|clerk\\.com/i.test(result.finalUrl)) {
       result.authBlocked = true;
       result.authBlockReason = "Redirected to auth provider: " + result.finalUrl;
-      require('fs').writeFileSync(${JSON.stringify(resultJsonPath)}, JSON.stringify(result), 'utf-8');
-      await task.finish({ keep: [] });
       return;
     }
 
@@ -254,7 +253,12 @@ function buildEgoScript(targetUrl, fixturePath, artifactDestPath, resultJsonPath
  * @param {boolean} [options.verbose=false]
  */
 export async function runImageBenchmark(targetUrl, options = {}) {
-  const { fixtureType = 'png', verbose = false } = options;
+  const {
+    fixtureType = 'png',
+    verbose = false,
+    timeoutMs = 180000,
+    procTimeout = 240000
+  } = options;
   const fixtureFilename = fixtureType === 'svg' ? 'sample.svg' : 'sample.png';
   const fixturePath = resolve(FIXTURES_DIR, fixtureFilename);
 
@@ -275,7 +279,7 @@ export async function runImageBenchmark(targetUrl, options = {}) {
   const artifactDestPath = join(tmpdir(), `lab-artifact-${Date.now()}.${fixtureType === 'svg' ? 'svg' : 'png'}`);
   const resultJsonPath = join(tmpdir(), `lab-res-${Date.now()}.json`);
 
-  const egoScript = buildEgoScript(targetUrl, fixturePath, artifactDestPath, resultJsonPath);
+  const egoScript = buildEgoScript(targetUrl, fixturePath, artifactDestPath, resultJsonPath, timeoutMs);
 
   if (verbose) {
     console.log(`\n🔬 [NoLogin Lab] Initiating Empirical Benchmark: ${targetUrl}`);
@@ -304,16 +308,19 @@ export async function runImageBenchmark(targetUrl, options = {}) {
       if (verbose) process.stderr.write(chunk);
     });
 
-    const procTimeout = 40000;
     const killTimer = setTimeout(() => {
       try { child.kill('SIGKILL'); } catch {}
+      cleanOrphanTaskSpaces({ verbose });
       rejectPromise(new Error(`ego-browser benchmark timed out after ${procTimeout}ms`));
     }, procTimeout);
 
     child.on('close', code => {
       clearTimeout(killTimer);
       if (code === 0) resolvePromise();
-      else rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      else {
+        cleanOrphanTaskSpaces({ verbose });
+        rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      }
     });
   });
 

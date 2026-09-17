@@ -26,9 +26,11 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
    - Prohibit ephemeral tunnels, preview/branch builds, storefronts, and SEO multi-slicing.
    - Fast-track verified open-source static tools (`*.github.io`) with active repositories.
    - Strictly limit platform subdomains (`*.vercel.app`, `*.pages.dev`, `*.netlify.app`) to 1 high-quality tool per root host.
-4. **Execution Environment**:
+4. **Execution Environment & Concurrency Guardrails**:
    - Remote D1 CLI: `npx wrangler d1 execute nologin-tools-db --remote --json --command "<SQL>"`
    - Browser: Always use `ego-browser` with `{ waitUntil: "domcontentloaded", timeout: 20000 }` to avoid hanging on streaming connections.
+   - **Strict Serial Execution (Concurrency = 1)**: All browser operations (`ego-browser`, `inspect-tool-dogfood.mjs`, `benchmark.mjs`) MUST run sequentially. **Never spawn parallel subagents running ego-browser simultaneously**.
+   - **Mandatory TaskSpace Cleanup**: Every browser session must be closed upon completion via `await task.finish({ keep: [] })`. Never leave orphan TaskSpaces in memory. Run `node scripts/clean-browser-spaces.mjs` before/after batch patrol runs to sweep any dangling spaces.
 
 ---
 
@@ -119,7 +121,17 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
    - **Hard Gate**: If `productScore.overall < 70`, or if an auth barrier/commercial watermark is detected, **immediately reject the tool** without spending further time.
 
    **Step 5b: Level 2 — Agent Interactive Dogfooding & Deep Workflow Trial (1.5–3 minutes)**:
-   For tools that pass Level 1, the Agent MUST open `ego-browser` and actively interact with the product like a power user:
+   For tools that pass Level 1, the Agent MUST open `ego-browser` and actively interact with the product like a power user.
+   - **Resource Cleanliness Rule**: Use a single TaskSpace and ALWAYS terminate it upon completion:
+     ```javascript
+     ego-browser nodejs <<'EOF'
+     const task = await taskSpace("patrol-review");
+     const page = task.page("p1");
+     await page.goto("<URL>", { waitUntil: "domcontentloaded", timeout: 20000 });
+     // ... perform interactive trial ...
+     await task.finish({ keep: [] }); // MUST release space & tabs
+     EOF
+     ```
    1. **Multi-Step Functional Workflow**: Exercise core features with non-trivial actions (e.g. adjust settings/sliders, test multiple format exports, toggle rendering modes).
    2. **Edge Cases & Resilience**: Test malformed inputs, large payload limits, and verify offline behavior if claimed.
    3. **Hidden Paywall & Pro-Feature Audit**: Click advanced export buttons (e.g. 2x/4x HD export, PDF vectors, batch downloads) to verify no surprise "Sign in to unlock Pro" traps exist.

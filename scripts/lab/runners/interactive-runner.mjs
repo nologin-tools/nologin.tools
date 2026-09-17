@@ -17,6 +17,7 @@ import { tmpdir } from 'node:os';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { inspectArtifact } from '../inspectors/output-inspector.mjs';
+import { cleanOrphanTaskSpaces } from '../../ego-lock.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DIR = resolve(__dirname, '../fixtures');
@@ -266,11 +267,16 @@ function buildEgoScript(targetUrl, category, fixturePdfPath, resultJsonPath, tim
 }
 
 export async function runInteractiveBenchmark(targetUrl, options = {}) {
-  const { verbose = false, category = 'Productivity' } = options;
+  const {
+    verbose = false,
+    category = 'Productivity',
+    timeoutMs = 180000,
+    procTimeout = 240000
+  } = options;
   const fixturePdfPath = resolve(FIXTURES_DIR, 'sample.pdf');
   const resultJsonPath = join(tmpdir(), `lab-interactive-res-${Date.now()}.json`);
 
-  const egoScript = buildEgoScript(targetUrl, category, fixturePdfPath, resultJsonPath);
+  const egoScript = buildEgoScript(targetUrl, category, fixturePdfPath, resultJsonPath, timeoutMs);
 
   if (verbose) {
     console.log(`\n🔬 [NoLogin Lab] Initiating Interactive & Utility Benchmark: ${targetUrl} [${category}]`);
@@ -298,16 +304,19 @@ export async function runInteractiveBenchmark(targetUrl, options = {}) {
       if (verbose) process.stderr.write(chunk);
     });
 
-    const procTimeout = 45000;
     const killTimer = setTimeout(() => {
       try { child.kill('SIGKILL'); } catch {}
+      cleanOrphanTaskSpaces({ verbose });
       rejectPromise(new Error(`ego-browser benchmark timed out after ${procTimeout}ms`));
     }, procTimeout);
 
     child.on('close', code => {
       clearTimeout(killTimer);
       if (code === 0) resolvePromise();
-      else rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      else {
+        cleanOrphanTaskSpaces({ verbose });
+        rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      }
     });
   });
 

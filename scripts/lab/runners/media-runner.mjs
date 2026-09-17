@@ -19,6 +19,7 @@ import { tmpdir } from 'node:os';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { inspectArtifact } from '../inspectors/output-inspector.mjs';
+import { cleanOrphanTaskSpaces } from '../../ego-lock.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DIR = resolve(__dirname, '../fixtures');
@@ -211,7 +212,12 @@ function buildEgoScript(targetUrl, fixturePath, resultJsonPath, timeoutMs = 3500
 }
 
 export async function runMediaBenchmark(targetUrl, options = {}) {
-  const { verbose = false, fixtureType = 'wav' } = options;
+  const {
+    verbose = false,
+    fixtureType = 'wav',
+    timeoutMs = 240000,
+    procTimeout = 300000
+  } = options;
   const fixtureFilename = fixtureType === 'png' ? 'sample.png' : 'sample.wav';
   const fixturePath = resolve(FIXTURES_DIR, fixtureFilename);
 
@@ -223,7 +229,7 @@ export async function runMediaBenchmark(targetUrl, options = {}) {
   const fixtureBytes = fixtureBuffer.length;
   const resultJsonPath = join(tmpdir(), `lab-media-res-${Date.now()}.json`);
 
-  const egoScript = buildEgoScript(targetUrl, fixturePath, resultJsonPath);
+  const egoScript = buildEgoScript(targetUrl, fixturePath, resultJsonPath, timeoutMs);
 
   if (verbose) {
     console.log(`\n🔬 [NoLogin Lab] Initiating Media & Audio Tool Benchmark: ${targetUrl}`);
@@ -252,16 +258,19 @@ export async function runMediaBenchmark(targetUrl, options = {}) {
       if (verbose) process.stderr.write(chunk);
     });
 
-    const procTimeout = 45000;
     const killTimer = setTimeout(() => {
       try { child.kill('SIGKILL'); } catch {}
+      cleanOrphanTaskSpaces({ verbose });
       rejectPromise(new Error(`ego-browser benchmark timed out after ${procTimeout}ms`));
     }, procTimeout);
 
     child.on('close', code => {
       clearTimeout(killTimer);
       if (code === 0) resolvePromise();
-      else rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      else {
+        cleanOrphanTaskSpaces({ verbose });
+        rejectPromise(new Error(`ego-browser exited with code ${code}: ${stderrData}`));
+      }
     });
   });
 
