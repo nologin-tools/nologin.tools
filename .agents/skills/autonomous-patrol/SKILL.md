@@ -119,6 +119,14 @@ INNER
        ```
      - **Insert Tags**:
        Insert category and other taxonomy tags into `tags` table (`tool_id`, `tag_key`, `tag_value`). If `repo_url` is present, insert `source:Open Source`.
+     - **Synchronize Multi-Language Translations (Required)**:
+       Whenever approving a tool, the Agent MUST immediately generate and commit translations for all 7 supported non-English locales (`zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`) into `src/data/translations/{locale}.json`.
+       1. Synthesize accurate, objective translations for `description` and `coreTask` (action-oriented phrase starting with an action verb, incorporating natural no-login phrasing like "无需登录", "ログイン不要", "sin registro", "ohne Anmeldung").
+       2. Write the payload to a scratch file and apply:
+          ```bash
+          node scripts/sync-tool-translations.mjs --apply <payload.json>
+          ```
+       3. Verify all 7 locales now contain the tool: `node scripts/sync-tool-translations.mjs --status`.
    - **Reject**:
      - Hard login wall (cannot use core task without account) -> `rejection_reason = '强制注册登录才能使用核心功能'`.
      - Dead link (404, 500, DNS failure, timeout) -> `rejection_reason = '站点无法访问/已失效 (HTTP 404/DNS错误)'`.
@@ -136,6 +144,7 @@ INNER
    - Tag/Description updates: Ensure objective language and accuracy.
 3. Apply:
    - Approved: Update `tools` table, then `UPDATE edit_suggestions SET status = 'approved' WHERE id = ?;`
+   - If `description` or `core_task` was modified: The Agent must update and re-sync the translations for all 7 locales via `node scripts/sync-tool-translations.mjs --apply <payload.json>`.
    - Rejected: `UPDATE edit_suggestions SET status = 'rejected' WHERE id = ?;`
 
 ---
