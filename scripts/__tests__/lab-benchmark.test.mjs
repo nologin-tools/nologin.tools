@@ -3,7 +3,16 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { detectFormat, extractDimensions, checkWatermark, inspectArtifact } from '../lab/inspectors/output-inspector.mjs';
+import zlib from 'node:zlib';
+import {
+  detectFormat,
+  extractDimensions,
+  checkWatermark,
+  inspectArtifact,
+  analyzePngScanlines,
+  computeHammingDistance,
+  checkSvgBlank
+} from '../lab/inspectors/output-inspector.mjs';
 import { generateSamplePng, generateSampleSvg } from '../lab/fixtures/generate-fixtures.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -138,5 +147,84 @@ describe('NoLogin Lab: Fixtures & Output Inspector', () => {
 
     const syncBuf = Buffer.from([0xFF, 0xFB, 0x90, 0x64]); // MPEG-1 Layer 3 frame sync
     assert.equal(detectFormat(syncBuf), 'mp3', 'Must detect frame sync MP3');
+  });
+
+  it('computes 64-bit dHash and detects rich non-blank canvas on sample.png', () => {
+    const pngPath = resolve(ROOT, 'scripts/lab/fixtures/sample.png');
+    const pngBuf = readFileSync(pngPath);
+    const analysis = analyzePngScanlines(pngBuf);
+    assert.ok(analysis, 'Must successfully parse non-interlaced PNG scanlines');
+    assert.equal(analysis.isBlankCanvas, false, 'sample.png should not be flagged as blank');
+    assert.ok(analysis.perceptualHash, 'Must produce a 16-hex perceptual hash');
+    assert.equal(analysis.perceptualHash.length, 16, 'dHash must be 16 hex characters (64 bits)');
+    assert.ok(analysis.variance > 10.0, 'sample.png has rich gradient variance');
+  });
+
+  it('detects completely blank / whiteout canvas and flags isBlankCanvas', () => {
+    // Generate a 400x300 pure white PNG (all pixels 255, variance 0)
+    const width = 400;
+    const height = 300;
+    const rowLength = 1 + width * 3;
+    const rawData = Buffer.alloc(rowLength * height);
+    for (let y = 0; y < height; y++) {
+      const rowOffset = y * rowLength;
+      rawData[rowOffset] = 0x00; // Filter: None
+      for (let x = 0; x < width; x++) {
+        const pxOffset = rowOffset + 1 + x * 3;
+        rawData[pxOffset] = 255;
+        rawData[pxOffset + 1] = 255;
+        rawData[pxOffset + 2] = 255;
+      }
+    }
+    const idatData = zlib.deflateSync(rawData);
+
+    // PNG signature + IHDR + IDAT + IEND
+    const sig = Buffer.from([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]);
+    const ihdr = Buffer.alloc(25);
+    ihdr.writeUInt32BE(13, 0);
+    ihdr.write('IHDR', 4, 4, 'ascii');
+    ihdr.writeUInt32BE(width, 8);
+    ihdr.writeUInt32BE(height, 12);
+    ihdr[16] = 8;
+    ihdr[17] = 2; // RGB
+    ihdr[18] = 0;
+    ihdr[19] = 0;
+    ihdr[20] = 0;
+
+    const idatChunk = Buffer.alloc(12 + idatData.length);
+    idatChunk.writeUInt32BE(idatData.length, 0);
+    idatChunk.write('IDAT', 4, 4, 'ascii');
+    idatData.copy(idatChunk, 8);
+
+    const whitePng = Buffer.concat([sig, ihdr, idatChunk]);
+    const analysis = analyzePngScanlines(whitePng);
+    assert.ok(analysis, 'Must parse blank white PNG');
+    assert.equal(analysis.isBlankCanvas, true, 'Zero-variance whiteout image must be flagged as blank canvas');
+    assert.equal(analysis.variance, 0);
+  });
+
+  it('computes Hamming distance and visual fidelity accurately', () => {
+    const hashA = '0000000000000000';
+    const hashB = '0000000000000000';
+    const distZero = computeHammingDistance(hashA, hashB);
+    assert.equal(distZero, 0, 'Identical hashes have 0 distance');
+
+    // Differing by 1 bit: '0000000000000001'
+    const hashC = '0000000000000001';
+    const distOne = computeHammingDistance(hashA, hashC);
+    assert.equal(distOne, 1, 'Differing by 1 bit has distance 1');
+
+    // Differing by all 64 bits: 'ffffffffffffffff'
+    const hashD = 'ffffffffffffffff';
+    const distAll = computeHammingDistance(hashA, hashD);
+    assert.equal(distAll, 64, 'Differing by all bits has distance 64');
+  });
+
+  it('detects blank vs non-blank SVG files accurately', () => {
+    const emptySvg = Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"></svg>');
+    assert.equal(checkSvgBlank(emptySvg), true, 'Empty SVG without primitives must be flagged as blank');
+
+    const validSvg = Buffer.from('<svg width="100" height="100"><rect width="100" height="100" fill="red"/></svg>');
+    assert.equal(checkSvgBlank(validSvg), false, 'SVG with rect primitive is non-blank');
   });
 });

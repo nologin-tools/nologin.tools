@@ -188,6 +188,9 @@ function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSess
         }
       }
 
+      const isWafChallenge = Boolean(document.querySelector('#challenge-running, #challenge-form, #cf-turnstile, .cf-turnstile-wrapper, iframe[src*="challenges.cloudflare.com"], iframe[src*="turnstile"]')) ||
+                             /just a moment\.\.\.|attention required!\s*\|\s*cloudflare|checking your browser|security check/i.test(title);
+
       const hasWasm = Boolean(window.WebAssembly);
 
       return {
@@ -196,6 +199,7 @@ function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSess
         githubLink,
         initialAuthBlocker,
         blockerText,
+        isWafChallenge,
         textareaCount: textareas.length,
         fileInputCount: fileInputs.length,
         canvasCount: canvases.length,
@@ -217,6 +221,11 @@ function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSess
     result.surface.buttonLabels = domInfo.buttonLabels;
     result.surface.headings = domInfo.headings;
     result.networkPrivacy.hasWebAssembly = domInfo.hasWasm;
+
+    if (domInfo.isWafChallenge) {
+      result.wafChallengeDetected = true;
+      result.challengeDetails = "Cloudflare Turnstile / Bot Verification required";
+    }
 
     if (domInfo.initialAuthBlocker) {
       result.initialAuthGate.blocked = true;
@@ -272,10 +281,40 @@ function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSess
         result.dogfoodRun.outputObserved = true;
       }
     } else if (domInfo.canvasCount > 0) {
+      const drawn = await page.evaluate(() => {
+        const c = document.querySelector('canvas') || document.querySelector('svg.canvas');
+        if (!c) return false;
+        const rect = c.getBoundingClientRect();
+        if (rect.width < 50 || rect.height < 50) return false;
+        const startX = rect.left + rect.width * 0.35;
+        const startY = rect.top + rect.height * 0.35;
+        const midX = rect.left + rect.width * 0.5;
+        const midY = rect.top + rect.height * 0.45;
+        const endX = rect.left + rect.width * 0.65;
+        const endY = rect.top + rect.height * 0.6;
+        const dispatch = (type, x, y, buttons = 1) => {
+          try {
+            c.dispatchEvent(new PointerEvent(type, {
+              bubbles: true, cancelable: true, view: window,
+              clientX: x, clientY: y, button: 0, buttons, pointerId: 1, pointerType: 'mouse', isPrimary: true
+            }));
+          } catch (e) {}
+          try {
+            c.dispatchEvent(new MouseEvent(type.replace('pointer', 'mouse'), {
+              bubbles: true, cancelable: true, view: window, clientX: x, clientY: y, button: 0, buttons
+            }));
+          } catch (e) {}
+        };
+        dispatch('pointerdown', startX, startY, 1);
+        dispatch('pointermove', midX, midY, 1);
+        dispatch('pointermove', endX, endY, 1);
+        dispatch('pointerup', endX, endY, 0);
+        return true;
+      });
       result.dogfoodRun.tested = true;
-      result.dogfoodRun.actionName = "Interactive Canvas Interaction";
-      result.dogfoodRun.inputProvided = true;
-      result.dogfoodRun.outputObserved = true;
+      result.dogfoodRun.actionName = "Interactive Canvas Stroke Simulation";
+      result.dogfoodRun.inputProvided = drawn;
+      result.dogfoodRun.outputObserved = drawn;
     }
 
     // 5. Exit / Export Gatekeeper Check

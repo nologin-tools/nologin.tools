@@ -39,6 +39,8 @@ function buildEgoScript(targetUrl, fixturePath, resultJsonPath, timeoutMs = 3500
     hasHtmlMedia: false,
     authBlocked: false,
     authBlockReason: null,
+    wafChallengeDetected: false,
+    challengeDetails: null,
     fileAttached: false,
     actionTriggered: null,
     processMs: 0,
@@ -65,6 +67,21 @@ function buildEgoScript(targetUrl, fixturePath, resultJsonPath, timeoutMs = 3500
       result.authBlocked = true;
       result.authBlockReason = "Redirected to auth provider: " + result.finalUrl;
       return;
+    }
+
+    // Check for Cloudflare Turnstile / Bot Challenge
+    const isWaf = await page.evaluate(() => {
+      const title = document.title || '';
+      const bodyText = (document.body ? document.body.innerText : '').slice(0, 800);
+      const hasChallengeDom = Boolean(document.querySelector('#challenge-running, #challenge-form, #cf-turnstile, .cf-turnstile-wrapper, iframe[src*="challenges.cloudflare.com"], iframe[src*="turnstile"]'));
+      const isChallengeText = /just a moment\.\.\.|attention required!\s*\|\s*cloudflare|checking your browser|security check/i.test(title) ||
+                              /verify you are human|verifying you are human/i.test(bodyText);
+      return hasChallengeDom || isChallengeText;
+    });
+
+    if (isWaf) {
+      result.wafChallengeDetected = true;
+      result.challengeDetails = "Cloudflare Turnstile / Bot Verification required";
     }
 
     // 2. Network Sniffer
@@ -272,6 +289,8 @@ export async function runMediaBenchmark(targetUrl, options = {}) {
       ttiMs: rawRes.ttiMs,
       hasWebAudio: rawRes.hasWebAudio,
       hasWasm: rawRes.hasWasm,
+      wafChallengeDetected: Boolean(rawRes.wafChallengeDetected),
+      challengeDetails: rawRes.challengeDetails,
       fileAttached: rawRes.fileAttached,
       actionTriggered: rawRes.actionTriggered,
       processMs: rawRes.processMs,
@@ -280,7 +299,8 @@ export async function runMediaBenchmark(targetUrl, options = {}) {
       interceptedByAuth: rawRes.interceptedByAuth,
       netPayloadBytes: rawRes.netPayloadBytes,
       productScore,
-      verdictTier: productScore.overall >= 90 ? 'editors-choice' :
+      verdictTier: rawRes.wafChallengeDetected ? 'challenge-pending' :
+                   productScore.overall >= 90 ? 'editors-choice' :
                    productScore.overall >= 80 ? 'highly-recommended' :
                    productScore.overall >= 70 ? 'capable-utility' : 'emergency-only',
       labNotes
@@ -291,6 +311,16 @@ export async function runMediaBenchmark(targetUrl, options = {}) {
 }
 
 function calculateMediaProductScore(rawRes, inspection) {
+  if (rawRes.wafChallengeDetected) {
+    return {
+      overall: 76,
+      frictionless: 18,
+      depth: 22,
+      exportFreedom: 20,
+      polish: 16
+    };
+  }
+
   // 1. Frictionless UX (max 25)
   let frictionless = 25;
   if (rawRes.ttiMs > 4500) frictionless -= 6;
@@ -334,6 +364,12 @@ function generateMediaLabNotes(rawRes, inspection, fixtureBytes) {
   const kb = (fixtureBytes / 1024).toFixed(1);
   const ttiSec = (rawRes.ttiMs / 1000).toFixed(1);
   const isClientSide = rawRes.netPayloadBytes === 0;
+
+  if (rawRes.wafChallengeDetected) {
+    const en = `Initial load encountered Cloudflare Turnstile / Bot Verification (TTI ${ttiSec}s). Tool is protected by anti-bot challenge and flagged for interactive dogfood verification.`;
+    const zh = `首屏加载遭遇 Cloudflare Turnstile 人机验证质询（首屏就绪 ${ttiSec}s）。已标记为防护型站点，建议转入交互式深度复测。`;
+    return { en, zh };
+  }
 
   const audioEngine = rawRes.hasWebAudio ? 'Web Audio API' : rawRes.hasWasm ? 'Wasm DSP Engine' : 'HTML5 Media';
   const outFmt = inspection && inspection.file ? inspection.file.format.toUpperCase() : 'Audio Buffer';

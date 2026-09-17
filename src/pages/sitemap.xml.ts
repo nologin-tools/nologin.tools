@@ -28,6 +28,7 @@ export const GET: APIRoute = async () => {
   const staticPages: SitemapPage[] = [
     { url: '/', priority: '1.0', changefreq: 'daily', lastmod: homepageLastmod },
     { url: '/finder', priority: '0.8', changefreq: 'daily', lastmod: homepageLastmod },
+    { url: '/lab', priority: '0.8', changefreq: 'daily', lastmod: homepageLastmod },
     { url: '/extension', priority: '0.8', changefreq: 'weekly', lastmod: staticLastmod },
     { url: '/developers', priority: '0.7', changefreq: 'weekly', lastmod: staticLastmod },
     { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },

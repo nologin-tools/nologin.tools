@@ -1,0 +1,561 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+import { getApprovedTools, getToolEditorial, getToolHealthStatus, type BuildDataTool } from '../data/loader';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+await loadTranslations(locale);
+
+const pageTitle = t(locale, 'lab.meta.title');
+const pageDescription = t(locale, 'lab.meta.description');
+const canonicalPath = getLocalizedPath('/lab', locale);
+
+// Load all approved tools and join with editorial product scores
+const approvedTools = getApprovedTools();
+
+interface AuditedToolItem {
+  tool: BuildDataTool;
+  category: string;
+  isLocalOnly: boolean;
+  editorial: NonNullable<ReturnType<typeof getToolEditorial>>;
+  productScore: NonNullable<NonNullable<ReturnType<typeof getToolEditorial>>['productScore']>;
+}
+
+const auditedTools: AuditedToolItem[] = approvedTools
+  .map((tool) => {
+    const ed = getToolEditorial(tool.slug, locale) || getToolEditorial(tool.slug, 'en');
+    if (!ed || !ed.productScore) return null;
+    const catTag = tool.tags.find((tag) => tag.tagKey === 'category');
+    const isLocalOnly = tool.tags.some((tag) => tag.tagKey === 'data' && tag.tagValue === 'Local Only');
+    return {
+      tool,
+      category: catTag?.tagValue || 'Utility',
+      isLocalOnly,
+      editorial: ed,
+      productScore: ed.productScore,
+    };
+  })
+  .filter((item): item is AuditedToolItem => item !== null)
+  .sort((a, b) => b.productScore.overall - a.productScore.overall);
+
+// Statistics
+const totalAudited = auditedTools.length;
+const editorsChoiceCount = auditedTools.filter((t) => t.productScore.overall >= 90).length;
+const localOnlyCount = auditedTools.filter((t) => t.isLocalOnly).length;
+const localRate = totalAudited > 0 ? Math.round((localOnlyCount / totalAudited) * 100) : 0;
+const avgScore = totalAudited > 0 ? (auditedTools.reduce((acc, t) => acc + t.productScore.overall, 0) / totalAudited).toFixed(1) : '0';
+
+// Schema.org Structured Data
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: t(locale, 'lab.hero.title'),
+  description: pageDescription,
+  url: `https://nologin.tools${canonicalPath}`,
+  inLanguage: locale,
+  proficiencyLevel: 'Expert',
+  author: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: t(locale, 'common.home'),
+      item: `https://nologin.tools${getLocalizedPath('/', locale)}`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: t(locale, 'nav.lab'),
+      item: `https://nologin.tools${canonicalPath}`,
+    },
+  ],
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    {/* Breadcrumb Navigation */}
+    <nav class="flex items-center gap-2 text-xs font-mono font-bold text-neutral-500 mb-8 overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', locale)} class="hover:text-neutral-900 transition-colors">
+        {t(locale, 'common.home')}
+      </a>
+      <span>/</span>
+      <span class="text-neutral-900 font-bold">{t(locale, 'nav.lab')}</span>
+    </nav>
+
+    {/* Hero Section */}
+    <div class="border-b-2 border-neutral-900 pb-10 mb-12">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-neutral-900 text-white text-[11px] font-mono font-black uppercase tracking-wider mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+        <span>🔬</span>
+        <span>{t(locale, 'lab.hero.badge')}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-neutral-900 tracking-tight leading-tight mb-4 uppercase">
+        {t(locale, 'lab.hero.title')}
+      </h1>
+      <p class="text-base sm:text-lg text-neutral-700 max-w-3xl leading-relaxed font-mono">
+        {t(locale, 'lab.hero.subtitle')}
+      </p>
+
+      {/* KPI Stats Grid */}
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+        <div class="bg-white border-2 border-neutral-900 p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+          <div class="text-[11px] font-mono uppercase text-neutral-500 font-bold">{t(locale, 'lab.stat.audited')}</div>
+          <div class="text-3xl font-black font-mono text-neutral-900 mt-1">{totalAudited}</div>
+        </div>
+        <div class="bg-yellow-50 border-2 border-neutral-900 p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+          <div class="text-[11px] font-mono uppercase text-yellow-800 font-bold">{t(locale, 'lab.stat.editorsChoice')}</div>
+          <div class="text-3xl font-black font-mono text-neutral-900 mt-1">★ {editorsChoiceCount}</div>
+        </div>
+        <div class="bg-emerald-50 border-2 border-neutral-900 p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+          <div class="text-[11px] font-mono uppercase text-emerald-800 font-bold">{t(locale, 'lab.stat.localRate')}</div>
+          <div class="text-3xl font-black font-mono text-neutral-900 mt-1">{localRate}%</div>
+        </div>
+        <div class="bg-sky-50 border-2 border-neutral-900 p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+          <div class="text-[11px] font-mono uppercase text-sky-800 font-bold">{t(locale, 'lab.stat.avgScore')}</div>
+          <div class="text-3xl font-black font-mono text-neutral-900 mt-1">{avgScore} <span class="text-xs text-neutral-500 font-normal">/ 100</span></div>
+        </div>
+      </div>
+    </div>
+
+    {/* The 4 Pillars */}
+    <div class="mb-14">
+      <div class="mb-6">
+        <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight flex items-center gap-2">
+          <span>⚡</span>
+          <span>{t(locale, 'lab.pillars.title')}</span>
+        </h2>
+        <p class="text-xs font-mono text-neutral-600 mt-1">
+          {t(locale, 'lab.pillars.subtitle')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-black uppercase text-neutral-900">01. {t(locale, 'lab.pillar.1.title')}</span>
+              <span class="px-1.5 py-0.5 bg-neutral-100 text-[10px] font-mono font-bold border border-neutral-900">{t(locale, 'lab.pillar.1.points')}</span>
+            </div>
+            <p class="text-xs text-neutral-600 leading-relaxed font-mono">
+              {t(locale, 'lab.pillar.1.desc')}
+            </p>
+          </div>
+          <div class="w-full bg-neutral-200 h-1.5 mt-4 rounded-full overflow-hidden">
+            <div class="bg-neutral-900 h-full" style="width: 25%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-black uppercase text-neutral-900">02. {t(locale, 'lab.pillar.2.title')}</span>
+              <span class="px-1.5 py-0.5 bg-neutral-100 text-[10px] font-mono font-bold border border-neutral-900">{t(locale, 'lab.pillar.2.points')}</span>
+            </div>
+            <p class="text-xs text-neutral-600 leading-relaxed font-mono">
+              {t(locale, 'lab.pillar.2.desc')}
+            </p>
+          </div>
+          <div class="w-full bg-neutral-200 h-1.5 mt-4 rounded-full overflow-hidden">
+            <div class="bg-neutral-900 h-full" style="width: 30%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-black uppercase text-neutral-900">03. {t(locale, 'lab.pillar.3.title')}</span>
+              <span class="px-1.5 py-0.5 bg-neutral-100 text-[10px] font-mono font-bold border border-neutral-900">{t(locale, 'lab.pillar.3.points')}</span>
+            </div>
+            <p class="text-xs text-neutral-600 leading-relaxed font-mono">
+              {t(locale, 'lab.pillar.3.desc')}
+            </p>
+          </div>
+          <div class="w-full bg-neutral-200 h-1.5 mt-4 rounded-full overflow-hidden">
+            <div class="bg-neutral-900 h-full" style="width: 25%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-black uppercase text-neutral-900">04. {t(locale, 'lab.pillar.4.title')}</span>
+              <span class="px-1.5 py-0.5 bg-neutral-100 text-[10px] font-mono font-bold border border-neutral-900">{t(locale, 'lab.pillar.4.points')}</span>
+            </div>
+            <p class="text-xs text-neutral-600 leading-relaxed font-mono">
+              {t(locale, 'lab.pillar.4.desc')}
+            </p>
+          </div>
+          <div class="w-full bg-neutral-200 h-1.5 mt-4 rounded-full overflow-hidden">
+            <div class="bg-neutral-900 h-full" style="width: 20%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* 5 Domain Runners */}
+    <div class="mb-14">
+      <div class="mb-6">
+        <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight flex items-center gap-2">
+          <span>⚙️</span>
+          <span>{t(locale, 'lab.runners.title')}</span>
+        </h2>
+        <p class="text-xs font-mono text-neutral-600 mt-1">
+          {t(locale, 'lab.runners.desc')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-neutral-50 border-2 border-neutral-900 p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">🎨</span>
+            <span class="text-xs font-black uppercase text-neutral-900">{t(locale, 'lab.runner.image.title')}</span>
+          </div>
+          <p class="text-xs text-neutral-600 font-mono leading-relaxed">
+            {t(locale, 'lab.runner.image.desc')}
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 border-2 border-neutral-900 p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">💻</span>
+            <span class="text-xs font-black uppercase text-neutral-900">{t(locale, 'lab.runner.data.title')}</span>
+          </div>
+          <p class="text-xs text-neutral-600 font-mono leading-relaxed">
+            {t(locale, 'lab.runner.data.desc')}
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 border-2 border-neutral-900 p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">📝</span>
+            <span class="text-xs font-black uppercase text-neutral-900">{t(locale, 'lab.runner.writing.title')}</span>
+          </div>
+          <p class="text-xs text-neutral-600 font-mono leading-relaxed">
+            {t(locale, 'lab.runner.writing.desc')}
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 border-2 border-neutral-900 p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">🎵</span>
+            <span class="text-xs font-black uppercase text-neutral-900">{t(locale, 'lab.runner.media.title')}</span>
+          </div>
+          <p class="text-xs text-neutral-600 font-mono leading-relaxed">
+            {t(locale, 'lab.runner.media.desc')}
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 border-2 border-neutral-900 p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:col-span-2 lg:col-span-2">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">🧮</span>
+            <span class="text-xs font-black uppercase text-neutral-900">{t(locale, 'lab.runner.interactive.title')}</span>
+          </div>
+          <p class="text-xs text-neutral-600 font-mono leading-relaxed">
+            {t(locale, 'lab.runner.interactive.desc')}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Leaderboard Table Section */}
+    <div id="leaderboard" class="mb-14">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-2xl font-black text-neutral-900 uppercase tracking-tight flex items-center gap-2">
+            <span>🏆</span>
+            <span>{t(locale, 'lab.leaderboard.title')}</span>
+          </h2>
+          <p class="text-xs font-mono text-neutral-600 mt-1">
+            {t(locale, 'lab.leaderboard.desc')}
+          </p>
+        </div>
+
+        {/* Filter Tabs */}
+        <div class="flex flex-wrap items-center gap-2" id="lab-filter-controls">
+          <button
+            type="button"
+            data-filter="all"
+            class="lab-tab-btn active px-2.5 py-1 text-xs font-mono font-black uppercase border-2 border-neutral-900 bg-neutral-900 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
+          >
+            {t(locale, 'lab.filter.all')}
+          </button>
+          <button
+            type="button"
+            data-filter="editors-choice"
+            class="lab-tab-btn px-2.5 py-1 text-xs font-mono font-black uppercase border-2 border-neutral-900 bg-white text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-100 cursor-pointer"
+          >
+            {t(locale, 'lab.filter.editorsChoice')}
+          </button>
+          <button
+            type="button"
+            data-filter="recommended"
+            class="lab-tab-btn px-2.5 py-1 text-xs font-mono font-black uppercase border-2 border-neutral-900 bg-white text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-emerald-100 cursor-pointer"
+          >
+            {t(locale, 'lab.filter.recommended')}
+          </button>
+          <button
+            type="button"
+            data-filter="local-only"
+            class="lab-tab-btn px-2.5 py-1 text-xs font-mono font-black uppercase border-2 border-neutral-900 bg-white text-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-sky-100 cursor-pointer"
+          >
+            {t(locale, 'lab.filter.localOnly')}
+          </button>
+        </div>
+      </div>
+
+      {/* Audited Tools Cards */}
+      <div class="flex flex-col gap-4" id="lab-tools-list">
+        {auditedTools.map((item) => {
+          const tier = item.editorial.verdictTier || (
+            item.productScore.overall >= 90 ? 'editors-choice' :
+            item.productScore.overall >= 80 ? 'highly-recommended' :
+            item.productScore.overall >= 70 ? 'capable-utility' : 'emergency-only'
+          );
+          const hostname = (() => {
+            try { return new URL(item.tool.url).hostname; } catch { return ''; }
+          })();
+
+          return (
+            <div
+              class="lab-tool-card bg-white border-2 border-neutral-900 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+              data-tier={tier}
+              data-local={String(item.isLocalOnly)}
+            >
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-neutral-200">
+                <div class="flex items-start gap-3">
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
+                    alt=""
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                    class="mt-1 flex-shrink-0 w-6 h-6 rounded"
+                    onerror="this.style.display='none'"
+                  />
+                  <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <a
+                        href={getLocalizedPath(`/tool/${item.tool.slug}`, locale)}
+                        class="text-base font-black text-neutral-900 hover:underline decoration-2"
+                      >
+                        {item.tool.name}
+                      </a>
+                      <span class="text-xs text-neutral-400 font-mono">—</span>
+                      <a
+                        href={item.tool.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-xs font-mono text-neutral-500 hover:text-neutral-900 hover:underline"
+                      >
+                        {hostname} ↗
+                      </a>
+                      <span class="px-1.5 py-0.5 bg-neutral-100 text-neutral-700 text-[10px] font-mono font-bold border border-neutral-300">
+                        {item.category}
+                      </span>
+                      {item.isLocalOnly && (
+                        <span class="px-1.5 py-0.5 bg-emerald-50 text-emerald-800 text-[10px] font-mono font-bold border border-emerald-300">
+                          🛡️ Local Only
+                        </span>
+                      )}
+                    </div>
+                    <p class="text-xs text-neutral-600 font-mono mt-1">
+                      {item.editorial.bestFor || item.tool.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Score Capsule */}
+                <div class="flex items-center gap-3 flex-shrink-0 self-start md:self-auto">
+                  <div class="text-right">
+                    <div class="text-[10px] font-mono uppercase text-neutral-500 font-bold">{t(locale, 'lab.card.utilityScore')}</div>
+                    <div class="text-2xl font-black font-mono text-neutral-900">
+                      ⚡ {item.productScore.overall}
+                    </div>
+                  </div>
+                  <div>
+                    {tier === 'editors-choice' && (
+                      <span class="px-2 py-1 bg-yellow-300 text-neutral-900 border border-neutral-900 font-mono text-xs font-black uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap">
+                        ★ {t(locale, 'tool.productScore.tier.editorsChoice')}
+                      </span>
+                    )}
+                    {tier === 'highly-recommended' && (
+                      <span class="px-2 py-1 bg-emerald-100 text-emerald-900 border border-emerald-900 font-mono text-xs font-black uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap">
+                        ✓ {t(locale, 'tool.productScore.tier.recommended')}
+                      </span>
+                    )}
+                    {tier === 'capable-utility' && (
+                      <span class="px-2 py-1 bg-neutral-100 text-neutral-800 border border-neutral-800 font-mono text-xs font-bold uppercase whitespace-nowrap">
+                        {t(locale, 'tool.productScore.tier.capable')}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Breakdown Bars */}
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 border-b border-neutral-200 font-mono text-[11px]">
+                <div>
+                  <div class="flex justify-between text-neutral-500 mb-1">
+                    <span>{t(locale, 'tool.productScore.dimFrictionless')}</span>
+                    <strong class="text-neutral-900">{item.productScore.frictionless}/25</strong>
+                  </div>
+                  <div class="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-neutral-900 h-full" style={`width: ${(item.productScore.frictionless / 25) * 100}%`}></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-neutral-500 mb-1">
+                    <span>{t(locale, 'tool.productScore.dimDepth')}</span>
+                    <strong class="text-neutral-900">{item.productScore.depth}/30</strong>
+                  </div>
+                  <div class="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-neutral-900 h-full" style={`width: ${(item.productScore.depth / 30) * 100}%`}></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-neutral-500 mb-1">
+                    <span>{t(locale, 'tool.productScore.dimExport')}</span>
+                    <strong class="text-neutral-900">{item.productScore.exportFreedom}/25</strong>
+                  </div>
+                  <div class="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-neutral-900 h-full" style={`width: ${(item.productScore.exportFreedom / 25) * 100}%`}></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-neutral-500 mb-1">
+                    <span>{t(locale, 'tool.productScore.dimPolish')}</span>
+                    <strong class="text-neutral-900">{item.productScore.polish}/20</strong>
+                  </div>
+                  <div class="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-neutral-900 h-full" style={`width: ${(item.productScore.polish / 20) * 100}%`}></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Lab Notes Snippet & Link */}
+              <div class="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+                <div class="text-neutral-700 flex-1">
+                  <span class="font-bold text-neutral-900">🔬 {t(locale, 'lab.card.labNotes')}:</span>
+                  <span class="italic text-neutral-600 ml-1">"{item.editorial.benchmarkNotes || item.editorial.privacyVerdict}"</span>
+                </div>
+                <div class="flex items-center gap-3 flex-shrink-0">
+                  {item.editorial.testedAt && (
+                    <span class="text-neutral-400 text-[11px]">
+                      {t(locale, 'lab.card.testedIn')} {item.editorial.testedAt}
+                    </span>
+                  )}
+                  <a
+                    href={getLocalizedPath(`/tool/${item.tool.slug}`, locale)}
+                    class="font-bold text-neutral-900 hover:underline decoration-2 flex items-center gap-1"
+                  >
+                    <span>{t(locale, 'lab.card.viewDetails')}</span>
+                    <span>→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* Anti-Bait Guarantee Banner */}
+    <div class="bg-yellow-50 border-2 border-neutral-900 p-6 sm:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div class="flex items-start gap-4">
+        <span class="text-3xl">🛡️</span>
+        <div>
+          <h3 class="text-base sm:text-lg font-black text-neutral-900 uppercase tracking-tight">
+            {t(locale, 'lab.antiBait.title')}
+          </h3>
+          <p class="text-xs sm:text-sm text-neutral-700 font-mono mt-1.5 leading-relaxed">
+            {t(locale, 'lab.antiBait.desc')}
+          </p>
+          <div class="mt-4 flex items-center gap-3 text-xs font-mono font-bold">
+            <a
+              href="https://nologintools.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-900 underline decoration-2 hover:bg-yellow-200 px-1 py-0.5"
+            >
+              NoLoginTools.org Verification Authority ↗
+            </a>
+            <span>·</span>
+            <a
+              href={getLocalizedPath('/badge', locale)}
+              class="text-neutral-900 underline decoration-2 hover:bg-yellow-200 px-1 py-0.5"
+            >
+              {t(locale, 'nav.badge')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Client-side quick filter tabs with readyState check
+    function initLabFilters() {
+      const filterBtns = document.querySelectorAll('.lab-tab-btn');
+      const cards = document.querySelectorAll('.lab-tool-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          // Update button styles
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-neutral-900', 'text-white');
+            b.classList.add('bg-white', 'text-neutral-900');
+          });
+          btn.classList.remove('bg-white', 'text-neutral-900');
+          btn.classList.add('bg-neutral-900', 'text-white');
+
+          // Filter cards
+          cards.forEach(card => {
+            const tier = card.getAttribute('data-tier');
+            const isLocal = card.getAttribute('data-local') === 'true';
+
+            let show = false;
+            if (filter === 'all') show = true;
+            else if (filter === 'editors-choice' && tier === 'editors-choice') show = true;
+            else if (filter === 'recommended' && (tier === 'editors-choice' || tier === 'highly-recommended')) show = true;
+            else if (filter === 'local-only' && isLocal) show = true;
+
+            if (show) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLabFilters);
+    } else {
+      initLabFilters();
+    }
+  </script>
+</Layout>

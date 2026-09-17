@@ -12,6 +12,7 @@
 
 import { readFileSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import zlib from 'node:zlib';
 
 /**
  * Detects format and magic byte classification
@@ -204,6 +205,142 @@ export function checkWatermark(buf, format) {
 }
 
 /**
+ * Analyzes non-interlaced PNG scanlines to detect blank canvases and compute dHash (difference hash)
+ * @param {Buffer} buf
+ * @returns {{ isBlankCanvas: boolean, perceptualHash: string, meanLuminance: number, variance: number } | null}
+ */
+export function analyzePngScanlines(buf) {
+  try {
+    if (!buf || buf.length < 33 || buf[0] !== 0x89 || buf[1] !== 0x50) return null;
+    const width = buf.readUInt32BE(16);
+    const height = buf.readUInt32BE(20);
+    const bitDepth = buf[24];
+    const colorType = buf[25];
+    const interlace = buf[28];
+
+    // Only process 8-bit depth non-interlaced images
+    if (bitDepth !== 8 || interlace !== 0 || width < 2 || height < 2) return null;
+
+    let bytesPerPixel = 3;
+    if (colorType === 2) bytesPerPixel = 3; // RGB
+    else if (colorType === 6) bytesPerPixel = 4; // RGBA
+    else if (colorType === 0) bytesPerPixel = 1; // Grayscale
+    else if (colorType === 4) bytesPerPixel = 2; // Gray + Alpha
+    else if (colorType === 3) bytesPerPixel = 1; // Indexed
+    else return null;
+
+    // Collect IDAT chunks
+    const idatChunks = [];
+    let offset = 8;
+    while (offset < buf.length - 12) {
+      const len = buf.readUInt32BE(offset);
+      const type = buf.toString('ascii', offset + 4, offset + 8);
+      if (type === 'IDAT') {
+        idatChunks.push(buf.subarray(offset + 8, offset + 8 + len));
+      }
+      offset += 12 + len;
+    }
+
+    if (idatChunks.length === 0) return null;
+    const decompressed = zlib.inflateSync(Buffer.concat(idatChunks));
+    const rowStride = 1 + width * bytesPerPixel;
+    if (decompressed.length < rowStride * height) return null;
+
+    // Sample a 9x8 grid for dHash and compute luminance variance
+    const sampledLuminance = [];
+    for (let r = 0; r < 8; r++) {
+      const y = Math.floor((r / 7) * (height - 1));
+      const rowStart = y * rowStride;
+      for (let c = 0; c < 9; c++) {
+        const x = Math.floor((c / 8) * (width - 1));
+        const pxStart = rowStart + 1 + x * bytesPerPixel;
+        let lum = 0;
+        if (bytesPerPixel >= 3) {
+          const red = decompressed[pxStart];
+          const green = decompressed[pxStart + 1];
+          const blue = decompressed[pxStart + 2];
+          lum = 0.299 * red + 0.587 * green + 0.114 * blue;
+        } else {
+          lum = decompressed[pxStart];
+        }
+        sampledLuminance.push(lum);
+      }
+    }
+
+    // Variance calculation on the 72 sampled points
+    let sum = 0;
+    for (const l of sampledLuminance) sum += l;
+    const mean = sum / sampledLuminance.length;
+    let varSum = 0;
+    for (const l of sampledLuminance) varSum += (l - mean) * (l - mean);
+    const variance = varSum / sampledLuminance.length;
+
+    // A canvas is blank if variance is near-zero (< 1.0) and dimensions are substantial
+    const isBlankCanvas = (variance < 1.0) && (width >= 100 && height >= 100);
+
+    // Compute 64-bit dHash: for each row, compare adjacent column values (c > c+1)
+    let bits = '';
+    for (let r = 0; r < 8; r++) {
+      const rowOffset = r * 9;
+      for (let c = 0; c < 8; c++) {
+        const left = sampledLuminance[rowOffset + c];
+        const right = sampledLuminance[rowOffset + c + 1];
+        bits += (left > right) ? '1' : '0';
+      }
+    }
+
+    // Convert 64 binary bits to 16-character hexadecimal string
+    let hexHash = '';
+    for (let i = 0; i < 64; i += 4) {
+      const nibble = bits.slice(i, i + 4);
+      hexHash += parseInt(nibble, 2).toString(16);
+    }
+
+    return {
+      isBlankCanvas,
+      perceptualHash: hexHash,
+      meanLuminance: Number(mean.toFixed(2)),
+      variance: Number(variance.toFixed(2))
+    };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Computes the Hamming distance (differing bits) between two 16-hex perceptual hashes
+ * @param {string} hashA 
+ * @param {string} hashB 
+ * @returns {number} Hamming distance (0 to 64)
+ */
+export function computeHammingDistance(hashA, hashB) {
+  if (!hashA || !hashB || hashA.length !== 16 || hashB.length !== 16) return 64;
+  try {
+    let diff = BigInt('0x' + hashA) ^ BigInt('0x' + hashB);
+    let count = 0;
+    while (diff > 0n) {
+      if (diff & 1n) count++;
+      diff >>= 1n;
+    }
+    return count;
+  } catch {
+    return 64;
+  }
+}
+
+/**
+ * Checks if an SVG is completely empty or lacks rendering primitives
+ * @param {Buffer} buf 
+ * @returns {boolean}
+ */
+export function checkSvgBlank(buf) {
+  if (!buf || buf.length === 0) return true;
+  const text = buf.toString('utf-8');
+  const hasVisiblePrimitives = /<(path|rect|circle|ellipse|line|polyline|polygon|text|image|use)\b/i.test(text);
+  return !hasVisiblePrimitives;
+}
+
+/**
  * Deep inspection of an exported lab artifact
  * @param {string} artifactPath - Path to downloaded file
  * @param {Object} [originalFixture] - Information about original input file
@@ -211,6 +348,8 @@ export function checkWatermark(buf, format) {
  * @param {number} [originalFixture.width] - Input width
  * @param {number} [originalFixture.height] - Input height
  * @param {string} [originalFixture.format] - Input format
+ * @param {string} [originalFixture.path] - Path to original fixture file
+ * @param {string} [originalFixture.perceptualHash] - Precomputed perceptual hash
  */
 export function inspectArtifact(artifactPath, originalFixture = null) {
   if (!existsSync(artifactPath)) {
@@ -247,6 +386,41 @@ export function inspectArtifact(artifactPath, originalFixture = null) {
     dimensionPreserved = (dimensions.width === originalFixture.width && dimensions.height === originalFixture.height);
   }
 
+  let isBlankCanvas = false;
+  let perceptualHash = null;
+  let visualFidelity = null;
+
+  if (format === 'png') {
+    const pngAnalysis = analyzePngScanlines(buf);
+    if (pngAnalysis) {
+      isBlankCanvas = pngAnalysis.isBlankCanvas;
+      perceptualHash = pngAnalysis.perceptualHash;
+    }
+  } else if (format === 'svg') {
+    isBlankCanvas = checkSvgBlank(buf);
+  }
+
+  // Calculate visual fidelity against original fixture
+  if (originalFixture) {
+    let origHash = originalFixture.perceptualHash || null;
+    if (!origHash && originalFixture.path && originalFixture.format === 'png' && existsSync(originalFixture.path)) {
+      try {
+        const origBuf = readFileSync(originalFixture.path);
+        const origAnalysis = analyzePngScanlines(origBuf);
+        if (origAnalysis) origHash = origAnalysis.perceptualHash;
+      } catch {}
+    }
+
+    if (isBlankCanvas) {
+      visualFidelity = 0;
+    } else if (perceptualHash && origHash) {
+      const dist = computeHammingDistance(perceptualHash, origHash);
+      visualFidelity = Math.max(0, Math.min(100, Math.round((1 - dist / 64) * 100)));
+    } else if (dimensionPreserved && !isBaitTrap) {
+      visualFidelity = 95;
+    }
+  }
+
   return {
     success: true,
     file: {
@@ -263,7 +437,10 @@ export function inspectArtifact(artifactPath, originalFixture = null) {
       dimensionPreserved,
       compressionRatio,
       sizeDeltaBytes,
-      isLossless
+      isLossless,
+      isBlankCanvas,
+      perceptualHash,
+      visualFidelity
     }
   };
 }
