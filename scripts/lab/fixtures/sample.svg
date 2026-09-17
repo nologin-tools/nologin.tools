@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#11111b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#89b4fa"/>
+      <stop offset="50%" stop-color="#cba6f7"/>
+      <stop offset="100%" stop-color="#f38ba8"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Complex Vector Grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+
+  <!-- Decorative Polygons & Curves -->
+  <g filter="url(#dropShadow)">
+    <polygon points="400,120 480,240 320,240" fill="url(#accentGrad)" opacity="0.9"/>
+    <circle cx="400" cy="300" r="70" fill="none" stroke="#a6e3a1" stroke-width="6" stroke-dasharray="12 6"/>
+    <path d="M 250 450 C 320 380, 480 520, 550 450 S 700 380, 750 420" fill="none" stroke="#f9e2af" stroke-width="4"/>
+  </g>
+
+  <!-- Benchmark Typography -->
+  <text x="400" y="520" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#cdd6f4">
+    NoLogin Lab Benchmark Standard Fixture
+  </text>
+  <text x="400" y="550" text-anchor="middle" font-family="monospace" font-size="12" fill="#a6adc8">
+    Resolution: 800x600 · Vector Integrity: Verified
+  </text>
+</svg>

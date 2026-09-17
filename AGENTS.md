@@ -144,9 +144,16 @@ sites/org/                # NologinTools.org — organization authority site (in
 - **Homepage**: Minimalist list-style single page (Hacker News-inspired), **no Header** (`hideHeader` prop on Layout). All tools displayed on one page, no search, no pagination, no cards. Grouped by category per `TAG_DEFINITIONS` order, each group sorted by recommendation score descending. Tools without a category go to "Other" group at the end.
   - **Hero**: Simple title (`nologin.tools`), tagline, then a combined stats+nav line (`X verified tools · Submit · Badge · About`). No bookmark hint, no client-side JS.
   - **Category navigation**: Inline anchor links (`AI · Design · Writing · ...`) at top, scroll to `#cat-{name}` sections.
-  - **Tool list item** (`.tool-item`): Single line per tool — 16px favicon + ★ (featured only, gold) + bold name (link to `/tool/[slug]`) + `—` hostname (external link) + `—` description + right-aligned health status (`✓ Online` / `⚠ Unstable` / `✗ Offline`). Mobile: name+hostname on first line, description wraps to second line.
+  - **Tool list item** (`.tool-item`): Single line per tool — 16px favicon + ★ (featured only, gold) + bold name (link to `/tool/[slug]`) + `—` hostname (external link) + optional `⚡ {score}` Product Score badge (if audited in NoLogin Lab) + `—` description + right-aligned health status (`✓ Online` / `⚠ Unstable` / `✗ Offline`). Mobile: name+hostname on first line, description wraps to second line.
   - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
   - No client-side JS on homepage.
+- **NoLogin Lab Product Score & Empirical Vetting**:
+  - Empirical benchmarking across all 11 categories via specialized headless runners (`scripts/lab/benchmark.mjs`).
+  - Measures TTI, injects authentic fixtures, detects Wasm/Canvas engines, tests format export and watermark bait traps, sniffs zero-egress network payloads.
+  - Scores 0-100 on 4 dimensions: Frictionless UX (25), Functional Depth (30), Export Freedom (25), Polish & Stability (20).
+  - Tiers: `editors-choice` (≥90, amber badge), `highly-recommended` (80-89, emerald badge), `capable-utility` (70-79, sky/neutral badge), `emergency-only` (<70).
+  - High product score awards up to +5 recommendation rank boost on homepage and category listings.
+  - Category pages feature hands-on lab notes snippets below tool descriptions for maximum user transparency.
 - **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to hiding on error via inline `onerror`. Used on homepage list and ToolCard component.
 - **Featured tools**: Admin can mark approved tools as "featured" for higher visibility:
   - `POST /api/admin/tool-feature` — toggle `isFeatured` + `featuredAt` (only approved tools)

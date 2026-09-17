@@ -146,12 +146,30 @@ interface BuildData {
 import data from './build-data.json';
 const buildData = data as BuildData;
 
+export interface ProductScoreBreakdown {
+  overall: number;          // 0-100 overall utility score
+  frictionless: number;     // 0-25 instant, friction-free UX
+  depth: number;            // 0-30 functional depth & fidelity
+  exportFreedom: number;    // 0-25 unrestricted export & outputs
+  polish: number;           // 0-20 visual polish & runtime stability
+}
+
+export type EditorialVerdictTier =
+  | 'editors-choice'
+  | 'highly-recommended'
+  | 'capable-utility'
+  | 'emergency-only';
+
 export interface ToolEditorial {
   bestFor: string;
   pros: string[];
   cons: string[];
   privacyVerdict: string;
   alternativeTo: string[];
+  productScore?: ProductScoreBreakdown;
+  verdictTier?: EditorialVerdictTier;
+  benchmarkNotes?: string;
+  testedAt?: string;
 }
 
 import editorialJson from './tool-editorial.json';
@@ -251,7 +269,13 @@ export function computeScore(
 
   const featuredBoost = tool.isFeatured ? 8 : 0;
 
-  return badgeWeight + freshness + healthScore + featuredBoost;
+  // Editorial product utility boost (if audited with verified product score)
+  const editorial = editorialData[tool.slug]?.en;
+  const productBoost = editorial?.productScore?.overall
+    ? Math.round((editorial.productScore.overall / 100) * 5)
+    : 0;
+
+  return badgeWeight + freshness + healthScore + featuredBoost + productBoost;
 }
 
 export function getRelatedTools(currentSlug: string, categoryTag: string | undefined, limit = 6): BuildDataTool[] {

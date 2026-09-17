@@ -110,9 +110,25 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
       - `Clean UX & Design (1–5)`: 5 = modern, distraction-free; 1 = ad-cluttered.
       - `Health & Stability (1–5)`: 5 = fast HTTPS on dedicated domain; 1–2 = hobby subdomains, 404/500 errors.
 
+   **Step 5a: Level 1 — NoLogin Lab Automated Benchmark (Machine Gating — ~5s)**:
+   For every candidate tool, run the specialized domain benchmark runner across its category:
+   ```bash
+   node scripts/lab/benchmark.mjs --url "<URL>" --slug "<slug>" --sync
+   ```
+   The harness automatically assigns the category-specific test fixture (`sample.png`, `sample.svg`, `sample.json`, `sample.md`, `sample.wav`, `sample.pdf`), measures TTI & processing latency, inspects exported artifacts for watermarks & format traps, tests zero-egress data leakage, computes the 100-point Product Utility Score, and initializes preliminary editorial notes in `src/data/tool-editorial.json`.
+   - **Hard Gate**: If `productScore.overall < 70`, or if an auth barrier/commercial watermark is detected, **immediately reject the tool** without spending further time.
+
+   **Step 5b: Level 2 — Agent Interactive Dogfooding & Deep Workflow Trial (1.5–3 minutes)**:
+   For tools that pass Level 1, the Agent MUST open `ego-browser` and actively interact with the product like a power user:
+   1. **Multi-Step Functional Workflow**: Exercise core features with non-trivial actions (e.g. adjust settings/sliders, test multiple format exports, toggle rendering modes).
+   2. **Edge Cases & Resilience**: Test malformed inputs, large payload limits, and verify offline behavior if claimed.
+   3. **Hidden Paywall & Pro-Feature Audit**: Click advanced export buttons (e.g. 2x/4x HD export, PDF vectors, batch downloads) to verify no surprise "Sign in to unlock Pro" traps exist.
+   4. **Synthesize Editorial Insights**: Gather authentic first-hand observations to draft the tool's `bestFor`, 3 specific `pros`, 1-2 honest `cons`, and `alternativeTo` in Step 6.
+
 6. **Final Evaluation, D1 Write & Multi-Language Translation**:
-   - **Approve (Tier S/A: ≥ 22 pts | Tier B: 16–21 pts)**:
-     - The tool functions directly without mandatory login, successfully passes the export/download gatekeeper check, and scores ≥ 16.
+   - **Approve (Tier S/A: ≥ 22 pts | Tier B: 16–21 pts & Product Score ≥ 70)**:
+     - The tool functions directly without mandatory login, successfully passes the export/download gatekeeper check, has **NoLogin Lab Product Score ≥ 70**, and has zero anti-bait traps.
+     - Tools scoring **≥ 90 (Editor's Choice)** should also be evaluated for `is_featured` toggle.
      - **Synthesize Metadata** (from dogfood inspection results, stripping marketing buzzwords):
        - `name`: Clean brand name from inspection `metadata.name`.
        - `description`: 1-2 objective, factual English sentences explaining exact capabilities and processing mode.
@@ -149,16 +165,24 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
           node scripts/sync-tool-translations.mjs --apply <payload.json>
           ```
        3. Verify all 7 locales now contain the tool: `node scripts/sync-tool-translations.mjs --status`.
-   - **Reject (Tier C: < 16 pts or Hard Gate Blocker)**:
-     - Initial Auth Wall: `rejection_reason = '首屏强制要求注册/登录 (' || reason || ')'`
-     - Bait-and-Switch (Export gatekeeper failed): `rejection_reason = '诱导拦截 (Bait-and-Switch): 核心操作/导出时弹出强制登录 (' || details || ')'`
-     - Dead link / Timeout: `rejection_reason = '站点无法访问/已失效 (HTTP 404/DNS错误/超时)'`
-     - Domain parking: `rejection_reason = '域名停放/已过期转售'`
-     - Low Score / Poor UX: `rejection_reason = '综合评分过低 (< 16分)，工具体验或独立性不佳'`
-     - Update status:
-       ```sql
-       UPDATE tools SET status = 'rejected', rejection_reason = ? WHERE id = ?;
-       ```
+     - **Synchronize Deep Editorial Review into `src/data/tool-editorial.json` (Required)**:
+       Whenever approving a tool, the Agent MUST upgrade the preliminary entry in `src/data/tool-editorial.json` (both `en` and `zh`) with authentic qualitative insights derived from dogfooding:
+       - `bestFor`: Exact workflow scenario and target persona it serves best.
+       - `pros`: 3 specific, technically accurate advantages.
+       - `cons`: 1-2 honest trade-offs, browser performance boundaries, or missing power features.
+       - `privacyVerdict`: Architectural privacy qualitative verdict based on network traffic & storage inspections.
+       - `alternativeTo`: Commercial / proprietary desktop or SaaS apps it can effectively replace.
+    - **Reject (Tier C: < 16 pts, Product Score < 70, or Hard Gate Blocker)**:
+      - Initial Auth Wall: `rejection_reason = '首屏强制要求注册/登录 (' || reason || ')'`
+      - Bait-and-Switch (Export gatekeeper failed): `rejection_reason = '诱导拦截 (Bait-and-Switch): 核心操作/导出时弹出强制登录 (' || details || ')'`
+      - Lab Product Score < 70 or Watermark: `rejection_reason = 'NoLogin Lab 实测未达标 (< 70分) 或存在导出限制/强制商业水印'`
+      - Dead link / Timeout: `rejection_reason = '站点无法访问/已失效 (HTTP 404/DNS错误/超时)'`
+      - Domain parking: `rejection_reason = '域名停放/已过期转售'`
+      - Low Score / Poor UX: `rejection_reason = '综合评分过低 (< 16分)，工具体验或独立性不佳'`
+      - Update status:
+        ```sql
+        UPDATE tools SET status = 'rejected', rejection_reason = ? WHERE id = ?;
+        ```
 
 #### B. Pending Edit Suggestions (`status = 'pending'`)
 1. Query suggestions:
@@ -204,6 +228,32 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
      INSERT INTO health_checks (tool_id, checked_at, is_online, http_status, response_time_ms)
      VALUES (?, unixepoch(), ?, ?, ?);
      ```
+
+---
+
+### Phase 2b: Rolling NoLogin Lab Regression & Anti-Trap Patrol (100 Tools)
+
+To prevent existing approved tools from silently introducing commercial watermarks, export login walls, or performance degradation, the daily patrol executes empirical regression testing on a rolling batch of 100 tools:
+
+1. **Execute Rolling Benchmark**:
+   ```bash
+   node scripts/lab/benchmark.mjs --rolling 100 --sync
+   ```
+   *The `--rolling` engine automatically prioritizes: (1) approved tools that lack a `productScore` in `src/data/tool-editorial.json`, and (2) tools with the oldest `testedAt` dates for 3-day rapid rolling freshness (auditing the entire catalog of ~296 tools every 3 days).*
+2. **Regression & Trap Check (Level 1 → Level 2 Escalation)**:
+   - If Level 1 automated benchmark flags an anomaly (auth interception, watermark detected, broken export, or score dropping below 70), the Agent MUST trigger a **Level 2 Interactive Deep Retest in `ego-browser` (1.5–3 mins)** to investigate and confirm the regression:
+     - **Confirmed Degradation / Violation**:
+       - Demote tool status:
+         ```sql
+         UPDATE tools SET status = 'unstable', rejection_reason = '日常复测异常: 发现后置诱导登录、强制商业水印或导出中断' WHERE slug = ?;
+         ```
+       - Remove `is_featured` flag if present:
+         ```sql
+         UPDATE tools SET is_featured = 0, featured_at = NULL WHERE slug = ?;
+         ```
+     - **False Alarm / Legitimate Minor Change**: Update notes and retain approved status.
+   - If Level 1 passes cleanly without issues:
+     - The runner automatically refreshes `productScore`, `verdictTier`, `benchmarkNotes`, and `testedAt` in `src/data/tool-editorial.json`.
 
 ---
 

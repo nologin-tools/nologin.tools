@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HealthBadge from './HealthBadge.astro';
 import { TAG_DEFINITIONS, categoryToSlug } from '../lib/tags';
-import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription, getCategoryEditorial } from '../data/loader';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription, getCategoryEditorial, getToolEditorial } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 
@@ -23,7 +23,8 @@ const categoryTools = approvedTools
   .map((tool) => {
     const health = getToolHealthStatus(tool);
     const score = computeToolScore(tool, health);
-    return { ...tool, health, score };
+    const toolEditorial = getToolEditorial(tool.slug, locale);
+    return { ...tool, health, score, toolEditorial };
   })
   .sort((a, b) => b.score - a.score);
 
@@ -264,11 +265,36 @@ const breadcrumbLd = {
                   >
                     ({hostname})
                   </a>
+                  {tool.toolEditorial?.productScore && (
+                    <a
+                      href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                      class:list={[
+                        "inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold border transition-colors shrink-0",
+                        tool.toolEditorial.verdictTier === 'editors-choice'
+                          ? "bg-amber-100/90 text-amber-950 border-amber-400 hover:bg-amber-200"
+                          : tool.toolEditorial.verdictTier === 'highly-recommended'
+                          ? "bg-emerald-50 text-emerald-950 border-emerald-300 hover:bg-emerald-100"
+                          : "bg-neutral-100 text-neutral-800 border-neutral-300 hover:bg-neutral-200"
+                      ]}
+                      title={tool.toolEditorial.benchmarkNotes || t(locale, 'tool.productScore.badgeTitle', { score: String(tool.toolEditorial.productScore.overall) })}
+                    >
+                      <span>⚡ {tool.toolEditorial.productScore.overall}</span>
+                      {tool.toolEditorial.verdictTier === 'editors-choice' && (
+                        <span class="hidden md:inline font-bold">· {t(locale, 'tool.productScore.tier.editorsChoice')}</span>
+                      )}
+                    </a>
+                  )}
                 </div>
                 {getLocalizedDescription(tool, locale) && (
                   <p class="text-neutral-600 text-sm leading-relaxed mt-0.5">
                     {getLocalizedDescription(tool, locale)}
                   </p>
+                )}
+                {tool.toolEditorial?.benchmarkNotes && (
+                  <div class="mt-1.5 text-xs font-mono text-neutral-600 bg-neutral-50 border border-neutral-200 px-2.5 py-1 flex items-start gap-1.5">
+                    <span class="text-amber-600 font-bold shrink-0 mt-0.5">⚡</span>
+                    <span class="leading-relaxed"><strong class="text-neutral-900">{t(locale, 'tool.productScore.labNotes')}:</strong> {tool.toolEditorial.benchmarkNotes}</span>
+                  </div>
                 )}
               </div>
             </div>

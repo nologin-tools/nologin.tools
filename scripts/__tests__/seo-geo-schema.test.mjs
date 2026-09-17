@@ -98,6 +98,10 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
         assert.ok(Array.isArray(item.cons) && item.cons.length >= 1, `${slug}.${lang}.cons must have at least 1 item`);
         assert.ok(typeof item.privacyVerdict === 'string' && item.privacyVerdict.length > 10, `${slug}.${lang}.privacyVerdict must be non-empty`);
         assert.ok(Array.isArray(item.alternativeTo) && item.alternativeTo.length >= 1, `${slug}.${lang}.alternativeTo must have at least 1 item`);
+        assert.ok(item.productScore, `${slug}.${lang}.productScore must be defined`);
+        assert.ok(typeof item.productScore.overall === 'number' && item.productScore.overall >= 50, `${slug}.${lang}.productScore.overall must be valid`);
+        assert.ok(typeof item.benchmarkNotes === 'string' && item.benchmarkNotes.length > 10, `${slug}.${lang}.benchmarkNotes must be non-empty`);
+        assert.ok(typeof item.testedAt === 'string' && item.testedAt.length >= 7, `${slug}.${lang}.testedAt must be formatted`);
       }
     }
   });

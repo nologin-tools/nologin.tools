@@ -1,0 +1,1159 @@
+{
+  "benchmarkMeta": {
+    "suite": "NoLoginLab-Standard-Fixture",
+    "timestamp": 1773738000000,
+    "version": "1.0.0"
+  },
+  "performanceMatrix": [
+    {
+      "id": 1,
+      "uuid": "550e8400-e29b-41d4-a716-4466554400a",
+      "name": "Benchmark-Entity-1",
+      "metrics": {
+        "latencyMs": 58,
+        "throughput": 1245,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x0"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "uuid": "550e8400-e29b-41d4-a716-4466554400b",
+      "name": "Benchmark-Entity-2",
+      "metrics": {
+        "latencyMs": 29,
+        "throughput": 1109,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x270F"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "uuid": "550e8400-e29b-41d4-a716-4466554400c",
+      "name": "Benchmark-Entity-3",
+      "metrics": {
+        "latencyMs": 96,
+        "throughput": 1062,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x4E1E"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "uuid": "550e8400-e29b-41d4-a716-4466554400d",
+      "name": "Benchmark-Entity-4",
+      "metrics": {
+        "latencyMs": 11,
+        "throughput": 741,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x752D"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "uuid": "550e8400-e29b-41d4-a716-4466554400e",
+      "name": "Benchmark-Entity-5",
+      "metrics": {
+        "latencyMs": 62,
+        "throughput": 841,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x9C3C"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "uuid": "550e8400-e29b-41d4-a716-4466554400f",
+      "name": "Benchmark-Entity-6",
+      "metrics": {
+        "latencyMs": 88,
+        "throughput": 881,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0xC34B"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "uuid": "550e8400-e29b-41d4-a716-446655440010",
+      "name": "Benchmark-Entity-7",
+      "metrics": {
+        "latencyMs": 55,
+        "throughput": 1239,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0xEA5A"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "uuid": "550e8400-e29b-41d4-a716-446655440011",
+      "name": "Benchmark-Entity-8",
+      "metrics": {
+        "latencyMs": 74,
+        "throughput": 1994,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x11169"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "uuid": "550e8400-e29b-41d4-a716-446655440012",
+      "name": "Benchmark-Entity-9",
+      "metrics": {
+        "latencyMs": 35,
+        "throughput": 1379,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x13878"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "uuid": "550e8400-e29b-41d4-a716-446655440013",
+      "name": "Benchmark-Entity-10",
+      "metrics": {
+        "latencyMs": 42,
+        "throughput": 545,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "S",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x15F87"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "uuid": "550e8400-e29b-41d4-a716-446655440014",
+      "name": "Benchmark-Entity-11",
+      "metrics": {
+        "latencyMs": 27,
+        "throughput": 957,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x18696"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "uuid": "550e8400-e29b-41d4-a716-446655440015",
+      "name": "Benchmark-Entity-12",
+      "metrics": {
+        "latencyMs": 82,
+        "throughput": 1211,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x1ADA5"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "uuid": "550e8400-e29b-41d4-a716-446655440016",
+      "name": "Benchmark-Entity-13",
+      "metrics": {
+        "latencyMs": 87,
+        "throughput": 1954,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x1D4B4"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "uuid": "550e8400-e29b-41d4-a716-446655440017",
+      "name": "Benchmark-Entity-14",
+      "metrics": {
+        "latencyMs": 76,
+        "throughput": 700,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x1FBC3"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "uuid": "550e8400-e29b-41d4-a716-446655440018",
+      "name": "Benchmark-Entity-15",
+      "metrics": {
+        "latencyMs": 81,
+        "throughput": 1828,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x222D2"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "uuid": "550e8400-e29b-41d4-a716-446655440019",
+      "name": "Benchmark-Entity-16",
+      "metrics": {
+        "latencyMs": 15,
+        "throughput": 501,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x249E1"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "uuid": "550e8400-e29b-41d4-a716-44665544001a",
+      "name": "Benchmark-Entity-17",
+      "metrics": {
+        "latencyMs": 51,
+        "throughput": 979,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x270F0"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "uuid": "550e8400-e29b-41d4-a716-44665544001b",
+      "name": "Benchmark-Entity-18",
+      "metrics": {
+        "latencyMs": 59,
+        "throughput": 1882,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x297FF"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "uuid": "550e8400-e29b-41d4-a716-44665544001c",
+      "name": "Benchmark-Entity-19",
+      "metrics": {
+        "latencyMs": 76,
+        "throughput": 1382,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x2BF0E"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "uuid": "550e8400-e29b-41d4-a716-44665544001d",
+      "name": "Benchmark-Entity-20",
+      "metrics": {
+        "latencyMs": 70,
+        "throughput": 1369,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x2E61D"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "uuid": "550e8400-e29b-41d4-a716-44665544001e",
+      "name": "Benchmark-Entity-21",
+      "metrics": {
+        "latencyMs": 89,
+        "throughput": 1718,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x30D2C"
+        }
+      }
+    },
+    {
+      "id": 22,
+      "uuid": "550e8400-e29b-41d4-a716-44665544001f",
+      "name": "Benchmark-Entity-22",
+      "metrics": {
+        "latencyMs": 19,
+        "throughput": 504,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x3343B"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "uuid": "550e8400-e29b-41d4-a716-446655440020",
+      "name": "Benchmark-Entity-23",
+      "metrics": {
+        "latencyMs": 58,
+        "throughput": 1049,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x35B4A"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "uuid": "550e8400-e29b-41d4-a716-446655440021",
+      "name": "Benchmark-Entity-24",
+      "metrics": {
+        "latencyMs": 96,
+        "throughput": 1978,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x38259"
+        }
+      }
+    },
+    {
+      "id": 25,
+      "uuid": "550e8400-e29b-41d4-a716-446655440022",
+      "name": "Benchmark-Entity-25",
+      "metrics": {
+        "latencyMs": 43,
+        "throughput": 1622,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x3A968"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "uuid": "550e8400-e29b-41d4-a716-446655440023",
+      "name": "Benchmark-Entity-26",
+      "metrics": {
+        "latencyMs": 15,
+        "throughput": 1633,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x3D077"
+        }
+      }
+    },
+    {
+      "id": 27,
+      "uuid": "550e8400-e29b-41d4-a716-446655440024",
+      "name": "Benchmark-Entity-27",
+      "metrics": {
+        "latencyMs": 14,
+        "throughput": 1050,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x3F786"
+        }
+      }
+    },
+    {
+      "id": 28,
+      "uuid": "550e8400-e29b-41d4-a716-446655440025",
+      "name": "Benchmark-Entity-28",
+      "metrics": {
+        "latencyMs": 44,
+        "throughput": 1735,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x41E95"
+        }
+      }
+    },
+    {
+      "id": 29,
+      "uuid": "550e8400-e29b-41d4-a716-446655440026",
+      "name": "Benchmark-Entity-29",
+      "metrics": {
+        "latencyMs": 88,
+        "throughput": 733,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x445A4"
+        }
+      }
+    },
+    {
+      "id": 30,
+      "uuid": "550e8400-e29b-41d4-a716-446655440027",
+      "name": "Benchmark-Entity-30",
+      "metrics": {
+        "latencyMs": 49,
+        "throughput": 1854,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "A",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x46CB3"
+        }
+      }
+    },
+    {
+      "id": 31,
+      "uuid": "550e8400-e29b-41d4-a716-446655440028",
+      "name": "Benchmark-Entity-31",
+      "metrics": {
+        "latencyMs": 91,
+        "throughput": 791,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x493C2"
+        }
+      }
+    },
+    {
+      "id": 32,
+      "uuid": "550e8400-e29b-41d4-a716-446655440029",
+      "name": "Benchmark-Entity-32",
+      "metrics": {
+        "latencyMs": 48,
+        "throughput": 918,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x4BAD1"
+        }
+      }
+    },
+    {
+      "id": 33,
+      "uuid": "550e8400-e29b-41d4-a716-44665544002a",
+      "name": "Benchmark-Entity-33",
+      "metrics": {
+        "latencyMs": 58,
+        "throughput": 659,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x4E1E0"
+        }
+      }
+    },
+    {
+      "id": 34,
+      "uuid": "550e8400-e29b-41d4-a716-44665544002b",
+      "name": "Benchmark-Entity-34",
+      "metrics": {
+        "latencyMs": 40,
+        "throughput": 1559,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x508EF"
+        }
+      }
+    },
+    {
+      "id": 35,
+      "uuid": "550e8400-e29b-41d4-a716-44665544002c",
+      "name": "Benchmark-Entity-35",
+      "metrics": {
+        "latencyMs": 54,
+        "throughput": 1799,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x52FFE"
+        }
+      }
+    },
+    {
+      "id": 36,
+      "uuid": "550e8400-e29b-41d4-a716-44665544002d",
+      "name": "Benchmark-Entity-36",
+      "metrics": {
+        "latencyMs": 20,
+        "throughput": 1462,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x5570D"
+        }
+      }
+    },
+    {
+      "id": 37,
+      "uuid": "550e8400-e29b-41d4-a716-44665544002e",
+      "name": "Benchmark-Entity-37",
+      "metrics": {
+        "latencyMs": 25,
+        "throughput": 1508,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x57E1C"
+        }
+      }
+    },
+    {
+      "id": 38,
+      "uuid": "550e8400-e29b-41d4-a716-44665544002f",
+      "name": "Benchmark-Entity-38",
+      "metrics": {
+        "latencyMs": 32,
+        "throughput": 1322,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x5A52B"
+        }
+      }
+    },
+    {
+      "id": 39,
+      "uuid": "550e8400-e29b-41d4-a716-446655440030",
+      "name": "Benchmark-Entity-39",
+      "metrics": {
+        "latencyMs": 14,
+        "throughput": 513,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x5CC3A"
+        }
+      }
+    },
+    {
+      "id": 40,
+      "uuid": "550e8400-e29b-41d4-a716-446655440031",
+      "name": "Benchmark-Entity-40",
+      "metrics": {
+        "latencyMs": 48,
+        "throughput": 1332,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x5F349"
+        }
+      }
+    },
+    {
+      "id": 41,
+      "uuid": "550e8400-e29b-41d4-a716-446655440032",
+      "name": "Benchmark-Entity-41",
+      "metrics": {
+        "latencyMs": 36,
+        "throughput": 1178,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x61A58"
+        }
+      }
+    },
+    {
+      "id": 42,
+      "uuid": "550e8400-e29b-41d4-a716-446655440033",
+      "name": "Benchmark-Entity-42",
+      "metrics": {
+        "latencyMs": 37,
+        "throughput": 1599,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x64167"
+        }
+      }
+    },
+    {
+      "id": 43,
+      "uuid": "550e8400-e29b-41d4-a716-446655440034",
+      "name": "Benchmark-Entity-43",
+      "metrics": {
+        "latencyMs": 81,
+        "throughput": 1570,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x66876"
+        }
+      }
+    },
+    {
+      "id": 44,
+      "uuid": "550e8400-e29b-41d4-a716-446655440035",
+      "name": "Benchmark-Entity-44",
+      "metrics": {
+        "latencyMs": 38,
+        "throughput": 1712,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x68F85"
+        }
+      }
+    },
+    {
+      "id": 45,
+      "uuid": "550e8400-e29b-41d4-a716-446655440036",
+      "name": "Benchmark-Entity-45",
+      "metrics": {
+        "latencyMs": 35,
+        "throughput": 924,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x6B694"
+        }
+      }
+    },
+    {
+      "id": 46,
+      "uuid": "550e8400-e29b-41d4-a716-446655440037",
+      "name": "Benchmark-Entity-46",
+      "metrics": {
+        "latencyMs": 65,
+        "throughput": 796,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x6DDA3"
+        }
+      }
+    },
+    {
+      "id": 47,
+      "uuid": "550e8400-e29b-41d4-a716-446655440038",
+      "name": "Benchmark-Entity-47",
+      "metrics": {
+        "latencyMs": 59,
+        "throughput": 1072,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x704B2"
+        }
+      }
+    },
+    {
+      "id": 48,
+      "uuid": "550e8400-e29b-41d4-a716-446655440039",
+      "name": "Benchmark-Entity-48",
+      "metrics": {
+        "latencyMs": 62,
+        "throughput": 1396,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x72BC1"
+        }
+      }
+    },
+    {
+      "id": 49,
+      "uuid": "550e8400-e29b-41d4-a716-44665544003a",
+      "name": "Benchmark-Entity-49",
+      "metrics": {
+        "latencyMs": 76,
+        "throughput": 1915,
+        "active": true
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "core"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x752D0"
+        }
+      }
+    },
+    {
+      "id": 50,
+      "uuid": "550e8400-e29b-41d4-a716-44665544003b",
+      "name": "Benchmark-Entity-50",
+      "metrics": {
+        "latencyMs": 56,
+        "throughput": 849,
+        "active": false
+      },
+      "tags": [
+        "performance",
+        "benchmark",
+        "edge"
+      ],
+      "nested": {
+        "tier": "B",
+        "attributes": {
+          "flagA": true,
+          "flagB": false,
+          "checksum": "0x779DF"
+        }
+      }
+    }
+  ]
+}

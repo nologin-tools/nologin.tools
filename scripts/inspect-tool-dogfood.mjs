@@ -41,7 +41,7 @@ Options:
 function buildEgoScript(targetUrl, resultFilePath, timeoutMs = 25000, finishSession = false) {
   return `
 (async () => {
-  const task = await taskSpace("nologin-audit");
+  const task = await taskSpace("nologin-audit-" + Date.now());
   const page = task.page("p1");
 
   const result = {
