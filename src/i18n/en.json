@@ -234,6 +234,7 @@
   "tool.productScore.badgeTitle": "NoLogin Lab Product Score: {score}/100",
   "tool.productScore.pending": "Lab Benchmark In Progress",
   "tool.productScore.pendingDesc": "Basic no-login functionality verified. In-depth empirical benchmark and lab notes are being recorded.",
+  "tool.dueDiligence.heading": "Agent Due Diligence & Audit Evidence",
   "tool.faq.q1": "Is {name} free to use?",
   "tool.faq.a1": "{name} is listed on nologin.tools as a tool you can use without creating an account. Check the tool's own site for details on pricing or premium features.",
   "tool.faq.q2": "Does {name} require an account?",

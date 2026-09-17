@@ -123,6 +123,12 @@ export function serializeApiTool(tool, locale = 'en', health = null, editorial =
           pros: editorial.pros || [],
           cons: editorial.cons || [],
           privacyVerdict: editorial.privacyVerdict || null,
+          alternativeTo: editorial.alternativeTo || [],
+          productScore: editorial.productScore || null,
+          verdictTier: editorial.verdictTier || null,
+          benchmarkNotes: editorial.benchmarkNotes || null,
+          testedAt: editorial.testedAt || null,
+          dueDiligence: editorial.dueDiligence || null,
         }
       : null,
   };

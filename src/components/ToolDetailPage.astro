@@ -710,6 +710,56 @@ const faqLd = isVerified ? {
                     </p>
                   </div>
                 )}
+
+                {/* Agent Due Diligence Trust Signals */}
+                {editorial.dueDiligence && (
+                  <div class="mt-3 pt-3 border-t border-neutral-200">
+                    <div class="text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2 flex items-center gap-1">
+                      <span>🤖 {t(locale, 'tool.dueDiligence.heading')}</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-left">
+                      <div class="bg-white border border-neutral-200 p-2 text-[11px] font-mono">
+                        <div class="font-bold text-neutral-900 flex items-center gap-1 mb-0.5">
+                          <span>🛡️</span>
+                          <span class="truncate">{editorial.dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'Zero-Egress Local' : 'Cloud Processed'}</span>
+                        </div>
+                        <div class="text-[10px] text-neutral-500 leading-tight">
+                          {editorial.dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'Client memory only' : 'Ephemeral cloud API'}
+                        </div>
+                      </div>
+
+                      <div class="bg-white border border-neutral-200 p-2 text-[11px] font-mono">
+                        <div class="font-bold text-neutral-900 flex items-center gap-1 mb-0.5">
+                          <span>📦</span>
+                          <span class="truncate">{editorial.dueDiligence.openSource?.isSelfHostable ? 'Self-Hostable' : 'Cloud App'}</span>
+                        </div>
+                        <div class="text-[10px] text-neutral-500 leading-tight">
+                          {editorial.dueDiligence.openSource?.license || (editorial.dueDiligence.openSource?.isRepoVerified ? 'Open Source' : 'Proprietary')}
+                        </div>
+                      </div>
+
+                      <div class="bg-white border border-neutral-200 p-2 text-[11px] font-mono">
+                        <div class="font-bold text-neutral-900 flex items-center gap-1 mb-0.5">
+                          <span>🎨</span>
+                          <span class="truncate">{editorial.dueDiligence.visualCraft?.watermarkFree ? 'Watermark Free' : 'Watermark Traps'}</span>
+                        </div>
+                        <div class="text-[10px] text-neutral-500 leading-tight">
+                          {editorial.dueDiligence.visualCraft?.adPollutionTier === 'zero-ads' ? 'Zero ad pollution' : 'Clean layout'}
+                        </div>
+                      </div>
+
+                      <div class="bg-white border border-neutral-200 p-2 text-[11px] font-mono">
+                        <div class="font-bold text-neutral-900 flex items-center gap-1 mb-0.5">
+                          <span>🔍</span>
+                          <span class="truncate">{editorial.dueDiligence.community?.status === 'community-acclaimed' ? 'Community Acclaimed' : 'Authentic Original'}</span>
+                        </div>
+                        <div class="text-[10px] text-neutral-500 leading-tight truncate">
+                          {editorial.dueDiligence.community?.sources?.join(', ') || 'Verified utility'}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div class="h-full flex flex-col justify-center items-center text-center p-6 space-y-3">

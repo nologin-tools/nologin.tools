@@ -146,12 +146,46 @@ interface BuildData {
 import data from './build-data.json';
 const buildData = data as BuildData;
 
+export interface DueDiligenceEvidence {
+  // 1. 全网社区声誉与信誉穿透 (Web & Community Due Diligence)
+  community?: {
+    status: 'verified-authentic' | 'community-acclaimed' | 'neutral' | 'caution' | 'disputed';
+    sentimentScore?: number; // 0-100
+    summary?: string;
+    sources?: string[];      // e.g. ["Hacker News", "GitHub", "Reddit"]
+  };
+  // 2. 开源生命力与自部署核查 (Open Source & Self-Hostability)
+  openSource?: {
+    isRepoVerified: boolean;
+    isSelfHostable: boolean;    // Verified Dockerfile / docker-compose
+    license?: string;          // MIT, Apache-2.0, etc.
+    vitality?: 'active' | 'maintained' | 'stale' | 'archived' | 'closed-source';
+    repoUrl?: string;
+  };
+  // 3. 真实隐私与网络外溢交叉求证 (Privacy & Data Egress Cross-Check)
+  privacyAudit?: {
+    runtimeClassification: 'Local Only' | 'Cloud Processed' | 'Hybrid';
+    statedPolicyCompliance: 'verified-consistent' | 'acceptable' | 'warning' | 'policy-violation';
+    zeroEgressConfirmed: boolean;
+    dataRetentionPolicy?: string;
+  };
+  // 4. 多模态真视觉审图质检 (Multimodal Visual Review)
+  visualCraft?: {
+    adPollutionTier: 'zero-ads' | 'unobtrusive' | 'ad-supported' | 'intrusive-ads';
+    uiAesthetics: 'exceptional' | 'modern' | 'minimal' | 'antiquated';
+    watermarkFree: boolean;
+    hasDeceptiveElements: boolean;
+    visualProofCaptured: boolean;
+  };
+}
+
 export interface ProductScoreBreakdown {
   overall: number;          // 0-100 overall utility score
   frictionless: number;     // 0-25 instant, friction-free UX
   depth: number;            // 0-30 functional depth & fidelity
   exportFreedom: number;    // 0-25 unrestricted export & outputs
   polish: number;           // 0-20 visual polish & runtime stability
+  factors?: Record<string, string[]>; // explainable reason breakdown per dimension
 }
 
 export type EditorialVerdictTier =
@@ -170,6 +204,7 @@ export interface ToolEditorial {
   verdictTier?: EditorialVerdictTier;
   benchmarkNotes?: string;
   testedAt?: string;
+  dueDiligence?: DueDiligenceEvidence;
 }
 
 import editorialJson from './tool-editorial.json';

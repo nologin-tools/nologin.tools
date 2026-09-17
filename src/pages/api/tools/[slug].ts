@@ -6,8 +6,10 @@ import { tools, tags, healthChecks } from '../../../db/schema';
 import { eq, desc } from 'drizzle-orm';
 import { api } from '../../../lib/api';
 import { HEALTH_TOLERANCE, resolveEffectiveStatus } from '../../../lib/health';
+import { getToolEditorial } from '../../../data/loader';
+import type { Locale } from '../../../i18n/config';
 
-export const GET: APIRoute = async ({ params, locals }) => {
+export const GET: APIRoute = async ({ params, locals, url }) => {
   const db = getDb(locals.runtime.env.DB);
   const { slug } = params;
 
@@ -41,11 +43,28 @@ export const GET: APIRoute = async ({ params, locals }) => {
   const latestHealth = recentChecks[0] || null;
   const effectiveStatus = resolveEffectiveStatus(recentChecks);
 
+  const langParam = (url.searchParams.get('lang') || 'en') as Locale;
+  const editorial = getToolEditorial(tool.slug, langParam);
+
   return api.success({
     ...tool,
     tags: toolTags,
     latestHealth: latestHealth
       ? { ...latestHealth, isOnline: effectiveStatus ?? latestHealth.isOnline }
+      : null,
+    editorial: editorial
+      ? {
+          bestFor: editorial.bestFor || null,
+          pros: editorial.pros || [],
+          cons: editorial.cons || [],
+          privacyVerdict: editorial.privacyVerdict || null,
+          alternativeTo: editorial.alternativeTo || [],
+          productScore: editorial.productScore || null,
+          verdictTier: editorial.verdictTier || null,
+          benchmarkNotes: editorial.benchmarkNotes || null,
+          testedAt: editorial.testedAt || null,
+          dueDiligence: editorial.dueDiligence || null,
+        }
       : null,
   });
 };

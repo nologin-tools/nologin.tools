@@ -77,65 +77,64 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
      - Prioritize approval for client-side privacy-first web apps (e.g., CyberChef, SVGOMG).
      - Automatically populate `repo_url` and assign `source:Open Source`.
 
-5. **Interactive Ego-Browser Dogfooding & Verification Protocol**:
-   For surviving candidates, never rely solely on homepage text or meta descriptions. Execute the standardized dogfooding inspection script:
+5. **Cognitive Agentic Dogfooding & Evaluation Protocol (CADES)**:
+   For candidate tools (both new submissions and rolling audits), never rely solely on homepage marketing text or naive DOM heuristics. Execute the CADES inspection harness:
    ```bash
-   node scripts/inspect-tool-dogfood.mjs "<URL>" --json
+   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --json
    ```
-   Or run with human-readable terminal report:
+   Or run with human-readable terminal output and visual checkpoint links:
    ```bash
-   node scripts/inspect-tool-dogfood.mjs "<URL>"
+   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>"
    ```
 
-   **The Automated Dogfooding Harness Rigorously Verifies**:
-   1. **Initial Blocker & Auth Wall Scan**:
-      - Detects full-screen modal overlays, cookie consent vs blocking auth traps, and pure login/registration entry pages with `<input type="password">`.
-   2. **Interactive Surface Discovery**:
-      - Identifies active inputs (`textarea`, Monaco/CodeMirror editors, `contenteditable`), file dropzones/inputs (`input[type="file"]`), interactive HTML5 canvases, and operational action buttons.
-   3. **Live Core Functional Dogfooding**:
-      - Injects test payload (e.g. JSON structure / text) into input controls.
-      - Triggers core action buttons (`Format`, `Beautify`, `Convert`, `Generate`, `Run`, `Compress`, `Validate`, `Calculate`).
-      - Confirms whether live output/results are rendered without error.
-   4. **Export / Download Gatekeeper Check (Anti-Bait-and-Switch)**:
-      - Searches for and clicks `Download`, `Export`, `Copy`, `Save` controls.
-      - Arms browser download event listener (`page.waitForEvent('download')`).
-      - Strictly catches post-action deceptive traps: newly opened modals demanding "Sign in with Google", "Enter your email to download", or redirection to paywalls/auth routes.
-   5. **Network Traffic & Privacy Architecture Sniffing**:
-      - Hooks in-page `fetch` and `XMLHttpRequest` to capture outgoing network payloads (filtering standard CDN and privacy analytics).
-      - Classifies architecture:
-        - `data: Local Only` & `offline: Offline Capable`: Zero external backend POST payloads, executes client-side (WebAssembly, WebWorker, Canvas).
-        - `data: Cloud Processed` & `offline: Online Only`: User payload is transmitted to remote cloud APIs for server-side processing.
-   6. **Five-Dimension Scorecard (25 Points)**:
-      - `No-Login Completeness (1–5)`: 5 = completely free & unhindered; 1 = bait-and-switch or auth trap.
-      - `Privacy & Architecture (1–5)`: 5 = local-first / Wasm / open-source; 3 = cloud processed; 1 = heavy tracking / ad trap.
-      - `Utility & Independence (1–5)`: 5 = full universal utility; 1 = doorway page / empty template.
-      - `Clean UX & Design (1–5)`: 5 = modern, distraction-free; 1 = ad-cluttered.
-      - `Health & Stability (1–5)`: 5 = fast HTTPS on dedicated domain; 1–2 = hobby subdomains, 404/500 errors.
+   **The CADES Harness Rigorously Executes in 3 Adaptive Stages**:
+   1. **Stage 1: Intent Discovery & Visual Checkpoint 1 (Initial Impression)**:
+      - **Zero Cold-Start Perception**: Tools are submitted with only `url` (no `core_task` exists yet). The harness extracts `<title>`, `meta[description]`, `h1/h2`, visible input placeholders (e.g. `"Paste cURL command..."`, `"Enter crontab..."`), and primary action buttons.
+      - **Visual Checkpoint 1**: Takes an immediate full-screen capture (`/tmp/dogfood-<slug>-intent-*.png`). Checks for dark pattern ad-clutter, deceptive Google AdSense download buttons, and blocking modal overlays.
+      - **Archetype Deduction**: Informs the Agent whether the tool is a JWT debugger, Regex matcher, SQL formatter, cURL converter, Markdown editor, Color palette generator, or Canvas whiteboard.
+   2. **Stage 2: Context-Aware Dual-Modality Dogfooding**:
+      - **Authentic Payload Injection**: Injects context-appropriate data (valid JWT tokens, regex patterns, SQL queries, cURL requests, or Markdown) instead of generic strings that cause syntax crashes in specialized tools.
+      - **Canvas & Palette Interaction**: Simulates spacebar rolls on palette generators, or pointerdown/move strokes on interactive HTML5 canvases.
+      - **Network Privacy Sniffing**: Hooks in-page `fetch` and `XMLHttpRequest` to strictly classify:
+        - `data: Local Only` & `offline: Offline Capable`: Zero external backend POST payloads (Wasm, Canvas, client-side).
+        - `data: Cloud Processed` & `offline: Online Only`: Remote cloud payload transmission.
+      - **Export / Download Gatekeeper**: Arms `download` event listeners and clicks export/copy triggers, strictly detecting post-action bait traps ("Sign in to download", "Enter email").
+   3. **Stage 3: Outcome Delivery & Visual Checkpoint 2 (Verification)**:
+      - **Visual Checkpoint 2**: Captures outcome snapshot (`/tmp/dogfood-<slug>-outcome-*.png`).
+      - **Visual Proof & Watermark Hunt**: Agent views the outcome image to verify that the Canvas/diagram actually rendered (bypassing DOM blindness) and confirms zero burned-in commercial watermarks ("Canva Free", "Trial Version").
+      - **Task Crystallization**: Synthesizes the verified `core_task` directly from successful trial execution.
 
-   **Step 5a: Level 1 — NoLogin Lab Automated Benchmark (Machine Gating — ~5s)**:
-   For every candidate tool, run the specialized domain benchmark runner across its category:
+   **Step 5a: Level 1 — NoLogin Lab Hygiene & Smoke Baseline (~5s)**:
+   Run baseline benchmark to audit TTI, WAF, and hardware acceleration:
    ```bash
    node scripts/lab/benchmark.mjs --url "<URL>" --slug "<slug>" --sync
    ```
-   The harness automatically assigns the category-specific test fixture (`sample.png`, `sample.svg`, `sample.json`, `sample.md`, `sample.wav`, `sample.pdf`), measures TTI & processing latency, inspects exported artifacts for watermarks & format traps, tests zero-egress data leakage, computes the 100-point Product Utility Score, and initializes preliminary editorial notes in `src/data/tool-editorial.json`.
-   - **Hard Gate**: If `productScore.overall < 70`, or if an auth barrier/commercial watermark is detected, **immediately reject the tool** without spending further time.
+   - **Hard Gate**: If `productScore.overall < 70`, or if an auth barrier/commercial watermark is detected, **immediately reject the tool**.
 
-   **Step 5b: Level 2 — Agent Interactive Dogfooding & Deep Workflow Trial (1.5–3 minutes)**:
-   For tools that pass Level 1, the Agent MUST open `ego-browser` and actively interact with the product like a power user.
-   - **Resource Cleanliness Rule**: Use a single TaskSpace and ALWAYS terminate it upon completion:
-     ```javascript
-     ego-browser nodejs <<'EOF'
-     const task = await taskSpace("patrol-review");
-     const page = task.page("p1");
-     await page.goto("<URL>", { waitUntil: "domcontentloaded", timeout: 20000 });
-     // ... perform interactive trial ...
-     await task.finish({ keep: [] }); // MUST release space & tabs
-     EOF
-     ```
-   1. **Multi-Step Functional Workflow**: Exercise core features with non-trivial actions (e.g. adjust settings/sliders, test multiple format exports, toggle rendering modes).
-   2. **Edge Cases & Resilience**: Test malformed inputs, large payload limits, and verify offline behavior if claimed.
-   3. **Hidden Paywall & Pro-Feature Audit**: Click advanced export buttons (e.g. 2x/4x HD export, PDF vectors, batch downloads) to verify no surprise "Sign in to unlock Pro" traps exist.
-   4. **Synthesize Editorial Insights**: Gather authentic first-hand observations to draft the tool's `bestFor`, 3 specific `pros`, 1-2 honest `cons`, and `alternativeTo` in Step 6.
+    **Step 5b: Level 2 — Agent Cognitive Due Diligence & Multi-Pillar Deep Audit (1.5–3 minutes)**:
+    For approved candidates scoring ≥ 70, the Agent MUST unleash its full cognitive capabilities across 4 investigation pillars:
+
+    1. **Pillar 1: Interactive Sandbox Dogfooding & Edge Cases**:
+       - Open `ego-browser` in an isolated TaskSpace (ALWAYS run `await task.finish({ keep: [] })` on completion):
+         - Multi-Step Workflow: Test non-trivial actions (sliders, formats, canvas tools).
+         - Hidden Paywalls: Check 2x/4x HD export or batch downloads for "Sign in to unlock Pro" traps.
+    2. **Pillar 2: Multimodal Visual Quality & Ad Purity**:
+       - Inspect captured snapshots (`/tmp/dogfood-<slug>-intent-*.png` & outcome snapshot):
+         - Ad Clutter: Verify no deceptive Google AdSense download buttons disguised as tool UI.
+         - Watermark Hunt: Inspect rendered image/canvas for burned-in commercial watermarks.
+         - UI Polish: Score visual aesthetics and responsive design.
+    3. **Pillar 3: Community Provenance & Open-Source Vitality**:
+       - Execute `search_web` query: `"<tool-name>" site:news.ycombinator.com OR site:reddit.com`:
+         - Determine community reputation, original author provenance, or known monetization traps.
+       - Check GitHub repository:
+         - Inspect license (MIT, Apache, AGPL), maintenance status, and presence of `Dockerfile` / `docker-compose.yml`.
+         - If Docker / compose is verified, assign `hosting:Self-Hostable` tag!
+    4. **Pillar 4: Privacy Policy Cross-Audit**:
+       - Cross-examine runtime network egress (from Stage 2 network sniffing) against stated privacy policy:
+         - If page claims "100% Client-side in-browser", verify that policy confirms zero server upload.
+         - Discrepancies trigger immediate rejection or demotion.
+    5. **Synthesize Editorial Insights & Due Diligence Evidence**:
+       - Generate authentic `dueDiligence` object and human-grade `bestFor`, `pros`, `cons`, and `alternativeTo`.
 
 6. **Final Evaluation, D1 Write & Multi-Language Translation**:
    - **Approve (Tier S/A: ≥ 22 pts | Tier B: 16–21 pts & Product Score ≥ 70)**:
@@ -144,7 +143,7 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
      - **Synthesize Metadata** (from dogfood inspection results, stripping marketing buzzwords):
        - `name`: Clean brand name from inspection `metadata.name`.
        - `description`: 1-2 objective, factual English sentences explaining exact capabilities and processing mode.
-       - `core_task`: Action phrase summarizing the no-login utility (e.g., "Format and validate JSON data in browser").
+       - `core_task`: Action phrase summarizing the verified no-login utility crystallized in Stage 3.
        - `repo_url`: Extracted GitHub repository URL if present.
        - `category`: Exactly one of the 11 valid categories (`AI`, `Design`, `Writing`, `Development`, `Productivity`, `Utilities`, `Media`, `Security`, `Math`, `Finance`, `Privacy`).
        - `tags`: Generated taxonomy tags:
@@ -243,29 +242,68 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
 
 ---
 
-### Phase 2b: Rolling NoLogin Lab Regression & Anti-Trap Patrol (100 Tools)
+### Phase 2: Dual-Track Daily Rolling Patrol & Continuous Dogfooding
 
-To prevent existing approved tools from silently introducing commercial watermarks, export login walls, or performance degradation, the daily patrol executes empirical regression testing on a rolling batch of 100 tools:
+To prevent approved tools from silently introducing commercial watermarks, export login walls, or suffering from stale descriptions, the daily patrol operates on a **Dual-Track Cadence** across the ~296 approved tools catalog:
 
-1. **Execute Rolling Benchmark**:
-   ```bash
-   node scripts/lab/benchmark.mjs --rolling 100 --sync
+#### Track A: High-Frequency Liveness & Dead-Link Patrol (100 Tools)
+1. Select 100 approved tools using dynamic priority:
+   - Priority 1: Tools currently marked `status = 'unstable'` (recheck for recovery).
+   - Priority 2: Tools on high-churn platform subdomains (`%.vercel.app%`, `%.pages.dev%`, `%.netlify.app%`, `%.hf.space%`) not checked in the last 24 hours.
+   - Priority 3: Tools with oldest or missing `last_checked_at` in `health_checks`.
+   ```sql
+   SELECT t.id, t.name, t.url, t.status, t.repo_url,
+          (SELECT MAX(checked_at) FROM health_checks WHERE tool_id = t.id) as last_checked
+   FROM tools t
+   WHERE t.status IN ('approved', 'unstable')
+   ORDER BY
+     (CASE WHEN t.status = 'unstable' THEN 0
+           WHEN t.url LIKE '%.vercel.app%' OR t.url LIKE '%.pages.dev%' OR t.url LIKE '%.netlify.app%' THEN 1
+           ELSE 2 END) ASC,
+     last_checked ASC NULLS FIRST
+   LIMIT 100;
    ```
-   *The `--rolling` engine automatically prioritizes: (1) approved tools that lack a `productScore` in `src/data/tool-editorial.json`, and (2) tools with the oldest `testedAt` dates for 3-day rapid rolling freshness (auditing the entire catalog of ~296 tools every 3 days).*
-2. **Regression & Trap Check (Level 1 → Level 2 Escalation)**:
-   - If Level 1 automated benchmark flags an anomaly (auth interception, watermark detected, broken export, or score dropping below 70), the Agent MUST trigger a **Level 2 Interactive Deep Retest in `ego-browser` (1.5–3 mins)** to investigate and confirm the regression:
-     - **Confirmed Degradation / Violation**:
-       - Demote tool status:
-         ```sql
-         UPDATE tools SET status = 'unstable', rejection_reason = '日常复测异常: 发现后置诱导登录、强制商业水印或导出中断' WHERE slug = ?;
-         ```
-       - Remove `is_featured` flag if present:
-         ```sql
-         UPDATE tools SET is_featured = 0, featured_at = NULL WHERE slug = ?;
-         ```
-     - **False Alarm / Legitimate Minor Change**: Update notes and retain approved status.
-   - If Level 1 passes cleanly without issues:
-     - The runner automatically refreshes `productScore`, `verdictTier`, `benchmarkNotes`, and `testedAt` in `src/data/tool-editorial.json`.
+2. For each tool:
+   - Check connectivity and latency.
+   - Record check in `health_checks`:
+     ```sql
+     INSERT INTO health_checks (tool_id, checked_at, is_online, http_status, response_time_ms)
+     VALUES (?, unixepoch(), ?, ?, ?);
+     ```
+   - If site is dead (404, DNS error, expired parking page):
+     - Mark as `unstable`: `UPDATE tools SET status = 'unstable' WHERE id = ?;`
+
+#### Track B: Rolling Scheduled CADES Level 2 Dogfooding (15–25 Tools/Day)
+**Never restrict Level 2 solely to anomalies.** Normal-looking homepages can hide post-action paywalls, burned-in watermarks, and feature upgrades. All ~296 approved tools must cycle through full Level 2 CADES dogfooding on a rolling 12–15 day cadence:
+1. **Execute Rolling CADES Dogfooding**:
+   ```bash
+   node scripts/inspect-tool-dogfood.mjs --rolling 20 --sync
+   ```
+   *The `--rolling` engine automatically sorts by oldest `testedAt` first, ensuring every tool is thoroughly dogfooded every 2 weeks.*
+2. **What CADES Continuously Audits**:
+   - **Post-Action Traps**: Clicks export/download buttons to verify no silent "Sign in to download" paywalls were added.
+   - **Visual Watermark Hunt**: Inspects outcome screenshots to catch commercial watermarks or broken canvas renders.
+   - **Metadata Self-Healing**: Automatically detects functional drift and updates `core_task` and `description` in D1 if the tool expanded features:
+     ```sql
+     UPDATE tools SET core_task = ?, description = ? WHERE slug = ?;
+     ```
+   - **Freshness**: Refreshes `tool-editorial.json` with updated `testedAt` and empirical scores.
+
+#### Track C: Immediate Anomaly Escalation Protocol
+If Track A (or user feedback) flags unexpected 301/302 redirects, title changes, or connection drops on an approved tool:
+1. Immediately prioritize the tool into a single-tool CADES inspection:
+   ```bash
+   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --existing-task "<core_task>"
+   ```
+2. If degradation or login trap is confirmed:
+   - Mark as `unstable`:
+     ```sql
+     UPDATE tools SET status = 'unstable', rejection_reason = '日常复测异常: 发现后置诱导登录、强制商业水印或导出中断' WHERE slug = ?;
+     ```
+   - Remove `is_featured` if present:
+     ```sql
+     UPDATE tools SET is_featured = 0, featured_at = NULL WHERE slug = ?;
+     ```
 
 ---
 

@@ -116,6 +116,45 @@ describe('Developer API v1 Core Logic', () => {
       assert.equal(serialized.capabilities.free, true);
       assert.equal(serialized.isFeatured, false);
     });
+
+    it('serializes modern editorial intelligence, productScore, and dueDiligence', () => {
+      const mockEditorial = {
+        bestFor: 'Mock best for',
+        pros: ['Pro 1'],
+        cons: ['Con 1'],
+        privacyVerdict: 'Local only',
+        alternativeTo: ['Competitor A'],
+        productScore: {
+          overall: 95,
+          frictionless: 25,
+          depth: 28,
+          exportFreedom: 24,
+          polish: 18,
+          factors: {
+            frictionless: ['Instant access']
+          }
+        },
+        verdictTier: 'editors-choice',
+        benchmarkNotes: 'Lab notes pass',
+        testedAt: '2026-09',
+        dueDiligence: {
+          community: { status: 'community-acclaimed', sentimentScore: 98 },
+          openSource: { isRepoVerified: true, isSelfHostable: true },
+          privacyAudit: { runtimeClassification: 'Local Only', zeroEgressConfirmed: true },
+          visualCraft: { watermarkFree: true, adPollutionTier: 'zero-ads' }
+        }
+      };
+
+      const serialized = serializeApiTool(MOCK_TOOLS[0], 'en', null, mockEditorial);
+      assert.ok(serialized.editorial);
+      assert.equal(serialized.editorial.bestFor, 'Mock best for');
+      assert.equal(serialized.editorial.verdictTier, 'editors-choice');
+      assert.equal(serialized.editorial.productScore.overall, 95);
+      assert.equal(serialized.editorial.dueDiligence.community.status, 'community-acclaimed');
+      assert.equal(serialized.editorial.dueDiligence.openSource.isSelfHostable, true);
+      assert.equal(serialized.editorial.dueDiligence.privacyAudit.zeroEgressConfirmed, true);
+      assert.equal(serialized.editorial.dueDiligence.visualCraft.watermarkFree, true);
+    });
   });
 
   describe('filterApiTools', () => {

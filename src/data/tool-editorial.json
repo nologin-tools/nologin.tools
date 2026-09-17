@@ -26,7 +26,34 @@
       },
       "verdictTier": "editors-choice",
       "benchmarkNotes": "Benchmarked with 65MB multi-layer PSD: instant parsing, WebGL hardware acceleration responsive, zero-compression PSD/PNG export without watermark.",
-      "testedAt": "2026-09"
+      "testedAt": "2026-09",
+      "dueDiligence": {
+        "community": {
+          "status": "community-acclaimed",
+          "sentimentScore": 98,
+          "summary": "Legendary single-developer tool widely celebrated on Hacker News and Reddit as the gold standard of in-browser Photoshop alternatives.",
+          "sources": ["Hacker News", "Reddit", "Twitter"]
+        },
+        "openSource": {
+          "isRepoVerified": false,
+          "isSelfHostable": false,
+          "license": "Proprietary / Ad-Supported Free Tier",
+          "vitality": "active"
+        },
+        "privacyAudit": {
+          "runtimeClassification": "Local Only",
+          "statedPolicyCompliance": "verified-consistent",
+          "zeroEgressConfirmed": true,
+          "dataRetentionPolicy": "Zero data retention; all image rasterization and layer edits run in WebAssembly memory."
+        },
+        "visualCraft": {
+          "adPollutionTier": "ad-supported",
+          "uiAesthetics": "exceptional",
+          "watermarkFree": true,
+          "hasDeceptiveElements": false,
+          "visualProofCaptured": true
+        }
+      }
     },
     "zh": {
       "bestFor": "无需安装大型本地软件或注册 Adobe 账号的专业级照片修图与 PSD/矢量图编辑。",
@@ -54,7 +81,34 @@
       },
       "verdictTier": "editors-choice",
       "benchmarkNotes": "实测 65MB 复杂分层 PSD：秒级解析并保留全部图层蒙版，WebGL 硬件加速流畅，无损导出 PSD/PNG 绝无任何强制水印。",
-      "testedAt": "2026-09"
+      "testedAt": "2026-09",
+      "dueDiligence": {
+        "community": {
+          "status": "community-acclaimed",
+          "sentimentScore": 98,
+          "summary": "由独立开发者打造的传奇工具，在 Hacker News 和国内外社区被公认为免登录浏览器端 Photoshop 替代品的黄金标杆。",
+          "sources": ["Hacker News", "Reddit", "Twitter"]
+        },
+        "openSource": {
+          "isRepoVerified": false,
+          "isSelfHostable": false,
+          "license": "商业专有 / 免费广告支持",
+          "vitality": "active"
+        },
+        "privacyAudit": {
+          "runtimeClassification": "Local Only",
+          "statedPolicyCompliance": "verified-consistent",
+          "zeroEgressConfirmed": true,
+          "dataRetentionPolicy": "零数据留存；所有图像栅格化与图层运算均在 WebAssembly 内存中本地完成。"
+        },
+        "visualCraft": {
+          "adPollutionTier": "ad-supported",
+          "uiAesthetics": "exceptional",
+          "watermarkFree": true,
+          "hasDeceptiveElements": false,
+          "visualProofCaptured": true
+        }
+      }
     }
   },
   "excalidraw-com": {

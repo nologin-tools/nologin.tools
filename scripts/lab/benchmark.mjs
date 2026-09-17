@@ -250,6 +250,7 @@ async function main() {
         console.log(`     • Stability & Polish: ${res.productScore.polish}/20`);
         console.log(`  📝 Lab Note (EN): "${res.labNotes.en}"`);
         console.log(`  📝 Lab Note (ZH): "${res.labNotes.zh}"`);
+        console.log(`  💡 Deep CADES Dogfooding: node scripts/inspect-tool-dogfood.mjs "${item.url}" --slug "${item.slug || ''}"`);
 
         if (shouldSync && item.slug && editorialData) {
           if (!editorialData[item.slug]) {
