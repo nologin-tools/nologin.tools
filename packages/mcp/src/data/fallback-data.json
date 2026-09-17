@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-09-16T05:06:43.671Z",
+  "generatedAt": "2026-09-16T11:05:54.162Z",
   "tools": [
     {
       "id": 1,
@@ -30,7 +30,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.619Z"
+        "checkedAt": "2026-09-16T11:05:54.143Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/nologin-tools.svg",
@@ -103,12 +103,12 @@
       "hostname": "led.run",
       "favicon": "https://www.google.com/s2/favicons?domain=led.run&sz=32",
       "description": "A browser-based display toolkit that turns any screen into a LED sign, light effect, sound visualizer, clock, QR code, or camera filter. Supports dozens of themes and modes — no app, no account, just a URL.",
-      "coreTask": "Display scrolling text, light effects, sound visualizers, clocks, QR codes, and camera filters — all directly in the browser without any login or account",
+      "coreTask": "Display scrolling text, light effects, sound visualizers, clocks, and QR codes in your browser",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-02-19T17:55:38.000Z",
-      "badgeDisplayType": "implicit",
+      "badgeDisplayType": "explicit",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": true,
@@ -123,7 +123,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.627Z"
+        "checkedAt": "2026-09-16T11:05:54.144Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/led-run.svg",
@@ -196,7 +196,7 @@
       "hostname": "tmp.tf",
       "favicon": "https://www.google.com/s2/favicons?domain=tmp.tf&sz=32",
       "description": "A temporary clipboard tool that lets you sync text and content across devices in seconds. No signup required, end-to-end encrypted, and content auto self-destructs. Simply open a named channel and paste from any device.",
-      "coreTask": "Open a channel and sync text across devices without any account or login",
+      "coreTask": "Open a channel and sync text across devices in real time",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -211,7 +211,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tmp-tf.svg",
@@ -299,7 +299,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/til-re.svg",
@@ -386,13 +386,13 @@
       },
       "repository": {
         "url": "https://github.com/excalidraw/excalidraw",
-        "stars": 130336,
+        "stars": 132100,
         "license": "MIT",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/excalidraw-com.svg",
@@ -439,7 +439,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/excalidraw/excalidraw",
               "OSI-recognized open license: MIT",
-              "130,336 GitHub community stars"
+              "132,100 GitHub community stars"
             ]
           },
           "resilience": {
@@ -492,7 +492,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/photopea-com.svg",
@@ -591,13 +591,13 @@
       },
       "repository": {
         "url": "https://github.com/tldraw/tldraw",
-        "stars": 49910,
+        "stars": 50383,
         "license": "NOASSERTION",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tldraw-com.svg",
@@ -644,7 +644,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/tldraw/tldraw",
               "OSI-recognized open license: NOASSERTION",
-              "49,910 GitHub community stars"
+              "50,383 GitHub community stars"
             ]
           },
           "resilience": {
@@ -696,13 +696,13 @@
       },
       "repository": {
         "url": "https://github.com/GoogleChromeLabs/squoosh",
-        "stars": 25635,
+        "stars": 25889,
         "license": "Apache-2.0",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/squoosh-app.svg",
@@ -749,7 +749,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/GoogleChromeLabs/squoosh",
               "OSI-recognized open license: Apache-2.0",
-              "25,635 GitHub community stars"
+              "25,889 GitHub community stars"
             ]
           },
           "resilience": {
@@ -802,7 +802,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.663Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/remove-bg.svg",
@@ -902,7 +902,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/hemingwayapp-com.svg",
@@ -1007,7 +1007,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/languagetool-org.svg",
@@ -1106,13 +1106,13 @@
       },
       "repository": {
         "url": "https://github.com/joemccann/dillinger",
-        "stars": 8271,
+        "stars": 8280,
         "license": "MIT",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/dillinger-io.svg",
@@ -1159,7 +1159,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/joemccann/dillinger",
               "OSI-recognized open license: MIT",
-              "8,271 GitHub community stars"
+              "8,280 GitHub community stars"
             ]
           },
           "resilience": {
@@ -1212,7 +1212,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/regex101-com.svg",
@@ -1311,13 +1311,13 @@
       },
       "repository": {
         "url": "https://github.com/fyrd/caniuse",
-        "stars": 5863,
+        "stars": 5875,
         "license": "CC-BY-4.0",
         "language": "JSON"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/caniuse-com.svg",
@@ -1364,7 +1364,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/fyrd/caniuse",
               "OSI-recognized open license: CC-BY-4.0",
-              "5,863 GitHub community stars"
+              "5,875 GitHub community stars"
             ]
           },
           "resilience": {
@@ -1422,7 +1422,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/devdocs-io.svg",
@@ -1521,13 +1521,13 @@
       },
       "repository": {
         "url": "https://github.com/carbon-app/carbon",
-        "stars": 36088,
+        "stars": 36103,
         "license": "MIT",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/carbon-now-sh.svg",
@@ -1574,7 +1574,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/carbon-app/carbon",
               "OSI-recognized open license: MIT",
-              "36,088 GitHub community stars"
+              "36,103 GitHub community stars"
             ]
           },
           "resilience": {
@@ -1627,7 +1627,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/jsonformatter-org.svg",
@@ -1727,7 +1727,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tools-pdf24-org-en.svg",
@@ -1827,7 +1827,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tinywow-com.svg",
@@ -1927,7 +1927,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pomofocus-io.svg",
@@ -2027,7 +2027,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/omnicalculator-com.svg",
@@ -2127,7 +2127,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/ezgif-com.svg",
@@ -2227,7 +2227,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/audiotrimmer-com.svg",
@@ -2326,13 +2326,13 @@
       },
       "repository": {
         "url": "https://github.com/convertio/convertio-php",
-        "stars": 276,
+        "stars": 277,
         "license": null,
         "language": "PHP"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/convertio-co.svg",
@@ -2432,7 +2432,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/haveibeenpwned-com.svg",
@@ -2532,7 +2532,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/temp-mail-org.svg",
@@ -2631,13 +2631,13 @@
       },
       "repository": {
         "url": "https://github.com/privacytests/privacytests.org",
-        "stars": 1199,
+        "stars": 1224,
         "license": "MIT",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/privacytests-org.svg",
@@ -2684,7 +2684,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/privacytests/privacytests.org",
               "OSI-recognized open license: MIT",
-              "1,199 GitHub community stars"
+              "1,224 GitHub community stars"
             ]
           },
           "resilience": {
@@ -2742,7 +2742,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/csvjson-com.svg",
@@ -2847,7 +2847,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/jsoncrack-com.svg",
@@ -2947,7 +2947,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tableconvert-com.svg",
@@ -3046,13 +3046,13 @@
       },
       "repository": {
         "url": "https://github.com/jitsi/jitsi-meet",
-        "stars": 29795,
+        "stars": 29926,
         "license": "Apache-2.0",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/meet-jit-si.svg",
@@ -3099,7 +3099,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/jitsi/jitsi-meet",
               "OSI-recognized open license: Apache-2.0",
-              "29,795 GitHub community stars"
+              "29,926 GitHub community stars"
             ]
           },
           "resilience": {
@@ -3152,7 +3152,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/desmos-com-calculator.svg",
@@ -3252,7 +3252,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/wolframalpha-com.svg",
@@ -3351,13 +3351,13 @@
       },
       "repository": {
         "url": "https://github.com/geogebra/geogebra",
-        "stars": 2312,
+        "stars": 2331,
         "license": null,
         "language": "Java"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/geogebra-org-calculator.svg",
@@ -3457,7 +3457,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/xe-com-currencyconverter.svg",
@@ -3557,7 +3557,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/investor-gov-financial-tools-calculators-calculators-compound-interest-calculator.svg",
@@ -3645,7 +3645,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/wise-com-gb-currency-converter.svg",
@@ -3745,7 +3745,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/coolors-co.svg",
@@ -3844,13 +3844,13 @@
       },
       "repository": {
         "url": "https://github.com/jakearchibald/svgomg",
-        "stars": 6194,
+        "stars": 6197,
         "license": "MIT",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/jakearchibald-github-io-svgomg.svg",
@@ -3897,7 +3897,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/jakearchibald/svgomg",
               "OSI-recognized open license: MIT",
-              "6,194 GitHub community stars"
+              "6,197 GitHub community stars"
             ]
           },
           "resilience": {
@@ -3949,13 +3949,13 @@
       },
       "repository": {
         "url": "https://github.com/twitter/twemoji",
-        "stars": 17722,
+        "stars": 17781,
         "license": "MIT",
         "language": "HTML"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/favicon-io.svg",
@@ -4002,7 +4002,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/twitter/twemoji",
               "OSI-recognized open license: MIT",
-              "17,722 GitHub community stars"
+              "17,781 GitHub community stars"
             ]
           },
           "resilience": {
@@ -4060,7 +4060,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tinypng-com.svg",
@@ -4165,7 +4165,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/app-diagrams-net.svg",
@@ -4264,13 +4264,13 @@
       },
       "repository": {
         "url": "https://github.com/gchq/CyberChef",
-        "stars": 35558,
+        "stars": 35852,
         "license": "Apache-2.0",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/gchq-github-io-cyberchef.svg",
@@ -4317,7 +4317,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/gchq/CyberChef",
               "OSI-recognized open license: Apache-2.0",
-              "35,558 GitHub community stars"
+              "35,852 GitHub community stars"
             ]
           },
           "resilience": {
@@ -4369,13 +4369,13 @@
       },
       "repository": {
         "url": "https://github.com/microsoft/TypeScript",
-        "stars": 110179,
+        "stars": 111069,
         "license": "Apache-2.0",
-        "language": "TypeScript"
+        "language": "Go"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/typescriptlang-org-play.svg",
@@ -4422,7 +4422,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/microsoft/TypeScript",
               "OSI-recognized open license: Apache-2.0",
-              "110,179 GitHub community stars"
+              "111,069 GitHub community stars"
             ]
           },
           "resilience": {
@@ -4480,7 +4480,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/crontab-guru.svg",
@@ -4579,13 +4579,13 @@
       },
       "repository": {
         "url": "https://github.com/pastelsky/bundlephobia",
-        "stars": 9574,
+        "stars": 9587,
         "license": "MIT",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/bundlephobia-com.svg",
@@ -4632,7 +4632,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/pastelsky/bundlephobia",
               "OSI-recognized open license: MIT",
-              "9,574 GitHub community stars"
+              "9,587 GitHub community stars"
             ]
           },
           "resilience": {
@@ -4690,7 +4690,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/explainshell-com.svg",
@@ -4789,13 +4789,13 @@
       },
       "repository": {
         "url": "https://github.com/webhooksite/webhook.site",
-        "stars": 6702,
+        "stars": 6751,
         "license": "NOASSERTION",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/webhook-site.svg",
@@ -4842,7 +4842,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/webhooksite/webhook.site",
               "OSI-recognized open license: NOASSERTION",
-              "6,702 GitHub community stars"
+              "6,751 GitHub community stars"
             ]
           },
           "resilience": {
@@ -4888,7 +4888,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/it-tools-tech.svg",
@@ -4976,7 +4976,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/ray-so.svg",
@@ -5064,7 +5064,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/fast-com.svg",
@@ -5152,7 +5152,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/worldtimebuddy-com.svg",
@@ -5245,7 +5245,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/excalideck-com.svg",
@@ -5333,7 +5333,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/vocalremover-org.svg",
@@ -5421,7 +5421,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/browserleaks-com.svg",
@@ -5514,7 +5514,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/coveryourtracks-eff-org.svg",
@@ -5602,7 +5602,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/virustotal-com.svg",
@@ -5695,7 +5695,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pairdrop-net.svg",
@@ -5783,7 +5783,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/privnote-com.svg",
@@ -5876,7 +5876,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/sharedrop-io.svg",
@@ -5964,7 +5964,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/db-fiddle-com.svg",
@@ -6057,7 +6057,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/mockaroo-com.svg",
@@ -6144,13 +6144,13 @@
       },
       "repository": {
         "url": "https://github.com/thomaspark/flexboxfroggy",
-        "stars": 7383,
+        "stars": 7385,
         "license": "MIT",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/flexboxfroggy-com.svg",
@@ -6197,7 +6197,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/thomaspark/flexboxfroggy",
               "OSI-recognized open license: MIT",
-              "7,383 GitHub community stars"
+              "7,385 GitHub community stars"
             ]
           },
           "resilience": {
@@ -6243,7 +6243,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/cssgridgarden-com.svg",
@@ -6331,7 +6331,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/numbeo-com.svg",
@@ -6419,7 +6419,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/themeasureofaplan-com.svg",
@@ -6506,13 +6506,13 @@
       },
       "repository": {
         "url": "https://github.com/compiler-explorer/compiler-explorer",
-        "stars": 18985,
+        "stars": 19072,
         "license": "BSD-2-Clause",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/godbolt-org.svg",
@@ -6559,7 +6559,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/compiler-explorer/compiler-explorer",
               "OSI-recognized open license: BSD-2-Clause",
-              "18,985 GitHub community stars"
+              "19,072 GitHub community stars"
             ]
           },
           "resilience": {
@@ -6599,13 +6599,13 @@
       },
       "repository": {
         "url": "https://github.com/rust-lang/rust-playground",
-        "stars": 1429,
+        "stars": 1432,
         "license": "Apache-2.0",
         "language": "Rust"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/play-rust-lang-org.svg",
@@ -6652,7 +6652,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/rust-lang/rust-playground",
               "OSI-recognized open license: Apache-2.0",
-              "1,429 GitHub community stars"
+              "1,432 GitHub community stars"
             ]
           },
           "resilience": {
@@ -6698,7 +6698,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/go-dev-play.svg",
@@ -6791,7 +6791,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/hoppscotch-io.svg",
@@ -6884,7 +6884,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/astexplorer-net.svg",
@@ -6977,7 +6977,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/mermaid-live.svg",
@@ -7064,13 +7064,13 @@
       },
       "repository": {
         "url": "https://github.com/HTeuMeuLeu/caniemail",
-        "stars": 940,
+        "stars": 943,
         "license": "MIT",
         "language": "HTML"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/caniemail-com.svg",
@@ -7117,7 +7117,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/HTeuMeuLeu/caniemail",
               "OSI-recognized open license: MIT",
-              "940 GitHub community stars"
+              "943 GitHub community stars"
             ]
           },
           "resilience": {
@@ -7158,7 +7158,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/npmtrends-com.svg",
@@ -7245,13 +7245,13 @@
       },
       "repository": {
         "url": "https://github.com/badges/shields",
-        "stars": 27057,
+        "stars": 27189,
         "license": "Apache-2.0",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/shields-io.svg",
@@ -7298,7 +7298,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/badges/shields",
               "OSI-recognized open license: Apache-2.0",
-              "27,057 GitHub community stars"
+              "27,189 GitHub community stars"
             ]
           },
           "resilience": {
@@ -7338,13 +7338,13 @@
       },
       "repository": {
         "url": "https://github.com/requests/httpbin",
-        "stars": 13604,
+        "stars": 13619,
         "license": "ISC",
         "language": "Python"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/httpbin-org.svg",
@@ -7391,7 +7391,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/requests/httpbin",
               "OSI-recognized open license: ISC",
-              "13,604 GitHub community stars"
+              "13,619 GitHub community stars"
             ]
           },
           "resilience": {
@@ -7431,13 +7431,13 @@
       },
       "repository": {
         "url": "https://github.com/prettier/prettier",
-        "stars": 52230,
+        "stars": 52332,
         "license": "MIT",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/prettier-io-playground.svg",
@@ -7484,7 +7484,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/prettier/prettier",
               "OSI-recognized open license: MIT",
-              "52,230 GitHub community stars"
+              "52,332 GitHub community stars"
             ]
           },
           "resilience": {
@@ -7525,7 +7525,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/wave-webaim-org.svg",
@@ -7613,7 +7613,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/metatags-io.svg",
@@ -7701,7 +7701,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/haikei-app.svg",
@@ -7789,7 +7789,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/cssgradient-io.svg",
@@ -7877,7 +7877,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/getwaves-io.svg",
@@ -7964,13 +7964,13 @@
       },
       "repository": {
         "url": "https://github.com/juxtopposed/realtimecolors",
-        "stars": 927,
+        "stars": 929,
         "license": "NOASSERTION",
         "language": null
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/realtimecolors-com.svg",
@@ -8017,7 +8017,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/juxtopposed/realtimecolors",
               "OSI-recognized open license: NOASSERTION",
-              "927 GitHub community stars"
+              "929 GitHub community stars"
             ]
           },
           "resilience": {
@@ -8058,7 +8058,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/colorhunt-co.svg",
@@ -8151,7 +8151,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/neumorphism-io.svg",
@@ -8238,13 +8238,13 @@
       },
       "repository": {
         "url": "https://github.com/Jack000/fontjoy",
-        "stars": 1430,
+        "stars": 1433,
         "license": "MIT",
         "language": null
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/fontjoy-com.svg",
@@ -8291,7 +8291,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/Jack000/fontjoy",
               "OSI-recognized open license: MIT",
-              "1,430 GitHub community stars"
+              "1,433 GitHub community stars"
             ]
           },
           "resilience": {
@@ -8332,7 +8332,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/typescale-com.svg",
@@ -8420,7 +8420,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/uicolors-app.svg",
@@ -8508,7 +8508,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/happyhues-co.svg",
@@ -8601,7 +8601,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/cubic-bezier-com.svg",
@@ -8694,7 +8694,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/stackedit-io.svg",
@@ -8782,7 +8782,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/rentry-co.svg",
@@ -8869,13 +8869,13 @@
       },
       "repository": {
         "url": "https://github.com/monkeytypegame/monkeytype",
-        "stars": 20671,
+        "stars": 20710,
         "license": "GPL-3.0",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/monkeytype-com.svg",
@@ -8922,7 +8922,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/monkeytypegame/monkeytype",
               "OSI-recognized open license: GPL-3.0",
-              "20,671 GitHub community stars"
+              "20,710 GitHub community stars"
             ]
           },
           "resilience": {
@@ -8962,13 +8962,13 @@
       },
       "repository": {
         "url": "https://github.com/tholman/zenpen",
-        "stars": 3767,
+        "stars": 3768,
         "license": "MIT",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/zenpen-io.svg",
@@ -9015,7 +9015,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/tholman/zenpen",
               "OSI-recognized open license: MIT",
-              "3,767 GitHub community stars"
+              "3,768 GitHub community stars"
             ]
           },
           "resilience": {
@@ -9056,7 +9056,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/visualgo-net.svg",
@@ -9149,7 +9149,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/flukeout-github-io.svg",
@@ -9237,7 +9237,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pythontutor-com.svg",
@@ -9324,13 +9324,13 @@
       },
       "repository": {
         "url": "https://github.com/aykutkardas/regexlearn.com",
-        "stars": 4090,
+        "stars": 4099,
         "license": "MIT",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/regexlearn-com.svg",
@@ -9377,7 +9377,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/aykutkardas/regexlearn.com",
               "OSI-recognized open license: MIT",
-              "4,090 GitHub community stars"
+              "4,099 GitHub community stars"
             ]
           },
           "resilience": {
@@ -9423,7 +9423,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/mystery-knightlab-com.svg",
@@ -9516,7 +9516,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/sortvisualizer-com.svg",
@@ -9604,7 +9604,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/dnsleaktest-com.svg",
@@ -9692,7 +9692,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/ipleak-net.svg",
@@ -9780,7 +9780,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/securityheaders-com.svg",
@@ -9873,7 +9873,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/rawgraphs-io.svg",
@@ -9966,7 +9966,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/transform-tools.svg",
@@ -10059,7 +10059,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/geojson-io.svg",
@@ -10152,7 +10152,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/markmap-js-org.svg",
@@ -10240,7 +10240,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/photomosh-com.svg",
@@ -10328,7 +10328,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/animista-net.svg",
@@ -10416,7 +10416,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/mp3cut-net.svg",
@@ -10504,7 +10504,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/svgrepo-com.svg",
@@ -10592,7 +10592,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/speed-cloudflare-com.svg",
@@ -10680,7 +10680,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/musicforprogramming-net.svg",
@@ -10768,7 +10768,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/copychar-cc.svg",
@@ -10856,7 +10856,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/time-is.svg",
@@ -10923,11 +10923,11 @@
     },
     {
       "id": 119,
-      "slug": "archive-today",
+      "slug": "archive-ph",
       "name": "Archive.today",
-      "url": "https://archive.today",
-      "hostname": "archive.today",
-      "favicon": "https://www.google.com/s2/favicons?domain=archive.today&sz=32",
+      "url": "https://archive.ph/",
+      "hostname": "archive.ph",
+      "favicon": "https://www.google.com/s2/favicons?domain=archive.ph&sz=32",
       "description": "Save permanent snapshots of web pages. Archive any URL to preserve its content — useful for citations, research, and bypassing paywalls.",
       "coreTask": "Archive web page snapshots",
       "category": "Productivity",
@@ -10944,17 +10944,17 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.159Z"
       },
       "badges": {
-        "statusBadgeSvg": "https://nologin.tools/api/badge/archive-today.svg",
+        "statusBadgeSvg": "https://nologin.tools/api/badge/archive-ph.svg",
         "embedFlatSvg": "https://nologin.tools/badges/flat.svg",
         "embedFlatDarkSvg": "https://nologin.tools/badges/flat-dark.svg",
-        "certificatePage": "https://nologin.tools/badge/archive-today"
+        "certificatePage": "https://nologin.tools/badge/archive-ph"
       },
       "links": {
-        "canonical": "https://nologin.tools/tool/archive-today",
-        "audit": "https://nologin.tools/tool/archive-today"
+        "canonical": "https://nologin.tools/tool/archive-ph",
+        "audit": "https://nologin.tools/tool/archive-ph"
       },
       "scorecard": {
         "overallGrade": "B+",
@@ -11032,7 +11032,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/qrcode-monkey-com.svg",
@@ -11119,13 +11119,13 @@
       },
       "repository": {
         "url": "https://github.com/jhaals/yopass",
-        "stars": 3131,
+        "stars": 3133,
         "license": "Apache-2.0",
         "language": "Go"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/yopass-se.svg",
@@ -11172,7 +11172,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/jhaals/yopass",
               "OSI-recognized open license: Apache-2.0",
-              "3,131 GitHub community stars"
+              "3,133 GitHub community stars"
             ]
           },
           "resilience": {
@@ -11213,7 +11213,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/wormhole-app.svg",
@@ -11306,7 +11306,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/ficalc-app.svg",
@@ -11394,7 +11394,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/financier-io.svg",
@@ -11482,7 +11482,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/duck-ai.svg",
@@ -11570,7 +11570,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/chatgpt-com.svg",
@@ -11658,7 +11658,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/perplexity-ai.svg",
@@ -11746,7 +11746,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/z-ai.svg",
@@ -11834,7 +11834,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/deepl-com-translator.svg",
@@ -11922,7 +11922,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/quillbot-com.svg",
@@ -12010,7 +12010,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/craiyon-com.svg",
@@ -12097,13 +12097,13 @@
       },
       "repository": {
         "url": "https://github.com/googlecreativelab/teachablemachine-community",
-        "stars": 1726,
+        "stars": 1733,
         "license": "Apache-2.0",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/teachablemachine-withgoogle-com.svg",
@@ -12150,7 +12150,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/googlecreativelab/teachablemachine-community",
               "OSI-recognized open license: Apache-2.0",
-              "1,726 GitHub community stars"
+              "1,733 GitHub community stars"
             ]
           },
           "resilience": {
@@ -12190,13 +12190,13 @@
       },
       "repository": {
         "url": "https://github.com/tensorflow/playground",
-        "stars": 12998,
+        "stars": 13021,
         "license": "Apache-2.0",
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/playground-tensorflow-org.svg",
@@ -12243,7 +12243,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/tensorflow/playground",
               "OSI-recognized open license: Apache-2.0",
-              "12,998 GitHub community stars"
+              "13,021 GitHub community stars"
             ]
           },
           "resilience": {
@@ -12284,7 +12284,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.664Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/goblin-tools.svg",
@@ -12362,7 +12362,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-02-23T08:41:46.000Z",
-      "badgeDisplayType": "none",
+      "badgeDisplayType": "implicit",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -12377,7 +12377,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/askmeanythi-ng.svg",
@@ -12464,13 +12464,13 @@
       },
       "repository": {
         "url": "https://github.com/chekun/cookies-extractor",
-        "stars": 0,
+        "stars": 1,
         "license": null,
         "language": "TypeScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/cookies-extractor-chekun-me.svg",
@@ -12563,7 +12563,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/siteage-org.svg",
@@ -12636,7 +12636,7 @@
       "hostname": "next-tools.dev",
       "favicon": "https://www.google.com/s2/favicons?domain=next-tools.dev&sz=32",
       "description": "This is a tool website forked from it-tools, containing 100+ tools.",
-      "coreTask": "all the things",
+      "coreTask": "Access 100+ developer utilities including formatters, encoders, converters, and generators",
       "category": "Development",
       "isFeatured": false,
       "score": 0,
@@ -12656,7 +12656,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/next-tools-dev.svg",
@@ -12744,7 +12744,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/ps-keepmot-com.svg",
@@ -12817,7 +12817,7 @@
       "hostname": "kuakua.app",
       "favicon": "https://www.google.com/s2/favicons?domain=kuakua.app&sz=32",
       "description": "Kuakua.app is your AI-powered hub for mental health resources, mindfulness meditation, and positive psychology games. Take science-backed quizzes, play brain-boosting tasks, and unlock daily affirmations to feel happier, calmer, and more resilient—anytime, on any device.",
-      "coreTask": "- **Comprehensive Global Collection of Psychology Resources:**You can find all the things you want in psychology here. - **Experiential Psychology Content:** Aims to provide various experiential psych",
+      "coreTask": "Access psychology resources, mindfulness exercises, and mental well-being tools",
       "category": "Education",
       "isFeatured": false,
       "score": 0,
@@ -12832,7 +12832,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/kuakua-app.svg",
@@ -12925,7 +12925,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/phet-colorado-edu.svg",
@@ -13013,7 +13013,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/cfiresim-com.svg",
@@ -13098,7 +13098,7 @@
       "hostname": "fffuel.co",
       "favicon": "https://www.google.com/s2/favicons?domain=fffuel.co&sz=32",
       "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
-      "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects, all in the browser without any account.",
+      "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects",
       "category": "Design",
       "isFeatured": false,
       "score": 0,
@@ -13118,7 +13118,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/fffuel-co.svg",
@@ -13223,7 +13223,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/write-as.svg",
@@ -13316,7 +13316,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/jwt-io.svg",
@@ -13401,7 +13401,7 @@
       "hostname": "when2meet.com",
       "favicon": "https://www.google.com/s2/favicons?domain=when2meet.com&sz=32",
       "description": "A free group scheduling tool that lets anyone create a meeting availability poll and collect responses without accounts or signups. Participants mark their available times on a shared visual grid, and the best meeting window emerges as a color-coded heat map. No login required for organizers or participants.",
-      "coreTask": "Find the best meeting time for a group by collecting everyone's availability on a shared grid—no login required for organizers or participants.",
+      "coreTask": "Find the best group meeting time by collecting participants availability on a shared grid",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -13416,7 +13416,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-when2meet-com.svg",
@@ -13503,13 +13503,13 @@
       },
       "repository": {
         "url": "https://github.com/pkalogiros/AudioMass",
-        "stars": 2949,
+        "stars": 2980,
         "license": "NOASSERTION",
         "language": "JavaScript"
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/audiomass-co.svg",
@@ -13556,7 +13556,7 @@
             "highlights": [
               "Publicly auditable code repository at https://github.com/pkalogiros/AudioMass",
               "OSI-recognized open license: NOASSERTION",
-              "2,949 GitHub community stars"
+              "2,980 GitHub community stars"
             ]
           },
           "resilience": {
@@ -13614,7 +13614,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/lite-datasette-io.svg",
@@ -13687,7 +13687,7 @@
       "hostname": "iformat.io",
       "favicon": "https://www.google.com/s2/favicons?domain=iformat.io&sz=32",
       "description": "iFormat.io is a free online file converter that supports over 500 format conversions. The tool works directly in your browser—no installation or registration required. Users can quickly and securely convert images, PDFs, audio and video files, as well as Office documents.\n\nSupported Categories:\n- Images: JPG, PNG, WebP, HEIC, GIF, TIFF, and more\n- PDFs: Convert, compress, merge, split, and extract text\n- Audio: MP3, WAV, FLAC, AAC, OGG, and more\n- Video: MP4, AVI, MOV, and other formats\n- Docume",
-      "coreTask": "iFormat.io is a free online multi-format converter supporting 500+  conversions across images, PDFs, audio, video, and documents.  Works entirely in the browser with no account or sign-up required.  A",
+      "coreTask": "Convert files between 500+ formats across images, PDFs, audio, video, and documents",
       "category": "Development",
       "isFeatured": false,
       "score": 0,
@@ -13702,7 +13702,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/iformat-io.svg",
@@ -13790,7 +13790,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pixotter-com.svg",
@@ -13883,7 +13883,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/privacy-sexy.svg",
@@ -13971,7 +13971,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/playbacktimer-com-audiobook-speed-calculator.svg",
@@ -14059,7 +14059,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/wordpad-online-com.svg",
@@ -14147,7 +14147,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/wordtojpg-app.svg",
@@ -14235,7 +14235,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/signaturefont-net.svg",
@@ -14323,7 +14323,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/textkit-tech.svg",
@@ -14416,7 +14416,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/xueboyang1985-github-io-kindle-exporter.svg",
@@ -14489,7 +14489,7 @@
       "hostname": "geometry-formulas.com",
       "favicon": "https://www.google.com/s2/favicons?domain=geometry-formulas.com&sz=32",
       "description": "Free browser-based geometry formulas and calculators for common 2D and 3D shapes. Includes area, perimeter, volume, surface area formulas, diagrams, worked examples, and step-by-step calculator outputs without requiring an account.",
-      "coreTask": "Use formula sheets and calculators for 2D and 3D geometry problems without creating an account.",
+      "coreTask": "Calculate 2D and 3D geometry formulas, perimeters, areas, and volumes",
       "category": "Education",
       "isFeatured": false,
       "score": 0,
@@ -14504,7 +14504,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/geometry-formulas-com-geometry-calculator.svg",
@@ -14592,7 +14592,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/webutilslab-com-tools.svg",
@@ -14665,7 +14665,7 @@
       "hostname": "heic-to-jpg.app",
       "favicon": "https://www.google.com/s2/favicons?domain=heic-to-jpg.app&sz=32",
       "description": "Free privacy-first browser tool for converting iPhone HEIC/HEIF photos to JPG. It works without signup or uploads, supports batch conversion, adjustable JPG quality, previews, and ZIP downloads.",
-      "coreTask": "Convert iPhone HEIC/HEIF photos to JPG in the browser without creating an account",
+      "coreTask": "Convert iPhone HEIC/HEIF photos to JPG directly in the browser",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
@@ -14680,7 +14680,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/heic-to-jpg-app.svg",
@@ -14768,7 +14768,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/mdconvert-net-zh-markdown-to-word.svg",
@@ -14841,7 +14841,7 @@
       "hostname": "fileformer.com",
       "favicon": "https://www.google.com/s2/favicons?domain=fileformer.com&sz=32",
       "description": "Free no-login toolkit for converting files across 215+ formats and using PDF, image, text, developer, and calculator utilities. Many tools run locally in the browser; supported server-side conversions use automatic cleanup after processing.",
-      "coreTask": "Convert files and use PDF, image, text, developer, and calculator tools without creating an account.",
+      "coreTask": "Convert files across PDF, image, text, and developer formats",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
@@ -14856,7 +14856,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/file-converter-free-com.svg",
@@ -14949,7 +14949,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/printable-tools-lab-pages-dev.svg",
@@ -15037,7 +15037,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pdfinjpgumwandeln-com.svg",
@@ -15125,7 +15125,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-amortio-com.svg",
@@ -15213,7 +15213,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/bytepane-com.svg",
@@ -15301,7 +15301,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/calorique-io.svg",
@@ -15389,7 +15389,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-whatsmyiplive-com.svg",
@@ -15477,7 +15477,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/at-use-com-tools-json-formatter.svg",
@@ -15565,7 +15565,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/quickbgcut-com.svg",
@@ -15653,7 +15653,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/decibelshield-app.svg",
@@ -15741,7 +15741,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/fwd2-app.svg",
@@ -15814,7 +15814,7 @@
       "hostname": "syncwhen.com",
       "favicon": "https://www.google.com/s2/favicons?domain=syncwhen.com&sz=32",
       "description": "A free, no-signup meeting scheduling poll. Share a link, participants vote yes/maybe/no on proposed time slots, and results update in real time. No account needed for the organizer or voters, and no ads. Export the agreed time to Google Calendar or .ics. Available in 12 languages.",
-      "coreTask": "Create a scheduling poll, share the link, and collect yes/maybe/no votes on time slots with live results - all without any account.",
+      "coreTask": "Create scheduling polls and collect group availability votes with live results",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -15829,7 +15829,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/syncwhen-com.svg",
@@ -15917,7 +15917,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tools-berry-com.svg",
@@ -16005,7 +16005,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/meeting-to-go-io.svg",
@@ -16093,7 +16093,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/lanternpathbooks-com-free-tools.svg",
@@ -16181,7 +16181,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/controllertester-co.svg",
@@ -16254,7 +16254,7 @@
       "hostname": "pdfandimagetools.com",
       "favicon": "https://www.google.com/s2/favicons?domain=pdfandimagetools.com&sz=32",
       "description": "64 free PDF and image tools that run entirely in your browser, so your files are never uploaded. Merge, split, compress (to an exact target size), convert, organize, sign and protect PDFs; compress, resize, convert across ~20 formats, run OCR, and remove image backgrounds with an on-device AI model. No account, no limits, no watermarks. Proof: open the Network tab while you process a file and it stays empty, and most tools keep working with Wi-Fi off after the page loads.",
-      "coreTask": "Everything. All 64 tools work with no account or sign-in: merge, split, compress and convert PDFs, compress/resize/convert images, run OCR, and remove image backgrounds.",
+      "coreTask": "Convert, merge, split, and compress PDFs and images with built-in OCR",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
@@ -16269,7 +16269,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pdfandimagetools-com.svg",
@@ -16347,7 +16347,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-15T01:48:20.000Z",
-      "badgeDisplayType": "none",
+      "badgeDisplayType": "explicit",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -16357,7 +16357,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/converters-live.svg",
@@ -16445,7 +16445,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/jottools-com.svg",
@@ -16533,7 +16533,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/salitronic-com-gerber-analyzer.svg",
@@ -16599,94 +16599,6 @@
       "editorial": null
     },
     {
-      "id": 391,
-      "slug": "www-quackbuilds-com-apps-oee-pulse-html",
-      "name": "OEE Pulse",
-      "url": "https://www.quackbuilds.com/apps/oee-pulse.html",
-      "hostname": "quackbuilds.com",
-      "favicon": "https://www.google.com/s2/favicons?domain=quackbuilds.com&sz=32",
-      "description": "Free shop-floor OEE dashboard for small machine shops: track Availability × Performance × Quality per machine, see plant-wide OEE on a color-banded gauge, log every shift to build a trend history, and export a shift report PDF for the morning meeting. No per-machine SaaS fee, no signup — works on the floor tablet and the office PC.",
-      "coreTask": "Track per-machine and plant-wide OEE, log shifts, see trends, and export a shift report PDF — no account needed.",
-      "category": "Productivity",
-      "isFeatured": false,
-      "score": 0,
-      "approvedAt": "2026-09-15T01:48:20.000Z",
-      "badgeDisplayType": "none",
-      "capabilities": {
-        "clientSideOnly": false,
-        "worksOffline": false,
-        "openSource": false,
-        "free": true
-      },
-      "repository": null,
-      "health": {
-        "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
-      },
-      "badges": {
-        "statusBadgeSvg": "https://nologin.tools/api/badge/www-quackbuilds-com-apps-oee-pulse-html.svg",
-        "embedFlatSvg": "https://nologin.tools/badges/flat.svg",
-        "embedFlatDarkSvg": "https://nologin.tools/badges/flat-dark.svg",
-        "certificatePage": "https://nologin.tools/badge/www-quackbuilds-com-apps-oee-pulse-html"
-      },
-      "links": {
-        "canonical": "https://nologin.tools/tool/www-quackbuilds-com-apps-oee-pulse-html",
-        "audit": "https://nologin.tools/tool/www-quackbuilds-com-apps-oee-pulse-html"
-      },
-      "scorecard": {
-        "overallGrade": "B+",
-        "overallScore": 64,
-        "summary": "Verified No-Login Utility: Dependable instant utility without signup, with standard cloud session architecture.",
-        "dimensions": {
-          "sandbox": {
-            "name": "Data Sandbox & Storage Isolation",
-            "score": 14,
-            "maxScore": 25,
-            "status": "Zero-Account Ephemeral Server",
-            "highlights": [
-              "Temporary stateless processing without user profile retention",
-              "No persistent identity linking or mandatory account creation",
-              "Requires network connection to execute backend tasks"
-            ]
-          },
-          "telemetry": {
-            "name": "Zero Trackers & Telemetry Hygiene",
-            "score": 16,
-            "maxScore": 25,
-            "status": "Standard No-Auth Policy",
-            "highlights": [
-              "Zero forced signup or login cookies required",
-              "Operates without identity or social logins",
-              "Standard server-side HTTP access logging applies"
-            ]
-          },
-          "source": {
-            "name": "Source Transparency & Auditability",
-            "score": 12,
-            "maxScore": 25,
-            "status": "Proprietary / Freeware",
-            "highlights": [
-              "Proprietary frontend and application service",
-              "Zero-login functionality verified by NoLoginTools manual audit",
-              "Runtime network egress and cookies verified via automated scanner"
-            ]
-          },
-          "resilience": {
-            "name": "Availability & Infrastructure Resilience",
-            "score": 22,
-            "maxScore": 25,
-            "status": "Operational & Verified",
-            "highlights": [
-              "Tool is online and accessible",
-              "Monitored continuously by NoLoginTools automated prober",
-              "No scheduled downtime or access gating detected"
-            ]
-          }
-        }
-      },
-      "editorial": null
-    },
-    {
       "id": 395,
       "slug": "ignlab-net",
       "name": "IgnLab",
@@ -16709,7 +16621,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/ignlab-net.svg",
@@ -16797,7 +16709,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/comparediff-io.svg",
@@ -16890,7 +16802,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/max-agent-hub-github-io-browser-sop-builder.svg",
@@ -16983,7 +16895,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/hardenmyrepo-github-io-browser-audit.svg",
@@ -17071,7 +16983,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/findthescam-net.svg",
@@ -17159,7 +17071,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/imagecompressortokb-com.svg",
@@ -17232,7 +17144,7 @@
       "hostname": "retireclarity.com",
       "favicon": "https://www.google.com/s2/favicons?domain=retireclarity.com&sz=32",
       "description": "Full retirement planner with no login: year-by-year projections, Roth conversion optimizer, and Monte Carlo simulation — all computed in your browser. Nothing to sign up for; your plan is stored locally on your device.",
-      "coreTask": "Everything — build a full household plan, run projections, the Roth conversion optimizer, and Monte Carlo. There is no login to have.",
+      "coreTask": "Build retirement financial plans, Monte Carlo projections, and Roth conversion models",
       "category": "Finance",
       "isFeatured": false,
       "score": 0,
@@ -17247,7 +17159,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/retireclarity-com-calculator.svg",
@@ -17335,7 +17247,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/kmag-ro-en.svg",
@@ -17408,7 +17320,7 @@
       "hostname": "whatthegif.com",
       "favicon": "https://www.google.com/s2/favicons?domain=whatthegif.com&sz=32",
       "description": "Convert video, photos, or existing GIFs into GIFs, silent MP4s, or APNGs entirely in your browser. Nothing uploads: the whole pipeline runs in the tab, and the site Content-Security-Policy blocks cross-origin sends, so the no-upload claim is enforced by the browser rather than promised in a privacy policy. Frame-accurate trimming, up to 10 clips on a timeline, captions, per-clip reverse, filters, and a built-in optimizer. Free and ad-supported, no account, no watermark, nothing to install.",
-      "coreTask": "Everything. There is no account system at all: convert, trim frame by frame, caption, combine up to 10 clips, then export a GIF, APNG, or silent MP4, all without a watermark or a signup wall.",
+      "coreTask": "Convert, trim, caption, combine video clips, and export watermark-free GIFs or MP4s",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
@@ -17423,7 +17335,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/whatthegif-com.svg",
@@ -17511,7 +17423,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/countlink-app.svg",
@@ -17599,7 +17511,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/diffhero-app.svg",
@@ -17687,7 +17599,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/textbench-app.svg",
@@ -17775,7 +17687,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/t-8ma-co.svg",
@@ -17863,7 +17775,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/sirenmix-com-tools.svg",
@@ -17956,7 +17868,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/musictoolslab-com.svg",
@@ -18044,7 +17956,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/betterhabitsdaily-com-tracker.svg",
@@ -18132,7 +18044,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/utilbear-com.svg",
@@ -18220,7 +18132,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/blur-face-com-blur-face.svg",
@@ -18308,7 +18220,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pdftomdconverter-app.svg",
@@ -18396,7 +18308,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/olivez-in-tool-image-compressor.svg",
@@ -18484,7 +18396,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-ottopoll-com.svg",
@@ -18572,7 +18484,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/questionsgenerator-com.svg",
@@ -18660,7 +18572,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/headlinecapitalization-com.svg",
@@ -18748,7 +18660,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/alphabeticallyordered-com.svg",
@@ -18836,7 +18748,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/preuveenmain-ca-app-index-html.svg",
@@ -18924,7 +18836,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/extract-express.svg",
@@ -19012,7 +18924,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/comprimirpdf-app.svg",
@@ -19100,7 +19012,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/contadordepalabras-app.svg",
@@ -19173,7 +19085,7 @@
       "hostname": "nawtch.app",
       "favicon": "https://www.google.com/s2/favicons?domain=nawtch.app&sz=32",
       "description": "Nawtch is a free fitness and nutrition tracker that runs entirely in your\nbrowser. Log food, calories, macros, cost per serving, weight, and workout\nprograms — all stored locally via IndexedDB, nothing sent to a server.\nNo account, no email, no signup wall of any kind. Includes evidence-based\ncalculators (TDEE, BMR, BMI, body fat %) with cited sources, and a diet\ncomparison page with real study links. Monetized only by non-intrusive\nbanner ads — no popups, no paywalled features.",
-      "coreTask": "Everything. Log foods (including barcode scanning and custom foods), track daily calories/macros/cost, log and graph weight over time, build and follow workout programs, view full history with export",
+      "coreTask": "Log nutrition and barcodes, track calories and macros, and track workout programs",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -19188,7 +19100,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/nawtch-app.svg",
@@ -19276,7 +19188,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/productivitytimer-com.svg",
@@ -19364,7 +19276,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/mojisuu-app.svg",
@@ -19437,7 +19349,7 @@
       "hostname": "kitparlor.com",
       "favicon": "https://www.google.com/s2/favicons?domain=kitparlor.com&sz=32",
       "description": "27 free browser tools for people who sell on Etsy, Amazon and print-on-demand: fee and landed-cost calculators, image resizers, print-file checkers, seamless pattern makers, label builders and more. Every tool runs in the page — images and files are processed on your own machine and never sent to a server. No account, no trial, no upload step. 34 written guides cover the marketplace specs and 2026 EU/US regulations the tools deal with, with sources and dates cited.",
-      "coreTask": "Everything. Resize product photos, calculate Etsy/Amazon fees and US landed cost, check print files, build seamless patterns and GPSR labels, and read all 34 guides — no account at any point.",
+      "coreTask": "Resize product photos, calculate ecommerce fees and landed costs, and generate GPSR labels",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -19452,7 +19364,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/kitparlor-com.svg",
@@ -19540,7 +19452,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/contextwindowvramcalculator-com.svg",
@@ -19628,7 +19540,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/watermarkzero-org.svg",
@@ -19716,7 +19628,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/metadataremover-ai.svg",
@@ -19804,7 +19716,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/untrackedtools-com-en.svg",
@@ -19892,7 +19804,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/articleformatter-com.svg",
@@ -19980,7 +19892,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/aspectratiocalculator-com.svg",
@@ -20068,7 +19980,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-yhile-com.svg",
@@ -20156,7 +20068,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/imgrove-com.svg",
@@ -20244,7 +20156,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/bunengchi-com.svg",
@@ -20332,7 +20244,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/decode-base64-com.svg",
@@ -20420,7 +20332,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-slabcalc-co.svg",
@@ -20508,7 +20420,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/formatdrop-com.svg",
@@ -20596,7 +20508,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/artboardlab-com.svg",
@@ -20684,7 +20596,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/convertilo-io.svg",
@@ -20772,7 +20684,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/banglatools-com.svg",
@@ -20860,7 +20772,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/needgohome-netlify-app.svg",
@@ -20948,7 +20860,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pdfzus-de.svg",
@@ -21036,7 +20948,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/taimaa-net.svg",
@@ -21124,7 +21036,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/morsecodetranslator-tools.svg",
@@ -21212,7 +21124,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/gantt-chart-io.svg",
@@ -21305,7 +21217,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/textunnel-com.svg",
@@ -21393,7 +21305,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/lensup-ai.svg",
@@ -21481,7 +21393,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tools-pve-ch.svg",
@@ -21569,7 +21481,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-calculatorcampus-com.svg",
@@ -21657,7 +21569,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/bitibybit-com-volunteer-roster.svg",
@@ -21745,7 +21657,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/piccollages-com.svg",
@@ -21833,7 +21745,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/nutilz-com-caa-record-generator.svg",
@@ -21921,7 +21833,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-textfixhub-com.svg",
@@ -22009,7 +21921,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/webgpustress-com.svg",
@@ -22097,7 +22009,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/citefetch-com.svg",
@@ -22185,7 +22097,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/dochost-io.svg",
@@ -22278,7 +22190,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/csv-safecheck-pages-dev.svg",
@@ -22366,7 +22278,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/kivtools-com.svg",
@@ -22454,7 +22366,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/free-qr-codes-com.svg",
@@ -22527,7 +22439,7 @@
       "hostname": "playfatelab.com",
       "favicon": "https://www.google.com/s2/favicons?domain=playfatelab.com&sz=32",
       "description": "Local-first browser randomness tools for dice, coin flips, random numbers, yes/no decisions and list or name picking. No account is required and active results, history and picker data stay in the browser.",
-      "coreTask": "Roll dice, flip coins, generate random numbers, make yes/no decisions and randomly pick from custom lists without creating an account.",
+      "coreTask": "Roll dice, flip coins, generate random numbers, and pick from custom decision lists",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -22542,7 +22454,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/playfatelab-com.svg",
@@ -22630,7 +22542,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pixeltools-io.svg",
@@ -22718,7 +22630,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/herebytes-com-remove-image-gps.svg",
@@ -22791,7 +22703,7 @@
       "hostname": "fluxops.nanocorp.app",
       "favicon": "https://www.google.com/s2/favicons?domain=fluxops.nanocorp.app&sz=32",
       "description": "Free Overstock & Reorder Calculator for e-commerce brands — see stockout risk + weekly hours saved.",
-      "coreTask": "Enter current stock, average daily sales, lead time, and safety stock to instantly see days left, reorder points, suggested reorder quantity, and overstock flags without creating an account.",
+      "coreTask": "Calculate inventory days left, reorder points, and overstock alerts from sales and lead time data",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -22806,7 +22718,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/fluxops-nanocorp-app-tools-reorder-calculator.svg",
@@ -22894,7 +22806,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/midiplayeronline-com.svg",
@@ -22972,7 +22884,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-15T01:48:20.000Z",
-      "badgeDisplayType": "none",
+      "badgeDisplayType": "explicit",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -22982,7 +22894,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/quixcalc-com.svg",
@@ -23070,7 +22982,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/polymarketscan-org.svg",
@@ -23158,7 +23070,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/textlogo-app.svg",
@@ -23246,7 +23158,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/tryink-me.svg",
@@ -23334,7 +23246,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/diagrflow-com.svg",
@@ -23422,7 +23334,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/studycalcpro-com.svg",
@@ -23510,7 +23422,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/chordgen-app.svg",
@@ -23598,7 +23510,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/codextheme-tools.svg",
@@ -23686,7 +23598,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/entityminder-smoke-web-app-em-lookup.svg",
@@ -23774,7 +23686,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/earchord-com.svg",
@@ -23847,7 +23759,7 @@
       "hostname": "verifiedlimits.com",
       "favicon": "https://www.google.com/s2/favicons?domain=verifiedlimits.com&sz=32",
       "description": "Free calculators for HSA, IRA, and 401(k) contribution limits, eligibility, and excess-contribution penalties — verified against IRS Revenue Procedures. All calculations run entirely in your browser; nothing is sent to a server, no account required, nothing stored.",
-      "coreTask": "Calculate exact HSA, IRA, and 401(k) contribution limits, check HDHP eligibility, and see excess-contribution penalty exposure — every calculator works fully with no account.",
+      "coreTask": "Calculate HSA, IRA, and 401(k) contribution limits and check HDHP eligibility",
       "category": "Finance",
       "isFeatured": false,
       "score": 0,
@@ -23862,7 +23774,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/verifiedlimits-com.svg",
@@ -23940,7 +23852,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -23950,7 +23862,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/1600-now.svg",
@@ -24028,7 +23940,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -24038,7 +23950,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/telemetry-sh-sql-playground.svg",
@@ -24116,7 +24028,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -24126,7 +24038,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/svgviewer-app.svg",
@@ -24199,12 +24111,12 @@
       "hostname": "focus2grow.app",
       "favicon": "https://www.google.com/s2/favicons?domain=focus2grow.app&sz=32",
       "description": "A privacy-first CRM for small businesses that keeps leads, deals, follow-ups, notes, pipeline stages and sales KPIs in the browser. Import and export contacts by CSV, run focused sales sprints, and work without a cloud account.",
-      "coreTask": "Create and manage leads, deals, follow-up tasks, notes and pipeline stages locally in the browser; import and export contacts with CSV; use the sales sprint and KPI dashboard without creating an accou",
+      "coreTask": "Manage sales leads, deal pipelines, follow-up tasks, and customer contacts locally",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -24214,7 +24126,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/focus2grow-app-dealcove.svg",
@@ -24292,7 +24204,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": true,
@@ -24302,7 +24214,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/gizmobench-com.svg",
@@ -24380,7 +24292,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -24390,7 +24302,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/online-tone-generator-com.svg",
@@ -24478,7 +24390,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/visualpromptcompiler-com.svg",
@@ -24551,12 +24463,12 @@
       "hostname": "readanytext.com",
       "favicon": "https://www.google.com/s2/favicons?domain=readanytext.com&sz=32",
       "description": "ReadAnyText turns text, PDFs, Word files, EPUBs and article URLs into spoken audio with 322 neural voices across 75 languages. No account, no sign-up, no paid tier. Exports MP3 or WAV plus word-accurate SRT and VTT subtitles, and supports multi-speaker dialogue, speed/pitch control and pause markup. Document parsing runs in the browser and transcription runs on-device, so files never leave your machine. Limit is 7,000 characters per render, refilling every two minutes.",
-      "coreTask": "Everything. Paste text or import a PDF, Word file, EPUB or article URL, choose any of the 322 voices, generate the audio and download the MP3, WAV and SRT/VTT subtitles - all with no account. There is",
+      "coreTask": "Convert text and documents to spoken audio with 300+ voices and export MP3 or subtitles",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -24566,7 +24478,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/readanytext-com.svg",
@@ -24644,7 +24556,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -24654,7 +24566,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/roascompare-com.svg",
@@ -24732,7 +24644,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -24742,7 +24654,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-pastecurl-com.svg",
@@ -24830,7 +24742,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/subsuperscript-com.svg",
@@ -24918,7 +24830,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/fomrix-com-stl-viewer.svg",
@@ -24991,12 +24903,12 @@
       "hostname": "quicktinyv2.vercel.app",
       "favicon": "https://www.google.com/s2/favicons?domain=quicktinyv2.vercel.app&sz=32",
       "description": "13 free browser-based tools — image compressor, JSON formatter, word counter, password generator, Base64/URL encode-decode, and more. Everything processes entirely client-side, with nothing uploaded to a server. Also includes an optional Batch Image Compressor (compress many images at once) for a one-time $4.99 payment via PayPal — no account or subscription required.",
-      "coreTask": "Use all 13 free tools fully — compress a single image, format JSON, count words, generate passwords, encode/decode Base64 and URLs, and more, entirely in the browser. The optional Batch Image Compress",
+      "coreTask": "Compress images, format JSON, count words, and encode or decode Base64 in your browser",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:30:57.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -25006,7 +24918,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/quicktinyv2-vercel-app.svg",
@@ -25084,7 +24996,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:30:57.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -25094,7 +25006,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/drunkcalc-org.svg",
@@ -25172,7 +25084,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": false,
         "worksOffline": false,
@@ -25182,7 +25094,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/makehalftone-com.svg",
@@ -25260,7 +25172,7 @@
       "isFeatured": false,
       "score": 0,
       "approvedAt": "2026-09-16T04:29:17.000Z",
-      "badgeDisplayType": null,
+      "badgeDisplayType": "none",
       "capabilities": {
         "clientSideOnly": true,
         "worksOffline": false,
@@ -25270,7 +25182,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/kitelabs-netlify-app-kitchen.svg",
@@ -25336,94 +25248,6 @@
       "editorial": null
     },
     {
-      "id": 786,
-      "slug": "icyzip-com",
-      "name": "IcyZip",
-      "url": "https://icyzip.com/",
-      "hostname": "icyzip.com",
-      "favicon": "https://www.google.com/s2/favicons?domain=icyzip.com&sz=32",
-      "description": "IcyZip pairs two browsers by QR code or link to move live text or send one file between phones and computers. No account or app is required. Current clients encrypt content in the browser before the server relays ciphertext; the service can still see connection and file-offer metadata. It requires internet access and a second device or browser, and is not cloud storage, folder sync, background clipboard, or offline/LAN transfer.",
-      "coreTask": "Pair two browsers, move live text, and send one file by QR code or link.",
-      "category": "Communication",
-      "isFeatured": false,
-      "score": 0,
-      "approvedAt": "2026-09-16T04:30:57.000Z",
-      "badgeDisplayType": null,
-      "capabilities": {
-        "clientSideOnly": false,
-        "worksOffline": false,
-        "openSource": false,
-        "free": true
-      },
-      "repository": null,
-      "health": {
-        "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
-      },
-      "badges": {
-        "statusBadgeSvg": "https://nologin.tools/api/badge/icyzip-com.svg",
-        "embedFlatSvg": "https://nologin.tools/badges/flat.svg",
-        "embedFlatDarkSvg": "https://nologin.tools/badges/flat-dark.svg",
-        "certificatePage": "https://nologin.tools/badge/icyzip-com"
-      },
-      "links": {
-        "canonical": "https://nologin.tools/tool/icyzip-com",
-        "audit": "https://nologin.tools/tool/icyzip-com"
-      },
-      "scorecard": {
-        "overallGrade": "B+",
-        "overallScore": 70,
-        "summary": "Verified No-Login Utility: Dependable instant utility without signup, with standard cloud session architecture.",
-        "dimensions": {
-          "sandbox": {
-            "name": "Data Sandbox & Storage Isolation",
-            "score": 14,
-            "maxScore": 25,
-            "status": "Zero-Account Ephemeral Server",
-            "highlights": [
-              "Temporary stateless processing without user profile retention",
-              "No persistent identity linking or mandatory account creation",
-              "Requires network connection to execute backend tasks"
-            ]
-          },
-          "telemetry": {
-            "name": "Zero Trackers & Telemetry Hygiene",
-            "score": 22,
-            "maxScore": 25,
-            "status": "Privacy-Hardened Policy",
-            "highlights": [
-              "Audited privacy policy protecting user confidentiality",
-              "No mandatory email, telephone, or identity correlation",
-              "Strict limits on operational telemetry"
-            ]
-          },
-          "source": {
-            "name": "Source Transparency & Auditability",
-            "score": 12,
-            "maxScore": 25,
-            "status": "Proprietary / Freeware",
-            "highlights": [
-              "Proprietary frontend and application service",
-              "Zero-login functionality verified by NoLoginTools manual audit",
-              "Runtime network egress and cookies verified via automated scanner"
-            ]
-          },
-          "resilience": {
-            "name": "Availability & Infrastructure Resilience",
-            "score": 22,
-            "maxScore": 25,
-            "status": "Operational & Verified",
-            "highlights": [
-              "Tool is online and accessible",
-              "Monitored continuously by NoLoginTools automated prober",
-              "No scheduled downtime or access gating detected"
-            ]
-          }
-        }
-      },
-      "editorial": null
-    },
-    {
       "id": 793,
       "slug": "formweft-com-tools-motion-workbench",
       "name": "FORMWEFT Motion Workbench",
@@ -25446,7 +25270,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/formweft-com-tools-motion-workbench.svg",
@@ -25519,7 +25343,7 @@
       "hostname": "monkeetools.surge.sh",
       "favicon": "https://www.google.com/s2/favicons?domain=monkeetools.surge.sh&sz=32",
       "description": "Free invoice generator for freelancers. No signup, no account, nothing uploaded. Invoices are built in your browser tab and PDFs download straight to your device. It remembers you on-device: business auto-fill, client autocomplete, one-click invoice duplication with auto-incremented numbers, and paid/unpaid tracking. Includes an AI agent kit: prefill links any AI assistant can generate.",
-      "coreTask": "Everything works without login: create and edit invoices, download PDFs, business auto-fill, client autocomplete, duplicate invoices with auto numbers, paid/unpaid tracking. Data stays in your browser",
+      "coreTask": "Generate, customize, and export client invoices to PDF with client autocomplete",
       "category": "Finance",
       "isFeatured": false,
       "score": 0,
@@ -25534,7 +25358,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/monkeetools-surge-sh.svg",
@@ -25622,7 +25446,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/heictopdf-dev.svg",
@@ -25710,7 +25534,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/compressto100kb-com.svg",
@@ -25798,7 +25622,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/sizecompare-app.svg",
@@ -25886,7 +25710,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/aup4-aivismonitor-com.svg",
@@ -25959,7 +25783,7 @@
       "hostname": "dataformatkit.com",
       "favicon": "https://www.google.com/s2/favicons?domain=dataformatkit.com&sz=32",
       "description": "DataFormatKit offers free tools to convert text to CSV, XML to CSV, JSON to CSV or Excel, and CSV to Excel. Preview rows and columns, check CSV structure, and download the results. Source files are processed locally in your browser, and the core tools require no account.",
-      "coreTask": "Convert text, XML, or JSON to CSV; create Excel files from CSV or JSON; preview tabular data and check CSV structure without signing up.",
+      "coreTask": "Convert data between text, XML, JSON, and CSV formats with spreadsheet preview",
       "category": "Data",
       "isFeatured": false,
       "score": 0,
@@ -25974,7 +25798,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/dataformatkit-com.svg",
@@ -26047,7 +25871,7 @@
       "hostname": "crochet-chart-maker.com",
       "favicon": "https://www.google.com/s2/favicons?domain=crochet-chart-maker.com&sz=32",
       "description": "Crochet Chart Maker is a free browser tool that turns JPG, PNG, or WebP images into editable color pixel grids, or starts from a blank grid. Adjust size, fit or crop, reduce colors, edit individual squares, and download a high-resolution PNG with numbers and a color legend. Images stay on your device, and the core tool requires no account.",
-      "coreTask": "Turn an image into an editable crochet pixel grid, create a blank grid, refine colors and squares, and download a numbered PNG without signing up.",
+      "coreTask": "Turn images into editable crochet pixel grids and export numbered stitch charts",
       "category": "Design",
       "isFeatured": false,
       "score": 0,
@@ -26062,7 +25886,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/crochet-chart-maker-com.svg",
@@ -26150,7 +25974,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/pst-aivismonitor-com.svg",
@@ -26223,7 +26047,7 @@
       "hostname": "markany.ai",
       "favicon": "https://www.google.com/s2/favicons?domain=markany.ai&sz=32",
       "description": "Convert PDF, Word, Excel, PowerPoint, HTML, EPUB, and image files to structured Markdown with automatic OCR, or export editable Markdown to common document, image, ebook, slide, and spreadsheet formats.",
-      "coreTask": "Batch-convert supported files or a public HTTPS file URL to Markdown, review the result, copy it, and download the Markdown without creating an account.",
+      "coreTask": "Batch-convert documents, web pages, and files into clean Markdown",
       "category": "Data",
       "isFeatured": false,
       "score": 0,
@@ -26238,7 +26062,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/markany-ai.svg",
@@ -26326,7 +26150,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/spritesheettool-com.svg",
@@ -26414,7 +26238,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/www-allsubconverter-com.svg",
@@ -26502,7 +26326,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/toolsphare-tech-en.svg",
@@ -26575,7 +26399,7 @@
       "hostname": "bytepriva.com",
       "favicon": "https://www.google.com/s2/favicons?domain=bytepriva.com&sz=32",
       "description": "Merge multiple PDF files into one directly in your browser — no upload, no signup. Files are processed entirely client-side using your device's own processing power, so nothing ever leaves your computer. Drag, drop, reorder, and download instantly.",
-      "coreTask": "Merge multiple PDF files, reorder pages, and download the combined file — all without creating an account or uploading anything to a server.",
+      "coreTask": "Merge multiple PDF files, reorder pages, and export the combined document",
       "category": "Productivity",
       "isFeatured": false,
       "score": 0,
@@ -26590,7 +26414,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/bytepriva-com-merge-pdf.svg",
@@ -26663,7 +26487,7 @@
       "hostname": "imageconverttools.app",
       "favicon": "https://www.google.com/s2/favicons?domain=imageconverttools.app&sz=32",
       "description": "Image Convert is a free browser-based suite for seven practical image tasks: convert HEIC or HEIF to JPG or PDF, convert JPEG, PNG, and WebP, compress to a target size, resize, crop, and add text watermarks. Selected files and generated outputs are processed on the device and are not uploaded for processing. No sign-in is required.",
-      "coreTask": "Convert, compress, resize, crop, watermark, or combine supported images into a PDF, then download the result without signing in.",
+      "coreTask": "Convert, compress, resize, crop, watermark, and combine images into PDF",
       "category": "Media",
       "isFeatured": false,
       "score": 0,
@@ -26683,7 +26507,7 @@
       },
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/imageconverttools-app.svg",
@@ -26771,7 +26595,7 @@
       "repository": null,
       "health": {
         "status": "online",
-        "checkedAt": "2026-09-16T05:06:43.665Z"
+        "checkedAt": "2026-09-16T11:05:54.160Z"
       },
       "badges": {
         "statusBadgeSvg": "https://nologin.tools/api/badge/nextreset-ai.svg",
@@ -26782,6 +26606,182 @@
       "links": {
         "canonical": "https://nologin.tools/tool/nextreset-ai",
         "audit": "https://nologin.tools/tool/nextreset-ai"
+      },
+      "scorecard": {
+        "overallGrade": "B+",
+        "overallScore": 64,
+        "summary": "Verified No-Login Utility: Dependable instant utility without signup, with standard cloud session architecture.",
+        "dimensions": {
+          "sandbox": {
+            "name": "Data Sandbox & Storage Isolation",
+            "score": 14,
+            "maxScore": 25,
+            "status": "Zero-Account Ephemeral Server",
+            "highlights": [
+              "Temporary stateless processing without user profile retention",
+              "No persistent identity linking or mandatory account creation",
+              "Requires network connection to execute backend tasks"
+            ]
+          },
+          "telemetry": {
+            "name": "Zero Trackers & Telemetry Hygiene",
+            "score": 16,
+            "maxScore": 25,
+            "status": "Standard No-Auth Policy",
+            "highlights": [
+              "Zero forced signup or login cookies required",
+              "Operates without identity or social logins",
+              "Standard server-side HTTP access logging applies"
+            ]
+          },
+          "source": {
+            "name": "Source Transparency & Auditability",
+            "score": 12,
+            "maxScore": 25,
+            "status": "Proprietary / Freeware",
+            "highlights": [
+              "Proprietary frontend and application service",
+              "Zero-login functionality verified by NoLoginTools manual audit",
+              "Runtime network egress and cookies verified via automated scanner"
+            ]
+          },
+          "resilience": {
+            "name": "Availability & Infrastructure Resilience",
+            "score": 22,
+            "maxScore": 25,
+            "status": "Operational & Verified",
+            "highlights": [
+              "Tool is online and accessible",
+              "Monitored continuously by NoLoginTools automated prober",
+              "No scheduled downtime or access gating detected"
+            ]
+          }
+        }
+      },
+      "editorial": null
+    },
+    {
+      "id": 829,
+      "slug": "video-size-reducer-com",
+      "name": "Video Size Reducer",
+      "url": "https://video-size-reducer.com/",
+      "hostname": "video-size-reducer.com",
+      "favicon": "https://www.google.com/s2/favicons?domain=video-size-reducer.com&sz=32",
+      "description": "A browser-based video compressor for people who just need a smaller shareable file. Server-side processing, resumable uploads, visible progress. Results stay downloadable for 24 hours; free tasks to start, no watermark on any plan.",
+      "coreTask": "Compress a video to a target file size and download a smaller MP4 in the browser",
+      "category": "Media",
+      "isFeatured": false,
+      "score": 0,
+      "approvedAt": "2026-09-16T07:43:13.000Z",
+      "badgeDisplayType": null,
+      "capabilities": {
+        "clientSideOnly": false,
+        "worksOffline": false,
+        "openSource": false,
+        "free": false
+      },
+      "repository": null,
+      "health": {
+        "status": "online",
+        "checkedAt": "2026-09-16T11:05:54.160Z"
+      },
+      "badges": {
+        "statusBadgeSvg": "https://nologin.tools/api/badge/video-size-reducer-com.svg",
+        "embedFlatSvg": "https://nologin.tools/badges/flat.svg",
+        "embedFlatDarkSvg": "https://nologin.tools/badges/flat-dark.svg",
+        "certificatePage": "https://nologin.tools/badge/video-size-reducer-com"
+      },
+      "links": {
+        "canonical": "https://nologin.tools/tool/video-size-reducer-com",
+        "audit": "https://nologin.tools/tool/video-size-reducer-com"
+      },
+      "scorecard": {
+        "overallGrade": "B+",
+        "overallScore": 64,
+        "summary": "Verified No-Login Utility: Dependable instant utility without signup, with standard cloud session architecture.",
+        "dimensions": {
+          "sandbox": {
+            "name": "Data Sandbox & Storage Isolation",
+            "score": 14,
+            "maxScore": 25,
+            "status": "Zero-Account Ephemeral Server",
+            "highlights": [
+              "Temporary stateless processing without user profile retention",
+              "No persistent identity linking or mandatory account creation",
+              "Requires network connection to execute backend tasks"
+            ]
+          },
+          "telemetry": {
+            "name": "Zero Trackers & Telemetry Hygiene",
+            "score": 16,
+            "maxScore": 25,
+            "status": "Standard No-Auth Policy",
+            "highlights": [
+              "Zero forced signup or login cookies required",
+              "Operates without identity or social logins",
+              "Standard server-side HTTP access logging applies"
+            ]
+          },
+          "source": {
+            "name": "Source Transparency & Auditability",
+            "score": 12,
+            "maxScore": 25,
+            "status": "Proprietary / Freeware",
+            "highlights": [
+              "Proprietary frontend and application service",
+              "Zero-login functionality verified by NoLoginTools manual audit",
+              "Runtime network egress and cookies verified via automated scanner"
+            ]
+          },
+          "resilience": {
+            "name": "Availability & Infrastructure Resilience",
+            "score": 22,
+            "maxScore": 25,
+            "status": "Operational & Verified",
+            "highlights": [
+              "Tool is online and accessible",
+              "Monitored continuously by NoLoginTools automated prober",
+              "No scheduled downtime or access gating detected"
+            ]
+          }
+        }
+      },
+      "editorial": null
+    },
+    {
+      "id": 830,
+      "slug": "choicervoicer-games",
+      "name": "Choicer Voicer",
+      "url": "https://choicervoicer.games/",
+      "hostname": "choicervoicer.games",
+      "favicon": "https://www.google.com/s2/favicons?domain=choicervoicer.games&sz=32",
+      "description": "A free browser voice acting and dubbing game for practicing character voices, timing, and delivery with short scenes. Choose a ready-made scene, listen, record, and compare without creating an account.",
+      "coreTask": "Play ready-made voice acting scenes, listen to reference dialogue, record a performance in the browser, compare timing and delivery, and use free practice and export options.",
+      "category": "Education",
+      "isFeatured": false,
+      "score": 0,
+      "approvedAt": "2026-09-16T07:56:17.000Z",
+      "badgeDisplayType": null,
+      "capabilities": {
+        "clientSideOnly": false,
+        "worksOffline": false,
+        "openSource": false,
+        "free": false
+      },
+      "repository": null,
+      "health": {
+        "status": "online",
+        "checkedAt": "2026-09-16T11:05:54.160Z"
+      },
+      "badges": {
+        "statusBadgeSvg": "https://nologin.tools/api/badge/choicervoicer-games.svg",
+        "embedFlatSvg": "https://nologin.tools/badges/flat.svg",
+        "embedFlatDarkSvg": "https://nologin.tools/badges/flat-dark.svg",
+        "certificatePage": "https://nologin.tools/badge/choicervoicer-games"
+      },
+      "links": {
+        "canonical": "https://nologin.tools/tool/choicervoicer-games",
+        "audit": "https://nologin.tools/tool/choicervoicer-games"
       },
       "scorecard": {
         "overallGrade": "B+",

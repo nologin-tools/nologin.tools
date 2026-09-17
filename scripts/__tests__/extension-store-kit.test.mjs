@@ -30,8 +30,8 @@ describe('Browser Extension Store Kit & Packaging', () => {
 
     // Detailed description and permissions disclosure
     assert.ok(content.includes('activeTab'));
-    assert.ok(content.includes('storage'));
     assert.ok(content.includes('Zero Telemetry'));
+    assert.ok(content.includes('https://nologin.tools/privacy'));
   });
 
   it('validates Mozilla Add-ons (AMO) listing metadata and constraints', () => {
@@ -48,7 +48,7 @@ describe('Browser Extension Store Kit & Packaging', () => {
     // Gecko ID disclosure
     assert.ok(content.includes('extension@nologin.tools'));
     assert.ok(content.includes('activeTab'));
-    assert.ok(content.includes('storage'));
+    assert.ok(content.includes('https://nologin.tools/privacy'));
   });
 
   it('validates promotional artwork assets and required aspect dimensions', () => {

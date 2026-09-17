@@ -188,7 +188,7 @@
         "hostname": "fffuel.co",
         "category": "Design",
         "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
-        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects, all in the browser without any account.",
+        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects",
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": true,
@@ -213,7 +213,7 @@
         "category": "Design",
         "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
         "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": true,
@@ -244,7 +244,7 @@
         "hostname": "fffuel.co",
         "category": "Design",
         "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
-        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects, all in the browser without any account.",
+        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects",
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": true,
@@ -269,7 +269,7 @@
         "category": "Design",
         "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
         "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": true,
@@ -309,7 +309,7 @@
         "category": "Design",
         "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
         "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": true,
@@ -349,7 +349,7 @@
         "category": "Design",
         "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
         "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": true,
@@ -613,7 +613,7 @@
         "category": "Media",
         "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
         "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
@@ -694,22 +694,6 @@
     "headline": "Vector graphic editing and SVG optimization without expensive Creative Cloud plans",
     "tools": [
       {
-        "slug": "svgedit-netlify-app-editor-index-html",
-        "name": "SVG Edit",
-        "url": "https://svgedit.netlify.app/editor/index.html",
-        "hostname": "svgedit.netlify.app",
-        "category": "Design",
-        "description": "Fast, web-based, JavaScript-driven SVG drawing editor. Create and edit SVG images directly in the browser with a familiar drawing application interface.",
-        "coreTask": "Create and edit SVG vector graphics in the browser",
-        "isFeatured": false,
-        "capabilities": {
-          "clientSideOnly": true,
-          "worksOffline": true,
-          "openSource": true,
-          "free": true
-        }
-      },
-      {
         "slug": "jakearchibald-github-io-svgomg",
         "name": "SVGOMG",
         "url": "https://jakearchibald.github.io/svgomg/",
@@ -741,7 +725,7 @@
         "category": "Design",
         "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Supports real-time collaboration, export to PNG/SVG, and has a library of shapes and icons.",
         "coreTask": "Create hand-drawn style diagrams and sketches collaboratively",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": true,
@@ -828,22 +812,6 @@
           "openSource": false,
           "free": true
         }
-      },
-      {
-        "slug": "hat-sh",
-        "name": "hat.sh",
-        "url": "https://hat.sh",
-        "hostname": "hat.sh",
-        "category": "Privacy",
-        "description": "A browser-based file encryption and decryption tool that works entirely client-side. hat.sh uses AES-256-GCM encryption with either a password or public/private key pair. Files never leave your browser — no uploads, no servers, no accounts.",
-        "coreTask": "Encrypt and decrypt files securely in your browser using AES-256-GCM, with no file uploads or server involvement.",
-        "isFeatured": false,
-        "capabilities": {
-          "clientSideOnly": true,
-          "worksOffline": true,
-          "openSource": true,
-          "free": true
-        }
       }
     ]
   },
@@ -861,7 +829,7 @@
         "category": "Media",
         "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
         "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
-        "isFeatured": false,
+        "isFeatured": true,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,

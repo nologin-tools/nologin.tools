@@ -309,7 +309,7 @@ export const CURATED_COLLECTIONS = [
         whySelected: 'Rapidly identifies whether DNS queries are leaking to your ISP before signing multi-sig transactions or interacting with dApps.'
       },
       {
-        toolSlug: 'archive-today',
+        toolSlug: 'archive-ph',
         roleTitle: 'Immutable On-Chain Event Snapshotting',
         whySelected: 'Creates indelible, legally-defensible web snapshots of token tokenomics, governance proposals, and smart contract audit disclosures.'
       }

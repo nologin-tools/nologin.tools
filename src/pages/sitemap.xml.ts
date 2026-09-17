@@ -31,6 +31,7 @@ export const GET: APIRoute = async () => {
     { url: '/extension', priority: '0.8', changefreq: 'weekly', lastmod: staticLastmod },
     { url: '/developers', priority: '0.7', changefreq: 'weekly', lastmod: staticLastmod },
     { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
+    { url: '/privacy', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: staticLastmod },
     { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: staticLastmod },
   ];

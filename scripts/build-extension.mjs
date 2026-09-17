@@ -150,11 +150,11 @@ mkdirSync(downloadsDir, { recursive: true });
 try {
   // 1. Chrome Web Store Packaging
   const chromeZip = resolve(distExtDir, 'nologin-quick-switcher-chrome.zip');
-  execSync(`cd "${extDir}" && zip -r "${chromeZip}" manifest.json background.js icons popup src -x "*.DS_Store"`, { stdio: 'inherit' });
+  execSync(`cd "${extDir}" && zip -r "${chromeZip}" manifest.json icons popup src -x "*.DS_Store"`, { stdio: 'inherit' });
   console.log(`Packaged Chrome extension: ${chromeZip}`);
   copyFileSync(chromeZip, resolve(downloadsDir, 'nologin-quick-switcher-chrome.zip'));
 
-  // 2. Firefox AMO Packaging (with gecko ID and Firefox-compatible background scripts)
+  // 2. Firefox AMO Packaging (with gecko ID)
   const chromeManifestPath = resolve(extDir, 'manifest.json');
   const baseManifest = JSON.parse(readFileSync(chromeManifestPath, 'utf8'));
   const firefoxManifest = {
@@ -165,9 +165,6 @@ try {
         strict_min_version: '109.0',
       },
     },
-    background: {
-      scripts: ['background.js'],
-    },
   };
 
   const firefoxManifestPath = resolve(extDir, 'manifest.firefox.json');
@@ -175,7 +172,7 @@ try {
 
   const firefoxZip = resolve(distExtDir, 'nologin-quick-switcher-firefox.zip');
   // Temporarily swap manifest for zip
-  execSync(`cd "${extDir}" && cp manifest.json manifest.chrome.bak && cp manifest.firefox.json manifest.json && zip -r "${firefoxZip}" manifest.json background.js icons popup src -x "*.DS_Store" && mv manifest.chrome.bak manifest.json && rm manifest.firefox.json`, { stdio: 'inherit' });
+  execSync(`cd "${extDir}" && cp manifest.json manifest.chrome.bak && cp manifest.firefox.json manifest.json && zip -r "${firefoxZip}" manifest.json icons popup src -x "*.DS_Store" && mv manifest.chrome.bak manifest.json && rm manifest.firefox.json`, { stdio: 'inherit' });
   console.log(`Packaged Firefox extension: ${firefoxZip}`);
   copyFileSync(firefoxZip, resolve(downloadsDir, 'nologin-quick-switcher-firefox.zip'));
 

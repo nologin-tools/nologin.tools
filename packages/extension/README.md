@@ -4,9 +4,9 @@
 
 ## Features
 
-- **Contextual Alternative Detection**: Automatically identifies when you are visiting forced-signup, telemetry-heavy SaaS platforms (e.g. Canva, Photoshop, Figma, WeTransfer, Smallpdf, Miro, Notion, Loom, Zoom) and illuminates the shield badge with verified no-login alternatives.
+- **Contextual Alternative Detection**: Identifies when you are visiting restrictive, closed, or paywalled web tools and recommends verified zero-signup alternatives upon opening the extension.
 - **Instant Mini-Finder**: Search, filter, and discover 180+ verified zero-login web tools without leaving your current tab.
-- **100% Client-Side Privacy**: Zero tracking, zero analytics, minimal declarative permissions (`activeTab`, `storage`). Bundled offline database.
+- **100% Client-Side Privacy**: Zero tracking, zero analytics, minimal declarative permission (`activeTab`). Bundled offline database.
 
 ## How to Install (Developer Mode / Unpacked)
 

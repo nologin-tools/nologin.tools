@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "NoLogin Tools - Privacy & Zero-Signup Switcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Instantly discover verified zero-login, private in-browser alternatives to closed and paywalled SaaS tools.",
   "homepage_url": "https://nologin.tools",
   "icons": {
@@ -18,11 +18,7 @@
       "128": "icons/icon-128.png"
     }
   },
-  "background": {
-    "service_worker": "background.js"
-  },
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ]
 }

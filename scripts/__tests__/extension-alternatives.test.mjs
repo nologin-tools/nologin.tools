@@ -16,9 +16,9 @@ describe('NoLogin Quick Switcher Extension', () => {
 
     assert.equal(manifest.manifest_version, 3);
     assert.ok(manifest.name.includes('NoLogin'));
-    assert.equal(manifest.version, '1.0.0');
+    assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
     assert.ok(manifest.action?.default_popup);
-    assert.ok(manifest.background?.service_worker);
+    assert.ok(manifest.permissions.includes('activeTab'));
     assert.ok(manifest.icons['16']);
     assert.ok(manifest.icons['48']);
     assert.ok(manifest.icons['128']);
