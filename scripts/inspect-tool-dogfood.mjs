@@ -25,6 +25,7 @@ import { fileURLToPath } from 'node:url';
 import { withEgoLock, cleanOrphanTaskSpaces } from './ego-lock.mjs';
 import { generateAllFixtures } from './lab/fixtures/generate-fixtures.mjs';
 import { inspectArtifact } from './lab/inspectors/output-inspector.mjs';
+import { generateCognitivePacket, calibrate5DScore, validateCognitiveEvaluation } from './lab/cades-cognitive.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -59,6 +60,9 @@ Options:
   --slug <slug>          Tool slug for readable screenshot naming
   --existing-task <str>  Existing core_task from D1 to detect drift & updates
   --timeout <sec>        Set max execution timeout in seconds (default: 180)
+  --packet               Output CADES 2.0 Cognitive Evidence Packet (for Agent multimodal review)
+  --packet-file <path>   Save CADES 2.0 Cognitive Evidence Packet to a JSON file
+  --eval-file <path>     Inject Agent cognitive review file (overrides scores & qualitative notes)
   --json                 Output raw JSON results only (for agent programmatic consumption)
   --verbose              Print detailed real-time execution steps
   --help                 Show this help message
@@ -1055,7 +1059,7 @@ async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = nu
   }
 }
 
-function syncEditorialRecord(editorialData, toolSlug, report) {
+function syncEditorialRecord(editorialData, toolSlug, report, customCognitiveEval = null) {
   if (!editorialData || !toolSlug || !report || !report.evaluation || report.evaluation.decision !== 'Approved') {
     return false;
   }
@@ -1079,89 +1083,50 @@ function syncEditorialRecord(editorialData, toolSlug, report) {
     };
   }
 
-  const exportGate = report.inspection?.exportGate || {};
+  const agentEval = customCognitiveEval || report.cognitiveEvaluation || null;
   const isLocal = report.inspection?.networkPrivacy?.classification === 'Local Only';
-  const hasWasm = Boolean(report.inspection?.networkPrivacy?.hasWebAssembly);
-  const hasCanvas = Boolean(report.inspection?.surface?.hasCanvas);
-  const hasTracking = Boolean(report.inspection?.networkPrivacy?.hasThirdPartyTracking);
-  const isOffline = Boolean(report.inspection?.networkPrivacy?.offlineCapable);
-  const isRepoVerified = Boolean(report.evaluation?.metadata?.repo_url);
-
-  // 1. Frictionless UX (max 20)
-  let frictionlessScore = Math.min(20, (report.evaluation.scorecard?.noLoginCompleteness || 5) * 4);
-  if (report.inspection?.initialAuthGate?.blocked) frictionlessScore = 0;
-  frictionlessScore = Math.max(0, Math.min(20, frictionlessScore));
-
-  // 2. Functional Depth & Fidelity (max 25)
-  let depthScore = Math.min(25, (report.evaluation.scorecard?.utilityIndependence || 4) * 5);
-  if (hasWasm || hasCanvas) depthScore = Math.min(25, depthScore + 2);
-  depthScore = Math.max(0, Math.min(25, depthScore));
-
-  // 3. Export Freedom (max 20)
-  let exportScore = 15;
-  if (exportGate.interceptedByAuth) {
-    exportScore = 3; // Severe penalty for post-action bait-and-switch
-  } else if (exportGate.hasWatermark) {
-    exportScore = 5; // Severe penalty for commercial watermark
-  } else if (exportGate.passedNoLoginExport || exportGate.downloadTriggered || exportGate.downloadCaptured) {
-    exportScore = 20;
-  }
-  exportScore = Math.max(0, Math.min(20, exportScore));
-
-  // 4. Privacy & Data Sovereignty (max 20 - Core Pillar)
-  let privacyScore = isLocal ? 18 : 13;
-  if (isLocal && isOffline) privacyScore += 2;
-  if (isRepoVerified) privacyScore += 1;
-  if (hasTracking) privacyScore -= 4;
-  privacyScore = Math.max(0, Math.min(20, privacyScore));
-
-  // 5. Stability & Polish (max 15)
-  let polishScore = Math.min(15, (report.evaluation.scorecard?.cleanUx || 4) * 3);
-  if (exportGate.hasWatermark) polishScore = Math.min(3, polishScore);
-  if (report.inspection?.visual?.capturedOutcome) polishScore = Math.min(15, polishScore + 2);
-  polishScore = Math.max(0, Math.min(15, polishScore));
-
-  const overall = Math.min(100, frictionlessScore + depthScore + exportScore + privacyScore + polishScore);
-
-  const verdictTier = overall >= 90 ? 'editors-choice' :
-                      overall >= 80 ? 'highly-recommended' :
-                      overall >= 70 ? 'capable-utility' : 'emergency-only';
-
   const taskDesc = report.evaluation.metadata?.core_task || 'execute browser tasks';
-  const notesEn = `CADES dogfood verified: ${taskDesc}. ${isLocal ? 'Zero-egress client-side computation' : 'Cloud processing verified'}.`;
-  const notesZh = `CADES 实测通过：${taskDesc}。${isLocal ? '零外溢纯前端本地计算' : '云端处理验证通过'}。`;
   const testedAt = new Date().toISOString().slice(0, 7);
 
-  const productScore = {
-    overall,
-    frictionless: frictionlessScore,
-    depth: depthScore,
-    exportFreedom: exportScore,
-    privacy: privacyScore,
-    polish: polishScore,
-    factors: {
-      frictionless: [
-        "Instant friction-free access without mandatory account creation",
-        isLocal ? "Zero telemetry and in-memory execution" : "Direct access without registration"
-      ],
-      depth: [
-        hasWasm ? "Hardware accelerated via WebAssembly" : "Standard client execution pipeline",
-        hasCanvas ? "Interactive canvas rendering engine" : "Direct in-browser data processing"
-      ],
-      exportFreedom: [
-        exportGate.passedNoLoginExport ? "Direct unrestricted output export verified" : "Standard in-browser delivery",
-        "Zero post-action bait traps or download paywalls"
-      ],
-      privacy: [
-        isLocal ? "100% in-browser RAM execution with zero external data egress" : "Ephemeral cloud processing without user profile retention",
-        hasTracking ? "Standard analytics beacons observed" : "Zero commercial behavioral tracking or user profiling beacons"
-      ],
-      polish: [
-        report.inspection?.visual?.capturedOutcome ? "Outcome screen verified without broken layouts" : "Standard UI presentation",
-        "Zero deceptive download button ads"
-      ]
+  let productScore;
+  let verdictTier;
+  let notesEn;
+  let notesZh;
+
+  if (agentEval) {
+    const validation = validateCognitiveEvaluation(agentEval);
+    if (!validation.valid) {
+      console.warn(`  ⚠️ Agent cognitive review has validation warnings:`, validation.errors);
     }
-  };
+    productScore = agentEval.productScore;
+    verdictTier = agentEval.verdictTier || (
+      productScore.overall >= 90 ? 'editors-choice' :
+      productScore.overall >= 80 ? 'highly-recommended' :
+      productScore.overall >= 70 ? 'capable-utility' : 'emergency-only'
+    );
+    notesEn = agentEval.benchmarkNotes || `CADES 2.0 Agent verified: ${taskDesc}.`;
+    notesZh = agentEval.benchmarkNotesZh || `CADES 2.0 实测：${taskDesc}。`;
+
+    editorialData[toolSlug].en = editorialData[toolSlug].en || {};
+    editorialData[toolSlug].zh = editorialData[toolSlug].zh || {};
+
+    if (agentEval.bestFor) editorialData[toolSlug].en.bestFor = agentEval.bestFor;
+    if (agentEval.bestForZh) editorialData[toolSlug].zh.bestFor = agentEval.bestForZh;
+    else if (agentEval.bestFor && !editorialData[toolSlug].zh.bestFor) editorialData[toolSlug].zh.bestFor = agentEval.bestFor;
+
+    if (Array.isArray(agentEval.pros) && agentEval.pros.length > 0) editorialData[toolSlug].en.pros = agentEval.pros;
+    if (Array.isArray(agentEval.prosZh) && agentEval.prosZh.length > 0) editorialData[toolSlug].zh.pros = agentEval.prosZh;
+
+    if (Array.isArray(agentEval.cons) && agentEval.cons.length > 0) editorialData[toolSlug].en.cons = agentEval.cons;
+    if (Array.isArray(agentEval.consZh) && agentEval.consZh.length > 0) editorialData[toolSlug].zh.cons = agentEval.consZh;
+  } else {
+    // Calibrated baseline using anti-inflation engine
+    const calibrated = calibrate5DScore(report);
+    productScore = calibrated;
+    verdictTier = calibrated.verdictTier;
+    notesEn = `CADES 2.0 verified: ${taskDesc}. ${isLocal ? 'Zero-egress client-side computation' : 'Cloud processing verified'}.`;
+    notesZh = `CADES 2.0 实测通过：${taskDesc}。${isLocal ? '零外溢纯前端本地计算' : '云端处理验证通过'}。`;
+  }
 
   const dueDiligenceEn = report.evaluation?.dueDiligence || null;
   let dueDiligenceZh = null;
@@ -1225,7 +1190,23 @@ async function main() {
         : 15)
     : null;
 
-  const valueOptions = new Set(['--slug', '--existing-task', '--timeout', '--rolling']);
+  const hasPacket = args.includes('--packet');
+  const packetFileIdx = args.indexOf('--packet-file');
+  const packetFilePath = packetFileIdx !== -1 && packetFileIdx + 1 < args.length ? args[packetFileIdx + 1] : null;
+
+  const evalFileIdx = args.indexOf('--eval-file');
+  const evalFilePath = evalFileIdx !== -1 && evalFileIdx + 1 < args.length ? args[evalFileIdx + 1] : null;
+
+  let customCognitiveEval = null;
+  if (evalFilePath && existsSync(evalFilePath)) {
+    try {
+      customCognitiveEval = JSON.parse(readFileSync(evalFilePath, 'utf-8'));
+    } catch (e) {
+      console.error(`❌ Failed to parse eval-file at ${evalFilePath}:`, e.message);
+    }
+  }
+
+  const valueOptions = new Set(['--slug', '--existing-task', '--timeout', '--rolling', '--packet-file', '--eval-file']);
   let targetUrl = null;
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
@@ -1370,9 +1351,23 @@ async function main() {
   try {
     await withEgoLock(async () => {
       const report = await runInspection(targetUrl, isJson, isVerbose, customTimeoutSec, slug, existingTask);
+
+      if (hasPacket || packetFilePath) {
+        const cognitivePacket = generateCognitivePacket(report, slug || domain);
+        if (packetFilePath) {
+          writeFileSync(packetFilePath, JSON.stringify(cognitivePacket, null, 2), 'utf-8');
+          console.log(`\n📦 CADES 2.0 Cognitive Evidence Packet saved to: ${packetFilePath}`);
+        }
+        if (hasPacket) {
+          console.log('\n--- CADES 2.0 COGNITIVE PACKET BEGIN ---');
+          console.log(JSON.stringify(cognitivePacket, null, 2));
+          console.log('--- CADES 2.0 COGNITIVE PACKET END ---');
+        }
+      }
+
       if (shouldSync && slug && existsSync(EDITORIAL_PATH) && report && report.evaluation?.decision === 'Approved') {
         const editorialData = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
-        const synced = syncEditorialRecord(editorialData, slug, report);
+        const synced = syncEditorialRecord(editorialData, slug, report, customCognitiveEval);
         if (synced) {
           writeFileSync(EDITORIAL_PATH, JSON.stringify(editorialData, null, 2) + '\n', 'utf-8');
           console.log(`\n💾 Successfully synced CADES editorial records into ${EDITORIAL_PATH} for [${slug}]`);

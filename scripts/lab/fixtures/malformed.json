@@ -1,0 +1,9 @@
+{
+  "toolName": "NoLogin Stress Test",
+  "validHeader": true,
+  "nested": {
+    "tags": ["testing", "stress",
+    "unclosedArray": [1, 2, 3
+  },
+  "trailingComma": "bad",
+}

@@ -147,11 +147,11 @@ sites/org/                # NologinTools.org — organization authority site (in
   - **Tool list item** (`.tool-item`): Single line per tool — 16px favicon + ★ (featured only, gold) + bold name (link to `/tool/[slug]`) + `—` hostname (external link) + optional `⚡ {score}` Product Score badge (if audited in NoLogin Lab) + `—` description + right-aligned health status (`✓ Online` / `⚠ Unstable` / `✗ Offline`). Mobile: name+hostname on first line, description wraps to second line.
   - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
   - No client-side JS on homepage.
-- **NoLogin Lab Product Power Score & Empirical Vetting**:
-  - Unified Cognitive Agent Dogfooding (CADES) via native `ego-browser` and benchmark runner `scripts/inspect-tool-dogfood.mjs`.
-  - Agent personally drives browser interactions via `ego-browser`, visually inspects screenshots (`view_file`), injects grounded fixtures (`scripts/lab/fixtures/`), audits zero-egress payloads, and tests downloaded artifacts with `output-inspector.mjs` (Magic Bytes, anti-bait-trap, watermark signatures).
-  - Scores 0-100 on 5 dimensions: Frictionless UX (20), Functional Depth & Fidelity (25), Export Freedom (20), Privacy & Data Sovereignty (20, core pillar), Stability & Polish (15).
-  - Tiers: `editors-choice` (≥90, amber badge), `highly-recommended` (80-89, emerald badge), `capable-utility` (70-79, sky/neutral badge), `emergency-only` (<70).
+- **NoLogin Lab Product Power Score & Empirical Vetting (CADES 2.0 Route A)**:
+  - Agent-led conversational dogfooding framework (`docs/CADES-2.0-ROUTE-A-SPEC.md`) powered by `scripts/lab/dogfood-session.mjs`, `cades-cognitive.mjs`, and native `ego-browser`.
+  - The Agent personally operates Chromium across multiple turns (`start` → `act` → `export` → `finish`), visually inspects screenshots (`view_file`), injects grounded fixtures (`scripts/lab/fixtures/`), audits zero-egress network payloads, and tests downloaded artifacts with `output-inspector.mjs` (Magic Bytes, anti-bait-trap, watermark signatures).
+  - Anti-inflation 5D score calibration (0-100): Frictionless UX (20), Functional Depth & Fidelity (25), Export Freedom (20), Privacy & Data Sovereignty (20, core pillar), Stability & Polish (15).
+  - Tiers: `editors-choice` (≥90, amber badge, ~12-15% of catalog), `highly-recommended` (80-89, emerald badge), `capable-utility` (70-79, sky/neutral badge), `emergency-only` (<70).
   - High product score awards up to +10 recommendation rank boost on homepage and category listings; evergreen stability bonus (+3) protects proven long-standing tools.
   - Category and detail pages feature hands-on lab notes snippets below tool descriptions for maximum user transparency.
 - **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to hiding on error via inline `onerror`. Used on homepage list and ToolCard component.

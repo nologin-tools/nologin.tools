@@ -176,8 +176,8 @@ export function generateSampleJson() {
       uuid: `550e8400-e29b-41d4-a716-4466554400${(i + 10).toString(16)}`,
       name: `Benchmark-Entity-${i + 1}`,
       metrics: {
-        latencyMs: Math.round(10 + Math.random() * 90),
-        throughput: Math.round(500 + Math.random() * 1500),
+        latencyMs: 10 + ((i * 37 + 13) % 90),
+        throughput: 500 + ((i * 127 + 31) % 1500),
         active: i % 2 === 0
       },
       tags: ["performance", "benchmark", i % 3 === 0 ? "core" : "edge"],
@@ -380,6 +380,39 @@ startxref
   return Buffer.from(content, 'utf-8');
 }
 
+export function generateMalformedJson() {
+  return `{
+  "toolName": "NoLogin Stress Test",
+  "validHeader": true,
+  "nested": {
+    "tags": ["testing", "stress",
+    "unclosedArray": [1, 2, 3
+  },
+  "trailingComma": "bad",
+}`;
+}
+
+export function generateCorruptedPng() {
+  // Truncated PNG missing IEND and incomplete IDAT
+  const full = generateSamplePng(200, 200);
+  return full.subarray(0, Math.floor(full.length * 0.4));
+}
+
+export function generateHeavySvg(nodeCount = 800) {
+  let paths = '';
+  for (let i = 0; i < nodeCount; i++) {
+    const cx = (i * 37) % 800;
+    const cy = (i * 53) % 600;
+    const r = (i % 25) + 5;
+    const fill = `hsl(${(i * 17) % 360}, 70%, 50%)`;
+    paths += `  <circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" opacity="0.6" transform="rotate(${i % 360} ${cx} ${cy})"/>\n`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#0f172a"/>
+  <!-- CADES 2.0 Heavy Stress Vector (${nodeCount} nodes) -->
+${paths}</svg>`;
+}
+
 export function generateAllFixtures() {
   const pngPath = resolve(FIXTURES_DIR, 'sample.png');
   const svgPath = resolve(FIXTURES_DIR, 'sample.svg');
@@ -387,6 +420,11 @@ export function generateAllFixtures() {
   const mdPath = resolve(FIXTURES_DIR, 'sample.md');
   const wavPath = resolve(FIXTURES_DIR, 'sample.wav');
   const pdfPath = resolve(FIXTURES_DIR, 'sample.pdf');
+
+  // Edge-case & stress fixtures
+  const malformedJsonPath = resolve(FIXTURES_DIR, 'malformed.json');
+  const corruptedPngPath = resolve(FIXTURES_DIR, 'corrupted.png');
+  const heavySvgPath = resolve(FIXTURES_DIR, 'heavy.svg');
 
   const pngBuf = generateSamplePng(800, 600);
   writeFileSync(pngPath, pngBuf);
@@ -406,13 +444,25 @@ export function generateAllFixtures() {
   const pdfBuf = generateSamplePdf();
   writeFileSync(pdfPath, pdfBuf);
 
+  const malformedJsonStr = generateMalformedJson();
+  writeFileSync(malformedJsonPath, malformedJsonStr, 'utf-8');
+
+  const corruptedPngBuf = generateCorruptedPng();
+  writeFileSync(corruptedPngPath, corruptedPngBuf);
+
+  const heavySvgStr = generateHeavySvg();
+  writeFileSync(heavySvgPath, heavySvgStr, 'utf-8');
+
   return {
     png: { path: pngPath, size: pngBuf.length },
     svg: { path: svgPath, size: Buffer.byteLength(svgStr) },
     json: { path: jsonPath, size: Buffer.byteLength(jsonStr) },
     md: { path: mdPath, size: Buffer.byteLength(mdStr) },
     wav: { path: wavPath, size: wavBuf.length },
-    pdf: { path: pdfPath, size: pdfBuf.length }
+    pdf: { path: pdfPath, size: pdfBuf.length },
+    'malformed-json': { path: malformedJsonPath, size: Buffer.byteLength(malformedJsonStr) },
+    'corrupted-png': { path: corruptedPngPath, size: corruptedPngBuf.length },
+    'heavy-svg': { path: heavySvgPath, size: Buffer.byteLength(heavySvgStr) }
   };
 }
 
@@ -426,4 +476,8 @@ if (process.argv[1] && process.argv[1].endsWith('generate-fixtures.mjs')) {
   console.log(`✓ sample.md generated (${(res.md.size / 1024).toFixed(1)} KB) -> ${res.md.path}`);
   console.log(`✓ sample.wav generated (${(res.wav.size / 1024).toFixed(1)} KB) -> ${res.wav.path}`);
   console.log(`✓ sample.pdf generated (${(res.pdf.size / 1024).toFixed(1)} KB) -> ${res.pdf.path}`);
+  console.log(`✓ malformed.json generated (${res['malformed-json'].size} B) -> ${res['malformed-json'].path}`);
+  console.log(`✓ corrupted.png generated (${res['corrupted-png'].size} B) -> ${res['corrupted-png'].path}`);
+  console.log(`✓ heavy.svg generated (${(res['heavy-svg'].size / 1024).toFixed(1)} KB) -> ${res['heavy-svg'].path}`);
 }
+

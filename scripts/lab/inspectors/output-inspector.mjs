@@ -444,3 +444,55 @@ export function inspectArtifact(artifactPath, originalFixture = null) {
     }
   };
 }
+
+/**
+ * Assesses overall artifact quality and computes quality penalties for CADES 2.0 evaluation
+ * @param {any} report - Return value from inspectArtifact()
+ * @returns {{ isDegraded: boolean, penalty: number, recommendation: 'pass' | 'warning' | 'reject', reasons: string[] }}
+ */
+export function assessArtifactQuality(report) {
+  if (!report || !report.success) {
+    return {
+      isDegraded: true,
+      penalty: 15,
+      recommendation: 'reject',
+      reasons: [report?.error || 'Artifact missing or unreadable']
+    };
+  }
+
+  const q = report.quality || {};
+  const reasons = [];
+  let penalty = 0;
+
+  if (q.isBaitTrap) {
+    reasons.push('Bait-and-switch trap detected: Download resulted in login trap HTML');
+    return { isDegraded: true, penalty: 20, recommendation: 'reject', reasons };
+  }
+
+  if (q.hasWatermark) {
+    reasons.push(`Commercial watermark signature detected: ${q.watermarkSignature || 'unknown'}`);
+    return { isDegraded: true, penalty: 15, recommendation: 'reject', reasons };
+  }
+
+  if (q.isBlankCanvas) {
+    reasons.push('Blank canvas whiteout detected: Exported file lacks visible graphic primitives or has zero variance');
+    return { isDegraded: true, penalty: 15, recommendation: 'reject', reasons };
+  }
+
+  if (q.dimensionPreserved === false) {
+    reasons.push('Resolution downgraded: Output dimensions do not match source fixture');
+    penalty += 4;
+  }
+
+  if (typeof q.visualFidelity === 'number' && q.visualFidelity < 70) {
+    reasons.push(`Low visual fidelity: Difference hash indicates significant distortion (${q.visualFidelity}%)`);
+    penalty += 3;
+  }
+
+  return {
+    isDegraded: penalty > 0,
+    penalty,
+    recommendation: penalty >= 10 ? 'reject' : penalty > 0 ? 'warning' : 'pass',
+    reasons
+  };
+}

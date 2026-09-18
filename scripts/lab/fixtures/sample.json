@@ -10,8 +10,8 @@
       "uuid": "550e8400-e29b-41d4-a716-4466554400a",
       "name": "Benchmark-Entity-1",
       "metrics": {
-        "latencyMs": 58,
-        "throughput": 1245,
+        "latencyMs": 23,
+        "throughput": 531,
         "active": true
       },
       "tags": [
@@ -33,8 +33,8 @@
       "uuid": "550e8400-e29b-41d4-a716-4466554400b",
       "name": "Benchmark-Entity-2",
       "metrics": {
-        "latencyMs": 29,
-        "throughput": 1109,
+        "latencyMs": 60,
+        "throughput": 658,
         "active": false
       },
       "tags": [
@@ -56,8 +56,8 @@
       "uuid": "550e8400-e29b-41d4-a716-4466554400c",
       "name": "Benchmark-Entity-3",
       "metrics": {
-        "latencyMs": 96,
-        "throughput": 1062,
+        "latencyMs": 97,
+        "throughput": 785,
         "active": true
       },
       "tags": [
@@ -79,8 +79,8 @@
       "uuid": "550e8400-e29b-41d4-a716-4466554400d",
       "name": "Benchmark-Entity-4",
       "metrics": {
-        "latencyMs": 11,
-        "throughput": 741,
+        "latencyMs": 44,
+        "throughput": 912,
         "active": false
       },
       "tags": [
@@ -102,8 +102,8 @@
       "uuid": "550e8400-e29b-41d4-a716-4466554400e",
       "name": "Benchmark-Entity-5",
       "metrics": {
-        "latencyMs": 62,
-        "throughput": 841,
+        "latencyMs": 81,
+        "throughput": 1039,
         "active": true
       },
       "tags": [
@@ -125,8 +125,8 @@
       "uuid": "550e8400-e29b-41d4-a716-4466554400f",
       "name": "Benchmark-Entity-6",
       "metrics": {
-        "latencyMs": 88,
-        "throughput": 881,
+        "latencyMs": 28,
+        "throughput": 1166,
         "active": false
       },
       "tags": [
@@ -148,8 +148,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440010",
       "name": "Benchmark-Entity-7",
       "metrics": {
-        "latencyMs": 55,
-        "throughput": 1239,
+        "latencyMs": 65,
+        "throughput": 1293,
         "active": true
       },
       "tags": [
@@ -171,8 +171,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440011",
       "name": "Benchmark-Entity-8",
       "metrics": {
-        "latencyMs": 74,
-        "throughput": 1994,
+        "latencyMs": 12,
+        "throughput": 1420,
         "active": false
       },
       "tags": [
@@ -194,8 +194,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440012",
       "name": "Benchmark-Entity-9",
       "metrics": {
-        "latencyMs": 35,
-        "throughput": 1379,
+        "latencyMs": 49,
+        "throughput": 1547,
         "active": true
       },
       "tags": [
@@ -217,8 +217,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440013",
       "name": "Benchmark-Entity-10",
       "metrics": {
-        "latencyMs": 42,
-        "throughput": 545,
+        "latencyMs": 86,
+        "throughput": 1674,
         "active": false
       },
       "tags": [
@@ -240,8 +240,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440014",
       "name": "Benchmark-Entity-11",
       "metrics": {
-        "latencyMs": 27,
-        "throughput": 957,
+        "latencyMs": 33,
+        "throughput": 1801,
         "active": true
       },
       "tags": [
@@ -263,8 +263,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440015",
       "name": "Benchmark-Entity-12",
       "metrics": {
-        "latencyMs": 82,
-        "throughput": 1211,
+        "latencyMs": 70,
+        "throughput": 1928,
         "active": false
       },
       "tags": [
@@ -286,8 +286,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440016",
       "name": "Benchmark-Entity-13",
       "metrics": {
-        "latencyMs": 87,
-        "throughput": 1954,
+        "latencyMs": 17,
+        "throughput": 555,
         "active": true
       },
       "tags": [
@@ -309,8 +309,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440017",
       "name": "Benchmark-Entity-14",
       "metrics": {
-        "latencyMs": 76,
-        "throughput": 700,
+        "latencyMs": 54,
+        "throughput": 682,
         "active": false
       },
       "tags": [
@@ -332,8 +332,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440018",
       "name": "Benchmark-Entity-15",
       "metrics": {
-        "latencyMs": 81,
-        "throughput": 1828,
+        "latencyMs": 91,
+        "throughput": 809,
         "active": true
       },
       "tags": [
@@ -355,8 +355,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440019",
       "name": "Benchmark-Entity-16",
       "metrics": {
-        "latencyMs": 15,
-        "throughput": 501,
+        "latencyMs": 38,
+        "throughput": 936,
         "active": false
       },
       "tags": [
@@ -378,8 +378,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544001a",
       "name": "Benchmark-Entity-17",
       "metrics": {
-        "latencyMs": 51,
-        "throughput": 979,
+        "latencyMs": 75,
+        "throughput": 1063,
         "active": true
       },
       "tags": [
@@ -401,8 +401,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544001b",
       "name": "Benchmark-Entity-18",
       "metrics": {
-        "latencyMs": 59,
-        "throughput": 1882,
+        "latencyMs": 22,
+        "throughput": 1190,
         "active": false
       },
       "tags": [
@@ -424,8 +424,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544001c",
       "name": "Benchmark-Entity-19",
       "metrics": {
-        "latencyMs": 76,
-        "throughput": 1382,
+        "latencyMs": 59,
+        "throughput": 1317,
         "active": true
       },
       "tags": [
@@ -447,8 +447,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544001d",
       "name": "Benchmark-Entity-20",
       "metrics": {
-        "latencyMs": 70,
-        "throughput": 1369,
+        "latencyMs": 96,
+        "throughput": 1444,
         "active": false
       },
       "tags": [
@@ -470,8 +470,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544001e",
       "name": "Benchmark-Entity-21",
       "metrics": {
-        "latencyMs": 89,
-        "throughput": 1718,
+        "latencyMs": 43,
+        "throughput": 1571,
         "active": true
       },
       "tags": [
@@ -493,8 +493,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544001f",
       "name": "Benchmark-Entity-22",
       "metrics": {
-        "latencyMs": 19,
-        "throughput": 504,
+        "latencyMs": 80,
+        "throughput": 1698,
         "active": false
       },
       "tags": [
@@ -516,8 +516,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440020",
       "name": "Benchmark-Entity-23",
       "metrics": {
-        "latencyMs": 58,
-        "throughput": 1049,
+        "latencyMs": 27,
+        "throughput": 1825,
         "active": true
       },
       "tags": [
@@ -539,8 +539,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440021",
       "name": "Benchmark-Entity-24",
       "metrics": {
-        "latencyMs": 96,
-        "throughput": 1978,
+        "latencyMs": 64,
+        "throughput": 1952,
         "active": false
       },
       "tags": [
@@ -562,8 +562,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440022",
       "name": "Benchmark-Entity-25",
       "metrics": {
-        "latencyMs": 43,
-        "throughput": 1622,
+        "latencyMs": 11,
+        "throughput": 579,
         "active": true
       },
       "tags": [
@@ -585,8 +585,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440023",
       "name": "Benchmark-Entity-26",
       "metrics": {
-        "latencyMs": 15,
-        "throughput": 1633,
+        "latencyMs": 48,
+        "throughput": 706,
         "active": false
       },
       "tags": [
@@ -608,8 +608,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440024",
       "name": "Benchmark-Entity-27",
       "metrics": {
-        "latencyMs": 14,
-        "throughput": 1050,
+        "latencyMs": 85,
+        "throughput": 833,
         "active": true
       },
       "tags": [
@@ -631,8 +631,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440025",
       "name": "Benchmark-Entity-28",
       "metrics": {
-        "latencyMs": 44,
-        "throughput": 1735,
+        "latencyMs": 32,
+        "throughput": 960,
         "active": false
       },
       "tags": [
@@ -654,8 +654,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440026",
       "name": "Benchmark-Entity-29",
       "metrics": {
-        "latencyMs": 88,
-        "throughput": 733,
+        "latencyMs": 69,
+        "throughput": 1087,
         "active": true
       },
       "tags": [
@@ -677,8 +677,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440027",
       "name": "Benchmark-Entity-30",
       "metrics": {
-        "latencyMs": 49,
-        "throughput": 1854,
+        "latencyMs": 16,
+        "throughput": 1214,
         "active": false
       },
       "tags": [
@@ -700,8 +700,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440028",
       "name": "Benchmark-Entity-31",
       "metrics": {
-        "latencyMs": 91,
-        "throughput": 791,
+        "latencyMs": 53,
+        "throughput": 1341,
         "active": true
       },
       "tags": [
@@ -723,8 +723,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440029",
       "name": "Benchmark-Entity-32",
       "metrics": {
-        "latencyMs": 48,
-        "throughput": 918,
+        "latencyMs": 90,
+        "throughput": 1468,
         "active": false
       },
       "tags": [
@@ -746,8 +746,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544002a",
       "name": "Benchmark-Entity-33",
       "metrics": {
-        "latencyMs": 58,
-        "throughput": 659,
+        "latencyMs": 37,
+        "throughput": 1595,
         "active": true
       },
       "tags": [
@@ -769,8 +769,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544002b",
       "name": "Benchmark-Entity-34",
       "metrics": {
-        "latencyMs": 40,
-        "throughput": 1559,
+        "latencyMs": 74,
+        "throughput": 1722,
         "active": false
       },
       "tags": [
@@ -792,8 +792,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544002c",
       "name": "Benchmark-Entity-35",
       "metrics": {
-        "latencyMs": 54,
-        "throughput": 1799,
+        "latencyMs": 21,
+        "throughput": 1849,
         "active": true
       },
       "tags": [
@@ -815,8 +815,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544002d",
       "name": "Benchmark-Entity-36",
       "metrics": {
-        "latencyMs": 20,
-        "throughput": 1462,
+        "latencyMs": 58,
+        "throughput": 1976,
         "active": false
       },
       "tags": [
@@ -838,8 +838,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544002e",
       "name": "Benchmark-Entity-37",
       "metrics": {
-        "latencyMs": 25,
-        "throughput": 1508,
+        "latencyMs": 95,
+        "throughput": 603,
         "active": true
       },
       "tags": [
@@ -861,8 +861,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544002f",
       "name": "Benchmark-Entity-38",
       "metrics": {
-        "latencyMs": 32,
-        "throughput": 1322,
+        "latencyMs": 42,
+        "throughput": 730,
         "active": false
       },
       "tags": [
@@ -884,8 +884,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440030",
       "name": "Benchmark-Entity-39",
       "metrics": {
-        "latencyMs": 14,
-        "throughput": 513,
+        "latencyMs": 79,
+        "throughput": 857,
         "active": true
       },
       "tags": [
@@ -907,8 +907,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440031",
       "name": "Benchmark-Entity-40",
       "metrics": {
-        "latencyMs": 48,
-        "throughput": 1332,
+        "latencyMs": 26,
+        "throughput": 984,
         "active": false
       },
       "tags": [
@@ -930,8 +930,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440032",
       "name": "Benchmark-Entity-41",
       "metrics": {
-        "latencyMs": 36,
-        "throughput": 1178,
+        "latencyMs": 63,
+        "throughput": 1111,
         "active": true
       },
       "tags": [
@@ -953,8 +953,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440033",
       "name": "Benchmark-Entity-42",
       "metrics": {
-        "latencyMs": 37,
-        "throughput": 1599,
+        "latencyMs": 10,
+        "throughput": 1238,
         "active": false
       },
       "tags": [
@@ -976,8 +976,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440034",
       "name": "Benchmark-Entity-43",
       "metrics": {
-        "latencyMs": 81,
-        "throughput": 1570,
+        "latencyMs": 47,
+        "throughput": 1365,
         "active": true
       },
       "tags": [
@@ -999,8 +999,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440035",
       "name": "Benchmark-Entity-44",
       "metrics": {
-        "latencyMs": 38,
-        "throughput": 1712,
+        "latencyMs": 84,
+        "throughput": 1492,
         "active": false
       },
       "tags": [
@@ -1022,8 +1022,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440036",
       "name": "Benchmark-Entity-45",
       "metrics": {
-        "latencyMs": 35,
-        "throughput": 924,
+        "latencyMs": 31,
+        "throughput": 1619,
         "active": true
       },
       "tags": [
@@ -1045,8 +1045,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440037",
       "name": "Benchmark-Entity-46",
       "metrics": {
-        "latencyMs": 65,
-        "throughput": 796,
+        "latencyMs": 68,
+        "throughput": 1746,
         "active": false
       },
       "tags": [
@@ -1068,8 +1068,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440038",
       "name": "Benchmark-Entity-47",
       "metrics": {
-        "latencyMs": 59,
-        "throughput": 1072,
+        "latencyMs": 15,
+        "throughput": 1873,
         "active": true
       },
       "tags": [
@@ -1091,8 +1091,8 @@
       "uuid": "550e8400-e29b-41d4-a716-446655440039",
       "name": "Benchmark-Entity-48",
       "metrics": {
-        "latencyMs": 62,
-        "throughput": 1396,
+        "latencyMs": 52,
+        "throughput": 500,
         "active": false
       },
       "tags": [
@@ -1114,8 +1114,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544003a",
       "name": "Benchmark-Entity-49",
       "metrics": {
-        "latencyMs": 76,
-        "throughput": 1915,
+        "latencyMs": 89,
+        "throughput": 627,
         "active": true
       },
       "tags": [
@@ -1137,8 +1137,8 @@
       "uuid": "550e8400-e29b-41d4-a716-44665544003b",
       "name": "Benchmark-Entity-50",
       "metrics": {
-        "latencyMs": 56,
-        "throughput": 849,
+        "latencyMs": 36,
+        "throughput": 754,
         "active": false
       },
       "tags": [

@@ -71,132 +71,43 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
      - Reject all redundant slices: `rejection_reason = '同一主域名重复切片/重复提交 (已存在首选条目)'`.
    - **Finished Production State**: In `ego-browser`, verify the site is not an unfinished starter template, demo assignment, or sample app containing `Lorem ipsum` or blank placeholders.
 
-4. **Quality Gate 3: Open-Source Green Channel (`*.github.io`)**
+4. **Quality Gate 3: Open-Source Green Channel (`*.github.io`)**:
    - If URL is on `*.github.io` and has an associated GitHub repository:
      - Verify the repo is active and not impersonated.
      - Prioritize approval for client-side privacy-first web apps (e.g., CyberChef, SVGOMG).
      - Automatically populate `repo_url` and assign `source:Open Source`.
 
-5. **Cognitive Agentic Dogfooding & Evaluation Protocol (CADES)**:
-   For candidate tools (both new submissions and rolling audits), never rely solely on homepage marketing text or naive DOM heuristics. Execute the CADES inspection harness:
-   ```bash
-   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --json
-   ```
-   Or run with human-readable terminal output and visual checkpoint links:
-   ```bash
-   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>"
-   ```
+5. **Cognitive Agentic Dogfooding & Evaluation Protocol (CADES 2.0)**:
+   For candidate tools (both new submissions and rolling audits), never rely solely on homepage marketing text or naive DOM heuristics. Follow the **CADES 2.0 Three-Level Escalation Ladder**:
 
-   **The CADES Harness Rigorously Executes in 3 Adaptive Stages**:
-   1. **Stage 1: Intent Discovery & Visual Checkpoint 1 (Initial Impression)**:
-      - **Zero Cold-Start Perception**: Tools are submitted with only `url` (no `core_task` exists yet). The harness extracts `<title>`, `meta[description]`, `h1/h2`, visible input placeholders (e.g. `"Paste cURL command..."`, `"Enter crontab..."`), and primary action buttons.
-      - **Visual Checkpoint 1**: Takes an immediate full-screen capture (`/tmp/dogfood-<slug>-intent-*.png`). Checks for dark pattern ad-clutter, deceptive Google AdSense download buttons, and blocking modal overlays.
-      - **Archetype Deduction**: Informs the Agent whether the tool is a JWT debugger, Regex matcher, SQL formatter, cURL converter, Markdown editor, Color palette generator, or Canvas whiteboard.
-   2. **Stage 2: Context-Aware Dual-Modality Dogfooding**:
-      - **Authentic Payload Injection**: Injects context-appropriate data (valid JWT tokens, regex patterns, SQL queries, cURL requests, or Markdown) instead of generic strings that cause syntax crashes in specialized tools.
-      - **Canvas & Palette Interaction**: Simulates spacebar rolls on palette generators, or pointerdown/move strokes on interactive HTML5 canvases.
-      - **Network Privacy Sniffing**: Hooks in-page `fetch` and `XMLHttpRequest` to strictly classify:
-        - `data: Local Only` & `offline: Offline Capable`: Zero external backend POST payloads (Wasm, Canvas, client-side).
-        - `data: Cloud Processed` & `offline: Online Only`: Remote cloud payload transmission.
-      - **Export / Download Gatekeeper**: Arms `download` event listeners and clicks export/copy triggers, strictly detecting post-action bait traps ("Sign in to download", "Enter email").
-   3. **Stage 3: Outcome Delivery & Visual Checkpoint 2 (Verification)**:
-      - **Visual Checkpoint 2**: Captures outcome snapshot (`/tmp/dogfood-<slug>-outcome-*.png`).
-      - **Visual Proof & Watermark Hunt**: Agent views the outcome image to verify that the Canvas/diagram actually rendered (bypassing DOM blindness) and confirms zero burned-in commercial watermarks ("Canva Free", "Trial Version").
-      - **Task Crystallization**: Synthesizes the verified `core_task` directly from successful trial execution.
+   - **Level 1: Fast-Triage (Zero-Cost Pre-Checks)**:
+     - Check domain against hard filters (temporary tunnels, preview branches, repo links, storefronts). If non-compliant, immediately reject without launching Chromium.
 
-     **Step 5: Agent-Driven Cognitive Dogfooding via Native `ego-browser`**:
-     **Strict Prohibition on Automated Rubber-Stamping**: Never approve a tool based solely on automated script output. The Agent MUST personally unleash its full cognitive capabilities directly through `ego-browser`:
+   - **Level 2: Harness Baseline & Cognitive Packet Synthesis**:
+     - Execute the deterministic harness to test connectivity, inject network snoopers, upload grounded fixtures, test export gatekeepers, and capture dual visual checkpoints:
+     ```bash
+     node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --packet-file "/tmp/packet-<slug>.json"
+     ```
+     - If the site is blocked by login walls or fails export with bait traps/watermarks, reject immediately with evidence.
+     - Otherwise, inspect the generated `/tmp/packet-<slug>.json` containing visual snapshot paths, DOM accessibility tree summary, network payload logs, and artifact inspection report.
 
-     1. **Launch Dedicated TaskSpace & Inject Zero-Egress Network Snooper**:
-        The Agent initiates an isolated `ego-browser` session with network payload interception:
-        ```bash
-        ego-browser nodejs <<'EOF'
-        const task = await taskSpace("audit-<slug>");
-        const page = task.page("p1");
-
-        // Network snooper for zero-egress data sovereignty check
-        await page.evaluate(() => {
-          window.__netPayloads = [];
-          const isTelemetry = (u) => /google-analytics|googletagmanager|clarity\.ms|sentry\.io|doubleclick|pagead|googlesyndication|pub\.network|adnxs|rubicon|criteo|fundingchoicesmessages|cloudflareinsights|fonts\.googleapis|cdnjs\.cloudflare/i.test(u);
-          const origFetch = window.fetch;
-          window.fetch = function(...args) {
-            try {
-              const url = typeof args[0] === 'string' ? args[0] : (args[0]?.url || '');
-              const method = (args[1]?.method || (typeof args[0] === 'object' ? args[0]?.method : 'GET') || 'GET').toUpperCase();
-              if (Boolean(args[1]?.body) && !isTelemetry(url)) {
-                window.__netPayloads.push({ type: 'fetch', method, url: url.slice(0, 150) });
-              }
-            } catch (e) {}
-            return origFetch.apply(this, args);
-          };
-          const origXhrSend = XMLHttpRequest.prototype.send;
-          const origXhrOpen = XMLHttpRequest.prototype.open;
-          XMLHttpRequest.prototype.open = function(method, url) {
-            this.__method = method ? method.toUpperCase() : 'GET';
-            this.__url = url;
-            return origXhrOpen.apply(this, arguments);
-          };
-          XMLHttpRequest.prototype.send = function(body) {
-            try {
-              if (body && !isTelemetry(this.__url || '')) {
-                window.__netPayloads.push({ type: 'xhr', method: this.__method, url: (this.__url || '').slice(0, 150) });
-              }
-            } catch (e) {}
-            return origXhrSend.apply(this, arguments);
-          };
-        }).catch(() => false);
-
-        await page.goto("<URL>", { waitUntil: "domcontentloaded", timeout: 45000 });
-        await page.waitForTimeout(1500);
-        await page.screenshot({ path: "/tmp/audit-<slug>-initial.png" });
-        console.log("INITIAL_URL:", await page.url());
-        console.log("SNAPSHOT:", await page.snapshot());
-        EOF
-        ```
-        - If the site redirects to Google/GitHub login walls or a pure login screen, **immediately reject the tool**.
-
-     2. **Agent Visual Eye-Check (Checkpoint 1)**:
-        - The Agent MUST use `view_file` to personally inspect the initial screenshot: `/tmp/audit-<slug>-initial.png`.
-        - Verify overall UI polish, layout clarity, and absence of deceptive fake download banners or obstructive popups.
-
-     3. **Authentic Interaction & Grounded Fixture Injection via `ego-browser`**:
-        The Agent formulates a tool-specific testing plan and exercises the tool's core utility:
-        - **File Upload Tools**: Inject standard lab fixtures (`scripts/lab/fixtures/sample.png`, `sample.svg`, `sample.pdf`, `sample.json`, `sample.md`, `sample.wav`):
-          ```js
-          await page.setInputFiles('input[type="file"]', '/Users/lin/hime/nologin.tools/scripts/lab/fixtures/sample.png');
-          ```
-        - **Text / Code Tools**: Fill inputs with context-aware data (`await page.fill(...)`), click transform/calculate buttons (`await page.click(...)`).
-        - **Interactive Canvas / Audio Tools**: Agent can freely trigger drag-and-drop, sliders, and canvas operations using native `page.mouse` or `page.dragAndDrop()`.
-        - **Self-Healing**: If popups or cookie dialogs obstruct the view, the Agent dynamically dismisses them in the session.
-
-     4. **Visual Verification of Outcome (Checkpoint 2)**:
-        - Capture post-action outcome screenshot:
-          ```js
-          await page.screenshot({ path: "/tmp/audit-<slug>-outcome.png" });
-          ```
-        - The Agent MUST use `view_file` to inspect the outcome image. Confirm that the canvas/diagram actually rendered (not blank or whiteout) and that no unexpected commercial watermark appeared.
-
-     5. **Artifact Inspection & Zero-Egress Network Audit**:
-        - If an export/download was performed, run a quick node one-liner to inspect the downloaded artifact via `output-inspector.mjs`:
-          ```bash
-          node -e '
-          import { inspectArtifact } from "./scripts/lab/inspectors/output-inspector.mjs";
-          console.log(JSON.stringify(inspectArtifact("/path/to/downloaded-file"), null, 2));
-          '
-          ```
-          *Verifies Magic Bytes format integrity (guards against bait-and-switch HTML login traps) and scans for commercial watermarks.*
-        - Inspect outgoing network payloads (`await page.evaluate(() => window.__netPayloads)`). If zero non-telemetry requests were sent, verify as `data:Local Only` & `offline:Offline Capable`.
-        - Clean up the session: `await task.finish({ keep: [] })`.
-
-     6. **Authentic Editorial Synthesis & Grounded Benchmark Notes**:
-        - The Agent personally determines the 5-dimension scores:
-          - Frictionless UX (0–20)
-          - Functional Depth & Fidelity (0–25)
-          - Export Freedom (0–20)
-          - Privacy & Data Sovereignty (0–20)
-          - Stability & Polish (0–15)
-        - **Grounded Benchmark Notes**: The Agent records exact real-world test details in `src/data/tool-editorial.json` (e.g. *"CADES Agent 实测通过：上传 800x600 标准 PNG 样本，纯前端 WebAssembly 本地压缩处理，耗时 320ms，零网络外溢，无损无水印导出。"*).
-        - **Hard Gate**: If total product score < 70, or if an auth barrier/commercial watermark is detected, **immediately reject the tool**.
+   - **Level 3: Agent Cognitive Evaluation (Multimodal Review & Anti-Inflation Calibration)**:
+     - **Visual Eye-Check**: The Agent MUST use `view_file` on both screenshots:
+       - Initial Screenshot: Verify modern layout, zero deceptive download button ads, no obstructive popups.
+       - Outcome Screenshot: Verify core task output actually rendered with high fidelity without blank whiteout or subtle corner watermarks.
+     - **Anti-Inflation 5D Calibration**: Review the baseline score against the anti-inflation standard:
+       - *Editor's Choice (≥90)*: Reserved for top 12-15% elite web apps (zero-egress, Wasm/Canvas, top-tier aesthetic polish, instant frictionless export).
+       - *Highly Recommended (80-89)*: Robust, production-grade tools.
+       - *Capable Utility (70-79)*: Simple single-purpose utilities (e.g. text length counter, base64 convert) with basic UI.
+     - **Authentic Editorial Synthesis**: The Agent formulates human-like qualitative insights (EN & ZH) in `/tmp/eval-<slug>.json`:
+       - `bestFor`: Precise persona and workflow.
+       - `pros`: 2-3 genuine technical highlights.
+       - `cons`: 1-2 honest technical limits or performance boundaries.
+       - `benchmarkNotes`: Real-world observations without boilerplate templates.
+     - **Sync to Editorial**:
+       ```bash
+       node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --eval-file "/tmp/eval-<slug>.json" --sync
+       ```
 
 
 6. **Final Evaluation, D1 Write & Multi-Language Translation**:
