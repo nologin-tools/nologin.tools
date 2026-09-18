@@ -858,6 +858,23 @@ async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = nu
 
     const fileContent = readFileSync(resultFilePath, 'utf-8');
     const rawResult = JSON.parse(fileContent);
+
+    // If an export was downloaded, inspect artifact for resolution, bait traps, and watermarks
+    if (rawResult.exportGate?.downloadPath && existsSync(rawResult.exportGate.downloadPath)) {
+      try {
+        const { inspectArtifact } = await import('./lab/inspectors/output-inspector.mjs');
+        const artifactReport = inspectArtifact(rawResult.exportGate.downloadPath);
+        rawResult.exportGate.artifactInspection = artifactReport;
+        if (artifactReport.quality?.isBaitTrap) {
+          rawResult.exportGate.interceptedByAuth = true;
+          rawResult.exportGate.authPromptDetails = 'Bait trap detected: Download resulted in fake/login trap HTML file';
+        }
+        if (artifactReport.quality?.hasWatermark) {
+          rawResult.exportGate.hasWatermark = true;
+        }
+      } catch (e) {}
+    }
+
     const evaluation = synthesizeEvaluation(rawResult, existingTask);
     const finalReport = {
       inspection: rawResult,
@@ -952,19 +969,50 @@ function syncEditorialRecord(editorialData, toolSlug, report) {
   }
 
   const exportGate = report.inspection?.exportGate || {};
-  const exportScore = (exportGate.passedNoLoginExport || exportGate.downloadTriggered || exportGate.downloadCaptured)
-    ? 25
-    : (exportGate.interceptedByAuth ? 5 : 20);
-  const depthScore = Math.min(30, (report.evaluation.scorecard?.utilityIndependence || 4) * 6);
-  const frictionlessScore = Math.min(25, (report.evaluation.scorecard?.noLoginCompleteness || 5) * 5);
-  const polishScore = Math.min(20, (report.evaluation.scorecard?.cleanUx || 4) * 4);
-  const overall = Math.min(100, frictionlessScore + depthScore + exportScore + polishScore);
+  const isLocal = report.inspection?.networkPrivacy?.classification === 'Local Only';
+  const hasWasm = Boolean(report.inspection?.networkPrivacy?.hasWebAssembly);
+  const hasCanvas = Boolean(report.inspection?.surface?.hasCanvas);
+  const hasTracking = Boolean(report.inspection?.networkPrivacy?.hasThirdPartyTracking);
+  const isOffline = Boolean(report.inspection?.networkPrivacy?.offlineCapable);
+  const isRepoVerified = Boolean(report.evaluation?.metadata?.repo_url);
+
+  // 1. Frictionless UX (max 20)
+  let frictionlessScore = Math.min(20, (report.evaluation.scorecard?.noLoginCompleteness || 5) * 4);
+  if (report.inspection?.initialAuthGate?.blocked) frictionlessScore = 0;
+  frictionlessScore = Math.max(0, Math.min(20, frictionlessScore));
+
+  // 2. Functional Depth & Fidelity (max 25)
+  let depthScore = Math.min(25, (report.evaluation.scorecard?.utilityIndependence || 4) * 5);
+  if (hasWasm || hasCanvas) depthScore = Math.min(25, depthScore + 2);
+  depthScore = Math.max(0, Math.min(25, depthScore));
+
+  // 3. Export Freedom (max 20)
+  let exportScore = 15;
+  if (exportGate.interceptedByAuth) {
+    exportScore = 3; // Severe penalty for post-action bait-and-switch
+  } else if (exportGate.passedNoLoginExport || exportGate.downloadTriggered || exportGate.downloadCaptured) {
+    exportScore = 20;
+  }
+  exportScore = Math.max(0, Math.min(20, exportScore));
+
+  // 4. Privacy & Data Sovereignty (max 20 - Core Pillar)
+  let privacyScore = isLocal ? 18 : 13;
+  if (isLocal && isOffline) privacyScore += 2;
+  if (isRepoVerified) privacyScore += 1;
+  if (hasTracking) privacyScore -= 4;
+  privacyScore = Math.max(0, Math.min(20, privacyScore));
+
+  // 5. Stability & Polish (max 15)
+  let polishScore = Math.min(15, (report.evaluation.scorecard?.cleanUx || 4) * 3);
+  if (report.inspection?.visual?.capturedOutcome) polishScore = Math.min(15, polishScore + 2);
+  polishScore = Math.max(0, Math.min(15, polishScore));
+
+  const overall = Math.min(100, frictionlessScore + depthScore + exportScore + privacyScore + polishScore);
 
   const verdictTier = overall >= 90 ? 'editors-choice' :
                       overall >= 80 ? 'highly-recommended' :
                       overall >= 70 ? 'capable-utility' : 'emergency-only';
 
-  const isLocal = report.inspection?.networkPrivacy?.classification === 'Local Only';
   const taskDesc = report.evaluation.metadata?.core_task || 'execute browser tasks';
   const notesEn = `CADES dogfood verified: ${taskDesc}. ${isLocal ? 'Zero-egress client-side computation' : 'Cloud processing verified'}.`;
   const notesZh = `CADES 实测通过：${taskDesc}。${isLocal ? '零外溢纯前端本地计算' : '云端处理验证通过'}。`;
@@ -975,6 +1023,7 @@ function syncEditorialRecord(editorialData, toolSlug, report) {
     frictionless: frictionlessScore,
     depth: depthScore,
     exportFreedom: exportScore,
+    privacy: privacyScore,
     polish: polishScore,
     factors: {
       frictionless: [
@@ -982,12 +1031,16 @@ function syncEditorialRecord(editorialData, toolSlug, report) {
         isLocal ? "Zero telemetry and in-memory execution" : "Direct access without registration"
       ],
       depth: [
-        report.inspection?.networkPrivacy?.hasWebAssembly ? "Hardware accelerated via WebAssembly" : "Standard client execution pipeline",
-        report.inspection?.surface?.hasCanvas ? "Interactive canvas rendering engine" : "Direct in-browser data processing"
+        hasWasm ? "Hardware accelerated via WebAssembly" : "Standard client execution pipeline",
+        hasCanvas ? "Interactive canvas rendering engine" : "Direct in-browser data processing"
       ],
       exportFreedom: [
         exportGate.passedNoLoginExport ? "Direct unrestricted output export verified" : "Standard in-browser delivery",
         "Zero post-action bait traps or download paywalls"
+      ],
+      privacy: [
+        isLocal ? "100% in-browser RAM execution with zero external data egress" : "Ephemeral cloud processing without user profile retention",
+        hasTracking ? "Standard analytics beacons observed" : "Zero commercial behavioral tracking or user profiling beacons"
       ],
       polish: [
         report.inspection?.visual?.capturedOutcome ? "Outcome screen verified without broken layouts" : "Standard UI presentation",

@@ -42,9 +42,9 @@ function getBadgeEmbedCode(slug, siteUrl, style = 'flat') {
 function getBadgeWeight(displayType) {
   switch (displayType) {
     case 'explicit':
-      return 10;
+      return 4;
     case 'implicit':
-      return 5;
+      return 2;
     default:
       return 0;
   }
@@ -88,12 +88,12 @@ describe('getBadgeEmbedCode', () => {
 });
 
 describe('getBadgeWeight', () => {
-  it('awards +10 algorithm boost for explicit badge display', () => {
-    assert.equal(getBadgeWeight('explicit'), 10);
+  it('awards +4 algorithm boost for explicit badge display', () => {
+    assert.equal(getBadgeWeight('explicit'), 4);
   });
 
-  it('awards +5 algorithm boost for implicit meta/link display', () => {
-    assert.equal(getBadgeWeight('implicit'), 5);
+  it('awards +2 algorithm boost for implicit meta/link display', () => {
+    assert.equal(getBadgeWeight('implicit'), 2);
   });
 
   it('awards 0 boost for none or missing badge', () => {

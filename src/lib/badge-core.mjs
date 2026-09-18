@@ -50,9 +50,9 @@ export function getBadgeEmbedCode(slug, siteUrl, style = 'flat') {
 export function getBadgeWeight(displayType) {
   switch (displayType) {
     case 'explicit':
-      return 10;
+      return 4;
     case 'implicit':
-      return 5;
+      return 2;
     default:
       return 0;
   }

@@ -85,13 +85,15 @@ nologin.tools categorizes every verified tool across seven distinct dimensions:
 ### Composite Recommendation Score Algorithm:
 Tools are ranked transparently using the following mathematical formula:
 ```
-score = badge_weight + freshness + health + featured
+score = badge_weight + freshness + health + featured + product_boost + evergreen_boost
 
 Where:
-- badge_weight = +10 (if tool displays SVG badge) OR +5 (if tool links in meta/text) OR 0
-- freshness    = +5 (approved within 30 days) OR +3 (within 90 days) OR +1
-- health       = +3 (effective status online) OR +1 (unstable) OR 0 (offline)
-- featured     = +8 (editorial spotlight) OR 0
+- product_boost   = up to +10 (derived from 5D empirical Product Power score: Math.round(overall / 10))
+- evergreen_boost = +3 (for mature tools >= 60 days with continuous online health status)
+- badge_weight    = +4 (if tool displays SVG badge) OR +2 (if tool links in meta/text) OR 0
+- freshness       = +5 (approved within 30 days) OR +3 (within 90 days) OR +1
+- health          = +3 (effective status online) OR +1 (unstable) OR 0 (offline)
+- featured        = +5 (editorial spotlight) OR 0
 ```
 
 ---

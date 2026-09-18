@@ -72,13 +72,33 @@ export function computePrivacyScorecard(tool, health, editorial) {
   const worksOffline = offlineTags.has('Works Offline') || Boolean(tool.capabilities?.worksOffline);
   const isPwa = typeTags.has('PWA');
   const isSelfHostable = hostingTags.has('Self-Hostable');
-  const hasNoTrackers = privacyTags.has('No Trackers') || isClientSide;
+
+  // Empirical audit cross-link: check CADES runtime inspection data from editorial
+  const privacyAudit = editorial?.dueDiligence?.privacyAudit || null;
+  const runtimeLocalVerified = privacyAudit?.runtimeClassification === 'Local Only';
+  const runtimeCloudDetected = privacyAudit?.runtimeClassification === 'Cloud Processed';
+  const hasDriftEgress = Boolean(isClientSide && runtimeCloudDetected);
+  const effectiveClientSide = (isClientSide || runtimeLocalVerified) && !hasDriftEgress;
+
+  const hasNoTrackers = (privacyTags.has('No Trackers') || effectiveClientSide) && privacyAudit?.statedPolicyCompliance !== 'violation-detected';
   const isPrivacyFocused = privacyTags.has('Privacy Focused');
 
   // 1. Dimension: Data Sandbox & Storage Isolation (max 25)
   /** @type {ScorecardDimension} */
   let sandbox;
-  if (isClientSide) {
+  if (hasDriftEgress) {
+    sandbox = {
+      name: 'Data Sandbox & Storage Isolation',
+      score: 12,
+      maxScore: 25,
+      status: 'Cloud Egress Detected',
+      highlights: [
+        'Runtime network sniffing detected unexpected outgoing cloud payloads',
+        'Payload transmission observed during interactive task execution',
+        'Flagged for privacy policy discrepancy re-evaluation',
+      ],
+    };
+  } else if (effectiveClientSide) {
     sandbox = {
       name: 'Data Sandbox & Storage Isolation',
       score: 25,
@@ -86,7 +106,7 @@ export function computePrivacyScorecard(tool, health, editorial) {
       status: 'In-Browser RAM Sandbox',
       highlights: [
         'Processes files and state strictly in client-side browser memory',
-        'Zero payload transmission to external servers or third-party cloud',
+        'Verified zero-egress payload transmission to external servers',
         worksOffline ? 'Verified full offline execution capability' : 'Runs locally without persistent server dependencies',
       ],
     };

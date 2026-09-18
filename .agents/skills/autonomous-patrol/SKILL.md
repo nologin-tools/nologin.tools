@@ -104,10 +104,10 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
       - **Visual Proof & Watermark Hunt**: Agent views the outcome image to verify that the Canvas/diagram actually rendered (bypassing DOM blindness) and confirms zero burned-in commercial watermarks ("Canva Free", "Trial Version").
       - **Task Crystallization**: Synthesizes the verified `core_task` directly from successful trial execution.
 
-   **Step 5a: Level 1 — NoLogin Lab Hygiene & Smoke Baseline (~5s)**:
-   Run baseline benchmark to audit TTI, WAF, and hardware acceleration:
+   **Step 5a: Level 1 — CADES Dynamic Evaluation & 5D Product Power Baseline**:
+   Run CADES agentic inspection to evaluate the 5-dimension Product Power score (Frictionless UX, Functional Depth, Export Freedom, Privacy & Data Sovereignty, Stability & Polish):
    ```bash
-   node scripts/lab/benchmark.mjs --url "<URL>" --slug "<slug>" --sync
+   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --sync
    ```
    - **Hard Gate**: If `productScore.overall < 70`, or if an auth barrier/commercial watermark is detected, **immediately reject the tool**.
 

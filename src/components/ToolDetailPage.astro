@@ -658,42 +658,51 @@ const faqLd = isVerified ? {
                   </div>
                 </div>
 
-                {/* Product 4 Dimensions Progress Bars */}
+                {/* Product Power 5 Dimensions Progress Bars */}
                 <div class="space-y-2.5 my-4">
                   <div>
                     <div class="flex justify-between text-[11px] font-mono font-medium text-neutral-600 mb-1">
                       <span>{t(locale, 'tool.productScore.dimFrictionless')}</span>
-                      <span class="font-bold text-neutral-900">{editorial.productScore.frictionless} / 25</span>
+                      <span class="font-bold text-neutral-900">{editorial.productScore.frictionless} / 20</span>
                     </div>
                     <div class="h-1.5 w-full bg-neutral-100 border border-neutral-300">
-                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.frictionless / 25) * 100}%`}></div>
+                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.frictionless / 20) * 100}%`}></div>
                     </div>
                   </div>
                   <div>
                     <div class="flex justify-between text-[11px] font-mono font-medium text-neutral-600 mb-1">
                       <span>{t(locale, 'tool.productScore.dimDepth')}</span>
-                      <span class="font-bold text-neutral-900">{editorial.productScore.depth} / 30</span>
+                      <span class="font-bold text-neutral-900">{editorial.productScore.depth} / 25</span>
                     </div>
                     <div class="h-1.5 w-full bg-neutral-100 border border-neutral-300">
-                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.depth / 30) * 100}%`}></div>
+                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.depth / 25) * 100}%`}></div>
                     </div>
                   </div>
                   <div>
                     <div class="flex justify-between text-[11px] font-mono font-medium text-neutral-600 mb-1">
                       <span>{t(locale, 'tool.productScore.dimExport')}</span>
-                      <span class="font-bold text-neutral-900">{editorial.productScore.exportFreedom} / 25</span>
+                      <span class="font-bold text-neutral-900">{editorial.productScore.exportFreedom} / 20</span>
                     </div>
                     <div class="h-1.5 w-full bg-neutral-100 border border-neutral-300">
-                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.exportFreedom / 25) * 100}%`}></div>
+                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.exportFreedom / 20) * 100}%`}></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-[11px] font-mono font-medium text-neutral-600 mb-1">
+                      <span>{t(locale, 'tool.productScore.dimPrivacy')}</span>
+                      <span class="font-bold text-neutral-900">{editorial.productScore.privacy ?? 20} / 20</span>
+                    </div>
+                    <div class="h-1.5 w-full bg-neutral-100 border border-neutral-300">
+                      <div class="h-full bg-neutral-900" style={`width: ${((editorial.productScore.privacy ?? 20) / 20) * 100}%`}></div>
                     </div>
                   </div>
                   <div>
                     <div class="flex justify-between text-[11px] font-mono font-medium text-neutral-600 mb-1">
                       <span>{t(locale, 'tool.productScore.dimPolish')}</span>
-                      <span class="font-bold text-neutral-900">{editorial.productScore.polish} / 20</span>
+                      <span class="font-bold text-neutral-900">{editorial.productScore.polish} / 15</span>
                     </div>
                     <div class="h-1.5 w-full bg-neutral-100 border border-neutral-300">
-                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.polish / 20) * 100}%`}></div>
+                      <div class="h-full bg-neutral-900" style={`width: ${(editorial.productScore.polish / 15) * 100}%`}></div>
                     </div>
                   </div>
                 </div>

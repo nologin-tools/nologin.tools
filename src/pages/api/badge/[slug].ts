@@ -5,7 +5,7 @@ import { getDb } from '../../../db';
 import { tools, badgeDisplays } from '../../../db/schema';
 import { eq } from 'drizzle-orm';
 import { generateDynamicBadgeSvg, type BadgeStyle } from '../../../lib/badge';
-import { getToolBySlug } from '../../../data/loader';
+import { getToolBySlug, getToolEditorial } from '../../../data/loader';
 import { computePrivacyScorecard } from '../../../lib/privacy-scorecard.mjs';
 
 export const GET: APIRoute = async ({ params, url, locals }) => {
@@ -67,7 +67,8 @@ export const GET: APIRoute = async ({ params, url, locals }) => {
   }
 
   const toolForScorecard = staticTool || tool;
-  const scorecard = toolForScorecard ? computePrivacyScorecard(toolForScorecard) : null;
+  const editorial = slug ? getToolEditorial(slug) : null;
+  const scorecard = toolForScorecard ? computePrivacyScorecard(toolForScorecard, undefined, editorial) : null;
 
   const svg = generateDynamicBadgeSvg({
     status: badgeStatus,

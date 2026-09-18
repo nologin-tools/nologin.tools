@@ -147,13 +147,13 @@ sites/org/                # NologinTools.org — organization authority site (in
   - **Tool list item** (`.tool-item`): Single line per tool — 16px favicon + ★ (featured only, gold) + bold name (link to `/tool/[slug]`) + `—` hostname (external link) + optional `⚡ {score}` Product Score badge (if audited in NoLogin Lab) + `—` description + right-aligned health status (`✓ Online` / `⚠ Unstable` / `✗ Offline`). Mobile: name+hostname on first line, description wraps to second line.
   - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
   - No client-side JS on homepage.
-- **NoLogin Lab Product Score & Empirical Vetting**:
-  - Empirical benchmarking across all 11 categories via specialized headless runners (`scripts/lab/benchmark.mjs`).
-  - Measures TTI, injects authentic fixtures, detects Wasm/Canvas engines, tests format export and watermark bait traps, sniffs zero-egress network payloads.
-  - Scores 0-100 on 4 dimensions: Frictionless UX (25), Functional Depth (30), Export Freedom (25), Polish & Stability (20).
+- **NoLogin Lab Product Power Score & Empirical Vetting**:
+  - Unified Agentic Cognitive Dogfooding (CADES) via `scripts/inspect-tool-dogfood.mjs`.
+  - Measures TTI, injects authentic context-aware data, detects Wasm/Canvas engines, tests format export and watermark bait traps, sniffs zero-egress network payloads.
+  - Scores 0-100 on 5 dimensions: Frictionless UX (20), Functional Depth & Fidelity (25), Export Freedom (20), Privacy & Data Sovereignty (20, core pillar), Stability & Polish (15).
   - Tiers: `editors-choice` (≥90, amber badge), `highly-recommended` (80-89, emerald badge), `capable-utility` (70-79, sky/neutral badge), `emergency-only` (<70).
-  - High product score awards up to +5 recommendation rank boost on homepage and category listings.
-  - Category pages feature hands-on lab notes snippets below tool descriptions for maximum user transparency.
+  - High product score awards up to +10 recommendation rank boost on homepage and category listings; evergreen stability bonus (+3) protects proven long-standing tools.
+  - Category and detail pages feature hands-on lab notes snippets below tool descriptions for maximum user transparency.
 - **ToolCard favicon**: Uses Google Favicon Service (`https://www.google.com/s2/favicons?domain={hostname}&sz=32`) with `loading="lazy"`. Falls back to hiding on error via inline `onerror`. Used on homepage list and ToolCard component.
 - **Featured tools**: Admin can mark approved tools as "featured" for higher visibility:
   - `POST /api/admin/tool-feature` — toggle `isFeatured` + `featuredAt` (only approved tools)
@@ -216,7 +216,7 @@ sites/org/                # NologinTools.org — organization authority site (in
 - **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. The cron worker has equivalent inline logic.
 - **Cron export logging**: `runDataExport` in the cron worker always records to `data_exports` table — `GITHUB_TOKEN` missing writes `status: 'error'` with `error_message: 'GITHUB_TOKEN not configured'`; any runtime exception also records error with message. DB writes themselves are wrapped in try-catch to prevent double failures.
 - **Performance — Database indexes**: Three indexes exist for query performance: `idx_tools_status` on `tools(status)`, `idx_tags_tool_id` on `tags(tool_id)`, `idx_health_checks_tool_id_checked_at` on `health_checks(tool_id, checked_at)`.
-- **Performance — JS-layer recommendation score**: The homepage recommendation score is computed in JavaScript (not SQL) using `computeScore()` in `src/data/loader.ts`. Badge weight comes from badge display type, health score from effective status, freshness from `approvedAt`, featured boost +8.
+- **Performance — JS-layer recommendation score**: The homepage recommendation score is computed in JavaScript (not SQL) using `computeScore()` in `src/data/loader.ts`. Badge weight (explicit +4, implicit +2), health score (+3 online), freshness (+1~5), product power boost (up to +10), evergreen stability bonus (+3 for mature 60d+ online tools), featured boost +5.
 - **Performance — Batch queries**: Admin tools API (`/api/admin/tools`) and admin dashboard (`/admin`) use batch `inArray` queries for tags and health checks instead of per-tool N+1 queries.
 - **Performance — ISR middleware**: `src/middleware.ts` implements Incremental Static Regeneration for `/tool/*` and `/badge/*`. For pages not found as static files: checks Cache API first → rewrites to `/ssr/tool/*` or `/ssr/badge/*` for D1 SSR → caches successful responses with 6h TTL via Cache API + `ctx.waitUntil()`.
 - **Performance — Static-first architecture**: Homepage, known tool/badge pages, and sitemap are pre-rendered at build time (0 CPU). Data sourced from `src/data/build-data.json` generated by `scripts/fetch-build-data.mjs` via D1 REST API. Scheduled rebuilds every 6h keep data fresh.

@@ -126,12 +126,14 @@ describe('Developer API v1 Core Logic', () => {
         alternativeTo: ['Competitor A'],
         productScore: {
           overall: 95,
-          frictionless: 25,
-          depth: 28,
-          exportFreedom: 24,
-          polish: 18,
+          frictionless: 19,
+          depth: 24,
+          exportFreedom: 19,
+          privacy: 19,
+          polish: 14,
           factors: {
-            frictionless: ['Instant access']
+            frictionless: ['Instant access'],
+            privacy: ['100% client RAM execution']
           }
         },
         verdictTier: 'editors-choice',
@@ -150,6 +152,7 @@ describe('Developer API v1 Core Logic', () => {
       assert.equal(serialized.editorial.bestFor, 'Mock best for');
       assert.equal(serialized.editorial.verdictTier, 'editors-choice');
       assert.equal(serialized.editorial.productScore.overall, 95);
+      assert.equal(serialized.editorial.productScore.privacy, 19);
       assert.equal(serialized.editorial.dueDiligence.community.status, 'community-acclaimed');
       assert.equal(serialized.editorial.dueDiligence.openSource.isSelfHostable, true);
       assert.equal(serialized.editorial.dueDiligence.privacyAudit.zeroEgressConfirmed, true);

@@ -183,9 +183,9 @@ Every tool submitted to nologin.tools is audited under a strict verification lif
 
 Recommendation ranking score formula:
 ```
-score = badge_weight + freshness + health + featured
+score = badge_weight + freshness + health + featured + product_boost + evergreen_boost
 ```
-Where badge_weight rewards tool authors displaying the official NoLogin trust badge (+10 pts SVG / +5 pts meta link), freshness rewards recently verified tools (+5 pts <30d, +3 pts <90d), health rewards active uptime (+3 pts), and featured highlights curated editorial spotlights (+8 pts).
+Where product_boost rewards tools with high empirical 5D Product Power scores (up to +10 pts), evergreen_boost (+3 pts) protects proven mature tools (60d+) with continuous online health, badge_weight rewards authors displaying the official NoLogin trust badge (+4 pts SVG / +2 pts meta link), freshness rewards recently verified tools (+5 pts <30d, +3 pts <90d), health rewards active uptime (+3 pts), and featured highlights curated editorial spotlights (+5 pts).
 
 ## Trust, Certification & Authority
 

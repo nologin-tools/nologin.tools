@@ -2,6 +2,7 @@ import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
 import { hasLocalizedToolContent, getLocalizedToolFields as buildLocalizedToolFields } from '../lib/tool-seo.mjs';
 import { LOCALES, type Locale } from '../i18n/config';
 import { isValidSlug } from '../lib/utils';
+import { computeScore as computeRawScore } from '../lib/score.mjs';
 
 type ToolTranslation = {
   _hash?: string;
@@ -180,11 +181,12 @@ export interface DueDiligenceEvidence {
 }
 
 export interface ProductScoreBreakdown {
-  overall: number;          // 0-100 overall utility score
-  frictionless: number;     // 0-25 instant, friction-free UX
-  depth: number;            // 0-30 functional depth & fidelity
-  exportFreedom: number;    // 0-25 unrestricted export & outputs
-  polish: number;           // 0-20 visual polish & runtime stability
+  overall: number;          // 0-100 overall product power score
+  frictionless: number;     // 0-20 instant, friction-free UX
+  depth: number;            // 0-25 functional depth & fidelity
+  exportFreedom: number;    // 0-20 unrestricted export & outputs
+  privacy: number;          // 0-20 privacy & data sovereignty (local sandbox, 0-egress, telemetry hygiene)
+  polish: number;           // 0-15 visual polish & runtime stability
   factors?: Record<string, string[]>; // explainable reason breakdown per dimension
 }
 
@@ -283,34 +285,8 @@ export function computeScore(
   tool: BuildDataTool,
   healthStatus: { status: EffectiveStatus } | null
 ): number {
-  const badgeType = tool.badgeDisplayType;
-  const badgeWeight =
-    badgeType === 'explicit' ? 10 : badgeType === 'implicit' ? 5 : 0;
-
-  const now = Date.now();
-  const approvedMs = tool.approvedAt
-    ? new Date(tool.approvedAt).getTime()
-    : 0;
-  const ageMs = now - approvedMs;
-  const freshness = ageMs < 30 * 86400000 ? 5 : ageMs < 90 * 86400000 ? 3 : 1;
-
-  const healthScore = !healthStatus
-    ? 1
-    : healthStatus.status === 'online'
-      ? 3
-      : healthStatus.status === 'unstable'
-        ? 1
-        : 0;
-
-  const featuredBoost = tool.isFeatured ? 8 : 0;
-
-  // Editorial product utility boost (if audited with verified product score)
   const editorial = editorialData[tool.slug]?.en;
-  const productBoost = editorial?.productScore?.overall
-    ? Math.round((editorial.productScore.overall / 100) * 5)
-    : 0;
-
-  return badgeWeight + freshness + healthScore + featuredBoost + productBoost;
+  return computeRawScore(tool, healthStatus, editorial);
 }
 
 export function getRelatedTools(currentSlug: string, categoryTag: string | undefined, limit = 6): BuildDataTool[] {
