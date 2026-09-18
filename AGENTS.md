@@ -148,8 +148,8 @@ sites/org/                # NologinTools.org — organization authority site (in
   - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
   - No client-side JS on homepage.
 - **NoLogin Lab Product Power Score & Empirical Vetting**:
-  - Unified Agentic Cognitive Dogfooding (CADES) via `scripts/inspect-tool-dogfood.mjs`.
-  - Measures TTI, injects authentic context-aware data, detects Wasm/Canvas engines, tests format export and watermark bait traps, sniffs zero-egress network payloads.
+  - Unified Cognitive Agent Dogfooding (CADES) via native `ego-browser` and benchmark runner `scripts/inspect-tool-dogfood.mjs`.
+  - Agent personally drives browser interactions via `ego-browser`, visually inspects screenshots (`view_file`), injects grounded fixtures (`scripts/lab/fixtures/`), audits zero-egress payloads, and tests downloaded artifacts with `output-inspector.mjs` (Magic Bytes, anti-bait-trap, watermark signatures).
   - Scores 0-100 on 5 dimensions: Frictionless UX (20), Functional Depth & Fidelity (25), Export Freedom (20), Privacy & Data Sovereignty (20, core pillar), Stability & Polish (15).
   - Tiers: `editors-choice` (≥90, amber badge), `highly-recommended` (80-89, emerald badge), `capable-utility` (70-79, sky/neutral badge), `emergency-only` (<70).
   - High product score awards up to +10 recommendation rank boost on homepage and category listings; evergreen stability bonus (+3) protects proven long-standing tools.

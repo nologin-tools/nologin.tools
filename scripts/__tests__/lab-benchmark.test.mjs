@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import zlib from 'node:zlib';
@@ -227,4 +228,72 @@ describe('NoLogin Lab: Fixtures & Output Inspector', () => {
     const validSvg = Buffer.from('<svg width="100" height="100"><rect width="100" height="100" fill="red"/></svg>');
     assert.equal(checkSvgBlank(validSvg), false, 'SVG with rect primitive is non-blank');
   });
+
+  it('verifies all standard grounded test fixtures exist and are non-empty', () => {
+    const fixtureNames = ['sample.png', 'sample.svg', 'sample.json', 'sample.md', 'sample.wav', 'sample.pdf'];
+    for (const name of fixtureNames) {
+      const p = resolve(ROOT, 'scripts/lab/fixtures', name);
+      assert.ok(existsSync(p), `Fixture ${name} must exist on disk`);
+      const stat = readFileSync(p);
+      assert.ok(stat.length > 0, `Fixture ${name} must have non-zero byte length`);
+    }
+  });
+
+  it('matches multilingual and icon-based action/export buttons accurately', () => {
+    const actionRegex = /format|beautify|convert|run|generate|minify|transform|calculate|process|compress|translate|validate|parse|analyze|execute|test|decode|inspect|optimize|merge|split|upload|render|apply|start|resize|crop|build|edit|转换|生成|运行|压缩|执行|格式化|合并|拆分|上传|优化|计算|解析|测试|处理|应用|剪切|缩放/i;
+    const exportRegex = /download|export|save|copy|share|get output|get code|下载|导出|保存|复制|提取/i;
+
+    // English verbs
+    assert.ok(actionRegex.test('Convert Image'));
+    assert.ok(actionRegex.test('Optimize SVG'));
+    assert.ok(actionRegex.test('Compress PNG'));
+    assert.ok(actionRegex.test('Run Query'));
+    assert.ok(exportRegex.test('Download Result'));
+    assert.ok(exportRegex.test('Export to PNG'));
+
+    // Chinese verbs
+    assert.ok(actionRegex.test('开始转换'));
+    assert.ok(actionRegex.test('在线压缩'));
+    assert.ok(actionRegex.test('格式化代码'));
+    assert.ok(actionRegex.test('合并PDF'));
+    assert.ok(exportRegex.test('立即下载'));
+    assert.ok(exportRegex.test('导出文件'));
+
+    // Rejection of non-actions
+    assert.ok(!actionRegex.test('Sign In With Google'));
+    assert.ok(!actionRegex.test('Cookie Preferences'));
+  });
+
+  it('correctly maps file input accept types to standard grounded fixtures', () => {
+    function resolveFixtureForAccept(acceptStr, context = '') {
+      const lower = (acceptStr + ' ' + context).toLowerCase();
+      if (lower.includes('pdf')) return 'pdf';
+      if (lower.includes('svg')) return 'svg';
+      if (lower.includes('audio') || lower.includes('wav') || lower.includes('mp3')) return 'wav';
+      if (lower.includes('json')) return 'json';
+      if (lower.includes('md') || lower.includes('markdown')) return 'md';
+      return 'png'; // default image
+    }
+
+    assert.equal(resolveFixtureForAccept('image/*, .png, .jpg'), 'png');
+    assert.equal(resolveFixtureForAccept('.pdf, application/pdf'), 'pdf');
+    assert.equal(resolveFixtureForAccept('image/svg+xml, .svg'), 'svg');
+    assert.equal(resolveFixtureForAccept('audio/wav, audio/mp3'), 'wav');
+    assert.equal(resolveFixtureForAccept('.json, application/json'), 'json');
+    assert.equal(resolveFixtureForAccept('', 'Squoosh image compression in browser'), 'png');
+    assert.equal(resolveFixtureForAccept('', 'Merge and split PDF files locally'), 'pdf');
+  });
+
+  it('verifies benchmark.mjs displays clean help and supports --rolling and --sync', () => {
+    const res = spawnSync('node', ['scripts/lab/benchmark.mjs', '--help'], {
+      cwd: ROOT,
+      encoding: 'utf-8'
+    });
+    assert.equal(res.status, 0);
+    assert.ok(res.stdout.includes('--rolling'));
+    assert.ok(res.stdout.includes('--sync'));
+    assert.ok(res.stdout.includes('--url'));
+    assert.ok(res.stdout.includes('--slug'));
+  });
 });
+

@@ -23,11 +23,24 @@ import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { withEgoLock, cleanOrphanTaskSpaces } from './ego-lock.mjs';
+import { generateAllFixtures } from './lab/fixtures/generate-fixtures.mjs';
+import { inspectArtifact } from './lab/inspectors/output-inspector.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const BUILD_DATA_PATH = resolve(ROOT, 'src/data/build-data.json');
 const EDITORIAL_PATH = resolve(ROOT, 'src/data/tool-editorial.json');
+
+// Ensure standard test fixtures (png, svg, json, md, wav, pdf) are available for file upload dogfooding
+const FIXTURES = generateAllFixtures();
+const FIXTURE_PATHS = {
+  png: FIXTURES.png.path,
+  svg: FIXTURES.svg.path,
+  json: FIXTURES.json.path,
+  md: FIXTURES.md.path,
+  wav: FIXTURES.wav.path,
+  pdf: FIXTURES.pdf.path,
+};
 
 const VALID_CATEGORIES = [
   'AI', 'Design', 'Writing', 'Development', 'Productivity',
@@ -55,9 +68,10 @@ Options:
 /**
  * Builds the Node.js script executed by ego-browser
  */
-function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPath, timeoutMs = 180000, finishSession = true) {
+function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPath, timeoutMs = 180000, finishSession = true, fixturePaths = FIXTURE_PATHS) {
   return `
 (async () => {
+  const FIXTURES_MAP = ${JSON.stringify(fixturePaths)};
   const task = await taskSpace("nologin-audit-" + Date.now());
   const page = task.page("p1");
 
@@ -186,12 +200,19 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
       const githubLink = document.querySelector('a[href*="github.com/"]')?.href || null;
 
       const textareas = Array.from(document.querySelectorAll('textarea, .monaco-editor, .cm-editor, [contenteditable="true"], input[type="text"], input[type="search"], input:not([type])'));
-      const fileInputs = Array.from(document.querySelectorAll('input[type="file"]'));
+      const fileInputEls = Array.from(document.querySelectorAll('input[type="file"]'));
+      const fileInputsDetail = fileInputEls.map((fi, idx) => ({
+        id: fi.id || '',
+        name: fi.name || '',
+        accept: (fi.getAttribute('accept') || '').toLowerCase(),
+        selector: fi.id ? ('#' + fi.id) : (fi.name ? ('input[name="' + fi.name + '"]') : 'input[type="file"]')
+      }));
+      const hasDropzone = Boolean(document.querySelector('.dropzone, [class*="drop-zone"], [class*="dropzone"], [class*="file-upload"], [class*="upload-area"], [id*="dropzone"], [id*="upload-area"]'));
       const canvases = Array.from(document.querySelectorAll('canvas, svg.drawing-surface'));
 
       const allButtons = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a.btn, a[role="button"], [role="button"]'))
-        .map(b => (b.innerText || b.value || b.getAttribute('aria-label') || '').trim())
-        .filter(t => t.length > 0 && t.length < 40);
+        .map(b => (b.innerText || b.value || b.getAttribute('aria-label') || b.getAttribute('title') || '').trim())
+        .filter(t => t.length > 0 && t.length < 50);
 
       const placeholders = textareas
         .map(el => (el.getAttribute('placeholder') || el.getAttribute('aria-label') || '').trim())
@@ -242,9 +263,11 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
         blockerText,
         isWafChallenge,
         textareaCount: textareas.length,
-        fileInputCount: fileInputs.length,
+        fileInputCount: fileInputEls.length,
+        fileInputsDetail,
+        hasDropzone,
         canvasCount: canvases.length,
-        buttonLabels: allButtons.slice(0, 30),
+        buttonLabels: allButtons.slice(0, 40),
         placeholders,
         headings,
         hasWasm
@@ -255,10 +278,12 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
     result.metaDesc = domInfo.metaDesc;
     result.githubLink = domInfo.githubLink;
     result.surface.hasTextInputs = domInfo.textareaCount > 0;
-    result.surface.hasFileInputs = domInfo.fileInputCount > 0;
+    result.surface.hasFileInputs = domInfo.fileInputCount > 0 || domInfo.hasDropzone;
     result.surface.hasCanvas = domInfo.canvasCount > 0;
     result.surface.textareaCount = domInfo.textareaCount;
     result.surface.fileInputCount = domInfo.fileInputCount;
+    result.surface.fileInputsDetail = domInfo.fileInputsDetail || [];
+    result.surface.hasDropzone = Boolean(domInfo.hasDropzone);
     result.surface.canvasCount = domInfo.canvasCount;
     result.surface.buttonLabels = domInfo.buttonLabels;
     result.surface.placeholders = domInfo.placeholders;
@@ -301,7 +326,23 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
     let payloadType = "text";
     let customPayload = null;
 
-    if (/jwt|json web token|decode jwt|verify token/i.test(fullContext)) {
+    if (/compress|optimize|resize|crop|image|png|jpg|jpeg|webp|photo|squoosh/i.test(fullContext) && (domInfo.fileInputCount > 0 || domInfo.hasDropzone)) {
+      archetype = "image_optimizer";
+      payloadType = "file_png";
+      result.intent.inferredTask = "Compress, optimize, and convert images directly in browser";
+    } else if (/svg|vector|optimize svg|svgomg/i.test(fullContext) && (domInfo.fileInputCount > 0 || domInfo.hasDropzone)) {
+      archetype = "svg_vector";
+      payloadType = "file_svg";
+      result.intent.inferredTask = "Optimize, clean, and minify vector SVG graphics locally";
+    } else if (/pdf|merge pdf|split pdf|pdf to/i.test(fullContext) && (domInfo.fileInputCount > 0 || domInfo.hasDropzone)) {
+      archetype = "pdf_tool";
+      payloadType = "file_pdf";
+      result.intent.inferredTask = "Merge, split, and convert PDF documents in browser";
+    } else if (/audio|sound|wav|mp3|podcast|trim audio/i.test(fullContext) && (domInfo.fileInputCount > 0 || domInfo.hasDropzone)) {
+      archetype = "audio_tool";
+      payloadType = "file_wav";
+      result.intent.inferredTask = "Edit, trim, and inspect audio files directly in browser";
+    } else if (/jwt|json web token|decode jwt|verify token/i.test(fullContext)) {
       archetype = "jwt";
       payloadType = "jwt_token";
       customPayload = PAYLOADS.jwt;
@@ -330,11 +371,11 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
       archetype = "color_palette";
       payloadType = "color_interaction";
       result.intent.inferredTask = "Generate harmonious color palettes and inspect hex codes";
-    } else if (domInfo.canvasCount > 0 && domInfo.textareaCount === 0) {
+    } else if (domInfo.canvasCount > 0 && domInfo.textareaCount === 0 && domInfo.fileInputCount === 0) {
       archetype = "canvas_draw";
       payloadType = "canvas_stroke";
       result.intent.inferredTask = "Create visual diagrams and sketches on interactive canvas";
-    } else if (/json|formatter|beautifier|minify|validator/i.test(fullContext)) {
+    } else if (/json|formatter|beautifier|minify|validator|csv|yaml/i.test(fullContext)) {
       archetype = "json_data";
       payloadType = "json_object";
       customPayload = PAYLOADS.json;
@@ -354,14 +395,72 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
     result.intent.archetype = archetype;
     result.dogfoodRun.payloadType = payloadType;
 
-    // 5. Context-Aware Dogfood Execution
-    const actionRegex = /format|beautify|convert|run|generate|minify|transform|calculate|process|compress|translate|validate|parse|analyze|execute|test|decode|inspect/i;
-    const exportRegex = /download|export|save|copy|share/i;
+    // 5. Context-Aware Dogfood Execution with Grounded Fixtures
+    const actionRegex = /format|beautify|convert|run|generate|minify|transform|calculate|process|compress|translate|validate|parse|analyze|execute|test|decode|inspect|optimize|merge|split|upload|render|apply|start|resize|crop|build|edit|转换|生成|运行|压缩|执行|格式化|合并|拆分|上传|优化|计算|解析|测试|处理|应用|剪切|缩放/i;
+    const exportRegex = /download|export|save|copy|share|get output|get code|下载|导出|保存|复制|提取/i;
 
     let targetActionBtn = domInfo.buttonLabels.find(l => actionRegex.test(l) && !/login|sign in|register|pricing|upgrade|cookie|close/i.test(l));
     let targetExportBtn = domInfo.buttonLabels.find(l => exportRegex.test(l) && !/login|sign in|register|pricing|upgrade|cookie|close/i.test(l));
 
-    if (archetype === "color_palette") {
+    // Priority 1: Real File Upload using standard test fixtures
+    if (domInfo.fileInputCount > 0 || (domInfo.hasDropzone && domInfo.fileInputCount > 0)) {
+      let chosenFixturePath = FIXTURES_MAP.png;
+      let chosenType = "PNG Image";
+      const acceptStr = (domInfo.fileInputsDetail || []).map(f => f.accept).join(" ").toLowerCase();
+
+      if (acceptStr.includes("pdf") || archetype === "pdf_tool") {
+        chosenFixturePath = FIXTURES_MAP.pdf;
+        chosenType = "PDF Document";
+      } else if (acceptStr.includes("svg") || archetype === "svg_vector") {
+        chosenFixturePath = FIXTURES_MAP.svg;
+        chosenType = "SVG Vector";
+      } else if (acceptStr.includes("audio") || acceptStr.includes("wav") || acceptStr.includes("mp3") || archetype === "audio_tool") {
+        chosenFixturePath = FIXTURES_MAP.wav;
+        chosenType = "WAV Audio";
+      } else if (acceptStr.includes("json") || archetype === "json_data") {
+        chosenFixturePath = FIXTURES_MAP.json;
+        chosenType = "JSON Dataset";
+      } else if (acceptStr.includes("md") || acceptStr.includes("text") || archetype === "markdown") {
+        chosenFixturePath = FIXTURES_MAP.md;
+        chosenType = "Markdown Document";
+      }
+
+      let uploadSuccess = false;
+      try {
+        await page.setInputFiles('input[type="file"]', chosenFixturePath);
+        uploadSuccess = true;
+      } catch (uploadErr) {
+        uploadSuccess = await page.evaluate(() => {
+          const fi = document.querySelector('input[type="file"]');
+          if (fi) {
+            fi.dispatchEvent(new Event('change', { bubbles: true }));
+            fi.dispatchEvent(new Event('input', { bubbles: true }));
+            return true;
+          }
+          return false;
+        });
+      }
+
+      result.dogfoodRun.inputProvided = uploadSuccess;
+      result.dogfoodRun.tested = uploadSuccess;
+      result.dogfoodRun.actionName = "Real Fixture Upload (" + chosenType + ")";
+      await page.waitForTimeout(2000);
+
+      // Trigger action button if available
+      if (targetActionBtn) {
+        result.dogfoodRun.actionName += " + " + targetActionBtn;
+        await page.evaluate((btnText) => {
+          const btns = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a.btn, a[role="button"], [role="button"]'));
+          const target = btns.find(b => {
+            const label = (b.innerText || b.value || b.getAttribute('aria-label') || b.getAttribute('title') || '').trim();
+            return label === btnText || label.toLowerCase().includes(btnText.toLowerCase());
+          });
+          if (target) target.click();
+        }, targetActionBtn);
+        await page.waitForTimeout(1500);
+      }
+      result.dogfoodRun.outputObserved = uploadSuccess;
+    } else if (archetype === "color_palette") {
       // For palette tools, try Spacebar or Generate button
       await page.keyboard.press("Space").catch(() => false);
       if (targetActionBtn) {
@@ -622,13 +721,22 @@ function synthesizeEvaluation(res, existingTask = null) {
     scorecard.utilityIndependence = 5;
   }
 
+  if (res.exportGate?.hasWatermark) {
+    scorecard.cleanUx = 1;
+    scorecard.utilityIndependence = Math.min(scorecard.utilityIndependence, 2);
+  }
+
   scorecard.totalScore = scorecard.noLoginCompleteness +
                          scorecard.privacyArchitecture +
                          scorecard.utilityIndependence +
                          scorecard.cleanUx +
                          scorecard.healthStability;
 
-  if (scorecard.totalScore >= 22) {
+  if (res.exportGate?.hasWatermark) {
+    recommendation = 'Rejected';
+    rejectionReason = '导出的交付产物中检测到强制商业水印 (Commercial Watermark Detected)';
+    scorecard.tier = 'Tier C';
+  } else if (scorecard.totalScore >= 22) {
     scorecard.tier = 'Tier S/A';
   } else if (scorecard.totalScore >= 16) {
     scorecard.tier = 'Tier B';
@@ -661,10 +769,14 @@ function synthesizeEvaluation(res, existingTask = null) {
 
   if (res.intent.archetype === 'jwt' || res.intent.archetype === 'regex' || res.intent.archetype === 'sql' || res.intent.archetype === 'curl' || res.intent.archetype === 'json_data') {
     category = 'Development';
-  } else if (res.intent.archetype === 'color_palette' || res.intent.archetype === 'canvas_draw' || combinedText.match(/svg|image|photo|color|design|icon|palette|canvas|draw|figma/)) {
+  } else if (res.intent.archetype === 'color_palette' || res.intent.archetype === 'canvas_draw' || res.intent.archetype === 'image_optimizer' || res.intent.archetype === 'svg_vector' || combinedText.match(/svg|image|photo|color|design|icon|palette|canvas|draw|figma/)) {
     category = 'Design';
   } else if (res.intent.archetype === 'markdown' || combinedText.match(/write|text|editor|essay|grammar|word|summarize/)) {
     category = 'Writing';
+  } else if (res.intent.archetype === 'pdf_tool') {
+    category = 'Productivity';
+  } else if (res.intent.archetype === 'audio_tool') {
+    category = 'Media';
   } else if (res.intent.archetype === 'security_hash' || combinedText.match(/encrypt|hash|security|password|cipher|decrypt|ssl/)) {
     category = 'Security';
   } else if (combinedText.match(/ai |prompt|chatgpt|llm|copilot|gpt|claude/)) {
@@ -814,7 +926,7 @@ async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = nu
     console.log(`⏳ Launching Chromium session and running cognitive verification protocol (watchdog: ${(procTimeout / 1000).toFixed(0)}s)...`);
   }
 
-  const scriptContent = buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPath, inPageTimeoutMs, true);
+  const scriptContent = buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPath, inPageTimeoutMs, true, FIXTURE_PATHS);
   const tempScriptPath = join(tmpdir(), `ego-dogfood-${Date.now()}.js`);
   writeFileSync(tempScriptPath, scriptContent, 'utf-8');
 
@@ -862,7 +974,6 @@ async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = nu
     // If an export was downloaded, inspect artifact for resolution, bait traps, and watermarks
     if (rawResult.exportGate?.downloadPath && existsSync(rawResult.exportGate.downloadPath)) {
       try {
-        const { inspectArtifact } = await import('./lab/inspectors/output-inspector.mjs');
         const artifactReport = inspectArtifact(rawResult.exportGate.downloadPath);
         rawResult.exportGate.artifactInspection = artifactReport;
         if (artifactReport.quality?.isBaitTrap) {
@@ -990,6 +1101,8 @@ function syncEditorialRecord(editorialData, toolSlug, report) {
   let exportScore = 15;
   if (exportGate.interceptedByAuth) {
     exportScore = 3; // Severe penalty for post-action bait-and-switch
+  } else if (exportGate.hasWatermark) {
+    exportScore = 5; // Severe penalty for commercial watermark
   } else if (exportGate.passedNoLoginExport || exportGate.downloadTriggered || exportGate.downloadCaptured) {
     exportScore = 20;
   }
@@ -1004,6 +1117,7 @@ function syncEditorialRecord(editorialData, toolSlug, report) {
 
   // 5. Stability & Polish (max 15)
   let polishScore = Math.min(15, (report.evaluation.scorecard?.cleanUx || 4) * 3);
+  if (exportGate.hasWatermark) polishScore = Math.min(3, polishScore);
   if (report.inspection?.visual?.capturedOutcome) polishScore = Math.min(15, polishScore + 2);
   polishScore = Math.max(0, Math.min(15, polishScore));
 

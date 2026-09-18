@@ -2,8 +2,8 @@
 /**
  * scripts/lab/benchmark.mjs
  * 
- * Unified CADES Agentic Benchmark Bridge for NoLogin Lab.
- * Replaces legacy static category runners with dynamic Agentic Cognitive Dogfooding (CADES).
+ * Unified CADES Benchmark Bridge for NoLogin Lab.
+ * Supports single-tool evaluation and daily rolling benchmark runs.
  * 
  * Usage:
  *   node scripts/lab/benchmark.mjs --url "https://squoosh.app" --slug squoosh-app --sync
@@ -24,7 +24,7 @@ const args = process.argv.slice(2);
 
 function printUsage() {
   console.log(`
-NoLogin Lab Agentic Benchmark Bridge (CADES Unified)
+NoLogin Lab Benchmark Bridge (CADES Unified)
 
 Usage:
   node scripts/lab/benchmark.mjs [options]
@@ -89,7 +89,6 @@ if (hasRolling) {
     childArgs.push('--slug', targetSlug);
   }
 } else if (categoryArg) {
-  // Category mode: look up approved tools in category from build-data.json
   if (existsSync(BUILD_DATA_PATH)) {
     const buildData = JSON.parse(readFileSync(BUILD_DATA_PATH, 'utf-8'));
     const catTools = buildData.tools.filter(t =>
@@ -116,7 +115,7 @@ if (shouldSync) childArgs.push('--sync');
 if (isVerbose) childArgs.push('--verbose');
 if (timeoutArg) childArgs.push('--timeout', timeoutArg);
 
-console.log(`[NoLogin Lab] Delegating to CADES Agentic Engine: ${childArgs.slice(1).join(' ')}`);
+console.log(`[NoLogin Lab] Delegating to CADES Engine: ${childArgs.slice(1).join(' ')}`);
 
 const child = spawn(process.execPath, childArgs, { stdio: 'inherit' });
 child.on('close', (code) => {

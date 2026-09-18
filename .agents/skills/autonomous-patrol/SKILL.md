@@ -3,7 +3,7 @@ name: autonomous-patrol
 description: >-
   Autonomous daily operations, vetting, and maintenance runbook for nologin.tools.
   Use this skill to review pending tool submissions, audit edit suggestions, perform
-  daily rolling health & dead-link patrols (100 tools), verify NoLogin Verified badges
+  daily rolling health & dead-link patrols (1000 tools), verify NoLogin Verified badges
   across homepage DOM and GitHub README, refresh open-source repository metadata, and
   update remote Cloudflare D1 database autonomously.
 ---
@@ -104,37 +104,100 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
       - **Visual Proof & Watermark Hunt**: Agent views the outcome image to verify that the Canvas/diagram actually rendered (bypassing DOM blindness) and confirms zero burned-in commercial watermarks ("Canva Free", "Trial Version").
       - **Task Crystallization**: Synthesizes the verified `core_task` directly from successful trial execution.
 
-   **Step 5a: Level 1 — CADES Dynamic Evaluation & 5D Product Power Baseline**:
-   Run CADES agentic inspection to evaluate the 5-dimension Product Power score (Frictionless UX, Functional Depth, Export Freedom, Privacy & Data Sovereignty, Stability & Polish):
-   ```bash
-   node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --sync
-   ```
-   - **Hard Gate**: If `productScore.overall < 70`, or if an auth barrier/commercial watermark is detected, **immediately reject the tool**.
+     **Step 5: Agent-Driven Cognitive Dogfooding via Native `ego-browser`**:
+     **Strict Prohibition on Automated Rubber-Stamping**: Never approve a tool based solely on automated script output. The Agent MUST personally unleash its full cognitive capabilities directly through `ego-browser`:
 
-    **Step 5b: Level 2 — Agent Cognitive Due Diligence & Multi-Pillar Deep Audit (1.5–3 minutes)**:
-    For approved candidates scoring ≥ 70, the Agent MUST unleash its full cognitive capabilities across 4 investigation pillars:
+     1. **Launch Dedicated TaskSpace & Inject Zero-Egress Network Snooper**:
+        The Agent initiates an isolated `ego-browser` session with network payload interception:
+        ```bash
+        ego-browser nodejs <<'EOF'
+        const task = await taskSpace("audit-<slug>");
+        const page = task.page("p1");
 
-    1. **Pillar 1: Interactive Sandbox Dogfooding & Edge Cases**:
-       - Open `ego-browser` in an isolated TaskSpace (ALWAYS run `await task.finish({ keep: [] })` on completion):
-         - Multi-Step Workflow: Test non-trivial actions (sliders, formats, canvas tools).
-         - Hidden Paywalls: Check 2x/4x HD export or batch downloads for "Sign in to unlock Pro" traps.
-    2. **Pillar 2: Multimodal Visual Quality & Ad Purity**:
-       - Inspect captured snapshots (`/tmp/dogfood-<slug>-intent-*.png` & outcome snapshot):
-         - Ad Clutter: Verify no deceptive Google AdSense download buttons disguised as tool UI.
-         - Watermark Hunt: Inspect rendered image/canvas for burned-in commercial watermarks.
-         - UI Polish: Score visual aesthetics and responsive design.
-    3. **Pillar 3: Community Provenance & Open-Source Vitality**:
-       - Execute `search_web` query: `"<tool-name>" site:news.ycombinator.com OR site:reddit.com`:
-         - Determine community reputation, original author provenance, or known monetization traps.
-       - Check GitHub repository:
-         - Inspect license (MIT, Apache, AGPL), maintenance status, and presence of `Dockerfile` / `docker-compose.yml`.
-         - If Docker / compose is verified, assign `hosting:Self-Hostable` tag!
-    4. **Pillar 4: Privacy Policy Cross-Audit**:
-       - Cross-examine runtime network egress (from Stage 2 network sniffing) against stated privacy policy:
-         - If page claims "100% Client-side in-browser", verify that policy confirms zero server upload.
-         - Discrepancies trigger immediate rejection or demotion.
-    5. **Synthesize Editorial Insights & Due Diligence Evidence**:
-       - Generate authentic `dueDiligence` object and human-grade `bestFor`, `pros`, `cons`, and `alternativeTo`.
+        // Network snooper for zero-egress data sovereignty check
+        await page.evaluate(() => {
+          window.__netPayloads = [];
+          const isTelemetry = (u) => /google-analytics|googletagmanager|clarity\.ms|sentry\.io|doubleclick|pagead|googlesyndication|pub\.network|adnxs|rubicon|criteo|fundingchoicesmessages|cloudflareinsights|fonts\.googleapis|cdnjs\.cloudflare/i.test(u);
+          const origFetch = window.fetch;
+          window.fetch = function(...args) {
+            try {
+              const url = typeof args[0] === 'string' ? args[0] : (args[0]?.url || '');
+              const method = (args[1]?.method || (typeof args[0] === 'object' ? args[0]?.method : 'GET') || 'GET').toUpperCase();
+              if (Boolean(args[1]?.body) && !isTelemetry(url)) {
+                window.__netPayloads.push({ type: 'fetch', method, url: url.slice(0, 150) });
+              }
+            } catch (e) {}
+            return origFetch.apply(this, args);
+          };
+          const origXhrSend = XMLHttpRequest.prototype.send;
+          const origXhrOpen = XMLHttpRequest.prototype.open;
+          XMLHttpRequest.prototype.open = function(method, url) {
+            this.__method = method ? method.toUpperCase() : 'GET';
+            this.__url = url;
+            return origXhrOpen.apply(this, arguments);
+          };
+          XMLHttpRequest.prototype.send = function(body) {
+            try {
+              if (body && !isTelemetry(this.__url || '')) {
+                window.__netPayloads.push({ type: 'xhr', method: this.__method, url: (this.__url || '').slice(0, 150) });
+              }
+            } catch (e) {}
+            return origXhrSend.apply(this, arguments);
+          };
+        }).catch(() => false);
+
+        await page.goto("<URL>", { waitUntil: "domcontentloaded", timeout: 45000 });
+        await page.waitForTimeout(1500);
+        await page.screenshot({ path: "/tmp/audit-<slug>-initial.png" });
+        console.log("INITIAL_URL:", await page.url());
+        console.log("SNAPSHOT:", await page.snapshot());
+        EOF
+        ```
+        - If the site redirects to Google/GitHub login walls or a pure login screen, **immediately reject the tool**.
+
+     2. **Agent Visual Eye-Check (Checkpoint 1)**:
+        - The Agent MUST use `view_file` to personally inspect the initial screenshot: `/tmp/audit-<slug>-initial.png`.
+        - Verify overall UI polish, layout clarity, and absence of deceptive fake download banners or obstructive popups.
+
+     3. **Authentic Interaction & Grounded Fixture Injection via `ego-browser`**:
+        The Agent formulates a tool-specific testing plan and exercises the tool's core utility:
+        - **File Upload Tools**: Inject standard lab fixtures (`scripts/lab/fixtures/sample.png`, `sample.svg`, `sample.pdf`, `sample.json`, `sample.md`, `sample.wav`):
+          ```js
+          await page.setInputFiles('input[type="file"]', '/Users/lin/hime/nologin.tools/scripts/lab/fixtures/sample.png');
+          ```
+        - **Text / Code Tools**: Fill inputs with context-aware data (`await page.fill(...)`), click transform/calculate buttons (`await page.click(...)`).
+        - **Interactive Canvas / Audio Tools**: Agent can freely trigger drag-and-drop, sliders, and canvas operations using native `page.mouse` or `page.dragAndDrop()`.
+        - **Self-Healing**: If popups or cookie dialogs obstruct the view, the Agent dynamically dismisses them in the session.
+
+     4. **Visual Verification of Outcome (Checkpoint 2)**:
+        - Capture post-action outcome screenshot:
+          ```js
+          await page.screenshot({ path: "/tmp/audit-<slug>-outcome.png" });
+          ```
+        - The Agent MUST use `view_file` to inspect the outcome image. Confirm that the canvas/diagram actually rendered (not blank or whiteout) and that no unexpected commercial watermark appeared.
+
+     5. **Artifact Inspection & Zero-Egress Network Audit**:
+        - If an export/download was performed, run a quick node one-liner to inspect the downloaded artifact via `output-inspector.mjs`:
+          ```bash
+          node -e '
+          import { inspectArtifact } from "./scripts/lab/inspectors/output-inspector.mjs";
+          console.log(JSON.stringify(inspectArtifact("/path/to/downloaded-file"), null, 2));
+          '
+          ```
+          *Verifies Magic Bytes format integrity (guards against bait-and-switch HTML login traps) and scans for commercial watermarks.*
+        - Inspect outgoing network payloads (`await page.evaluate(() => window.__netPayloads)`). If zero non-telemetry requests were sent, verify as `data:Local Only` & `offline:Offline Capable`.
+        - Clean up the session: `await task.finish({ keep: [] })`.
+
+     6. **Authentic Editorial Synthesis & Grounded Benchmark Notes**:
+        - The Agent personally determines the 5-dimension scores:
+          - Frictionless UX (0–20)
+          - Functional Depth & Fidelity (0–25)
+          - Export Freedom (0–20)
+          - Privacy & Data Sovereignty (0–20)
+          - Stability & Polish (0–15)
+        - **Grounded Benchmark Notes**: The Agent records exact real-world test details in `src/data/tool-editorial.json` (e.g. *"CADES Agent 实测通过：上传 800x600 标准 PNG 样本，纯前端 WebAssembly 本地压缩处理，耗时 320ms，零网络外溢，无损无水印导出。"*).
+        - **Hard Gate**: If total product score < 70, or if an auth barrier/commercial watermark is detected, **immediately reject the tool**.
+
 
 6. **Final Evaluation, D1 Write & Multi-Language Translation**:
    - **Approve (Tier S/A: ≥ 22 pts | Tier B: 16–21 pts & Product Score ≥ 70)**:
@@ -211,9 +274,9 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
 
 ---
 
-### Phase 2: Rolling Health & Dead-Link Patrol (100 Tools)
+### Phase 2: Rolling Health & Dead-Link Patrol (1000 Tools)
 
-1. Select 100 approved tools using dynamic priority with platform subdomain risk weighting:
+1. Select 1000 approved tools using dynamic priority with platform subdomain risk weighting:
    - Priority 1: Tools currently marked `status = 'unstable'` (recheck for recovery).
    - Priority 2: Tools on high-churn platform subdomains (`%.vercel.app%`, `%.pages.dev%`, `%.netlify.app%`, `%.hf.space%`) not checked in the last 24 hours.
    - Priority 3: Tools with oldest or missing `last_checked_at` in `health_checks`.
@@ -227,7 +290,7 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
            WHEN t.url LIKE '%.vercel.app%' OR t.url LIKE '%.pages.dev%' OR t.url LIKE '%.netlify.app%' THEN 1
            ELSE 2 END) ASC,
      last_checked ASC NULLS FIRST
-   LIMIT 100;
+   LIMIT 1000;
    ```
 2. For each tool:
    - Check connectivity and latency.
@@ -246,8 +309,8 @@ This skill defines the autonomous operations runbook for `nologin.tools`. The Ag
 
 To prevent approved tools from silently introducing commercial watermarks, export login walls, or suffering from stale descriptions, the daily patrol operates on a **Dual-Track Cadence** across the ~296 approved tools catalog:
 
-#### Track A: High-Frequency Liveness & Dead-Link Patrol (100 Tools)
-1. Select 100 approved tools using dynamic priority:
+#### Track A: High-Frequency Liveness & Dead-Link Patrol (1000 Tools)
+1. Select 1000 approved tools using dynamic priority:
    - Priority 1: Tools currently marked `status = 'unstable'` (recheck for recovery).
    - Priority 2: Tools on high-churn platform subdomains (`%.vercel.app%`, `%.pages.dev%`, `%.netlify.app%`, `%.hf.space%`) not checked in the last 24 hours.
    - Priority 3: Tools with oldest or missing `last_checked_at` in `health_checks`.
@@ -261,7 +324,7 @@ To prevent approved tools from silently introducing commercial watermarks, expor
            WHEN t.url LIKE '%.vercel.app%' OR t.url LIKE '%.pages.dev%' OR t.url LIKE '%.netlify.app%' THEN 1
            ELSE 2 END) ASC,
      last_checked ASC NULLS FIRST
-   LIMIT 100;
+   LIMIT 1000;
    ```
 2. For each tool:
    - Check connectivity and latency.
@@ -367,7 +430,7 @@ At the conclusion of the run, format and output a concise report:
   - Pending Review: Z (ambiguous items)
 - **Edit Suggestions**:
   - Approved: X | Rejected: Y
-- **Rolling Patrol (100 Tools)**:
+- **Rolling Patrol (1000 Tools)**:
   - Healthy (Online): A
   - Abnormal / Unstable: B (list names & detected issues)
   - Redirects Self-Healed: C (list old -> new URLs)
