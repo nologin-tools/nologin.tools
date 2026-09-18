@@ -24,7 +24,7 @@ import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { withEgoLock, cleanOrphanTaskSpaces } from './ego-lock.mjs';
 import { generateAllFixtures } from './lab/fixtures/generate-fixtures.mjs';
-import { inspectArtifact } from './lab/inspectors/output-inspector.mjs';
+import { inspectArtifact, inspectClipboardArtifact } from './lab/inspectors/output-inspector.mjs';
 import { generateCognitivePacket, calibrate5DScore, validateCognitiveEvaluation } from './lab/cades-cognitive.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -125,6 +125,10 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
       interceptedByAuth: false,
       authPromptDetails: null,
       downloadTriggered: false,
+      clipboardTriggered: false,
+      clipboardText: null,
+      cascadingMenuTriggered: false,
+      cascadingMenuLabel: null,
       passedNoLoginExport: false
     },
     networkPrivacy: {
@@ -156,6 +160,41 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
     // 2. Set up in-page network interception & evaluate initial surface
     await page.evaluate(() => {
       window.__netPayloads = [];
+      window.__capturedClipboard = [];
+
+      // Intercept navigator.clipboard.writeText
+      if (navigator.clipboard) {
+        const origWriteText = navigator.clipboard.writeText;
+        navigator.clipboard.writeText = function(text) {
+          try {
+            window.__capturedClipboard.push({
+              type: 'writeText',
+              text: String(text),
+              timestamp: Date.now()
+            });
+          } catch (e) {}
+          return origWriteText ? origWriteText.apply(this, arguments) : Promise.resolve();
+        };
+      }
+
+      // Intercept document.execCommand('copy')
+      const origExecCommand = document.execCommand;
+      document.execCommand = function(command) {
+        if (command && String(command).toLowerCase() === 'copy') {
+          try {
+            const sel = window.getSelection ? window.getSelection().toString() : '';
+            if (sel) {
+              window.__capturedClipboard.push({
+                type: 'execCommand',
+                text: sel,
+                timestamp: Date.now()
+              });
+            }
+          } catch (e) {}
+        }
+        return origExecCommand ? origExecCommand.apply(this, arguments) : true;
+      };
+
       const isTelemetry = (u) => /google-analytics|googletagmanager|clarity\\.ms|sentry\\.io|doubleclick|pagead|googlesyndication|pub\\.network|adnxs|rubicon|criteo|fundingchoicesmessages|cloudflareinsights|fonts\\.googleapis|cdnjs\\.cloudflare/i.test(u);
       
       const origFetch = window.fetch;
@@ -587,6 +626,42 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
     } catch (err) {}
 
     // 6. Exit / Export Gatekeeper Check (Anti-Bait-and-Switch)
+    // 6.1 Cascading Menu Traversal (if direct export trigger is not visible)
+    if (!targetExportBtn) {
+      const cascadeAttempt = await page.evaluate(() => {
+        const menuRegex = /menu|file|export|project|more|options|hamburger|actions|菜单|文件|导出|选项|更多/i;
+        const triggers = Array.from(document.querySelectorAll('button, summary, [role="button"], [aria-haspopup="true"], [aria-expanded="false"], .dropdown-toggle, [class*="menu-btn"], [class*="hamburger"], [id*="menu-btn"]'))
+          .filter(el => {
+            const label = (el.innerText || el.value || el.getAttribute('aria-label') || el.getAttribute('title') || '').trim();
+            return menuRegex.test(label) && !/login|sign in|register|pricing|upgrade|cookie|close/i.test(label);
+          });
+        if (triggers.length > 0) {
+          triggers[0].click();
+          return (triggers[0].innerText || triggers[0].getAttribute('aria-label') || 'Cascading Menu').trim();
+        }
+        return null;
+      });
+
+      if (cascadeAttempt) {
+        result.exportGate.cascadingMenuTriggered = true;
+        result.exportGate.cascadingMenuLabel = cascadeAttempt;
+        await page.waitForTimeout(600);
+
+        // Re-scan for export button in the newly revealed menu
+        const revealedExportBtn = await page.evaluate((expRegexStr) => {
+          const regex = new RegExp(expRegexStr, "i");
+          const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"], [role="menuitem"], .dropdown-item, [class*="menu-item"]'))
+            .map(b => (b.innerText || b.value || b.getAttribute('aria-label') || b.getAttribute('title') || '').trim())
+            .filter(t => t.length > 0 && t.length < 50);
+          return btns.find(l => regex.test(l) && !/login|sign in|register|pricing|upgrade|cookie|close/i.test(l)) || null;
+        }, exportRegex.source);
+
+        if (revealedExportBtn) {
+          targetExportBtn = revealedExportBtn;
+        }
+      }
+    }
+
     if (targetExportBtn) {
       result.exportGate.tested = true;
       result.exportGate.exportTrigger = targetExportBtn;
@@ -594,7 +669,7 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
       const downloadPromise = page.waitForEvent("download", { timeout: 3500 }).catch(() => null);
 
       await page.evaluate((btnText) => {
-        const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"]'));
+        const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"], [role="menuitem"], .dropdown-item'));
         const target = btns.find(b => {
           const label = (b.innerText || b.value || b.getAttribute('aria-label') || '').trim();
           return label === btnText || label.toLowerCase().includes(btnText.toLowerCase());
@@ -616,7 +691,16 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
           }
         } catch (e) {}
       } else {
-        await page.waitForTimeout(1200);
+        await page.waitForTimeout(800);
+
+        // Check if clipboard export occurred
+        const capturedClipboard = await page.evaluate(() => window.__capturedClipboard || []);
+        if (capturedClipboard.length > 0) {
+          const latestCopy = capturedClipboard[capturedClipboard.length - 1];
+          result.exportGate.clipboardTriggered = true;
+          result.exportGate.clipboardText = latestCopy.text;
+        }
+
         const modalAuthCheck = await page.evaluate(() => {
           const modals = Array.from(document.querySelectorAll('[role="dialog"], .modal, .popup, [aria-modal="true"]'))
             .filter(m => {
@@ -725,9 +809,15 @@ function synthesizeEvaluation(res, existingTask = null) {
     scorecard.utilityIndependence = 5;
   }
 
-  if (res.exportGate?.hasWatermark) {
+  if (res.exportGate?.tailBrokeFormat) {
+    scorecard.cleanUx = 1;
+    scorecard.utilityIndependence = 2;
+  } else if (res.exportGate?.hasWatermark && res.exportGate?.downloadPath) {
     scorecard.cleanUx = 1;
     scorecard.utilityIndependence = Math.min(scorecard.utilityIndependence, 2);
+  } else if (res.exportGate?.hasWatermark && res.exportGate?.clipboardText) {
+    // Soft watermark penalty for clipboard promotional tails
+    scorecard.cleanUx = Math.max(1, scorecard.cleanUx - 2);
   }
 
   scorecard.totalScore = scorecard.noLoginCompleteness +
@@ -736,7 +826,11 @@ function synthesizeEvaluation(res, existingTask = null) {
                          scorecard.cleanUx +
                          scorecard.healthStability;
 
-  if (res.exportGate?.hasWatermark) {
+  if (res.exportGate?.tailBrokeFormat) {
+    recommendation = 'Rejected';
+    rejectionReason = `剪贴板导出的数据被商业引流尾巴破坏语法格式 (${res.exportGate.watermarkSignature || 'Promotional Tail'})`;
+    scorecard.tier = 'Tier C';
+  } else if (res.exportGate?.hasWatermark && res.exportGate?.downloadPath) {
     recommendation = 'Rejected';
     rejectionReason = '导出的交付产物中检测到强制商业水印 (Commercial Watermark Detected)';
     scorecard.tier = 'Tier C';
@@ -988,6 +1082,24 @@ async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = nu
           rawResult.exportGate.hasWatermark = true;
         }
       } catch (e) {}
+    } else if (rawResult.exportGate?.clipboardText) {
+      try {
+        const clipboardReport = inspectClipboardArtifact(rawResult.exportGate.clipboardText);
+        rawResult.exportGate.clipboardInspection = clipboardReport;
+        if (clipboardReport.quality?.isBaitTrap) {
+          rawResult.exportGate.interceptedByAuth = true;
+          rawResult.exportGate.authPromptDetails = 'Bait trap detected: Clipboard output contains login/paywall prompt';
+        }
+        if (clipboardReport.quality?.hasWatermark) {
+          rawResult.exportGate.hasWatermark = true;
+          rawResult.exportGate.watermarkSignature = clipboardReport.quality.watermarkSignature;
+        }
+        if (clipboardReport.quality?.tailBrokeFormat) {
+          rawResult.exportGate.hasWatermark = true;
+          rawResult.exportGate.tailBrokeFormat = true;
+          rawResult.exportGate.watermarkSignature = clipboardReport.quality.watermarkSignature;
+        }
+      } catch (e) {}
     }
 
     const evaluation = synthesizeEvaluation(rawResult, existingTask);
@@ -1034,7 +1146,14 @@ async function runInspection(targetUrl, isJson, isVerbose, customTimeoutSec = nu
       console.log(`   - Textareas / Editors:    ${rawResult.surface.textareaCount}`);
       console.log(`   - File Uploads:           ${rawResult.surface.fileInputCount}`);
       console.log(`   - Drawing Canvases:       ${rawResult.surface.canvasCount}`);
-      console.log(`   - Export / Download:      ${rawResult.exportGate.exportTrigger || 'None'} (Download fired: ${rawResult.exportGate.downloadTriggered})`);
+      console.log(`   - Export / Download:      ${rawResult.exportGate.exportTrigger || 'None'} (Download fired: ${rawResult.exportGate.downloadTriggered}, Clipboard captured: ${rawResult.exportGate.clipboardTriggered})`);
+      if (rawResult.exportGate.cascadingMenuTriggered) {
+        console.log(`   - Cascading Menu Traversal: ✅ Triggered (${rawResult.exportGate.cascadingMenuLabel || 'Expanded'})`);
+      }
+      if (rawResult.exportGate.clipboardInspection) {
+        const ci = rawResult.exportGate.clipboardInspection;
+        console.log(`   - Clipboard Inspection:   ${ci.file?.format?.toUpperCase()} (${ci.file?.charCount} chars, Tail detected: ${ci.quality?.hasWatermark ? '⚠️ ' + ci.quality?.watermarkSignature : '✅ None'})`);
+      }
       console.log(`   - Auth Gate Interception: ${rawResult.exportGate.interceptedByAuth ? '⚠️ DETECTED' : 'None (Safe)'}`);
       console.log(`   - Privacy Classification: ${rawResult.networkPrivacy.classification} (WebAssembly: ${rawResult.networkPrivacy.hasWebAssembly})`);
 

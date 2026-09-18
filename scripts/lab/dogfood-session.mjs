@@ -22,7 +22,7 @@ import { tmpdir } from 'node:os';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateAllFixtures } from './fixtures/generate-fixtures.mjs';
-import { inspectArtifact, assessArtifactQuality } from './inspectors/output-inspector.mjs';
+import { inspectArtifact, inspectClipboardArtifact, assessArtifactQuality } from './inspectors/output-inspector.mjs';
 import { validateCognitiveEvaluation, calibrate5DScore } from './cades-cognitive.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -167,9 +167,44 @@ async function cmdStart(targetUrl, customSlug = null) {
     result.spaceId = task.spaceId;
     const page = task.page("p1");
 
-    // Network snooper for zero-egress check
+    // Network snooper for zero-egress check & clipboard interception
     await page.evaluate(() => {
       window.__netPayloads = [];
+      window.__capturedClipboard = [];
+
+      // Intercept navigator.clipboard.writeText
+      if (navigator.clipboard) {
+        const origWriteText = navigator.clipboard.writeText;
+        navigator.clipboard.writeText = function(text) {
+          try {
+            window.__capturedClipboard.push({
+              type: 'writeText',
+              text: String(text),
+              timestamp: Date.now()
+            });
+          } catch (e) {}
+          return origWriteText ? origWriteText.apply(this, arguments) : Promise.resolve();
+        };
+      }
+
+      // Intercept document.execCommand('copy')
+      const origExecCommand = document.execCommand;
+      document.execCommand = function(command) {
+        if (command && String(command).toLowerCase() === 'copy') {
+          try {
+            const sel = window.getSelection ? window.getSelection().toString() : '';
+            if (sel) {
+              window.__capturedClipboard.push({
+                type: 'execCommand',
+                text: sel,
+                timestamp: Date.now()
+              });
+            }
+          } catch (e) {}
+        }
+        return origExecCommand ? origExecCommand.apply(this, arguments) : true;
+      };
+
       const isTelemetry = (u) => /google-analytics|googletagmanager|clarity\\.ms|sentry\\.io|doubleclick|pagead|googlesyndication|pub\\.network|adnxs|rubicon|criteo|fundingchoicesmessages|cloudflareinsights|fonts\\.googleapis|cdnjs\\.cloudflare/i.test(u);
       const origFetch = window.fetch;
       window.fetch = function(...args) {
@@ -499,16 +534,16 @@ async function cmdExport(slug, trigger = null) {
 
   const script = `
 (async () => {
-  const result = { downloadTriggered: false, downloadPath: null, authIntercepted: false, authDetails: null, error: null };
+  const result = { downloadTriggered: false, downloadPath: null, clipboardTriggered: false, clipboardText: null, authIntercepted: false, authDetails: null, error: null };
   try {
     const task = await taskSpace(${JSON.stringify(session.spaceId)});
     const page = task.page("p1");
 
     const dlPromise = page.waitForEvent("download", { timeout: 4500 }).catch(() => null);
 
-    const triggerTarget = ${JSON.stringify(trigger || "download|export|save|下载|导出|保存")};
+    const triggerTarget = ${JSON.stringify(trigger || "download|export|save|copy|下载|导出|保存|复制")};
     const clicked = await page.evaluate((target) => {
-      const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"]'));
+      const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"], [role="menuitem"], .dropdown-item'));
       const match = btns.find(b => {
         const t = (b.innerText || b.value || b.getAttribute('aria-label') || '').trim();
         return new RegExp(target, "i").test(t) && !/login|sign in|pricing|cookie/i.test(t);
@@ -530,7 +565,16 @@ async function cmdExport(slug, trigger = null) {
         result.downloadPath = ${JSON.stringify(exportDlPath)};
       }
     } else {
-      await page.waitForTimeout(1500);
+      await page.waitForTimeout(800);
+
+      // Check if clipboard export occurred
+      const capturedClipboard = await page.evaluate(() => window.__capturedClipboard || []);
+      if (capturedClipboard.length > 0) {
+        const latest = capturedClipboard[capturedClipboard.length - 1];
+        result.clipboardTriggered = true;
+        result.clipboardText = latest.text;
+      }
+
       const authCheck = await page.evaluate(() => {
         const modals = Array.from(document.querySelectorAll('[role="dialog"], .modal, .popup, [aria-modal="true"]'))
           .filter(m => m.offsetHeight > 80);
@@ -573,11 +617,16 @@ async function cmdExport(slug, trigger = null) {
     if (res.downloadPath && existsSync(res.downloadPath)) {
       inspectionReport = inspectArtifact(res.downloadPath);
       qualityReport = assessArtifactQuality(inspectionReport);
+    } else if (res.clipboardText) {
+      inspectionReport = inspectClipboardArtifact(res.clipboardText);
+      qualityReport = assessArtifactQuality(inspectionReport);
     }
 
     session.exportArtifact = {
       downloadTriggered: res.downloadTriggered,
       downloadPath: res.downloadPath,
+      clipboardTriggered: res.clipboardTriggered,
+      clipboardText: res.clipboardText,
       authIntercepted: res.authIntercepted,
       authDetails: res.authDetails,
       screenshot: exportPicPath,
@@ -592,16 +641,27 @@ async function cmdExport(slug, trigger = null) {
     console.log(`======================================================`);
     console.log(`Trigger Clicked:     ${res.triggerClicked || 'None found'}`);
     console.log(`Download Triggered:  ${res.downloadTriggered ? '✅ YES' : '❌ NO'}`);
+    console.log(`Clipboard Captured:  ${res.clipboardTriggered ? '✅ YES' : '❌ NO'}`);
     console.log(`Auth Interception:   ${res.authIntercepted ? '⚠️ DETECTED: ' + res.authDetails : '✅ NONE (Safe)'}`);
 
     if (inspectionReport) {
-      console.log(`\n📄 Artifact Physical Inspection:`);
-      console.log(`   - Format:       ${inspectionReport.file?.format?.toUpperCase()}`);
-      console.log(`   - Size:         ${inspectionReport.file?.sizeBytes} bytes`);
-      console.log(`   - Dimensions:   ${inspectionReport.file?.dimensions ? `${inspectionReport.file.dimensions.width}x${inspectionReport.file.dimensions.height}` : 'N/A'}`);
-      console.log(`   - Watermark:    ${inspectionReport.quality?.hasWatermark ? '⚠️ DETECTED: ' + inspectionReport.quality.watermarkSignature : '✅ None'}`);
-      console.log(`   - Bait Trap:    ${inspectionReport.quality?.isBaitTrap ? '⚠️ HTML Trap!' : '✅ Clean'}`);
-      console.log(`   - Blank Canvas: ${inspectionReport.quality?.isBlankCanvas ? '⚠️ Blank Whiteout!' : '✅ Non-blank'}`);
+      if (inspectionReport.type === 'clipboard') {
+        console.log(`\n📋 Clipboard Physical Inspection:`);
+        console.log(`   - Format:       ${inspectionReport.file?.format?.toUpperCase()}`);
+        console.log(`   - Length:       ${inspectionReport.file?.charCount} chars (${inspectionReport.file?.lineCount} lines)`);
+        console.log(`   - Watermark Tail: ${inspectionReport.quality?.hasWatermark ? '⚠️ DETECTED: ' + inspectionReport.quality.watermarkSignature : '✅ None'}`);
+        console.log(`   - Tail Broke Data: ${inspectionReport.quality?.tailBrokeFormat ? '⚠️ YES (Syntax Error)' : '✅ NO'}`);
+        console.log(`   - Bait Trap:    ${inspectionReport.quality?.isBaitTrap ? '⚠️ Bait Trap Prompt!' : '✅ Clean'}`);
+        console.log(`   - Valid Data:   ${inspectionReport.quality?.isValidStructure ? '✅ PASS' : '❌ INVALID'}`);
+      } else {
+        console.log(`\n📄 Artifact Physical Inspection:`);
+        console.log(`   - Format:       ${inspectionReport.file?.format?.toUpperCase()}`);
+        console.log(`   - Size:         ${inspectionReport.file?.sizeBytes} bytes`);
+        console.log(`   - Dimensions:   ${inspectionReport.file?.dimensions ? `${inspectionReport.file.dimensions.width}x${inspectionReport.file.dimensions.height}` : 'N/A'}`);
+        console.log(`   - Watermark:    ${inspectionReport.quality?.hasWatermark ? '⚠️ DETECTED: ' + inspectionReport.quality.watermarkSignature : '✅ None'}`);
+        console.log(`   - Bait Trap:    ${inspectionReport.quality?.isBaitTrap ? '⚠️ HTML Trap!' : '✅ Clean'}`);
+        console.log(`   - Blank Canvas: ${inspectionReport.quality?.isBlankCanvas ? '⚠️ Blank Whiteout!' : '✅ Non-blank'}`);
+      }
     }
 
     console.log(`\n📸 Export State Screenshot:`);
