@@ -69,6 +69,161 @@ function removeSession(slug) {
   }
 }
 
+/**
+ * Installed inside the inspected page after navigation and before every action.
+ * This function is serialized with toString(), so it must remain self-contained.
+ */
+function installCadesPageInstrumentation() {
+  if (window.__cadesInstrumentationVersion === 2) return true;
+
+  window.__cadesInstrumentationVersion = 2;
+  let persistedPayloads = [];
+  try { persistedPayloads = JSON.parse(sessionStorage.getItem('__cadesNetPayloads') || '[]'); } catch {}
+  window.__netPayloads = Array.isArray(window.__netPayloads) ? window.__netPayloads : persistedPayloads;
+  window.__capturedClipboard = Array.isArray(window.__capturedClipboard) ? window.__capturedClipboard : [];
+
+  const recordPayload = (type, method, url) => {
+    window.__netPayloads.push({
+      type,
+      method: String(method || 'UNKNOWN').toUpperCase(),
+      url: String(url || '').slice(0, 200),
+      timestamp: Date.now()
+    });
+    try { sessionStorage.setItem('__cadesNetPayloads', JSON.stringify(window.__netPayloads)); } catch {}
+  };
+
+  if (navigator.clipboard && !navigator.clipboard.__cadesWrapped) {
+    const origWriteText = navigator.clipboard.writeText?.bind(navigator.clipboard);
+    navigator.clipboard.writeText = async function(text) {
+      window.__capturedClipboard.push({ type: 'writeText', text: String(text), timestamp: Date.now() });
+      return origWriteText ? origWriteText(text) : undefined;
+    };
+    try { navigator.clipboard.__cadesWrapped = true; } catch {}
+  }
+
+  if (!document.__cadesExecCommandWrapped) {
+    const origExecCommand = document.execCommand?.bind(document);
+    document.execCommand = function(command, ...args) {
+      if (String(command || '').toLowerCase() === 'copy') {
+        const selected = window.getSelection ? window.getSelection().toString() : '';
+        if (selected) window.__capturedClipboard.push({ type: 'execCommand', text: selected, timestamp: Date.now() });
+      }
+      return origExecCommand ? origExecCommand(command, ...args) : true;
+    };
+    try { document.__cadesExecCommandWrapped = true; } catch {}
+  }
+
+  if (!window.fetch.__cadesWrapped) {
+    const origFetch = window.fetch.bind(window);
+    const wrappedFetch = function(...args) {
+      const request = args[0];
+      const options = args[1] || {};
+      const url = typeof request === 'string' ? request : (request?.url || '');
+      const method = String(options.method || request?.method || 'GET').toUpperCase();
+      if (options.body !== undefined || !['GET', 'HEAD', 'OPTIONS'].includes(method)) {
+        recordPayload('fetch', method, url);
+      }
+      return origFetch(...args);
+    };
+    wrappedFetch.__cadesWrapped = true;
+    window.fetch = wrappedFetch;
+  }
+
+  if (!XMLHttpRequest.prototype.__cadesWrapped) {
+    const origXhrOpen = XMLHttpRequest.prototype.open;
+    const origXhrSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.open = function(method, url, ...args) {
+      this.__cadesMethod = String(method || 'GET').toUpperCase();
+      this.__cadesUrl = String(url || '');
+      return origXhrOpen.call(this, method, url, ...args);
+    };
+    XMLHttpRequest.prototype.send = function(body) {
+      if (body !== undefined && body !== null) {
+        recordPayload('xhr', this.__cadesMethod, this.__cadesUrl);
+      }
+      return origXhrSend.call(this, body);
+    };
+    XMLHttpRequest.prototype.__cadesWrapped = true;
+  }
+
+  if (navigator.sendBeacon && !navigator.sendBeacon.__cadesWrapped) {
+    const origSendBeacon = navigator.sendBeacon.bind(navigator);
+    const wrappedSendBeacon = function(url, data) {
+      recordPayload('beacon', 'POST', url);
+      return origSendBeacon(url, data);
+    };
+    wrappedSendBeacon.__cadesWrapped = true;
+    navigator.sendBeacon = wrappedSendBeacon;
+  }
+
+  if (typeof WebSocket !== 'undefined' && !WebSocket.prototype.__cadesWrapped) {
+    const origWebSocketSend = WebSocket.prototype.send;
+    WebSocket.prototype.send = function(data) {
+      recordPayload('websocket', 'SEND', this.url);
+      return origWebSocketSend.call(this, data);
+    };
+    WebSocket.prototype.__cadesWrapped = true;
+  }
+
+  document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (form instanceof HTMLFormElement) {
+      recordPayload('form', form.method || 'GET', form.action || window.location.href);
+    }
+  }, true);
+
+  window.__uxTelemetry = window.__uxTelemetry || {
+    longTasksCount: 0,
+    maxLongTaskDuration: 0,
+    totalLongTaskDuration: 0,
+    clsScore: 0
+  };
+  try {
+    const longTaskObserver = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        window.__uxTelemetry.longTasksCount++;
+        window.__uxTelemetry.totalLongTaskDuration += entry.duration;
+        window.__uxTelemetry.maxLongTaskDuration = Math.max(
+          window.__uxTelemetry.maxLongTaskDuration,
+          Math.round(entry.duration)
+        );
+      }
+    });
+    longTaskObserver.observe({ entryTypes: ['longtask'] });
+  } catch {}
+  try {
+    const layoutObserver = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (!entry.hadRecentInput) window.__uxTelemetry.clsScore += entry.value;
+      }
+    });
+    layoutObserver.observe({ entryTypes: ['layout-shift'] });
+  } catch {}
+
+  return true;
+}
+
+export function summarizeObservedEgress(payloads) {
+  const outgoingPayloadCount = Array.isArray(payloads) ? payloads.length : 0;
+  return {
+    outgoingPayloadCount,
+    observed: outgoingPayloadCount > 0,
+    classification: outgoingPayloadCount > 0
+      ? 'Payload Egress Observed'
+      : 'No Payload Egress Observed (not proof of local-only processing)'
+  };
+}
+
+export function mergeObservedPayloads(...groups) {
+  const merged = groups.flatMap(group => Array.isArray(group) ? group : []);
+  return merged.filter((payload, index, all) => {
+    const key = `${payload?.type}|${payload?.method}|${payload?.url}|${payload?.timestamp}`;
+    return all.findIndex(candidate =>
+      `${candidate?.type}|${candidate?.method}|${candidate?.url}|${candidate?.timestamp}` === key
+    ) === index;
+  });
+}
+
 async function runEgoScript(scriptContent, timeoutMs = 60000) {
   return new Promise((resolve, reject) => {
     const child = spawn('ego-browser', ['nodejs'], {
@@ -106,7 +261,7 @@ Usage:
 
 Commands:
   start <URL> [--slug <slug>]
-    Launches ego-browser, navigates to URL, injects zero-egress snooper,
+    Launches ego-browser, navigates to URL, installs payload-egress observation hooks,
     captures initial screenshot, and saves session state.
 
   act <slug> [actions...]
@@ -119,12 +274,12 @@ Commands:
       --press <key>              Press keyboard key (e.g. Space, Enter, Escape)
       --eval-js <code>           Execute custom JavaScript inside the page
 
-  export <slug> [--trigger <text|selector>]
+  export <slug> [--trigger <text-regex|css=selector>]
     Listens for download events, triggers export/download, catches artifact,
     and runs format/watermark/bait-trap inspection.
 
   finish <slug> [--eval <eval.json>] [--sync] [--allow-shallow]
-    Audits final zero-egress payloads, runs Anti-Slacking checks, generates
+    Summarizes observed payload egress, runs Anti-Slacking checks, generates
     flight recorder summary, releases browser space, validates Agent review,
     and updates tool-editorial.json.
 
@@ -153,7 +308,7 @@ async function cmdStart(targetUrl, customSlug = null) {
   if (existing) {
     console.log(`⚠️ Active session already exists for [${safeSlug}] (spaceId: ${existing.spaceId}).`);
     console.log(`Run 'status ${safeSlug}' to view, or 'abort ${safeSlug}' to reset.`);
-    return;
+    return false;
   }
 
   const initialPicPath = join(tmpdir(), `dogfood-${safeSlug}-step1-initial.png`);
@@ -167,105 +322,10 @@ async function cmdStart(targetUrl, customSlug = null) {
     result.spaceId = task.spaceId;
     const page = task.page("p1");
 
-    // Network snooper for zero-egress check & clipboard interception
-    await page.evaluate(() => {
-      window.__netPayloads = [];
-      window.__capturedClipboard = [];
-
-      // Intercept navigator.clipboard.writeText
-      if (navigator.clipboard) {
-        const origWriteText = navigator.clipboard.writeText;
-        navigator.clipboard.writeText = function(text) {
-          try {
-            window.__capturedClipboard.push({
-              type: 'writeText',
-              text: String(text),
-              timestamp: Date.now()
-            });
-          } catch (e) {}
-          return origWriteText ? origWriteText.apply(this, arguments) : Promise.resolve();
-        };
-      }
-
-      // Intercept document.execCommand('copy')
-      const origExecCommand = document.execCommand;
-      document.execCommand = function(command) {
-        if (command && String(command).toLowerCase() === 'copy') {
-          try {
-            const sel = window.getSelection ? window.getSelection().toString() : '';
-            if (sel) {
-              window.__capturedClipboard.push({
-                type: 'execCommand',
-                text: sel,
-                timestamp: Date.now()
-              });
-            }
-          } catch (e) {}
-        }
-        return origExecCommand ? origExecCommand.apply(this, arguments) : true;
-      };
-
-      const isTelemetry = (u) => /google-analytics|googletagmanager|clarity\\.ms|sentry\\.io|doubleclick|pagead|googlesyndication|pub\\.network|adnxs|rubicon|criteo|fundingchoicesmessages|cloudflareinsights|fonts\\.googleapis|cdnjs\\.cloudflare/i.test(u);
-      const origFetch = window.fetch;
-      window.fetch = function(...args) {
-        try {
-          const url = typeof args[0] === 'string' ? args[0] : (args[0]?.url || '');
-          const method = (args[1]?.method || (typeof args[0] === 'object' ? args[0]?.method : 'GET') || 'GET').toUpperCase();
-          if (Boolean(args[1]?.body) && !isTelemetry(url)) {
-            window.__netPayloads.push({ type: 'fetch', method, url: url.slice(0, 150) });
-          }
-        } catch (e) {}
-        return origFetch.apply(this, args);
-      };
-      const origXhrSend = XMLHttpRequest.prototype.send;
-      const origXhrOpen = XMLHttpRequest.prototype.open;
-      XMLHttpRequest.prototype.open = function(method, url) {
-        this.__method = method ? method.toUpperCase() : 'GET';
-        this.__url = url;
-        return origXhrOpen.apply(this, arguments);
-      };
-      XMLHttpRequest.prototype.send = function(body) {
-        try {
-          if (body && !isTelemetry(this.__url || '')) {
-            window.__netPayloads.push({ type: 'xhr', method: this.__method, url: (this.__url || '').slice(0, 150) });
-          }
-        } catch (e) {}
-        return origXhrSend.apply(this, arguments);
-      };
-
-      // UX Ergonomics Telemetry (PerformanceObserver)
-      window.__uxTelemetry = {
-        longTasksCount: 0,
-        maxLongTaskDuration: 0,
-        totalLongTaskDuration: 0,
-        clsScore: 0
-      };
-      try {
-        const ltObs = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            window.__uxTelemetry.longTasksCount++;
-            window.__uxTelemetry.totalLongTaskDuration += entry.duration;
-            if (entry.duration > window.__uxTelemetry.maxLongTaskDuration) {
-              window.__uxTelemetry.maxLongTaskDuration = Math.round(entry.duration);
-            }
-          }
-        });
-        ltObs.observe({ entryTypes: ['longtask'] });
-      } catch (e) {}
-      try {
-        const clsObs = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            if (!entry.hadRecentInput) {
-              window.__uxTelemetry.clsScore += entry.value;
-            }
-          }
-        });
-        clsObs.observe({ entryTypes: ['layout-shift'] });
-      } catch (e) {}
-    }).catch(() => false);
-
     await page.dismissDialog().catch(() => false);
     await page.goto(${JSON.stringify(targetUrl)}, { waitUntil: "domcontentloaded", timeout: 45000 });
+    // Navigation replaces the document, so install evidence hooks afterwards.
+    await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
     await page.waitForTimeout(1500);
 
     result.url = await page.url();
@@ -305,7 +365,7 @@ async function cmdStart(targetUrl, customSlug = null) {
 `;
 
   console.log(`\n🚀 [CADES 2.0 Route A] Starting session for: ${targetUrl} (slug: ${safeSlug})`);
-  console.log(`⏳ Navigating and injecting zero-egress snooper in ego-browser...`);
+  console.log(`⏳ Navigating and installing payload-egress observation hooks in ego-browser...`);
 
   try {
     await runEgoScript(script, 60000);
@@ -314,7 +374,7 @@ async function cmdStart(targetUrl, customSlug = null) {
 
     if (res.error) {
       console.error(`❌ Session start failed: ${res.error}`);
-      return;
+      return false;
     }
 
     const sessionData = {
@@ -334,6 +394,7 @@ async function cmdStart(targetUrl, customSlug = null) {
         }
       ],
       uxTelemetry: res.ux || { longTasksCount: 0, maxLongTaskDuration: 0, totalLongTaskDuration: 0, clsScore: 0 },
+      netPayloads: [],
       surface: {
         headings: res.headings,
         buttonLabels: res.buttonLabels,
@@ -358,7 +419,7 @@ async function cmdStart(targetUrl, customSlug = null) {
     console.log(`   - Main Thread:  ${isButter ? '✅ Butter-smooth (<60ms tasks)' : `⚠️ Max freeze: ${ux.maxLongTaskDuration}ms`}`);
     console.log(`   - Layout Shift: ${ux.clsScore === 0 ? '✅ 0.00 (Rock solid)' : `⚠️ CLS: ${ux.clsScore.toFixed(2)}`}`);
 
-    console.log(`\n📸 Visual Checkpoint 1 (Agent MUST inspect via view_file):`);
+    console.log(`\n📸 Visual Checkpoint 1 (Agent MUST inspect via view_image):`);
     console.log(`   👉 ${initialPicPath}`);
     console.log(`\n🛠️ Detected Surface:`);
     console.log(`   - Buttons:      ${res.buttonLabels.slice(0, 8).join(', ') || 'None'}`);
@@ -368,8 +429,10 @@ async function cmdStart(targetUrl, customSlug = null) {
     console.log(`   • Upload a fixture:  node scripts/lab/dogfood-session.mjs act ${safeSlug} --upload png`);
     console.log(`   • Test export:       node scripts/lab/dogfood-session.mjs export ${safeSlug}`);
     console.log(`   • Finish session:    node scripts/lab/dogfood-session.mjs finish ${safeSlug}\n`);
+    return true;
   } catch (err) {
     console.error(`❌ Failed to start session:`, err.message);
+    return false;
   }
 }
 
@@ -380,7 +443,7 @@ async function cmdAct(slug, options) {
   const session = loadSession(slug);
   if (!session) {
     console.error(`❌ No active session found for [${slug}]. Run 'start <url>' first.`);
-    return;
+    return false;
   }
 
   const stepNumber = session.steps.length + 1;
@@ -393,16 +456,17 @@ async function cmdAct(slug, options) {
     resolvedFixture = FIXTURE_PATHS[fKey] || options.upload;
     if (!existsSync(resolvedFixture)) {
       console.error(`❌ Fixture file not found: ${resolvedFixture}`);
-      return;
+      return false;
     }
   }
 
   const script = `
 (async () => {
-  const result = { success: false, url: null, title: "", actionSummary: "", error: null };
+  const result = { success: false, actionPerformed: false, netPayloads: [], url: null, title: "", actionSummary: "", error: null };
   try {
     const task = await taskSpace(${JSON.stringify(session.spaceId)});
     const page = task.page("p1");
+    await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
 
     ${options.click ? `
       const clickTarget = ${JSON.stringify(options.click)};
@@ -421,6 +485,7 @@ async function cmdAct(slug, options) {
         return null;
       }, clickTarget);
       result.actionSummary = clicked || ("Element not found for click: " + clickTarget);
+      result.actionPerformed = Boolean(clicked) || result.actionPerformed;
     ` : ''}
 
     ${options.fill ? `
@@ -441,6 +506,7 @@ async function cmdAct(slug, options) {
         return null;
       }, { sel: fillSel, val: fillVal });
       result.actionSummary = filled || ("Input element not found: " + fillSel);
+      result.actionPerformed = Boolean(filled) || result.actionPerformed;
     ` : ''}
 
     ${options.upload ? `
@@ -448,6 +514,7 @@ async function cmdAct(slug, options) {
       try {
         await page.setInputFiles('input[type="file"]', fixPath);
         result.actionSummary = "Uploaded fixture: " + fixPath;
+        result.actionPerformed = true;
       } catch (err) {
         result.actionSummary = "File input not found for upload: " + err.message;
       }
@@ -457,22 +524,26 @@ async function cmdAct(slug, options) {
       const key = ${JSON.stringify(options.press)};
       await page.keyboard.press(key);
       result.actionSummary = "Pressed key: " + key;
+      result.actionPerformed = true;
     ` : ''}
 
     ${options.evalJs ? `
       const jsCode = ${JSON.stringify(options.evalJs)};
       const evalRes = await page.evaluate((c) => {
-        try { return String(eval(c)); } catch (e) { return "Eval error: " + e.message; }
+        try { return { ok: true, value: String(eval(c)) }; }
+        catch (e) { return { ok: false, value: "Eval error: " + e.message }; }
       }, jsCode);
-      result.actionSummary = "Evaluated JS: " + evalRes;
+      result.actionSummary = "Evaluated JS: " + evalRes.value;
+      result.actionPerformed = Boolean(evalRes.ok) || result.actionPerformed;
     ` : ''}
 
     await page.waitForTimeout(1500);
     result.url = await page.url();
     result.title = await page.title();
     result.ux = await page.evaluate(() => window.__uxTelemetry || null);
+    result.netPayloads = await page.evaluate(() => window.__netPayloads || []);
     await page.screenshot({ path: ${JSON.stringify(actionPicPath)} });
-    result.success = true;
+    result.success = result.actionPerformed;
   } catch (err) {
     result.error = err.message || String(err);
   } finally {
@@ -488,14 +559,15 @@ async function cmdAct(slug, options) {
     const res = JSON.parse(readFileSync(resultFile, 'utf-8'));
     try { unlinkSync(resultFile); } catch {}
 
-    if (res.error) {
-      console.error(`❌ Action failed: ${res.error}`);
-      return;
+    if (res.error || !res.actionPerformed) {
+      console.error(`❌ Action failed: ${res.error || res.actionSummary || 'No target was operated'}`);
+      return false;
     }
 
     session.steps.push({
       step: stepNumber,
       type: 'act',
+      performed: true,
       summary: res.actionSummary,
       screenshot: actionPicPath,
       url: res.url,
@@ -503,6 +575,7 @@ async function cmdAct(slug, options) {
       ux: res.ux || null
     });
     session.currentUrl = res.url;
+    session.netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
     if (res.ux) {
       session.uxTelemetry = res.ux;
       const isButter = (res.ux.maxLongTaskDuration < 60 && res.ux.clsScore === 0);
@@ -512,9 +585,11 @@ async function cmdAct(slug, options) {
 
     console.log(`✅ Action completed: ${res.actionSummary}`);
     console.log(`📸 Visual Checkpoint (Step ${stepNumber}):`);
-    console.log(`   👉 ${actionPicPath} (Agent inspect via view_file)`);
+    console.log(`   👉 ${actionPicPath} (Agent inspect via view_image)`);
+    return true;
   } catch (err) {
     console.error(`❌ Failed to execute action:`, err.message);
+    return false;
   }
 }
 
@@ -525,7 +600,7 @@ async function cmdExport(slug, trigger = null) {
   const session = loadSession(slug);
   if (!session) {
     console.error(`❌ No active session found for [${slug}].`);
-    return;
+    return false;
   }
 
   const exportDlPath = join(tmpdir(), `dogfood-dl-${slug}-${Date.now()}.artifact`);
@@ -534,19 +609,31 @@ async function cmdExport(slug, trigger = null) {
 
   const script = `
 (async () => {
-  const result = { downloadTriggered: false, downloadPath: null, clipboardTriggered: false, clipboardText: null, authIntercepted: false, authDetails: null, error: null };
+  const result = { downloadTriggered: false, downloadPath: null, clipboardTriggered: false, clipboardText: null, netPayloads: [], authIntercepted: false, authDetails: null, error: null };
   try {
     const task = await taskSpace(${JSON.stringify(session.spaceId)});
     const page = task.page("p1");
+    await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
 
     const dlPromise = page.waitForEvent("download", { timeout: 4500 }).catch(() => null);
 
     const triggerTarget = ${JSON.stringify(trigger || "download|export|save|copy|下载|导出|保存|复制")};
     const clicked = await page.evaluate((target) => {
       const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"], [role="menuitem"], .dropdown-item'));
+      if (target.startsWith('css=')) {
+        const selected = document.querySelector(target.slice(4));
+        if (selected) {
+          selected.click();
+          return (selected.innerText || selected.getAttribute('aria-label') || target).trim();
+        }
+        return null;
+      }
+      let matcher;
+      try { matcher = new RegExp(target, "i"); }
+      catch { matcher = { test: (value) => String(value).toLowerCase().includes(target.toLowerCase()) }; }
       const match = btns.find(b => {
         const t = (b.innerText || b.value || b.getAttribute('aria-label') || '').trim();
-        return new RegExp(target, "i").test(t) && !/login|sign in|pricing|cookie/i.test(t);
+        return matcher.test(t) && !/login|sign in|pricing|cookie/i.test(t);
       });
       if (match) {
         match.click();
@@ -595,6 +682,7 @@ async function cmdExport(slug, trigger = null) {
       }
     }
 
+    result.netPayloads = await page.evaluate(() => window.__netPayloads || []);
     await page.screenshot({ path: ${JSON.stringify(exportPicPath)} });
   } catch (err) {
     result.error = err.message || String(err);
@@ -610,6 +698,11 @@ async function cmdExport(slug, trigger = null) {
     await runEgoScript(script, 45000);
     const res = JSON.parse(readFileSync(resultFile, 'utf-8'));
     try { unlinkSync(resultFile); } catch {}
+
+    if (res.error) {
+      console.error(`❌ Export interaction failed: ${res.error}`);
+      return false;
+    }
 
     let inspectionReport = null;
     let qualityReport = null;
@@ -633,6 +726,20 @@ async function cmdExport(slug, trigger = null) {
       inspectionReport,
       qualityReport
     };
+    session.netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
+
+    if (res.triggerClicked) {
+      session.steps.push({
+        step: session.steps.length + 1,
+        type: 'export',
+        performed: true,
+        summary: `Triggered export control: ${res.triggerClicked}`,
+        screenshot: exportPicPath,
+        downloadTriggered: res.downloadTriggered,
+        clipboardTriggered: res.clipboardTriggered,
+        authIntercepted: res.authIntercepted
+      });
+    }
 
     saveSession(slug, session);
 
@@ -665,9 +772,15 @@ async function cmdExport(slug, trigger = null) {
     }
 
     console.log(`\n📸 Export State Screenshot:`);
-    console.log(`   👉 ${exportPicPath} (Agent inspect via view_file)\n`);
+    console.log(`   👉 ${exportPicPath} (Agent inspect via view_image)\n`);
+    if (!res.triggerClicked) {
+      console.error('❌ No export control matched the requested trigger. This does not count as an interaction.');
+      return false;
+    }
+    return true;
   } catch (err) {
     console.error(`❌ Export test failed:`, err.message);
+    return false;
   }
 }
 
@@ -678,18 +791,51 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
   const session = loadSession(slug);
   if (!session) {
     console.error(`❌ No active session found for [${slug}].`);
-    return;
+    return false;
   }
 
-  // Anti-Slacking Guardrail: Ensure Agent actively interacted with the tool
-  const userActions = session.steps.filter(s => s.type === 'act' || s.type === 'export');
+  // Only successful, observable interactions satisfy the guardrail.
+  const userActions = session.steps.filter(
+    s => (s.type === 'act' || s.type === 'export') && s.performed === true
+  );
   if (userActions.length === 0 && !allowShallow) {
     console.warn(`\n⚠️  [CADES 2.0 Anti-Slacking Guardrail]`);
     console.warn(`   Session [${slug}] has 0 interactive user steps (only started, never acted/exported).`);
     console.warn(`   Deep dogfooding requires actively testing the tool (fill, click, upload, or export).`);
     console.warn(`   To finalize anyway (e.g. for purely static landing pages), pass --allow-shallow:\n`);
     console.warn(`   node scripts/lab/dogfood-session.mjs finish ${slug} --allow-shallow\n`);
-    return;
+    return false;
+  }
+
+  if (shouldSync && !evalFilePath) {
+    console.error('❌ --sync requires a validated --eval <json-file> payload.');
+    return false;
+  }
+
+  let evalData = null;
+  if (evalFilePath) {
+    if (!existsSync(evalFilePath)) {
+      console.error(`❌ Evaluation file not found: ${evalFilePath}`);
+      return false;
+    }
+    try {
+      evalData = JSON.parse(readFileSync(evalFilePath, 'utf-8'));
+    } catch (err) {
+      console.error(`❌ Failed to parse eval file: ${err.message}`);
+      return false;
+    }
+
+    const validation = validateCognitiveEvaluation(evalData, { requireBilingual: shouldSync });
+    if (!validation.valid) {
+      console.error('\n❌ Agent evaluation validation failed; session remains open and nothing was synchronized:');
+      validation.errors.forEach(error => console.error(`   • ${error}`));
+      return false;
+    }
+    if (shouldSync && !existsSync(EDITORIAL_PATH)) {
+      console.error(`❌ Editorial file not found: ${EDITORIAL_PATH}`);
+      return false;
+    }
+    console.log('\n✅ Agent evaluation validated successfully.');
   }
 
   const resultFile = join(tmpdir(), `dogfood-finish-res-${Date.now()}.json`);
@@ -700,7 +846,6 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
   try {
     const task = await taskSpace(${JSON.stringify(session.spaceId)});
     const page = task.page("p1");
-
     const payloads = await page.evaluate(() => window.__netPayloads || []).catch(() => []);
     result.netPayloads = payloads;
 
@@ -720,64 +865,73 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
     await runEgoScript(script, 30000);
     const res = JSON.parse(readFileSync(resultFile, 'utf-8'));
     try { unlinkSync(resultFile); } catch {}
-    netPayloads = res.netPayloads || [];
+    if (res.error) {
+      console.error(`❌ Failed to finalize browser session: ${res.error}`);
+      return false;
+    }
+    netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
   } catch (e) {
-    console.warn(`  Notice during task.finish: ${e.message}`);
+    console.error(`❌ Failed during task.finish: ${e.message}`);
+    return false;
   }
 
-  const isLocal = netPayloads.length === 0;
+  const egressObservation = summarizeObservedEgress(netPayloads);
 
-  console.log(`\n🌐 Zero-Egress Network Audit:`);
-  console.log(`   - Outgoing Payloads: ${netPayloads.length}`);
-  console.log(`   - Classification:    ${isLocal ? '🛡️ Local Only (Zero Egress)' : '☁️ Cloud Processed'}`);
+  console.log(`\n🌐 Runtime Payload-Egress Observation:`);
+  console.log(`   - Outgoing Payloads: ${egressObservation.outgoingPayloadCount}`);
+  console.log(`   - Classification:    ${egressObservation.classification}`);
 
-  let evalData = null;
-  if (evalFilePath && existsSync(evalFilePath)) {
+  if (evalData && shouldSync) {
     try {
-      evalData = JSON.parse(readFileSync(evalFilePath, 'utf-8'));
-      const validation = validateCognitiveEvaluation(evalData);
-      if (!validation.valid) {
-        console.warn(`\n⚠️ Agent evaluation validation warnings:`);
-        validation.errors.forEach(e => console.warn(`   • ${e}`));
-      } else {
-        console.log(`\n✅ Agent evaluation validated successfully!`);
+      if (
+        egressObservation.observed &&
+        /(?:zero[- ]egress|100%\s+(?:client|local)|pure(?:ly)?\s+(?:client|local)|no\s+(?:payload|data)\s+(?:egress|transmission))/i.test(evalData.privacyVerdict)
+      ) {
+        console.error('❌ privacyVerdict contradicts observed payload egress; editorial was not synchronized.');
+        removeSession(slug);
+        return false;
       }
 
-      if (shouldSync && existsSync(EDITORIAL_PATH)) {
-        const editorial = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
-        editorial[slug] = editorial[slug] || {};
+      const editorial = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
+      const overall = evalData.productScore.overall;
+      const verdictTier = evalData.verdictTier || (
+        overall >= 90 ? 'editors-choice' :
+        overall >= 80 ? 'highly-recommended' :
+        overall >= 70 ? 'capable-utility' : 'emergency-only'
+      );
+      const testedAt = new Date().toISOString().slice(0, 7);
+      editorial[slug] = editorial[slug] || {};
+      editorial[slug].en = {
+        bestFor: evalData.bestFor,
+        pros: evalData.pros,
+        cons: evalData.cons,
+        privacyVerdict: evalData.privacyVerdict,
+        alternativeTo: evalData.alternativeTo || [],
+        productScore: evalData.productScore,
+        verdictTier,
+        benchmarkNotes: evalData.benchmarkNotes,
+        testedAt
+      };
+      editorial[slug].zh = {
+        bestFor: evalData.bestForZh,
+        pros: evalData.prosZh,
+        cons: evalData.consZh,
+        privacyVerdict: evalData.privacyVerdictZh,
+        alternativeTo: evalData.alternativeToZh || [],
+        productScore: evalData.productScore,
+        verdictTier,
+        benchmarkNotes: evalData.benchmarkNotesZh,
+        testedAt
+      };
 
-        editorial[slug].en = {
-          bestFor: evalData.bestFor || 'In-browser utility',
-          pros: evalData.pros || [],
-          cons: evalData.cons || [],
-          privacyVerdict: isLocal ? 'Verified 100% in-browser RAM execution.' : 'Ephemeral processing verified.',
-          alternativeTo: evalData.alternativeTo || [],
-          productScore: evalData.productScore,
-          verdictTier: evalData.verdictTier || (evalData.productScore.overall >= 90 ? 'editors-choice' : 'highly-recommended'),
-          benchmarkNotes: evalData.benchmarkNotes || 'CADES 2.0 Route A Agent verified.',
-          testedAt: new Date().toISOString().slice(0, 7)
-        };
-
-        editorial[slug].zh = {
-          bestFor: evalData.bestForZh || evalData.bestFor,
-          pros: evalData.prosZh || evalData.pros,
-          cons: evalData.consZh || evalData.cons,
-          privacyVerdict: isLocal ? '已核验 100% 纯前端本地计算。' : '临时云端处理验证通过。',
-          alternativeTo: evalData.alternativeToZh || evalData.alternativeTo || [],
-          productScore: evalData.productScore,
-          verdictTier: evalData.verdictTier || (evalData.productScore.overall >= 90 ? 'editors-choice' : 'highly-recommended'),
-          benchmarkNotes: evalData.benchmarkNotesZh || evalData.benchmarkNotes,
-          testedAt: new Date().toISOString().slice(0, 7)
-        };
-
-        writeFileSync(EDITORIAL_PATH, JSON.stringify(editorial, null, 2) + '\n', 'utf-8');
-        console.log(`\n💾 Successfully synced Route A evaluation into ${EDITORIAL_PATH} for [${slug}]!`);
-      }
+      writeFileSync(EDITORIAL_PATH, JSON.stringify(editorial, null, 2) + '\n', 'utf-8');
+      console.log(`\n💾 Successfully synced Route A evaluation into ${EDITORIAL_PATH} for [${slug}]!`);
     } catch (err) {
       console.error(`❌ Failed to apply eval file: ${err.message}`);
+      removeSession(slug);
+      return false;
     }
-  } else {
+  } else if (!evalData) {
     console.log(`\n📝 No --eval file provided. Session closed.`);
     console.log(`To record your qualitative review, create an eval JSON and run:`);
     console.log(`node scripts/lab/dogfood-session.mjs finish ${slug} --eval /path/to/eval.json --sync`);
@@ -794,9 +948,8 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
     totalSteps: session.steps.length,
     steps: session.steps,
     uxTelemetry: session.uxTelemetry || { longTasksCount: 0, maxLongTaskDuration: 0, clsScore: 0 },
-    zeroEgress: {
-      classification: isLocal ? 'Local Only' : 'Cloud Processed',
-      outgoingPayloadCount: netPayloads.length,
+    egressObservation: {
+      ...egressObservation,
       payloads: netPayloads
     },
     exportArtifact: session.exportArtifact || null,
@@ -814,7 +967,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
   console.log(`Duration:            ${flightRecorder.durationSec}s across ${session.steps.length} turns`);
   console.log(`Visual Checkpoints:  ${session.steps.length} screenshots recorded`);
   console.log(`UX Telemetry:        Max Task: ${flightRecorder.uxTelemetry.maxLongTaskDuration}ms | CLS: ${Number(flightRecorder.uxTelemetry.clsScore).toFixed(2)}`);
-  console.log(`Zero Egress:         ${flightRecorder.zeroEgress.classification} (${netPayloads.length} payloads)`);
+  console.log(`Payload Egress:      ${flightRecorder.egressObservation.classification} (${netPayloads.length} payloads)`);
   if (session.exportArtifact) {
     const art = session.exportArtifact;
     console.log(`Export Gate:         ${art.downloadTriggered ? '✅ Download triggered' : '❌ No download'} | Bait Trap: ${art.qualityReport?.isBaitTrap ? '⚠️ TRAP' : '✅ Clean'}`);
@@ -824,6 +977,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
 
   removeSession(slug);
   console.log(`\n🧹 Browser space and local session state cleared.\n`);
+  return true;
 }
 
 // -------------------------------------------------------------------------
@@ -897,7 +1051,8 @@ async function main() {
     }
     const slugIdx = args.indexOf('--slug');
     const slug = slugIdx !== -1 && slugIdx + 1 < args.length ? args[slugIdx + 1] : null;
-    await cmdStart(targetUrl, slug);
+    const ok = await cmdStart(targetUrl, slug);
+    if (!ok) process.exitCode = 1;
   } else if (cmd === 'act') {
     const slug = args[1];
     if (!slug) {
@@ -922,7 +1077,8 @@ async function main() {
     const evalIdx = args.indexOf('--eval-js');
     if (evalIdx !== -1) options.evalJs = args[evalIdx + 1];
 
-    await cmdAct(slug, options);
+    const ok = await cmdAct(slug, options);
+    if (!ok) process.exitCode = 1;
   } else if (cmd === 'export') {
     const slug = args[1];
     if (!slug) {
@@ -931,7 +1087,8 @@ async function main() {
     }
     const triggerIdx = args.indexOf('--trigger');
     const trigger = triggerIdx !== -1 ? args[triggerIdx + 1] : null;
-    await cmdExport(slug, trigger);
+    const ok = await cmdExport(slug, trigger);
+    if (!ok) process.exitCode = 1;
   } else if (cmd === 'finish') {
     const slug = args[1];
     if (!slug) {
@@ -942,7 +1099,8 @@ async function main() {
     const evalPath = evalIdx !== -1 ? args[evalIdx + 1] : null;
     const shouldSync = args.includes('--sync');
     const allowShallow = args.includes('--allow-shallow');
-    await cmdFinish(slug, evalPath, shouldSync, allowShallow);
+    const ok = await cmdFinish(slug, evalPath, shouldSync, allowShallow);
+    if (!ok) process.exitCode = 1;
   } else if (cmd === 'status') {
     const slug = args[1];
     cmdStatus(slug);
@@ -956,4 +1114,7 @@ async function main() {
   }
 }
 
-main();
+const isMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/'));
+if (isMain) {
+  main();
+}

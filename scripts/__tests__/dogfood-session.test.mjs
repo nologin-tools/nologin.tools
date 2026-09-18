@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { existsSync, unlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { mergeObservedPayloads, summarizeObservedEgress } from '../lab/dogfood-session.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -75,5 +76,70 @@ describe('CADES 2.0 Route A: Humanoid Dogfooding Session CLI', () => {
     } finally {
       try { unlinkSync(sessionFile); } catch {}
     }
+  });
+
+  it('does not treat a failed interaction record as satisfying the guardrail', () => {
+    const testSlug = 'failed-action-probe-' + Date.now();
+    const sessionFile = join(tmpdir(), `cades-session-${testSlug}.json`);
+    writeFileSync(sessionFile, JSON.stringify({
+      slug: testSlug,
+      targetUrl: 'https://example.com',
+      spaceId: 'mock-space-id',
+      startedAt: Date.now(),
+      steps: [
+        { step: 1, type: 'start', screenshot: '/tmp/test.png', url: 'https://example.com' },
+        { step: 2, type: 'act', performed: false, summary: 'Element not found' }
+      ]
+    }), 'utf-8');
+
+    try {
+      const res = spawnSync(process.execPath, [SESSION_SCRIPT, 'finish', testSlug], { encoding: 'utf-8' });
+      assert.notEqual(res.status, 0);
+      assert.match(res.stdout + res.stderr, /0 interactive user steps/);
+    } finally {
+      try { unlinkSync(sessionFile); } catch {}
+    }
+  });
+
+  it('rejects an invalid eval before closing or synchronizing the session', () => {
+    const testSlug = 'invalid-eval-probe-' + Date.now();
+    const sessionFile = join(tmpdir(), `cades-session-${testSlug}.json`);
+    const evalFile = join(tmpdir(), `invalid-eval-${testSlug}.json`);
+    writeFileSync(sessionFile, JSON.stringify({
+      slug: testSlug,
+      targetUrl: 'https://example.com',
+      spaceId: 'mock-space-id',
+      startedAt: Date.now(),
+      steps: [
+        { step: 1, type: 'start', screenshot: '/tmp/test.png', url: 'https://example.com' },
+        { step: 2, type: 'act', performed: true, summary: 'Filled textarea' }
+      ]
+    }), 'utf-8');
+    writeFileSync(evalFile, JSON.stringify({ productScore: { overall: 99 } }), 'utf-8');
+
+    try {
+      const res = spawnSync(process.execPath, [SESSION_SCRIPT, 'finish', testSlug, '--eval', evalFile, '--sync'], { encoding: 'utf-8' });
+      assert.notEqual(res.status, 0);
+      assert.match(res.stdout + res.stderr, /validation failed/);
+      assert.equal(existsSync(sessionFile), true, 'invalid eval must leave the browser session available for correction');
+    } finally {
+      try { unlinkSync(sessionFile); } catch {}
+      try { unlinkSync(evalFile); } catch {}
+    }
+  });
+
+  it('reports observed egress conservatively', () => {
+    assert.deepEqual(summarizeObservedEgress([]), {
+      outgoingPayloadCount: 0,
+      observed: false,
+      classification: 'No Payload Egress Observed (not proof of local-only processing)'
+    });
+    assert.equal(summarizeObservedEgress([{ type: 'fetch' }]).observed, true);
+  });
+
+  it('preserves payload observations across actions without duplicating persisted events', () => {
+    const first = { type: 'fetch', method: 'POST', url: '/process', timestamp: 1 };
+    const second = { type: 'beacon', method: 'POST', url: '/metrics', timestamp: 2 };
+    assert.deepEqual(mergeObservedPayloads([first], [first, second]), [first, second]);
   });
 });

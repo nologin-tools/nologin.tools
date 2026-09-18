@@ -9,7 +9,7 @@
  * 2. Dual-Modality Visual Checkpoints (Initial screen impression + Outcome delivery screenshots)
  * 3. Context-Aware Dynamic Payloads (JWT, Regex, SQL, cURL, Markdown, Color Space, Canvas)
  * 4. Exit / Export Gatekeeper & Dark Pattern Detection (Anti-Bait-and-Switch)
- * 5. In-Page Network & Privacy Architecture Sniffing (Zero-Egress / Local Only vs Cloud Processed)
+ * 5. In-Page Network & Privacy Observation (bounded payload-egress evidence, not architectural proof)
  * 6. Self-Healing Drift Detection (Comparing existing core_task vs current reality)
  * 7. 25-Point 5-Dimension Scorecard & Objective Metadata Synthesis
  * 
@@ -45,18 +45,18 @@ const FIXTURE_PATHS = {
 
 const VALID_CATEGORIES = [
   'AI', 'Design', 'Writing', 'Development', 'Productivity',
-  'Utilities', 'Media', 'Security', 'Math', 'Finance', 'Privacy'
+  'Media', 'Privacy', 'Data', 'Communication', 'Education', 'Finance'
 ];
 
 function printUsage() {
   console.log(`
 Usage:
   node scripts/inspect-tool-dogfood.mjs <URL> [options]
-  node scripts/inspect-tool-dogfood.mjs --rolling [num] [--sync]
+  node scripts/inspect-tool-dogfood.mjs --rolling [num]
 
 Options:
   --rolling [num]        Run rolling CADES dogfooding on [num] approved tools (default: 15, oldest tested first)
-  --sync                 Synchronize dogfooding scores, notes & testedAt to tool-editorial.json
+  --sync                 Synchronize a single-tool Agent review; requires --eval-file and is forbidden with --rolling
   --slug <slug>          Tool slug for readable screenshot naming
   --existing-task <str>  Existing core_task from D1 to detect drift & updates
   --timeout <sec>        Set max execution timeout in seconds (default: 180)
@@ -734,12 +734,12 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
     const netPayloads = await page.evaluate(() => window.__netPayloads || []);
     result.networkPrivacy.outgoingPayloadRequests = netPayloads;
     if (netPayloads.length === 0) {
-      result.networkPrivacy.classification = "Local Only";
-      result.networkPrivacy.offlineCapable = true;
+      result.networkPrivacy.classification = "No Payload Egress Observed";
     } else {
-      result.networkPrivacy.classification = "Cloud Processed";
-      result.networkPrivacy.offlineCapable = false;
+      result.networkPrivacy.classification = "Payload Egress Observed";
     }
+    // A live online run cannot establish offline capability.
+    result.networkPrivacy.offlineCapable = false;
 
   } catch (err) {
     result.error = err.message || String(err);
@@ -799,7 +799,7 @@ function synthesizeEvaluation(res, existingTask = null) {
     };
   }
 
-  if (res.networkPrivacy.classification === 'Local Only') {
+  if (res.networkPrivacy.classification === 'Local Only' && res.networkPrivacy.zeroEgressConfirmed === true) {
     scorecard.privacyArchitecture = 5;
   } else {
     scorecard.privacyArchitecture = 3;
@@ -862,7 +862,7 @@ function synthesizeEvaluation(res, existingTask = null) {
   }
 
   // Determine Category based on archetype and content
-  let category = 'Utilities';
+  let category = 'Data';
   const combinedText = `${res.title} ${res.metaDesc} ${res.surface.headings.join(' ')}`.toLowerCase();
 
   if (res.intent.archetype === 'jwt' || res.intent.archetype === 'regex' || res.intent.archetype === 'sql' || res.intent.archetype === 'curl' || res.intent.archetype === 'json_data') {
@@ -876,13 +876,13 @@ function synthesizeEvaluation(res, existingTask = null) {
   } else if (res.intent.archetype === 'audio_tool') {
     category = 'Media';
   } else if (res.intent.archetype === 'security_hash' || combinedText.match(/encrypt|hash|security|password|cipher|decrypt|ssl/)) {
-    category = 'Security';
+    category = 'Privacy';
   } else if (combinedText.match(/ai |prompt|chatgpt|llm|copilot|gpt|claude/)) {
     category = 'AI';
   } else if (combinedText.match(/video|audio|music|sound|mp3|mp4|media|stream/)) {
     category = 'Media';
   } else if (combinedText.match(/calculator|math|formula|equation|matrix/)) {
-    category = 'Math';
+    category = 'Education';
   } else if (combinedText.match(/finance|crypto|currency|stock|invoice|tax/)) {
     category = 'Finance';
   } else if (combinedText.match(/privacy|vpn|tracker|metadata|cleaner|anonym/)) {
@@ -927,16 +927,17 @@ function synthesizeEvaluation(res, existingTask = null) {
     }
   }
 
-  const isLocal = res.networkPrivacy.classification === 'Local Only';
+  const isLocal = res.networkPrivacy.classification === 'Local Only' && res.networkPrivacy.zeroEgressConfirmed === true;
+  const payloadEgressObserved = res.networkPrivacy.outgoingPayloadRequests.length > 0;
   const hasGitHub = Boolean(res.githubLink);
 
   const tags = [
     `category:${category}`,
-    `data:${isLocal ? 'Local Only' : 'Cloud Processed'}`,
-    `privacy:No Tracking`,
+    `data:${isLocal ? 'Client-Side Only' : 'Server-Side'}`,
+    `privacy:Privacy Focused`,
     `type:Web App`,
     `hosting:${hasGitHub ? 'Self-Hostable' : 'Cloud Only'}`,
-    `offline:${res.networkPrivacy.offlineCapable ? 'Offline Capable' : 'Online Only'}`,
+    `offline:${res.networkPrivacy.offlineCapable ? 'Works Offline' : 'Online Only'}`,
     `pricing:Free`
   ];
   if (hasGitHub) {
@@ -960,12 +961,14 @@ function synthesizeEvaluation(res, existingTask = null) {
       repoUrl: res.githubLink || undefined
     },
     privacyAudit: {
-      runtimeClassification: isLocal ? 'Local Only' : 'Cloud Processed',
-      statedPolicyCompliance: 'verified-consistent',
+      runtimeClassification: isLocal
+        ? 'Local Only'
+        : payloadEgressObserved ? 'Payload Egress Observed' : 'No Payload Egress Observed',
+      statedPolicyCompliance: 'acceptable',
       zeroEgressConfirmed: isLocal,
       dataRetentionPolicy: isLocal
         ? 'Zero data retention; all operations executed in client memory.'
-        : 'Ephemeral processing; verify provider privacy statement.'
+        : 'Not established by this bounded runtime observation; verify architecture and provider policy separately.'
     },
     visualCraft: {
       adPollutionTier: res.surface.buttonLabels.some(l => /ad|sponsor/i.test(l)) ? 'ad-supported' : 'zero-ads',
@@ -1203,7 +1206,8 @@ function syncEditorialRecord(editorialData, toolSlug, report, customCognitiveEva
   }
 
   const agentEval = customCognitiveEval || report.cognitiveEvaluation || null;
-  const isLocal = report.inspection?.networkPrivacy?.classification === 'Local Only';
+  const isLocal = report.inspection?.networkPrivacy?.classification === 'Local Only' &&
+    report.inspection?.networkPrivacy?.zeroEgressConfirmed === true;
   const taskDesc = report.evaluation.metadata?.core_task || 'execute browser tasks';
   const testedAt = new Date().toISOString().slice(0, 7);
 
@@ -1213,9 +1217,10 @@ function syncEditorialRecord(editorialData, toolSlug, report, customCognitiveEva
   let notesZh;
 
   if (agentEval) {
-    const validation = validateCognitiveEvaluation(agentEval);
+    const validation = validateCognitiveEvaluation(agentEval, { requireBilingual: true });
     if (!validation.valid) {
-      console.warn(`  ⚠️ Agent cognitive review has validation warnings:`, validation.errors);
+      console.error(`  ❌ Agent cognitive review failed validation:`, validation.errors);
+      return false;
     }
     productScore = agentEval.productScore;
     verdictTier = agentEval.verdictTier || (
@@ -1238,13 +1243,15 @@ function syncEditorialRecord(editorialData, toolSlug, report, customCognitiveEva
 
     if (Array.isArray(agentEval.cons) && agentEval.cons.length > 0) editorialData[toolSlug].en.cons = agentEval.cons;
     if (Array.isArray(agentEval.consZh) && agentEval.consZh.length > 0) editorialData[toolSlug].zh.cons = agentEval.consZh;
+    editorialData[toolSlug].en.privacyVerdict = agentEval.privacyVerdict;
+    editorialData[toolSlug].zh.privacyVerdict = agentEval.privacyVerdictZh;
   } else {
     // Calibrated baseline using anti-inflation engine
     const calibrated = calibrate5DScore(report);
     productScore = calibrated;
     verdictTier = calibrated.verdictTier;
-    notesEn = `CADES 2.0 verified: ${taskDesc}. ${isLocal ? 'Zero-egress client-side computation' : 'Cloud processing verified'}.`;
-    notesZh = `CADES 2.0 实测通过：${taskDesc}。${isLocal ? '零外溢纯前端本地计算' : '云端处理验证通过'}。`;
+    notesEn = `CADES 2.0 observed: ${taskDesc}. ${isLocal ? 'Local-only processing had independent supporting evidence' : 'Runtime data flow remains bounded to the tested interaction'}.`;
+    notesZh = `CADES 2.0 实测：${taskDesc}。${isLocal ? '本地处理结论具有额外独立证据' : '数据流结论仅限本次测试交互范围'}。`;
   }
 
   const dueDiligenceEn = report.evaluation?.dueDiligence || null;
@@ -1258,8 +1265,8 @@ function syncEditorialRecord(editorialData, toolSlug, report, customCognitiveEva
     }
     if (dueDiligenceZh.privacyAudit) {
       dueDiligenceZh.privacyAudit.dataRetentionPolicy = isLocal
-        ? '零数据留存；所有计算与图像处理均在本地浏览器内存完成。'
-        : '即用即焚云端运算；详见服务商隐私合规声明。';
+        ? '本地处理结论具有额外独立证据；数据留存仍需结合架构与隐私政策核验。'
+        : '本次有限运行时观察无法证明留存策略；需另行核验架构与服务商隐私政策。';
     }
   }
 
@@ -1323,6 +1330,15 @@ async function main() {
     } catch (e) {
       console.error(`❌ Failed to parse eval-file at ${evalFilePath}:`, e.message);
     }
+  }
+
+  if (shouldSync && hasRolling) {
+    console.error('❌ --rolling is evidence collection only and cannot be combined with --sync. Escalate each anomaly through tool-evaluation.');
+    process.exit(1);
+  }
+  if (shouldSync && !customCognitiveEval) {
+    console.error('❌ --sync requires a validated Agent-authored --eval-file. Automated heuristic scores cannot become final editorial scores.');
+    process.exit(1);
   }
 
   const valueOptions = new Set(['--slug', '--existing-task', '--timeout', '--rolling', '--packet-file', '--eval-file']);

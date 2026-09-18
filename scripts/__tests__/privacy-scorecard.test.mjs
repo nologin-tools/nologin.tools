@@ -87,7 +87,7 @@ describe('Deep Privacy & Sandbox Audit Scorecard', () => {
     assert.equal(scorecard.summary, editorial.privacyVerdict);
   });
 
-  it('reinforces sandbox score when CADES verifies Local Only zero-egress processing', () => {
+  it('reinforces sandbox score only when Local Only has explicit supporting evidence', () => {
     const toolWithoutExplicitTag = {
       name: 'Unlabeled Local App',
       tags: [],
@@ -96,6 +96,7 @@ describe('Deep Privacy & Sandbox Audit Scorecard', () => {
       dueDiligence: {
         privacyAudit: {
           runtimeClassification: 'Local Only',
+          zeroEgressConfirmed: true,
           statedPolicyCompliance: 'verified-consistent',
         },
       },
@@ -104,6 +105,21 @@ describe('Deep Privacy & Sandbox Audit Scorecard', () => {
     const scorecard = computePrivacyScorecard(toolWithoutExplicitTag, null, editorial);
     assert.equal(scorecard.dimensions.sandbox.score, 25);
     assert.equal(scorecard.dimensions.sandbox.status, 'In-Browser RAM Sandbox');
+  });
+
+  it('does not treat a bounded no-egress observation as proof of local-only processing', () => {
+    const scorecard = computePrivacyScorecard({ name: 'Observed App', tags: [] }, null, {
+      dueDiligence: {
+        privacyAudit: {
+          runtimeClassification: 'No Payload Egress Observed',
+          zeroEgressConfirmed: false,
+          statedPolicyCompliance: 'acceptable',
+        },
+      },
+    });
+
+    assert.notEqual(scorecard.dimensions.sandbox.status, 'In-Browser RAM Sandbox');
+    assert.ok(scorecard.dimensions.sandbox.score < 25);
   });
 
   it('penalizes sandbox score when CADES sniffs cloud egress drift despite client-side claims', () => {

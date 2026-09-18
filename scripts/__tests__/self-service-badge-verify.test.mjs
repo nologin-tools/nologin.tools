@@ -140,7 +140,7 @@ describe('GitHub Notification Template Consistency', () => {
   });
 
   it('should mention Level 3 ranking boost and instant verification', () => {
-    assert.match(githubTs, /\+10 Algorithm Ranking Boost/);
+    assert.match(githubTs, /\+4 Algorithm Ranking Boost/);
     assert.match(githubTs, /Instant Self-Service Verification/);
   });
 });

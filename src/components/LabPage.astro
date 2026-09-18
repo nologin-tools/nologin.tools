@@ -31,7 +31,7 @@ const auditedTools: AuditedToolItem[] = approvedTools
     const ed = getToolEditorial(tool.slug, locale) || getToolEditorial(tool.slug, 'en');
     if (!ed || !ed.productScore) return null;
     const catTag = tool.tags.find((tag) => tag.tagKey === 'category');
-    const isLocalOnly = tool.tags.some((tag) => tag.tagKey === 'data' && tag.tagValue === 'Local Only');
+    const isLocalOnly = tool.tags.some((tag) => tag.tagKey === 'data' && tag.tagValue === 'Client-Side Only');
     return {
       tool,
       category: catTag?.tagValue || 'Utility',
@@ -390,7 +390,7 @@ const breadcrumbLd = {
                       </span>
                       {item.isLocalOnly && (
                         <span class="px-1.5 py-0.5 bg-emerald-50 text-emerald-800 text-[10px] font-mono font-bold border border-emerald-300">
-                          🛡️ Local Only
+                          🛡️ Client-Side Only
                         </span>
                       )}
                     </div>

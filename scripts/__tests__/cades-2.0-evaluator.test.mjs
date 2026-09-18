@@ -28,12 +28,46 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
       cons: [
         'Lacks support for obscure database dialects like CockroachDB'
       ],
+      privacyVerdict: 'Observed SQL processing remained in browser memory with no payload-bearing requests during the tested interaction.',
       benchmarkNotes: 'CADES 2.0 Agent verified: injected complex 250-line nested SQL query, completed format in 45ms with flawless syntax tree preservation.'
     };
 
     const res = validateCognitiveEvaluation(validPayload);
     assert.equal(res.valid, true);
     assert.equal(res.errors.length, 0);
+  });
+
+  it('requires complete Chinese fields before synchronized bilingual output', () => {
+    const payload = {
+      productScore: {
+        overall: 88,
+        frictionless: 19,
+        depth: 21,
+        exportFreedom: 18,
+        privacy: 18,
+        polish: 12
+      },
+      verdictTier: 'highly-recommended',
+      bestFor: 'Developers formatting structured SQL directly in the browser.',
+      pros: ['Parses a 250-line SQL fixture', 'Exports clean text without an account'],
+      cons: ['Does not support every database dialect'],
+      privacyVerdict: 'No payload-bearing request was observed during the tested formatting workflow.',
+      benchmarkNotes: 'Formatted a 250-line SQL fixture in 45ms using a textarea and copy button.'
+    };
+
+    const incomplete = validateCognitiveEvaluation(payload, { requireBilingual: true });
+    assert.equal(incomplete.valid, false);
+    assert.ok(incomplete.errors.some(error => error.includes('bestForZh')));
+
+    const complete = validateCognitiveEvaluation({
+      ...payload,
+      bestForZh: '适合直接在浏览器中格式化结构化 SQL 的开发者。',
+      prosZh: ['完成 250 行 SQL 样本解析', '无需账户即可复制干净文本'],
+      consZh: ['并非覆盖所有数据库方言'],
+      privacyVerdictZh: '测试格式化流程中未观察到携带数据的网络请求。',
+      benchmarkNotesZh: '通过文本框和复制按钮在 45ms 内格式化 250 行 SQL 样本。'
+    }, { requireBilingual: true });
+    assert.equal(complete.valid, true);
   });
 
   it('rejects invalid or mathematically inconsistent evaluation payloads', () => {
@@ -75,6 +109,7 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
         },
         networkPrivacy: {
           classification: 'Local Only',
+          zeroEgressConfirmed: true,
           offlineCapable: true,
           hasWebAssembly: false,
           hasThirdPartyTracking: false
@@ -111,6 +146,7 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
         },
         networkPrivacy: {
           classification: 'Local Only',
+          zeroEgressConfirmed: true,
           offlineCapable: true,
           hasWebAssembly: true,
           hasThirdPartyTracking: false
@@ -141,7 +177,7 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
           interceptedByAuth: true,
           authPromptDetails: 'Modal: Please sign up to download your high-res file'
         },
-        networkPrivacy: { classification: 'Local Only' },
+        networkPrivacy: { classification: 'Local Only', zeroEgressConfirmed: true },
         surface: { buttonLabels: ['Download'] },
         visual: { capturedOutcome: true }
       }
@@ -159,7 +195,7 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
           passedNoLoginExport: true,
           hasWatermark: true
         },
-        networkPrivacy: { classification: 'Local Only' },
+        networkPrivacy: { classification: 'Local Only', zeroEgressConfirmed: true },
         surface: { buttonLabels: ['Export'] },
         visual: { capturedOutcome: true }
       }
@@ -190,6 +226,7 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
         },
         networkPrivacy: {
           classification: 'Local Only',
+          zeroEgressConfirmed: true,
           offlineCapable: true,
           hasWebAssembly: false,
           outgoingPayloadRequests: []
@@ -215,7 +252,9 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
     assert.equal(packet.tool.slug, 'excalidraw-com');
     assert.equal(packet.visualCheckpoints.capturedInitial, true);
     assert.equal(packet.visualCheckpoints.capturedOutcome, true);
-    assert.equal(packet.networkTelemetry.zeroEgressConfirmed, true);
+    assert.equal(packet.networkTelemetry.payloadEgressObserved, false);
+    assert.equal(packet.networkTelemetry.noPayloadEgressObserved, true);
+    assert.match(packet.networkTelemetry.observationCaveat, /not proof/i);
     assert.ok(packet.reviewPrompt.includes('CADES 2.0 Agent Multimodal Cognitive Review Task'));
     assert.ok(typeof packet.baselineHeuristicScore.overall === 'number');
   });
@@ -331,7 +370,7 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
         targetUrl: 'https://vector.example.com',
         initialAuthGate: { blocked: false },
         surface: { textareaCount: 0, fileInputCount: 1, canvasCount: 1, buttonLabels: ['Export SVG'] },
-        networkPrivacy: { classification: 'Local Only', offlineCapable: true, hasWebAssembly: true, hasThirdPartyTracking: false },
+        networkPrivacy: { classification: 'Local Only', zeroEgressConfirmed: true, offlineCapable: true, hasWebAssembly: true, hasThirdPartyTracking: false },
         exportGate: { downloadTriggered: true, passedNoLoginExport: true, hasWatermark: false },
         visual: { capturedInitial: true, capturedOutcome: true }
       }

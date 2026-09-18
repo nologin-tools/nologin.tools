@@ -178,7 +178,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     verified,
     lastCheckedAt: now.toISOString(),
     message: verified
-      ? 'Level 3 Active Exhibitor status activated! +10 ranking boost is live.'
+      ? 'Level 3 Active Exhibitor status activated! +4 ranking boost is live.'
       : 'Badge not detected yet. Ensure your commit is published to your live site or default branch README.md, then try again.',
   });
 };

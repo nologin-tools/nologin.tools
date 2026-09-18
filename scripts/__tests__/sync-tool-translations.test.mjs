@@ -1,6 +1,9 @@
 // @ts-check
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   computeSourceHash,
   auditTranslations,
@@ -97,5 +100,42 @@ describe('sync-tool-translations', () => {
     const outdatedItem = audit.items.find((i) => i.slug === 'outdated-tool');
     assert.ok(outdatedItem);
     assert.equal(outdatedItem.locales.zh.status, 'outdated');
+  });
+
+  it('applies translations for a pending tool using payload _source metadata', () => {
+    const root = mkdtempSync(join(tmpdir(), 'translations-source-'));
+    try {
+      mkdirSync(root, { recursive: true });
+      for (const locale of SUPPORTED_LOCALES) {
+        writeFileSync(join(root, `${locale}.json`), '{}\n', 'utf-8');
+      }
+
+      const source = {
+        description: 'A newly reviewed browser utility.',
+        coreTask: 'Process files locally'
+      };
+      const localeMap = Object.fromEntries(SUPPORTED_LOCALES.map(locale => [locale, {
+        description: `${locale} description`,
+        coreTask: `${locale} task`
+      }]));
+      const result = applyTranslations({
+        buildData: { tools: [] },
+        translationsDir: root,
+        payload: {
+          'new-pending-tool': {
+            _source: source,
+            ...localeMap
+          }
+        }
+      });
+
+      assert.deepEqual(result.updatedSlugs, ['new-pending-tool']);
+      assert.equal(result.updatedLocales.length, SUPPORTED_LOCALES.length);
+      const zh = JSON.parse(readFileSync(join(root, 'zh.json'), 'utf-8'));
+      assert.equal(zh['new-pending-tool']._hash, computeSourceHash(source));
+      assert.equal(zh['new-pending-tool'].description, 'zh description');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });

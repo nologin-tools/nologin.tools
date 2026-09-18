@@ -75,8 +75,8 @@ export function computePrivacyScorecard(tool, health, editorial) {
 
   // Empirical audit cross-link: check CADES runtime inspection data from editorial
   const privacyAudit = editorial?.dueDiligence?.privacyAudit || null;
-  const runtimeLocalVerified = privacyAudit?.runtimeClassification === 'Local Only';
-  const runtimeCloudDetected = privacyAudit?.runtimeClassification === 'Cloud Processed';
+  const runtimeLocalVerified = privacyAudit?.runtimeClassification === 'Local Only' && privacyAudit?.zeroEgressConfirmed === true;
+  const runtimeCloudDetected = privacyAudit?.runtimeClassification === 'Cloud Processed' || privacyAudit?.runtimeClassification === 'Payload Egress Observed';
   const hasDriftEgress = Boolean(isClientSide && runtimeCloudDetected);
   const effectiveClientSide = (isClientSide || runtimeLocalVerified) && !hasDriftEgress;
 
@@ -105,8 +105,8 @@ export function computePrivacyScorecard(tool, health, editorial) {
       maxScore: 25,
       status: 'In-Browser RAM Sandbox',
       highlights: [
-        'Processes files and state strictly in client-side browser memory',
-        'Verified zero-egress payload transmission to external servers',
+        'Client-side processing is supported by catalog metadata and runtime evidence',
+        'Bounded runtime observation found no payload egress; this is not architectural proof',
         worksOffline ? 'Verified full offline execution capability' : 'Runs locally without persistent server dependencies',
       ],
     };

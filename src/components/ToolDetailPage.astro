@@ -730,10 +730,10 @@ const faqLd = isVerified ? {
                       <div class="bg-white border border-neutral-200 p-2 text-[11px] font-mono">
                         <div class="font-bold text-neutral-900 flex items-center gap-1 mb-0.5">
                           <span>🛡️</span>
-                          <span class="truncate">{editorial.dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'Zero-Egress Local' : 'Cloud Processed'}</span>
+                          <span class="truncate">{editorial.dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'Local Processing Observed' : 'Network Processing Observed'}</span>
                         </div>
                         <div class="text-[10px] text-neutral-500 leading-tight">
-                          {editorial.dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'Client memory only' : 'Ephemeral cloud API'}
+                          {editorial.dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'Bounded runtime evidence' : 'See privacy audit details'}
                         </div>
                       </div>
 

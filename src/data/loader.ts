@@ -165,7 +165,7 @@ export interface DueDiligenceEvidence {
   };
   // 3. 真实隐私与网络外溢交叉求证 (Privacy & Data Egress Cross-Check)
   privacyAudit?: {
-    runtimeClassification: 'Local Only' | 'Cloud Processed' | 'Hybrid';
+    runtimeClassification: 'Local Only' | 'Cloud Processed' | 'Hybrid' | 'No Payload Egress Observed' | 'Payload Egress Observed';
     statedPolicyCompliance: 'verified-consistent' | 'acceptable' | 'warning' | 'policy-violation';
     zeroEgressConfirmed: boolean;
     dataRetentionPolicy?: string;

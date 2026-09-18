@@ -1467,10 +1467,36 @@ const githubNeverFetchedCount = githubTools.filter(t => !t.githubFetchedAt).leng
           b.disabled = true;
           b.textContent = 'Approving...';
 
-          const result = await adminFetch('/api/review', { toolId, action: 'approve' });
+          const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`) as HTMLElement;
+          const form = card.querySelector('.edit-form') as HTMLElement;
+          const metadata = {
+            name: (form.querySelector('input[name="name"]') as HTMLInputElement).value,
+            description: (form.querySelector('textarea[name="description"]') as HTMLTextAreaElement).value,
+            coreTask: (form.querySelector('input[name="coreTask"]') as HTMLInputElement).value,
+            repoUrl: (form.querySelector('input[name="repoUrl"]') as HTMLInputElement)?.value || null,
+          };
+          const tags: { key: string; value: string }[] = [];
+          form.querySelectorAll('.tag-picker-container input[type="checkbox"]:checked').forEach((input) => {
+            const label = input.closest('label') as HTMLElement;
+            const key = label?.dataset.tagGroup;
+            const value = (input as HTMLInputElement).value;
+            if (key && value) tags.push({ key, value });
+          });
+          if (tags.length === 0 && card.dataset.toolTags) {
+            try {
+              const stored = JSON.parse(card.dataset.toolTags);
+              for (const tag of stored) tags.push({ key: tag.tagKey, value: tag.tagValue });
+            } catch {}
+          }
+
+          const result = await adminFetch('/api/review', {
+            toolId,
+            action: 'approve_evaluated',
+            metadata,
+            tags,
+          });
           if (result.ok) {
             showToast('Tool approved!');
-            const card = document.querySelector(`.tool-card[data-tool-id="${toolId}"]`)!;
             const badge = card.querySelector('[data-field="status"]');
             if (badge) {
               badge.className = 'status-badge status-approved';

@@ -4,8 +4,17 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseSitemapUrls, urlToDistPath, validateHtmlSeo } from '../daily-seo-audit.mjs';
-import { buildIndexNowPayload, extractUrlsFromSitemap, DEFAULT_INDEXNOW_KEY } from '../push-indexnow.mjs';
+import {
+  extractInternalPageLinks,
+  isResolvableLocalLink,
+  normalizeAuditUrl,
+  parseStaticRedirects,
+  parseSitemapUrls,
+  runDiscoveryAudit,
+  urlToDistPath,
+  validateHtmlSeo,
+} from '../daily-seo-audit.mjs';
+import { buildIndexNowPayload, extractUrlsFromSitemap, pushIndexNow, DEFAULT_INDEXNOW_KEY } from '../push-indexnow.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -25,6 +34,26 @@ describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
     assert.equal(payload.key, DEFAULT_INDEXNOW_KEY);
     assert.equal(payload.keyLocation, `https://nologin.tools/${DEFAULT_INDEXNOW_KEY}.txt`);
     assert.deepEqual(payload.urlList, urls);
+  });
+
+  it('fails IndexNow submission when endpoints reject the payload', async () => {
+    const sitemapXml = '<urlset><url><loc>https://nologin.tools/</loc></url></urlset>';
+    const failed = await pushIndexNow({
+      sitemapXml,
+      fetchImpl: async () => new Response('rejected', { status: 500 }),
+    });
+    assert.equal(failed.success, false);
+    assert.equal(failed.successCount, 0);
+    assert.equal(failed.endpointResults.length, 2);
+
+    let calls = 0;
+    const partial = await pushIndexNow({
+      sitemapXml,
+      fetchImpl: async () => new Response('', { status: calls++ === 0 ? 202 : 500 }),
+    });
+    assert.equal(partial.success, false);
+    assert.equal(partial.partial, true);
+    assert.equal(partial.successCount, 1);
   });
 
   it('extractUrlsFromSitemap parses sitemap XML correctly', () => {
@@ -62,7 +91,7 @@ describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
           <meta name="description" content="Online photo editor" />
           <link rel="canonical" href="https://nologin.tools/tool/photopea-com" />
           <meta name="robots" content="index, follow" />
-          <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Photopea"}</script>
+          <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Photopea","applicationCategory":"DesignApplication"}</script>
         </head>
         <body><h1>Photopea</h1></body>
       </html>
@@ -85,6 +114,65 @@ describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
 
     const brokenResult = validateHtmlSeo(brokenHtml, 'https://nologin.tools/tool/broken');
     assert.ok(brokenResult.errors.length >= 3, 'Must flag missing title, canonical, and broken json-ld');
+  });
+
+  it('treats every locale in the sitemap as indexable and compares canonical values', () => {
+    const html = `
+      <title>Outil</title>
+      <meta name="description" content="Description" />
+      <meta name="robots" content="noindex, follow" />
+      <link rel="canonical" href="https://nologin.tools/de/tool/wrong" />
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Outil","applicationCategory":"UtilitiesApplication"}</script>
+    `;
+    const result = validateHtmlSeo(html, 'https://nologin.tools/de/tool/example');
+    assert.ok(result.errors.some(error => error.includes("Unexpected 'noindex'")));
+    assert.ok(result.errors.some(error => error.includes('Canonical mismatch')));
+  });
+
+  it('normalizes URLs and extracts only checkable internal page links', () => {
+    const html = `
+      <a href="/about/">About</a>
+      <a href="https://nologin.tools/zh/tool/demo?ref=nav#top">Demo</a>
+      <a href="/assets/logo.svg">Asset</a>
+      <a href="https://example.com/out">External</a>
+      <a href="mailto:test@example.com">Email</a>
+      <script>const message = \`<a href="/tool/\${result.details.slug}">Runtime link</a>\`;</script>
+    `;
+    assert.equal(normalizeAuditUrl('https://nologin.tools/about/?x=1#top'), 'https://nologin.tools/about');
+    assert.deepEqual(extractInternalPageLinks(html, 'https://nologin.tools/'), [
+      'https://nologin.tools/about',
+      'https://nologin.tools/zh/tool/demo',
+    ]);
+  });
+
+  it('parses exact static redirects and resolves their generated destinations', () => {
+    const redirects = parseStaticRedirects(`
+      # exact recovery route
+      /tool/old /about/ 301
+      /temporary /about/ 302
+      /tool/:slug /tool/:slug 301
+      /wild/* /about/ 301
+    `);
+    assert.deepEqual(Array.from(redirects.entries()), [
+      ['/tool/old', '/about/'],
+      ['/temporary', '/about/'],
+    ]);
+    if (existsSync(resolve(ROOT, 'dist/about/index.html'))) {
+      assert.equal(isResolvableLocalLink('https://nologin.tools/tool/old', redirects), true);
+    }
+  });
+
+  it('verifies robots and LLM discovery resources', async () => {
+    const bodies = {
+      '/robots.txt': 'Sitemap: https://nologin.tools/sitemap.xml\nllms-txt: https://nologin.tools/llms.txt\nGPTBot\nClaudeBot\nPerplexityBot',
+      '/llms.txt': '# nologin.tools',
+      '/llms-full.txt': '# nologin.tools full index',
+    };
+    const result = await runDiscoveryAudit({
+      fetchImpl: async (url) => new Response(bodies[new URL(url).pathname], { status: 200 })
+    });
+    assert.equal(result.success, true);
+    assert.deepEqual(result.errors, []);
   });
 
   it('daily-seo-audit.yml workflow file exists and has correct daily cron schedule', () => {

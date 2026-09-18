@@ -330,9 +330,6 @@ const TOOL_TO_BLOG_MAP: Record<string, string[]> = {
     "fffuel-co",
     "canva-alternatives-no-login"
   ],
-  "learngitbranching-js-org": [
-    "learngitbranching-js-org"
-  ],
   "phet-colorado-edu": [
     "phet-colorado-edu"
   ],
@@ -388,7 +385,7 @@ const TOOL_TO_BLOG_MAP: Record<string, string[]> = {
     "huggingface-co-chat",
     "free-ai-tools-no-login"
   ],
-  "when2meet-com": [
+  "www-when2meet-com": [
     "when2meet-com"
   ],
   "write-as": [
@@ -631,7 +628,7 @@ const TOOLS_META: Record<string, ToolMetaItem> = {
     "en": "Instant access to open-source LLMs without mandatory signups.",
     "zh": "Hugging Face 出品的免注册开源大模型在线对话体验平台。"
   },
-  "when2meet-com": {
+  "www-when2meet-com": {
     "name": "When2meet",
     "url": "https://www.when2meet.com",
     "category": "Communication",

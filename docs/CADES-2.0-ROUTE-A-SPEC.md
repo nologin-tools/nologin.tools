@@ -14,10 +14,13 @@ In NoLogin Tools (`nologin.tools`), the credibility of our directory rests upon 
 
 **Route A (Agent-Led Conversational Dogfooding)** establishes an authentic testing protocol where an AI Agent operates as an autonomous, discerning human tester:
 1. **Real Interaction**: The Agent personally drives a live Chromium session (`ego-browser`), types into input fields, drags sliders, draws on canvases, and uploads realistic test fixtures (`scripts/lab/fixtures/`).
-2. **Visual Eye-Check**: The Agent visually inspects high-resolution screenshots via multimodal capabilities (`view_file`), validating rendering quality, layout integrity, and absence of deceptive overlays.
+2. **Visual Eye-Check**: The Agent visually inspects high-resolution screenshots via multimodal capabilities (`view_image`), validating rendering quality, layout integrity, and absence of deceptive overlays.
 3. **Artifact Forensic Inspection**: The Agent triggers real file downloads and subjects the resulting artifacts to binary forensic inspection (`output-inspector.mjs`) to detect fake downloads, login traps, watermarks, and corrupt headers.
-4. **Data Sovereignty Audit**: The harness intercepts all background network requests during the session to objectively verify whether user data remains 100% local or leaks to remote servers.
+4. **Data-Flow Observation**: The harness records payload-bearing requests during the tested workflow. It can prove observed egress, but an empty capture alone cannot prove local-only processing, offline capability, or a retention policy.
 5. **Anti-Inflation Editorial Review**: The Agent produces grounded, critical, human-like editorial reviews with balanced pros and cons, calibrated by an anti-inflation rating engine to prevent grade inflation.
+
+> [!IMPORTANT]
+> **Agent-Led Sovereignty**: The Agent is the **sole judge and decision-maker**. Scripts, harnesses, and inspectors (`dogfood-session.mjs`, `output-inspector.mjs`, `inspect-tool-dogfood.mjs`) are strictly telemetry instruments and execution hands. Automated scripts must NEVER be permitted to independently issue admission scores or generate editorial reviews without real multi-turn Agent driving, visual eye-checks (`view_image`), and cognitive calibration.
 
 ```mermaid
 flowchart TD
@@ -94,12 +97,12 @@ Executed prior to launching deep interaction. Fast, automated, non-invasive:
 The Agent drives the browser through realistic user workflows:
 1. **Initialize Session**: Launches `dogfood-session.mjs start <url>`, capturing the initial viewport and interactive DOM map.
 2. **Execute Core Workflow**: Uses `dogfood-session.mjs act <slug>` to input data or upload fixtures relevant to the tool's category (e.g. SVG to a code optimizer, text to a markdown previewer).
-3. **Trigger Output**: Invokes `dogfood-session.mjs export <slug> --trigger <selector>` to test export capabilities.
-4. **Network Leak Check**: Inspects zero-egress telemetry to confirm if payloads were transmitted off-device.
+3. **Trigger Output**: Invokes `dogfood-session.mjs export <slug> --trigger <text-regex|css=selector>` to test export capabilities.
+4. **Network Observation**: Reviews recorded payload-bearing requests. “No payload egress observed” is a bounded result, not proof of local-only architecture.
 
 ### Level 3: Multimodal Cognitive Evaluation
 The Agent reviews the session evidence:
-1. Calls `view_file` on screenshots to verify layout, rendering clarity, and lack of visual spam.
+1. Calls `view_image` on screenshots to verify layout, rendering clarity, and lack of visual spam.
 2. Computes 5D dimension scores aligned with empirical findings.
 3. Formulates an honest, critical editorial review with tangible strengths and limitations.
 4. Finalizes the session with `dogfood-session.mjs finish <slug> --eval <payload.json> --sync`.
@@ -111,7 +114,7 @@ The Agent reviews the session evidence:
 All operations run via `node scripts/lab/dogfood-session.mjs <subcommand>`.
 
 ### 4.1 `start <url> [--slug <slug>]`
-Initializes a new persistent `taskSpace`, injects network monitoring, navigates to the URL, and captures the landing screenshot.
+Initializes a new persistent `taskSpace`, navigates to the URL, installs in-page payload observation hooks in the loaded document, and captures the landing screenshot.
 
 ```bash
 node scripts/lab/dogfood-session.mjs start https://excalidraw.com --slug excalidraw-com
@@ -119,7 +122,7 @@ node scripts/lab/dogfood-session.mjs start https://excalidraw.com --slug excalid
 
 **Output**:
 - Session state saved to `/tmp/cades-session-<slug>.json`.
-- Screenshot saved to `/tmp/cades-session-<slug>/01-landing.png`.
+- Screenshot saved to `/tmp/dogfood-<slug>-step1-initial.png`.
 - Summary of primary inputs, buttons, and DOM candidate targets.
 
 ### 4.2 `act <slug> [actions...]`
@@ -147,15 +150,18 @@ node scripts/lab/dogfood-session.mjs act my-tool \
 - `--press <key>`: Simulates keyboard key presses (e.g. `Enter`, `Escape`, `Tab`).
 - `--eval-js <code>`: Evaluates JavaScript expression in browser context.
 
-### 4.3 `export <slug> [--trigger <selector>]`
+### 4.3 `export <slug> [--trigger <text-regex|css=selector>]`
 Waits for and captures file downloads, then runs `output-inspector.mjs`.
 
 ```bash
-node scripts/lab/dogfood-session.mjs export excalidraw-com --trigger "button:has-text('Save to disk')"
+node scripts/lab/dogfood-session.mjs export excalidraw-com --trigger "Save to disk|Download|Export"
+# For an exact selector, use the css= prefix:
+node scripts/lab/dogfood-session.mjs export excalidraw-com --trigger "css=button[data-action='export']"
 ```
 
 **Output**:
-- Downloaded file stored in `/tmp/cades-session-<slug>/downloads/`.
+- Downloaded file stored as `/tmp/dogfood-dl-<slug>-<timestamp>.artifact`.
+- Export screenshot stored as `/tmp/dogfood-<slug>-step-export.png`.
 - Forensic report: magic bytes, MIME detection, size, watermark check, anti-trap verification.
 
 ### 4.4 `status <slug>`
@@ -193,7 +199,7 @@ To prevent score clustering at 90+ and ensure high differentiation across the ca
 | **Frictionless UX** | **20** | Immediate access, zero gating, clean responsive layout, no deceptive ad modals. | - If any auth wall appears: **0**<br>- If cookie banner/popups block viewport: max **14**<br>- Pure zero-click immediate utility: **18-20** |
 | **Functional Depth & Fidelity** | **25** | Depth of core capabilities, support for complex workflows, precision handling of edge cases. | - Simple single-purpose tools (e.g. single-click text reverser, basic uuid gen): **12-16**<br>- Full-featured workstation (e.g. Excalidraw, Photopea): **22-25** |
 | **Export Freedom** | **20** | Standard uncorrupted formats, multiple export targets, copy-to-clipboard, zero watermarks. | - Watermark detected: **0-8**<br>- Bait trap / fake HTML download: **0**<br>- Multiple lossless formats (SVG, PNG, JSON) with clean magic bytes: **18-20** |
-| **Privacy & Sovereignty** | **20** | Local-first processing, client-side WebAssembly/Web Workers, absence of tracking telemetry. | - Zero external egress (100% Local Only): **19-20**<br>- Essential backend API with strict TLS: **12-15**<br>- Unnecessary third-party ad/tracker telemetry: max **8** |
+| **Privacy & Sovereignty** | **20** | Local-first processing, client-side WebAssembly/Web Workers, bounded data-flow observations, and tracking behavior. | - Local-only architecture supported by independent evidence plus bounded traffic observation: **19-20**<br>- No payload egress observed during only the tested flow: no automatic local-only credit<br>- Essential backend API with strict TLS: **12-15**<br>- Unnecessary third-party ad/tracker telemetry: max **8** |
 | **Stability & Polish** | **15** | Main-thread responsiveness, layout stability (CLS), zero console errors, offline capability. | - Butter-smooth frame pacing (<50ms tasks, 0 CLS, no ads): **14-15**<br>- Main-thread freeze (>400ms): **deduct 2 pts**<br>- Layout shift jank (CLS > 0.1): **deduct 2 pts**<br>- Commercial watermark: **deduct 6 pts** |
 
 ### Target Score Distribution
@@ -228,30 +234,28 @@ When submitting evaluation results during `finish`, the Agent provides a JSON pa
     "polish": 14,
     "overall": 98
   },
-  "tier": "editors-choice",
+  "verdictTier": "editors-choice",
   "bestFor": "Architectural diagrams, whiteboard sketching, and technical documentation with zero friction.",
   "pros": [
-    "100% client-side rendering with complete offline data persistence via IndexedDB.",
+    "IndexedDB persistence and offline behavior were separately verified after disconnecting the test session.",
     "Flawless export pipeline supporting SVG with embedded fonts, high-DPI PNG, and clipboard transfer.",
     "Comprehensive keyboard shortcut system and responsive infinite canvas navigation."
   ],
   "cons": [
     "Collaboration features require opting into remote signaling servers, though local usage remains fully private."
   ],
-  "labNotes": "Tested with complex vector diagram generation. Binary magic bytes confirmed valid uncompressed SVG and PNG-24 outputs. Zero background analytics requests observed during continuous 2-minute sketching session.",
-  "editorial_zh": {
-    "summary": "顶尖的本地优先开源手绘白板，具备全套无损导出与完全离线运行能力。",
-    "bestFor": "架构图设计、白板草图与免登录技术文档绘制。",
-    "pros": [
-      "基于本地 IndexedDB 实现完全离线保存，零网络数据外溢。",
-      "支持高清晰度 SVG（含嵌入字体）、PNG 及剪贴板直接复制。",
-      "快捷键体系完善，无限画布缩放平滑无卡顿。"
-    ],
-    "cons": [
-      "端到端实时协同功能需要连接外部信令服务器（本地单人使用不受影响）。"
-    ],
-    "labNotes": "使用复杂矢量图形进行实测。下载产物魔数检测完全合规，2分钟高频绘图期间未产生任何第三方外发埋点。"
-  }
+  "privacyVerdict": "No payload-bearing request was observed during the tested two-minute single-user drawing flow; separate offline and source evidence supports local processing, but the capture alone is not proof.",
+  "benchmarkNotes": "Tested a complex vector diagram for 2 minutes; SVG and PNG-24 exports passed magic-byte inspection without a watermark.",
+  "bestForZh": "架构图设计、白板草图与免登录技术文档绘制。",
+  "prosZh": [
+    "断网复测后仍可通过 IndexedDB 保存本地画布。",
+    "支持含嵌入字体的 SVG、PNG 及剪贴板导出。"
+  ],
+  "consZh": [
+    "实时协同功能需要连接外部信令服务器。"
+  ],
+  "privacyVerdictZh": "两分钟单人绘图流程中未观察到携带载荷的外发请求；断网复测与源码证据支持本地处理，但仅凭空网络记录不能证明本地架构。",
+  "benchmarkNotesZh": "复杂矢量图连续测试 2 分钟，SVG 与 PNG-24 导出的魔数校验通过且未检测到水印。"
 }
 ```
 
@@ -277,14 +281,14 @@ When performing dogfooding during autonomous patrols or manual reviews:
    Confirm target tool URL and slug from candidate queue or D1 database.
 2. **Step 2: Initialize Session**  
    `node scripts/lab/dogfood-session.mjs start <url> --slug <slug>`  
-   Inspect the initial terminal output and read `/tmp/cades-session-<slug>/01-landing.png` using `view_file`.
+   Inspect the initial terminal output and read `/tmp/dogfood-<slug>-step1-initial.png` using `view_image`.
 3. **Step 3: Perform Human-Like Operations**  
    Formulate 1-3 targeted interactions matching the tool's core utility:
    `node scripts/lab/dogfood-session.mjs act <slug> --fill "<input>" "<text>" --click "<btn>"`  
-   Review intermediate screenshots using `view_file` to confirm visual feedback.
+   Review `/tmp/dogfood-<slug>-step<N>-action.png` screenshots using `view_image` to confirm visual feedback.
 4. **Step 4: Verify Export & Forensics**  
    If the tool supports export/download, trigger it:
-   `node scripts/lab/dogfood-session.mjs export <slug> --trigger "<export-selector>"`  
+   `node scripts/lab/dogfood-session.mjs export <slug> --trigger "Download|Export|Save"`
    Check the output inspector summary in stdout.
 5. **Step 5: Synthesize and Calibrate Evaluation**  
    - Review network privacy classification from session summary.
@@ -301,4 +305,4 @@ When performing dogfooding during autonomous patrols or manual reviews:
 
 - **Zombie Process Prevention**: Sessions not finished within 15 minutes are automatically subject to garbage collection on the next patrol run.
 - **Resource Isolation**: Every session runs in an isolated `taskSpace(spaceId)`. Calling `abort <slug>` or `finish <slug>` guarantees immediate destruction of the background page and browser context.
-- **Disk Footprint**: Temporary screenshots and fixture artifacts are strictly confined to `os.tmpdir()` (`/tmp/cades-session-*`), preventing repository pollution.
+- **Disk Footprint**: Session state, screenshots, recorders, and downloaded artifacts are confined to `os.tmpdir()` (`/tmp/cades-session-*.json`, `/tmp/dogfood-*`, `/tmp/cades-flight-recorder-*`), preventing repository pollution.

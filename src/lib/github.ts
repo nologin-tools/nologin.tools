@@ -221,10 +221,10 @@ export async function createGitHubNotificationIssue(
 - ✅ Zero unnecessary personal data collection or tracking walls
 - ✅ Continuous 6-hour automated uptime and reachability monitoring
 
-### Unlock Level 3 Active Privileges (+10 Ranking Boost & 🛡️ Shield)
+### Unlock Level 3 Active Privileges (+4 Ranking Boost & 🛡️ Shield)
 
 Displaying the verified badge unlocks **Level 3 Active Exhibitor** status:
-- 🚀 **+10 Algorithm Ranking Boost** for priority placement in category and directory searches
+- 🚀 **+4 Algorithm Ranking Boost** for priority placement in category and directory searches
 - 🛡️ **Green Shield Badge** displayed prominently next to your tool name across nologin.tools
 - ⚡ **Instant Self-Service Verification**: Once merged, visit your certificate page to verify instantly!
 

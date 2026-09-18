@@ -1,96 +1,60 @@
 ---
 name: daily-seo-audit
 description: >-
-  Autonomous daily technical SEO audit, broken-link prevention, crawlability verification,
-  Schema.org validation, and search indexation runbook for nologin.tools.
-  Use this skill to audit all indexable pages in sitemap.xml, check Canonical/Robots directives,
-  verify AI crawler files (robots.txt, llms.txt), submit fresh URLs to IndexNow, and output a
-  concise morning SEO briefing.
+  Daily technical SEO, crawlability, schema, internal-link, cache-header, and AI
+  discovery audit for nologin.tools. Audits every sitemap locale and submits
+  IndexNow only after a clean audit, with endpoint-level result reporting.
 ---
 
-# Daily SEO Audit & Technical Growth (`daily-seo-audit`)
+# Daily SEO Audit
 
-This skill defines the autonomous daily technical SEO audit and search engine indexation runbook for `nologin.tools`. The Agent audits online and local technical health, ensures zero broken indexable links, validates schema integrity, pushes URLs to search engines via IndexNow, and generates a clean daily briefing.
+This workflow is read-only for D1 and tool approval data.
 
----
-
-## 1. Operating Principles & Safety Guardrails
-
-1. **Zero Database Tampering**: This skill is strictly **read-only** with respect to the tool database. It NEVER modifies tool records, approval statuses (`approved`/`rejected`/`pending`), or taxonomy tags in Cloudflare D1. All tool vetting and queue processing are strictly reserved for `autonomous-patrol`.
-2. **Production-First Remote Verification**: Audits live production endpoints (`https://nologin.tools`) by default to detect real-world crawler accessibility, HTTP 200 health, latency, and edge CDN cache headers.
-3. **Automated Search Engine Pings**: Automatically triggers IndexNow pings for all validated sitemap URLs to accelerate discovery by Bing, Yandex, Seznam, and Naver.
-4. **Deterministic & Fast Execution**: Runs directly via Node.js CLI scripts without launching heavy browser instances unless deep DOM inspection is explicitly warranted.
-
----
-
-## 2. Execution Workflow
-
-### Phase 1: Remote Production Technical SEO Audit
-
-Execute the comprehensive SEO audit script against live production:
+## Audit production
 
 ```bash
 node scripts/daily-seo-audit.mjs --remote
 ```
 
-The script inspects all URLs listed in `https://nologin.tools/sitemap.xml`:
-- **HTTP Availability**: Verifies HTTP 200 response with zero 404, 500, or network drops.
-- **Title & Meta Description**: Checks for non-empty `<title>` and `<meta name="description">`.
-- **Canonical Consistency**: Validates that `<link rel="canonical">` matches the expected self-referencing or localized target.
-- **Robots Directives**: Ensures indexable routes (`/`, `/zh/*`, `/tool/*`) allow indexing, while non-target locales enforce `noindex` as intended.
-- **Schema.org JSON-LD**: Parses `<script type="application/ld+json">` for valid JSON syntax and required properties (`Review`, `SoftwareApplication`, `WebSite`, etc.).
-- **Response Latency**: Measures edge response times and average round-trip latency.
+The remote audit always loads the live production sitemap and treats every URL in it—including English, Chinese, Japanese, Korean, Spanish, French, German, and Portuguese routes—as indexable. It checks:
 
-*(Optional: If local `dist/` was freshly built or offline checks are requested, run `node scripts/daily-seo-audit.mjs --both`)*
+- successful HTTP responses and response time;
+- non-empty title and meta description;
+- exact normalized self-canonical URL;
+- absence of `noindex` on sitemap URLs;
+- valid JSON-LD plus route-specific required schema types and fields;
+- internal page links;
+- `Cache-Control` coverage;
+- production `robots.txt`, `llms.txt`, and `llms-full.txt`, including the declared sitemap and GPTBot, ClaudeBot, and PerplexityBot directives.
 
----
+For a freshly built local artifact, run:
 
-### Phase 2: IndexNow Real-Time Search Engine Submission
+```bash
+pnpm build
+node scripts/daily-seo-audit.mjs --both
+```
 
-Submit all indexable sitemap URLs to the IndexNow protocol:
+Do not claim a category passed if the command exited nonzero. Fix or report the concrete URL and rule.
+
+## IndexNow gate
+
+Only after the chosen audit mode exits successfully:
 
 ```bash
 node scripts/push-indexnow.mjs
 ```
 
-- Target engines: Bing, Yandex, Seznam, Naver.
-- Uses verification key: `c8d3e2b14f6a7905182746359012abcd` (hosted at `/c8d3e2b14f6a7905182746359012abcd.txt`).
-- Reports total URLs submitted and HTTP response code from search engine endpoints.
+The submitter prefers the live sitemap and only falls back to `dist/sitemap.xml` when production is unavailable. Report each endpoint separately. Overall submission succeeds only when both configured endpoints succeed; partial success must remain partial and any total failure must be reported as failure.
 
----
+## Briefing
 
-### Phase 3: AI Crawler & GEO Discovery Verification
+Report:
 
-Verify that modern AI search bots (Perplexity, ChatGPT, Claude) and open web crawlers can discover site context:
+- audit mode and number of pages actually audited;
+- error and warning counts with affected URLs;
+- internal-link count and cache-header coverage;
+- average production response time when available;
+- discovery-resource status;
+- whether IndexNow was skipped, fully successful, partially successful, or failed, including endpoint statuses.
 
-1. **`robots.txt`**: Fetch `https://nologin.tools/robots.txt` and confirm:
-   - Sitemap directive: `Sitemap: https://nologin.tools/sitemap.xml`
-   - LLMs.txt directive: `llms-txt: https://nologin.tools/llms.txt`
-   - Proper permissions for crawlers (e.g. `GPTBot`, `ClaudeBot`, `PerplexityBot`).
-2. **`llms.txt` & `llms-full.txt`**: Fetch `https://nologin.tools/llms.txt` and `https://nologin.tools/llms-full.txt` to ensure HTTP 200 and valid markdown structure.
-
----
-
-### Phase 4: Output Daily SEO Briefing (`每日 SEO 晨报`)
-
-Conclude the run by presenting a structured, concise briefing to the user:
-
-```markdown
-### 📊 每日 SEO 与技术健康晨报 (<YYYY-MM-DD>)
-
-- **核心页面巡检**:
-  - 页面总数: <N> 页
-  - HTTP 200 达标率: 100% (异常: 0)
-  - 平均边缘响应时间: <N> ms
-- **技术 SEO 指标**:
-  - Canonical 标签一致性: ✅ 正常
-  - Robots 索引策略隔离: ✅ 严格
-  - Schema.org JSON-LD 语法: ✅ 校验通过 (<N> 个结构化数据)
-- **搜索引擎分发 (IndexNow)**:
-  - 提交 URL 数量: <N> 个
-  - 提交状态: ✅ 成功推送至 Bing / Yandex
-- **AI / GEO 可发现性**:
-  - robots.txt / llms.txt: ✅ 正常可访问
-- **待关注隐患或优化建议**:
-  - 无异常 / 或列出发现的具体告警与建议
-```
+Never publish a 100% or “zero broken links” claim unless the full, unbounded sitemap audit completed successfully.

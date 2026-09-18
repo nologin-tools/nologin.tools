@@ -33,6 +33,7 @@ await loadTranslations(locale);
 
 const isPending = tool.status === 'pending';
 const isBadgeActive = tool.badgeDisplayType === 'explicit';
+const localizedBadgePath = getLocalizedPath(`/badge/${slug}`, locale);
 
 const githubParsed = tool.repoUrl ? parseGitHubRepoUrl(tool.repoUrl) : null;
 const githubEditReadmeUrl = githubParsed
@@ -52,10 +53,10 @@ const breadcrumbLd = {
 const certificateLd = {
   '@context': 'https://schema.org',
   '@type': 'DigitalDocument',
-  '@id': `https://nologin.tools/badge/${slug}#certificate`,
+  '@id': `https://nologin.tools${localizedBadgePath}#certificate`,
   name: `NoLogin Verified Certificate — ${tool.name}`,
   description: `${tool.name} is certified by NoLoginTools.org under NLW-STD-001 for zero-barrier access: ${tool.coreTask}`,
-  url: `https://nologin.tools/badge/${slug}`,
+  url: `https://nologin.tools${localizedBadgePath}`,
   author: {
     '@type': 'Organization',
     '@id': 'https://nologintools.org/#organization',
@@ -85,7 +86,7 @@ const allEmbedCodes = Object.fromEntries(
   bare
   title={`${tool.name} — ${isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}`}
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
-  canonicalOverride={`/badge/${slug}`}
+  canonicalOverride={localizedBadgePath}
   ogImagePath={`/api/og/badge/${slug}`}
   locale={locale}
 >

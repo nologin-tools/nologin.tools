@@ -64,14 +64,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
     if (!errors.url) {
       updateData.url = url;
-      const newSlug = urlToSlug(url);
-      if (newSlug !== tool.slug) {
+      if (body.preserveSlug === true) {
+        const [urlConflict] = await db
+          .select({ id: tools.id })
+          .from(tools)
+          .where(and(eq(tools.url, url), ne(tools.id, toolId)))
+          .limit(1);
+        if (urlConflict) errors.url = 'Another tool already uses this URL.';
+      } else {
+        const newSlug = urlToSlug(url);
         const conflict = await db
           .select({ id: tools.id })
           .from(tools)
           .where(and(eq(tools.slug, newSlug), ne(tools.id, toolId)))
           .limit(1);
-        if (conflict.length > 0) {
+        if (conflict) {
           errors.url = 'A tool with this URL already exists.';
         } else {
           updateData.slug = newSlug;
@@ -183,22 +190,24 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Validation failed.', 400, errors);
   }
 
-  // Update tool fields
+  const batchStatements: any[] = [];
   if (Object.keys(updateData).length > 0) {
-    await db.update(tools).set(updateData).where(eq(tools.id, toolId));
+    batchStatements.push(db.update(tools).set(updateData).where(eq(tools.id, toolId)));
   }
 
-  // Update tags if provided
+  // Prepare tag replacement in the same D1 batch as field edits.
   if (body.tags !== undefined && Array.isArray(body.tags)) {
     const validTags: { key: string; value: string }[] = [];
     for (const tag of body.tags) {
       if (tag.key && tag.value) {
         // Allow source tags (auto-derived) and TAG_DEFINITIONS tags
         if (tag.key === 'source' && (tag.value === 'Open Source' || tag.value === 'Closed Source')) {
-          validTags.push({ key: tag.key, value: tag.value });
+          if (!validTags.some(existing => existing.key === tag.key && existing.value === tag.value)) {
+            validTags.push({ key: tag.key, value: tag.value });
+          }
         } else {
           const def = TAG_DEFINITIONS.find((d) => d.key === tag.key);
-          if (def && def.values.includes(tag.value)) {
+          if (def && def.values.includes(tag.value) && !validTags.some(existing => existing.key === tag.key && existing.value === tag.value)) {
             validTags.push({ key: tag.key, value: tag.value });
           }
         }
@@ -212,16 +221,32 @@ export const POST: APIRoute = async ({ request, locals }) => {
       filteredTags.push({ key: 'source', value: 'Open Source' });
     }
 
-    await db.delete(tags).where(eq(tags.toolId, toolId));
+    for (const definition of TAG_DEFINITIONS) {
+      const count = filteredTags.filter(tag => tag.key === definition.key).length;
+      if (count === 0 || (!definition.multiSelect && count !== 1)) {
+        return api.error(
+          definition.multiSelect
+            ? `At least one ${definition.key} tag is required.`
+            : `Exactly one ${definition.key} tag is required.`,
+          400
+        );
+      }
+    }
+
+    batchStatements.push(db.delete(tags).where(eq(tags.toolId, toolId)));
     if (filteredTags.length > 0) {
-      await db.insert(tags).values(
+      batchStatements.push(db.insert(tags).values(
         filteredTags.map((t) => ({
           toolId,
           tagKey: t.key,
           tagValue: t.value,
         }))
-      );
+      ));
     }
+  }
+
+  if (batchStatements.length > 0) {
+    await db.batch(batchStatements as [any, ...any[]]);
   }
 
   // Refresh GitHub data if repo URL changed or explicitly requested

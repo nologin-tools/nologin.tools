@@ -10,10 +10,11 @@
 
 /**
  * Validates a cognitive evaluation payload from an Agent or Human Evaluator
- * @param {any} data 
+ * @param {any} data
+ * @param {{ requireBilingual?: boolean }} [options]
  * @returns {{ valid: boolean, errors: string[] }}
  */
-export function validateCognitiveEvaluation(data) {
+export function validateCognitiveEvaluation(data, options = {}) {
   const errors = [];
   if (!data || typeof data !== 'object') {
     return { valid: false, errors: ['Evaluation data must be an object'] };
@@ -64,6 +65,33 @@ export function validateCognitiveEvaluation(data) {
     }
   }
 
+  if (!data.privacyVerdict || typeof data.privacyVerdict !== 'string' || data.privacyVerdict.trim().length < 20) {
+    errors.push('privacyVerdict must explain the observed data-flow evidence in at least 20 characters');
+  }
+
+  const allowedTiers = ['editors-choice', 'highly-recommended', 'capable-utility', 'emergency-only'];
+  if (data.verdictTier !== undefined && !allowedTiers.includes(data.verdictTier)) {
+    errors.push(`verdictTier must be one of: ${allowedTiers.join(', ')}`);
+  }
+
+  if (options.requireBilingual) {
+    if (!data.bestForZh || typeof data.bestForZh !== 'string' || data.bestForZh.trim().length < 5) {
+      errors.push('bestForZh is required for synchronized bilingual editorial output');
+    }
+    if (!Array.isArray(data.prosZh) || data.prosZh.length < 2) {
+      errors.push('prosZh must contain at least 2 Chinese technical strengths');
+    }
+    if (!Array.isArray(data.consZh) || data.consZh.length < 1) {
+      errors.push('consZh must contain at least 1 Chinese trade-off');
+    }
+    if (!data.privacyVerdictZh || typeof data.privacyVerdictZh !== 'string' || data.privacyVerdictZh.trim().length < 10) {
+      errors.push('privacyVerdictZh is required for synchronized bilingual editorial output');
+    }
+    if (!data.benchmarkNotesZh || typeof data.benchmarkNotesZh !== 'string' || data.benchmarkNotesZh.trim().length < 8) {
+      errors.push('benchmarkNotesZh is required for synchronized bilingual editorial output');
+    }
+  }
+
   // Fluff-Buster: Detect generic marketing buzzwords across pros, cons, and notes
   const FLUFF_PATTERNS = [
     { re: /\bseamless(?:ly)?\b/i, word: 'seamless' },
@@ -101,7 +129,7 @@ export function validateCognitiveEvaluation(data) {
  * Enforces anti-inflation boundaries to prevent score clustering at 90+.
  * 
  * Target Distribution:
- * - 90-100 (Editor's Choice): ~12-15% of catalog (Requires outstanding UX, depth, zero-egress, top-tier aesthetics)
+ * - 90-100 (Editor's Choice): ~12-15% of catalog (Requires outstanding UX, depth, strong privacy evidence, top-tier aesthetics)
  * - 80-89 (Highly Recommended): ~35-40% of catalog (Solid production-grade utilities)
  * - 70-79 (Capable Utility): ~40-45% of catalog (Single-purpose simple utilities, basic UI)
  * - <70 (Rejected / Defunct): Excluded from approved directory
@@ -118,7 +146,8 @@ export function calibrate5DScore(harnessReport, agentOverrides = null) {
   const visual = inspection.visual || {};
   const intent = inspection.intent || {};
 
-  const isLocal = netPrivacy.classification === 'Local Only';
+  const isLocal = netPrivacy.classification === 'Local Only' && netPrivacy.zeroEgressConfirmed === true;
+  const noPayloadEgressObserved = netPrivacy.classification === 'No Payload Egress Observed';
   const isOffline = Boolean(netPrivacy.offlineCapable);
   const hasWasm = Boolean(netPrivacy.hasWebAssembly);
   const hasCanvas = Boolean(surface.canvasCount > 0);
@@ -175,7 +204,7 @@ export function calibrate5DScore(harnessReport, agentOverrides = null) {
   exportFreedom = Math.max(0, Math.min(20, exportFreedom));
 
   // --- Dimension 4: Privacy & Data Sovereignty (0 to 20 - Core Pillar) ---
-  let privacy = isLocal ? 18 : 13;
+  let privacy = isLocal ? 18 : noPayloadEgressObserved ? 14 : 13;
   if (isLocal && isOffline) privacy += 2;
   if (hasTracking) privacy -= 4;
   privacy = Math.max(0, Math.min(20, privacy));
@@ -275,7 +304,7 @@ export function generateCognitivePacket(rawReport, toolSlug) {
       targetUrl: inspection.targetUrl,
       finalUrl: inspection.finalUrl,
       name: meta.name || inspection.title || toolSlug,
-      category: meta.category || 'Utilities',
+      category: meta.category || 'Data',
       inferredCoreTask: meta.core_task || inspection.intent?.inferredTask || 'Process data directly in browser',
       repoUrl: meta.repo_url || inspection.githubLink || null
     },
@@ -284,7 +313,7 @@ export function generateCognitivePacket(rawReport, toolSlug) {
       outcomeScreenshot: outcomePic,
       capturedInitial: Boolean(inspection.visual?.capturedInitial),
       capturedOutcome: Boolean(inspection.visual?.capturedOutcome),
-      note: 'Agent MUST use view_file on both images to conduct multimodal review'
+      note: 'Agent MUST use view_image on both images to conduct multimodal review'
     },
     surfaceTelemetry: {
       archetype: inspection.intent?.archetype || 'general',
@@ -297,7 +326,9 @@ export function generateCognitivePacket(rawReport, toolSlug) {
     },
     networkTelemetry: {
       classification: inspection.networkPrivacy?.classification || 'Unknown',
-      zeroEgressConfirmed: inspection.networkPrivacy?.classification === 'Local Only',
+      payloadEgressObserved: netPayloads.length > 0,
+      noPayloadEgressObserved: netPayloads.length === 0,
+      observationCaveat: 'No captured payload request is not proof of local-only processing or offline capability.',
       offlineCapable: Boolean(inspection.networkPrivacy?.offlineCapable),
       externalPayloadCount: netPayloads.length,
       payloadRequests: netPayloads.slice(0, 10)
@@ -325,7 +356,7 @@ export function generateAgentReviewPrompt(toolSlug, inspection, baselineScore) {
 **Target URL**: ${inspection.targetUrl}
 **Baseline Score (Harness)**: ${baselineScore.overall}/100 (${baselineScore.verdictTier})
 
-**Step 1: Visual Inspection (Agent MUST run view_file)**:
+**Step 1: Visual Inspection (Agent MUST run view_image)**:
 - Initial Impression: \`${inspection.visual?.initialScreenshot}\`
   - Review: Does the UI look modern and clean? Are there deceptive AdSense buttons or dark pattern banners?
 - Outcome Delivery: \`${inspection.visual?.outcomeScreenshot}\`

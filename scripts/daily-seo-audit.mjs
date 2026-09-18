@@ -14,8 +14,8 @@
  *   node scripts/daily-seo-audit.mjs [--local] [--remote] [--limit <n>]
  */
 
-import { readFileSync, existsSync, readdirSync, statSync, appendFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { readFileSync, existsSync, statSync, appendFileSync } from 'node:fs';
+import { resolve, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -54,6 +54,152 @@ export function urlToDistPath(url) {
   return resolve(DIST, pathname.slice(1), 'index.html');
 }
 
+export function normalizeAuditUrl(url) {
+  const parsed = new URL(url);
+  parsed.hash = '';
+  parsed.search = '';
+  parsed.pathname = parsed.pathname === '/' ? '/' : parsed.pathname.replace(/\/+$/, '');
+  return parsed.toString();
+}
+
+export function extractInternalPageLinks(html, baseUrl) {
+  const origin = new URL(baseUrl).origin;
+  const links = new Set();
+  // Links inside scripts/styles are source code, not crawlable document links.
+  // In particular, client-side template literals may contain an href whose
+  // runtime value cannot be resolved by this static audit.
+  const documentHtml = html
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const hrefRegex = /<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi;
+  let match;
+  while ((match = hrefRegex.exec(documentHtml)) !== null) {
+    const href = match[1].trim();
+    if (!href || href.startsWith('#') || /^(?:mailto:|tel:|javascript:|data:)/i.test(href)) continue;
+    try {
+      const resolved = new URL(href, baseUrl);
+      if (resolved.origin !== origin) continue;
+      if (/^\/(?:api|admin|ssr)(?:\/|$)/.test(resolved.pathname)) continue;
+      if (/\.(?:avif|css|gif|ico|jpe?g|js|json|map|png|svg|txt|webmanifest|webp|woff2?|xml)$/i.test(resolved.pathname)) continue;
+      links.add(normalizeAuditUrl(resolved.toString()));
+    } catch {}
+  }
+  return Array.from(links);
+}
+
+/**
+ * Parses exact Cloudflare Pages redirect rules. Dynamic splat/placeholder
+ * rules are intentionally excluded because they cannot be resolved safely
+ * without Cloudflare's full matching semantics.
+ * @param {string} contents
+ * @returns {Map<string, string>}
+ */
+export function parseStaticRedirects(contents) {
+  const redirects = new Map();
+  for (const rawLine of contents.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const [source, destination, status = '302'] = line.split(/\s+/);
+    if (!source?.startsWith('/') || !destination || !/^[23]\d\d$/.test(status)) continue;
+    if (/[*:]/.test(source)) continue;
+    try {
+      redirects.set(new URL(source, 'https://nologin.tools').pathname, destination);
+    } catch {}
+  }
+  return redirects;
+}
+
+function isFile(filePath) {
+  try {
+    return existsSync(filePath) && statSync(filePath).isFile();
+  } catch {
+    return false;
+  }
+}
+
+function localFileCandidates(url) {
+  const parsed = new URL(url);
+  let decodedPath;
+  try {
+    decodedPath = decodeURIComponent(parsed.pathname);
+  } catch {
+    return [];
+  }
+  const directPath = resolve(DIST, decodedPath.replace(/^\/+/, ''));
+  const distPrefix = `${DIST}${sep}`;
+  if (directPath !== DIST && !directPath.startsWith(distPrefix)) return [];
+  return [directPath, urlToDistPath(url)];
+}
+
+/**
+ * Resolves a local URL as either a generated page, a public asset, or an exact
+ * Cloudflare Pages redirect whose local destination also exists.
+ * @param {string} url
+ * @param {Map<string, string>} redirects
+ * @param {Set<string>} [visited]
+ * @returns {boolean}
+ */
+export function isResolvableLocalLink(url, redirects, visited = new Set()) {
+  const normalized = normalizeAuditUrl(url);
+  if (visited.has(normalized)) return false;
+  visited.add(normalized);
+
+  if (localFileCandidates(normalized).some(isFile)) return true;
+
+  const parsed = new URL(normalized);
+  const redirectTarget = redirects.get(parsed.pathname)
+    ?? redirects.get(parsed.pathname === '/' ? '/' : `${parsed.pathname}/`);
+  if (!redirectTarget) return false;
+
+  let destination;
+  try {
+    destination = new URL(redirectTarget, parsed.origin);
+  } catch {
+    return false;
+  }
+  if (destination.origin !== parsed.origin) return true;
+  return isResolvableLocalLink(destination.toString(), redirects, visited);
+}
+
+function collectSchemaNodes(value, nodes = []) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectSchemaNodes(item, nodes);
+    return nodes;
+  }
+  if (!value || typeof value !== 'object') return nodes;
+  if (value['@type']) nodes.push(value);
+  if (Array.isArray(value['@graph'])) collectSchemaNodes(value['@graph'], nodes);
+  return nodes;
+}
+
+function expectedSchemaTypes(url) {
+  const path = new URL(url).pathname
+    .replace(/^\/(?:zh|ja|ko|es|fr|de|pt)(?=\/|$)/, '') || '/';
+  if (path === '/') return ['WebSite'];
+  if (/^\/tool\/[^/]+\/?$/.test(path)) return ['SoftwareApplication'];
+  if (/^\/blog\/[^/]+\/?$/.test(path)) return ['BlogPosting'];
+  if (/^\/blog\/?$/.test(path)) return ['Blog'];
+  if (/^\/category\/[^/]+\/?$/.test(path)) return ['CollectionPage'];
+  if (/^\/about\/?$/.test(path)) return ['Organization'];
+  if (/^\/submit\/?$/.test(path)) return ['BreadcrumbList'];
+  if (/^\/badge\/?$/.test(path)) return ['FAQPage', 'HowTo'];
+  if (/^\/badge\/[^/]+\/?$/.test(path)) return ['BreadcrumbList'];
+  return [];
+}
+
+const REQUIRED_SCHEMA_FIELDS = {
+  WebSite: ['name', 'url'],
+  SoftwareApplication: ['name', 'applicationCategory'],
+  Blog: ['name'],
+  BlogPosting: ['headline', 'datePublished'],
+  CollectionPage: ['name', 'mainEntity'],
+  Organization: ['name', 'url'],
+  BreadcrumbList: ['itemListElement'],
+  FAQPage: ['mainEntity'],
+  HowTo: ['name', 'step'],
+};
+
 /**
  * Validates a single HTML string for Technical SEO requirements
  * @param {string} html
@@ -75,7 +221,7 @@ export function validateHtmlSeo(html, url) {
   const descMatch = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i) ||
                     html.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i);
   if (!descMatch || !descMatch[1].trim()) {
-    warnings.push(`[${url}] Missing or empty meta description`);
+    errors.push(`[${url}] Missing or empty meta description`);
   }
 
   // 3. Canonical
@@ -83,20 +229,24 @@ export function validateHtmlSeo(html, url) {
                          html.match(/<link\s+href=["']([^"']+)["']\s+rel=["']canonical["']/i);
   if (!canonicalMatch) {
     errors.push(`[${url}] Missing <link rel="canonical"> tag`);
+  } else {
+    try {
+      const canonical = normalizeAuditUrl(new URL(canonicalMatch[1], url).toString());
+      const expected = normalizeAuditUrl(url);
+      if (canonical !== expected) {
+        errors.push(`[${url}] Canonical mismatch: expected ${expected}, found ${canonical}`);
+      }
+    } catch {
+      errors.push(`[${url}] Invalid canonical URL: ${canonicalMatch[1]}`);
+    }
   }
 
   // 4. Robots meta
   const robotsMatch = html.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
-  const parsed = new URL(url);
-  const path = parsed.pathname;
-  const isEnglishOrZh = !path.match(/^\/(?:de|es|fr|ja|ko|pt)(?:\/|$)/);
-
   if (robotsMatch) {
     const robotsContent = robotsMatch[1].toLowerCase();
-    if (isEnglishOrZh && robotsContent.includes('noindex')) {
+    if (robotsContent.includes('noindex')) {
       errors.push(`[${url}] Unexpected 'noindex' on indexable path: ${robotsContent}`);
-    } else if (!isEnglishOrZh && !robotsContent.includes('noindex')) {
-      errors.push(`[${url}] Non-indexable locale missing 'noindex': ${robotsContent}`);
     }
   }
 
@@ -107,17 +257,32 @@ export function validateHtmlSeo(html, url) {
     const rawJson = jsonMatch[1].trim();
     try {
       const parsedJson = JSON.parse(rawJson);
-      const schemaType = parsedJson['@type'] || (parsedJson['@graph'] ? 'Graph' : 'Unknown');
-      schemas.push(schemaType);
-
-      // Verify basic schema requirements
-      if (schemaType === 'Review') {
-        if (!parsedJson.positiveNotes || !parsedJson.negativeNotes) {
-          warnings.push(`[${url}] Schema Review missing positiveNotes or negativeNotes`);
+      const nodes = collectSchemaNodes(parsedJson);
+      if (nodes.length === 0) schemas.push('Unknown');
+      for (const node of nodes) {
+        const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        for (const schemaType of types) {
+          schemas.push(schemaType);
+          const requiredFields = REQUIRED_SCHEMA_FIELDS[schemaType] || [];
+          for (const field of requiredFields) {
+            if (node[field] === undefined || node[field] === null || node[field] === '') {
+              errors.push(`[${url}] ${schemaType} JSON-LD missing required field: ${field}`);
+            }
+          }
+          if (schemaType === 'Review' && (!node.positiveNotes || !node.negativeNotes)) {
+            warnings.push(`[${url}] Schema Review missing positiveNotes or negativeNotes`);
+          }
         }
       }
     } catch (err) {
       errors.push(`[${url}] Invalid JSON-LD schema syntax: ${err.message}`);
+    }
+  }
+
+  const expectedTypes = expectedSchemaTypes(url);
+  for (const expectedType of expectedTypes) {
+    if (!schemas.includes(expectedType)) {
+      errors.push(`[${url}] Missing expected ${expectedType} JSON-LD schema`);
     }
   }
 
@@ -136,12 +301,17 @@ export async function runLocalAudit(limit) {
   const sitemapXml = readFileSync(sitemapFile, 'utf-8');
   const urls = parseSitemapUrls(sitemapXml);
   const targetUrls = limit ? urls.slice(0, limit) : urls;
+  const redirectsFile = resolve(DIST, '_redirects');
+  const redirects = existsSync(redirectsFile)
+    ? parseStaticRedirects(readFileSync(redirectsFile, 'utf-8'))
+    : new Map();
 
   console.log(`[daily-seo-audit] Auditing ${targetUrls.length} indexable pages from dist/...`);
 
   let allErrors = [];
   let allWarnings = [];
   let auditedCount = 0;
+  const internalLinks = new Set();
 
   for (const url of targetUrls) {
     const filePath = urlToDistPath(url);
@@ -152,9 +322,16 @@ export async function runLocalAudit(limit) {
 
     const html = readFileSync(filePath, 'utf-8');
     const { errors, warnings } = validateHtmlSeo(html, url);
+    for (const link of extractInternalPageLinks(html, url)) internalLinks.add(link);
     if (errors.length > 0) allErrors.push(...errors);
     if (warnings.length > 0) allWarnings.push(...warnings);
     auditedCount++;
+  }
+
+  for (const link of internalLinks) {
+    if (!isResolvableLocalLink(link, redirects)) {
+      allErrors.push(`[${link}] Broken internal link: no generated page, public asset, or valid static redirect found`);
+    }
   }
 
   return {
@@ -162,6 +339,7 @@ export async function runLocalAudit(limit) {
     totalAudited: auditedCount,
     errors: allErrors,
     warnings: allWarnings,
+    internalLinksChecked: internalLinks.size,
   };
 }
 
@@ -169,8 +347,8 @@ export async function runLocalAudit(limit) {
  * Runs remote audit against live production site
  * @param {number} [limit]
  * @param {string[]} [customUrls]
- * @param {{ concurrency?: number, timeout?: number }} [options]
- * @returns {Promise<{ success: boolean, totalAudited: number, errors: string[], warnings: string[], responseTimes: number[], avgResponseTimeMs: number }>}
+ * @param {{ concurrency?: number, timeout?: number, auditDiscovery?: boolean }} [options]
+ * @returns {Promise<{ success: boolean, totalAudited: number, errors: string[], warnings: string[], responseTimes: number[], avgResponseTimeMs: number, internalLinksChecked: number, cacheHeaderCoverage: number }>}
  */
 export async function runRemoteAudit(limit, customUrls, options = {}) {
   const concurrency = options.concurrency || 5;
@@ -178,16 +356,11 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
 
   let urls = customUrls;
   if (!urls || urls.length === 0) {
-    const sitemapFile = resolve(DIST, 'sitemap.xml');
-    if (existsSync(sitemapFile)) {
-      urls = parseSitemapUrls(readFileSync(sitemapFile, 'utf-8'));
-    } else {
-      const res = await fetch('https://nologin.tools/sitemap.xml', {
-        headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
-      });
-      if (!res.ok) throw new Error(`Failed to fetch remote sitemap: HTTP ${res.status}`);
-      urls = parseSitemapUrls(await res.text());
-    }
+    const res = await fetch('https://nologin.tools/sitemap.xml', {
+      headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
+    });
+    if (!res.ok) throw new Error(`Failed to fetch remote sitemap: HTTP ${res.status}`);
+    urls = parseSitemapUrls(await res.text());
   }
 
   const targetUrls = limit ? urls.slice(0, limit) : urls;
@@ -197,6 +370,8 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
   const allWarnings = [];
   const responseTimes = [];
   let auditedCount = 0;
+  let pagesWithCacheHeader = 0;
+  const internalLinks = new Set();
 
   // Process in batches
   for (let i = 0; i < targetUrls.length; i += concurrency) {
@@ -223,6 +398,12 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
 
           const html = await res.text();
           const { errors, warnings } = validateHtmlSeo(html, url);
+          for (const link of extractInternalPageLinks(html, url)) internalLinks.add(link);
+          if (res.headers.get('cache-control')) {
+            pagesWithCacheHeader++;
+          } else {
+            allWarnings.push(`[${url}] Missing Cache-Control response header`);
+          }
           if (errors.length > 0) allErrors.push(...errors);
           if (warnings.length > 0) allWarnings.push(...warnings);
           auditedCount++;
@@ -233,6 +414,34 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
         }
       })
     );
+  }
+
+  const auditedUrls = new Set(targetUrls.map(normalizeAuditUrl));
+  const linksToProbe = Array.from(internalLinks).filter(link => !auditedUrls.has(link));
+  for (let i = 0; i < linksToProbe.length; i += concurrency) {
+    const batch = linksToProbe.slice(i, i + concurrency);
+    await Promise.all(batch.map(async (link) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const response = await fetch(link, {
+          headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
+          redirect: 'follow',
+          signal: controller.signal,
+        });
+        if (!response.ok) allErrors.push(`[${link}] Broken internal link: HTTP ${response.status}`);
+      } catch (err) {
+        allErrors.push(`[${link}] Broken internal link: ${err.message}`);
+      } finally {
+        clearTimeout(timer);
+      }
+    }));
+  }
+
+  if (options.auditDiscovery !== false) {
+    const discovery = await runDiscoveryAudit({ timeout: timeoutMs });
+    allErrors.push(...discovery.errors);
+    allWarnings.push(...discovery.warnings);
   }
 
   const avgResponseTimeMs =
@@ -247,7 +456,56 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
     warnings: allWarnings,
     responseTimes,
     avgResponseTimeMs,
+    internalLinksChecked: internalLinks.size,
+    cacheHeaderCoverage: auditedCount > 0 ? Math.round((pagesWithCacheHeader / auditedCount) * 100) : 0,
   };
+}
+
+export async function runDiscoveryAudit(options = {}) {
+  const timeoutMs = options.timeout || 10000;
+  const fetchImpl = options.fetchImpl || fetch;
+  const errors = [];
+  const warnings = [];
+  const targets = [
+    ['https://nologin.tools/robots.txt', 'robots'],
+    ['https://nologin.tools/llms.txt', 'llms'],
+    ['https://nologin.tools/llms-full.txt', 'llms-full'],
+  ];
+
+  for (const [url, kind] of targets) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetchImpl(url, {
+        headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        errors.push(`[${url}] Discovery resource returned HTTP ${response.status}`);
+        continue;
+      }
+      const body = await response.text();
+      if (kind === 'robots') {
+        for (const directive of [
+          'Sitemap: https://nologin.tools/sitemap.xml',
+          'llms-txt: https://nologin.tools/llms.txt',
+          'GPTBot',
+          'ClaudeBot',
+          'PerplexityBot',
+        ]) {
+          if (!body.includes(directive)) errors.push(`[${url}] Missing crawler directive: ${directive}`);
+        }
+      } else if (!/^#\s+\S+/m.test(body)) {
+        errors.push(`[${url}] LLM discovery document is missing a Markdown title`);
+      }
+    } catch (err) {
+      errors.push(`[${url}] Discovery resource fetch failed: ${err.message}`);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  return { success: errors.length === 0, errors, warnings };
 }
 
 /**
@@ -280,6 +538,8 @@ async function main() {
         errors: [...localResult.errors, ...remoteResult.errors],
         warnings: [...localResult.warnings, ...remoteResult.warnings],
         avgResponseTimeMs: remoteResult.avgResponseTimeMs,
+        internalLinksChecked: Math.max(localResult.internalLinksChecked, remoteResult.internalLinksChecked),
+        cacheHeaderCoverage: remoteResult.cacheHeaderCoverage,
       };
     } else if (isRemote) {
       result = await runRemoteAudit(limit);
@@ -300,7 +560,13 @@ async function main() {
       process.exit(1);
     }
 
-    console.log('✅  PASS: All technical SEO criteria met (0 broken pages, 0 schema errors, valid canonicals & robots).\n');
+    const checksPassed = isRemote || isBoth
+      ? 'canonical, schema, robots, and discovery checks passed'
+      : 'canonical and schema checks passed';
+    console.log(`✅  PASS: ${result.internalLinksChecked || 0} internal links checked; ${checksPassed}.`);
+    if (result.cacheHeaderCoverage !== undefined) {
+      console.log(`    Cache-Control coverage: ${result.cacheHeaderCoverage}%\n`);
+    }
 
     // Output GitHub Actions step summary if running in CI
     const summaryFile = process.env.GITHUB_STEP_SUMMARY;
@@ -313,9 +579,10 @@ async function main() {
         `| **Total Indexable Pages Audited** | **${result.totalAudited}** |`,
         '| **HTTP 200 & File Integrity** | ✅ 100% PASS |',
         '| **Canonical Tag Consistency** | ✅ Validated |',
-        '| **Multi-locale noindex Isolation** | ✅ Strict |',
+        '| **Multi-locale indexability** | ✅ All sitemap locales indexable |',
         '| **Schema.org JSON-LD Markup** | ✅ Validated |',
-        '| **Internal Link & Loop Defense** | ✅ Clean (0 loops) |',
+        `| **Internal Links Checked** | ${result.internalLinksChecked || 0} |`,
+        `| **Cache-Control Coverage** | ${result.cacheHeaderCoverage ?? 'local audit'} |`,
         '',
         result.warnings.length > 0
           ? `> [!NOTE]\n> **${result.warnings.length} Warning(s):**\n` + result.warnings.map(w => `- ${w}`).join('\n')

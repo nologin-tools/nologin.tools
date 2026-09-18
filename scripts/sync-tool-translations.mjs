@@ -130,14 +130,16 @@ export function auditTranslations(buildData, translationsByLocale) {
  * @param {{
  *   buildData: { tools: Array<any> };
  *   translationsDir?: string;
- *   payload: Record<string, Record<string, {
- *     description: string;
- *     coreTask: string;
- *     seoTitle?: string;
- *     seoDescription?: string;
- *     seoFocusKeyword?: string;
- *     seoTaskPhrase?: string;
- *   }>>;
+ *   payload: Record<string, Record<string, any> & {
+ *     _source?: {
+ *       description: string;
+ *       coreTask: string;
+ *       seoTitle?: string;
+ *       seoDescription?: string;
+ *       seoFocusKeyword?: string;
+ *       seoTaskPhrase?: string;
+ *     };
+ *   }>;
  * }} params
  * @returns {{ updatedLocales: string[], updatedSlugs: string[] }}
  */
@@ -149,15 +151,21 @@ export function applyTranslations({ buildData, translationsDir = TRANSLATIONS_DI
   const updatedSlugsSet = new Set();
 
   for (const [slug, localeMap] of Object.entries(payload)) {
-    const tool = toolMap.get(slug);
+    const sourceOverride = localeMap?._source;
+    const tool = sourceOverride || toolMap.get(slug);
     if (!tool) {
-      console.warn(`[sync-tool-translations] Warning: Tool "${slug}" not found in build data.`);
+      console.warn(`[sync-tool-translations] Warning: Tool "${slug}" not found in build data and payload has no _source metadata.`);
+      continue;
+    }
+    if (!tool.description || !tool.coreTask) {
+      console.warn(`[sync-tool-translations] Warning: Tool "${slug}" is missing source description or coreTask.`);
       continue;
     }
 
     const sourceHash = computeSourceHash(tool);
 
     for (const [locale, data] of Object.entries(localeMap)) {
+      if (locale === '_source') continue;
       if (!SUPPORTED_LOCALES.includes(locale)) {
         console.warn(`[sync-tool-translations] Warning: Unsupported locale "${locale}" for tool "${slug}".`);
         continue;
