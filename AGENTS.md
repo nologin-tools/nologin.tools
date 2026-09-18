@@ -17,7 +17,7 @@ Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTo
 - **Database**: Cloudflare D1 (SQLite) via Drizzle ORM
 - **Styling**: Tailwind CSS v4 + `@tailwindcss/typography` (prose styles for blog)
 - **Package Manager**: pnpm
-- **Cron & Automation**: Antigravity local agentic patrol (`.agents/skills/autonomous-patrol/`) & daily SEO audit (`.agents/skills/daily-seo-audit/`) + GitHub Actions daily export (`.github/workflows/data-export.yml`)
+- **Cron & Automation**: Antigravity modular agentic skills (`.agents/skills/`): master orchestrator (`.agents/skills/autonomous-patrol/`), vetting & ingestion (`.agents/skills/submission-review/`), CADES 2.0 evaluation (`.agents/skills/tool-evaluation/`), rolling health & ecosystem (`.agents/skills/health-patrol/`), and technical SEO (`.agents/skills/daily-seo-audit/`) + GitHub Actions daily export (`.github/workflows/data-export.yml`)
 - **Build Data**: D1 REST API → `build-data.json` → static HTML (every 6h scheduled rebuild)
 
 ## Project Structure
@@ -148,7 +148,7 @@ sites/org/                # NologinTools.org — organization authority site (in
   - **Category heading** (`.category-heading`): Bold title + count in parentheses, `border-b-2` separator.
   - No client-side JS on homepage.
 - **NoLogin Lab Product Power Score & Empirical Vetting (CADES 2.0 Route A)**:
-  - Agent-led conversational dogfooding framework (`docs/CADES-2.0-ROUTE-A-SPEC.md`) powered by `scripts/lab/dogfood-session.mjs`, `cades-cognitive.mjs`, and native `ego-browser`.
+  - Agent-led conversational dogfooding framework (`docs/CADES-2.0-ROUTE-A-SPEC.md`, executable via skill `.agents/skills/tool-evaluation/`) powered by `scripts/lab/dogfood-session.mjs`, `cades-cognitive.mjs`, and native `ego-browser`.
   - The Agent personally operates Chromium across multiple turns (`start` → `act` → `export` → `finish`), visually inspects screenshots (`view_file`), injects grounded fixtures (`scripts/lab/fixtures/`), audits zero-egress network payloads, and tests downloaded artifacts with `output-inspector.mjs` (Magic Bytes, anti-bait-trap, watermark signatures).
   - Anti-inflation 5D score calibration (0-100): Frictionless UX (20), Functional Depth & Fidelity (25), Export Freedom (20), Privacy & Data Sovereignty (20, core pillar), Stability & Polish (15).
   - Tiers: `editors-choice` (≥90, amber badge, ~12-15% of catalog), `highly-recommended` (80-89, emerald badge), `capable-utility` (70-79, sky/neutral badge), `emergency-only` (<70).
@@ -163,7 +163,7 @@ sites/org/                # NologinTools.org — organization authority site (in
   - Data export: `featured` boolean field in tools.json, ★ marker after tool name in README
   - Rejecting a tool auto-clears `isFeatured` and `featuredAt`
   - Admin dashboard: Featured count stat card (yellow theme), ★ Featured filter button, Feature/Unfeature toggle per approved tool
-- **Simplified tool submission**: Submissions via `/submit` and `POST /api/submit` require only `url` (required) and `submitterEmail` (optional). Full tool metadata (name, description, core_task, category, and tags) is automatically extracted and populated during review via `autonomous-patrol` using `ego-browser`.
+- **Simplified tool submission**: Submissions via `/submit` and `POST /api/submit` require only `url` (required) and `submitterEmail` (optional). Full tool metadata (name, description, core_task, category, and tags) is automatically extracted and populated during review via `submission-review` (using `tool-evaluation` and `ego-browser`).
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
