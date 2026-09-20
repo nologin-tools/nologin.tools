@@ -4732,5 +4732,133 @@
       "benchmarkNotes": "在 72 ms 内完成 Go 源码编译并成功输出标准字符，生成唯一分享短链，捕获 6 次谷歌分析与双击广告网络载荷。",
       "testedAt": "2026-09"
     }
+  },
+  "hoppscotch-io": {
+    "en": {
+      "bestFor": "API developers, backend engineers, and QA testers testing REST, GraphQL, WebSocket, SSE, and gRPC endpoints without heavy desktop software or mandatory cloud logins",
+      "pros": [
+        "Full-featured open-source Postman alternative requiring zero login for testing REST, GraphQL, WebSocket, and gRPC endpoints",
+        "Generates executable client code snippets across cURL, Python, JavaScript, Go, and Ruby with one click",
+        "Sends API requests directly from the client browser without routing sensitive tokens through third-party servers"
+      ],
+      "cons": [
+        "Browser-based requests to external APIs are subject to browser CORS policies unless using the Hoppscotch browser extension or proxy",
+        "Dispatches product analytics payloads to PostHog and loads the Crisp customer support chat widget"
+      ],
+      "privacyVerdict": "API requests execute directly from the client browser without passing request headers or authentication tokens through Hoppscotch proxy servers; telemetry includes PostHog analytics and Crisp chat connections.",
+      "alternativeTo": [
+        "Postman",
+        "Insomnia",
+        "Bruno"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dispatched GET request to echo endpoint, rendered 1.96 KB formatted JSON payload in 1171 ms, and generated cURL snippet with 11 telemetry requests to PostHog and Crisp.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中免安装、免登录调试 RESTful、GraphQL、WebSocket、SSE 及 gRPC 接口的后端开发与测试工程师",
+      "pros": [
+        "开源轻量级 API 调试工具，无需注册或绑定账号即可无限制调试 REST、GraphQL 与 WebSocket 接口",
+        "一键自动生成 cURL、Python、Node.js、Go、Ruby 等十余种语言的标准客户端调用代码片段",
+        "API 请求直接由浏览器端或本地插件直接发出，避免敏感 Token 与请求体流经第三方中转服务器"
+      ],
+      "cons": [
+        "纯浏览器端直连请求受目标 API 的 CORS 跨域策略限制，跨域场景需配合官方浏览器扩展或代理",
+        "页面加载时会向 PostHog 发送产品交互统计并初始化 Crisp 在线客服浮窗"
+      ],
+      "privacyVerdict": "业务 API 请求直接从客户端浏览器发出，接口认证密钥不经由 Hoppscotch 中心服务器中转；全站遥测包含向 PostHog 节点与 Crisp 客服发送的 11 条连接载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 1171 ms 内完成向 echo 接口的 GET 探测并解析 1.96 KB 格式化 JSON 响应，成功生成 cURL 调用命令，记录到 11 次 PostHog 与 Crisp 遥测载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "astexplorer-net": {
+    "en": {
+      "bestFor": "Inspecting, debugging, and transforming Abstract Syntax Trees across multiple programming languages directly in the browser.",
+      "pros": [
+        "Comprehensive language and parser coverage including Babel, Acorn, ESLint, TypeScript, CSS, and GraphQL",
+        "Instant access without account registration or mandatory authentication barriers",
+        "Interactive transform playground supporting jscodeshift and custom Babel compiler plugins"
+      ],
+      "cons": [
+        "Multi-pane layout requires desktop-class viewport for optimal readability",
+        "Generating persistent shareable URLs requires connecting a personal GitHub Gist token"
+      ],
+      "privacyVerdict": "AST parsing is executed locally within the browser thread. Network egress is limited to self-hosted Plausible telemetry and CDN performance beacons, ensuring source code remains inside the client sandbox.",
+      "alternativeTo": [
+        "TypeScript AST Viewer",
+        "Babel REPL",
+        "Esprima Parser Demo"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "In-browser client-side AST parsing engines without transmitting source code",
+            "Self-hosted Plausible analytics and Cloudflare CDN metrics only, zero third-party commercial trackers"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Client-side AST parsing across 20+ languages in 152 ms total long tasks; network telemetry shows only 2 requests to self-hosted Plausible analytics and Cloudflare RUM; 0 commercial trackers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器中实时审查、调试与转换跨多门编程语言的抽象语法树（AST）。",
+      "pros": [
+        "覆盖业界主流语法解析器，包含 Babel、Acorn、ESLint、TypeScript、CSS 及 GraphQL",
+        "完全无需登录注册即可直接编写代码并实时渲染语法树",
+        "内置 Transform 调试能力，原生支持 jscodeshift 与自定义 Babel 转换插件"
+      ],
+      "cons": [
+        "多栏并排布局在小屏幕或移动端设备上可用空间受限",
+        "生成公开分享链接需要关联个人的 GitHub Gist 凭据"
+      ],
+      "privacyVerdict": "语法树解析逻辑完全在浏览器本地线程中执行。网络出站仅限自建 Plausible 访问统计与 CDN 监控信标，源码数据不上传至远端服务器。",
+      "alternativeTo": [
+        "TypeScript AST Viewer",
+        "Babel REPL",
+        "Esprima Parser Demo"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "In-browser client-side AST parsing engines without transmitting source code",
+            "Self-hosted Plausible analytics and Cloudflare CDN metrics only, zero third-party commercial trackers"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "客户端本地解析耗时 152 ms，网络监控仅记录到 2 次自建 Plausible 与 Cloudflare RUM 请求，无第三方商业追踪器。",
+      "testedAt": "2026-09"
+    }
   }
 }
