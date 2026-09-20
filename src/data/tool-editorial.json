@@ -4620,5 +4620,117 @@
       "benchmarkNotes": "在 984 ms 内完成 C++ 源码在 -O3 优化级别下的 x86-64 编译，精准过滤 206 行汇编并收敛至 3 条指令，全过程仅向官方发起 2 次请求且无外部数据外流。",
       "testedAt": "2026-09"
     }
+  },
+  "play-rust-lang-org": {
+    "en": {
+      "bestFor": "Rustaceans, systems developers, and learners writing, testing, formatting, and profiling Rust code across Stable, Beta, and Nightly channels",
+      "pros": [
+        "Official Rust sandbox supporting Stable, Beta, and Nightly channels across 2015, 2018, 2021, and 2024 editions",
+        "Built-in integration with Clippy linter, Rustfmt formatter, Miri undefined-behavior interpreter, and macro expansion",
+        "Zero third-party tracking or advertising with transient containerized execution and permanent shareable links"
+      ],
+      "cons": [
+        "Restricted to top popular crates from crates.io; arbitrary external crate dependencies cannot be fetched dynamically",
+        "Backend execution timeouts prevent running long-running network daemons or heavy multithreaded benchmarks"
+      ],
+      "privacyVerdict": "Code compiles inside ephemeral isolated Docker containers on play.rust-lang.org infrastructure; zero third-party telemetry trackers or commercial ad networks were contacted.",
+      "alternativeTo": [
+        "Godbolt",
+        "Rust Explorer",
+        "OneCompiler Rust"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 99
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Compiled and executed Rust playground template in 540 ms with isolated stdout output and zero external data egress beyond 2 play.rust-lang.org compilation calls.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速编写、编译验证、格式化以及排查未定义行为（Miri）的 Rust 开发者与系统学习者",
+      "pros": [
+        "官方 Rust 在线沙箱，原生支持 Stable、Beta、Nightly 分支及 2015 至 2024 完整语言版本",
+        "深度内置 Clippy 代码质量检查、Rustfmt 自动格式化、Miri 内存未定义行为探测器与宏展开工具",
+        "彻底无第三方遥测与商业广告追踪，代码在临时容器中运行并支持一键生成持久分享 URL"
+      ],
+      "cons": [
+        "仅预装 crates.io 排名前列的主流常用库，不支持任意远程依赖的动态拉取",
+        "沙箱受限于单次运行时间配额，无法用于运行长生命周期的网络服务或高负载性能压测"
+      ],
+      "privacyVerdict": "源代码通过 HTTPS 仅提交至 play.rust-lang.org 官方服务器并在一次性沙箱容器中完成编译与执行，不保留无关持久化副本；全过程 0 第三方分析遥测与商业追踪。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 99
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 540 ms 内完成 Rust 程序的编译与标准输出渲染，支持 Clippy 与 Miri 工具链调用，除 2 次官方编译请求外完全无外部数据外流。",
+      "testedAt": "2026-09"
+    }
+  },
+  "go-dev-play": {
+    "en": {
+      "bestFor": "Go programmers, backend developers, and learners running snippet experiments, testing standard library packages, and sharing reproducible Go bugs",
+      "pros": [
+        "Official Go sandbox running current and historical Go versions with instant execution and deterministic time simulation",
+        "Built-in go fmt code formatting and automated dependency resolution for standard library packages",
+        "One-click shareable permalinks generated without registration or account barriers"
+      ],
+      "cons": [
+        "Simulated sandbox restricts real network calls, disk I/O, and non-deterministic concurrency timeouts",
+        "Loads Google Analytics and DoubleClick telemetry scripts in accordance with Google's site policy"
+      ],
+      "privacyVerdict": "Source code executes within Google's isolated playground sandbox cluster; telemetry includes 6 requests to Google Analytics and DoubleClick infrastructure alongside standard Google cookie consent.",
+      "alternativeTo": [
+        "Better Go Playground",
+        "Godbolt",
+        "OneCompiler Go"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed Go Hello World template in 72 ms with standard output rendering and generated shareable permalink across 6 Google telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速验证 Go 语法、测试标准库包行为并生成可复现代码短链的 Go 语言开发者与学习者",
+      "pros": [
+        "Google 官方 Go 语言沙箱，提供最新及历史 Go 版本环境，具备秒级编译与确定性时间模拟",
+        "内置一键 go fmt 自动化代码格式排版，开箱即用",
+        "无需登录即可一键生成持久化的唯一代码分享短链接（dev/play/p/...）"
+      ],
+      "cons": [
+        "沙箱受严格安全隔离限制，禁用了真实网络通信与底层文件系统读写",
+        "页面加载时伴随 Google Analytics 及 DoubleClick 统计与 Cookie 追踪脚本"
+      ],
+      "privacyVerdict": "提交的 Go 代码在 Google 云端沙箱集群中受控执行并进行结果缓存；页面遵循 Google 统一隐私政策，伴随 6 条谷歌分析与 DoubleClick 遥测载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 72 ms 内完成 Go 源码编译并成功输出标准字符，生成唯一分享短链，捕获 6 次谷歌分析与双击广告网络载荷。",
+      "testedAt": "2026-09"
+    }
   }
 }

@@ -103,6 +103,17 @@ export const onRequest = defineMiddleware(async (context, next) => {
     console.error('[isr-cache] read error:', err);
   }
 
+  // Workaround for Cloudflare Pages clean URL bug on directories ending with -index-html
+  if (pathname.includes('-index-html') && !pathname.endsWith('/index.html')) {
+    const staticFilePath = `${pathname.replace(/\/+$/, '')}/index.html`;
+    try {
+      const directResponse = await context.rewrite(staticFilePath);
+      if (directResponse.status === 200) {
+        return withContentLanguage(directResponse, pathname);
+      }
+    } catch {}
+  }
+
   // Phase 2: Try static rendering (will 404 if no static file exists)
   const response = await next();
 

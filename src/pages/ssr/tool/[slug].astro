@@ -73,7 +73,7 @@ try {
       .select({ toolId: tags.toolId })
       .from(tags)
       .where(and(eq(tags.tagKey, 'category'), eq(tags.tagValue, categoryTag.tagValue)));
-    const relatedIds = relatedToolIds.map(r => r.toolId).filter(id => id !== tool.id);
+    const relatedIds = relatedToolIds.map(r => r.toolId).filter(id => id !== tool.id).slice(0, 10);
     if (relatedIds.length > 0) {
       const related = await db
         .select({ slug: tools.slug, name: tools.name, url: tools.url, description: tools.description })
