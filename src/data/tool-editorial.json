@@ -14368,5 +14368,249 @@
       "benchmarkNotes": "通过 #pick 选择器上传 PNG 测试工件，应用白底文档增强滤镜，在 2 秒内即时导出 86392 字节无水印结构完整 PDF，主线程最大阻塞仅 92ms，无布局抖动。网络审计共捕获 14 次 Google AdSense 与 Google Analytics 遥测信标，所有文档图像数据均在本地浏览器内存中计算完成。",
       "testedAt": "2026-09"
     }
+  },
+  "tools-pve-ch": {
+    "en": {
+      "bestFor": "Language learners studying the Thai alphabet, command-line and Markdown authors needing ASCII art banners and box diagrams, and researchers seeking ad-free utility tools without logins.",
+      "pros": [
+        "Tracker-free and ad-free static architecture delivering zero network payloads during active use",
+        "Rich suite of Thai language educational tools including interactive consonant drills, flashcards, and printable handwriting worksheets",
+        "Versatile ASCII Art Designer with ready-to-copy box-drawing templates and instant clipboard banner export"
+      ],
+      "cons": [
+        "Utility collection is curated around specialized niches (Thai education, ASCII art, Bern guide) rather than a general-purpose all-in-one suite",
+        "Thai pronunciation exercises rely on client browser Web Speech or bundled audio assets"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified by runtime network monitoring. All ASCII art text calculations, Thai alphabet drills, countdown states, and clipboard export routines run 100% locally in browser memory on a static host without third-party trackers or telemetry beacons.",
+      "alternativeTo": [
+        "Patorjk ASCII Generator",
+        "AnkiWeb",
+        "Omni Calculator"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested ASCII Art Designer by generating a multi-line 'NOLOGIN' standard banner; captured a clean 209-char, 6-line text artifact via the 'Banner kopieren' button in 0ms with zero task freeze. Network snooper confirmed 0 outgoing network payloads across all operations on https://tools.pve.ch/.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "正在学习泰语字母与发音的语言学习者、需要生成 ASCII 艺术横幅与终端边框图的开发者，以及追求无广告、免登录纯净实用工具集的日常用户。",
+      "pros": [
+        "完全零遥测、零广告的静态架构，全流程测试中未记录任何外部网络数据回传",
+        "专为泰语学习打造的教育工具矩阵，涵盖 44 个泰语辅音互动训练、生词卡片与可打印字帖",
+        "高效的 ASCII 艺术设计器，内置多种终端边框模版与实时横幅生成，支持一键无水印复制到剪贴板"
+      ],
+      "cons": [
+        "工具集合定位较为小众，主要聚焦于泰语学习、ASCII 字符排版与特定生活指南，非全功能通用套件",
+        "部分泰语朗读与发音功能依赖终端设备系统所搭载的语音引擎与音频解码支持"
+      ],
+      "privacyVerdict": "经运行时网络监控验证的严格零数据出站架构。所有 ASCII 艺术字符计算、泰语字母测验、倒计时及剪贴板复制逻辑均在本地浏览器内存中完成，无任何第三方分析或广告跟踪信标。",
+      "alternativeTo": [
+        "Patorjk ASCII Generator",
+        "AnkiWeb",
+        "Omni Calculator"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ASCII Art Designer 中测试了 'NOLOGIN' 标准字形横幅生成，通过 'Banner kopieren' 按钮以 0ms 耗时截获 209 字符、6 行纯文本工件，主线程卡顿为 0ms。网络监听确认在操作全过程中向外发出的网络负载请求为 0 个。",
+      "testedAt": "2026-09"
+    }
+  },
+  "www-calculatorcampus-com": {
+    "en": {
+      "bestFor": "Contractors, DIY homebuilders, students, and homeowners requiring transparent mathematical calculations with documented engineering formulas, worked examples, and stateful URL sharing.",
+      "pros": [
+        "Extensive suite of 49 domain-specific calculators featuring transparent mathematical formulas, step-by-step worked examples, and named technical sources",
+        "Stateful URL sharing system that encodes custom project dimensions and unit configurations into a clean shareable link without account signups",
+        "Clean, ad-free user interface operating with zero frame jank and 0ms main-thread freezes"
+      ],
+      "cons": [
+        "Calculation engine offloads formula resolution to an internal API endpoint rather than purely client-side WebAssembly",
+        "Export options are focused on URL link sharing, embed codes, and citations rather than CSV spreadsheet downloads"
+      ],
+      "privacyVerdict": "Input dimensions are processed via first-party API calculation requests (/api/calculators/*/calculate) without persistent user profiling. Anonymous site telemetry is gathered via a self-hosted Rybbit endpoint (rybbit.nmajor.net) without commercial ad networks or third-party tracking scripts.",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Calculator.net",
+        "Blocklayer"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested the Concrete Calculator with a 10x10 ft slab preset at 4 in depth; derived an accurate 1.36 cu yd order quantity and a 62-bag (80 lb) estimate in 0ms with 0 layout shift. Captured a 254-character parameter-encoded link via the 'Copy link' button. Network inspection recorded 3 payloads comprising the calculation API call and a self-hosted Rybbit telemetry beacon.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要透明工料推算（如混凝土方量、龙骨间距、板材估算）且注重计算公式、工程假设依据与参数状态一键分享的施工人员、家装DIY者与学生。",
+      "pros": [
+        "涵盖 49 种细分场景的实用计算器矩阵，每款均附带透明计算公式、步骤推导算例与权威工程数据来源",
+        "支持将当前计算参数与工程单位直接编码为共享链接，一键复制即可原样复现计算状态，无需注册登录",
+        "界面纯净无广告，交互流畅，实测长任务卡顿 0ms，布局抖动为零"
+      ],
+      "cons": [
+        "计算求解通过站点自身 API 接口完成，而非纯前端本地 WebAssembly 运行时运算",
+        "导出功能主要依托含参共享链接、嵌入代码与引用文本，暂未提供原始 CSV 表格导出"
+      ],
+      "privacyVerdict": "计算参数通过站点第一方 API 接口（/api/calculators/*/calculate）即时计算，不留存用户个人身份画像。网站通过自建 Rybbit 端点（rybbit.nmajor.net）收集匿名基础访问指标，不存在第三方商业广告网络或跨站追踪行为。",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Calculator.net",
+        "Blocklayer"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在混凝土计算器中测试了 10x10 英尺、4 英寸厚度的现浇板预设，以 0ms 耗时与 0 布局偏移精准推导出 1.36 立方码方量及 62 包（80 磅）预拌袋装用量。通过 'Copy link' 按钮成功截获 254 字符的状态链接。网络监听记录到 3 次请求，包含计算 API 与自建 Rybbit 匿名遥测信标。",
+      "testedAt": "2026-09"
+    }
+  },
+  "bitibybit-com-volunteer-roster": {
+    "en": {
+      "bestFor": "School event coordinators, sports club committees, community fete organizers, and charity leads needing simple volunteer shift sign-up sheets without forcing participants to create accounts or download apps.",
+      "pros": [
+        "Zero-signup dual-link workflow providing a private coordinator management URL alongside a one-tap public sign-up link",
+        "Built-in spreadsheet formula-injection guard and UTF-8 BOM encoding for robust and safe client-side CSV exports",
+        "Ships with 10 authentic Australian sports club and community roster templates ready to customize in seconds"
+      ],
+      "cons": [
+        "Coordinator access relies entirely on bookmarking or saving the generated admin URL since no user account recovery exists",
+        "Volunteer assignment notifications do not include automated email or SMS reminders without third-party integration"
+      ],
+      "privacyVerdict": "Roster structures and shift slots are communicated to the first-party /api/roster endpoint to establish unique coordinator and volunteer access links. No user passwords, accounts, or mandatory emails are harvested, and runtime telemetry is confined to privacy-focused GoatCounter beacons and Cloudflare RUM.",
+      "alternativeTo": [
+        "SignUpGenius",
+        "Doodle",
+        "Volunteersignup.org",
+        "Google Forms"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Configured a 5-shift, 16-spot community fete roster; generated coordinator view and volunteer link with 0ms task freeze. Verified CSV export via #csvBtn delivering an 18-byte valid UTF-8 BOM header line without authentication gates. Network logging recorded 5 payloads including GoatCounter privacy metrics and the /api/roster creation request.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要为学校活动、运动俱乐部、社区义卖会及志愿者轮班快速生成排班表，且不强制参与者注册账号、填写邮箱或下载 App 的活动组织者与协调员。",
+      "pros": [
+        "零注册双链接架构，自动生成协调员专属管理私密链接与志愿者一键认领公开链接，分权清晰",
+        "导出的 CSV 内置防电子表格公式注入机制与 UTF-8 BOM 编码，确保在各类表格软件中安全且无乱码打开",
+        "预置 10 款真实的俱乐部活动排班模板（板球、田径、烧烤义卖等），无需从零编写排班逻辑"
+      ],
+      "cons": [
+        "由于不设账号体系，协调员权限完全依托唯一管理链接的本地书签保存，丢失链接无法找回",
+        "未集成自动化的短信或邮件排班提醒，需依靠组织者通过群聊分发链接"
+      ],
+      "privacyVerdict": "排班结构与班次配置通过第一方 /api/roster 接口生成协调员与志愿者专属访问链接。无需密码、账户或强制邮箱收集，运行时网络负载仅包含注重隐私的 GoatCounter 统计与 Cloudflare RUM 性能指标。",
+      "alternativeTo": [
+        "SignUpGenius",
+        "Doodle",
+        "Volunteersignup.org",
+        "Google Forms"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "配置了包含 5 个班次、16 个席位的社区活动排班，即时生成协调员与志愿者双端链接，长任务卡顿为 0ms。通过 #csvBtn 触发真实 CSV 下载，成功截获带 UTF-8 BOM 头的 18 字节工件且无任何鉴权拦截。网络审计记录到 5 次请求，主要为 GoatCounter 隐私统计及 /api/roster 基础建表接口。",
+      "testedAt": "2026-09"
+    }
+  },
+  "piccollages-com": {
+    "en": {
+      "bestFor": "Photographers, social media creators, scrapbook hobbyists, and marketers needing to assemble multi-photo grid collages, long stitches, and banners with 2x/5x high-resolution PNG exports without account registration.",
+      "pros": [
+        "Comprehensive grid layout engine supporting 1 to 11 photo slots with customizable margins, corner radii, and background styling",
+        "Client-side high-resolution rendering pipeline supporting 1x, 2x, and 5x resolution upscaling with transparent PNG support",
+        "Completely watermark-free image export delivered directly to the browser without payment traps or mandatory account barriers"
+      ],
+      "cons": [
+        "Third-party analytics and advertising scripts (Google AdSense, Ahrefs, GA) are active across page navigation",
+        "Initial loading of editor bundles and layout engines requires fetching several client-side JavaScript assets"
+      ],
+      "privacyVerdict": "Photo uploads and canvas compositing execute locally via HTML5 Canvas and IndexedDB storage (multiImageStorage). Outgoing network traffic is limited to Google AdSense advertising pings, Google Analytics, Ahrefs analytics, and Cloudflare RUM metrics; uploaded photos and rendered collage graphics are never transmitted to remote servers.",
+      "alternativeTo": [
+        "Canva",
+        "PhotoJoiner",
+        "BeFunky Collage Maker",
+        "Fotor"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Configured a 3-slot layout, loaded a 200x200 canvas graphic into the active placeholder, and exported a clean 1300x1300 PNG artifact (66800 bytes) at 2x resolution in under 2 seconds with 0ms task freeze. Network snooper logged 16 telemetry and AdSense consent events, confirming that photo pixel data remained entirely in local IndexedDB and HTML5 Canvas memory.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速排版九宫格照片拼贴、长图拼接及社交媒体宣传海报，并导出 2x/5x 高清无水印 PNG 图像的摄影爱好者与自媒体创作者。",
+      "pros": [
+        "强大的多图拼贴排版引擎，支持 1 至 11 张照片的丰富网格模版，并可自由调节间距、圆角与背景样式",
+        "前端高清渲染管线，支持标准（1x）、高清（2x）及无损（5x）超清分辨率导出，全面兼容透明 PNG",
+        "完全零水印自由导出，直接将高质量拼贴画保存至本地，无任何付费限制或强制注册拦截"
+      ],
+      "cons": [
+        "页面在访问过程中加载了 Google AdSense 广告及 Ahrefs、Google Analytics 分析脚本",
+        "拼贴编辑器初始化时需要下载较完整的前端组件包，初次加载耗时略长"
+      ],
+      "privacyVerdict": "所有照片文件与拼贴排版渲染均通过 HTML5 Canvas 与本地 IndexedDB（multiImageStorage）在本地处理。网络出站数据仅包含 Google AdSense 广告组件、Google Analytics、Ahrefs 统计与 Cloudflare RUM 指标，用户图片与生成的拼贴图画绝不上传至远程服务器。",
+      "alternativeTo": [
+        "Canva",
+        "PhotoJoiner",
+        "BeFunky Collage Maker",
+        "Fotor"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "配置了三图拼贴模版，向首个占位格注入测试图像，在 2 秒内即时渲染并导出 1300x1300 分辨率、66800 字节的 2x 高清 PNG 工件，主线程卡顿为 0ms。网络监控捕获到 16 次遥测与 AdSense 授权请求，确认所有图像像素与渲染缓冲均保留在本地 IndexedDB 与 Canvas 内存中。",
+      "testedAt": "2026-09"
+    }
   }
 }
