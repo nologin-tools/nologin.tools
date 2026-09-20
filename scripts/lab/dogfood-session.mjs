@@ -336,6 +336,17 @@ Commands:
 // -------------------------------------------------------------------------
 async function cmdStart(targetUrl, customSlug = null) {
   let safeSlug = customSlug;
+  if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+    try {
+      const buildData = JSON.parse(readFileSync(resolve(ROOT, 'src/data/build-data.json'), 'utf-8'));
+      const found = buildData.tools.find(t => t.slug === targetUrl);
+      if (found) {
+        safeSlug = targetUrl;
+        targetUrl = found.url;
+      }
+    } catch {}
+  }
+
   if (!safeSlug) {
     try {
       safeSlug = new URL(targetUrl).hostname.replace(/[^a-zA-Z0-9-]/g, '-');

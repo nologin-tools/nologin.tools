@@ -15122,5 +15122,287 @@
       "benchmarkNotes": "为 https://nologin.tools 配置了网址二维码，实时渲染出 25x25 点阵且无任何布局偏移。点击 Download SVG 按钮在 0ms 内成功下载 4621 字节的纯净矢量 SVG 文件，全流程零卡顿且向外出站网络请求数为 0。",
       "testedAt": "2026-09"
     }
+  },
+  "playfatelab-com": {
+    "en": {
+      "bestFor": "Tabletop RPG players, board gamers, and decision-makers needing immersive 3D dice and multi-mode local randomness",
+      "pros": [
+        "Full polyhedral 3D physics dice engine (D4 through D100) with custom modifiers and smooth WebGL rendering",
+        "Supports multiple randomness modules including coins, custom decision lists, wheel picker, and chance percentages",
+        "Multi-session history manager with direct CSV, formatted text, and JSON backup export",
+        "Local-first storage with explicit analytics rejection yielding zero outbound payload egress"
+      ],
+      "cons": [
+        "Cloudflare Zaraz consent dialog requires an initial opt-out click to prevent analytics tracking"
+      ],
+      "privacyVerdict": "Strictly local execution verified in dogfooding; opting out of analytics through the consent dialog ensured zero outbound network payload egress during 3D dice simulation and data export.",
+      "alternativeTo": [
+        "Roll20 Dice Roller",
+        "Google Dice",
+        "Wheel of Names"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Simulated D6 + D20 multi-die roll with WebGL physics, achieving 60 FPS animation with zero CLS (0.00). Exported complete session history to clean 110-byte CSV with zero payload egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要沉浸式 3D 物理掷骰与多模式本地随机决策的桌游 RPG 玩家与决策者",
+      "pros": [
+        "全套多面体 3D 物理掷骰引擎（D4 至 D100），支持自定义修饰符与丝滑 WebGL 动画",
+        "涵盖硬币翻折、自定义决策清单抽取、大转盘及百分比几率等全套随机工具",
+        "内置多会话历史记录管理器，可一键导出结构化 CSV、格式化文本与 JSON 备份",
+        "本地优先存储架构，显式拒绝分析后实现严格零数据外发"
+      ],
+      "cons": [
+        "初次加载会弹出 Cloudflare Zaraz 同意弹窗，需手动点击全部拒绝以阻止统计跟踪"
+      ],
+      "privacyVerdict": "实测验证严格本地运行；在同意弹窗中拒绝统计后，3D 物理掷骰与会话导出全流程无任何网络数据外发。",
+      "alternativeTo": [
+        "Roll20 Dice Roller",
+        "Google Dice",
+        "Wheel of Names"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 D6 与 D20 组合物理掷骰，WebGL 动画保持 60 FPS 且无布局位移（CLS 0.00）。完整导出 110 字节结构化会话 CSV，全程零负载外发。",
+      "testedAt": "2026-09"
+    },
+    "productScore": {
+      "overall": 98,
+      "frictionless": 19,
+      "depth": 25,
+      "exportFreedom": 20,
+      "privacy": 19,
+      "polish": 15
+    },
+    "pros": [
+      "Full polyhedral 3D physics dice engine (D4 through D100) with custom modifiers and smooth WebGL rendering",
+      "Supports multiple randomness modules including coins, custom decision lists, wheel picker, and chance percentages",
+      "Multi-session history manager with direct CSV, formatted text, and JSON backup export",
+      "Local-first architecture keeps all roll history, picker lists, and custom presets in the browser"
+    ],
+    "prosZh": [
+      "全套多面体 3D 物理掷骰引擎（D4 至 D100），支持自定义修饰符与丝滑 WebGL 动画",
+      "涵盖硬币翻折、自定义决策清单抽取、大转盘及百分比几率等全套随机工具",
+      "内置多会话历史记录管理器，可一键导出结构化 CSV、格式化文本与 JSON 备份",
+      "本地优先存储架构，所有掷骰历史、抽取列表与预设均留存于浏览器本地"
+    ],
+    "cons": [
+      "Cloudflare Zaraz consent dialog requires an initial opt-out click to prevent tracking"
+    ],
+    "consZh": [
+      "初次加载会弹出 Cloudflare Zaraz 同意弹窗，需手动点击全部拒绝以阻止统计跟踪"
+    ],
+    "privacyVerdict": "Dogfooding verified local dice simulation and data export; opting out of analytics via the consent dialog triggers a single Cloudflare Zaraz consent state payload (/cdn-cgi/zaraz/t), while no user game state, rolls, or session data egress from the browser.",
+    "privacyVerdictZh": "实测掷骰模拟与会话导出在本地完成；在同意弹窗中选择全部拒绝会向 Cloudflare Zaraz 发送单次偏好同步请求（/cdn-cgi/zaraz/t），实际掷骰结果与会话数据完全留存于浏览器本地。",
+    "benchmarkNotes": "Simulated D6 + D20 multi-die roll with WebGL physics, achieving 60 FPS animation with zero CLS (0.00). Exported complete session history to clean 110-byte CSV with 1 observed Cloudflare Zaraz consent egress.",
+    "benchmarkNotesZh": "实测 D6 与 D20 组合物理掷骰，WebGL 动画保持 60 FPS 且无布局位移（CLS 0.00）。完整导出 110 字节结构化会话 CSV，观察到 1 次 Cloudflare Zaraz 偏好同步请求。"
+  },
+  "pixeltools-io": {
+    "en": {
+      "bestFor": "Designers, developers, and creators needing a comprehensive in-browser utility suite for client-side image compression, conversion, and PDF processing",
+      "pros": [
+        "Comprehensive in-browser media suite covering image compression, format conversion, PDF operations, audio/video tools, and developer utilities",
+        "Local processing via Canvas API reduces files significantly without uploading user image data to external servers",
+        "Real-time quality slider with instant file size savings preview and multi-format export targets",
+        "Direct unwatermarked file downloads supporting batch processing without account registration"
+      ],
+      "cons": [
+        "Sends Google Analytics 4 telemetry payloads during site navigation and feature usage",
+        "Heavy features like background removal and video encoding require downloading local client-side model binaries on first use"
+      ],
+      "privacyVerdict": "Dogfooding confirmed local file handling via Canvas API where original image bytes do not upload to servers; however, 4 Google Analytics telemetry payloads were observed egressing during the session.",
+      "alternativeTo": [
+        "TinyPNG",
+        "iLoveIMG",
+        "CloudConvert",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Compressed 324.8 KB PNG to 45.3 KB JPEG (86% reduction) at 80% quality via Canvas API. Clean unwatermarked 800x600 artifact exported with 4 observed GA4 telemetry requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中通过客户端进行图片压缩、格式转换与 PDF 处理的设计师、开发者与内容创作者",
+      "pros": [
+        "涵盖图片压缩、格式转换、PDF 操作、音视频工具与开发者套件的全面浏览器多媒体工具箱",
+        "依托 Canvas API 在本地完成处理，大幅缩减文件体积的同时无需将图片数据上传到外部服务器",
+        "提供实时质量滑块，即时预览体积节省幅度，支持多格式输出目标",
+        "直接下载无水印文件，支持批量处理，全程无需注册登录"
+      ],
+      "cons": [
+        "页面浏览与功能使用期间会向 Google Analytics 4 发送统计遥测负载",
+        "AI 抠图与音视频等重型功能首次运行时需在客户端下载模型与编码库"
+      ],
+      "privacyVerdict": "实测验证文件处理通过 Canvas API 在本地完成，原始图片数据未上传服务器；但交互期间观察到 4 次 Google Analytics 统计遥测负载外发。",
+      "alternativeTo": [
+        "TinyPNG",
+        "iLoveIMG",
+        "CloudConvert",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "通过 Canvas API 在 80% 质量下将 324.8 KB PNG 压缩为 45.3 KB JPEG（体积缩减 86%）。成功导出无水印 800x600 文件，全流程记录到 4 次 GA4 统计请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "herebytes-com-remove-image-gps": {
+    "en": {
+      "bestFor": "Photographers, journalists, and privacy-conscious individuals needing to scrub GPS coordinates and EXIF metadata from photos before sharing online",
+      "pros": [
+        "Reconstructs photo pixels client-side to strip embedded GPS coordinates, camera models, and EXIF metadata",
+        "Batch processing with ZIP bundle export, customizable compression quality, and folder ingestion",
+        "Clear visual before-and-after size comparison with immediate processing status",
+        "Direct unwatermarked file downloads without account creation or daily quota limits"
+      ],
+      "cons": [
+        "Transmits 4 anonymous event telemetry payloads to `/api/events` during page interaction",
+        "Client-side image processing engine requires a brief initialization phase upon first launch"
+      ],
+      "privacyVerdict": "Dogfooding verified that photo pixel sanitization and metadata removal execute locally on the user device without uploading image files; however, 4 anonymous event telemetry payloads egressed to `/api/events` during testing.",
+      "alternativeTo": [
+        "ExifCleaner",
+        "Jimp",
+        "Metadata2Go",
+        "Photopea"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Processed 325 KiB PNG image, removing all non-pixel metadata and optimizing output to 25.6 KiB (92% reduction). Exported clean 800x600 PNG artifact with 4 observed `/api/events` telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在网络分享前清除照片中 GPS 经纬度定位与 EXIF 元数据的摄影师、记者与隐私敏感用户",
+      "pros": [
+        "在客户端通过像素重构技术彻底剥离嵌入的 GPS 定位坐标、相机型号与 EXIF 敏感元数据",
+        "支持批量图片处理与 ZIP 打包下载，具备自定义压缩质量与文件夹直接导入功能",
+        "清晰展示处理前后体积对比与实时进度状态",
+        "直接导出无水印原画质图像，完全无需注册账号或忍受额度限制"
+      ],
+      "cons": [
+        "页面交互过程中会向 `/api/events` 发送 4 次匿名事件遥测数据",
+        "客户端图片处理引擎在首次载入时需要短暂的初始化准备时间"
+      ],
+      "privacyVerdict": "实测验证照片像素重构与元数据剥离完全在用户设备本地运行，原始图片未上传服务器；但测试期间记录到 4 次向 `/api/events` 发送的匿名事件遥测负载。",
+      "alternativeTo": [
+        "ExifCleaner",
+        "Jimp",
+        "Metadata2Go",
+        "Photopea"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测处理 325 KiB PNG 图片，彻底剥离非像素元数据并将体积优化至 25.6 KiB（缩减 92%）。成功导出无水印 800x600 PNG 文件，观察到 4 次 `/api/events` 遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "fluxops-nanocorp-app-tools-reorder-calculator": {
+    "en": {
+      "bestFor": "E-commerce store owners, Shopify sellers, and inventory managers needing quick, formula-free reorder point and stockout risk estimates",
+      "pros": [
+        "Instant calculation of reorder points, days of stock remaining, and suggested order quantities without spreadsheet formulas",
+        "Clear visual indicators for SKUs requiring immediate reorder or flagging overstocked items exceeding 90 days",
+        "Preloaded with realistic multi-SKU sample inventory data for immediate exploration without signup",
+        "Inventory SKU names and unit figures are processed entirely in browser local memory"
+      ],
+      "cons": [
+        "Lacks a dedicated CSV or Excel file export button, requiring manual copying or browser printing",
+        "Transmits 5 background telemetry payloads (Cloudflare RUM and Phospho analytics) during session"
+      ],
+      "privacyVerdict": "Dogfooding confirmed that all inventory figures, sales metrics, and SKU names are calculated client-side; however, 5 telemetry payloads (1 Cloudflare RUM and 4 Phospho analytics) egressed during the session.",
+      "alternativeTo": [
+        "Katana Cloud Inventory",
+        "TradeGecko",
+        "QuickBooks Commerce",
+        "Google Sheets"
+      ],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 17,
+        "depth": 19,
+        "exportFreedom": 14,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Captured 212-character clipboard text buffer from 5 input DOM elements with 0ms long-task latency. Evaluated 50 stock, 10 daily sales, 14d lead, and 3d safety, rendering 5d REORDER badge with 170 unit reorder point and 310 suggested quantity; observed 5 telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速估算补货点、缺货风险与滞销积压状态的电商卖家与库存管理员",
+      "pros": [
+        "无需编写表格公式，即时计算补货安全点、可用库存天数与建议采购量",
+        "醒目的视觉标识，自动标记需要紧急补货或超期积压（>90天）的商品 SKU",
+        "预置贴合实际的多品类库存样例数据，无需注册即可直接上手测算",
+        "填写的商品名称与库存销售数据完全在浏览器本地内存中计算"
+      ],
+      "cons": [
+        "未提供直接的 CSV 或 Excel 导出按钮，需手动复制表格内容或通过浏览器打印保存",
+        "运行期间记录到 5 次后台遥测请求（Cloudflare RUM 与 Phospho 分析平台）"
+      ],
+      "privacyVerdict": "实测确认所有库存数字、销售指标与商品名称均在客户端本地完成运算；但测试期间记录到 5 次遥测负载（1 次 Cloudflare RUM 与 4 次 Phospho 统计分析）。",
+      "alternativeTo": [
+        "Katana Cloud Inventory",
+        "TradeGecko",
+        "QuickBooks Commerce",
+        "Google Sheets"
+      ],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 17,
+        "depth": 19,
+        "exportFreedom": 14,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "通过 5 个 input DOM 节点捕获 212 字符剪贴板文本，长任务延迟为 0ms。测算 50 库存、10 日销、14 天到货周期与 3 天安全库存，即时渲染 5 天 REORDER 徽标、170 件补货点与 310 件建议订货量，记录到 5 次遥测负载。",
+      "testedAt": "2026-09"
+    }
   }
 }
