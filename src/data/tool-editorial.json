@@ -13622,5 +13622,255 @@
       "benchmarkNotes": "对 43 字符的明文字符串进行 Base64 实时编码实测，系统即时生成 60 字符标准 Base64 编码结果，成功完成 60 字符的纯净剪贴板捕获，全程 0ms 冻结且无布局偏移。",
       "testedAt": "2026-09"
     }
+  },
+  "www-slabcalc-co": {
+    "en": {
+      "bestFor": "General contractors, masons, DIY homeowners, and civil estimators needing instant concrete volume, bag counts, and material weights for residential foundation slabs, curbs, and stairs.",
+      "pros": [
+        "Comprehensive geometric models supporting slabs, footings, sonotube cylinders, curbs, and multi-riser stairs.",
+        "Dual unit systems (imperial and metric) with granular bag breakdown across 40lb, 50lb, 60lb, and 80lb premix sizes.",
+        "Integrated 'COPY ENGINEERING SPECS' export button producing structured multi-line material summaries without promotional watermarks."
+      ],
+      "cons": [
+        "Page layout includes third-party display advertisements alongside calculator inputs.",
+        "Cost estimation figures reflect historical public bid aggregates rather than localized real-time contractor quotes."
+      ],
+      "privacyVerdict": "Client-side civil engineering calculator architecture. Volume, bag count, and weight calculations execute directly within the local browser runtime. Observed network activity was strictly limited to third-party display advertising and telemetry payloads; dimensional inputs and project estimates are not stored on remote application servers.",
+      "alternativeTo": [
+        "Calculator.net Concrete",
+        "Omni Concrete Calculator",
+        "Sakrete Concrete Calculator",
+        "Quikrete Calculator"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Calculated 30x15 ft slab at 6 in thickness with 10% waste factor; derived 4.07 YD³ (184 bags of 80lb, 110.0 FT³ volume) and exported 354 characters of clean engineering specs via clipboard with 0ms freeze and 0.08 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要针对地基平板、圆柱立柱、路缘石及台阶快速推算混凝土浇筑体积、袋装预拌料包数及材料总重的建筑施工方、泥瓦匠与家装 DIY 爱好者。",
+      "pros": [
+        "完备的工程几何体模型，原生支持平板、地基槽、圆管柱、路缘石及多级台阶计算。",
+        "支持英制与公制双单位体系，细化输出 40 磅、50 磅、60 磅及 80 磅不同预拌袋装规格所需数量。",
+        "内置‘复制工程规格’快捷按钮，一键输出 354 字符的结构化材料明细，绝无推广水印。"
+      ],
+      "cons": [
+        "计算器界面两侧及顶部包含第三方展示型横幅广告。",
+        "造价参考区间基于历史公共招标大数据重映射，不能替代施工现场实时承包商报价。"
+      ],
+      "privacyVerdict": "前端土木工程计算架构。混凝土浇筑体积、袋装水泥用量及重量测算完全在本地浏览器运行时中执行。实测网络活动仅限于第三方展示型广告与基础遥测信标，用户的尺寸参数与项目工程估算绝不上传至应用服务端。",
+      "alternativeTo": [
+        "Calculator.net Concrete",
+        "Omni Concrete Calculator",
+        "Sakrete Concrete Calculator",
+        "Quikrete Calculator"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "输入 30×15 英尺、厚度 6 英寸的混凝土平板并设定 10% 损耗系数；系统即时推算出 4.07 立方码（184 袋 80 磅规格，总体积 110.0 立方英尺），并通过复制工程规格按钮捕获 354 字符规整文本，主线程延迟 0ms，CLS 为 0.08。",
+      "testedAt": "2026-09"
+    }
+  },
+  "formatdrop-com": {
+    "en": {
+      "bestFor": "Users needing fast in-browser conversions between common image, audio, or document formats who can tolerate promotional watermarks or plan to upgrade.",
+      "pros": [
+        "Converts files directly in the browser via Canvas and WASM without uploading source files to remote servers",
+        "Broad format support covering raster images, vector files, audio, video, and documents",
+        "Responsive drag-and-drop workflow with immediate local conversion and no account requirement"
+      ],
+      "cons": [
+        "Free image exports are permanently stamped with visible repeating diagonal 'formatdrop.com' watermarks",
+        "Free tier limits batches to 5 files and 10MB per file, locking clean downloads behind a $9.99/mo Pro paywall"
+      ],
+      "privacyVerdict": "Local client-side conversion architecture. Image rendering and transformations run directly in the browser runtime via HTML5 Canvas. Observed network traffic was limited to third-party telemetry beacons (Ahrefs analytics and Google Analytics); user files are not transmitted to remote application servers.",
+      "alternativeTo": [
+        "Squoosh",
+        "Imgrove",
+        "SVGOMG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 8,
+        "privacy": 16,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested JPG to PNG conversion on an 800x600 test fixture; converted locally in ~800ms and triggered a 593638-byte PNG download with 0ms task freeze. Visual inspection confirmed repeating diagonal 'formatdrop.com' watermarks across the output. Network snooping recorded 8 outgoing telemetry events to Ahrefs and Google Analytics.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地快速完成图像、音频或文档格式互转，且能接受免费版水印或有 Pro 订阅意愿的用户。",
+      "pros": [
+        "通过 Canvas 与 WASM 在浏览器本地完成格式转换，源文件无需上传至远程服务器",
+        "覆盖光栅图像、矢量图、音频、视频与文档等多种常见文件格式互转",
+        "支持拖拽上传与即时本地转换，无需注册账户即可直接体验"
+      ],
+      "cons": [
+        "免费版导出的图片带有密集的对角线重复 'formatdrop.com' 水印，严重影响成品可用性",
+        "免费额度仅限 5 个文件且单个文件上限 10MB，无水印干净导出需订阅每月 9.99 美元的 Pro 计划"
+      ],
+      "privacyVerdict": "基于前端本地架构的文件转换工具。图像渲染与格式转换通过 HTML5 Canvas 在浏览器运行时中本地执行。实测网络活动仅限于第三方遥测信标（Ahrefs 与 Google Analytics），用户上传的文件绝不传输至远程应用服务器。",
+      "alternativeTo": [
+        "Squoosh",
+        "Imgrove",
+        "SVGOMG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 8,
+        "privacy": 16,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 800×600 格式测试图上进行了 JPG 转 PNG 实测；本地耗时约 800ms，触发下载 593638 字节的 PNG 文件，长任务阻塞 0ms。视觉核验确认导出成品布满对角线重复 'formatdrop.com' 水印。网络监测记录到发往 Ahrefs 与 Google Analytics 的 8 次遥测事件。",
+      "testedAt": "2026-09"
+    }
+  },
+  "artboardlab-com": {
+    "en": {
+      "bestFor": "Designers, web developers, and digital illustrators seeking free in-browser image optimization, WebP/AVIF conversions, and Adobe Illustrator .ai viewing without software installs.",
+      "pros": [
+        "Local WebAssembly processing pipeline for rapid batch image compression and format conversion across JPEG, PNG, WebP, and AVIF",
+        "Dedicated Adobe Illustrator .ai file parser allowing instant viewing and conversion to SVG, PNG, or PDF without desktop Adobe Creative Cloud",
+        "Generates clean, watermark-free exports with direct single-click downloads and granular quality and dimension controls"
+      ],
+      "cons": [
+        "Page includes third-party display advertisements and telemetry scripts (Google AdSense, Microsoft Clarity, Google Analytics)",
+        "Extremely large vector files or high-resolution .ai documents may demand significant device memory"
+      ],
+      "privacyVerdict": "Client-side design and WebAssembly conversion architecture. Image compression, format conversion, and vector parsing execute strictly within the browser runtime. Observed network activity was limited to Google AdSense, Microsoft Clarity, and Google Analytics telemetry beacons; uploaded media and graphic assets are not transmitted to remote servers.",
+      "alternativeTo": [
+        "Squoosh",
+        "Photopea",
+        "SVGOMG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested Image Compressor tool with an 800x600 test fixture; converted PNG (325 KB) to WebP (8.3 KB, 97% reduction) in ~450ms. Captured an 8458-byte clean WebP artifact with 0ms task freeze and zero layout shift. Network inspection confirmed 21 third-party ad and telemetry beacons without user asset transmission.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免安装快速完成图像体积优化、WebP/AVIF 格式互转以及免 Illustrator 打开转换 .ai 矢量文件的设计师与前端开发者。",
+      "pros": [
+        "基于 WebAssembly 的本地处理管线，支持 JPEG、PNG、WebP 与 AVIF 的高效批量图像压缩与格式互转",
+        "内置 Adobe Illustrator .ai 独立解析器，无需安装 Adobe 软件即可在浏览器中预览并导出为 SVG、PNG 或 PDF",
+        "完全无水印干净导出，提供一键直接下载及细粒度的压缩质量与尺寸重构选项"
+      ],
+      "cons": [
+        "页面包含第三方展示广告与遥测脚本（Google AdSense、Microsoft Clarity 与 Google Analytics）",
+        "超大尺寸矢量图或高分辨率 .ai 文件在解析时消耗较多本地终端内存"
+      ],
+      "privacyVerdict": "基于前端本地架构与 WebAssembly 的设计工具集。图像压缩、格式转换与矢量文件解析完全在本地浏览器运行时中执行。实测网络活动仅限于 Google AdSense、Microsoft Clarity 与 Google Analytics 等第三方广告及遥测信标，用户的图片与图形文件绝不上传至远程服务器。",
+      "alternativeTo": [
+        "Squoosh",
+        "Photopea",
+        "SVGOMG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 800×600 测试图上实测图像压缩工具；在约 450ms 内将 325 KB 的 PNG 转码为 8.3 KB 的 WebP（体积缩减 97%）。成功捕获 8458 字节无水印 WebP 文件，长任务阻塞 0ms，布局位移为 0。网络监听记录到 21 个第三方广告与遥测信标，未发生任何素材上传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "convertilo-io": {
+    "en": {
+      "bestFor": "General users seeking quick, unauthenticated browser utilities like QR code generation, text case conversion, and PDF operations without installing desktop software.",
+      "pros": [
+        "Broad catalog of browser-based utilities spanning PDF manipulation, QR codes, audio extraction, and text formatting",
+        "Generates clean, watermark-free exports with direct downloads and zero subscription paywalls",
+        "Tool interfaces load quickly without mandatory sign-up or credit card requirements"
+      ],
+      "cons": [
+        "Integrates intrusive Yandex Metrika WebVisor session recording with persistent WebSocket telemetry streams",
+        "Client-side image compression and conversion modules threw runtime worker errors during testing",
+        "Unfinished localization tags visible on certain category pages (e.g. pages.compressToSize.hubTitle)"
+      ],
+      "privacyVerdict": "Client-side utility execution architecture. QR code generation, canvas rendering, and text utilities run in the local browser runtime. However, observed network activity included active Yandex Metrika session telemetry and WebVisor WebSocket streams capturing user interaction data; core user files are not transmitted to remote file processing servers.",
+      "alternativeTo": [
+        "TinyWow",
+        "123apps",
+        "ArtboardLab",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 17,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested QR Code Generator by encoding https://nologin.tools into a 220x220 canvas; successfully exported a 4018-byte clean PNG artifact with 0ms task freeze. However, image compression and conversion modules failed with red error states, and network audit captured Yandex WebVisor WebSocket connections.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免安装、免登录快速使用二维码生成、文本格式化及基础 PDF 处理等常用轻量工具的日常办公用户。",
+      "pros": [
+        "工具库门类丰富，涵盖 PDF 合并拆分、二维码生成、音频提取及各类文本格式化小工具",
+        "提供无水印、无诱导付费的直接文件下载与导出支持",
+        "无需注册账号或绑定信用卡即可即开即用"
+      ],
+      "cons": [
+        "集成了包含 Yandex Metrika WebVisor 会话回放与持续 WebSocket 遥测流的高强度用户行为追踪",
+        "图像压缩与格式转换组件在本地测试中触发了静默运行报错",
+        "部分页面存在未完成本地化的占位符键名（如 pages.compressToSize.hubTitle）"
+      ],
+      "privacyVerdict": "基于前端本地执行架构的工具集。二维码生成、Canvas 绘制及文本工具在本地浏览器运行时中执行。然而实测网络活动捕获到高频 Yandex Metrika 遥测与 WebVisor 会话回放 WebSocket 数据流；用户的核心处理素材未上传至远程文件处理服务器。",
+      "alternativeTo": [
+        "TinyWow",
+        "123apps",
+        "ArtboardLab",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 17,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在二维码生成工具上实测将 https://nologin.tools 编码为 220×220 画布；成功导出 4018 字节干净无水印 PNG 文件，长任务阻塞 0ms。但图像压缩与格式转换模块触发红色报错，且网络监听捕获到 Yandex WebVisor 的 WebSocket 实时会话数据流。",
+      "testedAt": "2026-09"
+    }
   }
 }
