@@ -134,6 +134,7 @@ describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
       <a href="/about/">About</a>
       <a href="https://nologin.tools/zh/tool/demo?ref=nav#top">Demo</a>
       <a href="/assets/logo.svg">Asset</a>
+      <a href="/cdn-cgi/l/email-protection#1234">Protected Email</a>
       <a href="https://example.com/out">External</a>
       <a href="mailto:test@example.com">Email</a>
       <script>const message = \`<a href="/tool/\${result.details.slug}">Runtime link</a>\`;</script>

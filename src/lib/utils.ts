@@ -7,7 +7,8 @@ export function isValidSlug(slug: string | null | undefined): boolean {
 
 export function urlToSlug(url: string): string {
   const parsed = new URL(url);
-  const raw = (parsed.hostname + parsed.pathname).replace(/\/+$/, '');
+  const cleanPath = parsed.pathname.replace(/\/index\.(?:html?|php|aspx?)$/i, '');
+  const raw = (parsed.hostname + cleanPath).replace(/\/+$/, '');
   const slug = raw
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')

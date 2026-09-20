@@ -80,7 +80,7 @@ export function extractInternalPageLinks(html, baseUrl) {
     try {
       const resolved = new URL(href, baseUrl);
       if (resolved.origin !== origin) continue;
-      if (/^\/(?:api|admin|ssr)(?:\/|$)/.test(resolved.pathname)) continue;
+      if (/^\/(?:api|admin|ssr|cdn-cgi)(?:\/|$)/.test(resolved.pathname)) continue;
       if (/\.(?:avif|css|gif|ico|jpe?g|js|json|map|png|svg|txt|webmanifest|webp|woff2?|xml)$/i.test(resolved.pathname)) continue;
       links.add(normalizeAuditUrl(resolved.toString()));
     } catch {}

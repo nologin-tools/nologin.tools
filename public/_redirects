@@ -1110,3 +1110,22 @@
 /ko/tool/www-quackbuilds-com-apps-oee-pulse-html/ /ko/category/productivity/ 301
 /pt/tool/www-quackbuilds-com-apps-oee-pulse-html /pt/category/productivity/ 301
 /pt/tool/www-quackbuilds-com-apps-oee-pulse-html/ /pt/category/productivity/ 301
+
+# --- Rewrite rules for tools ending in -index-html (Cloudflare Pages static directory resolution workaround) ---
+/tool/preuveenmain-ca-app-index-html /tool/preuveenmain-ca-app-index-html/index.html 200
+/badge/preuveenmain-ca-app-index-html /badge/preuveenmain-ca-app-index-html/index.html 200
+/zh/tool/preuveenmain-ca-app-index-html /zh/tool/preuveenmain-ca-app-index-html/index.html 200
+/zh/badge/preuveenmain-ca-app-index-html /zh/badge/preuveenmain-ca-app-index-html/index.html 200
+/de/tool/preuveenmain-ca-app-index-html /de/tool/preuveenmain-ca-app-index-html/index.html 200
+/de/badge/preuveenmain-ca-app-index-html /de/badge/preuveenmain-ca-app-index-html/index.html 200
+/es/tool/preuveenmain-ca-app-index-html /es/tool/preuveenmain-ca-app-index-html/index.html 200
+/es/badge/preuveenmain-ca-app-index-html /es/badge/preuveenmain-ca-app-index-html/index.html 200
+/fr/tool/preuveenmain-ca-app-index-html /fr/tool/preuveenmain-ca-app-index-html/index.html 200
+/fr/badge/preuveenmain-ca-app-index-html /fr/badge/preuveenmain-ca-app-index-html/index.html 200
+/ja/tool/preuveenmain-ca-app-index-html /ja/tool/preuveenmain-ca-app-index-html/index.html 200
+/ja/badge/preuveenmain-ca-app-index-html /ja/badge/preuveenmain-ca-app-index-html/index.html 200
+/ko/tool/preuveenmain-ca-app-index-html /ko/tool/preuveenmain-ca-app-index-html/index.html 200
+/ko/badge/preuveenmain-ca-app-index-html /ko/badge/preuveenmain-ca-app-index-html/index.html 200
+/pt/tool/preuveenmain-ca-app-index-html /pt/tool/preuveenmain-ca-app-index-html/index.html 200
+/pt/badge/preuveenmain-ca-app-index-html /pt/badge/preuveenmain-ca-app-index-html/index.html 200
+
