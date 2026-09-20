@@ -9932,5 +9932,257 @@
       "benchmarkNotes": "实测 Invoice Generator 填写自定义商家与明细项。DOM 内 Canvas 画布在 54 ms 内即时同步排版渲染。点击 Generate PDF 按钮验证直接下载 93111 bytes 高清矢量 PDF 文件，无水印且无需注册，全程记录到 4 次轻量 /api/event 统计信标。",
       "testedAt": "2026-09"
     }
+  },
+  "pdfinjpgumwandeln-com": {
+    "en": {
+      "bestFor": "German-speaking users, students, and professionals needing to convert PDF pages into high-resolution JPG images directly in the browser without uploading sensitive documents to cloud services",
+      "pros": [
+        "Client-side PDF rasterization: leverages Mozilla PDF.js within browser memory to render pages into images without transmitting PDF binaries to remote servers",
+        "Configurable quality presets: includes Web, Scharf (Sharp), and Drucknah (Print-ready) modes alongside a fine-grained 1% to 100% JPEG compression slider",
+        "Clean high-fidelity artifact export: outputs unwatermarked 1224x1584 JPG images with page range selection and multi-page ZIP packaging",
+        "Zero-login workflow with no subscription funnels, email collection, or waiting queues"
+      ],
+      "cons": [
+        "Transmits standard visit telemetry to Google Analytics (G-K3FJG1HMVP) and Cloudflare RUM",
+        "Primary interface text and documentation are available exclusively in German"
+      ],
+      "privacyVerdict": "PDF decoding and canvas rasterization execute locally in the browser runtime using PDF.js. External network requests during testing were limited to 2 observed payloads: Google Analytics (G-K3FJG1HMVP) and Cloudflare RUM, with zero document contents sent to external servers.",
+      "alternativeTo": [
+        "Smallpdf",
+        "ILovePDF",
+        "PDF2JPG.net",
+        "Adobe Acrobat Web"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 13,
+        "overall": 89
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited PDF to JPG conversion using a 90.9 KB vector PDF document. Mozilla PDF.js rasterized the page to a canvas at 1224x1584 px resolution within 0 ms without main thread freeze. Clicked valid-test-seite-01.jpg download button to verify direct export of an 85369 bytes clean JPEG artifact with zero watermarks, while recording 2 network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不将敏感文档上传至云端服务器的前提下，直接在浏览器中将 PDF 页面高保真转换为 JPG 图片的德语区用户及日常办公者",
+      "pros": [
+        "纯前端 PDF.js 本地栅格化：在浏览器内存中直接将 PDF 解析并渲染为图像，文件数据绝不上传云端后端",
+        "清晰的画质预设与滑块微调：提供 Web（网页）、Scharf（清晰）、Drucknah（接近印刷）三档预设及 1% 至 100% 连续质量调节",
+        "无水印高保真图片导出：直接下载 1224x1584 像素的高清 JPG 文件，支持单页提取与多页 ZIP 自动打包",
+        "免注册免登录无阻碍使用，无收费墙、邮箱采集或转码等待队列"
+      ],
+      "cons": [
+        "包含发往 Google Analytics (G-K3FJG1HMVP) 与 Cloudflare RUM 的基础访问遥测请求",
+        "界面语言与操作说明目前仅提供德语版本"
+      ],
+      "privacyVerdict": "PDF 解析与 Canvas 绘制完全由客户端浏览器内的 Mozilla PDF.js 引擎执行。测试期间捕获到的外部网络请求仅为 2 次常规遥测（Google Analytics G-K3FJG1HMVP 与 Cloudflare RUM），用户上传的 PDF 文档绝无外部传输记录。",
+      "alternativeTo": [
+        "Smallpdf",
+        "ILovePDF",
+        "PDF2JPG",
+        "Adobe Acrobat Web"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 13,
+        "overall": 89
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "使用 90.9 KB 矢量 PDF 文档实测 PDF 转 JPG 功能。浏览器端 PDF.js 在 0 ms 内将页面栅格化为 1224x1584 px 画布。点击 valid-test-seite-01.jpg 下载按钮验证直接导出 85369 bytes 的无水印 JPEG 图片，全程仅捕获 2 次基础遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "www-amortio-com": {
+    "en": {
+      "bestFor": "Home buyers, real estate investors, and borrowers modeling complex mortgage amortizations with PITI, PMI, HOA fees, and extra principal payments without sharing sensitive personal financial data",
+      "pros": [
+        "Client-side amortization calculations: models multi-year payment schedules and principal reduction entirely in local browser memory without transmitting financial numbers to cloud servers",
+        "Comprehensive PITI and fee modeling: calculates principal, interest, property taxes, home insurance, PMI, and HOA fees simultaneously",
+        "Convenient one-click scenario presets: quickly populates standard 30-year purchase ($300K loan), 10% down PMI, and 15-year accelerated payoff parameters",
+        "Unrestricted data export: generates a clean 412-line CSV schedule (25860 bytes) and downloadable PDF reports with zero watermarks or account gates"
+      ],
+      "cons": [
+        "Displays an initial Google Funding Choices cookie consent banner on first page visit",
+        "Transmits standard web analytics requests to Google Analytics (G-PYB612MMMD)"
+      ],
+      "privacyVerdict": "Financial figures, interest rates, and amortization schedules are computed exclusively in client-side JavaScript. Testing captured 11 network payloads related to Google Analytics (G-PYB612MMMD) and Google Funding Choices CMP consent verification; no financial input data was sent off-device.",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "Karl's Mortgage Calculator",
+        "Calculator.net Amortization",
+        "Zillow Mortgage Calculator"
+      ],
+      "productScore": {
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14,
+        "overall": 89
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited 30-year mortgage scenario with $300000 loan balance at 6.53% interest rate and $600 monthly escrow. Evaluated amortization schedule in DOM within 70 ms with zero interface freeze. Clicked Export CSV button to verify direct download of a 25860 bytes CSV file across 412 lines without watermarks or login prompts, while recording 11 network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不向外部金融平台泄露敏感借贷与收入数据的前提下，精确测算包含 PITI、PMI、物业费及提前还款计划的购房者与贷款人",
+      "pros": [
+        "纯前端本地贷款还款推演：全套 360 期本金递减与利息明细均在浏览器内存中即时推演，财务金额绝不上传远端服务器",
+        "完备的综合费用模型：同步支持本息（P&I）、房产税、房屋保险、PMI 私人房贷保险与 HOA 物业费的合并测算",
+        "一键场景预设：提供 30 年标准按揭（30 万美元贷款）、10% 首付叠加 PMI 与 15 年快速还清三种典型参数一键填报",
+        "无限制数据导出：直接下载 412 行的完整 CSV 明细表（25860 字节）与 PDF 报告，无任何水印或注册强制要求"
+      ],
+      "cons": [
+        "初次访问页面时会弹出 Google Funding Choices 隐私与 Cookie 授权弹窗",
+        "包含发往 Google Analytics (G-PYB612MMMD) 的常规网页访问统计"
+      ],
+      "privacyVerdict": "贷款金额、利率与 360 期还款明细全部由前端 JavaScript 本地计算完成。实测期间捕获到 11 次网络请求，均属于 Google Analytics (G-PYB612MMMD) 与 Google Funding Choices 授权信标，用户输入的敏感借贷财务数据绝无云端上传记录。",
+      "alternativeTo": [
+        "Bankrate",
+        "Karl's Mortgage Calculator",
+        "Calculator.net",
+        "Zillow Mortgage Calculator"
+      ],
+      "productScore": {
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14,
+        "overall": 89
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 30 年期 300000 美元本金、6.53% 利率及每月 600 美元税费的房贷场景。DOM 内还款明细与本息汇总在 70 ms 内计算渲染完毕。点击 Export CSV 按钮验证直接导出 25860 bytes 的 412 行无水印 CSV 明细表，全程记录到 11 次网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "bytepane-com": {
+    "en": {
+      "bestFor": "Software engineers, DevOps practitioners, and frontend developers needing client-side utilities for JSON formatting, JWT decoding, regex validation, and token inspection without sending sensitive code or secrets to remote servers",
+      "pros": [
+        "Client-side developer toolbox: formats, validates, and minifies JSON and tokens purely in browser memory without server-side processing",
+        "Broad utility ecosystem: offers over 70 browser-based developer tools including JWT debugger, regex tester, YAML converter, and OpenAPI validator",
+        "Developer-focused UI features: includes real-time JSON statistics (11 keys, depth 2, 312 bytes), syntax highlighting, and customizable indentation spacing (2 spaces, 4 spaces, Tab)",
+        "Clean unpolluted clipboard exports: copies formatted data instantly with zero injected advertising tails, backlink signatures, or registration walls"
+      ],
+      "cons": [
+        "Displays an initial cookie consent banner on the homepage upon first entry",
+        "Transmits standard web analytics requests to Google Analytics (G-3FTHWXMT2D) and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Code parsing, AST traversal, JSON syntax validation, and string minification occur entirely in browser memory. Network monitoring observed 4 telemetry payloads (Cloudflare RUM and Google Analytics G-3FTHWXMT2D); no code, tokens, or developer input data were transmitted to external servers.",
+      "alternativeTo": [
+        "JSONLint",
+        "CyberChef",
+        "DevUtils",
+        "Transform.tools"
+      ],
+      "productScore": {
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 90
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited JSON Formatter & Validator with a nested 11-key payload. Formatted into syntax-highlighted DOM in 115 ms with zero layout shift. Clicked Copy Output button to verify clean clipboard capture of 312 bytes formatted JSON across 23 lines with zero promotional tails, while observing 4 network telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不将敏感代码、配置或凭证数据上传至远端服务器的前提下，在浏览器中即时格式化 JSON、调试 JWT、测试正则及转换数据的软件工程师与后端开发者",
+      "pros": [
+        "纯前端浏览器本地运算：JSON 格式化、压缩与语法校验全在客户端内存运行，敏感代码与令牌绝不上传云端后端",
+        "覆盖广泛的开发者工具箱：提供涵盖 JWT 编解码、正则测试器、YAML 互转及 OpenAPI 规范校验在内的 70+ 款实用工具",
+        "贴合开发习惯的细节设计：内置实时节点元数据统计（11 keys、depth 2、312 字节）、代码高亮与缩进切换（2空格/4空格/Tab）",
+        "纯净的剪贴板导出体验：一键复制结果无任何外挂广告尾巴、免注册登录且无水印干扰"
+      ],
+      "cons": [
+        "首次访问主页时会弹出 Cookie 授权横幅",
+        "包含发往 Google Analytics (G-3FTHWXMT2D) 与 Cloudflare RUM 的常规网页访问统计"
+      ],
+      "privacyVerdict": "代码解析、AST 语法树分析与 JSON 格式化全部在浏览器本地沙箱中执行。实测期间捕获到 4 次外部网络遥测请求（Cloudflare RUM 与 Google Analytics G-3FTHWXMT2D），开发者粘贴的代码、Token 凭证与 JSON 数据绝无云端泄露记录。",
+      "alternativeTo": [
+        "JSONLint",
+        "CyberChef",
+        "DevUtils",
+        "Transform.tools"
+      ],
+      "productScore": {
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 90
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 JSON Formatter 工具，加载包含 11 个字段的嵌套 JSON 样本。DOM 结构在 115 ms 内完成高亮与层次排版渲染。点击 Copy Output 按钮验证捕获到 312 bytes 的 23 行纯净 JSON 数据，无广告尾缀，全程记录到 4 次网络遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "calorique-io": {
+    "en": {
+      "bestFor": "Individuals looking for instant daily calorie, BMR, and TDEE calculation with goal-based caloric adjustments without creating an account",
+      "pros": [
+        "Instant reactive recalculation using Mifflin-St Jeor formula without page reloads",
+        "Comprehensive breakdown covering maintenance, deficit, surplus, BMR, and TDEE",
+        "Direct toggling between Metric and Imperial measurement units with automatic input field re-labeling"
+      ],
+      "cons": [
+        "Lacks native CSV or PDF export for long-term diet planning logs",
+        "Does not include detailed micronutrient or meal-by-meal timing distribution breakdowns"
+      ],
+      "privacyVerdict": "Biometric metrics and caloric calculations are executed entirely within client-side JavaScript; outgoing network traffic is restricted to Cloudflare RUM telemetry and Google Analytics (G-55BPSR1YE5) with zero health data transmitted.",
+      "alternativeTo": [
+        "MyFitnessPal Calorie Calculator",
+        "Calculator.net Calorie Calculator",
+        "TDEECalculator.net"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited Calorie Calculator with input parameters (Age 25, Weight 70 kg, Height 175 cm). DOM updated reactively to render BMR 1,674 cal and TDEE 2,594 cal across 3 target cards with zero layout shift, capturing 4 network telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望快速根据个人身体指标估算每日基础代谢 (BMR)、每日总能量消耗 (TDEE) 及增减重目标热量且免注册的用户",
+      "pros": [
+        "采用 Mifflin-St Jeor 公式进行即时响应式计算，修改数值无需刷新页面",
+        "完整展示维持体重、减脂、增重、基础代谢 (BMR) 及 TDEE 等全维度热量目标",
+        "支持公制 (kg/cm) 与英制 (lbs/ft) 计量单位直接切换，输入标签自动同步转换"
+      ],
+      "cons": [
+        "缺乏原生的 CSV 或 PDF 数据导出功能以供长期饮食规划归档",
+        "未提供微量营养素或每餐摄入时段分布的更深层定制建议"
+      ],
+      "privacyVerdict": "身体指标与热量计算全部在客户端 JavaScript 引擎中完成，网络传输仅限于 Cloudflare RUM 性能监测与 Google Analytics (G-55BPSR1YE5) 统计，绝不回传任何个人生理数据。",
+      "alternativeTo": [
+        "MyFitnessPal 热量计算器",
+        "Calculator.net 卡路里计算器",
+        "TDEECalculator.net"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 Calorie Calculator 工具，通过 input 输入参数（25 岁、70 kg、175 cm）。DOM 即时响应式渲染出 BMR 1,674 cal 与 TDEE 2,594 cal，3 个目标卡片零布局偏移，全程捕获 4 次常规网络遥测请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
