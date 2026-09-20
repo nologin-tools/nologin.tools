@@ -13374,5 +13374,253 @@
       "benchmarkNotes": "输入 3840x2160 验证 16:9 比例与横屏识别，随后切换 21:9 预设换算出 3440x1474（5.1M 像素），成功完成 31 字符的剪贴板捕获，主线程延迟 0ms，CLS 为 0.03。",
       "testedAt": "2026-09"
     }
+  },
+  "www-yhile-com": {
+    "en": {
+      "bestFor": "Users and developers looking for a fast, ad-free collection of browser-based utilities including base conversion, audio extraction, image format conversion, and text analysis.",
+      "pros": [
+        "Multi-tool collection spanning WebAssembly video compression, audio conversion, base conversion, and text utilities.",
+        "Real-time bidirectional conversion between decimal, binary, hex, and text formats without requiring button clicks.",
+        "Integrated copy triggers with clean, unwatermarked clipboard outputs."
+      ],
+      "cons": [
+        "Audio and video processing tasks depend on client device CPU capacity for WebAssembly execution.",
+        "Cookie consent banner displays on every first visit."
+      ],
+      "privacyVerdict": "Client-side processing architecture. Tool utilities execute within browser memory. Observed network activity was strictly limited to telemetry analytics requests; user files and inputs remain in local browser memory and are not uploaded to remote servers.",
+      "alternativeTo": [
+        "CyberChef",
+        "10015.io",
+        "TinyWow",
+        "OmniCalculator"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Evaluated decimal-to-binary live conversion using inputs 255, 1024, and 4096; rendered corresponding binary representations instantaneously and captured 13 characters via clipboard with 0ms jank and smooth frame pacing.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速完成进制转换、音频提取、图片格式互转及文本字频分析，同时偏好无广告、无强制注册体验的用户与开发者。",
+      "pros": [
+        "集成了 WebAssembly 视频压缩、音频提取转换、多进制互转及文本分析等多种实用工具。",
+        "十进制、二进制、十六进制及文本之间的双向实时响应计算，无需多余提交步骤。",
+        "内置一键复制按钮，剪贴板导出内容整洁无水印。"
+      ],
+      "cons": [
+        "音视频 WebAssembly 处理性能取决于客户端设备本地 CPU 算力。",
+        "首次访问时界面底部常驻 Cookie 授权确认横幅。"
+      ],
+      "privacyVerdict": "客户端处理架构。所有工具组件均在本地浏览器内存中运行。实测网络活动仅限于站点统计遥测信标，用户输入与文件完全保留在本地，未上传至远端服务器。",
+      "alternativeTo": [
+        "CyberChef",
+        "10015.io",
+        "TinyWow",
+        "OmniCalculator"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对十进制转二进制工具输入 255、1024、4096 测试数据，即时换算出对应二进制编码，并成功通过剪贴板捕获 13 字符的纯净文本，全程 0ms 冻结，帧率稳定。",
+      "testedAt": "2026-09"
+    }
+  },
+  "imgrove-com": {
+    "en": {
+      "bestFor": "Designers, photographers, web developers, and job applicants needing precise KB-target compression, format conversion, and batch image utilities without server uploads.",
+      "pros": [
+        "Vast suite of 76 browser-based image utilities covering target-KB compression, format conversion, 3D generation, and avatar generation.",
+        "Smart local auto-optimization matching specific file size targets (e.g. 100KB) while preserving maximum visual fidelity and dimensions.",
+        "Automatic EXIF metadata removal on export with clean single-file download and batch ZIP packaging."
+      ],
+      "cons": [
+        "Batch processing is capped at 30 simultaneous image files per session.",
+        "Advanced vector SVG tracing is not included in the standard utility library."
+      ],
+      "privacyVerdict": "Client-side image processing architecture. Measurement, resizing, canvas re-encoding, and EXIF stripping execute entirely within local browser memory. Observed network activity was strictly limited to telemetry analytics requests; image binaries and pixel data are never uploaded to remote servers.",
+      "alternativeTo": [
+        "TinyPNG",
+        "Squoosh",
+        "ILoveIMG",
+        "Compressor.io"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 324.8 KB sample.png (800x600) to the KB-target compressor with a 100 KB threshold; auto-tuned JPEG quality to 95%, achieving 74.9% reduction to an 81.5 KB preview, and downloaded an 83,411-byte clean JPEG with 0ms freeze and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要针对特定文件大小（如报考、证件上传要求的 100KB）精确压缩图片、批量格式转换及图像处理，且严格保护图片隐私的设计师、摄影师与求职者。",
+      "pros": [
+        "包含 76 款基于浏览器的图片处理工具，涵盖指定 KB 大小压缩、格式转换、3D 模型生成及头像处理。",
+        "智能本地自动调校算法，在精确满足目标大小（如 100KB）的同时最大化保留分辨率与图像细节。",
+        "导出时自动剔除 EXIF 隐私元数据，支持单图直接下载及多图 ZIP 打包导出。"
+      ],
+      "cons": [
+        "单次批量并行处理图片上限为 30 张。",
+        "基础工具库中未包含高级矢量 SVG 描摹与矢量化功能。"
+      ],
+      "privacyVerdict": "前端图像处理架构。图像尺寸测量、重缩放、Canvas 重新编码及 EXIF 元数据剔除完全在本地浏览器内存中运行。实测网络活动仅限于站点统计遥测信标，图像二进制与像素数据绝不上传至任何服务器。",
+      "alternativeTo": [
+        "TinyPNG",
+        "Squoosh",
+        "ILoveIMG",
+        "Compressor.io"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "将 324.8 KB 的 sample.png（800x600）上传至指定文件大小压缩工具，目标设为 100 KB；算法自动将 JPEG 质量调校至 95%，体积缩减 74.9% 达到 81.5 KB 预览，并成功下载 83,411 字节洁净 JPEG 图像，全程 0ms 冻结且无布局偏移。",
+      "testedAt": "2026-09"
+    }
+  },
+  "bunengchi-com": {
+    "en": {
+      "bestFor": "Pet owners, parents, and caregivers needing fast, authoritative, and medically referenced safety checks on whether foods are toxic to dogs, cats, or vulnerable populations.",
+      "pros": [
+        "Evidence-backed food and pet toxicity guides citing Merck Veterinary Manual and ASPCA Animal Poison Control Center standards.",
+        "Comprehensive emergency protocols including clinical symptom checklists and toxic boundary definitions.",
+        "Explicit privacy consent mechanism that respects analytics refusal without blocking any content."
+      ],
+      "cons": [
+        "Does not include an interactive poison dosage or bodyweight calculator for exact toxicity thresholds.",
+        "Content is currently published primarily in Chinese, without an automatic English translation toggle."
+      ],
+      "privacyVerdict": "Client-side reference and search architecture. Content lookups and safety guides load statically, and analytics tracking was successfully declined via the consent banner. Observed network activity was strictly limited to telemetry beacon payloads if any; user search terms and interactions remain private.",
+      "alternativeTo": [
+        "ASPCA Animal Poison Control",
+        "PetMD",
+        "Merck Vet Manual",
+        "Can I Eat It"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Queried pet toxicity guidance; immediately rendered toxicological risk assessment, Merck Veterinary citations, and emergency guidelines, followed by capturing a 117-character guidance excerpt via clipboard with 0ms jank.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速权威查询宠物（犬猫）及特殊人群食品禁忌、毒性机理及误食应急处理方案的宠物主人与家庭照料者。",
+      "pros": [
+        "严谨权威的内容参考体系，明确标注默克兽医手册（Merck Veterinary Manual）与 ASPCA 动物中毒控制中心来源。",
+        "结构化的应急处理流程，涵盖症状预警、适用边界及就医准备清单。",
+        "尊重用户隐私的授权机制，明确提供拒绝统计分析选项且不阻断任何核心内容查阅。"
+      ],
+      "cons": [
+        "暂未集成根据宠物体重与摄入克数实时推算毒性临界剂量的互动计算器。",
+        "目前参考条目以中文为主，未提供多语言一键切换界面。"
+      ],
+      "privacyVerdict": "静态参考查询架构。安全指南与毒理依据页面采用静态加载，且通过显式授权横幅成功拒绝了分析脚本注入。实测网络活动仅限于必要静态资源，用户的具体查询与浏览行为不被追踪。",
+      "alternativeTo": [
+        "ASPCA Animal Poison Control",
+        "PetMD",
+        "Merck Vet Manual",
+        "Can I Eat It"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "点击‘狗能吃巧克力吗？’即时检索，页面瞬间呈现红绿风险分级、毒理成分解析、权威来源依据及误食急救步骤，成功通过剪贴板捕获 117 字符的核心指引文本，全程 0ms 冻结，帧率稳定。",
+      "testedAt": "2026-09"
+    }
+  },
+  "decode-base64-com": {
+    "en": {
+      "bestFor": "Developers, cybersecurity researchers, and API engineers needing immediate, bidirectional Base64 encoding, URL-safe decoding, and JWT inspection without sending credentials to servers.",
+      "pros": [
+        "Instant bidirectional conversion with automatic format detection and standard versus URL-safe Base64 toggling.",
+        "Comprehensive developer workflows covering Text, File, Image to Base64, and JWT token inspection.",
+        "Built-in accessibility controls (A11y mode) and high-contrast dark theme alongside one-click clipboard export."
+      ],
+      "cons": [
+        "Decoding corrupted or malformed Base64 strings alerts with inline validation rather than attempting fuzzy character repair.",
+        "Maximum single-file upload size for Base64 conversion is limited by client browser heap allocation."
+      ],
+      "privacyVerdict": "Client-side processing architecture. String encoding, padding calculation, and URL-safe transformations execute in browser JavaScript memory. Observed network activity was strictly limited to telemetry analytics requests if any; user strings and cryptographic tokens remain local and are not sent to remote servers.",
+      "alternativeTo": [
+        "Base64Decode.org",
+        "CyberChef",
+        "Base64 Guru",
+        "DevToys"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested plain-text encoding using a 43-character test string; automatically converted to 60 characters of standard Base64, captured via clipboard with 0ms jank and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速完成 Base64 互转、URL 安全字符替换、本地图片 Base64 转换及 JWT 解析，且严防敏感密钥泄露的前端、后端与网络安全工程师。",
+      "pros": [
+        "实时双向编解码响应，具备自动类型识别与标准模式/URL 安全模式切换功能。",
+        "完整覆盖文本、本地文件、图片互转 Base64 及 JWT 结构化解析等开发工作流。",
+        "内置无障碍辅助模式（A11y）、深色主题切换及一键无污染剪贴板复制。"
+      ],
+      "cons": [
+        "面对非法或损坏的 Base64 字符时仅提示校验错误，未提供模糊纠错推断机制。",
+        "单文件 Base64 转换的最大文件体积受限于当前浏览器分配的堆内存大小。"
+      ],
+      "privacyVerdict": "前端编码转换架构。Base64 编解码、填充计算及 URL 安全模式转换完全在浏览器本地内存中执行。实测网络活动仅限于站点统计遥测信标，用户的敏感文本、Token 及编码数据绝不上传至远端服务器。",
+      "alternativeTo": [
+        "Base64Decode.org",
+        "CyberChef",
+        "Base64 Guru",
+        "DevToys"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对 43 字符的明文字符串进行 Base64 实时编码实测，系统即时生成 60 字符标准 Base64 编码结果，成功完成 60 字符的纯净剪贴板捕获，全程 0ms 冻结且无布局偏移。",
+      "testedAt": "2026-09"
+    }
   }
 }
