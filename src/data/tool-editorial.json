@@ -16170,5 +16170,261 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。进入 2026 HSA 缴存计算器（#age, #employer-contribution, #own-contribution）。将投保类型切换为家庭（对应 IRS 8,750 美元法定限额），边际税率设为 22%。系统即时完成测算，准确输出 8,750 美元剩余额度与 1,925 美元预估节税金额，主线程卡顿 0ms，CLS 为 0.00。成功拦截并验证 63 字符纯文本剪贴板导出。网络审计确认出站请求严格为 0。",
       "testedAt": "2026-09"
     }
+  },
+  "1600-now": {
+    "en": {
+      "bestFor": "High school students and SAT test-takers seeking unlimited official-style Digital SAT question drills with full answer explanations and integrated graphing tools without signing up.",
+      "pros": [
+        "Instant access to an extensive 8,564-question bank spanning Math and Reading without registration gates",
+        "Authentic College Board digital test layout featuring embedded Desmos graphing calculator and reference sheet",
+        "Step-by-step 5-stage mathematical derivations and explanations available instantly on any problem",
+        "Automatic local persistence for question progress, answers, and timer state in client browser storage"
+      ],
+      "cons": [
+        "Observed background telemetry including Firebase App Check, reCAPTCHA v3, and GA4 analytics payloads",
+        "Lacks bulk question set PDF generation or CSV score export options for offline paper practice"
+      ],
+      "privacyVerdict": "Question practice, answers, and timer state remain in local browser storage; network audit recorded 6 background requests including Firebase App Check token exchanges, reCAPTCHA v3, and Google Analytics beacons.",
+      "alternativeTo": [
+        "Khan Academy SAT",
+        "College Board Bluebook",
+        "UWorld College Prep",
+        "PrepScholar"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated from homepage to Question Bank (8,564 questions) and launched 'Linear equations: one variable' (Question 1 of 181). Verified live timer, formula reference modal, and embedded Desmos canvas. Filled answer into input element, inspected 5-step algebraic explanation panel, and confirmed local session persistence modal upon clicking Save & Exit. Measured max task freeze of 54ms and CLS of 0.15 with 6 background network requests (Firebase and GA4).",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "准备机考数字 SAT（Digital SAT）、需要海量真题分类专项刷题且无需注册账号的高中生与备考群体。",
+      "pros": [
+        "零门槛直接刷题，涵盖数学与读写领域的 8,564 道真实题库，无需注册登录或填写个人信息",
+        "高度还原官方机考蓝本交互，深度集成 Desmos 科学图形计算器与标准考场参考公式表",
+        "单题支持点击展开五步代数详尽解析与推导过程，计时器与做题状态本地自动保存",
+        "题库覆盖代数、高阶数学、问题解决与数据分析、表达技巧及语法规范等全考点分类"
+      ],
+      "cons": [
+        "后台存在 Firebase App Check、reCAPTCHA v3 及 GA4 统计信标等 6 处出站请求",
+        "暂不提供将自选练习题库打包导出为 PDF 试卷或 CSV 做题记录的离线下载功能"
+      ],
+      "privacyVerdict": "答题进度、填写的选项与计时器状态均保存在本地浏览器存储中；实测出站网络请求包括 Firebase App Check 令牌交换、reCAPTCHA v3 人机验证及 GA4 统计载荷共 6 次。",
+      "alternativeTo": [
+        "可汗学院 SAT",
+        "College Board 官方机考 Bluebook",
+        "UWorld SAT",
+        "PrepScholar"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。从首页一键跳转至题库（8,564 道可用题目），进入一元线性方程专项练习（第 1/181 题）。界面完整加载机考考场计时器、参考公式弹窗及嵌入式 Desmos 图形画布。在 input 输入框输入解答并展开五步代数详细推导面板，测试保存退出时触发本地状态保存提示。主线程长任务最大卡顿 54ms，CLS 为 0.15，网络审计记录 6 次出站请求（Firebase 与 GA4）。",
+      "testedAt": "2026-09"
+    }
+  },
+  "telemetry-sh-sql-playground": {
+    "en": {
+      "bestFor": "Site reliability engineers, backend developers, and data analysts practicing event SQL queries and log analysis in DuckDB WebAssembly without creating an account.",
+      "pros": [
+        "Zero registration required with 30 deterministic event schemas ready for in-browser testing",
+        "DuckDB WebAssembly execution engine running SQL queries with zero server-side computation",
+        "Dual output format rendering dynamic visual horizontal bar charts alongside structured 4-column data tables",
+        "Built-in query templates covering 5xx route error rates, latency percentiles, and request distributions"
+      ],
+      "cons": [
+        "Observed 20 outgoing telemetry payloads including Cloudflare RUM, first-party client events, and beam.experiment.sh logging",
+        "Custom user event ingestion requires full commercial Telemetry platform signup"
+      ],
+      "privacyVerdict": "SQL execution runs locally via in-browser DuckDB WebAssembly; network audit recorded 20 outgoing telemetry payloads including Cloudflare RUM, first-party /api/client-events, and beam.experiment.sh log beacons.",
+      "alternativeTo": [
+        "DuckDB Shell Wasm",
+        "SQLLite Playground",
+        "Grafana Cloud",
+        "ClickHouse Cloud Playground"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to SQL Playground and executed API error rate query across 70 synthetic events. In-browser DuckDB WebAssembly executed the aggregation query locally, rendering an interactive bar chart and a structured 4-column HTML table with route templates, request totals, error counts, and error percentages (/api/checkout at 20%, /api/search at 4%, /api/profile at 0%). Main thread recorded 78ms task duration and rock-solid 0.00 CLS with 20 observed telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中免注册调试可观测性日志、练习基于 DuckDB WebAssembly 的结构化事件 SQL 查询的 SRE 工程师与后端开发者。",
+      "pros": [
+        "免注册即开即用，内置 30 组确定性结构化事件数据装置，支持自由编辑只读 SQL",
+        "基于 DuckDB WebAssembly 引擎在浏览器本地解析与执行查询，计算过程无需后端介入",
+        "双重呈现方式，在渲染交互式水平条形图的同时输出 4 列表格展示路由、请求量、错误数与百分比",
+        "内置多种典型排障场景模板，涵盖 5xx 路由错误率分析、请求峰值与延迟分布"
+      ],
+      "cons": [
+        "评测期间记录到 20 次出站遥测载荷，包括 Cloudflare RUM、/api/client-events 及 beam.experiment.sh",
+        "接入私有生产环境真实事件流需开通商业版 Telemetry 平台账号"
+      ],
+      "privacyVerdict": "SQL 解析与聚合运算完全由本地 DuckDB WebAssembly 在浏览器内完成；网络审计记录到 20 次出站统计与遥测请求，包括 Cloudflare RUM、/api/client-events 及 beam.experiment.sh 审计日志。",
+      "alternativeTo": [
+        "DuckDB Shell Wasm",
+        "SQL 游乐场",
+        "Grafana Cloud",
+        "ClickHouse Cloud 游乐场"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问结构化事件 SQL 游乐场并执行 API 路由错误率查询。内置 DuckDB WebAssembly 在本地对 70 条合成事件进行快速聚合，即时渲染出交互式百分比水平图表与 4 列结构化 HTML 表格（/api/checkout 达 20%、/api/search 为 4%、/api/profile 为 0%）。测得主线程任务耗时 78ms，CLS 为 0.00，审计捕获 20 次出站遥测载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "svgviewer-app": {
+    "en": {
+      "bestFor": "UI designers, frontend engineers, and graphic creators inspecting, cleaning, live-editing, and optimizing SVG assets in real time without registration.",
+      "pros": [
+        "Zero registration required with instant split-pane code editing and synchronous canvas preview",
+        "Client-side vector optimization engine reducing payload bytes while preserving paths and gradient defs",
+        "Real-time byte counter tracking exact file footprint before and after optimization",
+        "Full export flexibility with 1-click clipboard capture and raster conversion to PNG, JPEG, WEBP, and ICO"
+      ],
+      "cons": [
+        "Observed 2 background telemetry beacons including Cloudflare RUM and Google Analytics",
+        "Complex multi-megabyte SVG illustrations with hundreds of nested filters may cause brief rendering latency"
+      ],
+      "privacyVerdict": "Vector graphics processing, syntax highlighting, and SVG optimization execute locally in browser memory; network audit recorded 2 background requests (Cloudflare RUM and Google Analytics beacon).",
+      "alternativeTo": [
+        "SVGOMG",
+        "Boxy SVG",
+        "Method Draw",
+        "Vectr"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Uploaded 2,088-byte sample.svg fixture into file input. The editor parsed XML definitions and rendered the vector preview instantly on an interactive grid canvas. Clicked Optimize SVG, which stripped redundant tags and decreased file footprint to 1,935 bytes. Triggered Copy action to capture a 1,934-character unwatermarked SVG artifact from clipboard with valid markup. Measured 0ms task freeze and 0.04 CLS with 2 telemetry payloads (Cloudflare RUM and GA4).",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中实时预览、手动微调代码、无损压缩并转换 SVG 矢量图形且免除账号登录的前端开发与 UI 设计师。",
+      "pros": [
+        "无需登录即开即用，支持拖拽上传与代码双向绑定，提供实时画布高保真预览",
+        "内置客户端 SVG 代码压缩与格式化算法，有效精简冗余命名空间与注释并保留渐变图层",
+        "实时文件大小指示器，动态显示优化前后字节数（实测从 2,088 字节压缩至 1,935 字节）",
+        "支持一键纯净剪贴板复制，以及导出 SVG、PNG、JPEG、WEBP 和 ICO 多种格式"
+      ],
+      "cons": [
+        "后台记录到 2 次出站统计请求（包括 Cloudflare RUM 与 Google Analytics 信标）",
+        "若加载包含大量复杂嵌套滤镜或超大节点的数兆级 SVG，渲染可能存在短暂帧率波动"
+      ],
+      "privacyVerdict": "矢量图解析、语法高亮与 SVG 代码压缩完全在客户端浏览器内存中执行；网络审计记录到 2 次出站遥测请求（Cloudflare RUM 与 Google Analytics 访问统计信标）。",
+      "alternativeTo": [
+        "SVGOMG",
+        "Boxy SVG",
+        "Method Draw",
+        "Vectr 在线矢量编辑"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。通过文件选择框上传 2,088 字节的 sample.svg 测试装置。左侧编辑器即时完成 XML 解析与语法高亮，右侧网格画布同步呈现渐变矢量图形。点击 Optimize SVG 触发本地优化，文件大小精简至 1,935 字节。执行复制操作成功捕获 1,934 字符无水印有效 SVG 剪贴板文本。测得主线程任务耗时 0ms，CLS 为 0.04，捕获 2 次统计网络载荷（Cloudflare RUM 与 GA4）。",
+      "testedAt": "2026-09"
+    }
+  },
+  "focus2grow-app-dealcove": {
+    "en": {
+      "bestFor": "Small business owners, solo consultants, and freelance sales reps seeking an architectural overview and interactive demo of a local-first, privacy-focused sales CRM before purchasing a one-time license.",
+      "pros": [
+        "Zero account registration or password required, utilizing local browser storage for customer records",
+        "Interactive landing page pipeline widgets demonstrating deal stage progression and sales sprint workflows",
+        "Transparent privacy model where contact data remains on device and network requests are restricted to license validation",
+        "One-time payment model avoiding recurring monthly SaaS subscription lock-in"
+      ],
+      "cons": [
+        "The full CRM software requires purchasing a 15 Euro license activation key to import custom CSV contacts",
+        "Public landing page is primarily an interactive sales demonstration rather than an unrestricted utility"
+      ],
+      "privacyVerdict": "The public overview page executes entirely in the client with only 2 observed Cloudflare RUM telemetry beacons; architecture specifies that CRM leads and deal notes persist locally in browser storage without cloud database syncing.",
+      "alternativeTo": [
+        "HubSpot Free CRM",
+        "Folk CRM",
+        "Capsule CRM",
+        "Notion CRM Template"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 16,
+        "depth": 18,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Explored public Dealcove showcase at https://focus2grow.app/dealcove/ and activated the interactive pipeline simulation widget. Successfully advanced sample deal 'Muster GmbH' through pipeline stages with button clicks. Audited data flow demonstration and reviewed license architecture (one-time license verification without user data syncing). Measured 0ms task freeze and 0.06 CLS with 2 Cloudflare RUM telemetry beacons.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望在购买一次性商业许可前，体验本地优先、保护客户数据隐私的小型企业销售漏斗管理与 Sprint 演示的自由职业者与独立咨询顾问。",
+      "pros": [
+        "无需创建云端账号或设置密码，系统设计原则为客户数据完全存储于本地浏览器",
+        "提供交互式销售管线模拟演示组件，支持点击推进商机阶段并体验销售 Sprint 流程",
+        "架构透明度高，明示业务工作数据不出设备，网络连接仅用于启动时验证设备许可密钥",
+        "采用 15 欧元一次性买断模式，避免主流云端 CRM 的按月订阅捆绑"
+      ],
+      "cons": [
+        "完整 CRM 功能（如自定义导入与导出 CSV 客户名单）需购买 15 欧元商业许可证激活",
+        "公开展示页面本质为交互式产品演示，非完全开放的无限制生产力工具"
+      ],
+      "privacyVerdict": "公开产品页面在本地渲染，全周期仅捕获到 2 次 Cloudflare RUM 基础网络统计；产品架构明确说明所有商机记录、跟进笔记与客户列表均保存在本地浏览器存储中，不向云端数据库传输。",
+      "alternativeTo": [
+        "HubSpot 免费 CRM",
+        "Folk CRM",
+        "Capsule CRM",
+        "Notion 销售漏斗模板"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 16,
+        "depth": 18,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问展示页并通过按钮交互测试销售管线演示卡片，成功将演示商机 Muster GmbH 从初访推进至后续阶段。验证了数据流可视化模块与 FAQ 许可证说明（一次性买断授权，设备指纹与密钥在线验证但业务数据不出本地）。主线程长任务为 0ms，CLS 为 0.06，网络审计记录 2 次 Cloudflare RUM 统计请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
