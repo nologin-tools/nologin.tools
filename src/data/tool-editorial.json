@@ -5288,5 +5288,147 @@
       "benchmarkNotes": "切换单引号参数后 118 ms 内完成代码重排，Web Worker 解析正常，网络监控捕获 2 次 Google Analytics 基础信标，无权限拦截。",
       "testedAt": "2026-09"
     }
+  },
+  "wave-webaim-org": {
+    "en": {
+      "bestFor": "Auditing websites for WCAG accessibility compliance, color contrast violations, and screen-reader navigable hierarchy.",
+      "pros": [
+        "Groundbreaking in-situ visual overlays highlighting accessibility errors directly on top of rendered web elements",
+        "Comprehensive coverage of WCAG 2.1 and 2.2 guidelines spanning contrast, alt text, ARIA roles, and heading order",
+        "Zero registration barrier for evaluating any publicly accessible webpage"
+      ],
+      "cons": [
+        "Online scanner can only audit publicly reachable URLs and cannot inspect password-protected intranets or local dev servers without installing the browser extension"
+      ],
+      "privacyVerdict": "The non-profit evaluation service fetches public web pages for accessibility inspection with zero tracking scripts, zero advertising beacons, and no behavioral profiling cookies.",
+      "alternativeTo": [
+        "Google Lighthouse",
+        "axe DevTools",
+        "IBM Equal Access Accessibility Checker"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Public web accessibility scanner operated by non-profit WebAIM with zero commercial advertising trackers",
+            "Zero tracking cookies dropped and zero analytical telemetry payloads observed during page audit"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited example.com returning 0 errors, 1 alert, and AIM score 10/10; visual icon badges rendered directly on the DOM; 0 tracking telemetry payloads observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "快速审查公开网页的 WCAG 无障碍合规性、色彩对比度缺陷与屏幕阅读器层级结构。",
+      "pros": [
+        "首创原位视觉标注引擎，将无障碍警告图标直接贴合在渲染出的网页 DOM 节点上",
+        "全面覆盖 WCAG 2.1 与 2.2 标准，涵盖对比度、图片替代文本、ARIA 属性及标题层级",
+        "完全无需注册账号，输入任意公开网址即可即时生成审查报告"
+      ],
+      "cons": [
+        "在线网页版仅能抓取互联网公网页面，内部局域网或需登录的页面须搭配本地浏览器插件运行"
+      ],
+      "privacyVerdict": "该非营利学术机构服务在扫描无障碍属性时无第三方广告商接入，抓包监控记录到 0 个外部遥测请求，不记录用户行为指纹。",
+      "alternativeTo": [
+        "Google Lighthouse",
+        "axe DevTools",
+        "IBM Equal Access Accessibility Checker"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Public web accessibility scanner operated by non-profit WebAIM with zero commercial advertising trackers",
+            "Zero tracking cookies dropped and zero analytical telemetry payloads observed during page audit"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "完成 example.com 可访问性审查，输出 0 项错误与 10/10 满分评价；DOM 实时挂载可视化审查徽章；测试会话捕获 0 次遥测出站。",
+      "testedAt": "2026-09"
+    }
+  },
+  "metatags-io": {
+    "en": {
+      "bestFor": "Previewing, editing, and generating Open Graph, Twitter Cards, and SEO meta tags with multi-platform social card mockups.",
+      "pros": [
+        "Pixel-accurate simultaneous previews for Google SERP, X (Twitter), Facebook, LinkedIn, and Pinterest",
+        "Real-time character counters and truncation warnings for SEO titles and descriptions",
+        "Clean one-click HTML head code generation ready for direct clipboard copying"
+      ],
+      "cons": [
+        "Fetching external web URLs to auto-parse existing tags requires routing through their server proxy",
+        "Contains Google Analytics tracking on page load"
+      ],
+      "privacyVerdict": "Interactive meta tag editing and card rendering execute inside the local browser DOM. Outgoing network payloads are restricted to 2 requests for Google Analytics and Cloudflare CDN monitoring.",
+      "alternativeTo": [
+        "Hey Meta",
+        "OpenGraph.xyz",
+        "Social Share Preview"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "In-browser real-time social card preview and HTML meta tag generator without registration hurdles",
+            "Network requests are limited to 2 telemetry payloads covering Google Analytics and Cloudflare RUM"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Rendered multi-platform social previews with 0ms long task freezing; generated complete Open Graph and Twitter Card tags in modal; 2 telemetry payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "实时预览、编辑并生成适配 Google 搜索、X (Twitter)、Facebook 与 LinkedIn 的社交分享卡片及 Open Graph 元标签。",
+      "pros": [
+        "同屏像素级还原 Google 搜索结果、X 卡片、Facebook 与 LinkedIn 的真实分享样式",
+        "内置标题与摘要字数计数器，实时标记各平台的截断超长预警",
+        "一键生成格式规范的 HTML head 标签代码并支持即时复制"
+      ],
+      "cons": [
+        "在线解析远端现有网站元标签的功能需经由服务端代理请求",
+        "页面包含 Google Analytics 基础访问统计"
+      ],
+      "privacyVerdict": "元标签的手动编辑、字符校验与卡片模拟完全在本地浏览器 DOM 中完成。网络出站仅限 2 次发往 Google Analytics 与 Cloudflare CDN 监控的基础信标，未引入商业画像追踪。",
+      "alternativeTo": [
+        "Hey Meta",
+        "OpenGraph.xyz",
+        "Social Share Preview"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "In-browser real-time social card preview and HTML meta tag generator without registration hurdles",
+            "Network requests are limited to 2 telemetry payloads covering Google Analytics and Cloudflare RUM"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "多平台卡片实时渲染耗时 0ms，主线程无任何卡顿，弹窗瞬时生成全套 Open Graph 代码，网络监控记录 2 次遥测请求，无登录拦截。",
+      "testedAt": "2026-09"
+    }
   }
 }
