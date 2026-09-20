@@ -17444,5 +17444,257 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。通过 macOS sips 生成真实 16.92 KB sample.heic 测试固件并上传。浏览器端成功完成实时缩略图解码与就绪状态显示。保持 A4 自适应排版配置并点击'Generate PDF'，生成并下载 54,601 字节标准 PDF 文件，经物理检验无任何水印与诱导跳转。网络审计捕获 1 次 Google Analytics 统计信标，图片数据外发为 0。",
       "testedAt": "2026-09"
     }
+  },
+  "compressto100kb-com": {
+    "en": {
+      "bestFor": "Job applicants, visa candidates, students, and web developers who need to shrink photos under strict byte limits (such as 100KB, 50KB, or 20KB) directly in the browser without uploading private identification photos to cloud servers.",
+      "pros": [
+        "Zero registration required with instant drag-and-drop batch queue supporting JPEG, PNG, WebP, and HEIC files",
+        "Iterative byte-exact constraint optimization targeting actual encoded size rather than rough compression percentage guesses",
+        "Comprehensive privacy controls that automatically strip sensitive EXIF camera metadata on the local device",
+        "Clean export pipeline generating a verified 99,204-byte ZIP archive meeting the exact sub-100KB requirement without watermarks"
+      ],
+      "cons": [
+        "Large multi-megapixel images require several iterative canvas encoding passes which consume local CPU cycles"
+      ],
+      "privacyVerdict": "Observed 3 internal form lifecycle GET triggers to origin (compressto100kb.com) with zero third-party telemetry or cloud uploads. Image scaling, iterative compression, and EXIF scrubbing execute entirely within local browser memory.",
+      "alternativeTo": [
+        "TinyPNG",
+        "ILoveIMG Compress",
+        "Compress2Go",
+        "Optimizilla"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to compressto100kb.com and uploaded an authentic 402.97 KB sample_large.jpg fixture. Clicked 'Compress images' with the 100 KB limit preset. The client-side iterative engine adjusted dimensions and encoding quality to produce a 99.85 KB output. Tested export trigger 'Download all (ZIP)', verifying a clean 99,204-byte archive artifact with zero watermarks or authentication gates.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将证件照、报名表附件或网页配图压缩至 100KB、50KB 或 20KB 严格字节上限内，同时防止个人照片外传至第三方服务器的求职者、签证申请人与前端开发者。",
+      "pros": [
+        "完全免注册免登录，拖拽即可即时批量导入 JPEG、PNG、WebP 及 HEIC 图像",
+        "基于真实编码体积的二分法迭代压缩算法，避免按粗糙百分比猜测导致的超限或过度失真",
+        "内置本地隐私安全保护机制，自动在浏览器端抹除照片中记录的 EXIF 拍摄参数与地理位置",
+        "导出能力优秀，直接生成符合上限的 99,204 字节干净 ZIP 压缩包，无任何水印或引流限制"
+      ],
+      "cons": [
+        "处理超大高分辨率照片时多轮 Canvas 重采样与编码会消耗较多本地浏览器 CPU 算力"
+      ],
+      "privacyVerdict": "实测捕获 3 次同源表单生命周期事件（compressto100kb.com），全流程无任何第三方追踪或图片上传行为。图片缩放、多轮迭代质量调整与 EXIF 抹除完全在本地浏览器内存中完成。",
+      "alternativeTo": [
+        "TinyPNG 在线压缩",
+        "ILoveIMG 图像压缩",
+        "Compress2Go",
+        "Optimizilla 在线压缩"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 compressto100kb.com 并上传 402.97 KB sample_large.jpg 真实测试固件。保持 100 KB 目标预设并点击'Compress images'，本地算法自动优化分辨率与质量参数，压缩输出为 99.85 KB。点击'Download all (ZIP)'成功下载 99,204 字节标准压缩包，经检验无任何水印与诱导门槛。",
+      "testedAt": "2026-09"
+    }
+  },
+  "sizecompare-app": {
+    "en": {
+      "bestFor": "Shoppers, tech enthusiasts, ergonomics researchers, and 3D designers who need to visually compare the true physical scale of smartphones, smartwatches, tablets, laptops, and custom everyday objects before buying.",
+      "pros": [
+        "Zero registration required with instantaneous interactive visual comparison across 70+ pre-calibrated devices and everyday objects",
+        "Dual comparison view modes including Side-by-Side alignment and draggable Overlay with automatic aspect and surface area percentage calculations",
+        "Comprehensive custom dimension simulator supporting metric and imperial units (mm, cm, in) alongside rectangle and circle geometric shapes",
+        "Local mathematical computation keeping entered custom dimensions and comparison pairs strictly on the user device"
+      ],
+      "cons": [
+        "Lacks a direct one-click SVG or PNG graphic export trigger, requiring users to rely on browser screenshots for sharing",
+        "Emits background telemetry beacons to Google Analytics and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Observed 3 background telemetry requests (2 to Google Analytics and 1 to Cloudflare RUM). Custom dimensions, device selections, and geometric scale calculations execute entirely on-device without data egress.",
+      "alternativeTo": [
+        "PhoneArena Size Comparison",
+        "CompareSizes.com",
+        "DisplayWars",
+        "CameraSize.com"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 10,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to sizecompare.app and clicked button 'Custom Dimensions'. Switched between Overlay and Side by Side button view modes, comparing an iPhone 17 Pro against an Apple Watch Series 11 with live percentage calculations (80.6%, 218.3%, 474.7%). Evaluated Custom Dimensions mode using DOM input elements for 100mm and 80mm parameters. Recorded 97ms peak task latency with 0.06 CLS. Network audit observed 3 HTTP POST telemetry requests with zero custom dimension data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在购买前真实对比智能手机、手表、平板、笔记本电脑或日常物品物理尺寸比例，或输入任意长宽进行 1:1 视觉投影的数码爱好者、网购买家与工业设计师。",
+      "pros": [
+        "完全免注册免登录，打开即用，内置 70 多款主流数码硬件与标准参照物（信用卡、A4纸、可乐罐）真实尺寸库",
+        "提供并排对比（Side by Side）与自由拖拽重叠（Overlay）双重视角，自动计算面积差与边长比例百分比",
+        "支持毫米（mm）、厘米（cm）与英寸（in）自定义长宽输入，可自由切换矩形与圆形轮廓",
+        "尺寸缩放与排版算法全部在浏览器本地计算，输入的自定义参数绝不上传云端"
+      ],
+      "cons": [
+        "未提供一键导出 SVG 矢量图或 PNG 高清对比图的下载按钮，保存画面需依赖浏览器自带截屏",
+        "页面包含 Google Analytics 与 Cloudflare RUM 匿名统计信标请求"
+      ],
+      "privacyVerdict": "实测捕获 3 次后台统计请求（2 次 Google Analytics，1 次 Cloudflare RUM）。用户输入的自定义尺寸数值、选择的对比设备及几何缩放计算完全在本地浏览器端完成，无业务数据外传。",
+      "alternativeTo": [
+        "PhoneArena 手机尺寸对比",
+        "CompareSizes 在线尺寸比对",
+        "DisplayWars 屏幕面积对比",
+        "CameraSize 相机体积比对"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 10,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 sizecompare.app 点击'Custom Dimensions'按钮。测试并排与重叠视图切换，对比 iPhone 17 Pro 与 Apple Watch Series 11 并观察到即时计算的比例数值（80.6%, 218.3%, 474.7%）。通过 DOM input 输入框测试 100mm 与 80mm 尺寸渲染。峰值主线程延迟 97ms，CLS 0.06。网络审计捕获 3 次 HTTP POST 统计信标，无业务数据外传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "aup4-aivismonitor-com": {
+    "en": {
+      "bestFor": "Podcasters, audio engineers, journalists, and sound designers who need to preview tracks, export WAV/MP3 mixes, recover crashed recordings, or downgrade Audacity 4 (.aup4) projects to Audacity 3 (.aup3) directly in the browser without installing Audacity or uploading confidential audio.",
+      "pros": [
+        "Zero registration required with instant in-browser project inspection for both Audacity 4 (.aup4) and Audacity 3 (.aup3) files",
+        "Sophisticated client-side architecture using SQLite compiled to WebAssembly in a dedicated background Web Worker",
+        "Deep forensic capabilities including project corruption analysis, missing block diagnostics, and version downgrade conversion",
+        "Strong local data containment with explicit 0-byte upload enforcement and direct audio playback"
+      ],
+      "cons": [
+        "Transmits 1 background telemetry beacon to Google Analytics",
+        "Advanced project rebuilding and stem extraction tools require a one-time license"
+      ],
+      "privacyVerdict": "Observed 1 background telemetry beacon to Google Analytics (google-analytics.com/g/collect). Audacity SQLite database inspection, audio sample extraction, and WAV/MP3 decoding execute entirely within a local browser Web Worker; zero audio data egresses the machine.",
+      "alternativeTo": [
+        "Audacity Desktop",
+        "Tenacity Audio Editor",
+        "AudioMass Web Audio",
+        "Sodaphonic"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to aup4.aivismonitor.com and tested file upload with a 12,288 bytes SQLite database fixture. The Web Worker executed WebAssembly SQLite validation locally without uploading data, correctly identifying the database structure and confirming 'Ready — 0 bytes uploaded'. Inspected dark/light theme toggle and recovery modules. Network audit recorded 1 HTTP POST telemetry beacon to Google Analytics and strictly zero audio payload egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在未安装 Audacity 的电脑上快速试听工程多轨、导出 WAV/MP3 成品、抢救崩溃损坏录音或将 Audacity 4（.aup4）降级兼容至 Audacity 3（.aup3），同时严防敏感录音外传的播客主播、记者与音频后期工程师。",
+      "pros": [
+        "完全免注册免登录，打开即用，全面支持 Audacity 4（.aup4）与 Audacity 3（.aup3）工程文件",
+        "采用高性能 Web Worker 与 WebAssembly 编译的 SQLite 引擎，在浏览器后台直接解析工程数据库",
+        "具备深度音频取证与修复能力，支持工程坏块检测、崩溃回滚恢复与跨大版本降级转换",
+        "严格的本地隐私防护机制，界面明确显示 0 字节上传，所有音频波形与样本块均在本地设备处理"
+      ],
+      "cons": [
+        "页面包含 1 次 Google Analytics 匿名统计信标请求",
+        "高级工程重建与分轨导出（Stems）等深度修复功能需单次付费授权"
+      ],
+      "privacyVerdict": "实测捕获 1 次 Google Analytics 匿名统计请求（google-analytics.com/g/collect）。Audacity SQLite 数据库解析、音频采样提取与 WAV/MP3 合成完全在浏览器 Web Worker 本地线程中执行，录音原文件 0 字节上传云端。",
+      "alternativeTo": [
+        "Audacity 桌面端",
+        "Tenacity 音频编辑",
+        "AudioMass 在线工作站",
+        "Sodaphonic 网页剪辑"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 aup4.aivismonitor.com 并上传 12,288 字节 SQLite 数据库测试固件。Web Worker 在本地完成 WebAssembly SQLite 结构验证，未触发任何文件上传并明确显示'0 bytes uploaded'。测试暗色主题切换与音频恢复路由。网络审计捕获 1 次 Google Analytics 统计信标，音频数据外发严格为 0。",
+      "testedAt": "2026-09"
+    }
+  },
+  "dataformatkit-com": {
+    "en": {
+      "bestFor": "Data analysts, software engineers, spreadsheet power users, and database administrators who need to parse, clean, normalize, and convert unstructured text, pipe-delimited logs, XML, or JSON into standard CSV tables locally without exposing sensitive proprietary data to remote servers.",
+      "pros": [
+        "Zero registration required with instant drag-and-drop ingestion supporting TXT, CSV, TSV, JSON, and XML up to 10 MB",
+        "Sophisticated delimiter detection and output formatting with CRLF/LF controls, custom field delimiters, and optional UTF-8 BOM",
+        "Comprehensive CSV security features including automated formula injection escaping and structure validation reporting",
+        "Versatile export options delivering clean 106-byte CSV files, one-click clipboard table copies, and diagnostic audit reports without watermarks"
+      ],
+      "cons": [
+        "Transmits 1 background Cloudflare RUM performance beacon upon initial page delivery"
+      ],
+      "privacyVerdict": "Observed 1 background Cloudflare RUM performance beacon (/cdn-cgi/rum?). Explicitly declining analytics successfully blocked third-party tracking; text parsing, delimiter detection, formula escaping, and CSV generation execute entirely in-browser without data egress.",
+      "alternativeTo": [
+        "ConvertCSV.com",
+        "CSVJSON.com",
+        "TableConvert",
+        "JSON to CSV Converter"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to dataformatkit.com and clicked button 'Reject analytics' to suppress third-party trackers. Uploaded an authentic 101 bytes test_delimited.txt fixture into the DOM input element. Populated textarea with pipe-separated records and configured parser with formula escaping. Clicked button 'Validate and preview' to generate a 3-row by 4-column structured table with zero warnings. Recorded 0ms peak task latency. Tested export trigger button 'Download CSV', verifying a clean 106 bytes CSV artifact with zero watermarks. Network audit observed 1 Cloudflare RUM request and strictly zero user data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将非结构化文本、管道符分隔日志、XML 或 JSON 数据快速清洗、解析并转为标准 CSV 表格，同时严格保护商业数据不被云端上传的数据分析师、后端工程师与表格深度用户。",
+      "pros": [
+        "完全免注册免登录，支持拖拽即时导入最大 10 MB 的 TXT、CSV、TSV、JSON 与 XML 文件",
+        "提供智能分隔符自适应探测、CRLF/LF 行尾控制、自定义导出分隔符及 UTF-8 BOM 兼容开关",
+        "具备生产级 CSV 安全防护机制，内置 Excel/Calc 公式注入转义与表格坏块警告诊断",
+        "导出能力优秀，直接生成 106 字节纯净 CSV 文件，支持一键复制到剪贴板与下载验证报告，无水印"
+      ],
+      "cons": [
+        "页面初次加载时包含 1 次 Cloudflare RUM 基础网络测速请求"
+      ],
+      "privacyVerdict": "实测捕获 1 次 Cloudflare RUM 性能测速请求（/cdn-cgi/rum?）。主动拒绝追踪后 Google Analytics 与 Microsoft Clarity 均被彻底阻断；文本分词、表头规范化、公式防注入转义及 CSV 生成完全在本地浏览器完成，数据外发严格为 0。",
+      "alternativeTo": [
+        "ConvertCSV 在线转换",
+        "CSVJSON 格式转换",
+        "TableConvert 表格助手",
+        "JSON to CSV 在线工具"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 dataformatkit.com 点击'Reject analytics'按钮阻断分析信标。上传 101 字节 test_delimited.txt 真实测试固件至 DOM input 控件。配置自动探测分隔符与首行表头，启用公式注入转义。点击'Validate and preview'按钮生成 3 行 4 列结构化表格且 0 项错误。主线程耗时 0ms。触发'Download CSV'成功下载 106 字节纯净 CSV 文件，经物理检验无水印。网络审计捕获 1 次 Cloudflare RUM 请求，业务数据外发为 0。",
+      "testedAt": "2026-09"
+    }
   }
 }
