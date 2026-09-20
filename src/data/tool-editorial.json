@@ -12868,5 +12868,261 @@
       "benchmarkNotes": "测试了核心番茄钟倒计时、键盘快捷键及提示音配置。随后进入任务估算器录入子任务 Migrate CSS to Tailwind（3 个番茄钟，75 分钟），确认数据在 localStorage 中完成序列化，并触发了追踪表的系统打印导出，主线程卡顿 0ms，CLS 仅 0.01。",
       "testedAt": "2026-09"
     }
+  },
+  "mojisuu-app": {
+    "en": {
+      "bestFor": "Japanese writers, novelists, translators, and editors needing instant real-time character counting, 400-character manuscript sheet conversion, and dual UTF-8/Shift_JIS byte calculations without uploading manuscripts to a server.",
+      "pros": [
+        "Instant client-side character calculation including and excluding spaces, line count, and paragraph count.",
+        "Accurate 400-character manuscript paper (原稿用紙) sheet estimation with integer ceiling display for Japanese literary submissions.",
+        "Simultaneous UTF-8 and legacy Shift_JIS byte count diagnostics essential for Japanese publishing systems and character-limited forms.",
+        "Zero third-party advertising trackers and minimal Cloudflare RUM telemetry."
+      ],
+      "cons": [
+        "Does not offer full-text file drag-and-drop or PDF/DOCX import; text must be pasted or typed into the textarea.",
+        "Lacks advanced ruby reading tag filtering or Furigana handling."
+      ],
+      "privacyVerdict": "Strict client-side processing model. Japanese text input and calculated metrics remain entirely inside the browser JavaScript runtime. Network inspection recorded exactly 1 Cloudflare RUM beacon with zero manuscript text transmitted to external servers.",
+      "alternativeTo": [
+        "WordCounter360",
+        "Japanese Character Counter",
+        "Nummoji",
+        "Shodo"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Injected 90-character classic Japanese prose snippet from Natsume Soseki into the textarea. Verified real-time computation of 90 chars (89 without whitespace), 2 lines, 1 paragraph, 0.22 manuscript sheets (1 sheet ceiling), 268 UTF-8 bytes, and 179 Shift_JIS bytes with 0ms freeze, 0.00 CLS, and captured 90-character clipboard export.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要即时统计日文字符数、400 字原稿纸页数折算以及 UTF-8 与 Shift_JIS 双编码字节数的日语作家、小说家、译者及编辑，原稿全程留在本地无需上传云端。",
+      "pros": [
+        "纯前端即时统计包含与排除空格换行的字符数、行数与段落数。",
+        "提供精准的 400 字日文原稿纸（原稿用紙）页数折算及向上取整计数，适合向出版社投稿或学术提交。",
+        "同时输出现代 UTF-8 与传统 Shift_JIS 编码的字节长度，满足日本各类老旧系统与表单的字节限制要求。",
+        "全站无商业广告追踪器，仅保留最基础的 Cloudflare RUM 性能埋点。"
+      ],
+      "cons": [
+        "暂不支持直接拖拽上传 PDF 或 DOCX 文件，需手动粘贴或输入文本。",
+        "缺少针对日文注音假名（振假名/ルビ）的专用剔除或分项计数选项。"
+      ],
+      "privacyVerdict": "极为严谨的纯客户端运行模式。用户输入的日文原稿及所有统计数值全程在浏览器 JavaScript 运行时内完成计算。网络审计仅捕获到 1 次 Cloudflare RUM 性能信标，文稿内容零外传。",
+      "alternativeTo": [
+        "WordCounter360",
+        "Japanese Character Counter",
+        "Nummoji",
+        "Shodo"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "注入夏目漱石《我是猫》90 字经典日文片段，验证了实时计算出的 90 字符（排除空格换行 89 字）、2 行、1 段落、0.22 页原稿纸（进位 1 枚）、268 字节 UTF-8 及 179 字节 Shift_JIS，主线程卡顿 0ms，CLS 为 0.00，并成功完成 90 字符的剪贴板复制。",
+      "testedAt": "2026-09"
+    }
+  },
+  "kitparlor-com": {
+    "en": {
+      "bestFor": "Etsy, Amazon, eBay, and print-on-demand sellers who need precise fee calculations, profit margins, image resizers, and compliant 300 DPI EU GPSR safety labels without creating accounts or uploading product data to remote servers.",
+      "pros": [
+        "Extensive suite of 27 specialized tools covering marketplace fees, POD margins, image formatting, and compliance labels.",
+        "Client-side GPSR safety label generator exporting unwatermarked, print-ready 300 DPI PNG files (827x472 px) directly in the browser.",
+        "Live interactive fee calculators supporting Etsy, Amazon Handmade, and eBay with regional VAT and ad expense modeling.",
+        "Zero third-party tracking scripts or user data uploads; all calculation and image processing happens locally."
+      ],
+      "cons": [
+        "GPSR label builder generates layouts but deliberately does not auto-populate manufacturer legal compliance data.",
+        "Advanced multi-item batch calculations currently require individual entry across separate sessions."
+      ],
+      "privacyVerdict": "Exemplary client-side architecture. Calculations, image manipulation, and label rendering run completely within browser JavaScript and Canvas APIs. Network observation recorded only 4 Cloudflare RUM telemetry beacons; zero proprietary product or cost data leaves the local machine.",
+      "alternativeTo": [
+        "Etsy Fee Calculator by Craftybase",
+        "SaleCalc",
+        "Alura Fee Calculator",
+        "Printify Profit Calculator"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Calculated Etsy net profit on a $35 sale with $6 material cost, verifying instant computation of $31.23 net profit (89.2% margin) and $3.78 fees. Navigated to GPSR Safety Label Builder, configured candle product specs, and downloaded a crisp, unwatermarked 72,173-byte PNG label at 827x472 (300 DPI) with 0ms freeze and 0.10 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在 Etsy、亚马逊、eBay 及按需印刷（POD）平台开店的电商卖家，需要精准计算平台抽成佣金、净利润率、批量裁切主图并生成符合欧盟 GPSR 法规的 300 DPI 印刷级安全标签，全程免注册且商业数据不离本机。",
+      "pros": [
+        "包含 27 款面向跨境电商的专业工具箱，全面覆盖平台佣金、POD 利润核算、图片合规裁切与合规标签排版。",
+        "内置欧盟 GPSR 安全标签生成器，在浏览器前端直接导出无水印、符合 300 DPI 印刷标准的 PNG 图像文件（827x472 像素）。",
+        "实时交互式费率计算器，支持 Etsy、Amazon Handmade 与 eBay，并可精细配置地区增值税与站外广告扣点。",
+        "全站无任何第三方商业追踪脚本，计算与图像光栅化处理全部在客户端内存完成，商业机密数据绝不外传。"
+      ],
+      "cons": [
+        "GPSR 标签工具仅提供合规尺寸与排版模板，生产商与欧盟责任人具体信息需卖家自行依法填报。",
+        "暂不支持通过 CSV 批量导入多 SKU 进行并发利润核算，多款商品需逐一输入计算。"
+      ],
+      "privacyVerdict": "堪称典范的纯前端本地架构。所有利润核算、图片处理与标签排版均完全在浏览器 JavaScript 与 Canvas API 内运行。网络监测全程仅记录到 4 次 Cloudflare RUM 性能信标，任何产品成本与商业数据绝不离开本机。",
+      "alternativeTo": [
+        "Etsy Fee Calculator by Craftybase",
+        "SaleCalc",
+        "Alura Fee Calculator",
+        "Printify Profit Calculator"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测在 Etsy 平台按 35 美元售价和 6 美元原料成本测算，即时得出 31.23 美元净利润（89.2% 利润率）及 3.78 美元平台扣费。随后测试 GPSR 欧盟安全标签生成器，配置大豆蜡烛规格并成功导出 72,173 字节、827x472 分辨率（300 DPI）的无水印印刷级 PNG 标签，主线程卡顿 0ms，CLS 为 0.10。",
+      "testedAt": "2026-09"
+    }
+  },
+  "contextwindowvramcalculator-com": {
+    "en": {
+      "bestFor": "AI engineers, ML researchers, and local LLM self-hosters sizing GPU VRAM capacity for llama.cpp, vLLM, Ollama, or TensorRT-LLM across long-context workloads.",
+      "pros": [
+        "Precise KV cache formula accounting for transformer layers, KV heads, head dimensions, precision bytes, and concurrent sequences.",
+        "Extensive model presets including Llama 3.1 8B, Qwen2.5 7B, DeepSeek R1 Distill, Gemma 2, and custom architecture configurations.",
+        "Calculates both resident quantized weights (GGUF Q2_K through Q8_0) and dynamic context memory with maximum fitting context solver.",
+        "One-click clipboard export with transparent math formulas and permalink parameters for reproducible sharing."
+      ],
+      "cons": [
+        "Does not account for speculative decoding draft model memory allocations.",
+        "PagedAttention / vLLM memory fragmentation overhead must be modeled manually via the runtime reserve slider."
+      ],
+      "privacyVerdict": "Client-side calculations for model memory and KV cache execute within the browser runtime. Observed network activity was strictly limited to 3 Google Analytics 4 telemetry payloads; model parameters and hardware configurations are not uploaded to remote servers.",
+      "alternativeTo": [
+        "Can You Run It LLM",
+        "LLM VRAM Calculator by Hugging Face",
+        "GPU Poor VRAM Calculator",
+        "VRAM Estimator"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Configured Llama 3.1 8B with Q4_K_M weights and 128K context window (131,072 tokens). Evaluated FP16 KV cache scaling, computing 16.0 GiB KV cache, 4.49 GiB weights, 2.0 GiB reserve, yielding 22.5 GiB total VRAM on a 24 GiB GPU. Tested clipboard export capturing 398 characters of mathematical breakdown with 0ms freeze and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "AI 工程师、机器学习研究员及本地大模型部署者，在使用 llama.cpp、vLLM、Ollama 或 TensorRT-LLM 运行长文本任务时，精准测算显存开销与 KV Cache 预算。",
+      "pros": [
+        "精准的 KV Cache 计算模型，严密计入 Transformer 层数、KV 注意力头数、头维度、数据类型字节与并发请求数。",
+        "内置广泛的主流模型预设，涵盖 Llama 3.1 8B、Qwen2.5 7B、DeepSeek R1 Distill、Gemma 2 以及完全自定义架构。",
+        "同时核算量化权重显存驻留量（支持 GGUF Q2_K 至 Q8_0）与动态上下文显存，支持一键求解显存上限可容纳的最大上下文。",
+        "支持一键复制完整数学公式推导明细，并生成携带全量参数的分享链接以便复现。"
+      ],
+      "cons": [
+        "尚未集成投机采样（Speculative Decoding）辅助 Draft 模型的显存开销计算。",
+        "针对 vLLM PagedAttention 等显存分页碎片开销，需要通过运行时保留滑块手动预留冗余空间。"
+      ],
+      "privacyVerdict": "模型显存与 KV Cache 的数学计算均在浏览器前端运行时中完成。实测捕获到 3 次 GA4 性能遥测请求，用户的模型架构参数与硬件显存配置均不会上传至远程服务器。",
+      "alternativeTo": [
+        "Can You Run It LLM",
+        "LLM VRAM Calculator by Hugging Face",
+        "GPU Poor VRAM Calculator",
+        "VRAM Estimator"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测配置 Llama 3.1 8B 搭配 Q4_K_M 量化权重与 128K 上下文窗口（131,072 tokens）。测算得出 FP16 精度下 KV Cache 需 16.0 GiB，模型驻留 4.49 GiB，预留 2.0 GiB，在 24 GiB 显存上占 22.5 GiB。成功捕获包含完整推导公式的 398 字符剪贴板导出，主线程卡顿 0ms，CLS 为 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "watermarkzero-org": {
+    "en": {
+      "bestFor": "Digital artists, designers, and content creators needing to remove visible Google Gemini watermark logos from generated images locally without uploading artwork to third-party inpainting servers.",
+      "pros": [
+        "Client-side reverse alpha blending algorithm restoring pixel data beneath visible Gemini watermarks locally in browser memory.",
+        "Interactive before/after split comparison slider allowing instant pixel-level inspection of the restored area.",
+        "Preserves original image dimensions (tested 800x600 px) with direct unwatermarked PNG download and clipboard copy.",
+        "Supports batch image processing with zero account creation or cloud credits required."
+      ],
+      "cons": [
+        "Targets only visible Gemini watermark logos; does not alter invisible SynthID watermarking.",
+        "Complex high-contrast photographic backgrounds beneath the watermark may show subtle blending gradients."
+      ],
+      "privacyVerdict": "Client-side image processing utilizing HTML5 Canvas and reverse alpha math in the local browser runtime. Network audit confirmed outgoing requests were strictly limited to 3 telemetry beacons (Google Analytics 4 and Cloudflare RUM); user images and artwork are not uploaded to remote servers.",
+      "alternativeTo": [
+        "WatermarkRemover.io",
+        "Clipdrop Cleanup",
+        "Photoroom Watermark Remover",
+        "Inpaint Online"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 800x600 PNG fixture to the dropzone. The reverse alpha engine processed the image instantly with an interactive split comparison slider. Triggered the download action and retrieved a pristine 173,809-byte unwatermarked PNG file at 800x600 with 0ms freeze and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要从 AI 生成图像中清除可见 Google Gemini 水印标识的数字艺术家、设计师及创作者，直接在本地浏览器完成高保真反向 Alpha 混合修复，无需将作品上传至第三方重绘服务器。",
+      "pros": [
+        "纯客户端反向 Alpha 混合算法，在浏览器内存中直接逆向消除可见 Gemini 水印并复原底层像素。",
+        "提供交互式左右分屏滑动对比条，方便实时放大检查修复边缘与画质保真度。",
+        "完整保留图像原始分辨率（实测 800x600 像素），支持一键导出无水印 PNG 附件或复制到系统剪贴板。",
+        "支持多图批量处理，免除账号登录或云端积分扣除机制。"
+      ],
+      "cons": [
+        "专用于移除可见的 Gemini 星标文字水印，不修改或剥离不可见的 SynthID 隐形数字水印。",
+        "若水印恰好覆盖在高对比度复杂多色纹理背景上，边缘可能存在极轻微的融合过渡痕迹。"
+      ],
+      "privacyVerdict": "基于 HTML5 Canvas 与反向 Alpha 算法的纯客户端图像处理架构。网络审计确认外发请求严格仅限于 3 次遥测信标（Google Analytics 4 与 Cloudflare RUM），用户上传的原始图片与处理结果均不离本机。",
+      "alternativeTo": [
+        "WatermarkRemover.io",
+        "Clipdrop Cleanup",
+        "Photoroom Watermark Remover",
+        "Inpaint Online"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "向上传区注入 800x600 像素的标准 PNG 测试图像，反向 Alpha 引擎即时完成处理并渲染分屏对比滑块。触发下载后成功导出 173,809 字节的无水印原始分辨率 PNG 文件，主线程卡顿 0ms，CLS 达到 0.00。",
+      "testedAt": "2026-09"
+    }
   }
 }
