@@ -11112,5 +11112,249 @@
       "benchmarkNotes": "在双栏编辑器中注入多行嵌套 JSON 数据，即时高亮 4 处词级修改，界面卡顿 0ms，并成功下载 372 字节的标准 unified .diff 补丁成品。",
       "testedAt": "2026-09"
     }
+  },
+  "max-agent-hub-github-io-browser-sop-builder": {
+    "en": {
+      "bestFor": "Drafting structured Standard Operating Procedures (SOPs) with live Markdown generation and local-only data sovereignty.",
+      "pros": [
+        "Captures formal SOP schema including document control, process owners, versioning, triggers, quality checks, and exception paths",
+        "Real-time split-screen Markdown preview updating synchronously with form field inputs",
+        "Dual export pathways offering instant clipboard copying and direct unwatermarked .md file downloads",
+        "Strict client-side zero-egress architecture with zero network requests or analytics trackers"
+      ],
+      "cons": [
+        "Procedure form does not persist drafts across page reloads unless manually exported to Markdown"
+      ],
+      "privacyVerdict": "True zero-egress architecture; zero network requests or background telemetry beacons observed across all form input, preview generation, and Markdown export operations.",
+      "alternativeTo": [
+        "Notion SOP Templates",
+        "SweetProcess",
+        "Process Street"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Populated structured procedure fields with emergency rollback specifications, verified instant real-time Markdown preview generation with 0ms UI freeze, and downloaded a 1,508-byte .md file artifact.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地浏览器免登录将零散业务笔记整理为规范的标准作业程序（SOP）并导出 Markdown 的运维与管理团队。",
+      "pros": [
+        "预置规范的 SOP 流程表单，涵盖文档管控、负责人、版本号、触发条件、动态步骤及异常路径",
+        "实时双栏分屏预览，输入过程毫秒级即时同步生成排版规范的 Markdown 文档",
+        "提供一键复制 Markdown 与直接下载 .md 文件两种导出方式，零水印且无需注册",
+        "完全纯前端零外发架构，运行全程无任何数据上报或分析追踪脚本"
+      ],
+      "cons": [
+        "表单数据未内置本地自动暂存功能，刷新页面前需手动保存或导出 Markdown"
+      ],
+      "privacyVerdict": "真正意义上的端侧零网络外发架构；在整个表单填写、Markdown 实时构建及 .md 文件下载过程中，均未记录到任何网络请求与统计信标。",
+      "alternativeTo": [
+        "Notion SOP Templates",
+        "SweetProcess",
+        "Process Street"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "填写回滚操作规范流程，右侧实时双栏秒级渲染格式化 Markdown 文本，界面卡顿为 0ms，顺利无损导出 1,508 字节的 .md 规范文档。",
+      "testedAt": "2026-09"
+    }
+  },
+  "hardenmyrepo-github-io-browser-audit": {
+    "en": {
+      "bestFor": "Privately evaluating a local git repository for AI coding-agent readiness without uploading code or credentials.",
+      "pros": [
+        "Evaluates 10 distinct readiness signals including AGENTS.md instructions, CI pipelines, lockfiles, and git hook policies",
+        "Zero-knowledge architecture reads only bounded configuration files and metadata without touching sensitive project source",
+        "Provides actionable remedies alongside concrete evidence references for every identified configuration gap",
+        "Pure client-side zero-egress design with zero external network requests or tracking scripts"
+      ],
+      "cons": [
+        "Lacks a dedicated one-click export button for saving the generated audit report to JSON or Markdown"
+      ],
+      "privacyVerdict": "True zero-egress architecture; zero network requests recorded across file selection, rule evaluation, and result presentation. Repository configuration is processed purely in local browser memory.",
+      "alternativeTo": [
+        "Scorecard (OpenSSF)",
+        "RepoLinter",
+        "GitHub Dependency Review"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 20,
+        "depth": 20,
+        "exportFreedom": 15,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited local repository manifest across 4 configuration files, evaluated 10 readiness signals in under 15ms with 0ms UI freeze, and rendered a 50/100 score breakdown with clear remediation guidance.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地浏览器中对项目进行 AI 辅助编程就绪度体检，且不希望上传任何源代码与凭据的开发者与安全审计员。",
+      "pros": [
+        "对项目进行 10 项关键就绪度信号审计，涵盖 AGENTS.md 指令、CI 流水线、依赖锁定与 Git 钩子策略",
+        "零知识架构仅读取指定路径的配置文本与文件元数据，绝不读取业务源码与敏感凭证",
+        "针对每项未通过检查项均提供具体的事实依据以及明确的修复整改建议",
+        "完全纯前端零外发设计，运行全程无任何第三方网络调用或分析脚本"
+      ],
+      "cons": [
+        "缺少一键将体检报告导出为独立 JSON 或 Markdown 报告文件的下载功能"
+      ],
+      "privacyVerdict": "真正的端侧零外发架构；在目录读取、规则引擎匹配与报告渲染全流程中未发生任何网络请求。代码仓库配置完全在浏览器本地内存中处理。",
+      "alternativeTo": [
+        "Scorecard (OpenSSF)",
+        "RepoLinter",
+        "GitHub Dependency Review"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 20,
+        "depth": 20,
+        "exportFreedom": 15,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "载入包含 4 个核心配置文件的项目目录快照，15ms 内完成 10 项维度就绪度评估，界面卡顿 0ms，准确呈现 50/100 分数及整改指南。",
+      "testedAt": "2026-09"
+    }
+  },
+  "findthescam-net": {
+    "en": {
+      "bestFor": "Checking quick domain safety indicators, WHOIS age, and SSL certificate validity without creating an account.",
+      "pros": [
+        "Evaluates domain age, SSL validity, DNS records, and Safe Browsing indicators in a single lookup",
+        "Generates shareable public permalink reports with positive and negative risk signal breakdowns",
+        "Zero registration required to query public web reputation scores"
+      ],
+      "cons": [
+        "Heavily crowded with display advertisements and intrusive full-screen interstitial popups",
+        "Loads multiple Google Analytics (GA4) trackers and Google AdSense telemetry beacons",
+        "Can produce false-positive caution warnings on established domains when server geolocation is omitted"
+      ],
+      "privacyVerdict": "Searched domains are submitted to the backend server via POST /web-analyzer; observed 4 Google Analytics payloads across two measurement IDs alongside Google AdSense and Funding Choices network requests.",
+      "alternativeTo": [
+        "Scamadviser",
+        "URLVoid",
+        "VirusTotal"
+      ],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 14,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Queried excalidraw.com, processed domain validation via POST /web-analyzer in 2.3s, generated an 82/100 trust score with technical WHOIS breakdown, and navigated around an interstitial overlay ad.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免注册快速查询陌生域名的注册年限、SSL 证书状态与基础风险评级的用户。",
+      "pros": [
+        "单次查询即可汇总域名年龄、SSL 证书有效性、DNS 解析记录及安全信誉指标",
+        "生成公开可分享的检测结果永久链接，并分类列出正面与风险信号细节",
+        "无需注册账号或绑定手机即可查看全量技术诊断报告"
+      ],
+      "cons": [
+        "页面充斥大量展示广告，且在浏览报告时会弹出阻断视线的全屏插页广告",
+        "内嵌两个不同 ID 的 Google Analytics（GA4）统计信标与 Google AdSense 广告代码",
+        "在未抓取到服务器地理位置时容易对正规老牌站点给出偏保守的警告评级"
+      ],
+      "privacyVerdict": "查询的域名通过 POST /web-analyzer 提交至后端服务器进行分析；测试期间捕获到涵盖两个统计 ID 的 4 次 GA4 数据信标，以及 Google AdSense 广告与隐私授权弹窗请求。",
+      "alternativeTo": [
+        "Scamadviser",
+        "URLVoid",
+        "VirusTotal"
+      ],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 14,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入 excalidraw.com 进行检测，后端在 2.3 秒内完成扫描并生成 82/100 信任分及 WHOIS 详单，成功关闭弹出的插页广告查阅完整报告。",
+      "testedAt": "2026-09"
+    }
+  },
+  "imagecompressortokb-com": {
+    "en": {
+      "bestFor": "Compressing JPG, PNG, and WebP images down to strict file-size limits (such as 20KB, 50KB, 100KB, or custom limits) for application forms and upload portals.",
+      "pros": [
+        "Precise iterative quality and dimension downsampling algorithm targeting specific KB thresholds",
+        "Instant client-side HTML5 Canvas and createImageBitmap processing with live before-and-after byte counter",
+        "Immediate unwatermarked file downloads without registration, paywalls, or email collection",
+        "Supports multiple format conversions including JPG, WebP, and PNG with batch upload capability"
+      ],
+      "cons": [
+        "Transmits Cloudflare RUM telemetry beacons during page load for performance monitoring",
+        "Strict target sizing on complex lossless PNGs may require format switching to WebP or JPG"
+      ],
+      "privacyVerdict": "All image decoding, Canvas resampling, and byte-target compression execute inside the local browser; observed 2 Cloudflare RUM telemetry beacons with zero image content sent upstream.",
+      "alternativeTo": [
+        "TinyPNG",
+        "Compressor.io",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded an 800x600 76 KB JPEG fixture targeted at 50KB ceiling. The iterative compressor converged at 50,244 bytes (49 KB, 35% reduction) in 0ms UI freeze, downloading a valid 50,244-byte JPEG artifact.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将 JPG、PNG 和 WebP 图片严格压缩到指定 KB 大小（如 20KB、50KB、100KB 或自定义大小）以满足证件、政务系统或网申上传要求的用户。",
+      "pros": [
+        "基于 Canvas 与二分质量算法，可将图片精准压缩至预设或自定义的 KB 字节上限",
+        "纯浏览器端实时处理，提供清晰的原图与成品质积、尺寸及体积缩减率对比",
+        "点击下载直接保存成品，零水印、零注册且无任何邮件索取诱导",
+        "支持 JPG、WebP 和 PNG 格式互相转换，并支持多图批量上传处理"
+      ],
+      "cons": [
+        "页面加载时会向 Cloudflare 发送 RUM 性能监控请求",
+        "对于具有透明通道的无损 PNG，受算法限制可能需要切换为 WebP 或 JPG 才能达标"
+      ],
+      "privacyVerdict": "所有图像解码、重采样与文件压缩均在浏览器本地执行，图像数据不经过服务端；仅监测到 2 次 Cloudflare RUM 性能监控信标。",
+      "alternativeTo": [
+        "TinyPNG",
+        "Compressor.io",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "针对 50KB 预设上限上传 800x600 76KB JPEG 样例，算法在 0ms 界面卡顿内精准收敛于 50,244 字节（49KB，体积减少 35%），并成功直接下载 50,244 字节的纯净 JPEG 成品。",
+      "testedAt": "2026-09"
+    }
   }
 }
