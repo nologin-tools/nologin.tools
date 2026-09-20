@@ -11850,5 +11850,261 @@
       "benchmarkNotes": "分别在 BPM Finder、Key Finder、频谱仪和 BPM Changer 中载入 88.2 KB WAV 测试音频，界面卡顿 0ms 且 CLS 为 0.01。系统瞬时识别出 119 BPM、A Minor（8A / 1m 调性）、实时绘制 20kHz 频谱，保调变速至 128 BPM 并成功导出 88,244 字节的纯净 WAV 文件，记录到 24 次 Umami 匿名统计请求。",
       "testedAt": "2026-09"
     }
+  },
+  "musictoolslab-com": {
+    "en": {
+      "bestFor": "Musicians, producers, and audio engineers looking for a private, zero-install audio workstation to detect track BPM, extract song keys, inspect acoustic energy/dynamics curves, and trim audio with zero server uploads.",
+      "pros": [
+        "Zero-egress client-side audio workspace processing all waveforms and acoustic features locally via Web Audio API",
+        "Multi-dimensional acoustic analysis displaying energy, brightness, dynamics, and activity curves alongside BPM and key",
+        "Precision audio trimmer with interactive start/end scrubbers, automatic edge silence detection, and fade controls",
+        "Direct, unwatermarked WAV and MP3 artifact export without server roundtrips or registration prompts"
+      ],
+      "cons": [
+        "In-browser Web Audio memory limits cap file processing to approximately 50 MB or 20 minutes per track",
+        "Complex polyphonic songs with shifting tempos or ambient modulation may yield ambiguous key detections"
+      ],
+      "privacyVerdict": "Audio files and acoustic signal processing remain strictly inside the local browser memory; observed zero outgoing network payloads (0 egress) during analysis, trimming, and export.",
+      "alternativeTo": [
+        "AudioMass",
+        "123apps Audio Cutter",
+        "Tunebat",
+        "Vocal Remover"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 88.2 KB WAV fixture into Audio Workspace and Trimmer with 72ms task latency and 0.00 CLS. Instantly extracted acoustic energy curves, trimmed sample, and exported a clean 96,044-byte WAV artifact with 0 outgoing network payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "寻求无须安装专业 DAW、零文件上传即可在浏览器中测定曲目 BPM、检测调性、分析声学能量与动态曲线、以及快速剪辑音频的音乐人、制作人与音频工程师。",
+      "pros": [
+        "完全零数据外传的纯前端音频工作台，所有音频波形与声学特征均通过 Web Audio API 本地解析",
+        "多维度声学特征分析，同步呈现能量、明亮度、动态范围与活动曲线，辅以 BPM 节拍与调性测算",
+        "高精度音频剪辑器，支持毫秒级起始点拖拽、边缘静音自动侦测以及淡入淡出曲线调节",
+        "纯本地直接导出未压缩 WAV 与 MP3 音频文件，无任何转码等待、水印或登录弹窗"
+      ],
+      "cons": [
+        "受限于浏览器 Web Audio 内存限制，单个音频文件最大支持约 50 MB 或 20 分钟",
+        "对于节拍变奏复杂或调制过渡较多的环境声乐，自动调性判断偶有不确定性"
+      ],
+      "privacyVerdict": "音频文件解析与声学信号处理完全在浏览器内存中本地执行；在全流程分析、剪辑与导出测试中，实测记录到 0 次网络数据外传（零外传）。",
+      "alternativeTo": [
+        "AudioMass",
+        "123apps Audio Cutter",
+        "Tunebat",
+        "Vocal Remover"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在音频工作区与剪辑器中载入 88.2 KB WAV 测试音频，任务延迟 72ms 且 CLS 为 0.00。系统瞬时提取声学能量曲线，完成音频选区裁剪并成功导出 96,044 字节的纯净 WAV 文件，全流程记录到 0 次网络请求外传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "betterhabitsdaily-com-tracker": {
+    "en": {
+      "bestFor": "Developers and focused professionals who want a minimalist, account-free daily habit and streak tracker with gamified XP leveling that stores all data locally in the browser.",
+      "pros": [
+        "Instant friction-free start with pre-configured developer habits (deep work, code side project, walk breaks)",
+        "Gamified habit building featuring an XP progression bar, daily streak counters, and categorized challenges",
+        "Zero cloud accounts or backend syncing required; all habits and completion history persist locally in localStorage",
+        "Zero paywalls or functional restrictions on habit creation"
+      ],
+      "cons": [
+        "Lacks a built-in one-click JSON or CSV data backup and export button on the interface",
+        "Emits PostHog telemetry payloads (with masked IP) and Cloudflare RUM for anonymous traffic monitoring"
+      ],
+      "privacyVerdict": "Habit lists, streak counts, and XP progression are stored strictly inside the browser's localStorage under the bhd-tracker key; observed 5 PostHog telemetry payloads (with ip=0) and 1 Cloudflare RUM request with zero habit details sent upstream.",
+      "alternativeTo": [
+        "Everyday",
+        "Habitica",
+        "Streaks",
+        "Loop Habit Tracker"
+      ],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 20,
+        "depth": 20,
+        "exportFreedom": 14,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Added preset developer habit into bhd-tracker with 0ms freeze latency and 0.01 CLS. Checked off task to trigger 1-day streak and 5 XP, completed 30-minute walk challenge (+20 XP), and verified local persistence across 6 PostHog and RUM telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望在浏览器中免登录、免配置跟踪日常专注习惯与连续打卡天数，并通过经验值（XP）与日常挑战进行轻量游戏化激励的开发者与效率工作者。",
+      "pros": [
+        "即开即用零配置，内置专为开发者定制的高频习惯（深度工作 2 小时、编码副业项目、散步休息）",
+        "融入轻量游戏化机制，具备经验值（XP）等级进度条、每日连续打卡计数器与多分类挑战任务",
+        "无需注册任何云端账户，所有打卡状态与完成历史均加密保存在本地浏览器的 localStorage 中",
+        "完全免费无内购，无习惯添加数量限制与功能封锁"
+      ],
+      "cons": [
+        "界面暂未提供一键导出 JSON 或 CSV 本地备份的快捷下载按钮",
+        "页面会向 PostHog（附带 ip=0 掩码）及 Cloudflare RUM 发送匿名性能与访问监测数据包"
+      ],
+      "privacyVerdict": "习惯列表、打卡天数与经验值均严格保存在浏览器本地的 localStorage（bhd-tracker 键）中；实测仅记录到 5 次发往 PostHog 的匿名访问上报（已启用 ip=0 匿名化）与 1 次 Cloudflare RUM 请求，未泄露任何个人打卡内容。",
+      "alternativeTo": [
+        "Everyday",
+        "Habitica",
+        "Streaks",
+        "Loop Habit Tracker"
+      ],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 20,
+        "depth": 20,
+        "exportFreedom": 14,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "一键添加开发者预设习惯至 bhd-tracker，界面卡顿 0ms 且 CLS 为 0.01。完成打卡触发 1 天连续记录并获取 5 XP，顺利提交 30 分钟户外散步挑战（+20 XP），在 6 次 PostHog 与 RUM 匿名统计下确认本地数据持久化正常。",
+      "testedAt": "2026-09"
+    }
+  },
+  "utilbear-com": {
+    "en": {
+      "bestFor": "Writers, social media managers, and developers seeking fast, zero-upload browser utilities to count text metrics against platform limits and convert WebP or HEIC images to PNG/JPG with automatic EXIF metadata stripping.",
+      "pros": [
+        "Client-side image processing with automatic camera model, GPS position, and EXIF metadata stripping",
+        "Comprehensive real-time word counter tracking characters, sentences, reading time, and social media character quotas",
+        "Batch WebP to PNG and HEIC to JPG converters with unwatermarked ZIP packaging and instant download",
+        "Clean, ad-free interface with 8-language localization and helpful technical explainers"
+      ],
+      "cons": [
+        "Browser memory constraints may limit simultaneous batch conversion of very large (50MB+) HEIC photo collections",
+        "Sends passive Cloudflare RUM telemetry beacons for aggregate page performance monitoring"
+      ],
+      "privacyVerdict": "All text calculations and image format conversions execute locally inside the browser with complete metadata stripping; observed only 4 passive Cloudflare RUM beacons with zero file or text content egress.",
+      "alternativeTo": [
+        "EZGIF",
+        "CloudConvert",
+        "WordCounter.net",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Entered 14-word text fixture into Word Counter with 0ms freeze latency and 0.00 CLS. Converted 922-byte WebP sample into PNG and exported a clean 3,131-byte ZIP archive with 4 Cloudflare RUM beacons recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、零上传在浏览器中快速统计文本字数指标（附带主流社媒字符限制参考），以及将 WebP、HEIC 格式图片本地批量转为 PNG/JPG 并自动清除 EXIF 隐私元数据的写作者、社媒运营与开发者。",
+      "pros": [
+        "纯本地前端图像解析，自动抹除相机型号、拍摄日期与 GPS 地理位置等敏感 EXIF 元数据",
+        "全功能实时字数统计器，同步计算字符数、空格数、段落数、预估阅读时间以及主流社媒平台的剩余字符限额",
+        "支持 WebP 转 PNG 与 iPhone HEIC 转 JPG 批量转换，提供免水印 ZIP 打包一键下载",
+        "无广告清爽排版，支持 8 种语言界面切换，附带详实的格式转换原理与使用建议"
+      ],
+      "cons": [
+        "受限于浏览器内存分配，同时批量处理超高分辨率（50MB+）的大规模 HEIC 图库时速度受限",
+        "页面加载时会向 Cloudflare RUM 发送被动的匿名网络性能监测信标"
+      ],
+      "privacyVerdict": "所有文本计算与图像格式转码均在浏览器本地完成，并主动剥离 EXIF 元数据；实测仅记录到 4 次被动 Cloudflare RUM 性能监测信标，无任何文本或图片内容外传。",
+      "alternativeTo": [
+        "EZGIF",
+        "CloudConvert",
+        "WordCounter.net",
+        "Squoosh"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在字数统计器中输入 14 词测试文本，界面卡顿 0ms 且 CLS 为 0.00。将 922 字节的 WebP 样本本地转码为 PNG 并成功导出 3,131 字节的免水印 ZIP 压缩包，记录到 4 次 Cloudflare RUM 性能信标。",
+      "testedAt": "2026-09"
+    }
+  },
+  "blur-face-com-blur-face": {
+    "en": {
+      "bestFor": "Photographers, activists, and privacy-conscious users needing to automatically detect and blur faces or redact sensitive regions in photos locally within the browser with automatic EXIF metadata removal.",
+      "pros": [
+        "Client-side neural network face detection downloading a 6.4 MB local model so photos never leave the browser",
+        "Manual redaction fallback with 8-point resize handles, rotation controls, and deletion options",
+        "Built-in EXIF and photo metadata stripping protecting camera and GPS location traces",
+        "Direct, unwatermarked PNG, JPG, or WEBP artifact downloads with zero registration paywalls"
+      ],
+      "cons": [
+        "Displays third-party display advertisements and includes Microsoft Clarity and Google Analytics tracking scripts",
+        "First-time face detection model initialization incurs a 6.4 MB download and noticeable client CPU freeze"
+      ],
+      "privacyVerdict": "Face detection and image rendering occur locally in-browser via a downloaded client model with automatic EXIF stripping; observed 27 network payloads associated with Google Analytics, Microsoft Clarity, and AdSense ad delivery with zero photo contents uploaded.",
+      "alternativeTo": [
+        "BlurWeb",
+        "Facepixelizer",
+        "Redacted",
+        "EZGIF"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Loaded 332.6 KB PNG fixture into Blur Face, fetched 6.4 MB local face detection model, created manual privacy block with 8-point handles, and exported a clean 332,574-byte unwatermarked PNG artifact across 27 analytics and ad delivery payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在发布照片前免注册快速自动检测并高斯模糊人脸、手动添加遮盖选区，并在本地一并抹除 EXIF 元数据的摄影师、维权者与注重隐私的用户。",
+      "pros": [
+        "纯本地神经网络人脸检测，加载 6.4 MB 本地模型后所有图片扫描均在浏览器本地完成，图片不上传服务器",
+        "提供手动添加隐私遮挡框功能，具备 8 个控制点缩放、旋转与删除手柄，灵活覆盖遗漏区域",
+        "内置 EXIF 与照片元数据清除功能，导出时自动去除拍摄设备与 GPS 地理定位痕迹",
+        "直接导出无水印的 PNG、JPG 或 WEBP 文件，无登录拦截与画质压缩墙"
+      ],
+      "cons": [
+        "页面包含第三方展示广告，并引入了 Microsoft Clarity 与 Google Analytics 分析统计脚本",
+        "首次加载 6.4 MB 神经网络模型时需要等待下载并在客户端产生短暂 CPU 运算卡顿"
+      ],
+      "privacyVerdict": "人脸检测与图像模糊渲染均由下载至本地的模型在浏览器内完成，并支持去除 EXIF 元数据；实测记录到 27 次发往 Google Analytics、Microsoft Clarity 以及 AdSense 广告与合规组件的网络请求，未上传任何照片数据。",
+      "alternativeTo": [
+        "BlurWeb",
+        "Facepixelizer",
+        "Redacted",
+        "EZGIF"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 Blur Face 中载入 332.6 KB PNG 测试图片，加载 6.4 MB 本地人脸检测模型，添加带 8 点控制柄的手动隐私遮挡区域，并成功导出 332,574 字节的纯净免水印 PNG 文件，记录到 27 次分析与广告数据包。",
+      "testedAt": "2026-09"
+    }
   }
 }
