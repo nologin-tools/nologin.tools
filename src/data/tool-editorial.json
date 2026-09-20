@@ -6164,5 +6164,231 @@
       "benchmarkNotes": "在 138ms 内完成 143 行、7,173 字节文档的双栏同步解析，并成功下载 7,176 字节标准 Markdown 文件。",
       "testedAt": "2026-09"
     }
+  },
+  "rentry-co": {
+    "en": {
+      "bestFor": "Publishing and sharing anonymous Markdown documents with custom edit codes and vanity URLs without accounts.",
+      "pros": [
+        "Zero-barrier Markdown publishing featuring user-defined custom edit passcodes and custom URL slugs",
+        "Clean raw text endpoints (/raw) and tabbed HTML preview without account creation or email prompts"
+      ],
+      "cons": [
+        "Markdown preview rendering relies on a server-side API call rather than purely client-side compilation"
+      ],
+      "privacyVerdict": "Observed network egress includes Google Analytics (G-LLFSDKZXET) and Markdown preview POST requests to /markdownx/markdownify/. Document creation requires no email, personal identity, or sign-in.",
+      "alternativeTo": [
+        "pastebin-com",
+        "hastebin-com",
+        "ghostbin-com"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Rendered Markdown preview via /markdownx/markdownify/ in 67 ms main-thread time with 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "匿名发布并分享带有自定义编辑密码与专属 URL 后缀的 Markdown 文档，免注册登录。",
+      "pros": [
+        "零门槛即开即写 Markdown 发布平台，支持自定义专属 URL 与独立编辑密码，无需绑定邮箱",
+        "提供干净的原始文本直链（/raw）与一键切换的 HTML 预览视窗，全程无账号拦截"
+      ],
+      "cons": [
+        "Markdown 预览依赖服务端 API 往返请求（/markdownx/markdownify/），非纯前端即时编译"
+      ],
+      "privacyVerdict": "网络观测记录到 Google Analytics (G-LLFSDKZXET) 与发送至 /markdownx/markdownify/ 的预览接口请求。发布全程无需提供邮箱、密码或个人身份信息。",
+      "alternativeTo": [
+        "pastebin-com",
+        "hastebin-com",
+        "ghostbin-com"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "通过 /markdownx/markdownify/ 接口在 67ms 内完成排版渲染，页面 CLS 保持在 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "monkeytype-com": {
+    "en": {
+      "bestFor": "Precision typing speed and accuracy testing with customizable wordlists, themes, and instant latency feedback.",
+      "pros": [
+        "Keyboard-centric design with instant test initiation, time/words/quote presets, and zero mandatory account gates",
+        "Comprehensive telemetry graphing WPM, raw speed, accuracy percentage, and key-by-key error distribution"
+      ],
+      "cons": [
+        "Contains programmatic ad auction payloads (Amazon AdSystem, ID5, BTLoader) on initial landing",
+        "Cloud cross-device leaderboard tracking and historical stat aggregation require account authentication"
+      ],
+      "privacyVerdict": "Observed network egress includes prebid advertising exchange requests (Amazon AdSystem, ID5, BTLoader). Keystroke calculations and timing latency execute strictly client-side in the browser DOM.",
+      "alternativeTo": [
+        "typrx-com",
+        "keybr-com",
+        "10fastfingers-com"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Loaded customizable typing arena in 119 ms main-thread time with 0.00 CLS; handled full keyboard event capture loop without lag.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "高精度打字速度与击键准确率测验，支持多样化词库、几十款主题与实时输入延迟反馈。",
+      "pros": [
+        "纯键盘流人机工程交互，开箱即敲，预置时间/字数/名言等多重测验模式，无需注册账号",
+        "提供专业级测速数据图表，实时计算 WPM、净打字速度、准确率百分比及单键误击分布"
+      ],
+      "cons": [
+        "首屏加载包含程序化广告竞价网络请求（Amazon AdSystem、ID5、BTLoader）",
+        "云端多端历史成绩汇总与全球排行榜竞争功能需要登录账号"
+      ],
+      "privacyVerdict": "网络观测记录到 Prebid 广告竞价网络请求（Amazon AdSystem、ID5、BTLoader）。击键频率计算与输入计时完全在本地浏览器 DOM 中完成，无按键记录外传。",
+      "alternativeTo": [
+        "typrx-com",
+        "keybr-com",
+        "10fastfingers-com"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "主线程 119ms 完成打字竞技场初始化，CLS 为 0.00，全键盘监听循环流畅无阻。",
+      "testedAt": "2026-09"
+    }
+  },
+  "zenpen-io": {
+    "en": {
+      "bestFor": "Distraction-free minimalist writing with inline formatting and instant Markdown, HTML, or plain text downloads.",
+      "pros": [
+        "Zero-distraction writing environment with floating formatting controls (bold, italic, quote, link) and target word count tracking",
+        "Verified unwatermarked multi-format file downloads (Markdown, HTML, Plain Text) and client-side offline storage"
+      ],
+      "cons": [
+        "Lacks advanced syntax extensions such as KaTeX math, tables, or syntax-highlighted code blocks"
+      ],
+      "privacyVerdict": "Observed network egress was bounded to a single Google Analytics beacon (G-G3FZMSNNS9). Text drafting, word counting, and file blob downloads execute entirely client-side.",
+      "alternativeTo": [
+        "calmlywriter-com",
+        "ia-writer",
+        "stackedit-io"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Rendered typography canvas in 109 ms with 0.01 CLS; downloaded 679-byte unwatermarked Markdown file.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "极简沉浸式无干扰写作，支持浮动富文本标记并可直接导出 Markdown、HTML 或纯文本文件。",
+      "pros": [
+        "极度克制的沉浸式排版界面，划词浮现轻量格式栏（粗体、斜体、引用、链接），支持目标字数追踪",
+        "实测无障碍导出 679 字节纯净无水印文件，支持 Markdown、HTML 与 Plain Text 三种常用格式下载"
+      ],
+      "cons": [
+        "功能定位于极简随笔，不支持数学公式、表格构建或代码高亮等复杂扩展语法"
+      ],
+      "privacyVerdict": "网络观测仅记录到 1 条发往 Google Analytics (G-G3FZMSNNS9) 的轻量统计请求。文字编辑、字数统计与 Blob 文件打包均在浏览器内本地完成。",
+      "alternativeTo": [
+        "calmlywriter-com",
+        "ia-writer",
+        "stackedit-io"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "排版工作区在 109ms 内加载就绪，CLS 维持 0.01，点击下载成功生成 679 字节标准 Markdown 文件。",
+      "testedAt": "2026-09"
+    }
+  },
+  "visualgo-net": {
+    "en": {
+      "bestFor": "Interactive visual learning and step-by-step pseudocode tracing of data structures and algorithms.",
+      "pros": [
+        "Comprehensive coverage of 20+ classic CS data structures and algorithms (Sorting, Trees, Graphs, Hash Tables, DP)",
+        "Synchronized pseudocode execution trace with custom input arrays, speed scrubbers, and step-by-step stepping"
+      ],
+      "cons": [
+        "Does not include automated export of algorithm execution animations as standalone video or GIF files"
+      ],
+      "privacyVerdict": "Observed network egress is bounded to Cloudflare RUM performance beacons (/cdn-cgi/rum?). Algorithm simulation, array state manipulation, and canvas animations execute locally without login.",
+      "alternativeTo": [
+        "pythontutor-com",
+        "sortvisualizer-com",
+        "algorithm-visualizer-org"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 17,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Simulated Bubble Sort algorithm across 10-element array in 0 ms freeze time with 0.01 CLS; step-by-step pseudocode trace synchronized.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "计算机科学经典数据结构与算法的可视化交互学习，支持伪代码逐行单步断点跟踪。",
+      "pros": [
+        "全面涵盖 20 余种核心数据结构与算法（排序、树结构、图论遍历、最短路径、哈希表、动态规划等）",
+        "提供同步高亮的伪代码执行追踪视窗，支持自定义输入数组、播放速率微调与单步断点调试"
+      ],
+      "cons": [
+        "未提供将算法演练动画直接打包导出为独立 GIF 或 MP4 视频文件的功能"
+      ],
+      "privacyVerdict": "网络观测仅记录到 Cloudflare RUM 性能监测请求（/cdn-cgi/rum?）。算法演算、数组变动与视图渲染全部在本地运行，免注册登录。",
+      "alternativeTo": [
+        "pythontutor-com",
+        "sortvisualizer-com",
+        "algorithm-visualizer-org"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 17,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "主线程以 0ms 卡顿和 0.01 CLS 完成 10 元素冒泡排序动画与伪代码高亮同步，执行逻辑稳定无异常。",
+      "testedAt": "2026-09"
+    }
   }
 }
