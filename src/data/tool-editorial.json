@@ -18192,5 +18192,253 @@
       "benchmarkNotes": "在图像转换器中上传 800x600 像素的 sample.png 样例图片（325 KB）。纯前端内存瞬时将其转码为高质量 JPEG。顺利下载 57849 字节的标准 JFIF 格式 JPEG 无水印文件。网络流量审计捕获到 6 次分析指标请求（Google Analytics 和 Microsoft Clarity），图片数据传输量为 0 字节。",
       "testedAt": "2026-09"
     }
+  },
+  "nextreset-ai": {
+    "en": {
+      "bestFor": "Tracking AI coding assistant rate-limit reset cadences, incident histories, and probability forecasts without creating an account",
+      "pros": [
+        "Statistically backtested reset probability model offering rolling 24-hour, 48-hour, and 72-hour window forecasts",
+        "Historical archive linking 50+ past reset announcements, interval metrics, and incident timestamps",
+        "Instant client-side generation of high-resolution 1200x630 PNG forecast cards with zero account barriers"
+      ],
+      "cons": [
+        "Includes telemetry pings to Cloudflare RUM and internal metric endpoints upon interaction",
+        "Forecast probabilities are empirical heuristics rather than deterministic guarantees from provider APIs"
+      ],
+      "privacyVerdict": "Forecast modeling and card rendering execute on the client. Outgoing requests are confined to 2 telemetry payloads (Cloudflare RUM and /api/metric), with no personal user identifiers or cookies transmitted.",
+      "alternativeTo": [
+        "OpenAI Status Page",
+        "DownDetector",
+        "StatusGator",
+        "IsDown"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded reset tracker by switching from 24h (15%) to 48h (28%) forecast window with 112 ms initial freeze. Triggered canvas card export to download an unwatermarked 81458 bytes 1200x630 px PNG forecast image. Network monitoring captured 2 outgoing telemetry requests (Cloudflare RUM and /api/metric); 0 bytes of personal user data egressed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免登录追踪 AI 编程助手（如 OpenAI Codex）配额刷新周期、突发故障历史及重置概率预测",
+      "pros": [
+        "具备经过历史回测的配额刷新概率估算模型，提供未来 24、48 与 72 小时的滚动窗口预测",
+        "沉淀了 50 余次历史重置事件档案，附带源链接、周期均值与服务中断详细时间戳",
+        "免登录在本地快速渲染生成 1200x630 高清 PNG 预测快照卡片，支持直接保存与分享"
+      ],
+      "cons": [
+        "交互时包含发往 Cloudflare RUM 与站点内部 metric 统计接口的网络请求",
+        "重置概率属于基于历史事件的经验性推测，并非来自模型供应商的官方确定性排期"
+      ],
+      "privacyVerdict": "刷新概率模型计算与卡片生成均在客户端本地执行。外发请求仅限于 2 次遥测负载（Cloudflare RUM 与 /api/metric），不含任何个人身份标识或敏感 Cookie。",
+      "alternativeTo": [
+        "OpenAI Status Page",
+        "DownDetector",
+        "StatusGator",
+        "IsDown"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在重置看板中由 24 小时（15%）切换至 48 小时（28%）预测视图，初始交互延迟为 112 毫秒。触发 Canvas 制图功能免登录导出了 81458 字节的 1200x630 像素无水印 PNG 预测卡片。网络流量捕获到 2 次统计上报（Cloudflare RUM 与 /api/metric），用户个人隐私数据传输量为 0 字节。",
+      "testedAt": "2026-09"
+    }
+  },
+  "video-size-reducer-com": {
+    "en": {
+      "bestFor": "Shrinking video files to strict attachment size limits for Discord, WhatsApp, or email via cloud-based multi-pass encoding",
+      "pros": [
+        "Target-size presets tailored for common platforms including Discord 9MB, WhatsApp 15MB, and Gmail 24MB",
+        "Provides 5 free compression credits for anonymous visitors without requiring sign-up or credit card",
+        "Resumable chunked upload pipeline via Cloudflare R2 supporting source files up to 1 GiB"
+      ],
+      "cons": [
+        "Server-side architecture uploads source video payloads to Cloudflare R2 object storage",
+        "Anonymous usage is capped at 5 credits, and advanced compression presets require a paid subscription"
+      ],
+      "privacyVerdict": "Video processing runs entirely on remote servers. Uploaded files are transmitted to Cloudflare R2 object storage and stored for up to 24 hours. Users with confidential or sensitive footage should choose client-side WebAssembly alternatives.",
+      "alternativeTo": [
+        "HandBrake",
+        "CloudConvert",
+        "FreeConvert",
+        "Kapwing"
+      ],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Dogfooded video compression uploading a 3000 bytes MP4 test fixture. Evaluated 2-pass target size workflow against preset configurations with 0 ms freeze. Network telemetry verified 9 requests including chunk upload sessions and a direct PUT to Cloudflare R2 storage; file processing is entirely server-side.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "通过云端双遍编码将视频定向压缩至 Discord、WhatsApp 或邮件附件的指定体积限制以内",
+      "pros": [
+        "预设契合主流社交通讯平台的体积目标，包含 Discord 9MB、WhatsApp 15MB 及 Gmail 24MB",
+        "免注册直接为访客分配 5 点免费压缩配额，且导出成果绝无任何强制水印",
+        "基于 Cloudflare R2 的分块断点续传管线，最高支持上传 1 GiB 的原始视频文件"
+      ],
+      "cons": [
+        "属于云端服务器架构，原始视频文件会通过分块上传传输至 Cloudflare R2 对象存储",
+        "匿名访客仅获赠 5 点试用积分，高级慢速高保真压缩模式需付费订阅"
+      ],
+      "privacyVerdict": "视频压缩处理完全在云端服务器执行。所上传的视频文件会传输至 Cloudflare R2 对象存储并在服务器保留最长 24 小时。包含机密或隐私内容的素材建议选用纯前端 WebAssembly 工具。",
+      "alternativeTo": [
+        "HandBrake",
+        "CloudConvert",
+        "FreeConvert",
+        "Kapwing"
+      ],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 3000 字节的 MP4 测试视频验证压缩管线，界面交互在 0 毫秒冻结延迟下完成。测试了双遍定向体积配置与预设匹配流程。网络审计记录到 9 次外发请求，包括任务会话与发往 Cloudflare R2 存储的分块 PUT 请求，视频编码处理完全在云端服务器进行。",
+      "testedAt": "2026-09"
+    }
+  },
+  "choicervoicer-games": {
+    "en": {
+      "bestFor": "Practicing character voices, line delivery, and timing across community dub packs without signing in",
+      "pros": [
+        "Offers 170+ ready-to-play voice acting scene packs with video playback and synchronised script lines",
+        "Interactive browser dub stage allows line-by-line microphone recording and audio playback comparison",
+        "Multiplayer party dubbing and multi-language support covering English, Spanish, and Brazilian Portuguese"
+      ],
+      "cons": [
+        "Aggressive Google AdSense banners and floating overlay ads severely clutter and obstruct the interface",
+        "Contains extensive ad-network telemetry including DoubleClick, Google Analytics, and Microsoft Clarity"
+      ],
+      "privacyVerdict": "Dialogue playback and basic voice practice execute in browser memory. However, heavy third-party ad tracking (Google AdSense, DoubleClick, and Microsoft Clarity) records user browsing telemetry across 22 outgoing payloads.",
+      "alternativeTo": [
+        "Dubbing apps",
+        "Audacity",
+        "BandLab",
+        "VoiceActing Club"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 14,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Dogfooded Native Dub Stage with SpongeBob SquarePants community pack across 10 lines with 77 ms interaction latency. Verified video player synchronization and microphone dub stage initialization without requiring login. Telemetry inspection recorded 22 requests dominated by Google AdSense, DoubleClick, and Clarity ad beacons.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免登录练习角色配音、台词节奏与戏感模仿，支持社区动漫短剧本在线配音",
+      "pros": [
+        "内置 170 余个现成配音剧本包，提供视频原声片段与同步台词文本展示",
+        "交互式浏览器配音台支持逐句麦克风录音回放，便于对照原片节奏进行戏感练习",
+        "具备多人派对配音玩法并支持英语、西班牙语及巴西葡萄牙语等多语种剧本"
+      ],
+      "cons": [
+        "页面充斥密集的 Google AdSense 横幅、侧边栏及浮层广告，严重遮挡操作界面",
+        "加载 DoubleClick、Google Analytics 及 Microsoft Clarity 等大量第三方广告追踪脚本"
+      ],
+      "privacyVerdict": "台词播放与基础配音练习在本地浏览器内存中运行。但页面集成了密集的第三方广告追踪（Google AdSense、DoubleClick 与 Microsoft Clarity），在 22 次外发流量中记录用户浏览行为。",
+      "alternativeTo": [
+        "Dubbing apps",
+        "Audacity",
+        "BandLab",
+        "VoiceActing Club"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 14,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在原生配音台中实测海绵宝宝剧本包（共 10 句台词），交互延迟为 77 毫秒。验证了视频播放器同步与麦克风配音界面的免登录启动。网络监控捕获到 22 次外发请求，主要为 Google AdSense、DoubleClick 及 Clarity 广告追踪流量。",
+      "testedAt": "2026-09"
+    }
+  },
+  "nextgenailearning-com": {
+    "en": {
+      "bestFor": "Instructional designers and elearning creators needing zero-egress tools for caption conversion, Bloom taxonomy validation, and course scoping",
+      "pros": [
+        "Specialized suite of 14+ client-side utilities purpose-built for instructional designers and elearning developers",
+        "Pedagogical tooling includes Bloom taxonomy observable verb analysis and 21 cps reading-speed threshold warnings",
+        "Local-only in-browser processing with direct export to WebVTT, SRT, TTML, and plain text transcripts"
+      ],
+      "cons": [
+        "Minimalist blueprint aesthetic lacks an integrated automatic speech-to-text transcription engine",
+        "Specialized primarily for instructional design workflows rather than general-purpose multi-track video editing"
+      ],
+      "privacyVerdict": "True zero-egress client-side architecture. When analytics consent is declined, exactly 0 outgoing network requests are dispatched. All caption parsing, taxonomy evaluations, and file generation execute purely inside the browser sandbox.",
+      "alternativeTo": [
+        "Subtitle Edit",
+        "Articulate 360",
+        "Subly",
+        "Happy Scribe"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded The ID Toolbox across Learning Objective Checker (Bloom taxonomy classification of 4 objectives) and Caption Converter. Loaded forklift safety sample with 0 ms freeze and CLS of 0.07. Converted SRT cues to WebVTT with 3 timing overlap detections, and exported an unwatermarked 369 bytes WebVTT caption file in 42 ms. With analytics consent declined, network monitoring captured 0 outgoing network payloads (0 bytes egress).",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免登录、零数据出境使用面向教学设计与微课研发的专业小工具（如布鲁姆教学目标检测、字幕转换与课件字数盘点）",
+      "pros": [
+        "专为教学设计（ID）与在线课程开发者打造的 14+ 款纯本地运行轻量工具集合",
+        "集成布鲁姆认知目标动词可观测性判定以及每秒 21 字符的阅读速度超标预警分析",
+        "纯客户端零数据出境处理，支持将字幕直接导出为标准 WebVTT、SRT、TTML 或纯文本脚本"
+      ],
+      "cons": [
+        "极简蓝图网格风格界面，不包含基于服务端的自动语音识别（ASR）转写功能",
+        "功能高度聚焦于教学课件与 LMS 规范，而非通用型多轨视频剪辑与时间轴特效"
+      ],
+      "privacyVerdict": "严格的纯客户端零数据出境架构。在拒绝统计 Cookie 授权后，网络外发请求量严格为 0 次。所有字幕解析、目标矩阵归类与格式重构均在本地浏览器沙箱中闭环完成。",
+      "alternativeTo": [
+        "Subtitle Edit",
+        "Articulate 360",
+        "Subly",
+        "Happy Scribe"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测了 The ID Toolbox 中的学习目标检测器（布鲁姆认知层级分析 4 项教学目标）与字幕转换器。加载叉车安全实例文本，界面交互卡顿为 0 毫秒，累积布局偏移（CLS）为 0.07。成功将 4 条 SRT 字幕转换为 WebVTT 格式并准确标出 3 处时间重叠隐患，耗时 42 毫秒免登录导出了 369 字节无水印 WebVTT 文件。在拒绝统计授权后，网络监控捕获到 0 次外发网络请求（数据出境量为 0 字节）。",
+      "testedAt": "2026-09"
+    }
   }
 }
