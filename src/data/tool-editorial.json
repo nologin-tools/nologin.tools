@@ -4860,5 +4860,291 @@
       "benchmarkNotes": "客户端本地解析耗时 152 ms，网络监控仅记录到 2 次自建 Plausible 与 Cloudflare RUM 请求，无第三方商业追踪器。",
       "testedAt": "2026-09"
     }
+  },
+  "mermaid-live": {
+    "en": {
+      "bestFor": "Authoring, rendering, and sharing flowcharts, sequence diagrams, and architecture maps using Mermaid diagram-as-code syntax.",
+      "pros": [
+        "Comprehensive diagram syntax support spanning flowcharts, sequence, ER, class, Gantt, state, and git diagrams",
+        "Diagram definitions persist entirely inside the client URL hash fragment via pako deflate encoding",
+        "Versatile export workflows supporting SVG, PNG, embeddable iframes, and raw web components"
+      ],
+      "cons": [
+        "Initial visit presents an upsell modal prompting for Mermaid Chart cloud subscription",
+        "Large complex graphs with hundreds of nodes can introduce canvas rendering latency"
+      ],
+      "privacyVerdict": "Diagram rendering executes locally in the browser SVG pipeline. Diagram contents are kept within the URL hash fragment and never dispatched to backend APIs; outgoing traffic is limited to 5 privacy-respecting Plausible analytics events.",
+      "alternativeTo": [
+        "PlantUML",
+        "Draw.io",
+        "Excalidraw"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Diagram state is encoded directly into the client URL hash via pako compression without server-side persistence",
+            "Network telemetry is restricted to self-hosted Plausible analytics beacons, zero commercial tracking cookies"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Flowchart SVG rendered within 350 ms long task; state encoded into client-side pako URL hash fragment; 5 requests to self-hosted p.mermaid.live analytics; zero commercial trackers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "使用 Mermaid 声明式代码在浏览器中即时编写、渲染与分享流程图、时序图及架构拓扑。",
+      "pros": [
+        "完整支持 Mermaid 全语法体系，涵盖流程图、时序图、ER 关系图、状态图及 Git 分支图",
+        "图表源码通过 pako 压缩直接保存在 URL 哈希片段中，无需云端数据库建表存储",
+        "支持导出 SVG 矢量图、PNG 位图以及直接嵌入 iframe 与 Web Component"
+      ],
+      "cons": [
+        "首次进入页面会弹出引导试用 Mermaid Chart 云端商业版的促销弹窗",
+        "包含数百个节点的超复杂拓扑图在重绘时存在一定的浏览器主线程卡顿"
+      ],
+      "privacyVerdict": "图表语法解析与 SVG 矢量渲染均在浏览器端运行。图表文本保留在客户端 URL Hash 中不经由服务器接口，出站网络流量仅限 5 次自建 Plausible 性能统计信标。",
+      "alternativeTo": [
+        "PlantUML",
+        "Draw.io",
+        "Excalidraw"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Diagram state is encoded directly into the client URL hash via pako compression without server-side persistence",
+            "Network telemetry is restricted to self-hosted Plausible analytics beacons, zero commercial tracking cookies"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "流程图 SVG 渲染耗时 350 ms，状态存储于前端 pako URL 哈希片段中，网络监控仅捕获 5 次自建 p.mermaid.live 访问请求，无广告商脚本。",
+      "testedAt": "2026-09"
+    }
+  },
+  "caniemail-com": {
+    "en": {
+      "bestFor": "Checking HTML and CSS compatibility across desktop, mobile, and web email clients for newsletter and transactional email development.",
+      "pros": [
+        "Authoritative email rendering compatibility matrix spanning 50+ clients including Apple Mail, Gmail, and Outlook",
+        "Instant real-time filtering and search execution directly inside the browser DOM",
+        "Detailed client-specific caveats, CSS margin bugs, and fallback recommendations"
+      ],
+      "cons": [
+        "Niche focus dedicated strictly to email HTML/CSS rather than general web browser standards",
+        "Does not include an interactive live HTML email rendering preview sandbox"
+      ],
+      "privacyVerdict": "Feature lookups and compatibility table filtering run locally in the browser runtime. Data transmission is limited to 1 beacon request to a self-hosted Matomo instance, keeping search queries private.",
+      "alternativeTo": [
+        "Can I Use",
+        "Campaign Monitor CSS Guide",
+        "Email on Acid"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Interactive search indexing and table filtering execute client-side without sending search queries to backend APIs",
+            "Single beacon to self-hosted Matomo instance without third-party tracking cookies or advertising networks"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Instant client-side search across 5 compatibility results with 0ms freezing tasks; 58.54% support breakdown rendered in DOM; 1 self-hosted Matomo beacon recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "快速查询 HTML 与 CSS 特性在桌面、移动端及 Web 邮箱客户端中的渲染兼容性。",
+      "pros": [
+        "权威的邮件渲染兼容性矩阵，覆盖 Apple Mail、Gmail、Outlook 等 50 多款主流客户端",
+        "搜索与表格过滤在浏览器 DOM 中实时响应，无查询延迟",
+        "提供详尽的客户端特异性渲染缺陷说明、CSS 边距 Bug 及降级替代方案"
+      ],
+      "cons": [
+        "领域严格聚焦于电子邮件 HTML/CSS 标准，不覆盖通用网页浏览器全量特性",
+        "缺少内置的邮件 HTML 实时在线渲染沙盒"
+      ],
+      "privacyVerdict": "特性查询与兼容性矩阵过滤均在本地浏览器环境中运行。网络出站仅限 1 次发往自建 Matomo 统计服务的信标请求，用户搜索词不上传至广告商接口。",
+      "alternativeTo": [
+        "Can I Use",
+        "Campaign Monitor CSS Guide",
+        "Email on Acid"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Interactive search indexing and table filtering execute client-side without sending search queries to backend APIs",
+            "Single beacon to self-hosted Matomo instance without third-party tracking cookies or advertising networks"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "搜索 5 项匹配结果响应耗时 0ms，主线程无冻结卡顿；DOM 渲染 58.54% 兼容率分布；抓包仅记录 1 次自建 Matomo 信标请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "npmtrends-com": {
+    "en": {
+      "bestFor": "Comparing historical npm package download counts, GitHub star trajectories, and bundle metrics across competing JavaScript libraries.",
+      "pros": [
+        "Multi-package comparison with simultaneous overlay charts spanning 1 month to 5 years",
+        "Direct integration with GitHub metadata displaying stars, open issues, and recent release dates",
+        "Zero-friction search with real-time package autocomplete and URL-shareable comparison queries"
+      ],
+      "cons": [
+        "Lacks dedicated native CSV or SVG chart download buttons for offline report generation",
+        "Emits analytics event beacons to ui.dev Cloudflare Workers and cloud event endpoints during search queries"
+      ],
+      "privacyVerdict": "The service fetches public npm registry and GitHub metrics without user tracking cookies or advertising pixels. Telemetry is sent to an internal ui.dev proxy and cloud events endpoint to record package query activity.",
+      "alternativeTo": [
+        "npm-stat",
+        "Moiva",
+        "Bundlephobia"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Zero user accounts or login credentials required to query and compare package metrics",
+            "Egress is limited to telemetry events routed through ui.dev proxy and public package download registries"
+          ]
+        }
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Recharts SVG line chart rendered with 161 ms max long task; compared React metrics showing 250,598 stars and 160M downloads; 7 telemetry event requests observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "对比 JavaScript/Node.js 生态中各 npm 包的历史下载趋势、GitHub Star 增长与维护活跃度。",
+      "pros": [
+        "支持多个 npm 依赖包同屏叠加对比，时间跨度覆盖 1 个月至 5 年",
+        "深度整合 GitHub 开源指标，直观展现 Star 数量、未解决 Issue 与更新频率",
+        "完全免登录开箱即用，支持直接将对比参数固化在 URL 中便捷分享"
+      ],
+      "cons": [
+        "未提供将图表一键导出为 CSV 原始数据或 SVG 矢量图的直接按钮",
+        "搜索与查询阶段会向 ui.dev 代理及云端事件接口发送 7 次遥测请求"
+      ],
+      "privacyVerdict": "平台聚合公开 npm 注册表与 GitHub 开放数据，无商业广告追踪或强制登录流程。实测网络监控记录到发往 ui.dev 代理及云端事件接口的统计信标。",
+      "alternativeTo": [
+        "npm-stat",
+        "Moiva",
+        "Bundlephobia"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Zero user accounts or login credentials required to query and compare package metrics",
+            "Egress is limited to telemetry events routed through ui.dev proxy and public package download registries"
+          ]
+        }
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Recharts 图表渲染耗时 161 ms，成功加载 React 250,598 Stars 与单周 1.6 亿次下载曲线，DOM 结构完整，观测到 7 次遥测出站请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "shields-io": {
+    "en": {
+      "bestFor": "Generating dynamic, concise, and accessible SVG status badges for GitHub READMEs, open-source repositories, and build pipelines.",
+      "pros": [
+        "De facto open-source standard supporting hundreds of live upstream integrations (npm, GitHub, Docker, PyPI)",
+        "Completely friction-free REST API requiring zero account creation, API keys, or registration barriers",
+        "Flawlessly formatted SVGs adhering to strict CSP headers and crisp SVG font kerning across 5 styles"
+      ],
+      "cons": [
+        "Dynamic upstream queries are subject to third-party API rate limits during peak traffic bursts"
+      ],
+      "privacyVerdict": "Exemplary zero-tracking service. Badge requests and static generators emit 0 analytical payloads, drop no persistent cookies, and serve clean SVGs with restrictive Content Security Policy headers.",
+      "alternativeTo": [
+        "Badgen.net",
+        "GitHub Badges",
+        "Badge-maker"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% public read-only badge generation API with zero user tracking scripts or analytics cookies",
+            "Generated SVGs strictly enforce script-src 'none' Content Security Policy headers to eliminate XSS risks"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Generated static SVG badge in 102x20 px with script-src none header; 0 network telemetry payloads recorded during browser session; HTTP cache-control set to 432000s.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "为开源项目 README、持续集成流水线及技术文档快速生成规范、美观且高对比度的 SVG 状态徽标。",
+      "pros": [
+        "开源领域绝对的徽标事实标准，开箱集成 npm、GitHub、Docker、PyPI 等数百个上游服务",
+        "全量 REST API 免登录、免注册、免 API Key，直接拼装 URL 即可即时渲染",
+        "矢量 SVG 严格注入 script-src 'none' 安全头，提供 flat、social、for-the-badge 等 5 种经典视觉风格"
+      ],
+      "cons": [
+        "依赖上游外部 API 的动态徽标在高峰期可能受制于第三方平台的速率配额限制"
+      ],
+      "privacyVerdict": "标杆级隐私合规服务。徽标生成与网页浏览全过程捕获到 0 个遥测请求，不种植追踪 Cookie，输出的 SVG 图片配置极严格的内容安全策略（CSP）。",
+      "alternativeTo": [
+        "Badgen.net",
+        "GitHub Badges",
+        "Badge-maker"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% public read-only badge generation API with zero user tracking scripts or analytics cookies",
+            "Generated SVGs strictly enforce script-src 'none' Content Security Policy headers to eliminate XSS risks"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实时生成 102x20 px 静态 SVG 徽章，响应附带 script-src none 安全头；测试会话记录 0 次出站分析上报；HTTP 缓存配置高达 432000s。",
+      "testedAt": "2026-09"
+    }
   }
 }
