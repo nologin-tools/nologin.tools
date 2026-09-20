@@ -14612,5 +14612,257 @@
       "benchmarkNotes": "配置了三图拼贴模版，向首个占位格注入测试图像，在 2 秒内即时渲染并导出 1300x1300 分辨率、66800 字节的 2x 高清 PNG 工件，主线程卡顿为 0ms。网络监控捕获到 16 次遥测与 AdSense 授权请求，确认所有图像像素与渲染缓冲均保留在本地 IndexedDB 与 Canvas 内存中。",
       "testedAt": "2026-09"
     }
+  },
+  "nutilz-com-caa-record-generator": {
+    "en": {
+      "bestFor": "DevOps engineers, sysadmins, and site owners needing to generate, configure, and validate RFC 8659 CAA DNS records to lock down SSL certificate issuance without an account.",
+      "pros": [
+        "Comprehensive Certificate Authority catalog covering Let's Encrypt, Google Trust Services, DigiCert, and custom CAs",
+        "Dual-mode architecture featuring an interactive builder and a bidirectional raw CAA record validator",
+        "Granular policy configuration for wildcard restrictions (issuewild) and incident violation reporting (iodef)",
+        "Instant single-click clipboard export formatted for BIND, Route 53, and Cloudflare DNS zone management"
+      ],
+      "cons": [
+        "Lacks direct zone file (.zone) download alongside clipboard export",
+        "Contains passive Cloudflare RUM performance telemetry beacon on page load"
+      ],
+      "privacyVerdict": "Observed 1 telemetry egress to Cloudflare RUM (/cdn-cgi/rum?). All CAA record generation, wildcard policy customization, and RFC 8659 syntax parsing execute locally in the browser engine without transmitting domain names or security rules to external servers.",
+      "alternativeTo": [
+        "SSLMate CAA Record Helper",
+        "Entrust CAA Generator",
+        "Qualys SSL Labs"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Engineered with sub-60ms interaction latency and zero layout shift. Toggled Google Trust Services CA and executed clipboard export capturing 44 chars across 2 clean DNS record lines in 0ms with zero main thread freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要生成、配置并校验 RFC 8659 CAA DNS 记录以锁定 SSL/TLS 证书签发权限的 DevOps 工程师、系统管理员与网站所有者。",
+      "pros": [
+        "全面的证书颁发机构预设目录，涵盖 Let's Encrypt、Google Trust Services、DigiCert 等并支持自定义 CA 域名",
+        "双模式架构，集成交互式生成器与双向原始 CAA 记录离线语法校验器",
+        "细粒度安全策略控制，支持独立通配符限制（issuewild）与安全违规告警端点（iodef）",
+        "一键剪贴板导出，适配标准 BIND、Route 53 及 Cloudflare DNS 记录格式"
+      ],
+      "cons": [
+        "暂未提供直接下载 .zone 格式文件的按钮，仅支持剪贴板复制",
+        "页面初次加载时包含 Cloudflare RUM 性能遥测信标"
+      ],
+      "privacyVerdict": "网络监控记录到 1 次 Cloudflare RUM 遥测请求（/cdn-cgi/rum?）。所有 CAA 记录生成、通配符策略定制与 RFC 8659 语法解析均在浏览器本地引擎执行，未向外部服务器传输域名或安全配置信息。",
+      "alternativeTo": [
+        "SSLMate CAA Record Helper",
+        "Entrust CAA Generator",
+        "Qualys SSL Labs"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "界面交互延迟低于 60ms 且无布局偏移。在测试中切换 Google Trust Services 授权项，通过 Copy All 按钮在 0ms 内截获 44 字符、2 行标准 DNS 记录，主线程无任何卡顿。",
+      "testedAt": "2026-09"
+    }
+  },
+  "www-textfixhub-com": {
+    "en": {
+      "bestFor": "Writers, copywriters, and developers needing quick text hygiene tools like list sorting, duplicate removal, line break cleanup, and syllable counting without creating accounts.",
+      "pros": [
+        "Diverse collection of 14 focused text utilities covering sorting, line break stripping, syllable counting, and Markov word generation",
+        "Real-time sorting engine with configurable delimiters (newline, comma, semicolon, space, custom) and deduplication",
+        "Clean one-click clipboard export with zero watermarks or promotional formatting tails",
+        "Immediate browser-side reactivity with zero server turnaround latency"
+      ],
+      "cons": [
+        "Emits third-party analytics telemetry (Google Analytics GA4 and Cloudflare RUM) during user sessions",
+        "Lacks direct batch file (.txt/.csv) upload and download options"
+      ],
+      "privacyVerdict": "Observed 3 outgoing telemetry payloads to Google Analytics (G-TERS757J0G) and Cloudflare RUM. All text mutations, deduplication, sorting, and clipboard operations execute in local browser memory without transmitting user text content to backend servers.",
+      "alternativeTo": [
+        "TextFixer",
+        "Browserling Text Tools",
+        "Online-Utility.org"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested Alphabetizer with a 5-item test list; enabled Remove Duplicates and captured a clean 24-character, 4-line sorted text payload via the Copy button in 0ms with zero frame jank. Observed 3 analytics payloads over the session.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要进行列表排序、去重、换行符清洗与音节字数统计且不想注册账号的写作者、文案编辑与开发者。",
+      "pros": [
+        "涵盖列表字母排序、换行符清除、音节统计与马尔可夫伪词生成的 14 种文本轻量工具矩阵",
+        "支持换行、逗号、分号、空格及自定义分隔符的实时双向排序与一键去重机制",
+        "纯净的一键剪贴板导出，无任何营销水印或尾缀文本",
+        "本地实时计算，无服务端往返延迟"
+      ],
+      "cons": [
+        "会话期间会向 Google Analytics GA4 与 Cloudflare RUM 发送遥测信标",
+        "暂不支持直接拖拽上传与下载 .txt/.csv 批处理文件"
+      ],
+      "privacyVerdict": "网络监控记录到 3 次发送至 Google Analytics（G-TERS757J0G）与 Cloudflare RUM 的遥测请求。所有文本排序、去重、清洗及剪贴板操作均在浏览器本地内存完成，未向后端传输用户输入的文本内容。",
+      "alternativeTo": [
+        "TextFixer",
+        "Browserling Text Tools",
+        "Online-Utility.org"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 Alphabetizer 中测试了 5 项测试列表的字母排序与 Remove Duplicates 去重，通过 Copy 按钮在 0ms 内截获 24 字符、4 行纯净文本工件，操作过程零卡顿。全流程记录到 3 次统计分析网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "webgpustress-com": {
+    "en": {
+      "bestFor": "Hardware enthusiasts, PC gamers, and web developers wanting to verify GPU stability, thermal throttling, and WebGL rendering performance directly in a browser without installing desktop software.",
+      "pros": [
+        "In-browser WebGL2 graphics stress pipeline requiring zero native application installation or driver hooks",
+        "Detailed telemetry suite tracking average FPS, 1% low FPS, frame-time variance (sigma), and drop frame percentages",
+        "Preset workloads for quick health checks, thermal soaking, and frame drop diagnosis up to 4K resolutions",
+        "Clean one-click clipboard export providing a structured 8-line diagnostic summary"
+      ],
+      "cons": [
+        "Contains commercial display advertising (Google AdSense) and session tracking via Microsoft Clarity",
+        "Browser sandbox prevents direct reading of physical GPU temperatures or fan RPM sensors"
+      ],
+      "privacyVerdict": "Observed 24 outgoing telemetry and advertising payloads across Google Analytics, Microsoft Clarity, and Google AdSense. The 3D graphics rendering, shader stress loops, frame-time calculations, and stability scoring execute locally on the client GPU via WebGL2 without transmitting hardware metrics or benchmark results to external servers.",
+      "alternativeTo": [
+        "FurMark",
+        "3DMark",
+        "Unigine Heaven",
+        "Basemark Web"
+      ],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 18,
+        "depth": 23,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Executed a 1080p High stress test profile rendering to a 1920x1080 canvas element. Initialized WebGL context with a 302ms compile freeze, then achieved 59.8 average FPS and 54.1 1% low FPS with 6.00ms frame-time stability. Exported an 8-line, 265-character diagnostic summary via clipboard.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望直接在浏览器中测试显卡稳定性、过热降频与 WebGL 渲染性能，而无需安装桌面端测速软件的硬件玩家与 Web 开发者。",
+      "pros": [
+        "免安装桌面客户端或额外驱动的浏览器原生 WebGL2 图形压力测试管线",
+        "详尽的遥测数据看板，实时记录平均 FPS、1% Low 帧率、帧时间方差（sigma）及丢帧率",
+        "内置快速健康检查、热饱和稳定性测试与丢帧诊断预设，最高支持 4K 分辨率负载",
+        "一键剪贴板导出，即时生成包含硬件规格与关键性能指标的 8 行结构化报告"
+      ],
+      "cons": [
+        "页面包含 Google AdSense 展示广告与 Microsoft Clarity 行为遥测",
+        "受浏览器沙箱安全机制限制，无法直接读取显卡物理温度或风扇转速传感器数据"
+      ],
+      "privacyVerdict": "网络监控记录到 24 次出站网络请求，涉及 Google Analytics、Microsoft Clarity 与 Google AdSense。3D 图形渲染、着色器压测循环、帧时间分析与稳定性评测完全基于 WebGL2 在客户端 GPU 本地执行，未将硬件指标或测试结果上传至外部服务器。",
+      "alternativeTo": [
+        "FurMark",
+        "3DMark",
+        "Unigine Heaven",
+        "Basemark Web"
+      ],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 18,
+        "depth": 23,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "运行了 1080p High 压测配置并在 1920x1080 canvas 元素上进行实时渲染。WebGL 上下文初始化及着色器编译耗时 302ms，随后保持 59.8 平均 FPS、54.1 1% Low 帧率与 6.00ms 帧时间方差。通过剪贴板成功导出包含测试结论的 8 行、265 字符诊断简报。",
+      "testedAt": "2026-09"
+    }
+  },
+  "citefetch-com": {
+    "en": {
+      "bestFor": "Researchers, university students, and peer reviewers needing to verify bibliographies against CrossRef and OpenAlex to identify hallucinated citations or metadata errors without signing up.",
+      "pros": [
+        "Authoritative bibliographic verification querying over 300 million scholarly records across CrossRef and OpenAlex",
+        "Automated hallucination and metadata discrepancy detection flagging fabricated titles, misattributed authors, and mismatched publication years",
+        "Comprehensive citation generator supporting 14 styles including APA, MLA, Chicago, IEEE, and Vancouver from DOIs, ISBNs, and PDFs",
+        "Versatile export suite supporting formatted text clipboard copying alongside instant .bib BibTeX and .ris file downloads"
+      ],
+      "cons": [
+        "Requires server-side API roundtrips (/api/check, /api/resolve) to query scholarly databases",
+        "Free citation verification batches are capped at 30 references per submission"
+      ],
+      "privacyVerdict": "Observed 5 outgoing payloads including Google Analytics telemetry (G-SPE265Y14K), Cloudflare RUM, and first-party API queries (/api/check, /api/resolve). Reference strings and DOIs are transmitted to backend API resolvers to verify records against CrossRef and OpenAlex academic databases; the service explicitly commits that query content is not retained or persisted.",
+      "alternativeTo": [
+        "Zotero",
+        "Mendeley",
+        "EasyBib",
+        "Scite.ai"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited reference verification against a mixed 3-item bibliography; successfully identified 1 verified record, 1 year mismatch (2019 to 2024), and 1 fabricated source. Generated an APA citation for AlphaFold 3 (DOI: 10.1038/s41586-024-07487-w), copying 433 characters to clipboard and downloading a 1394-byte clean BibTeX .bib file in 0ms with zero jank.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要通过 CrossRef 与 OpenAlex 数据库核查学术参考文献、排查大模型虚构文献与元数据错误的研究人员、高校学生与同行评审专家。",
+      "pros": [
+        "权威的文献核验能力，直连 CrossRef 与 OpenAlex 超 3 亿条学术元数据进行交叉检索",
+        "自动化伪文献与元数据偏差检测，精准标记 AI 虚构论文、作者归属错误及发表年份冲突",
+        "全能引文生成器，支持基于 DOI、ISBN、URL 或 PDF 生成 APA、MLA、Chicago、IEEE、Vancouver 等 14 种格式",
+        "多维度导出体系，支持格式化引文与文中引用（In-text）剪贴板复制，以及直下 .bib 与 .ris 结构化文件"
+      ],
+      "cons": [
+        "依赖服务端 API 请求（/api/check 与 /api/resolve）完成外部学术数据库检索",
+        "免费引文批量核验单次上限为 30 条文献"
+      ],
+      "privacyVerdict": "网络监控记录到 5 次出站请求，包含 Google Analytics（G-SPE265Y14K）、Cloudflare RUM 及第一方接口（/api/check、/api/resolve）。文献字符串与 DOI 需发送至后端解析服务以对接 CrossRef 与 OpenAlex 检索，官方承诺不留存或持久化用户查询内容。",
+      "alternativeTo": [
+        "Zotero",
+        "Mendeley",
+        "EasyBib",
+        "Scite.ai"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对包含 3 条不同状态引文的测试样例进行了核查，成功识别出 1 篇真实文献、1 篇年份错误（2019 实为 2024）及 1 篇虚构论文。基于 AlphaFold 3 的 DOI（10.1038/s41586-024-07487-w）生成了标准 APA 引文，通过剪贴板捕获 433 字符引文，并成功下载 1394 字节的纯净 .bib BibTeX 文件，全程无卡顿。",
+      "testedAt": "2026-09"
+    }
   }
 }
