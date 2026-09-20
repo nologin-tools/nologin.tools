@@ -9676,5 +9676,261 @@
       "benchmarkNotes": "实测 JWT Decoder 模块并载入测试 Token。头部与载荷 JSON 在 0ms 内即时于本地完成解码，并自动转换为 ISO 格式到期时间戳。点击 Copy payload JSON 按钮提取 92 bytes 的干净 JSON 结构体至剪贴板，无水印无登录拦截，同时监测到 2 个 Cloudflare RUM 性能网络请求。",
       "testedAt": "2026-09"
     }
+  },
+  "heic-to-jpg-app": {
+    "en": {
+      "bestFor": "iPhone and Apple device users needing to batch convert .heic and .heif photos into compatible JPG or PNG images on Windows or web platforms without uploading private pictures to external servers",
+      "pros": [
+        "100% in-browser photo decoding: converts Apple HEIC/HEIF files locally so personal photos never touch remote cloud servers",
+        "High-speed batch processing: converts multiple photos simultaneously with live thumbnail previews and individual file sizes",
+        "Granular export options: supports JPG quality compression slider (10% to 100%), alternative PNG/PDF targets, and one-click ZIP batch archive downloads",
+        "Ad-minimal, modern responsive layout with zero account creation, queue waiting, or watermarks"
+      ],
+      "cons": [
+        "Transmits basic site visit telemetry to Google Analytics (G-CTY72D4DGT) and Cloudflare RUM",
+        "Large batch processing of dozens of heavy 48MP raw HEIC photos may temporarily strain low-memory mobile browser tabs"
+      ],
+      "privacyVerdict": "Photo conversion executes locally within the browser runtime using client-side decoding libraries without uploading HEIC image binaries to a backend conversion cluster. External network activity is limited to 2 observed payloads: Google Analytics (G-CTY72D4DGT) and Cloudflare RUM performance telemetry.",
+      "alternativeTo": [
+        "CloudConvert HEIC to JPG",
+        "iMazing HEIC Converter",
+        "HEICtoJPG.com",
+        "FreeConvert HEIC"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 94
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited batch conversion using 4 built-in sample HEIC photos (IMG_1234 to IMG_1237). Files converted in browser memory in 0ms with thumbnail preview rendering. Clicked Download all as ZIP button to verify direct download of an 84019 bytes clean ZIP archive without watermarks or login gates, while observing 2 network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在 Windows 或网页端将 iPhone 照片 (.heic/.heif) 批量转换为高兼容性 JPG 或 PNG 格式，且绝不愿将私人相片上传至云端转换服务器的苹果设备用户",
+      "pros": [
+        "100% 浏览器纯前端解码：在本地解析苹果 HEIC/HEIF 图像，私人相片绝不传输至远端服务器",
+        "高速多图批量处理：支持多图并发转换，并提供即时缩略图预览与文件大小变化对比",
+        "灵活的导出配置：支持 JPG 压缩质量滑块调节（10% 至 100%）、PNG/PDF 目标格式切换与一键 ZIP 批量打包下载",
+        "无侵入式广告的现代响应式界面，全程免注册登录、免排队且无任何图像水印"
+      ],
+      "cons": [
+        "页面包含发往 Google Analytics (G-CTY72D4DGT) 与 Cloudflare RUM 的基础访问遥测请求",
+        "若一次性批量处理数十张 4800 万像素的高清原图，在低配置移动端设备上可能占用较多内存"
+      ],
+      "privacyVerdict": "照片格式转换完全在浏览器本地运行时通过前端解码库完成，绝不向后端转换集群上传任何 HEIC 原图文件。外部网络活动仅限于捕获到的 2 个外发请求：Google Analytics (G-CTY72D4DGT) 页面统计与 Cloudflare RUM 性能监控。",
+      "alternativeTo": [
+        "CloudConvert",
+        "iMazing",
+        "HEICtoJPG.com",
+        "FreeConvert"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 94
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测内置的 4 张样例 HEIC 照片（IMG_1234 至 IMG_1237）批量转换。所有图片在 0ms 本地内存中完成解码并生成缩略图预览。点击 Download all as ZIP 按钮验证直接下载 84019 bytes 的无水印压缩包，全程无登录拦截，同时监测到 2 个网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "mdconvert-net-zh-markdown-to-word": {
+    "en": {
+      "bestFor": "Writers, documentation authors, and technical teams converting Markdown notes into editable Word-compatible documents without creating accounts or uploading text to external servers",
+      "pros": [
+        "Client-side Markdown processing: converts headings, tables, blockquotes, and lists locally in the browser runtime without sending source documents to remote backends",
+        "Instant dual-pane workflow: displays raw Markdown input on the left with a synchronized Word-style rendered DOM preview on the right",
+        "Convenient input mechanisms: supports direct local .md file uploading as well as manual textarea typing and clipboard pasting",
+        "One-click direct export: downloads a Word-compatible .doc file without watermarks, registration gates, or conversion queues"
+      ],
+      "cons": [
+        "Exports documents in HTML-based .doc format rather than native compressed OOXML (.docx) format",
+        "Limited styling configuration with no custom Word template, font selection, or margin controls"
+      ],
+      "privacyVerdict": "Document conversion and HTML-to-Word generation execute locally within browser memory. External network activity during testing was limited to 1 observed POST request to /cdn-cgi/rum? (Cloudflare performance monitoring); zero source text or document payloads were transmitted off-device.",
+      "alternativeTo": [
+        "Pandoc",
+        "Typora",
+        "CloudConvert Markdown to DOCX",
+        "Dillinger"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 17,
+        "privacy": 19,
+        "polish": 13,
+        "overall": 87
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited using an 87 lines Markdown benchmark fixture containing tables and blockquotes via file upload input. Synchronized Word preview rendered within 157 ms without interface freeze. Clicked 下载 .doc button to verify direct download of a 6766 bytes Word-compatible document blob, while observing 1 POST request to Cloudflare RUM.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不注册账号且不将文稿上传至云端服务器的前提下，将 Markdown 笔记快速转换为 Word 兼容文档的写作者与技术文档撰写者",
+      "pros": [
+        "纯前端浏览器解析：在本地运行时直接解析多级标题、表格、引用块与列表，无需将源文件上传至远端服务器",
+        "双栏即时预览工作流：左侧编辑 Markdown 源码，右侧即时同步呈现 Word 排版样式的 DOM 渲染效果",
+        "灵活的内容录入方式：支持直接上传本地 .md 文件解析，亦支持在文本框内自由粘贴与输入",
+        "一键免登录直接导出：点击即可下载 Word 兼容的 .doc 文件，无任何水印、注册弹窗或排队等待"
+      ],
+      "cons": [
+        "导出文件采用 HTML 封装的 .doc 兼容格式，而非原生压缩的 OOXML (.docx) 格式",
+        "缺少高级排版样式配置选项，不支持自定义 Word 模板、字体切换或页面边距调节"
+      ],
+      "privacyVerdict": "文稿转换与 Word 文件组装全流程在浏览器本地内存中完成。实测期间仅捕获到 1 次发往 /cdn-cgi/rum? 的 Cloudflare 性能遥测 POST 请求，用户输入的文本内容与生成文档绝无云端上传。",
+      "alternativeTo": [
+        "Pandoc",
+        "Typora",
+        "CloudConvert",
+        "Dillinger"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 17,
+        "privacy": 19,
+        "polish": 13,
+        "overall": 87
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "使用包含表格与引用的 87 行 Markdown 基准测试文件进行实测。右侧 Word 预览在 157 ms 内同步渲染完成且无卡顿。点击下载 .doc 按钮验证直接生成 6766 bytes 的 Word 兼容文档，全程捕获 1 次发往 Cloudflare RUM 的性能请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "file-converter-free-com": {
+    "en": {
+      "bestFor": "Developers, content writers, and general users seeking a broad multi-utility toolkit for quick format conversion and data manipulation without mandatory account creation",
+      "pros": [
+        "Extensive multi-category catalog: offers over 112 browser-accessible utilities covering developer data converters, text formatters, and calculators",
+        "Client-side data processing for web tools: JSON to CSV, Base64, and text transformations execute in local browser memory without transmitting input payloads to remote backends",
+        "Unrestricted export and clipboard output: converted outputs copy cleanly with zero forced promotional watermarks or attribution tails",
+        "Completely free access with no sign-up gates, email submissions, or mandatory paid subscriptions"
+      ],
+      "cons": [
+        "Transmits commercial telemetry and ad network requests to Google Analytics (G-HX1147ZCKM, G-P79V5KE4W4), DoubleClick, and Google AdSense",
+        "In-browser image conversion failed to decode standard PNG benchmark fixtures with a generic console error toast"
+      ],
+      "privacyVerdict": "Data manipulation in developer and text tools occurs locally in browser memory without document payload exfiltration. However, network snooping captured 6 commercial tracking requests across Google Analytics (G-HX1147ZCKM, G-P79V5KE4W4), DoubleClick, and Google AdSense.",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Convertio",
+        "CyberChef",
+        "Browserling"
+      ],
+      "productScore": {
+        "frictionless": 15,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Audited JSON to CSV tool with a 2-record JSON dataset. Parsed into CSV in DOM within 0 ms without main thread freeze. Clicked Copy Result button to verify clipboard capture of 56 bytes clean text across 3 lines with zero watermarks, while recording 6 commercial telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "寻求一站式免登录轻量级工具箱，用于日常 JSON/CSV 数据转换、文本处理及通用换算的开发者与办公用户",
+      "pros": [
+        "功能品类广泛：提供涵盖开发者格式转换、文本排版、计算器与多媒体处理在内的 112+ 款在线工具",
+        "前端内存即时处理：JSON 转 CSV、Base64 与文本工具均在本地浏览器内完成计算，输入数据不上传云端",
+        "无限制数据复制导出：提供一键复制结果按钮，导出的剪贴板内容纯净，无任何追加广告尾巴或强制水印",
+        "免注册登录无门槛使用，无付费墙拦截或强制订阅机制"
+      ],
+      "cons": [
+        "页面包含较多的商业遥测与广告网络请求（Google Analytics G-HX1147ZCKM、G-P79V5KE4W4、DoubleClick 及 AdSense）",
+        "前端图像格式转换功能在实测标准 PNG 样例时出现加载解析错误，报错提示较为简略"
+      ],
+      "privacyVerdict": "实测的开发者与文本工具均在浏览器前端内存中完成运算，未发生文本数据外发。但页面在加载和交互期间捕获到 6 次商业追踪请求，涉及 Google Analytics（G-HX1147ZCKM 与 G-P79V5KE4W4）、DoubleClick 及 Google AdSense 广告网络。",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Convertio",
+        "CyberChef",
+        "Browserling"
+      ],
+      "productScore": {
+        "frictionless": 15,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 JSON 转 CSV 工具，输入包含 2 条记录的 JSON 数据集。在 0 ms 内完成前端 DOM 结构解析与 CSV 渲染。点击 Copy Result 按钮验证捕获到 56 bytes 的 3 行纯净文本，无水印追加，全程记录到 6 次商业遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "printable-tools-lab-pages-dev": {
+    "en": {
+      "bestFor": "Freelancers, educators, parents, and small business owners needing quick, unwatermarked printable PDFs (invoices, timesheets, charts, labels) and image utilities directly in the browser",
+      "pros": [
+        "In-browser canvas-to-PDF compilation: generates documents locally in client memory without uploading personal business or invoice figures to remote servers",
+        "Rich suite of 67 printable generators: covers invoices, timesheets, resumes, flashcards, reward charts, and image compression tools",
+        "Real-time dual-column live canvas preview: updates document layout dynamically as form fields and line items are edited",
+        "Open source and watermark-free: full source available on GitHub under MIT license, producing clean 93111 bytes vector PDFs without promotional stamps"
+      ],
+      "cons": [
+        "Enforces a soft daily allowance of 25 exports per day tracked in local client storage",
+        "Does not offer multi-currency tax rate automation or integration with external accounting software"
+      ],
+      "privacyVerdict": "Document synthesis, canvas drawing, and PDF assembly occur strictly within the client browser environment. Network telemetry was limited to privacy-focused /api/event event beacons, with zero document contents or personal financial details transmitted off-device.",
+      "alternativeTo": [
+        "Canva",
+        "Invoice Ninja",
+        "Wave Invoicing",
+        "PDFescape"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14,
+        "overall": 93
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited Invoice Generator with custom business credentials and line items. Live canvas rendered synchronously in DOM within 54 ms without interface freeze. Clicked Generate PDF button to verify direct download of a 93111 bytes clean vector PDF with zero watermarks or login prompts, while recording 4 lightweight /api/event beacons.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要直接在网页中快速制作并导出无水印可打印 PDF（发票、工时单、任务表、复习卡片）与图像处理的自由职业者、教师与小微创业者",
+      "pros": [
+        "浏览器端 Canvas 实时排版与本地 PDF 编译：发票与文书内容完全在客户端内存中组装，私人财务信息绝不上传外部服务器",
+        "涵盖 67 款高频实用工具的丰富矩阵：提供涵盖发票、考勤表、简历、字卡、打卡表及图片压缩等全套实用生成器",
+        "双栏实时 Canvas 预览体验：输入表单项与金额明细时右侧画布即时同步渲染真实打印版式",
+        "开源透明且完全无水印：基于 MIT 协议完全开源，直接导出 93111 字节的高清矢量 PDF，无任何版权水印或强制注册"
+      ],
+      "cons": [
+        "通过本地存储设置了每天 25 次的免费导出额度限制",
+        "缺少自动计算多币种税率及对接第三方财务记账软件的高级自动化能力"
+      ],
+      "privacyVerdict": "文档合成、Canvas 绘制与 PDF 打包均在浏览器本地沙箱中完成。外部网络活动仅捕获到轻量级 /api/event 访问事件信标，用户填写的商业发票与个人信息绝无任何云端外发记录。",
+      "alternativeTo": [
+        "Canva",
+        "Invoice Ninja",
+        "Wave Invoicing",
+        "PDFescape"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14,
+        "overall": 93
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 Invoice Generator 填写自定义商家与明细项。DOM 内 Canvas 画布在 54 ms 内即时同步排版渲染。点击 Generate PDF 按钮验证直接下载 93111 bytes 高清矢量 PDF 文件，无水印且无需注册，全程记录到 4 次轻量 /api/event 统计信标。",
+      "testedAt": "2026-09"
+    }
   }
 }
