@@ -11600,5 +11600,255 @@
       "benchmarkNotes": "启动 10 分钟倒计时，界面保持 0ms 卡顿。成功观测到机械翻页数字动画，一键复制同步链接至剪贴板，并下载了 1,476 字节的纯本地离线 HTML 计时器成品，记录到 9 次第三方分析请求。",
       "testedAt": "2026-09"
     }
+  },
+  "diffhero-app": {
+    "en": {
+      "bestFor": "Software engineers, technical writers, and analysts comparing code, configurations, contracts, or structured text line-by-line and word-by-word without uploading proprietary copy to remote cloud servers.",
+      "pros": [
+        "Precise word-level and character-level change highlighting with both split dual-pane and unified inline diff layouts",
+        "Extensive suite of 28 specialized diff modes covering JSON, CSV table, YAML, XML, SQL, Markdown, and Git conflict resolution",
+        "Exports standard unified .diff patch files (397 bytes) and supports one-click clipboard copying without accounts or paywalls",
+        "Syntax-aware token highlighting for approximately 17 programming languages executed entirely in browser memory"
+      ],
+      "cons": [
+        "Fires 7 telemetry and ad recommendation pings across Google Analytics 4, Snowplow, Cloudflare RUM, and Mediavine",
+        "Large multi-megabyte files can degrade DOM rendering performance when full character-level granularity is enabled"
+      ],
+      "privacyVerdict": "All text tokenization, Myers diff algorithms, and patch file generation execute locally in browser memory; observed 7 telemetry payloads across GA4, Cloudflare RUM, Snowplow, and Mediavine with zero text egress.",
+      "alternativeTo": [
+        "Diffchecker",
+        "Mergely",
+        "Copyleaks"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Loaded multi-paragraph quarterly report example with 0ms freeze latency and 0.00 CLS. Diff engine immediately detected 2 additions and 2 deletions with word highlighting, downloading a 397-byte valid unified .diff patch artifact and recording 7 telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地浏览器中对代码、配置文件、合同文本或表格数据进行逐行、逐词比对，且严禁将敏感文本上传至云端的软件工程师与文档审核人员。",
+      "pros": [
+        "支持分栏（Split）与合并（Unified）双重视图，提供毫秒级词级与字符级精准修改高亮",
+        "内置 28 种专业对比模式，深度覆盖 JSON、CSV 表格、YAML、XML、SQL 及 Git 冲突解决场景",
+        "一键直接导出 397 字节的标准 .diff 补丁成品或快速复制比对结果至剪贴板，无水印且无需注册",
+        "支持约 17 种主流编程语言的语法感知分词，全流程均在浏览器内存中运算"
+      ],
+      "cons": [
+        "页面加载与交互时向 GA4、Snowplow、Cloudflare RUM 及 Mediavine 广告网络发送了 7 次统计请求",
+        "开启极高精度的字符级比对时，处理数兆字节超大文本可能导致前端渲染帧率下降"
+      ],
+      "privacyVerdict": "所有文本分词、差异比对算法与补丁生成均在本地浏览器中运行，比对文本零外送；全流程记录到 7 次来自第三方分析及广告网络的背景监控信标。",
+      "alternativeTo": [
+        "Diffchecker",
+        "Mergely",
+        "Copyleaks"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "载入多段季度财务分析示例文本，界面卡顿 0ms 且 CLS 为 0.00。引擎瞬时识别出 2 处新增与 2 处删除并完成词级高亮，直接下载 397 字节的标准 .diff 补丁文件，记录到 7 次第三方统计信标。",
+      "testedAt": "2026-09"
+    }
+  },
+  "textbench-app": {
+    "en": {
+      "bestFor": "Writers, developers, and editors who need an extensive catalog of 63 client-side text transformation, formatting, encoding, and statistical tools in one single interface without cloud processing.",
+      "pros": [
+        "Extensive suite of 63 specialized text tools across 11 categories including casing, cleaning, regex, Base64/URL encoding, and hashing",
+        "Real-time reactive text processing with live statistics for word count, characters, non-space glyphs, sentence count, and reading duration",
+        "Dual export channels supporting instantaneous clipboard copying and direct local .txt file downloading without account gates",
+        "Command-K keyboard navigation palette and dark mode toggle operating entirely offline in browser memory"
+      ],
+      "cons": [
+        "Emits 1 Google Analytics 4 event and 2 Cloudflare RUM performance telemetry pings during navigation",
+        "Switching between certain tool categories triggers page navigation rather than in-place view state preservation"
+      ],
+      "privacyVerdict": "All text transformations, hashing algorithms, and formatting routines execute entirely in browser memory; observed 3 telemetry pings (1 GA4 and 2 Cloudflare RUM) with zero user text content sent upstream.",
+      "alternativeTo": [
+        "String-O-Matic",
+        "ConvertCase",
+        "TextMechanic"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Navigated to Uppercase Converter and input a 44-character pangram with 0ms freeze latency and 0.01 CLS. Live counters instantly recorded 9 words and 44 characters, downloading a valid 44-byte .txt artifact and capturing 3 background telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在单页中获得 63 种纯本地文本转换、排版清洗、编码解码与字数统计工具，且严禁将文案上传至云端服务器的文字工作者与程序员。",
+      "pros": [
+        "单站集成 11 大类共 63 种实用文本工具，涵盖大小写转换、去重、排版清洗、正则匹配、Base64 与哈希算法",
+        "实时响应输入，毫秒级呈现字数、字符数、无空格字符数、句子数及阅读时长等多维指标",
+        "提供一键复制与直接保存为 44 字节 .txt 文本成品双通道，无广告遮挡且无需注册账号",
+        "内置 Command+K 全局快捷搜寻面板与深色主题切换，支持完全离线运行"
+      ],
+      "cons": [
+        "页面访问与切换时会向 GA4 发送 1 次统计事件并触发 2 次 Cloudflare RUM 监控",
+        "部分工具卡片点击后采用子路径页面跳转，输入框内容未能全局持久化保存"
+      ],
+      "privacyVerdict": "所有文本操作、哈希计算与格式化逻辑均在本地浏览器内存中即时完成，文本内容零外发；全流程仅记录到 3 次用于页面性能监控的第三方背景信标。",
+      "alternativeTo": [
+        "String-O-Matic",
+        "ConvertCase",
+        "TextMechanic"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "切换至大写转换器并填入 44 字符全字母句，界面卡顿 0ms 且 CLS 仅为 0.01。统计栏即时识别出 9 个单词与 44 个字符，直接导出 44 字节的纯净 .txt 成品，并记录到 3 次轻量监控请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "t-8ma-co": {
+    "en": {
+      "bestFor": "Users and teams transferring massive files (up to 200 GB) or entire directory structures directly between desktop and mobile browsers using WebRTC peer-to-peer connections without cloud file storage or registration.",
+      "pros": [
+        "High-capacity WebRTC peer-to-peer data streaming supporting single files up to 200 GB and folders up to 20,000 items",
+        "Triple access pathways generating an instant 8-character pickup code, a direct web link, and a mobile-scannable QR code",
+        "Zero server-side file storage; file payloads stream straight between endpoints while keeping memory on the host device",
+        "Local network autodetection allowing devices sharing the same Wi-Fi egress to discover active transfers"
+      ],
+      "cons": [
+        "Requires the sender browser tab to remain open during transmission because data is streamed directly from host memory",
+        "Emits 1 HTTP event telemetry payload and WebSocket signaling packets to coordinate WebRTC peer handshakes"
+      ],
+      "privacyVerdict": "Files stream directly between devices via encrypted WebRTC peer-to-peer data channels without staging on remote servers; observed 1 /api/events telemetry POST and 5 WebSocket signaling messages with zero file contents stored upstream.",
+      "alternativeTo": [
+        "Snapdrop",
+        "Sharedrop",
+        "Wormhole"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 75.5 KB fixture into input[type=file] with 89ms freeze latency and 0.00 CLS. System instantly generated pickup code TfvirAmq, rendered a scannable QR code, and copied the 25-character transfer link with 6 signaling payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在电脑与手机、或多台设备之间免注册、免装客户端点对点直传超大文件（最高 200 GB）或完整文件夹的用户与协作团队。",
+      "pros": [
+        "基于 WebRTC 点对点直连传输架构，单文件最大支持 200 GB，文件夹支持最多 20,000 个文件批量传输",
+        "提供三种便捷接收方式：8 位提取码、直接分享链接以及手机扫码即传的二维码",
+        "文件不经过任何云端服务器中转存储，点对点加密传输，关闭发送端网页即刻中断，杜绝云端泄露隐患",
+        "支持局域网同 Wi-Fi 发现功能，处于同一网段下的多台设备可一键发现并接收附近文件"
+      ],
+      "cons": [
+        "传输过程中发送方必须保持浏览器标签页开启，否则数据流通断开",
+        "握手阶段会向 /api/events 发送 1 次事件统计并借助 WebSocket 信令服务器完成 WebRTC 打洞协商"
+      ],
+      "privacyVerdict": "文件数据完全通过端到端加密的 WebRTC P2P 数据通道直传，平台不存储任何文件内容；实测记录到 1 次 /api/events 事件上报与 5 次用于网络协商的 WebSocket 信令消息。",
+      "alternativeTo": [
+        "Snapdrop",
+        "Sharedrop",
+        "Wormhole"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "通过 input[type=file] 载入 75.5 KB 测试图片，界面卡顿 89ms 且 CLS 为 0.00。系统瞬时生成 8 位提取码 TfvirAmq 与二维码，并成功一键复制 25 字符的直传链接，记录到 6 次信令与事件数据包。",
+      "testedAt": "2026-09"
+    }
+  },
+  "sirenmix-com-tools": {
+    "en": {
+      "bestFor": "DJs, electronic music producers, and audio engineers looking for rapid, zero-install, in-browser preparation utilities to detect track BPM, identify musical keys and Camelot wheels, inspect audio spectrograms, and adjust tempo with pitch preservation.",
+      "pros": [
+        "Comprehensive browser-based DJ utility suite covering BPM detection, musical key analysis, spectrogram inspection, gain adjustment, and format conversion",
+        "Harmonic mixing integration displaying traditional musical key, Camelot wheel notation (e.g. 8A), and Open Key (1m) simultaneously",
+        "Real-time tempo adjustment with pitch preservation toggle and unwatermarked direct WAV export",
+        "High-resolution full-track audio spectrogram visualizer rendering frequency cutoffs up to 20 kHz directly on canvas"
+      ],
+      "cons": [
+        "In-browser WebAssembly audio conversion can take longer on older hardware or for large audio batches",
+        "Emits Umami telemetry payloads (umami.sirenmix.com) for anonymous usage tracking"
+      ],
+      "privacyVerdict": "Audio decoding, key/BPM analysis, and tempo rendering run strictly client-side using Web Audio API and WebAssembly without staging files to cloud servers; observed 24 lightweight Umami analytics requests (umami.sirenmix.com) with zero audio data egress.",
+      "alternativeTo": [
+        "Mixed In Key",
+        "Tunebat",
+        "Vocal Remover",
+        "AudioMass"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 88.2 KB WAV fixture into BPM Finder, Key Finder, Spectrogram Analyzer, and BPM Changer with 0ms freeze latency and 0.01 CLS. Instantly identified 119 BPM, A Minor (8A / 1m), rendered a 20kHz spectrogram, retuned tempo to 128 BPM, and exported a clean 88,244-byte WAV artifact with 24 Umami analytics payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、免安装在浏览器中快速完成曲目 BPM 测速、调性分析（兼容 Camelot/Open Key）、全频段频谱分析、音频格式转换以及保调变速导出的 DJ、电音制作人与音频工作者。",
+      "pros": [
+        "专为 DJ 与电音制作打造的纯前端音频工具集，涵盖 BPM 测速、调性识别、声谱分析、音量增益与格式转换",
+        "原生整合和声混音（Harmonic Mixing）体系，同步计算并呈现传统调性、Camelot 轮盘代码（如 8A）与 Open Key 标记（如 1m）",
+        "内置保调变速（Preserve pitch）引擎，支持实时波形试听与免水印直接导出 WAV 音频文件",
+        "高精细度全频段音频声谱仪，直接基于 Canvas 渲染高达 20 kHz 的真实高频截止线"
+      ],
+      "cons": [
+        "基于浏览器的 WebAssembly 音频转码受限于客户端硬件性能，处理超长曲目或大批量文件时耗时较长",
+        "后台会向自建 Umami 实例（umami.sirenmix.com）发送轻量级匿名统计与访问记录"
+      ],
+      "privacyVerdict": "音频解码、BPM 测速、调性计算与变速渲染均在浏览器端通过 Web Audio API 与 WebAssembly 本地运行，音频文件完全不离设备；实测仅记录到 24 次发往自建 Umami 实例（umami.sirenmix.com）的轻量级匿名访问统计，无任何音频数据外传。",
+      "alternativeTo": [
+        "Mixed In Key",
+        "Tunebat",
+        "Vocal Remover",
+        "AudioMass"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "分别在 BPM Finder、Key Finder、频谱仪和 BPM Changer 中载入 88.2 KB WAV 测试音频，界面卡顿 0ms 且 CLS 为 0.01。系统瞬时识别出 119 BPM、A Minor（8A / 1m 调性）、实时绘制 20kHz 频谱，保调变速至 128 BPM 并成功导出 88,244 字节的纯净 WAV 文件，记录到 24 次 Umami 匿名统计请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
