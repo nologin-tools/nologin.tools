@@ -135,6 +135,24 @@ function installCadesPageInstrumentation() {
     try { document.__cadesExecCommandWrapped = true; } catch {}
   }
 
+  window.__capturedBlobDownloads = window.__capturedBlobDownloads || [];
+  if (typeof URL !== 'undefined' && URL.createObjectURL && !URL.createObjectURL.__cadesWrapped) {
+    const origCreateObjectURL = URL.createObjectURL.bind(URL);
+    URL.createObjectURL = function(blob) {
+      if (blob instanceof Blob) {
+        const entry = { size: blob.size, type: blob.type, timestamp: Date.now(), data: null };
+        window.__capturedBlobDownloads.push(entry);
+        try {
+          const reader = new FileReader();
+          reader.onload = () => { entry.data = reader.result; };
+          reader.readAsDataURL(blob);
+        } catch (e) {}
+      }
+      return origCreateObjectURL(blob);
+    };
+    try { URL.createObjectURL.__cadesWrapped = true; } catch {}
+  }
+
   if (!window.fetch.__cadesWrapped) {
     const origFetch = window.fetch.bind(window);
     const wrappedFetch = function(...args) {
@@ -780,6 +798,26 @@ async function cmdExport(slug, trigger = null) {
         const latest = capturedClipboard[capturedClipboard.length - 1];
         result.clipboardTriggered = true;
         result.clipboardText = latest.text;
+      }
+
+      // Check if in-memory blob download occurred via URL.createObjectURL
+      if (!result.downloadTriggered) {
+        const capturedBlobs = await page.evaluate(() => {
+          return (window.__capturedBlobDownloads || []).map(b => ({ size: b.size, type: b.type, data: b.data }));
+        });
+        if (capturedBlobs.length > 0) {
+          const latest = capturedBlobs[capturedBlobs.length - 1];
+          if (latest && latest.data) {
+            const parts = latest.data.split(',');
+            if (parts[1]) {
+              const buf = Buffer.from(parts[1], 'base64');
+              const fs = await import("node:fs");
+              fs.writeFileSync(${JSON.stringify(exportDlPath)}, buf);
+              result.downloadTriggered = true;
+              result.downloadPath = ${JSON.stringify(exportDlPath)};
+            }
+          }
+        }
       }
 
       const printTriggered = await page.evaluate(() => Boolean(window.__printTriggered));

@@ -10882,5 +10882,235 @@
       "benchmarkNotes": "上传 324.8KB PNG 测试文件，在约 1000ms 内成功转换为 44,814 字节 JPEG 图像并顺利下载，全流程无水印及认证拦截。",
       "testedAt": "2026-09"
     }
+  },
+  "jottools-com": {
+    "en": {
+      "bestFor": "Formatting, converting, calculating, and inspecting developer data across 150+ utilities locally in the browser.",
+      "pros": [
+        "Vast suite of 154 client-side developer, media, and math utilities running locally on device",
+        "Two-pane JSON formatter with interactive tree view, beautify/minify toggle, and example presets",
+        "Zero registration or email required; instant unwatermarked clipboard copy and file downloads"
+      ],
+      "cons": [
+        "Loads Google Analytics (GA4) script on page load for visitor traffic tracking"
+      ],
+      "privacyVerdict": "Data transformations, formatting, and file processing execute in browser memory; observed 1 GA4 analytics pageview payload with zero user input egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Formatted nested JSON in under 12ms with 0ms UI freeze, copying 108 characters of clean indented JSON to clipboard with zero syntax errors.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地免登录完成 JSON 格式化、文本转换、哈希计算等 150+ 款高频开发与日常工具的场景。",
+      "pros": [
+        "内置 154 款纯前端开发者、音视频、PDF 及数学计算工具，完全在端侧设备执行",
+        "双栏 JSON 格式化器支持语法校验、层级折叠树视图与一键美化/压缩切换",
+        "免注册免登录，格式化结果一键无水印复制至剪贴板或另存为文件"
+      ],
+      "cons": [
+        "页面加载时会引入 Google Analytics（GA4）脚本进行访问量统计"
+      ],
+      "privacyVerdict": "所有数据转换与格式化逻辑均在浏览器本地内存完成；测试期间记录到 1 次 GA4 页面浏览请求，用户输入的 JSON 内容完全零外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 0ms 界面卡顿下于 12ms 内完成嵌套 JSON 数据的格式化校验，并顺利将 108 字符缩进数据无损写入剪贴板。",
+      "testedAt": "2026-09"
+    }
+  },
+  "salitronic-com-gerber-analyzer": {
+    "en": {
+      "bestFor": "Inspecting, editing, rule-checking, and 3D rendering PCB Gerber and drill fabrication files directly in the browser.",
+      "pros": [
+        "Multi-layer Gerber parser supporting RS-274X, Excellon drill, ODB++, and IPC-2581 with local WebGL rendering",
+        "Comprehensive automated Design Rule Check (DRC) assessing clearances, annular rings, and netlist extraction in 4ms",
+        "Interactive 2D Gerber editor with trace drawing, polygon apertures, and real-time 3D board preview with PNG and ZIP exports"
+      ],
+      "cons": [
+        "Transmits marketing telemetry to LinkedIn tracking pixel and periodic heartbeat visit beacons"
+      ],
+      "privacyVerdict": "Board processing, layer rendering, and DRC calculations execute locally in browser memory without sending CAD designs to any server; observed 1 LinkedIn tracking pixel and periodic /tracking/track_visit.php heartbeat beacons.",
+      "alternativeTo": [
+        "Gerbv",
+        "KiCad Gerber Viewer",
+        "EasyEDA Viewer"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded test RS-274X Gerber file with 9 copper features, executed full DRC clearance analysis in 4ms, rendered 3D PCB model, and exported 41,257-byte multi-layer PNG ZIP archive without registration.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器免登录直接查看、编辑走线、运行 DRC 规则检查与 3D 渲染 PCB Gerber 制造文件的硬件工程师与创客。",
+      "pros": [
+        "免安装在浏览器本地解析 RS-274X、Excellon、ODB++ 与 IPC-2581，依托 WebGL 实现丝滑多图层渲染",
+        "内置自动化设计规则检查（DRC），4 毫秒内完成走线间距、焊盘环宽校验及网络表提取",
+        "集成交互式 2D 走线补全与实时 3D 线路板透视预览，支持直接导出免注册的 PNG 与 ZIP 图层压缩包"
+      ],
+      "cons": [
+        "页面加载并触发 LinkedIn 营销追踪像素及周期性访问信标网络请求"
+      ],
+      "privacyVerdict": "所有线路板图层解析、走线绘制与 DRC 运算均在本地浏览器内存完成，CAD 文件绝不上云；但测试期间记录到 1 次 LinkedIn 广告像素与定期的 /tracking/track_visit.php 心跳访问请求。",
+      "alternativeTo": [
+        "Gerbv",
+        "KiCad Gerber Viewer",
+        "EasyEDA Viewer"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "成功上传包含 9 个铜箔几何元素的 RS-274X 规范 Gerber 文件，4ms 内通过完整 DRC 检查，切换 3D 视角并顺利导出 41,257 字节的图层渲染 ZIP 压缩包。",
+      "testedAt": "2026-09"
+    }
+  },
+  "ignlab-net": {
+    "en": {
+      "bestFor": "Converting images to JPG/WebP and accessing designer generators like SVG blobs, CSS effects, and QR codes without registration.",
+      "pros": [
+        "Directory hub connecting 12+ focused developer and design utilities with zero login barrier",
+        "Instant unwatermarked file downloads for converted images, CSS styles, and vector assets",
+        "Clean dark-mode interface with configurable quality slider and multi-format output targets"
+      ],
+      "cons": [
+        "Image conversion relies on server processing via POST /api/convert rather than client-side execution",
+        "Server drops connections on larger image uploads (300KB+), triggering conversion failures",
+        "Contains Google AdSense advertising scripts and Google Analytics tracking beacons"
+      ],
+      "privacyVerdict": "Image files are transmitted to a backend uvicorn server via POST /api/convert during conversion; observed 2 Google Analytics (GA4) beacons and 5 /api/convert image payloads alongside Google AdSense scripts.",
+      "alternativeTo": [
+        "Squoosh",
+        "TinyPNG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 28.6KB PNG fixture, executed server conversion to JPEG (85% quality) via POST /api/convert, and downloaded a clean 7,425-byte unwatermarked JPEG artifact in 2.1s.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免登录将图片转为 JPG/WebP 格式，以及使用 SVG 气泡、CSS 样式与 QR 码等轻量设计生成器的开发者与设计师。",
+      "pros": [
+        "集成 12+ 款专注型开发与设计工具的导航集，所有工具即开即用零门槛",
+        "图片转换结果、CSS 代码及矢量资源可直接一键导出或下载，无水印无付费拦截",
+        "暗色系视觉风格，提供可调压缩质量滑块与多目标格式切换"
+      ],
+      "cons": [
+        "图片转换需通过 POST /api/convert 将二进制上传至后端 uvicorn 服务器，并非纯端侧处理",
+        "后端接口对较大文件（如 300KB+）存在连接重置问题，易导致转换中断报错",
+        "页面内嵌 Google AdSense 广告脚本及 Google Analytics 访问统计信标"
+      ],
+      "privacyVerdict": "图片转换过程需将文件上传至远端 uvicorn 服务器接口（POST /api/convert）；测试中抓取到 2 次 GA4 数据信标及 5 次 /api/convert 上传请求，且引入了 Google AdSense 脚本。",
+      "alternativeTo": [
+        "Squoosh",
+        "TinyPNG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 28.6KB 的 PNG 测试样例，通过 POST /api/convert 完成 85% 质量的 JPEG 转码，并在 2.1 秒内无损下载 7,425 字节无水印图片成品。",
+      "testedAt": "2026-09"
+    }
+  },
+  "comparediff-io": {
+    "en": {
+      "bestFor": "Comparing text, code, and JSON documents line-by-line or word-by-word with bidirectional merging in the browser.",
+      "pros": [
+        "Dual CodeMirror 6 editors with instant client-side line, word, and character granularity diffing",
+        "Interactive gutter controls for directional change merging (to left, to right) with curved visual connectors",
+        "Exports standard unified .diff patch files and structured reports with zero sign-up or watermarks",
+        "Rich syntax support for JSON, JavaScript, TypeScript, YAML, XML, and Markdown with multi-theme styling"
+      ],
+      "cons": [
+        "Fires standard Cloudflare RUM performance telemetry on initial page load"
+      ],
+      "privacyVerdict": "All text parsing, tokenization, diff computations, and patch generation execute strictly in local browser memory; observed 1 Cloudflare RUM beacon with zero user content egress.",
+      "alternativeTo": [
+        "Diffchecker",
+        "Mergely",
+        "VS Code Diff Editor"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Populated two multi-line JSON structures into dual CodeMirror editors, resolved 4 distinct word-level differences with 0ms UI freeze, and downloaded a 372-byte unified .diff patch artifact instantly.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器端免登录、高私密性地逐行、逐词对比文本、代码与 JSON 差异并进行双向合并的开发者。",
+      "pros": [
+        "基于双栏 CodeMirror 6 编辑器，支持纯本地毫秒级行级、词级与字符级精准差异比对",
+        "交互式中缝连接线提供向左/向右单项差异快速合并，并附带直观的贝塞尔曲线映射",
+        "支持一键直接导出标准统一格式的 .diff 补丁文件，无水印且无需注册账号",
+        "内置 JSON、JS、TS、YAML、XML 等多语言语法支持，并提供 Ocean、Forest 等 5 种护眼主题"
+      ],
+      "cons": [
+        "页面首次加载时会触发 1 次 Cloudflare RUM 性能监控请求"
+      ],
+      "privacyVerdict": "所有文本解析、分词、差异比对与补丁构建均严格在本地浏览器内存中运行，用户比对内容完全零外发；仅记录到 1 次 Cloudflare RUM 页面性能监控信标。",
+      "alternativeTo": [
+        "Diffchecker",
+        "Mergely",
+        "VS Code Diff Editor"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在双栏编辑器中注入多行嵌套 JSON 数据，即时高亮 4 处词级修改，界面卡顿 0ms，并成功下载 372 字节的标准 unified .diff 补丁成品。",
+      "testedAt": "2026-09"
+    }
   }
 }
