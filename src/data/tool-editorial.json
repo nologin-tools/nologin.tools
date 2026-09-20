@@ -15916,5 +15916,259 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。初始化工作台录得 0ms 主线程卡顿与 0.00 CLS。执行 'Randomize' 操作生成 102 BPM 的 E 小调蓝调 4 和弦进行（B7-A7-E7-E7）。触发 'Export MIDI' 成功生成并下载 229 字节的标准二进制 MIDI 文件（验证 MThd 与 MTrk 魔法字节），无任何诱导陷阱。触发 'Copy chords' 通过 navigator.clipboard.writeText 成功捕获 11 字符和弦文本。网络审计验证运行时出站请求严格为 0。",
       "testedAt": "2026-09"
     }
+  },
+  "codextheme-tools": {
+    "en": {
+      "bestFor": "Codex Desktop users, developers, and theme designers creating custom workspace themes from wallpapers with local WCAG contrast validation and direct .tmTheme export.",
+      "pros": [
+        "Zero registration required with 100% on-device image palette extraction and token generation",
+        "Comprehensive 5-surface desktop simulator reproducing Home, Task, Diff, Terminal, and Settings views",
+        "Direct export to valid .tmTheme plist file (3.2 KB) for ~/.codex/themes alongside Theme v1 import strings",
+        "Built-in WCAG 4.5:1 readability audit measuring sidebar, card, and composer contrast before export"
+      ],
+      "cons": [
+        "First-party analytics beacon payloads observed to /api/analytics during session navigation",
+        "Specialized specifically for Codex Desktop styling ecosystem rather than generic code editors"
+      ],
+      "privacyVerdict": "Observed 7 beacon POST payloads to /api/analytics for first-party telemetry; uploaded wallpaper images, extracted color tokens, and generated theme files are processed strictly inside local browser memory with zero image asset egress.",
+      "alternativeTo": [
+        "Theme Creator",
+        "Base16 Builder",
+        "VS Code Theme Generator"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to theme builder via 'Create Theme', injected 324.8 KB sample.png into visible wallpaper file input, and instantly decoded 3 harmonious palette options locally. Tested live previews across Home, Diff, and Terminal surfaces. Verified 4.5:1 contrast checklist in Export panel and triggered 'Download .tmTheme', successfully capturing an unwatermarked 3,247-byte XML plist artifact with zero bait traps. Runtime network audit recorded 7 /api/analytics beacons with zero wallpaper data transmission.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望根据壁纸提取调色板、免登录定制 Codex Desktop 主题，并完成 WCAG 对比度校验与直接导出 .tmTheme 文件的开发者与设计师。",
+      "pros": [
+        "零登录门槛，壁纸图像本地解码与调色板色彩提取完全在端侧完成",
+        "内置 5 大工作区高保真视图模拟，覆盖首页、任务、Diff 差异比对、终端与设置面板",
+        "直接导出标准的 3.2 KB .tmTheme 语法高亮文件及 Theme v1 一键导入字符串",
+        "内置 WCAG 4.5:1 可读性自检机制，精准核验侧边栏、卡片与输入区的文字对比度"
+      ],
+      "cons": [
+        "页面路由与交互期间向 /api/analytics 发送了第一方性能与行为遥测信标",
+        "功能深度绑定 Codex Desktop 桌面生态，不适用于通用型跨编辑器主题配置"
+      ],
+      "privacyVerdict": "运行时监测到 7 次向 /api/analytics 发起的第一方遥测信标 POST 请求；用户上传的壁纸原图、提取的颜色令牌及生成的主题文件均在本地浏览器内存中运算，无任何图像资产外传。",
+      "alternativeTo": [
+        "Theme Creator",
+        "Base16 Builder",
+        "VS Code Theme Generator"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。通过 'Create Theme' 进入主题构建器，向壁纸输入控件注入 324.8 KB 的 sample.png，在本地毫秒级提取 3 套配色方案。实机测试首页、Diff 与终端等工作区视图渲染。在导出面板核验 4.5:1 对比度清单并触发 'Download .tmTheme'，成功获取 3,247 字节无水印、无诱导陷阱的 XML plist 配置文件。网络审计记录 7 次 /api/analytics 遥测信标，壁纸图片完全保留在本地。",
+      "testedAt": "2026-09"
+    }
+  },
+  "entityminder-smoke-web-app-em-lookup": {
+    "en": {
+      "bestFor": "US business owners, founders, and paralegals needing quick, free lookups of state annual report deadlines and franchise tax obligations across all 50 states without sign-up.",
+      "pros": [
+        "Zero registration required to query statutory filing schedules across all 50 US states and DC",
+        "Detailed regulatory breakdown covering filing cadence, tax obligations, and anniversary rules",
+        "Direct outbound links to official Secretary of State (SOS) government filing portals",
+        "Supports multiple business entity structures including LLC, Corporation, LP, LLP, and Nonprofit"
+      ],
+      "cons": [
+        "Outbound analytics beacons sent to listingcraft-api-...run.app/labs/event",
+        "Lacks export formats such as direct ICS calendar file generation or PDF compliance summaries"
+      ],
+      "privacyVerdict": "Observed 3 event POST payloads to https://listingcraft-api-1086288220169.us-central1.run.app/labs/event for interaction logging; lookups require only public state and entity selections without requesting EINs, founder identities, or proprietary corporate data.",
+      "alternativeTo": [
+        "LegalZoom Compliance Calendar",
+        "ZenBusiness Dashboard",
+        "Incfile Deadlines",
+        "Harbor Compliance"
+      ],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Interacted with form dropdowns (select[0], select[1]) across 52 state options. Tested Delaware LLC lookup displaying annual flat tax obligation and next deadline (Jun 1, 2027), then queried California LLC showing biennial Statement of Information and $800 FTB minimum tax with direct link to sos.ca.gov. Intercepted 299-character clean clipboard export. Runtime network audit recorded 3 /labs/event telemetry POSTs with 0ms long tasks and 0.09 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册快速查询美国 50 州及特区企业年度报告（Annual Report）截止日、特许经营税要求与州政府官方申报入口的创业者、法务与企业主。",
+      "pros": [
+        "零注册门槛，即开即查全美 50 州与华盛顿特区法定年报时间表",
+        "详尽的合规指引，清晰标注申报频次、加州 FTB 800 美元最低税及特拉华 300 美元税制细节",
+        "直接提供各州州务卿（Secretary of State）官方政府直达申报入口链接",
+        "支持多种企业实体架构，涵盖 LLC、股份公司（Corporation）、合伙企业与非营利机构"
+      ],
+      "cons": [
+        "查询交互会向 listingcraft-api-...run.app/labs/event 发送遥测分析请求",
+        "缺少一键导出 ICS 日历提醒文件或生成合规年报清单 PDF 的功能"
+      ],
+      "privacyVerdict": "运行时监测到 3 次向 https://listingcraft-api-1086288220169.us-central1.run.app/labs/event 发起的事件日志 POST 请求；查询过程仅依赖公开的州份与实体类型选项，无需提供公司税号（EIN）、创始人个人身份或敏感商业数据。",
+      "alternativeTo": [
+        "LegalZoom Compliance Calendar",
+        "ZenBusiness Dashboard",
+        "Incfile Deadlines",
+        "Harbor Compliance"
+      ],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。操作表单下拉框（select[0], select[1]）遍历 52 个州级行政区选项。实测特拉华州 LLC 查询，精准呈现年度固定税义务与下次申报截止期（2027 年 6 月 1 日）；继而查询加州 LLC，成功展示两年一次的信息申报表及 800 美元 FTB 最低特许税，附带 sos.ca.gov 官方入口。拦截并验证 299 字符纯文本剪贴板导出。网络审计捕获 3 次 /labs/event 遥测请求，主线程 0ms 卡顿，CLS 仅 0.09。",
+      "testedAt": "2026-09"
+    }
+  },
+  "earchord-com": {
+    "en": {
+      "bestFor": "Musicians, transcribers, and guitarists needing instant, unlimited chord progression and key detection from audio files with 100% on-device privacy.",
+      "pros": [
+        "Zero registration and unlimited audio processing with 100% local on-device DSP analysis",
+        "Ultra-fast Web Audio chord extraction completing 88 KB WAV analysis in just 26 ms",
+        "Direct unwatermarked .txt chord chart download with precise start/end timestamps",
+        "Interactive integrated playback timeline with single-click TSV clipboard copying"
+      ],
+      "cons": [
+        "Complex polyphonic arrangements with heavy distortion or dense reverb may require manual chord verification",
+        "Currently focuses on chord progressions rather than full multitrack stem separation"
+      ],
+      "privacyVerdict": "Zero network payloads observed during session; all audio decoding, chromagram analysis, key recognition, and chord chart exports execute strictly within the browser's local Web Audio memory with complete data sovereignty.",
+      "alternativeTo": [
+        "Chordify",
+        "Yamaha Chord Tracker",
+        "RipX",
+        "Moises"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Uploaded 88,244-byte sample.wav into the local audio input zone. Local DSP analyzer extracted key (A minor) and chord progression in exactly 26 ms with 0ms long tasks and 0.01 CLS. Triggered 'Download .txt', successfully capturing an unwatermarked 58-byte timestamped TSV chord log with zero bait traps. Triggered 'Copy chords' writing 58-character formatted text via navigator.clipboard.writeText. Runtime network audit confirmed strictly 0 outgoing payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、无曲目限制直接从音频文件中识别和弦进行与调性，并享受 100% 端侧隐私保护的音乐人、扒带者与吉他手。",
+      "pros": [
+        "零注册、无使用额度限制，采用 100% 本地端侧数字信号处理（DSP）算法",
+        "超高速 Web Audio 和弦解析，实测 88 KB WAV 音频仅用时 26 毫秒即可完成推算",
+        "直接导出文本级的无水印 .txt 和弦对照表，精确标注起止时间戳",
+        "集成交互式试听时间轴播放器，支持一键将制表符分隔格式（TSV）复制至剪贴板"
+      ],
+      "cons": [
+        "对于失真严重或混响极深的多声部复杂编曲，可能需要人工二次校对特定转位和弦",
+        "功能专精于和弦进行与调性识别，暂不提供完整的多轨分轨伴奏提取"
+      ],
+      "privacyVerdict": "评测全周期未监测到任何网络出站载荷；音频解码、色度图特征分析、调性推断及和弦谱导出均在浏览器本地 Web Audio 内存中完成，音频资产绝不离端。",
+      "alternativeTo": [
+        "Chordify",
+        "Yamaha Chord Tracker",
+        "RipX",
+        "Moises"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。向音频拖放区注入 88,244 字节的 sample.wav。本地 DSP 分析器在 26 毫秒内完成调性（A minor）与和弦进行解析，主线程卡顿 0ms，CLS 仅 0.01。触发 'Download .txt'，成功获取 58 字节无诱导陷阱的时间戳和弦日志文件。触发 'Copy chords' 通过 navigator.clipboard.writeText 写入 58 字符格式化文本。网络审计确认出站请求严格为 0。",
+      "testedAt": "2026-09"
+    }
+  },
+  "verifiedlimits-com": {
+    "en": {
+      "bestFor": "US taxpayers, employees, and financial planners needing accurate, IRS-verified calculations for HSA limits, tax savings, HDHP comparisons, and retirement contributions with complete privacy.",
+      "pros": [
+        "Zero registration required and strictly zero network payloads or telemetry observed",
+        "Comprehensive suite of 12 tax and retirement calculators verified against IRS Revenue Procedure 2025-19",
+        "Dynamic interactive sliders for coverage type, age catch-up, employer matches, and marginal tax brackets",
+        "Instant real-time computation of contribution headroom and tax savings without lead-generation forms"
+      ],
+      "cons": [
+        "Specialized exclusively for US federal tax code, IRS guidelines, and employer benefits structures",
+        "Lacks direct file export formats such as IRS Form 8889 summary PDF or CSV logs"
+      ],
+      "privacyVerdict": "Zero network payloads observed during session; financial inputs, income tax brackets, health plan details, and contribution headroom calculations execute entirely inside local browser memory with complete privacy.",
+      "alternativeTo": [
+        "Fidelity HSA Calculator",
+        "HealthEquity Tools",
+        "SmartAsset HSA",
+        "Bankrate"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to HSA Contribution Calculator 2026 (#age, #employer-contribution, #own-contribution). Toggled coverage type to Family ($8,750 IRS statutory limit) and marginal tax rate to 22%. Calculated $8,750 remaining room and $1,925 estimated tax savings instantly with 0ms task freeze and 0.00 CLS. Intercepted 63-character clean clipboard export. Runtime network audit confirmed strictly 0 outgoing payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要严格对照美国国税局（IRS）官方规程、精准测算 HSA 缴存限额、税收节省与退休账户抵扣，同时保护个人财务隐私的纳税人与理财规划者。",
+      "pros": [
+        "零注册门槛，评测全程严格未监测到任何网络外传载荷或遥测信标",
+        "涵盖 12 款专业税务与退休精算工具，算法严格对照美国国税局 IRS 2025-19 号最新规程",
+        "动态交互滑块实时调节个人/家庭投保类型、55 岁补缴、雇主配比与边际税率",
+        "毫秒级呈现剩余缴存额度与所得税节省测算，无任何销售线索收集弹窗"
+      ],
+      "cons": [
+        "功能严格针对美国联邦税法、IRS 细则及雇主福利体系，不适用于其他国家税制",
+        "暂不提供直接生成 IRS 8889 表格摘要 PDF 或导出 CSV 历史记录等文件格式"
+      ],
+      "privacyVerdict": "评测全周期未监测到任何网络出站载荷；用户输入的财务数据、边际税率、医保方案细节与缴存限额测算均在本地浏览器内存中运算，财务隐私得到完全保障。",
+      "alternativeTo": [
+        "Fidelity HSA Calculator",
+        "HealthEquity Tools",
+        "SmartAsset HSA",
+        "Bankrate"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。进入 2026 HSA 缴存计算器（#age, #employer-contribution, #own-contribution）。将投保类型切换为家庭（对应 IRS 8,750 美元法定限额），边际税率设为 22%。系统即时完成测算，准确输出 8,750 美元剩余额度与 1,925 美元预估节税金额，主线程卡顿 0ms，CLS 为 0.00。成功拦截并验证 63 字符纯文本剪贴板导出。网络审计确认出站请求严格为 0。",
+      "testedAt": "2026-09"
+    }
   }
 }
