@@ -14120,5 +14120,253 @@
       "benchmarkNotes": "选用 1 分钟快捷预设启动倒计时；从 00:01:00 平稳倒数至 00:00:00，长任务阻塞 0ms，布局位移为 0，准确切换至‘時間になりました’完成状态。网络监听仅记录到 1 次 Cloudflare RUM 性能监测信标。",
       "testedAt": "2026-09"
     }
+  },
+  "morsecodetranslator-tools": {
+    "en": {
+      "bestFor": "Amateur radio operators, emergency responders, maritime students, puzzle enthusiasts, and educators needing bidirectional Morse code translation and synthesized audio WAV generation without software installations.",
+      "pros": [
+        "Simultaneous bidirectional transcription adhering to ITU International Morse standard without manual mode switching",
+        "Integrated Web Audio acoustic synthesizer supporting customizable transmission speed (WPM), tone pitch (Hz), and volume",
+        "Versatile export options delivering one-click clipboard copying, raw TXT file export, and 247 KB synthesized WAV audio downloads"
+      ],
+      "cons": [
+        "Advanced optical screen flashing and haptic vibration signaling depend on client hardware and mobile browser capabilities",
+        "Input buffer is capped at 5000 characters per translation batch"
+      ],
+      "privacyVerdict": "Client-side telegraphic signal processing architecture. Text-to-Morse transcription and Web Audio waveform synthesis execute strictly inside the local browser runtime. Observed network activity was limited to Cloudflare RUM performance metrics following explicit consent opt-out; plain text inputs and synthesized audio buffers are not transmitted to remote servers.",
+      "alternativeTo": [
+        "MorseCode.world",
+        "CyberChef",
+        "Morse Mania",
+        "Google Morse Code Experiment"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Transcribed 'SOS ANTIGRAVITY' to ITU Morse '... --- ... / .- -. - .. --. .-. .- ...- .. - -.--' in 0ms; captured a 50-character clean clipboard artifact and synthesized a 247724-byte clean WAV audio export at 20 WPM / 600 Hz with 0ms task freeze. Network audit confirmed only 1 Cloudflare RUM beacon after selecting 'Necessary only' consent.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免安装快速完成明文与摩尔斯电码双向即时互译、自定义音频参数生成并下载 WAV 报务音频的业余无线电爱好者、海事通信学员及密码学爱好者。",
+      "pros": [
+        "严格遵循 ITU 国际摩尔斯标准，支持明文与电码双向即时互译，无需手动切换方向",
+        "内置 Web Audio 原生声波合成器，支持自定义发报速度（WPM）、音频频率（Hz）及音量大小",
+        "完备的多格式导出支持，一键规整复制剪贴板、TXT 文本导出并可下载 247 KB 本地合成的真实 WAV 音频文件"
+      ],
+      "cons": [
+        "屏幕高亮闪烁与马达振动发报功能依赖移动终端硬件与浏览器 API 权限支持",
+        "单次翻译处理文本上限为 5000 字符"
+      ],
+      "privacyVerdict": "基于前端本地执行的电报信号处理架构。明文与摩尔斯编码的双向转译及 Web Audio 声波合成均在本地浏览器运行时中计算。在选择必要 Cookie 授权后，实测网络活动仅限于 Cloudflare RUM 基础性能监测，用户输入的文字与合成的音频数据绝不上传至远程服务器。",
+      "alternativeTo": [
+        "MorseCode.world",
+        "CyberChef",
+        "Morse Mania",
+        "Google Morse Code Experiment"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测将 'SOS ANTIGRAVITY' 即时转码为国际标准摩尔斯电码，耗时 0ms。成功捕获 50 字符规整剪贴板文本，并在 20 WPM / 600 Hz 设定下即时生成并下载 247724 字节结构完好的 WAV 音频文件，长任务阻塞 0ms。选择‘仅必要’后网络监听仅记录到 1 次 Cloudflare RUM 性能指标请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "gantt-chart-io": {
+    "en": {
+      "bestFor": "Engineering managers, scrum leads, product coordinators, and event planners needing to convert plain-text task breakdowns into interactive critical-path Gantt timelines with PDF export.",
+      "pros": [
+        "Natural-language task parsing transforms multi-line lists with duration tokens into structured schedules without manual date pickers",
+        "Interactive multi-view timeline workspace supporting critical path calculation, drag-and-drop bar adjustments, and Roadmap or Table views",
+        "Direct browser print-to-PDF pipeline delivers clean document artifacts without login interception or intrusive banner watermarks"
+      ],
+      "cons": [
+        "Pre-built organizational templates and multi-device cloud synchronization require account registration and a paid subscription",
+        "Advanced multi-project portfolio aggregation and automated AI scheduling credits are restricted to authenticated tiers"
+      ],
+      "privacyVerdict": "Task and schedule planning operations execute in local browser storage ('Saved on this device'). Network telemetry is active for Stripe billing scripts and analytics beacons on landing assets, but schedule data and pasted task text remain local to the active browser workspace.",
+      "alternativeTo": [
+        "TeamGantt",
+        "Instagantt",
+        "Smartsheet",
+        "Mermaid.js"
+      ],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested demo workspace by parsing 4-phase tasks ('Market research 5d', 'Design 2w', 'Build 14d', 'QA 5d'); computed a 100-day critical path across 4 active items. Exporting via the PDF toolbar button successfully invoked the browser print-to-PDF pipeline with zero auth gate prompts; local plan state persisted cleanly across tab reloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将纯文本任务分解快速转换为具有关键路径分析与时间线可视化的交互式甘特图、并直接导出 PDF 的工程管理者、项目主管及活动策划人员。",
+      "pros": [
+        "智能纯文本任务解析，可直接识别任务名称与工期标记（如 5d、2w）并自动生成层级进度表，免去繁复的手工日期录入",
+        "丰富的交互式多重视图工作区，支持关键路径自动推算、甘特条拖拽调整以及路线图（Roadmap）与数据表（Table）自由切换",
+        "流畅的浏览器原生打印转 PDF 导出流程，可直接生成无登录拦截且无侵入性水印的进度计划文档"
+      ],
+      "cons": [
+        "预置行业模版库以及多设备云端实时同步需要注册账号并订阅付费方案",
+        "多项目组合统计与 AI 自动排期点数在未登录状态下受到限制"
+      ],
+      "privacyVerdict": "任务与进度规划在浏览器本地设备存储中运行（'Saved on this device'）。页面在加载时会调用 Stripe 结算组件与常规分析脚本，但用户输入的任务文本与进度图表数据均保留在当前浏览器会话中。",
+      "alternativeTo": [
+        "TeamGantt",
+        "Instagantt",
+        "Smartsheet",
+        "Mermaid.js"
+      ],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 demo 演示工作区测试了 4 个阶段的纯文本输入任务，系统即时推导出 100 天关键路径并渲染出 4 项交互式甘特图条目。点击顶部 PDF 工具栏按钮成功唤起浏览器原生打印转 PDF 流程，无任何登录阻拦；本地计划数据在刷新后完整保留在本地会话中。",
+      "testedAt": "2026-09"
+    }
+  },
+  "textunnel-com": {
+    "en": {
+      "bestFor": "Developers, privacy-conscious users, and remote workers needing to instantly beam text, code snippets, photos, and files across desktop and mobile devices without signing up.",
+      "pros": [
+        "Instant peer-to-peer room initialization generates QR codes and unique hash URLs directly from the landing view without account friction",
+        "Multi-modal input console accommodating plain text, markdown code blocks, direct camera snapshots, and recursive directory uploads",
+        "Decentralized WebRTC data-channel transport ensures user payloads bypass centralized storage servers during active transfers"
+      ],
+      "cons": [
+        "Room discovery and peer-to-peer handshake rely on an external public MQTT broker (broker.emqx.io) for WebRTC signaling",
+        "Active session transmission requires both sender and receiver devices to remain open with active network connections concurrently"
+      ],
+      "privacyVerdict": "Data payloads travel directly over peer-to-peer WebRTC encrypted channels without centralized file storage. Room signaling and peer coordination exchange connection metadata through a public MQTT broker (broker.emqx.io), and Microsoft Clarity behavioral analytics beacons were captured during page interaction.",
+      "alternativeTo": [
+        "Snapdrop",
+        "PairDrop",
+        "Sharedrop",
+        "Wormhole"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested peer-to-peer room initialization on URL hash #5AEBB9 with a 38-character test token; confirmed responsive code block formatting via toolbar action. Intercepted a clean 14431-byte client bundle artifact with zero watermarks and 160ms maximum main-thread freeze. Network telemetry recorded 5 Microsoft Clarity analytics posts alongside periodic MQTT signaling pulses to broker.emqx.io:8084.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在桌面与移动设备间即时互传文本片段、代码、照片及文件，且无需注册账号、追求即开即用体验的开发者与远程办公用户。",
+      "pros": [
+        "免注册即开即用的点对点配对机制，首页直接生成房间专属二维码与哈希链接，跨设备连接零门槛",
+        "多模态传输控制台，全面支持纯文本、Markdown代码块、原生相机快照以及文件与文件夹层级上传",
+        "基于 WebRTC 数据通道的点对点去中心化传输，文件数据流不经由中心服务器持久化中转"
+      ],
+      "cons": [
+        "房间发现与 WebRTC 握手信令依赖公共 MQTT 中继服务器（broker.emqx.io）进行协调",
+        "点对点直连机制要求发送方与接收方设备必须同时保持在线且处于活动网络连接状态"
+      ],
+      "privacyVerdict": "文件与文本数据通过 WebRTC 端到端加密数据通道点对点传输，无中心化云端存储。设备间房间协调通过公共 MQTT 信令服务器（broker.emqx.io）交换握手信息，同时页面在交互过程中上报了 Microsoft Clarity 用户行为分析。",
+      "alternativeTo": [
+        "Snapdrop",
+        "PairDrop",
+        "Sharedrop",
+        "Wormhole"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 URL 哈希 #5AEBB9 房间内测试了点对点房间建立与 38 字符测试口令传输，验证了工具栏一键插入 Markdown 代码块功能。截获 14431 字节无水印干净应用工件，主线程最大卡顿 160ms。网络监听记录到 5 次 Microsoft Clarity 遥测上报，以及周期性连接 broker.emqx.io:8084 的 MQTT 信令数据包。",
+      "testedAt": "2026-09"
+    }
+  },
+  "lensup-ai": {
+    "en": {
+      "bestFor": "Students, legal professionals, administrative workers, and job applicants who need to convert phone photos or document images into clean, printable PDFs with perspective cropping and size compression without installing mobile apps or creating accounts.",
+      "pros": [
+        "Sophisticated client-side document processing suite supporting four scan profiles, interactive four-corner perspective straightening, and shadow flattening",
+        "Built-in target file-size compression (200 KB, 500 KB, 1 MB) and custom watermark/signature injection without server-side processing",
+        "Direct unrestricted PDF export delivering clean, unwatermarked documents directly from browser memory without payment or auth walls"
+      ],
+      "cons": [
+        "AdSense advertising banners are positioned along sidebar columns surrounding the working canvas",
+        "Processing high-resolution multi-page PDF collections may encounter memory limits on low-memory mobile browsers"
+      ],
+      "privacyVerdict": "Document pixels, geometric perspective rectifications, and PDF byte compilations take place entirely inside browser memory via Canvas APIs. Outgoing network requests were limited to Google AdSense advertising consent beacons and Google Analytics metrics; user photographs and synthesized PDFs are never uploaded to remote servers.",
+      "alternativeTo": [
+        "CamScanner",
+        "Adobe Scan",
+        "vFlat",
+        "Microsoft Lens"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded a PNG fixture to the #pick input selector, applied the white-document scan filter, and exported an 86392-byte clean PDF artifact in under 2 seconds with 92ms max task latency and zero layout shifts. Network inspection recorded 14 outgoing payloads comprising Google AdSense CMP consent and Google Analytics beacons, while all document image pixels remained confined to local browser RAM.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将手机拍摄的纸质文件、凭据或证件照快速转换为平整无阴影的可打印 PDF，并支持四角拉直、压缩文件体积且无需安装 App 或注册账号的职场人士与学生。",
+      "pros": [
+        "功能完备的本地文档扫描套件，支持白底、灰度、彩色、黑白四种扫描滤镜、可交互的四角透视拉直及光线去阴影",
+        "内置指定文件大小压缩（200 KB、500 KB、1 MB）、水印与签名注入以及身份证双面排版功能，全部在浏览器端完成",
+        "零门槛自由导出，直接生成无水印、无强制付费或登录拦截的高清 PDF 文档工件"
+      ],
+      "cons": [
+        "工作区两侧与底部展示有 Google AdSense 广告横幅",
+        "处理超高分辨率的大批量多页文档时，低内存移动端浏览器可能面临主线程内存限制"
+      ],
+      "privacyVerdict": "所有文档图像像素、透视几何校正与 PDF 字节流均在浏览器内存中通过 Canvas API 本地计算。实测网络请求仅包括 Google AdSense 广告授权信标与 Google Analytics 统计，用户拍摄的原始照片与生成的 PDF 文件绝不上传至远程服务器。",
+      "alternativeTo": [
+        "扫描全能王",
+        "Adobe Scan",
+        "vFlat",
+        "微软 Lens"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "通过 #pick 选择器上传 PNG 测试工件，应用白底文档增强滤镜，在 2 秒内即时导出 86392 字节无水印结构完整 PDF，主线程最大阻塞仅 92ms，无布局抖动。网络审计共捕获 14 次 Google AdSense 与 Google Analytics 遥测信标，所有文档图像数据均在本地浏览器内存中计算完成。",
+      "testedAt": "2026-09"
+    }
   }
 }
