@@ -12106,5 +12106,261 @@
       "benchmarkNotes": "在 Blur Face 中载入 332.6 KB PNG 测试图片，加载 6.4 MB 本地人脸检测模型，添加带 8 点控制柄的手动隐私遮挡区域，并成功导出 332,574 字节的纯净免水印 PNG 文件，记录到 27 次分析与广告数据包。",
       "testedAt": "2026-09"
     }
+  },
+  "pdftomdconverter-app": {
+    "en": {
+      "bestFor": "Researchers, developers, and writers converting text PDFs or scanned English documents directly into clean, structured Markdown for note-taking, documentation, or LLM/RAG pipelines without uploading sensitive files to cloud servers.",
+      "pros": [
+        "Zero-egress client-side architecture keeping all PDF contents, filenames, and Markdown results strictly on-device",
+        "Dual-path conversion combining fast text-layer parsing with local browser OCR for scanned English pages",
+        "Built-in dual-mode interface with an editable text area and a live Markdown rendered preview before export",
+        "Instant, unwatermarked .md file downloads and one-click clipboard copying with optional page range filters"
+      ],
+      "cons": [
+        "Local OCR engine is currently optimized for clear English scans; handwriting or non-Latin scripts yield lower accuracy",
+        "Highly complex multi-column layouts or nested spreadsheet tables may require minor manual Markdown formatting adjustments"
+      ],
+      "privacyVerdict": "PDF decoding, text extraction, and local OCR execute completely within browser memory without sending document bytes or results to remote servers; observed zero outgoing network payloads (0 egress).",
+      "alternativeTo": [
+        "Marker",
+        "Mathpix",
+        "CloudConvert PDF to Markdown",
+        "Nougat"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 610-byte PDF test fixture into PDFtoMDConverter with 122ms main thread latency and 0.00 CLS. Instantly parsed text layer, rendered editable preview, and exported a clean 34-byte .md artifact with 0 outgoing network payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将包含文字层或扫描件的 PDF 文档在浏览器本地转为清晰排版的 Markdown，用于知识库构建、技术文档迁移或大模型 RAG 预处理，且严格杜绝文档上传泄露的研究人员、开发者与文字工作者。",
+      "pros": [
+        "完全零数据外传的纯前端架构，所有 PDF 内容、文件名与生成的 Markdown 文本均严格保留在设备本地",
+        "双轨处理引擎，兼具高速文本层结构解析与针对英文扫描页面的纯本地 OCR 识别",
+        "内置双模式工作区，支持在导出前直接在线编辑 Markdown 源码并实时对照渲染预览",
+        "一键导出无水印的 .md 文件或复制到剪贴板，支持指定起始与结束页面范围过滤"
+      ],
+      "cons": [
+        "本地 OCR 引擎目前主要针对清晰的英文扫描件进行了优化，对手写体或复杂非拉丁字体的识别率相对有限",
+        "极为复杂的多栏分栏排版或包含多重合并单元格的表格可能需要用户手动校对格式"
+      ],
+      "privacyVerdict": "PDF 解析、文本提取与本地 OCR 识别全流程均在浏览器内存中本地执行，绝不向任何远程服务器发送文档数据；实测记录到 0 次网络数据外传（零外传）。",
+      "alternativeTo": [
+        "Marker",
+        "Mathpix",
+        "CloudConvert PDF to Markdown",
+        "Nougat"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 PDFtoMDConverter 中载入 610 字节 PDF 测试文档，主线程任务延迟 122ms 且 CLS 为 0.00。系统瞬时完成本地解析并在编辑器中呈现预览，成功导出 34 字节的纯净 .md 文件，记录到 0 次网络数据外传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "olivez-in-tool-image-compressor": {
+    "en": {
+      "bestFor": "Designers, photographers, and web developers needing to compress, adjust quality, or enforce target file sizes (KB) for batches of JPG, PNG, WebP, AVIF, and HEIC images locally in the browser with split-slider comparisons.",
+      "pros": [
+        "Multi-format WebAssembly engine supporting JPG, PNG, WebP, AVIF, and HEIC/HEIF with local MozJPEG and OxiPNG processing",
+        "Interactive before-and-after comparison slider showing side-by-side quality and exact percentage savings",
+        "Flexible compression controls supporting both Target KB size limits and manual 1-100 quality sliders",
+        "Unwatermarked individual downloads and bulk ZIP packaging generated entirely inside client memory"
+      ],
+      "cons": [
+        "Large batches with high-megapixel photos (up to 80 MP limit) can exhaust browser memory on low-RAM mobile devices",
+        "Emits Google Analytics and Snowplow telemetry payloads for web traffic analytics"
+      ],
+      "privacyVerdict": "Selected images are read and processed locally through a dedicated browser WebWorker using WebAssembly codecs without remote server uploads; observed 5 analytics payloads (GA4, Snowplow) with zero image data egress.",
+      "alternativeTo": [
+        "TinyPNG",
+        "Squoosh",
+        "ILoveIMG",
+        "Compressor.io"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded 76 KB JPEG fixture into Olivez Image Compressor with 0ms freeze latency and 0.03 CLS. Automated MozJPEG pass achieved 50.4% reduction to 37 KB, rendered comparison slider, and exported a clean 38,339-byte JPEG artifact across 5 analytics payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中免登录批量压缩 JPG、PNG、WebP、AVIF 及 HEIC 图片，按指定目标大小（如 50KB/100KB）或质量滑块精确调控，并通过可拖动对比滑块实时查看画质的摄影师、设计师与前端开发者。",
+      "pros": [
+        "基于多格式 WebAssembly 引擎构建，集成 MozJPEG、OxiPNG、libavif 与 libheif，全面支持 JPG、PNG、WebP、AVIF 与 HEIC",
+        "内置可拖动的前后画质对照滑块，实时直观对比压缩前后的细节表现并显示精准体积下降百分比",
+        "双重调优模式：既可设定具体目标文件大小（Target KB），也可通过 1-100 质量滑块微调",
+        "单张即时下载与纯本地打包 ZIP 批量导出，全流程无水印、无强制登录"
+      ],
+      "cons": [
+        "批量处理超高分辨率（最高 8000 万像素）照片时，在低内存移动端设备上可能面临浏览器内存限制",
+        "页面包含 Google Analytics 与 Snowplow 匿名访问与流量监测数据包"
+      ],
+      "privacyVerdict": "所有选定图片均通过浏览器 WebWorker 和本地 WebAssembly 编解码器在设备内存中处理，绝不上传云端；实测记录到 5 次分析统计请求（GA4、Snowplow），无任何图像数据外传。",
+      "alternativeTo": [
+        "TinyPNG",
+        "Squoosh",
+        "ILoveIMG",
+        "Compressor.io"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 Olivez 图片压缩器中载入 76 KB JPEG 测试图片，界面卡顿 0ms 且 CLS 为 0.03。系统自动执行 MozJPEG 本地压缩实现 50.4% 体积缩减（降至 37 KB），渲染出画质对比滑块并成功导出 38,339 字节的纯净 JPEG 文件，记录到 5 次分析数据包。",
+      "testedAt": "2026-09"
+    }
+  },
+  "www-ottopoll-com": {
+    "en": {
+      "bestFor": "Friends, teams, and social organizers needing to quickly coordinate dates, locations, restaurant choices, or time slots using real-time voting links without requiring participants to sign up, enter emails, or download an app.",
+      "pros": [
+        "Zero-friction poll creation with no sign-up, password, or email verification required",
+        "Supports five distinct option modalities: single dates, date ranges, time slots, free text, and web links",
+        "Real-time collaborative voting powered by Supabase WebSockets showing live vote tallies immediately",
+        "Built-in 30-day auto-expiration policy ensuring temporary polls are systematically retired"
+      ],
+      "cons": [
+        "Does not offer direct CSV, JSON, or PDF download buttons for exporting aggregated vote records",
+        "Poll data is hosted on remote Supabase cloud infrastructure rather than remaining local to client storage"
+      ],
+      "privacyVerdict": "Requires zero personal email addresses, phone numbers, or account credentials; poll titles, options, and vote tallies are stored anonymously via Supabase with auto-expiration; observed 11 payloads covering Supabase REST and WebSocket signaling.",
+      "alternativeTo": [
+        "Doodle",
+        "StrawPoll",
+        "StrawPoll.com",
+        "Rallly"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Created 'NoLogin Team Lunch' poll with 2 options, cast live vote under first name Alex with 0ms freeze latency and 0.35 CLS, generated shareable link /en/poll/o3mSyxrYWK, and recorded 11 Supabase REST/WebSocket signaling payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、免填邮箱在数秒内发起聚会选址、团建聚餐、排期选日或即时意向投票，并通过实时链接同步各方投票结果的团队与朋友群体。",
+      "pros": [
+        "极致轻量的发起体验，全程免注册、免邮箱、免密码验证，10 秒内即可生成专属投票",
+        "支持五种灵活的投票选项类型：单选日期、日期范围、时间段、自由文本与网页链接",
+        "基于 Supabase WebSocket 实时数据流，参与者投票状态与票数变化秒级同步上屏",
+        "内置 30 天自动过期生命周期，确保临时投票数据不会在公网无限期遗留"
+      ],
+      "cons": [
+        "界面暂未提供将投票明细一键导出为 CSV、JSON 或 PDF 归档文件的下载选项",
+        "投票数据通过云端 Supabase 数据库提供多人实时同步，而非纯前端本地离线存储"
+      ],
+      "privacyVerdict": "完全不索取个人邮箱、手机号或账户凭证；投票标题、选项与票数通过 Supabase 进行匿名化存储并在 30 天后自动销毁；实测记录到 11 次发往 Supabase REST 与 WebSocket 的数据通信。",
+      "alternativeTo": [
+        "Doodle",
+        "StrawPoll",
+        "StrawPoll.com",
+        "Rallly"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "创建包含两个选项的 'NoLogin Team Lunch' 投票，以姓名 Alex 完成实时投票，界面卡顿 0ms 且 CLS 为 0.35。成功生成 /en/poll/o3mSyxrYWK 分享链接，记录到 11 次 Supabase REST 与 WebSocket 信令数据包。",
+      "testedAt": "2026-09"
+    }
+  },
+  "questionsgenerator-com": {
+    "en": {
+      "bestFor": "Ice-breaker facilitators, team leads, couples, party hosts, and podcasters looking for instant curated discussion starters across 34 categories with presentation mode, turn pickers, and social image export without creating an account.",
+      "pros": [
+        "Zero registration or setup required with instant access to 3,750+ conversation starters across 34 specialized categories",
+        "Dual export capabilities generating unwatermarked 1080x1080 PNG social cards and plain-text saved favorite lists",
+        "Interactive group facilitation tools including fullscreen presentation mode, group turn picker, countdown timers, and text-to-speech reading",
+        "Local persistence in client-side localStorage with zero third-party advertising or telemetry trackers"
+      ],
+      "cons": [
+        "Does not support importing custom user question packs or JSON prompt decks",
+        "Batch question generation lacks individual tag filtering within a single category query"
+      ],
+      "privacyVerdict": "Requires zero login or personal data; all question banks and favorite bookmarks reside entirely on the client via localStorage; observed only 2 network payloads consisting of a Cloudflare bot-defense verification and category route navigation.",
+      "alternativeTo": [
+        "Conversation Starters World",
+        "We're Not Really Strangers",
+        "Icebreaker.range.co",
+        "Hypothetical"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Navigated 34 categories, generated deep conversation starters with 0ms freeze and 0.02 CLS, bookmarked prompts into client localStorage, exported a 1080x1080 square PNG social card (478,863 bytes), and recorded 2 network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "破冰主持人、团队组织者、情侣、聚会发起人以及播客创作者，无需注册即可按 34 个细分场景快速获取高质量讨论话题、全屏演示、轮流抽签及社交图片导出。",
+      "pros": [
+        "全程免注册、免邮箱，即开即用涵盖 34 个专题、超过 3,750 个高品质对话与聚会破冰问题库",
+        "支持双轨无水印导出：一键生成 1080x1080 高清正方形 PNG 社交卡片与收藏夹纯文本 TXT 归档",
+        "内置多种团队破冰实用辅助工具，包括全屏演讲模式、随机点名器、发言倒计时器及浏览器朗读",
+        "所有题库浏览与收藏夹记录均保存在本地 localStorage，完全无第三方广告及商业埋点追踪"
+      ],
+      "cons": [
+        "暂不支持用户自定义导入专属问题列表或外部 JSON 题库",
+        "批量多题生成模式下无法针对单次查询进一步混合勾选多个子标签"
+      ],
+      "privacyVerdict": "完全无需登录或提交个人隐私信息；所有题库展示与收藏书签均纯前端离线运行并存入本地 localStorage；实测仅捕获到 2 次网络请求，分别为 Cloudflare 防爬虫安全质询与子分类路由跳转。",
+      "alternativeTo": [
+        "Conversation Starters World",
+        "We're Not Really Strangers",
+        "Icebreaker.range.co",
+        "Hypothetical"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "体验 34 种分类题库与深度问题生成，界面卡顿 0ms，CLS 仅 0.02；收藏题目并存入本地 localStorage，成功导出 478,863 字节的 1080x1080 PNG 社交图谱卡片，全流程仅记录到 2 次网络交互。",
+      "testedAt": "2026-09"
+    }
   }
 }
