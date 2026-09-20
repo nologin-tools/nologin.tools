@@ -103,17 +103,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
     console.error('[isr-cache] read error:', err);
   }
 
-  // Workaround for Cloudflare Pages clean URL bug on directories ending with -index-html
-  if (pathname.includes('-index-html') && !pathname.endsWith('/index.html')) {
-    const staticFilePath = `${pathname.replace(/\/+$/, '')}/index.html`;
-    try {
-      const directResponse = await context.rewrite(staticFilePath);
-      if (directResponse.status === 200) {
-        return withContentLanguage(directResponse, pathname);
-      }
-    } catch {}
-  }
-
   // Phase 2: Try static rendering (will 404 if no static file exists)
   const response = await next();
 
@@ -121,36 +110,53 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (response.status === 404) {
     const ssrPath = rewriteToSSR(pathname);
     try {
-      const ssrResponse = await context.rewrite(ssrPath);
+      let ssrResponse: Response | null = null;
+      try {
+        ssrResponse = await context.rewrite(ssrPath);
+      } catch {
+        ssrResponse = null;
+      }
 
-      // Phase 4: Cache successful SSR responses
-      if (ssrResponse.status === 200 && cache && cacheKey) {
-        try {
-          const cloned = ssrResponse.clone();
-          const headers = new Headers(cloned.headers);
-          headers.set('Cache-Control', `public, max-age=${ISR_CACHE_TTL}`);
-          headers.set('Content-Language', getLocaleFromPath(pathname));
-
-          const cachedResponse = new Response(cloned.body, {
-            status: cloned.status,
-            statusText: cloned.statusText,
-            headers,
-          });
-
-          const ctx = (context.locals as any).runtime?.ctx;
-          if (ctx?.waitUntil) {
-            ctx.waitUntil(cache.put(cacheKey, cachedResponse));
-          }
-        } catch (err) {
-          console.error('[isr-cache] write error:', err);
+      // If in-process rewrite returned 404 or threw (e.g. cross-bundle dispatch in CF Pages), fetch the SSR route
+      if (!ssrResponse || ssrResponse.status === 404) {
+        const ssrUrl = new URL(ssrPath, url);
+        const subReq = await fetch(ssrUrl.toString(), {
+          headers: request.headers,
+        });
+        if (subReq.status === 200) {
+          ssrResponse = subReq;
         }
       }
 
-      return withContentLanguage(ssrResponse, pathname);
+      if (ssrResponse && ssrResponse.status === 200) {
+        // Phase 4: Cache successful SSR responses
+        if (cache && cacheKey) {
+          try {
+            const cloned = ssrResponse.clone();
+            const headers = new Headers(cloned.headers);
+            headers.set('Cache-Control', `public, max-age=${ISR_CACHE_TTL}`);
+            headers.set('Content-Language', getLocaleFromPath(pathname));
+
+            const cachedResponse = new Response(cloned.body, {
+              status: cloned.status,
+              statusText: cloned.statusText,
+              headers,
+            });
+
+            const ctx = (context.locals as any).runtime?.ctx;
+            if (ctx?.waitUntil) {
+              ctx.waitUntil(cache.put(cacheKey, cachedResponse));
+            }
+          } catch (err) {
+            console.error('[isr-cache] write error:', err);
+          }
+        }
+        return withContentLanguage(ssrResponse, pathname);
+      }
     } catch (err) {
       console.error('[isr] rewrite error:', err);
-      return withContentLanguage(response, pathname); // Return original 404
     }
+    return withContentLanguage(response, pathname); // Return original 404
   }
 
   return withContentLanguage(response, pathname);
