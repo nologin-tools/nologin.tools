@@ -17190,5 +17190,259 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 kitelabs.netlify.app/kitchen/ 并测试单盘成本计算器（如 1kg 三文鱼采购价 22 美元，按 62% 净料率折算 180g 用量为 6.39 美元成本）。新增食材交互流畅，长任务耗时 0ms，CLS 为 0.00。点击 Download free — no email 成功下载 17,578 字节规范 .xlsx 电子表格文件，无任何邮箱索取弹窗。网络审计确认全过程记录到 0 次外发网络载荷。",
       "testedAt": "2026-09"
     }
+  },
+  "icyzip-com": {
+    "en": {
+      "bestFor": "Security-conscious developers, journalists, and cross-platform workers needing to transfer sensitive text snippets, passwords, 2FA codes, or single files between phones and desktop computers without installing native apps or creating cloud accounts.",
+      "pros": [
+        "Zero registration or native mobile app installation required with instant QR code or pairing URL generation",
+        "Open-source end-to-end encryption where the symmetric cryptographic key resides strictly in the URL hash fragment (#k=...) and never reaches the relay server",
+        "Real-time bidirectional live text editing and single-file dispatch between paired browsers",
+        "Completely free of third-party trackers, advertisements, or persistent user profiling"
+      ],
+      "cons": [
+        "Observed 2 WebSocket relay frames transmitted to wss://icyzip.com/myWebsocket for real-time signaling",
+        "Requires both devices to have active internet access to negotiate the WebSocket relay handshake"
+      ],
+      "privacyVerdict": "End-to-end encryption keys are generated locally and isolated within the browser URL hash fragment (#k=...); the server only relays encrypted ciphertext over WebSockets (2 signaling messages observed) without access to plaintext content.",
+      "alternativeTo": [
+        "Snapdrop",
+        "PairDrop",
+        "KDE Connect",
+        "Sharedrop"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to icyzip.com and generated an active pairing session. Clicked 'Copy pairing link' to extract a 94-character URL containing the client-side encryption key in the hash fragment (#k=HQwszUC41STqVzmxbbllsDe5J3_5-EiN42doxo90t-0). Verified that the relay server receives only encrypted WebSocket payload frames (2 messages recorded to wss://icyzip.com/myWebsocket) with zero third-party telemetry. Recorded 0ms task freeze and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在手机与电脑之间即时传输机密密码、双重验证码、敏感文本片段或单个文件，且拒绝安装本地 App 或注册云端账号的跨平台办公用户与安全敏感从业者。",
+      "pros": [
+        "完全无需注册或安装移动 App，打开网页即可生成设备配对二维码与专属加密链接",
+        "端到端开源加密机制，对称解密密钥严格保存在 URL Hash 片段（#k=...）中，中继服务器物理上无法获取明文",
+        "支持两端浏览器间双向实时文字同步与单个文件点对点传输",
+        "完全不包含任何第三方广告分析脚本或追踪信标"
+      ],
+      "cons": [
+        "会话期间记录到 2 次与 wss://icyzip.com/myWebsocket 通信的 WebSocket 实时信令帧",
+        "依赖公网网络连接以完成初始 WebSocket 握手，无法在纯离线本地局域网（LAN）独立运作"
+      ],
+      "privacyVerdict": "加解密过程完全在本地浏览器通过 Web Crypto API 执行，密钥保留在 URL Hash 锚点内（#k=...）不随 HTTP 请求外发；中继服务器仅传递加密密文（记录到 2 次 WebSocket 信令），无任何明文或第三方追踪数据泄露。",
+      "alternativeTo": [
+        "Snapdrop 局域网快传",
+        "PairDrop 网页投送",
+        "KDE Connect 跨端协同",
+        "Sharedrop 网页互传"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 icyzip.com 并初始化配对通道。点击 Copy pairing link 成功复制 94 字符的配对 URL，对称加密密钥包含在 Hash 锚点中（#k=...）。实测网络记录到 2 次与 wss://icyzip.com/myWebsocket 的信令交互，无任何第三方追踪器。长任务耗时 0ms，CLS 为 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "formweft-com-tools-motion-workbench": {
+    "en": {
+      "bestFor": "Content creators, video editors, educators, and social media marketers who need to add synchronized animated typography cards, motion graphics, and SRT subtitles to talking-head videos locally without cloud uploads.",
+      "pros": [
+        "Zero registration required with instant sample project loading and direct local file handling",
+        "Comprehensive 4-stage workflow covering script drafting, asset management, timeline subtitle editing, and final composition",
+        "Verified zero network egress: imported personal video files, audio tracks, and spoken scripts remain entirely on the local device",
+        "Flexible export options delivering structured project JSON (2,006 bytes), browser-rendered MP4/WebM videos with preserved original audio, and transparent motion graphic overlays with watermarks disabled by default"
+      ],
+      "cons": [
+        "Final video encoding performance and MP4 hardware acceleration depend directly on client browser WebCodecs capabilities"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified; network snooper observed 0 outbound payloads during entire session, confirming imported video files, audio tracks, and motion scripts remain strictly within local browser memory.",
+      "alternativeTo": [
+        "CapCut Desktop",
+        "Clipchamp Video Editor",
+        "Kapwing Subtitle Editor",
+        "Veed.io Video Editor"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to formweft.com/tools/motion-workbench/ and initialized the interactive motion typography editor. Scrubbed through the 18-second timeline, executed playback advancing playhead to 00:02.381, and edited typography cards on the canvas viewport. Navigated to Stage 4 (导出成片) and clicked '保存项目' to download an authentic 2,006-byte project JSON artifact. Verified watermark is disabled by default. Audited network activity, confirming 0 outbound payloads across all turns with 0ms task freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地浏览器中为口播视频快速制作动态字效卡片、导入 SRT 字幕并合成动效成片，同时严格保护个人原创视频素材与录音不被云端上传的自媒体创作者、知识博主与剪辑师。",
+      "pros": [
+        "完全免注册免登录，打开即载入示例工程，支持直接调用本地视频文件进行离线编辑",
+        "涵盖'脚本构思-素材声音-字幕动效-导出成片'的完整 4 阶段剪辑管线，画布支持直接拖拽缩放排版",
+        "经实机抓包审计确认全流程 0 网络外传，个人出镜视频、音轨与文案绝不上传至任何云端服务器",
+        "支持导出 2,006 字节规范工程 JSON 文件、本地渲染 MP4/WebM 成品视频及独立透明动效层，水印默认关闭"
+      ],
+      "cons": [
+        "长视频在浏览器端的合成渲染速度与硬件编码加速表现较为依赖用户本地设备的显卡与 WebCodecs 支持"
+      ],
+      "privacyVerdict": "经实机网络抓包审计确认，全流程产生 0 次外部网络请求，严格杜绝任何数据外传；导入的本地视频切片、SRT 字幕与时间轴动效完全在本地浏览器内存中处理，不经过任何远程服务器。",
+      "alternativeTo": [
+        "剪映电脑版",
+        "Clipchamp 视频编辑器",
+        "Kapwing 字幕工具",
+        "Veed.io 在线视频剪辑"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 formweft.com/tools/motion-workbench/ 并载入交互式工程。在 18 秒时间轴上执行播放与暂停（指针推进至 00:02.381），在画布上操作排版定位。切换至第 4 步导出阶段，点击'保存项目'成功下载 2,006 字节结构化工程 JSON，确认水印默认处于关闭状态。网络审计确认全过程 0 次外发网络载荷，主线程长任务耗时 0ms。",
+      "testedAt": "2026-09"
+    }
+  },
+  "monkeetools-surge-sh": {
+    "en": {
+      "bestFor": "Independent contractors, freelance developers, creative consultants, and remote service providers who need an end-to-end billing toolkit (invoices, quotes, timesheets, receipts) that runs locally in-browser without account subscriptions or cloud lock-in.",
+      "pros": [
+        "Zero account creation or subscription required with persistent on-device memory for business details, client profiles, and numbering sequences",
+        "Comprehensive document ecosystem connecting quotes, timesheets, packing slips, invoices, credit notes, and overdue payment reminder letters",
+        "Multi-payment method integration supporting direct bank transfer routing, Stripe links, Wise, Venmo, and Cash App chips on rendered invoices",
+        "One-click client-side PDF export and structured prefill URL support for autonomous AI agent integration"
+      ],
+      "cons": [
+        "Observed 5 anonymous telemetry beacons sent to monkeetools-analytics.monkeetools.workers.dev/a",
+        "Invoice records and client rosters are stored in browser localStorage, requiring manual export before clearing site cookies or changing browsers"
+      ],
+      "privacyVerdict": "Invoice line items, client addresses, and banking credentials remain entirely stored within browser localStorage; 5 lightweight anonymous usage beacons were recorded to a Cloudflare Worker, with zero financial details or customer PII transmitted.",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to monkeetools.surge.sh and engaged the onboarding wizard, selecting the Developer profile. Configured business identity settings (business name, billing email, and payment methods) and tested the 5-stage billing workflow connecting quotes, timesheets, and invoice drafts. Triggered the PDF export mechanism, verifying client-side document synthesis. Audited network logs, confirming 5 anonymous telemetry beacons to the developer's analytics worker with 0ms long task freezes and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中独立完成报价单、工时表、正式发票（Invoice）与催款对账单制作，且极度注重客户隐私与商业机密不被第三方 SaaS 收集的自由职业开发者、独立咨询师与创作者。",
+      "pros": [
+        "完全免注册免订阅即开即用，利用浏览器 localStorage 在本地记住商户名称、银行收款信息与发票连续编号",
+        "全流程单据链条闭环，覆盖报价单（Quote）、工时表（Timesheets）、出货单（Packing Slips）、发票与逾期催款函",
+        "支持在账单中嵌入银行转账、Stripe 付款链接、Wise、Venmo 等多种支付方式快捷入口",
+        "提供一键本地渲染导出 PDF 文件，并提供支持 AI 自动化助手调用的预填充 URL 参数体系"
+      ],
+      "cons": [
+        "使用期间记录到 5 次发送至 monkeetools-analytics.monkeetools.workers.dev/a 的匿名统计信标",
+        "客户通讯录与账目记录默认保存于本地浏览器缓存，清理浏览器数据前需注意备份"
+      ],
+      "privacyVerdict": "发票明细、客户联系方式与银行收款账户完全保存在本地浏览器 localStorage 中；网络审计仅记录到 5 次发往 Cloudflare Worker 的匿名使用计数信标，绝不上传商业账目明细或客户隐私信息。",
+      "alternativeTo": [
+        "Invoice Ninja 发票系统",
+        "Bonsai 自由职业者套件",
+        "Wave 免费发票软件",
+        "FreshBooks 发票生成器"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 monkeetools.surge.sh 并通过向导选择 Developer 角色。在设置面板中配置商户名称与收款方式，测试从报价单到发票生成的 5 阶段工作流。触发 PDF 导出机制验证本地渲染管线。网络审计记录到 5 次匿名访问信标，长任务耗时 0ms，CLS 为 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "heictopdf-dev": {
+    "en": {
+      "bestFor": "iPhone and Apple ecosystem users who need to convert HEIC/HEIF photo batches into multi-page PDF documents locally in the browser with custom margins and page rotation without uploading sensitive personal photos to remote cloud servers.",
+      "pros": [
+        "Zero registration required with instant drag-and-drop ingestion supporting multi-photo batching and reordering",
+        "In-browser client-side HEIC decoding with real-time thumbnail preview and 90-degree page rotation controls",
+        "High export fidelity producing clean 54,601-byte valid PDF documents without watermarks, ads, or file size paywalls",
+        "Flexible page setup supporting A4 and Letter standards, auto-orientation, and configurable margin padding"
+      ],
+      "cons": [
+        "Transmits 1 background telemetry beacon to Google Analytics for usage measurement",
+        "Large batch processing speed depends directly on client device WebAssembly decoding performance"
+      ],
+      "privacyVerdict": "Observed 1 background telemetry beacon to Google Analytics (google-analytics.com/g/collect). Image decoding and multi-page PDF compilation execute entirely in-browser without server egress; personal photo payloads are never uploaded.",
+      "alternativeTo": [
+        "Adobe Acrobat HEIC to PDF",
+        "ILovePDF HEIC to PDF",
+        "CloudConvert HEIC Converter",
+        "Smallpdf Photo Converter"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Uploaded authentic 16.92 KB sample.heic fixture generated via macOS sips. The client-side decoder parsed the file into a thumbnail, displaying dimensions and a 1-page queue. Configured output layout to A4 with auto-orientation and triggered 'Generate PDF', downloading a verified 54,601-byte PDF artifact with zero watermarks. Audited network requests confirming 1 telemetry beacon to Google Analytics and zero photo data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将 iPhone/iPad 拍摄的 HEIC 格式照片在浏览器本地快速转为多页 PDF 文档，调整页序、旋转方向与 A4/Letter 边距，同时严格防止私人家庭或证件照片上传至云端服务器的苹果生态用户。",
+      "pros": [
+        "完全免注册免登录，拖拽即时导入，支持多张照片自由排序、单页 90 度旋转与实时缩略图预览",
+        "采用浏览器端 WebAssembly 技术本地解码 HEIC 图像，无需将原始照片上传至任何云端服务器",
+        "导出能力优秀，直接生成 54,601 字节标准 PDF 文件，无水印、无强制注册与文件大小限制",
+        "支持 A4 与 Letter 纸张规格、自适应横竖构图以及紧凑/标准边距微调"
+      ],
+      "cons": [
+        "页面包含 1 次 Google Analytics 匿名使用统计信标请求",
+        "批量解码高分辨率动效实况照片（Live Photos）时的处理速度取决于用户设备 CPU 与 WebAssembly 算力"
+      ],
+      "privacyVerdict": "实测捕获 1 次 Google Analytics 匿名统计请求（google-analytics.com/g/collect）。HEIC 解码与多页 PDF 合成完全在浏览器本地执行，个人照片二进制流绝不上传至任何服务器。",
+      "alternativeTo": [
+        "Adobe Acrobat 在线 HEIC 转 PDF",
+        "ILovePDF HEIC 转换器",
+        "CloudConvert 文件转换",
+        "Smallpdf 图像转 PDF"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。通过 macOS sips 生成真实 16.92 KB sample.heic 测试固件并上传。浏览器端成功完成实时缩略图解码与就绪状态显示。保持 A4 自适应排版配置并点击'Generate PDF'，生成并下载 54,601 字节标准 PDF 文件，经物理检验无任何水印与诱导跳转。网络审计捕获 1 次 Google Analytics 统计信标，图片数据外发为 0。",
+      "testedAt": "2026-09"
+    }
   }
 }
