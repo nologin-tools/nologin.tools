@@ -13872,5 +13872,253 @@
       "benchmarkNotes": "在二维码生成工具上实测将 https://nologin.tools 编码为 220×220 画布；成功导出 4018 字节干净无水印 PNG 文件，长任务阻塞 0ms。但图像压缩与格式转换模块触发红色报错，且网络监听捕获到 Yandex WebVisor 的 WebSocket 实时会话数据流。",
       "testedAt": "2026-09"
     }
+  },
+  "banglatools-com": {
+    "en": {
+      "bestFor": "Content creators, students, translators, and DTP designers working with Bengali typography needing instant Unicode to Bijoy ANSI conversion without software installation.",
+      "pros": [
+        "Instant bidirectional conversion between Bengali Unicode and legacy Bijoy ANSI (SutonnyMJ) typography",
+        "Preserves formatting across plain text, imported TXT files, and structured Word (.docx) and Excel (.xlsx) spreadsheets",
+        "Completely ad-free workspace featuring one-click copy, TXT export, and native dark mode"
+      ],
+      "cons": [
+        "Specialized strictly for Bengali typography and encoding standards, offering limited utility for non-Bengali languages",
+        "Voice input functionality relies on underlying browser SpeechRecognition API support"
+      ],
+      "privacyVerdict": "Client-side text transformation architecture. Script conversion between Unicode Bengali and Bijoy ANSI executes strictly within the local browser runtime. Observed network activity was limited to Cloudflare RUM performance metrics; user input text and imported documents are not transmitted to remote servers.",
+      "alternativeTo": [
+        "Avro Keyboard",
+        "Bijoy Bayanno",
+        "Google Input Tools",
+        "Bengali Unicode Converter"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Converted Bengali Unicode phrase 'আমি বাংলায় গান গাই' to Bijoy ANSI string 'Avwg evsjvq Mvb MvB' in 0ms. Successfully captured a clean 19-character clipboard artifact with 0ms task freeze and zero layout shift. Network inspection confirmed only 2 Cloudflare RUM beacons with zero data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "从事孟加拉语出版排版、内容创作、翻译及桌面出版（DTP）工作，需要免装软件即时在 Unicode 与 Bijoy ANSI 间互转字体的专业人员。",
+      "pros": [
+        "支持孟加拉语标准 Unicode 与传统印刷 Bijoy ANSI（SutonnyMJ 字体）之间的双向即时转换",
+        "原生支持纯文本、TXT 文件导入导出，以及保持排版结构的 Word (.docx) 与 Excel (.xlsx) 表格转换",
+        "页面无任何展示广告，提供一键规整复制、TXT 文件导出及舒适的暗黑模式"
+      ],
+      "cons": [
+        "工具专为孟加拉语排版及编码转换打造，对其他语言无直接适用性",
+        "语音输入功能依赖宿主浏览器底层 SpeechRecognition API 的支持情况"
+      ],
+      "privacyVerdict": "基于前端本地执行的文本转码架构。Unicode 孟加拉语与 Bijoy ANSI 之间的编码映射完全在本地浏览器运行时中执行。实测网络活动仅限于 Cloudflare RUM 基础性能监测信标，用户输入的文本与导入的文档绝不上传至远程服务器。",
+      "alternativeTo": [
+        "Avro Keyboard",
+        "Bijoy Bayanno",
+        "Google Input Tools",
+        "Bengali Unicode Converter"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测将孟加拉语 Unicode 文本 'আমি বাংলায় গান গাই' 转换为 Bijoy ANSI 字符串 'Avwg evsjvq Mvb MvB'，耗时 0ms。一键捕获 19 字符干净剪贴板文本，长任务阻塞 0ms，布局位移为 0。网络监听仅记录到 2 次 Cloudflare RUM 性能指标请求，无任何业务数据外传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "needgohome-netlify-app": {
+    "en": {
+      "bestFor": "Office workers, contractors, and remote professionals needing to draft respectful, context-appropriate early-leave notices for managers across diverse languages and tones without AI hallucinations.",
+      "pros": [
+        "Instant rules-based draft generation covering 12 common workplace departure reasons and 5 communication tones",
+        "Multi-language support across 12 languages with native RTL rendering for Arabic and Hebrew",
+        "Produces 4 diverse formulation variants per combination with single-click clean clipboard copying"
+      ],
+      "cons": [
+        "Generates static contextual templates rather than interactive back-and-forth email thread negotiation",
+        "Integrates Microsoft Clarity telemetry scripts for session behavioral analytics"
+      ],
+      "privacyVerdict": "Client-side rule-based text generation architecture. Message assembly and multilingual string templates evaluate strictly within the local browser runtime without external AI model calls. Observed network activity was limited to Microsoft Clarity telemetry pings; workplace circumstances and generated draft messages are not stored on remote servers.",
+      "alternativeTo": [
+        "Goblin.tools Formalizer",
+        "Grammarly",
+        "ChatGPT Prompt Templates",
+        "Hemingway Editor"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 20,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Selected '身体不适' (Illness) reason under '专业礼貌' (Professional) tone; immediately generated a polite 38-character Chinese early-leave request. Captured clean clipboard artifact with 0ms task freeze and zero layout shift. Network inspection confirmed 3 Microsoft Clarity telemetry hits with zero user message data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在职场中体面、礼貌地向主管请假或提出提早离开，希望快速获得多语种、多语气得体范本的各类职场人士与远程办公人员。",
+      "pros": [
+        "基于规则的即时生成体系，涵盖 12 种常见职场早退事由与 5 种不同沟通语气，杜绝大模型胡说八道",
+        "支持包括中文、英文及阿拉伯语与希伯来语（原生 RTL 双向排版）在内的 12 种国际语言",
+        "每个场景生成 4 组不同表达力度的文本选项，支持一键无水印复制至剪贴板"
+      ],
+      "cons": [
+        "生成的主要是单向通知类模板，无法自动跟进后续多轮邮件协商",
+        "页面集成了 Microsoft Clarity 遥测脚本用于统计页面交互体验"
+      ],
+      "privacyVerdict": "基于前端本地执行的规则模板文本生成架构。多语种短语拼装与语气调整完全在本地浏览器运行时中计算完成，不调用任何远端大模型接口。实测网络活动仅限于 Microsoft Clarity 体验遥测请求，用户的请假事由及生成的私密信件绝不保存在远程服务器。",
+      "alternativeTo": [
+        "Goblin.tools Formalizer",
+        "Grammarly",
+        "ChatGPT Prompt Templates",
+        "Hemingway Editor"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 20,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在‘专业礼貌’语气下选择‘身体不适’事由；瞬间生成 38 字符得体规范的中文请假短信。一键捕获无水印剪贴板文本，长任务阻塞 0ms，布局位移为 0。网络监听记录到 3 次 Microsoft Clarity 遥测信标，请假事由及生成内容均未上传远程服务器。",
+      "testedAt": "2026-09"
+    }
+  },
+  "pdfzus-de": {
+    "en": {
+      "bestFor": "European users, privacy-conscious administrators, and office workers seeking quick, GDPR-aligned PDF merging and page reordering without uploading sensitive paperwork to third-party servers.",
+      "pros": [
+        "Performs local multi-page PDF merging and page reordering directly in the browser runtime",
+        "Includes a convenient 'Beispiel-PDF testen' button for immediate zero-risk workflow verification",
+        "Exports clean, watermark-free PDF artifacts with customizable filenames and optional post-merge compression"
+      ],
+      "cons": [
+        "Primary user interface and labels are exclusively localized in German",
+        "Integrates third-party display advertisements and telemetry beacons (Google AdSense, Umami, Google Analytics)"
+      ],
+      "privacyVerdict": "Client-side document processing architecture. PDF manipulation, page merging, and reordering execute locally within the browser runtime via WebAssembly. Observed network traffic was limited to third-party ad networks and telemetry beacons (Google AdSense, Umami, Google Analytics, and Ahrefs); user documents and PDF pages are not transmitted to remote servers.",
+      "alternativeTo": [
+        "Smallpdf",
+        "ILovePDF",
+        "Stirling-PDF",
+        "PDF24 Tools"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Loaded two sample PDF files (670 bytes each) and executed client-side merge; generated a 1018-byte valid two-page PDF artifact in ~300ms with 0ms task freeze. Visual inspection confirmed clean document rendering without promotional stamps. Network audit detected 25 third-party ad and telemetry beacons without document egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "注重个人隐私与合规性、需要在本地快速完成多份 PDF 合并、调序与轻量压缩，绝不希望将敏感文件上传到第三方服务器的办公人员与学生群体。",
+      "pros": [
+        "在浏览器运行时中本地执行多页 PDF 合并与拖拽调序，核心文件无需上传远端服务器",
+        "贴心内置‘测试示例 PDF’按钮，无需翻找本地文件即可零风险验证合并功能",
+        "导出干净无水印的合规 PDF 文档，支持自定义文件名并提供可选的合并后体积压缩"
+      ],
+      "cons": [
+        "主界面与操作指引主要为德语本地化呈现",
+        "页面集成了第三方展示广告与分析遥测脚本（Google AdSense、Umami 及 Google Analytics）"
+      ],
+      "privacyVerdict": "基于前端本地执行的文档处理架构。PDF 解析、页面拼接与重排序通过 WebAssembly 在浏览器运行时中本地完成。实测网络活动仅限于第三方广告联盟及遥测信标（Google AdSense、Umami、Google Analytics 与 Ahrefs），用户上传的 PDF 文档绝不传输至远程服务器。",
+      "alternativeTo": [
+        "Smallpdf",
+        "ILovePDF",
+        "Stirling-PDF",
+        "PDF24 Tools"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "加载两份测试示例 PDF（各 670 字节）并执行本地合并；在约 300ms 内生成 1018 字节结构完整的两页 PDF 文件，长任务阻塞 0ms。视觉核验确认成品无任何宣传水印。网络监测记录到 25 个第三方广告与分析遥测信标，文档素材未发生任何外传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "taimaa-net": {
+    "en": {
+      "bestFor": "Japanese speakers, students, kitchen cooks, and Pomodoro focus workers seeking an ad-free, instant countdown timer with audio chime and browser notification support.",
+      "pros": [
+        "Completely ad-free, minimalist countdown timer with instant single-click presets (1, 3, 5, 10, 25, 30 min)",
+        "Custom hours, minutes, and seconds input controls with recent duration memory",
+        "Includes completion chime audio alert and opt-in native browser notifications"
+      ],
+      "cons": [
+        "Specialized strictly for countdown timing; lacks multi-lap stopwatch or complex recurring interval workout modes",
+        "User interface and labels are exclusively in Japanese"
+      ],
+      "privacyVerdict": "Client-side timer and audio alert architecture. Countdown state machines, DOM intervals, and chime audio synthesis run strictly inside the local browser runtime. Observed network activity was limited to Cloudflare RUM performance monitoring; no timing logs or personal data are transmitted to remote servers.",
+      "alternativeTo": [
+        "TimerTab",
+        "Google Timer",
+        "Pomofocus",
+        "Toggl Track"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 20,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Selected 1-minute preset and initiated countdown; executed smoothly from 00:01:00 to 00:00:00 with 0ms task freeze and zero layout shift, cleanly transitioning to '時間になりました' completion state. Network audit recorded only 1 Cloudflare RUM telemetry beacon.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要无广告、无干扰、即开即用的倒计时计时器，用于番茄工作法、烹饪倒计时、演讲演练或日常专注提醒的日语用户及各类生产力人群。",
+      "pros": [
+        "完全无广告、极简纯粹的倒计时工具，提供 1、3、5、10、25、30 分钟一键快捷预设",
+        "支持自定义时、分、秒精确输入，自动记录最近使用的计时时长",
+        "内置清脆的到时铃声提示与可选的浏览器原生弹窗通知"
+      ],
+      "cons": [
+        "功能定位于单一倒计时，不包含多计圈秒表或复杂的多段循环运动间歇模式",
+        "界面文字与操作提示均为日语"
+      ],
+      "privacyVerdict": "基于前端本地执行的计时器与音频提示架构。倒计时状态机、DOM 间隔定时器与提示音合成均在本地浏览器运行时中执行。实测网络活动仅限于 Cloudflare RUM 基础性能监测，计时日志与用户习惯绝不上传至远程服务器。",
+      "alternativeTo": [
+        "TimerTab",
+        "Google Timer",
+        "Pomofocus",
+        "Toggl Track"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 20,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "选用 1 分钟快捷预设启动倒计时；从 00:01:00 平稳倒数至 00:00:00，长任务阻塞 0ms，布局位移为 0，准确切换至‘時間になりました’完成状态。网络监听仅记录到 1 次 Cloudflare RUM 性能监测信标。",
+      "testedAt": "2026-09"
+    }
   }
 }
