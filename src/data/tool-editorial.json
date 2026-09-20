@@ -16682,5 +16682,261 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问首页拒绝 Cookie 追踪后载入 58 词（318 字符）产品介绍脚本。选择 Ava Multilingual 发音人点击 Generate voiceover，秒级合成 22 秒自然语音。底部播放器呈现动态音频波形，点击 SRT 成功触发文件下载，获取 548 字节、包含 7 段标准时间轴的 SubRip 字幕文件。主线程长任务为 70ms，CLS 为 0.00，捕获 5 次出站网络载荷。",
       "testedAt": "2026-09"
     }
+  },
+  "roascompare-com": {
+    "en": {
+      "bestFor": "Ecommerce brand owners, performance media buyers, and DTC founders calculating unit-level break-even ROAS and maximum acquisition CPA across pricing scenarios with complete privacy.",
+      "pros": [
+        "Zero registration required with instant financial calculations and respectful cookie opt-out",
+        "Comprehensive unit-economic modeling covering product COGS, fulfillment, payment fees, and target profit",
+        "Side-by-side scenario comparison enabling real-time margin sensitivity analysis",
+        "Clean client-side 13-column CSV export capturing all scenario inputs, margins, and target thresholds"
+      ],
+      "cons": [
+        "Observed 1 Cloudflare RUM infrastructure beacon during initial load",
+        "Focuses on single-order transaction economics rather than multi-month customer lifetime value (LTV)"
+      ],
+      "privacyVerdict": "Order revenue, unit costs, payment fees, and target ROAS calculations execute entirely in client-side memory; network audit recorded 1 Cloudflare RUM beacon, with analytics completely blocked upon declining consent.",
+      "alternativeTo": [
+        "Shopify ROAS Calculator",
+        "Omni ROAS Calculator",
+        "Klaviyo Marketing Calculator",
+        "Triple Whale Unit Economics"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to Break-Even ROAS Calculator and declined optional analytics. Modeled $100 order revenue with $40 product cost, $10 shipping, $3 payment fees, and $10 desired profit. Computed 2.13x break-even ROAS, $47 maximum CPA, and 2.70x target ROAS instantly with 0ms freeze and 0.00 CLS. Executed 'Export CSV' to download a clean 13-column financial summary spreadsheet with complete column headers and zero data corruption.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中免注册测算电商单品保本广告回报率（Break-even ROAS）、最大获客成本（CPA）与边际贡献利润的独立站卖家与跨境出海投手。",
+      "pros": [
+        "零注册门槛即开即用，提供尊重隐私的授权选择，拒绝授权后完全杜绝第三方统计",
+        "严谨的单件经济模型测算，涵盖商品采购成本、物流履约费、支付网关扣费与目标期望利润",
+        "支持多方案对比视图（Scenario Comparison），可直观推演调价或成本变动对目标 ROAS 的影响",
+        "提供原生 13 列 CSV 结构化文件导出，包含清晰指标表头与数值计算细节"
+      ],
+      "cons": [
+        "页面初次加载时记录到 1 次 Cloudflare RUM 基础网络性能信标",
+        "功能专注于单笔首单交易经济学模型，未包含跨周期的客户终身价值（LTV）留存预测"
+      ],
+      "privacyVerdict": "商品单价、采购成本、物流支出与保本 ROAS 运算完全在本地浏览器内存中完成；网络审计证实拒绝授权后仅产生 1 次 Cloudflare RUM 基础信标，无任何商业财务数据外传。",
+      "alternativeTo": [
+        "Shopify ROAS 计算器",
+        "Omni 广告回报率计算器",
+        "Klaviyo 电商计算器",
+        "Triple Whale 单件经济学工具"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。打开保本 ROAS 计算器并点击 No thanks 拒绝数据收集。以 100 美元客单价、40 美元成本、10 美元物流、3 美元手续费及 10 美元目标利润进行测算，系统即时输出 2.13x 保本 ROAS、47 美元最高 CPA 及 2.70x 目标 ROAS。点击 Export CSV 成功触发文件下载，获取包含 13 列完整业务指标的干净 CSV 表格。主线程长任务 0ms，CLS 为 0.00，伴随 1 次 RUM 网络载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "www-pastecurl-com": {
+    "en": {
+      "bestFor": "Software engineers, QA testers, and DevOps developers who frequently convert cURL terminal commands and browser network traces into clean code snippets across multiple programming languages.",
+      "pros": [
+        "Zero registration required with instant in-browser translation across 23 languages and 40 client libraries",
+        "Powered locally by curlconverter WebAssembly and JavaScript engine without routing request bodies or auth tokens to external servers",
+        "Supports multiple HTTP client variants per language such as Fetch, Axios, Requests, and Httpx",
+        "Clean one-click clipboard copying of formatted syntax-highlighted code"
+      ],
+      "cons": [
+        "Observed 5 Cloudflare RUM performance beacons during session activity",
+        "Does not include direct file download export options"
+      ],
+      "privacyVerdict": "cURL commands, authentication tokens, and request payloads are parsed strictly inside browser memory using the client-side curlconverter engine; 5 Cloudflare RUM telemetry beacons were recorded with zero third-party analytics when analytics are declined.",
+      "alternativeTo": [
+        "curlconverter CLI",
+        "Postman Code Generator",
+        "Insomnia Code Export",
+        "HTTPie CLI"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Loaded pastecurl.com, declined optional analytics banner, and tested POST request conversion with JSON body and custom headers. Converted cURL into 10 lines of JavaScript Fetch code in under 15ms. Clicked 'Copy code' button, capturing 202 chars across 11 lines into clipboard with zero watermarks or formatting errors. Maintained 0ms long task freezes and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "经常需要将终端 cURL 命令或浏览器 DevTools 抓包记录快速转换为各种主流编程语言请求代码的软件工程师、测试人员与 DevOps 开发者。",
+      "pros": [
+        "完全无需注册登录，支持将 cURL 快速转换为 23 种编程语言及 40 种客户端库代码",
+        "基于浏览器端 curlconverter 引擎本地运行，请求头与认证 Token 绝不经由后端转发",
+        "每种语言支持多种主流 HTTP 客户端库切换（如 Fetch、Axios、Requests、Httpx）",
+        "提供一键复制代码到剪贴板，代码格式规范且无任何额外水印干扰"
+      ],
+      "cons": [
+        "评测期间记录到 5 次 Cloudflare RUM 网络性能统计信标",
+        "未提供直接将转换结果保存为代码文件的下载功能"
+      ],
+      "privacyVerdict": "输入的 cURL 命令、认证鉴权 Token 及 Body 数据完全在本地浏览器内存中通过 curlconverter 引擎解析；会话期间仅记录到 5 次 Cloudflare RUM 基础信标，拒绝授权后无任何第三方分析追踪，数据绝不上传服务器。",
+      "alternativeTo": [
+        "curlconverter 命令行工具",
+        "Postman 代码生成器",
+        "Insomnia 代码导出工具",
+        "HTTPie 命令行客户端"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。加载 pastecurl.com 后点击 No thanks 关闭数据收集，测试带有 JSON Body 及自定义标头的 POST 请求。瞬间转换为 10 行规范的 JavaScript Fetch 代码，耗时低于 15ms。点击 Copy code 成功向剪贴板写入 202 字符（11 行），无水印附带，长任务耗时 0ms，CLS 为 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "subsuperscript-com": {
+    "en": {
+      "bestFor": "Students, educators, chemists, mathematicians, and technical writers who need to insert Unicode superscript or subscript formulas and exponents directly into plain text documents, social bios, or code comments without LaTeX.",
+      "pros": [
+        "Zero registration required with instant live Unicode character replacement as text is typed",
+        "Intelligent dual-mode engine: formula mode shifts indices and exponents while preserving base symbols, and tiny text mode converts full alphabetic strings",
+        "Supports both Unicode superscript and subscript sets with accurate mathematical and chemical symbol mappings",
+        "One-click clipboard copying that outputs clean Unicode characters without watermarks or formatting corruption"
+      ],
+      "cons": [
+        "Observed 7 telemetry requests (Google Analytics 4, Microsoft Clarity, and Cloudflare RUM)",
+        "Limited to Unicode character repertoire limits where certain subscript Latin letters lack standard Unicode code points"
+      ],
+      "privacyVerdict": "Unicode mapping operations execute entirely within client-side browser memory; text inputs and formulas are never sent to external servers, though 7 third-party analytics payloads (Google Analytics 4, Microsoft Clarity, Cloudflare RUM) were recorded.",
+      "alternativeTo": [
+        "YayText Subscript",
+        "LingoJam Tiny Text",
+        "Unicode Table Superscript",
+        "Fsymbols Superscript"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to subsuperscript.com and entered 'H2O + CO2 = H2CO3 and E = mc2' into the converter textarea. Evaluated both Formula and Subscript modes, observing instant live character mapping to 'H₂O + CO₂ = H₂CO₃ and E = mc₂'. Clicked 'Copy' button, capturing 30 Unicode characters across 2 lines to the clipboard with zero data corruption. Audited 0ms main thread jank and 0.00 CLS alongside 7 telemetry payloads (GA4, Clarity, Cloudflare RUM).",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在纯文本、社交媒体个人简介、文档注释或即时通讯中快速输入化学分子式、数学指数与上标/下标 Unicode 字符的学生、教师与科技写作者。",
+      "pros": [
+        "完全无需注册或登录，文本输入的同时即刻实时完成 Unicode 上标与下标转换",
+        "支持智能双模式切换：公式模式仅下沉/上浮数字与指数并保留基准字母，微型文本模式则转换完整字母表",
+        "涵盖数学幂次、化学分子式与序号等标准 Unicode 字符映射集",
+        "提供一键快捷复制，剪贴板输出纯净 Unicode 文本，不夹带任何推广水印"
+      ],
+      "cons": [
+        "页面包含 7 次第三方统计与遥测请求（Google Analytics 4、Microsoft Clarity 及 Cloudflare RUM）",
+        "受限于 Unicode 规范标准本身，部分小写英文字母缺少官方下标编码"
+      ],
+      "privacyVerdict": "所有 Unicode 上标与下标字符替换完全在本地浏览器内存中即时计算，输入的文本与化学公式绝不向外部服务器传输；审计记录到 7 次第三方统计与遥测请求（GA4、Clarity、Cloudflare RUM）。",
+      "alternativeTo": [
+        "YayText 下标生成器",
+        "LingoJam 微缩文本生成器",
+        "Unicode Table 上标工具",
+        "Fsymbols 特殊符号生成器"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。在文本框中输入'H2O + CO2 = H2CO3 and E = mc2'，测试公式模式与下标切换，页面即时呈现'H₂O + CO₂ = H₂CO₃ and E = mc₂'。点击 Copy 按钮捕获 30 个 Unicode 字符（2 行）至剪贴板，字符无截断与水印。主线程耗时 0ms，CLS 保持 0.00，伴随 7 次网络统计载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "fomrix-com-stl-viewer": {
+    "en": {
+      "bestFor": "3D printing hobbyists, mechanical engineers, makers, and CAD designers who need to rapidly inspect STL mesh geometry, verify triangle topology, and check dimensional bounds in a private browser viewport without installing heavyweight desktop software.",
+      "pros": [
+        "Zero registration required with immediate local drag-and-drop STL loading and instant sample model inspection",
+        "Comprehensive geometry diagnostics reporting exact triangle counts (14,564 faces), bounding box extents, and physical dimensions",
+        "Five distinct WebGL inspection modes including surface, wireframe, vertices, surface normals, and clay rendering",
+        "Clean export pipeline allowing instant download of original binary STL files (728,284 bytes) without modification or watermarking"
+      ],
+      "cons": [
+        "Recorded 1 first-party consent preference network beacon upon declining analytics",
+        "Focuses strictly on geometry inspection and does not perform automatic slicer toolpath generation or printability repair"
+      ],
+      "privacyVerdict": "3D mesh parsing and WebGL shader rendering execute entirely within local browser memory; custom CAD models are never uploaded to remote servers, and only 1 first-party consent endpoint was contacted when declining telemetry.",
+      "alternativeTo": [
+        "Autodesk Viewer",
+        "ViewSTL Online",
+        "MeshLab Desktop",
+        "3D-Tool Free Viewer"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to fomrix.com/stl-viewer and opted out of data collection via the privacy consent dialog. Loaded the 711.2 KB space-wrench STL model, confirming local WebGL initialization. Audited geometric metadata (14,564 triangles, 33.13 x 114.23 x 26.00 mm bounding box) and switched between surface and wireframe display modes. Triggered '下载原始文件' to export an authentic 728,284-byte binary STL artifact with zero watermarking. Maintained 95ms max task latency and 0.02 CLS with only 1 consent request observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速检查 3D 打印 STL 模型三角面数、尺寸边界与网格结构，而无需安装庞大桌面 CAD 软件的 3D 打印爱好者、机械工程师与创客。",
+      "pros": [
+        "完全免注册即开即用，支持直接拖拽本地 STL 文件或一键加载样例模型快速验证",
+        "提供详尽的几何参数体检，精确显示三角面数量（14,564 面）、包围盒范围与实际尺寸（33.13 x 114.23 x 26.00）",
+        "内置 5 种专业 WebGL 渲染模式切换（实体表面、网格线框、点云顶点、法线方向、白模）",
+        "原生支持原始 STL 二进制文件下载（728,284 字节），不附加任何水印或格式转换篡改"
+      ],
+      "cons": [
+        "在点击拒绝数据统计时记录到 1 次首方隐私授权状态记录请求",
+        "专注于模型几何与外观拓扑检查，不包含切片路径生成或模型自动修补功能"
+      ],
+      "privacyVerdict": "所有 3D 模型网格解析与 WebGL 渲染均在本地浏览器内存中完成，3D 模型文件绝不上传至远程服务器；网络审计仅在用户点击拒绝统计时产生 1 次首方授权状态网络请求。",
+      "alternativeTo": [
+        "Autodesk 在线查看器",
+        "ViewSTL 在线工具",
+        "MeshLab 桌面端",
+        "3D-Tool 免费查看器"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 fomrix.com/stl-viewer 后点击拒绝统计，随后加载 711.2 KB 的扳手示例模型。系统即时解析出 14,564 个三角面与 33.13 x 114.23 x 26.00 mm 尺寸，并顺畅切换线框渲染模式。点击'下载原始文件'成功下载 728,284 字节原始二进制 STL 文件，无水印嵌入。会话期间仅产生 1 次授权偏好请求，最大任务耗时 95ms，CLS 为 0.02。",
+      "testedAt": "2026-09"
+    }
   }
 }
