@@ -92,6 +92,24 @@ function installCadesPageInstrumentation() {
     try { sessionStorage.setItem('__cadesNetPayloads', JSON.stringify(window.__netPayloads)); } catch {}
   };
 
+  try {
+    window.alert = function() { return true; };
+    window.confirm = function() { return true; };
+    window.prompt = function(msg, def) { return def || ''; };
+    if (typeof window.Notification !== 'undefined') {
+      try {
+        Object.defineProperty(window.Notification, 'permission', {
+          get: () => 'granted',
+          configurable: true
+        });
+      } catch (e) {}
+      window.Notification.requestPermission = function(cb) {
+        if (typeof cb === 'function') cb('granted');
+        return Promise.resolve('granted');
+      };
+    }
+  } catch (e) {}
+
   if (navigator.clipboard && !navigator.clipboard.__cadesWrapped) {
     const origWriteText = navigator.clipboard.writeText?.bind(navigator.clipboard);
     navigator.clipboard.writeText = async function(text) {
@@ -318,13 +336,24 @@ async function cmdStart(targetUrl, customSlug = null) {
 (async () => {
   const result = { spaceId: null, url: null, title: "", headings: [], buttonLabels: [], placeholders: [], textareaCount: 0, fileInputCount: 0, canvasCount: 0, error: null };
   try {
-    const task = await taskSpace("cades-dogfood-" + ${JSON.stringify(safeSlug)});
+    const task = await taskSpace("cades-dogfood-" + ${JSON.stringify(safeSlug)} + "-" + Date.now());
     result.spaceId = task.spaceId;
     const page = task.page("p1");
 
     await page.dismissDialog().catch(() => false);
-    await page.goto(${JSON.stringify(targetUrl)}, { waitUntil: "domcontentloaded", timeout: 45000 });
-    // Navigation replaces the document, so install evidence hooks afterwards.
+    await page.cdp("Page.addScriptToEvaluateOnNewDocument", {
+      source: "(" + ${JSON.stringify(installCadesPageInstrumentation.toString())} + ")()"
+    }).catch(() => false);
+    try {
+      await page.goto(${JSON.stringify(targetUrl)}, { waitUntil: "domcontentloaded", timeout: 45000 });
+    } catch (navErr) {
+      if (String(navErr?.message || '').includes('navigation committed') || String(navErr?.message || '').includes('Continue on this Page')) {
+        await page.waitForTimeout(3000);
+      } else {
+        throw navErr;
+      }
+    }
+    // Keep post-load evaluation as well to ensure top and child frames are instrumented
     await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
     await page.waitForTimeout(1500);
 
@@ -471,13 +500,37 @@ async function cmdAct(slug, options) {
     ${options.click ? `
       const clickTarget = ${JSON.stringify(options.click)};
       const clicked = await page.evaluate((target) => {
-        const btns = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a, [role="button"]'));
-        const match = btns.find(b => (b.innerText || b.value || b.getAttribute('aria-label') || '').trim().toLowerCase().includes(target.toLowerCase()));
+        const getElements = (doc) => {
+          let list = Array.from(doc.querySelectorAll('button, input[type="button"], input[type="submit"], input[type="checkbox"], input[type="radio"], a, label, [role="button"]'));
+          for (const iframe of doc.querySelectorAll('iframe')) {
+            try {
+              if (iframe.contentDocument) {
+                list = list.concat(getElements(iframe.contentDocument));
+              }
+            } catch (e) {}
+          }
+          return list;
+        };
+        const btns = getElements(document);
+        const match = btns.find(b => (b.innerText || b.value || b.getAttribute('aria-label') || b.getAttribute('title') || '').trim().toLowerCase().includes(target.toLowerCase()));
         if (match) {
           match.click();
           return "Clicked text: " + (match.innerText || target);
         }
-        const el = document.querySelector(target);
+        const findSelector = (doc, sel) => {
+          let el = doc.querySelector(sel);
+          if (el) return el;
+          for (const iframe of doc.querySelectorAll('iframe')) {
+            try {
+              if (iframe.contentDocument) {
+                el = findSelector(iframe.contentDocument, sel);
+                if (el) return el;
+              }
+            } catch (e) {}
+          }
+          return null;
+        };
+        const el = findSelector(document, target);
         if (el) {
           el.click();
           return "Clicked selector: " + target;
@@ -516,7 +569,33 @@ async function cmdAct(slug, options) {
         result.actionSummary = "Uploaded fixture: " + fixPath;
         result.actionPerformed = true;
       } catch (err) {
-        result.actionSummary = "File input not found for upload: " + err.message;
+        try {
+          const specificSelector = await page.evaluate(() => {
+            const candidates = Array.from(document.querySelectorAll('input[type="file"]'));
+            for (const el of candidates) {
+              let p = el.parentElement;
+              while (p && p !== document.body) {
+                if (p.className && typeof p.className === 'string' && p.className.trim()) {
+                  const firstCls = p.className.trim().split(/\s+/)[0];
+                  if (firstCls && document.querySelectorAll('.' + firstCls + ' input[type="file"]').length === 1) {
+                    return '.' + firstCls + ' input[type="file"]';
+                  }
+                }
+                p = p.parentElement;
+              }
+            }
+            return null;
+          });
+          if (specificSelector) {
+            await page.setInputFiles(specificSelector, fixPath);
+            result.actionSummary = "Uploaded fixture via disambiguated selector (" + specificSelector + "): " + fixPath;
+            result.actionPerformed = true;
+          } else {
+            throw err;
+          }
+        } catch (fallbackErr) {
+          result.actionSummary = "File input not found for upload: " + err.message;
+        }
       }
     ` : ''}
 
@@ -619,9 +698,33 @@ async function cmdExport(slug, trigger = null) {
 
     const triggerTarget = ${JSON.stringify(trigger || "download|export|save|copy|下载|导出|保存|复制")};
     const clicked = await page.evaluate((target) => {
-      const btns = Array.from(document.querySelectorAll('button, input[type="button"], a, [role="button"], [role="menuitem"], .dropdown-item'));
+      const getButtons = (doc) => {
+        let list = Array.from(doc.querySelectorAll('button, input[type="button"], a, [role="button"], [role="menuitem"], .dropdown-item'));
+        for (const iframe of doc.querySelectorAll('iframe')) {
+          try {
+            if (iframe.contentDocument) {
+              list = list.concat(getButtons(iframe.contentDocument));
+            }
+          } catch (e) {}
+        }
+        return list;
+      };
+      const btns = getButtons(document);
       if (target.startsWith('css=')) {
-        const selected = document.querySelector(target.slice(4));
+        const findInDocs = (doc, sel) => {
+          let el = doc.querySelector(sel);
+          if (el) return el;
+          for (const iframe of doc.querySelectorAll('iframe')) {
+            try {
+              if (iframe.contentDocument) {
+                el = findInDocs(iframe.contentDocument, sel);
+                if (el) return el;
+              }
+            } catch (e) {}
+          }
+          return null;
+        };
+        const selected = findInDocs(document, target.slice(4));
         if (selected) {
           selected.click();
           return (selected.innerText || selected.getAttribute('aria-label') || target).trim();
@@ -632,12 +735,14 @@ async function cmdExport(slug, trigger = null) {
       try { matcher = new RegExp(target, "i"); }
       catch { matcher = { test: (value) => String(value).toLowerCase().includes(target.toLowerCase()) }; }
       const match = btns.find(b => {
-        const t = (b.innerText || b.value || b.getAttribute('aria-label') || '').trim();
-        return matcher.test(t) && !/login|sign in|pricing|cookie/i.test(t);
+        const labels = [b.innerText, b.value, b.getAttribute('aria-label'), b.getAttribute('title')].filter(Boolean).map(s => s.trim());
+        const combined = labels.join(' ');
+        if (/login|sign in|pricing|cookie|desktop\s+app/i.test(combined)) return false;
+        return labels.some(t => matcher.test(t));
       });
       if (match) {
         match.click();
-        return (match.innerText || "Export trigger").trim();
+        return (match.getAttribute('aria-label') || match.innerText || match.getAttribute('title') || "Export trigger").trim();
       }
       return null;
     }, triggerTarget);
@@ -647,9 +752,13 @@ async function cmdExport(slug, trigger = null) {
     const download = await dlPromise;
     if (download) {
       result.downloadTriggered = true;
-      if (download.saveAs) {
-        await download.saveAs(${JSON.stringify(exportDlPath)});
-        result.downloadPath = ${JSON.stringify(exportDlPath)};
+      try {
+        if (download.saveAs) {
+          await download.saveAs(${JSON.stringify(exportDlPath)});
+          result.downloadPath = ${JSON.stringify(exportDlPath)};
+        }
+      } catch (dlErr) {
+        // Download was triggered by the page, but saving the artifact was interrupted by browser
       }
     } else {
       await page.waitForTimeout(800);
@@ -728,12 +837,12 @@ async function cmdExport(slug, trigger = null) {
     };
     session.netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
 
-    if (res.triggerClicked) {
+    if (res.triggerClicked || res.downloadTriggered || res.clipboardTriggered) {
       session.steps.push({
         step: session.steps.length + 1,
         type: 'export',
         performed: true,
-        summary: `Triggered export control: ${res.triggerClicked}`,
+        summary: `Triggered export: ${res.triggerClicked || (res.downloadTriggered ? 'File Download' : 'Clipboard Export')}`,
         screenshot: exportPicPath,
         downloadTriggered: res.downloadTriggered,
         clipboardTriggered: res.clipboardTriggered,
@@ -773,7 +882,7 @@ async function cmdExport(slug, trigger = null) {
 
     console.log(`\n📸 Export State Screenshot:`);
     console.log(`   👉 ${exportPicPath} (Agent inspect via view_image)\n`);
-    if (!res.triggerClicked) {
+    if (!res.triggerClicked && !res.downloadTriggered && !res.clipboardTriggered) {
       console.error('❌ No export control matched the requested trigger. This does not count as an interaction.');
       return false;
     }
@@ -844,12 +953,22 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
 (async () => {
   const result = { netPayloads: [], error: null };
   try {
-    const task = await taskSpace(${JSON.stringify(session.spaceId)});
-    const page = task.page("p1");
-    const payloads = await page.evaluate(() => window.__netPayloads || []).catch(() => []);
-    result.netPayloads = payloads;
-
-    await task.finish({ keep: [] }).catch(() => false);
+    let task = null;
+    try {
+      task = await taskSpace(${JSON.stringify(session.spaceId)});
+    } catch (spaceErr) {
+      try {
+        if (typeof takeOverTaskSpace !== 'undefined') {
+          task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)});
+        }
+      } catch (takeErr) {}
+    }
+    if (task) {
+      const page = task.page("p1");
+      const payloads = await page.evaluate(() => window.__netPayloads || []).catch(() => []);
+      result.netPayloads = payloads;
+      await task.finish({ keep: [] }).catch(() => false);
+    }
   } catch (err) {
     result.error = err.message || String(err);
   } finally {
@@ -865,14 +984,17 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
     await runEgoScript(script, 30000);
     const res = JSON.parse(readFileSync(resultFile, 'utf-8'));
     try { unlinkSync(resultFile); } catch {}
-    if (res.error) {
+    if (res.error && (!session.netPayloads || session.netPayloads.length === 0)) {
       console.error(`❌ Failed to finalize browser session: ${res.error}`);
       return false;
     }
     netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
   } catch (e) {
-    console.error(`❌ Failed during task.finish: ${e.message}`);
-    return false;
+    if (!session.netPayloads || session.netPayloads.length === 0) {
+      console.error(`❌ Failed during task.finish: ${e.message}`);
+      return false;
+    }
+    netPayloads = session.netPayloads;
   }
 
   const egressObservation = summarizeObservedEgress(netPayloads);
@@ -906,7 +1028,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         pros: evalData.pros,
         cons: evalData.cons,
         privacyVerdict: evalData.privacyVerdict,
-        alternativeTo: evalData.alternativeTo || [],
+        alternativeTo: (evalData.alternativeTo && evalData.alternativeTo.length > 0) ? evalData.alternativeTo : (editorial[slug]?.en?.alternativeTo || []),
         productScore: evalData.productScore,
         verdictTier,
         benchmarkNotes: evalData.benchmarkNotes,
@@ -917,7 +1039,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         pros: evalData.prosZh,
         cons: evalData.consZh,
         privacyVerdict: evalData.privacyVerdictZh,
-        alternativeTo: evalData.alternativeToZh || [],
+        alternativeTo: (evalData.alternativeToZh && evalData.alternativeToZh.length > 0) ? evalData.alternativeToZh : (editorial[slug]?.zh?.alternativeTo || []),
         productScore: evalData.productScore,
         verdictTier,
         benchmarkNotes: evalData.benchmarkNotesZh,
