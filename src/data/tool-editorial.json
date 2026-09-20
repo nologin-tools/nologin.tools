@@ -10440,5 +10440,247 @@
       "benchmarkNotes": "实测 Web Audio API 实时声级计与 250 Hz-8 kHz 纯音听力测试套件。验证了 30 秒滚动历史画布图表及 A 计权切换功能。检查网络通信确认仅捕获 3 次页面统计遥测请求，音频数据完全零外部传输。",
       "testedAt": "2026-09"
     }
+  },
+  "fwd2-app": {
+    "en": {
+      "bestFor": "Privacy-conscious individuals, security teams, and developers needing ephemeral, auditable short links with sovereign cryptographic revocation keys and canary webhook alerts without creating an account",
+      "pros": [
+        "Sovereign cryptographic revocation: pairs each shortened URL with an unrecoverable private key to destroy the redirect at any time",
+        "Zero user surveillance: enforces a strict Content-Security-Policy with zero third-party trackers, zero analytics scripts, and zero advertising payloads",
+        "Canary webhook links: generates alert endpoints that trigger custom webhook callbacks upon initial link traversal",
+        "Full programmatic REST API: provides stateless API endpoints for shortening, revoking, and querying links without authentication tokens"
+      ],
+      "cons": [
+        "Revocation keys cannot be recovered or reset if lost by the user after initial generation",
+        "Does not provide click counter metrics or geographical analytics dashboards by design"
+      ],
+      "privacyVerdict": "The service operates entirely without user accounts, persistent cookies, or third-party telemetry. Network inspection confirmed zero external tracker egress; the only observed request was a single first-party form POST to generate the short link. Link revocation immediately deleted the redirect, returning an authenticated HTTP 404 response.",
+      "alternativeTo": [
+        "Bitly",
+        "TinyURL",
+        "Dub.co",
+        "Kutt.it"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Generated short link https://fwd2.app/dK59xMP and revocation key. Verified clean 24-character clipboard export. Executed key revocation to destroy the link, confirming immediate HTTP/2 404 response with zero third-party telemetry payloads observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "注重隐私安全、需要免登录生成短链接且能凭借加密撤销密钥随时销毁链接、或配置金丝雀 Webhook 告警的开发者与安全从业人员",
+      "pros": [
+        "主权级加密销毁机制：为每个短链接配对独一无二的私有撤销密钥，持有者可随时彻底注销重定向",
+        "真正的零追踪隐私防线：强制执行严格的 CSP 安全策略，全站零第三方追踪器、零统计脚本且零广告遥测",
+        "金丝雀 Webhook 告警短链：支持创建探针链接，当短链首次被点击或触发时向自定义 Webhook 发送回调通知",
+        "免鉴权完整 REST API：提供功能完备的无状态 API 接口，无需 API Key 或注册即可直接调用短链生成与销毁功能"
+      ],
+      "cons": [
+        "撤销密钥仅在生成瞬间展示一次，若未及时保存则无法找回或重置",
+        "遵循极简无追踪原则，原生不提供点击量统计与访客地理分布分析看板"
+      ],
+      "privacyVerdict": "该服务完全在无账户体系、无持久 Cookie 及无第三方遥测的环境下运作。实测监控确认外部追踪请求为 0；全程仅捕获到 1 次发往第一方站点的短链创建表单提交。通过密钥执行销毁后，原短链立即生效 HTTP 404，完全抹除重定向指向。",
+      "alternativeTo": [
+        "Bitly",
+        "TinyURL",
+        "Dub.co",
+        "Kutt.it"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测短链生成工具，生成短链接 https://fwd2.app/dK59xMP 及专属撤销密钥。验证剪贴板成功复制 24 字符纯净链接。随后在撤销页面输入密钥执行销毁，HTTP 探测立即返回 HTTP/2 404 状态，全流程零第三方网络遥测。",
+      "testedAt": "2026-09"
+    }
+  },
+  "syncwhen-com": {
+    "en": {
+      "bestFor": "Distributed teams, club organizers, and educators seeking ad-free, account-free group meeting scheduling polls with live availability tallying and calendar export",
+      "pros": [
+        "Frictionless scheduling workflow: allows organizers and participants to create and vote on time slots without mandatory account registration",
+        "URL-token admin management: provides a private administrator link to edit or delete the poll without requiring email verification or passwords",
+        "Calendar and invite exports: supports clean clipboard sharing, WhatsApp/Telegram integration, and direct export of agreed times to .ics or Google Calendar",
+        "Ad-free multilingual interface: provides a distraction-free experience localized across 14 languages with automatic local timezone alignment"
+      ],
+      "cons": [
+        "Optional email notification prompt appears after sync creation and requires manual skipping",
+        "Does not support automatic two-way calendar sync or conflict detection against personal calendars"
+      ],
+      "privacyVerdict": "The scheduling service operates without compulsory user accounts or advertising trackers. Network monitoring observed 4 payloads comprising first-party /syncs creation data and anonymous telemetry events via cdn.trafnova.com; participant identities remain unlinked to commercial advertising profiles.",
+      "alternativeTo": [
+        "Doodle",
+        "When2meet",
+        "Rallly",
+        "StrawPoll"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 92
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Created multi-date poll across September 21-23, 2026. Skipped optional email modal to access voting console. Verified clean 34-character clipboard export of https://syncwhen.com/s/Kf3AuxWJj9w with zero watermarks, recording 4 network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、免广告发起多人会议时间协调投票，并实时收集空闲状态与导出日历的跨时区团队与组织者",
+      "pros": [
+        "免注册极简协调流程：组织者与参与者均无需注册账户即可直接挑选多日期时段并发起投票",
+        "URL 令牌私密管理：无需密码或邮箱验证，仅凭创建时分配的私有管理员链接即可随时修改或删除投票",
+        "日历与社群多端导出：支持纯净剪贴板链接复制、WhatsApp/Telegram 快速分享，并将最终商定时间导出为 .ics 文件或同步至 Google Calendar",
+        "无广告纯净多语言界面：全站无横幅广告干扰，内置包含中文在内的 14 种语言界面并自动匹配本地时区"
+      ],
+      "cons": [
+        "创建同步投票后会弹出可选的邮件通知引导弹窗，需手动点击跳过",
+        "未集成双向日历实时冲突检测，无法自动比对个人现有日历日程冲突"
+      ],
+      "privacyVerdict": "时间协调服务在完全不强制要求用户注册账户与无广告追踪器的环境下运行。实测网络监测捕获到 4 次请求（包括 1 次第一方 /syncs 投票创建表单提交与 cdn.trafnova.com 匿名统计事件）；参与者投票无需绑定商业广告画像，支持完全匿名表决。",
+      "alternativeTo": [
+        "Doodle",
+        "When2meet",
+        "Rallly",
+        "StrawPoll"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 92
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测多日期时间协调工具，创建 2026 年 9 月 21-23 日投票。手动跳过邮件通知弹窗进入投票看板。验证剪贴板成功复制 34 字符纯净投票链接（https://syncwhen.com/s/Kf3AuxWJj9w），全程无广告水印，捕获 4 次网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "tools-berry-com": {
+    "en": {
+      "bestFor": "US employees, job seekers, and freelancers needing instant, private take-home pay calculations across all 50 US states without uploading sensitive salary data",
+      "pros": [
+        "Comprehensive 51-jurisdiction coverage: models state income tax, SDI, and FICA withholdings for all 50 US states and Washington D.C.",
+        "Client-side tax computation: evaluates progressive tax brackets, filing statuses, and pre-tax deductions locally in browser memory",
+        "Real-time compensation adjustments: recalculates net biweekly and annual take-home pay instantaneously as gross salary is updated",
+        "Extensive multi-category toolbox: bundles overtime tax calculators, tip deductions, PDF converters, and image utilities with zero accounts"
+      ],
+      "cons": [
+        "Lacks native PDF or CSV export for saving comprehensive tax itemization summaries to disk",
+        "Displays an inline feedback rating prompt after advancing through calculation wizard steps"
+      ],
+      "privacyVerdict": "All salary computations, tax deductions, and take-home pay estimations are evaluated entirely on the client side. Network monitoring observed only 2 performance telemetry requests to Cloudflare RUM; no financial figures, compensation data, or user inputs were transmitted to remote servers.",
+      "alternativeTo": [
+        "SmartAsset Paycheck Calculator",
+        "ADP Salary Paycheck Calculator",
+        "PaycheckCity",
+        "Talent.com Tax Calculator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 16,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited California Paycheck Calculator. Modified gross annual salary to $120,000, triggering instant DOM recalculation to $3,254.69 biweekly ($84,622 net annually). Network traffic confirmed only 2 Cloudflare RUM telemetry payloads with zero financial data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、免上传敏感薪资数据，即时测算美国全美 50 州与华盛顿特区实际到手薪资、联邦税、FICA 与州税扣除额的职场人士与求职者",
+      "pros": [
+        "全美 51 个司法管辖区全覆盖：精准支持全美 50 个州及华盛顿特区的州所得税、州伤残险 (SDI) 与 FICA 扣除模型",
+        "前端本地税率运算：在浏览器本地内存中即时计算累进阶梯税率、报税身份与税前扣除项，个人收入数据绝不离机",
+        "实时响应式到手薪资更新：修改税前年薪时瞬时刷新每双周与年度实际净到手收入，无任何等待延迟",
+        "多品类免登录工具矩阵：额外集成了加班费免税测算、小费扣除计算、PDF 转换及图片压缩等数十种日常工具"
+      ],
+      "cons": [
+        "缺乏将完整报税条目明细一键导出为 PDF 或 CSV 文件的功能",
+        "在逐步向后推进测算向导时会弹出内嵌的满意度打分评价小弹窗"
+      ],
+      "privacyVerdict": "所有薪资计算、税费扣除及到手净额预估全在浏览器前端独立完成。实测网络监控仅捕获到发往 Cloudflare RUM 的 2 次常规网页性能监测请求，用户的薪资数值、家庭报税情况与财务数据绝无云端泄露记录。",
+      "alternativeTo": [
+        "SmartAsset 薪资计算器",
+        "ADP 薪资计算器",
+        "PaycheckCity",
+        "Talent.com 税务计算器"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 16,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 California Paycheck Calculator 工具。将税前年薪修改为 $120,000，DOM 即时响应式更新为双周到手 $3,254.69（年净收入 $84,622）。网络监控确认仅记录到 2 次 Cloudflare RUM 性能遥测请求，财务数据零外部传输。",
+      "testedAt": "2026-09"
+    }
+  },
+  "meeting-to-go-io": {
+    "en": {
+      "bestFor": "Scheduling cross-timezone group meetings and team polls without signups, accounts, or email collection.",
+      "pros": [
+        "Converts availability grid into each participant's local timezone automatically",
+        "Zero registration or email required; instant share link copied in 36 characters",
+        "Granular time slots from 15 minutes to full days with in-thread participant comments"
+      ],
+      "cons": [
+        "Requires first-party server synchronization via POST /api/rpc to store coordination state"
+      ],
+      "privacyVerdict": "Observed 2 first-party POST /api/rpc payloads during meeting creation for cloud synchronization; 0 third-party trackers or telemetry scripts detected.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Created an Engineering Sprint Sync poll with 2 time slots on Tuesday Sep 22, generating a 36-character share link copied cleanly to clipboard with 0ms UI freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "无需注册、无邮箱收集的跨时区团队会议与可用时间协调投票。",
+      "pros": [
+        "自动将可用时间网格换算为各参与者的本地时区，避免时差换算错误",
+        "免注册免邮箱，创建后一键复制 36 字符短链接即时分发",
+        "支持 15 分钟至整天的颗粒度配置，并提供内置参与者留言板与创建者管理权限"
+      ],
+      "cons": [
+        "依赖第一方 POST /api/rpc 服务端接口存储与同步群组投票状态"
+      ],
+      "privacyVerdict": "测试期间捕获 2 次用于群组状态同步的第一方 POST /api/rpc 请求，未发现任何第三方追踪器或遥测脚本。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "成功创建 2 个时段的冲刺规划会议，生成并剪贴板写入 36 字符无水印分享链接，界面冻结时间为 0ms。",
+      "testedAt": "2026-09"
+    }
   }
 }
