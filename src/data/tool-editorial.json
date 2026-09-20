@@ -12618,5 +12618,255 @@
       "benchmarkNotes": "审查了 720p 至 4K 各档位配置与音频抽取模式，核验了 YouTube、Vimeo、TikTok、HLS 等支持矩阵与本地会话历史，界面延迟 0ms，CLS 0.00，记录到 1 次 Cloudflare RUM 通信。",
       "testedAt": "2026-09"
     }
+  },
+  "comprimirpdf-app": {
+    "en": {
+      "bestFor": "Students, legal professionals, and privacy-conscious users needing to shrink PDF file sizes for email or online forms directly inside the browser without uploading sensitive documents to cloud processing servers.",
+      "pros": [
+        "Complete client-side PDF compression ensuring documents never leave the local device",
+        "Three distinct compression presets balancing image clarity and file size reduction (Mejor calidad, Recomendado, Máxima compresión)",
+        "Intelligent optimization guard that detects pre-optimized files to prevent expanding or degrading already compact documents",
+        "Clean Spanish-language interface with explicit cookie opt-out and zero third-party advertising trackers"
+      ],
+      "cons": [
+        "Lacks manual DPI downsampling or selective page exclusion controls",
+        "Does not support simultaneous batch compression of multiple PDF files at once"
+      ],
+      "privacyVerdict": "PDF parsing and compression execute entirely on the client without uploading documents to remote servers; observed 1 outgoing Cloudflare RUM telemetry beacon.",
+      "alternativeTo": [
+        "iLovePDF Compress",
+        "Smallpdf Compress",
+        "Adobe Acrobat Online PDF Compressor",
+        "PDF24 Tools"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Injected test PDF, evaluated 3 compression tiers, validated intelligent pre-optimization safeguards with 0ms freeze and 0.05 CLS, and recorded 1 Cloudflare RUM telemetry payload.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "学生、法律从业者以及注重隐私的办公人士，需要在向邮件或政务系统提交附件前快速减小 PDF 体积，且严禁将敏感机密文件上传至云端服务器的场景。",
+      "pros": [
+        "完全在浏览器前端本地压缩 PDF，文档全程留在本机内存，杜绝云端泄露风险",
+        "提供三种不同梯度的压缩预设（最高画质、推荐平衡、极限体积），灵活应对不同清晰度要求",
+        "内置智能优化检测机制，若检测到源文件已处于最优体积会自动拦截无效或体积膨胀的二次压缩",
+        "纯净西班牙语界面设计，提供一键拒绝统计埋点的隐私授权弹窗，全站无商业广告"
+      ],
+      "cons": [
+        "暂不提供手动指定图像 DPI 分辨率或剔除指定页面的高级参数配置",
+        "当前版本仅支持单文件处理，未开放多份 PDF 的批量并发压缩"
+      ],
+      "privacyVerdict": "PDF 的解析与重打包完全在前端本地环境中完成，文档数据绝不经过任何外部服务器中转；实测捕获到 1 次 Cloudflare RUM 基础性能监测数据包。",
+      "alternativeTo": [
+        "iLovePDF Compress",
+        "Smallpdf Compress",
+        "Adobe Acrobat Online PDF Compressor",
+        "PDF24 Tools"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "注入测试 PDF 并测试 3 档压缩预设，触发智能防反向膨胀安全保护机制，界面主线程延迟 0ms，CLS 仅 0.05，全流程记录到 1 次 Cloudflare RUM 埋点请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "contadordepalabras-app": {
+    "en": {
+      "bestFor": "Spanish-language authors, journalists, translators, SEO copywriters, and students needing an instant word and character counter with writing goal trackers, n-gram keyword density, sentence rhythm analysis, and direct text export without creating an account.",
+      "pros": [
+        "Comprehensive Spanish text metrics including words, characters with/without spaces, sentences, paragraphs, and reading time",
+        "Advanced editorial insights featuring 1-word, 2-word, and 3-word n-gram keyword density and sentence rhythm diagnostics",
+        "Built-in text cleaning suite providing case conversions (Title, Sentence, UPPER, lower), space deduplication, and linebreak removal",
+        "Local-first persistence saving drafts automatically in device storage with single-click unwatermarked .txt download"
+      ],
+      "cons": [
+        "Lacks integration with external cloud drives like Google Drive or Dropbox",
+        "Does not include multi-language grammar or spellchecking dictionaries"
+      ],
+      "privacyVerdict": "Text analysis and transformations run locally in browser memory without sending document contents to any remote endpoint; observed 4 initial payloads covering Cloudflare RUM and application configuration.",
+      "alternativeTo": [
+        "WordCounter.net",
+        "ContadorDePalabras.com",
+        "Character Count Online",
+        "LetterCount.com"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Evaluated Spanish text metrics across word/character counters, tested n-gram density and case cleaners, exported a 123-byte clean .txt artifact with 0ms freeze and 0.00 CLS, observing 4 initial config and RUM payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "西语写作者、记者、译者、SEO 文案编辑以及学生，无需注册即可实时统计西班牙语字数、字符数、阅读时长，并进行关键词密度分析、句式节奏诊断及纯文本下载。",
+      "pros": [
+        "专为西班牙语深度优化的多维度文本指标：词数、带/不带空格字符数、句子数、段落数及预估朗读时长",
+        "提供高级写作分析功能，包括 1/2/3 词复合 N-gram 关键词词频密度与句子起伏节奏检测",
+        "内置实用文本排版清洗工具包：大小写一键转换（标题大写、句首大写、全大写、全小写）、多余空格与空行智能剔除",
+        "本地优先设计，草稿实时自动保存在用户设备本地，支持一键无水印导出下载为 .txt 纯文本"
+      ],
+      "cons": [
+        "暂不支持直接同步至 Google Drive、Dropbox 等第三方网盘",
+        "未内置多语种的语法纠错与拼写检查辅助模块"
+      ],
+      "privacyVerdict": "文本统计与所有排版格式化计算均在浏览器本地内存中实时处理，草稿内容绝不向任何外部服务器上传；实测仅捕获到 4 次初始化网络请求，包含 Cloudflare RUM 与页面配置接口。",
+      "alternativeTo": [
+        "WordCounter.net",
+        "ContadorDePalabras.com",
+        "Character Count Online",
+        "LetterCount.com"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "输入西班牙语段落并实时统计 19 词与 123 字符，验证了 N-gram 词频分析与排版清洗功能，成功下载 123 字节的 .txt 归档，界面卡顿 0ms，CLS 0.00，记录到 4 次配置与 RUM 基础通信。",
+      "testedAt": "2026-09"
+    }
+  },
+  "nawtch-app": {
+    "en": {
+      "bestFor": "Fitness enthusiasts, bodybuilders, and macro trackers looking for a zero-login, privacy-first nutrition and workout journal that works completely offline in IndexedDB.",
+      "pros": [
+        "Completely client-side macro and calorie tracking with IndexedDB storage and zero account requirements.",
+        "Includes comprehensive evidence-based calculators (TDEE, BMR, BMI, body fat %) with cited scientific sources.",
+        "One-click full JSON database export and backup restoration for effortless data sovereignty."
+      ],
+      "cons": [
+        "Relies on non-intrusive banner ads for sustainability.",
+        "Data is scoped to the local browser profile unless regularly backed up via the JSON export tool."
+      ],
+      "privacyVerdict": "Client-side architecture storing all nutrition logs, bodyweight entries, custom foods, and workout plans directly in browser IndexedDB. Observed network egress was strictly limited to 3 telemetry requests (Google Analytics 4 and Cloudflare RUM); zero personal health data leaves the browser.",
+      "alternativeTo": [
+        "MyFitnessPal",
+        "Cronometer",
+        "MacroFactor"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Logged a custom high-protein meal (Protein Oatmeal: 350 kcal, 30g protein, 45g carbs, 5g fat) in the daily log. The macro split visualized immediately. Verified complete IndexedDB persistence and triggered the full database backup export, downloading an unwatermarked 797-byte JSON backup file.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "寻求无须注册、高度注重隐私的饮食与健身日志的健身爱好者和宏量营养追踪者，所有数据纯前端存储于 IndexedDB。",
+      "pros": [
+        "完全基于前端 IndexedDB 存储宏量营养与热量，无须注册登录即可完整使用。",
+        "内置基于证据的健身科学计算器（TDEE、BMR、BMI、体脂率），附带论文与数据出处。",
+        "支持一键全量 JSON 数据库导出与备份恢复，保障完全的数据自主权。"
+      ],
+      "cons": [
+        "通过非侵入式横幅广告维持运营。",
+        "数据仅保存在当前浏览器配置文件中，若更换设备需手动导出 JSON 备份进行迁移。"
+      ],
+      "privacyVerdict": "高度安全的客户端本地架构。所有饮食记录、体重数据、自定义食物库和锻炼计划均直接保存在浏览器 IndexedDB 中。实测捕获到 3 次遥测请求（Google Analytics 4 与 Cloudflare RUM），个人健康数据零外传。",
+      "alternativeTo": [
+        "MyFitnessPal",
+        "Cronometer",
+        "MacroFactor"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在日常日志中录入自定义高蛋白餐食（燕麦蛋白糊：350 kcal，30g 蛋白质，45g 碳水，5g 脂肪），宏量分布条形图即时完成可视化运算。验证了完整的 IndexedDB 本地持久化，并通过设置中心成功导出 797 字节的纯净 JSON 备份文件。",
+      "testedAt": "2026-09"
+    }
+  },
+  "productivitytimer-com": {
+    "en": {
+      "bestFor": "Knowledge workers, students, and remote professionals seeking a distraction-free Pomodoro timer and task estimation suite with keyboard shortcuts and zero tracking of task contents.",
+      "pros": [
+        "Instant Pomodoro timer with configurable intervals, audio alarm presets, keyboard shortcuts, and auto-cycle capability.",
+        "Includes companion planning utilities such as Pomodoro Task Estimator, Daily Focus Score, and printable tracking sheets.",
+        "All project subtasks and tracking sheets persist automatically in local browser localStorage with zero server egress."
+      ],
+      "cons": [
+        "Tracking sheet and task estimates require browser print or manual copy to export as physical or digital artifacts.",
+        "Does not offer cross-device cloud synchronization without third-party browser sync."
+      ],
+      "privacyVerdict": "Client-side productivity suite operating entirely within the browser. Task names, complexity ratings, and tracking logs persist in local localStorage. Network egress is strictly limited to 4 telemetry beacons (GA4 and Cloudflare RUM); zero user-entered task data is transmitted to external servers.",
+      "alternativeTo": [
+        "Pomofocus",
+        "Toggl Track",
+        "Marinara Timer",
+        "Forest"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested core Pomodoro countdown with keyboard shortcuts and sound selection. Navigated to the Task Estimator, added subtask Migrate CSS to Tailwind (3 Pomodoros, 75 min), verified localStorage serialization, and triggered the printable tracking sheet export with 0ms freeze and 0.01 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "寻求无干扰番茄钟与任务工时估算工具的知识工作者、学生及远程办公人士，支持键盘快捷键且任务内容完全不被追踪。",
+      "pros": [
+        "即开即用的番茄钟工具，支持自定义工作/休息时长、多种提示音、键盘快捷键与自动轮转。",
+        "内置丰富的伴生效率工具，包括任务工时估算器、每日专注度评分以及支持直接打印的纸质追踪表。",
+        "所有子任务工时估算与每日专注记录自动保存于浏览器 localStorage，绝不向云端外传任何任务文本。"
+      ],
+      "cons": [
+        "追踪表与任务估算主要依赖浏览器系统打印或手动复制保存为数字文档。",
+        "不提供跨设备云端同步功能，多设备流转需依赖浏览器自身配置同步。"
+      ],
+      "privacyVerdict": "完全在浏览器前端运行的单机效率套件。任务名称、复杂度评级与专注记录均持久化保存在本地 localStorage 中。实测捕获到 4 次遥测请求（GA4 与 Cloudflare RUM），用户输入的任何任务及日程内容均零外传。",
+      "alternativeTo": [
+        "Pomofocus",
+        "Toggl Track",
+        "Marinara Timer",
+        "Forest"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "测试了核心番茄钟倒计时、键盘快捷键及提示音配置。随后进入任务估算器录入子任务 Migrate CSS to Tailwind（3 个番茄钟，75 分钟），确认数据在 localStorage 中完成序列化，并触发了追踪表的系统打印导出，主线程卡顿 0ms，CLS 仅 0.01。",
+      "testedAt": "2026-09"
+    }
   }
 }
