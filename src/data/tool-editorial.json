@@ -6826,5 +6826,219 @@
       "benchmarkNotes": "在 0ms 主线程卡顿与 0.03 CLS 下秒级完成目标域名 HTTP 响应头全量审计，评定为 A 级并准确指出缺少 CSP 标头。",
       "testedAt": "2026-09"
     }
+  },
+  "rawgraphs-io": {
+    "en": {
+      "bestFor": "Transforming tabular datasets into complex D3 vector charts (Alluvial, Sankey, Sunburst, Treemap, Beeswarm) with zero account requirements.",
+      "pros": [
+        "Over 30 specialized visual models including Alluvial diagrams, Chord charts, Sunbursts, Voronoi tessellations, and Beeswarm plots",
+        "Client-side data processing powered by dedicated Web Workers (worker.*.worker.js) ensuring uploaded data never touches a remote server",
+        "Unrestricted export freedom with vector SVG (editable text/curves), high-resolution PNG, and .rawgraphs project state JSON backup"
+      ],
+      "cons": [
+        "Initial navigation from the marketing homepage opens the web application (app.rawgraphs.io) in a separate tab"
+      ],
+      "privacyVerdict": "Data parsing and D3 rendering execute locally in the browser via dedicated Web Workers. User datasets are not transmitted off-device. Network egress is confined to Google Analytics telemetry scripts (analytics.js, gtag).",
+      "alternativeTo": [
+        "flourish-studio",
+        "datawrapper-de",
+        "charticulator-com"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Loaded Energy Flows tabular dataset with 51 rows (153 cells) in 268 ms max long task and 0.32 CLS; Web Worker parsed TSV data and rendered SVG Alluvial diagram.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "将表格数据免登录转换为专业级 D3 矢量可视化图表（桑基图、冲积图、旭日图、蜂群图、树状图等）。",
+      "pros": [
+        "内置 30 余种高阶专业可视化模型，涵盖冲积图、弦图、旭日图、泰森多边形、蜂群图与平行坐标系",
+        "基于独立 Web Worker 线程在本地完成数据解析与几何计算，输入的表格数据绝不上传云端服务器",
+        "极致的导出自由度，原生支持矢量 SVG（保留可编辑文字与轮廓）、高清 PNG 与完整 .rawgraphs 工程文件备份"
+      ],
+      "cons": [
+        "官网主页点击 'Use it now!' 会跳转至独立子域应用页面（app.rawgraphs.io）"
+      ],
+      "privacyVerdict": "数据解析与 D3 渲染全程依托客户端 Web Worker 本地完成，用户上传的任何表格数据绝不上云。网络外发仅限于 Google Analytics 匿名页面统计（analytics.js 与 gtag），免注册免登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 268ms 最大任务延迟与 0.32 CLS 下载入 51 行 153 个单元格能源数据集，Web Worker 本地秒级完成 TSV 解析并生成高保真矢量 SVG 冲积图。",
+      "testedAt": "2026-09"
+    }
+  },
+  "transform-tools": {
+    "en": {
+      "bestFor": "Instant client-side polyglot code and schema transformations (SVG to JSX, JSON to TypeScript/Rust/Go/Zod, HTML to JSX).",
+      "pros": [
+        "Over 30 distinct developer converters spanning SVG, HTML, CSS, JSON, GraphQL, JSON Schema, and TOML",
+        "Dual Monaco editor interface with live real-time compilation, SVGO optimization, and Prettier formatting",
+        "Strict client-side execution via dedicated Web Workers with zero outbound network requests and zero tracking scripts"
+      ],
+      "cons": [
+        "Does not support batch processing multiple files in bulk via a drag-and-drop zip archive upload"
+      ],
+      "privacyVerdict": "No network egress observed during conversion. All AST parsers (SVGR, Babel, QuickType) execute locally in client-side Web Workers without transmitting source code or schemas off-device.",
+      "alternativeTo": [
+        "quicktype-io",
+        "svg2jsx-com",
+        "json2ts-com"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Converted vector SVG to React JSX in 473 ms max long task and 0.00 CLS; clipboard inspection captured 324 chars of valid unwatermarked code.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "开发者多语言代码与数据结构的一键极速转换（SVG 转 JSX、JSON 转 TypeScript/Rust/Go/Zod、HTML 转 JSX 等）。",
+      "pros": [
+        "集成了 30 余种开发者高频转换器，覆盖 SVG、HTML、CSS、JSON、GraphQL、JSON Schema、YAML 与 TOML",
+        "双栏 Monaco 专业级编辑器，支持实时语法树编译、SVGO 矢量体积压缩与 Prettier 自动化格式化",
+        "依托浏览器独立 Web Worker 线程在本地完成离线计算，零外部网络发包，零任何追踪代码"
+      ],
+      "cons": [
+        "暂不支持以 ZIP 压缩包或文件夹形式对多个代码文件进行批量一次性转换"
+      ],
+      "privacyVerdict": "转换过程中未观测到任何网络出站请求。SVGR、Babel 与 QuickType 抽象语法树解析器均在本地 Web Worker 中离线运行，源代码与 Schema 绝不上云。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 473ms 最大任务耗时与 0.00 CLS 下成功将矢量 SVG 转换为 React JSX，剪贴板物理捕获到 324 字符无水印标准代码。",
+      "testedAt": "2026-09"
+    }
+  },
+  "geojson-io": {
+    "en": {
+      "bestFor": "Rapid visual creation, inspection, and multi-format conversion of geospatial vector data (GeoJSON, TopoJSON, KML, CSV).",
+      "pros": [
+        "Interactive 3D vector globe with two-way synchronized editing between map drawings, property tables, and live GeoJSON code",
+        "Complete geometric drawing suite supporting Points, Lines, Polygons, Rectangles, Circles, and custom property styling",
+        "Comprehensive export options supporting GeoJSON, TopoJSON, CSV, KML, and WKT with coordinate precision truncation"
+      ],
+      "cons": [
+        "Initial Mapbox GL 3D globe initialization incurs a long task freeze (~1298 ms) on lower-spec hardware"
+      ],
+      "privacyVerdict": "Drawn spatial features and attribute properties reside strictly in client-side memory. Network egress is confined to Mapbox vector basemap tiles and Mapbox GL SDK telemetry beacons (events.mapbox.com).",
+      "alternativeTo": [
+        "kepler-gl",
+        "mapshaper-org",
+        "placemark-io"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Placed Point feature at [0, 20] on 3D globe with 1298 ms initialization task and 0.00 CLS; verified live two-way synchronization in JSON pane and export modal.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "地理空间矢量数据（GeoJSON、TopoJSON、KML、WKT）的可视化绘制、属性表编辑与多格式转换。",
+      "pros": [
+        "沉浸式 3D 矢量地球与平面地图视图，实现地图绘制图形、属性表格与右侧 GeoJSON 代码的三向实时双向同步",
+        "提供点、折线、多边形、矩形、圆形等全套几何矢量绘制工具，支持自定义注记属性键值与样式定义",
+        "丰富的格式导出生态，原生支持 GeoJSON、TopoJSON、CSV、KML 与 WKT，且支持浮点坐标精度自动截断"
+      ],
+      "cons": [
+        "Mapbox GL 3D 渲染引擎冷启动加载时存在较长的初始化主线程耗时（约 1298ms）"
+      ],
+      "privacyVerdict": "用户在地图上绘制的矢量几何图形与属性数据完全保留在浏览器端内存中。外发网络流量仅限于拉取 Mapbox 矢量底图瓦片及 Mapbox GL SDK 性能信标（events.mapbox.com），免登录免注册。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 3D 地球上成功绘制位于 [0, 20] 的 Point 矢量节点，右侧代码视窗实时同步 FeatureCollection，初始化耗时 1298ms，CLS 保持在 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "markmap-js-org": {
+    "en": {
+      "bestFor": "Converting hierarchical Markdown notes into interactive visual mind maps with formulas, code, and direct HTML/SVG export.",
+      "pros": [
+        "Renders complex hierarchical outlines directly into dynamic SVG mindmaps with fold/unfold toggles and color branch freezing",
+        "Rich Markdown syntax support including KaTeX math equations, code blocks, tables, task checkboxes, and image links",
+        "Direct unwatermarked SVG and standalone interactive HTML export with all tree styling preserved"
+      ],
+      "cons": [
+        "Interactive HTML export references external CDN resources by default unless embed assets option is selected before export"
+      ],
+      "privacyVerdict": "Observed network egress is strictly bounded to 3 Google Analytics telemetry beacons (google-analytics.com/g/collect). Markdown document parsing, KaTeX math rendering, and SVG layout generation execute entirely client-side without transmitting user document content to remote servers.",
+      "alternativeTo": [
+        "xmind-app"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Rendered 45 lines of complex Markdown with KaTeX math in 0 ms max long task and 0.36 CLS; exported a clean 9,049-byte vector SVG with 3 Google Analytics beacons observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "将层级 Markdown 笔记转换为包含数学公式、语法高亮代码与交互式节点的可视化树状思维导图。",
+      "pros": [
+        "直接将层级大纲 Markdown 解析为动态 SVG 思维导图，支持节点多级递归折叠与分支独立着色冻结",
+        "丰富 Markdown 语法兼容，深度支持 KaTeX 数学公式渲染、代码高亮、表格、待办复选框及网络图片嵌入",
+        "支持直接免登录导出无水印 SVG 矢量图与独立交互式 HTML 文件，完整保留树状图视觉排版"
+      ],
+      "cons": [
+        "导出的交互式 HTML 文件默认引用外部 CDN 资源，在断网离线环境打开需预先在顶部菜单开启内嵌资源模式"
+      ],
+      "privacyVerdict": "实际网络外发严格限定为 3 次 Google Analytics 访问统计遥测（google-analytics.com/g/collect）。Markdown 语法树解析、KaTeX 数学排版与 SVG 矢量图渲染均在客户端本地离线完成，用户编写的文档大纲与笔记内容绝不上云。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 0ms 线程阻塞耗时与 0.36 CLS 下成功渲染包含 KaTeX 数学公式的 45 行 Markdown 大纲；导出 9,049 字节纯净无水印 SVG 矢量图，观测到 3 次 Google Analytics 访问遥测。",
+      "testedAt": "2026-09"
+    }
   }
 }
