@@ -9420,5 +9420,261 @@
       "benchmarkNotes": "在 nameInput DOM 输入框中填入'NoLogin Tools'，动态联动预览 74 种签名样式。点击 PNG 导出按钮，通过本地 HTML5 Canvas 成功光栅化并下载 34862 bytes 的透明背景 PNG 图片（694x275 像素），无水印且无登录弹窗，同时记录到 8 个 POST 遥测请求。",
       "testedAt": "2026-09"
     }
+  },
+  "textkit-tech": {
+    "en": {
+      "bestFor": "Writers, developers, and students seeking an ad-minimal, instant suite of in-browser text manipulation, formatting, and counting tools without uploading drafts to remote servers",
+      "pros": [
+        "Comprehensive toolkit of 33 specialized text utilities spanning word counting, case conversion, JSON validation, diffing, and markdown generation",
+        "Pure in-browser text transformation ensuring draft contents never leave the user's local machine",
+        "Instant real-time statistical analysis including reading time, speaking time, unique word counts, and average word lengths",
+        "Clean, fast UI with dark mode support, English/Spanish localization, and one-click clipboard copying"
+      ],
+      "cons": [
+        "Contains 1 Google Analytics beacon (G-8ZM0B6JC87) recording basic pageview telemetry",
+        "Each utility is hosted on a separate subpage rather than inside a single unified multi-tool workbench"
+      ],
+      "privacyVerdict": "Text processing and statistical computations run strictly inside browser memory using client-side JavaScript without backend transmission of draft contents. Live auditing recorded only 1 external POST payload dispatched to Google Analytics (G-8ZM0B6JC87) tracking basic page visits.",
+      "alternativeTo": [
+        "WordCounter.net",
+        "LetterCount.com",
+        "Text Fixer",
+        "Online-Utility.org"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested Word Counter module with sample text (52 words, 294 characters). Stats computed instantly with zero latency across textarea DOM changes. Clicked Copy stats button to extract a 52-character summary to clipboard with no watermark or auth wall, while logging 1 POST telemetry request.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要随时在浏览器中进行文本统计、大小写转换、JSON 格式化、列表去重与正则替换，且不愿将文稿上传到服务器的作者、程序员与学生",
+      "pros": [
+        "提供涵盖字数统计、大小写转换、JSON 校验、文本差异对比与 Markdown 表格生成等 33 项细分文本小工具的完整工具箱",
+        "纯浏览器前端内存处理，确保用户的文稿、代码与草稿内容绝不离开本地设备",
+        "实时文本统计引擎，即时更新字数、字符数、朗读/阅读预估时长、独立词频与平均词长",
+        "界面简洁清爽无广告干扰，支持暗黑模式、英西双语切换及一键剪贴板导出"
+      ],
+      "cons": [
+        "页面包含 1 个 Google Analytics (G-8ZM0B6JC87) 访问统计请求",
+        "各项工具分布在独立的子页面中，而非集成在单页多功能工作台内"
+      ],
+      "privacyVerdict": "所有文本处理与统计计算均在浏览器本地内存中由前端 JavaScript 完成，绝不向远端服务器传输任何文稿草稿内容。实测仅捕获到 1 个发往 Google Analytics (G-8ZM0B6JC87) 的 POST 基础页面访问统计请求。",
+      "alternativeTo": [
+        "WordCounter.net",
+        "LetterCount.com",
+        "Text Fixer",
+        "Online-Utility.org"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 Word Counter 模块并载入 52 词（294 字符）范例文本。textarea DOM 变化时统计数据即时完成运算，无任何卡顿。点击 Copy stats 按钮导出 52 字符的结构化剪贴板文本，无水印无登录拦截，同时监测到 1 个 POST 遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "xueboyang1985-github-io-kindle-exporter": {
+    "en": {
+      "bestFor": "Kindle readers, researchers, and Obsidian or Notion users wanting to convert local Kindle clippings into clean Markdown, CSV, or JSON without uploading reading history to the cloud",
+      "pros": [
+        "Zero-egress client-side parser: parses My Clippings.txt directly in browser memory without sending private reading history to external servers",
+        "Multi-format export options: instant generation of clean Markdown blockquotes, tabular CSV, and structured JSON",
+        "Interactive book preview: organizes highlights and notes into collapsible accordions with author metadata and page/location stamps",
+        "Hosted as a static open-source GitHub Pages web app with zero commercial trackers or telemetry beacons"
+      ],
+      "cons": [
+        "Free export is restricted to the first book in the file; bulk multi-book batch export requires a one-time PRO upgrade",
+        "Requires manual USB cable connection to a computer to extract the My Clippings.txt file from Kindle storage"
+      ],
+      "privacyVerdict": "Pure client-side processing with zero observed network egress payloads or telemetry beacons during live testing. Highlights and personal annotations from My Clippings.txt are parsed in memory using JavaScript, keeping all reading data strictly private on your device.",
+      "alternativeTo": [
+        "Readwise",
+        "Clippings.io",
+        "Bookcision",
+        "KindleMate"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 14,
+        "privacy": 20,
+        "polish": 14,
+        "overall": 85
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded authentic My Clippings.txt fixture containing 3 books and 3 highlights/notes. File parsed locally in 0ms with zero network requests. Tested Export as Markdown button to download a 234 bytes clean Markdown file without watermarks or login gates, verifying first-book free export logic.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望将 Kindle 设备中的本地划线与读书笔记转换为干净的 Markdown、CSV 或 JSON，且绝不愿将阅读记录上传到云端服务器的 Kindle 读者与笔记爱好者",
+      "pros": [
+        "零网络外传纯本地解析：直接在浏览器内存中解析 My Clippings.txt，绝不向外部服务器传输个人阅读隐私",
+        "多格式一键导出：支持导出为排版规整的 Markdown 引用块、表格化 CSV 以及结构化 JSON 数据",
+        "书籍折叠预览：按书籍自动聚合划线与随手笔记，清晰标注作者、页码及位置坐标",
+        "基于 GitHub Pages 静态托管开源工具，全流程无商业追踪或行为统计信标"
+      ],
+      "cons": [
+        "免费导出仅包含文件中的第一本书籍内容，多本书籍的批量打包导出需付费购买 PRO 许可",
+        "需要通过 USB 数据线将 Kindle 设备连接至电脑手动拷贝 My Clippings.txt 文件"
+      ],
+      "privacyVerdict": "纯客户端本地处理，实测全程捕获到 0 个网络外发请求或分析信标。My Clippings.txt 中的高亮划线与个人读书笔记完全在浏览器内存中通过 JavaScript 解析，阅读隐私数据绝不离开本地设备。",
+      "alternativeTo": [
+        "Readwise",
+        "Clippings.io",
+        "Bookcision",
+        "KindleMate"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 14,
+        "privacy": 20,
+        "polish": 14,
+        "overall": 85
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传包含 3 本书籍与 3 条划线/笔记的真实 My Clippings.txt 测试文件。前端在 0ms 内完成本地解析，未发起任何网络请求。点击 Export as Markdown 按钮即时下载 234 bytes 的无水印 Markdown 文件，全程免登录，验证了免费首本导出逻辑。",
+      "testedAt": "2026-09"
+    }
+  },
+  "geometry-formulas-com-geometry-calculator": {
+    "en": {
+      "bestFor": "Math students, teachers, and engineering students who need instant step-by-step solutions, formulas, and verified calculations for 2D and 3D geometric shapes without sign-ups or paywalls",
+      "pros": [
+        "Supports diverse 2D and 3D geometric shapes including circle, triangle, rectangle, cylinder, cone, and sphere",
+        "Generates step-by-step pedagogical derivations showing exact formula substitutions alongside direct numerical answers",
+        "One-click formatted clipboard export copying clean multi-line mathematical proofs and shareable calculation URLs",
+        "Clear, responsive layout with formatted math notation and zero registration or paywall hurdles"
+      ],
+      "cons": [
+        "Input fields display light gray placeholder values which can be mistaken for active pre-filled inputs if clicked without typing",
+        "Transmits telemetry payloads to Google Analytics (G-MTGR0VENZ1) and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Geometric calculations, unit conversions, and step-by-step derivations execute in the browser using client-side JavaScript without transmitting calculation inputs to backend math engines. However, site visit telemetry is active: live testing captured 6 outgoing payloads dispatched to Google Analytics (G-MTGR0VENZ1) and Cloudflare RUM.",
+      "alternativeTo": [
+        "Omni Calculator Geometry",
+        "Calculator.net Geometry",
+        "Symbolab Geometry",
+        "Wolfram Alpha"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested Circle Calculator with radius 5 cm. JavaScript solver computed diameter 10 cm, circumference 31.4159 cm, and area 78.5398 cm2 with 3 derivation steps in 0ms. Clicked Copy Result button to capture a 253-character mathematical text summary to clipboard without watermarks or login prompts, while observing 6 network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速推算 2D 与 3D 几何图形面积、周长与体积，并获取带公式代入过程的详细分步解答且免注册的学生、教师与工程人员",
+      "pros": [
+        "支持圆形、三角形、长方形、圆柱体、圆锥体与球体等多种常见 2D 及 3D 几何图形的全面推算",
+        "提供教学级别的分步推导解答，不仅给出数值答案，还完整展示公式代入与运算步骤",
+        "一键剪贴板导出规整的十行数学解题步骤与公式文本，并支持生成参数分享链接",
+        "排版优雅清晰，数学符号展示规范，全程无须注册或订阅付费"
+      ],
+      "cons": [
+        "输入框的默认浅灰色占位符容易被误认为已填入的有效初始数值",
+        "页面加载与操作时会向 Google Analytics (G-MTGR0VENZ1) 及 Cloudflare RUM 发送访问统计请求"
+      ],
+      "privacyVerdict": "几何数值推算、单位换算与分步公式代入均在浏览器本地由前端 JavaScript 完成，绝不向后端数学引擎接口上传任何解题数据。但在页面访问过程中存在访问统计，实测捕获到 6 个发往 Google Analytics (G-MTGR0VENZ1) 与 Cloudflare RUM 的网络遥测数据包。",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Calculator.net",
+        "Symbolab",
+        "Wolfram Alpha"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测圆形计算器，填入半径 5 cm。前端 JavaScript 在 0ms 内即时计算出直径 10 cm、周长 31.4159 cm 与面积 78.5398 cm2，并生成 3 步详细代入解答。点击 Copy Result 按钮成功导出 253 字符的格式化解题文本至剪贴板，无水印无登录拦截，同时监测到 6 个网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "webutilslab-com-tools": {
+    "en": {
+      "bestFor": "Backend engineers, DevOps practitioners, and frontend developers who need clean, trustworthy in-browser utilities to decode JWTs, calculate Linux chmod/umask permissions, and format JSON without leaking secrets to remote servers",
+      "pros": [
+        "Curated collection of 23 developer tools covering JWT decoding, Linux chmod/umask calculations, cron expressions, and JSON transformations",
+        "Local-first browser computation ensures sensitive tokens, auth claims, and API payloads are never sent to external servers",
+        "Detailed technical context with human-readable expiration dates (ISO timestamps), claim tags, and clear signature security caveats",
+        "Exceptionally clean, ad-free developer UI with zero third-party tracking beacons (no GA, no Clarity)"
+      ],
+      "cons": [
+        "JWT utility performs client-side header and payload decoding only and does not verify cryptographic signatures against public keys",
+        "Does not yet offer an offline Progressive Web App (PWA) manifest for air-gapped field use"
+      ],
+      "privacyVerdict": "Tokens, payloads, and calculation inputs are processed entirely within the local browser runtime using JavaScript without remote API calls or third-party trackers. Live network monitoring captured zero commercial analytics, recording only Cloudflare performance beacons (/cdn-cgi/rum).",
+      "alternativeTo": [
+        "jwt.io",
+        "CyberChef",
+        "DevUtils",
+        "Omni Calculator chmod"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 95
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested JWT Decoder module with sample token. Headers and payload JSON were decoded locally in 0ms with automated ISO expiration timestamp conversion. Triggered Copy payload JSON button to extract a 92 bytes clean JSON snippet with zero watermark or login prompts, while recording 2 Cloudflare RUM network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要分析排查 JWT 凭证、计算 Linux chmod/umask 权限掩码及格式化 JSON，且绝不愿将密钥或内部凭证外泄给远程服务器的后端工程师、DevOps 与前端开发者",
+      "pros": [
+        "精选包含 JWT 解码、Linux chmod/umask 权限计算、Cron 表达式解析及 JSON 转换等 23 款实用的开发者小工具集合",
+        "纯本地优先的浏览器计算，确保敏感 Token 凭证、身份声明及内部 API 载荷绝不上传至任何外部服务器",
+        "提供详尽的技术辅助信息，包括人类可读的到期时间戳转换（ISO 格式）、声明标签及明确的签名安全警示",
+        "极简克制且完全无广告的界面设计，零第三方行为追踪（无 GA、无 Clarity 录屏）"
+      ],
+      "cons": [
+        "JWT 工具仅在客户端执行头部与载荷解码，不支持使用公钥进行加密签名校验",
+        "暂未提供离线渐进式 Web 应用 (PWA) 支持，断网环境下无法直接离线缓存加载"
+      ],
+      "privacyVerdict": "所有 Token 凭证、数据载荷与计算输入完全在本地浏览器环境中由 JavaScript 处理，绝不调用任何远端 API，且完全无第三方追踪器。实测未捕获到任何商业统计脚本，仅记录到 Cloudflare 性能监控信标 (/cdn-cgi/rum)。",
+      "alternativeTo": [
+        "jwt.io",
+        "CyberChef",
+        "DevUtils",
+        "Omni Calculator"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 95
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 JWT Decoder 模块并载入测试 Token。头部与载荷 JSON 在 0ms 内即时于本地完成解码，并自动转换为 ISO 格式到期时间戳。点击 Copy payload JSON 按钮提取 92 bytes 的干净 JSON 结构体至剪贴板，无水印无登录拦截，同时监测到 2 个 Cloudflare RUM 性能网络请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
