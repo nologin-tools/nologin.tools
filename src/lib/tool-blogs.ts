@@ -375,7 +375,7 @@ const TOOL_TO_BLOG_MAP: Record<string, string[]> = {
   "devdocs-io": [
     "open-source-tools-no-login"
   ],
-  "svgedit-netlify-app-editor-index-html": [
+  "svgviewer-app": [
     "canva-alternatives-no-login"
   ],
   "clideo-com": [
@@ -607,12 +607,12 @@ const TOOLS_META: Record<string, ToolMetaItem> = {
     "en": "Fast, offline-capable unified developer API documentation search.",
     "zh": "全能离线开发者 API 文档检索工具，毫秒级即时搜索。"
   },
-  "svgedit-netlify-app-editor-index-html": {
-    "name": "SVG-Edit",
-    "url": "https://svgedit.netlify.app/editor/index.html",
+  "svgviewer-app": {
+    "name": "SVG Viewer",
+    "url": "https://svgviewer.app",
     "category": "Design",
-    "en": "Browser-based open-source vector graphics editor.",
-    "zh": "基于浏览器的成熟开源矢量图形（SVG）在线编辑器。"
+    "en": "View, edit, optimize, and export SVG code online in your browser.",
+    "zh": "在浏览器中在线查看、编辑、优化和导出 SVG 代码。"
   },
   "clideo-com": {
     "name": "Clideo",
