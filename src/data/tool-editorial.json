@@ -5940,5 +5940,229 @@
       "benchmarkNotes": "切换比例至大三度（h1 达 3.815rem）在 101ms 内完成多级重绘，CLS 维持在 0.00。",
       "testedAt": "2026-09"
     }
+  },
+  "uicolors-app": {
+    "en": {
+      "bestFor": "Generating harmonious 11-shade Tailwind CSS and Shadcn/ui color scales from any base hex color.",
+      "pros": [
+        "Automatic algorithmic interpolation of full 11-step Tailwind palettes (50 to 950) with WCAG contrast indicators",
+        "Comprehensive export formats including Tailwind v3/v4 config objects, pure CSS, SCSS, SVG, and Figma tokens"
+      ],
+      "cons": [
+        "Advanced cloud palette synchronization and team collaboration features require Pro upgrade"
+      ],
+      "privacyVerdict": "Observed network egress includes PostHog analytics (us.i.posthog.com) and an anonymous visitor rate check. Color scale calculation and code export operate entirely client-side without account login.",
+      "alternativeTo": [
+        "realtimecolors-com",
+        "colorhunt-co",
+        "coolors-co"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Interpolated 11-step palette from base hex #cd21a8 in 82 ms; exported 236 chars of clean Tailwind config to clipboard with zero watermarks.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "输入任意单色 HEX 值自动推导全套 11 级 Tailwind CSS 与 Shadcn/ui 兼容色阶调色板。",
+      "pros": [
+        "基于色彩科学自动插值生成 50 至 950 完整 11 阶 Tailwind 色板，并实时标注 WCAG 对比度",
+        "导出能力全面，支持 Tailwind v3/v4 配置对象、纯 CSS 变量、SCSS、SVG 以及 Figma Tokens"
+      ],
+      "cons": [
+        "多调色板云端跨设备同步与团队协作功能需付费订阅 Pro 版本"
+      ],
+      "privacyVerdict": "网络观测记录到 PostHog 遥测（us.i.posthog.com）与匿名频次检查接口。色阶数学推导与代码生成完全在客户端执行，无需注册账号。",
+      "alternativeTo": [
+        "realtimecolors-com",
+        "colorhunt-co",
+        "coolors-co"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "基于 #cd21a8 在 82ms 内完成 11 级色阶渲染，一键导出 236 字符无水印 Tailwind 配置对象至剪贴板。",
+      "testedAt": "2026-09"
+    }
+  },
+  "happyhues-co": {
+    "en": {
+      "bestFor": "Exploring curated color palettes visualized in real-world website UI contexts with role-based token assignments.",
+      "pros": [
+        "Full-page live UI re-theming across 15+ curated palettes mapping colors directly to buttons, headlines, and illustrations",
+        "One-click hex copying for explicit semantic design roles (Background, Headline, Button, Stroke, Highlight)"
+      ],
+      "cons": [
+        "Lacks custom user color palette creation or bulk JSON/CSS design token downloads"
+      ],
+      "privacyVerdict": "Observed network egress is strictly bounded to a single privacy-first Fathom Analytics beacon (cdn.usefathom.com). Palette switching and token clipboard copying operate client-side without user tracking or ads.",
+      "alternativeTo": [
+        "realtimecolors-com",
+        "colorhunt-co",
+        "coolors-co"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 17,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Switched full-page theme in under 16 ms with 0 ms main-thread freeze and 0.00 CLS; copied 7-character hex code #ff8e3c to clipboard.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在真实网页排版与插画语境中挑选按角色分配的配色方案（背景、主标题、按钮、高亮）。",
+      "pros": [
+        "提供 15+ 套精选色板，切换时整页实时重绘，直观展现色彩在按钮、标题及矢量插画中的实际效果",
+        "支持语义化色彩角色划分（背景、标题、按钮、线稿、高亮），点击对应角色卡片直接复制 HEX 色值"
+      ],
+      "cons": [
+        "不支持用户自定义输入专属基色，亦无批量一键打包下载 JSON/CSS 变量文件的功能"
+      ],
+      "privacyVerdict": "网络观测仅记录到 1 条合规隐私型 Fathom Analytics 请求（cdn.usefathom.com）。色板切换与色值复制全程在本地运行，零广告与零追踪。",
+      "alternativeTo": [
+        "realtimecolors-com",
+        "colorhunt-co",
+        "coolors-co"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 17,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "全页配色方案切换响应低于 16ms，主线程卡顿 0ms，CLS 维持 0.00，一键复制 7 字符 HEX 色值 #ff8e3c 至剪贴板。",
+      "testedAt": "2026-09"
+    }
+  },
+  "cubic-bezier-com": {
+    "en": {
+      "bestFor": "Crafting custom CSS transition timing functions and comparing easing curves with real-time motion playback.",
+      "pros": [
+        "Interactive dual-handle coordinate canvas with instant URL hash state synchronization for effortless curve sharing",
+        "Side-by-side visual motion comparison engine testing custom curves against standard web presets (ease, linear, ease-in-out)"
+      ],
+      "cons": [
+        "Limited to 2D cubic-bezier curves without multi-segment keyframe or spring physics calculation"
+      ],
+      "privacyVerdict": "Observed network egress during session operation was zero outgoing payloads. Easing curve mathematical algorithms and canvas animation render entirely in the browser.",
+      "alternativeTo": [
+        "easings-net",
+        "animista-net",
+        "keyfr-me"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Rendered interactive bezier curve in 0 ms freeze time with 0.00 CLS; copied 29-character CSS timing string to clipboard.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "可视化调试自定义 CSS 贝塞尔缓动曲线，并与标准预设同屏进行实时过渡动效对比。",
+      "pros": [
+        "双控制柄交互式坐标画布，支持将控制点坐标实时同步至 URL Hash 实现零门槛书签分享",
+        "内置动效对比引擎，可直观对比自定义曲线与标准预设（ease、linear、ease-in-out）的运动速率"
+      ],
+      "cons": [
+        "仅支持标准 2D 三次贝塞尔曲线，未包含多段阶梯曲线或物理弹簧（Spring）模型"
+      ],
+      "privacyVerdict": "测试会话期间网络观测记录到零条发往外部的遥测载荷。贝塞尔方程计算与 Canvas 动效完全由本地浏览器执行。",
+      "alternativeTo": [
+        "easings-net",
+        "animista-net",
+        "keyfr-me"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "主线程以 0ms 卡顿和 0.00 CLS 实时重绘贝塞尔曲线，一键将 29 字符 CSS 缓动函数复制到剪贴板。",
+      "testedAt": "2026-09"
+    }
+  },
+  "stackedit-io": {
+    "en": {
+      "bestFor": "Full-featured in-browser Markdown authoring with synchronized preview, KaTeX math, and offline document storage.",
+      "pros": [
+        "Comprehensive Markdown workstation supporting synchronized HTML preview, KaTeX math typesetting, and local file tree management",
+        "Verified clean unwatermarked file downloads (7,176-byte Markdown document) and offline browser persistence"
+      ],
+      "cons": [
+        "Direct PDF and Pandoc compilation formats are marked as sponsored features"
+      ],
+      "privacyVerdict": "Observed network egress during session operation was zero outgoing payloads. File storage, syntax parsing, and HTML export render locally within the browser.",
+      "alternativeTo": [
+        "dillinger-io",
+        "hackmd-io",
+        "marktext"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Loaded 7,173-byte document across 143 lines with synchronized preview in 138 ms; exported unwatermarked 7,176-byte Markdown file.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器中进行全功能 Markdown 写作排版，支持双栏同步滚动预览、KaTeX 数学公式与离线文档存储。",
+      "pros": [
+        "功能完备的 Markdown 工作台，集成实时 HTML 渲染、KaTeX 公式排版、表格工具栏与本地多文件树管理",
+        "实测无障碍导出 7,176 字节纯净无水印 Markdown 文件，文档持久化存储于浏览器离线存储中"
+      ],
+      "cons": [
+        "直接导出 PDF 与高级 Pandoc 格式转换依赖赞助商模块支持"
+      ],
+      "privacyVerdict": "测试会话期间网络观测记录到零条发往外部的遥测载荷。文档存储、语法解析与 HTML 导出全程在本地浏览器内完成。",
+      "alternativeTo": [
+        "dillinger-io",
+        "hackmd-io",
+        "marktext"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 138ms 内完成 143 行、7,173 字节文档的双栏同步解析，并成功下载 7,176 字节标准 Markdown 文件。",
+      "testedAt": "2026-09"
+    }
   }
 }
