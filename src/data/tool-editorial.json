@@ -4344,5 +4344,281 @@
       "benchmarkNotes": "在 0.17 ms 内完成 MySQL 表结构创建与数据查询，支持一键将结果导出为 Markdown 表格并匿名生成持久化分享 URL，全程仅触发 3 次后端请求。",
       "testedAt": "2026-09"
     }
+  },
+  "mockaroo-com": {
+    "en": {
+      "bestFor": "Developers, QA test engineers, database designers, and data scientists requiring realistic synthetic mock datasets in CSV, JSON, SQL, or Excel",
+      "pros": [
+        "Over 140 specialized data types including names, addresses, IP addresses, regex patterns, and relational formulas",
+        "Generates and exports up to 1,000 rows per dataset in CSV, JSON, SQL, and Excel formats without login",
+        "Completely clean unwatermarked file downloads with zero bait traps or forced account registration"
+      ],
+      "cons": [
+        "Datasets exceeding 1,000 rows require upgrading to a paid subscription or hosting the private Docker image",
+        "Dispatches Google Analytics telemetry payloads during schema configuration and export generation"
+      ],
+      "privacyVerdict": "All generated records are purely synthetic mock data with zero real user PII processed or stored; network traffic shows 5 Google Analytics telemetry calls with zero commercial ad trackers.",
+      "alternativeTo": [
+        "Faker.js",
+        "GenerateData",
+        "JSON-Generator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Generated 1,000 rows of synthetic mock data and exported a clean 62435 bytes unwatermarked CSV file with 0 auth interception and 5 Google Analytics requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速生成高质量真实感测试数据（CSV、JSON、SQL 或 Excel）的前后端开发工程师、测试工程师与数据库架构师",
+      "pros": [
+        "提供超过 140 种高度拟真的数据类型，覆盖姓名、地址、IPv4、正则表达式与自定义公式关联",
+        "无需注册登录即可直接生成并下载最多 1,000 行包含完整表头的测试数据",
+        "导出的文件完全无水印、无截断、无恶意诱导付费弹窗"
+      ],
+      "cons": [
+        "单次导出超过 1,000 行数据需订阅付费会员或部署私有 Docker 镜像",
+        "在配置字段与生成数据过程中会向 Google Analytics 发送遥测数据"
+      ],
+      "privacyVerdict": "生成的全部为随机合成的虚拟测试数据，不涉及用户敏感隐私存储；网络仅捕获到 5 次向 Google Analytics 发送的访问遥测，无第三方商业广告追踪器。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "免登录生成 1,000 行模拟数据并成功导出 62435 bytes 无水印纯净 CSV 格式文件，全程 0 拦截，捕获 5 次谷歌分析请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "flexboxfroggy-com": {
+    "en": {
+      "bestFor": "Web developers, students, and educators learning or teaching CSS flexbox layout mechanics through interactive gamification",
+      "pros": [
+        "Instant zero-friction gameplay with immediate visual feedback as CSS properties are typed into the editor",
+        "24 progressive levels teaching all essential flexbox properties from justify-content to flex-flow and order",
+        "Saves puzzle completion state and answers directly in browser localStorage with zero account requirements"
+      ],
+      "cons": [
+        "Contains Google AdSense advertising banner in the bottom sidebar",
+        "Does not support exporting progress or certificates without creating a Codepip account"
+      ],
+      "privacyVerdict": "Game logic and code evaluation run entirely in the browser DOM with state persisted in localStorage; network traffic includes Google Analytics and AdSense consent scripts.",
+      "alternativeTo": [
+        "CSS Grid Garden",
+        "Flexbox Zombies",
+        "Flexbox Defense"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Solved level 1 with justify-content in DOM and advanced to level 2 in 84 ms with game state persisted to localStorage across 12 Google analytics requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望通过趣味闯关游戏掌握现代 CSS Flexbox 弹性盒模型布局的前端初学者与工程师",
+      "pros": [
+        "完全无需注册或登录，打开页面即可直接在编辑器中键入 CSS 并获得青蛙跳跃的实时视觉反馈",
+        "包含 24 个阶梯式设计的关卡，系统涵盖 justify-content、align-items、order 等核心属性",
+        "所有通关进度与答案均自动保存在浏览器本地 localStorage 中，刷新不丢失"
+      ],
+      "cons": [
+        "页面侧边栏下方嵌入了 Google AdSense 广告横幅",
+        "未登录 Codepip 账号时无法一键导出学习证书或跨设备同步进度"
+      ],
+      "privacyVerdict": "游戏逻辑与代码执行完全由浏览器 DOM 与本地 CSS 引擎渲染，答案及关卡记录在 localStorage 中；外发网络请求仅限 Google Analytics 及 AdSense 广告许可脚本。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 84 ms 内完成 Level 1 弹性盒布局样式解析并成功驱动青蛙跳入荷叶，通关记录即时存入 localStorage，外发 12 次谷歌分析与广告网络载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "cssgridgarden-com": {
+    "en": {
+      "bestFor": "Web developers, front-end designers, and coding students mastering CSS Grid layout through playful garden-watering visual puzzles",
+      "pros": [
+        "Zero login or account requirement with instant interactive feedback as CSS grid rules are typed",
+        "28 structured levels comprehensively covering grid-column, grid-row, grid-area, and fractional units",
+        "Completely ad-free learning interface with progress persisted locally in browser localStorage"
+      ],
+      "cons": [
+        "Lacks exportable certificates or JSON completion state without creating a Codepip account",
+        "Transmits Google Analytics telemetry payloads during lesson progression"
+      ],
+      "privacyVerdict": "All CSS code evaluation and game progression execute strictly inside the client DOM with state saved in localStorage; observed 6 Google Analytics telemetry requests with zero third-party ad networks.",
+      "alternativeTo": [
+        "Flexbox Froggy",
+        "CSS Grid Attack",
+        "Grid Critters"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Solved level 1 with grid-column-start in DOM, watered garden carrots, and advanced to level 2 in 81 ms with 6 Google Analytics telemetry requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望通过趣味浇水拔草闯关游戏系统掌握现代 CSS Grid 二维网格布局的前端工程师与学习者",
+      "pros": [
+        "完全无需登录或注册账号，在左侧键入 CSS 即可即时在 5x5 网格花园中看到浇灌视觉反馈",
+        "包含 28 个渐进式关卡，全面覆盖 grid-column、grid-row、grid-area 以及 fr 弹性网格划分",
+        "页面彻底无商业广告弹窗，所有通关进度与编写的属性自动保存在本地 localStorage 中"
+      ],
+      "cons": [
+        "未注册 Codepip 账号时无法跨设备同步答题记录或导出通关证书",
+        "在做题过程中会向 Google Analytics 发送浏览与关卡完成遥测"
+      ],
+      "privacyVerdict": "关卡判断与 CSS 网格样式实时渲染完全在浏览器本地 DOM 执行，答题状态仅保存在 localStorage 中；除 6 次向 Google Analytics 发送的匿名页面指标外无第三方商业广告追踪。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 91
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 81 ms 内完成 Level 1 grid-column-start 样式解析并成功浇灌胡萝卜地块进入第二关，捕获 6 次谷歌分析遥测载荷且主线程 0 顿挫。",
+      "testedAt": "2026-09"
+    }
+  },
+  "numbeo-com": {
+    "en": {
+      "bestFor": "Expatriates, researchers, and remote workers researching global cost of living benchmarks from a direct residential home internet connection",
+      "pros": [
+        "World's largest crowdsourced cost of living and quality of life database covering over 12,858 global cities",
+        "Detailed categorical breakdown across groceries, rent, restaurant prices, transportation, and local purchasing power"
+      ],
+      "cons": [
+        "Strictly blocks VPN, proxy, and datacenter IP addresses with an 'Access Forbidden' wall demanding a paid business plan",
+        "Bulk raw data exports and programmatic API integrations are locked behind enterprise commercial licensing"
+      ],
+      "privacyVerdict": "Enforces strict ASN and IP reputation gatekeeping that blocks privacy-enhancing VPNs and proxies; free browsing does not require login but requires browsing without anonymity networks.",
+      "alternativeTo": [
+        "Expatistan",
+        "Nomad List",
+        "Teleport"
+      ],
+      "productScore": {
+        "frictionless": 10,
+        "depth": 20,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 68
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Encountered HTTP 403 Access Forbidden block wall with 0 requests and 69 ms latency when accessing city cost-of-living data via datacenter IP network.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "仅在家庭固定宽带直连环境下，需要对比全球城市生活成本、租金物价与购买力指标的外派人员与数字游民",
+      "pros": [
+        "全球规模最大的众包生活成本数据库，收录超过 12,858 个城市的 990 万条价格指标",
+        "按食品杂货、房租均价、交通、外出就餐等细分门类提供直观的对比与购买力指数"
+      ],
+      "cons": [
+        "对 VPN、数据中心与代理 IP 实施严格封锁，直接展示 'Access Forbidden' 拦截页并要求购买商业套餐",
+        "批量原始数据导出与 REST API 均被锁定在昂贵的企业商业授权后"
+      ],
+      "privacyVerdict": "服务端实施激进的 ASN 与 IP 信誉拦截策略，强制要求用户关闭保护隐私的 VPN 或代理节点；匿名访问本身无需注册，但剥夺了网络层面的隐私防护。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 10,
+        "depth": 20,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 68
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "使用数据中心网络在 69 ms 内访问城市生活成本时触发 HTTP 403 Access Forbidden 拦截页，阻断后续 0 请求载荷并提示关闭 VPN。",
+      "testedAt": "2026-09"
+    }
+  },
+  "godbolt-org": {
+    "en": {
+      "bestFor": "Systems engineers, compiler developers, performance optimizers, and students inspecting real-time assembly code generated across hundreds of compilers and architectures",
+      "pros": [
+        "Supports hundreds of compilers across dozens of languages including C++, Rust, Go, Zig, and Swift for x86, ARM, and RISC-V targets",
+        "Real-time reactive compilation with synchronized visual line mapping between high-level source and low-level assembly instructions",
+        "Exemplary privacy posture with zero third-party telemetry, transparent source retention policies, and complete open-source self-hostability"
+      ],
+      "cons": [
+        "Steep learning curve for developers unfamiliar with assembly mnemonics or compiler optimization flags"
+      ],
+      "privacyVerdict": "Source code transmits solely to first-party godbolt.org backend runners for transient compilation and is purged within minutes; zero third-party telemetry trackers or ad networks contacted.",
+      "alternativeTo": [
+        "Quick-Bench",
+        "CppInsights",
+        "Godbolt Offline"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 100
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Compiled C++ square function with -O3 flag in 984 ms, filtering 206 lines down to 3 assembly instructions with zero external data egress beyond 2 godbolt.org compilation calls.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要实时观察 C++、Rust、Go 等高级语言在不同编译器与架构下生成汇编指令的系统级底层开发者与性能调优工程师",
+      "pros": [
+        "支持 C++、Rust、Go、Zig 等数十种编程语言，涵盖 x86-64、ARM、RISC-V 等主流架构上百款历史与最新编译器版本",
+        "具备高亮联动的实时编译映射，源码修改与汇编指令对应行实现毫秒级响应",
+        "极为严谨透明的隐私政策，编译后源码数分钟内自动彻底销毁，全站完全无第三方商业追踪器"
+      ],
+      "cons": [
+        "功能面板极其丰富（含 AST、CFG 流程图、反汇编对比），对汇编与编译优化不熟悉的新手具有一定认知门槛"
+      ],
+      "privacyVerdict": "用户源码仅通过 HTTPS 提交至官方 godbolt.org 编译集群并在执行完成后即刻从临时目录清理；全程未请求任何第三方遥测或商业广告节点，纯粹由赞助与开源社区支持。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 100
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 984 ms 内完成 C++ 源码在 -O3 优化级别下的 x86-64 编译，精准过滤 206 行汇编并收敛至 3 条指令，全过程仅向官方发起 2 次请求且无外部数据外流。",
+      "testedAt": "2026-09"
+    }
   }
 }
