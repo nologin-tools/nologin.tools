@@ -7986,5 +7986,247 @@
       "benchmarkNotes": "自动化测试时捕获到 Cloudflare Managed Challenge（Ray ID a3de7f686f5723c1）人机安全验证页，并记录发往 /cdn-cgi/challenge-platform 的数据包。普通访客可免登录使用基础检索、信源引用与一键文本复制。",
       "testedAt": "2026-09"
     }
+  },
+  "z-ai": {
+    "en": {
+      "bestFor": "Users who already possess a registered Zhipu AI account and are willing to authenticate via SMS phone verification",
+      "pros": [
+        "Supports modern GLM-5.3-Flash and GLM-4.7 conversational models with code generation and deep thinking presets",
+        "Web interface features pre-configured prompt templates for landing pages, educational lesson plans, and 3D modeling"
+      ],
+      "cons": [
+        "Enforces a mandatory SMS phone number login modal blocking all conversational input and model responses",
+        "Dispatches 91 network payloads including Google Analytics, DoubleClick, and Reddit advertising tracking beacons",
+        "Auto-redirects unauthenticated sessions to a dedicated mobile phone verification wall"
+      ],
+      "privacyVerdict": "Transmits 91 network payloads across Google Analytics, DoubleClick, and Reddit tracking endpoints; conversational access is strictly gated behind mandatory phone identity verification with no client-side anonymous session mode.",
+      "alternativeTo": [
+        "chatgpt-com",
+        "perplexity-ai",
+        "huggingchat"
+      ],
+      "productScore": {
+        "frictionless": 5,
+        "depth": 6,
+        "exportFreedom": 5,
+        "privacy": 5,
+        "polish": 8,
+        "overall": 29
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Observed 91 outgoing telemetry payloads, 172ms main thread freeze, and immediate gating behind a phone SMS login wall.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "已拥有智谱 AI 账号并愿意通过手机短信验证码完成实名登录的用户",
+      "pros": [
+        "搭载最新的 GLM-5.3-Flash 与 GLM-4.7 大语言模型，提供代码生成与深度思考预设",
+        "界面预置落地页设计、科普教案及 3D 建模等分类提示词模板"
+      ],
+      "cons": [
+        "强制弹出登录遮罩要求手机号短信验证码，完全拦截免登录对话交互",
+        "后台产生 91 个网络遥测请求，包括 Google Analytics、DoubleClick 以及 Reddit 广告追踪像素",
+        "未登录状态下会自动重定向至手机验证码登录页面"
+      ],
+      "privacyVerdict": "运行时向 Google Analytics、DoubleClick 及 Reddit 追踪端点发送 91 次网络载荷；对话功能被强制手机号实名验证阻断，不提供匿名本地交互模式。",
+      "alternativeTo": [
+        "chatgpt-com",
+        "perplexity-ai",
+        "huggingchat"
+      ],
+      "productScore": {
+        "frictionless": 5,
+        "depth": 6,
+        "exportFreedom": 5,
+        "privacy": 5,
+        "polish": 8,
+        "overall": 29
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "记录到 91 次网络遥测载荷，主线程最大延迟 172ms，且对话交互被手机短信验证码强行拦截。",
+      "testedAt": "2026-09"
+    }
+  },
+  "deepl-com-translator": {
+    "en": {
+      "bestFor": "Writers, translators, and researchers needing high-accuracy multilingual machine translation for short text snippets without registering an account",
+      "pros": [
+        "Delivers natural multilingual neural translations across 30+ languages with automatic source language detection",
+        "Provides quick one-click clipboard copying for both source and translated results alongside audio pronunciation playback"
+      ],
+      "cons": [
+        "Free web requests transmit input text to DeepL cloud clusters where data may be retained for model training under standard terms",
+        "Generated 32 network payloads during active use including telemetry endpoints at s.deepl.com and Usercentrics consent APIs",
+        "Frequent translation requests can trigger an interaction-only Cloudflare Shield verification challenge"
+      ],
+      "privacyVerdict": "Transmits 32 network payloads across DeepL translation endpoints (ita-free.www.deepl.com), telemetry services (s.deepl.com), and Usercentrics; free-tier submissions are processed server-side rather than locally.",
+      "alternativeTo": [
+        "google-translate",
+        "bing-translator",
+        "lingva-translate"
+      ],
+      "productScore": {
+        "frictionless": 16,
+        "depth": 21,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14,
+        "overall": 79
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Measured 32 outgoing network payloads, 143ms max task delay with 0.06 CLS, and swift neural German output from an English paragraph.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册翻译短篇多语言文本、追求高译文质量与流畅度的文案工作者及研究人员",
+      "pros": [
+        "支持 30 多种语言的高质量神经网络翻译，具备源语言自动检测功能",
+        "提供针对原文与译文的一键剪贴板复制按钮及语音朗读播放"
+      ],
+      "cons": [
+        "免费网页版会将输入文本传输至 DeepL 云端集群处理，且根据使用条款数据可能用于模型训练",
+        "会话期间产生 32 次网络请求，涉及 s.deepl.com 遥测端点与 Usercentrics 用户授权接口",
+        "高频翻译或特殊网络环境下会弹出 Cloudflare 验证滑块拦截操作"
+      ],
+      "privacyVerdict": "运行时向 DeepL 翻译接口 (ita-free.www.deepl.com)、遥测服务 (s.deepl.com) 及 Usercentrics 发送 32 次网络载荷；免费版文本完全由云端服务器解析处理，非本地离线运行。",
+      "alternativeTo": [
+        "google-translate",
+        "bing-translator",
+        "lingva-translate"
+      ],
+      "productScore": {
+        "frictionless": 16,
+        "depth": 21,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14,
+        "overall": 79
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "记录到 32 次网络载荷，主线程最大延迟 143ms，CLS 0.06，能够迅速将英文段落准确翻译为流畅德语。",
+      "testedAt": "2026-09"
+    }
+  },
+  "quillbot-com": {
+    "en": {
+      "bestFor": "Users with an existing QuillBot account or those willing to create one through third-party SSO to access multi-mode AI rewriting",
+      "pros": [
+        "Displays multiple rewriting modes including Standard, Fluency, Formal, Academic, and Creative alongside an interactive synonym adjustment slider",
+        "Integrates sample text loaders and multi-language grammar detection presets across the web interface"
+      ],
+      "cons": [
+        "Triggers an unavoidable signup modal upon clicking Paraphrase, blocking unauthenticated text rewriting",
+        "Dispatches 74 telemetry and advertising payloads including Microsoft Clarity session recording, Meta Pixel, Amplitude, and LinkedIn tracking",
+        "Output pane remains blank without completing account registration"
+      ],
+      "privacyVerdict": "Transmits 74 network payloads across commercial surveillance services including Microsoft Clarity, Meta Pixel, Amplitude, DoubleClick, and Customer.io; core rewriting features are gated behind mandatory account registration.",
+      "alternativeTo": [
+        "wordtune",
+        "deepl-com-translator",
+        "languagetool"
+      ],
+      "productScore": {
+        "frictionless": 5,
+        "depth": 6,
+        "exportFreedom": 5,
+        "privacy": 4,
+        "polish": 8,
+        "overall": 28
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Recorded 74 network tracking payloads, 258ms main thread freeze, and a mandatory signup gate on text paraphrase attempts.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "已持有 QuillBot 账户或愿意使用第三方单点登录注册以使用多模式 AI 改写功能的用户",
+      "pros": [
+        "界面呈现标准、流畅、正式、学术及创意等多种改写模式，并配合同义词替换强度滑块",
+        "提供范例文字一键填入以及多语言语法检测预设"
+      ],
+      "cons": [
+        "点击改写按钮立即弹出强制注册遮罩，完全阻断免登录改写操作",
+        "后台产生高达 74 次网络追踪载荷，涵盖 Microsoft Clarity 屏幕录制、Meta Pixel、Amplitude 以及 LinkedIn 广告像素",
+        "未完成注册登录前右侧输出区域保持空白"
+      ],
+      "privacyVerdict": "运行时向 Microsoft Clarity、Meta Pixel、Amplitude、DoubleClick 及 Customer.io 发送多达 74 次遥测载荷；核心改写功能被强制注册遮罩拦截，未提供匿名本地运行能力。",
+      "alternativeTo": [
+        "wordtune",
+        "deepl-com-translator",
+        "languagetool"
+      ],
+      "productScore": {
+        "frictionless": 5,
+        "depth": 6,
+        "exportFreedom": 5,
+        "privacy": 4,
+        "polish": 8,
+        "overall": 28
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "记录到 74 次广告与用户行为追踪载荷，主线程最大延迟 258ms，点击改写文本时触发强制注册弹窗。",
+      "testedAt": "2026-09"
+    }
+  },
+  "craiyon-com": {
+    "en": {
+      "bestFor": "Users seeking quick, unauthenticated 9-image grid generation from text prompts who can tolerate slower generation times and display advertisements",
+      "pros": [
+        "Generates a 3x3 grid of nine distinct image variations simultaneously from a single text prompt",
+        "Offers Art, Drawing, Photo, and None style presets with optional negative prompt filters without requiring an account",
+        "Permits direct download of individual generated images or screenshot capture"
+      ],
+      "cons": [
+        "Enforces Cloudflare Managed Challenge Turnstile verification which can intercept automated or restricted network connections",
+        "Free generation queue requires 60 to 90 seconds per prompt with prominent banner advertisements",
+        "Output images include a watermarked Craiyon badge in the bottom corner; high-resolution upscaling requires a paid plan"
+      ],
+      "privacyVerdict": "Server-side image generation egress observed; text prompts, IP addresses, and device security tokens are transmitted to Craiyon cloud clusters and Cloudflare verification endpoints (/cdn-cgi/challenge-platform).",
+      "alternativeTo": [
+        "bing-image-creator",
+        "pollinations-ai",
+        "huggingface-spaces"
+      ],
+      "productScore": {
+        "frictionless": 11,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 9,
+        "polish": 11,
+        "overall": 63
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Captured Cloudflare Managed Challenge (Ray ID a3de9a050ccff7b5) with challenge-platform POST payload, 107ms main thread freeze, and unauthenticated 9-image generation capability.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册根据文本提示词一次性生成 9 张概念草图、能接受较长排队等待及页面展示广告的用户",
+      "pros": [
+        "单次输入文本提示词可同时生成 9 张不同构图的图片宫格矩阵",
+        "免登录提供艺术、手绘、照片等风格切换，并支持反向提示词过滤",
+        "允许用户直接保存单张生成图片或截图导出"
+      ],
+      "cons": [
+        "前端部署了 Cloudflare 托管人机验证，特定网络环境下容易触发验证拦截",
+        "免费生成队列每次需等待 60 至 90 秒，且页面伴随大量商业展示广告",
+        "免费版输出图片右下角带有水印标识，高分辨率放大功能需要付费订阅"
+      ],
+      "privacyVerdict": "观测到服务端图像生成数据外发：输入的提示词、IP 地址与设备安全标识均上传至 Craiyon 云端 GPU 集群及 Cloudflare 安全端点（/cdn-cgi/challenge-platform），免费层级附带第三方广告追踪。",
+      "alternativeTo": [
+        "bing-image-creator",
+        "pollinations-ai",
+        "huggingface-spaces"
+      ],
+      "productScore": {
+        "frictionless": 11,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 9,
+        "polish": 11,
+        "overall": 63
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "捕获到 Cloudflare 托管验证页面（Ray ID a3de9a050ccff7b5）及 challenge-platform 遥测载荷，主线程最大延迟 107ms，提供免登录 9 宫格图像生成。",
+      "testedAt": "2026-09"
+    }
   }
 }
