@@ -15660,5 +15660,261 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。DOM 表面分析确认多图层画布元素（canvas, svg.canvas）、图层属性控制器（.text-input-large）及字体选择器。通过'Download'按钮唤起导出面板并配置双格式打包，触发'Download package'。成功拦截并验证 560,938 字节无水印、无诱导陷阱的 ZIP 压缩包，内含 1024x1024 PNG 与矢量 SVG 文件。运行时遥测记录 0ms 主线程卡顿、0.00 CLS，仅捕获 1 次 /cdn-cgi/rum? 性能监控上报。",
       "testedAt": "2026-09"
     }
+  },
+  "tryink-me": {
+    "en": {
+      "bestFor": "Users wanting to visualize tattoo placement, sizing, and orientation on body photos before getting inked, without creating an account.",
+      "pros": [
+        "Dedicated no-login studio mode accessible via 'Try without account' with zero required registration",
+        "Interactive dual-photo overlay canvas with real-time drag, rotation, and corner resize controls",
+        "Preloaded starter tattoo categories (Minimalist, Japanese, Geometric, Blackwork, Watercolor)",
+        "Clean visual workflow indicator tracking asset upload and canvas readiness stages"
+      ],
+      "cons": [
+        "Backend AI blending API (api.tryink.me) currently suffers from Cloudflare 1033 tunnel error resulting in 'Failed to fetch' on server render",
+        "Photo assets trigger POST payloads to remote backend rather than executing pure client-side WebGL blending",
+        "Cloudflare RUM telemetry beacon active during studio session"
+      ],
+      "privacyVerdict": "Observed 4 outgoing network requests including 1 Cloudflare RUM POST (/cdn-cgi/rum?) and 3 asset/render API POST calls to https://api.tryink.me/; photo and design assets are transmitted to remote backend servers rather than processed entirely on-device.",
+      "alternativeTo": [
+        "Inkhunter",
+        "Tattoo You",
+        "Photoshop",
+        "Canva"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 16,
+        "depth": 16,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding conducted in ego-browser Chromium. Inspected studio surface discovering dual file inputs #tattoo-file and #body-file. Injected sample.png (324.8 KB) into #tattoo-file, bypassed Google auth modal via 'Try without account', and mounted body photo to #body-file. Successfully rendered interactive placement canvas with drag handles. Triggered 'Generate preview' calling https://api.tryink.me/api/v1/previews/render, which failed with 'Failed to fetch' due to upstream Cloudflare Error 1033 (Argo Tunnel down). Captured 332,574-byte 800x600 unwatermarked PNG canvas artifact.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望在文身前无需注册即可将文身设计稿叠加在身体照片上预览位置、尺寸与旋转角度的用户。",
+      "pros": [
+        "提供免注册体验模式（'Try without account'），无需账户即可进入工作台",
+        "交互式双图叠加画布，支持实时拖拽、角度旋转与四角缩放定位",
+        "内置多种风格预设刺青样例（极简线条、日式、几何、黑灰、水彩等）",
+        "直观的流程进度状态栏，清晰展示图样上传、身体照片及画布就绪阶段"
+      ],
+      "cons": [
+        "后端 AI 融合接口（api.tryink.me）当前出现 Cloudflare 1033 隧道错误，导致服务端渲染提示'Failed to fetch'",
+        "上传的照片会向远端接口发送 POST 请求，而非完全基于本地 WebGL 进行皮肤曲面融合",
+        "工作台会话期间存在 Cloudflare RUM 性能遥测上报"
+      ],
+      "privacyVerdict": "运行时监测到 4 次出站网络请求，包含 1 次 Cloudflare RUM POST（/cdn-cgi/rum?）以及 3 次向 https://api.tryink.me/ 发起的资产与渲染 POST 请求；照片与文身图案均发送至远端服务器处理，并非纯本地端侧计算。",
+      "alternativeTo": [
+        "Inkhunter",
+        "Tattoo You",
+        "Photoshop",
+        "Canva"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 16,
+        "depth": 16,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。检测到双文件输入框 #tattoo-file 与 #body-file。向 #tattoo-file 注入 324.8 KB 的 sample.png，点击 'Try without account' 绕过 Google 登录弹窗，并向 #body-file 挂载人体背景图。交互式定位画布顺利呈现并支持拖拽调整。点击 'Generate preview' 触发向 https://api.tryink.me/api/v1/previews/render 的调用，因上游 Cloudflare 1033 隧道错误返回 'Failed to fetch'。成功拦截并验证 332,574 字节 800x600 无水印 PNG 画布快照。",
+      "testedAt": "2026-09"
+    }
+  },
+  "diagrflow-com": {
+    "en": {
+      "bestFor": "Medical researchers, systematic reviewers, and meta-analysts needing to generate publication-ready, compliant PRISMA 2020 flow diagrams directly from screening counts without login or watermarks.",
+      "pros": [
+        "Zero registration required with instantaneous browser-based PRISMA 2020 layout engine",
+        "Strict adherence to official PRISMA 2020 arithmetic and multi-database breakdown structures",
+        "Direct unwatermarked export to publication-grade vector SVG (8 KB) and high-resolution PNG",
+        "Prebuilt academic archetypes including T2D trials, automation tools, and other methods workflows"
+      ],
+      "cons": [
+        "Cloudflare RUM telemetry beacon observed at runtime",
+        "Specialized exclusively for PRISMA flowcharts rather than general-purpose diagramming"
+      ],
+      "privacyVerdict": "Observed 1 Cloudflare RUM telemetry POST beacon (/cdn-cgi/rum?) for performance metrics; all study counts, database metrics, screening numbers, and vector SVG structures remain strictly inside local browser memory with zero research data egress.",
+      "alternativeTo": [
+        "PRISMA Flow Diagram Generator",
+        "Review Manager (RevMan)",
+        "Draw.io",
+        "BioRender"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to editor via 'Open this figure', switched to 'Automation' topology preset, and inspected live reactive SVG re-rendering across 4,100 database records and 980 duplicate exclusions. Triggered 'Download SVG' export, successfully capturing an unwatermarked 8,076-byte 760x786 vector SVG manuscript figure with zero bait traps. Runtime telemetry captured 0ms long tasks, 0.00 CLS, and exactly 1 /cdn-cgi/rum? performance beacon.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、无水印直接根据文献筛选计数生成符合学术出版标准的 PRISMA 2020 流程图的医学研究者、系统评价与 Meta 分析学者。",
+      "pros": [
+        "零注册门槛，即开即用、基于浏览器的 PRISMA 2020 矢量流程图引擎",
+        "严格遵循官方 PRISMA 2020 统计平衡逻辑与多数据库拆分规范",
+        "直接导出期刊出版级无水印矢量 SVG（约 8 KB）与高清 PNG 图像",
+        "内置多种经典学术范式，包括临床试验、自动化工具筛查及其他搜索方法流程"
+      ],
+      "cons": [
+        "运行时存在 1 次 Cloudflare RUM 性能遥测上报",
+        "功能专精于 PRISMA 系统评价流程图，不适用于通用型流程图绘制"
+      ],
+      "privacyVerdict": "运行时监测到 1 次用于性能分析的 Cloudflare RUM 遥测 POST 请求（/cdn-cgi/rum?）；所有文献检索计数、数据库分项数据及矢量 SVG 结构均在本地浏览器内存中计算，无任何科研数据外传。",
+      "alternativeTo": [
+        "PRISMA Flow Diagram Generator",
+        "Review Manager (RevMan)",
+        "Draw.io",
+        "BioRender"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。通过'Open this figure'进入编辑器，切换至'Automation'拓扑预设，验证 4,100 条数据库记录与 980 条重复项排除的实时响应式 SVG 重绘。触发'Download SVG'导出，成功获取 8,076 字节 760x786 期刊标准无水印矢量 SVG 文件，无诱导陷阱。运行时遥测记录 0ms 主线程卡顿、0.00 CLS，仅捕获 1 次 /cdn-cgi/rum? 性能监控上报。",
+      "testedAt": "2026-09"
+    }
+  },
+  "studycalcpro-com": {
+    "en": {
+      "bestFor": "Students, high schoolers, and undergraduates needing instant GPA calculations, final grade targets, and study scheduling utilities without sign-up or paywalls.",
+      "pros": [
+        "Zero registration required with 18+ dedicated client-side student calculators and study tools",
+        "Dynamic GPA calculation on standard 4.0 scale supporting custom course rows and variable credit hours",
+        "Comprehensive academic suite including final grade, test score, essay word counter, and Pomodoro timers",
+        "Lightweight vanilla JavaScript architecture delivering instantaneous local calculations"
+      ],
+      "cons": [
+        "Third-party behavioral tracking via Microsoft Clarity (e.clarity.ms/collect) and Google AdSense ad scripts",
+        "Lacks structured export formats such as downloadable PDF report cards or CSV grade logs"
+      ],
+      "privacyVerdict": "Observed 13 Microsoft Clarity telemetry requests (https://e.clarity.ms/collect) and third-party ad scripts; student course titles, grades, and credit hours are processed exclusively in client-side memory with zero academic data egress to proprietary servers.",
+      "alternativeTo": [
+        "Calculator.net GPA Calculator",
+        "RapidTables GPA",
+        "RogerHub Final Grade Calculator"
+      ],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated from home hub into GPA Calculator module (#app, tools/gpa), added course rows via #addRow, and configured Grade B (3.0 points) with 3 credits alongside baseline 4.0 grade. Reactively updated GPA display to 3.50 across 6 total credits with 0ms long-task latency and 0.01 CLS. Intercepted 28-character clean clipboard export. Runtime network audit captured 13 Clarity analytics beacons and third-party ad tags with zero academic data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、零付费快速测算学期绩点 GPA、期末目标成绩以及规划复习进度的中学生与高校大学生。",
+      "pros": [
+        "零门槛免登录，内置超过 18 款纯客户端学术计算与学习辅助工具",
+        "基于标准 4.0 体系的动态 GPA 绩点测算，支持增删课程行与自定义学分权重",
+        "覆盖期末目标成绩推算、考试倒计时、论文词数统计与番茄钟专注计时器",
+        "极轻量原生 JavaScript 架构，所有公式即改即算、无延迟本地呈现"
+      ],
+      "cons": [
+        "存在 Microsoft Clarity（e.clarity.ms/collect）行为监测及 Google AdSense 广告脚本",
+        "缺少结构化导出功能，暂不支持一键生成 PDF 成绩单或导出 CSV 历史记录"
+      ],
+      "privacyVerdict": "运行时监测到 13 次向 Microsoft Clarity（https://e.clarity.ms/collect）发起的行为遥测请求及第三方广告脚本；用户输入的课程名称、成绩等级与学分权重完全在客户端内存中完成计算，无任何学业数据上传至专属服务器。",
+      "alternativeTo": [
+        "Calculator.net GPA Calculator",
+        "RapidTables GPA",
+        "RogerHub Final Grade Calculator"
+      ],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。从主页路由进入 GPA 计算器模块（#app, tools/gpa），通过 #addRow 增加课程条目，配置 3 学分 B 等级（3.0 绩点）与基础 4.0 成绩。GPA 实时计算精准输出为 6 学分 3.50 绩点，主线程延迟 0ms，CLS 仅 0.01。成功拦截并验证 28 字符无诱导陷阱的剪贴板纯文本导出。网络审计捕获 13 次 Clarity 分析探针与广告脚本，无任何学业数据外传。",
+      "testedAt": "2026-09"
+    }
+  },
+  "chordgen-app": {
+    "en": {
+      "bestFor": "Songwriters, producers, and composers seeking instant, musically coherent chord progressions with audio auditioning and direct MIDI export to DAWs without accounts or trackers.",
+      "pros": [
+        "Completely client-side music engine with zero network payloads, zero analytics, and zero cookies",
+        "Generates harmonically sound progressions with Roman numeral analysis, note spellings, and adjustable beat lengths",
+        "Direct export to unwatermarked standard binary MIDI (.mid) files compatible with Ableton, Logic, and FL Studio",
+        "Interactive Web Audio preview with variable tempo BPM slider, chord locking, and instant clipboard copying"
+      ],
+      "cons": [
+        "Advanced AI Composer mode requires optional third-party API key for natural-language generation",
+        "Session progression state resets on hard refresh unless exported to MIDI or copied"
+      ],
+      "privacyVerdict": "Zero network payloads observed during session; chord generation, Web Audio synthesis, and 229-byte binary MIDI packaging execute entirely inside local browser memory with complete data sovereignty.",
+      "alternativeTo": [
+        "Hooktheory Hookpad",
+        "ChordChord",
+        "Autochords",
+        "Scalers"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding conducted in ego-browser Chromium. Initialized studio surface with 0ms long tasks and 0.00 CLS. Executed 'Randomize' action generating a 4-chord E Minor Blues progression (B7-A7-E7-E7 at 102 BPM). Triggered 'Export MIDI' which generated and downloaded a 229-byte Standard MIDI File (MThd/MTrk chunks) with zero bait traps. Triggered 'Copy chords' capturing 11-character string 'B7 A7 E7 E7' via navigator.clipboard.writeText. Runtime network inspector verified exactly 0 outgoing payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "寻求免注册、零追踪即刻生成符合乐理的和弦进行，并直接导出标准 MIDI 文件至 DAW 工作站的音乐制作人、词曲作者与作曲家。",
+      "pros": [
+        "完全纯本地端侧音乐引擎，运行时零网络出站、零数据分析探针且无 Cookie 追踪",
+        "生成符合严谨乐理的和弦进行，提供罗马数字级数分析、各和弦音高构成与拍数细调",
+        "直接导出完全无水印的标准二进制 MIDI（.mid）文件，无缝导入 Ableton、Logic、FL Studio",
+        "交互式 Web Audio 实时试听，支持 BPM 节拍微调、单和弦锁定锁定与一键剪贴板复制"
+      ],
+      "cons": [
+        "高级 AI 作曲助理模式需自备第三方 API 密钥以进行自然语言生成",
+        "若未导出 MIDI 或复制和弦，硬刷新页面会重置当前的工程和弦进行"
+      ],
+      "privacyVerdict": "评测全周期未监测到任何网络出站载荷；和弦算法计算、Web Audio 音频合成及 229 字节二进制 MIDI 打包均在本地浏览器内存中完成，具备最高级别的数据自主权。",
+      "alternativeTo": [
+        "Hooktheory Hookpad",
+        "ChordChord",
+        "Autochords",
+        "Scalers"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。初始化工作台录得 0ms 主线程卡顿与 0.00 CLS。执行 'Randomize' 操作生成 102 BPM 的 E 小调蓝调 4 和弦进行（B7-A7-E7-E7）。触发 'Export MIDI' 成功生成并下载 229 字节的标准二进制 MIDI 文件（验证 MThd 与 MTrk 魔法字节），无任何诱导陷阱。触发 'Copy chords' 通过 navigator.clipboard.writeText 成功捕获 11 字符和弦文本。网络审计验证运行时出站请求严格为 0。",
+      "testedAt": "2026-09"
+    }
   }
 }
