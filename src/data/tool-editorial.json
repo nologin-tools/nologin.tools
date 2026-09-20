@@ -7704,5 +7704,287 @@
       "benchmarkNotes": "在文件选择区上传 sample.png 测试素材。浏览器通过 WebCrypto API 完成本地加密并通过 WebSocket 协调将密文分块推向 Backblaze B2 节点，成功将包含 50 字符哈希密钥的分享链接写入剪贴板。",
       "testedAt": "2026-09"
     }
+  },
+  "ficalc-app": {
+    "en": {
+      "bestFor": "Backtesting financial independence and retirement withdrawal strategies against comprehensive historical market data without registering an account.",
+      "pros": [
+        "Evaluates retirement plans across 125+ historical market cohorts directly in browser memory without server-side processing",
+        "Extensive support for advanced withdrawal strategies including Guyton-Klinger, Variable Percentage (VPW), CAPE-based, and Constant Dollar",
+        "Granular portfolio allocation tuning across equities, fixed income, cash, rebalancing intervals, and inflation adjustments",
+        "Generates complete 368KB CSV export detailing year-by-year cash flows and residual portfolio values for every historical cohort"
+      ],
+      "cons": [
+        "Includes Google Analytics (G-PQ9DSLNL9K) and DoubleClick telemetry tracking scripts on page load",
+        "Interface focuses on US historical market datasets without native international asset index toggles"
+      ],
+      "privacyVerdict": "Local simulation verified. All portfolio calculations and financial modeling execute in client-side JavaScript; financial inputs are never dispatched to servers, while page telemetry is limited to Google Analytics.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% in-browser client calculation of portfolio simulations and Monte Carlo cohorts",
+            "Financial data and net worth figures never transmitted to remote backends",
+            "Contains standard Google Analytics and DoubleClick telemetry beacons (G-PQ9DSLNL9K)"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Updated portfolio input to 2,000,000; simulation recomputed across 125 historical periods within 98ms in local JavaScript. Exported complete 368,254-byte CSV with year-by-year cash flows with zero financial data egress to remote servers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在无需注册登录的情况下，基于真实历史市场数据回测财务自由（FIRE）与退休提取策略的生存概率。",
+      "pros": [
+        "在浏览器本地内存中并发回测超过125个历史周期，核心财务推演完全不依赖服务端计算",
+        "深度支持涵盖恒定金额、Guyton-Klinger 护栏、VPW 动态提领、基于 CAPE 的自适应提取等十余种策略",
+        "支持股票、债券、现金多资产组合比例设定、年度再平衡控制及额外收支流精细模拟",
+        "提供无水印的完整 368KB CSV 数据导出，包含所有历史周期的逐年现金流与期末资产明细"
+      ],
+      "cons": [
+        "页面加载时附带 Google Analytics (G-PQ9DSLNL9K) 与 DoubleClick 访问统计脚本",
+        "历史回测数据主要基于美国金融市场序列，未内置全球多国指数的一键切换"
+      ],
+      "privacyVerdict": "验证本地客户端计算架构。所有投资组合回测与财务金额推演均在前端 JavaScript 中运行，财务隐私数据绝不上传服务器，仅存在 Google Analytics 页面访问统计。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% in-browser client calculation of portfolio simulations and Monte Carlo cohorts",
+            "Financial data and net worth figures never transmitted to remote backends",
+            "Contains standard Google Analytics and DoubleClick telemetry beacons (G-PQ9DSLNL9K)"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测将资产配置修改为 2,000,000 后，前端在 98ms 内完成 125 个历史周期的重算并更新胜率卡片。触发 CSV 导出成功获取 368,254 字节的完整逐年财务明细，无财务数据外发。",
+      "testedAt": "2026-09"
+    }
+  },
+  "financier-io": {
+    "en": {
+      "bestFor": "Zero-based envelope budgeting and personal account ledger tracking with 100% offline privacy and no required account.",
+      "pros": [
+        "Offline-first zero-based envelope budgeting engine inspired by classic desktop financial software",
+        "Stores all ledgers, transactions, and categories locally in browser IndexedDB with zero cloud synchronization requirements",
+        "Native backup and restore tooling allowing full JSON database dumps and CSV spreadsheet exports",
+        "Zero third-party analytics, telemetry beacons, or advertising trackers embedded across the entire application"
+      ],
+      "cons": [
+        "Free offline mode relies solely on local browser storage; clearing browser cache without a manual backup will erase local budgets",
+        "Multi-device automatic cloud synchronization requires a separate optional paid account"
+      ],
+      "privacyVerdict": "Local IndexedDB storage verified. Budget data remains stored in browser IndexedDB; observed network egress was limited to the initial first-party navigation form GET to app.financier.io/create-budget with zero third-party telemetry.",
+      "alternativeTo": [
+        "YNAB",
+        "Actual Budget"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% offline-first architecture storing all budgets in local browser IndexedDB",
+            "Financial accounts and balances are stored on device without cloud transmission",
+            "Zero third-party analytics trackers, advertising beacons, or telemetry scripts"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Created local budget 'Household 2026' in IndexedDB under 84ms freeze. Verified multi-month zero-based budgeting grid and triggered budget options gear with local JSON backup and CSV export without any external network egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在无需注册任何账户的情况下，利用 100% 离线隐私架构进行零基信封式个人财务记账与预算规划。",
+      "pros": [
+        "完全离线优先的零基信封预算引擎，支持多账户流水记账与分类预算分配",
+        "所有收支明细与账本数据完全存储于本地浏览器 IndexedDB，不依赖任何云端服务器",
+        "内置完善的本地备份与恢复机制，支持导出完整 JSON 账本归档与 CSV 表格数据",
+        "全站零广告、零商业追踪信标与零遥测代码，提供纯净的个人财务隐私防护"
+      ],
+      "cons": [
+        "免费离线模式完全依赖本地浏览器存储，清理浏览器缓存若未提前备份将导致账本数据丢失",
+        "跨设备多端实时云同步功能需要选购付费订阅账户"
+      ],
+      "privacyVerdict": "验证本地 IndexedDB 存储。预算数据保存在浏览器本地数据库中，观察到的网络出站仅限首方页面导航请求（GET app.financier.io/create-budget），未发现任何第三方追踪或数据上传。",
+      "alternativeTo": [
+        "YNAB",
+        "Actual Budget"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% offline-first architecture storing all budgets in local browser IndexedDB",
+            "Financial accounts and balances are stored on device without cloud transmission",
+            "Zero third-party analytics trackers, advertising beacons, or telemetry scripts"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在浏览器中初始化 'Household 2026' 本地账本，主线程耗时仅 84ms 即可在 IndexedDB 完成构建。验证多月份信封预算分配矩阵，并通过设置齿轮触发 JSON 备份与 CSV 导出功能，零网络出站请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "chatgpt-com": {
+    "en": {
+      "bestFor": "Instant conversational reasoning, coding assistance, and text analysis without creating an OpenAI account.",
+      "pros": [
+        "Instant access to state-of-the-art GPT conversational intelligence without any signup or authentication gate",
+        "Handles complex analytical tasks including programming code generation, bug fixing, math, and JSON structuring",
+        "Clean Markdown output with code syntax highlighting and one-click clipboard copying for code blocks and responses",
+        "High-throughput token streaming with low initial response latency"
+      ],
+      "cons": [
+        "All conversational inputs are dispatched to remote servers and may be used for model training by default",
+        "Anonymous free tier now injects sponsored advertisement cards below responses and lacks persistent chat history",
+        "Advanced multimodal features like image generation, file attachments, and Deep Research require logging in"
+      ],
+      "privacyVerdict": "Telemetry and cloud payload egress observed. All prompt text is transmitted to OpenAI servers via /unauth-mweb/conversation alongside sentinel anti-bot fingerprinting and sponsored ad attribution payloads.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 16,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 9,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "All conversation inputs are transmitted to OpenAI cloud servers for remote AI model inference",
+            "Anonymous inputs are subject to model training and human safety review per default terms",
+            "Includes unauth sentinel bot detection, event telemetry, and sponsored contextual ad units"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Submitted JSON parsing prompt in anonymous mode; streamed response completed within 2 seconds. Observed 48 background network payloads to /unauth-mweb/conversation, sentinel ping, and sponsored ad card (Dash0) injected below response with copy trigger capturing 66 characters to clipboard.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在无需注册登录 OpenAI 账号的情况下，快速获取日常文本问答、代码辅助与数据解析推理。",
+      "pros": [
+        "完全无需注册或提供电子邮箱即可立即使用主流大模型进行多轮对话与问答",
+        "具备优秀的多语言理解、代码编写、Bug 排查、数学推导及结构化 JSON 解析能力",
+        "支持 Markdown 排版渲染与代码语法高亮，并提供一键复制单条回复至剪贴板功能",
+        "流式生成响应速度极快，首字等待延迟低"
+      ],
+      "cons": [
+        "所有对话内容均会上传至 OpenAI 远端服务器，默认可能被用于 AI 模型训练与人工抽样审核",
+        "免登录模式在生成回复下方会穿插赞助商商业推广卡片，且关闭浏览器后无法保留历史对话记录",
+        "高级多模态功能如图像生成、本地文件附件上传及深度研究均强制要求登录账号"
+      ],
+      "privacyVerdict": "存在大量数据回传与云端遥测：用户输入的文本通过 /unauth-mweb/conversation 接口上传至 OpenAI 云端服务器，伴随 Sentinel 反爬指纹采集与广告归因请求，输入内容默认受官方训练条款约束。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 16,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 9,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "All conversation inputs are transmitted to OpenAI cloud servers for remote AI model inference",
+            "Anonymous inputs are subject to model training and human safety review per default terms",
+            "Includes unauth sentinel bot detection, event telemetry, and sponsored contextual ad units"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在免登录访客模式下提交测试 JSON 数据解析提示词，模型在 2 秒内流式输出结构化要点。网络监视器捕获到发往 /unauth-mweb/conversation 等端点的 48 个请求，并在回答下方展示了 Dash0 赞助商卡片，复制按钮可成功提取 66 字符内容。",
+      "testedAt": "2026-09"
+    }
+  },
+  "perplexity-ai": {
+    "en": {
+      "bestFor": "Direct conversational web research with cited real-time sources without mandatory registration.",
+      "pros": [
+        "Synthesizes live web information into structured answers with numbered, clickable source citations",
+        "Permits immediate anonymous research queries without requiring account registration or payment",
+        "Generates relevant follow-up questions to explore topics in depth across multi-turn queries",
+        "Offers one-click answer copying and shareable web URLs for research findings"
+      ],
+      "cons": [
+        "Strict Cloudflare Turnstile anti-bot checks can interrupt access and trigger verification challenges",
+        "All search queries and research topics are transmitted to and retained on remote cloud servers",
+        "Advanced Pro Search, file uploads, and model selection require an authenticated account"
+      ],
+      "privacyVerdict": "Cloud search egress observed. Search queries and device telemetry are transmitted to Perplexity infrastructure and Cloudflare edge endpoints (/cdn-cgi/challenge-platform) for security verification and search synthesis.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 12,
+        "depth": 23,
+        "exportFreedom": 16,
+        "privacy": 9,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Search queries are processed and indexed on Perplexity cloud servers",
+            "Subject to Cloudflare edge security fingerprinting and IP reputation checks",
+            "Query logs are retained for service improvement and search index caching"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Encountered Cloudflare Managed Challenge (Ray ID a3de7f686f5723c1) requiring Turnstile verification with POST requests to /cdn-cgi/challenge-platform. Unauthenticated access provides basic AI web search with numbered citations and copy trigger.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在无需注册登录的情况下，获取附带真实网页来源引用的实时 AI 对话式搜索答案。",
+      "pros": [
+        "将全网实时检索结果整合为结构化回答，并提供清晰编号的原始网页引用信源",
+        "基础搜索模式对匿名访客开放，无需提供邮箱或绑定付款方式即可直接提问",
+        "每次回答后自动生成相关延伸问题，便于深入挖掘特定主题",
+        "支持一键将回答与引用源复制至剪贴板，并可生成公开分享链接"
+      ],
+      "cons": [
+        "部署了严格的 Cloudflare Turnstile 验证机制，自动化访问或特定网络环境下易触发人机验证",
+        "所有搜索关键词与对话内容均会上传至云端服务器并被留存用于服务优化",
+        "更高级的深度检索（Pro Search）、文档附件上传及自定义大模型切换均需登录账户"
+      ],
+      "privacyVerdict": "存在云端查询数据外发与安全遥测：搜索请求传输至 Perplexity 云端集群进行检索合成，并向 Cloudflare 边缘安全平台（/cdn-cgi/challenge-platform）回传设备指纹以完成人机安全验证。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 12,
+        "depth": 23,
+        "exportFreedom": 16,
+        "privacy": 9,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Search queries are processed and indexed on Perplexity cloud servers",
+            "Subject to Cloudflare edge security fingerprinting and IP reputation checks",
+            "Query logs are retained for service improvement and search index caching"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "自动化测试时捕获到 Cloudflare Managed Challenge（Ray ID a3de7f686f5723c1）人机安全验证页，并记录发往 /cdn-cgi/challenge-platform 的数据包。普通访客可免登录使用基础检索、信源引用与一键文本复制。",
+      "testedAt": "2026-09"
+    }
   }
 }
