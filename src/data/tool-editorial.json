@@ -15404,5 +15404,261 @@
       "benchmarkNotes": "通过 5 个 input DOM 节点捕获 212 字符剪贴板文本，长任务延迟为 0ms。测算 50 库存、10 日销、14 天到货周期与 3 天安全库存，即时渲染 5 天 REORDER 徽标、170 件补货点与 310 件建议订货量，记录到 5 次遥测负载。",
       "testedAt": "2026-09"
     }
+  },
+  "midiplayeronline-com": {
+    "en": {
+      "bestFor": "Musicians, students, and producers seeking a private, zero-install browser player to visualize and practice MIDI tracks on an interactive piano roll",
+      "pros": [
+        "Interactive canvas-based piano roll visualizer with zoom controls, track isolation, and note pitch grid",
+        "Built-in Web Audio synthesis engine with tempo adjustment, looping, and A-B section repeat for practice",
+        "Local file parsing decodes .mid files instantly in browser memory without external server upload",
+        "Includes pre-configured demo tracks and multi-sound profile options"
+      ],
+      "cons": [
+        "File re-export is not yet enabled; export button alerts that modified file export is planned for a future update",
+        "Transmits 1 Cloudflare RUM diagnostic request during page lifecycle"
+      ],
+      "privacyVerdict": "Dogfooding confirmed local MIDI decoding and Web Audio playback where audio and file contents remain on the user device; 1 Cloudflare RUM telemetry payload was observed.",
+      "alternativeTo": [
+        "OnlineSequencer",
+        "Soundslice",
+        "BandLab",
+        "MuseScore"
+      ],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 13,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 34-byte sample.mid binary fixture into input[type=\"file\"]; decoded Track 1 (Program 0) with 0ms long-task latency, zero CLS (0.00), and rendered note bar onto HTML5 canvas with active Web Audio playhead tracking. Captured 60-character clipboard buffer; observed 1 Cloudflare RUM telemetry payload.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中免安装解析、可视化并对照钢琴卷帘练习 MIDI 音乐文件的音乐人与学习者",
+      "pros": [
+        "基于 Canvas 的交互式钢琴卷帘可视化界面，支持缩放、分轨查看与精准音高网格",
+        "内置 Web Audio 合成器引擎，支持无级变速、循环播放与 A-B 选段精练",
+        "完全在浏览器内存中解析 .mid 文件，音乐数据无需上传到外部服务器",
+        "预置经典示范曲目与多种音色切换选项，上手即用"
+      ],
+      "cons": [
+        "暂不支持编辑后文件重新导出，导出按钮提示该功能将在后续更新上线",
+        "页面加载时会发送 1 次 Cloudflare RUM 性能监测请求"
+      ],
+      "privacyVerdict": "实测验证 MIDI 解码与 Web Audio 合成均在用户设备本地运行，音频与文件数据未上传；全流程仅观察到 1 次 Cloudflare RUM 性能遥测请求。",
+      "alternativeTo": [
+        "OnlineSequencer",
+        "Soundslice",
+        "BandLab",
+        "MuseScore"
+      ],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 13,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "将 34 字节 sample.mid 二进制样例导入 input[type=\"file\"]；长任务延迟为 0ms，零布局位移（CLS 0.00），即时在 HTML5 canvas 绘制音符条带并由 Web Audio 播放随动。捕获 60 字符剪贴板数据，观察到 1 次 Cloudflare RUM 性能监测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "quixcalc-com": {
+    "en": {
+      "bestFor": "Users, developers, and office workers needing a comprehensive library of 60+ fast, private calculators and data formatters without signup",
+      "pros": [
+        "Library of 60+ fast calculators and tools spanning finance, developer utilities, health, and decision making",
+        "Local client-side execution for data tools like JSON prettifier and minifier keeps sensitive payloads in browser memory",
+        "Clean UI with dark/light mode toggle, instant keyboard search (⌘K), and granular cookie consent",
+        "Instant clipboard export for formatted data without watermarks or account requirements"
+      ],
+      "cons": [
+        "Fires an initial Google Analytics 4 telemetry beacon upon page load prior to user cookie selection"
+      ],
+      "privacyVerdict": "Dogfooding confirmed that JSON parsing, formatting, and mathematical calculations execute locally in client memory; 1 initial Google Analytics telemetry beacon was observed prior to cookie preference selection.",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Calculator.net",
+        "DevUtils",
+        "JSONLint"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Formatted minified JSON payload into 4-space indented structure within DOM textarea (#json-input to #json-output) at 0ms long-task latency. Export gatekeeper captured 154-character clean JSON clipboard buffer with 1 observed initial GA4 beacon.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要涵盖 60 余款快速、免登录且私密计算器与数据格式化工具的用户、开发者与办公人群",
+      "pros": [
+        "收录 60 余款快速计算与实用工具，涵盖财务、开发者辅助、健康及随机决策等多元场景",
+        "JSON 格式化与压缩等数据工具完全在客户端本地运行，敏感数据留存于浏览器内存",
+        "界面清爽，支持明暗主题切换、快捷键搜索（⌘K）以及细粒度 Cookie 偏好设置",
+        "一键将格式化数据复制到剪贴板，无任何水印或强制登录限制"
+      ],
+      "cons": [
+        "页面初次载入时在用户做出 Cookie 选择前会发送 1 次 Google Analytics 4 基础遥测信标"
+      ],
+      "privacyVerdict": "实测验证 JSON 解析、格式化与数学运算均在客户端内存本地完成；但在做出 Cookie 偏好选择前记录到 1 次初始 Google Analytics 遥测信标。",
+      "alternativeTo": [
+        "Omni Calculator",
+        "Calculator.net",
+        "DevUtils",
+        "JSONLint"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 DOM 文本域（#json-input 与 #json-output）中以 0ms 长任务延迟将压缩 JSON 格式化为 4 空格缩进结构。导出网关成功捕获 154 字符干净 JSON 剪贴板数据，记录到 1 次初始 GA4 遥测信标。",
+      "testedAt": "2026-09"
+    }
+  },
+  "polymarketscan-org": {
+    "en": {
+      "bestFor": "Prediction market traders, crypto analysts, and researchers tracking Polymarket whale transactions, smart money moves, and live betting anomalies without an account",
+      "pros": [
+        "Real-time whale radar monitoring high-volume prediction market orders with customizable size thresholds from $1K to $1M",
+        "Visual analytics suite featuring an interactive 3D globe heatmap, hourly trade volume distributions, and anomaly detection",
+        "Comprehensive public explorer covering wallet P&L leaderboards, market odds, and direct copy-trading links",
+        "No account registration or wallet connection required to inspect real-time market data"
+      ],
+      "cons": [
+        "Extensive commercial analytics and ad tracking footprint (Google Analytics, Clarity, Reddit Pixel, DoubleClick) generating 120+ network payloads",
+        "Lacks a built-in one-click CSV export for filtered historical whale trade records",
+        "Initial navigation triggers multiple gamified points and tutorial modal prompts"
+      ],
+      "privacyVerdict": "Dogfooding confirmed free public read access without wallet login; however, 125 network payloads were observed, including live Supabase WebSockets alongside extensive third-party trackers (Google Analytics, Microsoft Clarity, Reddit Pixel, and DoubleClick).",
+      "alternativeTo": [
+        "Polymarket",
+        "Dune Analytics",
+        "DexScreener",
+        "Arkham Intelligence"
+      ],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 17,
+        "depth": 23,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Rendered live 100-trade whale radar with 3D WebGL globe heatmap at 424ms peak task latency. Captured 140-character trade summary buffer from DOM; observed 125 outgoing network payloads across Supabase realtime and commercial tracking endpoints.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "无需注册即可追踪 Polymarket 巨鲸大额交易、聪明钱动向与预测市场异常波动的交易者与分析师",
+      "pros": [
+        "实时巨鲸雷达，监控预测市场大额挂单与成交，支持 1 千至 100 万美元自定义交易门槛",
+        "包含交互式 3D 地球热力图、每小时成交量分布图与异常波动检测等可视化分析套件",
+        "全功能公开浏览器，涵盖钱包盈亏榜、市场赔率及直接跟单链接",
+        "无需注册账号或连接钱包即可直接浏览全量实时市场数据"
+      ],
+      "cons": [
+        "包含较多的商业统计与广告追踪（Google Analytics、Clarity、Reddit Pixel、DoubleClick），产生了 120 余次网络负载",
+        "缺乏针对筛选后历史巨鲸成交记录的一键 CSV 导出功能",
+        "初次导航会弹出积分奖励与新手教程引导弹窗"
+      ],
+      "privacyVerdict": "实测确认无需连接钱包即可免登录浏览公开市场数据；但测试期间记录到 125 次网络负载，包含 Supabase 实时 WebSockets 以及大量第三方跟踪器（Google Analytics、Microsoft Clarity、Reddit Pixel 与 DoubleClick）。",
+      "alternativeTo": [
+        "Polymarket",
+        "Dune Analytics",
+        "DexScreener",
+        "Arkham Intelligence"
+      ],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 17,
+        "depth": 23,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测渲染含 100 笔大额交易的巨鲸雷达与 3D WebGL 地球热力图，峰值任务延迟 424ms。从 DOM 捕获 140 字符交易摘要剪贴板数据；全流程在 Supabase 实时流与商业追踪端点记录到 125 次网络负载。",
+      "testedAt": "2026-09"
+    }
+  },
+  "textlogo-app": {
+    "en": {
+      "bestFor": "Designers, developers, and product creators needing instant, high-resolution vector and raster logos without sign-up or subscription barriers.",
+      "pros": [
+        "Comprehensive multi-layer canvas supporting text, custom shapes, icons, and background styling",
+        "Packaged multi-format export delivering both vector SVG and 1024x1024 raster PNG in a single ZIP",
+        "Zero account creation or watermarks with completely local client-side graphic rendering",
+        "Rich font catalog integration with live typography controls for tracking, scale, and color"
+      ],
+      "cons": [
+        "Cloudflare RUM telemetry beacon observed at runtime",
+        "Canvas project state relies entirely on local browser memory and session resets if tab is closed without manual export"
+      ],
+      "privacyVerdict": "Observed 1 Cloudflare RUM telemetry POST beacon (/cdn-cgi/rum?) for performance metrics; all logo graphics, vector paths, and raster renderings remain completely inside the browser's local DOM and Canvas memory with zero graphic asset egress.",
+      "alternativeTo": [
+        "Canva",
+        "Looka",
+        "Hatchful",
+        "Brandmark"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. DOM surface analysis confirmed multi-layer canvas elements (canvas, svg.canvas), layer controllers (.text-input-large), and font selectors. Initiated download modal via button text 'Download', configured dual-format packaging, and triggered 'Download package'. Successfully intercepted and validated 560,938-byte ZIP artifact containing 1024x1024 PNG and SVG vector files with 0 watermarks and zero bait traps. Runtime telemetry captured 0ms long-task freeze, 0.00 CLS, and exactly 1 /cdn-cgi/rum? performance beacon.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册、零订阅快速生成高分辨率矢量 SVG 与栅格 PNG 品牌标志的设计师、开发者及独立创作者。",
+      "pros": [
+        "功能完备的多图层画布，支持文字、自定义几何图形、图标与画板背景样式",
+        "打包式多格式导出，单次生成并打包 1024x1024 高清 PNG 与矢量 SVG 文件至 ZIP",
+        "完全纯本地客户端图形渲染，无强制登录、无水印、无付费订阅门槛",
+        "集成丰富字体库与实时排版控制，精准调节字间距、缩放比例与调色板"
+      ],
+      "cons": [
+        "运行时存在 Cloudflare RUM 真实用户体验监控探针",
+        "画布工程依赖本地浏览器内存，若未手动导出即关闭标签页可能导致工程重置"
+      ],
+      "privacyVerdict": "运行时监测到 1 次用于性能分析的 Cloudflare RUM 遥测 POST 请求（/cdn-cgi/rum?）；所有标志矢量路径、文字排版及图像渲染均在本地 DOM 与 Canvas 内存中完成，无任何用户图形资产外传。",
+      "alternativeTo": [
+        "Canva",
+        "Looka",
+        "Hatchful",
+        "Brandmark"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。DOM 表面分析确认多图层画布元素（canvas, svg.canvas）、图层属性控制器（.text-input-large）及字体选择器。通过'Download'按钮唤起导出面板并配置双格式打包，触发'Download package'。成功拦截并验证 560,938 字节无水印、无诱导陷阱的 ZIP 压缩包，内含 1024x1024 PNG 与矢量 SVG 文件。运行时遥测记录 0ms 主线程卡顿、0.00 CLS，仅捕获 1 次 /cdn-cgi/rum? 性能监控上报。",
+      "testedAt": "2026-09"
+    }
   }
 }
