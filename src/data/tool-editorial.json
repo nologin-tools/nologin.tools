@@ -11356,5 +11356,249 @@
       "benchmarkNotes": "针对 50KB 预设上限上传 800x600 76KB JPEG 样例，算法在 0ms 界面卡顿内精准收敛于 50,244 字节（49KB，体积减少 35%），并成功直接下载 50,244 字节的纯净 JPEG 成品。",
       "testedAt": "2026-09"
     }
+  },
+  "retireclarity-com-calculator": {
+    "en": {
+      "bestFor": "Individuals and couples planning retirement who want comprehensive year-by-year cashflow, Monte Carlo simulation, and Roth conversion optimization without exposing personal financial figures to remote cloud servers.",
+      "pros": [
+        "Comprehensive client-side financial engine computing year-by-year cashflows, asset drawdowns, and tax obligations entirely in browser memory",
+        "Sophisticated Monte Carlo simulation analyzing sequence-of-returns risk with percentile outcome envelopes and tactical delay recommendations",
+        "Interactive Roth conversion optimizer with threshold sliders calculating lifetime tax savings and tax-deferred asset balance at age 95",
+        "Generates a 37.7 KB standalone printable HTML ledger report without requiring account creation, paywalls, or forced email collection"
+      ],
+      "cons": [
+        "Transmits /vitals telemetry pings during navigation for web performance and layout metric tracking",
+        "Email-based cloud backup prompt in settings can confuse users looking for a direct local file download"
+      ],
+      "privacyVerdict": "Financial inputs, asset balances, tax calculations, and retirement milestones execute strictly in local browser memory; observed 9 /vitals performance pings with zero financial figures or personal data sent upstream.",
+      "alternativeTo": [
+        "NewRetirement (Boldin)",
+        "Empower Retirement Planner",
+        "ProjectionLab"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Evaluated default household scenario across Planner, Monte Carlo Chance of Success (99% baseline outcome with sequence risk window), and Roth Planner (calculating $123K lifetime tax savings). Generated a 37,756-byte complete printable HTML report with 0ms UI freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望在免登录、不将敏感财务数据上传至第三方服务器的前提下，对个人或家庭退休计划进行逐年现金流预测、蒙特卡洛压力测试及 Roth 转换优化的用户。",
+      "pros": [
+        "全功能客户端财务计算引擎，在浏览器内存中即可实时推算逐年收支、资产损耗和税率台阶",
+        "内置蒙特卡洛模拟工具，可精确分析序列回报风险并提供分位分布与延迟退休策略建议",
+        "交互式 Roth 转换优化器配备阈值滑块，能即时算出终身节税额及 95 岁时的延税资产留存",
+        "一键生成 37.7 KB 的完整结构化可打印 HTML 财务报表，无需注册账号亦无付费墙"
+      ],
+      "cons": [
+        "页面交互过程中会向 /vitals 发送 Web 性能与布局稳定性监控请求",
+        "设置中的云端备份需要输入邮箱，对偏好纯本地一键导出的用户稍显不够直观"
+      ],
+      "privacyVerdict": "所有资产数据、税收推算、账户余额与生活里程碑均在浏览器本地执行，敏感财务数据零外发；仅记录到 9 次用于监测页面性能的 /vitals 基础请求。",
+      "alternativeTo": [
+        "NewRetirement (Boldin)",
+        "Empower Retirement Planner",
+        "ProjectionLab"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测家庭基准模型，在规划器、99% 胜率的蒙特卡洛测试界面与节税 12.3 万美元的 Roth 规划器之间顺畅切换，成功生成 37,756 字节的独立 HTML 打印报表，界面卡顿为 0ms。",
+      "testedAt": "2026-09"
+    }
+  },
+  "kmag-ro-en": {
+    "en": {
+      "bestFor": "Browsing marketing guides about grocery shopping and aisle organisation before committing to creating an account.",
+      "pros": [
+        "Clean multilingual marketing design explaining shared shopping lists and aisle categorization",
+        "Mobile-first PWA architecture with offline service worker support advertised for registered users"
+      ],
+      "cons": [
+        "The unauthenticated public demo (/en/grocery-list-demo-without-account) has been removed and redirected to the marketing homepage",
+        "Mandates full account creation (email and password) to access the actual grocery list generator or aisle sorting tools"
+      ],
+      "privacyVerdict": "The marketing landing page only transmits 1 POST /api/analytics event, but access to any functional grocery tool requires submitting email credentials.",
+      "alternativeTo": [
+        "Bring!",
+        "AnyList",
+        "Out of Milk"
+      ],
+      "productScore": {
+        "overall": 30,
+        "frictionless": 5,
+        "depth": 5,
+        "exportFreedom": 0,
+        "privacy": 10,
+        "polish": 10
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Audited main bundle index-BLAhjEDr.js (645,079 bytes). The previously public route /en/grocery-list-demo-without-account is hardcoded to redirect to /en, and every CTA button navigates to /login?mode=register, emitting 1 POST /api/analytics payload with 50ms latency.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在决定注册账号之前，浏览关于超市动线分类与家庭协同购物清单的功能介绍及营销指南。",
+      "pros": [
+        "精美的多语言排版，清晰展示了按货架动线归类与语音输入的交互概念",
+        "前端采用移动端友好的 PWA 架构，并在宣传中支持弱网与离线状态"
+      ],
+      "cons": [
+        "原本无需登录的在线体验页面（/en/grocery-list-demo-without-account）已被移除并 301 重定向至首页",
+        "点击所有功能入口均强制跳转至登录注册界面，必须提供邮箱与密码才可使用核心清单功能"
+      ],
+      "privacyVerdict": "营销页面仅记录到 1 次 /api/analytics 统计请求，但要使用清单工具必须提交个人邮箱并创建账号。",
+      "alternativeTo": [
+        "Bring!",
+        "AnyList",
+        "Out of Milk"
+      ],
+      "productScore": {
+        "overall": 30,
+        "frictionless": 5,
+        "depth": 5,
+        "exportFreedom": 0,
+        "privacy": 10,
+        "polish": 10
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "审查了 645,079 字节的前端主包 index-BLAhjEDr.js。代码确认此前免登录路由已被硬编码重定向至首页，所有 CTA 按钮均触发 50ms 延迟跳转至 /login?mode=register，并伴随 1 次 /api/analytics 统计请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "whatthegif-com": {
+    "en": {
+      "bestFor": "Content creators, developers, and presentation authors needing to trim, loop, caption, and convert video clips or images into unwatermarked GIFs, APNGs, or MP4s entirely inside the local browser.",
+      "pros": [
+        "Full-featured in-browser timeline supporting up to 10 clips with frame-accurate in/out trimming and playback speed modulation",
+        "Creative effects suite including bounce/boomerang looping, 90-degree rotations, horizontal/vertical flipping, and custom meme captions",
+        "Exports watermark-free animated GIFs, APNGs, and silent MP4s directly to local storage without user accounts or paywalls",
+        "Hardware-accelerated client-side encoding reinforced by a strict Content Security Policy restricting media egress"
+      ],
+      "cons": [
+        "Displays Google AdSense display advertisements on the periphery of the editing interface",
+        "Processing high-resolution long video files can saturate system memory due to client-side frame buffer allocation"
+      ],
+      "privacyVerdict": "Video decoding, frame extraction, palette quantization, and GIF compilation execute exclusively in local browser memory; observed 3 metadata telemetry pings (2 /api/visit and 1 /api/gif-count) with zero media egress.",
+      "alternativeTo": [
+        "Ezgif",
+        "Kapwing",
+        "Giphy GIF Maker"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded an 800x600 GIF fixture into DOM element #fileInput, adjusted clip bounds with 246ms execution latency, and triggered client-side compilation. Conversion finished at 100% with confetti animation, immediately downloading a 26,787-byte unwatermarked GIF artifact with 3 telemetry payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地浏览器中快速剪辑视频片段、调整播放方向与帧率、添加表情包文字，并导出无水印 GIF、APNG 或 MP4 动图的内容创作者与开发者。",
+      "pros": [
+        "功能完备的纯浏览器端多轨时间轴，支持最多 10 个片段拼接与精确到单帧的入点/出点修剪",
+        "丰富的特效控制，包括往返弹跳（Boomerang）、按度数旋转、水平/垂直翻转及经典 Impact 字体表情包字幕",
+        "直接保存无水印 GIF、APNG 与静音 MP4 成品至本地硬盘，无需注册且无功能付费墙",
+        "纯客户端帧级重采样编码，并由严格的 Content Security Policy（CSP）安全策略保障媒体数据不外流"
+      ],
+      "cons": [
+        "页面周围嵌入了 Google AdSense 展示广告",
+        "对于超长或超高清视频，由于纯客户端逐帧缓存，可能较多消耗本机系统内存"
+      ],
+      "privacyVerdict": "所有视频解码、帧切片提取、调色板量化与动图重构均在本地浏览器中完成，媒体数据零外送；全流程仅监测到 3 次用于访问量与生成计数统计的轻量元数据请求（2 次 /api/visit 和 1 次 /api/gif-count）。",
+      "alternativeTo": [
+        "Ezgif",
+        "Kapwing",
+        "Giphy GIF Maker"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "通过 DOM 元素 #fileInput 载入 800x600 GIF 样例，在 246ms 执行延迟内完成剪辑边界微调并启动本地转码。进度条在 100% 完成后触发彩屑动效，即时导出 26,787 字节的纯净 GIF 成品，记录到 3 次轻量计数请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "countlink-app": {
+    "en": {
+      "bestFor": "Teachers, presenters, scrum masters, and live streamers who need a synchronized countdown timer that can be shared instantly across unlimited screens via a URL hash without a backend database or user account.",
+      "pros": [
+        "State serialization in the URL hash fragment enables infinite viewers to synchronize deadlines using local clock math without server overhead",
+        "Dual export channels providing 1-click clipboard sync link generation and a 1,476-byte standalone offline HTML timer file download",
+        "Three display themes (Board, Minimal, Light) with realistic mechanical flip-clock animation, fullscreen mode, and audio alerts",
+        "Extensive catalog of 19 preset modes covering Pomodoro, classroom exams, standup meetings, and OBS streaming overlays"
+      ],
+      "cons": [
+        "Fires 9 third-party telemetry requests across Google Analytics 4, Snowplow events, Cloudflare RUM, and Mediavine ad networks",
+        "Relies on client device clock synchronization; devices with heavily desynchronized system clocks will display offset deadlines"
+      ],
+      "privacyVerdict": "Timer deadlines, durations, and display preferences are encoded directly into the URL hash fragment with no timer state stored on remote servers; observed 9 third-party telemetry payloads across GA4, Snowplow, Cloudflare RUM, and Mediavine.",
+      "alternativeTo": [
+        "Timer.net",
+        "Toggl Track",
+        "Online-Stopwatch"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Initiated a 10-minute countdown with 0ms freeze latency. Verified mechanical flip animation, copied sync link to clipboard, and downloaded a 1,476-byte standalone offline HTML timer file with 9 third-party analytics payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在无后台数据库、免登录且不限观看人数的前提下，通过网址哈希即时同步会议、课堂考试、敏捷站会或直播倒计时的教师、讲师与主播。",
+      "pros": [
+        "将倒计时截止时间完全编码于 URL 哈希参数中，各端基于本机时钟独立推算，无需任何服务器中继",
+        "提供双重导出机制：一键复制同步链接至剪贴板，以及直接下载 1,476 字节的独立离线 HTML 计时器文件",
+        "内置翻页拟物白板（Board）、极简（Minimal）与明亮（Light）三种视觉主题，支持全屏展示与蜂鸣提示音",
+        "预置 19 种高频场景预设，覆盖番茄钟、课堂考试、站会沟通及 OBS 导播悬浮窗推流"
+      ],
+      "cons": [
+        "页面加载与交互时向 Google Analytics 4、Snowplow、Cloudflare RUM 及 Mediavine 广告网络发送了 9 次统计请求",
+        "强依赖设备本地系统时钟，若接收端设备系统时间存在严重偏差可能导致显示秒数不同步"
+      ],
+      "privacyVerdict": "倒计时截止时间与显示参数均序列化在 URL 哈希片段中，服务器不保留任何计时数据；实测记录到 9 次来自 GA4、Snowplow、Cloudflare RUM 与 Mediavine 的统计信标。",
+      "alternativeTo": [
+        "Timer.net",
+        "Toggl Track",
+        "Online-Stopwatch"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 23,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "启动 10 分钟倒计时，界面保持 0ms 卡顿。成功观测到机械翻页数字动画，一键复制同步链接至剪贴板，并下载了 1,476 字节的纯本地离线 HTML 计时器成品，记录到 9 次第三方分析请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
