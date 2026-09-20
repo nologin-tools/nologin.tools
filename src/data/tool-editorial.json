@@ -14864,5 +14864,263 @@
       "benchmarkNotes": "对包含 3 条不同状态引文的测试样例进行了核查，成功识别出 1 篇真实文献、1 篇年份错误（2019 实为 2024）及 1 篇虚构论文。基于 AlphaFold 3 的 DOI（10.1038/s41586-024-07487-w）生成了标准 APA 引文，通过剪贴板捕获 433 字符引文，并成功下载 1394 字节的纯净 .bib BibTeX 文件，全程无卡顿。",
       "testedAt": "2026-09"
     }
+  },
+  "dochost-io": {
+    "en": {
+      "bestFor": "Web developers, technical writers, and students needing to publish and share rendered HTML pages or Markdown documents via instant public links without setting up GitHub Pages or registering accounts.",
+      "pros": [
+        "Zero-configuration static hosting supporting drag-and-drop file uploads and direct markup pasting for HTML and Markdown",
+        "Automated Markdown parsing and live rendering with auto-detected format classification",
+        "Dual-link architecture providing a public viewing URL and a secret token-based edit URL for future in-place revisions",
+        "Single-click clipboard link export with integrated QR code generation and social sharing triggers"
+      ],
+      "cons": [
+        "Free tier links are ephemeral with an automatic expiry window of 3 to 7 days",
+        "Emits multiple third-party telemetry payloads across PostHog, Google Analytics, and XHorizon",
+        "Custom slugs and password protection features are gated behind paid Pro plans"
+      ],
+      "privacyVerdict": "Observed 38 outgoing network payloads including PostHog, Google Analytics (G-YYKFZRCBMW), XHorizon Analytics, and backend publishing APIs. Uploaded or pasted HTML/Markdown files are transmitted to dochost servers to generate public sharing URLs and token-guarded edit endpoints; free tier links remain active for 3 to 7 days.",
+      "alternativeTo": [
+        "Surge.sh",
+        "Tiiny Host",
+        "GitHub Gist",
+        "Pastebin"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded sample.md fixture file; system auto-detected Markdown format and published the document to https://dochost.co/d/ht23iw7q?v=c. Captured 33-character public share URL via the Copy link button in 0ms with zero task freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速将 HTML 页面或 Markdown 文档发布为可分享网页链接、免除 GitHub Pages 配置与账号注册的 Web 开发者、技术写作者与学生。",
+      "pros": [
+        "零配置静态托管，支持拖拽上传或直接粘贴 HTML 与 Markdown 文件",
+        "自动化 Markdown 语法解析与实时页面渲染，具备文件格式自动识别机制",
+        "双链接架构，同时生成公开访问短链与基于密钥 Token 的原地二次编辑链接",
+        "一键剪贴板导出公开链接，内置二维码生成与社交分享快捷操作"
+      ],
+      "cons": [
+        "免费版网页链接具有时效性，将在 3 至 7 天后自动失效",
+        "页面包含发送至 PostHog、Google Analytics 与 XHorizon 的第三方分析遥测",
+        "自定义子路径短链与访问密码保护功能需要付费 Pro 计划支持"
+      ],
+      "privacyVerdict": "网络监控记录到 38 次出站网络请求，涉及 PostHog、Google Analytics（G-YYKFZRCBMW）、XHorizon 统计以及后端发布接口。上传或粘贴的 HTML/Markdown 内容需传输至 dochost 服务端以生成公开访问短链与管理 Token，免费版页面具备 3 至 7 天的时效保留期。",
+      "alternativeTo": [
+        "Surge.sh",
+        "Tiiny Host",
+        "GitHub Gist",
+        "Pastebin"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传了 sample.md 样例测试文件，系统自动识别为 Markdown 格式并成功发布生成 https://dochost.co/d/ht23iw7q?v=c。通过 Copy link 按钮以 0ms 耗时截获 33 字符公开链接，主线程运行平稳无卡顿。",
+      "testedAt": "2026-09"
+    }
+  },
+  "csv-safecheck-pages-dev": {
+    "en": {
+      "bestFor": "Shopify store owners, ecommerce operations managers, and agency developers who need to audit product CSV files for syntax errors, header discrepancies, and duplicate handles before importing without exposing commercial inventory data.",
+      "pros": [
+        "Strict zero-egress architecture processing files entirely in local browser memory with 0 network calls",
+        "Thorough Shopify preflight validation covering header capitalization, missing columns, duplicate handles, and row width mismatches",
+        "Dual export pipelines providing downloadable JSON validation reports and sanitized CSV files with deterministic safe fixes",
+        "Open-source implementation with complete transparency, zero tracking scripts, and no cookie persistence"
+      ],
+      "cons": [
+        "Web interface checks one CSV file at a time; batch multi-file auditing requires the local CLI or batch pack",
+        "Focused exclusively on Shopify product catalog schemas rather than generic spreadsheet validation"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified by network runtime telemetry. All CSV file parsing, Shopify schema validations, header capitalization checks, and JSON/CSV report generations execute entirely in client-side browser memory on Cloudflare Pages without transmitting product catalogs or customer data to remote servers.",
+      "alternativeTo": [
+        "Matrixify",
+        "Shopify Admin Import Tool",
+        "CSVLint",
+        "Papa Parse"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited a 4-row Shopify product CSV fixture (1598 bytes); instantly detected 11 errors including header capitalization and row-width mismatches. Successfully triggered and downloaded a 2666-byte structured JSON audit report in 0ms with zero frame jank and 0 outgoing network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在导入前审查商品 CSV 语法错误、表头大小写冲突及重复 Handle，且绝不希望商业库存数据外泄的 Shopify 店主、电商运营与独立站开发者。",
+      "pros": [
+        "严格的零数据出站架构，完全在本地浏览器内存中处理文件，网络请求数为 0",
+        "详尽的 Shopify 预检机制，全面覆盖表头大小写合规性、必填列缺失、重复 Handle 及行宽不匹配检查",
+        "双重导出管线，支持即时下载结构化 JSON 校验报告及应用了保守修复方案的纯净 CSV 文件",
+        "开源透明实现，无任何第三方分析追踪脚本或 Cookie 存储"
+      ],
+      "cons": [
+        "网页端每次仅支持单个 CSV 文件校验，批量多文件审计需借助本地脚本或进阶包",
+        "功能严格聚焦于 Shopify 官方商品规范，不适用于通用型电子表格的数据校验"
+      ],
+      "privacyVerdict": "经运行时网络监控验证的严格零数据出站架构。所有 CSV 文件解析、Shopify 规范校验、表头大小写排查及 JSON/CSV 报告生成均在客户端浏览器内存中完成，产品目录与商业数据绝不离开用户设备。",
+      "alternativeTo": [
+        "Matrixify",
+        "Shopify Admin Import Tool",
+        "CSVLint",
+        "Papa Parse"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对包含 4 行数据的 Shopify 商品 CSV 样例（1598 字节）进行了本地审计，即时检出包含表头格式与行宽不符在内的 11 项错误。通过 Download JSON report 按钮在 0ms 内成功下载 2666 字节的完整结构化审计报告，测试全流程出站网络请求严格为 0 个。",
+      "testedAt": "2026-09"
+    }
+  },
+  "kivtools-com": {
+    "en": {
+      "bestFor": "Software developers, DevOps engineers, and UI designers needing an extensive catalog of 300+ local-first utilities for JSON formatting, JWT verification, OpenAPI inspection, and image color extraction without creating an account.",
+      "pros": [
+        "Enormous collection of over 315 local-first utilities across 19 categories including APIs, JSON, databases, and media",
+        "In-browser canvas-based image analysis sampling pixels and extracting dominant color swatches locally",
+        "Comprehensive JSON engineering workbench featuring syntax formatting, schema validation, patch diffing, and type conversion",
+        "Instant one-click clipboard exports for formatted code and HEX color values with zero promotional watermarks"
+      ],
+      "cons": [
+        "Emits a Google Analytics telemetry beacon (G-Z5CLRP7T9Q) on page load",
+        "Cloud synchronization of workspace layouts and pinned tool collections requires an optional user account"
+      ],
+      "privacyVerdict": "Observed 1 telemetry egress payload to Google Analytics (G-Z5CLRP7T9Q). Core utility operations including JSON formatting, schema validations, image color palette extractions, and clipboard transfers execute locally in browser memory without sending code snippets or image data to remote servers.",
+      "alternativeTo": [
+        "DevToys",
+        "CyberChef",
+        "Transform Tools",
+        "Toolstr"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Exercised JSON Formatter with a structured schema and loaded a synthetic test image into the Dominant Color Extractor. Downsampled 402 KB of pixels in 62ms to extract 6 dominant color swatches, capturing a clean 7-character HEX code (#EFF8F5) via clipboard in 0ms with zero jank.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要使用涵盖 JSON 格式化、JWT 验证、OpenAPI 调试及图像取色在内的 300 余款本地化开发工具，且无需注册登录的软件工程师、DevOps 与设计师。",
+      "pros": [
+        "涵盖 API、JSON、数据库及多媒体处理在内 19 个技术维度的 315+ 本地优先实用工具集合",
+        "基于浏览器原生 Canvas 的像素级图像分析引擎，完全在本地采样提取主色板与 HEX 色值",
+        "全能 JSON 工程工作台，集成了语法格式化、Schema 校验、补丁对比与 TypeScript 类型生成",
+        "一键剪贴板导出格式化代码与十六进制颜色值，无任何营销水印干扰"
+      ],
+      "cons": [
+        "页面加载时包含发送至 Google Analytics（G-Z5CLRP7T9Q）的统计遥测信标",
+        "跨设备同步自定义工作台布局与收藏工具夹功能需要自选注册账号"
+      ],
+      "privacyVerdict": "网络监控记录到 1 次发送至 Google Analytics（G-Z5CLRP7T9Q）的遥测请求。JSON 格式化、Schema 校验、图像主色提取及剪贴板交互等核心工具逻辑均在浏览器内存本地运行，未将代码片段或图片上传至远程服务器。",
+      "alternativeTo": [
+        "DevToys",
+        "CyberChef",
+        "Transform Tools",
+        "Toolstr"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "测试了 JSON Formatter 结构化格式化，并在 Dominant Color Extractor 中加载了合成图片。在 62ms 内对 402 KB 像素完成本地降采样并提取出 6 个主色卡，通过点击色卡在 0ms 内截获 7 字符标准 HEX 色值（#EFF8F5），全程零卡顿。",
+      "testedAt": "2026-09"
+    }
+  },
+  "free-qr-codes-com": {
+    "en": {
+      "bestFor": "Small business owners, print designers, and privacy-conscious users needing permanent static QR codes for links, Wi-Fi access, and contact cards without watermarks, tracking redirects, or expiration dates.",
+      "pros": [
+        "Strict zero-egress architecture generating QR code matrices directly in client browser memory with 0 network calls",
+        "Generates true static QR codes that encode data directly into the matrix without third-party redirect middleboxes or artificial expiration",
+        "Versatile data type support including URL, Wi-Fi credentials, vCard contact cards, email, SMS, and WhatsApp",
+        "Flexible export options delivering unwatermarked vector SVG files, print-ready high-resolution PNGs, and direct print styling"
+      ],
+      "cons": [
+        "Lacks dynamic scan counter analytics due to its static, non-redirecting architecture",
+        "Does not include custom embedded logo or central icon overlay features"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified by runtime network monitoring. All QR matrix generations, color manipulations, fault-tolerance calculations, and vector SVG exports run 100% locally in browser memory without transmitting destination URLs, Wi-Fi passwords, or contact cards to external servers.",
+      "alternativeTo": [
+        "QR Code Generator",
+        "QRCode Monkey",
+        "Canva QR Generator",
+        "Bitly QR"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Configured a URL QR code for https://nologin.tools; rendered a 25x25 module matrix in real time with zero layout shift. Executed vector SVG export and successfully downloaded a clean 4621-byte SVG artifact in 0ms with zero frame jank and 0 outgoing network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要为网址、Wi-Fi 接入与联系人名片制作永久有效、无水印、无重定向追踪且永不过期的静态二维码的小微企业主、平面设计师与隐私敏感用户。",
+      "pros": [
+        "严格的零数据出站架构，二维码矩阵直接在客户端浏览器内存中生成，网络请求数为 0",
+        "生成真正的原生静态二维码，数据直接编码于黑白点阵中，无中间跳转劫持且永不过期",
+        "支持网址、Wi-Fi 凭证、vCard 电子名片、邮件、短信及 WhatsApp 等 8 种实用数据类型",
+        "完善的导出能力，支持下载无水印矢量 SVG、印刷级高分辨率 PNG 及直接调用打印布局"
+      ],
+      "cons": [
+        "因采用完全静态且无中间跳转的架构，天然不支持动态扫码次数统计",
+        "暂未内置在二维码中心嵌入自定义 Logo 或图标的功能"
+      ],
+      "privacyVerdict": "经运行时网络监控验证的严格零数据出站架构。所有二维码点阵生成、色彩定制、容错级别计算与矢量 SVG 导出均在浏览器本地内存中进行，Wi-Fi 密码、联系人名片与目标网址绝不上传至任何外部服务器。",
+      "alternativeTo": [
+        "QR Code Generator",
+        "QRCode Monkey",
+        "Canva QR Generator",
+        "Bitly QR"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "为 https://nologin.tools 配置了网址二维码，实时渲染出 25x25 点阵且无任何布局偏移。点击 Download SVG 按钮在 0ms 内成功下载 4621 字节的纯净矢量 SVG 文件，全流程零卡顿且向外出站网络请求数为 0。",
+      "testedAt": "2026-09"
+    }
   }
 }
