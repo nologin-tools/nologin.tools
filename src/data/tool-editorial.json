@@ -7450,5 +7450,259 @@
       "benchmarkNotes": "在 72ms 最大任务耗时与 0.01 CLS 下完成原子时钟校准与 0.4 秒系统偏差检测；实测捕获 95 条发往程序化广告交易平台与数据同步网络的网络出站请求。",
       "testedAt": "2026-09"
     }
+  },
+  "archive-ph": {
+    "en": {
+      "bestFor": "Archiving public webpages, preserving paywalled articles, and retrieving historical webpage snapshots permanently without login.",
+      "pros": [
+        "Dual preservation engine saving both interactive sanitized text/DOM and high-resolution full-page PNG screenshots",
+        "Wildcard URL search and historical timestamped snapshot index with zero registration or paywalls",
+        "Strips malicious scripts and dynamic tracking trackers from archived snapshots for safe historical viewing"
+      ],
+      "cons": [
+        "Submitting fresh URLs to be queued for archiving frequently requires solving automated hCaptcha challenges"
+      ],
+      "privacyVerdict": "Observed network egress includes 5 analytics beacons sent to Market Metrics (a.mrktmtrcs.net) and DT Scout (t.dtscout.com). Archived pages are stripped of external JavaScript and tracking cookies, serving static HTML and screenshot assets safely.",
+      "alternativeTo": [
+        "web-archive-org"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 17,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Queried microsoft.com historical archive index in 0 ms max long task and 0.00 CLS; retrieved 2,398 timestamped subdomain snapshots with 5 analytics beacons observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "永久归档公开网页、留存遭遇付费墙阻隔的新闻文章，并免登录随时检索历史网页快照与长图。",
+      "pros": [
+        "双重归档引擎，同时保存经过安全净化的文本/DOM 快照以及高分辨率全页 PNG 截图",
+        "支持通配符（*）域名搜索与完整历史时间戳归档快照索引，免登录永久免费公开查阅",
+        "归档过程中自动剥离原页面中的恶意脚本与追踪代码，保障历史快照的安全浏览"
+      ],
+      "cons": [
+        "提交全新待归档网址时，排队系统经常会弹出 hCaptcha 验证码质询"
+      ],
+      "privacyVerdict": "实测监测到 5 次发往 Market Metrics（a.mrktmtrcs.net）与 DT Scout（t.dtscout.com）的统计遥测请求。被归档的页面会自动剥离第三方外部 JavaScript 脚本与追踪 Cookie，以纯静态安全形式呈现历史文本与图片。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 17,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 0ms 线程阻塞耗时与 0.00 CLS 下完成 microsoft.com 历史归档库索引检索；成功呈现 2,398 个带时间戳快照记录，观测到 5 条遥测网络记录。",
+      "testedAt": "2026-09"
+    }
+  },
+  "qrcode-monkey-com": {
+    "en": {
+      "bestFor": "Generating customized QR codes with brand logos and color gradients without registration.",
+      "pros": [
+        "Deep visual design controls including corner styles, eye frames, body patterns, and multi-color gradients",
+        "Multi-format vector output supporting SVG, PDF, and EPS along with high-res PNG downloads",
+        "Dedicated data payload presets for vCard, MeCard, WiFi networks, SMS, geolocation, and cryptocurrency"
+      ],
+      "cons": [
+        "Payload encoding is handled by a remote backend API (api.qrcode-monkey.com/qr/custom) rather than in-browser client code",
+        "Export flow displays a Bitly QR Code Generator PRO advertisement modal while rendering files",
+        "Injects Snowplow Analytics, Google Analytics (G-E8SR84TPTH), and Google Ads tracking beacons"
+      ],
+      "privacyVerdict": "Data egress observed. Text content is dispatched via POST request to api.qrcode-monkey.com/qr/custom for rendering, alongside analytics beacons to Google Analytics, Google Ads, and Snowplow Analytics.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 14,
+        "depth": 21,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 13,
+        "factors": {
+          "privacy": [
+            "Transmits QR content via POST to api.qrcode-monkey.com/qr/custom",
+            "Multiple telemetry trackers observed including Google Analytics and Snowplow"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested QR code generation by submitting text to textarea and clicking Create QR Code. Remote API request logged to api.qrcode-monkey.com/qr/custom with Bitly PRO pop-up modal displayed during SVG and PNG export.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在无需注册登录的情况下，生成包含品牌标识和渐变色彩的高分辨率定制二维码。",
+      "pros": [
+        "支持码点形状、角框样式、中心眼及线性与径向渐变色的丰富视觉定制",
+        "提供 SVG、PDF、EPS 矢量格式与高分辨率 PNG 图像导出",
+        "内置电子名片、WiFi 连接参数、短信、地理定位及加密货币等常用数据模板"
+      ],
+      "cons": [
+        "二维码编码依赖远端接口（api.qrcode-monkey.com/qr/custom），文本数据会上传至服务器处理",
+        "导出文件时会触发 Bitly QR Code Generator PRO 商业广告弹窗",
+        "加载了 Snowplow Analytics、Google Analytics (G-E8SR84TPTH) 及 Google 广告回传追踪信标"
+      ],
+      "privacyVerdict": "存在网络数据回传与遥测：二维码内容通过 POST 请求发送至 api.qrcode-monkey.com/qr/custom 远端接口，并伴随 Google Analytics、Google 广告及 Snowplow Analytics 追踪请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 14,
+        "depth": 21,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 13,
+        "factors": {
+          "privacy": [
+            "Transmits QR content via POST to api.qrcode-monkey.com/qr/custom",
+            "Multiple telemetry trackers observed including Google Analytics and Snowplow"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在浏览器沙盒中输入测试文本至 textarea 并触发生成。观察到网络面板捕获发往 api.qrcode-monkey.com/qr/custom 的 POST 请求，导出 SVG 与 PNG 时伴随 Bitly PRO 推广弹窗提示。",
+      "testedAt": "2026-09"
+    }
+  },
+  "yopass-se": {
+    "en": {
+      "bestFor": "Sharing confidential credentials and passwords via self-destructing end-to-end encrypted links.",
+      "pros": [
+        "Client-side in-browser cryptography ensures secret plaintext never touches remote infrastructure",
+        "Decryption key is stored in the URL hash fragment, preventing server-side interception or logging",
+        "Configurable expiration intervals (one hour, one day, one week) with automatic burn-after-reading destruction",
+        "Supports two-channel verification by providing separate short links and isolated decryption keys"
+      ],
+      "cons": [
+        "Landing page loads Google Analytics (G-Z052GLVH1K) tracking scripts before entering the app",
+        "Once burned upon opening, destroyed secrets cannot be recovered under any circumstances"
+      ],
+      "privacyVerdict": "Zero-knowledge client-side encryption verified. Plaintext is encrypted in the browser prior to ciphertext transmission to api2.yopass.se/create/secret; landing page carries Google Analytics telemetry.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Client-side OpenPGP/AES encryption ensures plaintext never reaches remote servers",
+            "Decryption key resides strictly in client-side URL hash fragment without server transmission",
+            "Landing page includes Google Analytics beacon (G-Z052GLVH1K)"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Observed 857ms main thread freeze during client-side OpenPGP key generation and encryption, followed by POST payload dispatch to api2.yopass.se/create/secret with 73-character one-time hash URL copied cleanly to clipboard.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "通过端到端加密与阅后即焚的一次性链接安全共享敏感凭据与密码。",
+      "pros": [
+        "完全在浏览器本地完成端到端加密计算，明文机密数据绝不接触后端服务器",
+        "解密密钥仅保存在 URL 哈希锚点片段（#）中，网络传输时绝不发送至服务端",
+        "支持一小时、一天或一周的自动过期时间，并提供阅后即焚（单次访问即销毁）机制",
+        "支持双通道分发模式，允许将短链接与独立解密密钥通过不同通信软件分别发送"
+      ],
+      "cons": [
+        "官方首页加载了 Google Analytics (G-Z052GLVH1K) 网站访问统计信标",
+        "机密数据一经阅读立即被物理销毁，误触打开后无法以任何方式恢复"
+      ],
+      "privacyVerdict": "验证零知识端到端加密架构。机密文本在浏览器内存中完成加密后再将密文传输至 api2.yopass.se/create/secret；解密密钥仅保存在客户端 URL 锚点中，官网入口存在 Google Analytics 访问统计。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Client-side OpenPGP/AES encryption ensures plaintext never reaches remote servers",
+            "Decryption key resides strictly in client-side URL hash fragment without server transmission",
+            "Landing page includes Google Analytics beacon (G-Z052GLVH1K)"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测在输入凭据并执行加密时观察到 857ms 的客户端 OpenPGP 密钥运算耗时，随后向 api2.yopass.se/create/secret 发起密文 POST 请求，并成功将 73 字符的一次性解密链接复制至剪贴板。",
+      "testedAt": "2026-09"
+    }
+  },
+  "wormhole-app": {
+    "en": {
+      "bestFor": "Secure high-speed transfer of large files up to 10GB with client-side end-to-end encryption and self-destructing links.",
+      "pros": [
+        "In-browser WebCrypto end-to-end encryption ensures neither relay servers nor storage hosts can inspect file contents",
+        "Decryption key is confined to the client-side URL hash anchor, isolating it from server access logs",
+        "Generous file ceiling up to 10GB with streaming chunk uploads to Backblaze B2 and real-time WebSocket signaling",
+        "Configurable auto-expiration based on time (up to 24 hours) or download count (up to 100 downloads)"
+      ],
+      "cons": [
+        "Files stored on temporary cloud relay expire automatically after 24 hours without option for permanent archiving",
+        "Large multi-gigabyte transfers over slower connections require keeping the browser tab open until upload completes"
+      ],
+      "privacyVerdict": "Zero-knowledge end-to-end encryption verified. File bytes are encrypted in browser memory before transmission to Backblaze B2 storage; the decryption key exists exclusively in the client-side URL hash.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "End-to-end encryption in browser via WebCrypto before any network transmission",
+            "Decryption key resides solely in client-side URL hash without reaching relay servers",
+            "Zero third-party advertising or telemetry trackers detected"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Uploaded sample.png test fixture into dropzone. In-browser WebCrypto encryption dispatched ciphertext to Backblaze B2 endpoint pod-000-1084-18.backblaze.com via WebSocket coordination, returning 50-character hash URL to clipboard.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "以浏览器端到端加密和自毁链接方式，快速安全地传输最高达 10GB 的各类大型文件。",
+      "pros": [
+        "基于浏览器 WebCrypto API 进行端到端本地加密，中继服务器与云存储均无法查看文件明文",
+        "解密密钥仅存在于 URL 哈希锚点中，服务器访问日志与中继系统无法获取密钥",
+        "支持单文件最高 10GB 传输，结合 WebSocket 实时信令与 Backblaze B2 分块安全分发",
+        "支持按时间（最长24小时）或下载次数（最高100次）设置自毁规则，过期自动物理清理"
+      ],
+      "cons": [
+        "云端中继最长仅保留 24 小时，不提供永久存储或长期归档功能",
+        "超大体积文件上传期间需保持浏览器标签页处于打开运行状态"
+      ],
+      "privacyVerdict": "验证零知识端到端加密。文件在浏览器中完成密文转换后再上传至 Backblaze B2 存储中继，解密密钥仅保存在客户端 URL 哈希中，无第三方广告与遥测外溢。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "End-to-end encryption in browser via WebCrypto before any network transmission",
+            "Decryption key resides solely in client-side URL hash without reaching relay servers",
+            "Zero third-party advertising or telemetry trackers detected"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在文件选择区上传 sample.png 测试素材。浏览器通过 WebCrypto API 完成本地加密并通过 WebSocket 协调将密文分块推向 Backblaze B2 节点，成功将包含 50 字符哈希密钥的分享链接写入剪贴板。",
+      "testedAt": "2026-09"
+    }
   }
 }
