@@ -8228,5 +8228,241 @@
       "benchmarkNotes": "捕获到 Cloudflare 托管验证页面（Ray ID a3de9a050ccff7b5）及 challenge-platform 遥测载荷，主线程最大延迟 107ms，提供免登录 9 宫格图像生成。",
       "testedAt": "2026-09"
     }
+  },
+  "teachablemachine-withgoogle-com": {
+    "en": {
+      "bestFor": "Educators, students, and creative developers seeking to train custom machine learning vision, audio, or pose classifiers directly in the browser without setup or accounts",
+      "pros": [
+        "Executes transfer learning entirely in-browser using TensorFlow.js with live webcam, microphone, or image file inputs",
+        "Provides multi-format model export including TensorFlow.js, TFLite for microcontrollers, Python Keras, and offline zip bundles",
+        "Offers visual inspection of class samples alongside customizable training epochs, batch sizes, and learning rates"
+      ],
+      "cons": [
+        "Complex image models with high sample counts demand substantial GPU memory and may cause browser tab crashes on low-spec devices",
+        "Captures 2 baseline Google Analytics tracking payloads on initial page load"
+      ],
+      "privacyVerdict": "Local client-side machine learning execution verified; training images, audio, and dataset samples are processed directly via WebAssembly/WebGL without uploading to cloud servers, with network activity limited to 2 Google Analytics requests.",
+      "alternativeTo": [
+        "edge-impulse",
+        "lobe-ai",
+        "roboflow"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Logged 2 Google Analytics payloads, 161ms main thread baseline with 0.01 CLS, and in-browser transfer learning studio initialization.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望免配环境、免登录即可在浏览器中直接训练图像、音频或人体姿态分类模型的教师、学生及创意开发者",
+      "pros": [
+        "利用 TensorFlow.js 完全在浏览器本地执行迁移学习，支持摄像头、麦克风实时采样或本地图片导入",
+        "提供多元化模型导出方案，包括 TensorFlow.js、适用于微控制器的 TFLite、Python Keras 及离线压缩包",
+        "具备直观的分类样本查看界面，并支持自定义调整训练轮数、批次大小与学习率"
+      ],
+      "cons": [
+        "大样本量图像训练对本地 GPU/内存消耗较高，在低配设备上可能导致浏览器标签页崩溃",
+        "页面初次加载时会产生 2 次 Google Analytics 基础访问统计请求"
+      ],
+      "privacyVerdict": "经本地审查确认机器学习运算在客户端完成：训练图像、音频及姿态样本均直接经由 WebAssembly 与 WebGL 在本地计算，未向云端上传个人数据，网络外发仅限于 2 次 Google Analytics 基础访问统计。",
+      "alternativeTo": [
+        "edge-impulse",
+        "lobe-ai",
+        "roboflow"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "记录到 2 次 Google Analytics 载荷，主线程基线延迟 161ms，CLS 0.01，可在浏览器内直接初始化完整迁移学习工作室。",
+      "testedAt": "2026-09"
+    }
+  },
+  "playground-tensorflow-org": {
+    "en": {
+      "bestFor": "Students, machine learning researchers, and software engineers seeking to visually experiment with neural network architectures, hyperparameter tuning, and decision boundaries without setup",
+      "pros": [
+        "Executes full forward and backpropagation training entirely inside the browser using client-side JavaScript and HTML5 Canvas",
+        "Encodes complete hyperparameter configurations, network layers, and training states directly into reproducible URL hash fragments",
+        "Provides interactive controls for activation functions, regularization rates, feature cross-products, and dataset noise"
+      ],
+      "cons": [
+        "Designed primarily for educational exploration and cannot load large-scale production deep learning architectures",
+        "Records a single Google Analytics tracking beacon upon initial page load"
+      ],
+      "privacyVerdict": "Local client-side execution verified; synthetic dataset generation, weight updates, and loss curve plotting execute within the browser thread with observed external network activity limited to 1 Google Analytics beacon.",
+      "alternativeTo": [
+        "teachablemachine-withgoogle-com",
+        "keras-io",
+        "pytorch-tutorials"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 97
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Recorded 1 Google Analytics payload, 121ms main thread baseline with 0.00 CLS, and rapid convergence over 365 training epochs in 3 seconds.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望免配开发环境直观理解神经网络结构、超参数调优与决策边界演变过程的学生、研究人员与算法工程师",
+      "pros": [
+        "基于纯前端 JavaScript 与 HTML5 Canvas 在浏览器本地执行完整的前向传播与反向传播训练",
+        "将所有超参数配置、网络层拓扑与训练状态实时序列化至 URL 哈希片段中，便于一键分享与复现",
+        "支持动态调节激活函数、正则化系数、特征交叉项以及数据集噪声"
+      ],
+      "cons": [
+        "主要用于教学演示与直观概念验证，无法加载大规模商业级深度学习模型权重",
+        "初次加载页面时会发送 1 次 Google Analytics 访问统计请求"
+      ],
+      "privacyVerdict": "经测试确认运算完全在本地客户端运行：数据样本生成、权重更新与损失曲线绘制均在浏览器主线程即时计算，外部网络活动仅限于 1 次 Google Analytics 访问统计。",
+      "alternativeTo": [
+        "teachablemachine-withgoogle-com",
+        "keras-io",
+        "pytorch-tutorials"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 97
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "记录到 1 次 Google Analytics 载荷，主线程基线延迟 121ms，CLS 0.00，在 3 秒内稳定完成 365 轮训练并收敛决策边界。",
+      "testedAt": "2026-09"
+    }
+  },
+  "goblin-tools": {
+    "en": {
+      "bestFor": "Neurodivergent individuals, students, and professionals needing to decompose overwhelming tasks, adjust communication tones, or estimate time requirements without registration or ads",
+      "pros": [
+        "Provides nine dedicated AI utilities including Magic ToDo, Formalizer, Judge, and Estimator with zero registration barriers",
+        "Features adjustable breakdown depth (spiciness rating) to accommodate different cognitive workloads and focus levels",
+        "Contains zero third-party advertising, third-party trackers, or commercial surveillance scripts"
+      ],
+      "cons": [
+        "AI text transformations and task breakdowns require remote inference calls to first-party servers rather than running offline in WebAssembly",
+        "Advanced cross-device task list synchronization is reserved for the optional paid Pro tier"
+      ],
+      "privacyVerdict": "Server-side text processing egress observed; submitted prompts and task items are processed via first-party endpoints (dtfst.goblin.tools and stats.goblin.tools) with zero third-party advertising or telemetry trackers detected.",
+      "alternativeTo": [
+        "todoist",
+        "notion-ai",
+        "deepl-com-translator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 15,
+        "overall": 93
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Recorded 7 first-party network payloads, 103ms main thread baseline with 0.02 CLS, and accurate 34-character professional tone reformulation with clean clipboard capture.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要分解繁琐任务、调整沟通语气或预估耗时，且追求无广告、免注册极简体验的神经多样性群体、学生及职场人士",
+      "pros": [
+        "提供包含神奇待办、语气转换器、情绪判断与时间估计器在内的 9 款专属 AI 微工具，零门槛免登录使用",
+        "具备独创的“辣度”调节滑块，可根据认知负荷自由调整任务拆解颗粒度",
+        "完全不包含任何第三方商业广告、跨站追踪或用户行为画像脚本"
+      ],
+      "cons": [
+        "AI 文本转换与任务拆解依赖第一方服务端模型运算，无法在离线环境下纯本地运行",
+        "跨设备待办列表云端同步属于可选的付费 Pro 会员功能"
+      ],
+      "privacyVerdict": "观测到服务端文本处理外发：提交的文本与待办事项通过第一方接口（dtfst.goblin.tools 与 stats.goblin.tools）进行模型推断，未检测到任何第三方商业广告或用户追踪脚本。",
+      "alternativeTo": [
+        "todoist",
+        "notion-ai",
+        "deepl-com-translator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 15,
+        "overall": 93
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "记录到 7 次第一方网络载荷，主线程基线延迟 103ms，CLS 0.02，成功将口语化表达改写为 34 字符的高水准专业语气并顺利写入剪贴板。",
+      "testedAt": "2026-09"
+    }
+  },
+  "askmeanythi-ng": {
+    "en": {
+      "bestFor": "Event hosts, workshop facilitators, and content creators looking to host disposable live Q&A sessions with audience voting and zero registration",
+      "pros": [
+        "Enables instant disposable AMA session creation with zero signup, automated TTL expiration, and direct link distribution",
+        "Features real-time question voting, host moderation, emoji reactions, and dedicated projector display mode via WebSockets",
+        "Stores admin and visitor credentials purely in local storage with zero third-party commercial trackers or analytics scripts"
+      ],
+      "cons": [
+        "Session creation requires passing invisible Cloudflare Turnstile verification, which can stall in headless or aggressive privacy environments",
+        "Session history lacks built-in one-click CSV or JSON download functionality for archived audience questions"
+      ],
+      "privacyVerdict": "Ephemeral backend persistence observed; session tokens and visitor IDs are stored in browser localStorage with data automatically deleted upon expiration, and network egress strictly confined to first-party API endpoints and Cloudflare Turnstile anti-bot checks.",
+      "alternativeTo": [
+        "slido",
+        "mentimeter",
+        "padlet"
+      ],
+      "productScore": {
+        "frictionless": 16,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 13,
+        "overall": 84
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Recorded 2 direct API payloads alongside Cloudflare Turnstile bot verification, 93ms maximum long task freeze with 0.01 CLS, and complete accordion-based FAQ documentation exploration.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望在无需用户注册的情况下快速组织一次性实时问答、观众投票与互动的活动主持人、培训讲师与创作者",
+      "pros": [
+        "支持免注册一键创建临时问答空间，具备可配置的 1 至 7 天自动销毁机制与直链分享功能",
+        "内置基于 WebSocket 的实时观众投票、问题审核管理、表情互动以及适于现场大屏展示的投影仪模式",
+        "访客与管理员身份凭证仅存储于本地 localStorage，不包含任何第三方商业广告或行为分析追踪脚本"
+      ],
+      "cons": [
+        "创建空间时依赖 Cloudflare Turnstile 人机验证，在无头浏览器或特定隐私配置网络下可能陷入等待",
+        "问答历史未提供内置的一键 CSV 或 JSON 文件下载归档功能"
+      ],
+      "privacyVerdict": "观测到临时后端持久化存储：会话令牌与匿名访客标识保存在本地 localStorage 中，过期后自动完全删除，网络外发严格限制在第一方 API 与 Cloudflare Turnstile 防机验证请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 16,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 13,
+        "overall": 84
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "记录到 2 次直接 API 网络载荷与 Cloudflare Turnstile 验证请求，主线程最大冻结 93ms，CLS 0.01，并完成了完整的常见问题交互文档审查。",
+      "testedAt": "2026-09"
+    }
   }
 }
