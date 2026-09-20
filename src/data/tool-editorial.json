@@ -8682,5 +8682,233 @@
       "benchmarkNotes": "记录到 3 次统计与性能网络载荷，主线程基线延迟 74ms，CLS 0.00，历经 8 步交互深度验证了拼图设计工作台的画布排版功能。",
       "testedAt": "2026-09"
     }
+  },
+  "kuakua-app": {
+    "en": {
+      "bestFor": "Users seeking quick access to standardized psychology questionnaires like DASS-21 or MBTI without registration, who do not mind intrusive advertising",
+      "pros": [
+        "Provides immediate access to standardized mental health assessments such as DASS-21 with automated question progression",
+        "Generates shareable result cards featuring embedded QR codes, direct image export, and clean clipboard link sharing"
+      ],
+      "cons": [
+        "Overlaid with intrusive interstitial and sticky banner ads that obscure question content and cause high layout shifts",
+        "Transmits extensive telemetry to Microsoft Clarity session recording and Google ad networks during sensitive psychological questionnaires"
+      ],
+      "privacyVerdict": "Severe third-party surveillance and ad tracking egress observed; 32+ network requests captured including Microsoft Clarity session recording, Google AdSense, DoubleClick, and multiple Google Analytics properties during psychological assessments.",
+      "alternativeTo": [
+        "psychology-today",
+        "openpsychometrics",
+        "mind-diagnostics"
+      ],
+      "productScore": {
+        "frictionless": 11,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 6,
+        "polish": 11,
+        "overall": 61
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Recorded 32 tracking and ad payloads, 114ms main thread freeze with severe 1.06 CLS, and verified 37-character clean clipboard capture across 11 test steps.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望免注册快速进行 DASS-21 或 MBTI 等标准化心理量表自评，且对页面插屏广告容忍度较高的用户",
+      "pros": [
+        "无需登录即可直接开始 DASS-21 等标准化心理健康自评量表，支持逐题自动推进与作答计时",
+        "提供带有嵌入式二维码的分享卡片生成功能，支持一键复制链接与卡片图片保存"
+      ],
+      "cons": [
+        "页面充斥侵入式插屏广告与吸顶悬浮广告，严重遮挡题目内容并导致高达 1.06 的累积布局偏移",
+        "在涉及个人心理状态评测的场景下，集成了 Microsoft Clarity 行为录屏、Google AdSense 与 DoubleClick 广告追踪"
+      ],
+      "privacyVerdict": "观测到严重的第三方广告追踪与会话录制外发：在心理评测过程中捕获到超过 32 次网络通信，涵盖 Microsoft Clarity 用户行为录屏、Google AdSense、DoubleClick 以及多个 Google Analytics 追踪属性。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 11,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 6,
+        "polish": 11,
+        "overall": 61
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "记录到 32 次追踪与广告载荷，主线程基线延迟 114ms，严重 CLS 1.06，历经 11 步交互完成量表测试与 37 字符纯净剪贴板校验。",
+      "testedAt": "2026-09"
+    }
+  },
+  "phet-colorado-edu": {
+    "en": {
+      "bestFor": "STEM educators, students, and self-learners needing interactive, offline-capable physics, chemistry, and math laboratory simulations",
+      "pros": [
+        "Comprehensive suite of research-grade interactive STEM simulations across physics, chemistry, and mathematics",
+        "One-click export of self-contained single-file HTML5 packages (e.g. 4.93 MB) that run completely offline without internet",
+        "Real-time interactive vector graphics, fluid density parameters, and physical force readouts without registration"
+      ],
+      "cons": [
+        "Catalog website loads Google Analytics (G-4EVJVBSTB9) and Cloudflare RUM telemetry",
+        "Standalone simulation packages can be large (several megabytes per HTML bundle)"
+      ],
+      "privacyVerdict": "The web catalog initiates 4 observed telemetry requests to Google Analytics and Cloudflare RUM, but operates without user accounts or personal data capture. Exported HTML5 simulations can run completely disconnected from the network with zero data egress.",
+      "alternativeTo": [
+        "Gizmos",
+        "Labster",
+        "Phun/Algodoo"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited interactive simulation 'Buoyancy: Basics'. Successfully manipulated submerged volume and density parameters with instant vector updates, and exported a self-contained 4.93 MB offline HTML5 executable bundle with zero authentication gates.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要进行交互式物理、化学与数学实验教学且支持离线运行的 STEM 教师、学生与自学者",
+      "pros": [
+        "涵盖物理、化学与数学等全学科领域的高精度交互式 STEM 实验模拟器",
+        "支持一键导出单文件自包含 HTML5 运行包（如 4.93 MB），无需网络即可完全离线运行",
+        "无需登录即可实时调整流体密度、受力参数并观察动态物理矢量变化"
+      ],
+      "cons": [
+        "主站目录页面加载 Google Analytics (G-4EVJVBSTB9) 与 Cloudflare RUM 遥测请求",
+        "离线运行包体积较大（每个单文件 HTML 模拟器约数兆字节）"
+      ],
+      "privacyVerdict": "主站目录检测到 4 个针对 Google Analytics 与 Cloudflare RUM 的遥测请求，但完全无需注册账户或提交个人信息。导出的 HTML5 实验包可在断网环境下完全离线独立运行，无任何数据外流。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对浮力基础交互式实验（Buoyancy: Basics）进行了实测。成功调节浸入体积与流体密度参数并获得即时受力矢量更新，顺利导出了 4.93 MB 的完全自包含离线 HTML5 实验包，全程无登录拦截。",
+      "testedAt": "2026-09"
+    }
+  },
+  "write-as": {
+    "en": {
+      "bestFor": "Writers, journalists, and thinkers wanting an instant, distraction-free markdown publishing platform without accounts, cookies, or ad trackers",
+      "pros": [
+        "Zero account creation or email requirement to write and instantly publish live markdown posts",
+        "Exemplary privacy architecture with zero commercial analytics, ad scripts, or behavioral telemetry (only 1 functional /api/posts request observed)",
+        "Direct raw Markdown access via appending .md to any published post URL",
+        "Powered by the open-source AGPL-3.0 WriteFreely backend with clean distraction-free typography"
+      ],
+      "cons": [
+        "Anonymous trial posts auto-expire and unpublish after 1 hour unless upgraded to a paid plan",
+        "Limited rich styling options compared to complex WYSIWYG editors"
+      ],
+      "privacyVerdict": "Gold standard privacy hygiene. Live browser audits observed zero third-party trackers, zero advertising scripts, and zero telemetry payloads. The only observed network payload was the single functional /api/posts dispatch required to transmit the user's article.",
+      "alternativeTo": [
+        "Medium",
+        "Substack",
+        "Telegra.ph",
+        "Ghost"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 95
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Conducted end-to-end writing and publishing audit. Verified instant anonymous editing in textarea#writer, published post b1eg2722zaw2w in 472ms, verified direct raw markdown access via .md suffix, and recorded zero extraneous network telemetry.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要即时、无干扰 Markdown 写作与发布平台且杜绝任何账户、Cookie 或广告追踪的写作者与媒体人",
+      "pros": [
+        "完全无需注册账户或邮箱即可即时编写并公开发布 Markdown 文章",
+        "极具典范的隐私架构，零商业统计、广告代码与行为遥测（仅检测到 1 次发布文章的功能性 /api/posts 请求）",
+        "在已发布文章 URL 末尾追加 .md 即可直接获取纯文本 Markdown 原文",
+        "基于开源 AGPL-3.0 WriteFreely 引擎构建，排版典雅纯净且无干扰"
+      ],
+      "cons": [
+        "匿名试用发布的文章在 1 小时后会自动下线，长期托管需注册付费账户",
+        "相比复杂富文本排版编辑器，样式定制选项相对克制精简"
+      ],
+      "privacyVerdict": "标杆级隐私保护规范。浏览器实测全程未检测到任何第三方统计、广告追踪脚本或商业遥测；唯一捕获的网络请求为提交文章所需的单个功能性 /api/posts 接口。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 95
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "进行了全流程即时写作与发布实测。验证了在 textarea#writer 中秒级即写即发，472ms 内成功生成匿名文章 b1eg2722zaw2w，验证了末尾 .md 后缀获取 Markdown 原文功能，全网仅触发必要发布请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "www-when2meet-com": {
+    "en": {
+      "bestFor": "Clubs, student groups, and cross-organization teams coordinating meeting times across multiple people without forcing anyone to create accounts or download apps",
+      "pros": [
+        "Zero registration required for both organizers and respondents — participants join by simply entering a display name",
+        "Interactive visual drag-and-drop calendar grid with instant color-coded group availability heatmap calculation",
+        "Instant shareable poll link generation with automatic timezone compensation",
+        "Completely free with no limit on attendee count or event duration"
+      ],
+      "cons": [
+        "Web catalog loads third-party advertising, Google Analytics (G-3L5STP8FEF), DoubleClick, and Remarketing scripts (18 observed network payloads)",
+        "Dated Web 2.0 interface with limited mobile touch ergonomics and no direct .ics calendar file export"
+      ],
+      "privacyVerdict": "Requires zero personal identity data, emails, or account sign-ups to create or respond to polls. However, the site embeds third-party display advertisements and initiates 18 observed telemetry/ad payloads across Google Analytics, DoubleClick, and Google Remarketing tags.",
+      "alternativeTo": [
+        "Doodle",
+        "LettuceMeet",
+        "StrawPoll",
+        "Calendly"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 81
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited event creation via input#NewEventName and selection on div#Day-1-2. Form submission completed in 190ms generating a 44-character poll permalink. Verified instant painting of YouTime1789952400 in div#YouGridSlots to update group availability, while observing 18 ad and telemetry network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在多位参与者之间快速协调会议时间且无需任何人注册账户或安装应用的社团、学生组织与跨团队项目组",
+      "pros": [
+        "发起者与参会者均无需注册账户或绑定邮箱，填写任意昵称即可参与投票",
+        "交互式可视化拖拽时间网格，根据所有人空闲时间实时计算绿色彩阶热力图",
+        "一键生成即时共享链接，内置跨时区自动换算",
+        "完全免费使用，无参会人数上限或活动有效期限制"
+      ],
+      "cons": [
+        "网页包含第三方展示广告、Google Analytics (G-3L5STP8FEF)、DoubleClick 及再营销广告脚本（检测到 18 个网络请求）",
+        "经典 Web 2.0 复古界面风格，移动端手势交互体验较一般，且不支持直接导出 .ics 日历文件"
+      ],
+      "privacyVerdict": "创建与回复日程投票完全无需邮箱、密码或真实身份信息。但网站底部嵌入了第三方展示广告，并触发了包括 Google Analytics、DoubleClick 和 Google 再营销标签在内的 18 个外部遥测与广告请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 81
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测通过 input#NewEventName 输入活动名称并选定 div#Day-1-2 日期。表单在 190ms 内提交并生成 44 字符的投票专属链接。验证了在 div#YouGridSlots 中划选 YouTime1789952400 实时更新团队热力图，同时监测记录了 18 个广告与遥测网络请求。",
+      "testedAt": "2026-09"
+    }
   }
 }

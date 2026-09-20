@@ -1027,12 +1027,20 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
       );
       const testedAt = new Date().toISOString().slice(0, 7);
       editorial[slug] = editorial[slug] || {};
+      const normalizeAlts = (val, fallback = []) => {
+        if (Array.isArray(val)) return val;
+        if (typeof val === 'string' && val.trim().length > 0) {
+          return val.split(',').map(s => s.trim()).filter(Boolean);
+        }
+        return fallback;
+      };
+
       editorial[slug].en = {
         bestFor: evalData.bestFor,
         pros: evalData.pros,
         cons: evalData.cons,
         privacyVerdict: evalData.privacyVerdict,
-        alternativeTo: (evalData.alternativeTo && evalData.alternativeTo.length > 0) ? evalData.alternativeTo : (editorial[slug]?.en?.alternativeTo || []),
+        alternativeTo: normalizeAlts(evalData.alternativeTo, editorial[slug]?.en?.alternativeTo || []),
         productScore: evalData.productScore,
         verdictTier,
         benchmarkNotes: evalData.benchmarkNotes,
@@ -1043,7 +1051,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         pros: evalData.prosZh,
         cons: evalData.consZh,
         privacyVerdict: evalData.privacyVerdictZh,
-        alternativeTo: (evalData.alternativeToZh && evalData.alternativeToZh.length > 0) ? evalData.alternativeToZh : (editorial[slug]?.zh?.alternativeTo || []),
+        alternativeTo: normalizeAlts(evalData.alternativeToZh, editorial[slug]?.zh?.alternativeTo || editorial[slug]?.en?.alternativeTo || []),
         productScore: evalData.productScore,
         verdictTier,
         benchmarkNotes: evalData.benchmarkNotesZh,
