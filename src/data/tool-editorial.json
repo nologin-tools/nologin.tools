@@ -6390,5 +6390,223 @@
       "benchmarkNotes": "主线程以 0ms 卡顿和 0.01 CLS 完成 10 元素冒泡排序动画与伪代码高亮同步，执行逻辑稳定无异常。",
       "testedAt": "2026-09"
     }
+  },
+  "flukeout-github-io": {
+    "en": {
+      "bestFor": "Gamified interactive 32-level puzzle practice for mastering CSS selectors and pseudo-classes.",
+      "pros": [
+        "Engaging 32-level curriculum progressing from elemental tags to complex pseudo-classes (:nth-child, :only-of-type, :empty)",
+        "Real-time synchronized visual table display, interactive CSS editor, and companion HTML markup tree"
+      ],
+      "cons": [
+        "Lacks export or download functionality to backup solved puzzle progress or dump customized selector cheat-sheets"
+      ],
+      "privacyVerdict": "Telemetry is bounded to 3 Google Analytics requests (/j/collect, /g/collect). User inputs and level progress remain stored locally in browser localStorage under 'currentLevel' and 'progress'.",
+      "alternativeTo": [
+        "css-speedrun-netlify-app",
+        "regexlearn-com",
+        "flexboxfroggy-com"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 14,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Completed Level 1 ('plate') and Level 2 ('bento') with 79 ms max long task and 0.05 CLS; progress successfully persisted in localStorage.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "以趣味餐桌为场景的 32 关沉浸式 CSS 选择器与伪类规则闯关训练。",
+      "pros": [
+        "编排严谨的 32 关渐进式体系，由浅入深覆盖基础标签、类名、后代选择器及高阶伪类（:nth-child、:only-of-type、:empty）",
+        "生动的三栏同步视窗，直观呈现动画餐桌、动态 CSS 输入框与标准 HTML 节点层级树"
+      ],
+      "cons": [
+        "未提供将通关进度或解题笔记一键打包导出为本地文件的导出功能"
+      ],
+      "privacyVerdict": "网络请求仅包含 3 次 Google Analytics 匿名分析信标（/j/collect 与 /g/collect）。输入的选择器与通关记录仅保存于本地 localStorage（键名 currentLevel 与 progress）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 14,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 79ms 最大主线程延迟与 0.05 CLS 下顺畅完成第 1 关 plate 与第 2 关 bento，通关状态完好写入本地 localStorage。",
+      "testedAt": "2026-09"
+    }
+  },
+  "pythontutor-com": {
+    "en": {
+      "bestFor": "Step-by-step code execution tracing and memory stack/pointer visualization across Python, C, C++, Java, and JavaScript.",
+      "pros": [
+        "World-class stack frame and memory pointer visualization illustrating recursion, heap objects, and variable bindings step-by-step",
+        "Multi-language execution engine supporting Python 3.11, Java, C, C++, and JavaScript with bidirectional step scrubbing",
+        "Self-contained URL hash permanent links embedding complete source code, language version, and instruction step pointer"
+      ],
+      "cons": [
+        "Code is transmitted over network to remote backend execution servers (web_exec_py311.py) rather than running in client WebAssembly",
+        "Ad-supported interface incorporates Google AdSense scripts and Google Analytics tracking beacons"
+      ],
+      "privacyVerdict": "Code execution requires transmitting script content via XHR to pythontutor.com backend endpoints (web_exec_py311.py). Outbound telemetry includes Google Analytics and Google Funding Choices ad consent beacons.",
+      "alternativeTo": [
+        "visualgo-net",
+        "algorithm-visualizer-org",
+        "replit-com"
+      ],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 17,
+        "depth": 25,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Executed 19-step recursive factorial code in Python 3.11 with 76 ms max long task; visualized 4 stack frames and generated portable URL hash permalink.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "针对 Python、C、C++、Java 与 JavaScript 的逐行代码单步执行跟踪与内存栈帧、指针引用拓扑可视化。",
+      "pros": [
+        "学术级内存栈帧与指针引用图解，清晰呈现递归调用、堆对象分配与变量绑定关系的演进过程",
+        "支持 Python 3.11、Java、C、C++ 与 JavaScript 多种语言，具备前后双向步进微调控制条",
+        "生成纯 URL 哈希片段的永久分享链接，完整嵌入全部源代码、目标语言版本与当前单步指针"
+      ],
+      "cons": [
+        "代码执行依赖将脚本发送至服务端接口（web_exec_py311.py）进行沙箱运算，非纯本地 WebAssembly 执行",
+        "页面包含 Google AdSense 广告位脚本与 Google Analytics 追踪信标"
+      ],
+      "privacyVerdict": "运行代码需通过 XHR 将用户脚本发送至 pythontutor.com 后端执行端点（如 web_exec_py311.py）。外发网络请求亦包含 Google Analytics 与 Google 广告合规检测信标，免注册免登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 17,
+        "depth": 25,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "以 76ms 最大任务耗时成功运行 Python 3.11 递归阶乘 19 步演算，清晰图解 4 层调用栈帧并生成全状态 URL 哈希链接。",
+      "testedAt": "2026-09"
+    }
+  },
+  "regexlearn-com": {
+    "en": {
+      "bestFor": "Step-by-step interactive regular expression learning with live visual testing playground and syntax cheat-sheet.",
+      "pros": [
+        "56-step structured curriculum teaching regular expressions with interactive fill-in challenges and instant highlight feedback",
+        "Companion real-time regex playground with sidebar reference cheatsheet covering anchors, character classes, flags, and lookarounds",
+        "Keyboard-driven workflow with Enter and Shift+Enter shortcuts and automatic localStorage progress persistence"
+      ],
+      "cons": [
+        "No bulk file import or multi-string test dataset runner in the playground",
+        "Lacks export button to download course completion certificates or regex notes as Markdown/JSON"
+      ],
+      "privacyVerdict": "All regular expressions and test strings are evaluated entirely client-side using JavaScript's native RegExp engine. Outbound telemetry is limited to anonymous Google Analytics beacons.",
+      "alternativeTo": [
+        "regex101-com",
+        "regexper-com",
+        "debuggex-com"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed step 1 and step 2 of Regex 101 with 69 ms max long task and 0.00 CLS; playground matches highlighted in real-time.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "交互式渐进式正则表达式学习教学平台，附带实时高亮调试 Playground 与语法速查手册。",
+      "pros": [
+        "系统化的 56 步渐进式交互课程，通过填空式即时验证引导掌握定界符、字符类、量词与捕获组",
+        "内置独立的实时正则演练场与右侧即时语法速查卡片，覆盖锚点、字符集、标志位与零宽断言",
+        "完全支持 Enter 与 Shift+Enter 键盘极速步进切换，学习进度自动同步本地 localStorage"
+      ],
+      "cons": [
+        "演练场暂不支持批量测试用例导入或针对大型文本文件的正则性能压测",
+        "未提供将已学关卡笔记或完整通关记录导出为本地 Markdown/JSON 的功能"
+      ],
+      "privacyVerdict": "所有正则表达式匹配均通过客户端浏览器原生的 JavaScript RegExp 引擎离线计算，测试字符串绝不上传。外发请求仅限于 Google Analytics 匿名页面与步骤达标信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "以 69ms 最大任务延迟与 0.00 CLS 完成第 1 关填空与第 2 关步进，Playground 实时高亮匹配顺畅且零布局抖动。",
+      "testedAt": "2026-09"
+    }
+  },
+  "mystery-knightlab-com": {
+    "en": {
+      "bestFor": "Investigative gamified mystery game for practicing real-world relational SQL queries, joins, and data sleuthing.",
+      "pros": [
+        "Full-fledged relational SQLite database with 8 interrelated tables (crime scene reports, interviews, gym check-ins, driver licenses, Facebook check-ins)",
+        "Client-side execution powered by sql.js Web Worker without sending SQL queries to any remote database server",
+        "Raw SQLite database file (sql-murder-mystery.db) is openly available for offline inspection in standard sqlite3 or DB Browser"
+      ],
+      "cons": [
+        "Does not include an automated CSV/JSON download button for individual query result tables"
+      ],
+      "privacyVerdict": "SQL queries are executed locally in a client-side Web Worker using sql.js and a locally loaded SQLite file. Network egress is confined to Cloudflare RUM performance beacons and Google Analytics pageviews.",
+      "alternativeTo": [
+        "sqlzoo-net",
+        "selectstarsql-com",
+        "sqlbolt-com"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed sqlite_master schema query in 62 ms max long task and 0.01 CLS; table results rendered instantly via local sql.js Web Worker.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "以真实案件侦破为背景的沉浸式关系型 SQL 交互练习与多表联合探案游戏。",
+      "pros": [
+        "包含 8 张完整业务关联表（现场勘查报告、证人访谈笔录、健身房打卡、驾照与社交签到记录）的高质量真实数据库",
+        "依托 sql.js Web Worker 在浏览器端实现纯本地 WebAssembly 运算，SQL 查询语句绝不上传云端",
+        "底层 SQLite 数据库（sql-murder-mystery.db）完全开放直接下载，支持离线导入本地 sqlite3 或可视化工具"
+      ],
+      "cons": [
+        "针对各个单项查询结果表格未提供一键导出为 CSV/JSON 文件的独立按钮"
+      ],
+      "privacyVerdict": "所有 SQL 语法解析与多表关联运算均通过浏览器的 sql.js Web Worker 本地完成。网络外发仅限于 Cloudflare RUM 性能采集与 Google Analytics 匿名页面分析。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 62ms 最大任务耗时与 0.01 CLS 下秒级运行 sqlite_master 表结构查询，Web Worker 本地即时渲染出多张数据表结果。",
+      "testedAt": "2026-09"
+    }
   }
 }
