@@ -10184,5 +10184,261 @@
       "benchmarkNotes": "实测 Calorie Calculator 工具，通过 input 输入参数（25 岁、70 kg、175 cm）。DOM 即时响应式渲染出 BMR 1,674 cal 与 TDEE 2,594 cal，3 个目标卡片零布局偏移，全程捕获 4 次常规网络遥测请求。",
       "testedAt": "2026-09"
     }
+  },
+  "www-whatsmyiplive-com": {
+    "en": {
+      "bestFor": "Network engineers, remote workers, and privacy researchers needing instant public IP discovery, WebRTC leak auditing, and multi-record DNS lookups without registration",
+      "pros": [
+        "Instant IP and geolocation detection: provides immediate IPv4 address, ISP, ASN, and OpenStreetMap city-level location on page load",
+        "Real-time WebRTC leak detection: audits client ICE candidates directly in-browser to identify exposed local or public addresses",
+        "Multi-format export capabilities: exports DNS query results directly into clean CSV, JSON, or system clipboard with zero registration walls",
+        "Comprehensive networking toolbox: integrates 15+ diagnostics including DNSSEC inspection, ping/jitter tests, WHOIS lookups, and SSL validation"
+      ],
+      "cons": [
+        "Loads third-party advertising scripts from Google AdSense, DoubleClick, and Google Tag Manager across diagnostic pages",
+        "Requires manual consent dismissal on initial visit to prevent non-essential tracking cookies"
+      ],
+      "privacyVerdict": "Diagnostic queries and WebRTC leak tests execute without server-side accounts. Network monitoring observed 14 telemetry and advertising payloads (Google Analytics G-J033WR6QBF, DoubleClick, and Google Ads remarketing); user IP is inherently exposed to the remote server to fulfill IP detection, but queries are not gated behind user credentials.",
+      "alternativeTo": [
+        "WhatIsMyIP.com",
+        "IPLeak.net",
+        "BrowserLeaks",
+        "DNSChecker.org"
+      ],
+      "productScore": {
+        "frictionless": 16,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14,
+        "overall": 85
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited WebRTC leak detector and Advanced DNS Analyzer with cloudflare.com. Queried 4 record types across 37 records in 1139 ms response time. Triggered CSV export to verify 3589-byte clean artifact with zero watermarks or login gates, observing 14 network advertising and analytics payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册即时查询公网 IP、排查 WebRTC 真实地址泄露风险以及进行多类型 DNS 记录解析的网络工程师与远程办公用户",
+      "pros": [
+        "即时公网 IP 与地理位置探测：访问主页秒级显示 IPv4 地址、ISP 运营商、ASN 及 OpenStreetMap 城市级交互地图",
+        "实时 WebRTC 泄露检测：在浏览器端直接探测 ICE candidates 候选地址，快速甄别真实 IP 是否发生意外暴露",
+        "多格式结构化数据导出：支持将 DNS 分析结果一键下载为纯净的 CSV、JSON 文件或直接复制到系统剪贴板，全程免登录",
+        "丰富的网络诊断工具箱：集成 DNSSEC 校验、Ping 抖动测试、WHOIS 查询与 SSL 证书链验证等 15+ 项网络工具"
+      ],
+      "cons": [
+        "在各诊断页面加载了 Google AdSense、DoubleClick 及 Google Tag Manager 等第三方广告与遥测脚本",
+        "首次访问主页时需要手动点击拒绝 Cookie 授权横幅以防非必要追踪"
+      ],
+      "privacyVerdict": "所有网络诊断与 WebRTC 泄露检测均在无需注册账户的情况下运行。实测全程捕获到 14 次第三方网络遥测与广告请求（包括 Google Analytics G-J033WR6QBF、DoubleClick 与 Google 广告再营销服务）；虽然查询本身需向服务器暴露公网 IP 以完成探测，但没有任何个人身份凭证绑定。",
+      "alternativeTo": [
+        "WhatIsMyIP.com",
+        "IPLeak.net",
+        "BrowserLeaks",
+        "DNSChecker.org"
+      ],
+      "productScore": {
+        "frictionless": 16,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14,
+        "overall": 85
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 WebRTC 泄露检测工具与高级 DNS 分析器，针对 cloudflare.com 查询 4 类解析记录，在 1139 ms 内获取 37 条结果。触发 CSV 导出按钮成功捕获 3589 bytes 纯净文件，无水印或登录拦截，全程捕获 14 次广告与统计网络遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "at-use-com-tools-json-formatter": {
+    "en": {
+      "bestFor": "Developers, DevOps engineers, and API designers needing instant, client-side JSON formatting, minification, and line/column syntax error detection without uploading confidential payloads to remote servers",
+      "pros": [
+        "Client-side processing engine: formats, beautifies, and minifies JSON purely in browser memory using native JSON.parse() without uploading data",
+        "Precision syntax error reporting: parses browser-specific V8 and Gecko error messages to identify exact line and column numbers of invalid syntax",
+        "Keyboard-driven workflow: supports Ctrl+Enter (or Cmd+Enter) for instantaneous execution alongside one-click Pretty and Minify mode toggles",
+        "Unpolluted clipboard exports: copies formatted or minified code directly to the clipboard with zero appended promotional text or tracking parameters"
+      ],
+      "cons": [
+        "Lacks a direct file download button to export results as a .json file directly to local storage",
+        "Transmits anonymous usage events to Google Analytics (G-9TRJQMBRLQ, G-F896CMSND1) and an internal /api/log endpoint"
+      ],
+      "privacyVerdict": "JSON parsing, AST validation, and serialization execute entirely within the local browser runtime. Network monitoring captured 13 telemetry requests (Google Analytics G-9TRJQMBRLQ, G-F896CMSND1, and an internal /api/log endpoint); all requests contained only anonymous tool identifiers and event names, with zero user-supplied JSON payload data transmitted.",
+      "alternativeTo": [
+        "JSONLint",
+        "JSON Editor Online",
+        "CodeBeautify JSON Viewer",
+        "DevUtils"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 90
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited JSON Formatter & Validator using sample nested payload. Executed 2-space pretty formatting and single-line minification. Tested broken syntax to verify exact line 3 column 13 error reporting. Captured 60-character clean JSON clipboard export with zero watermark tails, recording 13 network telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不将机密数据或配置文件上传至远端服务器的前提下，在浏览器中即时格式化、压缩 JSON 并精准定位行号列号语法错误的开发者与系统运维人员",
+      "pros": [
+        "纯前端本地处理：利用浏览器原生 JSON.parse() 在内存中即时格式化与压缩代码，机密数据与载荷绝不上传远端服务器",
+        "高精度语法报错定位：针对 V8 与 Gecko 引擎错误信息进行智能正则解析，精准指出非法语法的具体行号与列号",
+        "键盘友好交互设计：支持 Ctrl+Enter (或 Cmd+Enter) 快捷键瞬时执行排版，并支持 Pretty 格式化与 Minify 单行压缩一键切换",
+        "纯净的剪贴板导出：一键复制排版或压缩结果，完全无任何广告尾巴、外挂链接或数据篡改"
+      ],
+      "cons": [
+        "未提供直接将格式化结果保存为本地 .json 文件的原生文件下载按钮",
+        "在执行操作时会向 Google Analytics (G-9TRJQMBRLQ, G-F896CMSND1) 及内部 /api/log 接口发送匿名使用指标"
+      ],
+      "privacyVerdict": "JSON 解析、语法校验与格式化序列化全在浏览器本地沙箱中完成。实测捕获到 13 次网络遥测请求（包括 Google Analytics G-9TRJQMBRLQ、G-F896CMSND1 及站内 /api/log 接口），请求仅传输工具标识与执行状态事件，用户输入的 JSON 代码与任何业务数据绝无外部传输记录。",
+      "alternativeTo": [
+        "JSONLint",
+        "JSON Editor Online",
+        "CodeBeautify JSON Viewer",
+        "DevUtils"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 90
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 JSON Formatter & Validator 工具，测试嵌套 JSON 样本进行 2 空格缩进排版与单行压缩。故意注入损坏语法，验证其精准捕获第 3 行第 13 列语法报错。触发剪贴板复制成功获取 60 字符纯净 JSON 数据无广告尾缀，全程捕获 13 次网络遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "quickbgcut-com": {
+    "en": {
+      "bestFor": "Designers, e-commerce managers, and photographers needing high-fidelity, local AI background removal and batch PNG export without uploading sensitive personal photos to remote cloud servers",
+      "pros": [
+        "In-browser AI segmentation: executes IS-Net FP16 neural network locally via ONNX Runtime WebAssembly with SIMD acceleration",
+        "Full-resolution unwatermarked exports: downloads 1086x1448 transparent PNGs without downsampling, quality compression, or branding overlays",
+        "Batch processing pipeline: queues up to 20 images simultaneously with individual PNG downloads and bulk ZIP archive packaging",
+        "Strict client-side privacy boundary: processes all pixels in local memory so original photos and masks never transmit over the network"
+      ],
+      "cons": [
+        "Initial model download requires transferring ~40MB of segmented ONNX model weight chunks before first inference",
+        "Synthetically generated gradient test patterns without clear foreground subjects can trigger image decode errors in the canvas pipeline"
+      ],
+      "privacyVerdict": "All machine learning segmentation and PNG encoding run locally on client hardware via WebAssembly. Network monitoring captured 8 telemetry requests (Cloudflare RUM and Google Analytics G-XBN1WV6BMZ) alongside static model weight chunks; user-uploaded image files and generated cutout masks are never transmitted to any external server.",
+      "alternativeTo": [
+        "remove.bg",
+        "Photoroom",
+        "Clipping Magic",
+        "Adobe Express Background Remover"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited batch background remover with a 2.1 MB portrait photo. Executed client-side ONNX Runtime WebAssembly inference in 9105 ms. Downloaded 1888451-byte full-resolution 1086x1448 transparent PNG with zero watermarks and zero bait traps, observing 8 analytics and performance payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不将个人隐私照片或商业图片上传至云端服务器的前提下，在本地利用 AI 神经网络高精移除背景并批量导出透明 PNG 的设计师与电商运营人员",
+      "pros": [
+        "端侧 AI 神经网络抠图：通过 ONNX Runtime WebAssembly 结合 SIMD 多线程加速，在浏览器本地运行 IS-Net FP16 模型",
+        "全分辨率无水印导出：直接下载 1086x1448 原始分辨率透明 PNG 文件，绝无画质压缩、降采样或品牌水印干扰",
+        "批量多图处理管线：支持一次性排队处理多达 20 张图像，提供单张 PNG 快速下载与批量 ZIP 打包导出功能",
+        "纯本地隐私防线：所有像素计算与遮罩生成完全在客户端内存完成，原始图片与扣图成果绝不经由网络回传"
+      ],
+      "cons": [
+        "首次使用时需从 CDN 下载约 40MB 的分块 ONNX 神经网络模型权重，初次初始化需要等待几秒加载",
+        "缺少主体前景的纯色渐变合成图片可能会在 Canvas 预处理阶段触发解码失败"
+      ],
+      "privacyVerdict": "所有神经网络图像分割与 PNG 编码全在客户端硬件上通过 WebAssembly 本地完成。实测监控捕获到 8 次常规遥测请求（Cloudflare RUM 与 Google Analytics G-XBN1WV6BMZ）以及静态模型权重分块下载；用户上传的照片原图与透明扣图结果绝无向任何外部服务器发送的记录。",
+      "alternativeTo": [
+        "remove.bg",
+        "Photoroom",
+        "Clipping Magic",
+        "Adobe Express 智能抠图"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14,
+        "overall": 96
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测批量抠图工具，导入 2.1 MB 真实人像照片。端侧 ONNX Runtime WebAssembly 神经网络推理耗时 9105 ms 完成边缘精细分割。成功下载 1888451 bytes 的 1086x1448 完整分辨率透明 PNG，无水印且无虚假拦截，全程记录到 8 次性能与访问统计网络遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "decibelshield-app": {
+    "en": {
+      "bestFor": "Acoustic professionals, workplace safety inspectors, musicians, and everyday users needing instant real-time decibel level measurement, NIOSH threshold monitoring, and pure-tone hearing screening without registration",
+      "pros": [
+        "Web Audio API real-time metering: analyzes microphone input directly in browser memory with zero recording or cloud streaming",
+        "Comprehensive acoustic suite: features A-weighting approximation, manual device calibration offsets, and a 30-second rolling history with NIOSH 85 dB limits",
+        "Pure-tone audiometry screening: delivers per-ear hearing checks across 250 Hz to 8 kHz speech frequencies with interactive tone calibration",
+        "Authoritative reference database: includes a 42-sound decibel level comparison chart cited from CDC, NIOSH, and NIDCD research"
+      ],
+      "cons": [
+        "Lacks export functionality to save recorded 30-second SPL time-series data as CSV or JSON logs",
+        "Smartphone and laptop microphones lack hardware acoustic calibration, yielding approximate ±10 dB baseline estimates"
+      ],
+      "privacyVerdict": "Microphone input is processed transiently in local browser memory through the Web Audio API without persistent audio buffers or server uploads. Network inspection verified 3 telemetry requests to Google Analytics (G-6XR4JYXGWZ); no audio samples, voice recordings, or microphone data were transmitted over the network.",
+      "alternativeTo": [
+        "NIOSH Sound Level Meter",
+        "Decibel X",
+        "Sound Meter App",
+        "Mimi Hearing Test"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 90
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited Web Audio API SPL meter and Pure Tone Audiometry suite across 250 Hz-8 kHz range. Verified local 30s rolling canvas graph and A-weighting toggle. Inspected network traffic to confirm 3 analytics payloads with zero audio data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在不安装专用 App 或注册账户的前提下，利用麦克风即时测量环境分贝、监控 NIOSH 听力损伤阈值并进行纯音听力初筛的声学从业者与普通用户",
+      "pros": [
+        "Web Audio API 实时测声：通过浏览器内置音频分析节点在本地内存即时计算分贝，绝不录制或上传任何音频流",
+        "专业声学工具套件：支持 A 计权 dB(A) 近似计算、设备级校准偏移微调以及标注 85 dB NIOSH 损伤警戒线的 30 秒动态历史图",
+        "纯音听力自测工具：提供涵盖 250 Hz 至 8 kHz 语言频率的左右耳交互式听力初筛与纯音音调校准",
+        "权威参考数据图谱：内置涵盖 42 种常见生活声源的分贝等级对照表，严格标注 CDC、NIOSH 与 NIDCD 权威科研来源"
+      ],
+      "cons": [
+        "缺乏将 30 秒分贝时序波动数据导出为 CSV 或 JSON 格式的归档功能",
+        "受限于消费级手机和电脑麦克风的硬件特性，未校准时测试结果存在约 ±10 dB 的环境基准估算误差"
+      ],
+      "privacyVerdict": "麦克风音频流仅在浏览器本地内存中通过 Web Audio API 瞬时分析，不保留持久录音缓存更无任何云端上传。实测网络监控验证仅存在发往 Google Analytics (G-6XR4JYXGWZ) 的 3 次常规页面访问请求，麦克风采集的任何音频样本与声音数据绝无外部传输记录。",
+      "alternativeTo": [
+        "NIOSH 声级计",
+        "Decibel X",
+        "分贝测试仪 App",
+        "Mimi 听力测试"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 19,
+        "polish": 15,
+        "overall": 90
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 Web Audio API 实时声级计与 250 Hz-8 kHz 纯音听力测试套件。验证了 30 秒滚动历史画布图表及 A 计权切换功能。检查网络通信确认仅捕获 3 次页面统计遥测请求，音频数据完全零外部传输。",
+      "testedAt": "2026-09"
+    }
   }
 }
