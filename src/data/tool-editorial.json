@@ -17944,5 +17944,253 @@
       "benchmarkNotes": "使用 804x604 像素的样例图片进行端到端测试。在 0 毫秒冻结延迟下实现单帧 Canvas 实时渲染。无需登录直接触发导出，生成了 176784 字节的纯净 PNG 精灵表及对应 JSON 图集。网络监控记录到 7 次外发请求（6 次 Umami 分析和 1 次 Google 状态探测），用户素材数据传输量为 0 字节。",
       "testedAt": "2026-09"
     }
+  },
+  "www-allsubconverter-com": {
+    "en": {
+      "bestFor": "Converting, cleaning, and time-syncing subtitle files across SRT, VTT, ASS, and 8 other formats entirely in-browser",
+      "pros": [
+        "Client-side parsing engine processes standard subtitle files up to 50 MB directly in browser memory without upload",
+        "Broad multi-format interoperability covering SRT, VTT, ASS, SSA, LRC, SBV, TTML, SCC, STL, SMI, and JSON",
+        "Dedicated side-by-side cue editor with configurable line endings, timestamp offsets, and collections management"
+      ],
+      "cons": [
+        "Analytics telemetry records outgoing events to Microsoft Clarity and Google Analytics upon user actions",
+        "AI-assisted subtitle translation features require external API credentials and route text to third-party endpoints"
+      ],
+      "privacyVerdict": "Standard subtitle conversion, time syncing, and file formatting execute locally in browser memory. Outgoing network requests are confined to Google Analytics and Microsoft Clarity tracking payloads, with zero subtitle content uploaded to remote servers.",
+      "alternativeTo": [
+        "Subtitle Edit",
+        "Aegisub",
+        "Happy Scribe",
+        "Kapwing"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded subtitle conversion uploading a 3-cue sample.srt fixture file. Workspace loaded with 66 ms freeze and rendered a real-time side-by-side diff table. Successfully triggered client-side conversion and unauthenticated download of a clean 285 bytes WEBVTT file. Network inspection recorded 24 analytics requests (Google Analytics and Microsoft Clarity); 0 bytes of subtitle text egressed to remote servers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器中对 SRT、VTT、ASS 等 11 种核心格式字幕文件进行格式互转、清洗纠错与时轴微调",
+      "pros": [
+        "纯前端内存解析引擎支持最高 50 MB 标准字幕文件，无需将文稿上传至远程服务器",
+        "支持 SRT、VTT、ASS、SSA、LRC、SBV、TTML、SCC、STL、SMI 及 JSON 等 11 种以上主流格式互转",
+        "提供专业双栏对比视图，支持时间轴毫秒微调、换行符配置与多文件工作区收藏夹管理"
+      ],
+      "cons": [
+        "操作过程中会向 Microsoft Clarity 与 Google Analytics 发送使用行为统计请求",
+        "内置的 AI 字幕翻译功能需要配置外部 API 密钥，且会向第三方接口发送文本数据"
+      ],
+      "privacyVerdict": "标准字幕转换、时轴同步与格式化处理完全在浏览器内存中运行。外发网络流量仅包含 Google Analytics 与 Microsoft Clarity 的行为统计负载，字幕文稿内容不会上传至远程服务器。",
+      "alternativeTo": [
+        "Subtitle Edit",
+        "Aegisub",
+        "Happy Scribe",
+        "Kapwing"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "上传包含 3 条字幕的 sample.srt 测试样例。工作区在 66 毫秒冻结延迟下成功加载并呈现双栏对比表格。顺利触发纯前端格式转换并免登录下载 285 字节的规范 WEBVTT 文件。网络监控捕获到 24 次分析追踪请求（Google Analytics 和 Microsoft Clarity），字幕文本实际传输量为 0 字节。",
+      "testedAt": "2026-09"
+    }
+  },
+  "toolsphare-tech-en": {
+    "en": {
+      "bestFor": "Accessing a broad directory of 280+ client-side PDF, image, text, and developer utilities in one place",
+      "pros": [
+        "Massive multi-category catalog spanning 284+ utilities with client-side execution for core developer tools",
+        "Zero-signup workflow with immediate input formatting and unwatermarked clipboard and file exports",
+        "Clean dark-mode interface featuring search shortcuts and distinct category indexing"
+      ],
+      "cons": [
+        "Loads Google Analytics telemetry beacon on initial page visit",
+        "Certain AI-branded sub-tools require external server processing rather than local sandboxing"
+      ],
+      "privacyVerdict": "Developer utilities and formatters execute entirely in client-side JavaScript memory. Outgoing network requests are restricted to 1 Google Analytics beacon, with no user data or code sent to remote servers.",
+      "alternativeTo": [
+        "TinyWow",
+        "10015.io",
+        "CyberChef",
+        "Omni Calculator"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded JSON Formatter utility inside the Developer Tools suite with a 10-line JSON object. Formatted instantly with 0 ms jank and verified one-click copy to clipboard yielding 112 chars of valid data. Network telemetry recorded 1 outgoing Google Analytics request; 0 bytes of user payload data egressed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "一站式快速调用涵盖 PDF 处理、图像转换、文本与开发者工具等 280 余款纯前端实用小工具",
+      "pros": [
+        "集成 284 余款跨门类在线工具，核心开发者与文本格式化工具均在浏览器本地运算",
+        "免登录开箱即用，支持快速格式化、无水印直接复制剪贴板与文件导出",
+        "具备清晰的深色主题界面，支持快捷搜索与详尽的分类索引浏览"
+      ],
+      "cons": [
+        "首次访问页面时会发送基础 Google Analytics 流量统计请求",
+        "部分标有 AI 特性的子工具依赖外部云端接口，非纯本地沙盒计算"
+      ],
+      "privacyVerdict": "开发者小工具及格式化功能完全在本地浏览器 JavaScript 内存中运行。外发网络通信仅限 1 次 Google Analytics 统计上报，用户输入数据与代码不会上传至远程服务器。",
+      "alternativeTo": [
+        "TinyWow",
+        "10015.io",
+        "CyberChef",
+        "Omni Calculator"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在开发者工具集中对 JSON Formatter 进行端到端测试，输入 10 行 JSON 数据。在 0 毫秒卡顿下实现瞬时格式化，并通过一键复制至剪贴板获取 112 字符的有效数据。网络流量仅记录到 1 次 Google Analytics 统计请求，用户输入数据传输量为 0 字节。",
+      "testedAt": "2026-09"
+    }
+  },
+  "bytepriva-com-merge-pdf": {
+    "en": {
+      "bestFor": "Merging and reordering multiple PDF documents entirely in browser memory with zero server uploads",
+      "pros": [
+        "Zero-egress client-side PDF assembly powered by pdf-lib ensuring files never leave device memory",
+        "Interactive document queue supporting drag-and-drop ordering, page count inspection, and individual item removal",
+        "Instant unwatermarked export generating standard-compliant multi-page PDF files without account gates"
+      ],
+      "cons": [
+        "Very large multi-gigabyte PDF archives may be constrained by browser tab heap limits",
+        "Advanced PDF post-processing options such as Bates numbering and metadata editing are not yet included"
+      ],
+      "privacyVerdict": "All PDF merging and page assembly take place entirely within client-side browser memory via pdf-lib. Network telemetry confirmed zero outgoing requests during testing, with no files or metadata transmitted to external servers.",
+      "alternativeTo": [
+        "ILovePDF",
+        "Smallpdf",
+        "Adobe Acrobat Online",
+        "PDF24"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded PDF merging with two standard PDF fixture files (609 bytes each). Reordered queue items and triggered assembly with 0 ms freeze. Successfully downloaded an 895 bytes valid %PDF-1.7 two-page merged document with clean magic bytes and zero watermarks. Telemetry audit confirmed 0 outgoing network payloads; completely zero-egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器内存中对多份 PDF 文档进行纯前端合并与页面排序，杜绝任何文档上传",
+      "pros": [
+        "基于 pdf-lib 的纯前端零外发架构，确保所有 PDF 文件完全保留在本地内存中处理",
+        "交互式文档管理队列，支持拖拽排序、页数预览与单项删除",
+        "免登录一键导出符合标准的高保真多页 PDF 文件，无任何第三方水印与体积限制"
+      ],
+      "cons": [
+        "处理超大尺寸（数吉字节）的批量 PDF 时会受限于浏览器标签页的内存分配上限",
+        "尚未提供贝茨编码（Bates numbering）与深层元数据编辑等企业级 PDF 高级排版选项"
+      ],
+      "privacyVerdict": "所有 PDF 合并与页面重组处理均通过 pdf-lib 在本地浏览器内存中完成。全流程网络监控确认外发请求为零，绝无任何文档或元数据上传至外部服务器。",
+      "alternativeTo": [
+        "ILovePDF",
+        "Smallpdf",
+        "Adobe Acrobat Online",
+        "PDF24"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "使用两份标准 PDF 样例文件（各 609 字节）进行合并实测。调整队列次序并在 0 毫秒冻结延迟下完成拼接。成功下载 895 字节的标准 %PDF-1.7 双页合并文档，魔数校验无误且无水印。全过程网络监控证实外发载荷为 0，实现彻底的零外发本地处理。",
+      "testedAt": "2026-09"
+    }
+  },
+  "imageconverttools-app": {
+    "en": {
+      "bestFor": "Converting, compressing, resizing, and watermarking image files locally in-browser without file uploads",
+      "pros": [
+        "Client-side WebAssembly and canvas image pipeline converts HEIC, PNG, JPG, and WebP entirely in local memory",
+        "Seven dedicated modular tools covering format conversion, target-size compression, resizing, and HEIC-to-PDF",
+        "Immediate export pipeline providing unwatermarked single file downloads and batch ZIP packaging"
+      ],
+      "cons": [
+        "Sends basic analytics beacons to Google Analytics and Microsoft Clarity during browser navigation",
+        "Batch processing hundreds of raw multi-megapixel images simultaneously may strain device RAM"
+      ],
+      "privacyVerdict": "Image processing runs entirely within client-side browser memory via WebAssembly and Canvas APIs. Outgoing network requests are restricted to 6 analytics beacons from Google Analytics and Microsoft Clarity, with zero image files transmitted to remote servers.",
+      "alternativeTo": [
+        "CloudConvert",
+        "ILoveIMG",
+        "Squoosh",
+        "TinyPNG"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded Image Converter tool with an 800x600 px sample.png fixture (325 KB). Converted instantly to high-quality JPEG in local memory. Successfully exported an unwatermarked 57849 bytes JPEG artifact matching standard JFIF magic bytes. Network audit captured 6 analytics telemetry pings (Google Analytics and Microsoft Clarity); 0 bytes of image data egressed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器本地对图片进行格式转换、定向压缩、尺寸裁切及水印添加，无需上传原始素材",
+      "pros": [
+        "基于浏览器本地 WebAssembly 与 Canvas 图像管线，直接在设备内存中转换 HEIC、PNG、JPG 与 WebP",
+        "提供格式互转、目标体积压缩、等比缩放、裁切及 HEIC 转 PDF 等 7 个独立高效子工具",
+        "免登录即时导出，提供无水印单图下载以及一键打包 ZIP 批量下载功能"
+      ],
+      "cons": [
+        "页面浏览与操作期间会向 Google Analytics 及 Microsoft Clarity 发送基础访问指标",
+        "一次性批量处理上百张高分辨率原始图片时可能占用较多设备运行内存"
+      ],
+      "privacyVerdict": "所有图片处理均通过本地 WebAssembly 与 Canvas API 在浏览器内存中完成。外发网络请求仅包含 6 次 Google Analytics 与 Microsoft Clarity 流量上报，用户图片文件绝无任何远程上传。",
+      "alternativeTo": [
+        "CloudConvert",
+        "ILoveIMG",
+        "Squoosh",
+        "TinyPNG"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在图像转换器中上传 800x600 像素的 sample.png 样例图片（325 KB）。纯前端内存瞬时将其转码为高质量 JPEG。顺利下载 57849 字节的标准 JFIF 格式 JPEG 无水印文件。网络流量审计捕获到 6 次分析指标请求（Google Analytics 和 Microsoft Clarity），图片数据传输量为 0 字节。",
+      "testedAt": "2026-09"
+    }
   }
 }
