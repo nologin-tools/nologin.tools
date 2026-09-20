@@ -7040,5 +7040,211 @@
       "benchmarkNotes": "在 0ms 线程阻塞耗时与 0.36 CLS 下成功渲染包含 KaTeX 数学公式的 45 行 Markdown 大纲；导出 9,049 字节纯净无水印 SVG 矢量图，观测到 3 次 Google Analytics 访问遥测。",
       "testedAt": "2026-09"
     }
+  },
+  "photomosh-com": {
+    "en": {
+      "bestFor": "Applying retro glitch, scanline, and psychedelic distortion effects to images and short animations directly in the browser.",
+      "pros": [
+        "27 real-time WebGL shader effects including Bad TV, RGB Shift, Polar Pixelate, Melt, and Scanlines",
+        "Instant client-side canvas rendering with randomized one-click MOSH preset generator",
+        "Direct export of processed visuals to JPG, animated GIF, or WebM video without registration"
+      ],
+      "cons": [
+        "Web lite version limits export resolution to 800x600 and loads Google DoubleClick marketing tracking scripts on the domain"
+      ],
+      "privacyVerdict": "Observed network egress includes 5 marketing and ad-tracking telemetry payloads sent to Google Analytics (analytics.google.com), Google Remarketing, and DoubleClick (stats.g.doubleclick.net). Canvas glitch filters, WebGL shader pipelines, and image exports execute entirely client-side without uploading image files to remote servers.",
+      "alternativeTo": [
+        "glitchart-io"
+      ],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 17,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Rendered WebGL Polar Pixelate and Hue Saturation shaders in 375 ms max long task and 0.00 CLS; exported an 80,241-byte 800x600 JPEG with 5 marketing and DoubleClick telemetry payloads observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器中直接为静态图片与简短动图添加复古故障艺术（Glitch）、扫描线与迷幻色彩滤镜特效。",
+      "pros": [
+        "内置 27 种基于 WebGL 着色器的实时故障特效，包含老式电视机（Bad TV）、RGB 分离、极坐标像素化、融化与扫描线",
+        "基于 Canvas 客户端即时渲染，提供一键随机 MOSH 按钮快速生成迷幻故障预设",
+        "免登录直接导出处理后的静态 JPG 图片、动态 GIF 或 WebM 视频"
+      ],
+      "cons": [
+        "网页免费轻量版将导出分辨率限制为 800x600，且站点加载了 Google DoubleClick 商业推广与广告遥测脚本"
+      ],
+      "privacyVerdict": "实测监测到 5 次发往 Google Analytics（analytics.google.com）、Google 再营销及 DoubleClick 广告网络的遥测出站请求。图像故障处理、WebGL 着色器管线与文件导出完全在浏览器 Canvas 本地运行，用户上传的原始图片与生成文件不上云。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 17,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 375ms 最大任务阻塞与 0.00 CLS 下完成 WebGL 极坐标像素化与色相饱和度着色器渲染；成功导出 80,241 字节 800x600 纯净 JPEG 图像，观测到 5 条发往营销及 DoubleClick 网络的遥测记录。",
+      "testedAt": "2026-09"
+    }
+  },
+  "animista-net": {
+    "en": {
+      "bestFor": "Browsing, customizing, and generating production-ready CSS keyframe animations and transitions directly in the browser.",
+      "pros": [
+        "Over 100 curated CSS animation presets spanning entrances, exits, text effects, 3D flips, and attention seekers",
+        "Comprehensive timing controls including custom cubic-bezier curves, duration, iteration counts, and automated vendor autoprefixing",
+        "Instant one-click clipboard copy for both animation classes and keyframes with zero watermarks"
+      ],
+      "cons": [
+        "Initial landing screen requires navigating through a splash intro and cookie banner before opening the animation workbench"
+      ],
+      "privacyVerdict": "Observed network egress is strictly bounded to 1 Google Analytics telemetry beacon (google-analytics.com/g/collect) and static Carbon ad network displays. CSS animation compilation, cubic-bezier timing mathematics, and code export run completely on the client side without style upload.",
+      "alternativeTo": [
+        "animate-style"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 18,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Configured scale-up-center animation in 83 ms max long task and 0.18 CLS; captured 196 chars of valid unwatermarked CSS from clipboard with 1 Google Analytics beacon observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器中可视化挑选、微调参数并一键生成开箱即用的 CSS 关键帧动画与过渡样式代码。",
+      "pros": [
+        "汇集超过 100 种预设 CSS 动画，涵盖进场、出场、文字特效、3D 翻转、缩放与吸引注意动效",
+        "提供详尽的动画参数配置，支持三次贝塞尔曲线（cubic-bezier）、持续时间、循环次数及自动浏览器前缀补全",
+        "支持对动画 Class 与 @keyframes 关键帧规则进行免登录一键纯净代码复制，零水印污染"
+      ],
+      "cons": [
+        "初次访问包含过渡启动屏与 Cookie 授权弹窗，需点击进入才能打开核心动画调节工作台"
+      ],
+      "privacyVerdict": "实测监测到 1 次发往 Google Analytics（google-analytics.com/g/collect）的访问统计遥测及静态 Carbon 推广展示。CSS 动画规则生成、三次贝塞尔缓动计算与样式代码导出均在客户端本地运行，无任何样式数据上传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 18,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 83ms 最大任务耗时与 0.18 CLS 下完成 scale-up-center 动画配置；剪贴板物理捕获到 196 字符有效无水印 CSS 代码，观测到 1 条 Google Analytics 遥测记录。",
+      "testedAt": "2026-09"
+    }
+  },
+  "mp3cut-net": {
+    "en": {
+      "bestFor": "Quickly trimming non-sensitive audio clips when local audio editing tools are unavailable on a temporary machine.",
+      "pros": [
+        "Interactive audio waveform display with draggable start and end trim boundaries",
+        "Configurable fade-in and fade-out volume curves with direct support for ringtone formats like M4R"
+      ],
+      "cons": [
+        "Uploads full audio files to remote servers (s89.123apps.io), streams surveillance telemetry via Yandex Metrika WebSockets, and displays deceptive extension bait ads"
+      ],
+      "privacyVerdict": "Heavy outbound data egress observed: audio files are uploaded to remote backend servers (s89.123apps.io/acutter/upload/flow/), continuous telemetry is streamed over WebSockets to Yandex Metrika (mc.yandex.com/solid.ws), and tracking beacons are sent to Google Analytics and DoubleClick.",
+      "alternativeTo": [
+        "audiomass-co"
+      ],
+      "productScore": {
+        "overall": 50,
+        "frictionless": 11,
+        "depth": 15,
+        "exportFreedom": 10,
+        "privacy": 5,
+        "polish": 9
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Uploaded 1-second sample.wav in 109 ms max long task and 0.00 CLS; backend encoding stalled at 0% with 25 outbound network payloads observed including remote audio upload and persistent Yandex WebSockets.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在临时设备上无法安装本地音频编辑软件时，应急裁剪非机密的音频片段。",
+      "pros": [
+        "提供可视化的音频波形界面，支持拖拽起止滑块精确裁剪音频片段",
+        "支持为音频两端配置淡入与淡出音量渐变效果，并可生成手机专用的 M4R 铃声格式"
+      ],
+      "cons": [
+        "将完整音频文件强制上传至远程后端服务器（s89.123apps.io）转码，通过 Yandex Metrika 持续外发 WebSocket 遥测流，且顶部嵌有误导性浏览器扩展下载广告"
+      ],
+      "privacyVerdict": "实测监测到严重的数据外发：用户上传的音频文件被直接推送到远程后端服务器（s89.123apps.io/acutter/upload/flow/），并伴随发往 Yandex Metrika（mc.yandex.com/solid.ws）的持续 WebSocket 行为监听流以及发往 Google Analytics 和 DoubleClick 的广告追踪遥测。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 50,
+        "frictionless": 11,
+        "depth": 15,
+        "exportFreedom": 10,
+        "privacy": 5,
+        "polish": 9
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "在 109ms 最大任务耗时与 0.00 CLS 下上传 1 秒 sample.wav 音频；后端转码停滞在 0%，实测捕获到包含远程音频上传及持续 Yandex WebSocket 流在内的 25 条网络出站请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "svgrepo-com": {
+    "en": {
+      "bestFor": "Searching and downloading open-licensed SVG vector icons across multiple visual styles for web and UI design projects.",
+      "pros": [
+        "Directory of over 500,000 open-licensed vector icons categorized by styles (Monocolor, Multicolor, Duotone, Outlined, and Glyph)",
+        "Direct one-click vector download with zero login, zero daily download quotas, and transparent CC0/MIT licensing",
+        "Vectors are pre-optimized via TinySVG compressor for lightweight production web delivery"
+      ],
+      "cons": [
+        "Initial page visit encounters automated Vercel security checkpoint and displays third-party Google AdSense banners"
+      ],
+      "privacyVerdict": "Observed network egress includes 4 telemetry payloads sent to Google Analytics (analytics.google.com) and DoubleClick ad networks (stats.g.doubleclick.net). SVG vector retrieval, icon previews, and file downloads execute directly over HTTPS without user account creation or data submission.",
+      "alternativeTo": [
+        "feathericons-com"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 16,
+        "depth": 23,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Navigated vector search and icon detail in 110 ms max long task and 0.00 CLS; downloaded a clean 394-byte unwatermarked 16x16 SVG icon with 4 Google Analytics and DoubleClick beacons observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "为网页与 UI 设计项目检索并免登录下载多种视觉风格的开源授权 SVG 矢量图标素材。",
+      "pros": [
+        "收录超过 50 万个开源授权矢量图标，支持按单色、多色、双色调、描边与字形等多维度风格筛选",
+        "免登录一键直接下载原始 SVG 文件，无每日下载配额限制，并清晰标注 CC0/MIT 等商业开源许可",
+        "矢量资源内置 TinySVG 压缩优化，体积轻巧可直接用于生产环境页面排版"
+      ],
+      "cons": [
+        "初次访问可能触发 Vercel 浏览器安全检查质询，且页面穿插展示第三方 Google AdSense 广告横幅"
+      ],
+      "privacyVerdict": "实测监测到 4 次发往 Google Analytics（analytics.google.com）与 DoubleClick 广告网络的遥测请求。矢量图标检索、预览与 SVG 物理下载均通过 HTTPS 直接完成，无需注册任何账户，无私有数据上传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 16,
+        "depth": 23,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 110ms 最大任务耗时与 0.00 CLS 下完成图标搜索与详情浏览；成功直接下载 394 字节 16x16 纯净无水印 SVG 矢量文件，观测到 4 条发往 Google Analytics 与 DoubleClick 的遥测记录。",
+      "testedAt": "2026-09"
+    }
   }
 }
