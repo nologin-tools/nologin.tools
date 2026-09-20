@@ -16426,5 +16426,261 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问展示页并通过按钮交互测试销售管线演示卡片，成功将演示商机 Muster GmbH 从初访推进至后续阶段。验证了数据流可视化模块与 FAQ 许可证说明（一次性买断授权，设备指纹与密钥在线验证但业务数据不出本地）。主线程长任务为 0ms，CLS 为 0.06，网络审计记录 2 次 Cloudflare RUM 统计请求。",
       "testedAt": "2026-09"
     }
+  },
+  "gizmobench-com": {
+    "en": {
+      "bestFor": "Software engineers, DevOps practitioners, and digital workers needing an extensive suite of 210 local-first utilities covering JSON formatting, CAD meshes, networking, and encodings without cloud registration.",
+      "pros": [
+        "Instant access to 210 specialized browser tools with zero signup or account hurdles",
+        "Lossless client-side JSON formatting preserving 64-bit big numbers and explicit key order",
+        "Comprehensive developer coverage spanning STL viewers, Subnet calculators, Base64 engines, and UUID v7 generators",
+        "Clean 1-click clipboard export with zero watermarks or formatting corruption"
+      ],
+      "cons": [
+        "Observed 3 background first-party vitals and page view telemetry requests",
+        "Certain specialized utilities like server IP lookups require remote network resolution by design"
+      ],
+      "privacyVerdict": "Data formatting, conversion, and CAD rendering execute entirely on the local device; network audit recorded 3 background telemetry requests for page views and Core Web Vitals.",
+      "alternativeTo": [
+        "CyberChef",
+        "DevToys",
+        "Transform Tools",
+        "Omni Calculator"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated catalog of 210 utilities to the JSON Formatter. Loaded sample payload with 64-bit big integers ('id': 12345678901234567890) and nested arrays. Inspected formatted 10-key structural view, verified accurate key retention, and captured a 241-character clean unwatermarked JSON payload from clipboard via the 'Copy formatted' button. Measured 0ms task freeze and 0.00 CLS with 3 first-party telemetry requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中免注册使用涵盖 JSON 格式化、3D/CAD 网格查看、网络子网计算及编解码等 210 款本地工具的开发者与运维工程师。",
+      "pros": [
+        "零门槛即开即用，提供 210 余款专注特定场景的浏览器本地实用小工具，无任何登录注册弹窗",
+        "无损客户端 JSON 校验与排版引擎，原生支持 64 位超大整数解析且严格保留键值原始顺序",
+        "功能覆盖极其广泛，包含 STL/3MF 3D 查看器、子网掩码计算器、Base64 转换器与 UUID v7 生成器",
+        "支持一键纯净剪贴板导出，输出内容零水印且保留完整结构化排版"
+      ],
+      "cons": [
+        "后台记录到 3 次首方页面浏览与 Web Vitals 性能出站统计载荷",
+        "少数涉及网络路由解析的特殊工具（如公网 IP 反查）按其原理需通过后端服务解析"
+      ],
+      "privacyVerdict": "文件解析、数据排版与 3D 网格渲染完全在本地设备内存中运行；网络审计捕获到 3 次首方出站遥测载荷，仅用于统计页面访问量与核心性能指标（Web Vitals）。",
+      "alternativeTo": [
+        "CyberChef",
+        "DevToys",
+        "Transform Tools",
+        "Omni 在线计算器"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。在 210 款工具目录中进入 JSON Formatter，载入包含 64 位大整数（id 为 12345678901234567890）与嵌套数组的示例数据。右侧实时输出 10 个键、深度为 2 的格式化树形结构，通过 Copy formatted 按钮成功导出 241 字符无水印有效 JSON 剪贴板文本。测得长任务为 0ms，CLS 为 0.00，伴随 3 次首方统计出站请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "online-tone-generator-com": {
+    "en": {
+      "bestFor": "Audio engineers, acousticians, musicians, and audio enthusiasts synthesizing precise reference frequencies, tuning instruments, or exporting lossless WAV test tones without creating an account.",
+      "pros": [
+        "Zero registration required with instant Web Audio synthesis from 20 Hz to 20,000 Hz",
+        "Four core wave shapes including sine, square, triangle, and sawtooth with stereo balance controls",
+        "Direct client-side uncompressed 44.1kHz PCM WAV file download (441,044 bytes)",
+        "Built-in frequency presets for standard A4 440 Hz, alternate 432 Hz, 1 kHz calibration, and 40 Hz sub-bass"
+      ],
+      "cons": [
+        "Observed 5 background analytics and session telemetry payloads (Google Analytics, Cloudflare RUM, Microsoft Clarity)",
+        "Higher audible frequencies at maximum volume can cause ear fatigue without initial hardware volume attenuation"
+      ],
+      "privacyVerdict": "Web Audio oscillator synthesis and binary PCM WAV file encoding operate entirely within client browser memory; network audit recorded 5 background analytics requests (Google Analytics, Cloudflare RUM, and Microsoft Clarity).",
+      "alternativeTo": [
+        "ToneGym",
+        "SZYNTH",
+        "Audacity Tone Generator",
+        "NCH Tone Generator"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to Online Tone Generator and initialized 440 Hz sine wave synthesizer. Activated tone playback via the Play button and verified live oscilloscope canvas visualization. Triggered 'Save WAV' export button, downloading a 441,044-byte uncompressed 44.1kHz PCM audio file verified clean with RIFF/WAVE headers. Measured 0ms task freeze and 0.00 CLS with 5 observed telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册合成标准基准频率、校准乐器音高、测试音频扬声器或直接下载无损 WAV 测试音频的声学工程师、音乐人与音频爱好者。",
+      "pros": [
+        "免注册即开即用，基于 Web Audio API 实现 20 Hz 至 20,000 Hz 宽频段实时纯音合成",
+        "支持正弦波、方波、三角波与锯齿波四种基础波形，并提供立体声声道平衡微调",
+        "支持直接在客户端生成并下载 44.1kHz 无损 PCM 编码 WAV 音频文件（实测大小为 441,044 字节）",
+        "预设涵盖 A4 440 Hz 标准音高、432 Hz 替代律制、1 kHz 校准音频与 40 Hz 超重低音扬声器检测"
+      ],
+      "cons": [
+        "后台记录到 5 次出站统计与行为遥测请求（包括 Google Analytics、Cloudflare RUM 与 Microsoft Clarity）",
+        "高频波形在音量滑块偏大时较为刺耳，初次使用需注意先调低外接设备输出音量"
+      ],
+      "privacyVerdict": "音频振荡器合成与二进制 PCM WAV 文件编码完全在客户端浏览器内存中运算；网络审计记录到 5 次出站统计请求，包括 Google Analytics、Cloudflare RUM 及 Microsoft Clarity 遥测信标。",
+      "alternativeTo": [
+        "ToneGym 测音练习",
+        "SZYNTH 在线合成器",
+        "Audacity 纯音生成器",
+        "NCH 信号发生器"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。打开纯音发生器并初始化 440 Hz 正弦波。点击播放按钮测试 Web Audio 实时声学发声与示波器动态画布渲染。点击 Save WAV 按钮成功触发客户端音频打包下载，捕获 441,044 字节的标准 RIFF/WAVE 二进制 PCM 音频文件。实测主线程任务耗时 0ms，CLS 为 0.00，记录到 5 次统计出站网络载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "visualpromptcompiler-com": {
+    "en": {
+      "bestFor": "AI art directors, prompt engineers, and visual creators compiling structured image generation prompts and portable JSON specs with strict character continuity and zero data egress.",
+      "pros": [
+        "Zero registration required and strictly zero network payloads or telemetry observed across runtime",
+        "Formal visual compiler architecture decoupling creative briefs from model-specific prompt syntax",
+        "Explicit preserve-and-change boundaries defining identity anchors, lighting parameters, and surface textures",
+        "Direct client-side 6,220-byte structured JSON spec download and 1-click clipboard prompt copy"
+      ],
+      "cons": [
+        "Targets advanced image model adapters (Seedream 5.0 Pro and Nano Banana) requiring familiarity with visual contracts",
+        "Text input fields require thoughtful parameter definitions rather than single-click generic prompts"
+      ],
+      "privacyVerdict": "Zero network payloads observed during session; creative briefs, identity anchors, character specifications, and compiled JSON export structures remain strictly inside local browser memory.",
+      "alternativeTo": [
+        "PromptHero",
+        "Midjourney Prompt Helper",
+        "PromptBase",
+        "AUTOMATIC1111 Prompt Matrix"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to Visual Prompt Compiler and selected Character Preset (Mara continuity study). Tested 3-stage specification workflow covering Outcome, Subject Lock (identity anchors, scar placement), and Scene Directives. Executed 'Compile visual spec' to synthesize model-ready instructions for Seedream 5.0 Pro (2K, 4:5 aspect ratio). Triggered 'Download JSON', obtaining a valid 6,220-byte portable schema artifact without authentication interception. Measured 0ms task freeze and 0.00 CLS with strictly 0 outgoing network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在本地将创意简报编译为结构化 AI 提示词与便携 JSON 规范、严格锁定角色一致性且要求零数据外传的视觉设计师与提示词工程师。",
+      "pros": [
+        "零注册门槛，评测全周期严格未监测到任何网络外传载荷或遥测信标，真正做到本地纯离线运行",
+        "形式化提示词编译器架构，将视觉创意目标与底层模型语法适配器（Seedream 5.0 Pro 与 Nano Banana）完全解耦",
+        "提供精细的'保留'与'变更'边界控制，严格约束面部锚点、光照摄影机位与材质细节",
+        "支持直接在客户端生成并下载 6,220 字节标准结构化 JSON 文件，并支持一键无水印复制编译文本"
+      ],
+      "cons": [
+        "专注于高精度专业模型适配器，需要使用者对角色特征锁和视觉契约具备一定前置认知",
+        "各输入项依赖细致的文字描述与参数设定，不适合追求一键简单盲盒生成的初级用户"
+      ],
+      "privacyVerdict": "评测全周期未监测到任何网络出站载荷；用户填写的创意简报、角色特征锚点与生成的结构化 JSON 规范均在本地浏览器内存中即时运算与导出，数据隐私得到最高等级保障。",
+      "alternativeTo": [
+        "PromptHero",
+        "Midjourney 提示词助手",
+        "PromptBase",
+        "WebUI 提示词矩阵"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。载入角色预设（玛拉角色一致性研究），测试三阶段输入流程（交付目标、主体锚定与场景机位控制）。点击 Compile visual spec 在本地即时编译出适配 Seedream 5.0 Pro（2K 分辨率、4:5 画幅）的完整提示词矩阵。点击 Download JSON 成功触发原生文件下载，获取 6,220 字节有效便携规范文件。主线程长任务为 0ms，CLS 为 0.00，审计证实出站网络请求严格为 0。",
+      "testedAt": "2026-09"
+    }
+  },
+  "readanytext-com": {
+    "en": {
+      "bestFor": "Content creators, video editors, language learners, and podcasters generating natural multilingual AI voiceovers with synchronized SRT/VTT subtitles without account registration.",
+      "pros": [
+        "Zero registration required with generous 7,000-character allowance refreshing every two minutes",
+        "Extensive library of 322 neural AI voices spanning 75 languages with pitch and pacing controls",
+        "Synchronized multi-format export including timestamped SRT subtitles, VTT files, WAV, and MP3 audio",
+        "Interactive docked media player with waveform visualization, playback speed toggles, and sleep timers"
+      ],
+      "cons": [
+        "Audio synthesis relies on server-side processing via /api/tts with anonymous quota tracking on Supabase",
+        "Per-render allowance is capped at 7,000 characters for anonymous users"
+      ],
+      "privacyVerdict": "Text processing sends payload to /api/tts for neural speech synthesis; network audit recorded 5 outgoing requests including GA4 beacons, server TTS calls, and anonymous usage rate-limiting events on Supabase.",
+      "alternativeTo": [
+        "ElevenLabs",
+        "NaturalReader",
+        "Speechify",
+        "TTSMaker"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to ReadAnyText, rejected tracking consent, and loaded a 58-word (318 characters) product intro script. Triggered 'Generate voiceover' using Ava Multilingual voice, synthesizing 22 seconds of natural speech. Inspected bottom audio player with waveform rendering and caption bar. Exported timestamped SRT subtitle file (548 bytes, 7 captioned segments) with zero authentication interception. Measured 70ms task duration and 0.00 CLS across 5 observed network requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要免注册将文本、文档与脚本合成为高拟真多语种 AI 语音旁白，并一键导出精准时间轴 SRT/VTT 字幕与 MP3 音频的视频创作者与自媒体团队。",
+      "pros": [
+        "免登录即开即用，为匿名用户提供单次 7,000 字符额度（每两分钟自动重置刷新）",
+        "汇聚 75 种语言、322 款神经网络高保真声音，支持细腻调节语速、音调与停顿标记",
+        "完善的多格式导出链，不仅能下载 MP3/WAV 原声，还同步输出字对齐 SRT 与 VTT 字幕文件",
+        "底部悬浮全功能播放器，配备音频波形图、倍速播放（1x-2x）、定时关闭与字幕同步滚动"
+      ],
+      "cons": [
+        "语音合成依赖后端 /api/tts 接口计算，匿名配额由 Supabase usage_events 远程记录",
+        "匿名单次生成限制在 7,000 字符以内，长篇大作需分段合成"
+      ],
+      "privacyVerdict": "输入文本通过 /api/tts 接口传输至服务端进行神经网络语音推理；网络审计记录到 5 次出站请求，包含 GA4 访问统计、后端语音生成调用以及用于频次限制的 Supabase 匿名计数事件。",
+      "alternativeTo": [
+        "ElevenLabs 语音合成",
+        "NaturalReader",
+        "Speechify 朗读器",
+        "TTSMaker 马克配音"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问首页拒绝 Cookie 追踪后载入 58 词（318 字符）产品介绍脚本。选择 Ava Multilingual 发音人点击 Generate voiceover，秒级合成 22 秒自然语音。底部播放器呈现动态音频波形，点击 SRT 成功触发文件下载，获取 548 字节、包含 7 段标准时间轴的 SubRip 字幕文件。主线程长任务为 70ms，CLS 为 0.00，捕获 5 次出站网络载荷。",
+      "testedAt": "2026-09"
+    }
   }
 }
