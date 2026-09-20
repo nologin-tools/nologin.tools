@@ -17696,5 +17696,253 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 dataformatkit.com 点击'Reject analytics'按钮阻断分析信标。上传 101 字节 test_delimited.txt 真实测试固件至 DOM input 控件。配置自动探测分隔符与首行表头，启用公式注入转义。点击'Validate and preview'按钮生成 3 行 4 列结构化表格且 0 项错误。主线程耗时 0ms。触发'Download CSV'成功下载 106 字节纯净 CSV 文件，经物理检验无水印。网络审计捕获 1 次 Cloudflare RUM 请求，业务数据外发为 0。",
       "testedAt": "2026-09"
     }
+  },
+  "crochet-chart-maker-com": {
+    "en": {
+      "bestFor": "Crochet designers, fiber artists, cross-stitchers, and knitters who need to turn reference photos, pixel art, or custom graphics into numbered crochet color charts and pattern grids locally without uploading designs to remote servers.",
+      "pros": [
+        "Zero registration required with instant image conversion supporting JPG, PNG, and WebP files up to 10 MB or starting from a blank grid",
+        "Sophisticated color reduction algorithm with an interactive 8-color quantized palette, custom hex codes, and individual color swatch controls",
+        "Full pixel editing suite featuring Pencil, Eraser, Fill bucket, and Color Picker tools alongside numbered row and column axes",
+        "High-resolution export generating a verified 98,443-byte 1546x1334 PNG chart with clear stitch numbers and color legend without watermarks"
+      ],
+      "cons": [
+        "Transmits 1 background Cloudflare RUM performance beacon upon initial page delivery"
+      ],
+      "privacyVerdict": "Observed 1 background Cloudflare RUM performance beacon (/cdn-cgi/rum?). Explicitly declining analytics successfully blocked third-party tracking; image color quantization, pixel grid synthesis, and PNG rendering execute entirely on the local device.",
+      "alternativeTo": [
+        "Stitch Fiddle",
+        "Chart Minder",
+        "Wooltasia",
+        "FlossCross"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to crochet-chart-maker.com and clicked button 'Reject analytics' to suppress third-party tracking. Uploaded an authentic 332,574 bytes sample.png fixture via DOM input element and clicked button 'Start with an image'. The canvas generated an interactive 8-color quantized pixel grid with row and column numbers. Tested export trigger button 'Download PNG', downloading a verified 98,443 bytes 1546x1334 PNG artifact with zero watermarks. Audited network requests confirming 1 Cloudflare RUM request and zero photo data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将照片、像素插画或原创图案转换为带行列坐标与配色标号的像素钩针图解、十字绣网格或提花毛衣图纸，同时严防原创花样上传云端的编织爱好者与手作设计师。",
+      "pros": [
+        "完全免注册免登录，支持导入最大 10 MB 的 JPG、PNG 与 WebP 图像或直接新建空白网格",
+        "内置精细的色彩量化算法，自动生成 8 色量化调色板，支持自定义 Hex 色值与单个色块增删替换",
+        "提供完整的像素编辑工具箱，包含铅笔、橡皮擦、油漆桶涂色、吸色管以及行列数字标尺",
+        "导出能力优秀，直接生成 98,443 字节 1546x1334 高分辨率 PNG 编织图纸，标尺与色板清晰无水印"
+      ],
+      "cons": [
+        "页面初次加载时包含 1 次 Cloudflare RUM 基础网络测速请求"
+      ],
+      "privacyVerdict": "实测捕获 1 次 Cloudflare RUM 性能测速请求（/cdn-cgi/rum?）。主动拒绝追踪后 Google Analytics 与 Microsoft Clarity 均被彻底阻断；图片色彩量化、像素网格生成、色板提取与高清 PNG 渲染完全在本地设备完成，图片 0 字节外传。",
+      "alternativeTo": [
+        "Stitch Fiddle 编织图表",
+        "Chart Minder 毛衣提花",
+        "Wooltasia 图纸生成",
+        "FlossCross 十字绣网格"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 crochet-chart-maker.com 点击'Reject analytics'按钮阻断分析信标。通过 DOM input 上传 332,574 字节 sample.png 真实测试固件并点击'Start with an image'按钮。画布成功渲染 8 色量化网格与行列编号标尺。触发'Download PNG'按钮成功下载 98,443 字节 1546x1334 高清 PNG 编织图纸，经物理检验无水印。网络审计捕获 1 次 Cloudflare RUM 请求，业务数据外发为 0。",
+      "testedAt": "2026-09"
+    }
+  },
+  "pst-aivismonitor-com": {
+    "en": {
+      "bestFor": "System administrators, legal auditors, IT support professionals, and Mac/Linux users who need to inspect legacy Outlook PST/OST archives, Mac OLM exports, MBOX files, or individual EML/MSG files locally without installing Microsoft Outlook or uploading confidential emails to third-party cloud converters.",
+      "pros": [
+        "Zero registration required with instant drag-and-drop ingestion supporting PST, OST, OLM, MBOX, EML, and MSG archives",
+        "High-performance client-side Web Worker parsing multi-gigabyte archives in 64 KB memory pages without browser freezes",
+        "Full-featured email reading experience with folder hierarchies, full-text body search, and detailed MIME header inspection",
+        "Clean export pipeline allowing free individual message downloads (380 bytes) and local CSV indexing without watermarks"
+      ],
+      "cons": [
+        "Transmits 2 background telemetry beacons to Google Analytics",
+        "Bulk mailbox batch archiving and simultaneous dual-archive comparison require a one-time pro license"
+      ],
+      "privacyVerdict": "Observed 2 background telemetry beacons to Google Analytics (google-analytics.com/g/collect). Email archive extraction (PST, OST, OLM, MBOX, EML), folder tree rendering, and full-text keyword indexing execute entirely within a local browser Web Worker; zero email contents or attachments are uploaded.",
+      "alternativeTo": [
+        "Microsoft Outlook",
+        "Mozilla Thunderbird",
+        "Kernel PST Viewer",
+        "GoldFinch E-Discovery"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to pst.aivismonitor.com and uploaded an authentic 240 bytes sample.eml fixture into the DOM input element. The Web Worker immediately parsed the MIME stream into a folder tree, rendering sender, timestamp, and message body with 0ms long-task latency. Tested export trigger button '↓ .eml · free', downloading a verified 380 bytes clean EML artifact with zero watermarks. Network audit observed 2 Google Analytics requests and strictly zero email data egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在未安装 Outlook 的 Mac、Linux 或 Chromebook 上快速阅读检索历史 PST/OST 邮件归档、Gmail Takeout MBOX 或企业 EML 邮件，同时严防商业通信机密外泄的系统管理员、律师与技术支持人员。",
+      "pros": [
+        "完全免注册免登录，拖拽即可即时打开 PST、OST、OLM、MBOX、EML 与 MSG 等全格式邮件归档",
+        "采用高性能 Web Worker 架构，以 64 KB 页面流式解析超大文件，不占用服务器算力且不卡死主线程",
+        "提供完整的邮件客户端体验，支持多级文件夹树、全文关键词检索与底层 MIME 协议头展开查看",
+        "导出能力优秀，支持免费导出单封标准 380 字节 EML 邮件与结构化 CSV 索引，无任何水印强制附带"
+      ],
+      "cons": [
+        "页面包含 2 次 Google Analytics 匿名统计信标请求",
+        "整库批量导出全部附件与双文件并排对比等高级功能需单次付费授权"
+      ],
+      "privacyVerdict": "实测捕获 2 次 Google Analytics 匿名统计请求（google-analytics.com/g/collect）。邮件归档（PST、OST、OLM、MBOX、EML）解析、文件夹层级重构与全文检索完全在浏览器 Web Worker 线程本地执行，邮件正文与附件 0 字节外传。",
+      "alternativeTo": [
+        "微软 Outlook 桌面端",
+        "Mozilla Thunderbird 客户端",
+        "Kernel PST 查看器",
+        "GoldFinch 电子取证软件"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 pst.aivismonitor.com 并通过 DOM input 上传 240 字节 sample.eml 真实测试固件。Web Worker 即时完成 MIME 流解析并展示文件夹列表与邮件正文，主线程卡顿耗时 0ms。测试触发'↓ .eml · free'按钮成功下载 380 字节标准 EML 邮件文件，经物理检验无水印。网络审计捕获 2 次 Google Analytics 统计信标，邮件数据外发严格为 0。",
+      "testedAt": "2026-09"
+    }
+  },
+  "markany-ai": {
+    "en": {
+      "bestFor": "Users willing to create an account and authenticate with Google or email credentials to access cloud-based document-to-Markdown batch conversions.",
+      "pros": [
+        "Clean landing page interface advertising conversion across PDF, Office, and image formats",
+        "Provides dedicated sub-routes for specific format pipelines like text-to-markdown and pdf-to-markdown"
+      ],
+      "cons": [
+        "Mandatory login wall blocks all conversions: clicking 'Convert' immediately redirects to /login",
+        "Contradicts 'no account or upload' expectations by requiring account credentials even for advertised free tiers",
+        "Zero file or Markdown export capability is accessible to anonymous or privacy-seeking users"
+      ],
+      "privacyVerdict": "Observed 3 internal form GET lifecycle events to origin (markany.ai). Document conversion and text export actions trigger an immediate redirect to a mandatory authentication and credential collection gate (/login), preventing anonymous usage.",
+      "alternativeTo": [
+        "Pandoc",
+        "Marked 2",
+        "Turndown Web Converter",
+        "DataFormatKit"
+      ],
+      "productScore": {
+        "overall": 40,
+        "frictionless": 4,
+        "depth": 14,
+        "exportFreedom": 0,
+        "privacy": 12,
+        "polish": 10
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to markany.ai and uploaded an authentic 610 bytes sample.pdf fixture into the DOM input element. Clicking button 'Convert 1 file' immediately redirected to /login. Tested text-to-markdown subpage, populating textarea with 54 characters. Clicking button 'Convert to Markdown' again triggered an auth gate redirecting to /login with 0ms long-task latency. Network audit observed 3 form GET requests and zero accessible export artifacts without account sign-in.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "愿意注册账号并使用 Google 或邮箱登录以换取云端批量文档转 Markdown 服务的用户。",
+      "pros": [
+        "前端界面排版规整，宣称支持 PDF、Office 文档及图像等多格式转 Markdown",
+        "提供针对 text-to-markdown、pdf-to-markdown 等特定格式转换的独立子页面"
+      ],
+      "cons": [
+        "强制登录门槛阻断所有核心功能：点击'Convert'立即重定向至 /login 登录页",
+        "即便标注'5 次免费'亦无法匿名使用，必须提交个人账户凭证才能执行转换",
+        "对未登录或注重隐私的用户完全不提供任何 Markdown 下载或复制导出能力"
+      ],
+      "privacyVerdict": "实测捕获 3 次同源表单生命周期事件（markany.ai）。文档转换与文本导出动作均会触发强制身份验证重定向（/login），要求用户提交个人邮箱或 Google 凭证，无法匿名使用。",
+      "alternativeTo": [
+        "Pandoc 命令行格式转换",
+        "Marked 2 预览工具",
+        "Turndown 网页转 Markdown",
+        "DataFormatKit 数据转换"
+      ],
+      "productScore": {
+        "overall": 40,
+        "frictionless": 4,
+        "depth": 14,
+        "exportFreedom": 0,
+        "privacy": 12,
+        "polish": 10
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 markany.ai 并通过 DOM input 上传 610 字节 sample.pdf 真实测试固件。点击'Convert 1 file'按钮立即强制跳转至 /login 登录拦截页。随后进入 text-to-markdown 子页面在 textarea 输入 54 字符并点击'Convert to Markdown'按钮，再次被强制重定向至 /login。主线程延迟 0ms。网络审计记录 3 次表单 GET 请求，在不注册登录的情况下完全无法获得任何导出结果。",
+      "testedAt": "2026-09"
+    }
+  },
+  "spritesheettool-com": {
+    "en": {
+      "bestFor": "Packing 2D sprite sheets, decomposing GIFs into frames, and building game engine texture atlases anonymously in-browser",
+      "pros": [
+        "Client-side HTML5 canvas packing renders sprites locally without transmitting raw image frames to backend servers",
+        "Multi-format asset export generates PNG sprite sheets, frame ZIP archives, generic JSON atlases, and Phaser JSON",
+        "Built-in tool suite features GIF frame splitting, custom padding and spacing grid settings, and live frame preview"
+      ],
+      "cons": [
+        "Telemetry requests recorded for self-hosted Umami analytics and a Google Identity status probe",
+        "Layout packing is limited to grid alignments rather than advanced polygon packing algorithms"
+      ],
+      "privacyVerdict": "Sprite sheet generation and frame packing occur locally within browser canvas memory. Outgoing network requests are limited to 6 Umami analytics requests and 1 Google Identity check, with no user image data uploaded to remote servers.",
+      "alternativeTo": [
+        "TexturePacker",
+        "ShoeBox",
+        "Free texture packer"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Dogfooded sprite sheet creation with an 804x604 px fixture image. Rendered immediate canvas preview across 1 frame with 0 ms freeze. Successfully triggered unauthenticated export of a clean 176784 bytes PNG sprite sheet artifact alongside JSON atlas options. Network telemetry recorded 7 outgoing requests (6 Umami analytics requests and 1 Google Identity probe); 0 bytes of user asset data egressed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在浏览器中免登录打包 2D 精灵表、将 GIF 拆解为逐帧图片以及生成游戏引擎专用的纹理图集",
+      "pros": [
+        "基于浏览器 Canvas 本地运算排版，无需将原始图片帧上传至后端服务器即可完成拼接",
+        "支持导出完整 PNG 精灵图、逐帧 ZIP 压缩包、标准 JSON 图集及 Phaser 游戏引擎专用 JSON 数据",
+        "集成 GIF 逐帧拆分、自定义间距与内边距网格配置以及实时帧率动画预览功能"
+      ],
+      "cons": [
+        "页面初始加载时记录自建 Umami 数据统计与 Google 登录状态探测网络请求",
+        "图集排版算法偏向常规网格排列，未提供高级多边形或复杂多通道压缩优化"
+      ],
+      "privacyVerdict": "精灵图打包与帧提取完全在本地浏览器 Canvas 内存中完成。外发网络请求仅包含 6 次 Umami 分析上报和 1 次 Google 登录检查，用户图片素材不会被上传至远程服务器。",
+      "alternativeTo": [
+        "TexturePacker",
+        "ShoeBox",
+        "Free texture packer"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "使用 804x604 像素的样例图片进行端到端测试。在 0 毫秒冻结延迟下实现单帧 Canvas 实时渲染。无需登录直接触发导出，生成了 176784 字节的纯净 PNG 精灵表及对应 JSON 图集。网络监控记录到 7 次外发请求（6 次 Umami 分析和 1 次 Google 状态探测），用户素材数据传输量为 0 字节。",
+      "testedAt": "2026-09"
+    }
   }
 }
