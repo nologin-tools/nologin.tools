@@ -4064,5 +4064,285 @@
       "benchmarkNotes": "上传 86 kb 的 sample.wav 音频文件时触发服务端反代理拦截，在 DOM 中报错提示请关闭代理或 VPN。",
       "testedAt": "2026-09"
     }
+  },
+  "coveryourtracks-eff-org": {
+    "en": {
+      "bestFor": "Privacy advocates, security researchers, and everyday users auditing their browser tracker blocking and fingerprint uniqueness",
+      "pros": [
+        "One-click browser fingerprinting and tracker-blocking test requiring zero login or credentials",
+        "Provides precise information entropy calculations compared against 318,759 real-world tests from the past 45 days",
+        "Operated by the non-profit Electronic Frontier Foundation with zero commercial advertising or surveillance monetization"
+      ],
+      "cons": [
+        "Does not provide an automated JSON or CSV export button, relying on URL parameters or browser printing",
+        "Mathematical entropy metrics may require background reading for non-technical users"
+      ],
+      "privacyVerdict": "Transmits anonymized client hardware and header characteristics directly to the Electronic Frontier Foundation research endpoint to calculate entropy against a public dataset, with zero third-party commercial trackers or persistent advertising identifiers.",
+      "alternativeTo": [
+        "AmIUnique",
+        "BrowserLeaks",
+        "Device Info"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 97
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Completed comprehensive browser fingerprinting audit across WebGL, Canvas, and Audio in 5 s; calculated 18.28 bits of identifying information against 318,759 tests with 0 commercial trackers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要检测浏览器防追踪能力、广告拦截效果以及硬件指纹唯一性的隐私关注者与安全研究员",
+      "pros": [
+        "无需登录或注册，一键即可运行针对追踪广告、隐形追踪器与指纹特征的完整检测",
+        "提供基于过去 45 天内 318,759 次真实测试的精确信息熵对比（测试测得 18.28 bits 熵值）",
+        "由非营利组织电子前线基金会（EFF）运营，彻底无商业广告且代码完全开源"
+      ],
+      "cons": [
+        "未提供一键导出 JSON 或 CSV 结果文件的功能，仅支持保存 URL 参数或浏览器打印",
+        "信息熵（bits of identifying information）统计概念对普通用户存在一定理解门槛"
+      ],
+      "privacyVerdict": "仅将匿名化的浏览器头信息与硬件指纹特征发送至 EFF 研究服务器以比对统计数据集，全过程完全无第三方商业追踪器或持久化广告标识符。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 97
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 5 s 内完成涵盖 WebGL、Canvas 与音频的浏览器指纹审计，比对 318,759 次测试计算出 18.28 bits 唯一性信息，且无任何商业追踪器。",
+      "testedAt": "2026-09"
+    }
+  },
+  "virustotal-com": {
+    "en": {
+      "bestFor": "Cybersecurity analysts, sysadmins, and users scanning suspicious files, URLs, domains, and cryptographic hashes across 60+ antivirus engines",
+      "pros": [
+        "Simultaneous multi-engine analysis across 60+ industry antivirus vendors including BitDefender, CrowdStrike, and ESET",
+        "Instant zero-login lookup for SHA256 hashes, domains, and IP addresses with zero registration friction",
+        "Detailed sandbox behavioral breakdown, structural file analysis, and community reputation scoring"
+      ],
+      "cons": [
+        "Uploaded files are permanently shared with the global security research community and commercial partners, making it unsafe for confidential documents",
+        "Automated REST API access is strictly rate-limited to 4 requests per minute on free community tiers"
+      ],
+      "privacyVerdict": "Queries and file submissions transmit directly to Alphabet and Chronicle threat intelligence servers; all submitted files become part of the public research corpus shared across global antivirus vendors.",
+      "alternativeTo": [
+        "Hybrid Analysis",
+        "Any.Run",
+        "URLScan.io"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 15,
+        "overall": 87
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited cryptographic hash e3b0c442... against 60 antivirus engines in 4 s, rendering real-time detection statuses across AhnLab, Avast, and BitDefender with 0 main thread jank.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要针对可疑文件、恶意网址、域名及哈希值进行 60+ 款反病毒引擎多合一扫描的安全工程师与系统管理员",
+      "pros": [
+        "集成 BitDefender、CrowdStrike、ESET 等 60 余家顶级杀毒软件引擎的多维度并发威胁检测",
+        "支持无需注册直接查询 SHA256、MD5 哈希值、域名与 IP 历史情报，即搜即用",
+        "提供详尽的沙箱动态行为报告、静态结构提取及安全社区信誉评分"
+      ],
+      "cons": [
+        "所有上传样本将被永久同步给全球安全厂商与情报分析网络，严禁上传涉密或包含个人隐私的文件",
+        "免费社区版 REST API 受到每分钟 4 次请求的严格速率限制"
+      ],
+      "privacyVerdict": "文件和查询内容直接传输至 Alphabet/Chronicle 云端服务器，上传的任何样本文件都会进入全球安全合作伙伴共享样本库，属于公开情报交换机制而非私密存储。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 15,
+        "overall": 87
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 4 s 内完成对 e3b0c442... 文件的 60 个防病毒引擎实时状态聚合渲染，覆盖 AhnLab、Avast、BitDefender 等检测结果且主线程 0 顿挫。",
+      "testedAt": "2026-09"
+    }
+  },
+  "privnote-com": {
+    "en": {
+      "bestFor": "Users needing a quick disposable burner note who have an aggressive ad blocker installed",
+      "pros": [
+        "Simple disposable note creation with read-once self-destruction and optional manual password",
+        "Configurable retention windows ranging from immediate reading to 30 days"
+      ],
+      "cons": [
+        "Heavily saturated with 85+ commercial ad bidding and tracking requests including Prebid, Rubicon, and Outbrain",
+        "Intrusive full-screen interstitial ads interrupt note generation",
+        "Backend connection instability frequently triggers submission errors"
+      ],
+      "privacyVerdict": "Observed 85 outbound advertising payloads to commercial ad networks including Rubicon Project, Sharethrough, Outbrain, and ID5; although note payloads claim encryption, user IP and browser fingerprints are exposed to third-party ad brokers.",
+      "alternativeTo": [
+        "Yopass",
+        "PrivateBin",
+        "MicroBin"
+      ],
+      "productScore": {
+        "frictionless": 10,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 8,
+        "polish": 10,
+        "overall": 55
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Captured 85 advertising and tracking requests during note creation with 1119 ms main thread freeze and a disruptive interstitial ad popup.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "仅在开启强效广告拦截插件的前提下，需要临时发送单次阅读即焚文本的用户",
+      "pros": [
+        "提供阅后即焚、自定义过期时间（最长 30 天）与手动密码双重保护",
+        "生成的单次有效链接在被阅读后立即在服务器端彻底销毁"
+      ],
+      "cons": [
+        "充斥超过 85 个商业广告竞价与遥测请求，包括 Prebid、Rubicon 与 Outbrain",
+        "点击创建笔记时弹出遮挡操作的全屏插页式商业广告",
+        "后端接口存在连接不稳定问题，易触发网络连接重试报错"
+      ],
+      "privacyVerdict": "运行时捕获到多达 85 次向 Rubicon Project、Sharethrough、Outbrain 及 ID5 发送的广告竞价与追踪载荷；即便正文声称本地加密，用户 IP 与设备指纹已被泄露给数十家广告经纪商。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 10,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 8,
+        "polish": 10,
+        "overall": 55
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "在笔记生成过程中捕获到 85 个商业广告请求，主线程最大卡顿达 1119 ms，并触发全屏遮罩式插页广告。",
+      "testedAt": "2026-09"
+    }
+  },
+  "sharedrop-io": {
+    "en": {
+      "bestFor": "Users needing a quick temporary cloud file upload up to 4GB who do not mind commercial hosting and ad trackers",
+      "pros": [
+        "Allows temporary anonymous cloud file uploading up to 4GB without mandatory sign up",
+        "Generates direct download links with automated 3-day expiration"
+      ],
+      "cons": [
+        "No longer a pure open-source P2P WebRTC tool; acquired by LimeWire and transformed into centralized cloud storage",
+        "Transmits tracking telemetry to ID5 Sync and Google Analytics alongside IAB advertising data sharing",
+        "Presents cryptocurrency token promotions, credit balances, and low-quality clickbait advertising widgets"
+      ],
+      "privacyVerdict": "Uploads files directly to api.limewire.com centralized servers rather than peer-to-peer; transmits tracking data to ID5 sync networks and explicitly discloses personal data sharing with IAB advertising participants.",
+      "alternativeTo": [
+        "Snapdrop",
+        "PairDrop",
+        "Wormhole"
+      ],
+      "productScore": {
+        "frictionless": 14,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 8,
+        "polish": 10,
+        "overall": 60
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Uploaded 333 KB PNG fixture to api.limewire.com with 3-day cloud retention, observing 8 egress payloads across Google Analytics and ID5 Sync networks.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "不介意商业网盘托管与广告追踪、仅需临时上传 4GB 以内短期文件的用户",
+      "pros": [
+        "支持匿名免登录上传单个最高 4GB 的临时文件并生成分享链接",
+        "文件提供 3 天自动销毁机制并支持直接打包下载"
+      ],
+      "cons": [
+        "已被商业公司 LimeWire 收购，原有的纯浏览器端 P2P WebRTC 点对点直连传输已沦为中心化云端网盘",
+        "向 ID5 Sync 与 Google Analytics 发送追踪数据，并在弹窗中披露其对接 IAB 广告下游网络共享数据",
+        "界面充斥 LMWR 加密货币推广、积分充值入口以及 mgid 劣质导流广告"
+      ],
+      "privacyVerdict": "文件不再通过 WebRTC 在设备间点对点私密传输，而是直接上传至 api.limewire.com 中心化服务器；同时伴随向 ID5 及谷歌分析发出的追踪载荷，并涉及第三方定向广告共享。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 14,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 8,
+        "polish": 10,
+        "overall": 60
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "完成 333 KB PNG 图像上传至 LimeWire 云端服务器，记录到 3 天有效倒计时及 8 个向谷歌分析与 ID5 同步发出的外发载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "db-fiddle-com": {
+    "en": {
+      "bestFor": "Database administrators, backend engineers, and students writing, debugging, and sharing SQL queries across MySQL, PostgreSQL, and SQLite",
+      "pros": [
+        "Instant zero-login SQL sandbox supporting MySQL, PostgreSQL, and SQLite with separate DDL schema and DML query panes",
+        "One-click 'Copy as Markdown' for tabular query outputs and zero-login permalink saving",
+        "Integrates privacy-focused EthicalAds without invasive tracking networks or third-party cookies"
+      ],
+      "cons": [
+        "Private fiddles and iframe embeds require upgrading to a paid PRO subscription",
+        "Emits a Google Analytics telemetry request upon initial page loading"
+      ],
+      "privacyVerdict": "SQL code and schema definitions transmit directly to execute.db-fiddle.com and prod-api.db-fiddle.com sandbox instances; ad monetization utilizes privacy-conscious EthicalAds with zero tracking cookies alongside 1 Google Analytics event.",
+      "alternativeTo": [
+        "SQL Fiddle",
+        "OneCompiler SQL",
+        "dbdocs.io"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Executed SQL schema and query against MySQL in 0.17 ms, formatted tabular rows into Markdown clipboard, and saved shareable fiddle permalink across 3 POST requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在 MySQL、PostgreSQL 与 SQLite 之间快速编写、调试并分享 SQL 查询语句的后端工程师与数据库学习者",
+      "pros": [
+        "无需登录即可使用支持 MySQL、PostgreSQL 和 SQLite 的独立 DDL 结构建表与 DML 查询双面板沙箱",
+        "支持一键将表格查询结果复制为 Markdown 格式，并可匿名生成永久共享链接",
+        "采用保护隐私的 EthicalAds 开发者广告网络，不加载侵入式商业追踪 Cookie"
+      ],
+      "cons": [
+        "私有代码片段（Private Fiddle）和网页内嵌功能需付费升级 PRO 套餐",
+        "首屏载入时会发出 1 次 Google Analytics 统计遥测请求"
+      ],
+      "privacyVerdict": "SQL 脚本与表结构定义通过 HTTPS 发送至 execute.db-fiddle.com 与 prod-api.db-fiddle.com 沙箱后端执行与保存；广告位采用无跟踪 Cookie 的 EthicalAds，伴随 1 条谷歌分析遥测。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 0.17 ms 内完成 MySQL 表结构创建与数据查询，支持一键将结果导出为 Markdown 表格并匿名生成持久化分享 URL，全程仅触发 3 次后端请求。",
+      "testedAt": "2026-09"
+    }
   }
 }

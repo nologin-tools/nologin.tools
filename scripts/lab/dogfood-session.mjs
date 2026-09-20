@@ -572,6 +572,10 @@ async function cmdAct(slug, options) {
         try {
           const specificSelector = await page.evaluate(() => {
             const candidates = Array.from(document.querySelectorAll('input[type="file"]'));
+            const fileCandidate = candidates.find(c => !c.hasAttribute('webkitdirectory')) || candidates[0];
+            if (fileCandidate && fileCandidate.id) {
+              return '#' + fileCandidate.id;
+            }
             for (const el of candidates) {
               let p = el.parentElement;
               while (p && p !== document.body) {
@@ -584,7 +588,7 @@ async function cmdAct(slug, options) {
                 p = p.parentElement;
               }
             }
-            return null;
+            return candidates.length > 0 ? 'input[type="file"]:nth-of-type(1)' : null;
           });
           if (specificSelector) {
             await page.setInputFiles(specificSelector, fixPath);
