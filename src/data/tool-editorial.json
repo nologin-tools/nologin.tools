@@ -9166,5 +9166,259 @@
       "benchmarkNotes": "实测 Windows 平台的 Standard 预设加固流程（909 项脚本）。浏览器在本地内存中即时编译出 871 KB 的 .bat 批处理文件，实测捕获 0 个外发网络请求。验证直接下载无须登录、无验证码、无水印干扰。",
       "testedAt": "2026-09"
     }
+  },
+  "playbacktimer-com-audiobook-speed-calculator": {
+    "en": {
+      "bestFor": "Libby audiobook listeners and library borrowers who need to calculate whether they can finish a loan before the return deadline and determine exact daily listening targets or required playback speeds",
+      "pros": [
+        "Specialized due-date pacing engine calculates exact finish dates, catch-up deficits, and minimum playback speeds based on loan days remaining",
+        "Real-time reactive calculation with customizable audiobook length, preset speed chips (1x to 3x), fine-grained slider, and daily listening budget",
+        "One-click structured clipboard export generates clean shareable text schedules with serialized URL parameters",
+        "Polished dark-mode interface with zero layout shifts and instant client response"
+      ],
+      "cons": [
+        "Dispatches analytics telemetry to Google Analytics (G-JPD8TVTPGD) and first-party /api/events endpoint",
+        "Limited to planning calculations without direct Libby or Audible API sync"
+      ],
+      "privacyVerdict": "Audiobook duration, pacing parameters, and calculations are computed locally in the browser without server storage. However, client-side telemetry is active: testing captured 5 outgoing payloads dispatched to Google Analytics (G-JPD8TVTPGD), a first-party /api/events beacon, and Cloudflare RUM.",
+      "alternativeTo": [
+        "Omni Calculator Audiobook Speed",
+        "Duration Calculator",
+        "Audible Speed Calculator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited Libby due-date pacing scenario for an 11h 30m audiobook across a 7-day loan window. Adjusted playback speed from 1.5x to 2x, observing immediate status transition from 'Need catch-up' to 'Can finish on time' (1 day early). Verified one-click clipboard export capturing a 428-character formatted schedule with zero auth interception.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "使用 Libby 借阅电子书且需要在借阅到期日前规划听书进度的有声书听众，可快速计算是否能按期听完并获得精确的每日听音目标或所需播放倍速",
+      "pros": [
+        "针对借阅到期倒计时的专项推算引擎，可根据剩余天数精确推算完听日期、每日补听缺口及最低所需倍速",
+        "实时响应式运算，支持自定义书籍剩余时长、倍速快捷按钮（1x 至 3x）、微调滑块及每日可听时长预算",
+        "一键生成结构化剪贴板导出，输出干净的时间表文本并附带参数序列化链接",
+        "深色极简视觉设计，零界面偏移（CLS: 0.00），无须注册即可直接使用"
+      ],
+      "cons": [
+        "页面加载与操作时会向 Google Analytics (G-JPD8TVTPGD) 及第一方 /api/events 发送行为遥测请求",
+        "仅提供纯数学规划计算，不支持直接与 Libby 或 Audible 账户自动同步进度"
+      ],
+      "privacyVerdict": "有声书时长、进度参数与到期日换算均在浏览器本地完成计算，无需向服务器上传个人借阅数据。但页面包含行为统计，实测捕获到 5 个外发请求，分别发送至 Google Analytics (G-JPD8TVTPGD)、第一方 /api/events 统计信标以及 Cloudflare RUM 性能监控。",
+      "alternativeTo": [
+        "Omni Calculator Audiobook Speed",
+        "Duration Calculator",
+        "Audible Speed Calculator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 88
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测针对 11 小时 30 分钟有声书与 7 天借阅周期的还书推算场景。将播放倍速由 1.5x 切换至 2x，界面立即响应并由'Need catch-up'转为'Can finish on time'（提前 1 天听完）。验证一键剪贴板导出功能，成功捕获 428 字符的完整排期文本，全流程无登录拦截。",
+      "testedAt": "2026-09"
+    }
+  },
+  "wordpad-online-com": {
+    "en": {
+      "bestFor": "Writers, students, and office workers seeking a fast, zero-install browser word processor with instant export to DOCX, TXT, and PDF without account creation",
+      "pros": [
+        "Comprehensive Tiptap-powered rich text formatting suite including typography scales, alignments, lists, hyperlinks, and live word/character counters",
+        "Multi-format client-side export generating authentic DOCX (OpenXML ZIP), plain TXT, and PDF files without requiring an account",
+        "Clean, distraction-free interface with light and dark mode toggles and local browser autosave",
+        "Zero registration or payment gates for writing, saving, and downloading documents"
+      ],
+      "cons": [
+        "Runs Microsoft Clarity (u.clarity.ms) session recording and Google Analytics (G-GF4430J592), capturing 16 observed telemetry payloads during editing",
+        "Noticeable initial loading delay before the ProseMirror toolbar and editor canvas become interactive"
+      ],
+      "privacyVerdict": "Document text formatting and DOCX/TXT file compilation occur locally in browser memory without sending draft contents to a backend processing API. However, third-party analytics and tracking are active: live testing captured 16 outgoing payloads dispatched to Microsoft Clarity (u.clarity.ms) session recording, Google Analytics (G-GF4430J592), Google Funding Choices CMP, and Cloudflare RUM.",
+      "alternativeTo": [
+        "Google Docs",
+        "Write.as",
+        "Calmly Writer",
+        "Word Online"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 12,
+        "polish": 13,
+        "overall": 82
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested rich text composition and formatting in the ProseMirror DOM editor. Clicked Export DOCX button to trigger client-side compilation, successfully downloading an authentic 7735 bytes DOCX archive without watermarks or login prompts, while monitoring 16 POST network payloads including Microsoft Clarity session recording.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速在浏览器中进行富文本排版，并能直接免登录导出为 DOCX、TXT 与 PDF 文档的学生、文字工作者与办公人员",
+      "pros": [
+        "基于 Tiptap 打造的完整富文本排版功能，支持字号调整、对齐方式、列表、超链接及实时字数/字符统计",
+        "多格式纯前端导出支持，可直接将文档生成为标准 DOCX (OpenXML ZIP)、纯文本 TXT 与 PDF 文件，全程无需注册",
+        "界面简洁清爽，支持明暗主题一键切换，并具备本地浏览器自动保存机制",
+        "核心写作、保存与导出功能无任何登录门槛或付费限制"
+      ],
+      "cons": [
+        "页面内嵌了 Microsoft Clarity (u.clarity.ms) 会话录屏与 Google Analytics (G-GF4430J592)，实测捕获到 16 个遥测数据包",
+        "初次访问时 ProseMirror 编辑器与格式工具栏加载存在数秒等待延迟"
+      ],
+      "privacyVerdict": "文档文本排版与 DOCX/TXT 文件编译均在浏览器本地内存中完成，无须向后端接口传输文稿内容。但页面集成了较重的第三方追踪与分析栈，实测捕获到 16 个外发请求，涉及 Microsoft Clarity (u.clarity.ms) 会话行为录制、Google Analytics (G-GF4430J592)、Google Funding Choices 协议管理及 Cloudflare RUM。",
+      "alternativeTo": [
+        "Google Docs",
+        "Write.as",
+        "Calmly Writer",
+        "Word Online"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 12,
+        "polish": 13,
+        "overall": 82
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ProseMirror DOM 编辑器中实测富文本录入与格式排版。点击 Export DOCX 按钮触发本地编译，成功下载 7735 bytes 的真实 DOCX 压缩文档，全程无水印或登录拦截，同时监测到包含 Microsoft Clarity 会话录制在内的 16 个 POST 网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "wordtojpg-app": {
+    "en": {
+      "bestFor": "Users needing to quickly turn Word (.docx) documents into high-resolution JPG or PNG images directly in their browser without uploading files to third-party cloud servers",
+      "pros": [
+        "In-browser document parsing using Mammoth.js and html2canvas, eliminating remote server file uploads for conversion",
+        "Granular output controls including JPEG quality slider, 1x-3x sharpness scaling, page width adjustments, and font size scaling",
+        "Instant unwatermarked ZIP archive packaging and individual image downloads with zero account friction",
+        "Clean and transparent interface stating exact client-side rendering libraries and privacy guarantees"
+      ],
+      "cons": [
+        "Relies on Mammoth.js HTML conversion, meaning complex Word formatting, floating shapes, and macros will not match native Word rendering exactly",
+        "Transmits 7 telemetry payloads to Microsoft Clarity (n.clarity.ms) and Google Analytics (G-9KJNL30EBS)"
+      ],
+      "privacyVerdict": "Document files (.docx) remain strictly inside browser memory and are parsed using client-side JavaScript (Mammoth.js + html2canvas) without sending document binaries or text to a backend conversion API. However, client-side telemetry is present: live auditing observed 7 outgoing payloads to Microsoft Clarity (n.clarity.ms), Google Analytics (G-9KJNL30EBS), and Cloudflare RUM.",
+      "alternativeTo": [
+        "CloudConvert Word to JPG",
+        "Zamzar",
+        "iLovePDF",
+        "Smallpdf"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 13,
+        "polish": 14,
+        "overall": 86
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded test-document.docx fixture. Mammoth.js parsed text in 220ms, rendering a 1588x2246 canvas image locally. Triggered Download ZIP button to receive an authentic 78504 bytes ZIP package containing unwatermarked JPG images without login gates, while observing 7 POST telemetry payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将 Word (.docx) 文档快速转换为高清晰度 JPG 或 PNG 图像，且不愿将敏感文件上传到第三方云端转换服务器的用户",
+      "pros": [
+        "采用 Mammoth.js 与 html2canvas 在浏览器本地解析并渲染文档，杜绝将文档上传到远端转换服务器",
+        "提供丰富的输出定制选项，支持 JPEG 质量调节、1x-3x 清晰度倍率、页面宽度设定与字号缩放",
+        "即时生成无水印的 ZIP 批量压缩包与单张图片下载，无须注册登录或排队等待",
+        "界面简洁清爽且公开透明，明确告知用户客户端采用的转换引擎与隐私机制"
+      ],
+      "cons": [
+        "基于 Mammoth.js 的 HTML 渲染方案对复杂 Word 排版、浮动图文框及高级宏组件的还原度不如原生 Word 软件",
+        "运行过程中会向 Microsoft Clarity (n.clarity.ms) 与 Google Analytics (G-9KJNL30EBS) 发送 7 个遥测数据包"
+      ],
+      "privacyVerdict": "Word 文档 (.docx) 严格停留在浏览器本地内存中，由前端 JavaScript 引擎（Mammoth.js 与 html2canvas）解析渲染，绝无向后端转换接口上传任何文档二进制或文本内容。但实测捕获到 7 个外发遥测请求，分别发送至 Microsoft Clarity (n.clarity.ms)、Google Analytics (G-9KJNL30EBS) 及 Cloudflare RUM。",
+      "alternativeTo": [
+        "CloudConvert",
+        "Zamzar",
+        "iLovePDF",
+        "Smallpdf"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 13,
+        "polish": 14,
+        "overall": 86
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 test-document.docx 测试文档。前端 Mammoth.js 在 220ms 内完成本地文本解析，并通过 html2canvas 渲染出 1588x2246 尺寸图像。点击 Download ZIP 按钮成功下载 78504 bytes 的无水印压缩包，无任何注册登录拦截，同时监测到 7 个 POST 遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "signaturefont-net": {
+    "en": {
+      "bestFor": "Designers, entrepreneurs, and professionals who need to generate elegant handwritten or cursive signature graphics and transparent PNG assets for branding, emails, and documents without accounts",
+      "pros": [
+        "Library of 74 signature font styles rendered live in the browser, featuring curated categories (formal, casual handwritten, monoline retro)",
+        "Interactive customization controls including real-time size slider (48px scale), color picker, transparent background mode, and draw signature canvas",
+        "One-click high-resolution transparent PNG export (694x275) with zero watermarks or login requirements",
+        "Instant client-side canvas rasterization with zero latency and responsive typography preview"
+      ],
+      "cons": [
+        "Runs Microsoft Clarity (t.clarity.ms) session recording and Google Analytics (G-MYNG6DB4T5) tracking interactions across 8 observed POST payloads",
+        "Export is raster PNG only; does not generate vector SVG or installable TTF/OTF font files"
+      ],
+      "privacyVerdict": "Signature text rendering and PNG image rasterization execute locally in the browser using HTML5 Canvas without sending typed names or signature strokes to remote font generation servers. However, telemetry tracking is present: live auditing documented 8 outgoing POST payloads to Microsoft Clarity (t.clarity.ms), Google Analytics (G-MYNG6DB4T5), and Cloudflare RUM.",
+      "alternativeTo": [
+        "Signaturely",
+        "MyLiveSignature",
+        "CreateMySignature",
+        "DocuSign Signature Generator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 13,
+        "polish": 14,
+        "overall": 87
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Typed 'NoLogin Tools' into nameInput DOM field, dynamically previewing 74 font styles. Clicked PNG export button to download an authentic 34862 bytes transparent PNG (694x275) rendered via HTML5 canvas with zero watermark or login prompts, while logging 8 POST telemetry requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在电子文档、品牌设计或邮件签名中使用优雅的手写与花体签名，并可一键免登录导出透明背景 PNG 图像的设计师、职场人与创作者",
+      "pros": [
+        "内置 74 种精选手写与连笔艺术字体，在浏览器本地实时排版，涵盖正式商业、随性手写与复古单线等多种风格",
+        "提供细致的定制工具，支持实时字号滑块调节（48px 默认比例）、自定义文字取色器、背景透明化与手写画板模式",
+        "一键导出高分辨率透明背景 PNG 图片（实测 694x275 像素），绝无任何强制注册或隐形水印",
+        "纯前端 Canvas 光栅化渲染，响应迅速，输入文字即刻多卡片联动更新"
+      ],
+      "cons": [
+        "页面内嵌了 Microsoft Clarity (t.clarity.ms) 会话录制与 Google Analytics (G-MYNG6DB4T5)，实测捕获到 8 个 POST 遥测请求",
+        "导出格式仅限光栅化 PNG 图片，暂不支持矢量 SVG 曲线或系统可安装的 TTF/OTF 字体文件"
+      ],
+      "privacyVerdict": "签名文字渲染与 PNG 图像光栅化完全基于浏览器本地 HTML5 Canvas 完成，输入的姓名及手写笔画绝不上传到远端字体生成服务器。但在页面访问与交互过程中存在数据统计，实测捕获到 8 个发往 Microsoft Clarity (t.clarity.ms)、Google Analytics (G-MYNG6DB4T5) 及 Cloudflare RUM 的 POST 遥测请求。",
+      "alternativeTo": [
+        "Signaturely",
+        "MyLiveSignature",
+        "CreateMySignature",
+        "DocuSign Signature Generator"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 13,
+        "polish": 14,
+        "overall": 87
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 nameInput DOM 输入框中填入'NoLogin Tools'，动态联动预览 74 种签名样式。点击 PNG 导出按钮，通过本地 HTML5 Canvas 成功光栅化并下载 34862 bytes 的透明背景 PNG 图片（694x275 像素），无水印且无登录弹窗，同时记录到 8 个 POST 遥测请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
