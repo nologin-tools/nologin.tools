@@ -8910,5 +8910,261 @@
       "benchmarkNotes": "实测通过 input#NewEventName 输入活动名称并选定 div#Day-1-2 日期。表单在 190ms 内提交并生成 44 字符的投票专属链接。验证了在 div#YouGridSlots 中划选 YouTime1789952400 实时更新团队热力图，同时监测记录了 18 个广告与遥测网络请求。",
       "testedAt": "2026-09"
     }
+  },
+  "lite-datasette-io": {
+    "en": {
+      "bestFor": "Data analysts, developers, and researchers wanting to explore, query, and visualize SQLite, CSV, JSON, and Parquet datasets in a complete SQL engine without installing software or leaking sensitive data to cloud servers",
+      "pros": [
+        "Executes a complete Python and Datasette environment entirely inside the browser via Pyodide WebAssembly",
+        "Complete data sovereignty — local SQLite files and query executions never leave the client device",
+        "Supports multi-format data ingestion including SQLite .db, CSV, JSON, and Parquet via direct URL or in-memory tables",
+        "Instant export of query results as raw JSON, CSV, or shareable deep-linked query states"
+      ],
+      "cons": [
+        "Initial Pyodide and wheel compilation requires a few seconds of cold-start initialization",
+        "Memory-constrained to the browser tab's available WebAssembly heap size"
+      ],
+      "privacyVerdict": "Exemplary privacy architecture. All Python code execution, SQLite queries, and data parsing occur entirely in the client-side WebAssembly sandbox. Only 1 lightweight, cookie-free Plausible analytics event (plausible.io) was observed, with zero third-party advertising or personal data collection.",
+      "alternativeTo": [
+        "Tableau",
+        "Metabase",
+        "DBeaver",
+        "Google Sheets"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 97
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited in-memory SQLite database initialization. Executed 'select sqlite_version()' in textarea with query completion in 15.4ms returning version 3.39.0. Verified instant CSV export rendering (17 bytes) and confirmed in-worker client dispatch via webworker.js with 1 privacy analytics payload.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在完整 SQL 引擎中探索、查询和可视化 SQLite、CSV、JSON 与 Parquet 数据集，且无需安装软件或将敏感数据上传至云端服务器的数据分析师、开发者与研究人员",
+      "pros": [
+        "通过 Pyodide WebAssembly 在浏览器内完整运行 Python 和 Datasette 运行时",
+        "绝对的数据主权保护——本地 SQLite 数据库与查询计算完全在客户端执行，永不外传",
+        "支持通过 URL 或内存表直接加载与交互 SQLite .db、CSV、JSON 与 Parquet 等多格式数据",
+        "查询结果可一键以原始 JSON、CSV 格式导出，或生成带状态深层链接"
+      ],
+      "cons": [
+        "首次冷启动需要数秒加载 Pyodide 核心运行时及 Python wheel 依赖包",
+        "受限于浏览器标签页 WebAssembly 内存堆栈上限，无法加载超大规模数据集"
+      ],
+      "privacyVerdict": "典范级隐私工程架构。全部 Python 代码执行、SQLite 查询与数据解析均在客户端 WebAssembly 沙箱内完成。全程仅监测到 1 次无 Cookie 的轻量级 Plausible (plausible.io) 隐私统计请求，绝无任何第三方商业广告或用户隐私收集。",
+      "alternativeTo": [
+        "Tableau",
+        "Metabase",
+        "DBeaver",
+        "Google Sheets"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 15,
+        "overall": 97
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对内存 SQLite 数据库初始化进行了实测。在文本框中执行'select sqlite_version()'，查询耗时 15.4ms 并返回版本号 3.39.0。验证了即时 CSV 导出呈现（17 字节），并确认了基于 webworker.js 的全客户端调度机制与 1 次隐私统计请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "iformat-io": {
+    "en": {
+      "bestFor": "None in current state; intended for general file conversions once origin server connectivity is restored",
+      "pros": [
+        "Clean and modern landing page interface with intuitive drag-and-drop file picker",
+        "Advertises support for extensive media formats across images, documents, audio, and video"
+      ],
+      "cons": [
+        "Backend conversion server is completely offline (Cloudflare Error 521 'Web server is down')",
+        "All file conversion attempts fail with persistent 'Network error' alerts and zero artifacts delivered",
+        "Contradicts 'works directly in your browser' claim by dispatching user files to remote POST /upload_files endpoints",
+        "Fires multiple telemetry beacon requests to piqo.app/api/event"
+      ],
+      "privacyVerdict": "The tool claims client-side execution in its marketing copy, but network inspection reveals it transmits user files to a remote server via POST /upload_files. In addition, it dispatches 4 telemetry beacons to piqo.app/api/event and error dumps to /api/client-error/.",
+      "alternativeTo": [
+        "CloudConvert",
+        "TinyPNG",
+        "FreeConvert",
+        "Squoosh"
+      ],
+      "productScore": {
+        "frictionless": 8,
+        "depth": 5,
+        "exportFreedom": 0,
+        "privacy": 14,
+        "polish": 5,
+        "overall": 32
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Audited file conversion flow with sample.png (324.78 KB). Clicking 'Convert All Files' triggered POST /upload_files which failed immediately, followed by POST /api/client-error/. Direct route navigation to /jpg-to-png returned Cloudflare Error 521 (Origin Server Down). Zero files could be converted or exported.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "当前状态下不推荐使用；待源站服务器恢复后或可用于通用文件格式转换",
+      "pros": [
+        "前端首页界面现代简洁，支持直观的拖拽上传交互",
+        "宣称支持涵盖图像、文档、音频与视频的广泛媒体格式"
+      ],
+      "cons": [
+        "后端转换服务器完全失联（Cloudflare 521 报错 'Web server is down'）",
+        "所有文件转换均提示'Network error'并报错终止，无法生成或下载任何转换结果",
+        "与宣称的'浏览器本地处理'相悖，实际向后端 POST /upload_files 上传用户文件",
+        "持续向 piqo.app/api/event 发送遥测信标请求"
+      ],
+      "privacyVerdict": "该工具在文案中声称在浏览器端本地转换，但网络审查证实其通过 POST /upload_files 将用户文件上传至远端服务器。此外，页面还向 piqo.app/api/event 发送了 4 次遥测信标，并在报错时向 /api/client-error/ 回传数据。",
+      "alternativeTo": [
+        "CloudConvert",
+        "TinyPNG",
+        "FreeConvert",
+        "Squoosh"
+      ],
+      "productScore": {
+        "frictionless": 8,
+        "depth": 5,
+        "exportFreedom": 0,
+        "privacy": 14,
+        "polish": 5,
+        "overall": 32
+      },
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "对 sample.png（324.78 KB）转换流程进行了实测。点击'Convert All Files'触发 POST /upload_files 立即报错，随后调用 POST /api/client-error/。直接访问 /jpg-to-png 等具体子路由返回 Cloudflare Error 521（源站宕机），完全无法转换与导出任何文件。",
+      "testedAt": "2026-09"
+    }
+  },
+  "pixotter-com": {
+    "en": {
+      "bestFor": "Designers, content creators, and web developers wanting to compress, resize, format-convert, and watermark images in a single chained in-browser pipeline without server uploads",
+      "pros": [
+        "Comprehensive chained image pipeline: compress, resize, convert, crop, rotate, watermark, and strip EXIF in one pass",
+        "In-browser image processing ensures image pixels and metadata are transformed in browser memory without server uploads",
+        "Fast execution with immediate visual before/after comparison slider and ZIP batch archive download",
+        "Clean, modern UI with dark mode support and zero mandatory registration"
+      ],
+      "cons": [
+        "Deploys a heavy triple-analytics stack (Google Analytics, PostHog, Fathom) resulting in 31 observed telemetry payloads",
+        "File reader input can encounter sandbox permission errors if file reference is not consumed immediately"
+      ],
+      "privacyVerdict": "Image transformations execute in browser memory rather than on remote processing servers. However, network telemetry is heavy: live auditing captured 31 outgoing payloads dispatched to Google Analytics (G-H8M9LC1HJQ), PostHog (us.i.posthog.com), and Fathom Analytics (cdn.usefathom.com) tracking user interactions and conversions.",
+      "alternativeTo": [
+        "TinyPNG",
+        "Squoosh",
+        "iLoveIMG",
+        "Compressor.io"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 86
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited chained image optimization pipeline. Executed quality 80 compression on test-image.png, achieving a 23% reduction from 9.5 KB to 7.3 KB (2.1 KB saved) in 0.0s client processing time. Verified unwatermarked export via 'Download Result', while documenting 31 telemetry payloads across Google Analytics, PostHog, and Fathom.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在单次浏览器管道中完成图像压缩、调整尺寸、格式转换与添加水印，且避免图像上传到云端服务器的设计师、内容创作者与前端开发者",
+      "pros": [
+        "完善的图像链式处理管线：单次操作即可串联压缩、缩放、格式转换、裁剪、旋转、水印及清除 EXIF 信息",
+        "浏览器内图像计算，确保原始像素与敏感元数据在本地内存中完成变换，无需服务器上传",
+        "处理极速，提供直观的优化前后对比滑块与 ZIP 批量打包下载",
+        "现代化界面设计，支持暗黑模式且完全无需注册登录"
+      ],
+      "cons": [
+        "部署了密集的混合统计栈（Google Analytics、PostHog 与 Fathom），实测捕获 31 个外部遥测请求",
+        "文件选择器若未即时读取可能触发浏览器沙箱读取权限错误"
+      ],
+      "privacyVerdict": "图像处理计算在浏览器本地内存中执行而非远端处理服务器。但网络层存在密集遥测请求，实测捕获 31 个发送至 Google Analytics (G-H8M9LC1HJQ)、PostHog (us.i.posthog.com) 与 Fathom Analytics (cdn.usefathom.com) 的行为统计数据包。",
+      "alternativeTo": [
+        "TinyPNG",
+        "Squoosh",
+        "iLoveIMG",
+        "Compressor.io"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 86
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对链式图像优化管线进行了实测。对 test-image.png 执行质量设为 80 的压缩处理，在 0.0s 本地处理时间内实现 23% 体积精简（从 9.5 KB 降至 7.3 KB，节省 2.1 KB）。验证了通过'Download Result'无水印导出文件，同时记录了涉及 GA、PostHog 与 Fathom 的 31 个遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "privacy-sexy": {
+    "en": {
+      "bestFor": "System administrators, power users, and privacy-conscious desktop users needing tailored OS debloating and hardening scripts without installing proprietary software",
+      "pros": [
+        "Extensive catalog of 900+ granular, well-documented hardening scripts covering telemetry, Cortana, background diagnostics, and bloatware",
+        "Real-time client-side compilation generates ready-to-run .bat and PowerShell scripts with privilege checks and reversible logic",
+        "Zero network egress: all script metadata, presets, and generation logic execute locally in browser memory",
+        "Open-source under AGPL-3.0 with clean desktop-friendly interface and instant preset toggles (Standard, Strict)"
+      ],
+      "cons": [
+        "Executing batch/PowerShell system scripts requires elevated administrative privileges and carries inherent OS-level risk if modified blindly",
+        "Tree view navigation can be overwhelming for casual non-technical users due to hundreds of nested checkboxes"
+      ],
+      "privacyVerdict": "Pure client-side operation with zero observed outgoing network payloads or telemetry beacons during live testing. All 900+ script snippets and rule trees are bundled locally into the web application, compiling executable system scripts directly in memory without server communication.",
+      "alternativeTo": [
+        "O&O ShutUp10",
+        "WPD",
+        "Debloat Windows 10",
+        "ThisIsWin11"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 13,
+        "overall": 98
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited Windows hardening workflow using Standard preset (909 scripts). Browser compiled an 871 KB .bat script in memory with zero network payloads. Verified direct download without accounts, captchas, or watermarks.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要为操作系统定制隐私加固与臃肿组件清理脚本，且不愿安装任何闭源第三方加固软件的系统管理员、极客与注重隐私的用户",
+      "pros": [
+        "收录超过 900 项细粒度且文档完备的加固策略，覆盖系统遥测、Cortana、后台诊断及各类预装臃肿软件",
+        "纯客户端实时编译，即时生成带管理员提权自检与回滚逻辑的可用 .bat 与 PowerShell 脚本",
+        "零网络外传：所有策略元数据、预设规则及拼装逻辑完全在浏览器本地内存中执行",
+        "基于 AGPL-3.0 完全开源，界面交互流畅，支持 Standard 与 Strict 预设一键切换"
+      ],
+      "cons": [
+        "运行生成的批处理或 PowerShell 系统脚本需要管理员提权，盲目勾选修改可能带来系统级意外风险",
+        "对于非技术普通用户而言，数百个层级嵌套的多选框可能具有一定认知门槛"
+      ],
+      "privacyVerdict": "纯客户端本地运行，在实测过程中捕获到 0 个外部网络请求或遥测上报。全部 900 余个策略片段与规则树均内置于本地 Web 应用中，直接在内存中拼装可执行脚本，绝无任何服务器通信。",
+      "alternativeTo": [
+        "O&O ShutUp10",
+        "WPD",
+        "Windows 10 Debloater",
+        "ThisIsWin11"
+      ],
+      "productScore": {
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 13,
+        "overall": 98
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 Windows 平台的 Standard 预设加固流程（909 项脚本）。浏览器在本地内存中即时编译出 871 KB 的 .bat 批处理文件，实测捕获 0 个外发网络请求。验证直接下载无须登录、无验证码、无水印干扰。",
+      "testedAt": "2026-09"
+    }
   }
 }

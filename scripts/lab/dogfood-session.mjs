@@ -612,8 +612,11 @@ async function cmdAct(slug, options) {
 
     ${options.evalJs ? `
       const jsCode = ${JSON.stringify(options.evalJs)};
-      const evalRes = await page.evaluate((c) => {
-        try { return { ok: true, value: String(eval(c)) }; }
+      const evalRes = await page.evaluate(async (c) => {
+        try { 
+          const val = await eval(c);
+          return { ok: true, value: typeof val === 'object' ? JSON.stringify(val) : String(val) }; 
+        }
         catch (e) { return { ok: false, value: "Eval error: " + e.message }; }
       }, jsCode);
       result.actionSummary = "Evaluated JS: " + evalRes.value;
