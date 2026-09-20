@@ -5430,5 +5430,287 @@
       "benchmarkNotes": "多平台卡片实时渲染耗时 0ms，主线程无任何卡顿，弹窗瞬时生成全套 Open Graph 代码，网络监控记录 2 次遥测请求，无登录拦截。",
       "testedAt": "2026-09"
     }
+  },
+  "haikei-app": {
+    "en": {
+      "bestFor": "Generating customizable SVG background waves, organic blobs, polygon meshes, and geometric scatter illustrations for web and UI design.",
+      "pros": [
+        "Diverse generator library spanning organic blobs, layered waves, blurry gradients, and symbol scatters",
+        "Instant unwatermarked SVG and PNG exports directly from browser memory without account creation",
+        "Granular mathematical controls over shape complexity, balance, aspect ratios, and color palettes"
+      ],
+      "cons": [
+        "Advanced generators such as isometric grids and custom icon scatters are reserved for the Pro tier"
+      ],
+      "privacyVerdict": "Exemplary client-side privacy architecture. All procedural vector shapes and mathematical calculations execute locally in browser memory, with 0 network egress payloads and zero tracking scripts.",
+      "alternativeTo": [
+        "Get Waves",
+        "Blobmaker",
+        "fffuel"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% in-browser procedural math and SVG generation with zero server rendering dependencies",
+            "Zero network telemetry payloads, zero advertising trackers, and zero auth walls on file export"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Exported clean 778-byte SVG wave asset at 900x600 px without watermarks; 0ms main thread freezing; zero telemetry or analytical payloads observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "为网页视觉、UI 界面及幻灯片背景快速生成可定制的波浪、有机流体 Blob、散点网格及矢量装饰图形。",
+      "pros": [
+        "丰富的生成器库，囊括分层波浪、柔和渐变、多边形网格及散点图形",
+        "完全无需登录，直接从浏览器内存中一键导出纯净无水印的 SVG 与 PNG 文件",
+        "提供精细的几何参数调节，包括曲率复杂度、对称度、画布比例与自定义色彩"
+      ],
+      "cons": [
+        "部分高级生成器（如等距轴测网格与高级散点形态）需要升级 Pro 付费订阅"
+      ],
+      "privacyVerdict": "典范级纯前端隐私架构。所有矢量计算与图形算法均在浏览器本地内存中完成，测试全程捕获到 0 个出站网络遥测请求，无追踪脚本。",
+      "alternativeTo": [
+        "Get Waves",
+        "Blobmaker",
+        "fffuel"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "100% in-browser procedural math and SVG generation with zero server rendering dependencies",
+            "Zero network telemetry payloads, zero advertising trackers, and zero auth walls on file export"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "成功导出 778 字节 900x600 px 纯净 SVG 矢量文件，零水印零诱导拦截；主线程任务响应 0ms；全过程 0 次遥测出站。",
+      "testedAt": "2026-09"
+    }
+  },
+  "cssgradient-io": {
+    "en": {
+      "bestFor": "Visually designing two-stop and multi-stop linear or radial CSS gradients with instantaneous code snippet generation.",
+      "pros": [
+        "Intuitive multi-stop color slider with real-time hue, saturation, and alpha channel controls",
+        "Generates clean 2-line CSS syntax including legacy fallback background properties",
+        "Zero registration required to design and copy CSS code to clipboard"
+      ],
+      "cons": [
+        "Inundated with 78+ programmatic advertising payloads from Freestar, TripleLift, and PubNetwork tracker networks",
+        "Ad banners around the canvas distract from the visual design workspace"
+      ],
+      "privacyVerdict": "While the gradient editor computes CSS rules locally in the browser, the page embeds aggressive programmatic advertising scripts. Runtime network monitoring captured 78 outgoing payloads to ad exchanges including Freestar and TripleLift.",
+      "alternativeTo": [
+        "Hypercolor",
+        "Webgradients",
+        "CSS Gradient Generator"
+      ],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 8,
+        "polish": 12,
+        "factors": {
+          "privacy": [
+            "Interactive gradient math and CSS syntax generation execute client-side without registration walls",
+            "Heavily compromised by 78+ third-party advertising exchange beacons from Freestar, TripleLift, and PubNetwork"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Captured 137-character CSS gradient snippet into clipboard without watermarks; 0ms thread freeze; 78 advertising and tracking payloads recorded during session.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "可视化调试双色及多节点线性、径向 CSS 渐变背景并一键生成跨浏览器兼容样式代码。",
+      "pros": [
+        "直观的多色阶滑块控制器，支持实时调节色相、饱和度与 Alpha 透明度通道",
+        "一键生成包含纯色降级属性的标准 2 行 CSS 代码，无水印污染",
+        "免注册免登录，打开网页即可直接调色并复制规则"
+      ],
+      "cons": [
+        "页面嵌入了大量程序化广告联盟脚本，单次会话捕获到超过 78 次广告上报与追踪请求",
+        "画布周边的横幅广告在一定程度上干扰了设计排版的纯粹体验"
+      ],
+      "privacyVerdict": "虽然渐变计算与 CSS 语法生成在浏览器本地运行，但页面加载了极度密集的第三方广告网络（Freestar、TripleLift、PubNetwork）。运行时监控捕获到 78 次广告出站请求与跨站画像追踪。",
+      "alternativeTo": [
+        "Hypercolor",
+        "Webgradients",
+        "CSS Gradient Generator"
+      ],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 8,
+        "polish": 12,
+        "factors": {
+          "privacy": [
+            "Interactive gradient math and CSS syntax generation execute client-side without registration walls",
+            "Heavily compromised by 78+ third-party advertising exchange beacons from Freestar, TripleLift, and PubNetwork"
+          ]
+        }
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "剪贴板成功捕获 137 字符无水印标准 CSS 代码；主线程任务耗时 0ms；网络抓包记录到 78 次广告与行为追踪请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "getwaves-io": {
+    "en": {
+      "bestFor": "Generating customizable SVG wave dividers and fluid section transitions for web page headers and footers.",
+      "pros": [
+        "Supports multiple wave profiles including smooth sine curves, stepped blocks, and jagged peaks",
+        "Generates clean, responsive 1440x320 SVG markup with unwatermarked direct file downloads",
+        "Zero registration barrier with instant dice shuffle for fast seed experimentation"
+      ],
+      "cons": [
+        "Single-layer wave generator only; multi-layered or stacked waves require upgraded tools like Haikei"
+      ],
+      "privacyVerdict": "Exemplary zero-tracking utility. Wave curve equations and SVG path strings are computed locally in the browser runtime with zero outgoing network telemetry payloads.",
+      "alternativeTo": [
+        "Haikei",
+        "SVG Wave",
+        "Wavify"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Procedural wave mathematical curves generated locally inside the browser with zero cloud dependencies",
+            "Zero network telemetry payloads, zero advertising trackers, and unwatermarked direct SVG download"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Downloaded clean 457-byte SVG wave asset at 1440x320 viewBox; verified unwatermarked markup and zero auth gate; 0 analytical payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "为现代网页设计快速生成可定制的 SVG 曲线波浪分割带与页头/页脚流体过渡形态。",
+      "pros": [
+        "提供平滑正弦曲线、阶梯台阶及折线波峰等多种几何波形算法",
+        "输出纯净无水印的 1440x320 响应式 SVG 矢量文件与一键内联代码复制",
+        "完全无需注册或输入邮箱，点击随机骰子即可即时变换波浪种子"
+      ],
+      "cons": [
+        "仅支持单层波浪形态生成，若需要多层重叠波浪需使用其姊妹工具 Haikei"
+      ],
+      "privacyVerdict": "标杆级纯本地计算工具。所有贝塞尔曲线方程与 SVG Path 路径均在本地浏览器环境中即时生成，测试全程记录到 0 个外部遥测请求。",
+      "alternativeTo": [
+        "Haikei",
+        "SVG Wave",
+        "Wavify"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Procedural wave mathematical curves generated locally inside the browser with zero cloud dependencies",
+            "Zero network telemetry payloads, zero advertising trackers, and unwatermarked direct SVG download"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "成功下载 457 字节 1440x320 viewBox 规范 SVG 文件，零诱导零水印；主线程无卡顿任务；抓包捕获 0 次遥测出站。",
+      "testedAt": "2026-09"
+    }
+  },
+  "realtimecolors-com": {
+    "en": {
+      "bestFor": "Testing and visualizing web color palettes, contrast ratios, and typography pairings directly applied to a realistic landing page template.",
+      "pros": [
+        "Contextual live simulation mapping primary, secondary, and accent colors across actual webpage components",
+        "Comprehensive export options covering CSS custom properties, Tailwind CSS configuration, SCSS, and modern OKLCH tokens",
+        "Instant URL-based state sharing and spacebar palette randomization without account registration"
+      ],
+      "cons": [
+        "Template preview focuses on a software landing page archetype and does not include e-commerce or dashboard views"
+      ],
+      "privacyVerdict": "The color engine recalculates styles locally through CSS custom variables in the browser DOM. Network egress is restricted to 1 Google Analytics pageview beacon, with zero tracking cookies or authentication requirements.",
+      "alternativeTo": [
+        "Coolors",
+        "Colormind",
+        "Color Hunt"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Interactive color variables and live DOM layout updates execute locally in the client browser",
+            "Network activity is confined to 1 Google Analytics beacon without advertising pixels or account mandates"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Instantaneous DOM color re-theming with 70 ms max long task; generated clean CSS variables and Tailwind configuration tokens; 1 Google Analytics beacon recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在真实完整的网页排版与 UI 组件中实时预览调色方案、文字对比度与字体排版搭配。",
+      "pros": [
+        "情境化真实模拟，将主色、背景色、次要色与强调色即时注入真实网页模块中直观呈现",
+        "极其强大的导出能力，完整输出原生 CSS 变量、Tailwind CSS 配置、SCSS 及现代 OKLCH 格式",
+        "完全无需登录，按空格键或骰子即可随机生成配色，所有参数实时同步至 URL 便于团队分享"
+      ],
+      "cons": [
+        "内置的真实模板主要偏向 SaaS 落地页形态，较少涉及复杂多表格的管理后台或电商布局"
+      ],
+      "privacyVerdict": "调色逻辑与动态样式注入完全通过浏览器 DOM 中的 CSS 自定义变量在本地计算。网络监控仅捕获 1 次发往 Google Analytics 的基础访问信标，无广告像素或数据收集机制。",
+      "alternativeTo": [
+        "Coolors",
+        "Colormind",
+        "Color Hunt"
+      ],
+      "productScore": {
+        "overall": 99,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Interactive color variables and live DOM layout updates execute locally in the client browser",
+            "Network activity is confined to 1 Google Analytics beacon without advertising pixels or account mandates"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "整页换色渲染耗时 70 ms，瞬时输出规范 CSS 变量与 Tailwind 配置；无强制登录与水印限制；仅捕获 1 次 Google Analytics 访问量统计信标。",
+      "testedAt": "2026-09"
+    }
   }
 }
