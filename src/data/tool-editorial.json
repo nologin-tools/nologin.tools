@@ -12362,5 +12362,261 @@
       "benchmarkNotes": "体验 34 种分类题库与深度问题生成，界面卡顿 0ms，CLS 仅 0.02；收藏题目并存入本地 localStorage，成功导出 478,863 字节的 1080x1080 PNG 社交图谱卡片，全流程仅记录到 2 次网络交互。",
       "testedAt": "2026-09"
     }
+  },
+  "headlinecapitalization-com": {
+    "en": {
+      "bestFor": "Content writers, journalists, copywriters, academics, and developers needing to quickly format titles across AP, APA, Chicago, and MLA style guides with batch conversion, custom brand overrides, and markdown or HTML heading export without logging in.",
+      "pros": [
+        "Instant real-time capitalization across AP, APA, Chicago, and MLA style guides as well as Sentence, lower, and UPPER formats",
+        "Rich multi-format clipboard exports including plain text, h1 HTML, title tag, markdown heading, URL slug, and hashtag",
+        "Built-in batch conversion mode supporting line-by-line inputs with single-click .txt file download",
+        "Advanced editorial utilities including A/B headline testing, SEO/social platform length fit gauges, and custom brand/acronym overrides"
+      ],
+      "cons": [
+        "Does not include an automatic multilingual headline capitalization engine for languages other than English",
+        "Does not support direct file upload for docx or markdown documents in batch mode"
+      ],
+      "privacyVerdict": "Headline text is processed strictly within client-side browser memory with no copy sent to remote conversion servers; observed 2 outgoing payloads consisting of Google Analytics 4 and Cloudflare RUM telemetry beacons.",
+      "alternativeTo": [
+        "TitleCaseConverter.com",
+        "Capitalize My Title",
+        "CoSchedule Headline Studio",
+        "Grammarly Title Capitalization"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Formatted headlines across AP/Chicago rules, ran 3-line batch conversion, tested custom brand overrides, exported a 136-byte clean .txt artifact with 0ms task freeze and 0.34 CLS, observing 2 telemetry payloads (GA4 and Cloudflare RUM).",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "内容创作者、科技博主、学术作者、文案编辑以及开发者，无需注册即可按照 AP、APA、芝加哥与 MLA 等规范快速统一英文标题大小写，并支持批量转换、品牌词保护与 Markdown/HTML 导出。",
+      "pros": [
+        "输入即实时转换，完美遵循 AP、APA、Chicago、MLA 四大主流英文标题规范以及句首大写、全小写、全大写格式",
+        "支持丰富的多格式一键导出：纯文本、h1 标签、title 标签、Markdown 标题、URL Slug 及社交媒体话题标签",
+        "内置高效批量转换模式，支持多行标题一键格式化并直接下载无水印 .txt 文本归档",
+        "配备专业级编辑辅助工具：A/B 标题对比测试、社媒与搜索结果字符截断检测以及自定义专有名词保护词典"
+      ],
+      "cons": [
+        "规则库针对英文设计，暂不支持法文、德文或西班牙文等非英语种的特定大写语法规则",
+        "批量模式目前仅支持文本粘贴，未提供 docx 或 markdown 文件的直接拖拽上传解析"
+      ],
+      "privacyVerdict": "所有待转换文本与大小写规则计算全部在本地浏览器内存中即时完成，文本内容绝不上传至任何远端服务器；实测捕获到 2 次网络请求，分别为 Google Analytics 4 与 Cloudflare RUM 性能埋点。",
+      "alternativeTo": [
+        "TitleCaseConverter.com",
+        "Capitalize My Title",
+        "CoSchedule Headline Studio",
+        "Grammarly Title Capitalization"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "完成 AP 与 Chicago 规范实时转换，测试 3 行批量模式与品牌词大小写锁定，成功下载 136 字节的纯文本 .txt 文件，实测主线程冻结 0ms，CLS 0.34，记录到 2 次埋点通信（GA4 与 Cloudflare RUM）。",
+      "testedAt": "2026-09"
+    }
+  },
+  "alphabeticallyordered-com": {
+    "en": {
+      "bestFor": "Developers, data analysts, teachers, writers, and office administrators needing to quickly sort, deduplicate, reformat, and export raw text lists, columns, or CSV data into JSON arrays, HTML lists, or clean text files without an account.",
+      "pros": [
+        "Comprehensive sorting engine supporting A-Z, reverse Z-A, by last word, specific column, numeric, length, and randomize",
+        "Rich output formatting enabling instant conversion to plain lines, numbered lists, bulleted lists, CSV, TSV, HTML lists, and JSON arrays",
+        "Intelligent list cleaning with automatic separator detection, duplicate removal with count tracking, and case transformations",
+        "Local in-browser processing with undo and redo stack, file import capability, and direct text file download"
+      ],
+      "cons": [
+        "Does not support multi-level compound column sorting rules simultaneously",
+        "Does not offer spreadsheet-like grid editing for tabular data"
+      ],
+      "privacyVerdict": "List items and sorting calculations remain strictly client-side within browser memory without transmission to remote servers; observed 2 egress payloads comprising Google Analytics 4 and Cloudflare RUM telemetry.",
+      "alternativeTo": [
+        "Alphabetizer",
+        "TextFixer Alphabetical Order",
+        "MiniWebtool Alphabetize",
+        "SortMyList"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Sorted 6 items with duplicate detection, applied A-Z alphabetical order, tested 7 export formats including JSON arrays and HTML lists, exported a 31-byte text file with 69ms task latency and 0.01 CLS, observing 2 telemetry payloads (GA4 and Cloudflare RUM).",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "开发者、数据分析师、教师、文案创作者与职场办公人员，无需注册即可快速对各种无序列表、姓名清单或多列数据进行字母排序、去重、清洗，并一键转换为 JSON 数组或 HTML 列表。",
+      "pros": [
+        "功能完备的排序引擎，支持 A-Z 正序、Z-A 倒序、按末尾单词、指定列、数值大小、字符长度及随机乱序",
+        "支持 7 种即时导出排版格式：纯文本单行、数字序号列表、项目符号列表、逗号分隔、制表符、HTML 列表及 JSON 数组",
+        "智能文本清洗体验，提供自动分隔符识别、一键去重并显示剔除数量、大小写转换及结果即时过滤",
+        "纯浏览器前端运算，提供撤销与重做操作历史、外部文本文件导入以及无水印 .txt 文件直接下载"
+      ],
+      "cons": [
+        "暂不支持同时设置多列复合主次排序规则",
+        "未提供电子表格样式的网格化交互编辑视图"
+      ],
+      "privacyVerdict": "输入的文本列表与排序计算全在浏览器本地内存中执行，绝不向远端服务器传输任何清单数据；实测捕获到 2 次网络请求，分别为 Google Analytics 4 与 Cloudflare RUM 性能埋点。",
+      "alternativeTo": [
+        "Alphabetizer",
+        "TextFixer Alphabetical Order",
+        "MiniWebtool Alphabetize",
+        "SortMyList"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对包含 6 行的数据进行去重与 A-Z 字母排序测试，验证了 JSON 数组与 HTML 列表等 7 种排版模式，成功下载 31 字节纯文本文件，界面最大延迟 69ms，CLS 0.01，记录到 2 次埋点通信（GA4 与 Cloudflare RUM）。",
+      "testedAt": "2026-09"
+    }
+  },
+  "preuveenmain-ca-app": {
+    "en": {
+      "bestFor": "Self-represented individuals and citizens in Quebec or Canada needing a secure local-first workspace to organize dated legal facts, custody logs, communications, and evidence chronologies across family, housing, labor, or civil disputes without transmitting sensitive personal files to the cloud.",
+      "pros": [
+        "Specialized legal organizing framework supporting 8 distinct dispute categories including family custody, housing tribunal (TAL), labor (CNESST), and small claims",
+        "Automatic chronological timeline generation equipped with a built-in date inconsistency detector across journal entries",
+        "Local-first architecture storing all case notes, evidence records, and deadlines directly within client device storage",
+        "Comprehensive court preparation resources including official procedural checklists, legal references, and bilingual French/English navigation"
+      ],
+      "cons": [
+        "Direct PDF export of formal court reports and evidence binders is restricted to paid subscription tiers",
+        "Free no-login tier is capped at maintaining up to three active legal files simultaneously"
+      ],
+      "privacyVerdict": "All legal case files, personal communications, and evidence entries reside strictly on the user's local device; observed 2 egress payloads consisting of Cloudflare challenge platform security verification and RUM telemetry.",
+      "alternativeTo": [
+        "JuridiQC",
+        "Clio",
+        "Notion Legal Templates",
+        "Evernote Legal Organizer"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 13,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Loaded mock family custody case, reviewed automatic chronology with zero date conflicts, inspected court preparation checklists, verified local-first storage indicators with 0ms freeze and 0.09 CLS, and recorded 2 Cloudflare security and RUM payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "魁北克及加拿大地区需要自行出庭（Self-Represented）或在家庭抚养权、住房纠纷（TAL）、劳动仲裁（CNESST）及小额法庭中整理事实清单、证据链与时间线的当事人，在无需上传敏感隐私至云端的前提下构建结构化案卷。",
+      "pros": [
+        "针对司法实务深度定制，涵盖家庭抚养、租约住房、工伤劳动、小额民事等 8 大诉讼与仲裁门类",
+        "内置自动化事实时间线生成引擎，自动校验并标记日志中可能存在的日期冲突或逻辑断层",
+        "坚守 Local-first 本地优先架构，案件笔记、证据编目及往来记录完全保留在用户本地浏览器",
+        "提供详尽的庭审前准备清单、证据编码指引（P-1、P-2）与英法双语专业界面切换"
+      ],
+      "cons": [
+        "正式法院归档 PDF 导出、带附件的证据活页夹打包功能需订阅付费会员（Illimité）",
+        "免登录免费模式最多允许同时建立与维护 3 个独立案卷"
+      ],
+      "privacyVerdict": "案件涉及的所有敏感事实、日期记录与证据资料全部加密保存在本地设备存储中，不向云端后端传输；实测捕获到 2 次网络请求，分别为 Cloudflare 防爬虫质询与 RUM 性能埋点。",
+      "alternativeTo": [
+        "JuridiQC",
+        "Clio",
+        "Notion Legal Templates",
+        "Evernote Legal Organizer"
+      ],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 18,
+        "depth": 25,
+        "exportFreedom": 13,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "载入家庭抚养权模拟案卷，验证了带日期逻辑校验的案件时间轴生成与法庭准备清单，界面主线程冻结 0ms，CLS 0.09，确认本地优先存储，记录到 2 次 Cloudflare 基础通信。",
+      "testedAt": "2026-09"
+    }
+  },
+  "extract-express": {
+    "en": {
+      "bestFor": "Researchers, editors, students, and archivers seeking a clean browser-based utility to save public video and audio streams up to 4K from major video hubs, direct URLs, or HLS playlists without accounts, intrusive ads, or desktop software.",
+      "pros": [
+        "Zero registration or software installation required for downloading online video and audio streams",
+        "Broad format and quality controls supporting 720p, 1080p, 4K Max, Best Available, and dedicated Audio-only extraction",
+        "Extensive protocol compatibility handling social platforms, direct media links, HLS playlists, and DASH manifests",
+        "Strict ephemeral data policy deleting processed media files immediately following stream delivery"
+      ],
+      "cons": [
+        "Cannot process DRM-protected streams, private account posts, or regionally geo-blocked media",
+        "Server-side extraction throughput is dependent on remote platform rate limits and bandwidth availability"
+      ],
+      "privacyVerdict": "Requires no accounts or personal credentials; submitted links undergo temporary in-memory processing and completed media files are purged upon delivery; observed 1 outgoing Cloudflare RUM telemetry beacon.",
+      "alternativeTo": [
+        "Cobalt",
+        "yt-dlp",
+        "SnapSave",
+        "SaveFrom"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited media options across 720p to 4K profiles, reviewed supported platform matrices (YouTube, Vimeo, TikTok, HLS), verified dark mode interface and local session history with 0ms freeze and 0.00 CLS, observing 1 Cloudflare RUM payload.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "研究人员、剪辑师、学生与数字资料整理者，无需安装桌面软件、无需注册账户，直接在网页中解析并下载主流视频网站、直接链接或 HLS 流媒体的最高 4K 音视频文件。",
+      "pros": [
+        "免注册、免安装客户端，粘贴链接即可直接解析下载全网公开音视频资源",
+        "多档画质与模式自由切换，支持 720p、1080p、4K 极清、最佳画质以及独立纯音频抽取",
+        "协议兼容性广泛，涵盖主流社交视频平台、直链音视频、HLS（.m3u8）播放列表与 DASH 清单",
+        "严谨的临时流转隐私机制，服务端转码与打包任务交付后立即销毁，不作长期媒体留存"
+      ],
+      "cons": [
+        "不支持解析受 DRM 加密保护的内容、私密好友限定帖子或存在地区版权限制的音视频",
+        "远端服务端的解析速度与成功率受源网站的反爬机制与上游并发带宽限制"
+      ],
+      "privacyVerdict": "全程不索取账户或身份信息；提交的解析请求仅在服务端进行短期流转并在交付后立刻删除暂存文件；实测捕获到 1 次 Cloudflare RUM 性能监测数据包。",
+      "alternativeTo": [
+        "Cobalt",
+        "yt-dlp",
+        "SnapSave",
+        "SaveFrom"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "审查了 720p 至 4K 各档位配置与音频抽取模式，核验了 YouTube、Vimeo、TikTok、HLS 等支持矩阵与本地会话历史，界面延迟 0ms，CLS 0.00，记录到 1 次 Cloudflare RUM 通信。",
+      "testedAt": "2026-09"
+    }
   }
 }
