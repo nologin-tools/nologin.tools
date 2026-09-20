@@ -8464,5 +8464,223 @@
       "benchmarkNotes": "记录到 2 次直接 API 网络载荷与 Cloudflare Turnstile 验证请求，主线程最大冻结 93ms，CLS 0.01，并完成了完整的常见问题交互文档审查。",
       "testedAt": "2026-09"
     }
+  },
+  "cookies-extractor-chekun-me": {
+    "en": {
+      "bestFor": "Web developers and QA engineers needing to extract and copy browser cookies as HTTP headers or JSON without creating an account",
+      "pros": [
+        "Supports one-click extraction of current page cookies formatted as raw HTTP headers or structured JSON arrays",
+        "Open-source extension architecture on GitHub with support for web application integration via Plasmo messaging relay"
+      ],
+      "cons": [
+        "Functions as a browser extension requiring installation from Chrome Web Store or Edge Add-ons rather than a standalone web tool",
+        "Web landing page embeds Google Analytics tracking scripts and lacks proactive error guidance when the extension is absent"
+      ],
+      "privacyVerdict": "Landing page telemetry observed via Google Analytics (`G-TYT81QCLDQ`); the underlying extension operates locally within the browser to inspect and export cookies without transmitting credential payloads to external servers.",
+      "alternativeTo": [
+        "editthiscookie",
+        "cookie-editor"
+      ],
+      "productScore": {
+        "frictionless": 13,
+        "depth": 18,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 73
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Recorded 2 Google Analytics telemetry payloads, 142ms main thread baseline with 0.00 CLS, and inspected interactive demo section across 7 interaction steps.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要将浏览器 Cookie 一键提取并导出为 HTTP 请求头或 JSON 格式，且无需注册账号的 Web 开发者与测试工程师",
+      "pros": [
+        "支持将当前站点的 Cookie 一键复制为标准 HTTP 请求头字符串或格式化 JSON 数组",
+        "采用 GitHub 开源架构，提供基于 Plasmo 消息中继机制的前端网页集成方案"
+      ],
+      "cons": [
+        "属于浏览器扩展程序，必须前往 Chrome 或 Edge 商店安装后使用，无法作为独立纯网页工具运行",
+        "官网展示页包含 Google Analytics 分析脚本，且在未检测到插件时在线体验按钮缺少明确的安装提示"
+      ],
+      "privacyVerdict": "官网页面检测到 Google Analytics（G-TYT81QCLDQ）分析脚本载荷；扩展程序本身在浏览器本地执行，提取与导出 Cookie 时不会将敏感凭证传输至远程服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 13,
+        "depth": 18,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 12,
+        "overall": 73
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "记录到 2 次 Google Analytics 网络载荷，主线程最大冻结 142ms，CLS 0.00，历经 7 步交互完整验证了集成演示与体验区域。",
+      "testedAt": "2026-09"
+    }
+  },
+  "siteage-org": {
+    "en": {
+      "bestFor": "Domain owners, web historians, and developers seeking to certify website longevity, generate archival age badges, or download high-resolution certificates without registration",
+      "pros": [
+        "Synthesizes domain longevity across multiple public archives including Wayback Machine, Certificate Transparency, and RDAP records",
+        "Generates ultra high-resolution 4800x6400 unwatermarked PNG certificate downloads and customizable SVG embed badges"
+      ],
+      "cons": [
+        "Root homepage experiences a server-side render truncation that requires navigating directly to domain paths for lookup",
+        "Estimated founding dates may diverge from private incorporation records when early archival snapshots are sparse"
+      ],
+      "privacyVerdict": "Privacy-focused public domain lookup with observed network activity confined to first-party Cloudflare Web Analytics RUM beacons; domain longevity is synthesized from public archives without user tracking cookies or third-party advertising scripts.",
+      "alternativeTo": [
+        "archive-org",
+        "whois-com"
+      ],
+      "productScore": {
+        "frictionless": 14,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12,
+        "overall": 84
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Recorded 2 first-party Cloudflare RUM payloads, 632ms main thread baseline, verified 30-character clean clipboard capture, and inspected a pristine 3.86MB 4800x6400 PNG certificate download.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "希望对网站存续年限进行认证、生成可嵌入历史徽章或下载高清认证证书，且免注册的域名持有者与历史考据者",
+      "pros": [
+        "聚合 Wayback Machine、证书透明度日志（crt.sh）与 RDAP 注册记录等多源公共归档推算域名存续年限",
+        "提供无水印的 4800x6400 超高清 PNG 认证证书文件下载，以及多种样式的动态 SVG 嵌入式徽章代码"
+      ],
+      "cons": [
+        "网站根主页存在服务端渲染截断问题，需要直接在 URL 路径中输入具体域名才能触发查询展示",
+        "当早期网页快照缺失时，推算的建站时间可能与实际私有注册日期存在一定偏差"
+      ],
+      "privacyVerdict": "采用免登录的公开域名溯源架构，观测到的网络外发仅限于 Cloudflare Web Analytics 第一方 RUM 性能指标；域名存续时长基于公共历史归档推算，无用户追踪 Cookie 或第三方商业广告脚本。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 14,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12,
+        "overall": 84
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "记录到 2 次第一方 Cloudflare RUM 性能载荷，主线程基线延迟 632ms，经实测捕获 30 字符纯净剪贴板链接，并完成 3.86MB 4800x6400 高清 PNG 证书物理校验。",
+      "testedAt": "2026-09"
+    }
+  },
+  "next-tools-dev": {
+    "en": {
+      "bestFor": "Developers, DevOps engineers, and system administrators needing a comprehensive offline-ready toolbox of 95+ utilities without creating an account",
+      "pros": [
+        "Provides 95+ developer utilities covering hashing, token generation, RSA keys, UUIDs, and data converters in one unified interface",
+        "Executes all text transformations and cryptographic functions locally in browser memory without sending input data to external servers",
+        "Includes global command palette search (Cmd+K), light/dark themes, multi-language support, and PWA offline installation"
+      ],
+      "cons": [
+        "Production web deployment embeds third-party Google Analytics and Vercel analytics tracking beacons",
+        "Does not include cloud workspace synchronization for saving custom presets across multiple machines"
+      ],
+      "privacyVerdict": "Local client-side execution verified; cryptographic algorithms and text conversions execute in browser memory, with observed network activity limited to Vercel Insights and Google Analytics (`G-8ENVW2TP8K`) telemetry beacons.",
+      "alternativeTo": [
+        "it-tools-tech",
+        "cyberchef",
+        "dev-toys"
+      ],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 93
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Recorded 5 analytics network payloads, 259ms main thread baseline with 0.02 CLS, instant multi-algorithm hash generation, and 32-character clean clipboard capture.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要一个包含 95+ 款开箱即用工具的离线开发者工具箱，且无需注册账号的程序员与运维工程师",
+      "pros": [
+        "集成哈希计算、令牌生成、RSA 密钥对、UUID 生成器与数据转换在内的 95+ 款开发者实用工具",
+        "所有文本转换与密码学计算均在浏览器本地内存完成，绝不会将用户输入数据上传至远程服务器",
+        "支持 Cmd+K 全局快捷指令搜索、明暗主题切换、多语言本地化以及 PWA 离线安装能力"
+      ],
+      "cons": [
+        "线上部署版本包含 Google Analytics 与 Vercel 的页面访问统计脚本",
+        "未提供用于跨设备同步个人常用工具预设的云端存储功能"
+      ],
+      "privacyVerdict": "本地客户端处理经实测验证；所有密码学算法与文本转换均在浏览器内存中运行，观测到的网络通信仅限于 Vercel Insights 与 Google Analytics（G-8ENVW2TP8K）页面访问统计指标。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 15,
+        "overall": 93
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "记录到 5 次分析统计网络载荷，主线程基线延迟 259ms，CLS 0.02，完成多算法哈希秒级计算与 32 字符纯净剪贴板捕获校验。",
+      "testedAt": "2026-09"
+    }
+  },
+  "ps-keepmot-com": {
+    "en": {
+      "bestFor": "Photographers, social media creators, and designers needing to compose multi-image collages, photo walls, and long stitched graphics without registration or watermarks",
+      "pros": [
+        "Supports grid collages, photo wall arrangements, long graphic stitching, and custom aspect ratios up to 4K UHD resolution",
+        "Processes all image composition locally within browser canvas memory with zero server-side file transmission",
+        "Exports high-resolution PNG and JPG graphics without watermarks, trial limitations, or mandatory account creation"
+      ],
+      "cons": [
+        "Production site includes Google Analytics tracking beacons and Cloudflare RUM telemetry",
+        "Requires navigating past the marketing landing page to access the full web-based design canvas"
+      ],
+      "privacyVerdict": "Local client-side image processing verified; collage composition and canvas rendering execute entirely in browser memory without image uploads, with observed network activity limited to Google Analytics (`G-YTR709HP3R`) and Cloudflare RUM beacons.",
+      "alternativeTo": [
+        "canva",
+        "photopea",
+        "befunky"
+      ],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 89
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Recorded 3 analytics and RUM payloads, 74ms main thread baseline with 0.00 CLS, and fully inspected canvas design studio across 8 interaction steps.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在线制作多图拼图、照片墙或长图拼接，且追求免注册、无水印高分辨率导出的摄影爱好者与设计创作者",
+      "pros": [
+        "提供网格拼图、照片墙、长图拼接等多种模式，支持最高达 4K UHD 的多设备画布比例预设",
+        "所有图像合成与排版均在浏览器 Canvas 本地内存处理，原始图片完全无需上传至远程服务器",
+        "支持无水印导出高分辨率 PNG 与 JPG 图像，没有任何功能锁定或付费订阅限制"
+      ],
+      "cons": [
+        "线上部署包含 Google Analytics 访问统计脚本与 Cloudflare RUM 监控",
+        "初次访问时需要从介绍落地页点击进入具体的设计工作台界面"
+      ],
+      "privacyVerdict": "本地客户端图片处理经实测验证；所有拼图排版、滤镜渲染与画布生成均在浏览器内存中运行，用户图片不上传至任何服务器，观测到的网络通信仅限于 Google Analytics（G-YTR709HP3R）与 Cloudflare RUM 页面访问统计指标。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14,
+        "overall": 89
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "记录到 3 次统计与性能网络载荷，主线程基线延迟 74ms，CLS 0.00，历经 8 步交互深度验证了拼图设计工作台的画布排版功能。",
+      "testedAt": "2026-09"
+    }
   }
 }
