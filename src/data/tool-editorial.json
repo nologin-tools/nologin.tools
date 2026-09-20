@@ -13124,5 +13124,255 @@
       "benchmarkNotes": "向上传区注入 800x600 像素的标准 PNG 测试图像，反向 Alpha 引擎即时完成处理并渲染分屏对比滑块。触发下载后成功导出 173,809 字节的无水印原始分辨率 PNG 文件，主线程卡顿 0ms，CLS 达到 0.00。",
       "testedAt": "2026-09"
     }
+  },
+  "metadataremover-ai": {
+    "en": {
+      "bestFor": "Photographers, journalists, AI creators, and privacy-conscious users needing to sanitize EXIF, GPS coordinates, XMP edit histories, and AI generation prompts from media files before publishing or sharing.",
+      "pros": [
+        "Client-side metadata sanitizer supporting images (JPG, PNG, WebP), PDFs, DOCX documents, audio (MP3), and video (MP4, MOV).",
+        "Granular detection and removal of AI generation prompts (Stable Diffusion parameters), XMP history, and C2PA Content Credentials.",
+        "Automated post-clean verification pass confirming zero selected metadata groups remain prior to export.",
+        "Preserves original image pixel data and dimensions without lossy recompression or watermarking."
+      ],
+      "cons": [
+        "Direct Apple HEIC/HEIF photos must be converted to JPEG before processing.",
+        "Cleaning already-sanitized images with no removable metadata will halt with a safe normalization advisory."
+      ],
+      "privacyVerdict": "Client-side file inspection and sanitization architecture. File binary parsing, chunk stripping, and post-clean verification run in browser memory. Network telemetry is strictly limited to 9 Google Analytics 4 telemetry requests; media files and metadata payloads are never transmitted to remote servers.",
+      "alternativeTo": [
+        "Exifcleaner",
+        "Metadata2Go",
+        "Verexif",
+        "ExifTool"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Loaded demo-with-ai-metadata.png (1.69 MB, 1200x800) containing 4 metadata groups: Stable Diffusion prompt parameters, XMP history, PNG tEXt chunks, and C2PA credentials. Stripped all 4 groups, passed post-clean zero-metadata verification, and downloaded a verified 1,767,551-byte clean PNG with 0ms freeze and 0.36 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "摄影师、新闻记者、AI 创作者及注重隐私的用户，在公开发布或社交分享前彻底清除图像与文档中的 EXIF 相机参数、GPS 地理坐标、XMP 编辑历史及 AI 生成提示词。",
+      "pros": [
+        "纯前端元数据清理工具，支持图像（JPG、PNG、WebP）、PDF、DOCX、音频（MP3）和视频（MP4、MOV）。",
+        "精细化检测并剔除 AI 生成提示词（Stable Diffusion 参数）、XMP 编辑历史及 C2PA 认证元数据容器。",
+        "内置清理后二次自动化复检机制，在提供下载前严格验证所选元数据分组已被彻底清零。",
+        "完整保留原图画面像素数据与几何分辨率，无有损二次重压缩或附加水印。"
+      ],
+      "cons": [
+        "iPhone 原始 HEIC/HEIF 格式照片需先转为 JPEG 副本方可进行清理。",
+        "若上传本身已无任何元数据的空白文件，工具会触发安全保护并提示无需清理。"
+      ],
+      "privacyVerdict": "客户端文件分析与元数据清洗架构。二进制文件解析、数据块剔除与清理后验证完全在浏览器本地内存中运行。实测网络请求仅限于 9 次 Google Analytics 4 性能遥测信标，媒体文件与元数据内容绝不上传至任何服务器。",
+      "alternativeTo": [
+        "Exifcleaner",
+        "Metadata2Go",
+        "Verexif",
+        "ExifTool"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "加载含 4 组元数据的 demo-with-ai-metadata.png（1.69 MB，1200x800），包含 Stable Diffusion 提示词参数、XMP 历史、PNG tEXt 文本块与 C2PA 凭证容器。一键完成 4 组清洗并通过零残留复检，成功导出 1,767,551 字节的洁净 PNG 图像，主线程延迟 0ms，CLS 为 0.36。",
+      "testedAt": "2026-09"
+    }
+  },
+  "untrackedtools-com-en": {
+    "en": {
+      "bestFor": "Developers, analysts, and privacy-conscious users needing quick, client-side data conversion and file utilities without sending sensitive information to third-party cloud servers.",
+      "pros": [
+        "Comprehensive directory of 93 browser-based utilities including CSV-to-JSON, PDF processing, text manipulation, and format conversion.",
+        "Client-side JavaScript execution with local memory data parsing during active data processing.",
+        "One-click clipboard export with sanitized, unwatermarked formatting."
+      ],
+      "cons": [
+        "Complex multi-file drag-and-drop operations on certain PDF tools require careful manual selection.",
+        "No dark mode toggle currently exposed on the navigation bar."
+      ],
+      "privacyVerdict": "Local browser-based processing architecture. CSV conversion, parsing, and data manipulation execute within client memory. Testing confirmed client-side execution with 0 outgoing payloads recorded; user input is processed locally.",
+      "alternativeTo": [
+        "CyberChef",
+        "Transform Tools",
+        "OmniCalculator",
+        "TinyWow"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Tested CSV-to-JSON conversion with a 4-row tabular dataset; instantaneously parsed and rendered a 17-line JSON array in the output textarea, followed by a clean 230-character clipboard export with 0ms freeze and 0 network payload requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要快速在本地完成数据格式转换、文档与文本处理，且严格避免敏感业务数据上传至第三方云端服务器的开发者、数据分析师与注重隐私的用户。",
+      "pros": [
+        "内置 93 种完全运行于浏览器的实用工具，涵盖 CSV 转 JSON、PDF 拆分合并、文本清洗与数据编解码。",
+        "纯前端 JavaScript 内存解析，数据转换过程中无任何后台网络数据外流。",
+        "一键剪贴板复制输出，结果规整且无任何水印或尾缀干扰。"
+      ],
+      "cons": [
+        "部分复杂 PDF 批量合并工具对合成事件支持较为严格，需标准文件选择器操作。",
+        "界面顶部导航栏暂未提供深色模式切换开关。"
+      ],
+      "privacyVerdict": "本地浏览器运行架构。CSV 转换、数据解析及文本操作均在客户端内存中完成，实测记录 0 次外发网络请求，用户数据完全在本地计算处理。",
+      "alternativeTo": [
+        "CyberChef",
+        "Transform Tools",
+        "OmniCalculator",
+        "TinyWow"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对 CSV 转 JSON 工具输入 4 行结构化表格数据进行实测，页面瞬间在输出文本框完成格式化并渲染出 17 行标准 JSON 数组，随后成功执行 230 字符的纯净剪贴板导出，主线程冻结为 0ms，全程 0 次网络外流请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "articleformatter-com": {
+    "en": {
+      "bestFor": "Writers, bloggers, copy editors, and content managers needing to clean up Word artifacts, curly smart quotes, and irregular linebreaks before publishing to CMS platforms.",
+      "pros": [
+        "Targeted regex-based text normalization replacing Microsoft Office curly quotes, em dashes, and ellipses with standard ASCII characters.",
+        "Dual-pane side-by-side comparison with real-time character and word counters on both input and output textareas.",
+        "Single-click clipboard copy of cleaned text with zero appended promotional watermarks."
+      ],
+      "cons": [
+        "Does not include advanced markdown-to-HTML or rich-text preview in the default view.",
+        "Batch processing multiple text files simultaneously is not supported."
+      ],
+      "privacyVerdict": "Client-side processing architecture. Text cleaning and quote normalization execute entirely within browser memory, with 0 outgoing network payloads observed during dogfooding.",
+      "alternativeTo": [
+        "Clean-Text",
+        "TextFixer",
+        "EditPad",
+        "WordCounter"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Submitted 206 characters (33 words) of text containing curly quotes and em-dashes; successfully normalized to 194 characters with ASCII punctuation, captured via clipboard with 76ms max freeze and 0 outgoing network payloads.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在将文章发布到 CMS 或博客系统前，彻底清洗来自 Word/Office 的弯引号、破折号及多余空行的创作者、文字编辑与内容运营人员。",
+      "pros": [
+        "基于正则表达式的前端文本清洗，精准将 Word/Office 弯引号、长破折号及省略号转换为标准 ASCII 字符。",
+        "双栏左右对比布局，输入与输出文本框均实时显示字数与字符数统计。",
+        "一键复制格式化结果至剪贴板，完全无任何附加推广尾巴或水印。"
+      ],
+      "cons": [
+        "默认界面未内置 Markdown 转 HTML 或富文本渲染预览模式。",
+        "暂不支持同时批量导入多个文本文件进行并行清洗。"
+      ],
+      "privacyVerdict": "纯前端浏览器运行时处理架构。文本清洗与标点符号标准化完全在本地内存中执行，实测过程中记录 0 次外发网络请求，保证文稿内容绝对私密。",
+      "alternativeTo": [
+        "Clean-Text",
+        "TextFixer",
+        "EditPad",
+        "WordCounter"
+      ],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "输入包含微软弯引号和破折号的 206 字符（33 词）样本文本，瞬间格式化为 194 字符的标准文本，并成功完成 194 字符的剪贴板捕获，最大主线程延迟 76ms，网络外发请求为 0。",
+      "testedAt": "2026-09"
+    }
+  },
+  "aspectratiocalculator-com": {
+    "en": {
+      "bestFor": "Video editors, graphic designers, frontend engineers, and photographers calculating screen dimensions, crop boundaries, and aspect ratios for multi-format production.",
+      "pros": [
+        "Instant bidirectional calculation between custom pixel dimensions and simplified aspect ratios (e.g. 3840x2160 to 16:9).",
+        "Comprehensive preset library covering 9 display formats (16:9, 4:3, 1:1, 9:16, 21:9, 3:2, 5:4, 2:1, 32:9) with automatic megapixel counts.",
+        "Client-side calculation with zero server roundtrips or registration requirements."
+      ],
+      "cons": [
+        "Lacks an automated 'Copy All Results' button, requiring manual selection or clipboard capture of calculated dimensions.",
+        "Does not support uploading an image file directly to read its native EXIF pixel dimensions automatically."
+      ],
+      "privacyVerdict": "Client-side math calculation architecture. Aspect ratios, pixel totals, and dimensions compute directly in browser JavaScript memory. Observed network activity was strictly limited to telemetry beacon payloads; calculation inputs and outputs are never uploaded to remote servers.",
+      "alternativeTo": [
+        "AspectRatioCalculator.net",
+        "CalculateAspectRatio",
+        "Omni Aspect Ratio Calculator",
+        "Toolstud.io"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Evaluated 3840x2160 dimension inputs to verify 16:9 ratio detection, followed by 21:9 ultrawide scaling to 3440x1474 (5.1M pixels); captured 31 characters via clipboard with 0ms freeze and 0.03 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要为多端媒体制作快速计算画面分辨率、裁剪比例、屏幕适配基准及像素总量的视频剪辑师、UI 设计师与前端工程师。",
+      "pros": [
+        "支持任意像素尺寸与最简比例之间的即时双向换算（如 3840x2160 即时换算为 16:9 比例与横屏模式）。",
+        "内置 9 种主流规格预设（16:9、4:3、1:1、9:16、21:9、3:2、5:4、2:1、32:9），并实时给出总像素量（如 5.1M）。",
+        "完全在客户端通过本地算法实时换算，无服务器往返调用与注册门槛。"
+      ],
+      "cons": [
+        "未提供一键复制全部计算结果的快捷按钮，需要用户手动复制或借助剪贴板捕获。",
+        "暂不支持直接上传本地图片自动读取其内在分辨率与尺寸信息。"
+      ],
+      "privacyVerdict": "前端数学计算架构。画面宽高比、总像素量及分辨率重缩放均直接在本地 JavaScript 内存中计算，测试期间记录的外发请求仅限于基础遥测信标，用户计算数据不上传至远端服务器。",
+      "alternativeTo": [
+        "AspectRatioCalculator.net",
+        "CalculateAspectRatio",
+        "Omni Aspect Ratio Calculator",
+        "Toolstud.io"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "输入 3840x2160 验证 16:9 比例与横屏识别，随后切换 21:9 预设换算出 3440x1474（5.1M 像素），成功完成 31 字符的剪贴板捕获，主线程延迟 0ms，CLS 为 0.03。",
+      "testedAt": "2026-09"
+    }
   }
 }
