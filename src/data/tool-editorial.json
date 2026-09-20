@@ -16938,5 +16938,257 @@
       "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 fomrix.com/stl-viewer 后点击拒绝统计，随后加载 711.2 KB 的扳手示例模型。系统即时解析出 14,564 个三角面与 33.13 x 114.23 x 26.00 mm 尺寸，并顺畅切换线框渲染模式。点击'下载原始文件'成功下载 728,284 字节原始二进制 STL 文件，无水印嵌入。会话期间仅产生 1 次授权偏好请求，最大任务耗时 95ms，CLS 为 0.02。",
       "testedAt": "2026-09"
     }
+  },
+  "quicktinyv2-vercel-app": {
+    "en": {
+      "bestFor": "Web developers, technical writers, and digital workers seeking a unified multi-utility hub that auto-detects pasted payloads (JSON, Base64, URLs, timestamps) and processes them in-browser without account signups.",
+      "pros": [
+        "Zero registration required with smart client-side heuristic detection routing pasted inputs to the corresponding utility",
+        "Suite of 13 browser-first utilities covering JSON formatting, image compression, Base64 encoding, password generation, and word counts",
+        "Client-side processing architecture ensuring raw data payloads never touch external server storage",
+        "Clean output formatting with immediate validation error diagnostics and one-click clipboard copying"
+      ],
+      "cons": [
+        "Observed 6 first-party telemetry events sent to Vercel Insights and the /api/qt-event endpoint",
+        "Clipboard API restrictions in some browser contexts trigger a manual selection fallback banner"
+      ],
+      "privacyVerdict": "Pasted payloads and formatting logic run strictly inside client-side browser memory without remote server processing; 6 lightweight telemetry and performance beacons (Vercel Insights, /api/qt-event) were recorded during navigation and usage.",
+      "alternativeTo": [
+        "CyberChef",
+        "DevToys Web",
+        "Omni Tools",
+        "Transform Tools"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to quicktinyv2.vercel.app and pasted raw JSON into the universal input box. System automatically identified the payload as 'Detected: JSON' and routed to /tools/json-formatter with syntax formatting. Validated 2-space indentation and clicked 'Copy output', capturing 68 characters across 5 lines into the clipboard with zero data loss. Maintained 0ms long tasks and 0.01 CLS alongside 6 Vercel Insights and internal telemetry requests.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要一站式在浏览器中自动识别并处理 JSON 格式化、Base64 编解码、图片压缩及时间戳转换，且注重输入数据不上传的 Web 开发者与办公人员。",
+      "pros": [
+        "完全无需注册或登录，首页面板内置智能启发式分析，粘贴文本即可自动识别格式并跳转对应工具",
+        "集成 13 款浏览器优先实用工具，涵盖 JSON 校验美化、图片压缩、Base64 编解码、强密码生成等",
+        "完全基于浏览器端运行，粘贴的敏感数据与配置信息绝不经由后端服务器留存",
+        "提供清晰的语法错误定位诊断与一键结果复制导出"
+      ],
+      "cons": [
+        "使用期间记录到 6 次发送至 Vercel Insights 与 /api/qt-event 的第一方分析遥测事件",
+        "部分浏览器剪贴板权限受限时会触发手动全选复制的兜底提示"
+      ],
+      "privacyVerdict": "输入的数据解析与格式化处理完全在本地浏览器内存中进行，原始业务内容绝不上传服务器；评测期间记录到 6 次发送至 Vercel Insights 与内部 /api/qt-event 的性能分析信标。",
+      "alternativeTo": [
+        "CyberChef 网络安全瑞士军刀",
+        "DevToys Web 开发者工具箱",
+        "Omni Tools 在线工具集",
+        "Transform Tools 代码转换器"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 quicktinyv2.vercel.app 并向通用输入框粘贴原始 JSON 数据。系统即时识别出'Detected: JSON'并跳转至 /tools/json-formatter 工具页，自动完成两空格缩进美化与语法校验。点击 Copy output 成功捕获 68 字符（5 行）至剪贴板，无格式畸变。全程长任务耗时 0ms，CLS 为 0.01，伴随 6 次 Vercel Insights 与内部遥测请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "drunkcalc-org": {
+    "en": {
+      "bestFor": "Adults, health educators, event planners, and designated drivers seeking a private, zero-account blood alcohol content (BAC) estimator to model alcohol elimination timelines and sober times before social outings.",
+      "pros": [
+        "Zero registration required with instant reactive updates across weight, gender, and beverage parameters",
+        "Uses the peer-reviewed Modified Widmark formula incorporating sex-specific body water distribution constants",
+        "Dynamic visual gauge rendering immediate blood alcohol percentage curves and time-to-zero milestones",
+        "Confirmed zero network egress: sensitive health, weight, and alcohol intake inputs remain entirely in browser memory"
+      ],
+      "cons": [
+        "Lacks dedicated export controls for downloading or copying BAC curves to clipboard",
+        "Provides educational approximations only and cannot replace certified breathalyzer hardware or legal sobriety determinations"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified; network audit confirmed 0 outgoing network requests, ensuring personal biological attributes and alcohol consumption logs never leave local browser memory.",
+      "alternativeTo": [
+        "Omni Calculator BAC",
+        "Calculator.net BAC",
+        "DrinkFox BAC Calculator",
+        "Bactrack App"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 14,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to drunkcalc.org and tested the live BAC simulator with a baseline of 180 lb body weight. Toggled gender from Male to Female, observing the reactive circular gauge adjust instantaneous blood alcohol content from 0.046% to 0.064% based on Widmark distribution volume formulas. Added additional beverage entries with 0ms long task freezes and 0.00 CLS. Audited network activity, confirming 0 outbound payloads across the entire session.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在聚会或社交活动前快速估算血液酒精浓度（BAC）与完全代谢清醒时间，且极度注重个人生理健康数据隐私的成年人、健康宣教人员及指定代驾者。",
+      "pros": [
+        "完全无需注册或登录，调整体重、性别与饮酒量时右侧仪表盘实时联动计算",
+        "采用科学验证的修正 Widmark 公式，考虑不同性别体内水分分布比例差异进行精准建模",
+        "可视化刻度仪表盘清晰标注 0.05% 与 0.08% 法定红线及预计完全清醒时间点",
+        "严格的零网络外传架构：体重与饮酒记录等高度敏感的生理数据完全封存在浏览器内存中"
+      ],
+      "cons": [
+        "未提供将测算记录或代谢折线图一键导出为文件或复制至剪贴板的功能",
+        "仅供健康参考与科普估算，不能作为判断能否安全驾驶或法律责任认定的替代手段"
+      ],
+      "privacyVerdict": "经实机网络抓包审计确认，全流程产生 0 次外部网络请求，严格杜绝任何数据外传；输入的个人体重、生理性别与饮酒细节均保存在本地浏览器中，无任何追踪器或第三方分析接入。",
+      "alternativeTo": [
+        "Omni Calculator BAC 计算器",
+        "Calculator.net 酒精估算器",
+        "DrinkFox 血液酒精计算器",
+        "Bactrack 移动应用"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 14,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 drunkcalc.org 并以 180 磅体重进行基准测试。将性别由男切换为女，右侧环形仪表盘即刻根据 Widmark 体液分布系数将估算血液酒精浓度从 0.046% 联动更新至 0.064%。添加饮酒项目全程长任务耗时 0ms，CLS 为 0.00。网络审计确认全过程记录到 0 次外发网络载荷。",
+      "testedAt": "2026-09"
+    }
+  },
+  "makehalftone-com": {
+    "en": {
+      "bestFor": "Screen printers, graphic designers, poster artists, risograph creators, and apparel makers preparing print-ready dot and line halftone patterns from photos directly in their browser.",
+      "pros": [
+        "Zero registration required with instant drag-and-drop loading and real-time 2ms client-side canvas rasterization",
+        "Rich parametric controls supporting 4 pattern geometries (Dot, Line, Ring, Diamond), angle adjustment, dot size, spacing, and CMY color simulation",
+        "Authentic zero-egress architecture: uploaded photos and raster calculations never leave local device memory",
+        "Production-grade export pipeline delivering uncompressed PNG (139,563 bytes), vector SVG, and 300 DPI print configurations without watermarks"
+      ],
+      "cons": [
+        "High-resolution 300 DPI canvas rasterization for massive image files (>20MP) depends heavily on client GPU and CPU memory"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified; network snooper observed 0 outbound payloads during entire session, confirming uploaded images, custom palettes, and dot calculations remain strictly within local browser memory.",
+      "alternativeTo": [
+        "Photoshop Halftone Filter",
+        "Vector Halftone Maker",
+        "HalftonePro",
+        "Astute Graphics Phantasm"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to makehalftone.com and uploaded an 800x600 PNG test fixture. Switched between Dot and Line pattern modes with 2ms rasterization latency and parametric angle adjustments. Triggered 'Download PNG' to export an authentic 139,563-byte binary PNG artifact without watermarking or data distortion. Audited network traffic, confirming 0 outbound payloads across all turns with 0.00 CLS and 62ms max baseline task freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中将摄影照片快速转化为高精度半色调网点、网线印刷图案，用于丝网印刷、DTF 热转印、孔版印刷（Risograph）与海报设计的平面设计师与独立印务创作者。",
+      "pros": [
+        "完全无需注册或登录，支持本地图片即拖即用，Canvas 渲染引擎实时更新（实测单帧仅需 2ms）",
+        "支持 4 种网点拓扑几何模式（圆形点阵、条纹网线、同心圆环、菱形网格），并提供网点间距、大小、旋转角度及 CMY 分色模拟",
+        "经实机抓包审计确认全流程 0 网络外传，上传的原始照片与图案数据完全保存在本地内存",
+        "提供无水印的原始分辨率 PNG（实测 139,563 字节）、矢量 SVG 及 300 DPI 印刷级高精导出"
+      ],
+      "cons": [
+        "针对超大像素分辨率（超过 2000 万像素）的超高分印刷画布渲染，较为依赖用户本地设备的显卡与内存性能"
+      ],
+      "privacyVerdict": "经实机网络抓包审计确认，全流程产生 0 次外部网络请求，严格杜绝任何数据外传；导入的照片与生成的印刷网点图案完全在本地浏览器 Canvas 内存中处理，不经过任何远程服务器。",
+      "alternativeTo": [
+        "Adobe Photoshop 半调图案滤镜",
+        "Vector Halftone 生成器",
+        "HalftonePro 网页版",
+        "Phantasm 矢量印刷插件"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 makehalftone.com 并上传 800x600 PNG 测试图片。在点阵与网线模式间顺畅切换，单次重算渲染耗时仅 2ms。点击 Download PNG 成功下载 139,563 字节的干净二进制 PNG 图像文件，无任何水印附加。网络审计确认全过程 0 次外发请求，CLS 保持 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "kitelabs-netlify-app-kitchen": {
+    "en": {
+      "bestFor": "Chefs, restaurant owners, culinary operators, caterers, and food truck founders who need to calculate true recipe plate costs, factor in prep yield percentages, and download formatted food-cost spreadsheets without email capture.",
+      "pros": [
+        "Zero registration or email required with immediate access to interactive plate cost calculators and downloadable spreadsheets",
+        "Solves the primary error in restaurant costing by converting wholesale pack sizes to recipe units while factoring prep yield percentages",
+        "Verified zero network egress: sensitive food costs, wholesale supplier prices, and proprietary dish margins remain entirely local",
+        "Direct export of a clean 17,578-byte .xlsx workbook compatible with Microsoft Excel, Google Sheets, Numbers, and LibreOffice"
+      ],
+      "cons": [
+        "Web interface focuses on single-dish plate costing rather than multi-course full-inventory synchronization"
+      ],
+      "privacyVerdict": "Strict zero-egress architecture verified; network snooper observed 0 outbound payloads during entire session, confirming menu pricing models, supplier costs, and custom recipe formulations remain entirely within local browser memory.",
+      "alternativeTo": [
+        "MarketMan Recipe Costing",
+        "Toast Food Cost Calculator",
+        "MarginEdge Recipe Management",
+        "Fillet for Chefs"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to kitelabs.netlify.app/kitchen/ and tested the live plate cost calculator with wholesale purchase conversions (1 kg salmon at $22 with 62% yield costing 180 g at $6.39 line cost). Added custom ingredients with 0ms long task freezes and 0.00 CLS. Clicked 'Download free — no email', successfully saving an authentic 17,578-byte .xlsx spreadsheet file with zero watermarking or registration walls. Confirmed 0 outbound network payloads across all turns.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中精准测算菜品单盘成本（Plate Cost）、将批发采购损耗率（Yield %）折算进实际用量，并免邮箱下载专业成本核算表格的餐厅主厨、餐饮店老板与独立烘焙师。",
+      "pros": [
+        "完全免登录免邮箱直接使用，提供开箱即用的交互式单盘核算器与完整电子表格下载",
+        "精准解决餐饮成本核算痛点，支持大包装批发规格转换为烹饪用量单位，并自动计入食材出肉/损耗得率（如三文鱼 62% 得率）",
+        "经实机网络抓包审计确认全流程 0 次外传，绝不收集商户进货成本与配方底价等商业机密",
+        "一键下载 17,578 字节格式规范的 .xlsx 电子表格，完全兼容 Excel、Google Sheets、Numbers 与 LibreOffice"
+      ],
+      "cons": [
+        "网页版界面主要针对单道菜品与配方的独立拆解，尚未提供多门店跨库库存联动的自动化批处理"
+      ],
+      "privacyVerdict": "经实机网络抓包审计确认，全流程产生 0 次外部网络请求，严格杜绝任何数据外传；填写的食材进价、得率参数与毛利率数据完全在本地浏览器内存中计算，无任何服务器上传或第三方分析追踪。",
+      "alternativeTo": [
+        "MarketMan 菜品成本系统",
+        "Toast 餐企食材核算器",
+        "MarginEdge 厨房成本管理",
+        "Fillet 主厨配方管理软件"
+      ],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 kitelabs.netlify.app/kitchen/ 并测试单盘成本计算器（如 1kg 三文鱼采购价 22 美元，按 62% 净料率折算 180g 用量为 6.39 美元成本）。新增食材交互流畅，长任务耗时 0ms，CLS 为 0.00。点击 Download free — no email 成功下载 17,578 字节规范 .xlsx 电子表格文件，无任何邮箱索取弹窗。网络审计确认全过程记录到 0 次外发网络载荷。",
+      "testedAt": "2026-09"
+    }
   }
 }
