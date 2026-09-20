@@ -96,6 +96,10 @@ function installCadesPageInstrumentation() {
     window.alert = function() { return true; };
     window.confirm = function() { return true; };
     window.prompt = function(msg, def) { return def || ''; };
+    window.print = function() {
+      window.__printTriggered = true;
+      return true;
+    };
     if (typeof window.Notification !== 'undefined') {
       try {
         Object.defineProperty(window.Notification, 'permission', {
@@ -695,7 +699,7 @@ async function cmdExport(slug, trigger = null) {
 
   const script = `
 (async () => {
-  const result = { downloadTriggered: false, downloadPath: null, clipboardTriggered: false, clipboardText: null, netPayloads: [], authIntercepted: false, authDetails: null, error: null };
+  const result = { downloadTriggered: false, downloadPath: null, clipboardTriggered: false, clipboardText: null, printTriggered: false, netPayloads: [], authIntercepted: false, authDetails: null, error: null };
   try {
     const task = await taskSpace(${JSON.stringify(session.spaceId)});
     const page = task.page("p1");
@@ -778,6 +782,11 @@ async function cmdExport(slug, trigger = null) {
         result.clipboardText = latest.text;
       }
 
+      const printTriggered = await page.evaluate(() => Boolean(window.__printTriggered));
+      if (printTriggered) {
+        result.printTriggered = true;
+      }
+
       const authCheck = await page.evaluate(() => {
         const modals = Array.from(document.querySelectorAll('[role="dialog"], .modal, .popup, [aria-modal="true"]'))
           .filter(m => m.offsetHeight > 80);
@@ -836,6 +845,7 @@ async function cmdExport(slug, trigger = null) {
       downloadPath: res.downloadPath,
       clipboardTriggered: res.clipboardTriggered,
       clipboardText: res.clipboardText,
+      printTriggered: res.printTriggered,
       authIntercepted: res.authIntercepted,
       authDetails: res.authDetails,
       screenshot: exportPicPath,
@@ -844,15 +854,16 @@ async function cmdExport(slug, trigger = null) {
     };
     session.netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
 
-    if (res.triggerClicked || res.downloadTriggered || res.clipboardTriggered) {
+    if (res.triggerClicked || res.downloadTriggered || res.clipboardTriggered || res.printTriggered) {
       session.steps.push({
         step: session.steps.length + 1,
         type: 'export',
         performed: true,
-        summary: `Triggered export: ${res.triggerClicked || (res.downloadTriggered ? 'File Download' : 'Clipboard Export')}`,
+        summary: `Triggered export: ${res.triggerClicked || (res.downloadTriggered ? 'File Download' : (res.printTriggered ? 'Print to PDF' : 'Clipboard Export'))}`,
         screenshot: exportPicPath,
         downloadTriggered: res.downloadTriggered,
         clipboardTriggered: res.clipboardTriggered,
+        printTriggered: res.printTriggered,
         authIntercepted: res.authIntercepted
       });
     }
@@ -865,6 +876,7 @@ async function cmdExport(slug, trigger = null) {
     console.log(`Trigger Clicked:     ${res.triggerClicked || 'None found'}`);
     console.log(`Download Triggered:  ${res.downloadTriggered ? '✅ YES' : '❌ NO'}`);
     console.log(`Clipboard Captured:  ${res.clipboardTriggered ? '✅ YES' : '❌ NO'}`);
+    console.log(`Print / PDF Triggered: ${res.printTriggered ? '✅ YES' : '❌ NO'}`);
     console.log(`Auth Interception:   ${res.authIntercepted ? '⚠️ DETECTED: ' + res.authDetails : '✅ NONE (Safe)'}`);
 
     if (inspectionReport) {

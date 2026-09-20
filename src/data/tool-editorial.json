@@ -10682,5 +10682,205 @@
       "benchmarkNotes": "成功创建 2 个时段的冲刺规划会议，生成并剪贴板写入 36 字符无水印分享链接，界面冻结时间为 0ms。",
       "testedAt": "2026-09"
     }
+  },
+  "lanternpathbooks-com-free-tools": {
+    "en": {
+      "bestFor": "Generating customizable printable classroom worksheets, certificates, chore charts, and flashcards without registration.",
+      "pros": [
+        "Comprehensive suite of client-side printable generators (maths, spelling, name tracing, chore charts, certificates)",
+        "Includes customizable question volume and toggleable answer keys formatted for print",
+        "Zero account creation or email gates; instant print stylesheet and PDF export support"
+      ],
+      "cons": [
+        "Relies on the browser's native print-to-PDF dialog rather than generating direct binary PDF downloads"
+      ],
+      "privacyVerdict": "All worksheet algorithms and text manipulations execute client-side; observed 2 Cloudflare Insights RUM telemetry beacons with zero worksheet data egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Configured a 30-question Year 4 multiplication sprint worksheet with answer key, randomized new questions in under 16ms, and triggered print preview without UI freeze.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免注册直接生成并打印数学作业纸、奖状、字帖、日常行为表与识字闪卡的教育与育儿场景。",
+      "pros": [
+        "内置多种针对家长与教师的纯前端打印生成器（加减乘除、拼写练习、字帖、行为打卡表、奖状）",
+        "支持自定义题目数量与混题范围，并内置一键开关的配套答案解析页",
+        "免注册免邮箱，适配 A4/Letter 打印样式表，支持原生浏览器直接另存为 PDF"
+      ],
+      "cons": [
+        "依赖浏览器原生打印弹窗另存为 PDF，未提供直接下载二进制 PDF 文件的功能"
+      ],
+      "privacyVerdict": "题目生成与排版逻辑完全在浏览器本地执行；仅捕获 2 次 Cloudflare Insights RUM 性能监测请求，无任何作业内容外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "成功配置含答案解析的 30 题四年级乘法冲刺练习单，重算题目响应时间小于 16ms，并顺利触发打印对话框。",
+      "testedAt": "2026-09"
+    }
+  },
+  "controllertester-co": {
+    "en": {
+      "bestFor": "Testing gamepads for button responsiveness, trigger deadzones, and automated stick-drift pass/fail verdicts.",
+      "pros": [
+        "Instant plug-and-play controller detection via standard Web Gamepad API for Xbox, PlayStation, and Switch",
+        "Automated 2-second stick drift diagnostic with definitive pass or fail resting offset calculations",
+        "Direct client-side export to a clean 1200x630 PNG diagnostic summary image without watermarks"
+      ],
+      "cons": [
+        "Requires a Gamepad API-compatible browser and active controller input event for initial detection"
+      ],
+      "privacyVerdict": "Gamepad polling and stick drift calculations run strictly in client memory; observed 1 Cloudflare CDN RUM telemetry payload with zero controller input egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Sampled resting stick offsets (0.018 left / 0.005 right) across a 2-second diagnostic window and exported an unwatermarked 97,013-byte PNG report.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "检测手柄按键灵敏度、扳机行程死区以及摇杆漂移合格与否的即时排查场景。",
+      "pros": [
+        "通过原生 Web Gamepad API 即插即用识别 Xbox、PlayStation 与 Switch 等主流手柄",
+        "提供 2 秒静止采样的自动化摇杆漂移测试，直接输出明确的偏移量与合格判定",
+        "支持前端纯本地渲染并一键导出 1200x630 无水印 PNG 诊断报告图及分享链接"
+      ],
+      "cons": [
+        "依赖支持 Gamepad API 的现代浏览器，且初次连接时需按下手柄任意按键触发事件"
+      ],
+      "privacyVerdict": "手柄数据轮询与漂移算法完全在本地内存执行；仅记录到 1 次 Cloudflare CDN RUM 性能请求，无任何手柄操作数据外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "对左摇杆 0.018 与右摇杆 0.005 偏移量完成 2 秒静置采样诊断，生成并导出 97,013 字节的高清无水印 PNG 测试结果图。",
+      "testedAt": "2026-09"
+    }
+  },
+  "pdfandimagetools-com": {
+    "en": {
+      "bestFor": "Compressing, converting, and editing PDFs and images locally in the browser with zero server file uploads.",
+      "pros": [
+        "Comprehensive suite of 64 client-side PDF and image manipulation utilities with on-device OCR and background removal",
+        "Zero network payloads observed during processing; files remain strictly in local browser memory",
+        "Direct unwatermarked file downloads with support for batch processing up to 50 files simultaneously"
+      ],
+      "cons": [
+        "Processing speed on very large multi-hundred-megabyte batches depends entirely on client CPU and memory"
+      ],
+      "privacyVerdict": "No network payloads captured during fixture upload, image compression, or file download; all operations executed strictly in local browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Compressed a 324.8 KB PNG sample to 169.7 KB (-48% reduction) in browser memory with 0ms UI freeze, downloading an unwatermarked 173,809-byte PNG.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器纯本地压缩、转换并编辑 PDF 与图片且严禁文件上传服务端的隐私敏感场景。",
+      "pros": [
+        "内置 64 款纯前端 PDF 与图像处理工具，涵盖精确大小压缩、端侧 OCR 与离线背景抠图",
+        "全流程零网络请求外发，文件处理与编码完全运行在本地浏览器内存中",
+        "无任何导出水印与额度限制，支持单次批量处理多达 50 个文件"
+      ],
+      "cons": [
+        "处理数百兆超大批量文件时的耗时完全取决于客户端本地的 CPU 与内存性能"
+      ],
+      "privacyVerdict": "在图片上传、本地压缩及文件下载全程未捕获任何网络载荷，全部计算均在浏览器端内闭环完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 100,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "成功在本地内存将 324.8KB PNG 压缩至 169.7KB（减少 48%），界面冻结时间为 0ms，顺利导出 173,809 字节无水印图片。",
+      "testedAt": "2026-09"
+    }
+  },
+  "converters-live": {
+    "en": {
+      "bestFor": "Quickly converting images, video clips, and audio tracks across common media formats without account registration.",
+      "pros": [
+        "Broad support for 100+ format combinations including HEIC, WebP, MP4, WebM, and audio files",
+        "Zero registration or email required with immediate file downloads up to 2 GB",
+        "Completely unwatermarked output with transparent file size readouts"
+      ],
+      "cons": [
+        "Processes conversions via first-party server API (POST /api/convert) rather than local client-side WebAssembly"
+      ],
+      "privacyVerdict": "File conversion involves server-side processing via first-party POST /api/convert payloads; 0 third-party analytics or tracker requests were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded a 324.8 KB PNG fixture and converted to a 44,814-byte JPEG in approximately 1,000 ms, downloading without watermarks or auth prompts.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "免注册快速完成图片、音视频及文档常用媒体格式转换的使用场景。",
+      "pros": [
+        "覆盖 100 余种格式组合，支持 HEIC、WebP、MP4、WebM 及常用音频文档转换",
+        "免注册免邮箱，转换完成后一键直接下载，单文件支持高达 2GB",
+        "输出文件无任何强制水印，提供清晰的前后文件体积对比"
+      ],
+      "cons": [
+        "转换逻辑依赖第一方服务端接口（POST /api/convert）处理，非纯浏览器端侧本地运算"
+      ],
+      "privacyVerdict": "文件转换需上传至第一方 POST /api/convert 接口进行服务端处理；测试期间未发现任何第三方追踪器或遥测数据外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 20,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 324.8KB PNG 测试文件，在约 1000ms 内成功转换为 44,814 字节 JPEG 图像并顺利下载，全流程无水印及认证拦截。",
+      "testedAt": "2026-09"
+    }
   }
 }
