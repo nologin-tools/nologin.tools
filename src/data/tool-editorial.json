@@ -7246,5 +7246,209 @@
       "benchmarkNotes": "在 110ms 最大任务耗时与 0.00 CLS 下完成图标搜索与详情浏览；成功直接下载 394 字节 16x16 纯净无水印 SVG 矢量文件，观测到 4 条发往 Google Analytics 与 DoubleClick 的遥测记录。",
       "testedAt": "2026-09"
     }
+  },
+  "speed-cloudflare-com": {
+    "en": {
+      "bestFor": "Measuring broadband throughput, loaded latency (bufferbloat), jitter, and packet loss using Cloudflare's global edge network.",
+      "pros": [
+        "Multi-tiered measurement testing across 100 kB, 1 MB, 10 MB, and 25 MB payload chunks with box-plot distribution curves",
+        "Detailed bufferbloat analysis measuring latency under active download and upload saturation compared against unloaded baseline",
+        "Zero third-party advertising, zero trackers, and direct one-click granular CSV export of all measurement samples"
+      ],
+      "cons": [
+        "Full multi-tier speed test sequence transfers up to 200MB of bandwidth, which can consume significant mobile data on metered plans"
+      ],
+      "privacyVerdict": "Observed network egress is strictly bounded to first-party Cloudflare edge measurement endpoints (speed.cloudflare.com/__down and __up) required for throughput testing. Zero third-party tracking beacons or advertising payloads observed.",
+      "alternativeTo": [
+        "fast-com"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Completed multi-stage network audit in 330 ms max long task and 0.01 CLS; downloaded a 6,295-byte comprehensive CSV export with 103 first-party test requests and 0 third-party beacons observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "依托 Cloudflare 全球边缘网络精确评测宽带上下行速率、满载延迟（Bufferbloat 缓冲区膨胀）、抖动与丢包率。",
+      "pros": [
+        "采用 100 kB、1 MB、10 MB 至 25 MB 多梯级分块传输测试，提供包含分位数箱线图的完整速率分布分析",
+        "深度评测缓冲区膨胀（Bufferbloat），直观对比空闲状态与满载上传/下载状态下的网络延迟差异",
+        "全站零第三方商业广告、零追踪脚本，支持免登录一键导出包含全部原始采样数据的 6KB+ 结构化 CSV 报表"
+      ],
+      "cons": [
+        "完整的多梯级速率与满载延迟测试流程将消耗高达 200MB 流量，按量计费的移动网络用户需注意流量消耗"
+      ],
+      "privacyVerdict": "实测网络出站完全限定在测速必需的 Cloudflare 第一方边缘测量端点（speed.cloudflare.com/__down 与 __up）。全站无任何第三方统计遥测脚本或广告网络外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 330ms 最大任务耗时与 0.01 CLS 下完成全套多阶段网络审计；成功导出 6,295 字节完整采样 CSV 报表，实测捕获 103 次第一方测速请求且 0 条第三方遥测。",
+      "testedAt": "2026-09"
+    }
+  },
+  "musicforprogramming-net": {
+    "en": {
+      "bestFor": "Listening to uninterrupted cognitive focus mixes and downloading high-bitrate ambient soundscapes while writing code.",
+      "pros": [
+        "Over 120 hours across 79 curated long-form ambient and drone mixes specifically sequenced for cognitive concentration",
+        "Direct unthrottled download links to full 320kbps MP3 source files alongside standard RSS podcast subscription feeds",
+        "Iconic monospace terminal aesthetic with instant one-click playback, tracklist discography, and zero paywalls"
+      ],
+      "cons": [
+        "Site loads Google Analytics telemetry scripts (google-analytics.com) on initial page visit"
+      ],
+      "privacyVerdict": "Observed network egress is strictly bounded to 2 Google Analytics telemetry beacons (google-analytics.com/j/collect and g/collect). Audio files stream directly from media CDNs (datashat.net) without requiring user registration, authentication cookies, or listening history profiling.",
+      "alternativeTo": [
+        "brain-fm"
+      ],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Streamed Episode 79 (4-hour ambient mix) in 162 ms max long task and 0.00 CLS; verified direct 420 MB MP3 source download link and RSS feed with 2 Google Analytics beacons observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在编程写代码或深度脑力劳动时聆听连续不间断的专注力环境氛围声学混音，并免登录下载高码率完整音频。",
+      "pros": [
+        "收录 79 期、超 120 小时专为提升认知专注力编排的长时环境音乐、无人声氛围声学混音",
+        "提供完整高码率 MP3 源文件直链免登录下载（单期长达数小时），并提供标准 RSS Podcast 订阅源",
+        "极简等宽终端代码风格界面，支持一键极速起播、完整曲目单解析与免登录纯净体验"
+      ],
+      "cons": [
+        "页面初次加载时会触发 Google Analytics 访问统计遥测请求"
+      ],
+      "privacyVerdict": "实测网络出站严格限定为 2 次发往 Google Analytics（google-analytics.com）的页面访问遥测。音频流直接通过媒体分发源（datashat.net）加载，全程无需注册账号、无需偏好 Cookie，无任何收听行为画像追踪。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 96,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 20,
+        "privacy": 17,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 162ms 最大任务耗时与 0.00 CLS 下即时启动第 79 期（4小时长音频）播放；成功验证 420 MB MP3 原始音频直链下载与 RSS 订阅源，实测捕获 2 条 Google Analytics 遥测记录。",
+      "testedAt": "2026-09"
+    }
+  },
+  "copychar-cc": {
+    "en": {
+      "bestFor": "Quickly copying obscure special characters, math symbols, and arrows to your clipboard without looking up unicode codes.",
+      "pros": [
+        "One-click instant clipboard copying across 10 categorized unicode symbol sets including math, currency, arrows, and emojis",
+        "Lightweight search filter and local history memory for frequently used characters with clean clipboard output"
+      ],
+      "cons": [
+        "Site loads programmatic ad auctions (PubMatic, CasaleMedia) and discloses sharing or selling user IP and cookie data to third-party advertisers"
+      ],
+      "privacyVerdict": "Heavy advertising network egress observed: 14 outbound payloads sent to programmatic ad exchanges (hbopenbid.pubmatic.com, htlb.casalemedia.com) and Google AdSense (pagead2.googlesyndication.com), with consent dialogs disclosing third-party data sharing and ad profiling.",
+      "alternativeTo": [
+        "compart-com"
+      ],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 14,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 7,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Copied unicode arrow symbol in 152 ms max long task and 0.01 CLS; verified clipboard toast with 14 programmatic ad bidding and privacy tracking payloads observed.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "快速将冷门特殊符号、数学符号与箭头复制到剪贴板，无需查找复杂的 Unicode 编码。",
+      "pros": [
+        "一键点击即时将包含数学、货币、箭头、标点及 Emoji 在内的 10 类常用 Unicode 特殊字符复制到系统剪贴板",
+        "内置字符搜索过滤与基于本地存储的高频历史字符栏，剪贴板输出纯净无多余字符"
+      ],
+      "cons": [
+        "站点加载了 PubMatic 与 CasaleMedia 等程序化广告竞价脚本，并在 Cookie 弹窗中明示向第三方广告商共享或出售 IP 与 Cookie 数据"
+      ],
+      "privacyVerdict": "实测监测到密集的广告网络出站遥测：共捕获 14 次发往程序化广告交易平台（hbopenbid.pubmatic.com、htlb.casalemedia.com）与 Google 广告网络（pagead2.googlesyndication.com）的请求，授权条款中包含向第三方广告商共享数据与用户画像的条款。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 14,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 7,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 152ms 最大任务耗时与 0.01 CLS 下完成 Unicode 箭头符号点击复制；界面提示复制成功，实测捕获 14 条发往程序化广告竞价与隐私追踪端点的网络请求。",
+      "testedAt": "2026-09"
+    }
+  },
+  "time-is": {
+    "en": {
+      "bestFor": "Checking atomic-synchronized exact time, measuring system clock offset, and comparing time zones across global cities.",
+      "pros": [
+        "High-precision atomic clock synchronization displaying exact local time and measuring system clock offset down to hundredths of a second",
+        "Comprehensive global database of over 7 million locations with daylight saving time schedules, sunrise/sunset times, and calendar week numbers"
+      ],
+      "cons": [
+        "Heavy commercial advertising and ad-exchange tracking scripts (Yahoo, Amazon, Criteo, PubMatic, ID5) run extensively across the site"
+      ],
+      "privacyVerdict": "Heavy advertising and tracking egress observed: 95 outbound payloads recorded across extensive programmatic ad exchanges including Google Analytics, Amazon Ads, Yahoo Prebid (c2shb.pubgw.yahoo.com), Criteo, PubMatic, and ID5 user sync.",
+      "alternativeTo": [
+        "timeanddate-com"
+      ],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 14,
+        "privacy": 7,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Synchronized atomic time and detected 0.4s clock offset in 72 ms max long task and 0.01 CLS; verified 95 outbound network payloads across programmatic advertising exchanges.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "精确校对原子钟时间、检测本地系统时钟偏差，并快速比对全球主要城市的时区与日出日落时间。",
+      "pros": [
+        "提供高精度原子钟同步授时，直观测量本地设备系统时钟与标准时间的毫秒级偏差",
+        "收录全球超过 700 万个地理位置的精准时区数据，集成夏令时转换规则、日出日落时刻及日历周数"
+      ],
+      "cons": [
+        "页面加载了极度密集的商业广告与程序化竞价网络脚本（涵盖 Yahoo、Amazon、Criteo、PubMatic、ID5 等数十个广告联盟）"
+      ],
+      "privacyVerdict": "实测监测到极其密集的广告与用户追踪网络外发：单次会话捕获到 95 次出站请求，涉及 Google Analytics、Amazon Ads、Yahoo Prebid、Criteo、PubMatic 以及 ID5 跨站身份标识同步网络。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 22,
+        "exportFreedom": 14,
+        "privacy": 7,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 72ms 最大任务耗时与 0.01 CLS 下完成原子时钟校准与 0.4 秒系统偏差检测；实测捕获 95 条发往程序化广告交易平台与数据同步网络的网络出站请求。",
+      "testedAt": "2026-09"
+    }
   }
 }
