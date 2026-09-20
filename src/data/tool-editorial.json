@@ -6608,5 +6608,223 @@
       "benchmarkNotes": "在 62ms 最大任务耗时与 0.01 CLS 下秒级运行 sqlite_master 表结构查询，Web Worker 本地即时渲染出多张数据表结果。",
       "testedAt": "2026-09"
     }
+  },
+  "sortvisualizer-com": {
+    "en": {
+      "bestFor": "Auditory and visual side-by-side simulation of 17 sorting algorithms with multi-language code implementations.",
+      "pros": [
+        "Supports 17 sorting algorithms ranging from Quicksort and Mergesort to exotic variants (Pancake, Bitonic, Stooge, Bogo) plus custom algorithm scripting",
+        "Real-time audio frequency synthesis and high-framerate bar animations depicting comparative element swaps",
+        "Complete algorithm implementations provided in 5 languages (C, C++, Java, Python, JavaScript) with asymptotic complexity analysis"
+      ],
+      "cons": [
+        "Does not support exporting algorithm animations as standalone GIF or WebM video recordings"
+      ],
+      "privacyVerdict": "Observed network egress is strictly bounded to Cloudflare RUM performance beacons (/cdn-cgi/rum?). Algorithm simulation, audio tone synthesis, and bar animations execute in the browser without accounts or logins.",
+      "alternativeTo": [
+        "visualgo-net",
+        "algorithm-visualizer-org",
+        "pythontutor-com"
+      ],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed Quicksort across 100 array bars with 0 ms main thread freeze and fluid audio synthesis; inspected C/Python implementation snippets.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "17 种经典与趣味排序算法的视听同步动态模拟，配备 5 种语言参考源码与渐进复杂度分析。",
+      "pros": [
+        "完整收录 17 种排序算法（快速、归并、堆排、希尔、基数、双调、煎饼、Bogo 排序等）以及用户自定义算法沙盒",
+        "内置 Web Audio 频率合成器，柱状图高度动态变幻伴随音频音调实时起伏，视听结合直观感受算法效率",
+        "内置 C、C++、Java、Python 与 JavaScript 5 种语言的完整算法实现，并标注最好、平均与最差时间空间复杂度"
+      ],
+      "cons": [
+        "未提供将动态排序过程直接录制导出为本地 GIF 动图或 WebM 视频文件的功能"
+      ],
+      "privacyVerdict": "网络观测仅记录到 Cloudflare RUM 性能监测请求（/cdn-cgi/rum?）。算法推演、音频合成与柱状图渲染全部在浏览器内运行，免注册登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 95,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 0ms 主线程卡顿下顺畅完成 100 根数据柱的快速排序动态推演，音频音调同步律动，C 与 Python 源码切换展示完好。",
+      "testedAt": "2026-09"
+    }
+  },
+  "dnsleaktest-com": {
+    "en": {
+      "bestFor": "Detecting unencrypted or misconfigured DNS queries leaking outside of active VPN or proxy tunnels.",
+      "pros": [
+        "Generates randomized subdomain probes (*.test.dnsleaktest.com) to accurately expose upstream recursive DNS resolvers",
+        "Detailed identification of resolver IP addresses, hostnames, Internet Service Providers (ISP), and geolocation flags",
+        "Completely free and ad-free security utility provided by IVPN with self-hosted Matomo analytics"
+      ],
+      "cons": [
+        "Does not provide automated JSON or CSV export for automated network auditing pipelines"
+      ],
+      "privacyVerdict": "Probes are sent to unique test subdomains (*.test.dnsleaktest.com) to detect upstream DNS resolver leaks. Analytics are limited to self-hosted Matomo (/ana/matomo.php) without third-party advertising or commercial tracking cookies.",
+      "alternativeTo": [
+        "ipleak-net",
+        "browserleaks-com",
+        "mullvad-net"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed standard DNS leak test in 0 ms main thread freeze and 0.03 CLS; identified 4 upstream China Telecom recursive resolvers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "一键检测本地 VPN、代理或系统 DNS 配置中是否存在未加密或逃逸隧道的 DNS 泄漏隐患。",
+      "pros": [
+        "通过生成随机唯一探测子域名（*.test.dnsleaktest.com）精准捕获发起解析的上游递归 DNS 服务器",
+        "详尽呈现解析服务器 IP、主机名、所属网络运营商（ISP）与地理国别标识",
+        "由 IVPN 提供的完全免费、无广告的纯粹网络安全工具，采用自建 Matomo 分析"
+      ],
+      "cons": [
+        "未提供将检测结果表格一键导出为 JSON 或 CSV 文件的自动化下载接口"
+      ],
+      "privacyVerdict": "通过向测试子域名（*.test.dnsleaktest.com）发起解析以探测上游 DNS。站点仅包含自建第一方 Matomo 匿名统计（/ana/matomo.php），绝无任何第三方广告联盟或追踪 Cookie。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 15,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 0ms 主线程卡顿与 0.03 CLS 下顺利完成标准测试，精准捕获 4 处上游电信递归 DNS 节点，全程无第三方脚本介入。",
+      "testedAt": "2026-09"
+    }
+  },
+  "ipleak-net": {
+    "en": {
+      "bestFor": "Comprehensive multi-vector privacy auditing across IPv4, IPv6, WebRTC, DNS, BitTorrent, and browser fingerprints.",
+      "pros": [
+        "7-in-1 privacy inspection suite checking public IPv4/IPv6, WebRTC local/remote leaks, upstream DNS, BitTorrent torrent client leaks, and HTTP request headers",
+        "High-fidelity multi-stage DNS detection probing across 40+ unique random subdomains to reveal hidden fallback resolvers",
+        "Zero third-party trackers, zero commercial analytics, and zero advertising scripts, operated transparently by AirVPN"
+      ],
+      "cons": [
+        "Dynamic asynchronous insertion of DNS test cards results in a cumulative layout shift (CLS: 0.53) during the first 3 seconds",
+        "Lacks a one-click automated JSON/PDF export button for audit report archival"
+      ],
+      "privacyVerdict": "Probing requests are strictly restricted to ipleak.net first-party endpoints and randomized detection subdomains (*.ipleak.net). Zero third-party trackers, zero advertising networks, and no external analytics scripts were detected.",
+      "alternativeTo": [
+        "dnsleaktest-com",
+        "browserleaks-com",
+        "mullvad-net"
+      ],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 15,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Completed automated multi-vector leak scan in 53 ms max long task with 0.53 CLS; detected public IP, WebRTC status, and 10 upstream DNS resolvers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "多维度网络隐私安全综合检测，涵盖 IPv4/IPv6、WebRTC、DNS 解析、BitTorrent 客户端及浏览器指纹泄露排查。",
+      "pros": [
+        "全方位 7 合 1 隐私探针，集成公网 IPv4/IPv6 探测、WebRTC 内网外网穿透泄露、DNS 多路解析、BT 种子客户端泄露排查与请求头审查",
+        "高灵敏度 40+ 轮随机探测子域名并发解析，精准抓出混杂于多网卡及备用通道的隐蔽上游 DNS",
+        "由知名隐私倡导组织 AirVPN 长期运营维护，完全无广告联盟、无商业追踪 Cookie、无第三方分析代码"
+      ],
+      "cons": [
+        "页面加载前 3 秒内随着多组 DNS 结果异步推流插入，存在一定的累积布局抖动（CLS: 0.53）",
+        "未提供一键打包下载完整检测审计报告为 JSON 或 PDF 文件的导出工具"
+      ],
+      "privacyVerdict": "网络探测请求全部限定于 ipleak.net 第一方端点及动态生成的测试子域名（*.ipleak.net）。未观测到任何第三方广告追踪器、外部 CDN 或商业分析脚本，纯粹由第一方服务器承载。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 93,
+        "frictionless": 19,
+        "depth": 25,
+        "exportFreedom": 15,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "以 53ms 最大任务延迟及 0.53 CLS 自动完成综合隐私体检，精准识别真实出口 IP、WebRTC 状态及 10 处上游递归 DNS 节点。",
+      "testedAt": "2026-09"
+    }
+  },
+  "securityheaders-com": {
+    "en": {
+      "bestFor": "Instant grading and vulnerability analysis of HTTP security headers (HSTS, CSP, X-Frame-Options, Permissions-Policy).",
+      "pros": [
+        "Industry-standard A+ to F security scoring evaluating HSTS, Content-Security-Policy, Permissions-Policy, and X-Content-Type-Options",
+        "Detailed actionable remediation guidance for missing or misconfigured headers alongside a full raw HTTP/2 response dump",
+        "Optional 'Hide results' toggle preventing scanned target hostnames from being broadcast to the public Recent Scans feed"
+      ],
+      "cons": [
+        "Does not support scanning internal intranets, localhost domains, or authenticated API endpoints behind firewalls"
+      ],
+      "privacyVerdict": "Scans are dispatched as GET requests against target domains from Snyk scanning servers. Network egress from the browser is limited to Cloudflare RUM performance beacons and Google Tag Manager scripts.",
+      "alternativeTo": [
+        "observatory-mozilla-org",
+        "ssllabs-com",
+        "webbkoll-dataskydd-net"
+      ],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Audited HTTP response headers for target site in 0 ms main thread freeze and 0.03 CLS; awarded grade A and identified missing CSP header.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "网站 HTTP 响应安全标头（HSTS、CSP、X-Frame-Options、Permissions-Policy 等）的一键评级与缺陷分析。",
+      "pros": [
+        "行业标杆级的 A+ 至 F 级安全防御打分体系，深度评估 HSTS、内容安全策略 CSP、权限策略及防嗅探标头",
+        "清晰指出缺失或配置薄弱的安全标头并提供权威加固指南，附带完整的 HTTP/2 原始响应头清单",
+        "贴心提供 'Hide results' 隐私勾选框，避免扫描的目标域名被推送到首页公开的最近扫描记录中"
+      ],
+      "cons": [
+        "不支持检测内网域名、localhost 本地调试环境或需要特定身份鉴权 Cookie 的受保护端点"
+      ],
+      "privacyVerdict": "扫描请求由 Snyk 云端检测服务器向目标域名发起 HTTP 查询。浏览器端外发请求仅限于 Cloudflare RUM 性能采集与 Google Tag Manager 脚本，免登录免账号。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 94,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 0ms 主线程卡顿与 0.03 CLS 下秒级完成目标域名 HTTP 响应头全量审计，评定为 A 级并准确指出缺少 CSP 标头。",
+      "testedAt": "2026-09"
+    }
   }
 }
