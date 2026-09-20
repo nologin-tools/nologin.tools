@@ -73,7 +73,7 @@ Eso importa para el trabajo web. Canva puede exportar SVG en algunos planes, per
 
 Es open source y lo ha sido por años — [el repositorio GitHub de SVG-Edit](https://github.com/SVG-Edit/svgedit) ha sido mantenido a través de múltiples reescrituras mayores. El código base ahora son módulos ES modulares. No es el proyecto más glamuroso, pero está activamente mantenido y es confiable.
 
-[SVG-Edit en nologin.tools](/tool/svgedit-netlify-app-editor-index-html) tiene el resumen rápido.
+Explora más [herramientas de diseño en nologin.tools](/es/category/design).
 
 **Mejor para**: Desarrolladores web que necesitan iconos SVG limpios, logos o ilustraciones para uso directo en código.
 **Pásalo si**: Necesitas una interfaz amigable, o trabajas con fotos, o no tienes tolerancia a una UI anticuada.

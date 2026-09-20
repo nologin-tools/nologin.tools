@@ -1111,4 +1111,38 @@
 /pt/tool/www-quackbuilds-com-apps-oee-pulse-html /pt/category/productivity/ 301
 /pt/tool/www-quackbuilds-com-apps-oee-pulse-html/ /pt/category/productivity/ 301
 
+# --- Legacy tool slug consolidation (index-html to clean slug) ---
+/tool/preuveenmain-ca-app-index-html /tool/preuveenmain-ca-app 301
+/tool/preuveenmain-ca-app-index-html/ /tool/preuveenmain-ca-app 301
+/badge/preuveenmain-ca-app-index-html /badge/preuveenmain-ca-app 301
+/badge/preuveenmain-ca-app-index-html/ /badge/preuveenmain-ca-app 301
+/zh/tool/preuveenmain-ca-app-index-html /zh/tool/preuveenmain-ca-app 301
+/zh/tool/preuveenmain-ca-app-index-html/ /zh/tool/preuveenmain-ca-app 301
+/zh/badge/preuveenmain-ca-app-index-html /zh/badge/preuveenmain-ca-app 301
+/zh/badge/preuveenmain-ca-app-index-html/ /zh/badge/preuveenmain-ca-app 301
+/de/tool/preuveenmain-ca-app-index-html /de/tool/preuveenmain-ca-app 301
+/de/tool/preuveenmain-ca-app-index-html/ /de/tool/preuveenmain-ca-app 301
+/de/badge/preuveenmain-ca-app-index-html /de/badge/preuveenmain-ca-app 301
+/de/badge/preuveenmain-ca-app-index-html/ /de/badge/preuveenmain-ca-app 301
+/es/tool/preuveenmain-ca-app-index-html /es/tool/preuveenmain-ca-app 301
+/es/tool/preuveenmain-ca-app-index-html/ /es/tool/preuveenmain-ca-app 301
+/es/badge/preuveenmain-ca-app-index-html /es/badge/preuveenmain-ca-app 301
+/es/badge/preuveenmain-ca-app-index-html/ /es/badge/preuveenmain-ca-app 301
+/fr/tool/preuveenmain-ca-app-index-html /fr/tool/preuveenmain-ca-app 301
+/fr/tool/preuveenmain-ca-app-index-html/ /fr/tool/preuveenmain-ca-app 301
+/fr/badge/preuveenmain-ca-app-index-html /fr/badge/preuveenmain-ca-app 301
+/fr/badge/preuveenmain-ca-app-index-html/ /fr/badge/preuveenmain-ca-app 301
+/ja/tool/preuveenmain-ca-app-index-html /ja/tool/preuveenmain-ca-app 301
+/ja/tool/preuveenmain-ca-app-index-html/ /ja/tool/preuveenmain-ca-app 301
+/ja/badge/preuveenmain-ca-app-index-html /ja/badge/preuveenmain-ca-app 301
+/ja/badge/preuveenmain-ca-app-index-html/ /ja/badge/preuveenmain-ca-app 301
+/ko/tool/preuveenmain-ca-app-index-html /ko/tool/preuveenmain-ca-app 301
+/ko/tool/preuveenmain-ca-app-index-html/ /ko/tool/preuveenmain-ca-app 301
+/ko/badge/preuveenmain-ca-app-index-html /ko/badge/preuveenmain-ca-app 301
+/ko/badge/preuveenmain-ca-app-index-html/ /ko/badge/preuveenmain-ca-app 301
+/pt/tool/preuveenmain-ca-app-index-html /pt/tool/preuveenmain-ca-app 301
+/pt/tool/preuveenmain-ca-app-index-html/ /pt/tool/preuveenmain-ca-app 301
+/pt/badge/preuveenmain-ca-app-index-html /pt/badge/preuveenmain-ca-app 301
+/pt/badge/preuveenmain-ca-app-index-html/ /pt/badge/preuveenmain-ca-app 301
+
 

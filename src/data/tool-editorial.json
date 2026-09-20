@@ -5146,5 +5146,147 @@
       "benchmarkNotes": "实时生成 102x20 px 静态 SVG 徽章，响应附带 script-src none 安全头；测试会话记录 0 次出站分析上报；HTTP 缓存配置高达 432000s。",
       "testedAt": "2026-09"
     }
+  },
+  "httpbin-org": {
+    "en": {
+      "bestFor": "Testing HTTP client libraries, verifying REST API payloads, debugging status codes, and mocking webhook responses.",
+      "pros": [
+        "Comprehensive coverage of HTTP methods, headers, status codes, cookies, and compression formats",
+        "Interactive Swagger documentation with instantaneous curl command generation",
+        "Zero registration or API tokens required for testing requests"
+      ],
+      "cons": [
+        "Public shared instance means confidential keys and credentials should never be transmitted in test headers"
+      ],
+      "privacyVerdict": "The public service processes HTTP requests in ephemeral memory to reflect headers and parameters, dropping zero tracking cookies and emitting 0 analytical payloads. Self-hosting via Docker is available for sensitive payloads.",
+      "alternativeTo": [
+        "Webhook.site",
+        "RequestBin",
+        "Postman Echo"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Ephemeral HTTP request reflection without persistent database storage or marketing trackers",
+            "Open-source Docker container provided for completely local air-gapped deployment"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed live GET /get test via Swagger UI; generated curl command and JSON response in 112 ms max task; zero third-party telemetry payloads recorded.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "调试 HTTP 客户端库、验证 RESTful 请求体、测试自定义状态码及模拟网络响应。",
+      "pros": [
+        "完整覆盖 HTTP 谓词、请求头反射、重定向、状态码及 gzip/brotli 数据流",
+        "提供交互式 Swagger 调试控制台与开箱即用的 curl 命令行生成",
+        "完全无需注册账号或申请 API 令牌，即开即测"
+      ],
+      "cons": [
+        "公共部署实例不适用于传输生产环境真实的敏感密钥与凭据"
+      ],
+      "privacyVerdict": "公共测试服务仅在内存中即时反射请求头与参数，不种植任何追踪 Cookie，网络监控记录到 0 个外部遥测请求。涉及敏感数据时支持一键拉取 Docker 镜像本地离线运行。",
+      "alternativeTo": [
+        "Webhook.site",
+        "RequestBin",
+        "Postman Echo"
+      ],
+      "productScore": {
+        "overall": 98,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 20,
+        "privacy": 19,
+        "polish": 14,
+        "factors": {
+          "privacy": [
+            "Ephemeral HTTP request reflection without persistent database storage or marketing trackers",
+            "Open-source Docker container provided for completely local air-gapped deployment"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "通过 Swagger 控制台触发 GET /get 请求，毫秒级返回标准 JSON 结构，主线程任务仅 112 ms，抓包捕获 0 次遥测出站。",
+      "testedAt": "2026-09"
+    }
+  },
+  "prettier-io-playground": {
+    "en": {
+      "bestFor": "Testing Prettier formatting configurations, debugging AST printer rules, and sharing reproducible formatting edge cases.",
+      "pros": [
+        "Official Prettier execution engine supporting JavaScript, TypeScript, HTML, CSS, Markdown, and GraphQL",
+        "Interactive GUI controls for every Prettier configuration flag with live side-by-side comparison",
+        "Client-side Web Worker execution ensuring input source code remains within local browser memory"
+      ],
+      "cons": [
+        "Heavy JavaScript bundles for all parser packages require noticeable initial page load bandwidth",
+        "Contains standard Google Analytics pageview tracking beacons"
+      ],
+      "privacyVerdict": "Code formatting operations execute locally inside browser Web Workers. Source code is never transmitted to backend servers; network activity is limited to 2 Google Analytics telemetry beacons on page load.",
+      "alternativeTo": [
+        "Bierton Formatter",
+        "ESLint Demo",
+        "Babel REPL"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Code formatting pipeline runs locally inside browser Web Workers without transmitting source code to cloud APIs",
+            "Network activity is confined to 2 Google Analytics pageview beacons, with zero third-party advertising cookies"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Re-formatted JavaScript template into single-quote syntax within 118 ms; Web Worker parser pipeline verified; 2 Google Analytics telemetry payloads recorded; zero auth interception.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在线测试 Prettier 格式化配置规则、调试 AST 语法树输出及分享可复现的代码样式用例。",
+      "pros": [
+        "Prettier 官方网页端运行环境，支持 JavaScript、TypeScript、HTML、CSS、Markdown 及 GraphQL 等全量语言",
+        "提供完整的图形化配置参数面板，支持并排实时比对格式化差异",
+        "依托前端 Web Worker 线程独立解析运算，输入的代码文本不离开浏览器本地内存"
+      ],
+      "cons": [
+        "打包了全量语言解析器导致首次加载网页时下载的静态资源体积偏大",
+        "页面加载时会触发 Google Analytics 访问量统计信标"
+      ],
+      "privacyVerdict": "代码格式化运算均在浏览器本地的 Web Worker 中执行。源码内容不经由云端服务器解析，出站网络流量仅限页面加载时的 2 次 Google Analytics 访问统计信标。",
+      "alternativeTo": [
+        "Bierton Formatter",
+        "ESLint Demo",
+        "Babel REPL"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 25,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15,
+        "factors": {
+          "privacy": [
+            "Code formatting pipeline runs locally inside browser Web Workers without transmitting source code to cloud APIs",
+            "Network activity is confined to 2 Google Analytics pageview beacons, with zero third-party advertising cookies"
+          ]
+        }
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "切换单引号参数后 118 ms 内完成代码重排，Web Worker 解析正常，网络监控捕获 2 次 Google Analytics 基础信标，无权限拦截。",
+      "testedAt": "2026-09"
+    }
   }
 }

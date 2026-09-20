@@ -73,7 +73,7 @@ SVG-Edit를 선택하는 이유는 간단해요. 소프트웨어 설치 없이 S
 
 오픈 소스이고 수년째 그래왔어요. [SVG-Edit GitHub 저장소](https://github.com/SVG-Edit/svgedit)는 여러 번의 대규모 리라이트를 거쳐도 유지되고 있어요. 코드베이스는 이제 모듈식 ES 모듈이에요. 가장 화려한 프로젝트는 아니지만, 적극적으로 유지 관리되고 신뢰할 수 있어요.
 
-[nologin.tools의 SVG-Edit](/tool/svgedit-netlify-app-editor-index-html)에서 빠른 요약을 확인하세요.
+nologin.tools의 [디자인 도구](/ko/category/design)에서 더 많은 도구를 확인하세요.
 
 **이런 분께 추천**: 코드에서 직접 사용할 깔끔한 SVG 아이콘, 로고, 일러스트가 필요한 웹 개발자.
 **이런 분께는 비추**: 친근한 인터페이스가 필요하거나, 사진 작업을 하거나, 낡은 UI를 못 참는 경우.

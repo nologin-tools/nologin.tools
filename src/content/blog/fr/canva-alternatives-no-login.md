@@ -73,7 +73,7 @@ Le cas pour SVG-Edit est simple : tu dois créer ou éditer un fichier SVG sans 
 
 C'est open source et ça l'est depuis des années — [le dépôt GitHub de SVG-Edit](https://github.com/SVG-Edit/svgedit) a été maintenu à travers plusieurs réécritures majeures. Le code base est maintenant en modules ES modulaires. Pas le projet le plus glamour, mais activement maintenu et fiable.
 
-[SVG-Edit sur nologin.tools](/tool/svgedit-netlify-app-editor-index-html) a le résumé rapide.
+Découvrez plus d'[outils de design sur nologin.tools](/fr/category/design).
 
 **Idéal pour** : Les développeurs web qui ont besoin d'icônes SVG propres, de logos ou d'illustrations pour une utilisation directe dans le code.
 **À éviter si** : Tu as besoin d'une interface conviviale, ou tu travailles avec des photos, ou tu n'as aucune tolérance pour une UI datée.

@@ -73,7 +73,7 @@ tldraw 特别擅长空间视觉思维。你可以放便利贴、画好看的箭�
 
 它是开源的，多年来一直如此——[SVG-Edit 的 GitHub 仓库](https://github.com/SVG-Edit/svgedit)经历了多次大改写仍在维护中。代码库现在是模块化的 ES 模块。不是最耀眼的项目，但持续在线且可靠。
 
-[nologin.tools 上的 SVG-Edit 简介](/tool/svgedit-netlify-app-editor-index-html)。
+在 nologin.tools 上浏览更多[设计工具](/zh/category/design)。
 
 **适合**：需要干净 SVG 图标、Logo 或插图直接用于代码的网页开发者。
 **不适合**：需要友好界面，或处理照片，或不能忍受过时 UI 的用户。

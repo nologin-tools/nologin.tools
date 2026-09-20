@@ -38,7 +38,7 @@ Each category hub includes architectural deep-dives, client-side technology trad
 - [TinyPNG](https://nologin.tools/tool/tinypng-com): Smart lossy WebP, PNG, and JPEG image compression.
 - [SVGOMG](https://nologin.tools/tool/jakearchibald-github-io-svgomg): Client-side SVGO visual GUI for stripping bloat from SVG files.
 - [Fffuel](https://nologin.tools/tool/fffuel-co): 40+ generative SVG tools for gradient meshes, waves, and organic textures.
-- [SVG-Edit](https://nologin.tools/tool/svgedit-netlify-app-editor-index-html): In-browser open-source vector graphics editor.
+- [SVG Viewer](https://nologin.tools/tool/svgviewer-app): View, edit, optimize, and export SVG code online in your browser.
 - [Coolors](https://nologin.tools/tool/coolors-co): Superfast color palette generator with hex export.
 - [Favicon.io](https://nologin.tools/tool/favicon-io): Instant favicon generator from text, image, or emoji.
 - [Remove.bg](https://nologin.tools/tool/remove-bg): AI-powered background remover for portraits and product photos.

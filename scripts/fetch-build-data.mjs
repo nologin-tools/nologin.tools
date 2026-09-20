@@ -167,6 +167,10 @@ const validTools = toolRows.filter((t) => {
     console.warn(`[build-data] Skipping tool ID ${t.id}: missing slug`);
     return false;
   }
+  // Normalize legacy slugs ending in -index-html
+  if (t.slug.endsWith('-index-html')) {
+    t.slug = t.slug.replace(/-index-html$/, '');
+  }
   if (t.slug.length > 100 || t.slug.length < 2) {
     console.warn(`[build-data] Skipping tool ID ${t.id} (${t.name}): invalid slug length (${t.slug.length} chars)`);
     return false;
