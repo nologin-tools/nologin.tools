@@ -143,7 +143,7 @@ Direct side-by-side technical benchmarks, privacy matrices, and scenario-based v
 - [AudioMass vs Audio Trimmer](https://nologin.tools/compare/audiomass-vs-audiotrimmer): Full WebAudio DAW studio vs instant ringtone audio cutter.
 - [JSON Crack vs JSON Formatter](https://nologin.tools/compare/jsoncrack-vs-jsonformatter): Visual interactive node graph vs fast payload minifier & validator.
 - [Photopea vs ezGIF](https://nologin.tools/compare/photopea-vs-ezgif): Full Photoshop-grade raster studio vs animated GIF creation suite.
-- [SVG-Edit vs SVGOMG](https://nologin.tools/compare/svgedit-vs-svgomg): Browser vector drawing canvas vs visual SVGO payload optimizer.
+- [Haikei vs Fffuel](https://nologin.tools/compare/haikei-vs-fffuel): Unified multi-shape vector background studio vs modular generative SVG pattern tools.
 - [CSVJSON vs TableConvert](https://nologin.tools/compare/csvjson-vs-tableconvert): Developer data parser & SQL generator vs documentation table converter.
 
 ## Curated No-Login Workflow Recipes
@@ -152,7 +152,7 @@ End-to-end procedural recipes chaining 2 to 4 verified no-login web tools to acc
 
 - [Private Podcast Production Pipeline](https://nologin.tools/workflow/private-podcast-production): AudioMass DAW recording → Audio Trimmer clip boundary editing → Squoosh cover art compression → Wormhole E2EE ephemeral sharing.
 - [Confidential PDF Redaction & Sharing](https://nologin.tools/workflow/secure-document-redaction): PDF24 document sanitization → CyberChef metadata stripping → hat.sh client-side AES-256 encryption → Wormhole self-destruct delivery.
-- [Vector Graphic to Production Web Asset](https://nologin.tools/workflow/vector-to-web-asset): Excalidraw conceptual sketch → SVG-Edit node refinement → SVGOMG SVGO XML minification → Squoosh responsive WebP/AVIF generation.
+- [Vector Graphic to Production Web Asset](https://nologin.tools/workflow/vector-to-web-asset): Excalidraw conceptual sketch → Diagrams.net node refinement → SVGOMG SVGO XML minification → Squoosh responsive WebP/AVIF generation.
 - [Distraction-Free Anonymous Publishing](https://nologin.tools/workflow/anonymous-markdown-publishing): Dillinger split markdown writing → Hemingway Editor readability polish → LanguageTool grammar check → Write.as anonymous web publishing.
 - [Developer API Payload & Token Debugging](https://nologin.tools/workflow/api-payload-debugging): JSON Crack tree visualization → JSON Formatter RFC 8259 validation → transform.tools code type generation → JWT.io bearer token decoding.
 - [Ephemeral Zero-Account Team Meeting](https://nologin.tools/workflow/ephemeral-team-sync): When2meet participant time polling → Jitsi Meet encrypted video room → Excalidraw real-time collaborative E2EE whiteboard.

@@ -5712,5 +5712,233 @@
       "benchmarkNotes": "整页换色渲染耗时 70 ms，瞬时输出规范 CSS 变量与 Tailwind 配置；无强制登录与水印限制；仅捕获 1 次 Google Analytics 访问量统计信标。",
       "testedAt": "2026-09"
     }
+  },
+  "colorhunt-co": {
+    "en": {
+      "bestFor": "Rapid visual discovery and single-click hex copying of curated 4-color palettes.",
+      "pros": [
+        "Zero-barrier palette discovery with immediate one-click hex copying to clipboard",
+        "Comprehensive multi-tag filtering (Vintage, Pastel, Neon, Dark) with responsive URL routing"
+      ],
+      "cons": [
+        "Heavy third-party programmatic ad auction network traffic and sticky banner video embeds",
+        "Lacks advanced color harmony generation, custom palette tuning, or bulk CSS/JSON token export"
+      ],
+      "privacyVerdict": "Observed network egress includes Google Analytics (G-P464R9CGC0) and multiple ad-tech networks (KueezRTB, BTLoader, Prebid, UnrulyMedia). Core palette browsing requires no user authentication.",
+      "alternativeTo": [
+        "coolors-co",
+        "realtimecolors-com",
+        "adobe-color"
+      ],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 19,
+        "exportFreedom": 15,
+        "privacy": 10,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Loaded curated palette grid in 90 ms main-thread time; tag navigation to Vintage executed in 69 ms with 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "快速浏览设计配色灵感并一键复制 4 色调色板 HEX 色值。",
+      "pros": [
+        "零门槛浏览调色板，点击色块直接复制 HEX 代码至剪贴板",
+        "支持多标签分类过滤（如 Vintage、Pastel、Neon、Dark），路由响应敏捷"
+      ],
+      "cons": [
+        "页面内嵌较多程序化广告竞价网络请求与视频横幅",
+        "不支持高级色彩调和算法自定义微调，亦无批量 CSS/JSON 变量导出"
+      ],
+      "privacyVerdict": "网络观测记录到 Google Analytics (G-P464R9CGC0) 及多个广告交易平台请求（KueezRTB、BTLoader、Prebid、UnrulyMedia）。基础浏览无需注册登录。",
+      "alternativeTo": [
+        "coolors-co",
+        "realtimecolors-com",
+        "adobe-color"
+      ],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 19,
+        "exportFreedom": 15,
+        "privacy": 10,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "主线程 90ms 完成画廊加载，标签切换至 Vintage 响应耗时 69ms，CLS 保持 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "neumorphism-io": {
+    "en": {
+      "bestFor": "Generating realistic soft-UI neumorphic CSS box-shadows and surface elevation code.",
+      "pros": [
+        "Instant real-time manipulation of 5 shadow parameters with 4 light source angle selectors",
+        "Single-click clipboard export of unwatermarked 117-character dual-shadow CSS snippets"
+      ],
+      "cons": [
+        "Focused exclusively on neumorphic aesthetic without supporting traditional flat or material shadows"
+      ],
+      "privacyVerdict": "Observed network egress was bounded to a single lightweight analytics payload to analytics.pixelgalaxies.io. Shadow calculations and CSS styling execute entirely in the browser DOM.",
+      "alternativeTo": [
+        "cssgradient-io",
+        "haikei-app",
+        "getwaves-io"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed CSS shadow generation in 74 ms main-thread time; exported 117 chars of valid CSS with dual box-shadow layers.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "实时生成拟物拟态软 UI（Neumorphism）CSS 阴影与表面凸凹效果代码。",
+      "pros": [
+        "支持 5 个阴影参数滑块与 4 个光源方位角的实时可视化交互调节",
+        "一键导出 117 字符纯净双层 box-shadow CSS 代码，零水印与零登录门槛"
+      ],
+      "cons": [
+        "专精于新拟态软 UI 风格，不包含传统扁平化或 Material 阴影预设"
+      ],
+      "privacyVerdict": "网络观测仅记录到 1 条发往 analytics.pixelgalaxies.io 的轻量统计请求。阴影物理算法与 CSS 渲染均在浏览器 DOM 内实时完成。",
+      "alternativeTo": [
+        "cssgradient-io",
+        "haikei-app",
+        "getwaves-io"
+      ],
+      "productScore": {
+        "overall": 97,
+        "frictionless": 20,
+        "depth": 24,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "主线程阴影重绘耗时 74ms，一键导出 117 字符包含双层 box-shadow 的标准 CSS 代码。",
+      "testedAt": "2026-09"
+    }
+  },
+  "fontjoy-com": {
+    "en": {
+      "bestFor": "Generating harmonious typographic font pairings for headers and body text using deep learning vector embeddings.",
+      "pros": [
+        "One-click neural network font pairing across headers, subheads, and body text with contrast slider control",
+        "Individual tier lock mechanism allowing designers to freeze preferred typefaces while generating complementary pairings"
+      ],
+      "cons": [
+        "Lacks direct one-click CSS @import or font-face snippet copy buttons in the main view"
+      ],
+      "privacyVerdict": "Observed network egress includes Google Analytics (G-TG8HZ7YWSW) and Cloudflare RUM. Font embedding similarity requests query the local ./api/ endpoint with zero user account requirement.",
+      "alternativeTo": [
+        "typescale-com",
+        "fontpair-co",
+        "google-fonts"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 17,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Generated complementary font pairings across 3 typographic tiers in 204 ms with 0.05 CLS; lock state toggled in under 50 ms.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "利用深度学习向量嵌入技术一键生成标题与正文的高对比度字体搭配组合。",
+      "pros": [
+        "一键通过神经网络算法计算大标题、副标题与正文的字形特征向量，并支持相似度滑块微调",
+        "提供分层锁定机制，可在固定特定中意字体的同时继续重选其余层级搭配"
+      ],
+      "cons": [
+        "主界面未提供一键复制 CSS @import 或 font-face 声明代码片段的快捷按钮"
+      ],
+      "privacyVerdict": "网络观测记录到 Google Analytics (G-TG8HZ7YWSW) 与 Cloudflare RUM 遥测。字体嵌入特征查询经由 ./api/ 完成，无须注册账号或传输用户数据。",
+      "alternativeTo": [
+        "typescale-com",
+        "fontpair-co",
+        "google-fonts"
+      ],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 20,
+        "depth": 22,
+        "exportFreedom": 17,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "3 层排版字体组合重算与渲染耗时 204ms，CLS 保持在 0.05，图层锁定状态响应低于 50ms。",
+      "testedAt": "2026-09"
+    }
+  },
+  "typescale-com": {
+    "en": {
+      "bestFor": "Calculating modular typographic hierarchy scales (rem, px, pt) with real-time landing page previews.",
+      "pros": [
+        "Instant real-time calculation of 8 typographic steps across classic ratios (Major Third, Minor Third, Golden Ratio)",
+        "Live side-by-side contextual landing page preview demonstrating typography in authentic mock website layouts"
+      ],
+      "cons": [
+        "Automated CSS stylesheet export is gated behind a Pro paywall (View CSS button disabled with aria-label='View CSS (Pro)')",
+        "Saving custom boards and project presets requires account authentication"
+      ],
+      "privacyVerdict": "Observed network egress includes Google Analytics (G-G73EHM4RHS) and Cloudflare RUM. Typographic scale calculations and DOM preview rendering execute entirely client-side.",
+      "alternativeTo": [
+        "fontjoy-com",
+        "archetypeapp-com",
+        "gridlover-net"
+      ],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 11,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Recalculated 8-tier typography hierarchy from Minor Third to Major Third (h1 3.815rem) in 101 ms with 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "计算模块化多级排版比例（rem、px、pt）并在落地页线框中实时预览版式效果。",
+      "pros": [
+        "实时计算 8 级排版字号阶梯，预设包含大三度（Major Third）、小三度与黄金分割比",
+        "提供双栏同屏的落地页原型，实时渲染字号与行高在实际网页环境中的层级表现"
+      ],
+      "cons": [
+        "一键生成 CSS 样式表功能被设为 Pro 付费专享（View CSS 按钮原生置灰并标记为 Pro）",
+        "保存自定义看板与项目字体配置需要注册并登录账号"
+      ],
+      "privacyVerdict": "网络观测记录到 Google Analytics (G-G73EHM4RHS) 与 Cloudflare RUM 遥测。排版比率计算与实时 DOM 渲染均在本地浏览器中完成。",
+      "alternativeTo": [
+        "fontjoy-com",
+        "archetypeapp-com",
+        "gridlover-net"
+      ],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 21,
+        "exportFreedom": 11,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "切换比例至大三度（h1 达 3.815rem）在 101ms 内完成多级重绘，CLS 维持在 0.00。",
+      "testedAt": "2026-09"
+    }
   }
 }
