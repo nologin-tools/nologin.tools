@@ -195,29 +195,33 @@ node scripts/lab/dogfood-session.mjs abort excalidraw-com
 
 To prevent score clustering at 90+ and ensure high differentiation across the catalog, scores are calibrated across five discrete dimensions (0-100 total):
 
-| Dimension | Max Points | Core Criteria | Calibrated Ceiling Rules |
+| Dimension | Max Points | Core Criteria | Calibrated Ceiling Rules & Steep Ladders |
 | :--- | :---: | :--- | :--- |
-| **Frictionless UX** | **20** | Immediate access, zero gating, clean responsive layout, no deceptive ad modals. | - If any auth wall appears: **0**<br>- If cookie banner/popups block viewport: max **14**<br>- Pure zero-click immediate utility: **18-20** |
-| **Functional Depth & Fidelity** | **25** | Depth of core capabilities, support for complex workflows, precision handling of edge cases. | - Simple single-purpose tools (e.g. single-click text reverser, basic uuid gen): **12-16**<br>- Full-featured workstation (e.g. Excalidraw, Photopea): **22-25** |
-| **Export Freedom** | **20** | Standard uncorrupted formats, multiple export targets, copy-to-clipboard, zero watermarks. | - Watermark detected: **0-8**<br>- Bait trap / fake HTML download: **0**<br>- Multiple lossless formats (SVG, PNG, JSON) with clean magic bytes: **18-20** |
-| **Privacy & Sovereignty** | **20** | Local-first processing, client-side WebAssembly/Web Workers, bounded data-flow observations, and tracking behavior. | - Local-only architecture supported by independent evidence plus bounded traffic observation: **19-20**<br>- No payload egress observed during only the tested flow: no automatic local-only credit<br>- Essential backend API with strict TLS: **12-15**<br>- Unnecessary third-party ad/tracker telemetry: max **8** |
-| **Stability & Polish** | **15** | Main-thread responsiveness, layout stability (CLS), zero console errors, offline capability. | - Butter-smooth frame pacing (<50ms tasks, 0 CLS, no ads): **14-15**<br>- Main-thread freeze (>400ms): **deduct 2 pts**<br>- Layout shift jank (CLS > 0.1): **deduct 2 pts**<br>- Commercial watermark: **deduct 6 pts** |
+| **Frictionless UX** | **20** | Immediate access, zero gating, clean responsive layout, no deceptive ad modals. | - If any auth wall appears: **0**<br>- If post-action auth bait trap: **4**<br>- If cookie banner/popups block viewport: max **14**<br>- Standard clean utility: **16-17**<br>- Pure zero-click immediate utility with file input: **18-20** |
+| **Functional Depth & Fidelity** | **25** | Depth of core capabilities, support for complex workflows, precision handling of edge cases. | **Steep Architectural Ladder**:<br>- **8–12 (Trivial single-task)**: Single string/data scripts (UUID gen, base64, simple casing, word count).<br>- **13–17 (Configurable utility)**: Multi-input, parameter controls, regex matching, format presets.<br>- **18–21 (Professional light suite)**: Batch processing, data visualization, sound/image filter pipelines.<br>- **22–25 (Elite workstation)**: Multi-layer/multi-track canvas, WebAssembly compilers, AST parsers, infinite state stacks. |
+| **Export Freedom** | **20** | Standard uncorrupted formats, multiple export targets, copy-to-clipboard, zero watermarks. | - Post-action auth interception: **3**<br>- Commercial promotional watermark detected: **5**<br>- Clipboard copy or single plain text download: **14-16**<br>- Multiple lossless formats (SVG, PNG, JSON, binary) with verified clean magic bytes: **18-20** |
+| **Privacy & Sovereignty** | **20** | Local-first processing, client-side WebAssembly/Web Workers, bounded data-flow observations, and tracking behavior. | - Local-only architecture verified offline + bounded traffic observation: **19-20**<br>- Client-side local only: **17-18**<br>- No payload egress observed during only the tested flow: **14-15** (no automatic local-only credit)<br>- Essential backend API with strict TLS: **12-14**<br>- Third-party ad/tracker telemetry: **deduct 2–4 pts** |
+| **Stability & Polish** | **15** | Main-thread responsiveness, layout stability (CLS), zero console errors, offline capability. | - Butter-smooth frame pacing (<50ms tasks, 0 CLS, no ads): **14-15**<br>- Standard responsive interaction with visual outcome: **12-13**<br>- Main-thread freeze (>400ms): **deduct 2 pts**<br>- Layout shift jank (CLS > 0.1): **deduct 2 pts**<br>- Commercial watermark: **deduct 6 pts** |
 
-### Target Score Distribution
+### Target Score Distribution (Catalog Pyramid)
 
 ```
   ┌────────────────────────────────────────────────────────┐
-  │ Score Distribution Target Across Catalog              │
+  │ Score Distribution Target Across Catalog               │
   ├──────────────────────────────────┬─────────────────────┤
   │ 90 - 100 : Editor's Choice       │ ~12 - 15% (Elite)   │
-  │ 80 - 89  : Highly Recommended    │ ~35 - 40% (Solid)   │
-  │ 70 - 79  : Capable Utility       │ ~40 - 45% (Decent)  │
-  │ < 70     : Defunct / Disqualified│ Excluded / Rejected │
+  │ 80 - 89  : Highly Recommended    │ ~35 - 45% (Solid)   │
+  │ 70 - 79  : Capable Utility       │ ~35 - 45% (Decent)  │
+  │ < 70     : Emergency Only        │ ~3 - 5%   (Ad/Restr)│
   └──────────────────────────────────┴─────────────────────┘
 ```
 
 > [!IMPORTANT]
-> **Anti-Inflation Rule**: A tool cannot achieve a score $\ge 90$ purely by being free or simple. An Editor's Choice designation requires **exceptional functional depth**, **lossless export freedom**, and **uncompromising local privacy**.
+> **High-Score Defense Gate (Anti-Inflation Core Rule)**:
+> - A score $\ge 90$ (`editors-choice`) CANNOT be awarded purely because a tool is free, private, or functional.
+> - **Mandatory Depth Threshold**: `productScore.depth` must be $\ge 22$.
+> - **Empirical Workstation Proof**: The evaluation payload (`benchmarkNotes` or `pros`) must cite concrete architectural proof of workstation-level depth (e.g. `canvas`, `webassembly`/`wasm`, `webgl`, `indexeddb`, `ast`, `compiler`, `multi-layer`, `waveform`, `infinite canvas`, `undo/redo state stack`).
+> - Single-purpose, text-transform, or single-operation utilities belong strictly in `capable-utility` (70–79) or `highly-recommended` (80–89). Violations are blocked automatically by the evaluation validator.
 
 ---
 

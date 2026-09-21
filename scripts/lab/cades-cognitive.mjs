@@ -74,6 +74,18 @@ export function validateCognitiveEvaluation(data, options = {}) {
     errors.push(`verdictTier must be one of: ${allowedTiers.join(', ')}`);
   }
 
+  // Anti-Inflation Gate: High-Score Defense (Editor's Choice requires documented workstation depth)
+  if (data.productScore && data.productScore.overall >= 90) {
+    if (data.productScore.depth < 22) {
+      errors.push(`Editor's Choice (overall >= 90) requires Functional Depth >= 22 (current: ${data.productScore.depth}). Single-purpose or configurable utilities cannot exceed 89.`);
+    }
+    const allContext = `${data.benchmarkNotes || ''} ${(data.pros || []).join(' ')} ${data.bestFor || ''}`;
+    const hasWorkstationProof = /(\b(?:canvas|webassembly|wasm|webgl|indexeddb|ast|compiler|pwa|multi-layer|layers?|undo|redo|infinite|tracks?|audio-buffer|waveform|vector|monaco|codemirror|diagrams?|schematics?|cad|3d|spreadsheet|sql-engine)\b)/i.test(allContext);
+    if (!hasWorkstationProof) {
+      errors.push(`Editor's Choice High-Score Defense: A score >= 90 requires empirical proof of workstation-level depth (e.g. canvas, wasm, ast, compiler, indexeddb, multi-layer, waveform) in benchmarkNotes or pros. Standard utilities belong in highly-recommended (80-89).`);
+    }
+  }
+
   if (options.requireBilingual) {
     if (!data.bestForZh || typeof data.bestForZh !== 'string' || data.bestForZh.trim().length < 5) {
       errors.push('bestForZh is required for synchronized bilingual editorial output');
@@ -157,54 +169,57 @@ export function calibrate5DScore(harnessReport, agentOverrides = null) {
   const isInterceptedByAuth = Boolean(exportGate.interceptedByAuth);
 
   // --- Dimension 1: Frictionless UX (0 to 20) ---
-  let frictionless = 18;
+  let frictionless = 16;
   if (isAuthBlocked) {
     frictionless = 0;
   } else if (isInterceptedByAuth) {
     frictionless = 4;
   } else {
-    // Check for popup or banner clutter
     if (surface.hasModalBlocked) frictionless -= 3;
     if (surface.buttonLabels?.some(l => /upgrade|pro|pricing/i.test(l))) frictionless -= 1;
+    if (surface.fileInputCount > 0 && !surface.hasModalBlocked) frictionless += 1;
   }
   frictionless = Math.max(0, Math.min(20, frictionless));
 
   // --- Dimension 2: Functional Depth & Fidelity (0 to 25) ---
-  // Simple utilities (e.g. basic text length, simple uppercase) start at 15
-  // Power utilities (e.g. vector graphic editor, full photo editor, sound trimmer) reach 22-25
-  let depth = 16;
+  // Steep anti-inflation ladder:
+  // 8-12: Trivial single-purpose scripts (uuid, base64, simple word count)
+  // 13-17: Configurable utilities (multi-input, parameter controls, validation, format presets)
+  // 18-21: Professional light suites (batch processing, data visualization, sound/image pipelines)
+  // 22-25: Elite workstations (canvas engines, AST parsers, multi-layer/multi-track, undo/redo state stacks)
+  let depth = 14;
   const isTrivialUtility = (surface.textareaCount <= 1 && surface.fileInputCount === 0 && !hasCanvas && !hasWasm);
-  const isPowerUtility = (hasWasm || hasCanvas || surface.fileInputCount > 0 || surface.textareaCount >= 2);
+  const isWorkstation = (hasWasm && hasCanvas) || (hasCanvas && surface.textareaCount >= 1 && surface.fileInputCount >= 1);
+  const isConfigurable = (surface.textareaCount >= 2 || (surface.textareaCount >= 1 && surface.fileInputCount >= 1) || hasCanvas || hasWasm);
 
-  if (isPowerUtility) {
-    depth = 21;
-    if (hasWasm && hasCanvas) depth += 3;
-    else if (hasWasm || hasCanvas) depth += 2;
+  if (isWorkstation) {
+    depth = (hasWasm && hasCanvas) ? 24 : 22; // Elite workstation
+  } else if (isConfigurable) {
+    depth = 16;
+    if (hasWasm || hasCanvas) depth += 2;
   } else if (isTrivialUtility) {
-    depth = 15; // Realistic baseline for simple single-task utilities
+    depth = 11; // Grounded baseline for single-task text/data utilities
   }
 
-  // Visual outcome bonus / penalty
+  // Visual outcome verification
   if (!visual.capturedOutcome) depth -= 2;
   depth = Math.max(0, Math.min(25, depth));
 
   // --- Dimension 3: Export Freedom (0 to 20) ---
-  let exportFreedom = 15;
+  let exportFreedom = 14;
   if (isInterceptedByAuth) {
     exportFreedom = 3; // Severe penalty for post-action bait trap
   } else if (hasWatermark) {
-    exportFreedom = 5; // Severe penalty for commercial watermark
+    exportFreedom = 5; // Severe penalty for commercial promotional watermark
   } else if (exportGate.downloadTriggered) {
-    exportFreedom = 20; // Verified clean unrestricted download file
-  } else if (exportGate.passedNoLoginExport) {
-    exportFreedom = 16; // Standard delivery or clipboard copy without direct file download
-  } else if (surface.buttonLabels?.some(l => /copy|export/i.test(l))) {
-    exportFreedom = 15; // Clipboard copy utility
+    exportFreedom = (hasCanvas || hasWasm) ? 19 : 16; // Standard clean download vs rich asset export
+  } else if (exportGate.passedNoLoginExport || surface.buttonLabels?.some(l => /copy|export/i.test(l))) {
+    exportFreedom = 14; // Clipboard copy utility
   }
   exportFreedom = Math.max(0, Math.min(20, exportFreedom));
 
   // --- Dimension 4: Privacy & Data Sovereignty (0 to 20 - Core Pillar) ---
-  let privacy = isLocal ? 18 : noPayloadEgressObserved ? 14 : 13;
+  let privacy = isLocal ? 17 : noPayloadEgressObserved ? 15 : 13;
   if (isLocal && isOffline) privacy += 2;
   if (hasTracking) privacy -= 4;
   privacy = Math.max(0, Math.min(20, privacy));
@@ -216,7 +231,7 @@ export function calibrate5DScore(harnessReport, agentOverrides = null) {
 
   let polish = 12;
   if (hasWatermark) polish -= 6;
-  if (visual.capturedOutcome) polish += 2;
+  if (visual.capturedOutcome) polish += 1;
   if (surface.buttonLabels?.some(l => /ad|sponsor/i.test(l))) polish -= 2;
 
   // UX Ergonomics & Responsiveness Telemetry

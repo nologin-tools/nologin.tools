@@ -38,7 +38,8 @@ For every candidate that survives hard gates, execute the complete `tool-evaluat
 - core task completed without mandatory login;
 - no bait-and-switch export wall or forced commercial watermark;
 - grounded 8-locale evaluation synchronized successfully;
-- score at least 70.
+- score at least 70;
+- strict adherence to Anti-Inflation scoring: Editor's Choice ($\ge 90$) is reserved exclusively for verified workstations with Functional Depth $\ge 22$ and empirical architecture proof; standard single-task utilities belong in `capable-utility` (70–79) or `highly-recommended` (80–89).
 
 Do not infer local-only processing solely from a run with no captured payload request.
 

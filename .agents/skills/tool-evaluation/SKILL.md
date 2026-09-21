@@ -55,12 +55,18 @@ The session state is `/tmp/cades-session-<slug>.json`. `status <slug>` prints re
 Score dimensions must sum exactly to `overall`:
 
 - Frictionless UX: 0–20
-- Functional Depth & Fidelity: 0–25
+- Functional Depth & Fidelity: 0–25 (8–12: single-task scripts; 13–17: configurable utilities; 18–21: light suites; 22–25: elite workstations)
 - Export Freedom & Integrity: 0–20
 - Privacy & Data Sovereignty: 0–20
 - Stability & Visual Polish: 0–15
 
 Use concrete observations. Never award local-only or offline credit from absence of captured requests alone. Auth-gated core tasks, decoy downloads, and forced export watermarks are rejection-level findings.
+
+### Anti-Inflation & High-Score Defense Gate
+- **High-Score Defense**: Any score $\ge 90$ (`editors-choice`) requires `depth >= 22` AND documented workstation proof in `benchmarkNotes` or `pros` (e.g. `canvas`, `wasm`, `ast`, `compiler`, `indexeddb`, `multi-layer`, `waveform`).
+- Single-purpose utilities and text scripts belong in `capable-utility` (70–79).
+- Advanced configurable utilities without workstation architecture belong in `highly-recommended` (80–89).
+- The validator strictly blocks any payload attempting to award $\ge 90$ without meeting the High-Score Defense gate.
 
 Create `/tmp/eval-<slug>.json` with at least:
 

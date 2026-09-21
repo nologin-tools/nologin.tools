@@ -402,4 +402,28 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
     assert.ok(smoothCalibrated.polish >= 14, `Smooth UI polish score should receive polish bonus (got ${smoothCalibrated.polish})`);
     assert.ok(smoothCalibrated.factors.polish.some(f => f.includes('Smooth responsive interaction')));
   });
+
+  it('enforces High-Score Defense: blocks Editor Choice for tools lacking workstation depth', () => {
+    const inflatedPayload = {
+      productScore: {
+        overall: 94,
+        frictionless: 20,
+        depth: 18, // Less than 22
+        exportFreedom: 20,
+        privacy: 20,
+        polish: 16
+      },
+      verdictTier: 'editors-choice',
+      bestFor: 'Simple string uppercase conversion without server processing',
+      pros: ['Fast response in 10ms', 'Instant clipboard copy of text'],
+      cons: ['Only handles basic casing'],
+      privacyVerdict: 'No external network traffic observed during test.',
+      benchmarkNotes: 'Clicked uppercase button in 15ms and copied text to clipboard.'
+    };
+
+    const validation = validateCognitiveEvaluation(inflatedPayload);
+    assert.equal(validation.valid, false);
+    assert.ok(validation.errors.some(e => e.includes('Functional Depth >= 22')));
+    assert.ok(validation.errors.some(e => e.includes('High-Score Defense')));
+  });
 });
