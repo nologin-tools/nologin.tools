@@ -34,6 +34,13 @@ const pageTitle = t(locale, 'finder.title');
 const pageDescription = t(locale, 'finder.description');
 const canonicalPath = getLocalizedPath('/finder', locale);
 
+const toolDates = tools
+  .map((t) => t.approvedAt ? new Date(t.approvedAt).getTime() : 0)
+  .filter((d) => !isNaN(d) && d > 0);
+const latestToolDate = toolDates.length > 0
+  ? new Date(Math.max(...toolDates)).toISOString()
+  : new Date().toISOString();
+
 // Schema.org WebPage + SearchAction
 const webPageLd = {
   '@context': 'https://schema.org',
@@ -42,6 +49,7 @@ const webPageLd = {
   description: pageDescription,
   url: `https://nologin.tools${canonicalPath}`,
   inLanguage: locale,
+  dateModified: latestToolDate,
   potentialAction: {
     '@type': 'SearchAction',
     target: `https://nologin.tools${canonicalPath}?q={search_term_string}`,
@@ -115,17 +123,48 @@ const orgLd = {
     'https://github.com/nologin-tools',
   ],
 };
+
+const finderFaqs = [
+  {
+    q: t(locale, 'finder.faq.q1'),
+    a: t(locale, 'finder.faq.a1'),
+  },
+  {
+    q: t(locale, 'finder.faq.q2'),
+    a: t(locale, 'finder.faq.a2'),
+  },
+  {
+    q: t(locale, 'finder.faq.q3'),
+    a: t(locale, 'finder.faq.a3'),
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale,
+  mainEntity: finderFaqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: a,
+    },
+  })),
+};
 ---
 
 <Layout
   title={pageTitle}
   description={pageDescription}
   locale={locale}
+  modifiedTime={latestToolDate}
 >
   <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     {/* Breadcrumb Navigation */}
@@ -325,7 +364,9 @@ const orgLd = {
               <div class="flex items-center gap-2.5 min-w-0">
                 <img
                   src={`https://www.google.com/s2/favicons?domain=${tool.hostname}&sz=32`}
-                  alt=""
+                  alt={`${tool.name} icon`}
+                  width="20"
+                  height="20"
                   class="w-5 h-5 shrink-0"
                   loading="lazy"
                   onerror="this.style.display='none'"
@@ -437,6 +478,22 @@ const orgLd = {
         {t(locale, 'finder.empty.reset')}
       </button>
     </div>
+
+    {/* FAQ Section */}
+    <section class="border-t-2 border-neutral-900 pt-12 mt-12 mb-16" aria-labelledby="finder-faq-heading">
+      <h2 id="finder-faq-heading" class="text-xl font-bold font-mono text-neutral-900 tracking-tight uppercase mb-6 flex items-center gap-2">
+        <span>💡</span>
+        <span>{t(locale, 'finder.faq.heading')}</span>
+      </h2>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {finderFaqs.map(({ q, a }) => (
+          <div class="bg-white border-2 border-neutral-900 p-5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <h3 class="text-sm font-bold text-neutral-900 font-mono mb-2">{q}</h3>
+            <p class="text-xs text-neutral-600 leading-relaxed">{a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   </div>
 
   {/* Embedded Pure Data for Client Engine */}
