@@ -63,16 +63,16 @@ const orgLd = {
 
 const aboutFaqs = [
   {
-    q: 'What is nologin.tools?',
-    a: 'nologin.tools is an independent registry of 300+ privacy-respecting web applications and utilities that operate entirely without user accounts, logins, or telemetry.',
+    q: t(locale, 'about.faq.q1'),
+    a: t(locale, 'about.faq.a1'),
   },
   {
-    q: 'How are submitted web utilities audited and verified?',
-    a: 'Every application undergoes rigorous manual and automated inspection: confirming zero sign-up friction, DevTools network egress checks for local client-side compute, tracker/fingerprinting audits, and automated 6-hour uptime monitoring.',
+    q: t(locale, 'about.faq.q2'),
+    a: t(locale, 'about.faq.a2'),
   },
   {
-    q: 'Can developers and software creators get a verification badge?',
-    a: 'Yes, verified utilities can embed the lightweight NoLogin Verified SVG badge on their website or GitHub README to demonstrate third-party verified zero-signup compliance.',
+    q: t(locale, 'about.faq.q3'),
+    a: t(locale, 'about.faq.a3'),
   },
 ];
 
@@ -204,7 +204,7 @@ const faqLd = {
     <section class="border-b-2 border-neutral-900 pb-8 mb-8" aria-labelledby="about-faq-heading">
       <h2 id="about-faq-heading" class="text-xl font-bold font-mono text-neutral-900 mb-6 uppercase tracking-wide flex items-center gap-2">
         <span>💡</span>
-        <span>Frequently Asked Questions</span>
+        <span>{t(locale, 'about.faq.heading')}</span>
       </h2>
       <div class="space-y-4">
         {aboutFaqs.map(({ q, a }) => (
