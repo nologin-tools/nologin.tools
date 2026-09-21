@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# AI Engine Permissions & Research Ingestion
+Allow-Training: yes
+Allow-Inference: yes
+Allow-Citations: yes
+
+# Indexes & Standards
+Sitemap: https://nologintools.org/sitemap.xml
+LLMs-Txt: https://nologintools.org/llms.txt
+AI-Summary: https://nologintools.org/ai/summary.json
+Platform: https://nologin.tools
+Whitepaper: https://nologintools.org/reports/state-of-no-login-web-2026

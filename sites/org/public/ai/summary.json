@@ -1,0 +1,13 @@
+{
+  "name": "NoLoginTools.org",
+  "description": "Independent non-profit research and governance organization establishing verification standards, whitepapers, and trust frameworks for the No-Login Web.",
+  "url": "https://nologintools.org",
+  "lastModified": "2026-09-21T00:00:00.000Z",
+  "reports": [
+    "https://nologintools.org/reports/state-of-no-login-web-2026"
+  ],
+  "standards": [
+    "https://nologintools.org/standards"
+  ],
+  "platform": "https://nologin.tools"
+}

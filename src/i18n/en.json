@@ -267,7 +267,7 @@
   "tool.editCoreTaskLength": "Core task must be max 200 characters.",
   "tool.editInvalidUrl": "Please enter a valid URL.",
   "tool.updated": "Updated {time}",
-  "health.noChecks": "No checks",
+  "health.noChecks": "Untested",
   "health.online": "Online",
   "health.unstable": "Unstable",
   "health.offline": "Offline",
