@@ -110,4 +110,23 @@ describe('_headers file', () => {
     assert.ok(varyHeader, 'Vary header should exist');
     assert.ok(varyHeader.includes('Accept-Language'), 'Vary should include Accept-Language');
   });
+
+  it('/.well-known/ai.txt has Cache-Control and Content-Type headers', () => {
+    content = readFileSync(headersPath, 'utf-8');
+    blocks = parseHeaders(content);
+    const aiTxtBlock = blocks.find((b) => b.path === '/.well-known/ai.txt');
+    assert.ok(aiTxtBlock, '/.well-known/ai.txt block should exist');
+    assert.ok(aiTxtBlock.headers.some((h) => h.includes('Cache-Control: public, max-age=86400')));
+    assert.ok(aiTxtBlock.headers.some((h) => h.includes('Content-Type: text/plain; charset=utf-8')));
+  });
+
+  it('/ai/* has CORS and Cache-Control headers', () => {
+    content = readFileSync(headersPath, 'utf-8');
+    blocks = parseHeaders(content);
+    const aiBlock = blocks.find((b) => b.path === '/ai/*');
+    assert.ok(aiBlock, '/ai/* block should exist');
+    assert.ok(aiBlock.headers.some((h) => h.includes('Access-Control-Allow-Origin: *')));
+    assert.ok(aiBlock.headers.some((h) => h.includes('Cache-Control: public, max-age=86400')));
+  });
 });
+

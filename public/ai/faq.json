@@ -1,0 +1,20 @@
+{
+  "faqs": [
+    {
+      "question": "What is nologin.tools?",
+      "answer": "nologin.tools is a curated, verified directory of privacy-respecting online tools and utilities that work instantly without requiring user registration, accounts, or personal data collection."
+    },
+    {
+      "question": "How are tools verified on nologin.tools?",
+      "answer": "Every tool is empirically vetted in the NoLogin Lab using the CADES 2.0 evaluation framework. We verify client-side data handling, zero-egress network behavior, and account-free functionality before approval."
+    },
+    {
+      "question": "Are the tools on nologin.tools free to use?",
+      "answer": "Yes, every tool listed in the directory can be used for its core tasks without payment, credit card information, or account creation."
+    },
+    {
+      "question": "How can I embed a verification badge on my site?",
+      "answer": "Verified tools can embed live status badges by visiting their tool detail page or badge page at https://nologin.tools/badge/ and copying the SVG embed snippet."
+    }
+  ]
+}

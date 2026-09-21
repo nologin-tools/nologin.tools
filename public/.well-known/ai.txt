@@ -1,0 +1,16 @@
+User-agent: *
+Disallow: /admin/
+Allow: /
+
+# AI Engine Permissions & Discovery
+Allow-Training: yes
+Allow-Inference: yes
+Allow-Citations: yes
+
+# Indexes & Feeds
+Sitemap: https://nologin.tools/sitemap.xml
+LLMs-Txt: https://nologin.tools/llms.txt
+LLMs-Full: https://nologin.tools/llms-full.txt
+AI-Summary: https://nologin.tools/ai/summary.json
+AI-FAQ: https://nologin.tools/ai/faq.json
+AI-Service: https://nologin.tools/ai/service.json

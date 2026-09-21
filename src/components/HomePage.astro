@@ -26,6 +26,11 @@ const toolsWithMeta = approvedTools.map(tool => {
 
 const allTools = [...toolsWithMeta].sort((a, b) => b.score - a.score);
 
+const latestApprovedAt = approvedTools.reduce((latest, tool) => {
+  const ts = tool.approvedAt || tool.submittedAt;
+  return ts && ts > latest ? ts : latest;
+}, '2026-01-01T00:00:00Z');
+
 // Group tools by category
 const categoryDef = TAG_DEFINITIONS.find(d => d.key === 'category');
 const categoryOrder = categoryDef ? categoryDef.values : [];
@@ -105,6 +110,7 @@ function translateTagValue(key: string, value: string): string {
   description={t(locale, 'home.description', { count: String(approvedTools.length) })}
   hideHeader
   locale={locale}
+  modifiedTime={latestApprovedAt}
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -113,8 +119,17 @@ function translateTagValue(key: string, value: string): string {
     "url": "https://nologin.tools",
     "description": t(locale, 'home.description', { count: String(approvedTools.length) }),
     "inLanguage": locale,
+    "dateModified": latestApprovedAt,
     "publisher": {
       "@id": "https://nologin.tools/#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
     },
     "about": {
       "@type": "Thing",
@@ -151,6 +166,14 @@ function translateTagValue(key: string, value: string): string {
     },
     "description": t(locale, 'home.jsonLd.orgDescription'),
     "foundingDate": "2025",
+    "areaServed": "Worldwide",
+    "email": "contact@nologintools.org",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "contact@nologintools.org",
+      "url": "https://nologintools.org/about"
+    },
     "sameAs": [
       "https://x.com/nologin_tools",
       "https://github.com/nologin-tools",

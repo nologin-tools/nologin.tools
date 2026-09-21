@@ -1,0 +1,12 @@
+{
+  "name": "nologin.tools",
+  "description": "Curated directory and verification registry of privacy-friendly web tools that work without login or accounts.",
+  "url": "https://nologin.tools",
+  "capabilities": [
+    "Directory of 300+ account-free online utilities across 11 categories",
+    "CADES 2.0 empirical evaluation of privacy, zero-egress, and client-side processing",
+    "Embeddable verification badges with real-time health monitoring",
+    "Dual-brand verification authority powered by NoLoginTools.org",
+    "Structured LLM indexes via llms.txt and llms-full.txt"
+  ]
+}

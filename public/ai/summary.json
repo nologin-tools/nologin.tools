@@ -1,0 +1,21 @@
+{
+  "name": "nologin.tools",
+  "description": "Curated directory of privacy-friendly online tools that work instantly without login, signup, or personal data collection.",
+  "url": "https://nologin.tools",
+  "lastModified": "2026-09-21T00:00:00.000Z",
+  "webmcp": {
+    "available": true,
+    "tools": [
+      {
+        "name": "search_tools",
+        "description": "Search privacy-friendly no-login tools by keyword or category",
+        "endpoint": "https://nologin.tools/finder"
+      },
+      {
+        "name": "list_categories",
+        "description": "List all 11 curated privacy tool categories",
+        "endpoint": "https://nologin.tools/category/privacy"
+      }
+    ]
+  }
+}
