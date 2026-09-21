@@ -28,6 +28,23 @@ Each category hub includes architectural deep-dives, client-side technology trad
 - [Education](https://nologin.tools/category/education): Interactive STEM simulations, graphing calculators, and algorithmic visualizers.
 - [Finance](https://nologin.tools/category/finance): Monte Carlo retirement models, currency converters, and local-first amortization tools.
 
+## Editor's Choice Workstations (Top-Rated Masterpieces — Product Score >= 90)
+
+The top 14.2% of the catalog represents verified, full-featured desktop-class workstations operating 100% client-side without registration:
+
+- [Excalidraw](https://nologin.tools/tool/excalidraw-com) (⚡ 96 · Editor's Choice): Infinite collaborative vector canvas with end-to-end encryption.
+- [CyberChef](https://nologin.tools/tool/gchq-github-io-cyberchef) (⚡ 96 · Editor's Choice): GCHQ Swiss Army Knife for data transformation, decoding, and parsing.
+- [Squoosh](https://nologin.tools/tool/squoosh-app) (⚡ 96 · Editor's Choice): Client-side image compression suite powered by WebAssembly codecs.
+- [Photopea](https://nologin.tools/tool/photopea-com) (⚡ 95 · Editor's Choice): Full raster graphics workstation supporting PSD, XCF, Sketch, and AI files.
+- [AudioMass](https://nologin.tools/tool/audiomass-co) (⚡ 95 · Editor's Choice): Web Audio DAW with multi-format waveform editing and real-time effects.
+- [Desmos Calculator](https://nologin.tools/tool/desmos-com-calculator) (⚡ 95 · Editor's Choice): Advanced interactive graphing calculator and mathematical visualizer.
+- [GeoGebra](https://nologin.tools/tool/geogebra-org-calculator) (⚡ 93 · Editor's Choice): Dynamic geometry, 3D graphing, and STEM algebraic suite.
+- [AST Explorer](https://nologin.tools/tool/astexplorer-net) (⚡ 93 · Editor's Choice): Live syntax tree parser for 50+ programming languages and dialects.
+- [Compiler Explorer (Godbolt)](https://nologin.tools/tool/godbolt-org) (⚡ 93 · Editor's Choice): Interactive C++, Rust, and Go assembly compiler and disassembly explorer.
+- [DevDocs](https://nologin.tools/tool/devdocs-io) (⚡ 93 · Editor's Choice): Unified, offline-capable developer API documentation workstation.
+- [Diagrams.net (draw.io)](https://nologin.tools/tool/app-diagrams-net) (⚡ 93 · Editor's Choice): Full-featured flowchart, UML, and architecture diagramming suite.
+- [Regex101](https://nologin.tools/tool/regex101-com) (⚡ 93 · Editor's Choice): Deep regular expression debugger with AST breakdown and performance profiling.
+
 ## Featured Verified Tools (50 Core Tools)
 
 ### Design & Graphics

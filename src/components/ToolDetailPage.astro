@@ -200,6 +200,9 @@ const jsonLd = {
     : approvedDate ? { dateModified: approvedDate } : {}),
   ...(sameAs.length > 0 ? { sameAs } : {}),
   ...(keywords ? { keywords } : {}),
+  ...(editorial?.verdictTier === 'editors-choice' ? {
+    award: "NoLogin Verified Editor's Choice 2026",
+  } : {}),
   ...(editorial?.alternativeTo?.length ? {
     isSimilarTo: editorial.alternativeTo.map((alt) => ({
       '@type': 'SoftwareApplication',
@@ -209,11 +212,20 @@ const jsonLd = {
   ...(editorial ? {
     review: {
       '@type': 'Review',
+      itemReviewed: {
+        '@type': 'SoftwareApplication',
+        name: tool.name,
+        applicationCategory: getApplicationCategory(categoryTag?.tagValue),
+        operatingSystem: 'All, Web Browser',
+        url: tool.url,
+      },
       reviewRating: {
         '@type': 'Rating',
-        ratingValue: editorial.productScore?.overall ?? scorecard.overallScore,
-        bestRating: 100,
-        worstRating: 0,
+        ratingValue: editorial.productScore
+          ? (editorial.productScore.overall / 20).toFixed(1)
+          : (scorecard.overallScore / 20).toFixed(1),
+        bestRating: 5,
+        worstRating: 1,
       },
       reviewBody: editorial.benchmarkNotes ? `${scorecard.summary} — ${editorial.benchmarkNotes}` : scorecard.summary,
       positiveNotes: {

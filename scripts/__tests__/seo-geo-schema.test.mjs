@@ -45,6 +45,9 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('operatingSystem: \'All, Web Browser\''), 'Must include operatingSystem');
     assert.ok(content.includes('getApplicationCategory('), 'Must dynamically resolve applicationCategory');
     assert.ok(content.includes("name: 'NoLoginTools.org'"), 'Must attribute publisher to NoLoginTools.org');
+    assert.ok(content.includes("itemReviewed: {"), 'Must explicitly include itemReviewed in Review');
+    assert.ok(content.includes("award: \"NoLogin Verified Editor's Choice 2026\""), 'Must include award for Editor Choice tier');
+    assert.ok(content.includes("'@type': 'AggregateRating'"), 'Must declare AggregateRating');
   });
 
   it('HomePage has enhanced WebSite and Organization schema', () => {

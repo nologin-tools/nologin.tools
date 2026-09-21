@@ -98,7 +98,31 @@ Where:
 
 ---
 
-## 4. NoLogin Verified Badge Integration
+## 4. CADES 2.0 Product Power Benchmark & Anti-Inflation Governance
+
+Every approved tool in nologin.tools undergoes empirical, hands-on testing through the CADES 2.0 (Cognitive Agent Dogfooding & Evaluation Standard) Route A protocol.
+
+### The 5D Product Power Scoring Framework (0–100 pts)
+1. **Frictionless UX (0–20 pts)**: Zero authentication gating, responsive layout, absence of intrusive overlays.
+2. **Functional Depth & Fidelity (0–25 pts)**:
+   - **8–12 pts (Trivial single-task)**: Single string transformations, basic UUID generators, simple base64 tools.
+   - **13–17 pts (Configurable utility)**: Multi-input parameters, regex matching, customizable format conversions.
+   - **18–21 pts (Professional light suite)**: Batch processing pipelines, interactive charts, lightweight audio/video filters.
+   - **22–25 pts (Elite desktop-class workstation)**: Multi-layer/multi-track canvas engines, WebAssembly compilers, live AST parsers, infinite state stacks.
+3. **Export Freedom & Integrity (0–20 pts)**: Lossless standard formats (SVG, PNG, JSON, CSV, WebM, binary), clean magic bytes, zero promotional watermarks.
+4. **Privacy & Data Sovereignty (0–20 pts - Core Pillar)**: Verified client-side execution, zero data egress observed during runtime, offline execution capability.
+5. **Stability & Polish (0–15 pts)**: Smooth main-thread performance (<50ms frame tasks), zero CLS layout shifts, clean runtime console.
+
+### The Anti-Inflation Golden Pyramid
+To prevent grade inflation and maintain genuine directory authority, nologin.tools enforces a calibrated tier pyramid:
+- 👑 **Editor's Choice (90–100 pts)**: Top ~12%–15% (~42 tools). Reserved exclusively for elite workstations. Protected by the **High-Score Defense Gate** (requires `depth >= 22` and documented workstation architecture proof).
+- 🌟 **Highly Recommended (80–89 pts)**: ~35%–45% (~140 tools). Deep, versatile, production-ready utilities.
+- 🛠️ **Capable Utility (70–79 pts)**: ~35%–45% (~103 tools). Single-purpose utilities and calculators that reliably execute a single task.
+- ⚠️ **Emergency Only (<70 pts)**: ~3%–5% (~11 tools). Functional utilities accompanied by advertising clutter or functional limitations.
+
+---
+
+## 5. NoLogin Verified Badge Integration
 
 Verified tools are invited to display the official trust badge on their homepage, GitHub README, or footer.
 
@@ -125,7 +149,7 @@ Verified tools are invited to display the official trust badge on their homepage
 
 ---
 
-## 5. Dual-Brand Architecture & Authority Organization
+## 6. Dual-Brand Architecture & Authority Organization
 
 - **nologin.tools**: The consumer directory, search, filter engine, and badge verification service.
 - **NoLoginTools.org**: The non-profit governance organization and research authority. Publishes independent research papers on web privacy, browser capabilities, and the state of digital autonomy.
@@ -134,7 +158,7 @@ Verified tools are invited to display the official trust badge on their homepage
 
 ---
 
-## 6. Machine-Readable Endpoints & Data Exports
+## 7. Machine-Readable Endpoints & Data Exports
 
 - Directory Homepage: `https://nologin.tools`
 - XML Multi-lingual Sitemap: `https://nologin.tools/sitemap.xml`
