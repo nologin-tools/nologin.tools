@@ -9,34 +9,73 @@ interface Props {
 
 const { locale } = Astro.props;
 await loadTranslations(locale);
+const aboutModifiedDate = '2026-03-20T00:00:00.000Z';
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'nologin.tools',
+  url: 'https://nologin.tools',
+  description: 'Curated directory of verified privacy-friendly web tools that work without login or accounts.',
+  inLanguage: locale,
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://nologin.tools/#organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://nologin.tools/og-default.png',
+    width: 1200,
+    height: 630,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@nologin.tools',
+    contactType: 'editorial and privacy inquiries',
+  },
+  description: t(locale, 'home.jsonLd.orgDescription'),
+  foundingDate: '2025',
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+  ],
+  knowsAbout: [
+    'Privacy Tools',
+    'No-Login Web Software',
+    'Client-Side Computing',
+    'Open Source Software',
+  ],
+};
 ---
 
-<Layout title={t(locale, 'about.title')} description={t(locale, 'about.description')} locale={locale}>
+<Layout
+  title={t(locale, 'about.title')}
+  description={t(locale, 'about.description')}
+  locale={locale}
+  modifiedTime={aboutModifiedDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
       { '@type': 'ListItem', position: 2, name: t(locale, 'about.heading'), item: `https://nologin.tools${getLocalizedPath('/about', locale)}` },
-    ],
-  })} />
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': 'https://nologin.tools/#organization',
-    name: 'NoLoginTools.org',
-    url: 'https://nologintools.org',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://nologin.tools/og-default.png',
-      width: 1200,
-      height: 630,
-    },
-    description: t(locale, 'home.jsonLd.orgDescription'),
-    foundingDate: '2025',
-    sameAs: [
-      'https://x.com/nologin_tools',
-      'https://github.com/nologin-tools',
     ],
   })} />
 

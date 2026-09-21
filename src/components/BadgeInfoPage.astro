@@ -13,13 +13,58 @@ await loadTranslations(locale);
 
 const approvedTools = getApprovedTools();
 const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'explicit');
+const badgeModifiedDate = '2026-03-20T00:00:00.000Z';
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'nologin.tools',
+  url: 'https://nologin.tools',
+  description: 'Curated directory of verified privacy-friendly web tools that work without login or accounts.',
+  inLanguage: locale,
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  logo: 'https://nologin.tools/icon-192.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@nologin.tools',
+    contactType: 'editorial and privacy inquiries',
+  },
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+  ],
+  knowsAbout: [
+    'Privacy Tools',
+    'No-Login Web Software',
+    'Client-Side Computing',
+  ],
+};
 ---
 
 <Layout
   title={t(locale, 'badge.title')}
   description={t(locale, 'badge.description')}
   locale={locale}
+  modifiedTime={badgeModifiedDate}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -271,7 +316,9 @@ const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'e
                       <div class="flex items-center gap-2 min-w-0">
                         <img
                           src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
-                          alt=""
+                          alt={`${tool.name} icon`}
+                          width="16"
+                          height="16"
                           class="w-4 h-4 rounded-none shrink-0"
                           loading="lazy"
                           onerror="this.style.display='none'"
