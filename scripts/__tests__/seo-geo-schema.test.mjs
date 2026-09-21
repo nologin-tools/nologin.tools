@@ -342,12 +342,59 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(homeContent.includes('home.trustTags'), 'HomePage must render trustTags');
   });
 
-  it('AboutPage renders Hands-on Verification Methodology section', () => {
+  it('AboutPage renders Hands-on Verification Methodology section and GEO FAQPage schema', () => {
     const aboutContent = readFileSync(resolve(ROOT, 'src/components/AboutPage.astro'), 'utf-8');
     assert.ok(aboutContent.includes('about.methodologyTitle'), 'AboutPage must render methodologyTitle');
     assert.ok(aboutContent.includes('about.methodologyIntro'), 'AboutPage must render methodologyIntro');
     assert.ok(aboutContent.includes('about.methodologyPoint1'), 'AboutPage must render methodologyPoint1');
     assert.ok(aboutContent.includes('about.methodologyPoint4'), 'AboutPage must render methodologyPoint4');
+    assert.ok(aboutContent.includes("'@type': 'FAQPage'"), 'AboutPage must include FAQPage schema');
+    assert.ok(aboutContent.includes("'@type': 'WebSite'"), 'AboutPage must include WebSite schema');
+    assert.ok(aboutContent.includes("'@type': 'Organization'"), 'AboutPage must include Organization schema');
+    assert.ok(aboutContent.includes('about-faq-heading'), 'AboutPage must render visible FAQ section');
+  });
+
+  it('LabPage has WebSite, Organization, TechArticle schemas, and multimodal favicon alts', () => {
+    const labContent = readFileSync(resolve(ROOT, 'src/components/LabPage.astro'), 'utf-8');
+    assert.ok(labContent.includes("'@type': 'WebSite'"), 'LabPage must include WebSite schema');
+    assert.ok(labContent.includes("'@type': 'Organization'"), 'LabPage must include Organization schema');
+    assert.ok(labContent.includes("'@type': 'TechArticle'"), 'LabPage must include TechArticle schema');
+    assert.ok(labContent.includes('dateModified: labModifiedDate'), 'LabPage must include dateModified');
+    assert.ok(labContent.includes("alt={`${item.tool.name} icon`}"), 'LabPage tool icons must have descriptive alt');
+    assert.ok(labContent.includes('width="24"'), 'LabPage tool icons must declare width');
+    assert.ok(labContent.includes('height="24"'), 'LabPage tool icons must declare height');
+  });
+
+  it('WorkflowPage has HowTo, FAQPage, WebSite, Organization schemas, and multimodal favicon alts', () => {
+    const workflowContent = readFileSync(resolve(ROOT, 'src/components/WorkflowPage.astro'), 'utf-8');
+    assert.ok(workflowContent.includes("'@type': 'HowTo'"), 'WorkflowPage must include HowTo schema');
+    assert.ok(workflowContent.includes("'@type': 'FAQPage'"), 'WorkflowPage must include FAQPage schema');
+    assert.ok(workflowContent.includes("'@type': 'WebSite'"), 'WorkflowPage must include WebSite schema');
+    assert.ok(workflowContent.includes("'@type': 'Organization'"), 'WorkflowPage must include Organization schema');
+    assert.ok(workflowContent.includes('dateModified: workflowDate'), 'WorkflowPage must include dateModified');
+    assert.ok(workflowContent.includes("alt={`${step.toolName} icon`}"), 'WorkflowPage step icons must have descriptive alt');
+    assert.ok(workflowContent.includes('width="16"'), 'WorkflowPage icons must declare width');
+    assert.ok(workflowContent.includes('height="16"'), 'WorkflowPage icons must declare height');
+  });
+
+  it('BadgeInfoPage has WebSite, Organization, FAQPage, HowTo schemas, and multimodal favicon alts', () => {
+    const badgeContent = readFileSync(resolve(ROOT, 'src/components/BadgeInfoPage.astro'), 'utf-8');
+    assert.ok(badgeContent.includes("'@type': 'WebSite'"), 'BadgeInfoPage must include WebSite schema');
+    assert.ok(badgeContent.includes("'@type': 'Organization'"), 'BadgeInfoPage must include Organization schema');
+    assert.ok(badgeContent.includes("'@type': 'FAQPage'"), 'BadgeInfoPage must include FAQPage schema');
+    assert.ok(badgeContent.includes("'@type': 'HowTo'"), 'BadgeInfoPage must include HowTo schema');
+    assert.ok(badgeContent.includes("alt={`${tool.name} icon`}"), 'Badge exhibitor icons must have descriptive alt');
+    assert.ok(badgeContent.includes('width="16"'), 'Badge exhibitor icons must declare width');
+    assert.ok(badgeContent.includes('height="16"'), 'Badge exhibitor icons must declare height');
+  });
+
+  it('FinderPage has zero-cost badge diversification to prevent keyword stuffing', () => {
+    const finderContent = readFileSync(resolve(ROOT, 'src/components/FinderPage.astro'), 'utf-8');
+    assert.ok(finderContent.includes("t(locale, 'finder.badge.zeroCost')"), 'FinderPage tool card must use zeroCost badge to avoid keyword stuffing');
+    assert.ok(finderContent.includes("alt={`${tool.name} icon`}"), 'FinderPage tool icons must have descriptive alt');
+    assert.ok(finderContent.includes('width="20"'), 'FinderPage tool icons must declare width');
+    assert.ok(finderContent.includes('height="20"'), 'FinderPage tool icons must declare height');
+    assert.ok(finderContent.includes("'@type': 'FAQPage'"), 'FinderPage must declare FAQPage schema');
   });
 
   it('NotFoundPage renders Popular Categories and Featured Tools recovery paths', () => {

@@ -181,10 +181,13 @@ function expectedSchemaTypes(url) {
   if (/^\/blog\/[^/]+\/?$/.test(path)) return ['BlogPosting'];
   if (/^\/blog\/?$/.test(path)) return ['Blog'];
   if (/^\/category\/[^/]+\/?$/.test(path)) return ['CollectionPage'];
-  if (/^\/about\/?$/.test(path)) return ['Organization'];
+  if (/^\/about\/?$/.test(path)) return ['Organization', 'WebSite', 'FAQPage'];
   if (/^\/submit\/?$/.test(path)) return ['BreadcrumbList'];
-  if (/^\/badge\/?$/.test(path)) return ['FAQPage', 'HowTo'];
+  if (/^\/badge\/?$/.test(path)) return ['FAQPage', 'HowTo', 'WebSite', 'Organization'];
   if (/^\/badge\/[^/]+\/?$/.test(path)) return ['BreadcrumbList'];
+  if (/^\/finder\/?$/.test(path)) return ['WebPage', 'WebSite', 'Organization', 'FAQPage'];
+  if (/^\/lab\/?$/.test(path)) return ['TechArticle', 'WebSite', 'Organization'];
+  if (/^\/workflow\/[^/]+\/?$/.test(path)) return ['HowTo', 'WebSite', 'Organization', 'FAQPage'];
   return [];
 }
 
@@ -198,6 +201,8 @@ const REQUIRED_SCHEMA_FIELDS = {
   BreadcrumbList: ['itemListElement'],
   FAQPage: ['mainEntity'],
   HowTo: ['name', 'step'],
+  TechArticle: ['headline'],
+  WebPage: ['name', 'description'],
 };
 
 /**
@@ -277,6 +282,22 @@ export function validateHtmlSeo(html, url) {
     } catch (err) {
       errors.push(`[${url}] Invalid JSON-LD schema syntax: ${err.message}`);
     }
+  }
+
+  // 6. Multimodal Image Alt Quality Check
+  const imgRegex = /<img\b([^>]*?)>/gi;
+  let imgMatch;
+  let missingAltCount = 0;
+  let totalImgCount = 0;
+  while ((imgMatch = imgRegex.exec(html)) !== null) {
+    totalImgCount++;
+    const attrs = imgMatch[1];
+    if (!/\balt=["']/i.test(attrs)) {
+      missingAltCount++;
+    }
+  }
+  if (missingAltCount > 0) {
+    warnings.push(`[${url}] Multimodal warning: ${missingAltCount}/${totalImgCount} <img> tags missing alt attribute`);
   }
 
   const expectedTypes = expectedSchemaTypes(url);
@@ -496,6 +517,9 @@ export async function runDiscoveryAudit(options = {}) {
           'GPTBot',
           'ClaudeBot',
           'PerplexityBot',
+          'Google-Extended',
+          'Applebot-Extended',
+          'Meta-ExternalAgent',
         ]) {
           if (!body.includes(directive)) errors.push(`[${url}] Missing crawler directive: ${directive}`);
         }
@@ -503,14 +527,40 @@ export async function runDiscoveryAudit(options = {}) {
         for (const directive of ['Allow-Training', 'Allow-Inference', 'Allow-Citations']) {
           if (!body.includes(directive)) errors.push(`[${url}] Missing AI policy directive: ${directive}`);
         }
+      } else if (kind === 'ai-faq') {
+        try {
+          const parsed = JSON.parse(body);
+          if (!Array.isArray(parsed) && !Array.isArray(parsed.faqs)) {
+            errors.push(`[${url}] AI FAQ endpoint must contain a list of FAQs`);
+          }
+        } catch {
+          errors.push(`[${url}] AI discovery endpoint returned invalid JSON`);
+        }
+      } else if (kind === 'ai-summary') {
+        try {
+          const parsed = JSON.parse(body);
+          if (!parsed.name && !parsed.title) {
+            errors.push(`[${url}] AI summary endpoint missing name or title attribute`);
+          }
+        } catch {
+          errors.push(`[${url}] AI discovery endpoint returned invalid JSON`);
+        }
       } else if (kind.startsWith('ai-')) {
         try {
           JSON.parse(body);
         } catch {
           errors.push(`[${url}] AI discovery endpoint returned invalid JSON`);
         }
-      } else if (!/^#\s+\S+/m.test(body)) {
-        errors.push(`[${url}] LLM discovery document is missing a Markdown title`);
+      } else if (kind.startsWith('llms')) {
+        if (!/^#\s+\S+/m.test(body)) {
+          errors.push(`[${url}] LLM discovery document is missing a Markdown title`);
+        }
+        if (!/^##\s+\S+/m.test(body)) {
+          errors.push(`[${url}] LLM discovery document is missing H2 section headers`);
+        }
+        if (!body.includes('https://nologin.tools/')) {
+          errors.push(`[${url}] LLM discovery document contains no nologin.tools resource links`);
+        }
       }
     } catch (err) {
       errors.push(`[${url}] Discovery resource fetch failed: ${err.message}`);
