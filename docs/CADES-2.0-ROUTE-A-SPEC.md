@@ -39,9 +39,10 @@ flowchart TD
 
     Route_A --> E[Level 3: Multimodal Cognitive Evaluation]
     E --> F["Anti-Inflation 5D Calibration (0-100)"]
-    F --> G["Grounded Editorial Review (ZH / EN)"]
-    G --> H["dogfood-session.mjs finish --sync"]
-    H --> I[src/data/tool-editorial.json Updated]
+    F --> G["Grounded Editorial Baseline (EN / ZH)"]
+    G --> H["Automated 8-Locale Pipeline (ja, ko, es, fr, de, pt)"]
+    H --> I["dogfood-session.mjs finish --sync"]
+    I --> J[src/data/tool-editorial.json (All 8 Locales)]
 ```
 
 ---
@@ -270,6 +271,17 @@ To ensure reviews sound authentic, critical, and authoritative rather than like 
      - Numerical measurements: latency in ms, payload sizes in KB/MB, frame counts, error lines.
      - Concrete technical APIs/formats: `IndexedDB`, `LocalStorage`, `WebAssembly`, `Canvas`, `SVG`, `PNG`, `Magic Bytes`, `ServiceWorker`.
      - Exact UI elements observed: modal names, button labels, dropdown choices.
+
+### 6.2 Full 8-Locale Editorial Expansion Pipeline
+
+To uphold equal localized user experiences across all supported directory locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`), CADES 2.0 mandates full editorial parity in `src/data/tool-editorial.json`:
+1. **Authoring Decoupling**: The reviewing Agent authors the primary empirical ground truth in English (`en`) and Chinese (`zh`), ensuring direct human/agent cognitive accountability over score calibration, privacy analysis, and grounded metrics.
+2. **Automated Multi-Locale Expansion**: Upon executing `dogfood-session.mjs finish <slug> --eval <payload> --sync`, the system automatically expands the validated ground truth into the remaining 6 supported locales (`ja`, `ko`, `es`, `fr`, `de`, `pt`).
+3. **Preservation Invariants**:
+   - The 5D Product Score (`productScore`) and tier (`verdictTier`) are immutable across all 8 locales.
+   - Tested timestamp (`testedAt`) and alternative tools (`alternativeTo`) remain strictly synchronized.
+   - Empirical measurements (latency in ms, byte sizes, CLS, payload counts) and technical terminology (`IndexedDB`, `WebAssembly`, etc.) are preserved verbatim across all language records.
+   - Localized detail pages (`/{lang}/tool/{slug}`) render complete, native editorial appraisals with zero fallback degradation to English.
 
 ---
 

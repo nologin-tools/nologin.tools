@@ -4,7 +4,7 @@ description: >-
   Agent-led CADES 2.0 evaluation for nologin.tools. Use to operate a tool through
   a stateful browser session, inspect screenshots, exercise real fixtures, verify
   export artifacts, assess observed data flow, calibrate the 5D score, and sync a
-  grounded bilingual editorial record.
+  grounded 8-locale editorial record.
 ---
 
 # Tool Evaluation
@@ -18,7 +18,7 @@ Follow [`../../../docs/CADES-2.0-ROUTE-A-SPEC.md`](../../../docs/CADES-2.0-ROUTE
 - Use `view_image` on every screenshot used as evidence.
 - Network hooks observe traffic after navigation and during tested actions. “No payload egress observed” only describes that bounded observation; it does not prove local-only architecture, offline support, lack of server processing, or data-retention policy.
 - Do not synchronize heuristic output from the auxiliary rolling probe.
-- `finish --sync` requires a valid bilingual evaluation. If validation fails, leave the session open, correct the payload, and retry.
+- `finish --sync` requires a valid evaluation baseline (EN/ZH), which the system automatically expands and validates across all 8 supported locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`). If validation fails, leave the session open, correct the payload, and retry.
 
 ## Stateful protocol
 
@@ -96,7 +96,7 @@ Finalize and synchronize:
 node scripts/lab/dogfood-session.mjs finish "<slug>" --eval "/tmp/eval-<slug>.json" --sync
 ```
 
-Confirm the command succeeds and `src/data/tool-editorial.json` contains both English and Chinese records. A contradictory privacy verdict is rejected.
+Confirm the command succeeds and `src/data/tool-editorial.json` contains synchronized records across all 8 supported locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`). A contradictory privacy verdict is rejected.
 
 ## Auxiliary regression scan
 

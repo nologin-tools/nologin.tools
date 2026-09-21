@@ -1122,6 +1122,30 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         testedAt
       };
 
+      // Support and synchronize any extended locales (ja, ko, es, fr, de, pt)
+      const extendedLocales = ['ja', 'ko', 'es', 'fr', 'de', 'pt'];
+      for (const loc of extendedLocales) {
+        const customBlock = evalData[loc];
+        if (customBlock && typeof customBlock === 'object') {
+          editorial[slug][loc] = {
+            bestFor: customBlock.bestFor,
+            pros: customBlock.pros,
+            cons: customBlock.cons,
+            privacyVerdict: customBlock.privacyVerdict,
+            alternativeTo: normalizeAlts(customBlock.alternativeTo, editorial[slug]?.en?.alternativeTo || []),
+            productScore: evalData.productScore,
+            verdictTier,
+            benchmarkNotes: customBlock.benchmarkNotes,
+            testedAt
+          };
+        } else if (editorial[slug][loc]) {
+          // Keep existing extended locale block strictly synchronized with canonical score
+          editorial[slug][loc].productScore = evalData.productScore;
+          editorial[slug][loc].verdictTier = verdictTier;
+          editorial[slug][loc].testedAt = testedAt;
+        }
+      }
+
       writeFileSync(EDITORIAL_PATH, JSON.stringify(editorial, null, 2) + '\n', 'utf-8');
       console.log(`\n💾 Successfully synced Route A evaluation into ${EDITORIAL_PATH} for [${slug}]!`);
     } catch (err) {

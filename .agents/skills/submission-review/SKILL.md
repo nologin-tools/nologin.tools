@@ -3,7 +3,7 @@ name: submission-review
 description: >-
   Review pending nologin.tools submissions and edit suggestions. Applies domain and
   spam gates, delegates hands-on testing to tool-evaluation, prepares metadata,
-  taxonomy, bilingual editorial and seven-locale translations, then performs an
+  taxonomy, full 8-locale editorial and seven-locale translations, then performs an
   atomic approval through the canonical review API.
 ---
 
@@ -37,7 +37,7 @@ For every candidate that survives hard gates, execute the complete `tool-evaluat
 
 - core task completed without mandatory login;
 - no bait-and-switch export wall or forced commercial watermark;
-- grounded bilingual evaluation synchronized successfully;
+- grounded 8-locale evaluation synchronized successfully;
 - score at least 70.
 
 Do not infer local-only processing solely from a run with no captured payload request.
