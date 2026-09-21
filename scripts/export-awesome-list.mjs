@@ -162,22 +162,53 @@ async function run() {
     return;
   }
 
-  const token = process.env.PAT_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
+  let token = process.env.PAT_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
   if (!token) {
-    console.warn('[export] Neither PAT_GITHUB_TOKEN nor GITHUB_TOKEN configured. Skipping push to GitHub.');
+    try {
+      token = execSync('gh auth token', { encoding: 'utf8' }).trim();
+      if (token) console.log('[export] Using authenticated token via `gh auth token`');
+    } catch {}
+  }
+  if (!token) {
+    console.warn('[export] Neither PAT_GITHUB_TOKEN, GITHUB_TOKEN, nor `gh auth token` available. Skipping push to GitHub.');
     return;
   }
 
   const repo = 'nologin-tools/awesome-nologin-tools';
   const filesUpdated = [];
 
-  const jsonResult = await pushToGithub(token, repo, 'tools.json', toolsJson);
-  if (jsonResult.updated) filesUpdated.push('tools.json');
+  try {
+    const jsonResult = await pushToGithub(token, repo, 'tools.json', toolsJson);
+    if (jsonResult.updated) filesUpdated.push('tools.json');
 
-  const readmeResult = await pushToGithub(token, repo, 'README.md', readme);
-  if (readmeResult.updated) filesUpdated.push('README.md');
+    const readmeResult = await pushToGithub(token, repo, 'README.md', readme);
+    if (readmeResult.updated) filesUpdated.push('README.md');
 
-  console.log(`[export] Completed export: files updated: ${JSON.stringify(filesUpdated)}`);
+    console.log(`[export] Completed export: files updated: ${JSON.stringify(filesUpdated)}`);
+
+    // Record export to D1
+    try {
+      const nowSec = Math.floor(Date.now() / 1000);
+      const filesJson = JSON.stringify(filesUpdated).replace(/'/g, "''");
+      execSync(
+        `npx wrangler d1 execute nologin-tools-db --remote --command="INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status) VALUES (${nowSec}, ${approvedTools.length}, '${filesJson}', 'manual', 'success');" --yes`,
+        { cwd: ROOT_DIR, stdio: 'pipe' }
+      );
+      console.log('[export] Recorded export event to D1 data_exports table.');
+    } catch (e) {
+      console.warn('[export] Could not record export to D1:', e.message);
+    }
+  } catch (err) {
+    try {
+      const nowSec = Math.floor(Date.now() / 1000);
+      const errClean = (err.message || '').replace(/'/g, "''").slice(0, 500);
+      execSync(
+        `npx wrangler d1 execute nologin-tools-db --remote --command="INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (${nowSec}, ${approvedTools.length}, '[]', 'manual', 'error', '${errClean}');" --yes`,
+        { cwd: ROOT_DIR, stdio: 'pipe' }
+      );
+    } catch {}
+    throw err;
+  }
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
