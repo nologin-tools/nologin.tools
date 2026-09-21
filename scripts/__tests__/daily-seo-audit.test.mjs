@@ -168,6 +168,10 @@ describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
       '/robots.txt': 'Sitemap: https://nologin.tools/sitemap.xml\nllms-txt: https://nologin.tools/llms.txt\nGPTBot\nClaudeBot\nPerplexityBot',
       '/llms.txt': '# nologin.tools',
       '/llms-full.txt': '# nologin.tools full index',
+      '/.well-known/ai.txt': 'Allow-Training: yes\nAllow-Inference: yes\nAllow-Citations: yes',
+      '/ai/summary.json': '{"name":"nologin.tools","description":"desc"}',
+      '/ai/faq.json': '{"faqs":[]}',
+      '/ai/service.json': '{"capabilities":[]}',
     };
     const result = await runDiscoveryAudit({
       fetchImpl: async (url) => new Response(bodies[new URL(url).pathname], { status: 200 })

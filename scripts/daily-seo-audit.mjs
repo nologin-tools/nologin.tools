@@ -470,6 +470,10 @@ export async function runDiscoveryAudit(options = {}) {
     ['https://nologin.tools/robots.txt', 'robots'],
     ['https://nologin.tools/llms.txt', 'llms'],
     ['https://nologin.tools/llms-full.txt', 'llms-full'],
+    ['https://nologin.tools/.well-known/ai.txt', 'ai-txt'],
+    ['https://nologin.tools/ai/summary.json', 'ai-summary'],
+    ['https://nologin.tools/ai/faq.json', 'ai-faq'],
+    ['https://nologin.tools/ai/service.json', 'ai-service'],
   ];
 
   for (const [url, kind] of targets) {
@@ -494,6 +498,16 @@ export async function runDiscoveryAudit(options = {}) {
           'PerplexityBot',
         ]) {
           if (!body.includes(directive)) errors.push(`[${url}] Missing crawler directive: ${directive}`);
+        }
+      } else if (kind === 'ai-txt') {
+        for (const directive of ['Allow-Training', 'Allow-Inference', 'Allow-Citations']) {
+          if (!body.includes(directive)) errors.push(`[${url}] Missing AI policy directive: ${directive}`);
+        }
+      } else if (kind.startsWith('ai-')) {
+        try {
+          JSON.parse(body);
+        } catch {
+          errors.push(`[${url}] AI discovery endpoint returned invalid JSON`);
         }
       } else if (!/^#\s+\S+/m.test(body)) {
         errors.push(`[${url}] LLM discovery document is missing a Markdown title`);
