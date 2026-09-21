@@ -69909,6 +69909,150 @@
       "verdictTier": "capable-utility",
       "benchmarkNotes": "对 480+ 款蛋白粉配方进行组合筛选与排序，交互响应时间低于 100ms，页面布局无偏移。",
       "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "480 以上のインデックス付きブランド間でプロテイン パウダーのコスト効率と製剤の純度を比較します。",
+      "pros": [
+        "480 以上のプロテインパウダーにわたるクライアント側の即時検索とフィルタリング",
+        "透明性の高いコスト内訳をプロテイン 25g あたりのドルに正規化",
+        "完全な栄養指標を検査するためのログインや個人アカウントは不要です"
+      ],
+      "cons": [
+        "栄養士向けの構造化された CSV または JSON 一括エクスポート オプションがない"
+      ],
+      "privacyVerdict": "アカウント登録や個人認証情報の交換は必要ありません。クエリとフィルター状態はブラウザーで適切に実行されます。",
+      "benchmarkNotes": "100 ミリ秒未満の応答時間とゼロのレイアウト シフトを備えた 480 以上のタンパク質配合物をフィルターおよびソートしました。",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "480개 이상의 지수 브랜드에 걸쳐 단백질 파우더 비용 효율성과 제제 순도를 비교합니다.",
+      "pros": [
+        "480개 이상의 단백질 파우더에 대한 즉각적인 클라이언트 측 검색 및 필터링",
+        "투명한 비용 분석은 단백질 25g당 달러로 정규화되었습니다.",
+        "전체 영양 지표를 검사하기 위해 로그인이나 개인 계정이 필요하지 않습니다."
+      ],
+      "cons": [
+        "영양사를 위한 구조화된 CSV 또는 JSON 대량 내보내기 옵션이 없습니다."
+      ],
+      "privacyVerdict": "계정 등록이나 개인 자격 증명 교환이 필요하지 않습니다. 쿼리와 필터 상태는 브라우저에서 깔끔하게 실행됩니다.",
+      "benchmarkNotes": "응답 시간이 100ms 미만이고 레이아웃 변화가 전혀 없는 480개 이상의 단백질 제제를 필터링하고 분류했습니다.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Comparación de la rentabilidad de la proteína en polvo y la pureza de la formulación en más de 480 marcas indexadas.",
+      "pros": [
+        "Búsqueda y filtrado instantáneos del lado del cliente en más de 480 proteínas en polvo",
+        "Desglose de costos transparente normalizado a dólares por 25 g de proteína",
+        "No es necesario iniciar sesión ni tener una cuenta personal para inspeccionar las métricas nutricionales completas"
+      ],
+      "cons": [
+        "No hay opción de exportación masiva estructurada en CSV o JSON para nutricionistas"
+      ],
+      "privacyVerdict": "No se requiere registro de cuenta ni intercambio de credenciales personales; Las consultas y los estados de filtro se ejecutan limpiamente en el navegador.",
+      "benchmarkNotes": "Más de 480 formulaciones de proteínas filtradas y clasificadas con un tiempo de respuesta inferior a 100 ms y cero cambios de diseño.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Comparaison de la rentabilité des poudres de protéines et de la pureté des formulations parmi plus de 480 marques indexées.",
+      "pros": [
+        "Recherche et filtrage instantanés côté client parmi plus de 480 poudres de protéines",
+        "Répartition transparente des coûts normalisée en dollars pour 25 g de protéines",
+        "Aucune exigence de connexion ou de compte personnel pour inspecter les mesures nutritionnelles complètes"
+      ],
+      "cons": [
+        "Aucune option d'exportation groupée CSV ou JSON structurée pour les nutritionnistes"
+      ],
+      "privacyVerdict": "Aucune inscription de compte ni échange d'informations d'identification personnelles n'est requis ; les requêtes et les états de filtre s'exécutent proprement dans le navigateur.",
+      "benchmarkNotes": "Plus de 480 formulations de protéines filtrées et triées avec un temps de réponse inférieur à 100 ms et un décalage de disposition nul.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Vergleich der Kosteneffizienz von Proteinpulver und der Reinheit der Formulierung bei mehr als 480 indizierten Marken.",
+      "pros": [
+        "Sofortige kundenseitige Suche und Filterung von über 480 Proteinpulvern",
+        "Transparente Kostenaufschlüsselung, normiert auf Dollar pro 25 g Protein",
+        "Keine Anmeldung oder kein persönliches Konto erforderlich, um die vollständigen Nährwertkennzahlen einzusehen"
+      ],
+      "cons": [
+        "Keine strukturierte CSV- oder JSON-Massenexportoption für Ernährungsberater"
+      ],
+      "privacyVerdict": "Keine Kontoregistrierung oder Austausch persönlicher Zugangsdaten erforderlich; Abfragen und Filterzustände werden im Browser sauber ausgeführt.",
+      "benchmarkNotes": "Gefilterte und sortierte über 480 Proteinformulierungen mit einer Reaktionszeit von unter 100 ms und ohne Layoutverschiebung.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Comparando a eficiência de custo da proteína em pó e a pureza da formulação em mais de 480 marcas indexadas.",
+      "pros": [
+        "Pesquisa instantânea do lado do cliente e filtragem em mais de 480 proteínas em pó",
+        "Repartição transparente de custos normalizada para dólares por 25g de proteína",
+        "Nenhum login ou exigência de conta pessoal para inspecionar métricas nutricionais completas"
+      ],
+      "cons": [
+        "Nenhuma opção estruturada de exportação em massa de CSV ou JSON para nutricionistas"
+      ],
+      "privacyVerdict": "Não é necessário registro de conta ou troca de credenciais pessoais; consultas e estados de filtro são executados de forma limpa no navegador.",
+      "benchmarkNotes": "Mais de 480 formulações de proteínas filtradas e classificadas com tempo de resposta inferior a 100 ms e zero mudança de layout.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
     }
   },
   "claude-resets-com": {
@@ -69958,6 +70102,150 @@
       },
       "verdictTier": "capable-utility",
       "benchmarkNotes": "在 50ms 内快速渲染实时重置倒计时及 11 轮历史数据，无任何登录门槛与弹窗干扰。",
+      "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "Anthropic Claude Code のレート制限リセット サイクルと履歴間隔をリアルタイムで追跡します。",
+      "pros": [
+        "クロード コードの使用量リセットのライブ カウントダウンと履歴スコアカード",
+        "ステータスのクリップボードの即時コピーと機械可読の summary.json フィード",
+        "ログインまたは API キーの送信は不要です"
+      ],
+      "cons": [
+        "運用範囲が狭い単一目的のトラッカー"
+      ],
+      "privacyVerdict": "ユーザー登録、Cookie、または個人認証情報の交換なしで動作します。リセットデータはパブリックに取得されます。",
+      "benchmarkNotes": "ライブ リセット カウントダウンと 11 の追跡された間隔を 50 ミリ秒未満で認証フリクションなしでレンダリングしました。",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "Anthropic Claude Code 비율 제한 재설정 주기 및 기록 간격을 실시간으로 추적합니다.",
+      "pros": [
+        "Claude Code 사용 재설정에 대한 실시간 카운트다운 및 기록 스코어카드",
+        "즉각적인 상태 클립보드 복사 및 기계가 읽을 수 있는 summary.json 피드",
+        "제로 로그인 또는 API 키 제출 필요"
+      ],
+      "cons": [
+        "작동 범위가 좁은 단일 목적 추적기"
+      ],
+      "privacyVerdict": "사용자 등록, 쿠키 또는 개인 자격 증명 교환 없이 작동합니다. 재설정 데이터는 공개적으로 가져옵니다.",
+      "benchmarkNotes": "인증 마찰 없이 50ms 이내에 라이브 재설정 카운트다운과 11개의 추적 간격을 렌더링했습니다.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Seguimiento de ciclos de restablecimiento de límite de tasa de Anthropic Claude Code e intervalos históricos en tiempo real.",
+      "pros": [
+        "Cuenta regresiva en vivo y cuadro de mando histórico para restablecer el uso del Código Claude",
+        "Copia instantánea del estado del portapapeles y feed resumen.json legible por máquina",
+        "Se requiere inicio de sesión cero o envío de clave API"
+      ],
+      "cons": [
+        "Rastreador de propósito único con alcance operativo limitado"
+      ],
+      "privacyVerdict": "Opera sin registro de usuario, cookies o intercambio de credenciales personales; Los datos de reinicio se obtienen públicamente.",
+      "benchmarkNotes": "Cuenta regresiva de reinicio en vivo y 11 intervalos rastreados en menos de 50 ms sin fricción de autenticación.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Suivi des cycles de réinitialisation des limites de taux d'Anthropic Claude Code et des intervalles historiques en temps réel.",
+      "pros": [
+        "Compte à rebours en direct et tableau de bord historique pour les réinitialisations d'utilisation de Claude Code",
+        "Copie instantanée du presse-papiers d'état et flux summary.json lisible par machine",
+        "Aucune connexion ou soumission de clé API requise"
+      ],
+      "cons": [
+        "Tracker à usage unique avec une portée opérationnelle étroite"
+      ],
+      "privacyVerdict": "Fonctionne sans enregistrement d'utilisateur, cookies ou échange d'informations d'identification personnelles ; les données de réinitialisation sont récupérées publiquement.",
+      "benchmarkNotes": "Compte à rebours de réinitialisation en direct et 11 intervalles suivis en moins de 50 ms sans friction d'authentification.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Verfolgen Sie Anthropic Claude Code-Rate-Limit-Reset-Zyklen und historische Intervalle in Echtzeit.",
+      "pros": [
+        "Live-Countdown und historische Scorecard für das Zurücksetzen der Claude-Code-Nutzung",
+        "Sofortige Kopie der Status-Zwischenablage und maschinenlesbarer summary.json-Feed",
+        "Keine Anmeldung oder Übermittlung eines API-Schlüssels erforderlich"
+      ],
+      "cons": [
+        "Einzweck-Tracker mit geringem Einsatzbereich"
+      ],
+      "privacyVerdict": "Funktioniert ohne Benutzerregistrierung, Cookies oder Austausch persönlicher Zugangsdaten; Reset-Daten werden öffentlich abgerufen.",
+      "benchmarkNotes": "Live-Reset-Countdown und 11 verfolgte Intervalle in weniger als 50 ms ohne Reibungsverlust bei der Authentifizierung gerendert.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Acompanhamento de ciclos de redefinição de limite de taxa do Código Claude Antrópico e intervalos históricos em tempo real.",
+      "pros": [
+        "Contagem regressiva ao vivo e scorecard histórico para redefinições de uso do Claude Code",
+        "Cópia instantânea da área de transferência de status e feed summary.json legível por máquina",
+        "Não é necessário fazer login ou enviar chave de API"
+      ],
+      "cons": [
+        "Rastreador de propósito único com escopo operacional estreito"
+      ],
+      "privacyVerdict": "Opera sem registro de usuário, cookies ou troca de credenciais pessoais; os dados de redefinição são obtidos publicamente.",
+      "benchmarkNotes": "Contagem regressiva de redefinição ao vivo renderizada e 11 intervalos rastreados em menos de 50 ms com zero atrito de autenticação.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
       "testedAt": "2026-09"
     }
   },
@@ -70009,6 +70297,150 @@
       "verdictTier": "capable-utility",
       "benchmarkNotes": "通过 DOM 卡片在 42 ms 内同步重算六家平台的抽成费率与净收益，布局偏移量为 0.00。",
       "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "6 つの主要な再販マーケットプレイスの販売者手数料と純支払額を同時に比較します。",
+      "pros": [
+        "eBay、Poshmark、Mercari、Depop、Etsy、Vinted の純支払額をリアルタイムで即時比較",
+        "調整可能な商品コスト、購入者/販売者の配送属性、カテゴリ料金のプリセット",
+        "ログインやクレジットカード認証なしで完全に動作します"
+      ],
+      "cons": [
+        "在庫会計用の CSV または PDF 請求書へのエクスポート機能がない"
+      ],
+      "privacyVerdict": "計算は価格入力時にクライアント側で実行されます。 Cookie 同意バナーは拒否でき、個人の販売者 ID は必要ありません。",
+      "benchmarkNotes": "DOM カード全体で 6 つのマーケットプレイスの支払い式を 0.00 のレイアウト シフトで 42 ミリ秒で再計算しました。",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "6개 주요 재판매 마켓플레이스의 판매자 수수료와 순 지급액을 동시에 비교합니다.",
+      "pros": [
+        "eBay, Poshmark, Mercari, Depop, Etsy 및 Vinted에 대한 즉각적인 실시간 순 지급 비교",
+        "조정 가능한 품목 비용, 구매자/판매자 배송 속성 및 카테고리 수수료 사전 설정",
+        "로그인이나 신용카드 확인 없이 완벽하게 작동합니다."
+      ],
+      "cons": [
+        "재고 회계를 위한 CSV 또는 PDF 송장으로 내보내기 기능이 부족합니다."
+      ],
+      "privacyVerdict": "가격 입력 시 클라이언트측에서 계산이 실행됩니다. 쿠키 동의 배너는 거부될 수 있으며 개인 판매자 신원은 필요하지 않습니다.",
+      "benchmarkNotes": "0.00 레이아웃 이동으로 42ms 만에 DOM 카드 전반에 걸쳐 6개의 마켓플레이스 지불 공식을 다시 계산했습니다.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Comparación de las tarifas del vendedor y los pagos netos en seis principales mercados de reventa simultáneamente.",
+      "pros": [
+        "Comparación instantánea de pagos netos en tiempo real en eBay, Poshmark, Mercari, Depop, Etsy y Vinted",
+        "Valores preestablecidos de costo de artículo, atribución de envío de comprador/vendedor y tarifa de categoría ajustables",
+        "Funciona completamente sin iniciar sesión ni verificar la tarjeta de crédito."
+      ],
+      "cons": [
+        "Carece de la función de exportación a CSV o PDF de factura para la contabilidad de inventario"
+      ],
+      "privacyVerdict": "Los cálculos se ejecutan del lado del cliente al momento de ingresar el precio; El banner de consentimiento de cookies se puede rechazar y no se requiere identidad personal del vendedor.",
+      "benchmarkNotes": "Se recalcularon seis fórmulas de pago del mercado en tarjetas DOM en 42 ms con un cambio de diseño de 0,00.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Comparaison simultanée des frais de vente et des paiements nets sur six principaux marchés de revente.",
+      "pros": [
+        "Comparaison instantanée des paiements nets en temps réel sur eBay, Poshmark, Mercari, Depop, Etsy et Vinted",
+        "Coût de l'article réglable, attribution d'expédition acheteur/vendeur et préréglages de frais de catégorie",
+        "Fonctionne complètement sans connexion ni vérification de carte de crédit"
+      ],
+      "cons": [
+        "Manque de fonction d'exportation vers une facture CSV ou PDF pour la comptabilité des stocks"
+      ],
+      "privacyVerdict": "Les calculs sont exécutés côté client lors de la saisie du prix ; La bannière de consentement aux cookies peut être rejetée et aucune identité personnelle du vendeur n'est requise.",
+      "benchmarkNotes": "Recalcul de six formules de paiement du marché sur les cartes DOM en 42 ms avec un décalage de mise en page de 0,00.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Vergleich der Verkäufergebühren und Nettoauszahlungen auf sechs großen Wiederverkaufsmarktplätzen gleichzeitig.",
+      "pros": [
+        "Sofortiger Vergleich der Nettoauszahlungen in Echtzeit bei eBay, Poshmark, Mercari, Depop, Etsy und Vinted",
+        "Anpassbare Artikelkosten, Käufer-/Verkäufer-Versandzuordnung und Voreinstellungen für Kategoriegebühren",
+        "Funktioniert komplett ohne Login oder Kreditkartenverifizierung"
+      ],
+      "cons": [
+        "Für die Bestandsbuchhaltung fehlt die Exportfunktion für Rechnungen im CSV- oder PDF-Format"
+      ],
+      "privacyVerdict": "Berechnungen werden kundenseitig bei der Preiseingabe ausgeführt; Das Cookie-Zustimmungsbanner kann abgelehnt werden und es ist keine persönliche Verkäuferidentität erforderlich.",
+      "benchmarkNotes": "Sechs Marktplatz-Auszahlungsformeln für alle DOM-Karten in 42 ms mit einer Layoutverschiebung von 0,00 neu berechnet.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Comparando taxas de vendedores e pagamentos líquidos em seis principais mercados de revenda simultaneamente.",
+      "pros": [
+        "Comparação instantânea de pagamentos líquidos em tempo real no eBay, Poshmark, Mercari, Depop, Etsy e Vinted",
+        "Custo ajustável do item, atribuição de envio do comprador/vendedor e predefinições de taxas de categoria",
+        "Funciona completamente sem login ou verificação de cartão de crédito"
+      ],
+      "cons": [
+        "Não possui recurso de exportação para fatura CSV ou PDF para contabilidade de estoque"
+      ],
+      "privacyVerdict": "Os cálculos são executados no lado do cliente na entrada do preço; o banner de consentimento de cookies pode ser rejeitado e nenhuma identidade pessoal do vendedor é necessária.",
+      "benchmarkNotes": "Recalculou seis fórmulas de pagamento do mercado em cartões DOM em 42 ms com mudança de layout de 0,00.",
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
     }
   },
   "leettranslator-com": {
@@ -70058,6 +70490,150 @@
       },
       "verdictTier": "capable-utility",
       "benchmarkNotes": "在 DOM 文本域内以低于 10 ms 的耗时完成 64 字符转换，页面布局偏移量为 0.00。",
+      "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "クライアント側の文字マッピングを使用した、普通の英語と 1337 leet speech の間の双方向変換。",
+      "pros": [
+        "双方向スワッピングによる入力時の遅延ゼロのリアクティブ翻訳",
+        "クラシック、中間、および極度のリート バリアント用に事前設定されたプリセット",
+        "貼り付けたテキストをネットワークに送信することなく、完全にデバイス上で動作します"
+      ],
+      "cons": [
+        "一括ファイルのバッチ処理を行わない単一タスクのテキスト ユーティリティ"
+      ],
+      "privacyVerdict": "すべてのテキスト変換ロジックは、ペイロードの出力やサーバー送信を行わずに、ブラウザーの JavaScript でローカルに実行されます。",
+      "benchmarkNotes": "0.00 CLS で 10 ミリ秒未満で、DOM テキストエリア全体で 64 の入力文字を 1337 のリート表現に変換しました。",
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "클라이언트측 문자 매핑을 사용하여 일반 영어와 1337 leet 간의 양방향 변환이 가능합니다.",
+      "pros": [
+        "양방향 교환을 통해 입력 시 대기 시간이 없는 반응형 번역",
+        "클래식, 중급, 익스트림 리트 변형을 위한 사전 구성된 사전 설정",
+        "붙여넣은 텍스트를 네트워크로 전송하지 않고 완전히 온디바이스에서 작동합니다."
+      ],
+      "cons": [
+        "대량 파일 일괄 처리가 필요 없는 단일 작업 텍스트 유틸리티"
+      ],
+      "privacyVerdict": "모든 텍스트 번역 로직은 페이로드 송신이나 서버 전송 없이 브라우저 JavaScript에서 로컬로 실행됩니다.",
+      "benchmarkNotes": "0.00 CLS를 사용하여 10ms 이내에 DOM 텍스트 영역 전체에서 64개의 입력 문자를 1337개의 leet 표현으로 변환했습니다.",
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Conversión bidireccional entre inglés simple y lenguaje 1337 mediante asignaciones de caracteres del lado del cliente.",
+      "pros": [
+        "Traducción reactiva de latencia cero mientras escribes con intercambio bidireccional",
+        "Ajustes preestablecidos preconfigurados para variantes de leet clásicas, intermedias y extremas",
+        "Funciona completamente en el dispositivo sin transmisión de red del texto pegado"
+      ],
+      "cons": [
+        "Utilidad de texto de tarea única sin procesamiento por lotes de archivos masivos"
+      ],
+      "privacyVerdict": "Toda la lógica de traducción de texto se ejecuta localmente en el JavaScript del navegador sin salida de carga útil ni transmisión al servidor.",
+      "benchmarkNotes": "Se transformó 64 caracteres de entrada a una representación de 1337 leet en áreas de texto DOM en menos de 10 ms con 0,00 CLS.",
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Conversion bidirectionnelle entre l'anglais simple et le 1337 leet à l'aide de mappages de caractères côté client.",
+      "pros": [
+        "Traduction réactive sans latence lors de la frappe avec échange bidirectionnel",
+        "Préréglages préconfigurés pour les variantes classiques, intermédiaires et extrêmes",
+        "Fonctionne entièrement sur l'appareil sans transmission réseau du texte collé"
+      ],
+      "cons": [
+        "Utilitaire de texte à tâche unique sans traitement par lots de fichiers en masse"
+      ],
+      "privacyVerdict": "Toute la logique de traduction de texte s'exécute localement dans le navigateur JavaScript sans sortie de charge utile ni transmission au serveur.",
+      "benchmarkNotes": "Transformation de 64 caractères d'entrée en représentation 1337 leet dans les zones de texte DOM en moins de 10 ms avec 0,00 CLS.",
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Bidirektionale Konvertierung zwischen einfachem Englisch und 1337 Leet Speak mithilfe clientseitiger Zeichenzuordnungen.",
+      "pros": [
+        "Reaktive Übersetzung ohne Latenz während der Eingabe mit bidirektionalem Austausch",
+        "Vorkonfigurierte Voreinstellungen für klassische, mittlere und extreme Leet-Varianten",
+        "Funktioniert vollständig auf dem Gerät, ohne Netzwerkübertragung von eingefügtem Text"
+      ],
+      "cons": [
+        "Einzeltask-Textdienstprogramm ohne Massenverarbeitung von Dateien"
+      ],
+      "privacyVerdict": "Die gesamte Textübersetzungslogik wird lokal im Browser-JavaScript ausgeführt, ohne dass Nutzdaten oder Serverübertragungen ausgehen.",
+      "benchmarkNotes": "64 Eingabezeichen wurden in weniger als 10 ms mit 0,00 CLS in 1337 Leet-Darstellungen über DOM-Textbereiche hinweg umgewandelt.",
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Conversão bidirecional entre inglês simples e 1337 leet speak usando mapeamentos de caracteres do lado do cliente.",
+      "pros": [
+        "Tradução reativa com latência zero enquanto você digita com troca bidirecional",
+        "Predefinições pré-configuradas para variantes clássicas, intermediárias e extremas",
+        "Opera inteiramente no dispositivo sem transmissão de texto colado pela rede"
+      ],
+      "cons": [
+        "Utilitário de texto de tarefa única sem processamento em lote de arquivos em massa"
+      ],
+      "privacyVerdict": "Toda a lógica de tradução de texto é executada localmente no JavaScript do navegador, sem saída de carga útil ou transmissão do servidor.",
+      "benchmarkNotes": "Transformados 64 caracteres de entrada em 1337 representações leet em áreas de texto DOM em menos de 10 ms com 0,00 CLS.",
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
       "testedAt": "2026-09"
     }
   },
@@ -70109,6 +70685,150 @@
       "verdictTier": "capable-utility",
       "benchmarkNotes": "在 52 ms 内完成大整数模算术求解并渲染出完整的小步大步对照表，页面布局无偏移。",
       "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "シャンクスのベイビーステップ ジャイアントステップ アルゴリズムを使用して、離散対数問題を段階的に解き、視覚化します。",
+      "pros": [
+        "シャンクスのベイビーステップ ジャイアントステップ アルゴリズムの段階的な視覚的導出",
+        "ランダム化された暗号パラメータ生成による BigInt 精度のサポート",
+        "方程式変数を送信せずに完全にクライアント側で実行します"
+      ],
+      "cons": [
+        "UI言語はネイティブの多言語切り替えなしのポーランド語です"
+      ],
+      "privacyVerdict": "暗号化方程式パラメーターと BigInt 計算は、バックエンドへの送信なしで純粋にクライアント側の JavaScript で実行されます。",
+      "benchmarkNotes": "BigInt モジュラー演算を実行し、レイアウト シフトなしで 52 ミリ秒で完全なベイビー ステップ/ジャイアント ステップ テーブルをレンダリングしました。",
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "Shanks의 baby-step Giant-Step 알고리즘을 사용하여 이산 로그 문제를 단계별로 해결하고 시각화합니다.",
+      "pros": [
+        "Shanks의 Baby-step Giant-Step 알고리즘의 단계별 시각적 도출",
+        "무작위 암호화 매개변수 생성을 통한 BigInt 정밀도 지원",
+        "방정식 변수를 전송하지 않고 완전히 클라이언트 측에서 실행됩니다."
+      ],
+      "cons": [
+        "UI 언어는 기본 다중 언어 토글 없이 폴란드어입니다."
+      ],
+      "privacyVerdict": "암호화 방정식 매개변수 및 BigInt 계산은 백엔드 전송 없이 클라이언트측 JavaScript에서만 실행됩니다.",
+      "benchmarkNotes": "BigInt 모듈식 연산을 실행하고 레이아웃 변경 없이 52ms 만에 완전한 베이비 스텝/자이언트 스텝 테이블을 렌더링했습니다.",
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Resolver y visualizar problemas de logaritmos discretos paso a paso utilizando el algoritmo de paso gigante de Shanks.",
+      "pros": [
+        "Derivación visual paso a paso del algoritmo de paso gigante de Shanks",
+        "Soporte de precisión BigInt con generación aleatoria de parámetros criptográficos",
+        "Se ejecuta completamente en el lado del cliente sin transmitir variables de ecuación"
+      ],
+      "cons": [
+        "El idioma de la interfaz de usuario es polaco sin alternancia nativa de varios idiomas"
+      ],
+      "privacyVerdict": "Los parámetros de ecuaciones criptográficas y los cálculos de BigInt se ejecutan exclusivamente en JavaScript del lado del cliente sin transmisión de backend.",
+      "benchmarkNotes": "Se ejecutó la aritmética modular de BigInt y se representó una tabla completa de pasos de bebé/pasos gigantes en 52 ms con cambio de diseño cero.",
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Résoudre et visualiser des problèmes de logarithme discret étape par étape à l'aide de l'algorithme à pas de géant de Shanks.",
+      "pros": [
+        "Dérivation visuelle étape par étape de l'algorithme à pas de géant de Shanks",
+        "Prise en charge de la précision BigInt avec génération aléatoire de paramètres cryptographiques",
+        "Fonctionne entièrement côté client sans transmettre de variables d'équation"
+      ],
+      "cons": [
+        "La langue de l'interface utilisateur est le polonais sans bascule multilingue native"
+      ],
+      "privacyVerdict": "Les paramètres d'équation cryptographique et les calculs BigInt s'exécutent uniquement en JavaScript côté client sans transmission backend.",
+      "benchmarkNotes": "Exécution de l'arithmétique modulaire BigInt et rendu d'un tableau complet baby-step/giant-step en 52 ms avec décalage de disposition nul.",
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Lösen und Visualisieren diskreter Logarithmusprobleme Schritt für Schritt mit dem Baby-Step-Giant-Step-Algorithmus von Shanks.",
+      "pros": [
+        "Schrittweise visuelle Ableitung des Baby-Step-Giant-Step-Algorithmus von Shanks",
+        "BigInt-Präzisionsunterstützung mit zufälliger Generierung kryptografischer Parameter",
+        "Läuft vollständig clientseitig, ohne die Übertragung von Gleichungsvariablen"
+      ],
+      "cons": [
+        "Die Sprache der Benutzeroberfläche ist Polnisch ohne native Mehrsprachenumschaltung"
+      ],
+      "privacyVerdict": "Kryptografische Gleichungsparameter und BigInt-Berechnungen werden ausschließlich in clientseitigem JavaScript ohne Backend-Übertragung ausgeführt.",
+      "benchmarkNotes": "Führte die modulare BigInt-Arithmetik aus und renderte die vollständige Baby-Step-/Giant-Step-Tabelle in 52 ms ohne Layoutverschiebung.",
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Resolvendo e visualizando problemas de logaritmo discreto passo a passo usando o algoritmo passo a passo gigante de Shanks.",
+      "pros": [
+        "Derivação visual passo a passo do algoritmo passo a passo gigante de Shanks",
+        "Suporte de precisão BigInt com geração aleatória de parâmetros criptográficos",
+        "Executa inteiramente no lado do cliente sem transmitir variáveis ​​de equação"
+      ],
+      "cons": [
+        "O idioma da interface do usuário é o polonês, sem alternância nativa de vários idiomas"
+      ],
+      "privacyVerdict": "Parâmetros de equações criptográficas e cálculos BigInt são executados exclusivamente em JavaScript do lado do cliente, sem transmissão de back-end.",
+      "benchmarkNotes": "Executou aritmética modular BigInt e renderizou tabela baby-step/giant-step completa em 52 ms com mudança de layout zero.",
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
     }
   },
   "currawongweb-com-verify-china-usci-checker": {
@@ -70158,6 +70878,150 @@
       },
       "verdictTier": "capable-utility",
       "benchmarkNotes": "在 DOM 节点中以 28 ms 的极低延迟完成 18 位代码校验及 ISO 7064 模算术推导，无任何网络外传。",
+      "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "中国統一社会信用識別子 (GB 32100-2015) の 18 文字の構造、権限コード、および mod-31 チェック ディジットを検証します。",
+      "pros": [
+        "GB 32100-2015 標準に準拠したクライアント側のチェック デジット検証",
+        "登録機関、事業体カテゴリー、地域区分の詳細な構造内訳",
+        "登録やクレジットカードを必要としない無料の即時認証"
+      ],
+      "cons": [
+        "有料の企業背景レポートの商用アップセル リンクが含まれています"
+      ],
+      "privacyVerdict": "検証アルゴリズムはブラウザの JavaScript で直接実行されます。テストされたコードは、サーバーに送信されずに、ローカル URL ハッシュ フラグメントにのみ保存されます。",
+      "benchmarkNotes": "ネットワーク ペイロード送信ゼロで、DOM ノード全体で 18 文字のコードを検証し、ISO 7064 チェック ディジットを 28 ミリ秒で計算しました。",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "중국 통합 사회 신용 식별자(GB 32100-2015)의 18자 구조, 인증 코드 및 mod-31 검사 숫자를 검증합니다.",
+      "pros": [
+        "GB 32100-2015 표준을 준수하는 클라이언트 측 검사 숫자 확인",
+        "등록 기관, 법인 카테고리, 지역 구분의 상세한 구조 분석",
+        "등록이나 신용 카드 요구 사항 없이 무료로 즉시 확인 가능"
+      ],
+      "cons": [
+        "유료 기업 배경 보고서에 대한 상업용 상향 판매 링크 포함"
+      ],
+      "privacyVerdict": "검증 알고리즘은 브라우저 JavaScript에서 직접 실행됩니다. 테스트된 코드는 서버 제출 없이 로컬 URL 해시 조각에만 저장됩니다.",
+      "benchmarkNotes": "네트워크 페이로드 송신 없이 28ms 만에 DOM 노드 전체에서 18자 코드를 검증하고 ISO 7064 검사 숫자를 계산했습니다.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Validación de la estructura de 18 caracteres, códigos de autoridad y dígito de control mod-31 de los identificadores de crédito social unificados chinos (GB 32100-2015).",
+      "pros": [
+        "Verificación del dígito de control del lado del cliente conforme al estándar GB 32100-2015",
+        "Desglose estructural detallado de la autoridad de registro, categoría de entidad y división regional",
+        "Verificación gratuita e instantánea sin registro ni requisito de tarjeta de crédito"
+      ],
+      "cons": [
+        "Incluye enlaces comerciales de ventas adicionales para informes de antecedentes corporativos pagos."
+      ],
+      "privacyVerdict": "Los algoritmos de validación se ejecutan directamente en JavaScript del navegador; El código probado se almacena solo en el fragmento hash de la URL local sin envío al servidor.",
+      "benchmarkNotes": "Código validado de 18 caracteres y dígito de control ISO 7064 calculado en nodos DOM en 28 ms sin salida de carga útil de red.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Validation de la structure à 18 caractères, des codes d'autorité et du chiffre de contrôle mod-31 des identifiants chinois unifiés de crédit social (GB 32100-2015).",
+      "pros": [
+        "Vérification des chiffres de contrôle côté client conformément à la norme GB 32100-2015",
+        "Répartition structurelle détaillée de l'autorité d'enregistrement, de la catégorie d'entité et de la division régionale",
+        "Vérification gratuite et instantanée sans inscription ni exigence de carte de crédit"
+      ],
+      "cons": [
+        "Comprend des liens de vente incitative pour des rapports de fond d'entreprise payants"
+      ],
+      "privacyVerdict": "Les algorithmes de validation s'exécutent directement dans le navigateur JavaScript ; le code testé est stocké uniquement dans le fragment de hachage d'URL local sans soumission au serveur.",
+      "benchmarkNotes": "Code validé à 18 caractères et chiffre de contrôle ISO 7064 calculé sur les nœuds DOM en 28 ms sans sortie de charge utile réseau.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Validierung der 18-stelligen Struktur, der Autoritätscodes und der Mod-31-Prüfziffer der chinesischen Unified Social Credit Identifiers (GB 32100-2015).",
+      "pros": [
+        "Kundenseitige Prüfziffernverifizierung gemäß der Norm GB 32100-2015",
+        "Detaillierte Strukturaufschlüsselung nach Registrierungsbehörde, Unternehmenskategorie und regionaler Aufteilung",
+        "Kostenlose und sofortige Verifizierung ohne Registrierung oder Kreditkartenpflicht"
+      ],
+      "cons": [
+        "Enthält kommerzielle Upsell-Links für kostenpflichtige Unternehmenshintergrundberichte"
+      ],
+      "privacyVerdict": "Validierungsalgorithmen werden direkt im Browser-JavaScript ausgeführt. Der getestete Code wird nur im lokalen URL-Hash-Fragment ohne Serverübermittlung gespeichert.",
+      "benchmarkNotes": "Validierter 18-stelliger Code und berechnete ISO 7064-Prüfziffer über DOM-Knoten hinweg in 28 ms ohne ausgehende Netzwerknutzlast.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Validando a estrutura de 18 caracteres, códigos de autoridade e dígito de verificação mod-31 dos Identificadores de Crédito Social Unificados Chineses (GB 32100-2015).",
+      "pros": [
+        "Verificação de dígitos de verificação do lado do cliente em conformidade com o padrão GB 32100-2015",
+        "Detalhamento estrutural detalhado da autoridade de registro, categoria de entidade e divisão regional",
+        "Verificação gratuita e instantânea sem necessidade de registro ou cartão de crédito"
+      ],
+      "cons": [
+        "Inclui links de upsell comerciais para relatórios de histórico corporativo pagos"
+      ],
+      "privacyVerdict": "Algoritmos de validação são executados diretamente no JavaScript do navegador; o código testado é armazenado apenas no fragmento de hash da URL local, sem envio do servidor.",
+      "benchmarkNotes": "Código validado de 18 caracteres e dígito de verificação ISO 7064 calculado em nós DOM em 28 ms com zero saída de carga útil da rede.",
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
       "testedAt": "2026-09"
     }
   },
