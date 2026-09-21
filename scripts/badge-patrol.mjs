@@ -48,7 +48,7 @@ export function stratifyOutreachCohorts(tools, notificationMap, activeExhibitorI
     }
 
     const notif = notificationMap.get(tool.id);
-    if (notif && notif.status === 'created') {
+    if (notif && (notif.status === 'created' || notif.status === 'disabled')) {
       alreadyNotified.push({ ...tool, issueUrl: notif.issueUrl });
       continue;
     }
@@ -303,7 +303,18 @@ async function runCli() {
           console.warn(`  ✗ Failed to create issue for ${tool.name}`);
         }
       } catch (err) {
-        console.error(`  ✗ Error creating issue: ${err.message}`);
+        if (err?.status === 410 || err?.message?.includes('410') || err?.message?.includes('Issues disabled')) {
+          console.warn(`  ℹ Issues are disabled on ${parsed.owner}/${parsed.repo}. Recording to D1...`);
+          const nowSec = Math.floor(Date.now() / 1000);
+          try {
+            execSync(
+              `npx wrangler d1 execute nologin-tools-db --remote --command="INSERT INTO github_notifications (tool_id, status, error_message, created_at) VALUES (${tool.id}, 'disabled', 'Issues disabled', ${nowSec});" --yes`,
+              { stdio: 'inherit' }
+            );
+          } catch (e) {}
+        } else {
+          console.error(`  ✗ Error creating issue: ${err.message}`);
+        }
       }
 
       // 2.5s delay between issues to prevent secondary rate limits
