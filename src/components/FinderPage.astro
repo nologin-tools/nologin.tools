@@ -122,6 +122,11 @@ const orgLd = {
     'https://x.com/nologin_tools',
     'https://github.com/nologin-tools',
   ],
+  knowsAbout: [
+    'Privacy Tools',
+    'No-Login Web Software',
+    'Client-Side Computing',
+  ],
 };
 
 const finderFaqs = [
@@ -432,7 +437,7 @@ const faqLd = {
               {tool.isFree && (
                 <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 bg-neutral-100 text-neutral-800 border border-neutral-900">
                   <span>🎁</span>
-                  <span>{t(locale, 'finder.filter.free')}</span>
+                  <span>{t(locale, 'finder.badge.zeroCost')}</span>
                 </span>
               )}
             </div>

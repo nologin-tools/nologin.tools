@@ -50,6 +50,52 @@ const localOnlyCount = auditedTools.filter((t) => t.isLocalOnly).length;
 const localRate = totalAudited > 0 ? Math.round((localOnlyCount / totalAudited) * 100) : 0;
 const avgScore = totalAudited > 0 ? (auditedTools.reduce((acc, t) => acc + t.productScore.overall, 0) / totalAudited).toFixed(1) : '0';
 
+const labModifiedDate = '2026-03-20T00:00:00.000Z';
+
+// Schema.org WebSite
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'nologin.tools',
+  url: 'https://nologin.tools',
+  description: 'Curated directory of verified privacy-friendly web tools that work without login or accounts.',
+  inLanguage: locale,
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+// Schema.org Organization
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  logo: 'https://nologin.tools/icon-192.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@nologin.tools',
+    contactType: 'editorial and privacy inquiries',
+  },
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+  ],
+  knowsAbout: [
+    'Privacy Tools',
+    'Browser Security',
+    'Client-Side Computing',
+    'Zero-Knowledge Web Applications',
+  ],
+};
+
 // Schema.org Structured Data
 const webPageLd = {
   '@context': 'https://schema.org',
@@ -59,6 +105,8 @@ const webPageLd = {
   url: `https://nologin.tools${canonicalPath}`,
   inLanguage: locale,
   proficiencyLevel: 'Expert',
+  datePublished: '2026-02-01T00:00:00.000Z',
+  dateModified: labModifiedDate,
   author: {
     '@type': 'Organization',
     name: 'NoLoginTools.org',
@@ -90,7 +138,10 @@ const breadcrumbLd = {
   title={pageTitle}
   description={pageDescription}
   locale={locale}
+  modifiedTime={labModifiedDate}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
 
@@ -361,7 +412,7 @@ const breadcrumbLd = {
                 <div class="flex items-start gap-3">
                   <img
                     src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
-                    alt=""
+                    alt={`${item.tool.name} icon`}
                     width="24"
                     height="24"
                     loading="lazy"

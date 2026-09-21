@@ -36,6 +36,45 @@ const pageTitle = t(locale, 'workflow.page.title', { title: recipe.title });
 const pageDescription = t(locale, 'workflow.page.description', { headline: recipe.headline });
 const canonicalPath = getLocalizedPath(`/workflow/${slug}`, locale);
 
+const workflowDate = '2026-03-20T00:00:00.000Z';
+
+// Schema.org WebSite
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'nologin.tools',
+  url: 'https://nologin.tools',
+  description: 'Curated directory of verified privacy-friendly web tools that work without login or accounts.',
+  inLanguage: locale,
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+// Schema.org Organization
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  logo: 'https://nologin.tools/icon-192.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@nologin.tools',
+    contactType: 'editorial and privacy inquiries',
+  },
+  sameAs: [
+    'https://github.com/nologin-tools',
+  ],
+};
+
 // Schema.org HowTo structured data
 const howToLd = {
   '@context': 'https://schema.org',
@@ -43,6 +82,14 @@ const howToLd = {
   name: recipe.title,
   description: recipe.headline,
   totalTime: `PT${parseInt(recipe.timeEstimate, 10) || 15}M`,
+  datePublished: '2026-01-15T00:00:00.000Z',
+  dateModified: workflowDate,
+  inLanguage: locale,
+  publisher: {
+    '@type': 'Organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
   tool: recipe.steps.map((s) => ({
     '@type': 'HowToTool',
     name: s.toolName,
@@ -97,7 +144,10 @@ const breadcrumbLd = {
   title={pageTitle}
   description={pageDescription}
   locale={locale}
+  modifiedTime={workflowDate}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(howToLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
@@ -186,7 +236,9 @@ const breadcrumbLd = {
                   <div class="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
                     <img
                       src={`https://www.google.com/s2/favicons?domain=${getHostname(step.toolUrl)}&sz=32`}
-                      alt=""
+                      alt={`${step.toolName} icon`}
+                      width="16"
+                      height="16"
                       class="w-4 h-4 rounded-none shrink-0"
                       loading="lazy"
                     />
@@ -256,7 +308,9 @@ const breadcrumbLd = {
                 >
                   <img
                     src={`https://www.google.com/s2/favicons?domain=${getHostname(step.toolUrl)}&sz=32`}
-                    alt=""
+                    alt={`${step.toolName} icon`}
+                    width="16"
+                    height="16"
                     class="w-4 h-4 rounded-none shrink-0"
                     loading="lazy"
                   />

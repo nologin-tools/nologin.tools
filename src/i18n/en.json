@@ -537,6 +537,7 @@
   "finder.empty.title": "No tools matched your criteria",
   "finder.empty.desc": "Try loosening your search query or unchecking some of the privacy/execution filters.",
   "finder.empty.reset": "Reset All Filters",
+  "finder.badge.zeroCost": "No Paywall",
   "finder.faq.heading": "Frequently Asked Questions",
   "finder.faq.q1": "How does the No-Login Tool Finder work?",
   "finder.faq.a1": "The Finder enables instant multi-criteria filtering across hundreds of verified privacy tools by category, local browser compute, offline readiness, and open-source licensing without signup.",

@@ -508,6 +508,7 @@
   "finder.empty.title": "未找到匹配条件的工具",
   "finder.empty.desc": "请尝试缩短搜索词，或取消勾选部分较为严苛的隐私/离线运行筛选条件。",
   "finder.empty.reset": "重置所有筛选",
+  "finder.badge.zeroCost": "无门槛",
   "finder.faq.heading": "常见问题解答",
   "finder.faq.q1": "免登录工具筛选器是如何运作的？",
   "finder.faq.a1": "筛选器支持根据工具分类、纯端侧本地运行、断网离线可用以及开源协议等多个维度对数百款隐私工具进行毫秒级过滤，全程无需注册账号。",
