@@ -48,6 +48,10 @@ await loadTranslations(locale);
 
     <form
       id="submit-form"
+      action="/api/submit"
+      method="POST"
+      toolname="submit-tool"
+      tooldescription="Submit a privacy-preserving account-free web tool to the directory for automated verification"
       data-success-url={getLocalizedPath('/submit/success', locale)}
       class="space-y-6"
       novalidate

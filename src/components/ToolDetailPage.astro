@@ -342,6 +342,53 @@ const faqLd = isVerified ? {
     },
   ],
 } : null;
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://nologin.tools/#website',
+  name: 'nologin.tools',
+  url: 'https://nologin.tools',
+  publisher: {
+    '@id': 'https://nologin.tools/#organization',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://nologin.tools/#organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://nologin.tools/og-default.png',
+    width: 1200,
+    height: 630,
+  },
+  description: t(locale, 'home.jsonLd.orgDescription'),
+  foundingDate: '2025',
+  areaServed: 'Worldwide',
+  email: 'contact@nologintools.org',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'contact@nologintools.org',
+    url: 'https://nologintools.org/about',
+  },
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+  ],
+};
 ---
 
 <Layout
@@ -350,11 +397,14 @@ const faqLd = isVerified ? {
   ogType="article"
   canonicalOverride={getToolCanonicalPath(slug, canonicalLocale)}
   publishedTime={approvedDate}
+  modifiedTime={approvedDate}
   ogImagePath={`/api/og/${slug}`}
   locale={locale}
   availableLocales={availableLocales}
   noindex={availableLocales ? !availableLocales.has(locale) : false}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
   {faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}

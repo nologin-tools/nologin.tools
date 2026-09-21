@@ -11,6 +11,8 @@ const ROOT = resolve(__dirname, '../..');
 const TOOL_DETAIL_PAGE = resolve(ROOT, 'src/components/ToolDetailPage.astro');
 const HOME_PAGE = resolve(ROOT, 'src/components/HomePage.astro');
 const CATEGORY_PAGE = resolve(ROOT, 'src/components/CategoryPage.astro');
+const FINDER_PAGE = resolve(ROOT, 'src/components/FinderPage.astro');
+const SUBMIT_PAGE = resolve(ROOT, 'src/components/SubmitPage.astro');
 const LAYOUT = resolve(ROOT, 'src/layouts/Layout.astro');
 
 describe('SEO & GEO: Structured Data & Semantic Markup', () => {
@@ -69,7 +71,29 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes("modifiedTime={latestCategoryDate}"), 'Layout must receive modifiedTime');
   });
 
-  it('Layout.astro includes standard SEO and GEO meta tags', () => {
+  it('ToolDetailPage has WebSite and Organization schemas', () => {
+    const content = readFileSync(TOOL_DETAIL_PAGE, 'utf-8');
+    assert.ok(content.includes("'@type': 'WebSite'"), 'ToolDetailPage must contain WebSite schema');
+    assert.ok(content.includes("'@type': 'Organization'"), 'ToolDetailPage must contain Organization schema');
+    assert.ok(content.includes("modifiedTime={approvedDate}"), 'ToolDetailPage must pass modifiedTime to Layout');
+  });
+
+  it('FinderPage has WebSite, Organization schemas and WebMCP search form', () => {
+    const content = readFileSync(FINDER_PAGE, 'utf-8');
+    assert.ok(content.includes("'@type': 'WebSite'"), 'FinderPage must contain WebSite schema');
+    assert.ok(content.includes("'@type': 'Organization'"), 'FinderPage must contain Organization schema');
+    assert.ok(content.includes('toolname="search-tools"'), 'FinderPage search form must declare WebMCP toolname');
+    assert.ok(content.includes('tooldescription="'), 'FinderPage search form must declare WebMCP tooldescription');
+  });
+
+  it('SubmitPage has WebMCP agent submission tool declaration', () => {
+    const content = readFileSync(SUBMIT_PAGE, 'utf-8');
+    assert.ok(content.includes('toolname="submit-tool"'), 'SubmitPage form must declare WebMCP toolname');
+    assert.ok(content.includes('action="/api/submit"'), 'SubmitPage form must declare action endpoint');
+    assert.ok(content.includes('method="POST"'), 'SubmitPage form must declare POST method');
+  });
+
+  it('Layout.astro includes standard SEO and GEO meta tags and OpenAPI link', () => {
     const content = readFileSync(LAYOUT, 'utf-8');
     assert.ok(content.includes('<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />'), 'Must set robots max-snippet');
     assert.ok(content.includes('<link rel="canonical" href={canonicalUrl} />'), 'Must include canonical URL');
@@ -77,6 +101,7 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('<meta property="og:image" content={ogImageUrl} />'), 'Must include OpenGraph image');
     assert.ok(content.includes('<meta name="twitter:card" content="summary_large_image" />'), 'Must include Twitter large card');
     assert.ok(content.includes('INDEXABLE_LOCALES.filter'), 'Must filter hreflang links to INDEXABLE_LOCALES to avoid noindex conflicts');
+    assert.ok(content.includes('href="/api/v1/openapi.json"'), 'Must link to OpenAPI specification for agent discovery');
   });
 
   it('tool-editorial.json has valid E-E-A-T reviews for at least 50 core tools', () => {
