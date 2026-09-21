@@ -1420,7 +1420,7 @@ async function main() {
             isVerbose,
             customTimeoutSec || 120,
             tool.slug,
-            tool.core_task || null
+            tool.coreTask || tool.core_task || null
           );
 
           if (report && report.evaluation) {
@@ -1432,7 +1432,7 @@ async function main() {
             if (report.evaluation.drift?.detected) {
               summary.drifts.push({
                 slug: tool.slug,
-                oldTask: tool.core_task,
+                oldTask: tool.coreTask || tool.core_task,
                 suggestedTask: report.evaluation.drift.suggestedTask
               });
             }
