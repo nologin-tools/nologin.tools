@@ -15,6 +15,18 @@
     {
       "question": "How can I embed a verification badge on my site?",
       "answer": "Verified tools can embed live status badges by visiting their tool detail page or badge page at https://nologin.tools/badge/ and copying the SVG embed snippet."
+    },
+    {
+      "question": "What are the best free no-login alternatives to Photoshop, Canva, Miro, and Google Docs?",
+      "answer": "Top verified no-login web workstations include: Photopea (for Adobe Photoshop PSD raster editing), Squoosh (for TinyPNG WebAssembly compression), Excalidraw (for Miro virtual whiteboarding with E2EE), Diagrams.net / draw.io (for Lucidchart and Visio architecture diagrams), and CryptPad / Dillinger (for Google Docs private markdown editing). All run in-browser without account creation."
+    },
+    {
+      "question": "Can I process confidential PDFs, images, and audio without uploading files to remote servers?",
+      "answer": "Yes. Tools tagged as 'Client-Side Only' on nologin.tools (such as BytePriva, Squoosh, AudioMass, and hat.sh) process 100% of data locally in browser memory via WebAssembly and Web Crypto APIs with zero network egress bytes."
+    },
+    {
+      "question": "How does NoLogin Lab calculate the 5D Product Power Score?",
+      "answer": "NoLogin Lab evaluates tools across 5 empirical dimensions (100-point scale): Frictionless UX (20), Functional Depth & Fidelity (25), Export Freedom (20), Privacy & Zero-Egress Sovereignty (20), and Stability & Polish (15). Tools scoring 90+ receive the Editor's Choice designation."
     }
   ]
 }
