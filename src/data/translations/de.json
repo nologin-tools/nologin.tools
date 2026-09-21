@@ -165,6 +165,11 @@
     "coreTask": "Quellenangaben prüfen, reale Datenbankeinträge abrufen und formatierte Zitate ohne Konto erstellen",
     "description": "CiteFetch gleicht wissenschaftliche Referenzen mit CrossRef und OpenAlex ab, weist auf fingierte oder fehlerhafte Quellen hin und formatiert Zitate in den gängigen Stilen. Kostenlos, werbefrei und ohne Account nutzbar."
   },
+  "claude-resets-com": {
+    "_hash": "a98827949e5991ab",
+    "description": "Ein Echtzeit-Tracking-Dashboard für die Reset-Intervalle der Anthropic Claude Code-Nutzungslimits, historische Wartezeiten und offizielle Ankündigungen.",
+    "coreTask": "Ohne Anmeldung die verstrichene Zeit seit dem letzten Claude Code-Limit-Reset prüfen und historische Intervallstatistiken einsehen."
+  },
   "clideo-com": {
     "_hash": "80ee725a5ade828f",
     "description": "Clideo ist ein browserbasietes Medien-Toolkit mit über 20 Video- und Audio-Bearbeitungswerkzeugen: Schneiden, Komprimieren, Formate konvertieren, Clips zusammenführen, Audio stummschalten, Untertitel hinzufügen, Audio extrahieren, Videos loopen, Geschwindigkeit ändern und GIFs erstellen. Die wichtigsten Tools funktionieren ohne Konto — lade eine Datei hoch, sie wird auf deren Servern verarbeitet, und du lädst das Ergebnis herunter. Der kostenlose Tarif fügt ein Wasserzeichen hinzu; bezahlte Tarife entfernen es.",
@@ -295,6 +300,11 @@
     "description": "Visueller CSS-Cubic-Bezier-Timing-Funktionseditor. Kontrollpunkte ziehen, um benutzerdefinierte Easing-Kurven zu erstellen und mit Voreinstellungen zu vergleichen.",
     "coreTask": "CSS-Bezier-Easing-Kurven bearbeiten"
   },
+  "currawongweb-com-verify-china-usci-checker": {
+    "_hash": "ae0ffe837dddba08",
+    "description": "Ein clientseitiges Prüfwerkzeug, das 18-stellige chinesische einheitliche Sozialkredit-Codes (GB 32100-2015) validiert und Behördencodes sowie Entitätstypen aufschlüsselt.",
+    "coreTask": "Einen 18-stelligen chinesischen Sozialkredit-Code eingeben, um die Prüfziffer zu überprüfen und die Struktur ohne Anmeldung einzusehen."
+  },
   "dataformatkit-com": {
     "coreTask": "Text, XML oder JSON in CSV umwandeln, Excel-Dateien aus CSV oder JSON erstellen, tabellarische Daten vorschauen und CSV-Strukturen ohne Registrierung prüfen.",
     "description": "DataFormatKit bietet kostenlose Werkzeuge zur Konvertierung von Text in CSV, XML in CSV, JSON in CSV oder Excel sowie CSV in Excel. Zeilen und Spalten in der Vorschau prüfen, CSV-Strukturen validieren und Ergebnisse herunterladen. Quelldateien werden lokal im Browser verarbeitet, und die Haupttools erfordern kein Konto."
@@ -351,6 +361,11 @@
     "seoDescription": "Schreibe Markdown und sieh es im Browser in Echtzeit nebeneinander gerendert. Export nach HTML, PDF oder gestyltem HTML — keine Anmeldung oder Installation nötig.",
     "seoFocusKeyword": "Online Markdown Editor kostenlos",
     "seoTaskPhrase": "Markdown ohne Anmeldung schreiben und vorschauen"
+  },
+  "discrete-logarithm-tomasz-slapinski-pl": {
+    "_hash": "1044563768b4cbf3",
+    "description": "Ein pädagogischer mathematischer BigInt-Löser, der Shanks' Baby-Step Giant-Step-Algorithmus für das Problem des diskreten Logarithmus schrittweise im Browser visualisiert.",
+    "coreTask": "Diskrete Logarithmen berechnen und die modulare Baby-Step/Giant-Step-Herleitungstabelle ohne Registrierung einsehen."
   },
   "dnsleaktest-com": {
     "_hash": "29e4850d2c360f37",
@@ -527,8 +542,9 @@
     "coreTask": "SVG-Wellen-Trenner generieren"
   },
   "gizmobench-com": {
-    "description": "GizmoBench ist eine Sammlung von über 130 kostenlosen Dienstprogrammen, die vollständig im Browser laufen: Einheiten- und Zahlenbasis-Konverter, Rechner, JSON-Formatierer, Base64- und Markdown-Tools, STL-Viewer, Farbpipette, Barcode-Generator, Bildschirm- und Audiotests u.v.m. Lokale Verarbeitung, kein Upload, kein Konto.",
-    "coreTask": "Alle Tools uneingeschränkt nutzen: Einheiten und Basen konvertieren, JSON formatieren, Farben aus Bildern wählen, STL-Dateien ansehen"
+    "_hash": "15f01bc644cae7ec",
+    "description": "GizmoBench ist eine Sammlung kostenloser Browser-Tools für alltägliche Aufgaben, darunter Rechner, Konverter, JSON- und Markdown-Dienstprogramme, Bild- und Audio-Tools, 3D-Viewer und Hardware-Prüfungen. Alle Kern-Tools funktionieren ohne Konto. Datei-Tools verarbeiten Dokumente und Bilder lokal auf Ihrem Gerät ohne Upload, und jedes Tool weist seine Verarbeitungsgrenzen transparent aus. Die IP-Adresssuche nutzt den GizmoBench-Server.",
+    "coreTask": "Nutzen Sie alle Werkzeuge in vollem Umfang: Einheiten und Zahlenbasen umrechnen, JSON formatieren, Farben aus Bildern extrahieren und STL-Dateien anzeigen"
   },
   "go-dev-play": {
     "_hash": "e66be1dc4d48a77b",
@@ -735,6 +751,11 @@
     "seoDescription": "Verwandle jeden Bildschirm in eine scrollende LED-Anzeige, Uhr, Sound-Visualizer oder QR-Code-Display. Dutzende Themes, sofortiger Start — kein Account nötig.",
     "seoFocusKeyword": "Browser LED Anzeige ohne Anmeldung",
     "seoTaskPhrase": "LED-Schilder im Browser ohne Account anzeigen"
+  },
+  "leettranslator-com": {
+    "_hash": "206a6068969f721f",
+    "description": "Ein clientseitiger Textkonverter, der einfaches Englisch in 1337 Leet-Speak umwandelt und Leet-Darstellungen mit anpassbaren Modi wieder in Standardtext dekodiert.",
+    "coreTask": "Englischen Text in Echtzeit ohne Registrierung in Leet-Speak konvertieren oder 1337 wieder in Klartext entschlüsseln."
   },
   "lensup-ai": {
     "coreTask": "Smartphone-Fotos in ein sauberes, druckbares PDF verwandeln – kein Upload, keine Registrierung",
@@ -1150,6 +1171,11 @@
     "description": "Analysiert HTTP-Sicherheits-Header jeder Website. Eine Note und Empfehlungen für CSP, HSTS, X-Frame-Options und mehr erhalten.",
     "coreTask": "HTTP-Sicherheits-Header analysieren"
   },
+  "sellwhere-app": {
+    "_hash": "b851bd7b04e81003",
+    "description": "Ein Echtzeit-Wiederverkaufsgebühren-Rechner, der Verkäufergebühren, Versandzuteilung und geschätzte Nettoauszahlungen auf eBay, Poshmark, Mercari, Depop, Etsy und Vinted vergleicht.",
+    "coreTask": "Artikelpreis und Versandbedingungen eingeben, um Nettoerlöse auf sechs Verkaufsplattformen ohne Benutzerkonto zu vergleichen."
+  },
   "sharedrop-io": {
     "_hash": "d604388a21e49b7f",
     "description": "P2P-Dateiübertragung im Browser. Wie Apple AirDrop, funktioniert aber auf allen Plattformen – keine App-Installation nötig.",
@@ -1534,6 +1560,11 @@
     "_hash": "c7e3c206ca425169",
     "description": "Ein kostenloses Gruppen-Terminplanungstool, bei dem weder Organisatoren noch Teilnehmer ein Konto benötigen. Alle tragen ihre verfügbaren Zeiten in ein gemeinsames Raster ein, und das beste Zeitfenster erscheint automatisch als farbige Heatmap.",
     "coreTask": "Den besten Termin für eine Gruppe finden, indem alle ihre Verfügbarkeiten in ein gemeinsames Raster eintragen — ohne Login"
+  },
+  "www-wheyindex-com": {
+    "_hash": "718e3ce4d8ae3a16",
+    "description": "Ein interaktiver Proteinpulver-Index und Preisvergleichsrechner, der die Kosten pro 25g Protein normalisiert und die Reinheit der Inhaltsstoffe von über 480 Produkten bewertet.",
+    "coreTask": "Ohne Benutzerkonto nach Proteinpulvern suchen, nach Ernährungsbedürfnissen filtern und normalisierte Proteinkosten sowie Formulierungsbewertungen vergleichen."
   },
   "www-yhile-com": {
     "description": "Webseite mit nützlichen kostenlosen Browser-Tools wie HEIC zu JPG, Audio-/Video-Konvertierung, Collagen-Ersteller und mehr. Ohne Wasserzeichen, ohne Werbung und mit lokaler Verarbeitung, sodass Ihre Dateien auf Ihrem Gerät verbleiben. (100 % kostenlos und ohne Konto)",

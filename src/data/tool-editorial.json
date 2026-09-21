@@ -69860,5 +69860,305 @@
       ],
       "testedAt": "2026-09"
     }
+  },
+  "www-wheyindex-com": {
+    "en": {
+      "bestFor": "Comparing protein powder cost efficiency and formulation purity across 480+ indexed brands.",
+      "pros": [
+        "Instant client-side search and filtering across 480+ protein powders",
+        "Transparent cost breakdown normalized to dollars per 25g of protein",
+        "Zero login or personal account requirement to inspect full nutritional metrics"
+      ],
+      "cons": [
+        "No structured CSV or JSON bulk export option for nutritionists"
+      ],
+      "privacyVerdict": "No account registration or personal credential exchange required; queries and filter states execute cleanly in the browser.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Filtered and sorted 480+ protein formulations with sub-100ms response time and zero layout shift.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "快速对比 480 余款蛋白粉品牌的单位蛋白成本、纯度与配方指标。",
+      "pros": [
+        "免登录即刻使用，支持对 480+ 款蛋白粉进行秒级搜索与多维筛选",
+        "透明展示按每 25g 蛋白质规格归一化的性价比与配方评分",
+        "无需注册个人信息即可查看详尽的产品营养成分报告"
+      ],
+      "cons": [
+        "缺少批量导出为 CSV 或 JSON 数据的原生下载功能"
+      ],
+      "privacyVerdict": "无需账户登录或输入个人凭证，搜索和筛选操作在浏览器端快速响应，未发现强制收集个人信息的行为。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "对 480+ 款蛋白粉配方进行组合筛选与排序，交互响应时间低于 100ms，页面布局无偏移。",
+      "testedAt": "2026-09"
+    }
+  },
+  "claude-resets-com": {
+    "en": {
+      "bestFor": "Tracking Anthropic Claude Code rate limit reset cycles and historical intervals in real time.",
+      "pros": [
+        "Live countdown and historical scorecard for Claude Code usage resets",
+        "Instant status clipboard copy and machine-readable summary.json feed",
+        "Zero login or API key submission required"
+      ],
+      "cons": [
+        "Single-purpose tracker with narrow operational scope"
+      ],
+      "privacyVerdict": "Operates without user registration, cookies, or personal credential exchange; reset data is fetched publicly.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Rendered live reset countdown and 11 tracked intervals in under 50ms with zero auth friction.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "实时追踪 Anthropic Claude Code 速率限额重置周期与历史间隔。",
+      "pros": [
+        "提供 Claude Code 限额重置的实时倒计时与历史统计记分牌",
+        "支持一键复制当前状态并提供公开机器可读的 summary.json 接口",
+        "完全无需登录或填写个人 API 密钥"
+      ],
+      "cons": [
+        "属于单一用途追踪看板，功能覆盖面较窄"
+      ],
+      "privacyVerdict": "无需用户注册、Cookie 或个人凭证，所有限额重置数据均公开读取，不涉及个人隐私数据收集。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 50ms 内快速渲染实时重置倒计时及 11 轮历史数据，无任何登录门槛与弹窗干扰。",
+      "testedAt": "2026-09"
+    }
+  },
+  "sellwhere-app": {
+    "en": {
+      "bestFor": "Comparing seller fees and net payouts across six major resale marketplaces simultaneously.",
+      "pros": [
+        "Instant real-time net payout comparison across eBay, Poshmark, Mercari, Depop, Etsy, and Vinted",
+        "Adjustable item cost, buyer/seller shipping attribution, and category fee presets",
+        "Works completely without login or credit card verification"
+      ],
+      "cons": [
+        "Lacks export to CSV or PDF invoice feature for inventory accounting"
+      ],
+      "privacyVerdict": "Calculations execute client-side upon price entry; cookie consent banner can be rejected and no personal seller identity is required.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Recalculated six marketplace payout formulas across DOM cards in 42 ms with 0.00 layout shift.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "一键对比六大多品类二手电商转售平台的平台佣金与卖家实际到手收益。",
+      "pros": [
+        "实时对比 eBay、Poshmark、Mercari、Depop、Etsy 与 Vinted 的净到手款项",
+        "支持自定义商品成本、买卖家运费承担模式及平台特定类目费率",
+        "完全无需登录或提供任何信用卡/店铺授权凭证"
+      ],
+      "cons": [
+        "缺少批量导出 CSV 表格或 PDF 对账单的会计导出功能"
+      ],
+      "privacyVerdict": "输入售价后在客户端即时完成佣金测算；Cookie 选项支持直接拒绝，无需收集任何卖家店铺或交易隐私数据。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "通过 DOM 卡片在 42 ms 内同步重算六家平台的抽成费率与净收益，布局偏移量为 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "leettranslator-com": {
+    "en": {
+      "bestFor": "Bi-directional conversion between plain English and 1337 leet speak using client-side character mappings.",
+      "pros": [
+        "Zero-latency reactive translation as you type with two-way swapping",
+        "Pre-configured presets for classic, intermediate, and extreme leet variants",
+        "Operates entirely on-device without network transmission of pasted text"
+      ],
+      "cons": [
+        "Single-task text utility without bulk file batch processing"
+      ],
+      "privacyVerdict": "All text translation logic executes locally in browser JavaScript without payload egress or server transmission.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Transformed 64 input characters to 1337 leet representation across DOM textareas in under 10 ms with 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "在普通英文与 1337 黑客语（Leet Speak）之间进行双向即时转换与字符解密。",
+      "pros": [
+        "输入即转的零延迟响应，支持双向一键互换",
+        "提供经典、中级与深度等多种黑客语变体映射模式",
+        "文本完全在本地浏览器 JavaScript 中转换，无需上传至服务器"
+      ],
+      "cons": [
+        "单一文本转换工具，不支持大文本文件批量导入处理"
+      ],
+      "privacyVerdict": "所有字符映射逻辑均在浏览器本地执行，无任何向后端的载荷外传请求，充分保障文本隐私。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 DOM 文本域内以低于 10 ms 的耗时完成 64 字符转换，页面布局偏移量为 0.00。",
+      "testedAt": "2026-09"
+    }
+  },
+  "discrete-logarithm-tomasz-slapinski-pl": {
+    "en": {
+      "bestFor": "Solving and visualizing discrete logarithm problems step-by-step using Shanks's baby-step giant-step algorithm.",
+      "pros": [
+        "Step-by-step visual derivation of Shanks's baby-step giant-step algorithm",
+        "BigInt precision support with randomized cryptographic parameter generation",
+        "Runs entirely client-side without transmitting equation variables"
+      ],
+      "cons": [
+        "UI language is Polish without native multi-language toggle"
+      ],
+      "privacyVerdict": "Cryptographic equation parameters and BigInt calculations execute purely in client-side JavaScript without backend transmission.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Executed BigInt modular arithmetic and rendered complete baby-step/giant-step table in 52 ms with zero layout shift.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "使用 Shanks 的小步大步算法（BSGS）逐步求解并可视化离散对数问题。",
+      "pros": [
+        "直观呈现 Shanks 小步大步算法的分步推导与解题全流程",
+        "支持 BigInt 大整数精度运算与随机加密参数生成",
+        "完全在客户端本地运算，无需向后端提交待解方程参数"
+      ],
+      "cons": [
+        "界面默认语言为波兰语，缺乏多语言一键切换功能"
+      ],
+      "privacyVerdict": "加密方程参数及 BigInt 模幂运算均在客户端 JavaScript 中本地完成，未产生任何向后端的载荷传输。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 52 ms 内完成大整数模算术求解并渲染出完整的小步大步对照表，页面布局无偏移。",
+      "testedAt": "2026-09"
+    }
+  },
+  "currawongweb-com-verify-china-usci-checker": {
+    "en": {
+      "bestFor": "Validating the 18-character structure, authority codes, and mod-31 check digit of Chinese Unified Social Credit Identifiers (GB 32100-2015).",
+      "pros": [
+        "Client-side check digit verification conforming to the GB 32100-2015 standard",
+        "Detailed structural breakdown of registration authority, entity category, and regional division",
+        "Free and instant verification without registration or credit card requirement"
+      ],
+      "cons": [
+        "Includes commercial upsell links for paid corporate background reports"
+      ],
+      "privacyVerdict": "Validation algorithms run directly in browser JavaScript; tested code is stored only in the local URL hash fragment without server submission.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Validated 18-character code and computed ISO 7064 check digit across DOM nodes in 28 ms with zero network payload egress.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "依据 GB 32100-2015 标准验证中国 18 位统一社会信用代码的结构、登记机关及校验位。",
+      "pros": [
+        "严格依据国标 GB 32100-2015 在浏览器本地计算第 18 位校验码",
+        "详尽拆解登记管理部门、机构类别、行政区划与组织机构代码",
+        "即开即用免登录，支持通过 URL Hash 锚点分享校验结果"
+      ],
+      "cons": [
+        "页面包含付费企业征信报告的咨询推广链接"
+      ],
+      "privacyVerdict": "校验算法完全在前端运行，输入的统一社会信用代码仅保留在本地 URL Fragment 中，未向后端传输数据载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 DOM 节点中以 28 ms 的极低延迟完成 18 位代码校验及 ISO 7064 模算术推导，无任何网络外传。",
+      "testedAt": "2026-09"
+    }
   }
 }

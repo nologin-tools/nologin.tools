@@ -165,6 +165,11 @@
     "coreTask": "核对参考文献、检索真实学术数据库记录并生成标准引用格式，无需注册账号",
     "description": "CiteFetch 通过 CrossRef 和 OpenAlex 校验学术参考文献，自动标记虚构或输错的文献出处，并生成各种主流引用格式（APA、MLA 等）。完全免费，免登录且无广告干扰。"
   },
+  "claude-resets-com": {
+    "_hash": "a98827949e5991ab",
+    "description": "一个用于实时追踪 Anthropic Claude Code 使用限额重置间隔、历史冷却周期及官方重置动态的监控面板。",
+    "coreTask": "免登录查看自上次 Claude Code 速率限额重置以来经过的时间，并查阅历史间隔统计数据。"
+  },
   "clideo-com": {
     "_hash": "80ee725a5ade828f",
     "description": "Clideo 是一款基于浏览器的媒体工具包，提供 20 多种视频和音频编辑工具：剪辑、压缩、格式转换、合并片段、静音、添加字幕、提取音频、循环视频、调整速度以及创建 GIF。核心工具无需账号即可使用——上传文件，在其服务器上处理，然后下载结果。免费版会添加水印，付费版可去除。",
@@ -295,6 +300,11 @@
     "description": "可视化 CSS cubic-bezier 时序函数编辑器。拖动控制点创建自定义缓动曲线，并与预设对比。",
     "coreTask": "编辑 CSS 贝塞尔缓动曲线"
   },
+  "currawongweb-com-verify-china-usci-checker": {
+    "_hash": "ae0ffe837dddba08",
+    "description": "一款纯客户端校验工具，依据中国 GB 32100-2015 标准验证 18 位统一社会信用代码校验位，并解析登记机关、机构类别与行政区划。",
+    "coreTask": "免登录输入 18 位统一社会信用代码，即刻校验校验码有效性并查阅其分段结构信息。"
+  },
   "dataformatkit-com": {
     "coreTask": "无需注册即可将文本、XML 或 JSON 转换为 CSV，从 CSV 或 JSON 生成 Excel 文件，预览表格数据并校验 CSV 结构。",
     "description": "DataFormatKit 提供免费的数据转换工具，支持将文本转为 CSV、XML 转为 CSV、JSON 转为 CSV 或 Excel，以及 CSV 转为 Excel。支持预览表格行列、检查 CSV 结构并即时下载处理结果。源文件均在浏览器本地处理，核心工具无需注册账号。"
@@ -351,6 +361,11 @@
     "seoDescription": "在浏览器中编写 Markdown，并实时并排预览渲染效果。可导出为 HTML、PDF 或美化 HTML——无需注册或安装。",
     "seoFocusKeyword": "在线 Markdown 编辑器免费",
     "seoTaskPhrase": "无需注册编写和预览 Markdown"
+  },
+  "discrete-logarithm-tomasz-slapinski-pl": {
+    "_hash": "1044563768b4cbf3",
+    "description": "一款教学型 BigInt 数学求解器，可在浏览器中逐步呈现解决离散对数问题的 Shanks 小步大步算法（BSGS）全过程。",
+    "coreTask": "无需注册即可求解离散对数并查看模算术小步大步对照推导表。"
   },
   "dnsleaktest-com": {
     "_hash": "29e4850d2c360f37",
@@ -527,8 +542,9 @@
     "coreTask": "生成 SVG 波浪分隔符"
   },
   "gizmobench-com": {
-    "description": "GizmoBench 汇集了 130 多款完全在浏览器本地运行的免费实用小工具：涵盖单位与进制转换、计算器、JSON 格式化、Base64 与 Markdown、STL 3D 查看器、图片取色、条形码生成、屏幕与音频测试等。所有数据均在本地处理，零上传，无文件体积限制，无需注册账号。",
-    "coreTask": "完整使用所有工具：进制与单位换算、格式化 JSON、图片取色、查看 STL 3D 模型等，零上传无门槛"
+    "_hash": "15f01bc644cae7ec",
+    "description": "GizmoBench 是一套面向日常任务的免费浏览器工具集，涵盖计算器、转换器、JSON 与 Markdown 实用程序、图像与音频工具、3D 查看器及硬件检测。所有核心工具均无需账户即可使用。文件处理类工具直接在本地设备上运行而不上传，且每款工具均明确标明其处理限制；IP 地址查询功能由 GizmoBench 服务器提供支持。",
+    "coreTask": "完整使用各项工具：转换单位与进制、格式化 JSON、从图像中取色以及查看 STL 文件"
   },
   "go-dev-play": {
     "_hash": "e66be1dc4d48a77b",
@@ -735,6 +751,11 @@
     "seoDescription": "将任何屏幕变成滚动 LED 标牌、时钟、声音可视化器或二维码显示屏。数十种主题，即开即用——无需账号。",
     "seoFocusKeyword": "浏览器 LED 显示无需注册",
     "seoTaskPhrase": "无需账号在浏览器中显示 LED 标牌"
+  },
+  "leettranslator-com": {
+    "_hash": "206a6068969f721f",
+    "description": "一款纯客户端文本转换工具，可将常规英文转换为 1337 黑客语（Leet Speak），或将黑客语字符反向解码为易读文本，并提供多种映射规则。",
+    "coreTask": "无需注册账户，即可在普通英文与 1337 黑客语之间进行实时双向转换与字符解码。"
   },
   "lensup-ai": {
     "coreTask": "将手机拍摄的照片转换为清晰可打印的 PDF——零上传、无需注册",
@@ -1150,6 +1171,11 @@
     "description": "分析任意网站的 HTTP 安全响应头。获取评分和 CSP、HSTS、X-Frame-Options 等方面的改进建议。",
     "coreTask": "分析 HTTP 安全响应头"
   },
+  "sellwhere-app": {
+    "_hash": "b851bd7b04e81003",
+    "description": "一款实时二手电商佣金计算器，可横向对比 eBay、Poshmark、Mercari、Depop、Etsy 和 Vinted 六大平台的抽成、运费分担与预估净到手收益。",
+    "coreTask": "无需注册账号，输入商品售价与运费承担方式即可一键对比六大转售平台的实际到账收益。"
+  },
   "sharedrop-io": {
     "_hash": "d604388a21e49b7f",
     "description": "在浏览器中进行点对点文件共享。类似苹果 AirDrop 但支持所有平台——无需安装应用。",
@@ -1534,6 +1560,11 @@
     "_hash": "c7e3c206ca425169",
     "description": "免费的团队时间协调工具，无需注册即可发起投票、收集所有人的空闲时段。参与者在共享网格上标注可用时间，系统自动生成热力图，一眼找出最佳会议时段——组织者和参与者均无需登录。",
     "coreTask": "在共享网格上收集所有人的空闲时段，快速找到最适合团队的会议时间——无需任何账号"
+  },
+  "www-wheyindex-com": {
+    "_hash": "718e3ce4d8ae3a16",
+    "description": "一款交互式蛋白粉索引与价格对比计算器，将成本归一化为每 25g 蛋白质价格，并对 480 多款产品的配方纯度进行评级。",
+    "coreTask": "无需注册账号即可搜索、按饮食需求筛选并对比各品牌蛋白粉的归一化蛋白质成本与配方评分。"
   },
   "www-yhile-com": {
     "description": "提供一系列实用的免费浏览器工具合集，涵盖 HEIC 转 JPG、音视频格式转换、拼图拼贴制作等。无水印、无广告，通过浏览器本地处理保护数据隐私，文件绝不上报。（100% 免费免登录）",

@@ -165,6 +165,11 @@
     "coreTask": "Verificar referências, consultar registros em bases de dados reais e gerar citações formatadas sem criar conta",
     "description": "O CiteFetch valida referências acadêmicas junto ao CrossRef e OpenAlex, identifica fontes inventadas ou digitadas incorretamente e formata citações nos principais estilos bibliográficos. Gratuito, sem anúncios e sem cadastro."
   },
+  "claude-resets-com": {
+    "_hash": "a98827949e5991ab",
+    "description": "Um painel de monitoramento em tempo real para os intervalos de redefinição de limites do Anthropic Claude Code, períodos históricos de espera e anúncios de uso.",
+    "coreTask": "Verifique o tempo decorrido desde a última redefinição de limites do Claude Code e analise estatísticas históricas sem precisar fazer login."
+  },
   "clideo-com": {
     "_hash": "80ee725a5ade828f",
     "description": "Clideo é um kit de ferramentas multimídia baseado no navegador com mais de 20 ferramentas de edição de vídeo e áudio: cortar, comprimir, converter formatos, mesclar clipes, silenciar áudio, adicionar legendas, extrair áudio, criar loops, alterar velocidade e criar GIFs. As ferramentas principais funcionam sem conta — faça upload de um arquivo, ele é processado nos servidores deles e você baixa o resultado. O plano gratuito adiciona uma marca d'água; os planos pagos a removem.",
@@ -295,6 +300,11 @@
     "description": "Editor visual de função de temporização CSS cubic-bezier. Arraste os pontos de controle para criar curvas de easing personalizadas e compare com predefinições.",
     "coreTask": "Editar curvas de easing CSS bezier"
   },
+  "currawongweb-com-verify-china-usci-checker": {
+    "_hash": "ae0ffe837dddba08",
+    "description": "Ferramenta de validação no navegador que verifica códigos de 18 caracteres de crédito social unificado da China (GB 32100-2015) e detalha órgãos de registro e divisões regionais.",
+    "coreTask": "Insira um código de crédito social unificado de 18 caracteres para verificar o dígito de controle e analisar sua estrutura sem login."
+  },
   "dataformatkit-com": {
     "coreTask": "Converter texto, XML ou JSON para CSV; criar arquivos Excel a partir de CSV ou JSON; pré-visualizar tabelas e validar estruturas CSV sem cadastro.",
     "description": "O DataFormatKit oferece ferramentas gratuitas para converter texto em CSV, XML em CSV, JSON em CSV ou Excel, e CSV em Excel. Pré-visualize linhas e colunas, verifique a estrutura do CSV e baixe os resultados. Os arquivos de origem são processados localmente no navegador e as ferramentas principais não exigem conta."
@@ -351,6 +361,11 @@
     "seoDescription": "Escreva Markdown e veja renderizado em tempo real lado a lado no seu navegador. Exporte para HTML, PDF ou HTML estilizado — sem cadastro ou instalação.",
     "seoFocusKeyword": "editor markdown online gratuito",
     "seoTaskPhrase": "escrever e visualizar markdown sem cadastro"
+  },
+  "discrete-logarithm-tomasz-slapinski-pl": {
+    "_hash": "1044563768b4cbf3",
+    "description": "Um solucionador matemático educativo com precisão BigInt que visualiza passo a passo o algoritmo baby-step giant-step de Shanks para o problema do logaritmo discreto.",
+    "coreTask": "Calcule logaritmos discretos e examine a tabela modular de baby-step/giant-step sem necessidade de cadastro."
   },
   "dnsleaktest-com": {
     "_hash": "29e4850d2c360f37",
@@ -527,8 +542,9 @@
     "coreTask": "Gerar separadores de onda SVG"
   },
   "gizmobench-com": {
-    "description": "GizmoBench é uma coleção de mais de 130 utilitários gratuitos que rodam totalmente no seu navegador: conversores de unidades e bases numéricas, calculadoras, formatador JSON, ferramentas Base64 e Markdown, visualizador STL, seletor de cores, gerador de código de barras e testes de tela/áudio. Tudo local, sem upload e sem cadastro.",
-    "coreTask": "Usar todas as ferramentas por completo: converter unidades e bases, formatar JSON, extrair cores de imagens e visualizar arquivos STL localmente"
+    "_hash": "15f01bc644cae7ec",
+    "description": "O GizmoBench é uma coleção de ferramentas gratuitas no navegador para tarefas cotidianas, incluindo calculadoras, conversores, utilitários de JSON e Markdown, ferramentas de imagem e áudio, visualizadores 3D e diagnósticos de hardware. Todas as ferramentas essenciais funcionam sem conta. As ferramentas de arquivos processam documentos e imagens no seu próprio dispositivo sem envio, e cada ferramenta esclarece seus limites de processamento. A consulta de endereço IP utiliza o servidor do GizmoBench.",
+    "coreTask": "Utilize todas as ferramentas na íntegra: converta unidades e bases numéricas, formate JSON, selecione cores em imagens e visualize arquivos STL"
   },
   "go-dev-play": {
     "_hash": "e66be1dc4d48a77b",
@@ -735,6 +751,11 @@
     "seoDescription": "Transforme qualquer tela em um letreiro LED rolante, relógio, visualizador de som ou display QR. Dezenas de temas, lançamento instantâneo — sem conta.",
     "seoFocusKeyword": "display LED navegador sem cadastro",
     "seoTaskPhrase": "exibir letreiros LED no navegador sem conta"
+  },
+  "leettranslator-com": {
+    "_hash": "206a6068969f721f",
+    "description": "Um conversor de texto no cliente que transforma inglês comum em leet speak 1337 e decodifica caracteres leet de volta para texto padrão com modos personalizáveis.",
+    "coreTask": "Converta texto em inglês para leet speak ou decodifique 1337 de volta para texto legível em tempo real sem criar conta."
   },
   "lensup-ai": {
     "coreTask": "Transformar uma foto do celular em um PDF limpo e pronto para imprimir — sem upload, sem cadastro",
@@ -1150,6 +1171,11 @@
     "description": "Analisa os headers de segurança HTTP de qualquer site. Obtenha uma nota e recomendações para CSP, HSTS, X-Frame-Options e mais.",
     "coreTask": "Analisar headers de segurança HTTP"
   },
+  "sellwhere-app": {
+    "_hash": "b851bd7b04e81003",
+    "description": "Uma calculadora de taxas de revenda em tempo real que compara comissões de vendedor, atribuição de frete e pagamentos líquidos estimados no eBay, Poshmark, Mercari, Depop, Etsy e Vinted.",
+    "coreTask": "Insira o preço do item e os termos de frete para comparar os pagamentos líquidos em seis plataformas de revenda sem precisar de conta."
+  },
   "sharedrop-io": {
     "_hash": "d604388a21e49b7f",
     "description": "Compartilhamento de arquivos P2P no navegador. Como o Apple AirDrop, mas funciona em todas as plataformas — sem instalação de app.",
@@ -1534,6 +1560,11 @@
     "_hash": "c7e3c206ca425169",
     "description": "Ferramenta gratuita para coordenar horários em grupo sem precisar criar conta. Os participantes marcam seus horários disponíveis em uma grade compartilhada e o melhor momento para a reunião aparece como um mapa de calor colorido. Nem o organizador nem os participantes precisam de login.",
     "coreTask": "Encontre o melhor horário para reunir um grupo coletando a disponibilidade de todos em uma grade compartilhada — sem login necessário"
+  },
+  "www-wheyindex-com": {
+    "_hash": "718e3ce4d8ae3a16",
+    "description": "Um índice interativo de proteína em pó e calculadora comparativa de preços que normaliza o custo por 25g de proteína e pontua a pureza da fórmula em mais de 480 produtos.",
+    "coreTask": "Pesquise, filtre por necessidades dietéticas e compare o custo normalizado por proteína e as pontuações de fórmula sem criar conta."
   },
   "www-yhile-com": {
     "description": "Site com uma série de ferramentas gratuitas no navegador, como conversão de HEIC para JPG, conversão de áudio/vídeo, criador de colagens e mais. Sem marcas d'água, sem anúncios e com processamento local para manter seus arquivos no dispositivo. (100% gratuito e sem cadastro)",
