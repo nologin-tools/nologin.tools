@@ -1,0 +1,12 @@
+{
+  "name": "NoLoginTools.org",
+  "description": "Standards organization, certification authority, and open research body governing the No-Login Web.",
+  "url": "https://nologintools.org",
+  "capabilities": [
+    "NLW-STD-001 Verification Standard and Badge certification governance",
+    "Continuous 6-hour crawler auditing and uptime surveillance",
+    "Annual 'State of No-Login Web' empirical industry research reports",
+    "Directory authority and registry oversight for nologin.tools",
+    "Structured AI indexes via llms.txt, /ai/summary.json, /ai/faq.json, and /ai/service.json"
+  ]
+}

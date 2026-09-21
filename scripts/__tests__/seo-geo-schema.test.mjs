@@ -10,6 +10,7 @@ const ROOT = resolve(__dirname, '../..');
 
 const TOOL_DETAIL_PAGE = resolve(ROOT, 'src/components/ToolDetailPage.astro');
 const HOME_PAGE = resolve(ROOT, 'src/components/HomePage.astro');
+const CATEGORY_PAGE = resolve(ROOT, 'src/components/CategoryPage.astro');
 const LAYOUT = resolve(ROOT, 'src/layouts/Layout.astro');
 
 describe('SEO & GEO: Structured Data & Semantic Markup', () => {
@@ -56,6 +57,16 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes('"@id": "https://nologin.tools/#organization"'), 'WebSite must reference organization ID');
     assert.ok(content.includes('"about": {'), 'WebSite must declare about entity');
     assert.ok(content.includes('"knowsAbout": ['), 'Organization must declare knowsAbout entity topics');
+  });
+
+  it('CategoryPage has CollectionPage with dateModified, WebSite, and Organization schemas', () => {
+    const content = readFileSync(CATEGORY_PAGE, 'utf-8');
+    assert.ok(content.includes("'@type': 'CollectionPage'"), 'Must contain CollectionPage schema');
+    assert.ok(content.includes("dateModified: latestCategoryDate"), 'CollectionPage must include dateModified');
+    assert.ok(content.includes("publisher: {\n    '@id': 'https://nologin.tools/#organization',\n  }"), 'CollectionPage must reference publisher organization');
+    assert.ok(content.includes("'@type': 'WebSite'"), 'Must contain WebSite schema');
+    assert.ok(content.includes("'@type': 'Organization'"), 'Must contain Organization schema');
+    assert.ok(content.includes("modifiedTime={latestCategoryDate}"), 'Layout must receive modifiedTime');
   });
 
   it('Layout.astro includes standard SEO and GEO meta tags', () => {

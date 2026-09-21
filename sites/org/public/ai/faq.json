@@ -1,0 +1,20 @@
+{
+  "faqs": [
+    {
+      "question": "What is NoLoginTools.org?",
+      "answer": "NoLoginTools.org is an independent standards and research body dedicated to documenting, verifying, and advocating for the No-Login Web—tools and web services that operate without accounts, signup walls, or personal data collection."
+    },
+    {
+      "question": "What is the NLW-STD-001 specification?",
+      "answer": "NLW-STD-001 is the open technical standard published by NoLoginTools.org that defines criteria for verifying account-free web software, including client-side computing requirements, zero-egress data privacy, and absence of deceptive auth barriers."
+    },
+    {
+      "question": "How does NoLoginTools.org relate to nologin.tools?",
+      "answer": "NoLoginTools.org is the non-profit organization and standards authority (analogous to ISRG for Let's Encrypt), while nologin.tools is the public directory and testing registry that implements these standards."
+    },
+    {
+      "question": "Where can I read the annual State of No-Login Web research report?",
+      "answer": "Annual research reports and empirical findings on consumer web friction and privacy trends are published freely at https://nologintools.org/reports/."
+    }
+  ]
+}

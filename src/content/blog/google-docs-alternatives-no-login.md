@@ -32,7 +32,7 @@ Riseup's instance at [pad.riseup.net](https://pad.riseup.net/) is one of the mos
 
 Each participant's edits show up in a distinct color, and you can set a display name without creating an account. The timeline slider at the bottom lets you replay the document's edit history, which is genuinely useful for understanding how a piece came together.
 
-The formatting is minimal: bold, italic, underline, strikethrough, ordered and unordered lists, and indentation. There's no table support, no image insertion, and no embedded spreadsheet. The interface hasn't changed much in fifteen years. None of that matters if your goal is fast collaborative note-taking, meeting minutes, or drafting something jointly before moving it to a proper destination.
+The formatting is minimal: bold, italic, underline, strikethrough, ordered and unordered lists, and indentation. There's no table support, no image insertion, and no embedded spreadsheet. The interface hasn't changed much in fifteen years. None of that matters if what you need is fast collaborative note-taking, meeting minutes, or drafting something jointly before moving it to a proper destination.
 
 One practical detail: pads on public instances don't live forever. Riseup deletes pads inactive for 60 days. If your document matters, export it or copy it out — Etherpad lets you export to plain text, HTML, and PDF, and some instances support ODT format as well.
 

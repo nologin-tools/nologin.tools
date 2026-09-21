@@ -30,7 +30,7 @@ That's worth keeping in mind when a chatbot asks for your email "just to save yo
 
 [ChatGPT](https://chatgpt.com) (on the nologin.tools directory at [/tool/chatgpt-com](/tool/chatgpt-com)) let in guest users starting in mid-2024. You can have full conversations without creating an account—with the caveat that history isn't saved between sessions. For many use cases (quick drafts, one-off questions, code debugging), that's completely fine. Conversations vanish when you close the tab, which is actually a privacy win.
 
-[DuckDuckGo AI Chat](/tool/duck-ai) takes a more principled stance. It offers ChatGPT (GPT-4o mini), Claude, Llama, and Mistral—no account, no tracking, and DuckDuckGo explicitly states they don't save chats or share them with AI providers for training. They act as an anonymizing proxy between you and the underlying models. That's a meaningfully different privacy posture than going directly to OpenAI or Anthropic.
+[DuckDuckGo AI Chat](/tool/duck-ai) takes a more principled stance. It offers ChatGPT (GPT-4o mini), Claude, Llama, and Mistral—no account, no tracking, and DuckDuckGo explicitly states they don't save chats or share them with AI providers for training. They serve as an anonymizing proxy between you and the underlying models. That's a meaningfully different privacy posture than going directly to OpenAI or Anthropic.
 
 [Perplexity](/tool/perplexity-ai) sits in a different category: AI-powered search rather than a conversational assistant. You can ask it questions and get cited answers without creating an account. The account-free version has daily limits on "Pro" searches, but standard queries are unrestricted. Good for research tasks where you want sources alongside answers.
 

@@ -45,6 +45,13 @@ const translatedCategory = translateCategory(category);
 const pageTitle = t(locale, 'category.page.title', { category: translatedCategory });
 const pageDescription = t(locale, 'category.page.description', { category: translatedCategory });
 
+const categoryDates = categoryTools
+  .map((t) => t.approvedAt ? new Date(t.approvedAt).getTime() : 0)
+  .filter((d) => !isNaN(d) && d > 0);
+const latestCategoryDate = categoryDates.length > 0
+  ? new Date(Math.max(...categoryDates)).toISOString()
+  : new Date().toISOString();
+
 const collectionLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -52,6 +59,10 @@ const collectionLd = {
   description: editorial?.overview ? `${editorial.overview.slice(0, 160)}...` : pageDescription,
   url: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(category)}`, locale)}`,
   inLanguage: locale,
+  dateModified: latestCategoryDate,
+  publisher: {
+    '@id': 'https://nologin.tools/#organization',
+  },
   ...(editorial ? {
     about: {
       '@type': 'Thing',
@@ -71,6 +82,53 @@ const collectionLd = {
       url: `https://nologin.tools${getLocalizedPath(`/tool/${tool.slug}`, locale)}`,
     })),
   },
+};
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://nologin.tools/#website',
+  name: 'nologin.tools',
+  url: 'https://nologin.tools',
+  publisher: {
+    '@id': 'https://nologin.tools/#organization',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://nologin.tools/#organization',
+  name: 'NoLoginTools.org',
+  url: 'https://nologintools.org',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://nologin.tools/og-default.png',
+    width: 1200,
+    height: 630,
+  },
+  description: t(locale, 'home.jsonLd.orgDescription'),
+  foundingDate: '2025',
+  areaServed: 'Worldwide',
+  email: 'contact@nologintools.org',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'contact@nologintools.org',
+    url: 'https://nologintools.org/about',
+  },
+  sameAs: [
+    'https://x.com/nologin_tools',
+    'https://github.com/nologin-tools',
+  ],
 };
 
 const faqQuestions = [
@@ -104,7 +162,10 @@ const breadcrumbLd = {
   title={pageTitle}
   description={pageDescription}
   locale={locale}
+  modifiedTime={latestCategoryDate}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(collectionLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />

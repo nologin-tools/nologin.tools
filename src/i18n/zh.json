@@ -563,7 +563,7 @@
   "extension.install.firefox.tab": "Firefox",
   "extension.install.chrome.step1": "点击上方下载按钮获取扩展 zip 压缩包并解压。",
   "extension.install.chrome.step2": "在浏览器地址栏打开 chrome://extensions（或 brave://extensions）。",
-  "extension.install.chrome.step3": "在页面右上角开启“开发者模式（Developer mode）”。",
+  "extension.install.chrome.step3": "在页面右上角开启“开发者选项（Developer Options）”。",
   "extension.install.chrome.step4": "点击“加载已解压的扩展程序（Load unpacked）”，选择解压后的文件夹即可完成安装。",
   "extension.install.firefox.step1": "下载并解压扩展 zip 压缩包。",
   "extension.install.firefox.step2": "在 Firefox 地址栏输入 about:debugging#/runtime/this-firefox。",

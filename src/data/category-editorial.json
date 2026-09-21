@@ -68,7 +68,7 @@
   "Development": {
     "en": {
       "title": "Essential In-Browser Utilities for Fast Developer Workflows",
-      "overview": "Software engineers frequently encounter small, repetitive micro-tasks: testing regular expressions, inspecting JWT tokens, reading documentation, or benchmarking dependency costs. Installing heavy desktop GUI tools or logging into enterprise SaaS dashboards introduces unnecessary context switching. No-login developer tools act as instant, high-efficiency primitives.",
+      "overview": "Software engineers frequently encounter small, repetitive micro-tasks: testing regular expressions, inspecting JWT tokens, reading documentation, or benchmarking dependency costs. Installing heavy desktop GUI tools or logging into enterprise SaaS dashboards introduces unnecessary context switching. No-login developer tools serve as instant, high-efficiency primitives.",
       "architectureInsights": "High-grade developer tools operate as sandboxed execution environments. DevDocs caches entire multi-gigabyte API databases via IndexedDB and Service Workers for offline use. CyberChef and Regex101 evaluate parsing logic locally within dedicated Web Workers, ensuring that proprietary tokens and environment credentials remain isolated from network eavesdropping.",
       "tradeoffs": {
         "gain": "Sub-second workflow execution, zero configuration overhead, and safe debugging of non-production test tokens without account creation.",

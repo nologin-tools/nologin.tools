@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 
 const reports = await getCollection('reports');
 const latestReport = reports.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+const modifiedTime = latestReport ? latestReport.data.publishedAt.toISOString() : '2026-03-15T00:00:00.000Z';
 
 const orgLd = {
   '@context': 'https://schema.org',
@@ -11,8 +12,15 @@ const orgLd = {
   '@id': 'https://nologintools.org/#organization',
   name: 'NoLoginTools.org',
   url: 'https://nologintools.org',
-  description: 'An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.',
+  description: 'An independent standards and research body dedicated to documenting, verifying, and advocating for the No-Login Web.',
   foundingDate: '2026-03',
+  email: 'contact@nologintools.org',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'editorial & standards inquiry',
+    email: 'contact@nologintools.org',
+    url: 'https://nologintools.org/about',
+  },
   sameAs: [
     'https://x.com/nologin_tools',
     'https://github.com/nologin-tools',
@@ -25,7 +33,7 @@ const orgLd = {
     url: 'https://nologin.tools',
     description: 'A curated directory of privacy-friendly tools that work without login.',
   },
-  knowsAbout: ['privacy', 'no-login tools', 'web privacy', 'open source software', 'software verification standards'],
+  knowsAbout: ['privacy', 'no-login tools', 'web privacy', 'open source software', 'software verification standards', 'client-side computing'],
   hasPart: [
     {
       '@type': 'TechArticle',
@@ -47,16 +55,49 @@ const websiteLd = {
   name: 'NoLoginTools.org',
   url: 'https://nologintools.org',
   publisher: { '@id': 'https://nologintools.org/#organization' },
+  dateModified: modifiedTime,
   potentialAction: {
     '@type': 'SearchAction',
     target: 'https://nologintools.org/reports?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 };
+
+const faqs = [
+  {
+    q: 'What is NoLoginTools.org?',
+    a: 'NoLoginTools.org is an independent standards body and research initiative establishing empirical benchmarks for frictionless, zero-registration web software.',
+  },
+  {
+    q: 'What is the NLW-STD-001 standard?',
+    a: 'NLW-STD-001 is an open technical specification establishing criteria for privacy-preserving utilities, mandating client-side computation, zero credential trapping, and verifiable data sovereignty.',
+  },
+  {
+    q: 'How does NoLoginTools.org monitor web applications?',
+    a: 'Our automated crawlers perform health, latency, and uptime evaluations every six hours across hundreds of cataloged utilities, publishing transparent empirical reliability reports.',
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: a,
+    },
+  })),
+};
 ---
 
-<Layout title="Home" description="An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.">
-  <script type="application/ld+json" set:html={JSON.stringify([orgLd, websiteLd])} />
+<Layout
+  title="Home"
+  description="An independent standards and research organization dedicated to documenting, verifying, and advocating for the No-Login Web."
+  modifiedTime={modifiedTime}
+>
+  <script type="application/ld+json" set:html={JSON.stringify([orgLd, websiteLd, faqLd])} />
 
   <div class="max-w-3xl mx-auto px-6 py-16 sm:py-24">
     <!-- Hero -->
@@ -65,7 +106,7 @@ const websiteLd = {
         NoLoginTools.org
       </h1>
       <p class="text-lg text-neutral-600 leading-relaxed max-w-2xl">
-        An independent organization dedicated to documenting, verifying, and advocating for the <strong class="text-neutral-900">No-Login Web</strong> &mdash; tools and services that work without signup, login, or personal data.
+        An independent standards body and open research organization dedicated to documenting, certifying, and advocating for the <strong class="text-neutral-900">No-Login Web</strong> &mdash; online utilities and services that respect digital autonomy without signup walls, mandatory accounts, or invasive telemetry.
       </p>
       <p class="text-sm text-neutral-500 mt-4 text-retro-mono font-bold uppercase tracking-wider">
         The web should work without walls.
@@ -126,7 +167,7 @@ const websiteLd = {
     </section>
 
     <!-- What We Do -->
-    <section class="border-t-2 border-neutral-900 pt-12">
+    <section class="border-t-2 border-neutral-900 pt-12 mb-16">
       <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-8 text-retro-mono">What We Do</h2>
       <div class="grid gap-6 sm:grid-cols-3">
         <div class="border-b pb-6 sm:border-b-0 sm:pb-0">
@@ -150,6 +191,44 @@ const websiteLd = {
             Through annual research reports like <em>The State of No-Login Web</em>, we track and amplify the movement toward a more accessible internet.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- Core Principles -->
+    <section class="border-t-2 border-neutral-900 pt-12 mb-16">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-8 text-retro-mono">Core Principles</h2>
+      <div class="space-y-6">
+        <div class="retro-card p-6">
+          <h3 class="font-black text-neutral-900 text-base mb-2 text-retro-mono">1. Zero-Credential Computing</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Essential software utilities—formatters, converters, editors, and calculators—should execute immediately in the browser. Forcing user onboarding or capturing email addresses for basic compute creates artificial friction and systemic privacy risks.
+          </p>
+        </div>
+        <div class="retro-card p-6">
+          <h3 class="font-black text-neutral-900 text-base mb-2 text-retro-mono">2. Local Data Sovereignty</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Whenever possible, user payloads must stay confined to browser memory. Using client-side technologies like WebAssembly, Web Workers, and IndexedDB ensures files and cryptographic secrets remain strictly local without server transit.
+          </p>
+        </div>
+        <div class="retro-card p-6">
+          <h3 class="font-black text-neutral-900 text-base mb-2 text-retro-mono">3. Automated Empirical Oversight</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Trust is earned through continuous empirical verification, not marketing badges. Our automated infrastructure executes recurring 6-hour health checks, latency surveillance, and crawler audits across the entire ecosystem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="border-t-2 border-neutral-900 pt-12">
+      <h2 class="text-xs font-black uppercase tracking-widest text-neutral-400 mb-8 text-retro-mono">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        {faqs.map(({ q, a }) => (
+          <div class="border-b border-neutral-200 pb-6 last:border-b-0">
+            <h3 class="font-black text-neutral-900 text-base mb-2 text-retro-mono">{q}</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">{a}</p>
+          </div>
+        ))}
       </div>
     </section>
   </div>
