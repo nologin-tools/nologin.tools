@@ -20,9 +20,8 @@ const effectiveStatus = status !== undefined ? status : (isOnline === null ? nul
 
 {
   effectiveStatus === null ? (
-    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold text-neutral-400">
+    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-bold text-neutral-400" title={t(locale, 'health.noChecks')}>
       <span class="w-2 h-2 border border-neutral-300" />
-      {t(locale, 'health.noChecks')}
     </span>
   ) : effectiveStatus === 'online' ? (
     <span class="inline-flex items-center gap-1.5 text-[10px] uppercase font-black text-green-700">
