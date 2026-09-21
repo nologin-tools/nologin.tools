@@ -299,6 +299,44 @@ export function getRelatedTools(currentSlug: string, categoryTag: string | undef
     .map(x => x.tool);
 }
 
+export function getEditorsChoiceTools(locale: Locale = 'en'): (BuildDataTool & { health: { status: EffectiveStatus; checkedAt: Date } | null; score: number; editorial: ToolEditorial | null })[] {
+  return getApprovedTools()
+    .map((tool) => {
+      const health = getToolHealthStatus(tool);
+      const score = computeScore(tool, health);
+      const editorial = getToolEditorial(tool.slug, locale);
+      return { ...tool, health, score, editorial };
+    })
+    .filter((t) => t.editorial?.verdictTier === 'editors-choice')
+    .sort((a, b) => b.score - a.score);
+}
+
+export function getTopEditorChoiceAlternative(currentSlug: string, categoryTag: string | undefined, locale: Locale = 'en'): (BuildDataTool & { editorial: ToolEditorial | null }) | null {
+  if (!categoryTag) return null;
+  const match = getApprovedTools()
+    .filter(t => t.slug !== currentSlug && t.tags.some(tag => tag.tagKey === 'category' && tag.tagValue === categoryTag))
+    .map(t => ({ tool: t, editorial: getToolEditorial(t.slug, locale) }))
+    .filter(x => x.editorial?.verdictTier === 'editors-choice')
+    .sort((a, b) => (b.editorial?.productScore?.overall ?? 0) - (a.editorial?.productScore?.overall ?? 0))[0];
+
+  if (!match) return null;
+  return { ...match.tool, editorial: match.editorial };
+}
+
+export function getRelatedToolsWithMeta(currentSlug: string, categoryTag: string | undefined, locale: Locale = 'en', limit = 6) {
+  if (!categoryTag) return [];
+  return getApprovedTools()
+    .filter(t => t.slug !== currentSlug && t.tags.some(tag => tag.tagKey === 'category' && tag.tagValue === categoryTag))
+    .map(t => {
+      const health = getToolHealthStatus(t);
+      const score = computeScore(t, health);
+      const editorial = getToolEditorial(t.slug, locale);
+      return { tool: t, health, score, editorial };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+}
+
 export function getBuildDataGeneratedAt(): string {
   return buildData.generatedAt;
 }

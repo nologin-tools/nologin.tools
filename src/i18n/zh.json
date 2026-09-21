@@ -617,5 +617,10 @@
   "lab.card.labNotes": "实机测评手记",
   "lab.card.viewDetails": "查看完整评测与打分",
   "lab.antiBait.title": "严格杜绝诱导欺诈承诺",
-  "lab.antiBait.desc": "任何在前端展示免费操作，但在用户点击下载时弹出强制登录弹窗、输入邮箱或付费解锁的工具，一律立即降级或拒绝收录。"
+  "lab.antiBait.desc": "任何在前端展示免费操作，但在用户点击下载时弹出强制登录弹窗、输入邮箱或付费解锁的工具，一律立即降级或拒绝收录。",
+  "home.editorsChoiceSpotlight": "👑 编辑精选 ({count})",
+  "home.editorsChoiceHeading": "殿堂级编辑精选工作台",
+  "home.editorsChoiceSubtitle": "经实测认证的免登录杰作，具备工作台级深度架构、离线运行能力与无损导出支持。",
+  "tool.editorial.topWorkstation": "同分类顶级工作台推荐",
+  "tool.editorial.viewWorkstation": "查看工作台"
 }

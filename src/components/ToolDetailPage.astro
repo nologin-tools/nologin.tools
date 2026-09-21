@@ -8,7 +8,7 @@ import { resolveEffectiveStatus, type EffectiveStatus } from '../lib/health';
 import { buildToolSeoMeta, getToolCanonicalPath, resolveToolCanonicalLocale } from '../lib/tool-seo.mjs';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
-import { getToolEditorial } from '../data/loader';
+import { getToolEditorial, getTopEditorChoiceAlternative } from '../data/loader';
 import { getRelatedArticlesForTool } from '../lib/tool-blogs';
 import { findAlternativeByAlias } from '../lib/alternatives';
 import { findComparisonsForTool } from '../lib/comparisons';
@@ -164,6 +164,9 @@ const relatedArticles = getRelatedArticlesForTool(slug, locale);
 const toolComparisons = findComparisonsForTool(slug);
 const toolWorkflows = findWorkflowsForTool(slug);
 const toolCollections = findCollectionsForTool(slug);
+const topAlternative = (editorial?.verdictTier !== 'editors-choice' && categoryTag?.tagValue)
+  ? getTopEditorChoiceAlternative(slug, categoryTag.tagValue, locale)
+  : null;
 
 const featureList = [
   tool.coreTask,
@@ -485,6 +488,40 @@ const faqLd = isVerified ? {
               </div>
             )}
           </div>
+
+          <!-- Top-Rated Workstation Alternative Banner (if not already an Editor's Choice) -->
+          {topAlternative && topAlternative.editorial && (
+            <div class="bg-amber-50/70 border-2 border-amber-300/90 p-4 sm:p-5 shadow-[2px_2px_0px_0px_rgba(217,119,6,0.2)]">
+              <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
+                <span class="text-xs font-bold font-mono uppercase text-amber-900 flex items-center gap-1.5">
+                  <span>💡</span>
+                  <span>{t(locale, 'tool.editorial.topWorkstation')}</span>
+                </span>
+                <span class="text-[10px] font-mono font-bold px-2 py-0.5 bg-amber-100 text-amber-950 border border-amber-400">
+                  ⚡ {topAlternative.editorial.productScore?.overall} · {t(locale, 'tool.productScore.tier.editorsChoice')}
+                </span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <a
+                    href={getLocalizedPath(`/tool/${topAlternative.slug}`, locale)}
+                    class="font-black text-base text-neutral-900 hover:text-amber-900 hover:underline decoration-2"
+                  >
+                    {topAlternative.name}
+                  </a>
+                  <p class="text-xs text-neutral-700 mt-0.5 line-clamp-2">
+                    {topAlternative.editorial.bestFor}
+                  </p>
+                </div>
+                <a
+                  href={getLocalizedPath(`/tool/${topAlternative.slug}`, locale)}
+                  class="inline-flex items-center justify-center shrink-0 px-3 py-1.5 bg-amber-400 hover:bg-amber-500 text-neutral-900 text-xs font-mono font-bold border border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+                >
+                  {t(locale, 'tool.editorial.viewWorkstation')} &rarr;
+                </a>
+              </div>
+            </div>
+          )}
 
           <!-- Pros & Cons Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1080,29 +1117,47 @@ const faqLd = isVerified ? {
         <div class="border-t border-neutral-100 pt-8">
           <h2 class="text-sm font-medium text-neutral-500 mb-4">{t(locale, 'tool.relatedTools')}</h2>
           <div class="space-y-3">
-            {relatedTools.map((rt) => (
-              <div class="flex items-start gap-3 py-2 border-b border-neutral-100 last:border-0">
-                <img
-                  src={`https://www.google.com/s2/favicons?domain=${new URL(rt.url).hostname}&sz=32`}
-                  alt={rt.name}
-                  width="16"
-                  height="16"
-                  class="w-4 h-4 object-contain mt-0.5 shrink-0"
-                  loading="lazy"
-                  onerror={`this.style.display='none'`}
-                />
-                <div class="min-w-0">
-                  <span class="text-sm">
-                    <a href={getLocalizedPath(`/tool/${rt.slug}`, locale)} class="font-bold text-neutral-900 hover:underline decoration-2">{rt.name}</a>
-                    <span class="text-neutral-400 mx-1">&mdash;</span>
-                    <span class="text-neutral-400 font-mono text-xs">{new URL(rt.url).hostname}</span>
-                  </span>
-                  {rt.description && (
-                    <p class="text-sm text-neutral-500 mt-0.5 line-clamp-1">{rt.description}</p>
-                  )}
+            {relatedTools.map((rt) => {
+              const rtEd = getToolEditorial(rt.slug, locale);
+              return (
+                <div class="flex items-start gap-3 py-2 border-b border-neutral-100 last:border-0">
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${new URL(rt.url).hostname}&sz=32`}
+                    alt={rt.name}
+                    width="16"
+                    height="16"
+                    class="w-4 h-4 object-contain mt-0.5 shrink-0"
+                    loading="lazy"
+                    onerror={`this.style.display='none'`}
+                  />
+                  <div class="min-w-0 flex-1">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <a href={getLocalizedPath(`/tool/${rt.slug}`, locale)} class="font-bold text-neutral-900 hover:underline decoration-2 text-sm">{rt.name}</a>
+                      <span class="text-neutral-400 font-mono text-xs">({new URL(rt.url).hostname})</span>
+                      {rtEd?.productScore && (
+                        <a
+                          href={getLocalizedPath(`/tool/${rt.slug}`, locale)}
+                          class:list={[
+                            "inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-bold border shrink-0 transition-colors",
+                            rtEd.verdictTier === 'editors-choice'
+                              ? "bg-amber-100 text-amber-950 border-amber-400 hover:bg-amber-200"
+                              : rtEd.verdictTier === 'highly-recommended'
+                              ? "bg-emerald-50 text-emerald-950 border-emerald-300 hover:bg-emerald-100"
+                              : "bg-neutral-100 text-neutral-700 border-neutral-300 hover:bg-neutral-200"
+                          ]}
+                          title={rtEd.benchmarkNotes || t(locale, 'tool.productScore.badgeTitle', { score: String(rtEd.productScore.overall) })}
+                        >
+                          ⚡ {rtEd.productScore.overall}
+                        </a>
+                      )}
+                    </div>
+                    {rt.description && (
+                      <p class="text-sm text-neutral-500 mt-0.5 line-clamp-1">{rt.description}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

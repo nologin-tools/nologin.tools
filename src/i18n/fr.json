@@ -368,5 +368,10 @@
   "about.methodologyPoint2": "Audit réseau DevTools : vérification du traitement local ou distant des données.",
   "about.methodologyPoint3": "Audit des traceurs : contrôle de l'absence de scripts tiers de suivi.",
   "about.methodologyPoint4": "Surveillance automatique toutes les 6 heures avec archive de secours Wayback Machine.",
-  "blog.readMore": "Lire le guide"
+  "blog.readMore": "Lire le guide",
+  "home.editorsChoiceSpotlight": "👑 Choix de la rédaction ({count})",
+  "home.editorsChoiceHeading": "Stations de travail recommandées par la rédaction",
+  "home.editorsChoiceSubtitle": "Chefs-d'œuvre vérifiés sans connexion, dotés d'une architecture côté client avancée, d'une compatibilité hors ligne et d'exports sans perte.",
+  "tool.editorial.topWorkstation": "Meilleure station de travail dans cette catégorie",
+  "tool.editorial.viewWorkstation": "Voir la station"
 }

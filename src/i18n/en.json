@@ -646,5 +646,10 @@
   "lab.card.labNotes": "Hands-on Lab Notes",
   "lab.card.viewDetails": "View full audit & scorecard",
   "lab.antiBait.title": "Strict Anti-Bait-and-Switch Guarantee",
-  "lab.antiBait.desc": "Tools that bait users with free interfaces but demand login or payment upon clicking download are immediately demoted or rejected. No exceptions."
+  "lab.antiBait.desc": "Tools that bait users with free interfaces but demand login or payment upon clicking download are immediately demoted or rejected. No exceptions.",
+  "home.editorsChoiceSpotlight": "👑 Editor's Choice ({count})",
+  "home.editorsChoiceHeading": "Editor's Choice Workstations",
+  "home.editorsChoiceSubtitle": "Verified zero-login masterpieces featuring deep client-side architectures, offline capability, and lossless exports.",
+  "tool.editorial.topWorkstation": "Top-Rated Workstation in this Category",
+  "tool.editorial.viewWorkstation": "View Workstation"
 }

@@ -368,5 +368,10 @@
   "about.methodologyPoint2": "DevTools-Netzwerkaudit: Überprüfung der lokalen vs. Server-Datenverarbeitung.",
   "about.methodologyPoint3": "Tracker-Audit: Prüfung auf Analyseskripte und Browser-Fingerprinting.",
   "about.methodologyPoint4": "Automatisierte Verfügbarkeitsprüfung alle 6 Stunden mit Wayback Machine-Fallback.",
-  "blog.readMore": "Leitfaden lesen"
+  "blog.readMore": "Leitfaden lesen",
+  "home.editorsChoiceSpotlight": "👑 Redaktionsempfehlung ({count})",
+  "home.editorsChoiceHeading": "Redaktionell empfohlene Workstations",
+  "home.editorsChoiceSubtitle": "Verifizierte Meisterwerke ohne Login mit tiefgreifender clientseitiger Architektur, Offline-Fähigkeit und verlustfreiem Export.",
+  "tool.editorial.topWorkstation": "Bestbewertete Workstation in dieser Kategorie",
+  "tool.editorial.viewWorkstation": "Workstation ansehen"
 }

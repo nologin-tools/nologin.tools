@@ -368,5 +368,10 @@
   "about.methodologyPoint2": "개발자 도구 네트워크 감사: 데이터가 로컬에서 처리되는지 서버로 전송되는지 검증합니다.",
   "about.methodologyPoint3": "트래커 및 원격 측정 감사: 타사 분석 및 핑거프린팅 스크립트 존재 여부를 검사합니다.",
   "about.methodologyPoint4": "6시간 주기 자동 헬스체크 및 웨이백 머신(Wayback Machine) 자동 연결 지원.",
-  "blog.readMore": "가이드 읽기"
+  "blog.readMore": "가이드 읽기",
+  "home.editorsChoiceSpotlight": "👑 에디터 초이스 ({count})",
+  "home.editorsChoiceHeading": "에디터 초이스 워크스테이션",
+  "home.editorsChoiceSubtitle": "심층 클라이언트 사이드 아키텍처, 오프라인 지원, 무손실 내보내기를 갖춘 검증된 비로그인 명작 툴입니다.",
+  "tool.editorial.topWorkstation": "이 카테고리 최고의 워크스테이션 추천",
+  "tool.editorial.viewWorkstation": "워크스테이션 보기"
 }

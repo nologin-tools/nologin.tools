@@ -48,6 +48,7 @@ for (const cat of categoryOrder) {
 const otherGroupTools = groupMap.get('Other') || [];
 if (otherGroupTools.length > 0) categoryGroups.push({ category: 'Other', tools: otherGroupTools });
 
+const editorsChoiceTools = allTools.filter(t => t.editorial?.verdictTier === 'editors-choice');
 const totalTools = allTools.length;
 
 // Fetch blog posts for featured guides
@@ -251,7 +252,15 @@ function translateTagValue(key: string, value: string): string {
 
     <!-- Category Navigation -->
     <nav class="mb-6 text-sm text-retro-mono" aria-label="Category navigation">
-      <div class="flex flex-wrap gap-x-3 gap-y-2">
+      <div class="flex flex-wrap gap-x-3 gap-y-2 items-center">
+        {editorsChoiceTools.length > 0 && (
+          <a
+            href="#editors-choice"
+            class="px-2.5 py-1 border-2 border-amber-500 bg-amber-100/90 text-amber-950 hover:bg-amber-200 transition-all uppercase font-bold shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+          >
+            {t(locale, 'home.editorsChoiceSpotlight', { count: String(editorsChoiceTools.length) })}
+          </a>
+        )}
         {categoryGroups.map((group) => (
           <a
             href={`#${catAnchor(group.category)}`}
@@ -331,6 +340,88 @@ function translateTagValue(key: string, value: string): string {
 
     <!-- Tool Lists by Category -->
     <div class="space-y-16">
+      <!-- Editor's Choice Workstations Showcase -->
+      {editorsChoiceTools.length > 0 && (
+        <section id="editors-choice" class="scroll-mt-10 bg-amber-50/50 border-2 border-amber-300/90 p-5 sm:p-6 shadow-[3px_3px_0px_0px_rgba(217,119,6,0.25)]">
+          <div class="border-b-2 border-amber-400/80 pb-3 mb-4">
+            <h2 class="text-xl sm:text-2xl font-black text-amber-950 uppercase tracking-tight flex items-baseline justify-between">
+              <span>
+                👑 {t(locale, 'home.editorsChoiceHeading')} <span class="ml-2 text-sm font-bold text-amber-700">[{editorsChoiceTools.length}]</span>
+              </span>
+            </h2>
+            <p class="text-xs sm:text-sm text-amber-900/80 mt-1 leading-relaxed font-sans">
+              {t(locale, 'home.editorsChoiceSubtitle')}
+            </p>
+          </div>
+          <ul class="divide-y divide-amber-200/50">
+            {editorsChoiceTools.map((tool) => {
+              const hostname = getHostname(tool.url);
+              return (
+                <li class="tool-item group py-2.5">
+                  <div class="flex items-start gap-3 min-w-0 flex-1">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
+                      alt={tool.name}
+                      width="16"
+                      height="16"
+                      class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
+                      loading="lazy"
+                      onerror={`this.style.display='none'`}
+                    />
+                    <div class="min-w-0 flex flex-col flex-1">
+                      <div class="flex items-center gap-2 min-w-0 flex-wrap">
+                        {tool.isFeatured && (
+                          <span class="text-yellow-600 shrink-0 text-xs font-mono" title={t(locale, 'common.featured')}>★</span>
+                        )}
+                        {tool.badgeDisplayType === 'explicit' && (
+                          <span class="text-green-600 shrink-0 inline-flex items-center" title={t(locale, 'tool.badgeActiveDesc')}>
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                              <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                          </span>
+                        )}
+                        <a
+                          href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                          class="font-bold text-lg text-neutral-900 hover:underline decoration-2 underline-offset-4"
+                        >
+                          {tool.name}
+                        </a>
+                        <a
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-neutral-400 hover:text-neutral-900 text-xs font-mono transition-colors hidden sm:inline"
+                        >
+                          ({hostname})
+                        </a>
+                        {tool.editorial?.productScore && (
+                          <a
+                            href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                            class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold border transition-colors shrink-0 bg-amber-100 text-amber-950 border-amber-400 hover:bg-amber-200"
+                            title={tool.editorial.benchmarkNotes || t(locale, 'tool.productScore.badgeTitle', { score: String(tool.editorial.productScore.overall) })}
+                          >
+                            <span>⚡ {tool.editorial.productScore.overall}</span>
+                            <span class="font-bold">· {t(locale, 'tool.productScore.tier.editorsChoice')}</span>
+                          </a>
+                        )}
+                      </div>
+                      {getLocalizedDescription(tool, locale) && (
+                        <p class="text-neutral-700 text-sm leading-relaxed mt-0.5">
+                          {getLocalizedDescription(tool, locale)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div class="shrink-0 self-start sm:self-center pl-2">
+                    <HealthBadge status={tool.health?.status ?? null} lastCheckedAt={null} locale={locale} />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
       {categoryGroups.map((group) => (
         <section id={catAnchor(group.category)} class="scroll-mt-10">
           <h2 class="category-heading uppercase flex items-baseline justify-between">

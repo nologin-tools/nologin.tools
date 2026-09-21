@@ -368,5 +368,10 @@
   "about.methodologyPoint2": "Auditoria de rede no DevTools: verificação do processamento local vs. servidor.",
   "about.methodologyPoint3": "Auditoria de rastreadores: ausência de scripts de publicidade e telemetria.",
   "about.methodologyPoint4": "Monitoramento automatizado a cada 6 horas com fallback do Wayback Machine.",
-  "blog.readMore": "Ler guia"
+  "blog.readMore": "Ler guia",
+  "home.editorsChoiceSpotlight": "👑 Escolha do Editor ({count})",
+  "home.editorsChoiceHeading": "Estações de Trabalho Escolha do Editor",
+  "home.editorsChoiceSubtitle": "Obras-primas verificadas sem login com arquitetura avançada no cliente, capacidade offline e exportações sem perdas.",
+  "tool.editorial.topWorkstation": "Estação de trabalho mais bem avaliada nesta categoria",
+  "tool.editorial.viewWorkstation": "Ver estação de trabalho"
 }

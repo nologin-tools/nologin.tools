@@ -368,5 +368,10 @@
   "about.methodologyPoint2": "DevToolsネットワーク監査：ブラウザ内ローカル処理かサーバー送信かを厳密に検証。",
   "about.methodologyPoint3": "トラッカー監査：Google Analyticsや外部広告トラッカーの有無を監査。",
   "about.methodologyPoint4": "6時間ごとの自動ヘルスチェックとWayback Machineフォールバック。",
-  "blog.readMore": "ガイドを読む"
+  "blog.readMore": "ガイドを読む",
+  "home.editorsChoiceSpotlight": "👑 エディターズチョイス ({count})",
+  "home.editorsChoiceHeading": "エディターズチョイス・ワークステーション",
+  "home.editorsChoiceSubtitle": "検証済みの完全ログイン不要の傑作ツール。高度なクライアントサイド構造、オフライン動作、可逆エクスポートに対応。",
+  "tool.editorial.topWorkstation": "このカテゴリの最高評価ワークステーション",
+  "tool.editorial.viewWorkstation": "ワークステーションを見る"
 }
