@@ -230,6 +230,11 @@
     "description": "支持 200 多种格式的精准转换。音频、视频、图片、文档，一站搞定——底层由专业级工具驱动。",
     "coreTask": "拖入文件，完成格式转换"
   },
+  "convertlo-pro": {
+    "_hash": "a617fee8d4f4d50a",
+    "description": "在浏览器本地直接转换图像、文档、音频及视频格式，无需上传文件，支持自定义输出参数。",
+    "coreTask": "在浏览器端本地转换文件格式"
+  },
   "cookies-extractor-chekun-me": {
     "_hash": "8df2771e44e6395a",
     "description": "简单而强大的 Chrome 扩展，只需一键即可提取和导出任意网站的 Cookie。",

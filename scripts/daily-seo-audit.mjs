@@ -284,12 +284,13 @@ export function validateHtmlSeo(html, url) {
     }
   }
 
-  // 6. Multimodal Image Alt Quality Check
+  // 6. Multimodal Image Alt Quality Check (ignore script template strings)
+  const contentWithoutScripts = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
   const imgRegex = /<img\b([^>]*?)>/gi;
   let imgMatch;
   let missingAltCount = 0;
   let totalImgCount = 0;
-  while ((imgMatch = imgRegex.exec(html)) !== null) {
+  while ((imgMatch = imgRegex.exec(contentWithoutScripts)) !== null) {
     totalImgCount++;
     const attrs = imgMatch[1];
     if (!/\balt=["']/i.test(attrs)) {

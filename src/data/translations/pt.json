@@ -230,6 +230,11 @@
     "description": "Converta entre mais de 200 formatos com precisão. Áudio, vídeo, imagens, documentos — tudo processado com ferramentas de nível profissional.",
     "coreTask": "Arraste o arquivo e converta"
   },
+  "convertlo-pro": {
+    "_hash": "a617fee8d4f4d50a",
+    "description": "Converta imagens, documentos, áudio e vídeo diretamente no navegador sem upload de arquivos e com configurações de qualidade ajustáveis.",
+    "coreTask": "Converter formatos de arquivo localmente no navegador"
+  },
   "cookies-extractor-chekun-me": {
     "_hash": "8df2771e44e6395a",
     "description": "Uma extensão simples, porém poderosa, para Chrome que ajuda a extrair e exportar cookies de qualquer site com um clique.",

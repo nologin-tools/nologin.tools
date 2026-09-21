@@ -70160,5 +70160,191 @@
       "benchmarkNotes": "在 DOM 节点中以 28 ms 的极低延迟完成 18 位代码校验及 ISO 7064 模算术推导，无任何网络外传。",
       "testedAt": "2026-09"
     }
+  },
+  "convertlo-pro": {
+    "en": {
+      "bestFor": "Converting image, document, and media files directly in the browser without account creation or server file uploads.",
+      "pros": [
+        "Executes image conversion entirely in-browser using HTML5 Canvas and local decoders with zero file data uploaded",
+        "Supports multi-format conversions across images, documents, audio, and video with configurable quality settings"
+      ],
+      "cons": [
+        "Contains third-party advertising and analytics trackers including Google Analytics and Meta Pixel"
+      ],
+      "privacyVerdict": "File conversions are processed locally in the browser engine using HTML5 canvas and WebAssembly with no file content sent to servers; however, page analytics and tracking requests to Google Analytics and Meta are active during navigation.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Converted an 800x600 PNG fixture (324 KB) to JPEG (50 KB) via in-browser canvas pipeline with 198 ms max task execution and clean 1-click download.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "无需注册账号或上传原始文件，直接在浏览器中本地转换各类图像、文档及多媒体格式。",
+      "pros": [
+        "基于浏览器 HTML5 Canvas 与本地解码引擎完成文件转换，原始文件零上传",
+        "支持图像、文档、音频与视频多格式互转，并提供输出质量微调与尺寸控制"
+      ],
+      "cons": [
+        "页面加载了 Google Analytics 与 Meta Pixel 等第三方数据分析与广告脚本"
+      ],
+      "privacyVerdict": "文件格式转换完全在浏览器端通过 HTML5 Canvas 与本地脚本完成，文件数据无需上传至服务器；但页面在访问与操作期间存在 Google Analytics 等第三方分析与广告跟踪请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "通过浏览器端 Canvas 管道在 198ms 最大长任务时间内将 800x600 PNG 测试图片 (324KB) 转换为 JPEG (50KB)，并实现一键纯净下载。",
+      "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "アカウントの作成やサーバー ファイルのアップロードを行わずに、画像、ドキュメント、メディア ファイルをブラウザで直接変換します。",
+      "pros": [
+        "HTML5 Canvas とローカル デコーダを使用して、ファイル データをアップロードせずに完全にブラウザ内で画像変換を実行します",
+        "構成可能な品質設定により、画像、ドキュメント、オーディオ、ビデオにわたるマルチフォーマット変換をサポート"
+      ],
+      "cons": [
+        "Google AnalyticsやMeta Pixelなどのサードパーティの広告および分析トラッカーが含まれています"
+      ],
+      "privacyVerdict": "ファイル変換は、HTML5 キャンバスと WebAssembly を使用してブラウザ エンジンでローカルに処理され、ファイル コンテンツはサーバーに送信されません。ただし、ページ分析と Google Analytics および Meta への追跡リクエストはナビゲーション中にアクティブになります。",
+      "benchmarkNotes": "最大 198 ミリ秒のタスク実行とクリーンな 1 クリック ダウンロードにより、ブラウザ内キャンバス パイプライン経由で 800x600 PNG フィクスチャ (324 KB) を JPEG (50 KB) に変換しました。",
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "계정 생성이나 서버 파일 업로드 없이 브라우저에서 직접 이미지, 문서, 미디어 파일을 변환합니다.",
+      "pros": [
+        "업로드된 파일 데이터가 전혀 없는 HTML5 Canvas 및 로컬 디코더를 사용하여 브라우저 내에서 이미지 변환을 완전히 실행합니다.",
+        "구성 가능한 품질 설정을 통해 이미지, 문서, 오디오 및 비디오 전반에 걸쳐 다중 형식 변환을 지원합니다."
+      ],
+      "cons": [
+        "Google Analytics 및 Meta Pixel을 포함한 타사 광고 및 분석 추적기가 포함되어 있습니다."
+      ],
+      "privacyVerdict": "파일 변환은 서버로 전송되는 파일 콘텐츠 없이 HTML5 캔버스와 WebAssembly를 사용하여 브라우저 엔진에서 로컬로 처리됩니다. 그러나 탐색 중에 Google Analytics 및 Meta에 대한 페이지 분석 및 추적 요청이 활성화됩니다.",
+      "benchmarkNotes": "최대 198ms 작업 실행 및 깔끔한 원클릭 다운로드를 통해 브라우저 내 캔버스 파이프라인을 통해 800x600 PNG 픽스처(324KB)를 JPEG(50KB)로 변환했습니다.",
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Conversión de archivos de imágenes, documentos y medios directamente en el navegador sin necesidad de crear una cuenta ni cargar archivos en el servidor.",
+      "pros": [
+        "Ejecuta la conversión de imágenes completamente en el navegador utilizando HTML5 Canvas y decodificadores locales sin cargar datos de archivos.",
+        "Admite conversiones multiformato de imágenes, documentos, audio y vídeo con ajustes de calidad configurables"
+      ],
+      "cons": [
+        "Contiene rastreadores de análisis y publicidad de terceros, incluidos Google Analytics y Meta Pixel."
+      ],
+      "privacyVerdict": "Las conversiones de archivos se procesan localmente en el motor del navegador utilizando HTML5 Canvas y WebAssembly sin enviar contenido de archivo a los servidores; sin embargo, las solicitudes de seguimiento y análisis de páginas a Google Analytics y Meta están activas durante la navegación.",
+      "benchmarkNotes": "Convirtió un dispositivo PNG de 800x600 (324 KB) a JPEG (50 KB) a través de un canal de lienzo en el navegador con una ejecución máxima de tareas de 198 ms y una descarga limpia con 1 clic.",
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Conversion de fichiers image, document et multimédia directement dans le navigateur sans création de compte ni téléchargement de fichiers sur le serveur.",
+      "pros": [
+        "Exécute la conversion d'image entièrement dans le navigateur à l'aide de HTML5 Canvas et de décodeurs locaux sans aucune donnée de fichier téléchargée",
+        "Prend en charge les conversions multiformats d'images, de documents, d'audio et de vidéo avec des paramètres de qualité configurables"
+      ],
+      "cons": [
+        "Contient des trackers publicitaires et analytiques tiers, notamment Google Analytics et Meta Pixel"
+      ],
+      "privacyVerdict": "Les conversions de fichiers sont traitées localement dans le moteur du navigateur à l'aide du canevas HTML5 et de WebAssembly, sans qu'aucun contenu de fichier ne soit envoyé aux serveurs ; cependant, les analyses de page et les demandes de suivi vers Google Analytics et Meta sont actives pendant la navigation.",
+      "benchmarkNotes": "Conversion d'un appareil PNG 800 x 600 (324 Ko) en JPEG (50 Ko) via un pipeline de canevas dans le navigateur avec une exécution de tâche maximale de 198 ms et un téléchargement propre en 1 clic.",
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Konvertieren Sie Bild-, Dokument- und Mediendateien direkt im Browser, ohne ein Konto zu erstellen oder Dateien auf den Server hochzuladen.",
+      "pros": [
+        "Führt die Bildkonvertierung vollständig im Browser mit HTML5 Canvas und lokalen Decodern durch, ohne dass Dateidaten hochgeladen werden müssen",
+        "Unterstützt Multiformatkonvertierungen für Bilder, Dokumente, Audio und Video mit konfigurierbaren Qualitätseinstellungen"
+      ],
+      "cons": [
+        "Enthält Werbe- und Analyse-Tracker von Drittanbietern, einschließlich Google Analytics und Meta Pixel"
+      ],
+      "privacyVerdict": "Dateikonvertierungen werden lokal in der Browser-Engine mithilfe von HTML5 Canvas und WebAssembly verarbeitet, ohne dass Dateiinhalte an Server gesendet werden. Während der Navigation sind jedoch Seitenanalysen und Tracking-Anfragen an Google Analytics und Meta aktiv.",
+      "benchmarkNotes": "Konvertierte ein 800x600-PNG-Fixture (324 KB) in JPEG (50 KB) über die Canvas-Pipeline im Browser mit maximal 198 ms Aufgabenausführung und sauberem 1-Klick-Download.",
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Converta arquivos de imagens, documentos e mídia diretamente no navegador, sem criação de conta ou upload de arquivos no servidor.",
+      "pros": [
+        "Executa conversão de imagem inteiramente no navegador usando HTML5 Canvas e decodificadores locais sem nenhum upload de dados de arquivo",
+        "Suporta conversões de vários formatos em imagens, documentos, áudio e vídeo com configurações de qualidade configuráveis"
+      ],
+      "cons": [
+        "Contém rastreadores de publicidade e análise de terceiros, incluindo Google Analytics e Meta Pixel"
+      ],
+      "privacyVerdict": "As conversões de arquivos são processadas localmente no mecanismo do navegador usando HTML5 canvas e WebAssembly, sem que o conteúdo do arquivo seja enviado aos servidores; no entanto, a análise da página e as solicitações de rastreamento ao Google Analytics e Meta estão ativas durante a navegação.",
+      "benchmarkNotes": "Converti um acessório PNG de 800x600 (324 KB) para JPEG (50 KB) por meio do pipeline de tela no navegador com execução de tarefa máxima de 198 ms e download limpo com 1 clique.",
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "alternativeTo": [],
+      "testedAt": "2026-09"
+    }
   }
 }
