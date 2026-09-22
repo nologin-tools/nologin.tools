@@ -387,6 +387,7 @@ const orgLd = {
   sameAs: [
     'https://x.com/nologin_tools',
     'https://github.com/nologin-tools',
+    'https://nologin.tools',
   ],
 };
 ---
@@ -876,17 +877,17 @@ const orgLd = {
                   </div>
                 </div>
 
-                {/* Benchmark Lab Notes */}
+                {/* Benchmark Lab Notes (GEO Citability Enhanced) */}
                 {editorial.benchmarkNotes && (
-                  <div class="mt-3 pt-3 border-t border-neutral-200 bg-neutral-50 p-3 border border-neutral-200">
-                    <div class="flex items-center justify-between text-[10px] font-mono font-bold text-neutral-500 uppercase mb-1">
+                  <figure class="mt-3 pt-3 border-t border-neutral-200 bg-neutral-50 p-3 border border-neutral-200">
+                    <figcaption class="flex items-center justify-between text-[10px] font-mono font-bold text-neutral-500 uppercase mb-1">
                       <span class="flex items-center gap-1">🔬 {t(locale, 'tool.productScore.labNotes')}</span>
                       {editorial.testedAt && <span>{t(locale, 'tool.productScore.testedAt')} {editorial.testedAt}</span>}
-                    </div>
-                    <p class="text-xs text-neutral-800 leading-relaxed font-sans">
-                      {editorial.benchmarkNotes}
-                    </p>
-                  </div>
+                    </figcaption>
+                    <blockquote class="text-xs text-neutral-800 leading-relaxed font-sans border-l-2 border-neutral-300 pl-2.5 my-1" cite="https://nologintools.org">
+                      <p>{editorial.benchmarkNotes}</p>
+                    </blockquote>
+                  </figure>
                 )}
               </div>
             ) : (

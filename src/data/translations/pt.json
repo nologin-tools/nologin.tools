@@ -1032,6 +1032,11 @@
     "description": "Visualize os resultados da formatação de código Prettier online. Experimente com opções e veja a saída formatada para JavaScript, TypeScript, CSS e mais.",
     "coreTask": "Visualizar a formatação de código Prettier"
   },
+  "preuveenmain-ca-app": {
+    "_hash": "1781defa5ee1ee1f",
+    "description": "Um aplicativo web bilíngue de Quebec que ajuda pessoas em autorrepresentação a organizar fatos datados, provas, comunicações, prazos e cronologia em um relatório estruturado de processo legal. Os dados permanecem no dispositivo durante o uso sem login. Fornece organização e informação geral, não assessoria jurídica.",
+    "coreTask": "Crie e gerencie até três arquivos de casos, utilize o diário datado e o cofre de provas, monte uma cronologia automática e visualize relatórios estruturados diretamente no navegador."
+  },
   "preuveenmain-ca-app-index-html": {
     "description": "Aplicativo web bilíngue de Quebec que ajuda pessoas que se autorrepresentam a organizar fatos datados, provas, comunicações, prazos e cronologias em um relatório estruturado. Os dados permanecem no dispositivo durante o uso sem login. Oferece organização e orientação geral, não consultoria jurídica.",
     "coreTask": "Organizar arquivos legais, diário com datas e cofre de evidências gerando relatórios no navegador sem login"

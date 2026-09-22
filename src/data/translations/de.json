@@ -1032,6 +1032,11 @@
     "description": "Prettier-Code-Formatierungsergebnisse online vorab anzeigen. Optionen ausprobieren und die formatierte Ausgabe für JavaScript, TypeScript, CSS und mehr sehen.",
     "coreTask": "Prettier-Code-Formatierung vorab anzeigen"
   },
+  "preuveenmain-ca-app": {
+    "_hash": "1781defa5ee1ee1f",
+    "description": "Eine zweisprachige Web-App aus Quebec, die Selbstvertretenden hilft, datierte Fakten, Beweise, Korrespondenzen, Fristen und Chronologien in einem strukturierten Aktenbericht zu organisieren. Alle Daten verbleiben bei der anmeldungsfreien Nutzung lokal auf dem Gerät. Bietet Organisation und allgemeine Information, keine Rechtsberatung.",
+    "coreTask": "Bis zu drei Fallakten erstellen und verwalten, das datierte Journal und das Beweisgewölbe nutzen, eine automatische Chronologie aufbauen und formatierte Berichte direkt im Browser einsehen."
+  },
   "preuveenmain-ca-app-index-html": {
     "description": "Zweisprachige kanadische Web-App (Quebec), die Selbstvertretern hilft, datierte Fakten, Beweise, Mitteilungen, Fristen und Chronologien in einem strukturierten Aktenbericht zu organisieren. Bei der Nutzung ohne Anmeldung bleiben alle Daten auf Ihrem Gerät. Dient der Strukturierung, keine Rechtsberatung.",
     "coreTask": "Gerichtsunterlagen, Beweise und Zeitleisten direkt im Browser verwalten und Berichte lokal erstellen – ohne Konto"

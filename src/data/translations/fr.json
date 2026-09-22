@@ -1032,6 +1032,11 @@
     "description": "Prévisualise les résultats du formatage de code Prettier en ligne. Expérimente avec les options et vois la sortie formatée pour JavaScript, TypeScript, CSS et plus.",
     "coreTask": "Prévisualiser le formatage de code Prettier"
   },
+  "preuveenmain-ca-app": {
+    "_hash": "1781defa5ee1ee1f",
+    "description": "Une application web québécoise bilingue qui aide les personnes s’autoreprésentant à organiser faits datés, éléments de preuve, communications, échéances et chronologie dans un rapport de dossier juridique structuré. Les données restent sur l’appareil sans connexion. Outil d’organisation documentaire, ne constitue pas un avis juridique.",
+    "coreTask": "Créer et gérer jusqu’à trois dossiers, utiliser le journal daté et le coffre-fort de preuves, générer une chronologie automatique, consulter les listes de contrôle et prévisualiser un rapport directement dans le navigateur."
+  },
   "preuveenmain-ca-app-index-html": {
     "description": "Application web bilingue québécoise qui aide les personnes se représentant seules à organiser faits datés, preuves, communications, échéances et chronologie dans un rapport de dossier juridique structuré. Les données restent sur l'appareil lors de l'utilisation sans connexion. Outil d'organisation et d'information générale, ne constituant pas un avis juridique.",
     "coreTask": "Gérer des dossiers, tenir un journal daté et coffre de preuves pour prévisualiser un rapport structuré sans compte"
