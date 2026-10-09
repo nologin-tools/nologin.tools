@@ -239,14 +239,26 @@ for (const row of healthRows) {
 }
 
 /**
- * Convert D1 integer timestamp (Unix seconds) to ISO string.
- * D1 returns integers for timestamp columns.
- * @param {number|null} ts
+ * Convert D1 timestamp (string, Unix seconds, or Unix ms) to ISO string.
+ * @param {number|string|null} ts
  * @returns {string|null}
  */
 function toISO(ts) {
   if (ts == null) return null;
-  return new Date(ts * 1000).toISOString();
+  if (typeof ts === 'string') {
+    const parsed = new Date(ts);
+    if (!isNaN(parsed.getTime())) return parsed.toISOString();
+    const num = Number(ts);
+    if (!isNaN(num)) {
+      return (num > 1e11 ? new Date(num) : new Date(num * 1000)).toISOString();
+    }
+    return null;
+  }
+  if (typeof ts === 'number') {
+    if (isNaN(ts)) return null;
+    return (ts > 1e11 ? new Date(ts) : new Date(ts * 1000)).toISOString();
+  }
+  return null;
 }
 
 // Assemble output

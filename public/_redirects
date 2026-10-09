@@ -1160,3 +1160,40 @@
 /ko/compare/svgedit-vs-svgomg/ /ko/compare/haikei-vs-fffuel 301
 /pt/compare/svgedit-vs-svgomg /pt/compare/haikei-vs-fffuel 301
 /pt/compare/svgedit-vs-svgomg/ /pt/compare/haikei-vs-fffuel 301
+
+# MonkeeTools URL migration (surge.sh -> pages.dev)
+/tool/monkeetools-surge-sh /tool/monkeetools-pages-dev 301
+/badge/monkeetools-surge-sh /badge/monkeetools-pages-dev 301
+/zh/tool/monkeetools-surge-sh /zh/tool/monkeetools-pages-dev 301
+/zh/badge/monkeetools-surge-sh /zh/badge/monkeetools-pages-dev 301
+/ja/tool/monkeetools-surge-sh /ja/tool/monkeetools-pages-dev 301
+/ja/badge/monkeetools-surge-sh /ja/badge/monkeetools-pages-dev 301
+/ko/tool/monkeetools-surge-sh /ko/tool/monkeetools-pages-dev 301
+/ko/badge/monkeetools-surge-sh /ko/badge/monkeetools-pages-dev 301
+/es/tool/monkeetools-surge-sh /es/tool/monkeetools-pages-dev 301
+/es/badge/monkeetools-surge-sh /es/badge/monkeetools-pages-dev 301
+/fr/tool/monkeetools-surge-sh /fr/tool/monkeetools-pages-dev 301
+/fr/badge/monkeetools-surge-sh /fr/badge/monkeetools-pages-dev 301
+/de/tool/monkeetools-surge-sh /de/tool/monkeetools-pages-dev 301
+/de/badge/monkeetools-surge-sh /de/badge/monkeetools-pages-dev 301
+/pt/tool/monkeetools-surge-sh /pt/tool/monkeetools-pages-dev 301
+/pt/badge/monkeetools-surge-sh /pt/badge/monkeetools-pages-dev 301
+
+# Refi Compass slug normalization (www-reficompass-com -> reficompass-com)
+/tool/www-reficompass-com /tool/reficompass-com 301
+/badge/www-reficompass-com /badge/reficompass-com 301
+/zh/tool/www-reficompass-com /zh/tool/reficompass-com 301
+/zh/badge/www-reficompass-com /zh/badge/reficompass-com 301
+/ja/tool/www-reficompass-com /ja/tool/reficompass-com 301
+/ja/badge/www-reficompass-com /ja/badge/reficompass-com 301
+/ko/tool/www-reficompass-com /ko/tool/reficompass-com 301
+/ko/badge/www-reficompass-com /ko/badge/reficompass-com 301
+/es/tool/www-reficompass-com /es/tool/reficompass-com 301
+/es/badge/www-reficompass-com /es/badge/reficompass-com 301
+/fr/tool/www-reficompass-com /fr/tool/reficompass-com 301
+/fr/badge/www-reficompass-com /fr/badge/reficompass-com 301
+/de/tool/www-reficompass-com /de/tool/reficompass-com 301
+/de/badge/www-reficompass-com /de/badge/reficompass-com 301
+/pt/tool/www-reficompass-com /pt/tool/reficompass-com 301
+/pt/badge/www-reficompass-com /pt/badge/reficompass-com 301
+

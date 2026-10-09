@@ -101,3 +101,45 @@ describe('Blog Fallback Route Generation', () => {
     assert.equal(paths[1].props.post.id, 'welcome');
   });
 });
+
+describe('ISR Slug Extraction & Direct Fallback Routing', () => {
+  function extractSlugFromISRPath(pathname) {
+    const match = pathname.match(/^(?:\/(?:zh|ja|ko|es|fr|de|pt))?\/(tool|badge)\/([^/]+)\/?$/);
+    if (!match) return null;
+    return { type: match[1], slug: match[2] };
+  }
+
+  it('correctly extracts slug from default locale paths', () => {
+    assert.deepEqual(extractSlugFromISRPath('/tool/excalidraw-com'), { type: 'tool', slug: 'excalidraw-com' });
+    assert.deepEqual(extractSlugFromISRPath('/tool/excalidraw-com/'), { type: 'tool', slug: 'excalidraw-com' });
+    assert.deepEqual(extractSlugFromISRPath('/badge/squoosh-app'), { type: 'badge', slug: 'squoosh-app' });
+  });
+
+  it('correctly extracts slug from non-default locale paths', () => {
+    assert.deepEqual(extractSlugFromISRPath('/zh/tool/excalidraw-com'), { type: 'tool', slug: 'excalidraw-com' });
+    assert.deepEqual(extractSlugFromISRPath('/ja/badge/squoosh-app/'), { type: 'badge', slug: 'squoosh-app' });
+    assert.deepEqual(extractSlugFromISRPath('/es/tool/photopea-com'), { type: 'tool', slug: 'photopea-com' });
+  });
+
+  it('returns null for non-ISR paths', () => {
+    assert.equal(extractSlugFromISRPath('/'), null);
+    assert.equal(extractSlugFromISRPath('/about'), null);
+    assert.equal(extractSlugFromISRPath('/api/submit'), null);
+    assert.equal(extractSlugFromISRPath('/blog/my-post'), null);
+  });
+});
+
+describe('www Domain API & CORS Preflight Safety', () => {
+  it('excludes /api/ from www redirect to prevent form breakages', () => {
+    const hostname = 'www.nologin.tools';
+    const shouldRedirect = (host, pathname) => host === 'www.nologin.tools' && !pathname.startsWith('/api/');
+
+    assert.equal(shouldRedirect(hostname, '/'), true);
+    assert.equal(shouldRedirect(hostname, '/submit'), true);
+    assert.equal(shouldRedirect(hostname, '/tool/excalidraw-com'), true);
+    assert.equal(shouldRedirect(hostname, '/api/submit'), false);
+    assert.equal(shouldRedirect(hostname, '/api/resubmit'), false);
+    assert.equal(shouldRedirect(hostname, '/api/edit'), false);
+  });
+});
+

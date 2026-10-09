@@ -27,6 +27,18 @@ function deriveDefaultName(urlStr: string): string {
   }
 }
 
+export const OPTIONS: APIRoute = async () => {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Max-Age': '86400',
+    },
+  });
+};
+
 export const POST: APIRoute = async ({ request, locals }) => {
   const db = getDb(locals.runtime.env.DB);
 

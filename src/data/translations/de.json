@@ -89,6 +89,11 @@
     "coreTask": "Ehrenamtliche Schichten mit einem einzigen Link organisieren und belegen – ohne Anmeldung, ohne Installation und ohne Tracking",
     "description": "Ein kostenloses Web-Tool für Vereine und Schulen zur Koordination von Helfer- und Dienstschichten. Die Leitung erstellt den Plan, teilt einen Link und alle Helfer wählen ihren Slot per Klick. Niemand muss sich registrieren oder etwas installieren, es werden keine E-Mail-Adressen erfasst und es gibt weder Werbung noch Tracker oder Cookies. Enthält einsatzbereite Vorlagen für verschiedene Vereinsaktivitäten."
   },
+  "bizntools-com-data-json-to-csv-converter": {
+    "_hash": "40d69749708add58",
+    "description": "Wandelt JSON-Arrays und verschachtelte Objekthierarchien direkt im Browser in flache CSV-Tabellen um. Bietet Live-Tabellenvorschau, anpassbare Trennzeichen und lokalen Dateiexport ohne Server-Uploads.",
+    "coreTask": "JSON in CSV umwandeln"
+  },
   "blur-face-com-blur-face": {
     "coreTask": "Gesichter auf Fotos automatisch erkennen und unkenntlich machen, mehrere Bilder im Batch bearbeiten, EXIF-Metadaten entfernen und herunterladen – ohne Konto",
     "description": "Kostenloses Browser-Tool zum Schutz der Privatsphäre auf Fotos, das Gesichter automatisch erkennt und weichzeichnet. Die Verarbeitung findet rein lokal im Browser statt – Bilder werden nicht auf Server hochgeladen. Unterstützt Batch-Verarbeitung und das Entfernen von EXIF-Metadaten."
@@ -187,6 +192,11 @@
   "comparediff-io": {
     "coreTask": "Texte, Code, JSON und Dokumente vergleichen und Änderungen in Zeilen-, Wort- und Zeichenansichten untersuchen",
     "description": "Ein kostenloser Diff-Checker im Browser für Text, Code, JSON und Dokumente. Er zeigt Änderungen auf Zeilen-, Wort- und Zeichenebene an, während alle Daten sicher auf dem Gerät des Nutzers verbleiben."
+  },
+  "comparetexts-net": {
+    "_hash": "aa2e861948851c64",
+    "description": "Vergleicht zwei Texte oder Codeabschnitte nebeneinander im Browser mit Zeichen-Hervorhebung, Whitespace-Filtern und direktem Download von GNU-Patch-Dateien.",
+    "coreTask": "Text- und Code-Unterschiede vergleichen"
   },
   "compressto100kb-com": {
     "coreTask": "Bilder auf eine benutzerdefinierte oder vordefinierte KB-Grenze komprimieren, optional skalieren und einzeln oder als ZIP herunterladen.",
@@ -306,8 +316,8 @@
     "coreTask": "CSS-Bezier-Easing-Kurven bearbeiten"
   },
   "currawongweb-com-verify-china-usci-checker": {
-    "_hash": "ae0ffe837dddba08",
-    "description": "Ein clientseitiges Prüfwerkzeug, das 18-stellige chinesische einheitliche Sozialkredit-Codes (GB 32100-2015) validiert und Behördencodes sowie Entitätstypen aufschlüsselt.",
+    "_hash": "b0380390c46f6715",
+    "description": "Kostenloses, anmeldungsfreies Browser-Tool zur Überprüfung des 18-stelligen Formats und der Prüfziffer eines chinesischen einheitlichen Sozialkredit-Codes (USCI/USCC). Es zeigt die strukturellen Komponenten des Codes an. Die Berechnung verbleibt vollständig im Browser; anonyme Nutzungszähler enthalten keinerlei Codedaten. Ein positives Ergebnis bestätigt weder die Unternehmensregistrierung noch Eigentumsverhältnisse, Fertigungskapazitäten oder Zahlungssicherheit. Optionale Firmenberichte sind separate, kostenpflichtige Dienste.",
     "coreTask": "Einen 18-stelligen chinesischen Sozialkredit-Code eingeben, um die Prüfziffer zu überprüfen und die Struktur ohne Anmeldung einzusehen."
   },
   "dataformatkit-com": {
@@ -458,6 +468,11 @@
     "coreTask": "Dateien konvertieren sowie PDF-, Bild-, Text-, Entwickler- und Rechner-Tools ohne Registrierung nutzen",
     "description": "Kostenloses No-Login-Toolkit zur Konvertierung von über 215 Dateiformaten mit Dienstprogrammen für PDF, Bilder, Text, Entwicklung und Berechnungen. Viele Werkzeuge laufen lokal im Browser; serverseitige Konvertierungen werden nach der Verarbeitung automatisch bereinigt."
   },
+  "fileontap-com": {
+    "_hash": "bca43d73d1ddcd05",
+    "description": "Eine datenschutzfreundliche Browser-Suite für Dateikonvertierung und -komprimierung, die HEIC-, WebP-, PNG-, JPG- und PDF-Dokumente lokal auf Ihrem Gerät ohne Server-Upload verarbeitet.",
+    "coreTask": "Bilder lokal im Browser ohne Konto konvertieren, komprimieren oder zu mehrseitigen PDF-Dokumenten zusammenfügen."
+  },
   "financier-io": {
     "_hash": "c5f8e6215065b496",
     "description": "Offline-first persönlicher Budgetmanager, inspiriert von YNAB. Umschlagbasiertes Budgetieren mit automatischer Synchronisierung – alle Daten bleiben auf deinem Gerät.",
@@ -547,8 +562,8 @@
     "coreTask": "SVG-Wellen-Trenner generieren"
   },
   "gizmobench-com": {
-    "_hash": "15f01bc644cae7ec",
-    "description": "GizmoBench ist eine Sammlung kostenloser Browser-Tools für alltägliche Aufgaben, darunter Rechner, Konverter, JSON- und Markdown-Dienstprogramme, Bild- und Audio-Tools, 3D-Viewer und Hardware-Prüfungen. Alle Kern-Tools funktionieren ohne Konto. Datei-Tools verarbeiten Dokumente und Bilder lokal auf Ihrem Gerät ohne Upload, und jedes Tool weist seine Verarbeitungsgrenzen transparent aus. Die IP-Adresssuche nutzt den GizmoBench-Server.",
+    "_hash": "ad150660df2ad640",
+    "description": "GizmoBench bietet mehr als 700 kostenlose Browser-Tools: Rechner und Einheitenumrechner, Text- und Entwickler-Dienstprogramme, Bild-, PDF- und Audio-Tools, 3D-Dateibetrachter, Tests und Geräte-Checks. Die Kernfunktion jedes Tools ist kostenlos und erfordert kein Konto. Datei-Tools verarbeiten Dokumente und Bilder lokal auf Ihrem Gerät ohne Upload; Netzwerkabfragen wie IP und DNS nutzen den GizmoBench-Server. Jedes Tool weist seine Genauigkeit und Grenzen transparent aus.",
     "coreTask": "Nutzen Sie alle Werkzeuge in vollem Umfang: Einheiten und Zahlenbasen umrechnen, JSON formatieren, Farben aus Bildern extrahieren und STL-Dateien anzeigen"
   },
   "go-dev-play": {
@@ -654,6 +669,11 @@
   "imageconverttools-app": {
     "coreTask": "Unterstützte Bilder ohne Anmeldung konvertieren, komprimieren, skalieren, zuschneiden, mit Wasserzeichen versehen oder zu einer PDF zusammenfügen und herunterladen.",
     "description": "Image Convert ist eine kostenlose browserbasierte Suite für sieben praktische Bildbearbeitungsaufgaben: Konvertierung von HEIC/HEIF in JPG oder PDF, Konvertierung von JPEG, PNG und WebP, Komprimierung auf Zielgröße, Skalieren, Zuschneiden und Hinzufügen von Text-Wasserzeichen. Gewählte Dateien und Ergebnisse werden lokal auf dem Gerät verarbeitet und nicht hochgeladen. Keine Anmeldung erforderlich."
+  },
+  "imagetoascii-art": {
+    "_hash": "402511cd1318505e",
+    "description": "Ein browserbasierter ASCII-Art-Generator und Bildkonverter, der JPG-, PNG-, GIF- und WebP-Dateien mit Direktvergleich und hochauflösendem Export in anpassbare Zeichengrafiken umwandelt.",
+    "coreTask": "Laden Sie ein Bild hoch, passen Sie ASCII-Breite und Darstellungsstile an und exportieren Sie hochauflösende PNGs oder Reintext ohne Registrierung."
   },
   "imgrove-com": {
     "description": "Sammlung kostenloser Bildwerkzeuge im Browser für Konvertierung, Komprimierung, Skalierung, Bearbeitung, Metadaten-Inspektion und Export. Bilder verbleiben auf Ihrem Gerät – ohne Anmeldung und ohne Wasserzeichen.",
@@ -797,6 +817,11 @@
     "coreTask": "Markdown ohne Anmeldung in ein Word-Dokument umwandeln",
     "description": "Konvertieren Sie Markdown-Dokumente online in Word für Schreib- und Dokumentations-Workflows – ohne Login."
   },
+  "mdprevieweditor-com": {
+    "_hash": "6c68615157232aad",
+    "description": "Kostenloser Online-Markdown-Editor mit Live-Vorschau, CodeMirror-Bearbeitung, Multi-Tab-Unterstützung, KaTeX-Formeln und lokalem Export ohne Login.",
+    "coreTask": "Markdown-Dokumente in Echtzeit verfassen, prüfen und exportieren ohne Anmeldung"
+  },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
     "description": "Kostenlose Open-Source-Videokonferenz, die direkt im Browser funktioniert. Erstelle einen Raum und teile den Link – kein Account, kein Download, kein Plugin.",
@@ -832,6 +857,10 @@
   "mojisuu-app": {
     "description": "Mojisuu zählt japanische Zeichen, Zeilen, Absätze, Manuskriptseiten (Genkō Yōshi) und Byte-Länge in Echtzeit. Entwickelt für japanische Autoren und Lektoren, mit Unterstützung für Vollbreitenzeichen. Ohne Registrierung, läuft im Browser und schützt Ihre Daten lokal.",
     "coreTask": "Japanische Zeichen und Manuskriptseiten in Echtzeit direkt im Browser zählen – ohne Anmeldung"
+  },
+  "monkeetools-pages-dev": {
+    "coreTask": "Alles funktioniert ohne Anmeldung: Rechnungen erstellen/bearbeiten, PDFs herunterladen, Unternehmens-Autofill, Kunden-Autovervollständigung, Rechnungsduplikate mit fortlaufender Nummerierung und Zahlungsstatus-Tracking.",
+    "description": "Kostenloser Rechnungsgenerator für Freelancer. Keine Registrierung, kein Konto, keine Server-Uploads. Rechnungen werden direkt im Browser erstellt und PDFs lokal heruntergeladen. Merkt sich Eingaben auf Ihrem Gerät: Autofill von Unternehmensdaten, Kundenvervollständigung, 1-Klick-Duplizierung mit automatischer Nummerierung und Zahlungsüberwachung. Enthält ein AI-Agent-Kit zur Link-Vorbelegung."
   },
   "monkeetools-surge-sh": {
     "coreTask": "Alles funktioniert ohne Anmeldung: Rechnungen erstellen/bearbeiten, PDFs herunterladen, Unternehmens-Autofill, Kunden-Autovervollständigung, Rechnungsduplikate mit fortlaufender Nummerierung und Zahlungsstatus-Tracking.",
@@ -1105,8 +1134,9 @@
     "seoTaskPhrase": "Schnellstart-Guides für Entwickler ohne Registrierung lesen"
   },
   "quicktinyv2-vercel-app": {
-    "coreTask": "Alle 13 kostenlosen Tools uneingeschränkt nutzen: Einzelbilder komprimieren, JSON formatieren, Wörter zählen, Passwörter generieren, Base64/URLs en-/dekodieren – komplett im Browser.",
-    "description": "13 kostenlose browserbasierte Tools: Bildkomprimierer, JSON-Formatierer, Wortzähler, Passwortgenerator, Base64/URL-Kodierung und mehr. Alles läuft vollständig clientseitig ab, ohne Server-Uploads. Beinhaltet optional auch einen Stapel-Bildkomprimierer für eine einmalige Zahlung von 4,99 $ via PayPal – kein Konto oder Abo erforderlich."
+    "_hash": "08e8b2379833a086",
+    "description": "13 browserbasierte Werkzeuge (12 kostenlos, 1 optionales Pro) – Bildkomprimierer, JSON-Formatierer, Wortzähler, Passwortgenerator, Base64/URL-Kodierung/Dekodierung und mehr. Alles wird vollständig clientseitig verarbeitet, ohne Upload auf einen Server. Enthält auch einen optionalen Batch-Bildkomprimierer Pro für eine einmalige Zahlung von 4,99 $ über PayPal – kein Konto oder Abonnement erforderlich.",
+    "coreTask": "Bilder komprimieren, JSON formatieren, Wörter zählen und Base64 im Browser kodieren oder dekodieren"
   },
   "quillbot-com": {
     "_hash": "38b4eb38c82294cc",
@@ -1135,6 +1165,11 @@
     "_hash": "093e3df2113223e0",
     "description": "Farbpaletten in Echtzeit auf einem echten Layout vorab anzeigen. Sieh genau, wie deine Farben auf Text, Buttons und Hintergründen aussehen.",
     "coreTask": "Farbschemata auf echten Layouts vorab anzeigen"
+  },
+  "reficompass-com": {
+    "_hash": "39d810d696e890dc",
+    "description": "Clientseitiger Hypothekenrechner zum direkten Vergleich von Umschuldung, Cash-Out-Refinanzierung, HELOC, Eigenheimdarlehen, Recast und Sondertilgungen – vollständig ohne Benutzerkonto nutzbar.",
+    "coreTask": "Acht Hypotheken- und Refinanzierungsstrategien im Browser vergleichen"
   },
   "regex101-com": {
     "_hash": "309dfff8fe9e27bb",
@@ -1175,6 +1210,11 @@
   "salitronic-com-gerber-analyzer": {
     "coreTask": "Gerber-, ODB++- und IPC-2581-Dateien anzeigen, einen DRC ausführen, zwei Lagen vergleichen und eine Pick-and-Place-Ansicht betrachten – komplett im Browser ohne Installation und ohne Upload",
     "description": "Kostenloser Browser-Viewer für PCB-Leiterplatten-Fertigungsdateien. Liest Gerber, ODB++ und IPC-2581, visualisiert jede Lage sowie die bestückte Platine und bietet DRC-Prüfungen, Lagen-Diffs sowie eine Pick-and-Place-Ansicht. Alles läuft lokal in Ihrem Browser – ohne Upload und ohne Registrierung."
+  },
+  "seatsolver-com": {
+    "_hash": "627545873e110223",
+    "description": "Erstellt Sitzpläne für Events, berücksichtigt Ausschlussregeln für Gäste und exportiert druckbare Tischkarten sowie CSV-Dateien im Browser. Läuft lokal ohne Account oder Daten-Upload.",
+    "coreTask": "Sitzpläne für Veranstaltungen erstellen"
   },
   "securityheaders-com": {
     "_hash": "61e9205b80e018ab",
@@ -1240,6 +1280,11 @@
     "_hash": "e6cf0704134dc97c",
     "description": "Voll ausgestatteter Markdown-Editor im Browser. Synchronisierung mit Google Drive und GitHub, Live-Vorschau, Scroll-Synchronisierung und Offline-Unterstützung.",
     "coreTask": "Markdown im Browser bearbeiten"
+  },
+  "stayput-dev": {
+    "_hash": "7e5dcd96465405fc",
+    "description": "Kostenlose Open-Source-Dateiwerkzeuge, die Bilder, PDFs und QR-Codes direkt im Browser verarbeiten. Unterstützt lokale Komprimierung, Formatkonvertierung und Offline-Nutzung ohne Datei-Uploads.",
+    "coreTask": "Dateien verarbeiten und QR-Codes erstellen"
   },
   "studycalcpro-com": {
     "description": "Kostenlose Online-Rechner und Lernwerkzeuge für Studierende und Schüler: Notendurchschnittsrechner (GPA), Abschlussnoten-Planer, Prozentrechnung, Pomodoro-Timer, Prüfungscountdown und mehr. Ohne Anmeldung und ohne Werbeunterbrechungen vor den Ergebnissen.",
@@ -1542,6 +1587,11 @@
     "coreTask": "Praktische Berechnungen und Umrechnungen im Browser ohne Konto durchführen",
     "description": "Calculator Campus ist eine kostenlose Sammlung praktischer browserbasierter Rechner. Jedes Tool bietet eine klare Eingabemaske zusammen mit Formeln, Annahmen, Rechenbeispielen, FAQs und Quellenangaben. Die Hauptrechner funktionieren komplett ohne Konto."
   },
+  "www-freedominvoice-com-tools-invoice-generator": {
+    "_hash": "7e4278a764ba2e3f",
+    "description": "Browserbasierter Rechnungsgenerator mit Live-Postenberechnung, Steuer- und Rabatteinstellungen und direktem PDF-Export ohne Login.",
+    "coreTask": "Kommerzielle PDF-Rechnungen ohne Anmeldung erstellen und herunterladen"
+  },
   "www-ottopoll-com": {
     "description": "Otto ist ein kostenloses Umfragetool, mit dem Sie in 2 Minuten Abstimmungen für Freunde oder Teams erstellen können – ganz ohne Konto. Datum, Ort oder Zeitfenster festlegen, Link teilen und in Echtzeit abstimmen, ohne E-Mail oder Registrierung.",
     "coreTask": "Umfragen erstellen, Link teilen, abstimmen und Live-Ergebnisse ansehen – ohne Konto"
@@ -1607,5 +1657,10 @@
     "_hash": "2a48a0679487e369",
     "description": "Minimalistisches, ablenkungsfreies Schreibumfeld. Öffne es und beginne zu schreiben – keine überfüllte Werkzeugleiste, keine Ablenkungen.",
     "coreTask": "In einem ablenkungsfreien Editor schreiben"
+  },
+  "zerowidthcleaner-com-zero-width-space": {
+    "_hash": "f620e01c3824091c",
+    "description": "Prüft, identifiziert und entfernt unsichtbare Zero-Width-Unicode-Zeichen und BOM-Markierungen direkt im Browser. Bietet präzises Codepunkt-Mapping und lokalen Export in die Zwischenablage.",
+    "coreTask": "Unsichtbare Unicode-Zeichen aufspüren und bereinigen"
   }
 }

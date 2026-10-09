@@ -366,6 +366,37 @@ export async function runLocalAudit(limit) {
 }
 
 /**
+ * Fetches a URL with retry for transient network/socket drops
+ * @param {string} url
+ * @param {{ headers?: Record<string, string>, redirect?: RequestRedirect, timeoutMs?: number, retries?: number }} [options]
+ * @returns {Promise<Response>}
+ */
+async function fetchWithRetry(url, options = {}) {
+  const { headers, redirect = 'follow', timeoutMs = 10000, retries = 2 } = options;
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers,
+        redirect,
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      return res;
+    } catch (err) {
+      clearTimeout(timer);
+      lastErr = err;
+      if (attempt < retries) {
+        await new Promise((resolve) => setTimeout(resolve, 300 * (attempt + 1)));
+      }
+    }
+  }
+  throw lastErr;
+}
+
+/**
  * Runs remote audit against live production site
  * @param {number} [limit]
  * @param {string[]} [customUrls]
@@ -401,14 +432,11 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
     await Promise.all(
       batch.map(async (url) => {
         const start = Date.now();
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
-
         try {
-          const res = await fetch(url, {
+          const res = await fetchWithRetry(url, {
             headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
             redirect: 'follow',
-            signal: controller.signal,
+            timeoutMs,
           });
           const duration = Date.now() - start;
           responseTimes.push(duration);
@@ -431,8 +459,6 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
           auditedCount++;
         } catch (err) {
           allErrors.push(`[${url}] Network/fetch error: ${err.message}`);
-        } finally {
-          clearTimeout(timer);
         }
       })
     );
@@ -443,19 +469,15 @@ export async function runRemoteAudit(limit, customUrls, options = {}) {
   for (let i = 0; i < linksToProbe.length; i += concurrency) {
     const batch = linksToProbe.slice(i, i + concurrency);
     await Promise.all(batch.map(async (link) => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const response = await fetch(link, {
+        const response = await fetchWithRetry(link, {
           headers: { 'User-Agent': 'NoLoginTools-SEOAudit/1.0' },
           redirect: 'follow',
-          signal: controller.signal,
+          timeoutMs,
         });
         if (!response.ok) allErrors.push(`[${link}] Broken internal link: HTTP ${response.status}`);
       } catch (err) {
         allErrors.push(`[${link}] Broken internal link: ${err.message}`);
-      } finally {
-        clearTimeout(timer);
       }
     }));
   }
@@ -658,7 +680,8 @@ async function main() {
       appendFileSync(summaryFile, summaryContent + '\n', 'utf-8');
     }
 
-    process.exit(0);
+    process.exitCode = 0;
+    return;
   } catch (err) {
     console.error(`\n❌  Audit crashed: ${err.message}`);
     process.exit(1);

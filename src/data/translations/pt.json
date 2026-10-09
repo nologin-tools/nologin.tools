@@ -89,6 +89,11 @@
     "coreTask": "Organizar e preencher escalas de voluntários com um único link — sem cadastro, sem instalação e sem rastreamento",
     "description": "Ferramenta web gratuita para clubes e escolas organizarem escalas de voluntários. O organizador publica os turnos, compartilha um link e os participantes apenas tocam para escolher um horário. Ninguém precisa se cadastrar nem instalar nada, nenhum e-mail é coletado e não há anúncios, rastreadores ou cookies. Já vem com modelos práticos prontos para diversos tipos de clubes e atividades."
   },
+  "bizntools-com-data-json-to-csv-converter": {
+    "_hash": "40d69749708add58",
+    "description": "Converta matrizes JSON e hierarquias de objetos aninhados em planilhas CSV organizadas diretamente no navegador. Inclui pré-visualização tabular em tempo real, delimitadores personalizados e exportação local sem envio para servidores.",
+    "coreTask": "Converter JSON para CSV"
+  },
   "blur-face-com-blur-face": {
     "coreTask": "Detectar e desfocar rostos automaticamente em fotos, processar em lote, remover metadados EXIF e baixar os resultados sem precisar de conta",
     "description": "Ferramenta gratuita no navegador para proteção de privacidade em fotos que detecta e desfoca rostos automaticamente. O processamento acontece localmente no navegador, garantindo que as imagens não sejam enviadas para servidores. Suporta processamento em lote e remoção de metadados EXIF."
@@ -187,6 +192,11 @@
   "comparediff-io": {
     "coreTask": "Comparar texto, código, JSON e documentos, inspecionando alterações em visualizações por linha, palavra e caractere",
     "description": "Um verificador de diferenças gratuito no navegador para texto, código, JSON e documentos. Mostra alterações por linhas, palavras e caracteres mantendo todo o conteúdo salvo com segurança no dispositivo do usuário."
+  },
+  "comparetexts-net": {
+    "_hash": "aa2e861948851c64",
+    "description": "Compare dois trechos de texto ou código lado a lado no navegador com destaque de caracteres, opções para ignorar espaços e download direto de arquivos patch GNU.",
+    "coreTask": "Comparar diferenças de texto e código"
   },
   "compressto100kb-com": {
     "coreTask": "Comprimir imagens para um limite de KB personalizado ou predefinido, redimensionar dimensões e baixar individualmente ou em ZIP.",
@@ -306,8 +316,8 @@
     "coreTask": "Editar curvas de easing CSS bezier"
   },
   "currawongweb-com-verify-china-usci-checker": {
-    "_hash": "ae0ffe837dddba08",
-    "description": "Ferramenta de validação no navegador que verifica códigos de 18 caracteres de crédito social unificado da China (GB 32100-2015) e detalha órgãos de registro e divisões regionais.",
+    "_hash": "b0380390c46f6715",
+    "description": "Ferramenta de navegador gratuita e sem login para checar o formato de 18 caracteres e o dígito de controle do Código de Crédito Social Unificado da China continental (USCI/USCC). Exibe os componentes estruturais do código. Todo o cálculo ocorre no navegador sem envio do código digitado; as contagens anônimas de uso não contêm código algum. O resultado positivo não atesta registro corporativo, titularidade, capacidade de produção ou segurança de pagamento. Relatórios corporativos opcionais são serviços pagos separados.",
     "coreTask": "Insira um código de crédito social unificado de 18 caracteres para verificar o dígito de controle e analisar sua estrutura sem login."
   },
   "dataformatkit-com": {
@@ -458,6 +468,11 @@
     "coreTask": "Converter arquivos e usar ferramentas de PDF, imagem, texto, desenvolvimento e cálculo sem criar conta",
     "description": "Conjunto gratuito de ferramentas sem cadastro para converter arquivos em mais de 215 formatos, com utilitários para PDF, imagens, texto, desenvolvimento e cálculos. Várias ferramentas rodam localmente no navegador e conversões de servidor possuem limpeza automática."
   },
+  "fileontap-com": {
+    "_hash": "bca43d73d1ddcd05",
+    "description": "Um conjunto privado de conversão e compressão de arquivos no navegador que processa documentos HEIC, WebP, PNG, JPG e PDF no seu dispositivo sem envio para servidores.",
+    "coreTask": "Converta e comprima imagens ou compile documentos PDF de várias páginas localmente no navegador sem conta."
+  },
   "financier-io": {
     "_hash": "c5f8e6215065b496",
     "description": "Gerenciador de orçamento pessoal offline-first inspirado no YNAB. Orçamento por envelopes com sincronização automática — todos os dados permanecem no seu dispositivo.",
@@ -547,8 +562,8 @@
     "coreTask": "Gerar separadores de onda SVG"
   },
   "gizmobench-com": {
-    "_hash": "15f01bc644cae7ec",
-    "description": "O GizmoBench é uma coleção de ferramentas gratuitas no navegador para tarefas cotidianas, incluindo calculadoras, conversores, utilitários de JSON e Markdown, ferramentas de imagem e áudio, visualizadores 3D e diagnósticos de hardware. Todas as ferramentas essenciais funcionam sem conta. As ferramentas de arquivos processam documentos e imagens no seu próprio dispositivo sem envio, e cada ferramenta esclarece seus limites de processamento. A consulta de endereço IP utiliza o servidor do GizmoBench.",
+    "_hash": "ad150660df2ad640",
+    "description": "O GizmoBench dispõe de mais de 700 ferramentas gratuitas no navegador: calculadoras e conversores de unidades, utilitários de texto e desenvolvimento, ferramentas de imagem, PDF e áudio, visualizadores de arquivos 3D, testes e diagnósticos de dispositivo. A tarefa principal de cada ferramenta é gratuita e dispensa conta. Ferramentas de arquivos processam documentos e imagens no seu próprio dispositivo sem envio; consultas de rede como IP e DNS utilizam o servidor do GizmoBench. Cada ferramenta detalha sua precisão e limites.",
     "coreTask": "Utilize todas as ferramentas na íntegra: converta unidades e bases numéricas, formate JSON, selecione cores em imagens e visualize arquivos STL"
   },
   "go-dev-play": {
@@ -654,6 +669,11 @@
   "imageconverttools-app": {
     "coreTask": "Converter, comprimir, redimensionar, cortar, adicionar marca d'água ou combinar imagens em PDF, baixando o resultado sem fazer login.",
     "description": "O Image Convert é uma suíte gratuita no navegador para sete tarefas práticas de imagem: converter HEIC/HEIF para JPG ou PDF, converter JPEG, PNG e WebP, comprimir para um tamanho desejado, redimensionar, cortar e adicionar marcas d'água de texto. Os arquivos selecionados e saídas são processados no dispositivo sem envio para a rede. Não requer login."
+  },
+  "imagetoascii-art": {
+    "_hash": "402511cd1318505e",
+    "description": "Um gerador de arte ASCII e conversor de imagens no navegador que transforma arquivos JPG, PNG, GIF e WebP em gráficos de caracteres personalizáveis com comparação lado a lado e exportações em alta resolução.",
+    "coreTask": "Envie uma imagem, ajuste a largura e os estilos de renderização do ASCII e exporte PNG em alta resolução ou texto simples sem conta."
   },
   "imgrove-com": {
     "description": "Coleção de ferramentas gratuitas de imagem no navegador para conversão, compressão, redimensionamento, edição, inspeção de metadados e exportação. As imagens não saem do dispositivo, sem marcas d'água nem cadastro.",
@@ -797,6 +817,11 @@
     "coreTask": "Converter Markdown em documento do Word sem login",
     "description": "Converta documentos Markdown para Word online para fluxos de escrita e documentação sem precisar de login."
   },
+  "mdprevieweditor-com": {
+    "_hash": "6c68615157232aad",
+    "description": "Editor Markdown online gratuito com visualização em tempo real, edição CodeMirror, abas múltiplas, fórmulas KaTeX e exportação local sem cadastro.",
+    "coreTask": "Escrever, visualizar e exportar documentos Markdown em tempo real sem login"
+  },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
     "description": "Videoconferência gratuita e open source que funciona diretamente no navegador. Crie uma sala e compartilhe o link — sem conta, download ou plugin.",
@@ -832,6 +857,10 @@
   "mojisuu-app": {
     "description": "Mojisuu conta caracteres japoneses, linhas, parágrafos, páginas de manuscrito (genkō yōshi) e bytes em tempo real. Feito para escritores e revisores de japonês, compatível com caracteres de largura total. Sem cadastro, roda no navegador e protege seu texto no dispositivo.",
     "coreTask": "Contar caracteres japoneses e folhas de manuscrito em tempo real no navegador sem login"
+  },
+  "monkeetools-pages-dev": {
+    "coreTask": "Tudo funciona sem login: criar e editar faturas, baixar PDFs, preenchimento automático da empresa, autocompletar clientes, duplicar faturas com numeração automática e controle de pagamentos.",
+    "description": "Gerador gratuito de faturas para freelancers e autônomos. Sem cadastro, sem conta e sem envio para servidores. As faturas são geradas na aba do seu navegador e os PDFs baixados direto para o dispositivo. Salva seus dados localmente: preenchimento automático da empresa, autocompletar de clientes, duplicação com numeração sequencial e controle de faturas pagas/pendentes. Inclui kit para agentes de IA."
   },
   "monkeetools-surge-sh": {
     "coreTask": "Tudo funciona sem login: criar e editar faturas, baixar PDFs, preenchimento automático da empresa, autocompletar clientes, duplicar faturas com numeração automática e controle de pagamentos.",
@@ -1105,8 +1134,9 @@
     "seoTaskPhrase": "ler guias de início rápido para desenvolvedores sem cadastro"
   },
   "quicktinyv2-vercel-app": {
-    "coreTask": "Usar 13 ferramentas gratuitas por completo: comprimir imagem individual, formatar JSON, contar palavras, gerar senhas, codificar/decodificar Base64 e URL, tudo no navegador.",
-    "description": "13 ferramentas gratuitas no navegador: compressor de imagens, formatador JSON, contador de palavras, gerador de senhas, codificador/decodificador Base64 e URL, entre outras. Tudo é processado localmente no cliente, sem envio a servidores. Também inclui um compressor de imagens em lote opcional por pagamento único de US$ 4,99 via PayPal — sem cadastro nem assinatura."
+    "_hash": "08e8b2379833a086",
+    "description": "13 ferramentas baseadas no navegador (12 gratuitas, 1 Pro opcional) — compressor de imagens, formatador JSON, contador de palavras, gerador de senhas, codificação/decodificação Base64 e URL, e mais. Tudo é processado inteiramente no lado do cliente, sem envio para servidores. Também inclui um compressor de imagens em lote Pro opcional mediante pagamento único de $4,99 via PayPal — sem necessidade de conta ou assinatura.",
+    "coreTask": "Comprima imagens, formate JSON, conte palavras e codifique ou decodifique Base64 no seu navegador"
   },
   "quillbot-com": {
     "_hash": "38b4eb38c82294cc",
@@ -1135,6 +1165,11 @@
     "_hash": "093e3df2113223e0",
     "description": "Visualize paletas de cores em um layout real em tempo real. Veja exatamente como suas cores aparecem em texto, botões e fundos.",
     "coreTask": "Visualizar esquemas de cores em layouts reais"
+  },
+  "reficompass-com": {
+    "_hash": "39d810d696e890dc",
+    "description": "Calculadora de decisão hipotecária executada no cliente que compara lado a lado refinanciamento, cash-out, HELOC, empréstimo com garantia de imóvel, recast e pagamentos extras, sem necessidade de conta.",
+    "coreTask": "Compare oito estratégias de hipoteca e refinanciamento diretamente no navegador"
   },
   "regex101-com": {
     "_hash": "309dfff8fe9e27bb",
@@ -1175,6 +1210,11 @@
   "salitronic-com-gerber-analyzer": {
     "coreTask": "Visualizar arquivos Gerber, ODB++ e IPC-2581, executar DRC, comparar duas camadas e inspecionar a visão pick-and-place no navegador, sem instalação e sem upload",
     "description": "Visualizador gratuito no navegador para arquivos de fabricação de placas de circuito impresso (PCB). Lê formatos Gerber, ODB++ e IPC-2581, exibe cada camada e a placa montada, além de rodar verificação DRC, comparação entre camadas e visualização de pick-and-place. Tudo roda localmente no navegador, sem upload e sem cadastro."
+  },
+  "seatsolver-com": {
+    "_hash": "627545873e110223",
+    "description": "Organize plantas de assentos para eventos, resolva regras de separação de convidados e exporte cartões imprimíveis e planos em CSV no navegador. Opera localmente sem conta ou upload de dados.",
+    "coreTask": "Criar planos de assentos para eventos"
   },
   "securityheaders-com": {
     "_hash": "61e9205b80e018ab",
@@ -1240,6 +1280,11 @@
     "_hash": "e6cf0704134dc97c",
     "description": "Editor Markdown completo no navegador. Sincronize com Google Drive e GitHub, prévia ao vivo, sincronização de rolagem e suporte offline.",
     "coreTask": "Editar Markdown no navegador"
+  },
+  "stayput-dev": {
+    "_hash": "7e5dcd96465405fc",
+    "description": "Ferramentas de arquivos gratuitas e de código aberto para processar imagens, PDFs e códigos QR diretamente no navegador. Suporta compressão local, conversão de formatos e execução offline sem envio de arquivos.",
+    "coreTask": "Processar arquivos e gerar códigos QR"
   },
   "studycalcpro-com": {
     "description": "Calculadoras e ferramentas de estudo online e gratuitas para estudantes: calculadora de GPA, nota final, porcentagem, média ponderada e acumulada, cronômetro pomodoro, contagem regressiva para provas e muito mais. Sem cadastro e sem anúncios antes do resultado.",
@@ -1542,6 +1587,11 @@
     "coreTask": "Calcular valores práticos e fazer conversões no navegador sem precisar criar conta",
     "description": "O Calculator Campus é uma coleção gratuita de calculadoras práticas no navegador. Cada ferramenta combina formulários objetivos com fórmulas, premissas, exemplos resolvidos, perguntas frequentes e fontes citadas. As calculadoras principais funcionam sem conta."
   },
+  "www-freedominvoice-com-tools-invoice-generator": {
+    "_hash": "7e4278a764ba2e3f",
+    "description": "Gerador de faturas no navegador com cálculo de itens em tempo real, taxas e descontos personalizados e exportação PDF sem login.",
+    "coreTask": "Gerar e baixar faturas comerciais em PDF sem cadastro"
+  },
   "www-ottopoll-com": {
     "description": "Otto é uma ferramenta de votação gratuita para criar enquetes com amigos ou equipe em 2 minutos, sem necessidade de conta. Escolha data, local ou horários, compartilhe o link e todos votam em tempo real, sem e-mail nem cadastro.",
     "coreTask": "Criar uma enquete, compartilhar o link, votar e ver resultados ao vivo sem cadastro"
@@ -1607,5 +1657,10 @@
     "_hash": "2a48a0679487e369",
     "description": "Ambiente de escrita minimalista e sem distrações. Abra e comece a escrever — sem barra de ferramentas cheia, sem distrações.",
     "coreTask": "Escrever em um editor sem distrações"
+  },
+  "zerowidthcleaner-com-zero-width-space": {
+    "_hash": "f620e01c3824091c",
+    "description": "Inspecione, identifique e remova seletivamente caracteres Unicode invisíveis de largura zero e marcas BOM diretamente no navegador. Inclui mapeamento exato de pontos de código e cópia local para a área de transferência.",
+    "coreTask": "Detectar e remover caracteres Unicode invisíveis"
   }
 }

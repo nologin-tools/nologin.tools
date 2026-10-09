@@ -1,7 +1,10 @@
 function success<T>(data: T, status = 200): Response {
   return new Response(JSON.stringify({ ok: true, data }), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   });
 }
 
@@ -12,7 +15,10 @@ function error(
 ): Response {
   return new Response(JSON.stringify({ ok: false, error: message, details }), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   });
 }
 

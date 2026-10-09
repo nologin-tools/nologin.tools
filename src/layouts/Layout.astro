@@ -73,6 +73,11 @@ const hreflangLinks = hreflangLocales.map((l) => ({
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      if (typeof window !== 'undefined' && window.location.hostname === 'www.nologin.tools') {
+        window.location.replace('https://nologin.tools' + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap.xml" />

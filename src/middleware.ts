@@ -1,4 +1,5 @@
 import { defineMiddleware } from 'astro:middleware';
+import { getToolBySlug } from './data/loader';
 
 const ISR_CACHE_TTL = 21600; // 6 hours in seconds
 
@@ -15,13 +16,26 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url } = context;
   const { pathname } = url;
 
-  // www → non-www redirect
-  if (url.hostname === 'www.nologin.tools') {
+  // www → non-www redirect (exclude /api/ to prevent breaking POST forms / cross-origin preflight errors)
+  if (url.hostname === 'www.nologin.tools' && !pathname.startsWith('/api/')) {
     const target = new URL(url);
     target.hostname = 'nologin.tools';
     return new Response(null, {
       status: 301,
       headers: { Location: target.href },
+    });
+  }
+
+  // Handle CORS preflight for all /api/ endpoints
+  if (request.method === 'OPTIONS' && pathname.startsWith('/api/')) {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Max-Age': '86400',
+      },
     });
   }
 
@@ -78,7 +92,34 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Only handle GET requests for ISR paths
   if (request.method !== 'GET' || !isISRPath(pathname)) {
     const response = await next();
+    if (pathname.startsWith('/api/')) {
+      const newHeaders = new Headers(response.headers);
+      newHeaders.set('Access-Control-Allow-Origin', '*');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders,
+      });
+    }
     return withContentLanguage(response, pathname);
+  }
+
+  // For ISR paths, determine if a pre-rendered static asset exists
+  const isrInfo = extractSlugFromISRPath(pathname);
+  const existingTool = isrInfo ? getToolBySlug(isrInfo.slug) : undefined;
+  const isApprovedStatic = existingTool && existingTool.status === 'approved';
+
+  // If tool is NOT approved or not in build data (e.g. pending, rejected, newly submitted, or unknown),
+  // rewrite directly to the SSR route before calling next() so Cloudflare Pages / Astro
+  // serves the dynamic state instead of a static 404!
+  if (!isApprovedStatic) {
+    const ssrPath = rewriteToSSR(pathname);
+    try {
+      const ssrResponse = await context.rewrite(ssrPath);
+      return withContentLanguage(ssrResponse, pathname);
+    } catch (err) {
+      console.error('[isr] direct rewrite error:', err);
+    }
   }
 
   // Phase 1: Check Cache API for previously cached SSR responses
@@ -106,8 +147,25 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Phase 2: Try static rendering (will 404 if no static file exists)
   const response = await next();
 
-  // Phase 3: If 404, rewrite to SSR fallback route
+  // Phase 3: If 404, check env.ASSETS for pre-rendered static HTML or rewrite to SSR fallback route
   if (response.status === 404) {
+    const env = (context.locals as any).runtime?.env;
+    if (env?.ASSETS) {
+      try {
+        const cleanUrl = url.toString().replace(/\/+$/, '');
+        const asset = await env.ASSETS.fetch(cleanUrl);
+        if (asset.status !== 404) {
+          return withContentLanguage(asset, pathname);
+        }
+        const assetIndex = await env.ASSETS.fetch(`${cleanUrl}/index.html`);
+        if (assetIndex.status !== 404) {
+          return withContentLanguage(assetIndex, pathname);
+        }
+      } catch (err) {
+        console.error('[asset-fetch] error:', err);
+      }
+    }
+
     const ssrPath = rewriteToSSR(pathname);
     try {
       let ssrResponse: Response | null = null;
@@ -115,17 +173,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
         ssrResponse = await context.rewrite(ssrPath);
       } catch {
         ssrResponse = null;
-      }
-
-      // If in-process rewrite returned 404 or threw (e.g. cross-bundle dispatch in CF Pages), fetch the SSR route
-      if (!ssrResponse || ssrResponse.status === 404) {
-        const ssrUrl = new URL(ssrPath, url);
-        const subReq = await fetch(ssrUrl.toString(), {
-          headers: request.headers,
-        });
-        if (subReq.status === 200) {
-          ssrResponse = subReq;
-        }
       }
 
       if (ssrResponse && ssrResponse.status === 200) {
@@ -161,6 +208,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   return withContentLanguage(response, pathname);
 });
+
+function extractSlugFromISRPath(pathname: string): { type: 'tool' | 'badge'; slug: string } | null {
+  const match = pathname.match(/^(?:\/(?:zh|ja|ko|es|fr|de|pt))?\/(tool|badge)\/([^/]+)\/?$/);
+  if (!match) return null;
+  return { type: match[1] as 'tool' | 'badge', slug: match[2] };
+}
 
 function getLocaleFromPath(pathname: string): string {
   const firstSegment = pathname.split('/').filter(Boolean)[0];

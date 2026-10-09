@@ -65473,256 +65473,6 @@
       "testedAt": "2026-09"
     }
   },
-  "monkeetools-surge-sh": {
-    "en": {
-      "bestFor": "Independent contractors, freelance developers, creative consultants, and remote service providers who need an end-to-end billing toolkit (invoices, quotes, timesheets, receipts) that runs locally in-browser without account subscriptions or cloud lock-in.",
-      "pros": [
-        "Zero account creation or subscription required with persistent on-device memory for business details, client profiles, and numbering sequences",
-        "Comprehensive document ecosystem connecting quotes, timesheets, packing slips, invoices, credit notes, and overdue payment reminder letters",
-        "Multi-payment method integration supporting direct bank transfer routing, Stripe links, Wise, Venmo, and Cash App chips on rendered invoices",
-        "One-click client-side PDF export and structured prefill URL support for autonomous AI agent integration"
-      ],
-      "cons": [
-        "Observed 5 anonymous telemetry beacons sent to monkeetools-analytics.monkeetools.workers.dev/a",
-        "Invoice records and client rosters are stored in browser localStorage, requiring manual export before clearing site cookies or changing browsers"
-      ],
-      "privacyVerdict": "Invoice line items, client addresses, and banking credentials remain entirely stored within browser localStorage; 5 lightweight anonymous usage beacons were recorded to a Cloudflare Worker, with zero financial details or customer PII transmitted.",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to monkeetools.surge.sh and engaged the onboarding wizard, selecting the Developer profile. Configured business identity settings (business name, billing email, and payment methods) and tested the 5-stage billing workflow connecting quotes, timesheets, and invoice drafts. Triggered the PDF export mechanism, verifying client-side document synthesis. Audited network logs, confirming 5 anonymous telemetry beacons to the developer's analytics worker with 0ms long task freezes and 0.00 CLS.",
-      "testedAt": "2026-09"
-    },
-    "zh": {
-      "bestFor": "需要在浏览器中独立完成报价单、工时表、正式发票（Invoice）与催款对账单制作，且极度注重客户隐私与商业机密不被第三方 SaaS 收集的自由职业开发者、独立咨询师与创作者。",
-      "pros": [
-        "完全免注册免订阅即开即用，利用浏览器 localStorage 在本地记住商户名称、银行收款信息与发票连续编号",
-        "全流程单据链条闭环，覆盖报价单（Quote）、工时表（Timesheets）、出货单（Packing Slips）、发票与逾期催款函",
-        "支持在账单中嵌入银行转账、Stripe 付款链接、Wise、Venmo 等多种支付方式快捷入口",
-        "提供一键本地渲染导出 PDF 文件，并提供支持 AI 自动化助手调用的预填充 URL 参数体系"
-      ],
-      "cons": [
-        "使用期间记录到 5 次发送至 monkeetools-analytics.monkeetools.workers.dev/a 的匿名统计信标",
-        "客户通讯录与账目记录默认保存于本地浏览器缓存，清理浏览器数据前需注意备份"
-      ],
-      "privacyVerdict": "发票明细、客户联系方式与银行收款账户完全保存在本地浏览器 localStorage 中；网络审计仅记录到 5 次发往 Cloudflare Worker 的匿名使用计数信标，绝不上传商业账目明细或客户隐私信息。",
-      "alternativeTo": [
-        "Invoice Ninja 发票系统",
-        "Bonsai 自由职业者套件",
-        "Wave 免费发票软件",
-        "FreshBooks 发票生成器"
-      ],
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 monkeetools.surge.sh 并通过向导选择 Developer 角色。在设置面板中配置商户名称与收款方式，测试从报价单到发票生成的 5 阶段工作流。触发 PDF 导出机制验证本地渲染管线。网络审计记录到 5 次匿名访问信标，长任务耗时 0ms，CLS 为 0.00。",
-      "testedAt": "2026-09"
-    },
-    "ja": {
-      "bestFor": "アカウントのサブスクリプションやクラウドのロックインを必要とせず、ブラウザ内でローカルに実行できるエンドツーエンドの請求ツールキット (請求書、見積書、タイムシート、領収書) を必要とする独立請負業者、フリーランス開発者、クリエイティブ コンサルタント、およびリモート サービス プロバイダー。",
-      "pros": [
-        "アカウントの作成やサブスクリプションは不要で、ビジネスの詳細、クライアント プロファイル、番号付けシーケンス用の永続的なオンデバイス メモリを使用できます。",
-        "見積書、タイムシート、納品書、請求書、クレジットノート、延滞支払い督促状を接続する包括的なドキュメント エコシステム",
-        "レンダリングされた請求書で直接銀行振込ルーティング、Stripe リンク、Wise、Venmo、Cash App チップをサポートする複数の支払い方法の統合",
-        "ワンクリックのクライアント側 PDF エクスポートと自律型 AI エージェント統合のための構造化された事前入力 URL のサポート"
-      ],
-      "cons": [
-        "Monkeetools-analytics.monkeetools.workers.dev/a に送信された 5 つの匿名テレメトリー ビーコンを観察",
-        "請求書記録と顧客名簿はブラウザのローカルストレージに保存されるため、サイトの Cookie をクリアするかブラウザを変更する前に手動でエクスポートする必要があります。"
-      ],
-      "privacyVerdict": "請求書の品目、クライアントの住所、銀行の資格情報はすべてブラウザのローカルストレージ内に保存されたままになります。 5 つの軽量匿名使用状況ビーコンが Cloudflare ワーカーに記録され、財務詳細や顧客 PII は送信されませんでした。",
-      "benchmarkNotes": "CADES 2.0 ルート A ドッグフーディングは ego ブラウザ Chromium で検証されました。 Monkeetools.surge.sh に移動し、オンボーディング ウィザードを実行して、開発者プロファイルを選択します。ビジネス ID 設定 (ビジネス名、請求先電子メール、支払い方法) を構成し、見積書、タイムシート、請求書草稿を接続する 5 段階の請求ワークフローをテストしました。 PDF エクスポート メカニズムをトリガーし、クライアント側のドキュメント合成を検証しました。ネットワーク ログを監査し、開発者の分析ワーカーに対する 5 つの匿名テレメトリ ビーコンを確認し、長さ 0 ミリ秒のタスク フリーズと 0.00 CLS を記録しました。",
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "testedAt": "2026-09"
-    },
-    "ko": {
-      "bestFor": "계정 구독이나 클라우드 잠금 없이 브라우저 내에서 로컬로 실행되는 엔드투엔드 청구 툴킷(송장, 견적, 작업표, 영수증)이 필요한 독립 계약자, 프리랜서 개발자, 크리에이티브 컨설턴트 및 원격 서비스 제공업체.",
-      "pros": [
-        "비즈니스 세부 정보, 클라이언트 프로필 및 번호 지정 순서를 위한 영구 온디바이스 메모리를 사용하면 계정 생성이나 가입이 필요하지 않습니다.",
-        "견적, 근무 시간표, 포장 전표, 송장, 신용 메모 및 연체 지불 알림 편지를 연결하는 포괄적인 문서 생태계",
-        "렌더링된 송장에서 직접 은행 송금 라우팅, Stripe 링크, Wise, Venmo 및 Cash App 칩을 지원하는 다중 결제 방법 통합",
-        "자율 AI 에이전트 통합을 위한 원클릭 클라이언트 측 PDF 내보내기 및 구조화된 미리 채우기 URL 지원"
-      ],
-      "cons": [
-        "monkeetools-analytics.monkeetools.workers.dev/a로 전송된 5개의 익명 원격 측정 비콘을 관찰했습니다.",
-        "송장 기록 및 클라이언트 명단은 브라우저 localStorage에 저장되므로 사이트 쿠키를 지우거나 브라우저를 변경하기 전에 수동으로 내보내야 합니다."
-      ],
-      "privacyVerdict": "송장 항목, 고객 주소 및 은행 자격 증명은 브라우저 localStorage 내에 완전히 저장됩니다. 5개의 경량 익명 사용 비콘이 Cloudflare 작업자에게 기록되었으며 재무 정보나 고객 PII는 전혀 전송되지 않았습니다.",
-      "benchmarkNotes": "CADES 2.0 Route A는 자아 브라우저 Chromium에서 검증되었습니다. monkeetools.surge.sh로 이동하여 온보딩 마법사를 시작하고 개발자 프로필을 선택했습니다. 비즈니스 ID 설정(회사 이름, 청구 이메일 및 결제 방법)을 구성하고 견적, 작업표 및 송장 초안을 연결하는 5단계 청구 워크플로를 테스트했습니다. PDF 내보내기 메커니즘을 트리거하여 클라이언트 측 문서 합성을 확인했습니다. 네트워크 로그를 감사하여 개발자의 분석 작업자에게 0ms 길이의 작업 정지 및 0.00 CLS로 5개의 익명 원격 측정 비콘을 확인했습니다.",
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "testedAt": "2026-09"
-    },
-    "es": {
-      "bestFor": "Contratistas independientes, desarrolladores independientes, consultores creativos y proveedores de servicios remotos que necesitan un conjunto de herramientas de facturación de extremo a extremo (facturas, cotizaciones, hojas de horas, recibos) que se ejecute localmente en el navegador sin suscripciones de cuentas ni bloqueo de la nube.",
-      "pros": [
-        "No se requiere creación de cuenta ni suscripción con memoria persistente en el dispositivo para detalles comerciales, perfiles de clientes y secuencias numéricas.",
-        "Ecosistema de documentos integral que conecta cotizaciones, hojas de tiempo, albaranes, facturas, notas de crédito y cartas de recordatorio de pagos vencidos.",
-        "Integración de métodos de pago múltiples que admiten enrutamiento de transferencias bancarias directas, enlaces Stripe, chips Wise, Venmo y Cash App en facturas renderizadas.",
-        "Exportación de PDF del lado del cliente con un solo clic y compatibilidad con URL de precarga estructurada para la integración autónoma de agentes de IA"
-      ],
-      "cons": [
-        "Se observaron 5 balizas de telemetría anónimas enviadas a monoketools-analytics.monkeetools.workers.dev/a",
-        "Los registros de facturas y las listas de clientes se almacenan en el almacenamiento local del navegador, lo que requiere una exportación manual antes de borrar las cookies del sitio o cambiar de navegador."
-      ],
-      "privacyVerdict": "Las líneas de pedido de facturas, las direcciones de los clientes y las credenciales bancarias permanecen completamente almacenadas en el almacenamiento local del navegador; Se registraron 5 balizas de uso anónimas y ligeras a un trabajador de Cloudflare, sin transmitir ningún detalle financiero ni información personal del cliente.",
-      "benchmarkNotes": "CADES 2.0 Ruta A dogfooding verificado en el navegador ego Chromium. Navegó a monoketools.surge.sh y activó el asistente de incorporación, seleccionando el perfil de Desarrollador. Configuré los ajustes de identidad empresarial (nombre comercial, correo electrónico de facturación y métodos de pago) y probé el flujo de trabajo de facturación de 5 etapas que conecta cotizaciones, hojas de horas y borradores de facturas. Desencadenó el mecanismo de exportación de PDF, verificando la síntesis de documentos del lado del cliente. Registros de red auditados, que confirman 5 balizas de telemetría anónimas para el trabajador de análisis del desarrollador con congelaciones de tareas de 0 ms y 0,00 CLS.",
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "testedAt": "2026-09"
-    },
-    "fr": {
-      "bestFor": "Entrepreneurs indépendants, développeurs indépendants, consultants créatifs et fournisseurs de services à distance qui ont besoin d'une boîte à outils de facturation de bout en bout (factures, devis, feuilles de temps, reçus) qui s'exécute localement dans le navigateur sans abonnement de compte ni verrouillage dans le cloud.",
-      "pros": [
-        "Aucune création de compte ou abonnement requis avec une mémoire persistante sur l'appareil pour les détails de l'entreprise, les profils clients et les séquences de numérotation",
-        "Écosystème documentaire complet reliant les devis, les feuilles de temps, les bons de livraison, les factures, les notes de crédit et les lettres de rappel de paiement en retard",
-        "Intégration de méthodes de paiement multiples prenant en charge le routage des virements bancaires directs, les liens Stripe, les puces Wise, Venmo et Cash App sur les factures rendues",
-        "Exportation PDF côté client en un clic et prise en charge d'URL de pré-remplissage structuré pour l'intégration d'agents IA autonomes"
-      ],
-      "cons": [
-        "Observation de 5 balises de télémétrie anonymes envoyées à monkeetools-analytics.monkeetools.workers.dev/a",
-        "Les enregistrements de factures et les listes de clients sont stockés dans le stockage local du navigateur, nécessitant une exportation manuelle avant d'effacer les cookies du site ou de changer de navigateur."
-      ],
-      "privacyVerdict": "Les éléments de facture, les adresses des clients et les informations d'identification bancaires restent entièrement stockés dans localStorage du navigateur ; 5 balises d'utilisation anonymes légères ont été enregistrées sur un Cloudflare Worker, sans aucune information financière ni information personnelle du client transmise.",
-      "benchmarkNotes": "Route CADES 2.0 Un dogfooding vérifié dans l'ego-navigateur Chromium. Accédez à monkeetools.surge.sh et engagez l'assistant d'intégration, en sélectionnant le profil de développeur. Configuration des paramètres d'identité de l'entreprise (nom de l'entreprise, e-mail de facturation et méthodes de paiement) et test du workflow de facturation en 5 étapes reliant les devis, les feuilles de temps et les brouillons de factures. Déclenchement du mécanisme d'exportation PDF, vérifiant la synthèse des documents côté client. Journaux réseau audités, confirmant 5 balises de télémétrie anonymes au travailleur analytique du développeur avec des gels de tâches de 0 ms et 0,00 CLS.",
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "testedAt": "2026-09"
-    },
-    "de": {
-      "bestFor": "Unabhängige Auftragnehmer, freiberufliche Entwickler, kreative Berater und Remote-Dienstleister, die ein umfassendes Abrechnungs-Toolkit (Rechnungen, Angebote, Stundenzettel, Quittungen) benötigen, das lokal im Browser ohne Kontoabonnements oder Cloud-Sperrung ausgeführt wird.",
-      "pros": [
-        "Es ist keine Kontoerstellung oder ein Abonnement erforderlich, mit permanentem Speicher auf dem Gerät für Geschäftsdetails, Kundenprofile und Nummerierungssequenzen",
-        "Umfassendes Dokumenten-Ökosystem, das Angebote, Stundenzettel, Packzettel, Rechnungen, Gutschriften und Mahnschreiben über überfällige Zahlungen miteinander verbindet",
-        "Integration mehrerer Zahlungsmethoden, die die direkte Weiterleitung von Banküberweisungen, Stripe-Links, Wise, Venmo und Cash App-Chips auf ausgestellten Rechnungen unterstützen",
-        "Clientseitiger PDF-Export mit einem Klick und Unterstützung für strukturierte Vorabfüllungs-URLs für die autonome KI-Agenten-Integration"
-      ],
-      "cons": [
-        "Es wurden 5 anonyme Telemetrie-Beacons beobachtet, die an monkeetools-analytics.monkeetools.workers.dev/a gesendet wurden",
-        "Rechnungsdatensätze und Kundenlisten werden im Browser localStorage gespeichert und erfordern einen manuellen Export, bevor Website-Cookies gelöscht oder der Browser gewechselt werden"
-      ],
-      "privacyVerdict": "Rechnungsposten, Kundenadressen und Bankdaten bleiben vollständig im Browser localStorage gespeichert; 5 einfache, anonyme Nutzungsbeacons wurden auf einem Cloudflare-Worker aufgezeichnet, ohne dass finanzielle Details oder Kunden-PII übertragen wurden.",
-      "benchmarkNotes": "CADES 2.0 Route Ein im Ego-Browser Chromium verifiziertes Dogfooding. Navigierte zu monkeetools.surge.sh, aktivierte den Onboarding-Assistenten und wählte das Entwicklerprofil aus. Konfigurierte Geschäftsidentitätseinstellungen (Firmenname, Rechnungs-E-Mail-Adresse und Zahlungsmethoden) und testete den 5-stufigen Rechnungsworkflow, der Angebote, Stundenzettel und Rechnungsentwürfe verbindet. Der PDF-Exportmechanismus wurde ausgelöst und die clientseitige Dokumentsynthese überprüft. Geprüfte Netzwerkprotokolle, die dem Analysemitarbeiter des Entwicklers 5 anonyme Telemetrie-Beacons mit 0 ms langen Aufgabenstopps und 0,00 CLS bestätigen.",
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "testedAt": "2026-09"
-    },
-    "pt": {
-      "bestFor": "Contratantes independentes, desenvolvedores autônomos, consultores criativos e provedores de serviços remotos que precisam de um kit de ferramentas de faturamento completo (faturas, cotações, planilhas de horas, recibos) que seja executado localmente no navegador, sem assinaturas de conta ou dependência de nuvem.",
-      "pros": [
-        "Nenhuma criação de conta ou assinatura necessária com memória persistente no dispositivo para detalhes comerciais, perfis de clientes e sequências de numeração",
-        "Ecossistema de documentos abrangente conectando cotações, planilhas de horas, guias de remessa, faturas, notas de crédito e cartas de lembrete de pagamentos vencidos",
-        "Integração de vários métodos de pagamento com suporte para roteamento direto de transferência bancária, links Stripe, chips Wise, Venmo e Cash App em faturas renderizadas",
-        "Exportação de PDF do lado do cliente com um clique e suporte de URL de pré-preenchimento estruturado para integração autônoma de agente de IA"
-      ],
-      "cons": [
-        "Foram observados 5 beacons de telemetria anônimos enviados para Monkeetools-analytics.monkeetools.workers.dev/a",
-        "Os registros de faturas e listas de clientes são armazenados no armazenamento local do navegador, exigindo exportação manual antes de limpar os cookies do site ou mudar de navegador."
-      ],
-      "privacyVerdict": "Itens de linha de fatura, endereços de clientes e credenciais bancárias permanecem totalmente armazenados no localStorage do navegador; Cinco beacons de uso anônimos leves foram registrados em um Cloudflare Worker, sem transmissão de nenhum detalhe financeiro ou PII do cliente.",
-      "benchmarkNotes": "Rota CADES 2.0 Um dogfooding verificado no navegador ego Chromium. Naveguei até monkeetools.surge.sh e acionei o assistente de integração, selecionando o perfil Desenvolvedor. Configurei as configurações de identidade comercial (nome da empresa, e-mail de cobrança e métodos de pagamento) e testei o fluxo de trabalho de cobrança em 5 estágios conectando cotações, planilhas de horas e rascunhos de faturas. Acionou o mecanismo de exportação de PDF, verificando a síntese de documentos do lado do cliente. Logs de rede auditados, confirmando 5 beacons de telemetria anônimos para o trabalhador analítico do desenvolvedor com congelamentos de tarefas de 0 ms e 0,00 CLS.",
-      "productScore": {
-        "overall": 82,
-        "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
-      },
-      "verdictTier": "highly-recommended",
-      "alternativeTo": [
-        "Invoice Ninja",
-        "Bonsai Freelance Suite",
-        "Wave Invoicing",
-        "FreshBooks Free Generator"
-      ],
-      "testedAt": "2026-09"
-    }
-  },
   "heictopdf-dev": {
     "en": {
       "bestFor": "iPhone and Apple ecosystem users who need to convert HEIC/HEIF photo batches into multi-page PDF documents locally in the browser with custom margins and page rotation without uploading sensitive personal photos to remote cloud servers.",
@@ -71209,6 +70959,2142 @@
       "verdictTier": "capable-utility",
       "alternativeTo": [],
       "testedAt": "2026-09"
+    }
+  },
+  "monkeetools-pages-dev": {
+    "en": {
+      "bestFor": "Independent contractors, freelance developers, creative consultants, and remote service providers who need an end-to-end billing toolkit (invoices, quotes, timesheets, receipts) that runs locally in-browser without account subscriptions or cloud lock-in.",
+      "pros": [
+        "Zero account creation or subscription required with persistent on-device memory for business details, client profiles, and numbering sequences",
+        "Comprehensive document ecosystem connecting quotes, timesheets, packing slips, invoices, credit notes, and overdue payment reminder letters",
+        "Multi-payment method integration supporting direct bank transfer routing, Stripe links, Wise, Venmo, and Cash App chips on rendered invoices",
+        "One-click client-side PDF export and structured prefill URL support for autonomous AI agent integration"
+      ],
+      "cons": [
+        "Observed 5 anonymous telemetry beacons sent to monkeetools-analytics.monkeetools.workers.dev/a",
+        "Invoice records and client rosters are stored in browser localStorage, requiring manual export before clearing site cookies or changing browsers"
+      ],
+      "privacyVerdict": "Invoice line items, client addresses, and banking credentials remain entirely stored within browser localStorage; 5 lightweight anonymous usage beacons were recorded to a Cloudflare Worker, with zero financial details or customer PII transmitted.",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to monkeetools.surge.sh and engaged the onboarding wizard, selecting the Developer profile. Configured business identity settings (business name, billing email, and payment methods) and tested the 5-stage billing workflow connecting quotes, timesheets, and invoice drafts. Triggered the PDF export mechanism, verifying client-side document synthesis. Audited network logs, confirming 5 anonymous telemetry beacons to the developer's analytics worker with 0ms long task freezes and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中独立完成报价单、工时表、正式发票（Invoice）与催款对账单制作，且极度注重客户隐私与商业机密不被第三方 SaaS 收集的自由职业开发者、独立咨询师与创作者。",
+      "pros": [
+        "完全免注册免订阅即开即用，利用浏览器 localStorage 在本地记住商户名称、银行收款信息与发票连续编号",
+        "全流程单据链条闭环，覆盖报价单（Quote）、工时表（Timesheets）、出货单（Packing Slips）、发票与逾期催款函",
+        "支持在账单中嵌入银行转账、Stripe 付款链接、Wise、Venmo 等多种支付方式快捷入口",
+        "提供一键本地渲染导出 PDF 文件，并提供支持 AI 自动化助手调用的预填充 URL 参数体系"
+      ],
+      "cons": [
+        "使用期间记录到 5 次发送至 monkeetools-analytics.monkeetools.workers.dev/a 的匿名统计信标",
+        "客户通讯录与账目记录默认保存于本地浏览器缓存，清理浏览器数据前需注意备份"
+      ],
+      "privacyVerdict": "发票明细、客户联系方式与银行收款账户完全保存在本地浏览器 localStorage 中；网络审计仅记录到 5 次发往 Cloudflare Worker 的匿名使用计数信标，绝不上传商业账目明细或客户隐私信息。",
+      "alternativeTo": [
+        "Invoice Ninja 发票系统",
+        "Bonsai 自由职业者套件",
+        "Wave 免费发票软件",
+        "FreshBooks 发票生成器"
+      ],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 monkeetools.surge.sh 并通过向导选择 Developer 角色。在设置面板中配置商户名称与收款方式，测试从报价单到发票生成的 5 阶段工作流。触发 PDF 导出机制验证本地渲染管线。网络审计记录到 5 次匿名访问信标，长任务耗时 0ms，CLS 为 0.00。",
+      "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "アカウントのサブスクリプションやクラウドのロックインを必要とせず、ブラウザ内でローカルに実行できるエンドツーエンドの請求ツールキット (請求書、見積書、タイムシート、領収書) を必要とする独立請負業者、フリーランス開発者、クリエイティブ コンサルタント、およびリモート サービス プロバイダー。",
+      "pros": [
+        "アカウントの作成やサブスクリプションは不要で、ビジネスの詳細、クライアント プロファイル、番号付けシーケンス用の永続的なオンデバイス メモリを使用できます。",
+        "見積書、タイムシート、納品書、請求書、クレジットノート、延滞支払い督促状を接続する包括的なドキュメント エコシステム",
+        "レンダリングされた請求書で直接銀行振込ルーティング、Stripe リンク、Wise、Venmo、Cash App チップをサポートする複数の支払い方法の統合",
+        "ワンクリックのクライアント側 PDF エクスポートと自律型 AI エージェント統合のための構造化された事前入力 URL のサポート"
+      ],
+      "cons": [
+        "Monkeetools-analytics.monkeetools.workers.dev/a に送信された 5 つの匿名テレメトリー ビーコンを観察",
+        "請求書記録と顧客名簿はブラウザのローカルストレージに保存されるため、サイトの Cookie をクリアするかブラウザを変更する前に手動でエクスポートする必要があります。"
+      ],
+      "privacyVerdict": "請求書の品目、クライアントの住所、銀行の資格情報はすべてブラウザのローカルストレージ内に保存されたままになります。 5 つの軽量匿名使用状況ビーコンが Cloudflare ワーカーに記録され、財務詳細や顧客 PII は送信されませんでした。",
+      "benchmarkNotes": "CADES 2.0 ルート A ドッグフーディングは ego ブラウザ Chromium で検証されました。 Monkeetools.surge.sh に移動し、オンボーディング ウィザードを実行して、開発者プロファイルを選択します。ビジネス ID 設定 (ビジネス名、請求先電子メール、支払い方法) を構成し、見積書、タイムシート、請求書草稿を接続する 5 段階の請求ワークフローをテストしました。 PDF エクスポート メカニズムをトリガーし、クライアント側のドキュメント合成を検証しました。ネットワーク ログを監査し、開発者の分析ワーカーに対する 5 つの匿名テレメトリ ビーコンを確認し、長さ 0 ミリ秒のタスク フリーズと 0.00 CLS を記録しました。",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "계정 구독이나 클라우드 잠금 없이 브라우저 내에서 로컬로 실행되는 엔드투엔드 청구 툴킷(송장, 견적, 작업표, 영수증)이 필요한 독립 계약자, 프리랜서 개발자, 크리에이티브 컨설턴트 및 원격 서비스 제공업체.",
+      "pros": [
+        "비즈니스 세부 정보, 클라이언트 프로필 및 번호 지정 순서를 위한 영구 온디바이스 메모리를 사용하면 계정 생성이나 가입이 필요하지 않습니다.",
+        "견적, 근무 시간표, 포장 전표, 송장, 신용 메모 및 연체 지불 알림 편지를 연결하는 포괄적인 문서 생태계",
+        "렌더링된 송장에서 직접 은행 송금 라우팅, Stripe 링크, Wise, Venmo 및 Cash App 칩을 지원하는 다중 결제 방법 통합",
+        "자율 AI 에이전트 통합을 위한 원클릭 클라이언트 측 PDF 내보내기 및 구조화된 미리 채우기 URL 지원"
+      ],
+      "cons": [
+        "monkeetools-analytics.monkeetools.workers.dev/a로 전송된 5개의 익명 원격 측정 비콘을 관찰했습니다.",
+        "송장 기록 및 클라이언트 명단은 브라우저 localStorage에 저장되므로 사이트 쿠키를 지우거나 브라우저를 변경하기 전에 수동으로 내보내야 합니다."
+      ],
+      "privacyVerdict": "송장 항목, 고객 주소 및 은행 자격 증명은 브라우저 localStorage 내에 완전히 저장됩니다. 5개의 경량 익명 사용 비콘이 Cloudflare 작업자에게 기록되었으며 재무 정보나 고객 PII는 전혀 전송되지 않았습니다.",
+      "benchmarkNotes": "CADES 2.0 Route A는 자아 브라우저 Chromium에서 검증되었습니다. monkeetools.surge.sh로 이동하여 온보딩 마법사를 시작하고 개발자 프로필을 선택했습니다. 비즈니스 ID 설정(회사 이름, 청구 이메일 및 결제 방법)을 구성하고 견적, 작업표 및 송장 초안을 연결하는 5단계 청구 워크플로를 테스트했습니다. PDF 내보내기 메커니즘을 트리거하여 클라이언트 측 문서 합성을 확인했습니다. 네트워크 로그를 감사하여 개발자의 분석 작업자에게 0ms 길이의 작업 정지 및 0.00 CLS로 5개의 익명 원격 측정 비콘을 확인했습니다.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Contratistas independientes, desarrolladores independientes, consultores creativos y proveedores de servicios remotos que necesitan un conjunto de herramientas de facturación de extremo a extremo (facturas, cotizaciones, hojas de horas, recibos) que se ejecute localmente en el navegador sin suscripciones de cuentas ni bloqueo de la nube.",
+      "pros": [
+        "No se requiere creación de cuenta ni suscripción con memoria persistente en el dispositivo para detalles comerciales, perfiles de clientes y secuencias numéricas.",
+        "Ecosistema de documentos integral que conecta cotizaciones, hojas de tiempo, albaranes, facturas, notas de crédito y cartas de recordatorio de pagos vencidos.",
+        "Integración de métodos de pago múltiples que admiten enrutamiento de transferencias bancarias directas, enlaces Stripe, chips Wise, Venmo y Cash App en facturas renderizadas.",
+        "Exportación de PDF del lado del cliente con un solo clic y compatibilidad con URL de precarga estructurada para la integración autónoma de agentes de IA"
+      ],
+      "cons": [
+        "Se observaron 5 balizas de telemetría anónimas enviadas a monoketools-analytics.monkeetools.workers.dev/a",
+        "Los registros de facturas y las listas de clientes se almacenan en el almacenamiento local del navegador, lo que requiere una exportación manual antes de borrar las cookies del sitio o cambiar de navegador."
+      ],
+      "privacyVerdict": "Las líneas de pedido de facturas, las direcciones de los clientes y las credenciales bancarias permanecen completamente almacenadas en el almacenamiento local del navegador; Se registraron 5 balizas de uso anónimas y ligeras a un trabajador de Cloudflare, sin transmitir ningún detalle financiero ni información personal del cliente.",
+      "benchmarkNotes": "CADES 2.0 Ruta A dogfooding verificado en el navegador ego Chromium. Navegó a monoketools.surge.sh y activó el asistente de incorporación, seleccionando el perfil de Desarrollador. Configuré los ajustes de identidad empresarial (nombre comercial, correo electrónico de facturación y métodos de pago) y probé el flujo de trabajo de facturación de 5 etapas que conecta cotizaciones, hojas de horas y borradores de facturas. Desencadenó el mecanismo de exportación de PDF, verificando la síntesis de documentos del lado del cliente. Registros de red auditados, que confirman 5 balizas de telemetría anónimas para el trabajador de análisis del desarrollador con congelaciones de tareas de 0 ms y 0,00 CLS.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Entrepreneurs indépendants, développeurs indépendants, consultants créatifs et fournisseurs de services à distance qui ont besoin d'une boîte à outils de facturation de bout en bout (factures, devis, feuilles de temps, reçus) qui s'exécute localement dans le navigateur sans abonnement de compte ni verrouillage dans le cloud.",
+      "pros": [
+        "Aucune création de compte ou abonnement requis avec une mémoire persistante sur l'appareil pour les détails de l'entreprise, les profils clients et les séquences de numérotation",
+        "Écosystème documentaire complet reliant les devis, les feuilles de temps, les bons de livraison, les factures, les notes de crédit et les lettres de rappel de paiement en retard",
+        "Intégration de méthodes de paiement multiples prenant en charge le routage des virements bancaires directs, les liens Stripe, les puces Wise, Venmo et Cash App sur les factures rendues",
+        "Exportation PDF côté client en un clic et prise en charge d'URL de pré-remplissage structuré pour l'intégration d'agents IA autonomes"
+      ],
+      "cons": [
+        "Observation de 5 balises de télémétrie anonymes envoyées à monkeetools-analytics.monkeetools.workers.dev/a",
+        "Les enregistrements de factures et les listes de clients sont stockés dans le stockage local du navigateur, nécessitant une exportation manuelle avant d'effacer les cookies du site ou de changer de navigateur."
+      ],
+      "privacyVerdict": "Les éléments de facture, les adresses des clients et les informations d'identification bancaires restent entièrement stockés dans localStorage du navigateur ; 5 balises d'utilisation anonymes légères ont été enregistrées sur un Cloudflare Worker, sans aucune information financière ni information personnelle du client transmise.",
+      "benchmarkNotes": "Route CADES 2.0 Un dogfooding vérifié dans l'ego-navigateur Chromium. Accédez à monkeetools.surge.sh et engagez l'assistant d'intégration, en sélectionnant le profil de développeur. Configuration des paramètres d'identité de l'entreprise (nom de l'entreprise, e-mail de facturation et méthodes de paiement) et test du workflow de facturation en 5 étapes reliant les devis, les feuilles de temps et les brouillons de factures. Déclenchement du mécanisme d'exportation PDF, vérifiant la synthèse des documents côté client. Journaux réseau audités, confirmant 5 balises de télémétrie anonymes au travailleur analytique du développeur avec des gels de tâches de 0 ms et 0,00 CLS.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Unabhängige Auftragnehmer, freiberufliche Entwickler, kreative Berater und Remote-Dienstleister, die ein umfassendes Abrechnungs-Toolkit (Rechnungen, Angebote, Stundenzettel, Quittungen) benötigen, das lokal im Browser ohne Kontoabonnements oder Cloud-Sperrung ausgeführt wird.",
+      "pros": [
+        "Es ist keine Kontoerstellung oder ein Abonnement erforderlich, mit permanentem Speicher auf dem Gerät für Geschäftsdetails, Kundenprofile und Nummerierungssequenzen",
+        "Umfassendes Dokumenten-Ökosystem, das Angebote, Stundenzettel, Packzettel, Rechnungen, Gutschriften und Mahnschreiben über überfällige Zahlungen miteinander verbindet",
+        "Integration mehrerer Zahlungsmethoden, die die direkte Weiterleitung von Banküberweisungen, Stripe-Links, Wise, Venmo und Cash App-Chips auf ausgestellten Rechnungen unterstützen",
+        "Clientseitiger PDF-Export mit einem Klick und Unterstützung für strukturierte Vorabfüllungs-URLs für die autonome KI-Agenten-Integration"
+      ],
+      "cons": [
+        "Es wurden 5 anonyme Telemetrie-Beacons beobachtet, die an monkeetools-analytics.monkeetools.workers.dev/a gesendet wurden",
+        "Rechnungsdatensätze und Kundenlisten werden im Browser localStorage gespeichert und erfordern einen manuellen Export, bevor Website-Cookies gelöscht oder der Browser gewechselt werden"
+      ],
+      "privacyVerdict": "Rechnungsposten, Kundenadressen und Bankdaten bleiben vollständig im Browser localStorage gespeichert; 5 einfache, anonyme Nutzungsbeacons wurden auf einem Cloudflare-Worker aufgezeichnet, ohne dass finanzielle Details oder Kunden-PII übertragen wurden.",
+      "benchmarkNotes": "CADES 2.0 Route Ein im Ego-Browser Chromium verifiziertes Dogfooding. Navigierte zu monkeetools.surge.sh, aktivierte den Onboarding-Assistenten und wählte das Entwicklerprofil aus. Konfigurierte Geschäftsidentitätseinstellungen (Firmenname, Rechnungs-E-Mail-Adresse und Zahlungsmethoden) und testete den 5-stufigen Rechnungsworkflow, der Angebote, Stundenzettel und Rechnungsentwürfe verbindet. Der PDF-Exportmechanismus wurde ausgelöst und die clientseitige Dokumentsynthese überprüft. Geprüfte Netzwerkprotokolle, die dem Analysemitarbeiter des Entwicklers 5 anonyme Telemetrie-Beacons mit 0 ms langen Aufgabenstopps und 0,00 CLS bestätigen.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Contratantes independentes, desenvolvedores autônomos, consultores criativos e provedores de serviços remotos que precisam de um kit de ferramentas de faturamento completo (faturas, cotações, planilhas de horas, recibos) que seja executado localmente no navegador, sem assinaturas de conta ou dependência de nuvem.",
+      "pros": [
+        "Nenhuma criação de conta ou assinatura necessária com memória persistente no dispositivo para detalhes comerciais, perfis de clientes e sequências de numeração",
+        "Ecossistema de documentos abrangente conectando cotações, planilhas de horas, guias de remessa, faturas, notas de crédito e cartas de lembrete de pagamentos vencidos",
+        "Integração de vários métodos de pagamento com suporte para roteamento direto de transferência bancária, links Stripe, chips Wise, Venmo e Cash App em faturas renderizadas",
+        "Exportação de PDF do lado do cliente com um clique e suporte de URL de pré-preenchimento estruturado para integração autônoma de agente de IA"
+      ],
+      "cons": [
+        "Foram observados 5 beacons de telemetria anônimos enviados para Monkeetools-analytics.monkeetools.workers.dev/a",
+        "Os registros de faturas e listas de clientes são armazenados no armazenamento local do navegador, exigindo exportação manual antes de limpar os cookies do site ou mudar de navegador."
+      ],
+      "privacyVerdict": "Itens de linha de fatura, endereços de clientes e credenciais bancárias permanecem totalmente armazenados no localStorage do navegador; Cinco beacons de uso anônimos leves foram registrados em um Cloudflare Worker, sem transmissão de nenhum detalhe financeiro ou PII do cliente.",
+      "benchmarkNotes": "Rota CADES 2.0 Um dogfooding verificado no navegador ego Chromium. Naveguei até monkeetools.surge.sh e acionei o assistente de integração, selecionando o perfil Desenvolvedor. Configurei as configurações de identidade comercial (nome da empresa, e-mail de cobrança e métodos de pagamento) e testei o fluxo de trabalho de cobrança em 5 estágios conectando cotações, planilhas de horas e rascunhos de faturas. Acionou o mecanismo de exportação de PDF, verificando a síntese de documentos do lado do cliente. Logs de rede auditados, confirmando 5 beacons de telemetria anônimos para o trabalhador analítico do desenvolvedor com congelamentos de tarefas de 0 ms e 0,00 CLS.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    }
+  },
+  "imagetoascii-art": {
+    "en": {
+      "bestFor": "Converting images into styled, high-resolution ASCII art and text exports directly in the browser.",
+      "pros": [
+        "Interactive side-by-side comparison slider with live character density and color rendering",
+        "High-resolution PNG export (3212x2414) without watermarks, alongside plain text copy and TXT download"
+      ],
+      "cons": [
+        "Third-party Google Tag Manager script loaded on the host page",
+        "Extreme output widths can cause slight rendering lag on lower-powered devices"
+      ],
+      "privacyVerdict": "Image pixel extraction and character conversion execute entirely within the local browser canvas without image payload egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Processed an 800x600 PNG fixture into a 220x79 character ASCII grid and exported a 5.05 MB PNG within 1.8 seconds.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器本地将图片转换为高分辨率彩色或单色 ASCII 字符画与文本导出。",
+      "pros": [
+        "支持实时分屏对照滑块、多种艺术预设与彩色字符渲染",
+        "提供无水印高分辨率 PNG 导出（3212x2414）以及纯文本剪贴板复制与 TXT 下载"
+      ],
+      "cons": [
+        "页面加载了第三方 Google Tag Manager 统计脚本",
+        "超大字符宽度设置下低性能设备可能出现轻微渲染延迟"
+      ],
+      "privacyVerdict": "图像像素提取与 ASCII 字符映射均在本地浏览器 Canvas 中完成，未观察到图片数据外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 1.8 秒内将 800x600 PNG 样本解析为 220x79 字符矩阵并成功导出 5.05 MB 高清 PNG。",
+      "testedAt": "2026-10"
+    }
+  },
+  "fileontap-com": {
+    "en": {
+      "bestFor": "Converting images (PNG, JPG, WebP, HEIC) and PDF files in batch locally inside the browser without file uploads.",
+      "pros": [
+        "Strict client-side processing keeps all uploaded images and documents on the local device",
+        "Supports batch multi-format conversion, page reordering, and direct un-watermarked exports"
+      ],
+      "cons": [
+        "Batch conversions capped at 10 to 30 files per task depending on the format",
+        "Heavy multi-page PDF generation depends on available client RAM"
+      ],
+      "privacyVerdict": "File conversion algorithms execute locally in-browser; no document or image payload data egress was observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded an 800x600 PNG fixture to the in-browser PDF converter and generated a clean document without remote payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器本地批量转换图片（PNG、JPG、WebP、HEIC）与 PDF 文档，无需上传服务器。",
+      "pros": [
+        "严格的纯客户端本地处理，所有文档与图片均保留在本地设备",
+        "支持批量多格式转换、页面顺序调整与无水印直接导出"
+      ],
+      "cons": [
+        "按格式不同单次批量处理限制在 10 至 30 张文件",
+        "超大多页 PDF 生成依赖客户端本地内存性能"
+      ],
+      "privacyVerdict": "文件转换逻辑在本地浏览器中运行，测试期间未观察到任何文件与图像负载外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "向本地 PDF 转换器载入 800x600 PNG 样本并完成文档组装，全程未产生远程数据负载请求。",
+      "testedAt": "2026-10"
+    }
+  },
+  "monkeetools-surge-sh": {
+    "en": {
+      "bestFor": "Independent contractors, freelance developers, creative consultants, and remote service providers who need an end-to-end billing toolkit (invoices, quotes, timesheets, receipts) that runs locally in-browser without account subscriptions or cloud lock-in.",
+      "pros": [
+        "Zero account creation or subscription required with persistent on-device memory for business details, client profiles, and numbering sequences",
+        "Comprehensive document ecosystem connecting quotes, timesheets, packing slips, invoices, credit notes, and overdue payment reminder letters",
+        "Multi-payment method integration supporting direct bank transfer routing, Stripe links, Wise, Venmo, and Cash App chips on rendered invoices",
+        "One-click client-side PDF export and structured prefill URL support for autonomous AI agent integration"
+      ],
+      "cons": [
+        "Observed 5 anonymous telemetry beacons sent to monkeetools-analytics.monkeetools.workers.dev/a",
+        "Invoice records and client rosters are stored in browser localStorage, requiring manual export before clearing site cookies or changing browsers"
+      ],
+      "privacyVerdict": "Invoice line items, client addresses, and banking credentials remain entirely stored within browser localStorage; 5 lightweight anonymous usage beacons were recorded to a Cloudflare Worker, with zero financial details or customer PII transmitted.",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to monkeetools.surge.sh and engaged the onboarding wizard, selecting the Developer profile. Configured business identity settings (business name, billing email, and payment methods) and tested the 5-stage billing workflow connecting quotes, timesheets, and invoice drafts. Triggered the PDF export mechanism, verifying client-side document synthesis. Audited network logs, confirming 5 anonymous telemetry beacons to the developer's analytics worker with 0ms long task freezes and 0.00 CLS.",
+      "testedAt": "2026-09"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中独立完成报价单、工时表、正式发票（Invoice）与催款对账单制作，且极度注重客户隐私与商业机密不被第三方 SaaS 收集的自由职业开发者、独立咨询师与创作者。",
+      "pros": [
+        "完全免注册免订阅即开即用，利用浏览器 localStorage 在本地记住商户名称、银行收款信息与发票连续编号",
+        "全流程单据链条闭环，覆盖报价单（Quote）、工时表（Timesheets）、出货单（Packing Slips）、发票与逾期催款函",
+        "支持在账单中嵌入银行转账、Stripe 付款链接、Wise、Venmo 等多种支付方式快捷入口",
+        "提供一键本地渲染导出 PDF 文件，并提供支持 AI 自动化助手调用的预填充 URL 参数体系"
+      ],
+      "cons": [
+        "使用期间记录到 5 次发送至 monkeetools-analytics.monkeetools.workers.dev/a 的匿名统计信标",
+        "客户通讯录与账目记录默认保存于本地浏览器缓存，清理浏览器数据前需注意备份"
+      ],
+      "privacyVerdict": "发票明细、客户联系方式与银行收款账户完全保存在本地浏览器 localStorage 中；网络审计仅记录到 5 次发往 Cloudflare Worker 的匿名使用计数信标，绝不上传商业账目明细或客户隐私信息。",
+      "alternativeTo": [
+        "Invoice Ninja 发票系统",
+        "Bonsai 自由职业者套件",
+        "Wave 免费发票软件",
+        "FreshBooks 发票生成器"
+      ],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 monkeetools.surge.sh 并通过向导选择 Developer 角色。在设置面板中配置商户名称与收款方式，测试从报价单到发票生成的 5 阶段工作流。触发 PDF 导出机制验证本地渲染管线。网络审计记录到 5 次匿名访问信标，长任务耗时 0ms，CLS 为 0.00。",
+      "testedAt": "2026-09"
+    },
+    "ja": {
+      "bestFor": "アカウントのサブスクリプションやクラウドのロックインを必要とせず、ブラウザ内でローカルに実行できるエンドツーエンドの請求ツールキット (請求書、見積書、タイムシート、領収書) を必要とする独立請負業者、フリーランス開発者、クリエイティブ コンサルタント、およびリモート サービス プロバイダー。",
+      "pros": [
+        "アカウントの作成やサブスクリプションは不要で、ビジネスの詳細、クライアント プロファイル、番号付けシーケンス用の永続的なオンデバイス メモリを使用できます。",
+        "見積書、タイムシート、納品書、請求書、クレジットノート、延滞支払い督促状を接続する包括的なドキュメント エコシステム",
+        "レンダリングされた請求書で直接銀行振込ルーティング、Stripe リンク、Wise、Venmo、Cash App チップをサポートする複数の支払い方法の統合",
+        "ワンクリックのクライアント側 PDF エクスポートと自律型 AI エージェント統合のための構造化された事前入力 URL のサポート"
+      ],
+      "cons": [
+        "Monkeetools-analytics.monkeetools.workers.dev/a に送信された 5 つの匿名テレメトリー ビーコンを観察",
+        "請求書記録と顧客名簿はブラウザのローカルストレージに保存されるため、サイトの Cookie をクリアするかブラウザを変更する前に手動でエクスポートする必要があります。"
+      ],
+      "privacyVerdict": "請求書の品目、クライアントの住所、銀行の資格情報はすべてブラウザのローカルストレージ内に保存されたままになります。 5 つの軽量匿名使用状況ビーコンが Cloudflare ワーカーに記録され、財務詳細や顧客 PII は送信されませんでした。",
+      "benchmarkNotes": "CADES 2.0 ルート A ドッグフーディングは ego ブラウザ Chromium で検証されました。 Monkeetools.surge.sh に移動し、オンボーディング ウィザードを実行して、開発者プロファイルを選択します。ビジネス ID 設定 (ビジネス名、請求先電子メール、支払い方法) を構成し、見積書、タイムシート、請求書草稿を接続する 5 段階の請求ワークフローをテストしました。 PDF エクスポート メカニズムをトリガーし、クライアント側のドキュメント合成を検証しました。ネットワーク ログを監査し、開発者の分析ワーカーに対する 5 つの匿名テレメトリ ビーコンを確認し、長さ 0 ミリ秒のタスク フリーズと 0.00 CLS を記録しました。",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "ko": {
+      "bestFor": "계정 구독이나 클라우드 잠금 없이 브라우저 내에서 로컬로 실행되는 엔드투엔드 청구 툴킷(송장, 견적, 작업표, 영수증)이 필요한 독립 계약자, 프리랜서 개발자, 크리에이티브 컨설턴트 및 원격 서비스 제공업체.",
+      "pros": [
+        "비즈니스 세부 정보, 클라이언트 프로필 및 번호 지정 순서를 위한 영구 온디바이스 메모리를 사용하면 계정 생성이나 가입이 필요하지 않습니다.",
+        "견적, 근무 시간표, 포장 전표, 송장, 신용 메모 및 연체 지불 알림 편지를 연결하는 포괄적인 문서 생태계",
+        "렌더링된 송장에서 직접 은행 송금 라우팅, Stripe 링크, Wise, Venmo 및 Cash App 칩을 지원하는 다중 결제 방법 통합",
+        "자율 AI 에이전트 통합을 위한 원클릭 클라이언트 측 PDF 내보내기 및 구조화된 미리 채우기 URL 지원"
+      ],
+      "cons": [
+        "monkeetools-analytics.monkeetools.workers.dev/a로 전송된 5개의 익명 원격 측정 비콘을 관찰했습니다.",
+        "송장 기록 및 클라이언트 명단은 브라우저 localStorage에 저장되므로 사이트 쿠키를 지우거나 브라우저를 변경하기 전에 수동으로 내보내야 합니다."
+      ],
+      "privacyVerdict": "송장 항목, 고객 주소 및 은행 자격 증명은 브라우저 localStorage 내에 완전히 저장됩니다. 5개의 경량 익명 사용 비콘이 Cloudflare 작업자에게 기록되었으며 재무 정보나 고객 PII는 전혀 전송되지 않았습니다.",
+      "benchmarkNotes": "CADES 2.0 Route A는 자아 브라우저 Chromium에서 검증되었습니다. monkeetools.surge.sh로 이동하여 온보딩 마법사를 시작하고 개발자 프로필을 선택했습니다. 비즈니스 ID 설정(회사 이름, 청구 이메일 및 결제 방법)을 구성하고 견적, 작업표 및 송장 초안을 연결하는 5단계 청구 워크플로를 테스트했습니다. PDF 내보내기 메커니즘을 트리거하여 클라이언트 측 문서 합성을 확인했습니다. 네트워크 로그를 감사하여 개발자의 분석 작업자에게 0ms 길이의 작업 정지 및 0.00 CLS로 5개의 익명 원격 측정 비콘을 확인했습니다.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "es": {
+      "bestFor": "Contratistas independientes, desarrolladores independientes, consultores creativos y proveedores de servicios remotos que necesitan un conjunto de herramientas de facturación de extremo a extremo (facturas, cotizaciones, hojas de horas, recibos) que se ejecute localmente en el navegador sin suscripciones de cuentas ni bloqueo de la nube.",
+      "pros": [
+        "No se requiere creación de cuenta ni suscripción con memoria persistente en el dispositivo para detalles comerciales, perfiles de clientes y secuencias numéricas.",
+        "Ecosistema de documentos integral que conecta cotizaciones, hojas de tiempo, albaranes, facturas, notas de crédito y cartas de recordatorio de pagos vencidos.",
+        "Integración de métodos de pago múltiples que admiten enrutamiento de transferencias bancarias directas, enlaces Stripe, chips Wise, Venmo y Cash App en facturas renderizadas.",
+        "Exportación de PDF del lado del cliente con un solo clic y compatibilidad con URL de precarga estructurada para la integración autónoma de agentes de IA"
+      ],
+      "cons": [
+        "Se observaron 5 balizas de telemetría anónimas enviadas a monoketools-analytics.monkeetools.workers.dev/a",
+        "Los registros de facturas y las listas de clientes se almacenan en el almacenamiento local del navegador, lo que requiere una exportación manual antes de borrar las cookies del sitio o cambiar de navegador."
+      ],
+      "privacyVerdict": "Las líneas de pedido de facturas, las direcciones de los clientes y las credenciales bancarias permanecen completamente almacenadas en el almacenamiento local del navegador; Se registraron 5 balizas de uso anónimas y ligeras a un trabajador de Cloudflare, sin transmitir ningún detalle financiero ni información personal del cliente.",
+      "benchmarkNotes": "CADES 2.0 Ruta A dogfooding verificado en el navegador ego Chromium. Navegó a monoketools.surge.sh y activó el asistente de incorporación, seleccionando el perfil de Desarrollador. Configuré los ajustes de identidad empresarial (nombre comercial, correo electrónico de facturación y métodos de pago) y probé el flujo de trabajo de facturación de 5 etapas que conecta cotizaciones, hojas de horas y borradores de facturas. Desencadenó el mecanismo de exportación de PDF, verificando la síntesis de documentos del lado del cliente. Registros de red auditados, que confirman 5 balizas de telemetría anónimas para el trabajador de análisis del desarrollador con congelaciones de tareas de 0 ms y 0,00 CLS.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "fr": {
+      "bestFor": "Entrepreneurs indépendants, développeurs indépendants, consultants créatifs et fournisseurs de services à distance qui ont besoin d'une boîte à outils de facturation de bout en bout (factures, devis, feuilles de temps, reçus) qui s'exécute localement dans le navigateur sans abonnement de compte ni verrouillage dans le cloud.",
+      "pros": [
+        "Aucune création de compte ou abonnement requis avec une mémoire persistante sur l'appareil pour les détails de l'entreprise, les profils clients et les séquences de numérotation",
+        "Écosystème documentaire complet reliant les devis, les feuilles de temps, les bons de livraison, les factures, les notes de crédit et les lettres de rappel de paiement en retard",
+        "Intégration de méthodes de paiement multiples prenant en charge le routage des virements bancaires directs, les liens Stripe, les puces Wise, Venmo et Cash App sur les factures rendues",
+        "Exportation PDF côté client en un clic et prise en charge d'URL de pré-remplissage structuré pour l'intégration d'agents IA autonomes"
+      ],
+      "cons": [
+        "Observation de 5 balises de télémétrie anonymes envoyées à monkeetools-analytics.monkeetools.workers.dev/a",
+        "Les enregistrements de factures et les listes de clients sont stockés dans le stockage local du navigateur, nécessitant une exportation manuelle avant d'effacer les cookies du site ou de changer de navigateur."
+      ],
+      "privacyVerdict": "Les éléments de facture, les adresses des clients et les informations d'identification bancaires restent entièrement stockés dans localStorage du navigateur ; 5 balises d'utilisation anonymes légères ont été enregistrées sur un Cloudflare Worker, sans aucune information financière ni information personnelle du client transmise.",
+      "benchmarkNotes": "Route CADES 2.0 Un dogfooding vérifié dans l'ego-navigateur Chromium. Accédez à monkeetools.surge.sh et engagez l'assistant d'intégration, en sélectionnant le profil de développeur. Configuration des paramètres d'identité de l'entreprise (nom de l'entreprise, e-mail de facturation et méthodes de paiement) et test du workflow de facturation en 5 étapes reliant les devis, les feuilles de temps et les brouillons de factures. Déclenchement du mécanisme d'exportation PDF, vérifiant la synthèse des documents côté client. Journaux réseau audités, confirmant 5 balises de télémétrie anonymes au travailleur analytique du développeur avec des gels de tâches de 0 ms et 0,00 CLS.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "de": {
+      "bestFor": "Unabhängige Auftragnehmer, freiberufliche Entwickler, kreative Berater und Remote-Dienstleister, die ein umfassendes Abrechnungs-Toolkit (Rechnungen, Angebote, Stundenzettel, Quittungen) benötigen, das lokal im Browser ohne Kontoabonnements oder Cloud-Sperrung ausgeführt wird.",
+      "pros": [
+        "Es ist keine Kontoerstellung oder ein Abonnement erforderlich, mit permanentem Speicher auf dem Gerät für Geschäftsdetails, Kundenprofile und Nummerierungssequenzen",
+        "Umfassendes Dokumenten-Ökosystem, das Angebote, Stundenzettel, Packzettel, Rechnungen, Gutschriften und Mahnschreiben über überfällige Zahlungen miteinander verbindet",
+        "Integration mehrerer Zahlungsmethoden, die die direkte Weiterleitung von Banküberweisungen, Stripe-Links, Wise, Venmo und Cash App-Chips auf ausgestellten Rechnungen unterstützen",
+        "Clientseitiger PDF-Export mit einem Klick und Unterstützung für strukturierte Vorabfüllungs-URLs für die autonome KI-Agenten-Integration"
+      ],
+      "cons": [
+        "Es wurden 5 anonyme Telemetrie-Beacons beobachtet, die an monkeetools-analytics.monkeetools.workers.dev/a gesendet wurden",
+        "Rechnungsdatensätze und Kundenlisten werden im Browser localStorage gespeichert und erfordern einen manuellen Export, bevor Website-Cookies gelöscht oder der Browser gewechselt werden"
+      ],
+      "privacyVerdict": "Rechnungsposten, Kundenadressen und Bankdaten bleiben vollständig im Browser localStorage gespeichert; 5 einfache, anonyme Nutzungsbeacons wurden auf einem Cloudflare-Worker aufgezeichnet, ohne dass finanzielle Details oder Kunden-PII übertragen wurden.",
+      "benchmarkNotes": "CADES 2.0 Route Ein im Ego-Browser Chromium verifiziertes Dogfooding. Navigierte zu monkeetools.surge.sh, aktivierte den Onboarding-Assistenten und wählte das Entwicklerprofil aus. Konfigurierte Geschäftsidentitätseinstellungen (Firmenname, Rechnungs-E-Mail-Adresse und Zahlungsmethoden) und testete den 5-stufigen Rechnungsworkflow, der Angebote, Stundenzettel und Rechnungsentwürfe verbindet. Der PDF-Exportmechanismus wurde ausgelöst und die clientseitige Dokumentsynthese überprüft. Geprüfte Netzwerkprotokolle, die dem Analysemitarbeiter des Entwicklers 5 anonyme Telemetrie-Beacons mit 0 ms langen Aufgabenstopps und 0,00 CLS bestätigen.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    },
+    "pt": {
+      "bestFor": "Contratantes independentes, desenvolvedores autônomos, consultores criativos e provedores de serviços remotos que precisam de um kit de ferramentas de faturamento completo (faturas, cotações, planilhas de horas, recibos) que seja executado localmente no navegador, sem assinaturas de conta ou dependência de nuvem.",
+      "pros": [
+        "Nenhuma criação de conta ou assinatura necessária com memória persistente no dispositivo para detalhes comerciais, perfis de clientes e sequências de numeração",
+        "Ecossistema de documentos abrangente conectando cotações, planilhas de horas, guias de remessa, faturas, notas de crédito e cartas de lembrete de pagamentos vencidos",
+        "Integração de vários métodos de pagamento com suporte para roteamento direto de transferência bancária, links Stripe, chips Wise, Venmo e Cash App em faturas renderizadas",
+        "Exportação de PDF do lado do cliente com um clique e suporte de URL de pré-preenchimento estruturado para integração autônoma de agente de IA"
+      ],
+      "cons": [
+        "Foram observados 5 beacons de telemetria anônimos enviados para Monkeetools-analytics.monkeetools.workers.dev/a",
+        "Os registros de faturas e listas de clientes são armazenados no armazenamento local do navegador, exigindo exportação manual antes de limpar os cookies do site ou mudar de navegador."
+      ],
+      "privacyVerdict": "Itens de linha de fatura, endereços de clientes e credenciais bancárias permanecem totalmente armazenados no localStorage do navegador; Cinco beacons de uso anônimos leves foram registrados em um Cloudflare Worker, sem transmissão de nenhum detalhe financeiro ou PII do cliente.",
+      "benchmarkNotes": "Rota CADES 2.0 Um dogfooding verificado no navegador ego Chromium. Naveguei até monkeetools.surge.sh e acionei o assistente de integração, selecionando o perfil Desenvolvedor. Configurei as configurações de identidade comercial (nome da empresa, e-mail de cobrança e métodos de pagamento) e testei o fluxo de trabalho de cobrança em 5 estágios conectando cotações, planilhas de horas e rascunhos de faturas. Acionou o mecanismo de exportação de PDF, verificando a síntese de documentos do lado do cliente. Logs de rede auditados, confirmando 5 beacons de telemetria anônimos para o trabalhador analítico do desenvolvedor com congelamentos de tarefas de 0 ms e 0,00 CLS.",
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "alternativeTo": [
+        "Invoice Ninja",
+        "Bonsai Freelance Suite",
+        "Wave Invoicing",
+        "FreshBooks Free Generator"
+      ],
+      "testedAt": "2026-09"
+    }
+  },
+  "bizntools-com-data-json-to-csv-converter": {
+    "en": {
+      "bestFor": "Converting JSON arrays and nested object hierarchies into flat CSV spreadsheets directly inside the browser.",
+      "pros": [
+        "Parses nested JSON structures and arrays into clean tabular CSV columns with customizable separators",
+        "Operates entirely on client-side memory with zero remote network requests or server uploads"
+      ],
+      "cons": [
+        "Irregular polymorphic JSON trees requires manual path selection or data restructuring before tabular conversion"
+      ],
+      "privacyVerdict": "Strict client-side execution; network inspection confirmed zero outgoing data payload egress during file conversion and export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded a 50-record complex benchmark JSON fixture with nested attributes; client-side parser extracted the array and generated an 8063-byte CSV with zero HTTP POST/GET telemetry.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器内直接将 JSON 数组与嵌套对象层级展平成干净的 CSV 表格。",
+      "pros": [
+        "支持解析嵌套 JSON 结构与数组并将其展平成标准表格列，支持分隔符自定义",
+        "完全在客户端内存中运行，转换与导出期间无任何网络请求或服务器上传"
+      ],
+      "cons": [
+        "高度多态的不规则 JSON 树在转为二维表格前需要手动选择数组路径"
+      ],
+      "privacyVerdict": "严格的纯客户端本地运行；网络监控确认在文件转换与下载期间没有发生任何外发数据传输。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "导入包含 50 条复杂基准记录的 sample.json 样本，本地解析器成功识别数组并导出 8063 字节的完整 CSV，网络监控确认 0 次数据外传。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "ブラウザ内で完結してネストされたJSON配列を整形されたCSVテーブルに展開する用途。",
+      "pros": [
+        "ネストされたオブジェクト階層を解析し、区切り文字設定に対応したクリーンなCSV列に展開",
+        "クライアント側メモリ内で完全に動作し、変換および保存時のサーバー通信は一切発生しない"
+      ],
+      "cons": [
+        "不規則なポリモーフィックJSONツリーは手動での配列パス選択が必要"
+      ],
+      "privacyVerdict": "クライアント完結の実行を確認。ファイル変換およびエクスポート中に外部へのデータ送信は一切観測されませんでした。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "50件の複合ベンチマークJSONを読み込み、8063バイトのCSVを完全ローカルで生成。HTTPリクエストなし。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "브라우저 내에서 중첩된 JSON 배열을 구조화된 CSV 스프레드시트로 변환하는 작업.",
+      "pros": [
+        "중첩된 객체 구조를 분석하여 깔끔한 표 형식의 CSV 열로 평탄화 지원",
+        "클라이언트 브라우저 메모리 내에서 완전 로컬로 작동하며 원격 서버 업로드가 전혀 없음"
+      ],
+      "cons": [
+        "비정형 다형성 JSON 트리의 경우 배열 경로 수동 지정 필요"
+      ],
+      "privacyVerdict": "엄격한 클라이언트 측 실행; 파일 처리 및 다운로드 중 외부 페이로드 전송이 전혀 관측되지 않았습니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "50개 벤치마크 레코드가 포함된 JSON을 로드하여 8063바이트의 CSV를 즉시 추출, 외부 네트워크 요청 0건 확인.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Aplanar matrices JSON complejas y jerarquías de objetos en hojas de cálculo CSV dentro del navegador.",
+      "pros": [
+        "Analiza estructuras anidadas y genera columnas CSV limpias con delimitadores configurables",
+        "Procesamiento totalmente local en memoria sin subidas al servidor ni peticiones de red"
+      ],
+      "cons": [
+        "Árboles JSON polimórficos irregulares requieren selección manual de ruta"
+      ],
+      "privacyVerdict": "Ejecución estricta en el cliente; la inspección de red confirmó cero transferencias de datos durante la conversión.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Se cargó un archivo fixture de 50 registros JSON; generó un CSV de 8063 bytes sin solicitudes HTTP salientes.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Transformer des tableaux JSON et objets imbriqués en feuilles de calcul CSV directement dans le navigateur.",
+      "pros": [
+        "Aplatit les hiérarchies complexes en colonnes CSV standard avec séparateurs configurables",
+        "Fonctionnement 100% local en mémoire client sans aucun transfert de données vers un serveur"
+      ],
+      "cons": [
+        "Les structures JSON polymorphes irrégulières nécessitent une sélection manuelle du chemin"
+      ],
+      "privacyVerdict": "Exécution stricte côté client; aucune transmission de données observée lors du traitement et de l'export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Chargement d'un fixture de 50 enregistrements; génération d'un CSV de 8063 octets sans requête réseau sortante.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Verschachtelte JSON-Arrays direkt im Browser in flache CSV-Tabellen umwandeln.",
+      "pros": [
+        "Analysiert komplexe Objektstrukturen und erzeugt saubere CSV-Spalten mit anpassbaren Trennzeichen",
+        "Läuft vollständig im lokalen Browserspeicher ohne Server-Uploads oder externe Anfragen"
+      ],
+      "cons": [
+        "Unregelmäßige polymorphe JSON-Bäume erfordern manuelle Pfadauswahl"
+      ],
+      "privacyVerdict": "Strikte clientseitige Verarbeitung; Netzwerküberwachung bestätigt null ausgehende Nutzdaten.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "50 Benchmark-Datensätze verarbeitet; 8063 Bytes CSV ohne jegliche ausgehende HTTP-Anfragen generiert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Converter arrays JSON e objetos aninhados em planilhas CSV limpas diretamente no navegador.",
+      "pros": [
+        "Mapeia hierarquias aninhadas em colunas CSV organizadas com separadores personalizáveis",
+        "Execução 100% no cliente sem envio de arquivos para servidores ou solicitações remotas"
+      ],
+      "cons": [
+        "Estruturas JSON polimórficas irregulares exigem seleção manual de nós"
+      ],
+      "privacyVerdict": "Processamento local no navegador; inspeção de rede confirmou nenhuma saída de dados durante a conversão.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Processou fixture JSON de 50 registros, exportando CSV de 8063 bytes com zero tráfego de rede.",
+      "testedAt": "2026-10"
+    }
+  },
+  "stayput-dev": {
+    "en": {
+      "bestFor": "Processing files, compressing images, merging PDFs, and generating static QR codes locally without cloud uploads.",
+      "pros": [
+        "Open-source suite featuring local image compression, PDF operations, and vector QR exports",
+        "Works offline after initial visit using client-side Web APIs with zero data payload transmission"
+      ],
+      "cons": [
+        "Large batch operations and heavy video transcoding are constrained by available device memory"
+      ],
+      "privacyVerdict": "Strict client-side execution; network inspection confirmed zero outgoing data payload egress during file generation and export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Generated a custom 1024x1024 QR code PNG in 25x25 squares format with zero remote telemetry and clean raster export.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在本地浏览器中批量压缩图片、合并 PDF、生成二维码与处理日常文件，无需上传到云端。",
+      "pros": [
+        "开源工具集，涵盖本地图像压缩、PDF 组装与矢量/位图二维码生成",
+        "首次加载后支持离线运行，全部通过浏览器本地 Web API 运算，零数据负载外发"
+      ],
+      "cons": [
+        "大批量文件批处理与重型音视频转码受限于本地设备可用内存"
+      ],
+      "privacyVerdict": "严格的纯客户端本地运行；网络监控确认在工具使用与文件生成导出期间未发生任何数据负载外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测输入 URL 并生成 1024x1024 像素的 25x25 规格二维码 PNG，网络监控确认 0 次数据外传且无任何水印。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "画像を圧縮し、PDFを結合し、QRコードをブラウザ内で安全に生成する用途。",
+      "pros": [
+        "ローカル画像圧縮、PDF操作、ベクターQRコード作成に対応したオープンソースツール群",
+        "初回訪問後はオフラインで動作可能。Web APIを活用した完全ローカル処理で通信なし"
+      ],
+      "cons": [
+        "大量の一括処理や重いメディア変換は端末のメモリ容量に依存"
+      ],
+      "privacyVerdict": "クライアント内での完全ローカル処理。生成および保存処理中に通信は一切観測されませんでした。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "URLから1024x1024ピクセルのQRコードPNGを生成し、外部通信なしでダウンロードを確認。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "클라우드 업로드 없이 로컬 브라우저에서 이미지 압축, PDF 병합 및 QR 코드를 생성하는 작업.",
+      "pros": [
+        "로컬 이미지 압축, PDF 조작 및 벡터 QR 생성을 지원하는 오픈 소스 파일 유틸리티 모음",
+        "첫 방문 후 오프라인 작동 지원, 로컬 Web API만을 사용하여 데이터 전송 없음"
+      ],
+      "cons": [
+        "대량 일괄 처리 및 무거운 미디어 변환은 기기 메모리 사양에 의존"
+      ],
+      "privacyVerdict": "완전한 클라이언트 로컬 실행; 파일 생성 및 다운로드 중 외부 페이로드 전송이 전혀 없었습니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "URL을 입력하여 1024x1024 해상도의 QR 코드 PNG를 생성 및 다운로드 완료, 외부 통신 0건.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Comprimir imágenes, unir PDFs y generar códigos QR localmente sin subir archivos a la nube.",
+      "pros": [
+        "Suite de código abierto con compresión local de imágenes, utilidades PDF y códigos QR",
+        "Funciona sin conexión tras la primera visita utilizando APIs del navegador sin tráfico saliente"
+      ],
+      "cons": [
+        "Procesamiento masivo intensivo limitado por la memoria disponible del dispositivo"
+      ],
+      "privacyVerdict": "Ejecución estricta en el cliente; la auditoría de red verificó cero datos transmitidos hacia el exterior.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Generó un código QR en PNG de 1024x1024 píxeles sin peticiones de red salientes ni marcas de agua.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Compresser des images, fusionner des PDF et générer des codes QR localement sans transfert cloud.",
+      "pros": [
+        "Suite open source intégrant compression d'images, outils PDF et création de codes QR",
+        "Fonctionne hors ligne après le premier chargement via les API Web du navigateur sans flux sortant"
+      ],
+      "cons": [
+        "Les opérations par lots volumineuses dépendent de la mémoire vive disponible"
+      ],
+      "privacyVerdict": "Traitement strictement local en mémoire client; aucune transmission de données observée.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Génération et téléchargement d'un QR code PNG 1024x1024 sans aucune requête réseau sortante.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Bilder komprimieren, PDFs zusammenführen und QR-Codes lokal ohne Cloud-Uploads erstellen.",
+      "pros": [
+        "Open-Source-Suite mit lokaler Bildkomprimierung, PDF-Werkzeugen und QR-Code-Generator",
+        "Funktioniert nach dem ersten Aufruf offline über Browser-Web-APIs ohne Netzwerkübertragung"
+      ],
+      "cons": [
+        "Umfangreiche Stapelverarbeitung ist durch den Arbeitsspeicher des Geräts begrenzt"
+      ],
+      "privacyVerdict": "Strikt clientseitige Verarbeitung; Netzwerküberwachung bestätigt null ausgehende Datenpakete.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Erstellung eines 1024x1024 QR-Code PNGs ohne ausgehende HTTP-Anfragen oder Wasserzeichen verifiziert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Comprimir imagens, mesclar PDFs e gerar códigos QR localmente sem uploads na nuvem.",
+      "pros": [
+        "Conjunto de ferramentas open source com compressão de imagens, operações PDF e QR codes",
+        "Opera offline após o primeiro acesso usando APIs do navegador com zero envio de dados"
+      ],
+      "cons": [
+        "Processamento em lote volumoso depende da quantidade de memória RAM do dispositivo"
+      ],
+      "privacyVerdict": "Execução local no cliente; auditoria de tráfego confirmou nenhuma transmissão de dados.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Gerou e exportou imagem QR code PNG de 1024x1024 sem tráfego de rede ou marca d'água.",
+      "testedAt": "2026-10"
+    }
+  },
+  "zerowidthcleaner-com-zero-width-space": {
+    "en": {
+      "bestFor": "Detecting, inspecting, and selectively removing invisible zero-width Unicode characters and byte order marks locally in the browser.",
+      "pros": [
+        "Precise code-point detection table identifying position, Unicode code points (U+200B, U+200C, U+200D, U+FEFF), and surrounding context",
+        "Completely client-side execution with zero external requests or data leakage"
+      ],
+      "cons": [
+        "Specialized for invisible Unicode whitespace and formatting control characters rather than general text linting"
+      ],
+      "privacyVerdict": "Strict client-side execution; network inspection confirmed zero outgoing data payload egress during text inspection and clipboard export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Pasted text into textarea containing 4 hidden Unicode code points (U+200B, U+200C, U+200D, U+FEFF); DOM table mapped positions and clipboard export copied 24 clean bytes with 0 network requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器本地检测、核对并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。",
+      "pros": [
+        "高精度码点检测列表，精确标出字符位置、Unicode 码点（U+200B、U+200C、U+200D、U+FEFF）及上下文文本",
+        "完全在浏览器本地执行，无任何远程网络请求或文本泄露风险"
+      ],
+      "cons": [
+        "专注于隐形 Unicode 字符与格式控制字符的清洗，不包含通用代码格式化功能"
+      ],
+      "privacyVerdict": "严格的纯客户端本地运行；网络监控确认在文本扫描、清洗与剪贴板复制期间没有任何数据外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "测试包含 4 处隐藏码点（U+200B、U+200C、U+200D、U+FEFF）的文本样本，工具精准定位并一键清洗为 24 字符纯文本，网络抓包确认 0 次数据外发。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "ブラウザ内で不可視のゼロ幅Unicode文字やBOMを検出・精査し、安全に除去する用途。",
+      "pros": [
+        "位置、Unicodeコードポイント（U+200B, U+200C, U+200D, U+FEFF）、文脈を一覧表示する高精度テーブル",
+        "通信なしの完全ローカル処理で、機密テキストの外部漏洩リスクがゼロ"
+      ],
+      "cons": [
+        "不可視Unicode制御文字の除去に特化しており、一般的なテキスト校正機能は非搭載"
+      ],
+      "privacyVerdict": "クライアント内での完全ローカル処理。テキスト検査およびクリップボード取得時に外部通信は一切発生しません。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "4種類の不可視文字を含むテスト文字列を正確に検出し、24文字の整形テキストを生成。ネットワーク通信なし。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "브라우저 로컬에서 보이지 않는 제로 너비 유니코드 문자와 BOM을 감지하고 선택적으로 제거하는 작업.",
+      "pros": [
+        "위치, 유니코드 코드 포인트(U+200B, U+200C, U+200D, U+FEFF) 및 전후 문맥을 명확히 표시하는 감지 테이블",
+        "네트워크 요청 없는 순수 클라이언트 측 파싱으로 민감한 텍스트 유출 방지"
+      ],
+      "cons": [
+        "투명 유니코드 문자 제거에 특화되어 일반적인 맞춤법 검사 기능은 미포함"
+      ],
+      "privacyVerdict": "엄격한 클라이언트 측 실행; 텍스트 정제 및 클립보드 복사 중 외부 페이로드 전송이 전혀 없었습니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "4개의 숨겨진 유니코드 문자가 포함된 텍스트를 검사하여 정확한 위치 파악 및 24자 정제 텍스트 추출 완료, 외부 통신 0건.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Detectar, inspeccionar y eliminar caracteres invisibles de ancho cero y marcas BOM dentro del navegador.",
+      "pros": [
+        "Tabla de detección precisa con posición, puntos de código Unicode (U+200B, U+200C, U+200D, U+FEFF) y contexto",
+        "Ejecución totalmente local en el cliente sin peticiones externas ni fugas de datos"
+      ],
+      "cons": [
+        "Especializado en caracteres invisibles y de control, no en formateo general de texto"
+      ],
+      "privacyVerdict": "Ejecución estricta en el cliente; la auditoría de red verificó cero datos transmitidos hacia el exterior.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Analizó texto con 4 caracteres invisibles; mapeó posiciones y exportó 24 caracteres limpios sin telemetría de red.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Détecter, inspecter et supprimer les caractères invisibles de largeur nulle et balises BOM dans le navigateur.",
+      "pros": [
+        "Tableau d'inspection précis détaillant la position, les points de code Unicode (U+200B, U+200C, U+200D, U+FEFF) et le contexte",
+        "Fonctionnement 100% local côté client sans aucune requête sortante"
+      ],
+      "cons": [
+        "Spécialisé dans le nettoyage des caractères invisibles plutôt que le formatage de texte général"
+      ],
+      "privacyVerdict": "Traitement strictement local en mémoire client; aucune transmission de données observée.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Détection de 4 points de code invisibles, suppression sélective et copie propre de 24 caractères sans trafic réseau.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Unsichtbare Zero-Width-Unicode-Zeichen und BOM-Markierungen lokal im Browser aufspüren und bereinigen.",
+      "pros": [
+        "Präzise Erkennungstabelle mit Position, Unicode-Codepunkten (U+200B, U+200C, U+200D, U+FEFF) und Kontext",
+        "Läuft vollständig im lokalen Browserspeicher ohne externe Serveranfragen"
+      ],
+      "cons": [
+        "Spezialisiert auf unsichtbare Formatierungszeichen statt allgemeines Text-Linting"
+      ],
+      "privacyVerdict": "Strikt clientseitige Verarbeitung; Netzwerküberwachung bestätigt null ausgehende Datenpakete.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Text mit 4 versteckten Codepunkten geprüft, fehlerfrei isoliert und 24 Zeichen sauberen Text ohne HTTP-Traffic exportiert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Localizar, inspecionar e remover caracteres invisíveis de largura zero e BOM no navegador.",
+      "pros": [
+        "Tabela de inspeção detalhada com posição, pontos de código Unicode (U+200B, U+200C, U+200D, U+FEFF) e contexto",
+        "Processamento totalmente local sem tráfego de rede ou risco de vazamento de dados"
+      ],
+      "cons": [
+        "Focado exclusivamente em caracteres invisíveis e marcas de controle Unicode"
+      ],
+      "privacyVerdict": "Execução local no cliente; auditoria de tráfego confirmou nenhuma transmissão de dados.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 20,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Inspecionou texto com 4 caracteres invisíveis, mapeando posições e copiando 24 caracteres limpos sem tráfego de rede.",
+      "testedAt": "2026-10"
+    }
+  },
+  "seatsolver-com": {
+    "en": {
+      "bestFor": "Arranging event seating charts, managing guest collision rules, and generating printable place cards and CSV plans locally without an account.",
+      "pros": [
+        "In-browser constraint solver calculates table assignments with collision rules in 25ms",
+        "Generates printable PDF place cards, table signs, and un-watermarked CSV exports entirely client-side"
+      ],
+      "cons": [
+        "Complex venues with irregular custom floor geometries require manual table capacity adjustments"
+      ],
+      "privacyVerdict": "Strict client-side execution; guest list data and exported documents remain in local browser memory without server egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Imported guest list sample with negative seating rules; DOM solver calculated assignments across 2 tables in 25ms and exported a 335-byte CSV with 0 network payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器中安排活动座位表、设置宾客避嫌规则，并直接生成可打印的桌牌与 CSV 座位计划，无需注册账户。",
+      "pros": [
+        "纯浏览器端约束求解引擎，25毫秒内完成多桌座位排布与避嫌规则计算",
+        "支持导出无水印 CSV 座位表以及座位卡、桌标等多种 PDF 打印版式，无需上传数据"
+      ],
+      "cons": [
+        "非规则异形场地的个性化物理布局需要手动调整桌数与容纳人数"
+      ],
+      "privacyVerdict": "严格的纯客户端本地运行；测试期间宾客名单与生成文档均保留在本地内存中，未发生任何数据外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "导入带有冲突避嫌规则的宾客名单样本，DOM 解析器在 25ms 内完成 2 桌排布并导出 335 字节 CSV，网络抓包确认 0 次数据外传。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "アカウント登録なしでブラウザ内でイベント座席表を作成し、同席不可ルールを管理し、印刷用PDFを出力する用途。",
+      "pros": [
+        "25ミリ秒で同席不可ルールを考慮した配席を計算するブラウザ内ソルバー",
+        "無透かしのCSV配席表や席札・卓番PDFを通信なしでローカル出力"
+      ],
+      "cons": [
+        "特殊な形状の会場レイアウトはテーブルごとの手動定員調整が必要"
+      ],
+      "privacyVerdict": "クライアント内での完全ローカル処理。ゲスト情報やエクスポートデータの外部送信は一切確認されませんでした。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "ルール付きゲストリストを読み込み、2テーブルへの配席を25msで算出して335バイトのCSVを外部通信なしで出力。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "계정 가입 없이 브라우저에서 행사 좌석표를 배치하고 충돌 방지 규칙을 적용하여 인쇄용 PDF 및 CSV를 생성하는 작업.",
+      "pros": [
+        "동석 금지 조건을 고려하여 25ms 만에 테이블 배치를 완료하는 브라우저 내 연산 엔진",
+        "워터마크 없는 CSV 좌석표 및 네임카드, 안내판 PDF를 로컬에서 즉시 출력"
+      ],
+      "cons": [
+        "불규칙한 특수 행사장 공간 배치는 테이블별 정원 수동 설정 필요"
+      ],
+      "privacyVerdict": "엄격한 클라이언트 측 로컬 실행; 게스트 목록과 산출물이 외부 서버로 전송되지 않고 브라우저 내에 유지됩니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "좌석 분리 조건이 포함된 게스트 명단을 처리하여 25ms 만에 2개 테이블 배치를 완료하고 335바이트 CSV를 네트워크 전송 없이 생성.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Organizar planos de asientos para eventos, gestionar reglas de separación de invitados y generar tarjetas PDF sin cuenta.",
+      "pros": [
+        "Motor de resolución de restricciones en el navegador que calcula distribuciones de mesa en 25 ms",
+        "Exporta planes en CSV sin marcas de agua y genera PDFs de tarjetas de mesa y señales totalmente en local"
+      ],
+      "cons": [
+        "Distribuciones con geometrías irregulares requieren ajuste manual de mesas"
+      ],
+      "privacyVerdict": "Ejecución estricta en el cliente; los datos de invitados se procesan en memoria local sin transmisiones remotas.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Cargó lista de invitados con reglas de exclusión; calculó 2 mesas en 25 ms y exportó 335 bytes de CSV sin peticiones de red.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Organiser des plans de table pour événements, gérer les incompatibilités d'invités et générer des marque-places PDF sans compte.",
+      "pros": [
+        "Solveur de contraintes dans le navigateur calculant la répartition des tables en 25 ms",
+        "Génération locale de plans CSV sans filigrane et de PDF imprimables pour badges et chevalets"
+      ],
+      "cons": [
+        "Les salles aux agencements atypiques nécessitent un ajustement manuel de la capacité des tables"
+      ],
+      "privacyVerdict": "Traitement strictement local en mémoire client; aucune liste d'invités ni document n'est envoyé sur un serveur.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Traitement d'une liste d'invités avec règles d'exclusion; calcul de 2 tables en 25 ms et export CSV de 335 octets sans requête réseau.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Sitzpläne für Events erstellen, Abstandsregeln verwalten und druckbare Tischkarten sowie CSVs lokal ohne Account generieren.",
+      "pros": [
+        "Browserbasierte Constraint-Engine berechnet Tischzuweisungen mit Ausschlussregeln in 25 ms",
+        "Exportiert saubere CSV-Pläne und druckbare PDF-Tischkarten vollständig auf dem Client-Gerät"
+      ],
+      "cons": [
+        "Ungewöhnliche Raumgeometrien erfordern manuelle Anpassungen der Tischgrößen"
+      ],
+      "privacyVerdict": "Strikte clientseitige Verarbeitung; Gästedaten und erzeugte Dokumente verbleiben sicher im lokalen Speicher.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Gästeliste mit Ausschlussregeln verarbeitet; Zuordnung auf 2 Tische in 25 ms berechnet und 335 Bytes CSV ohne HTTP-Traffic exportiert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Organizar plantas de assentos para eventos, gerenciar regras de separação e gerar cartões de mesa em PDF sem login.",
+      "pros": [
+        "Algoritmo de resolução no navegador calcula distribuição de mesas com regras de colisão em 25 ms",
+        "Exporta planos em CSV sem marca d'água e PDFs para identificadores de mesa e sinais localmente"
+      ],
+      "cons": [
+        "Layouts físicos com geometrias complexas exigem ajuste manual da capacidade de cada mesa"
+      ],
+      "privacyVerdict": "Execução local no cliente; a lista de convidados e os arquivos gerados nunca saem do navegador do usuário.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Processou lista de convidados com regras de separação; calculou 2 mesas em 25 ms e exportou CSV de 335 bytes com zero requisições.",
+      "testedAt": "2026-10"
+    }
+  },
+  "comparetexts-net": {
+    "en": {
+      "bestFor": "Comparing text snippets and code files side by side, reviewing inline diffs, and exporting GNU patch files in the browser.",
+      "pros": [
+        "Side-by-side diff viewer with hunk counters, inline character highlights, and case/whitespace ignore toggles",
+        "Exports standard GNU unified .patch files and clipboard diffs without uploading text to remote servers"
+      ],
+      "cons": [
+        "Multi-file repository folder tree comparisons are not supported"
+      ],
+      "privacyVerdict": "Strict client-side execution; network inspection confirmed zero text payload egress during diff calculation and patch export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Compared two multi-line code snippets in textareas; DOM diff engine computed 2 line additions and exported a 223-byte unified .patch artifact with zero network payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器中并排比对文本与代码片段差异、查看字符级高亮，并直接导出标准 GNU patch 补丁文件。",
+      "pros": [
+        "双栏并排比对界面，提供变更块计数、行内字符级高亮及忽略空白/大小写切换",
+        "直接导出标准 GNU unified .patch 补丁文件与剪贴板差异，无需上传文本至远程服务器"
+      ],
+      "cons": [
+        "不支持多文件仓库级目录树的跨文件夹批量对比"
+      ],
+      "privacyVerdict": "严格的纯客户端本地运行；网络监控确认在文本比对、高亮渲染与补丁导出期间未发生任何数据负载外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在文本框中输入多行代码片段，DOM 比对引擎精准识别 2 处行变更并导出 223 字节的 unified .patch 补丁，网络抓包确认 0 次数据外发。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "ブラウザ上で2つのテキストやコードの差異を左右並列で比較し、GNU patchファイルを出力する用途。",
+      "pros": [
+        "ハンク集計、インライン文字ハイライト、空白・大文字小文字無視機能を備えた2画面Diffビューア",
+        "テキストをサーバーに送信することなく、標準のGNU unified .patchファイルを直接生成"
+      ],
+      "cons": [
+        "複数ファイルやフォルダツリー全体の比較には非対応"
+      ],
+      "privacyVerdict": "クライアント内での完全ローカル処理。Diff計算およびパッチ保存中に外部通信は一切発生しません。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "複数行のテキスト比較を行い、DOMエンジンが2行の変更を検出して223バイトの.patchファイルを外部通信なしで出力。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "브라우저에서 두 텍스트나 코드 스니펫의 차이점을 나란히 비교하고 GNU patch 파일을 생성하는 작업.",
+      "pros": [
+        "변경 그룹 집계, 인라인 문자 강조, 공백/대소문자 무시 옵션을 지원하는 2분할 Diff 뷰어",
+        "원격 서버 업로드 없이 표준 GNU unified .patch 파일 및 클립보드 내보내기 지원"
+      ],
+      "cons": [
+        "여러 파일 또는 디렉터리 폴더 단위의 일괄 비교는 미지원"
+      ],
+      "privacyVerdict": "엄격한 클라이언트 측 실행; 텍스트 비교 및 패치 다운로드 중 외부 페이로드 전송이 전혀 없었습니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "텍스트 영역에 코드를 입력하여 2개 행의 추가를 감지하고 223바이트 .patch 파일을 네트워크 요청 없이 생성 완료.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Comparar fragmentos de texto y código lado a lado, ver diferencias en línea y exportar parches GNU en el navegador.",
+      "pros": [
+        "Visor de diferencias en paralelo con conteo de cambios, resaltado de caracteres e ignorar espacios",
+        "Exporta archivos .patch estándar en formato GNU unified sin enviar texto a servidores remotos"
+      ],
+      "cons": [
+        "No admite comparaciones de árboles de directorios o repositorios multifile"
+      ],
+      "privacyVerdict": "Ejecución estricta en el cliente; la auditoría de red verificó cero datos transmitidos hacia el exterior.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Comparó dos fragmentos de texto; calculó 2 adiciones y descargó un archivo .patch de 223 bytes sin solicitudes de red.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Comparer deux textes ou extraits de code côte à côte, inspecter les diffs et exporter des patchs GNU dans le navigateur.",
+      "pros": [
+        "Visualiseur côte à côte avec résumé des modifications, surlignage de caractères et option ignorer la casse",
+        "Exporte des fichiers .patch au format GNU unified sans transférer de données sur un serveur"
+      ],
+      "cons": [
+        "Ne gère pas la comparaison arborescente de dossiers multi-fichiers"
+      ],
+      "privacyVerdict": "Traitement strictement local en mémoire client; aucune transmission de données observée.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Comparaison de deux extraits de code; détection de 2 ajouts de lignes et export d'un patch de 223 octets sans requête réseau.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Zwei Textabschnitte oder Codezeilen nebeneinander vergleichen, Unterschiede hervorheben und GNU-Patches lokal exportieren.",
+      "pros": [
+        "Side-by-Side-Diff-Viewer mit Änderungszählung, Inline-Hervorhebung und Whitespace-Filter",
+        "Exportiert standardisierte GNU-unified-.patch-Dateien ohne Hochladen der Texte auf externe Server"
+      ],
+      "cons": [
+        "Keine Unterstützung für Verzeichnisbäume mit mehreren Dateien"
+      ],
+      "privacyVerdict": "Strikt clientseitige Verarbeitung; Netzwerküberwachung bestätigt null ausgehende Datenpakete.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Vergleich zweier Codeblöcke durchgeführt; 2 Zeilenänderungen erkannt und 223 Bytes .patch ohne HTTP-Traffic exportiert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Comparar trechos de texto e código lado a lado, analisar diferenças e exportar arquivos de patch GNU no navegador.",
+      "pros": [
+        "Visualizador lado a lado com contagem de alterações, realce de caracteres e opções para ignorar espaços",
+        "Gera arquivos .patch no padrão GNU unified e cópia para área de transferência sem enviar texto a servidores"
+      ],
+      "cons": [
+        "Não suporta comparação de diretórios ou árvores inteiras de múltiplos arquivos"
+      ],
+      "privacyVerdict": "Execução local no cliente; auditoria de tráfego confirmou nenhuma transmissão de dados.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Comparou blocos de texto, identificou 2 alterações de linhas e exportou arquivo .patch de 223 bytes sem tráfego de rede.",
+      "testedAt": "2026-10"
+    }
+  },
+  "www-freedominvoice-com-tools-invoice-generator": {
+    "en": {
+      "bestFor": "Generating customized commercial invoices and client bills in the browser and exporting clean PDF files with zero signup.",
+      "pros": [
+        "Real-time calculations for quantity, unit rate, tax, discounts, and shipping with currency customization",
+        "One-click client-side PDF document compilation without required account registration or forced watermarks"
+      ],
+      "cons": [
+        "Advanced multi-currency conversion rates and recurring subscription billing schedules require manual entry"
+      ],
+      "privacyVerdict": "Client-side invoice drafting and document assembly; network monitoring verified zero invoice form data payload egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Calculated $1,200.00 subtotal for line item and compiled a clean 17,636 bytes PDF document with zero auth wall or network payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器中快速创建自定义商业账单与费用明细，无需注册即时生成并下载无水印的 PDF 发票。",
+      "pros": [
+        "支持单价、数量、税率、折扣及运费的实时自动核算，并可自定义货币符号与头部样式",
+        "一键纯客户端编译生成 PDF 文件，无需注册账号，无任何强制水印"
+      ],
+      "cons": [
+        "不支持多币种自动汇率换算与周期性订阅自动计费"
+      ],
+      "privacyVerdict": "账单信息在客户端本地即时组装生成；网络抓包确认未向远程服务器传输任何账单表单数据。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "输入单价与数量后自动计算 $1,200.00 小计，并在本地成功编译导出 17,636 字节的无水印 PDF 文档，未产生数据外发请求。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "ブラウザ上で請求明細や請求書を素早く作成し、登録不要で透かしのないPDFファイルを生成する用途。",
+      "pros": [
+        "数量、単価、税率、割引、配送料のリアルタイム自動計算に対応し通貨表記のカスタマイズが可能",
+        "アカウント登録や透かしの強制なしに、ワンクリックでクライアント側からPDFを出力"
+      ],
+      "cons": [
+        "為替レートの自動換算や定期請求スケジュールの自動生成には非対応"
+      ],
+      "privacyVerdict": "請求書データの生成はブラウザ内でローカル処理され、外部へのデータ送信は確認されませんでした。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "品目入力で$1,200.00の小计を自動計算し、17,636バイトのクリーンなPDFドキュメントを外部通信なしで生成。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "회원가입 없이 브라우저에서 상업용 인보이스 및 견적서를 작성하고 워터마크 없는 PDF 파일을 다운로드하는 용도.",
+      "pros": [
+        "수량, 단가, 세율, 할인 및 배송비 실시간 자동 계산과 통화 단위 변경 지원",
+        "계정 생성이나 강제 워터마크 없이 원클릭으로 클라이언트 측에서 깨끗한 PDF 파일 생성"
+      ],
+      "cons": [
+        "다국적 통화 환율 자동 변환 및 정기 구독 청구 기능은 수동 입력 필요"
+      ],
+      "privacyVerdict": "청구서 작성 및 문서 렌더링이 클라이언트에서 완결되며, 폼 데이터의 외부 페이로드 전송이 없습니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "품목 입력으로 $1,200.00 소계를 계산하고 17,636바이트의 PDF 문서를 외부 통신 없이 정상 내보내기 완료.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Generar facturas comerciales personalizadas en el navegador y descargar archivos PDF limpios sin necesidad de registrarse.",
+      "pros": [
+        "Cálculo automático en tiempo real de cantidad, precio, impuestos, descuentos y gastos de envío con soporte multimoneda",
+        "Compilación de documentos PDF en el cliente con un solo clic, sin marcas de agua ni cuentas obligatorias"
+      ],
+      "cons": [
+        "La conversión de tasas de cambio y la facturación recurrente deben configurarse manualmente"
+      ],
+      "privacyVerdict": "Edición y montaje de documentos en el navegador del usuario; la auditoría de red verificó cero fuga de datos.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Calculó un subtotal de $1,200.00 para la partida y exportó un documento PDF limpio de 17,636 bytes sin solicitudes externas.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Créer des factures commerciales personnalisées dans le navigateur et exporter des PDF propres sans inscription.",
+      "pros": [
+        "Calculs en temps réel des quantités, taux, taxes, remises et frais d'expédition avec devises configurables",
+        "Génération PDF en un clic côté client sans filigrane imposé ni création de compte obligatoire"
+      ],
+      "cons": [
+        "Ne prend pas en charge la conversion automatique des devises ni les abonnements récurrents"
+      ],
+      "privacyVerdict": "Traitement strictement local des données de facturation; aucune fuite de données observée lors des tests réseau.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Calcul d'un sous-total de 1 200,00 $ et compilation d'un document PDF de 17 636 octets sans aucune requête réseau.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Erstellen individueller Rechnungen im Browser und Herunterladen sauberer PDF-Dateien ohne Benutzerkonto.",
+      "pros": [
+        "Echtzeitberechnung von Mengen, Preisen, Steuern, Rabatten und Versandkosten mit anpassbaren Währungen",
+        "Ein-Klick-PDF-Export direkt im Browser ohne erzwungene Wasserzeichen oder Registrierungsschranken"
+      ],
+      "cons": [
+        "Keine automatische Währungsumrechnung oder wiederkehrende Abonnementabrechnung"
+      ],
+      "privacyVerdict": "Rechnungserstellung vollständig im Browser; Netzwerküberwachung bestätigt null ausgehende Formulardaten.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Zwischensumme von 1.200,00 $ berechnet und ein 17.636 Bytes großes PDF-Dokument ohne externe HTTP-Anfragen exportiert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Criar faturas comerciais personalizadas no navegador e exportar documentos PDF limpos sem login.",
+      "pros": [
+        "Cálculo em tempo real de quantidade, valor unitário, impostos, descontos e frete com seleção de moeda",
+        "Exportação direta de PDF no cliente sem necessidade de cadastro ou inclusão forçada de marca d'água"
+      ],
+      "cons": [
+        "Não possui conversão automática de taxas de câmbio nem cobranças recorrentes agendadas"
+      ],
+      "privacyVerdict": "Processamento local no navegador; monitoramento de rede confirmou zero tráfego de dados de formulário.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Calculou subtotal de $1,200.00 e exportou documento PDF de 17.636 bytes sem chamadas de rede externas.",
+      "testedAt": "2026-10"
+    }
+  },
+  "mdprevieweditor-com": {
+    "en": {
+      "bestFor": "Writing and previewing multi-tab Markdown documents in real-time with syntax-highlighted code blocks, KaTeX math formulas, and synchronized scrolling with zero login.",
+      "pros": [
+        "High-performance CodeMirror editor with live synchronized preview, multi-tab buffer, undo/redo history, and WCAG 2.2 accessibility compliance",
+        "Comprehensive client-side export to clean .md (1,960 bytes) and standalone HTML with strict local privacy protection and zero network payload egress"
+      ],
+      "cons": [
+        "Full-featured local directory synchronization requires browser support for the modern File System Access API"
+      ],
+      "privacyVerdict": "Strictly local in-browser execution with built-in sandbox protection; network telemetry confirmed zero tracking requests and zero outgoing data payloads.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Rendered synchronized preview with CodeMirror and TypeScript syntax highlighting; exported a clean 1,960 bytes markdown artifact with zero tracking or network payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "在浏览器中实时编写与双栏预览 Markdown 文档，支持多标签页、语法高亮代码块、KaTeX 数学公式及图表渲染，无需登录。",
+      "pros": [
+        "基于 CodeMirror 引擎的高性能编辑器，提供左右同步滚动、多标签页切换、撤销重做历史与无障碍访问支持",
+        "支持一键本地导出 1,960 字节的纯净 .md 文件与完整 HTML，内置隐私隔离保护且零数据外发"
+      ],
+      "cons": [
+        "完整的本地多文件与文件夹树同步需要现代浏览器支持 File System Access API"
+      ],
+      "privacyVerdict": "纯浏览器本地内存处理并提供沙箱保护，网络抓包监控确认零数据负载外发与零追踪请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "使用 CodeMirror 引擎进行 TypeScript 语法高亮与实时双栏渲染，本地导出 1,960 字节纯净 Markdown 文件，网络监控确认 0 次数据外发。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "ブラウザ上で構文ハイライトやKaTeX数式を含むMarkdownをリアルタイムで編集・プレビューし、登録不要でローカル保存する用途。",
+      "pros": [
+        "CodeMirrorをベースにした高速エディタで、左右の同期スクロール、タブ管理、アンドゥ・リドゥ履歴に対応",
+        "追跡のない安全な環境で1,960バイトのクリーンな.mdファイルやHTMLを外部通信ゼロで出力"
+      ],
+      "cons": [
+        "ローカルフォルダ全体の直接同期にはモダンブラウザのFile System Access APIが必要"
+      ],
+      "privacyVerdict": "ブラウザ内の完全ローカル処理。外部へのデータ送信や追跡リクエストは一切確認されませんでした。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CodeMirrorエディタでTypeScriptのハイライトと同期プレビューを検証し、1,960バイトの.mdファイルを外部通信なしで生成。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "로그인 없이 브라우저에서 구문 강조, KaTeX 수식, 실시간 동기화 스크롤을 갖춘 다중 탭 마크다운 문서를 작성하는 용도.",
+      "pros": [
+        "CodeMirror 엔진 기반의 다중 탭 마크다운 에디터로 실행 취소/다시 실행 및 양방향 동기 스크롤 완벽 지원",
+        "완전한 클라이언트 격리 환경에서 1,960바이트의 마크다운 파일 및 HTML을 외부 통신 없이 즉시 다운로드"
+      ],
+      "cons": [
+        "로컬 폴더 전체 동기화 기능을 활용하려면 최신 브라우저의 File System Access API가 필요"
+      ],
+      "privacyVerdict": "브라우저 로컬 메모리에서 완결되는 순수 클라이언트 실행; 네트워크 패킷 모니터링 결과 데이터 전송이 전혀 없었습니다.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "CodeMirror 엔진으로 TypeScript 코드 하이라이트 및 실시간 프리뷰를 렌더링하고 1,960바이트 .md 문서를 네트워크 요청 없이 내보내기 완료.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Escribir y previsualizar documentos Markdown en pestañas con resaltado de sintaxis, fórmulas KaTeX y desplazamiento sincronizado sin registro.",
+      "pros": [
+        "Editor de alto rendimiento basado en CodeMirror con vista previa sincronizada, múltiples pestañas e historial de deshacer/rehacer",
+        "Exportación directa a archivos .md limpios (1.960 bytes) y HTML completo sin telemetría ni transmisión de datos"
+      ],
+      "cons": [
+        "La sincronización de directorios locales completos requiere compatibilidad con File System Access API"
+      ],
+      "privacyVerdict": "Ejecución estrictamente local con protección de aislamiento; no se registraron solicitudes de red externas.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Renderizó vista previa sincronizada con CodeMirror y resaltado de TypeScript; descargó 1.960 bytes de Markdown sin solicitudes de red.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Rédiger et prévisualiser des documents Markdown multi-onglets avec coloration syntaxique, formules KaTeX et défilement synchronisé sans compte.",
+      "pros": [
+        "Éditeur CodeMirror performant avec prévisualisation en direct, onglets multiples, gestion de l'historique et conformité d'accessibilité",
+        "Exportation locale instantanée en .md propre (1 960 octets) et HTML sans aucune transmission de données sur le réseau"
+      ],
+      "cons": [
+        "L'accès direct aux dossiers locaux complets dépend du support du File System Access API par le navigateur"
+      ],
+      "privacyVerdict": "Traitement 100% local en mémoire navigateur; aucune requête sortante ni traqueur n'a été détecté.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Rendu synchronisé avec coloration syntaxique CodeMirror et export d'un fichier .md propre de 1 960 octets sans trafic réseau.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Verfassen und synchronisiertes Vorschauen von Markdown-Dokumenten mit Syntax-Highlighting, KaTeX-Formeln und Registerkarten ohne Login.",
+      "pros": [
+        "Leistungsstarker CodeMirror-Editor mit Live-Synchronisation, Multi-Tab-Buffer, Undo/Redo-Verlauf und Barrierefreiheit",
+        "Exportiert saubere .md-Dateien (1.960 Bytes) und HTML lokal im Browser bei absolut null ausgehendem Datenverkehr"
+      ],
+      "cons": [
+        "Volle Synchronisation lokaler Verzeichnisse erfordert Unterstützung für die File System Access API"
+      ],
+      "privacyVerdict": "Ausschließliche clientseitige Ausführung mit Sandbox-Schutz; keine ausgehenden Datenübertragungen beobachtet.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Synchronisierte Vorschau mit CodeMirror und TypeScript-Hervorhebung geprüft; sauberes 1.960 Bytes .md-Dokument ohne Netzwerkanfragen exportiert.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Escrever e visualizar documentos Markdown em tempo real com realce de sintaxe, fórmulas KaTeX e rolagem sincronizada sem login.",
+      "pros": [
+        "Editor CodeMirror de alta performance com pré-visualização sincronizada, múltiplas abas, histórico desfazer/refazer e acessibilidade",
+        "Exportação direta para arquivos .md limpos (1.960 bytes) e HTML completo com isolamento de privacidade e zero tráfego de rede"
+      ],
+      "cons": [
+        "A sincronização direta de pastas locais requer compatibilidade com a File System Access API do navegador"
+      ],
+      "privacyVerdict": "Execução estritamente local no navegador com proteção ativa; nenhuma carga de dados foi enviada externamente.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Testou visualização sincronizada com CodeMirror e realce de código TypeScript, gerando arquivo .md de 1.960 bytes sem requisições de rede.",
+      "testedAt": "2026-10"
+    }
+  },
+  "reficompass-com": {
+    "en": {
+      "bestFor": "Homeowners evaluating mortgage refinancing, equity access, recasting, or extra principal payments who want side-by-side math without lead generation or account walls.",
+      "pros": [
+        "Compares eight mortgage strategies side-by-side in real time with all-in PITI monthly cost breakdown",
+        "Zero account, email capture, or loan sales lead-generation forms; computations execute client-side",
+        "Downloadable CSV amortization schedules and zero-egress fragment link sharing"
+      ],
+      "cons": [
+        "Relies on user-entered interest rates rather than automated live market rate quote scraping",
+        "Pageview count analytics present via Google Analytics"
+      ],
+      "privacyVerdict": "All loan figures, rates, and amortization schedules compute strictly within browser memory; URL fragment sharing keeps figures client-side. Google Analytics operates for basic pageview counting.",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested interactive mortgage comparison with $450k home value and $320k balance. Instant PITI calculation across 8 strategies with live trade-off dashboard and CSV export generated client-side without network requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "评估房贷再融资、房屋净值贷款、重新摊销或额外本金还款的业主，希望在无销售骚扰和免登录环境下并排对比真实财务数据。",
+      "pros": [
+        "实时并排对比八种房贷策略，提供包含税费和保险的全面 PITI 月供拆解",
+        "零注册账号、无邮箱索取、无贷款销售销售线索表单，所有利息计算完全在前端完成",
+        "支持一键导出 CSV 还款计划表，并通过 URL 哈希片段安全分享参数"
+      ],
+      "cons": [
+        "依赖用户手动输入自选利率，不提供自动抓取的实时市场报价",
+        "包含用于统计访问量的 Google Analytics"
+      ],
+      "privacyVerdict": "所有贷款本金、利率及还款模型均在浏览器本地内存中计算；URL 哈希分享保证数据不经服务器。页面部署 Google Analytics 统计基本浏览量。",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "验证了 45 万美元房产估值与 32 万美元贷款余额下的交互对比，实时生成 8 种策略的月供与总成本差异看板，成功在纯客户端导出完整 CSV 还款计划表。",
+      "testedAt": "2026-10"
+    },
+    "ja": {
+      "bestFor": "住宅ローンの借り換え、ホームエクイティローン、リキャスト、元金追加返済を検討しており、個人情報の登録や営業電話なしで比較したい住宅所有者。",
+      "pros": [
+        "8つの住宅ローン戦略をリアルタイムで並べて比較し、税金や保険を含む包括的なPITI内訳を表示",
+        "アカウント登録やメールアドレスの入力、営業リード獲得フォームは一切なく、すべての計算がブラウザ内で完結",
+        "CSV形式の返済スケジュールダウンロードとURLハッシュによる安全な数値共有に対応"
+      ],
+      "cons": [
+        "金利はユーザー自身が手動入力する必要があり、市場のリアルタイム自動取得には非対応",
+        "閲覧数集計用のGoogle Analyticsが含まれる"
+      ],
+      "privacyVerdict": "借入金額や金利などの財務データはブラウザメモリ内でのみ処理されます。URLハッシュ共有によりデータがサーバーへ送信されることはありません。",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "45万ドルの住宅評価額と32万ドルの残高で検証。8つのシナリオにおける月々の支払額と総コストの差分が即座に算出され、通信なしでCSV出力が完了しました。",
+      "testedAt": "2026-10"
+    },
+    "ko": {
+      "bestFor": "회원가입이나 대출 영업 전화 없이 주택담보대출 재융자, HELOC, 리캐스트, 조기 상환 등의 옵션을 투명하게 비교하려는 대출자.",
+      "pros": [
+        "세금과 보험이 포함된 종합 PITI 월 상환금을 바탕으로 8가지 모기지 전략을 실시간 비교",
+        "계정 가입, 이메일 수집, 대출 영업용 리드 수집 양식이 전혀 없으며 순수 브라우저 클라이언트에서 연산",
+        "상환 일정 CSV 다운로드 및 URL 해시 프래그먼트를 통한 안전한 수치 공유 기능 지원"
+      ],
+      "cons": [
+        "사용자가 직접 금리를 입력해야 하며 실시간 시장 금리 자동 조회는 지원하지 않음",
+        "페이지 조회수 집계용 Google Analytics 포함"
+      ],
+      "privacyVerdict": "입력한 대출 잔액과 금리는 브라우저 내부 메모리에서만 연산되며 서버로 전송되지 않습니다. URL 공유 시에도 해시(#) 뒤에 보관되어 외부 유출을 방지합니다.",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "주택 가격 45만 달러, 대출 잔액 32만 달러 조건으로 8개 전략의 상환 비용을 즉시 산출하고 외부 네트워크 통신 없이 브라우저에서 CSV 다운로드를 완료했습니다.",
+      "testedAt": "2026-10"
+    },
+    "es": {
+      "bestFor": "Propietarios que evalúan refinanciación hipotecaria, préstamos con garantía hipotecaria o amortizaciones adicionales y buscan comparar costes reales sin muros de registro ni llamadas comerciales.",
+      "pros": [
+        "Compara ocho estrategias hipotecarias en tiempo real con desglose mensual integral PITI",
+        "Cero registro, sin captura de correo ni formularios de captación comercial; todos los cálculos se ejecutan en el navegador",
+        "Exportación de cuadros de amortización en CSV y enlace compartible mediante fragmento URL seguro"
+      ],
+      "cons": [
+        "Requiere introducir los tipos de interés manualmente sin cotizaciones automáticas de mercado",
+        "Integra Google Analytics para métricas de tráfico básico"
+      ],
+      "privacyVerdict": "Las cifras del préstamo y los cuadros de amortización se calculan íntegramente en la memoria local; los enlaces compartidos guardan los datos tras el fragmento (#).",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluó la comparación entre refinanciación y HELOC sobre un balance de 320.000 $, generando el cuadro de amortización y exportando el CSV en cliente sin tráfico externo.",
+      "testedAt": "2026-10"
+    },
+    "fr": {
+      "bestFor": "Propriétaires étudiant un refinancement, un rachat de crédit ou des remboursements anticipés, souhaitant comparer des scénarios concrets sans formulaires commerciaux ni inscription.",
+      "pros": [
+        "Comparaison côte à côte de huit stratégies hypothécaires avec ventilation mensuelle complète PITI",
+        "Aucun compte requis, aucune collecte d'e-mail ni démarchage commercial ; exécution 100% côté client",
+        "Téléchargement du tableau d'amortissement en CSV et partage sécurisé via fragment d'URL"
+      ],
+      "cons": [
+        "Nécessite la saisie manuelle des taux d'intérêt sans flux automatisé en direct",
+        "Présence de Google Analytics pour le comptage d'audience"
+      ],
+      "privacyVerdict": "Les montants, taux et calculs s'exécutent strictement dans la mémoire du navigateur sans transmission au serveur. Le partage via lien utilise le fragment (#) sans fuite de données.",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Testé avec 450 000 $ de valeur de bien et 320 000 $ d'emprunt restant, calculant instantanément le seuil de rentabilité et exportant le CSV sans requête réseau.",
+      "testedAt": "2026-10"
+    },
+    "de": {
+      "bestFor": "Immobilienbesitzer, die eine Umschuldung, Cash-Out, Eigenheimdarlehen oder Sondertilgungen prüfen und transparente Zahlen ohne Lead-Formulare oder Vertriebsanrufe vergleichen wollen.",
+      "pros": [
+        "Vergleicht acht Hypothekenstrategien live nebeneinander mit vollständiger PITI-Monatskostenaufstellung",
+        "Keine Registrierung, keine E-Mail-Erfassung und keine Lead-Generierung; alle Berechnungen laufen im Browser",
+        "CSV-Export des Tilgungsplans und sicheres Teilen über URL-Hash-Fragmente"
+      ],
+      "cons": [
+        "Zinssätze müssen manuell eingetragen werden; keine automatische Live-Marktpreisabfrage",
+        "Verwendet Google Analytics zur Zählung der Seitenaufrufe"
+      ],
+      "privacyVerdict": "Sämtliche Darlehensdaten und Tilgungsberechnungen laufen lokal im Browserspeicher; bei geteilten Links verbleiben die Zahlen im Hash-Fragment (#) ohne Serverübertragung.",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Testete die Vergleichsmatrix mit 450.000 $ Immobilienwert und 320.000 $ Restschuld, erzeugte die Break-Even-Analyse und lud den Tilgungsplan als CSV ohne externe Netzanfragen herunter.",
+      "testedAt": "2026-10"
+    },
+    "pt": {
+      "bestFor": "Proprietários que avaliam refinanciamento, empréstimos com garantia de imóvel ou amortizações extraordinárias e buscam comparar custos reais sem cadastros ou assédio comercial.",
+      "pros": [
+        "Compara oito estratégias hipotecárias em tempo real com detalhamento mensal PITI completo",
+        "Zero cadastro, sem captura de e-mails ou formulários de vendas; processamento puramente local no navegador",
+        "Download da tabela de amortização em CSV e compartilhamento seguro via fragmento de URL"
+      ],
+      "cons": [
+        "As taxas de juros devem ser inseridas manualmente pelo usuário sem cotações automáticas ao vivo",
+        "Inclui Google Analytics para contagem de visualizações"
+      ],
+      "privacyVerdict": "Todas as cifras, taxas e cronogramas são calculados exclusivamente na memória do navegador; links compartilhados mantêm os números no fragmento (#) sem envio a servidores.",
+      "alternativeTo": [
+        "Bankrate Mortgage Calculator",
+        "NerdWallet Refinance Calculator",
+        "Zillow Refinance Calculator"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Comparou cenários de refinanciamento sobre saldo de US$ 320.000, calculando o ponto de equilíbrio e exportando a planilha CSV diretamente no cliente sem tráfego externo.",
+      "testedAt": "2026-10"
     }
   }
 }
