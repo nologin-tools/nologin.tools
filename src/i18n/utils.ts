@@ -10,12 +10,6 @@ const translations: Record<Locale, TranslationDict> = {
 // Lazy-load non-English translations
 const loaders: Partial<Record<Locale, () => Promise<{ default: TranslationDict }>>> = {
   zh: () => import('./zh.json'),
-  ja: () => import('./ja.json'),
-  ko: () => import('./ko.json'),
-  es: () => import('./es.json'),
-  fr: () => import('./fr.json'),
-  de: () => import('./de.json'),
-  pt: () => import('./pt.json'),
 };
 
 const loadPromises = new Map<Locale, Promise<void>>();

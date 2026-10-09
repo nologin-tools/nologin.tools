@@ -3,9 +3,10 @@ import { getToolBySlug } from './data/loader';
 
 const ISR_CACHE_TTL = 21600; // 6 hours in seconds
 
-const NON_DEFAULT_LOCALES = ['zh', 'ja', 'ko', 'es', 'fr', 'de', 'pt'];
-// Match /tool/slug, /badge/slug, /zh/tool/slug, /zh/badge/slug, etc.
-const LOCALE_PREFIX = `(?:\\/(?:${NON_DEFAULT_LOCALES.join('|')}))?`;
+const NON_DEFAULT_LOCALES = ['zh'];
+const RETIRED_LOCALES = ['ja', 'ko', 'es', 'fr', 'de', 'pt'];
+// Match /tool/slug, /badge/slug, /zh/tool/slug, /zh/badge/slug
+const LOCALE_PREFIX = '(?:\\/zh)?';
 const ISR_REGEX = new RegExp(`^${LOCALE_PREFIX}\\/(?:tool|badge)\\/[^/]+\\/?$`);
 
 // Paths that should never be redirected
@@ -46,6 +47,21 @@ export const onRequest = defineMiddleware(async (context, next) => {
       status: 301,
       headers: { Location: cleanPath + url.search },
     });
+  }
+
+  // 301 Permanent Redirect for retired locales (ja, ko, es, fr, de, pt) → canonical English route
+  if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+    const firstSegment = pathname.split('/').filter(Boolean)[0];
+    if (firstSegment && RETIRED_LOCALES.includes(firstSegment)) {
+      const remainder = pathname.slice(firstSegment.length + 1) || '/';
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: remainder + url.search,
+          'Cache-Control': 'public, max-age=86400',
+        },
+      });
+    }
   }
 
   // Accept-Language redirect for paths without locale prefix
@@ -210,7 +226,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 });
 
 function extractSlugFromISRPath(pathname: string): { type: 'tool' | 'badge'; slug: string } | null {
-  const match = pathname.match(/^(?:\/(?:zh|ja|ko|es|fr|de|pt))?\/(tool|badge)\/([^/]+)\/?$/);
+  const match = pathname.match(/^(?:\/zh)?\/(tool|badge)\/([^/]+)\/?$/);
   if (!match) return null;
   return { type: match[1] as 'tool' | 'badge', slug: match[2] };
 }

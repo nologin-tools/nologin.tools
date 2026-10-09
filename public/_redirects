@@ -2,6 +2,20 @@
 # Cloudflare Pages Redirects (_redirects)
 # SEO Consolidation & Recovery Configuration for nologin.tools
 # =========================================================================
+# --- Retired Locales Consolidation (ja, ko, es, fr, de, pt) → English (301 Permanent) ---
+/ja/* /:splat 301
+/ko/* /:splat 301
+/es/* /:splat 301
+/fr/* /:splat 301
+/de/* /:splat 301
+/pt/* /:splat 301
+/ja / 301
+/ko / 301
+/es / 301
+/fr / 301
+/de / 301
+/pt / 301
+
 # --- Blog Pruning & Pillar Article Consolidation (301 Permanent) ---
 
 /blog/edit-pdf-without-adobe-free-no-login /blog/edit-pdf-without-installing-anything/ 301
