@@ -89,13 +89,6 @@ export const GET: APIRoute = async () => {
     imageUrl: `/api/og/${t.slug}`,
   }));
 
-  const badgePages: SitemapPage[] = approvedTools.map((t) => ({
-    url: `/badge/${t.slug}`,
-    priority: '0.6',
-    changefreq: 'weekly',
-    lastmod: t.approvedAt ? new Date(t.approvedAt).toISOString().split('T')[0] : undefined,
-  }));
-
   // Blog pages
   const blogPosts = await getCollection('blog');
   const englishPosts = blogPosts.filter((p) => !p.id.includes('/'));
@@ -138,7 +131,6 @@ export const GET: APIRoute = async () => {
     ...workflowPages,
     ...collectionPages,
     ...toolPages,
-    ...badgePages,
     ...blogListPage,
     ...blogTagPages,
   ];

@@ -84,6 +84,7 @@ const allEmbedCodes = Object.fromEntries(
 
 <Layout
   bare
+  noindex
   title={`${tool.name} — ${isPending ? t(locale, 'badgeDetail.pendingVerification') : t(locale, 'badgeDetail.verifiedTitle')}`}
   description={isPending ? `${tool.name} is pending verification.` : `${tool.name} is NoLogin Verified. ${tool.coreTask}`}
   canonicalOverride={localizedBadgePath}

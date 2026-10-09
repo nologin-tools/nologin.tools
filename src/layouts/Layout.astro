@@ -44,7 +44,7 @@ await loadTranslations(locale);
 const defaultDescription = t(locale, 'layout.defaultDescription');
 const desc = description || defaultDescription;
 
-const fullTitle = `${title} | nologin.tools`;
+const fullTitle = title.includes('nologin.tools') ? title : `${title} | nologin.tools`;
 const canonicalUrl = canonicalOverride
   ? new URL(canonicalOverride, 'https://nologin.tools').href
   : new URL(Astro.url.pathname, 'https://nologin.tools').href;

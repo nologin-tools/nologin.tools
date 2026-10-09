@@ -756,7 +756,7 @@ const orgLd = {
                     <span class="font-bold text-neutral-900">{scorecard.dimensions.resilience.score} / 25</span>
                   </div>
                   <div class="h-1.5 w-full bg-neutral-100 border border-neutral-300">
-                    <div class="h-full ${scorecard.dimensions.resilience.score > 0 ? 'bg-neutral-900' : 'bg-red-500'}" style={`width: ${(scorecard.dimensions.resilience.score / 25) * 100}%`}></div>
+                    <div class={`h-full ${scorecard.dimensions.resilience.score > 0 ? 'bg-neutral-900' : 'bg-red-500'}`} style={`width: ${(scorecard.dimensions.resilience.score / 25) * 100}%`}></div>
                   </div>
                 </div>
               </div>

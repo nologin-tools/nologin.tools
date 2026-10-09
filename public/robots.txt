@@ -21,6 +21,8 @@ Disallow: /ssr/
 Disallow: /*?
 
 # Standard Search Engines
+User-agent: Googlebot
+User-agent: Bingbot
 User-agent: *
 Allow: /
 Allow: /llms.txt
