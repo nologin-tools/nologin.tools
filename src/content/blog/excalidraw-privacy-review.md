@@ -36,7 +36,7 @@ This placement is significant. Browsers never send the URL fragment to servers. 
 
 Drawing data is encrypted in the browser using the [Web Cryptography API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) before transmission. The server stores and forwards only encrypted ciphertext. Without the key — which it doesn't have and can't obtain — the data is unreadable to Excalidraw's infrastructure.
 
-This is the same architecture used by [Yopass](/tool/yopass-se) for encrypted secret sharing and [hat.sh](/tool/hat-sh) for in-browser file encryption: the server handles transport, the user holds the keys. It's a principled approach, not an accident of implementation.
+This is the same architecture used by [Yopass](/tool/yopass-se) for encrypted secret sharing and [hat.sh](https://hat.sh) for in-browser file encryption: the server handles transport, the user holds the keys. It's a principled approach, not an accident of implementation.
 
 For solo use, the situation is even simpler. Excalidraw stores your current drawing in browser `localStorage`. Nothing is uploaded anywhere unless you explicitly start a collaboration session or export a file. If you're sketching alone, your drawing doesn't leave your machine.
 

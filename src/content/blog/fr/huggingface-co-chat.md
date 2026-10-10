@@ -76,7 +76,7 @@ L'étendue des modèles de HuggingChat dans la catégorie sans connexion est fra
 
 **Requêtes sensibles à la vie privée** : pour des questions que tu préfèrerais ne pas associer à ton identité, l'accès anonyme à HuggingChat garantit que ta requête n'est liée à aucun compte.
 
-**Aide au code sans abonnement** : des outils comme [Phind](/tool/phind-com) se spécialisent dans les requêtes de développement, mais pour des questions de programmation générales, les modèles Qwen3-Coder et DeepSeek-V3 de HuggingChat rivalisent avec les alternatives commerciales.
+**Aide au code sans abonnement** : des outils comme [Phind](https://www.phind.com) se spécialisent dans les requêtes de développement, mais pour des questions de programmation générales, les modèles Qwen3-Coder et DeepSeek-V3 de HuggingChat rivalisent avec les alternatives commerciales.
 
 ## L'option auto-hébergement
 

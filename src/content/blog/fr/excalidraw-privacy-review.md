@@ -39,7 +39,7 @@ Cet emplacement est significatif. Les navigateurs n'envoient jamais le fragment 
 
 Les données de dessin sont chiffrées dans le navigateur en utilisant l'[API Web Cryptography](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) avant la transmission. Le serveur stocke et transmet uniquement du texte chiffré. Sans la clé — qu'il n'a pas et ne peut pas obtenir — les données sont illisibles pour l'infrastructure d'Excalidraw.
 
-C'est la même architecture utilisée par [Yopass](/tool/yopass-se) pour le partage de secrets chiffrés et [hat.sh](/tool/hat-sh) pour le chiffrement de fichiers dans le navigateur : le serveur gère le transport, l'utilisateur détient les clés.
+C'est la même architecture utilisée par [Yopass](/tool/yopass-se) pour le partage de secrets chiffrés et [hat.sh](https://hat.sh) pour le chiffrement de fichiers dans le navigateur : le serveur gère le transport, l'utilisateur détient les clés.
 
 Pour une utilisation solo, la situation est encore plus simple. Excalidraw stocke ton dessin actuel dans le `localStorage` du navigateur. Rien n'est téléchargé nulle part à moins que tu ne lances explicitement une session de collaboration ou n'exporetes un fichier.
 

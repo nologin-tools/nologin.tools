@@ -39,7 +39,7 @@ Esse posicionamento é significativo. Navegadores nunca enviam o fragmento da UR
 
 Os dados do desenho são criptografados no navegador usando a [API Web Cryptography](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) antes da transmissão. O servidor armazena e encaminha apenas texto cifrado. Sem a chave — que ele não tem e não pode obter — os dados são ilegíveis para a infraestrutura do Excalidraw.
 
-Essa é a mesma arquitetura usada pelo [Yopass](/tool/yopass-se) para compartilhamento de segredos criptografados e pelo [hat.sh](/tool/hat-sh) para criptografia de arquivos no navegador: o servidor cuida do transporte, o usuário detém as chaves.
+Essa é a mesma arquitetura usada pelo [Yopass](/tool/yopass-se) para compartilhamento de segredos criptografados e pelo [hat.sh](https://hat.sh) para criptografia de arquivos no navegador: o servidor cuida do transporte, o usuário detém as chaves.
 
 Para uso solo, a situação é ainda mais simples. O Excalidraw armazena seu desenho atual no `localStorage` do navegador. Nada é enviado a lugar nenhum, a menos que você inicie explicitamente uma sessão de colaboração ou exporte um arquivo.
 

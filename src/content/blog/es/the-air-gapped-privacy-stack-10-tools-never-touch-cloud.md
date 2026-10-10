@@ -48,7 +48,7 @@ Al cargar un archivo en Datasette Lite, el motor de base de datos relacional com
 
 ## 3. hat.sh: Cifrado de archivos con conocimiento cero mediante Libsodium
 
-Los proveedores de almacenamiento en la nube y los servicios de correo electrónico son canales inherentemente no confiables. Al transferir archivos sensibles, el cifrado simétrico del lado del cliente garantiza que las plataformas de almacenamiento intermedias solo tengan acceso al texto cifrado. **[hat.sh](/tool/hat-sh)** ofrece cifrado de archivos en el cliente impulsado por libsodium compilado a WebAssembly.
+Los proveedores de almacenamiento en la nube y los servicios de correo electrónico son canales inherentemente no confiables. Al transferir archivos sensibles, el cifrado simétrico del lado del cliente garantiza que las plataformas de almacenamiento intermedias solo tengan acceso al texto cifrado. **[hat.sh](https://hat.sh)** ofrece cifrado de archivos en el cliente impulsado por libsodium compilado a WebAssembly.
 
 Utilizando los modernos algoritmos ChaCha20-Poly1305 y de derivación de claves Argon2id, hat.sh cifra archivos en transmisiones por fragmentos (chunked streams) directamente dentro del navegador. Tu frase de contraseña secreta nunca abandona la memoria local y el archivo sin cifrar jamás toca un servidor externo. Una vez cargado el bundle del cliente, puedes soltar un archivo confidencial en la pestaña del navegador estando offline y generar un paquete `.enc` autenticado con total privacidad matemática.
 

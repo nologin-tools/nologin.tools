@@ -72,7 +72,7 @@ originalSlug: "practical-guide-tools-without-email"
 - [Yopass](/tool/yopass-se) 采用端到端客户端加密，密文在浏览器中生成，服务器永远看不到明文。
 - [Wormhole](/tool/wormhole-app) 支持高达 10GB 的端到端加密文件传输。
 - [PairDrop](/tool/pairdrop-net) 通过 WebRTC 实现局域网设备间直接点对点传文件。
-- [hat.sh](/tool/hat-sh) 基于 Web Crypto API 在浏览器本地使用 AES-256-GCM 强加密文件后再行发送。
+- [hat.sh](https://hat.sh) 基于 Web Crypto API 在浏览器本地使用 AES-256-GCM 强加密文件后再行发送。
 
 ## 培养数字自卫新习惯
 

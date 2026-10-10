@@ -76,7 +76,7 @@ HuggingChat 是 [Hugging Face](https://huggingface.co) 面向普通用户推出�
 
 **隐私敏感的查询**：对于不想和身份挂钩的问题，匿名访问 HuggingChat 意味着你的提问不会绑定到任何账号。
 
-**无需订阅的编程辅助**：[Phind](/tool/phind-com) 这类工具专注于开发者查询，但对于通用编程问题，HuggingChat 的 Qwen3-Coder 和 DeepSeek-V3 完全能和商业方案掰掰手腕。
+**无需订阅的编程辅助**：[Phind](https://www.phind.com) 这类工具专注于开发者查询，但对于通用编程问题，HuggingChat 的 Qwen3-Coder 和 DeepSeek-V3 完全能和商业方案掰掰手腕。
 
 ## 自托管选项
 

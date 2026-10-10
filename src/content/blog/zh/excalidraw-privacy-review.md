@@ -39,7 +39,7 @@ Miro 将你的白板存储在他们的基础设施上，其服务条款授予他
 
 绘图数据在传输前通过浏览器中的 [Web Cryptography API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) 加密。服务器存储和转发的只是加密后的密文。没有密钥——它没有也无法获得——数据对 Excalidraw 的基础设施来说是不可读的。
 
-这与 [Yopass](/tool/yopass-se) 用于加密秘密分享和 [hat.sh](/tool/hat-sh) 用于浏览器内文件加密的架构相同：服务器处理传输，用户持有密钥。这是一种有原则的方法，而非实现上的偶然。
+这与 [Yopass](/tool/yopass-se) 用于加密秘密分享和 [hat.sh](https://hat.sh) 用于浏览器内文件加密的架构相同：服务器处理传输，用户持有密钥。这是一种有原则的方法，而非实现上的偶然。
 
 对于单人使用，情况更为简单。Excalidraw 将你当前的绘图存储在浏览器的 `localStorage` 中，除非你明确开始协作会话或导出文件，否则什么都不会上传。如果你只是自己画图，你的绘图不会离开你的电脑。
 

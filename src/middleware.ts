@@ -1,5 +1,8 @@
 import { defineMiddleware } from 'astro:middleware';
 import { getToolBySlug } from './data/loader';
+import staticRedirectsData from './data/redirects.json';
+
+const STATIC_REDIRECTS: Record<string, string> = staticRedirectsData;
 
 const ISR_CACHE_TTL = 21600; // 6 hours in seconds
 
@@ -58,6 +61,21 @@ export const onRequest = defineMiddleware(async (context, next) => {
         status: 301,
         headers: {
           Location: remainder + url.search,
+          'Cache-Control': 'public, max-age=86400',
+        },
+      });
+    }
+  }
+
+  // 301 Permanent Redirect for known pruned blogs & delisted tools (bypassing Cloudflare Pages 100-rule limit)
+  if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+    const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
+    const target = STATIC_REDIRECTS[cleanPath] || STATIC_REDIRECTS[pathname];
+    if (target) {
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: target + url.search,
           'Cache-Control': 'public, max-age=86400',
         },
       });

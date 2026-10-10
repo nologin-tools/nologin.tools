@@ -45,7 +45,7 @@ Die meisten unten genannten Tools erwähnen „powered by WebAssembly" nirgendwo
 
 **[Squoosh](/tool/squoosh-app)** ist der sichtbarste Fall. Google hat es speziell gebaut, um zu demonstrieren, was Wasm für die Bildkomprimierung tun kann. Öffnen, Bild reinziehen, und du kannst mit MozJPEG, OxiPNG, WebP, AVIF oder JPEG XL kodieren — alles läuft lokal. Das sind C/C++-Bibliotheken, zu Wasm kompiliert, die in deinem Tab laufen. Dieselben Codecs, die Desktop-Foto-Apps verwenden.
 
-**[hat.sh](/tool/hat-sh)** verschlüsselt und entschlüsselt Dateien mit libsodium — einer gut auditierten kryptographischen C-Bibliothek, zu WebAssembly kompiliert. Deine Datei erreicht nie irgendeinen Server. Wenn du etwas mit hat.sh verschlüsselst, passiert die Operation im Speicher in deinem Browser-Tab, und nur die verschlüsselte Ausgabe berührt jemals deine Festplatte. Das ist die richtige Architektur für Verschlüsselungstools.
+**[hat.sh](https://hat.sh)** verschlüsselt und entschlüsselt Dateien mit libsodium — einer gut auditierten kryptographischen C-Bibliothek, zu WebAssembly kompiliert. Deine Datei erreicht nie irgendeinen Server. Wenn du etwas mit hat.sh verschlüsselst, passiert die Operation im Speicher in deinem Browser-Tab, und nur die verschlüsselte Ausgabe berührt jemals deine Festplatte. Das ist die richtige Architektur für Verschlüsselungstools.
 
 **[AudioMass](/tool/audiomass-co)** ist ein vollständiger Wellenform-Audioeditor, der Multi-Track-Bearbeitung ohne Konto oder Installation handhabt. Audiomanipulation ist rechenintensiv — Filterung, Tonhöhenverschiebung, Formatkonvertierung benötigen alles echte Verarbeitung. Dass das akzeptabel in einem Browser-Tab läuft, ist ein direktes Ergebnis Wasm-fähiger Performance.
 

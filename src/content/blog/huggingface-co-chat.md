@@ -73,7 +73,7 @@ HuggingChat's model breadth is genuinely unmatched in the no-login category. The
 
 **Privacy-sensitive queries**: For questions you'd rather not associate with your identity, anonymous access to HuggingChat means your query isn't tied to an account.
 
-**Coding assistance without a subscription**: Tools like [Phind](/tool/phind-com) specialize in developer queries, but for general coding questions, HuggingChat's Qwen3-Coder and DeepSeek-V3 models are competitive with commercial alternatives.
+**Coding assistance without a subscription**: Tools like [Phind](https://www.phind.com) specialize in developer queries, but for general coding questions, HuggingChat's Qwen3-Coder and DeepSeek-V3 models are competitive with commercial alternatives.
 
 ## The Self-Hosting Option
 

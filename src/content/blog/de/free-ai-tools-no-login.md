@@ -69,7 +69,7 @@ Der Bildgenerierungsbereich hat sich schnell fragmentiert. Die meisten leistungs
 
 Für KI-gestützte Bildbearbeitung (statt Generierung) entfernt [remove.bg](/tool/remove-bg) Hintergründe in Sekunden. Ein Foto hochladen, und man bekommt es mit entferntem Hintergrund zurück. Die Web-Version erfordert kein Konto, obwohl hochauflösende Downloads gedrosselt werden. Das Bild wird auf ihren Servern verarbeitet und nicht langfristig gespeichert (ihre [Datenschutzrichtlinie](https://www.remove.bg/privacy) gibt 24 Stunden Aufbewahrung für kostenlose Nutzer an).
 
-[Unscreen](/tool/unscreen-com) macht dasselbe für Video — entfernt Videohintergründe ohne Greenscreen. Kurze Clips funktionieren ohne Login. Längere Clips benötigen ein Konto. Ideal für kleine Produktdemos oder Profil-Videoclips.
+[Unscreen](https://www.unscreen.com) macht dasselbe für Video — entfernt Videohintergründe ohne Greenscreen. Kurze Clips funktionieren ohne Login. Längere Clips benötigen ein Konto. Ideal für kleine Produktdemos oder Profil-Videoclips.
 
 ## Spezialisierte KI-Tools, die oft übersehen werden
 

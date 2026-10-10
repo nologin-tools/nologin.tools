@@ -69,7 +69,7 @@ El espacio de la generación de imágenes se fragmentó rápido. La mayoría de 
 
 Para edición de imágenes asistida por IA en lugar de generación, [remove.bg](/tool/remove-bg) elimina fondos en segundos. Sube una foto y la obtienes de vuelta con el fondo eliminado. La versión web no requiere cuenta, aunque las descargas en alta resolución tienen límite de velocidad. La naturaleza solo de navegador significa que tu imagen se procesa en sus servidores y no se almacena a largo plazo (su [política de privacidad](https://www.remove.bg/privacy) especifica 24 horas de retención para usuarios gratuitos).
 
-[Unscreen](/tool/unscreen-com) hace lo mismo para vídeo — elimina fondos de vídeo sin pantalla verde. Los clips cortos funcionan sin login. Los clips más largos necesitan cuenta. Ideal para demostraciones pequeñas de producto o clips de vídeo de perfil.
+[Unscreen](https://www.unscreen.com) hace lo mismo para vídeo — elimina fondos de vídeo sin pantalla verde. Los clips cortos funcionan sin login. Los clips más largos necesitan cuenta. Ideal para demostraciones pequeñas de producto o clips de vídeo de perfil.
 
 ## Herramientas de IA especializadas que a menudo pasan desapercibidas
 

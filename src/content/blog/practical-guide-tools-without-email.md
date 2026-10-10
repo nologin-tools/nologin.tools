@@ -98,7 +98,7 @@ For sending sensitive information to someone without creating an account, [Privn
 
 For secure file transfers, [Wormhole](/tool/wormhole-app) handles end-to-end encrypted transfers up to 10 GB without registration. [PairDrop](/tool/pairdrop-net) handles local network transfers directly between devices over WebRTC — no server involvement after the initial signaling step.
 
-For encrypting files before sending them anywhere, [hat.sh](/tool/hat-sh) runs entirely in your browser using the Web Crypto API. The encryption happens locally; no file data touches the service's servers.
+For encrypting files before sending them anywhere, [hat.sh](https://hat.sh) runs entirely in your browser using the Web Crypto API. The encryption happens locally; no file data touches the service's servers.
 
 The privacy-friendly options for sensitive work are more capable than most people realize. The discovery problem is real — these tools don't have marketing budgets — but they exist.
 

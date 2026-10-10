@@ -16,6 +16,32 @@
 /de / 301
 /pt / 301
 
+# --- Delisted Tools & Critical Blog 301 Redirects (Top priority for Cloudflare 100-rule limit) ---
+/blog/hidden-cost-free-accounts /blog/forced-account-creation-dark-pattern/ 301
+/blog/hidden-cost-free-accounts/ /blog/forced-account-creation-dark-pattern/ 301
+/zh/blog/hidden-cost-free-accounts /zh/blog/forced-account-creation-dark-pattern/ 301
+/zh/blog/hidden-cost-free-accounts/ /zh/blog/forced-account-creation-dark-pattern/ 301
+/tool/hat-sh /category/privacy/ 301
+/tool/hat-sh/ /category/privacy/ 301
+/zh/tool/hat-sh /zh/category/privacy/ 301
+/zh/tool/hat-sh/ /zh/category/privacy/ 301
+/tool/unscreen-com /category/media/ 301
+/tool/unscreen-com/ /category/media/ 301
+/zh/tool/unscreen-com /zh/category/media/ 301
+/zh/tool/unscreen-com/ /zh/category/media/ 301
+/tool/phind-com /category/ai/ 301
+/tool/phind-com/ /category/ai/ 301
+/zh/tool/phind-com /zh/category/ai/ 301
+/zh/tool/phind-com/ /zh/category/ai/ 301
+/tool/huggingface-co-chat /category/ai/ 301
+/tool/huggingface-co-chat/ /category/ai/ 301
+/zh/tool/huggingface-co-chat /zh/category/ai/ 301
+/zh/tool/huggingface-co-chat/ /zh/category/ai/ 301
+/tool/clideo-com /category/media/ 301
+/tool/clideo-com/ /category/media/ 301
+/zh/tool/clideo-com /zh/category/media/ 301
+/zh/tool/clideo-com/ /zh/category/media/ 301
+
 # --- Blog Pruning & Pillar Article Consolidation (301 Permanent) ---
 
 /blog/edit-pdf-without-adobe-free-no-login /blog/edit-pdf-without-installing-anything/ 301

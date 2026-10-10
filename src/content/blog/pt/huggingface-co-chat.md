@@ -76,7 +76,7 @@ A variedade de modelos do HuggingChat na categoria sem login é genuinamente inc
 
 **Consultas sensíveis à privacidade**: para perguntas que você prefere não associar à sua identidade, o acesso anônimo ao HuggingChat significa que sua consulta não fica vinculada a nenhuma conta.
 
-**Ajuda com código sem assinatura**: ferramentas como [Phind](/tool/phind-com) são especializadas em consultas de desenvolvimento, mas para dúvidas gerais de programação, os modelos Qwen3-Coder e DeepSeek-V3 do HuggingChat são competitivos com as alternativas comerciais.
+**Ajuda com código sem assinatura**: ferramentas como [Phind](https://www.phind.com) são especializadas em consultas de desenvolvimento, mas para dúvidas gerais de programação, os modelos Qwen3-Coder e DeepSeek-V3 do HuggingChat são competitivos com as alternativas comerciais.
 
 ## A opção de auto-hospedagem
 

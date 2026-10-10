@@ -45,7 +45,7 @@ When you load a file into Datasette Lite, the entire relational database engine 
 
 ## 3. hat.sh: Zero-Knowledge File Encryption with Libsodium
 
-Cloud storage providers and email systems are inherently untrusted conduits. When transferring sensitive archives, client-side symmetric encryption ensures that intermediate storage platforms only see encrypted ciphertext. **[hat.sh](/tool/hat-sh)** provides client-side file encryption powered by libsodium compiled to WebAssembly.
+Cloud storage providers and email systems are inherently untrusted conduits. When transferring sensitive archives, client-side symmetric encryption ensures that intermediate storage platforms only see encrypted ciphertext. **[hat.sh](https://hat.sh)** provides client-side file encryption powered by libsodium compiled to WebAssembly.
 
 Using the modern ChaCha20-Poly1305 and Argon2id key derivation algorithms, hat.sh encrypts files in chunked streams directly inside the browser. Your secret passphrase never leaves local memory, and the unencrypted file never touches an external server. Once the client bundle loads, you can drop a confidential archive into the browser tab while offline and generate an authenticated `.enc` payload with complete mathematical privacy.
 

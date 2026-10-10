@@ -76,7 +76,7 @@ Hugging Face 모델 허브에 연결하는 프론트엔드라고 생각하면 �
 
 **프라이버시에 민감한 질문**: 본인 신원과 연결하고 싶지 않은 질문의 경우, HuggingChat의 익명 접근은 쿼리가 계정에 연결되지 않음을 의미해요.
 
-**구독 없는 코딩 지원**: [Phind](/tool/phind-com)는 개발자 쿼리를 특화하지만, 일반적인 코딩 질문에서는 HuggingChat의 Qwen3-Coder와 DeepSeek-V3가 상업적 대안과 충분히 경쟁할 수 있어요.
+**구독 없는 코딩 지원**: [Phind](https://www.phind.com)는 개발자 쿼리를 특화하지만, 일반적인 코딩 질문에서는 HuggingChat의 Qwen3-Coder와 DeepSeek-V3가 상업적 대안과 충분히 경쟁할 수 있어요.
 
 ## 자체 호스팅 옵션
 

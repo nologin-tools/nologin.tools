@@ -48,7 +48,7 @@ Lorsque vous chargez un fichier dans Datasette Lite, l'intégralité du moteur d
 
 ## 3. hat.sh : Chiffrement de fichiers « zero-knowledge » avec Libsodium
 
-Les fournisseurs de stockage cloud et les messageries électroniques sont par nature des canaux non sécurisés. Lors du transfert d'archives sensibles, le chiffrement symétrique côté client garantit que les plateformes de stockage intermédiaires ne voient que du texte chiffré. **[hat.sh](/tool/hat-sh)** assure le chiffrement de fichiers côté client grâce à libsodium compilé en WebAssembly.
+Les fournisseurs de stockage cloud et les messageries électroniques sont par nature des canaux non sécurisés. Lors du transfert d'archives sensibles, le chiffrement symétrique côté client garantit que les plateformes de stockage intermédiaires ne voient que du texte chiffré. **[hat.sh](https://hat.sh)** assure le chiffrement de fichiers côté client grâce à libsodium compilé en WebAssembly.
 
 Reposant sur les algorithmes modernes de dérivation de clé Argon2id et de chiffrement ChaCha20-Poly1305, hat.sh chiffre les fichiers sous forme de flux fragmentés (chunks) directement dans le navigateur. Votre phrase secrète ne quitte jamais la mémoire locale, et le fichier en clair ne touche aucun serveur externe. Une fois les scripts chargés, vous pouvez déposer une archive confidentielle dans l'onglet du navigateur tout en étant hors ligne et générer un fichier `.enc` authentifié avec une garantie mathématique totale de confidentialité.
 

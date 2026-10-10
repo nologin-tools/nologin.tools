@@ -76,7 +76,7 @@ Die Modellbreite von HuggingChat in der Login-freien Kategorie ist schlicht unge
 
 **Datenschutzsensible Anfragen**: Für Fragen, die du lieber nicht mit deiner Identität verknüpfen möchtest, bedeutet anonymer Zugriff auf HuggingChat, dass deine Anfrage keinem Account zugeordnet wird.
 
-**Coding-Unterstützung ohne Abonnement**: Tools wie [Phind](/tool/phind-com) sind auf Entwickleranfragen spezialisiert, aber für allgemeine Programmierfragen sind HuggingChats Qwen3-Coder- und DeepSeek-V3-Modelle durchaus konkurrenzfähig zu kommerziellen Alternativen.
+**Coding-Unterstützung ohne Abonnement**: Tools wie [Phind](https://www.phind.com) sind auf Entwickleranfragen spezialisiert, aber für allgemeine Programmierfragen sind HuggingChats Qwen3-Coder- und DeepSeek-V3-Modelle durchaus konkurrenzfähig zu kommerziellen Alternativen.
 
 ## Die Self-Hosting-Option
 

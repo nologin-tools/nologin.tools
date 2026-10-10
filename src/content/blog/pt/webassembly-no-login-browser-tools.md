@@ -45,7 +45,7 @@ A maioria das ferramentas abaixo não menciona "powered by WebAssembly" em sua p
 
 **[Squoosh](/tool/squoosh-app)** é o caso mais visível. O Google o construiu especificamente para demonstrar o que Wasm poderia fazer pela compressão de imagens. Abra, solte uma imagem, e você pode codificar com MozJPEG, OxiPNG, WebP, AVIF ou JPEG XL — tudo rodando localmente. São bibliotecas C/C++, compiladas para Wasm, rodando na sua aba. Os mesmos codecs que apps de foto de desktop usam.
 
-**[hat.sh](/tool/hat-sh)** criptografa e descriptografa arquivos usando libsodium — uma biblioteca C criptográfica bem auditada compilada para WebAssembly. Seu arquivo nunca chega a nenhum servidor. Quando você criptografa algo com hat.sh, a operação acontece na memória na aba do seu navegador, e apenas a saída criptografada toca seu disco. Essa é a arquitetura certa para ferramentas de criptografia.
+**[hat.sh](https://hat.sh)** criptografa e descriptografa arquivos usando libsodium — uma biblioteca C criptográfica bem auditada compilada para WebAssembly. Seu arquivo nunca chega a nenhum servidor. Quando você criptografa algo com hat.sh, a operação acontece na memória na aba do seu navegador, e apenas a saída criptografada toca seu disco. Essa é a arquitetura certa para ferramentas de criptografia.
 
 **[AudioMass](/tool/audiomass-co)** é um editor de áudio waveform completo que lida com edição multi-faixa sem conta ou instalação. A manipulação de áudio é genuinamente intensiva em computação — filtragem, mudança de tom, conversão de formato requerem processamento real. O fato de isso rodar aceitavelmente em uma aba do navegador é resultado direto do desempenho possibilitado pelo Wasm.
 

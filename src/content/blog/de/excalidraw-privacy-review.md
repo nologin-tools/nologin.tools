@@ -39,7 +39,7 @@ Diese Platzierung ist bedeutsam. Browser senden das URL-Fragment niemals an Serv
 
 Zeichendaten werden im Browser mit der [Web Cryptography API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) verschlüsselt, bevor sie übertragen werden. Der Server speichert und leitet nur verschlüsselten Chiffretext weiter. Ohne den Schlüssel — den er nicht hat und nicht erhalten kann — sind die Daten für Excalidraw's Infrastruktur unlesbar.
 
-Das ist dieselbe Architektur wie bei [Yopass](/tool/yopass-se) für verschlüsseltes Secret-Sharing und [hat.sh](/tool/hat-sh) für In-Browser-Dateiverschlüsselung: Der Server übernimmt den Transport, der Nutzer hält die Schlüssel.
+Das ist dieselbe Architektur wie bei [Yopass](/tool/yopass-se) für verschlüsseltes Secret-Sharing und [hat.sh](https://hat.sh) für In-Browser-Dateiverschlüsselung: Der Server übernimmt den Transport, der Nutzer hält die Schlüssel.
 
 Für die Einzelnutzung ist die Situation noch einfacher. Excalidraw speichert deine aktuelle Zeichnung im Browser-`localStorage`. Nichts wird hochgeladen, es sei denn, du startest explizit eine Kollaborationssession oder exportierst eine Datei.
 

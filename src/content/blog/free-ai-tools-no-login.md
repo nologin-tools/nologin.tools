@@ -67,7 +67,7 @@ The image generation space fragmented fast. Most of the capable models now sit b
 
 For AI-assisted image editing rather than generation, [remove.bg](/tool/remove-bg) does background removal in seconds. Upload a photo, get it back with the background stripped. No account required for the web version, though high-resolution downloads are rate-limited. The browser-only nature means your image processes on their servers and isn't stored long-term (their [privacy policy](https://www.remove.bg/privacy) specifies 24-hour retention for free users).
 
-[Unscreen](/tool/unscreen-com) does the same for video—remove video backgrounds without a green screen. Short clips work without login. Longer clips need an account. Good for small product demos or profile video clips.
+[Unscreen](https://www.unscreen.com) does the same for video—remove video backgrounds without a green screen. Short clips work without login. Longer clips need an account. Good for small product demos or profile video clips.
 
 ## Specialized AI Tools That Often Get Overlooked
 

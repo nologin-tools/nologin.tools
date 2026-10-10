@@ -76,7 +76,7 @@ La amplitud de modelos de HuggingChat en la categoría sin inicio de sesión es,
 
 **Consultas sensibles a la privacidad**: para preguntas que prefieres no vincular a tu identidad, el acceso anónimo a HuggingChat significa que tu consulta no está ligada a ninguna cuenta.
 
-**Ayuda con código sin suscripción**: herramientas como [Phind](/tool/phind-com) se especializan en consultas de desarrollo, pero para preguntas generales de programación, los modelos Qwen3-Coder y DeepSeek-V3 de HuggingChat son competitivos frente a las alternativas comerciales.
+**Ayuda con código sin suscripción**: herramientas como [Phind](https://www.phind.com) se especializan en consultas de desarrollo, pero para preguntas generales de programación, los modelos Qwen3-Coder y DeepSeek-V3 de HuggingChat son competitivos frente a las alternativas comerciales.
 
 ## La opción de autoalojamiento
 

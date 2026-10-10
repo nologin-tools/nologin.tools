@@ -48,7 +48,7 @@ Quando você carrega um arquivo no Datasette Lite, todo o motor de banco de dado
 
 ## 3. hat.sh: Criptografia de arquivos de conhecimento zero com Libsodium
 
-Provedores de armazenamento em nuvem e sistemas de e-mail são canais inerentemente não confiáveis. Na transferência de arquivos confidenciais, a criptografia simétrica do lado do cliente garante que plataformas de armazenamento intermediárias vejam apenas o texto criptografado. O **[hat.sh](/tool/hat-sh)** oferece criptografia de arquivos no cliente viabilizada pelo libsodium compilado para WebAssembly.
+Provedores de armazenamento em nuvem e sistemas de e-mail são canais inerentemente não confiáveis. Na transferência de arquivos confidenciais, a criptografia simétrica do lado do cliente garante que plataformas de armazenamento intermediárias vejam apenas o texto criptografado. O **[hat.sh](https://hat.sh)** oferece criptografia de arquivos no cliente viabilizada pelo libsodium compilado para WebAssembly.
 
 Utilizando os algoritmos modernos ChaCha20-Poly1305 e de derivação de chaves Argon2id, o hat.sh criptografa arquivos em transmissões particionadas (streams fragmentados) diretamente no navegador. Sua frase secreta nunca sai da memória local, e o arquivo original sem criptografia jamais toca em um servidor externo. Assim que o pacote do cliente é carregado, você pode soltar um arquivo confidencial na aba do navegador enquanto estiver offline e gerar um pacote `.enc` autenticado com total privacidade matemática.
 

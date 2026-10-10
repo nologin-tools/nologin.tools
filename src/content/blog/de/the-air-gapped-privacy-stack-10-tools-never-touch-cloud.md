@@ -48,7 +48,7 @@ Sobald Sie eine Datei in Datasette Lite laden, läuft die gesamte relationale Da
 
 ## 3. hat.sh: Zero-Knowledge-Dateiverschlüsselung mit Libsodium
 
-Cloud-Speicheranbieter und E-Mail-Systeme sind grundsätzlich nicht vertrauenswürdige Übertragungswege. Bei der Übertragung sensibler Archive stellt clientseitige symmetrische Verschlüsselung sicher, dass zwischengeschaltete Plattformen lediglich unlesbaren Chiffretext sehen. **[hat.sh](/tool/hat-sh)** bietet clientseitige Dateiverschlüsselung auf Basis von libsodium, kompiliert zu WebAssembly.
+Cloud-Speicheranbieter und E-Mail-Systeme sind grundsätzlich nicht vertrauenswürdige Übertragungswege. Bei der Übertragung sensibler Archive stellt clientseitige symmetrische Verschlüsselung sicher, dass zwischengeschaltete Plattformen lediglich unlesbaren Chiffretext sehen. **[hat.sh](https://hat.sh)** bietet clientseitige Dateiverschlüsselung auf Basis von libsodium, kompiliert zu WebAssembly.
 
 Unter Verwendung moderner ChaCha20-Poly1305- und Argon2id-Schlüsselableitungsalgorithmen verschlüsselt hat.sh Dateien in gestreamten Chunks direkt im Browser. Ihre Passphrase verlässt niemals den lokalen Arbeitsspeicher, und die unverschlüsselte Datei berührt zu keinem Zeitpunkt einen externen Server. Sobald das Client-Bundle geladen ist, können Sie ein vertrauliches Archiv offline in den Browser-Tab ziehen und eine authentifizierte `.enc`-Datei mit vollständiger mathematischer Vertraulichkeit erzeugen.
 

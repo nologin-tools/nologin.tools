@@ -310,10 +310,6 @@ const TOOL_TO_BLOG_MAP: Record<string, string[]> = {
   "tools-pdf24-org-en": [
     "edit-pdf-without-installing-anything"
   ],
-  "hat-sh": [
-    "hat-sh",
-    "practical-guide-tools-without-email"
-  ],
   "jwt-io": [
     "jwt-io"
   ],
@@ -332,10 +328,6 @@ const TOOL_TO_BLOG_MAP: Record<string, string[]> = {
   ],
   "phet-colorado-edu": [
     "phet-colorado-edu"
-  ],
-  "phind-com": [
-    "phind-com",
-    "free-ai-tools-no-login"
   ],
   "tinywow-com": [
     "tinywow-review-free-tools-no-signup",
@@ -377,13 +369,6 @@ const TOOL_TO_BLOG_MAP: Record<string, string[]> = {
   ],
   "svgviewer-app": [
     "canva-alternatives-no-login"
-  ],
-  "clideo-com": [
-    "clideo-com"
-  ],
-  "huggingface-co-chat": [
-    "huggingface-co-chat",
-    "free-ai-tools-no-login"
   ],
   "www-when2meet-com": [
     "when2meet-com"

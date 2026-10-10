@@ -39,7 +39,7 @@ Esta colocación es significativa. Los navegadores nunca envían el fragmento de
 
 Los datos del dibujo se cifran en el navegador usando la [Web Cryptography API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) antes de la transmisión. El servidor almacena y reenvía solo texto cifrado. Sin la clave — que no tiene y no puede obtener — los datos son ilegibles para la infraestructura de Excalidraw.
 
-Esta es la misma arquitectura usada por [Yopass](/tool/yopass-se) para compartir secretos cifrados y [hat.sh](/tool/hat-sh) para cifrar archivos en el navegador: el servidor maneja el transporte, el usuario tiene las claves. Es un enfoque fundamentado, no un accidente de implementación.
+Esta es la misma arquitectura usada por [Yopass](/tool/yopass-se) para compartir secretos cifrados y [hat.sh](https://hat.sh) para cifrar archivos en el navegador: el servidor maneja el transporte, el usuario tiene las claves. Es un enfoque fundamentado, no un accidente de implementación.
 
 Para uso en solitario, la situación es aún más simple. Excalidraw almacena tu dibujo actual en el `localStorage` del navegador. Nada se sube a ningún lado a menos que explícitamente inicies una sesión de colaboración o exportes un archivo. Si estás esbozando solo, tu dibujo no sale de tu máquina.
 

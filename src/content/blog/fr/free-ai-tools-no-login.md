@@ -69,7 +69,7 @@ Le secteur de la génération d'images s'est fragmenté vite. La plupart des mod
 
 Pour l'édition d'images assistée par IA (plutôt que la génération), [remove.bg](/tool/remove-bg) supprime les arrière-plans en quelques secondes. Télécharge une photo, récupère-la avec le fond supprimé. La version web ne nécessite pas de compte, bien que les téléchargements haute résolution soient limités en débit. L'image est traitée sur leurs serveurs mais n'est pas stockée à long terme (leur [politique de confidentialité](https://www.remove.bg/privacy) spécifie une conservation de 24 heures pour les utilisateurs gratuits).
 
-[Unscreen](/tool/unscreen-com) fait la même chose pour la vidéo — supprime les arrière-plans vidéo sans écran vert. Les clips courts fonctionnent sans login. Les clips plus longs nécessitent un compte. Idéal pour de petites démos produit ou des clips vidéo de profil.
+[Unscreen](https://www.unscreen.com) fait la même chose pour la vidéo — supprime les arrière-plans vidéo sans écran vert. Les clips courts fonctionnent sans login. Les clips plus longs nécessitent un compte. Idéal pour de petites démos produit ou des clips vidéo de profil.
 
 ## Les outils d'IA spécialisés qu'on oublie souvent
 
