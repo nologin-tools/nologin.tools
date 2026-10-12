@@ -119,6 +119,53 @@ export async function pushToGithub(token, repo, path, content) {
   return { updated: true };
 }
 
+async function recordExportToD1({ toolCount, filesUpdated, status, errorMessage }) {
+  const nowSec = Math.floor(Date.now() / 1000);
+  const triggerSource = process.env.GITHUB_ACTIONS === 'true' ? 'cron' : 'manual';
+  const filesJson = JSON.stringify(filesUpdated);
+
+  const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID || '1446cafd2b53be9b96d5ec5b0b0c786f';
+  const databaseId = '7160f24b-69df-4e43-8c27-ff4f439c007e';
+
+  if (apiToken && accountId) {
+    try {
+      const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/d1/database/${databaseId}/query`;
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sql: 'INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (?, ?, ?, ?, ?, ?)',
+          params: [nowSec, toolCount, filesJson, triggerSource, status, errorMessage || null],
+        }),
+      });
+      if (res.ok) {
+        console.log(`[export] Recorded export event (${status}) to D1 via REST API.`);
+        return;
+      }
+    } catch (e) {
+      console.warn('[export] REST API record failed, falling back to CLI:', e.message);
+    }
+  }
+
+  // Fallback via wrangler CLI
+  try {
+    const errClean = (errorMessage || '').replace(/'/g, "''").slice(0, 500);
+    const filesJsonClean = filesJson.replace(/'/g, "''");
+    const errField = errorMessage ? `'${errClean}'` : 'NULL';
+    execSync(
+      `npx wrangler d1 execute nologin-tools-db --remote --command="INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (${nowSec}, ${toolCount}, '${filesJsonClean}', '${triggerSource}', '${status}', ${errField});" --yes`,
+      { cwd: ROOT_DIR, stdio: 'pipe' }
+    );
+    console.log(`[export] Recorded export event (${status}) to D1 via wrangler CLI.`);
+  } catch (e) {
+    console.warn('[export] Could not record export to D1 via CLI:', e.message);
+  }
+}
+
 async function run() {
   console.log(`[export] Running export-awesome-list (Dry-run: ${isDryRun})...`);
 
@@ -187,26 +234,18 @@ async function run() {
     console.log(`[export] Completed export: files updated: ${JSON.stringify(filesUpdated)}`);
 
     // Record export to D1
-    try {
-      const nowSec = Math.floor(Date.now() / 1000);
-      const filesJson = JSON.stringify(filesUpdated).replace(/'/g, "''");
-      execSync(
-        `npx wrangler d1 execute nologin-tools-db --remote --command="INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status) VALUES (${nowSec}, ${approvedTools.length}, '${filesJson}', 'manual', 'success');" --yes`,
-        { cwd: ROOT_DIR, stdio: 'pipe' }
-      );
-      console.log('[export] Recorded export event to D1 data_exports table.');
-    } catch (e) {
-      console.warn('[export] Could not record export to D1:', e.message);
-    }
+    await recordExportToD1({
+      toolCount: approvedTools.length,
+      filesUpdated,
+      status: 'success',
+    });
   } catch (err) {
-    try {
-      const nowSec = Math.floor(Date.now() / 1000);
-      const errClean = (err.message || '').replace(/'/g, "''").slice(0, 500);
-      execSync(
-        `npx wrangler d1 execute nologin-tools-db --remote --command="INSERT INTO data_exports (exported_at, tool_count, files_updated, trigger_source, status, error_message) VALUES (${nowSec}, ${approvedTools.length}, '[]', 'manual', 'error', '${errClean}');" --yes`,
-        { cwd: ROOT_DIR, stdio: 'pipe' }
-      );
-    } catch {}
+    await recordExportToD1({
+      toolCount: approvedTools.length,
+      filesUpdated: [],
+      status: 'error',
+      errorMessage: err.message,
+    });
     throw err;
   }
 }
