@@ -46,10 +46,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Trailing slash normalization: /path/ → /path (301, GET only to avoid breaking POST forms)
   const ALLOWED_QUERY_PATHS = /^\/(api|admin|ssr|submit\/success|finder)(\/|$)/;
 
+  const isSafeMethod = request.method === 'GET' || request.method === 'HEAD';
+
   // 301 Permanent Redirect to strip extraneous search parameters from canonical content pages
   // (Consolidates GSC indexing to canonical URLs, prevents spider traps and soft 404s)
   if (
-    request.method === 'GET' &&
+    isSafeMethod &&
     url.search &&
     !ALLOWED_QUERY_PATHS.test(pathname) &&
     !HAS_EXTENSION_REGEX.test(pathname)
@@ -64,7 +66,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     });
   }
 
-  if (request.method === 'GET' && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
+  if (isSafeMethod && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
     const cleanPath = pathname.replace(/\/+$/, '');
     const cleanSearch = ALLOWED_QUERY_PATHS.test(cleanPath) ? url.search : '';
     return new Response(null, {
@@ -74,7 +76,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   // 301 Permanent Redirect for retired locales (ja, ko, es, fr, de, pt) → canonical English route
-  if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+  if (isSafeMethod && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
     const firstSegment = pathname.split('/').filter(Boolean)[0];
     if (firstSegment && RETIRED_LOCALES.includes(firstSegment)) {
       const remainder = pathname.slice(firstSegment.length + 1) || '/';
@@ -90,7 +92,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   // 301 Permanent Redirect for known pruned blogs & delisted tools (bypassing Cloudflare Pages 100-rule limit)
-  if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+  if (isSafeMethod && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
     const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
     const target = STATIC_REDIRECTS[cleanPath] || STATIC_REDIRECTS[pathname];
     if (target) {

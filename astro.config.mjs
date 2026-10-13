@@ -12,6 +12,9 @@ export default defineConfig({
       enabled: true,
       configPath: 'wrangler.jsonc',
     },
+    workerEntryPoint: {
+      path: './src/entrypoint.ts',
+    },
   }),
   i18n: {
     defaultLocale: 'en',
