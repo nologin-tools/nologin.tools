@@ -95,6 +95,14 @@ for (const target of ALTERNATIVE_TARGETS) {
 
   const matchingTools = compactTools
     .filter((t) => matchingSlugs.has(t.slug))
+    .sort((a, b) => {
+      const aCat = a.category === target.category ? 1 : 0;
+      const bCat = b.category === target.category ? 1 : 0;
+      if (aCat !== bCat) return bCat - aCat;
+      if (a.isFeatured !== b.isFeatured) return b.isFeatured ? 1 : -1;
+      if (a.capabilities.clientSideOnly !== b.capabilities.clientSideOnly) return b.capabilities.clientSideOnly ? 1 : -1;
+      return 0;
+    })
     .slice(0, 4);
 
   for (const domain of domains) {

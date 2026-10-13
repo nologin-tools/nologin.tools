@@ -125,10 +125,11 @@ function renderTools() {
   }
 
   const paged = filtered.slice(0, 30);
-  resultsList.innerHTML = paged.map((t) => {
+  focusedIndex = -1;
+  resultsList.innerHTML = paged.map((t, index) => {
     const faviconUrl = `https://www.google.com/s2/favicons?domain=${t.hostname}&sz=32`;
     return `
-      <a href="${t.url}" target="_blank" rel="noopener" class="tool-row" data-url="${t.url}">
+      <a href="${t.url}" target="_blank" rel="noopener" class="tool-row" data-url="${t.url}" data-index="${index}">
         <div class="tool-main">
           <img src="${faviconUrl}" alt="" class="tool-favicon" onerror="this.style.display='none'" />
           <div class="tool-details">
@@ -148,10 +149,99 @@ function renderTools() {
   resultsList.querySelectorAll('.tool-row').forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
+      recordLaunch();
       chrome.tabs.create({ url: link.dataset.url });
     });
   });
 }
+
+function recordLaunch() {
+  const count = parseInt(localStorage.getItem('nologin_launch_count') || '0', 10) + 1;
+  localStorage.setItem('nologin_launch_count', count.toString());
+  checkReviewPrompt();
+}
+
+const CHROME_REVIEWS_URL = 'https://chromewebstore.google.com/detail/hblmlbgnglelpkogmadngkjepiapnnon/reviews';
+
+function checkReviewPrompt() {
+  const banner = document.getElementById('review-banner');
+  if (!banner) return;
+  const count = parseInt(localStorage.getItem('nologin_launch_count') || '0', 10);
+  const dismissed = localStorage.getItem('nologin_review_dismissed') === 'true';
+  if (count >= 3 && !dismissed) {
+    banner.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+  }
+}
+
+function initReviewPrompt() {
+  const reviewBtn = document.getElementById('review-btn');
+  const dismissBtn = document.getElementById('review-dismiss');
+
+  reviewBtn?.addEventListener('click', () => {
+    localStorage.setItem('nologin_review_dismissed', 'true');
+    checkReviewPrompt();
+    chrome.tabs.create({ url: CHROME_REVIEWS_URL });
+  });
+
+  dismissBtn?.addEventListener('click', () => {
+    localStorage.setItem('nologin_review_dismissed', 'true');
+    checkReviewPrompt();
+  });
+
+  checkReviewPrompt();
+}
+
+let focusedIndex = -1;
+
+function updateFocus() {
+  const rows = resultsList.querySelectorAll('.tool-row');
+  rows.forEach((r, idx) => {
+    if (idx === focusedIndex) {
+      r.classList.add('focused');
+      r.scrollIntoView({ block: 'nearest' });
+    } else {
+      r.classList.remove('focused');
+    }
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  const rows = resultsList.querySelectorAll('.tool-row');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (rows.length === 0) return;
+    focusedIndex = Math.min(focusedIndex + 1, rows.length - 1);
+    updateFocus();
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (rows.length === 0) return;
+    focusedIndex = Math.max(focusedIndex - 1, -1);
+    if (focusedIndex === -1) {
+      searchInput.focus();
+    }
+    updateFocus();
+  } else if (e.key === 'Enter') {
+    if (focusedIndex >= 0 && rows[focusedIndex]) {
+      e.preventDefault();
+      recordLaunch();
+      chrome.tabs.create({ url: rows[focusedIndex].dataset.url });
+    } else if (rows.length > 0 && document.activeElement === searchInput) {
+      e.preventDefault();
+      recordLaunch();
+      chrome.tabs.create({ url: rows[0].dataset.url });
+    }
+  } else if (e.key === 'Escape') {
+    if (currentQuery) {
+      searchInput.value = '';
+      currentQuery = '';
+      renderTools();
+    } else {
+      window.close();
+    }
+  }
+});
 
 // Event Listeners
 searchInput.addEventListener('input', (e) => {
@@ -173,6 +263,7 @@ categoryPills.addEventListener('click', (e) => {
 async function init() {
   await loadData();
   await checkActiveTabAlternative();
+  initReviewPrompt();
   renderTools();
   searchInput.focus();
 }

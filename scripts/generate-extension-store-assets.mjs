@@ -241,7 +241,7 @@ const screenshotSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" heig
       <text x="16" y="56" font-family="-apple-system, sans-serif" font-size="12" fill="#475569">Advanced image &amp; raster graphics editor. Supports PSD, XCF.</text>
       <text x="16" y="86" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#059669">✓ 100% In-Browser  ✓ Zero Accounts</text>
       <rect x="320" y="36" width="76" height="34" rx="8" fill="#0f172a" />
-      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch &rarr;</text>
+      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch →</text>
     </g>
 
     <!-- Tool Card 2 -->
@@ -253,7 +253,7 @@ const screenshotSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" heig
       <text x="16" y="56" font-family="-apple-system, sans-serif" font-size="12" fill="#475569">Virtual whiteboard for sketching hand-drawn diagrams.</text>
       <text x="16" y="86" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#059669">✓ E2E Encrypted  ✓ Collaborative</text>
       <rect x="320" y="36" width="76" height="34" rx="8" fill="#0f172a" />
-      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch &rarr;</text>
+      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch →</text>
     </g>
 
     <!-- Tool Card 3 -->
@@ -265,7 +265,7 @@ const screenshotSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" heig
       <text x="16" y="56" font-family="-apple-system, sans-serif" font-size="12" fill="#475569">WebAssembly image compression with real-time diffing.</text>
       <text x="16" y="86" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#059669">✓ Client-Side Only  ✓ No Server Logs</text>
       <rect x="320" y="36" width="76" height="34" rx="8" fill="#0f172a" />
-      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch &rarr;</text>
+      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch →</text>
     </g>
 
     <!-- Footer link -->
@@ -273,14 +273,222 @@ const screenshotSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" heig
   </g>
 </svg>`;
 
+// 4. Screenshot 2: Toolbar Mini-Finder (1280 x 800)
+const screenshot2Svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
+  <defs>
+    <linearGradient id="sc2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#sc2Bg)" />
+
+  <!-- Left Side: Value Proposition -->
+  <g transform="translate(80, 220)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-opacity="0.5" />
+    <text x="80" y="21" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#34d399" text-anchor="middle" letter-spacing="1">INSTANT MINI-FINDER</text>
+
+    <text x="0" y="90" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="-1">
+      180+ Verified Tools,
+    </text>
+    <text x="0" y="140" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#10b981" letter-spacing="-1">
+      Zero Tabs Abandoned
+    </text>
+
+    <text x="0" y="195" font-family="-apple-system, sans-serif" font-weight="500" font-size="17" fill="#94a3b8">
+      Search, filter, and launch privacy-respecting alternatives
+    </text>
+    <text x="0" y="225" font-family="-apple-system, sans-serif" font-weight="500" font-size="17" fill="#94a3b8">
+      directly from your browser toolbar at any moment.
+    </text>
+
+    <g transform="translate(0, 270)">
+      <rect x="0" y="0" width="130" height="32" rx="16" fill="#1e293b" />
+      <text x="65" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e2e8f0" text-anchor="middle">🎨 Design</text>
+
+      <rect x="145" y="0" width="130" height="32" rx="16" fill="#1e293b" />
+      <text x="210" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e2e8f0" text-anchor="middle">📄 PDF &amp; Office</text>
+
+      <rect x="290" y="0" width="130" height="32" rx="16" fill="#1e293b" />
+      <text x="355" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e2e8f0" text-anchor="middle">🔒 Privacy &amp; PWA</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Open Extension Mockup -->
+  <g transform="translate(720, 60)">
+    <rect width="480" height="680" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="drop-shadow(0 25px 30px rgba(0,0,0,0.35))" />
+
+    <!-- Popover Header -->
+    <rect width="480" height="64" rx="16" fill="#0f172a" />
+    <rect y="48" width="480" height="16" fill="#0f172a" />
+    <text x="24" y="38" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#ffffff">nologin.tools</text>
+    <rect x="150" y="24" width="80" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
+    <text x="190" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#34d399" text-anchor="middle">180+ TOOLS</text>
+
+    <!-- Search Input Filled -->
+    <g transform="translate(24, 80)">
+      <rect width="432" height="42" rx="8" fill="#f8fafc" stroke="#10b981" stroke-width="1.5" />
+      <text x="14" y="26" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#0f172a">pdf editor</text>
+    </g>
+
+    <!-- Category Pills -->
+    <g transform="translate(24, 134)">
+      <rect x="0" y="0" width="50" height="26" rx="4" fill="#0f172a" />
+      <text x="25" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">All</text>
+
+      <rect x="58" y="0" width="50" height="26" rx="4" fill="#f1f5f9" />
+      <text x="83" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#64748b" text-anchor="middle">AI</text>
+
+      <rect x="116" y="0" width="60" height="26" rx="4" fill="#f1f5f9" />
+      <text x="146" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#64748b" text-anchor="middle">Design</text>
+
+      <rect x="184" y="0" width="90" height="26" rx="4" fill="#059669" />
+      <text x="229" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">PDF &amp; Office</text>
+
+      <rect x="282" y="0" width="60" height="26" rx="4" fill="#f1f5f9" />
+      <text x="312" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#64748b" text-anchor="middle">Privacy</text>
+    </g>
+
+    <!-- Tool 1: PDF24 -->
+    <g transform="translate(24, 180)">
+      <rect width="432" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="16" y="28" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">PDF24 Tools</text>
+      <rect x="115" y="14" width="70" height="18" rx="4" fill="#10b981" />
+      <text x="150" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">GRADE A+</text>
+      <text x="16" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Complete PDF toolbox: merge, split, compress, and edit in-browser.</text>
+      <text x="16" y="78" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#059669">✓ 100% Free  ✓ No File Upload Limits</text>
+      <rect x="340" y="32" width="76" height="32" rx="6" fill="#0f172a" />
+      <text x="378" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open →</text>
+    </g>
+
+    <!-- Tool 2: Stirling PDF -->
+    <g transform="translate(24, 296)">
+      <rect width="432" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="16" y="28" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">Stirling PDF</text>
+      <rect x="110" y="14" width="85" height="18" rx="4" fill="#0284c7" />
+      <text x="152" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">OPEN SOURCE</text>
+      <text x="16" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Self-hosted &amp; WebAssembly offline PDF processing suite.</text>
+      <text x="16" y="78" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#059669">✓ Client-Side Only  ✓ Zero Data Storage</text>
+      <rect x="340" y="32" width="76" height="32" rx="6" fill="#0f172a" />
+      <text x="378" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open →</text>
+    </g>
+
+    <!-- Tool 3: SimplePDF -->
+    <g transform="translate(24, 412)">
+      <rect width="432" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="16" y="28" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">SimplePDF</text>
+      <rect x="100" y="14" width="70" height="18" rx="4" fill="#10b981" />
+      <text x="135" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">GRADE A</text>
+      <text x="16" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Fill, sign, and redact PDF documents privately without accounts.</text>
+      <text x="16" y="78" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#059669">✓ End-to-End Encrypted  ✓ No Sign-up</text>
+      <rect x="340" y="32" width="76" height="32" rx="6" fill="#0f172a" />
+      <text x="378" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open →</text>
+    </g>
+
+    <!-- Footer -->
+    <text x="240" y="640" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#94a3b8" text-anchor="middle">Verified by NoLoginTools.org · 100% Free</text>
+  </g>
+</svg>`;
+
+// 5. Screenshot 3: 100% Client-Side Privacy HUD (1280 x 800)
+const screenshot3Svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
+  <defs>
+    <linearGradient id="sc3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#sc3Bg)" />
+
+  <!-- Center Card: Privacy Audit & Architecture HUD -->
+  <g transform="translate(140, 100)">
+    <rect width="1000" height="600" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="2" filter="drop-shadow(0 25px 30px rgba(0,0,0,0.5))" />
+
+    <!-- Window Header -->
+    <rect width="1000" height="60" rx="20" fill="#030712" />
+    <rect y="44" width="1000" height="16" fill="#030712" />
+    <circle cx="36" cy="30" r="7" fill="#ef4444" />
+    <circle cx="58" cy="30" r="7" fill="#f59e0b" />
+    <circle cx="80" cy="30" r="7" fill="#10b981" />
+    <text x="500" y="36" font-family="monospace" font-size="13" fill="#64748b" text-anchor="middle">nologin.tools/privacy-architecture-verification</text>
+
+    <!-- Main Content Area -->
+    <g transform="translate(60, 90)">
+      <rect x="0" y="0" width="180" height="30" rx="15" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
+      <text x="90" y="20" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#34d399" text-anchor="middle" letter-spacing="1">ZERO TELEMETRY AUDIT</text>
+
+      <text x="0" y="70" font-family="-apple-system, sans-serif" font-weight="900" font-size="34" fill="#ffffff" letter-spacing="-0.5">
+        Strict Privacy &amp; Data Sovereignty Guarantee
+      </text>
+      <text x="0" y="105" font-family="-apple-system, sans-serif" font-weight="500" font-size="15" fill="#94a3b8">
+        No accounts, no user telemetry, and no remote code execution. Built for absolute peace of mind.
+      </text>
+
+      <!-- 3 Pillars Grid -->
+      <g transform="translate(0, 140)">
+        <!-- Pillar 1 -->
+        <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
+        <circle cx="44" cy="44" r="22" fill="#10b981" fill-opacity="0.2" />
+        <text x="44" y="51" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#34d399" text-anchor="middle">0</text>
+        <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">0 Accounts Needed</text>
+        <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
+          <tspan x="24" dy="0">No sign-up forms, credit cards,</tspan>
+          <tspan x="24" dy="18">or email verifications. Every tool</tspan>
+          <tspan x="24" dy="18">launches instantly in-browser.</tspan>
+        </text>
+        <rect x="24" y="194" width="130" height="28" rx="6" fill="#065f46" />
+        <text x="89" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#34d399" text-anchor="middle">✓ Instant Access</text>
+
+        <!-- Pillar 2 -->
+        <g transform="translate(305, 0)">
+          <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
+          <circle cx="44" cy="44" r="22" fill="#38bdf8" fill-opacity="0.2" />
+          <text x="44" y="50" font-family="monospace" font-weight="900" font-size="13" fill="#38bdf8" text-anchor="middle">WASM</text>
+          <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Client-Side WASM</text>
+          <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
+            <tspan x="24" dy="0">Codecs and editors execute</tspan>
+            <tspan x="24" dy="18">directly in local RAM. Zero</tspan>
+            <tspan x="24" dy="18">file upload to remote servers.</tspan>
+          </text>
+          <rect x="24" y="194" width="130" height="28" rx="6" fill="#0369a1" />
+          <text x="89" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#7dd3fc" text-anchor="middle">✓ Zero Data Egress</text>
+        </g>
+
+        <!-- Pillar 3 -->
+        <g transform="translate(610, 0)">
+          <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
+          <circle cx="44" cy="44" r="22" fill="#eab308" fill-opacity="0.2" />
+          <text x="44" y="51" font-family="-apple-system, sans-serif" font-weight="900" font-size="16" fill="#fde047" text-anchor="middle">MV3</text>
+          <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Minimal Permission</text>
+          <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
+            <tspan x="24" dy="0">Only activeTab on user click.</tspan>
+            <tspan x="24" dy="18">Zero background listeners,</tspan>
+            <tspan x="24" dy="18">zero history inspection.</tspan>
+          </text>
+          <rect x="24" y="194" width="155" height="28" rx="6" fill="#854d0e" />
+          <text x="101" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#fde047" text-anchor="middle">✓ Google Store Approved</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>`;
+
 writeFileSync(resolve(storeDir, 'promo-small-440x280.svg'), smallPromoSvg, 'utf8');
 writeFileSync(resolve(storeDir, 'marquee-1400x560.svg'), marqueeSvg, 'utf8');
 writeFileSync(resolve(storeDir, 'screenshot-1280x800.svg'), screenshotSvg, 'utf8');
+writeFileSync(resolve(storeDir, 'screenshot-2-finder-1280x800.svg'), screenshot2Svg, 'utf8');
+writeFileSync(resolve(storeDir, 'screenshot-3-privacy-1280x800.svg'), screenshot3Svg, 'utf8');
 
 console.log('Generated extension store artwork SVG assets:');
 console.log(' - promo-small-440x280.svg');
 console.log(' - marquee-1400x560.svg');
-console.log(' - screenshot-1280x800.svg');
+console.log(' - screenshot-1280x800.svg (Screenshot 1: Contextual Detection)');
+console.log(' - screenshot-2-finder-1280x800.svg (Screenshot 2: Mini-Finder)');
+console.log(' - screenshot-3-privacy-1280x800.svg (Screenshot 3: Privacy Guarantee)');
 
 // Render PNG assets for Chrome Web Store upload forms
 import { execSync } from 'node:child_process';
@@ -289,6 +497,8 @@ import { existsSync } from 'node:fs';
 const chromeApp = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const pngTargets = [
   { name: 'screenshot-1280x800', width: 1280, height: 800 },
+  { name: 'screenshot-2-finder-1280x800', width: 1280, height: 800 },
+  { name: 'screenshot-3-privacy-1280x800', width: 1280, height: 800 },
   { name: 'promo-small-440x280', width: 440, height: 280 },
   { name: 'marquee-1400x560', width: 1400, height: 560 },
 ];

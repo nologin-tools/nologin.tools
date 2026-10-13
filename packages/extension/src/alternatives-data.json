@@ -17,7 +17,7 @@
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": false,
+          "openSource": true,
           "free": false
         }
       },
@@ -29,22 +29,6 @@
         "category": "Design",
         "description": "AI-powered tool that automatically removes backgrounds from photos in seconds. Upload an image and get a transparent PNG instantly.",
         "coreTask": "Remove image backgrounds automatically using AI",
-        "isFeatured": false,
-        "capabilities": {
-          "clientSideOnly": false,
-          "worksOffline": false,
-          "openSource": false,
-          "free": false
-        }
-      },
-      {
-        "slug": "ezgif-com",
-        "name": "ezGIF",
-        "url": "https://ezgif.com",
-        "hostname": "ezgif.com",
-        "category": "Media",
-        "description": "Online GIF maker and image editor. Create, resize, crop, reverse, optimize GIFs, and convert video to GIF. Also supports WebP, APNG, and AVIF.",
-        "coreTask": "Create, edit, and optimize GIFs and animated images",
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": false,
@@ -66,6 +50,22 @@
           "clientSideOnly": false,
           "worksOffline": false,
           "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "tryink-me",
+        "name": "TryInk",
+        "url": "https://tryink.me/",
+        "hostname": "tryink.me",
+        "category": "Design",
+        "description": "TryInk is a tattoo try-on tool: upload a body photo, place a design, and preview size and placement on your own skin before an appointment.",
+        "coreTask": "upload a body photo, place a design, and preview size and placement on your own skin",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
           "free": true
         }
       }
@@ -89,7 +89,7 @@
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": false,
+          "openSource": true,
           "free": false
         }
       },
@@ -101,22 +101,6 @@
         "category": "Design",
         "description": "AI-powered tool that automatically removes backgrounds from photos in seconds. Upload an image and get a transparent PNG instantly.",
         "coreTask": "Remove image backgrounds automatically using AI",
-        "isFeatured": false,
-        "capabilities": {
-          "clientSideOnly": false,
-          "worksOffline": false,
-          "openSource": false,
-          "free": false
-        }
-      },
-      {
-        "slug": "ezgif-com",
-        "name": "ezGIF",
-        "url": "https://ezgif.com",
-        "hostname": "ezgif.com",
-        "category": "Media",
-        "description": "Online GIF maker and image editor. Create, resize, crop, reverse, optimize GIFs, and convert video to GIF. Also supports WebP, APNG, and AVIF.",
-        "coreTask": "Create, edit, and optimize GIFs and animated images",
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": false,
@@ -140,6 +124,22 @@
           "openSource": true,
           "free": true
         }
+      },
+      {
+        "slug": "tryink-me",
+        "name": "TryInk",
+        "url": "https://tryink.me/",
+        "hostname": "tryink.me",
+        "category": "Design",
+        "description": "TryInk is a tattoo try-on tool: upload a body photo, place a design, and preview size and placement on your own skin before an appointment.",
+        "coreTask": "upload a body photo, place a design, and preview size and placement on your own skin",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
       }
     ]
   },
@@ -161,8 +161,40 @@
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": false,
+          "openSource": true,
           "free": false
+        }
+      },
+      {
+        "slug": "ps-keepmot-com",
+        "name": "KeepMot",
+        "url": "https://ps.keepmot.com/",
+        "hostname": "ps.keepmot.com",
+        "category": "Design",
+        "description": "A free online collage and image editing tool. No login required, completely free to use. Built entirely on the front end, ensuring absolute privacy and security for your images. Download high-resolution results with no watermarks. A clean and professional tool for creating beautiful visual works.",
+        "coreTask": "1. Grid Collage 2. Photo Wall Collage 3. Long Image Stitching 4. Image Cropping 5. Image Effects",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "fffuel-co",
+        "name": "Fffuel",
+        "url": "https://fffuel.co",
+        "hostname": "fffuel.co",
+        "category": "Design",
+        "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
+        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
         }
       },
       {
@@ -179,22 +211,6 @@
           "worksOffline": false,
           "openSource": false,
           "free": false
-        }
-      },
-      {
-        "slug": "fffuel-co",
-        "name": "Fffuel",
-        "url": "https://fffuel.co",
-        "hostname": "fffuel.co",
-        "category": "Design",
-        "description": "A collection of 40+ free, browser-based color tools and SVG generators for creating backgrounds, patterns, textures, gradients, and shapes. Each tool works directly in the browser with zero signup required. Perfect for web designers and developers who need custom visuals without opening heavy design software.",
-        "coreTask": "Generate custom SVG backgrounds, patterns, gradients, and textures for web design projects",
-        "isFeatured": false,
-        "capabilities": {
-          "clientSideOnly": true,
-          "worksOffline": false,
-          "openSource": true,
-          "free": true
         }
       }
     ]
@@ -249,7 +265,7 @@
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": true,
+          "openSource": false,
           "free": true
         }
       }
@@ -396,6 +412,22 @@
           "openSource": true,
           "free": true
         }
+      },
+      {
+        "slug": "mdconvert-net-zh-markdown-to-word",
+        "name": "Markdown to Word Tool",
+        "url": "https://mdconvert.net/zh/markdown-to-word",
+        "hostname": "mdconvert.net",
+        "category": "Writing",
+        "description": "Convert Markdown documents to Word online for writing and documentation workflows.",
+        "coreTask": "Convert Markdown to a Word document without login.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
       }
     ]
   },
@@ -418,6 +450,22 @@
           "clientSideOnly": true,
           "worksOffline": false,
           "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "mdconvert-net-zh-markdown-to-word",
+        "name": "Markdown to Word Tool",
+        "url": "https://mdconvert.net/zh/markdown-to-word",
+        "hostname": "mdconvert.net",
+        "category": "Writing",
+        "description": "Convert Markdown documents to Word online for writing and documentation workflows.",
+        "coreTask": "Convert Markdown to a Word document without login.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
           "free": true
         }
       }
@@ -443,6 +491,22 @@
           "worksOffline": false,
           "openSource": false,
           "free": false
+        }
+      },
+      {
+        "slug": "needgohome-netlify-app",
+        "name": "Need Go Home",
+        "url": "https://needgohome.netlify.app",
+        "hostname": "needgohome.netlify.app",
+        "category": "Writing",
+        "description": "A free, no-signup tool that drafts a clear, professional message for telling your manager you need to leave work early. Pick a reason, tone, and one of 12 languages (RTL for Arabic and Hebrew) and get a ready-to-send message plus alternatives for text, email, or chat. Rules-based, not AI. Everything runs in your browser.",
+        "coreTask": "Generate and copy a complete early-leave message in your chosen language, reason, and tone",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
         }
       },
       {
@@ -510,6 +574,38 @@
         }
       },
       {
+        "slug": "pdfzus-de",
+        "name": "pdfzus",
+        "url": "https://pdfzus.de/",
+        "hostname": "pdfzus.de",
+        "category": "Productivity",
+        "description": "Merge, reorder, and compress PDF files directly in your browser. The core workflow requires no account, adds no watermark, and processes files on your device.",
+        "coreTask": "Merge multiple PDFs, reorder pages, and compress PDF files directly in the browser.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "bytepriva-com-merge-pdf",
+        "name": "Merge PDF — BytePriva",
+        "url": "https://bytepriva.com/merge-pdf/",
+        "hostname": "bytepriva.com",
+        "category": "Productivity",
+        "description": "Merge multiple PDF files into one directly in your browser — no upload, no signup. Files are processed entirely client-side using your device's own processing power, so nothing ever leaves your computer. Drag, drop, reorder, and download instantly.",
+        "coreTask": "Merge multiple PDF files, reorder pages, and export the combined document",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
         "slug": "tinywow-com",
         "name": "TinyWow",
         "url": "https://tinywow.com",
@@ -550,19 +646,19 @@
         }
       },
       {
-        "slug": "jsoncrack-com",
-        "name": "JSON Crack",
-        "url": "https://jsoncrack.com",
-        "hostname": "jsoncrack.com",
-        "category": "Data",
-        "description": "Visualize JSON data into interactive graphs. Seamlessly explore complex JSON structures with a tree-like graph view, search, and filter capabilities.",
-        "coreTask": "Visualize JSON data as interactive node graphs",
+        "slug": "hoppscotch-io",
+        "name": "Hoppscotch",
+        "url": "https://hoppscotch.io",
+        "hostname": "hoppscotch.io",
+        "category": "Development",
+        "description": "Open-source API development ecosystem. Test REST, GraphQL, WebSocket, and more — a lightweight Postman alternative.",
+        "coreTask": "Test and debug APIs",
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
           "openSource": true,
-          "free": false
+          "free": true
         }
       },
       {
@@ -577,8 +673,24 @@
         "capabilities": {
           "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": true,
+          "openSource": false,
           "free": true
+        }
+      },
+      {
+        "slug": "jsoncrack-com",
+        "name": "JSON Crack",
+        "url": "https://jsoncrack.com",
+        "hostname": "jsoncrack.com",
+        "category": "Data",
+        "description": "Visualize JSON data into interactive graphs. Seamlessly explore complex JSON structures with a tree-like graph view, search, and filter capabilities.",
+        "coreTask": "Visualize JSON data as interactive node graphs",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": false
         }
       }
     ]
@@ -589,6 +701,22 @@
     "category": "Media",
     "headline": "Waveform audio trimming, multi-track mixing, and sound mastering via WebAudio API",
     "tools": [
+      {
+        "slug": "audiomass-co",
+        "name": "AudioMass",
+        "url": "https://audiomass.co",
+        "hostname": "audiomass.co",
+        "category": "Media",
+        "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
+        "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
+        "isFeatured": true,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      },
       {
         "slug": "audiotrimmer-com",
         "name": "Audio Trimmer",
@@ -606,19 +734,19 @@
         }
       },
       {
-        "slug": "audiomass-co",
-        "name": "AudioMass",
-        "url": "https://audiomass.co",
-        "hostname": "audiomass.co",
-        "category": "Media",
-        "description": "Open-source browser-based audio editor with waveform visualization, cut/copy/paste editing, and effects including normalize, fade in/out, reverse, and amplify. Processes audio entirely in your browser — no uploads to any server.",
-        "coreTask": "Edit audio files directly in your browser with waveform editing, effects, and export — no installation or account needed.",
-        "isFeatured": true,
+        "slug": "choicervoicer-games",
+        "name": "Choicer Voicer",
+        "url": "https://choicervoicer.games/",
+        "hostname": "choicervoicer.games",
+        "category": "Education",
+        "description": "A free browser voice acting and dubbing game for practicing character voices, timing, and delivery with short scenes. Choose a ready-made scene, listen, record, and compare without creating an account.",
+        "coreTask": "Play ready-made voice acting scenes, listen to reference dialogue, record a performance in the browser, compare timing and delivery, and use free practice and export options.",
+        "isFeatured": false,
         "capabilities": {
-          "clientSideOnly": true,
+          "clientSideOnly": false,
           "worksOffline": false,
-          "openSource": true,
-          "free": true
+          "openSource": false,
+          "free": false
         }
       }
     ]
@@ -630,35 +758,67 @@
     "headline": "Lossless & lossy image compression using WebAssembly with zero server uploads",
     "tools": [
       {
-        "slug": "squoosh-app",
-        "name": "Squoosh",
-        "url": "https://squoosh.app",
-        "hostname": "squoosh.app",
-        "category": "Design",
-        "description": "Google-built image compression tool that runs entirely in the browser. Compare original vs compressed side-by-side, supports WebP, AVIF, MozJPEG, and more.",
-        "coreTask": "Compress and optimize images with visual quality comparison",
+        "slug": "pixotter-com",
+        "name": "Pixotter",
+        "url": "https://pixotter.com",
+        "hostname": "pixotter.com",
+        "category": "Media",
+        "description": "All-in-one browser image optimizer. Chain compress, resize, convert, crop, remove background, and watermark in a single pipeline — no upload wait, no signup. Everything runs client-side via WebAssembly. 15+ formats, batch processing, instant results.",
+        "coreTask": "Compress, resize, convert, crop, remove backgrounds, and watermark images — all in one step, right in the browser",
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": true,
-          "worksOffline": true,
-          "openSource": true,
+          "worksOffline": false,
+          "openSource": false,
           "free": true
         }
       },
       {
-        "slug": "tinypng-com",
-        "name": "TinyPNG",
-        "url": "https://tinypng.com",
-        "hostname": "tinypng.com",
-        "category": "Design",
-        "description": "Smart lossy compression for PNG, JPEG, and WebP images. Reduce file sizes while preserving visual quality.",
-        "coreTask": "Compress PNG, JPEG, and WebP images",
+        "slug": "imagecompressortokb-com",
+        "name": "Image Compressor to KB",
+        "url": "https://imagecompressortokb.com/",
+        "hostname": "imagecompressortokb.com",
+        "category": "Media",
+        "description": "Free browser-based image utility for reducing JPG, PNG, and WebP files to a selected KB limit. It supports batch processing, measured output previews, and local processing without uploading files to the website server.",
+        "coreTask": "Compress JPG, PNG, and WebP images to a chosen KB limit, process multiple files, preview measured output details, and download results.",
         "isFeatured": false,
         "capabilities": {
-          "clientSideOnly": false,
+          "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": true,
-          "free": false
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "olivez-in-tool-image-compressor",
+        "name": "Olivex Image Compressor",
+        "url": "https://olivez.in/tool/image-compressor",
+        "hostname": "olivez.in",
+        "category": "Media",
+        "description": "Free image compressor for JPG, PNG, and WebP. Images are processed locally and never uploaded. It supports batches of up to 40 images, before-and-after comparison, individual JPEG and WebP quality controls, PNG colour reduction, separate downloads, and ZIP export. No account required.",
+        "coreTask": "Compress and compare batches of JPG, PNG, and WebP images, adjust each result, and download individual files or a ZIP.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "imgrove-com",
+        "name": "imgrove",
+        "url": "https://imgrove.com/",
+        "hostname": "imgrove.com",
+        "category": "Media",
+        "description": "A collection of free browser image tools for conversion, compression, resizing, editing, metadata inspection, and export. Images remain on-device and there is no signup or watermark.",
+        "coreTask": "Free private image conversion, compression, editing, and inspection",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
         }
       }
     ]
@@ -670,18 +830,66 @@
     "headline": "File format conversion for media, documents, and archives without account queues",
     "tools": [
       {
-        "slug": "convertio-co",
-        "name": "Convertio",
-        "url": "https://convertio.co",
-        "hostname": "convertio.co",
-        "category": "Media",
-        "description": "Advanced online file converter supporting 300+ formats. Convert documents, images, audio, video, ebooks, archives, and more with a simple drag-and-drop interface.",
-        "coreTask": "Convert files between 300+ formats with drag and drop",
+        "slug": "utilbear-com",
+        "name": "UtilBear",
+        "url": "https://utilbear.com/",
+        "hostname": "utilbear.com",
+        "category": "Productivity",
+        "description": "UtilBear offers free, privacy-first tools for counting text and converting WebP and HEIC images. Processing happens locally in the browser, so files are never uploaded. No account or watermark is required, the tools work on desktop and mobile, and the interface supports eight languages.",
+        "coreTask": "Count words and characters, convert HEIC photos to JPG or PNG, and convert WebP images to PNG. Every tool works without an account; files and text are processed locally in the browser.",
         "isFeatured": false,
         "capabilities": {
-          "clientSideOnly": false,
+          "clientSideOnly": true,
           "worksOffline": false,
-          "openSource": true,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "pixeltools-io",
+        "name": "Pixeltools",
+        "url": "https://pixeltools.io",
+        "hostname": "pixeltools.io",
+        "category": "Productivity",
+        "description": "A free, 100% browser-based suite of image, PDF, audio and video tools (resize, compress, convert, merge PDFs, background removal, and more). Everything runs client-side via Canvas API, ffmpeg.wasm, pdf-lib and TensorFlow.js -- no upload to a server, no account needed.",
+        "coreTask": "Resize, compress, and convert images, PDFs, audio and video entirely in your browser -- no sign-up, no upload.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "ignlab-net",
+        "name": "IgnLab",
+        "url": "https://ignlab.net/",
+        "hostname": "ignlab.net",
+        "category": "Development",
+        "description": "A free collection of 14 browser-based web tools for developers and designers: batch image converter & optimizer, CSS and SVG generators, QR code generator, data extractor, email template tester, agile boards and more. Every tool runs 100% client-side.",
+        "coreTask": "Convert and optimize images, generate CSS/SVG effects, create QR codes, extract data from text, and more - every tool's full functionality is usable with no account.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "formatdrop-com",
+        "name": "FormatDrop",
+        "url": "https://formatdrop.com",
+        "hostname": "formatdrop.com",
+        "category": "Media",
+        "description": "Convert images, video, audio and documents right in your browser. HEIC to PNG, MP4 to GIF, DOCX to PDF and over 200 other format pairs. Files are processed on your own device and are never uploaded to a server, so nothing leaves the tab. No account and no install; a typical conversion finishes in one to three seconds.",
+        "coreTask": "Convert a file between formats without uploading it anywhere",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
           "free": false
         }
       }
@@ -706,6 +914,22 @@
           "clientSideOnly": true,
           "worksOffline": false,
           "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "svgviewer-app",
+        "name": "SVG Viewer",
+        "url": "https://svgviewer.app/",
+        "hostname": "svgviewer.app",
+        "category": "Design",
+        "description": "SVG Viewer is a free online toolkit designed to help designers, developers, and creators view, edit, optimize, and convert SVG files directly in their web browser. Instead of installing dedicated graphics software, users can upload an SVG file or paste SVG code and immediately see a real-time visual preview. The platform requires no sign-up, making it a convenient solution for quickly working with vector graphics.",
+        "coreTask": "View & edit SVG files with real-time preview",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
           "free": true
         }
       }
@@ -774,6 +998,38 @@
         }
       },
       {
+        "slug": "pdfzus-de",
+        "name": "pdfzus",
+        "url": "https://pdfzus.de/",
+        "hostname": "pdfzus.de",
+        "category": "Productivity",
+        "description": "Merge, reorder, and compress PDF files directly in your browser. The core workflow requires no account, adds no watermark, and processes files on your device.",
+        "coreTask": "Merge multiple PDFs, reorder pages, and compress PDF files directly in the browser.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "bytepriva-com-merge-pdf",
+        "name": "Merge PDF — BytePriva",
+        "url": "https://bytepriva.com/merge-pdf/",
+        "hostname": "bytepriva.com",
+        "category": "Productivity",
+        "description": "Merge multiple PDF files into one directly in your browser — no upload, no signup. Files are processed entirely client-side using your device's own processing power, so nothing ever leaves your computer. Drag, drop, reorder, and download instantly.",
+        "coreTask": "Merge multiple PDF files, reorder pages, and export the combined document",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
         "slug": "tinywow-com",
         "name": "TinyWow",
         "url": "https://tinywow.com",
@@ -808,6 +1064,190 @@
         "isFeatured": false,
         "capabilities": {
           "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      }
+    ]
+  },
+  "excel.com": {
+    "targetName": "Microsoft Excel",
+    "targetSlug": "excel",
+    "category": "Data",
+    "headline": "Client-side tabular data cleansing, spreadsheet parsing, and visual charting without Office 365 logins",
+    "tools": [
+      {
+        "slug": "lite-datasette-io",
+        "name": "Datasette Lite",
+        "url": "https://lite.datasette.io",
+        "hostname": "lite.datasette.io",
+        "category": "Data",
+        "description": "Datasette running entirely in your browser via WebAssembly (Pyodide). Upload SQLite databases or CSV files and explore them with a full SQL interface — no server, no account, and your data never leaves your device. Built on the popular Datasette data exploration framework by Simon Willison.",
+        "coreTask": "Explore and query SQLite databases and CSV files directly in your browser using SQL, with no installation or account needed.",
+        "isFeatured": true,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": true,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "csvjson-com",
+        "name": "CSVJSON",
+        "url": "https://csvjson.com",
+        "hostname": "csvjson.com",
+        "category": "Data",
+        "description": "Online tool for converting between CSV, JSON, and SQL formats. Also includes data cleaning and transformation utilities. All processing happens in the browser.",
+        "coreTask": "Convert between CSV, JSON, and SQL data formats",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "tableconvert-com",
+        "name": "TableConvert",
+        "url": "https://tableconvert.com",
+        "hostname": "tableconvert.com",
+        "category": "Data",
+        "description": "Convert between table formats: Excel, CSV, JSON, HTML, SQL, Markdown, LaTeX, and more. Edit tables visually and export in your preferred format.",
+        "coreTask": "Convert tables between Excel, CSV, JSON, Markdown, and more",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      },
+      {
+        "slug": "omnicalculator-com",
+        "name": "Omni Calculator",
+        "url": "https://omnicalculator.com",
+        "hostname": "omnicalculator.com",
+        "category": "Productivity",
+        "description": "Collection of over 3,000 free calculators for math, physics, finance, health, and everyday life. Each calculator explains the formulas and concepts behind it.",
+        "coreTask": "Calculate anything with 3,000+ specialized calculators",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": false
+        }
+      }
+    ]
+  },
+  "chatgpt.com": {
+    "targetName": "ChatGPT",
+    "targetSlug": "chatgpt",
+    "category": "AI",
+    "headline": "Instant AI query resolution, research answering, and code explanations without telephone or email registration",
+    "tools": [
+      {
+        "slug": "z-ai",
+        "name": "Z.ai Chat",
+        "url": "https://z.ai",
+        "hostname": "z.ai",
+        "category": "AI",
+        "description": "Free AI chatbot powered by GLM-5 and GLM-4.7 from Zhipu AI. Supports multilingual conversation, coding assistance, and data analysis.",
+        "coreTask": "Chat with GLM AI models for writing, coding, and analysis",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "crontab-guru",
+        "name": "Crontab Guru",
+        "url": "https://crontab.guru",
+        "hostname": "crontab.guru",
+        "category": "Development",
+        "description": "Visual cron expression editor with human-readable explanations. Quickly build and validate cron schedules.",
+        "coreTask": "Edit and understand cron expressions",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      },
+      {
+        "slug": "needgohome-netlify-app",
+        "name": "Need Go Home",
+        "url": "https://needgohome.netlify.app",
+        "hostname": "needgohome.netlify.app",
+        "category": "Writing",
+        "description": "A free, no-signup tool that drafts a clear, professional message for telling your manager you need to leave work early. Pick a reason, tone, and one of 12 languages (RTL for Arabic and Hebrew) and get a ready-to-send message plus alternatives for text, email, or chat. Rules-based, not AI. Everything runs in your browser.",
+        "coreTask": "Generate and copy a complete early-leave message in your chosen language, reason, and tone",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "explainshell-com",
+        "name": "ExplainShell",
+        "url": "https://explainshell.com",
+        "hostname": "explainshell.com",
+        "category": "Development",
+        "description": "Parse and explain shell commands. Paste any command line to get a detailed breakdown of each argument and flag.",
+        "coreTask": "Explain shell command syntax",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
+          "worksOffline": false,
+          "openSource": true,
+          "free": true
+        }
+      }
+    ]
+  },
+  "bitly.com": {
+    "targetName": "Bitly",
+    "targetSlug": "bitly",
+    "category": "Productivity",
+    "headline": "Fast URL shortening, custom redirection, and ephemeral link sharing without mandatory user accounts",
+    "tools": [
+      {
+        "slug": "free-qr-codes-com",
+        "name": "Free QR Codes",
+        "url": "https://free-qr-codes.com/",
+        "hostname": "free-qr-codes.com",
+        "category": "Productivity",
+        "description": "Privacy-first browser tools for creating, scanning and checking static QR codes. Create QR codes for URLs, Wi-Fi, contact details and more without signup, watermark or artificial expiry.",
+        "coreTask": "Create static QR codes, scan QR codes and check QR content directly in the browser without creating an account.",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": true,
+          "worksOffline": false,
+          "openSource": false,
+          "free": true
+        }
+      },
+      {
+        "slug": "fwd2-app",
+        "name": "Forward To",
+        "url": "https://fwd2.app",
+        "hostname": "fwd2.app",
+        "category": "Privacy",
+        "description": "This is a no login URL shortner that has a full API. It's unique because every URL comes with a revocation key that allows the user to disable the url at any time. Keys are provide upon URL generation there is no user login to use any services.",
+        "coreTask": "Create short links that can be revoked using a key, create canary links that alert you if your webhook has been fired to the URL destination of your choosing, remove and cancel a short link",
+        "isFeatured": false,
+        "capabilities": {
+          "clientSideOnly": false,
           "worksOffline": false,
           "openSource": false,
           "free": true

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
+  <defs>
+    <linearGradient id="sc3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#sc3Bg)" />
+
+  <!-- Center Card: Privacy Audit & Architecture HUD -->
+  <g transform="translate(140, 100)">
+    <rect width="1000" height="600" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="2" filter="drop-shadow(0 25px 30px rgba(0,0,0,0.5))" />
+
+    <!-- Window Header -->
+    <rect width="1000" height="60" rx="20" fill="#030712" />
+    <rect y="44" width="1000" height="16" fill="#030712" />
+    <circle cx="36" cy="30" r="7" fill="#ef4444" />
+    <circle cx="58" cy="30" r="7" fill="#f59e0b" />
+    <circle cx="80" cy="30" r="7" fill="#10b981" />
+    <text x="500" y="36" font-family="monospace" font-size="13" fill="#64748b" text-anchor="middle">nologin.tools/privacy-architecture-verification</text>
+
+    <!-- Main Content Area -->
+    <g transform="translate(60, 90)">
+      <rect x="0" y="0" width="180" height="30" rx="15" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
+      <text x="90" y="20" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#34d399" text-anchor="middle" letter-spacing="1">ZERO TELEMETRY AUDIT</text>
+
+      <text x="0" y="70" font-family="-apple-system, sans-serif" font-weight="900" font-size="34" fill="#ffffff" letter-spacing="-0.5">
+        Strict Privacy &amp; Data Sovereignty Guarantee
+      </text>
+      <text x="0" y="105" font-family="-apple-system, sans-serif" font-weight="500" font-size="15" fill="#94a3b8">
+        No accounts, no user telemetry, and no remote code execution. Built for absolute peace of mind.
+      </text>
+
+      <!-- 3 Pillars Grid -->
+      <g transform="translate(0, 140)">
+        <!-- Pillar 1 -->
+        <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
+        <circle cx="44" cy="44" r="22" fill="#10b981" fill-opacity="0.2" />
+        <text x="44" y="51" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#34d399" text-anchor="middle">0</text>
+        <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">0 Accounts Needed</text>
+        <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
+          <tspan x="24" dy="0">No sign-up forms, credit cards,</tspan>
+          <tspan x="24" dy="18">or email verifications. Every tool</tspan>
+          <tspan x="24" dy="18">launches instantly in-browser.</tspan>
+        </text>
+        <rect x="24" y="194" width="130" height="28" rx="6" fill="#065f46" />
+        <text x="89" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#34d399" text-anchor="middle">✓ Instant Access</text>
+
+        <!-- Pillar 2 -->
+        <g transform="translate(305, 0)">
+          <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
+          <circle cx="44" cy="44" r="22" fill="#38bdf8" fill-opacity="0.2" />
+          <text x="44" y="50" font-family="monospace" font-weight="900" font-size="13" fill="#38bdf8" text-anchor="middle">WASM</text>
+          <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Client-Side WASM</text>
+          <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
+            <tspan x="24" dy="0">Codecs and editors execute</tspan>
+            <tspan x="24" dy="18">directly in local RAM. Zero</tspan>
+            <tspan x="24" dy="18">file upload to remote servers.</tspan>
+          </text>
+          <rect x="24" y="194" width="130" height="28" rx="6" fill="#0369a1" />
+          <text x="89" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#7dd3fc" text-anchor="middle">✓ Zero Data Egress</text>
+        </g>
+
+        <!-- Pillar 3 -->
+        <g transform="translate(610, 0)">
+          <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
+          <circle cx="44" cy="44" r="22" fill="#eab308" fill-opacity="0.2" />
+          <text x="44" y="51" font-family="-apple-system, sans-serif" font-weight="900" font-size="16" fill="#fde047" text-anchor="middle">MV3</text>
+          <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Minimal Permission</text>
+          <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
+            <tspan x="24" dy="0">Only activeTab on user click.</tspan>
+            <tspan x="24" dy="18">Zero background listeners,</tspan>
+            <tspan x="24" dy="18">zero history inspection.</tspan>
+          </text>
+          <rect x="24" y="194" width="155" height="28" rx="6" fill="#854d0e" />
+          <text x="101" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#fde047" text-anchor="middle">✓ Google Store Approved</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

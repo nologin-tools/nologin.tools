@@ -7,6 +7,9 @@
 - **Short Description**:
   Instantly discover verified zero-login, private in-browser alternatives when browsing closed or paywalled web tools.
   *(116 / 132 characters)*
+- **Extension ID**: `hblmlbgnglelpkogmadngkjepiapnnon`
+- **Store URL**: https://chromewebstore.google.com/detail/hblmlbgnglelpkogmadngkjepiapnnon
+- **Reviews URL**: https://chromewebstore.google.com/detail/hblmlbgnglelpkogmadngkjepiapnnon/reviews
 - **Category**: Productivity
 - **Primary Language**: English
 - **Website**: https://nologin.tools
