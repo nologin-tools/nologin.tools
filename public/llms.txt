@@ -183,6 +183,11 @@ End-to-end procedural recipes chaining 2 to 4 verified no-login web tools to acc
 - [Social Media Graphic & GIF Optimization](https://nologin.tools/workflow/social-media-media-prep): Photopea multi-layer raster composition → ezGIF frame trimming & lossy GIF optimizer → Squoosh WebP responsive image compression.
 - [Spatial Data Mapping & Format Pipeline](https://nologin.tools/workflow/geodata-to-interactive-map): GeoJSON.io geometry marker & polygon drawing → Convertio coordinate format conversion → RAWGraphs density and spatial distribution visualization.
 - [Complete Browser Leak & Security Audit](https://nologin.tools/workflow/browser-privacy-and-leak-audit): IPLeak WebRTC & IP leak audit → DNS Leak Test resolver integrity verification → Security Headers HTTP security evaluation → privacy.sexy OS telemetry removal scripts.
+- [Hardware Engineering & 3D Inspection Pipeline](https://nologin.tools/workflow/hardware-engineering-and-3d-inspection): Fomrix STL viewer → Salitronic Gerber analyzer → Omni Calculator electronics calculations.
+- [Air-Gapped Developer Payload & SQL Audit Pipeline](https://nologin.tools/workflow/air-gapped-developer-payload-and-sql-audit): Bytepane payload testing → Telemetry.sh SQL playground → Textunnel ephemeral secure tunneling.
+- [Zero-Server Audio Synthesis & Sound Design Pipeline](https://nologin.tools/workflow/zero-server-audio-synthesis-and-sound-design): Online Tone Generator audio synthesis → AudioMass DAW mixing & EQ → QuickBGCut album artwork removal.
+- [Offline Code Diff & Schema Transformation Pipeline](https://nologin.tools/workflow/offline-code-diff-and-schema-transformation): Compare Diff inline/split text differ → transform.tools TypeScript/Rust/Go schema generator → AST Explorer syntax tree inspection → CyberChef payload checksum & packaging.
+- [Interactive STEM Math & Physics Simulation Pipeline](https://nologin.tools/workflow/stem-math-and-physics-simulation): WolframAlpha analytical solver → Desmos 2D dynamic graphing → GeoGebra 3D WebGL geometry → PhET interactive physics simulation.
 
 ## Curated Persona Stacks & Toolkits
 

@@ -20,10 +20,10 @@ const approvedToolSlugs = new Set(
 );
 
 describe('Workflow Recipes Data Model', () => {
-  it('defines 13 high-intent workflow recipes', () => {
-    assert.equal(WORKFLOW_RECIPES.length, 13);
+  it('defines 15 high-intent workflow recipes', () => {
+    assert.equal(WORKFLOW_RECIPES.length, 15);
     const recipes = getWorkflowRecipes();
-    assert.equal(recipes.length, 13);
+    assert.equal(recipes.length, 15);
   });
 
   it('has valid URL-safe slugs for all recipes', () => {

@@ -1,5 +1,5 @@
-const EN_NO_LOGIN_PATTERN = /\b(?:no login|no account|without login|without signup|no signup|without registration|no registration)\b/i;
-const GLOBAL_NO_LOGIN_PATTERN = /(?:no login|no account|without login|without signup|no signup|without registration|no registration|免登录|无需登录|无需注册|ログイン不要|会員登録不要|sin registro|sin iniciar sesión|sans inscription|sans connexion|ohne anmeldung|ohne registrierung|sem login|sem cadastro|로그인 없이|회원가입 없이)/i;
+const EN_NO_LOGIN_PATTERN = /\b(?:no\s+(?:login|sign[- ]?up|sign[- ]?in|account|registration)|without\s+(?:(?:a|an|any)\s+)?(?:login|sign[- ]?up|sign[- ]?in|account|registration)|without\s+registering|without\s+signing\s+(?:in|up)|no\s+[\w\s]{0,20}account)\b/i;
+const GLOBAL_NO_LOGIN_PATTERN = /(?:no\s+(?:login|sign[- ]?up|sign[- ]?in|account|registration)|without\s+(?:(?:a|an|any)\s+)?(?:login|sign[- ]?up|sign[- ]?in|account|registration)|without\s+registering|without\s+signing\s+(?:in|up)|no\s+[\w\s]{0,20}account|免登录|无需登录|无需注册|无需账号|不用登录|ログイン不要|会員登録不要|sin registro|sin iniciar sesión|sans inscription|sans connexion|ohne anmeldung|ohne registrierung|sem login|sem cadastro|로그인 없이|회원가입 없이)/i;
 const TERMINAL_PUNCTUATION_PATTERN = /[.!?。！？]+$/u;
 const CJK_LOCALES = new Set(['zh', 'ja', 'ko']);
 const NO_LOGIN_SUFFIX_BY_LOCALE = {
