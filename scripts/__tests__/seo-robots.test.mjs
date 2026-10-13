@@ -43,6 +43,7 @@ describe('SEO & GEO: robots.txt compliance', () => {
     assert.ok(content.includes('Disallow: /admin'), 'Must disallow /admin');
     assert.ok(content.includes('Disallow: /api/'), 'Must disallow /api/');
     assert.ok(content.includes('Disallow: /ssr/'), 'Must disallow /ssr/');
+    assert.ok(!content.includes('Disallow: /*?'), 'Must not disallow query parameters to permit canonical 301 deindexing in GSC');
   });
 
   it('public/robots.txt declares sitemap and llms-txt', () => {

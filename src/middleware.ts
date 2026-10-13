@@ -44,11 +44,32 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   // Trailing slash normalization: /path/ → /path (301, GET only to avoid breaking POST forms)
-  if (request.method === 'GET' && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
-    const cleanPath = pathname.replace(/\/+$/, '');
+  const ALLOWED_QUERY_PATHS = /^\/(api|admin|ssr|submit\/success|finder)(\/|$)/;
+
+  // 301 Permanent Redirect to strip extraneous search parameters from canonical content pages
+  // (Consolidates GSC indexing to canonical URLs, prevents spider traps and soft 404s)
+  if (
+    request.method === 'GET' &&
+    url.search &&
+    !ALLOWED_QUERY_PATHS.test(pathname) &&
+    !HAS_EXTENSION_REGEX.test(pathname)
+  ) {
+    const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
     return new Response(null, {
       status: 301,
-      headers: { Location: cleanPath + url.search },
+      headers: {
+        Location: cleanPath,
+        'Cache-Control': 'public, max-age=86400',
+      },
+    });
+  }
+
+  if (request.method === 'GET' && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
+    const cleanPath = pathname.replace(/\/+$/, '');
+    const cleanSearch = ALLOWED_QUERY_PATHS.test(cleanPath) ? url.search : '';
+    return new Response(null, {
+      status: 301,
+      headers: { Location: cleanPath + cleanSearch },
     });
   }
 
@@ -57,10 +78,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const firstSegment = pathname.split('/').filter(Boolean)[0];
     if (firstSegment && RETIRED_LOCALES.includes(firstSegment)) {
       const remainder = pathname.slice(firstSegment.length + 1) || '/';
+      const cleanSearch = ALLOWED_QUERY_PATHS.test(remainder) ? url.search : '';
       return new Response(null, {
         status: 301,
         headers: {
-          Location: remainder + url.search,
+          Location: remainder + cleanSearch,
           'Cache-Control': 'public, max-age=86400',
         },
       });
@@ -72,18 +94,23 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
     const target = STATIC_REDIRECTS[cleanPath] || STATIC_REDIRECTS[pathname];
     if (target) {
+      const cleanSearch = ALLOWED_QUERY_PATHS.test(target) ? url.search : '';
       return new Response(null, {
         status: 301,
         headers: {
-          Location: target + url.search,
+          Location: target + cleanSearch,
           'Cache-Control': 'public, max-age=86400',
         },
       });
     }
   }
 
-  // Accept-Language redirect for paths without locale prefix
-  if (request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+  // Accept-Language redirect for paths without locale prefix (Exempt all search engine crawlers & bots)
+  const BOT_REGEX = /Googlebot|bingbot|Baiduspider|YandexBot|DuckDuckBot|Applebot|Sogou|Slurp|facebookexternalhit|Twitterbot|LinkedInBot|Bytespider|ClaudeBot|GPTBot|PerplexityBot|NoLoginTools/i;
+  const userAgent = request.headers.get('user-agent') || '';
+  const isBot = BOT_REGEX.test(userAgent);
+
+  if (request.method === 'GET' && !isBot && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
     const firstSegment = pathname.split('/').filter(Boolean)[0];
     const hasLocalePrefix = firstSegment && NON_DEFAULT_LOCALES.includes(firstSegment);
 

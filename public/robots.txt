@@ -18,7 +18,6 @@ Allow: /llms-full.txt
 Disallow: /admin
 Disallow: /api/
 Disallow: /ssr/
-Disallow: /*?
 
 # Standard Search Engines
 User-agent: Googlebot
@@ -30,7 +29,6 @@ Allow: /llms-full.txt
 Disallow: /admin
 Disallow: /api/
 Disallow: /ssr/
-Disallow: /*?
 
 # Sitemaps & LLM Context
 Sitemap: https://nologin.tools/sitemap.xml
