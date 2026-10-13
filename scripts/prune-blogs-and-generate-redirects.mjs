@@ -89,19 +89,94 @@ export function generateRedirectsContent() {
     '# Cloudflare Pages Redirects (_redirects)',
     '# SEO Consolidation & Recovery Configuration for nologin.tools',
     '# =========================================================================',
+    '# --- Hostname Consolidation (www → non-www, http → https) ---',
+    'https://www.nologin.tools/* https://nologin.tools/:splat 301!',
+    'http://www.nologin.tools/* https://nologin.tools/:splat 301!',
+    'http://nologin.tools/* https://nologin.tools/:splat 301!',
+    '',
+    '# --- Legal & Privacy Recovery (301 Permanent) ---',
+    '/legal /privacy 301',
+    '/legal/ /privacy 301',
+    '/zh/legal /zh/privacy 301',
+    '/zh/legal/ /zh/privacy 301',
+    '',
+    '# --- Retired Locales Consolidation (ja, ko, es, fr, de, pt) → English (301 Permanent) ---',
+    '/ja/* /:splat 301',
+    '/ko/* /:splat 301',
+    '/es/* /:splat 301',
+    '/fr/* /:splat 301',
+    '/de/* /:splat 301',
+    '/pt/* /:splat 301',
+    '/ja / 301',
+    '/ko / 301',
+    '/es / 301',
+    '/fr / 301',
+    '/de / 301',
+    '/pt / 301',
+    '',
+    '# --- Delisted & Renamed Tools 301 Redirects (Top priority for Cloudflare 100-rule limit) ---',
+    '/tool/monkeetools-surge-sh /tool/monkeetools-pages-dev 301',
+    '/tool/monkeetools-surge-sh/ /tool/monkeetools-pages-dev 301',
+    '/badge/monkeetools-surge-sh /badge/monkeetools-pages-dev 301',
+    '/badge/monkeetools-surge-sh/ /badge/monkeetools-pages-dev 301',
+    '/zh/tool/monkeetools-surge-sh /zh/tool/monkeetools-pages-dev 301',
+    '/zh/tool/monkeetools-surge-sh/ /zh/tool/monkeetools-pages-dev 301',
+    '/zh/badge/monkeetools-surge-sh /zh/badge/monkeetools-pages-dev 301',
+    '/zh/badge/monkeetools-surge-sh/ /zh/badge/monkeetools-pages-dev 301',
+    '/tool/hat-sh /category/privacy 301',
+    '/tool/hat-sh/ /category/privacy 301',
+    '/badge/hat-sh /category/privacy 301',
+    '/badge/hat-sh/ /category/privacy 301',
+    '/zh/tool/hat-sh /zh/category/privacy 301',
+    '/zh/tool/hat-sh/ /zh/category/privacy 301',
+    '/zh/badge/hat-sh /zh/category/privacy 301',
+    '/zh/badge/hat-sh/ /zh/category/privacy 301',
+    '/tool/unscreen-com /category/media 301',
+    '/tool/unscreen-com/ /category/media 301',
+    '/badge/unscreen-com /category/media 301',
+    '/badge/unscreen-com/ /category/media 301',
+    '/zh/tool/unscreen-com /zh/category/media 301',
+    '/zh/tool/unscreen-com/ /zh/category/media 301',
+    '/zh/badge/unscreen-com /zh/category/media 301',
+    '/zh/badge/unscreen-com/ /zh/category/media 301',
+    '/tool/phind-com /category/ai 301',
+    '/tool/phind-com/ /category/ai 301',
+    '/badge/phind-com /category/ai 301',
+    '/badge/phind-com/ /category/ai 301',
+    '/zh/tool/phind-com /zh/category/ai 301',
+    '/zh/tool/phind-com/ /zh/category/ai 301',
+    '/zh/badge/phind-com /zh/category/ai 301',
+    '/zh/badge/phind-com/ /zh/category/ai 301',
+    '/tool/huggingface-co-chat /category/ai 301',
+    '/tool/huggingface-co-chat/ /category/ai 301',
+    '/badge/huggingface-co-chat /category/ai 301',
+    '/badge/huggingface-co-chat/ /category/ai 301',
+    '/zh/tool/huggingface-co-chat /zh/category/ai 301',
+    '/zh/tool/huggingface-co-chat/ /zh/category/ai 301',
+    '/zh/badge/huggingface-co-chat /zh/category/ai 301',
+    '/zh/badge/huggingface-co-chat/ /zh/category/ai 301',
+    '/tool/clideo-com /category/media 301',
+    '/tool/clideo-com/ /category/media 301',
+    '/badge/clideo-com /category/media 301',
+    '/badge/clideo-com/ /category/media 301',
+    '/zh/tool/clideo-com /zh/category/media 301',
+    '/zh/tool/clideo-com/ /zh/category/media 301',
+    '/zh/badge/clideo-com /zh/category/media 301',
+    '/zh/badge/clideo-com/ /zh/category/media 301',
+    '',
     '# --- Blog Pruning & Pillar Article Consolidation (301 Permanent) ---',
     '',
   ];
 
   for (const [fromSlug, toSlug] of Object.entries(REDIRECT_MAP)) {
-    // English version (pointing directly to canonical directory URL on Cloudflare Pages)
-    lines.push(`/blog/${fromSlug} /blog/${toSlug}/ 301`);
-    lines.push(`/blog/${fromSlug}/ /blog/${toSlug}/ 301`);
+    // English version (pointing directly to canonical non-trailing slash URL)
+    lines.push(`/blog/${fromSlug} /blog/${toSlug} 301`);
+    lines.push(`/blog/${fromSlug}/ /blog/${toSlug} 301`);
 
     // Multi-locale versions
     for (const lang of ALL_LOCALES) {
-      lines.push(`/${lang}/blog/${fromSlug} /${lang}/blog/${toSlug}/ 301`);
-      lines.push(`/${lang}/blog/${fromSlug}/ /${lang}/blog/${toSlug}/ 301`);
+      lines.push(`/${lang}/blog/${fromSlug} /${lang}/blog/${toSlug} 301`);
+      lines.push(`/${lang}/blog/${fromSlug}/ /${lang}/blog/${toSlug} 301`);
     }
   }
 

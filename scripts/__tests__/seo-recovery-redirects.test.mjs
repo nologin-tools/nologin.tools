@@ -49,9 +49,12 @@ describe('SEO Recovery - Redirects & Content Pruning', () => {
     assert.equal(files.length, 35, 'Should leave exactly 35 curated pillar posts and tool reviews');
   });
 
-  it('public/_redirects redirects to canonical directory URLs with trailing slash', () => {
+  it('public/_redirects redirects to canonical URLs without trailing slash', () => {
     const content = readFileSync(resolve(ROOT, 'public/_redirects'), 'utf-8');
-    assert.ok(content.includes('/blog/edit-pdf-without-adobe-free-no-login /blog/edit-pdf-without-installing-anything/ 301'));
+    assert.ok(content.includes('/blog/edit-pdf-without-adobe-free-no-login /blog/edit-pdf-without-installing-anything 301'));
+    assert.ok(content.includes('https://www.nologin.tools/* https://nologin.tools/:splat 301!'), 'Must force redirect www to non-www');
+    assert.ok(content.includes('/legal /privacy 301'), 'Must redirect /legal to /privacy');
+    assert.ok(content.includes('/tool/monkeetools-surge-sh /tool/monkeetools-pages-dev 301'), 'Must redirect monkeetools-surge-sh');
     assert.ok(!content.includes('/about/ /about 301'), 'Must not create redirect loop on /about/');
     assert.ok(!content.includes('/blog/ /blog 301'), 'Must not create redirect loop on /blog/');
   });
