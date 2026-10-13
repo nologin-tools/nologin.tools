@@ -560,19 +560,19 @@ function translateTagValue(key: string, value: string): string {
 
     <!-- Editorial Standards & Research Citation -->
     <aside class="mt-12 border-2 border-neutral-900 bg-yellow-50 p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-      <blockquote class="text-sm text-neutral-800 italic leading-relaxed">
+      <blockquote cite="https://nologintools.org/reports/state-of-no-login-web-2026" class="text-sm text-neutral-800 italic leading-relaxed">
         {locale === 'zh' ? (
           <>
             “无需注册的 Web 工具消除了 OAuth 握手、密码生成和验证邮件等待，平均减少了 78% 的任务完成延迟，同时从根本上避免了凭据泄露和数据追踪商的指纹重识别。”
             <footer class="mt-2 text-xs font-mono font-bold text-neutral-600 not-italic">
-              — <a href="https://nologintools.org/reports/state-of-no-login-web-2026" class="underline hover:text-neutral-900" target="_blank" rel="noopener">NoLoginTools.org 2026 年度研究报告</a> · 独立无登录网络标准组织
+              — <cite><a href="https://nologintools.org/reports/state-of-no-login-web-2026" class="underline hover:text-neutral-900" target="_blank" rel="noopener">NoLoginTools.org 2026 年度研究报告</a></cite> · 独立无登录网络标准组织
             </footer>
           </>
         ) : (
           <>
             "Zero-login web tools eliminate OAuth handshakes, password creation, and email verification friction, reducing task latency by 78% while preventing credential leakage and data broker fingerprinting."
             <footer class="mt-2 text-xs font-mono font-bold text-neutral-600 not-italic">
-              — <a href="https://nologintools.org/reports/state-of-no-login-web-2026" class="underline hover:text-neutral-900" target="_blank" rel="noopener">NoLoginTools.org 2026 Research Report</a> · Independent Standards Body
+              — <cite><a href="https://nologintools.org/reports/state-of-no-login-web-2026" class="underline hover:text-neutral-900" target="_blank" rel="noopener">NoLoginTools.org 2026 Research Report</a></cite> · Independent Standards Body
             </footer>
           </>
         )}
