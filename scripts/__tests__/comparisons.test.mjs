@@ -17,10 +17,10 @@ const editorialPath = resolve(__dirname, '../../src/data/tool-editorial.json');
 const editorialData = JSON.parse(readFileSync(editorialPath, 'utf-8'));
 
 describe('Comparison Pairs Data Model', () => {
-  it('defines 10 high-intent comparison pairs', () => {
-    assert.equal(COMPARISON_PAIRS.length, 10);
+  it('defines 14 high-intent comparison pairs', () => {
+    assert.equal(COMPARISON_PAIRS.length, 14);
     const pairs = getComparisonPairs();
-    assert.equal(pairs.length, 10);
+    assert.equal(pairs.length, 14);
   });
 
   it('has valid URL-safe slugs for all pairs', () => {

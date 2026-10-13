@@ -219,6 +219,86 @@ export const COMPARISON_PAIRS = [
       ],
     },
   },
+  {
+    slug: 'desmos-vs-geogebra',
+    toolASlug: 'desmos-com-calculator',
+    toolBSlug: 'geogebra-org-calculator',
+    category: 'Education',
+    headline: 'Fast intuitive 2D graphing & equation analysis vs comprehensive 3D geometry, calculus, and CAS algebra suite',
+    verdict: {
+      summary: 'Desmos is the gold standard for responsive 2D graphing, equation visualization, and classroom algebra, while GeoGebra offers a full mathematical laboratory with dynamic 3D geometry, CAS symbolic computation, and calculus construction.',
+      chooseAIf: [
+        'You need ultra-fast, intuitive 2D Cartesian and polar equation plotting with instant slider animations',
+        'You want clean, uncluttered visual graphs for physics, calculus, or statistics problem sets',
+        'You prefer a lightweight interface with zero learning curve for rapid mathematical sketching',
+      ],
+      chooseBIf: [
+        'You require 3D spatial geometry, vector planes, polyhedra, and surface rotation',
+        'You need symbolic computer algebra (CAS), polynomial factorization, and step-by-step calculus derivatives',
+        'You are building interactive Euclidean geometric proofs with compass, straightedge, and angle bisector tools',
+      ],
+    },
+  },
+  {
+    slug: 'browserleaks-vs-ipleak',
+    toolASlug: 'browserleaks-com',
+    toolBSlug: 'ipleak-net',
+    category: 'Privacy',
+    headline: 'Deep hardware fingerprinting & canvas/WebGL leak audit vs real-time IP, WebRTC, and DNS resolver integrity testing',
+    verdict: {
+      summary: 'BrowserLeaks provides granular cryptographic hardware fingerprint inspection (Canvas, WebGL, AudioContext, Font metrics), while IPLeak focuses on instantaneous network-layer anonymity diagnostics (WebRTC IPv4/IPv6 leaks, DNS server integrity, torrent IP inspection).',
+      chooseAIf: [
+        'You want to inspect deep browser fingerprint entropy including HTML5 Canvas hash, WebGL vendor strings, and AudioContext signatures',
+        'You are testing anti-detect browsers or fingerprint resistance settings in Brave, Firefox, or Tor Browser',
+        'You need technical parameter breakdowns of font rendering metrics and screen hardware properties',
+      ],
+      chooseBIf: [
+        'You need a rapid, unified sanity check on VPN and proxy leaks (WebRTC STUN/TURN candidate leaks)',
+        'You want to detect transparent DNS hijacking and verify that all DNS queries resolve through your VPN provider',
+        'You need to test torrent client IP binding and geo-location header consistency',
+      ],
+    },
+  },
+  {
+    slug: 'cyberchef-vs-transform-tools',
+    toolASlug: 'gchq-github-io-cyberchef',
+    toolBSlug: 'transform-tools',
+    category: 'Development',
+    headline: 'General cryptographic decoding & byte-level pipeline workbench vs multi-language AST code and schema transpiler',
+    verdict: {
+      summary: 'CyberChef is the premier data forensics workstation for chaining byte-level decoders, hashes, and parsers, while transform.tools specializes in modern frontend and backend code conversion (JSON to TypeScript, GraphQL to types, CSS to Tailwind, SVG to JSX).',
+      chooseAIf: [
+        'You are decoding Base64, Hex, URL encoding, gzip streams, or inspecting raw binary byte dumps',
+        'You need to chain sequential data operations (e.g. Base64 decode → Gunzip → JSON beautify → SHA-256 hash)',
+        'You are doing cybersecurity triage, CTF challenges, or digital forensics without sending data over the network',
+      ],
+      chooseBIf: [
+        'You need instant code generation: JSON to TypeScript interfaces, Rust structs, or Go types',
+        'You want to convert design tokens: CSS to Tailwind, SVG to React JSX, or JSON to Zod schemas',
+        'You are scaffolding API contracts and type definitions during web engineering',
+      ],
+    },
+  },
+  {
+    slug: 'comparediff-vs-diffhero',
+    toolASlug: 'comparediff-io',
+    toolBSlug: 'diffhero-app',
+    category: 'Development',
+    headline: 'Ultra-fast inline text and markdown diff comparator vs visual side-by-side file syntax differ with line folding',
+    verdict: {
+      summary: 'Compare Diff delivers an instant, zero-friction inline text differ with clean character-level highlighting in local memory, whereas Diffhero provides a full side-by-side file comparison suite with code syntax highlighting and multi-file support.',
+      chooseAIf: [
+        'You need a quick, no-nonsense text comparison for pasting two snippets of prose, markdown, or config files',
+        'You want instantaneous character-by-character deletion and insertion highlights without extra UI controls',
+        'You prefer a clean, minimal interface that executes 100% in local memory with zero external requests',
+      ],
+      chooseBIf: [
+        'You are comparing full source code files with language-aware syntax highlighting and line numbers',
+        'You need side-by-side split view with synchronized scrolling and foldable unchanged blocks',
+        'You want to upload larger code files and export unified diff patches (.patch / .diff)',
+      ],
+    },
+  },
 ];
 
 /**

@@ -164,6 +164,10 @@ Direct side-by-side technical benchmarks, privacy matrices, and scenario-based v
 - [Photopea vs ezGIF](https://nologin.tools/compare/photopea-vs-ezgif): Full Photoshop-grade raster studio vs animated GIF creation suite.
 - [Haikei vs Fffuel](https://nologin.tools/compare/haikei-vs-fffuel): Unified multi-shape vector background studio vs modular generative SVG pattern tools.
 - [CSVJSON vs TableConvert](https://nologin.tools/compare/csvjson-vs-tableconvert): Developer data parser & SQL generator vs documentation table converter.
+- [Desmos vs GeoGebra](https://nologin.tools/compare/desmos-vs-geogebra): Dedicated graphing calculator vs comprehensive STEM dynamic geometry & 3D CAS suite.
+- [BrowserLeaks vs IPLeak](https://nologin.tools/compare/browserleaks-vs-ipleak): Deep canvas/WebGL/hardware entropy suite vs fast connection & WebRTC leak diagnostics.
+- [CyberChef vs Transform Tools](https://nologin.tools/compare/cyberchef-vs-transform-tools): Cryptographic recipe pipeline & hex parser vs frontend AST/schema code generator.
+- [CompareDiff vs DiffHero](https://nologin.tools/compare/comparediff-vs-diffhero): Client-side zero-egress text diff engine vs side-by-side syntax comparison workspace.
 
 ## Curated No-Login Workflow Recipes
 
