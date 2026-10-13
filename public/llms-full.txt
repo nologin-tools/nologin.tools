@@ -115,9 +115,9 @@ Every approved tool in nologin.tools undergoes empirical, hands-on testing throu
 
 ### The Anti-Inflation Golden Pyramid
 To prevent grade inflation and maintain genuine directory authority, nologin.tools enforces a calibrated tier pyramid:
-- 👑 **Editor's Choice (90–100 pts)**: Top ~12%–15% (~42 tools). Reserved exclusively for elite workstations. Protected by the **High-Score Defense Gate** (requires `depth >= 22` and documented workstation architecture proof).
-- 🌟 **Highly Recommended (80–89 pts)**: ~35%–45% (~140 tools). Deep, versatile, production-ready utilities.
-- 🛠️ **Capable Utility (70–79 pts)**: ~35%–45% (~103 tools). Single-purpose utilities and calculators that reliably execute a single task.
+- 👑 **Editor's Choice (90–100 pts)**: Top ~12%–15% (~44 tools). Reserved exclusively for elite workstations. Protected by the **High-Score Defense Gate** (requires `depth >= 22` and documented workstation architecture proof).
+- 🌟 **Highly Recommended (80–89 pts)**: ~35%–45% (~153 tools). Deep, versatile, production-ready utilities.
+- 🛠️ **Capable Utility (70–79 pts)**: ~35%–45% (~110 tools). Single-purpose utilities and calculators that reliably execute a single task.
 - ⚠️ **Emergency Only (<70 pts)**: ~3%–5% (~11 tools). Functional utilities accompanied by advertising clutter or functional limitations.
 
 ---

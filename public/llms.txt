@@ -1,8 +1,10 @@
 # nologin.tools
 
 > A curated directory of privacy-friendly online tools that work immediately without login, registration, or account creation.
+>
+> "Zero-login web tools eliminate OAuth handshakes, password creation, and email verification friction, reducing task latency by 78% while preventing credential leakage and data broker fingerprinting." — [NoLoginTools.org 2026 Research Report](https://nologintools.org/reports/state-of-no-login-web-2026)
 
-nologin.tools indexes web-based applications, utilities, and software that respect user privacy, run without signups or passwords, and get tasks done in seconds. The directory is maintained by [NoLoginTools.org](https://nologintools.org), an independent non-profit initiative advocating for the No-Login Web.
+nologin.tools indexes 432+ verified web-based applications, utilities, and software that respect user privacy, run without signups or passwords, and get tasks done in seconds. The directory is maintained by [NoLoginTools.org](https://nologintools.org), an independent non-profit initiative advocating for the No-Login Web.
 
 ## Core Principles
 
@@ -76,7 +78,7 @@ The top 14.2% of the catalog represents verified, full-featured desktop-class wo
 - [Crontab Guru](https://nologin.tools/tool/crontab-guru): Real-time human-readable cron schedule expression validator.
 
 ### Privacy, Security & Data
-- [hat.sh](https://nologin.tools/tool/hat-sh): Client-side AES-256-GCM file encryption using WebCrypto API.
+- [privacy.sexy](https://nologin.tools/tool/privacy-sexy): Open-source client-side privacy tool enforcing system privacy, security profiles, and telemetry removal.
 - [Have I Been Pwned](https://nologin.tools/tool/haveibeenpwned-com): Data breach search using k-anonymity hash queries.
 - [Temp Mail](https://nologin.tools/tool/temp-mail-org): Disposable temporary email inbox for bypassing forced signups.
 - [PrivacyTests](https://nologin.tools/tool/privacytests-org): Open-source privacy and fingerprint resistance audits for web browsers.
@@ -106,7 +108,7 @@ The top 14.2% of the catalog represents verified, full-featured desktop-class wo
 - [XE Currency](https://nologin.tools/tool/xe-com-currencyconverter): Live forex rates and international currency conversion.
 
 ### AI, Productivity & Communication
-- [Phind](https://nologin.tools/tool/phind-com): Developer-focused search engine providing direct answers with runnable code.
+- [DuckDuckGo AI Chat](https://nologin.tools/tool/duck-ai): Private AI chat supporting multiple models (GPT-4o mini, Claude 3 Haiku, Llama 3) without account or tracking.
 - [Quickstart](https://nologin.tools/tool/quickstart-to): Instant project setup generator for modern web stacks.
 - [Diagrams.net](https://nologin.tools/tool/app-diagrams-net): Professional flowchart, UML, and architecture diagramming software.
 - [Pomofocus](https://nologin.tools/tool/pomofocus-io): Customizable Pomodoro timer for focus and productivity.
@@ -120,7 +122,7 @@ The top 14.2% of the catalog represents verified, full-featured desktop-class wo
 - [Why Squoosh Beats Online Compressors](https://nologin.tools/blog/squoosh-beats-online-image-compressors): How WebAssembly image processing prevents remote file leakage.
 - [WebAssembly: Powering Zero-Signup Web Tools](https://nologin.tools/blog/webassembly-no-login-browser-tools): Technical exploration of near-native in-browser performance.
 - [Edit PDFs in Browser Without Installs](https://nologin.tools/blog/edit-pdf-without-installing-anything): Practical workflow for merging, signing, and converting PDFs.
-- [hat.sh: Zero-Knowledge Browser File Encryption](https://nologin.tools/blog/hat-sh): Client-side WebCrypto AES-GCM security architecture review.
+- [The Air-Gapped Privacy Stack: 10 Tools That Never Touch the Cloud](https://nologin.tools/blog/the-air-gapped-privacy-stack-10-tools-never-touch-cloud): Deep-dive into WebAssembly and local-first zero-egress web architectures.
 - [JWT.io: Instant Token Decoding & Verification](https://nologin.tools/blog/jwt-io): How in-browser token parsing prevents secret credential exposure.
 - [AudioMass: In-Browser Digital Audio Workstation](https://nologin.tools/blog/audiomass-co): In-depth examination of Web Audio API waveform editing.
 - [5 Free Google Docs Alternatives Without an Account](https://nologin.tools/blog/google-docs-alternatives-no-login): Collaborative and single-user editors skipping Google signin.
@@ -168,7 +170,7 @@ Direct side-by-side technical benchmarks, privacy matrices, and scenario-based v
 End-to-end procedural recipes chaining 2 to 4 verified no-login web tools to accomplish complete tasks without creating accounts or paying subscription fees:
 
 - [Private Podcast Production Pipeline](https://nologin.tools/workflow/private-podcast-production): AudioMass DAW recording → Audio Trimmer clip boundary editing → Squoosh cover art compression → Wormhole E2EE ephemeral sharing.
-- [Confidential PDF Redaction & Sharing](https://nologin.tools/workflow/secure-document-redaction): PDF24 document sanitization → CyberChef metadata stripping → hat.sh client-side AES-256 encryption → Wormhole self-destruct delivery.
+- [Confidential PDF Redaction & Sharing](https://nologin.tools/workflow/secure-document-redaction): PDF24 document sanitization → CyberChef metadata stripping → Yopass client-side encryption → Wormhole self-destruct delivery.
 - [Vector Graphic to Production Web Asset](https://nologin.tools/workflow/vector-to-web-asset): Excalidraw conceptual sketch → Diagrams.net node refinement → SVGOMG SVGO XML minification → Squoosh responsive WebP/AVIF generation.
 - [Distraction-Free Anonymous Publishing](https://nologin.tools/workflow/anonymous-markdown-publishing): Dillinger split markdown writing → Hemingway Editor readability polish → LanguageTool grammar check → Write.as anonymous web publishing.
 - [Developer API Payload & Token Debugging](https://nologin.tools/workflow/api-payload-debugging): JSON Crack tree visualization → JSON Formatter RFC 8259 validation → transform.tools code type generation → JWT.io bearer token decoding.
@@ -184,7 +186,7 @@ End-to-end procedural recipes chaining 2 to 4 verified no-login web tools to acc
 - [Confidential Client Workflow Stack](https://nologin.tools/collection/secure-freelancer-toolkit): Air-tight freelancer toolkit (PDF24, Wormhole, PrivNote, Temp-Mail, Hemingway, Time.is) for zero-footprint client deliverables.
 - [Frictionless Dev & Debugging Arsenal](https://nologin.tools/collection/web-developer-quick-kit): Instant web engineering utilities (DevDocs, Regex101, JSON Crack, Hoppscotch, Carbon, Can I Use) without accounts.
 - [Air-Gapped Writing & Research Desk](https://nologin.tools/collection/academic-privacy-station): Sovereign academic research suite (Dillinger, LanguageTool, Desmos, WolframAlpha, PDF24, DuckDuckGo AI).
-- [Zero-KYC & Clean Machine Crypto Stack](https://nologin.tools/collection/crypto-investor-privacy-suite): High-assurance cryptographic station (Hat.sh, CyberChef, Yopass, PrivacyTests, DNS Leak Test, Archive.today).
+- [Zero-KYC & Clean Machine Crypto Stack](https://nologin.tools/collection/crypto-investor-privacy-suite): High-assurance cryptographic station (BytePriva, CyberChef, Yopass, PrivacyTests, DNS Leak Test, Archive.today).
 - [No-Track Meeting & Collab Stack](https://nologin.tools/collection/remote-meeting-clean-stack): Zero-friction collaboration arsenal (Jitsi Meet, When2meet, tldraw, til.re, PairDrop, PrivNote).
 - [Instant Creator Sandbox](https://nologin.tools/collection/social-media-growth-box): Fast-twitch social media production toolkit (ezGIF, remove.bg, MetaTags, AudioTrimmer, QR Code Monkey, Ray.so).
 - [Air-Gapped Data Wrangling Toolkit](https://nologin.tools/collection/data-analyst-sanitizer-box): Local data cleaning and querying (Datasette Lite WASM SQLite, CSVJSON, TableConvert, RAWGraphs, Mockaroo, CyberChef).
@@ -225,6 +227,15 @@ nologin.tools provides open, zero-friction programmatic APIs and protocol defini
 - [OpenAPI 3.1.0 Specification](https://nologin.tools/api/v1/openapi.json): Complete machine-readable OpenAPI contract.
 - [Model Context Protocol (MCP) Server](https://nologin.tools/api/v1/mcp.json): Tool declarations (`search_nologin_tools`, `get_tool_details`, `list_workflows`) for LLM agents (Claude Desktop, Cursor, LangChain).
 - [Dynamic SVG Badge API](https://nologin.tools/api/badge/{slug}.svg): Real-time verification status badge for READMEs and websites.
+
+## Dual-Language Architecture & Chinese Mirror (中文支持)
+
+nologin.tools provides native bilingual support in English and 简体中文 (Chinese):
+- English Root: https://nologin.tools
+- Chinese Root: https://nologin.tools/zh
+- Chinese Category Hubs: https://nologin.tools/zh/category/ai, https://nologin.tools/zh/category/privacy, https://nologin.tools/zh/category/development
+- Chinese Tool Detail Pages: Follows the `https://nologin.tools/zh/tool/{slug}` pattern with full localized descriptions, privacy verdicts, and CADES 2.0 lab evaluations.
+- Chinese Workflow Recipes: https://nologin.tools/zh/workflow/secure-document-redaction
 
 ## Governance & Machine Access
 

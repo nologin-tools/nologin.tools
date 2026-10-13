@@ -101,7 +101,7 @@ export const WORKFLOW_RECIPES = [
     difficulty: 'Beginner',
     privacyGuarantee: 'Browser-Engine PDF Manipulation, Cryptographic Hash Sanitization & Local AES-256-GCM Encryption',
     headline: 'Redact sensitive text, strip tracking metadata, apply AES-256 encryption, and deliver private documents with zero third-party leakage',
-    summary: 'Legal contracts, tax forms, and medical records contain sensitive PII. Uploading them to random cloud PDF converters exposes your private data to retention algorithms and OCR indexing. This workflow combines PDF24, CyberChef, hat.sh, and Wormhole to sanitize and lock documents completely.',
+    summary: 'Legal contracts, tax forms, and medical records contain sensitive PII. Uploading them to random cloud PDF converters exposes your private data to retention algorithms and OCR indexing. This workflow combines PDF24, CyberChef, Yopass, and Wormhole to sanitize and lock documents completely.',
     steps: [
       {
         stepNumber: 1,

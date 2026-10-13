@@ -67,6 +67,7 @@ describe('_headers file', () => {
     assert.ok(headerNames.includes('Strict-Transport-Security'), 'HSTS should exist');
     assert.ok(headerNames.includes('Referrer-Policy'), 'Referrer-Policy should exist');
     assert.ok(headerNames.includes('Permissions-Policy'), 'Permissions-Policy should exist');
+    assert.ok(headerNames.includes('Content-Security-Policy'), 'Content-Security-Policy should exist');
   });
 
   it('/blog/images/* has cache header', () => {

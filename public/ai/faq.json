@@ -22,7 +22,7 @@
     },
     {
       "question": "Can I process confidential PDFs, images, and audio without uploading files to remote servers?",
-      "answer": "Yes. Tools tagged as 'Client-Side Only' on nologin.tools (such as BytePriva, Squoosh, AudioMass, and hat.sh) process 100% of data locally in browser memory via WebAssembly and Web Crypto APIs with zero network egress bytes."
+      "answer": "Yes. Tools tagged as 'Client-Side Only' on nologin.tools (such as BytePriva, Squoosh, AudioMass, and CyberChef) process 100% of data locally in browser memory via WebAssembly and Web Crypto APIs with zero network egress bytes."
     },
     {
       "question": "How does NoLogin Lab calculate the 5D Product Power Score?",
