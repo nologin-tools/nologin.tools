@@ -223,13 +223,13 @@ function translateTagValue(key: string, value: string): string {
       <p class="text-xl text-neutral-700 font-medium mb-6">
         {t(locale, 'home.tagline')} <span class="bg-yellow-200 px-1">{t(locale, 'home.taglineHighlight')}</span>
       </p>
-      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-retro-mono font-bold uppercase tracking-wider items-center">
+      <div class="flex flex-wrap gap-x-3 gap-y-2 text-sm text-retro-mono font-bold uppercase tracking-wider items-center">
         <span class="text-neutral-500">{t(locale, 'home.toolsVerified', { count: totalTools })}</span>
-        <a href={getLocalizedPath('/finder', locale)} class="text-neutral-900 font-black hover:bg-neutral-900 hover:text-white px-1 transition-colors">🔍 {t(locale, 'nav.finder')}</a>
-        <a href={getLocalizedPath('/submit', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.submit')}</a>
-        <a href={getLocalizedPath('/blog', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.blog')}</a>
-        <a href={getLocalizedPath('/badge', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.badge')}</a>
-        <a href={getLocalizedPath('/about', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1 transition-colors">{t(locale, 'nav.about')}</a>
+        <a href={getLocalizedPath('/finder', locale)} class="text-neutral-900 font-black hover:bg-neutral-900 hover:text-white px-1.5 py-0.5 border border-transparent hover:border-neutral-900 transition-all">🔍 {t(locale, 'nav.finder')}</a>
+        <a href={getLocalizedPath('/submit', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1.5 py-0.5 border border-transparent hover:border-neutral-900 transition-all">{t(locale, 'nav.submit')}</a>
+        <a href={getLocalizedPath('/blog', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1.5 py-0.5 border border-transparent hover:border-neutral-900 transition-all">{t(locale, 'nav.blog')}</a>
+        <a href={getLocalizedPath('/badge', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1.5 py-0.5 border border-transparent hover:border-neutral-900 transition-all">{t(locale, 'nav.badge')}</a>
+        <a href={getLocalizedPath('/about', locale)} class="text-neutral-900 hover:bg-neutral-900 hover:text-white px-1.5 py-0.5 border border-transparent hover:border-neutral-900 transition-all">{t(locale, 'nav.about')}</a>
 
         <button id="bookmark-btn" class="hidden sm:inline-flex items-center gap-2 px-2 py-1 bg-yellow-300 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-[11px] font-black uppercase tracking-tight hover:bg-yellow-400 transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none ml-2 cursor-pointer">
           <span class="text-sm">★</span>
@@ -276,11 +276,11 @@ function translateTagValue(key: string, value: string): string {
 
     <!-- Category Navigation -->
     <nav class="mb-6 text-sm text-retro-mono" aria-label="Category navigation">
-      <div class="flex flex-wrap gap-x-3 gap-y-2 items-center">
+      <div class="flex flex-wrap gap-x-2.5 gap-y-2 items-center">
         {editorsChoiceTools.length > 0 && (
           <a
             href="#editors-choice"
-            class="px-2.5 py-1 border-2 border-amber-500 bg-amber-100/90 text-amber-950 hover:bg-amber-200 transition-all uppercase font-bold shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+            class="px-2.5 py-1 text-xs border-2 border-amber-500 bg-amber-100/90 text-amber-950 hover:bg-amber-200 transition-all uppercase font-bold shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           >
             {t(locale, 'home.editorsChoiceSpotlight', { count: String(editorsChoiceTools.length) })}
           </a>
@@ -288,7 +288,7 @@ function translateTagValue(key: string, value: string): string {
         {categoryGroups.map((group) => (
           <a
             href={`#${catAnchor(group.category)}`}
-            class="px-2 py-1 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase font-bold"
+            class="px-2.5 py-1 text-xs border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase font-bold hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           >
             {translateCategory(group.category)}
           </a>
@@ -305,7 +305,7 @@ function translateTagValue(key: string, value: string): string {
         {TAG_PAGES_ALLOWLIST.map((tag) => (
           <a
             href={getLocalizedPath(`/tag/${tagValueToSlug(tag.value)}`, locale)}
-            class="px-2.5 py-1 text-xs font-mono font-bold bg-neutral-50 text-neutral-700 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+            class="px-2.5 py-1 text-xs font-mono font-bold bg-neutral-50 text-neutral-700 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           >
             #{translateTagValue(tag.key, tag.value)}
           </a>
@@ -330,7 +330,7 @@ function translateTagValue(key: string, value: string): string {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {featuredPosts.map((post) => (
-            <article class="border border-neutral-200 bg-white p-5 hover:border-neutral-900 transition-all flex flex-col justify-between">
+            <article class="border-2 border-neutral-900 bg-white p-5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between">
               <div>
                 <time class="text-[11px] font-mono font-bold text-neutral-400 uppercase tracking-wider">
                   {formatDate(post.data.publishedAt)}
@@ -338,7 +338,7 @@ function translateTagValue(key: string, value: string): string {
                 <h3 class="text-base font-bold text-neutral-900 mt-1 mb-2 leading-snug">
                   <a
                     href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, blogLinkLocale)}
-                    class="hover:underline decoration-1 underline-offset-2"
+                    class="hover:underline decoration-2 underline-offset-2"
                   >
                     {post.data.title}
                   </a>
@@ -381,14 +381,14 @@ function translateTagValue(key: string, value: string): string {
             {editorsChoiceTools.map((tool) => {
               const hostname = getHostname(tool.url);
               return (
-                <li class="tool-item group py-2.5">
+                <li class="tool-item group py-2.5 hover:bg-amber-100/50">
                   <div class="flex items-start gap-3 min-w-0 flex-1">
                     <img
                       src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
                       alt={tool.name}
                       width="16"
                       height="16"
-                      class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
+                      class="w-4 h-4 mt-1 shrink-0 grayscale group-hover:grayscale-0 transition-all object-contain"
                       loading="lazy"
                       onerror={`this.style.display='none'`}
                     />
@@ -472,7 +472,7 @@ function translateTagValue(key: string, value: string): string {
                       alt={tool.name}
                       width="16"
                       height="16"
-                      class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
+                      class="w-4 h-4 mt-1 shrink-0 grayscale group-hover:grayscale-0 transition-all object-contain"
                       loading="lazy"
                       onerror={`this.style.display='none'`}
                     />

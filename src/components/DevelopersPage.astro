@@ -601,8 +601,8 @@ for tool in tools:
 
       modeCatBtn?.addEventListener('click', function () {
         activeMode = 'category';
-        modeCatBtn.className = 'py-2 px-3 text-xs font-bold rounded-lg transition-all bg-white text-neutral-900 shadow-2xs cursor-pointer';
-        modeAltBtn.className = 'py-2 px-3 text-xs font-bold rounded-lg transition-all text-neutral-600 hover:text-neutral-900 cursor-pointer';
+        modeCatBtn.className = 'py-2 px-3 text-xs font-mono font-bold border-2 border-neutral-900 bg-neutral-900 text-white cursor-pointer transition-none';
+        modeAltBtn.className = 'py-2 px-3 text-xs font-mono font-bold border-2 border-transparent text-neutral-700 hover:text-neutral-900 cursor-pointer transition-none';
         catGroup?.classList.remove('hidden');
         altGroup?.classList.add('hidden');
         updateWidget();
@@ -610,8 +610,8 @@ for tool in tools:
 
       modeAltBtn?.addEventListener('click', function () {
         activeMode = 'alternative';
-        modeAltBtn.className = 'py-2 px-3 text-xs font-bold rounded-lg transition-all bg-white text-neutral-900 shadow-2xs cursor-pointer';
-        modeCatBtn.className = 'py-2 px-3 text-xs font-bold rounded-lg transition-all text-neutral-600 hover:text-neutral-900 cursor-pointer';
+        modeAltBtn.className = 'py-2 px-3 text-xs font-mono font-bold border-2 border-neutral-900 bg-neutral-900 text-white cursor-pointer transition-none';
+        modeCatBtn.className = 'py-2 px-3 text-xs font-mono font-bold border-2 border-transparent text-neutral-700 hover:text-neutral-900 cursor-pointer transition-none';
         altGroup?.classList.remove('hidden');
         catGroup?.classList.add('hidden');
         updateWidget();

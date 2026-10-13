@@ -130,16 +130,16 @@ const breadcrumbLd = {
     <!-- Tag Navigation -->
     <nav class="mb-12 text-sm text-retro-mono" aria-label="Blog tag navigation">
       <p class="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">{t(locale, 'blogTag.allTags')}</p>
-      <div class="flex flex-wrap gap-x-3 gap-y-2">
+      <div class="flex flex-wrap gap-2">
         {allTags.map((tagSlug) => (
           <a
             href={getLocalizedPath(`/blog/tag/${tagSlug}`, locale)}
             aria-current={tagSlug === tag ? 'page' : undefined}
             class:list={[
-              'px-2 py-1 border uppercase font-bold transition-all',
+              'px-2.5 py-1 text-xs font-mono font-bold uppercase border-2 border-neutral-900 rounded-none transition-all cursor-pointer',
               tagSlug === tag
-                ? 'border-neutral-900 bg-neutral-900 text-white'
-                : 'border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white',
+                ? 'bg-neutral-900 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                : 'bg-white text-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-100 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none',
             ]}
           >
             {tagDisplayMap.get(tagSlug) || tagSlug}
@@ -154,7 +154,7 @@ const breadcrumbLd = {
     ) : (
       <ul class="divide-y divide-neutral-200">
         {displayPosts.map((post) => (
-          <li class="py-6 first:pt-0">
+          <li class="py-4 -mx-3 px-3 transition-colors hover:bg-neutral-100/50 rounded-none">
             <a href={getLocalizedPath(`/blog/${getPostSlug(post.id)}`, locale)} class="group block">
               <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
                 <time

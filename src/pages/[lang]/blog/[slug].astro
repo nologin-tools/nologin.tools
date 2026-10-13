@@ -198,13 +198,13 @@ const breadcrumbLd = {
 
     <!-- Mentioned Tools in this Guide -->
     {mentionedTools.length > 0 && (
-      <section class="mt-12 p-6 bg-neutral-50 border border-neutral-200 rounded-sm">
+      <section class="mt-12 p-6 bg-neutral-50 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rounded-none">
         <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-4">
           {t(locale, 'blog.mentionedTools')}
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {mentionedTools.map((tool) => (
-            <div class="p-4 bg-white border border-neutral-200 rounded-sm flex flex-col justify-between">
+            <div class="p-4 bg-white border border-neutral-300 rounded-none flex flex-col justify-between hover:border-neutral-900 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
               <div>
                 <div class="flex items-center justify-between gap-2 mb-1.5">
                   <a
@@ -213,7 +213,7 @@ const breadcrumbLd = {
                   >
                     {tool.name}
                   </a>
-                  <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 bg-neutral-100 text-neutral-600 rounded">
+                  <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 bg-neutral-100 text-neutral-800 border border-neutral-300 rounded-none">
                     {tool.category}
                   </span>
                 </div>

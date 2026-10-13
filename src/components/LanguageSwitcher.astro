@@ -18,10 +18,10 @@ const currentPath = getPathWithoutLocale(Astro.url.pathname);
       <a
         href={href}
         class:list={[
-          'px-1.5 py-0.5 transition-all',
+          'px-1.5 py-0.5 border transition-all text-[11px]',
           isActive
-            ? 'bg-neutral-900 text-white'
-            : 'text-neutral-400 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4',
+            ? 'bg-neutral-900 text-white border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]'
+            : 'text-neutral-500 border-transparent hover:border-neutral-900 hover:text-neutral-900 hover:bg-neutral-100',
         ]}
         data-lang={l}
         aria-current={isActive ? 'true' : undefined}

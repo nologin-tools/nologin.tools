@@ -136,24 +136,24 @@ const breadcrumbLd = {
 
       {/* Technical Architecture & Verification Guide */}
       {tagEditorial && (
-        <div class="mt-6 p-5 bg-neutral-50 border border-neutral-200 rounded-sm">
+        <div class="mt-6 p-5 bg-neutral-50 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rounded-none">
           <div class="flex items-center gap-2 mb-3 text-xs font-mono text-neutral-500 uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-neutral-900" />
+            <span class="w-2 h-2 rounded-none bg-neutral-900" />
             <span class="font-bold text-neutral-900">{t(locale, 'tag.editorial.heading')}</span>
             <span class="text-neutral-300">|</span>
             <span class="italic text-neutral-600 font-normal">{tagEditorial.tagline}</span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mt-3">
-            <div class="p-3 bg-white border border-neutral-200 rounded-sm">
+            <div class="p-3 bg-white border border-neutral-200 rounded-none shadow-[1px_1px_0px_0px_rgba(0,0,0,0.05)]">
               <span class="block font-bold text-neutral-900 mb-1">{t(locale, 'tag.editorial.architecture')}</span>
               <p class="text-neutral-600 leading-relaxed">{tagEditorial.architecture}</p>
             </div>
-            <div class="p-3 bg-white border border-neutral-200 rounded-sm">
+            <div class="p-3 bg-white border border-neutral-200 rounded-none shadow-[1px_1px_0px_0px_rgba(0,0,0,0.05)]">
               <span class="block font-bold text-neutral-900 mb-1">{t(locale, 'tag.editorial.verification')}</span>
               <p class="text-neutral-600 leading-relaxed">{tagEditorial.verification}</p>
             </div>
-            <div class="p-3 bg-white border border-neutral-200 rounded-sm">
+            <div class="p-3 bg-white border border-neutral-200 rounded-none shadow-[1px_1px_0px_0px_rgba(0,0,0,0.05)]">
               <span class="block font-bold text-neutral-900 mb-1">{t(locale, 'tag.editorial.tradeoff')}</span>
               <p class="text-neutral-600 leading-relaxed">{tagEditorial.tradeoff}</p>
             </div>
@@ -164,16 +164,16 @@ const breadcrumbLd = {
 
     <!-- Tag Navigation -->
     <nav class="mb-12 text-sm text-retro-mono" aria-label="Tag navigation">
-      <div class="flex flex-wrap gap-x-3 gap-y-2">
+      <div class="flex flex-wrap gap-x-2.5 gap-y-2">
         {TAG_PAGES_ALLOWLIST.map((item) => (
           <a
             href={getLocalizedPath(`/tag/${tagValueToSlug(item.value)}`, locale)}
             aria-current={item.key === tagKey && item.value === tagValue ? 'page' : undefined}
             class:list={[
-              'px-2 py-1 border uppercase font-bold transition-all',
+              'px-2.5 py-1 text-xs border uppercase font-bold transition-all',
               item.key === tagKey && item.value === tagValue
-                ? 'border-neutral-900 bg-neutral-900 text-white'
-                : 'border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white',
+                ? 'border-neutral-900 bg-neutral-900 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                : 'border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none',
             ]}
           >
             {translateTagValue(item.key, item.value)}
@@ -194,7 +194,7 @@ const breadcrumbLd = {
                 alt={tool.name}
                 width="16"
                 height="16"
-                class="w-4 h-4 mt-1.5 shrink-0 grayscale group-hover:grayscale-0 transition-all"
+                class="w-4 h-4 mt-1 shrink-0 grayscale group-hover:grayscale-0 transition-all object-contain"
                 loading="lazy"
                 onerror={`this.style.display='none'`}
               />

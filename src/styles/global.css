@@ -7,6 +7,28 @@
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
   }
+  ::selection {
+    background-color: #fef08a;
+    color: #171717;
+  }
+  ::-moz-selection {
+    background-color: #fef08a;
+    color: #171717;
+  }
+  /* Minimalist Industrial Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fdfdfc;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #171717;
+  }
   body {
     @apply bg-[#fdfdfc] text-neutral-900 min-h-screen flex flex-col;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -17,6 +39,11 @@
   
   code, pre, kbd, samp {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  :focus-visible {
+    outline: 2px solid #171717;
+    outline-offset: 2px;
   }
 }
 
@@ -42,7 +69,7 @@
 
   /* Homepage & list tool item */
   .tool-item {
-    @apply flex items-start sm:items-center justify-between gap-3 py-3.5 px-0 border-b border-neutral-200 transition-colors;
+    @apply flex items-start sm:items-center justify-between gap-3 py-3 px-2.5 -mx-2.5 border-b border-neutral-200 transition-colors hover:bg-neutral-100/50 rounded-none;
   }
 
   .category-heading {

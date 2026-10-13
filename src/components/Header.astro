@@ -35,7 +35,7 @@ const mobileNavItems = [
       <a href={getLocalizedPath('/', locale)} class="font-black text-xl tracking-tighter text-neutral-900 uppercase italic">
         nologin.tools
       </a>
-      <nav class="hidden md:flex items-center gap-5 text-retro-mono" aria-label="Main navigation">
+      <nav class="hidden md:flex items-center gap-4 text-retro-mono" aria-label="Main navigation">
         {navItems.map((item) => {
           const localizedPath = getLocalizedPath(item.path, locale);
           const isActive = item.path === '/' ? currentPath === '/' : currentPath.startsWith(item.path);
@@ -44,10 +44,10 @@ const mobileNavItems = [
               href={localizedPath}
               aria-current={isActive ? 'page' : undefined}
               class:list={[
-                'text-xs font-bold uppercase tracking-widest transition-all px-1',
+                'text-xs font-bold uppercase tracking-widest transition-all px-1.5 py-0.5 border border-transparent',
                 isActive
-                  ? 'bg-neutral-900 text-white'
-                  : 'text-neutral-500 hover:text-neutral-900 hover:underline decoration-2 underline-offset-4',
+                  ? 'bg-neutral-900 text-white border-neutral-900'
+                  : 'text-neutral-600 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white',
               ]}
             >
               {item.label}
@@ -71,7 +71,7 @@ const mobileNavItems = [
       </div>
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 text-neutral-900 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+        class="md:hidden p-2 text-neutral-900 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-900 hover:text-white active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
         aria-label={t(locale, 'nav.toggleMenu')}
       >
         <svg
