@@ -149,6 +149,10 @@ Programmatic alternative indexes mapping closed-source or login-gated proprietar
 - [Illustrator Alternatives](https://nologin.tools/alternative/illustrator): Vector graphic editing and SVG optimization without Creative Cloud plans.
 - [Visio Alternatives](https://nologin.tools/alternative/visio): Enterprise flowcharting and UML mapping with zero login.
 - [ILovePDF Alternatives](https://nologin.tools/alternative/ilovepdf): All-in-one PDF utilities running securely without uploading sensitive documents.
+- [WeTransfer Alternatives](https://nologin.tools/alternative/wetransfer): End-to-end encrypted ephemeral file sharing and P2P transfers without account lock-in.
+- [Microsoft Excel Alternatives](https://nologin.tools/alternative/excel): Client-side tabular data cleansing, spreadsheet parsing, and visual charting without Office 365.
+- [ChatGPT Alternatives](https://nologin.tools/alternative/chatgpt): Instant AI query resolution and search answering without telephone or email registration.
+- [Bitly Alternatives](https://nologin.tools/alternative/bitly): Fast URL shortening, custom redirection, and ephemeral link sharing without accounts.
 
 ## Head-to-Head No-Login Tool Comparisons
 

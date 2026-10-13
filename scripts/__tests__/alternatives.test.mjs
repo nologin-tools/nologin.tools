@@ -17,10 +17,10 @@ const editorialPath = resolve(__dirname, '../../src/data/tool-editorial.json');
 const editorialData = JSON.parse(readFileSync(editorialPath, 'utf-8'));
 
 describe('Alternative Targets Definitions', () => {
-  it('defines 16 high-intent software targets', () => {
-    assert.equal(ALTERNATIVE_TARGETS.length, 16);
+  it('defines 20 high-intent software targets', () => {
+    assert.equal(ALTERNATIVE_TARGETS.length, 20);
     const targets = getAlternativeTargets();
-    assert.equal(targets.length, 16);
+    assert.equal(targets.length, 20);
   });
 
   it('has valid URL-safe slugs for all targets', () => {
@@ -91,7 +91,7 @@ describe('findAlternativeByAlias', () => {
   });
 });
 
-describe('Editorial Tool Matching for All 16 Targets', () => {
+describe('Editorial Tool Matching for All 20 Targets', () => {
   function getMatchingSlugs(target) {
     const matchingSlugs = new Set();
     for (const [toolSlug, entry] of Object.entries(editorialData)) {

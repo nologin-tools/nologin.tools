@@ -140,6 +140,38 @@ export const ALTERNATIVE_TARGETS = [
     headline: 'All-in-one PDF utilities running securely without uploading sensitive documents',
     primaryUtility: 'PDF conversion, page extraction, and password removal',
   },
+  {
+    slug: 'wetransfer',
+    name: 'WeTransfer',
+    category: 'Communication',
+    aliases: ['WeTransfer', 'Dropbox Transfer', 'SendGB', 'Firefox Send', 'Filemail', 'Snapdrop', 'Wormhole'],
+    headline: 'End-to-end encrypted ephemeral file sharing and P2P transfers without account lock-in or upload queues',
+    primaryUtility: 'Ephemeral file transfer, large file sharing, and direct peer-to-peer data pipes',
+  },
+  {
+    slug: 'excel',
+    name: 'Microsoft Excel',
+    category: 'Data',
+    aliases: ['Microsoft Excel', 'Excel', 'Google Sheets', 'Custom Excel financial sheets', 'Excel Export macros', 'Microsoft Excel Power Query'],
+    headline: 'Client-side tabular data cleansing, spreadsheet parsing, and visual charting without Office 365 logins',
+    primaryUtility: 'Spreadsheet parsing, CSV/JSON format conversion, and in-browser SQL analysis',
+  },
+  {
+    slug: 'chatgpt',
+    name: 'ChatGPT',
+    category: 'AI',
+    aliases: ['ChatGPT', 'ChatGPT Plus', 'chatgpt-com', 'OpenAI ChatGPT', 'ChatGPT Prompt Templates', 'ChatGPT shell explanation', 'ChatGPT cron prompts'],
+    headline: 'Instant AI query resolution, research answering, and code explanations without telephone or email registration',
+    primaryUtility: 'AI text generation, code explanation, search answering, and developer prompting',
+  },
+  {
+    slug: 'bitly',
+    name: 'Bitly',
+    category: 'Productivity',
+    aliases: ['Bitly', 'TinyURL', 'Dub.co', 'Kutt.it', 'Bitly QR', 'Short.io'],
+    headline: 'Fast URL shortening, custom redirection, and ephemeral link sharing without mandatory user accounts',
+    primaryUtility: 'URL shortening, link redirection, and instant QR code generation',
+  },
 ];
 
 /**

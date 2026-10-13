@@ -27959,7 +27959,11 @@
         "Large multi-gigabyte transfers over slower connections require keeping the browser tab open until upload completes"
       ],
       "privacyVerdict": "Zero-knowledge end-to-end encryption verified. File bytes are encrypted in browser memory before transmission to Backblaze B2 storage; the decryption key exists exclusively in the client-side URL hash.",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "productScore": {
         "overall": 74,
         "frictionless": 17,
@@ -27985,7 +27989,11 @@
         "超大体积文件上传期间需保持浏览器标签页处于打开运行状态"
       ],
       "privacyVerdict": "验证零知识端到端加密。文件在浏览器中完成密文转换后再上传至 Backblaze B2 存储中继，解密密钥仅保存在客户端 URL 哈希中，无第三方广告与遥测外溢。",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "productScore": {
         "overall": 74,
         "frictionless": 17,
@@ -28021,7 +28029,11 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "testedAt": "2026-09"
     },
     "ko": {
@@ -28047,7 +28059,11 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "testedAt": "2026-09"
     },
     "es": {
@@ -28073,7 +28089,11 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "testedAt": "2026-09"
     },
     "fr": {
@@ -28099,7 +28119,11 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "testedAt": "2026-09"
     },
     "de": {
@@ -28125,7 +28149,11 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "testedAt": "2026-09"
     },
     "pt": {
@@ -28151,7 +28179,11 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "alternativeTo": [],
+      "alternativeTo": [
+        "WeTransfer",
+        "Dropbox Transfer",
+        "SendGB"
+      ],
       "testedAt": "2026-09"
     }
   },
