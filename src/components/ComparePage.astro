@@ -102,6 +102,7 @@ const breadcrumbLd = {
 <Layout
   title={pageTitle}
   description={pageDescription}
+  ogImagePath={`/api/og/compare/${pair.slug}`}
   locale={locale}
 >
   <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />

@@ -230,6 +230,61 @@ const faqLd = {
         </button>
       </form>
 
+      {/* Intent Quick Presets */}
+      <div class="mb-6 flex flex-wrap items-center gap-2">
+        <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mr-1 select-none">
+          {t(locale, 'finder.presets.heading')}
+        </span>
+        <a
+          href={`${canonicalPath}?clientSide=1`}
+          data-preset="clientside"
+          class="finder-preset-pill inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border-2 border-neutral-300 hover:border-neutral-900 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <span>🛡️</span>
+          <span>{t(locale, 'finder.presets.clientSide')}</span>
+        </a>
+        <a
+          href={`${canonicalPath}?offline=1`}
+          data-preset="offline"
+          class="finder-preset-pill inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border-2 border-neutral-300 hover:border-neutral-900 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <span>✈️</span>
+          <span>{t(locale, 'finder.presets.offline')}</span>
+        </a>
+        <a
+          href={`${canonicalPath}?oss=1`}
+          data-preset="oss"
+          class="finder-preset-pill inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border-2 border-neutral-300 hover:border-neutral-900 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <span>🔓</span>
+          <span>{t(locale, 'finder.presets.openSource')}</span>
+        </a>
+        <a
+          href={`${canonicalPath}?featured=1`}
+          data-preset="featured"
+          class="finder-preset-pill inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border-2 border-neutral-300 hover:border-neutral-900 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <span>⚡</span>
+          <span>{t(locale, 'finder.presets.editorsChoice')}</span>
+        </a>
+        <a
+          href={`${canonicalPath}?q=pdf`}
+          data-preset="pdf"
+          class="finder-preset-pill inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border-2 border-neutral-300 hover:border-neutral-900 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <span>📄</span>
+          <span>{t(locale, 'finder.presets.pdf')}</span>
+        </a>
+        <a
+          href={`${canonicalPath}?cat=privacy&clientSide=1`}
+          data-preset="privacy"
+          class="finder-preset-pill inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border-2 border-neutral-300 hover:border-neutral-900 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <span>🔒</span>
+          <span>{t(locale, 'finder.presets.privacy')}</span>
+        </a>
+      </div>
+
       {/* Category Chips Carousel */}
       <div class="mb-6">
         <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-500 mb-2.5">
@@ -530,10 +585,15 @@ const faqLd = {
       const emptyStateEl = document.getElementById('finder-empty-state');
       const resultsGrid = document.getElementById('results-grid');
 
+      const presetPills = document.querySelectorAll('.finder-preset-pill');
       let currentCategory = 'all';
+      let requireFeatured = false;
 
       // Read initial state from URL query parameters
       const params = new URLSearchParams(window.location.search);
+      if (params.get('featured') === '1') {
+        requireFeatured = true;
+      }
       if (params.has('q') && searchInput) {
         searchInput.value = params.get('q') || '';
         if (clearSearchBtn) clearSearchBtn.classList.remove('hidden');
@@ -567,6 +627,7 @@ const faqLd = {
         if (offlineCheck?.checked) urlParams.set('offline', '1');
         if (ossCheck?.checked) urlParams.set('oss', '1');
         if (freeCheck?.checked) urlParams.set('free', '1');
+        if (requireFeatured) urlParams.set('featured', '1');
         const sort = sortSelect?.value || 'score';
         if (sort !== 'score') urlParams.set('sort', sort);
 
@@ -589,7 +650,8 @@ const faqLd = {
           requireClientSide ||
           requireOffline ||
           requireOss ||
-          requireFree
+          requireFree ||
+          requireFeatured
         );
 
         if (resetAllBtn) {
@@ -623,6 +685,7 @@ const faqLd = {
           if (requireOffline && !tool.worksOffline) continue;
           if (requireOss && !tool.isOpenSource) continue;
           if (requireFree && !tool.isFree) continue;
+          if (requireFeatured && (!tool.isFeatured && tool.score < 85)) continue;
 
           matchingSlugs.add(tool.slug);
           matchedItems.push(tool);
@@ -670,12 +733,33 @@ const faqLd = {
           }
         }
 
+        // Update preset pills active highlight
+        presetPills.forEach((pill) => {
+          const p = pill.getAttribute('data-preset');
+          const isPActive =
+            (p === 'clientside' && requireClientSide && !requireOffline && !requireOss && !requireFree && !requireFeatured && !query && currentCategory === 'all') ||
+            (p === 'offline' && requireOffline && !requireClientSide && !requireOss && !requireFree && !requireFeatured && !query && currentCategory === 'all') ||
+            (p === 'oss' && requireOss && !requireClientSide && !requireOffline && !requireFree && !requireFeatured && !query && currentCategory === 'all') ||
+            (p === 'featured' && requireFeatured) ||
+            (p === 'pdf' && query === 'pdf' && currentCategory === 'all' && !requireFeatured) ||
+            (p === 'privacy' && currentCategory === 'privacy' && requireClientSide);
+
+          if (isPActive) {
+            pill.classList.add('bg-neutral-900', 'text-white', 'border-neutral-900');
+            pill.classList.remove('bg-white', 'text-neutral-800', 'border-neutral-300');
+          } else {
+            pill.classList.remove('bg-neutral-900', 'text-white', 'border-neutral-900');
+            pill.classList.add('bg-white', 'text-neutral-800', 'border-neutral-300');
+          }
+        });
+
         updateUrl();
       }
 
       // Event Listeners
       let debounceTimer = null;
       searchInput?.addEventListener('input', () => {
+        requireFeatured = false;
         if (clearSearchBtn) {
           if (searchInput.value.length > 0) {
             clearSearchBtn.classList.remove('hidden');
@@ -690,12 +774,14 @@ const faqLd = {
       clearSearchBtn?.addEventListener('click', () => {
         if (searchInput) searchInput.value = '';
         clearSearchBtn.classList.add('hidden');
+        requireFeatured = false;
         applyFilters();
         searchInput?.focus();
       });
 
       categoryChips.forEach((chip) => {
         chip.addEventListener('click', () => {
+          requireFeatured = false;
           categoryChips.forEach((c) => {
             c.classList.remove('active', 'bg-neutral-900', 'text-white', 'border-neutral-900');
             c.classList.add('bg-white', 'text-neutral-700', 'border-neutral-300');
@@ -709,12 +795,48 @@ const faqLd = {
       });
 
       [clientSideCheck, offlineCheck, ossCheck, freeCheck].forEach((cb) => {
-        cb?.addEventListener('change', applyFilters);
+        cb?.addEventListener('change', () => {
+          requireFeatured = false;
+          applyFilters();
+        });
       });
 
       sortSelect?.addEventListener('change', applyFilters);
 
-      function resetAll() {
+      presetPills.forEach((pill) => {
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
+          const preset = pill.getAttribute('data-preset');
+          resetAll(false);
+          if (preset === 'clientside') {
+            if (clientSideCheck) clientSideCheck.checked = true;
+          } else if (preset === 'offline') {
+            if (offlineCheck) offlineCheck.checked = true;
+          } else if (preset === 'oss') {
+            if (ossCheck) ossCheck.checked = true;
+          } else if (preset === 'featured') {
+            requireFeatured = true;
+          } else if (preset === 'pdf') {
+            if (searchInput) searchInput.value = 'pdf';
+            if (clearSearchBtn) clearSearchBtn.classList.remove('hidden');
+          } else if (preset === 'privacy') {
+            currentCategory = 'privacy';
+            categoryChips.forEach((chip) => {
+              if (chip.getAttribute('data-cat') === 'privacy') {
+                chip.classList.add('active', 'bg-neutral-900', 'text-white', 'border-neutral-900');
+                chip.classList.remove('bg-white', 'text-neutral-700', 'border-neutral-300');
+              } else {
+                chip.classList.remove('active', 'bg-neutral-900', 'text-white', 'border-neutral-900');
+                chip.classList.add('bg-white', 'text-neutral-700', 'border-neutral-300');
+              }
+            });
+            if (clientSideCheck) clientSideCheck.checked = true;
+          }
+          applyFilters();
+        });
+      });
+
+      function resetAll(triggerFilter = true) {
         if (searchInput) searchInput.value = '';
         if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
         currentCategory = 'all';
@@ -732,11 +854,14 @@ const faqLd = {
         if (ossCheck) ossCheck.checked = false;
         if (freeCheck) freeCheck.checked = false;
         if (sortSelect) sortSelect.value = 'score';
-        applyFilters();
+        requireFeatured = false;
+        if (triggerFilter) {
+          applyFilters();
+        }
       }
 
-      resetAllBtn?.addEventListener('click', resetAll);
-      emptyResetBtn?.addEventListener('click', resetAll);
+      resetAllBtn?.addEventListener('click', () => resetAll(true));
+      emptyResetBtn?.addEventListener('click', () => resetAll(true));
 
       // If initial URL parameters were present, run filters immediately
       if (params.toString()) {

@@ -112,5 +112,33 @@ describe('Dynamic Badge & Certificate OG Subsystem', () => {
       assert.ok(content.includes('NLW-STD-001'));
       assert.ok(content.includes('Digital Trust Certificate'));
     });
+
+    it('ensures Comparison VS OG generator endpoint exists and is valid', () => {
+      const filePath = join(rootDir, 'src/pages/api/og/compare/[slug].ts');
+      assert.ok(existsSync(filePath), 'src/pages/api/og/compare/[slug].ts should exist');
+      const content = readFileSync(filePath, 'utf8');
+      assert.ok(content.includes('@cf-wasm/og/workerd'));
+      assert.ok(content.includes('getComparisonBySlug'));
+      assert.ok(content.includes('public, max-age=86400'));
+    });
+
+    it('ensures Workflow Recipe OG generator endpoint exists and is valid', () => {
+      const filePath = join(rootDir, 'src/pages/api/og/workflow/[slug].ts');
+      assert.ok(existsSync(filePath), 'src/pages/api/og/workflow/[slug].ts should exist');
+      const content = readFileSync(filePath, 'utf8');
+      assert.ok(content.includes('@cf-wasm/og/workerd'));
+      assert.ok(content.includes('getWorkflowBySlug'));
+      assert.ok(content.includes('public, max-age=86400'));
+    });
+
+    it('ensures Alternative SaaS OG generator endpoint exists and is valid', () => {
+      const filePath = join(rootDir, 'src/pages/api/og/alternative/[slug].ts');
+      assert.ok(existsSync(filePath), 'src/pages/api/og/alternative/[slug].ts should exist');
+      const content = readFileSync(filePath, 'utf8');
+      assert.ok(content.includes('@cf-wasm/og/workerd'));
+      assert.ok(content.includes('getAlternativeBySlug'));
+      assert.ok(content.includes('public, max-age=86400'));
+    });
   });
 });
+

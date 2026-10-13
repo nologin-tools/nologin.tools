@@ -154,4 +154,46 @@ describe('filterFinderTools Engine', () => {
     });
     assert.deepEqual(impossible, []);
   });
+
+  describe('Popular Intent Presets Filter Presets', () => {
+    it('accurately resolves client-side only preset', () => {
+      const results = filterFinderTools(finderTools, { clientSideOnly: true });
+      assert.ok(results.length > 20);
+      assert.ok(results.every((t) => t.isClientSideOnly));
+    });
+
+    it('accurately resolves offline ready preset', () => {
+      const results = filterFinderTools(finderTools, { worksOffline: true });
+      assert.ok(results.length > 5);
+      assert.ok(results.every((t) => t.worksOffline));
+    });
+
+    it('accurately resolves open source preset', () => {
+      const results = filterFinderTools(finderTools, { openSource: true });
+      assert.ok(results.length > 30);
+      assert.ok(results.every((t) => t.isOpenSource));
+    });
+
+    it('accurately resolves PDF utilities shortcut query', () => {
+      const results = filterFinderTools(finderTools, { query: 'pdf' });
+      assert.ok(results.length >= 3);
+      for (const tool of results) {
+        const text = `${tool.name} ${tool.hostname} ${tool.coreTask} ${tool.description}`.toLowerCase();
+        assert.ok(text.includes('pdf'));
+      }
+    });
+
+    it('accurately resolves Privacy category + clientSide combination', () => {
+      const results = filterFinderTools(finderTools, {
+        category: 'privacy',
+        clientSideOnly: true,
+      });
+      assert.ok(results.length >= 3);
+      for (const tool of results) {
+        assert.equal(tool.category.toLowerCase(), 'privacy');
+        assert.equal(tool.isClientSideOnly, true);
+      }
+    });
+  });
 });
+
