@@ -46,19 +46,23 @@ describe('SEO & GEO: robots.txt compliance', () => {
     assert.ok(!content.includes('Disallow: /*?'), 'Must not disallow query parameters to permit canonical 301 deindexing in GSC');
   });
 
-  it('public/robots.txt declares sitemap and llms-txt', () => {
+  it('public/robots.txt declares sitemap and references llms.txt cleanly', () => {
     const content = readFileSync(MAIN_ROBOTS_PATH, 'utf-8');
     assert.ok(
       content.includes('Sitemap: https://nologin.tools/sitemap.xml'),
       'Must declare sitemap.xml location'
     );
     assert.ok(
-      content.includes('llms-txt: https://nologin.tools/llms.txt'),
-      'Must declare llms-txt location'
+      content.includes('https://nologin.tools/llms.txt'),
+      'Must reference llms.txt location'
+    );
+    assert.ok(
+      !/^llms-txt:/m.test(content),
+      'Must not use un-commented llms-txt directive that triggers GSC RFC 9309 syntax error'
     );
   });
 
-  it('sites/org/public/robots.txt exists and configures AI crawlers and llms-txt', () => {
+  it('sites/org/public/robots.txt exists and configures AI crawlers and llms.txt', () => {
     assert.ok(existsSync(ORG_ROBOTS_PATH), 'sites/org/public/robots.txt must exist');
     const content = readFileSync(ORG_ROBOTS_PATH, 'utf-8');
     assert.ok(content.includes('User-agent: PerplexityBot'), 'Org robots must include PerplexityBot');
@@ -69,8 +73,8 @@ describe('SEO & GEO: robots.txt compliance', () => {
       'Org robots must declare sitemap.xml'
     );
     assert.ok(
-      content.includes('llms-txt: https://nologintools.org/llms.txt'),
-      'Org robots must declare llms-txt'
+      content.includes('https://nologintools.org/llms.txt'),
+      'Org robots must reference llms.txt'
     );
   });
 });

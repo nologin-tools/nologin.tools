@@ -650,8 +650,9 @@
     "coreTask": "Converse com modelos de IA open source como Llama, DeepSeek, Qwen e Mistral sem se cadastrar"
   },
   "icyzip-com": {
-    "coreTask": "Parear dois navegadores, transferir texto em tempo real e enviar um arquivo via QR code ou link.",
-    "description": "O IcyZip conecta dois navegadores por QR code ou link para transferir texto em tempo real ou enviar um arquivo entre celulares e computadores. Não requer conta nem aplicativo. O conteúdo é criptografado no navegador antes do servidor retransmitir o texto cifrado (metadados de conexão ainda são visíveis). Exige acesso à internet e um segundo dispositivo; não é armazenamento em nuvem nem sincronização de pastas."
+    "_hash": "2c576706ff25d659",
+    "description": "O IcyZip emparelha exatamente dois navegadores abertos por meio de código QR ou link privado curto. Os clientes v4 atuais trocam chaves públicas P-256 ECDH após o emparelhamento e derivam chaves separadas para texto e arquivo com HKDF-SHA-256; nenhuma chave de criptografia é incorporada no código QR ou link. O relay vê apenas o texto cifrado mais os dados de conexão necessários, nome, tipo e tamanho do arquivo. Não requer conta nem aplicativo; ambos os navegadores devem permanecer abertos e online. O serviço hospedado é proprietário; seu componente E2EE isolado no navegador e os testes são Apache-2.0.",
+    "coreTask": "Emparelhe dois navegadores, transfira texto ao vivo e envie um arquivo por código QR ou link."
   },
   "iformat-io": {
     "_hash": "735a2d718c5d22e9",

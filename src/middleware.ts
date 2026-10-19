@@ -1,13 +1,10 @@
 import { defineMiddleware } from 'astro:middleware';
 import { getToolBySlug } from './data/loader';
-import staticRedirectsData from './data/redirects.json';
-
-const STATIC_REDIRECTS: Record<string, string> = staticRedirectsData;
+import { resolveCanonicalRedirect } from './lib/canonical-redirects';
 
 const ISR_CACHE_TTL = 21600; // 6 hours in seconds
 
 const NON_DEFAULT_LOCALES = ['zh'];
-const RETIRED_LOCALES = ['ja', 'ko', 'es', 'fr', 'de', 'pt'];
 // Match /tool/slug, /badge/slug, /zh/tool/slug, /zh/badge/slug
 const LOCALE_PREFIX = '(?:\\/zh)?';
 const ISR_REGEX = new RegExp(`^${LOCALE_PREFIX}\\/(?:tool|badge)\\/[^/]+\\/?$`);
@@ -19,16 +16,6 @@ const HAS_EXTENSION_REGEX = /\.\w+$/;
 export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url } = context;
   const { pathname } = url;
-
-  // www → non-www redirect (exclude /api/ to prevent breaking POST forms / cross-origin preflight errors)
-  if (url.hostname === 'www.nologin.tools' && !pathname.startsWith('/api/')) {
-    const target = new URL(url);
-    target.hostname = 'nologin.tools';
-    return new Response(null, {
-      status: 301,
-      headers: { Location: target.href },
-    });
-  }
 
   // Handle CORS preflight for all /api/ endpoints
   if (request.method === 'OPTIONS' && pathname.startsWith('/api/')) {
@@ -43,68 +30,16 @@ export const onRequest = defineMiddleware(async (context, next) => {
     });
   }
 
-  // Trailing slash normalization: /path/ → /path (301, GET only to avoid breaking POST forms)
-  const ALLOWED_QUERY_PATHS = /^\/(api|admin|ssr|submit\/success|finder)(\/|$)/;
-
-  const isSafeMethod = request.method === 'GET' || request.method === 'HEAD';
-
-  // 301 Permanent Redirect to strip extraneous search parameters from canonical content pages
-  // (Consolidates GSC indexing to canonical URLs, prevents spider traps and soft 404s)
-  if (
-    isSafeMethod &&
-    url.search &&
-    !ALLOWED_QUERY_PATHS.test(pathname) &&
-    !HAS_EXTENSION_REGEX.test(pathname)
-  ) {
-    const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
+  // Unified 1-hop 301 canonical redirect (www -> non-www, trailing slash, retired locales, static redirects, query params)
+  const redirectLocation = resolveCanonicalRedirect(url, request.method);
+  if (redirectLocation) {
     return new Response(null, {
       status: 301,
       headers: {
-        Location: cleanPath,
+        Location: redirectLocation,
         'Cache-Control': 'public, max-age=86400',
       },
     });
-  }
-
-  if (isSafeMethod && pathname !== '/' && pathname.endsWith('/') && !SKIP_REDIRECT_REGEX.test(pathname)) {
-    const cleanPath = pathname.replace(/\/+$/, '');
-    const cleanSearch = ALLOWED_QUERY_PATHS.test(cleanPath) ? url.search : '';
-    return new Response(null, {
-      status: 301,
-      headers: { Location: cleanPath + cleanSearch },
-    });
-  }
-
-  // 301 Permanent Redirect for retired locales (ja, ko, es, fr, de, pt) → canonical English route
-  if (isSafeMethod && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
-    const firstSegment = pathname.split('/').filter(Boolean)[0];
-    if (firstSegment && RETIRED_LOCALES.includes(firstSegment)) {
-      const remainder = pathname.slice(firstSegment.length + 1) || '/';
-      const cleanSearch = ALLOWED_QUERY_PATHS.test(remainder) ? url.search : '';
-      return new Response(null, {
-        status: 301,
-        headers: {
-          Location: remainder + cleanSearch,
-          'Cache-Control': 'public, max-age=86400',
-        },
-      });
-    }
-  }
-
-  // 301 Permanent Redirect for known pruned blogs & delisted tools (bypassing Cloudflare Pages 100-rule limit)
-  if (isSafeMethod && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
-    const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
-    const target = STATIC_REDIRECTS[cleanPath] || STATIC_REDIRECTS[pathname];
-    if (target) {
-      const cleanSearch = ALLOWED_QUERY_PATHS.test(target) ? url.search : '';
-      return new Response(null, {
-        status: 301,
-        headers: {
-          Location: target + cleanSearch,
-          'Cache-Control': 'public, max-age=86400',
-        },
-      });
-    }
   }
 
   // Accept-Language redirect for paths without locale prefix (Exempt all search engine crawlers & bots)

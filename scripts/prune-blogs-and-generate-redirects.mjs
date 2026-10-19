@@ -108,6 +108,12 @@ export function generateRedirectsContent() {
     '/fr / 301',
     '/de / 301',
     '/pt / 301',
+    '/ja/ / 301',
+    '/ko/ / 301',
+    '/es/ / 301',
+    '/fr/ / 301',
+    '/de/ / 301',
+    '/pt/ / 301',
     '',
     '# --- Delisted & Renamed Tools 301 Redirects (Top priority for Cloudflare 100-rule limit) ---',
     '/tool/monkeetools-surge-sh /tool/monkeetools-pages-dev 301',
@@ -168,10 +174,11 @@ export function generateRedirectsContent() {
     lines.push(`/blog/${fromSlug} /blog/${toSlug} 301`);
     lines.push(`/blog/${fromSlug}/ /blog/${toSlug} 301`);
 
-    // Multi-locale versions
+    // Multi-locale versions (zh stays in /zh/blog/..., retired locales go 1-hop to English /blog/...)
     for (const lang of ALL_LOCALES) {
-      lines.push(`/${lang}/blog/${fromSlug} /${lang}/blog/${toSlug} 301`);
-      lines.push(`/${lang}/blog/${fromSlug}/ /${lang}/blog/${toSlug} 301`);
+      const targetPrefix = lang === 'zh' ? '/zh' : '';
+      lines.push(`/${lang}/blog/${fromSlug} ${targetPrefix}/blog/${toSlug} 301`);
+      lines.push(`/${lang}/blog/${fromSlug}/ ${targetPrefix}/blog/${toSlug} 301`);
     }
   }
 

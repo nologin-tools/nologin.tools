@@ -650,8 +650,9 @@
     "coreTask": "Ohne Anmeldung mit Open-Source-KI-Modellen wie Llama, DeepSeek, Qwen und Mistral chatten"
   },
   "icyzip-com": {
-    "coreTask": "Zwei Browser koppeln, Live-Text austauschen und eine Datei per QR-Code oder Link versenden.",
-    "description": "IcyZip verbindet zwei Browser per QR-Code oder Link, um Live-Text zu übertragen oder einzelne Dateien zwischen Smartphones und PCs auszutauschen. Weder Konto noch App erforderlich. Inhalte werden im Browser verschlüsselt, bevor der Server den Geheimtext weiterleitet (Metadaten zu Verbindung und Dateianfragen sind für den Dienst sichtbar). Erfordert Internet und ein zweites Gerät; kein Cloud-Speicher oder LAN-Transfer."
+    "_hash": "2c576706ff25d659",
+    "description": "IcyZip koppelt genau zwei geöffnete Browser über einen QR-Code oder einen kurzen privaten Link. Aktuelle v4-Clients tauschen nach dem Koppeln öffentliche P-256-ECDH-Schlüssel aus und leiten separate Text- und Dateischlüssel mittels HKDF-SHA-256 ab; im QR-Code oder Link ist kein Verschlüsselungsschlüssel eingebettet. Das Relay sieht lediglich den Geheimtext sowie erforderliche Verbindungsdaten, Dateinamen, -typ und -größe. Kein Konto oder App erforderlich; beide Browser müssen geöffnet und online bleiben. Der gehostete Dienst ist proprietär; die isolierte Browser-E2EE-Komponente samt Tests steht unter Apache-2.0.",
+    "coreTask": "Zwei Browser koppeln, Live-Text übertragen und eine Datei per QR-Code oder Link senden."
   },
   "iformat-io": {
     "_hash": "735a2d718c5d22e9",

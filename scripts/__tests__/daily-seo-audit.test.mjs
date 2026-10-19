@@ -165,7 +165,7 @@ describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
 
   it('verifies robots and LLM discovery resources', async () => {
     const bodies = {
-      '/robots.txt': 'Sitemap: https://nologin.tools/sitemap.xml\nllms-txt: https://nologin.tools/llms.txt\nGPTBot\nClaudeBot\nPerplexityBot\nGoogle-Extended\nApplebot-Extended\nMeta-ExternalAgent',
+      '/robots.txt': 'Sitemap: https://nologin.tools/sitemap.xml\nAllow: /llms.txt\n# llms-txt: https://nologin.tools/llms.txt\nGPTBot\nClaudeBot\nPerplexityBot\nGoogle-Extended\nApplebot-Extended\nMeta-ExternalAgent',
       '/llms.txt': '# nologin.tools\n\n## Tools\n- [Photopea](https://nologin.tools/tool/photopea-com)',
       '/llms-full.txt': '# nologin.tools full index\n\n## Full Catalog\n- [Photopea](https://nologin.tools/tool/photopea-com)',
       '/.well-known/ai.txt': 'Allow-Training: yes\nAllow-Inference: yes\nAllow-Citations: yes',

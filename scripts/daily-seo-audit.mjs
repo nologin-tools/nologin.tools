@@ -536,7 +536,7 @@ export async function runDiscoveryAudit(options = {}) {
       if (kind === 'robots') {
         for (const directive of [
           'Sitemap: https://nologin.tools/sitemap.xml',
-          'llms-txt: https://nologin.tools/llms.txt',
+          'Allow: /llms.txt',
           'GPTBot',
           'ClaudeBot',
           'PerplexityBot',

@@ -17,24 +17,32 @@ export const GET: APIRoute = async () => {
   const siteUrl = import.meta.env.SITE?.replace(/\/$/, '') || 'https://nologin.tools';
   const approvedTools = getApprovedTools();
 
-  const staticLastmod = new Date().toISOString().split('T')[0];
-
   const homepageLastmod = approvedTools.reduce((latest, t) => {
     if (!t.approvedAt) return latest;
     const d = new Date(t.approvedAt).toISOString().split('T')[0];
     return d > latest ? d : latest;
-  }, staticLastmod);
+  }, '2026-01-01');
+
+  function getLatestToolDate(predicate: (t: (typeof approvedTools)[number]) => boolean): string {
+    let latest = '';
+    for (const t of approvedTools) {
+      if (!t.approvedAt || !predicate(t)) continue;
+      const d = new Date(t.approvedAt).toISOString().split('T')[0];
+      if (d > latest) latest = d;
+    }
+    return latest || homepageLastmod;
+  }
 
   const staticPages: SitemapPage[] = [
     { url: '/', priority: '1.0', changefreq: 'daily', lastmod: homepageLastmod },
     { url: '/finder', priority: '0.8', changefreq: 'daily', lastmod: homepageLastmod },
     { url: '/lab', priority: '0.8', changefreq: 'daily', lastmod: homepageLastmod },
-    { url: '/extension', priority: '0.8', changefreq: 'weekly', lastmod: staticLastmod },
-    { url: '/developers', priority: '0.7', changefreq: 'weekly', lastmod: staticLastmod },
-    { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
-    { url: '/privacy', priority: '0.5', changefreq: 'monthly', lastmod: staticLastmod },
-    { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: staticLastmod },
-    { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: staticLastmod },
+    { url: '/extension', priority: '0.8', changefreq: 'weekly', lastmod: homepageLastmod },
+    { url: '/developers', priority: '0.7', changefreq: 'weekly', lastmod: homepageLastmod },
+    { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: homepageLastmod },
+    { url: '/privacy', priority: '0.5', changefreq: 'monthly', lastmod: homepageLastmod },
+    { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: homepageLastmod },
+    { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: homepageLastmod },
   ];
 
   const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
@@ -42,14 +50,14 @@ export const GET: APIRoute = async () => {
     url: `/category/${categoryToSlug(cat)}`,
     priority: '0.7',
     changefreq: 'weekly',
-    lastmod: homepageLastmod,
+    lastmod: getLatestToolDate((t) => t.tags.some((tag) => tag.tagKey === 'category' && tag.tagValue === cat)),
   }));
 
   const tagPages: SitemapPage[] = TAG_PAGES_ALLOWLIST.map((item) => ({
     url: `/tag/${tagValueToSlug(item.value)}`,
     priority: '0.6',
     changefreq: 'weekly',
-    lastmod: homepageLastmod,
+    lastmod: getLatestToolDate((t) => t.tags.some((tag) => tag.tagKey === item.key && tag.tagValue === item.value)),
   }));
 
   const alternativePages: SitemapPage[] = getAlternativeTargets().map((alt) => ({
@@ -94,8 +102,13 @@ export const GET: APIRoute = async () => {
   const englishPosts = blogPosts.filter((p) => !p.id.includes('/'));
   const blogTranslationMap = buildBlogTranslationMap(blogPosts);
 
+  const latestBlogLastmod = englishPosts.reduce((latest, p) => {
+    const d = (p.data.updatedAt || p.data.publishedAt).toISOString().split('T')[0];
+    return d > latest ? d : latest;
+  }, '2026-01-01');
+
   const blogListPage: SitemapPage[] = [
-    { url: '/blog', priority: '0.8', changefreq: 'daily', lastmod: staticLastmod },
+    { url: '/blog', priority: '0.8', changefreq: 'daily', lastmod: latestBlogLastmod },
   ];
 
   const blogPostPages: SitemapPage[] = englishPosts.map((post) => ({
@@ -108,17 +121,20 @@ export const GET: APIRoute = async () => {
   }));
 
   // Blog tag pages
-  const blogTagSet = new Set<string>();
+  const blogTagLastmodMap = new Map<string, string>();
   for (const post of englishPosts) {
-    for (const tag of post.data.tags) {
-      blogTagSet.add(tag.toLowerCase());
+    const postDate = (post.data.updatedAt || post.data.publishedAt).toISOString().split('T')[0];
+    for (const rawTag of post.data.tags) {
+      const tag = rawTag.toLowerCase();
+      const prev = blogTagLastmodMap.get(tag) || '';
+      if (postDate > prev) blogTagLastmodMap.set(tag, postDate);
     }
   }
-  const blogTagPages: SitemapPage[] = [...blogTagSet].map((tag) => ({
+  const blogTagPages: SitemapPage[] = [...blogTagLastmodMap.entries()].map(([tag, lastmod]) => ({
     url: `/blog/tag/${tag}`,
     priority: '0.5',
     changefreq: 'weekly',
-    lastmod: staticLastmod,
+    lastmod,
   }));
 
   // Expand all pages to multi-locale entries

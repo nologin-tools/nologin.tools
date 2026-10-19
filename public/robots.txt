@@ -32,4 +32,4 @@ Disallow: /ssr/
 
 # Sitemaps & LLM Context
 Sitemap: https://nologin.tools/sitemap.xml
-llms-txt: https://nologin.tools/llms.txt
+# llms-txt: https://nologin.tools/llms.txt

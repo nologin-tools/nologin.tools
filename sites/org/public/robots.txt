@@ -21,4 +21,4 @@ Allow: /llms.txt
 
 # Sitemaps & LLM Context
 Sitemap: https://nologintools.org/sitemap.xml
-llms-txt: https://nologintools.org/llms.txt
+# llms-txt: https://nologintools.org/llms.txt

@@ -7,6 +7,10 @@ import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getAlternativeTargets } from '../lib/alternatives';
+import { getComparisonPairs } from '../lib/comparisons';
+import { getWorkflowRecipes } from '../lib/workflows';
+import { CURATED_COLLECTIONS } from '../lib/collections';
 
 interface Props {
   locale: Locale;
@@ -415,20 +419,19 @@ function translateTagValue(key: string, value: string): string {
                         <a
                           href={tool.url}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener noreferrer nofollow"
                           class="text-neutral-400 hover:text-neutral-900 text-xs font-mono transition-colors hidden sm:inline"
                         >
                           ({hostname})
                         </a>
                         {tool.editorial?.productScore && (
-                          <a
-                            href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
-                            class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold border transition-colors shrink-0 bg-amber-100 text-amber-950 border-amber-400 hover:bg-amber-200"
+                          <span
+                            class="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold border transition-colors shrink-0 bg-amber-100 text-amber-950 border-amber-400"
                             title={tool.editorial.benchmarkNotes || t(locale, 'tool.productScore.badgeTitle', { score: String(tool.editorial.productScore.overall) })}
                           >
                             <span>⚡ {tool.editorial.productScore.overall}</span>
                             <span class="font-bold">· {t(locale, 'tool.productScore.tier.editorsChoice')}</span>
-                          </a>
+                          </span>
                         )}
                       </div>
                       {getLocalizedDescription(tool, locale) && (
@@ -499,21 +502,20 @@ function translateTagValue(key: string, value: string): string {
                         <a
                           href={tool.url}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener noreferrer nofollow"
                           class="text-neutral-400 hover:text-neutral-900 text-xs font-mono transition-colors hidden sm:inline"
                         >
                           ({hostname})
                         </a>
                         {tool.editorial?.productScore && (
-                          <a
-                            href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
+                          <span
                             class:list={[
                               "inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold border transition-colors shrink-0",
                               tool.editorial.verdictTier === 'editors-choice'
-                                ? "bg-amber-100/90 text-amber-950 border-amber-400 hover:bg-amber-200"
+                                ? "bg-amber-100/90 text-amber-950 border-amber-400"
                                 : tool.editorial.verdictTier === 'highly-recommended'
-                                ? "bg-emerald-50 text-emerald-950 border-emerald-300 hover:bg-emerald-100"
-                                : "bg-neutral-100 text-neutral-800 border-neutral-300 hover:bg-neutral-200"
+                                ? "bg-emerald-50 text-emerald-950 border-emerald-300"
+                                : "bg-neutral-100 text-neutral-800 border-neutral-300"
                             ]}
                             title={tool.editorial.benchmarkNotes || t(locale, 'tool.productScore.badgeTitle', { score: String(tool.editorial.productScore.overall) })}
                           >
@@ -521,7 +523,7 @@ function translateTagValue(key: string, value: string): string {
                             {tool.editorial.verdictTier === 'editors-choice' && (
                               <span class="hidden md:inline font-bold">· {t(locale, 'tool.productScore.tier.editorsChoice')}</span>
                             )}
-                          </a>
+                          </span>
                         )}
                       </div>
                       {getLocalizedDescription(tool, locale) && (
@@ -541,6 +543,68 @@ function translateTagValue(key: string, value: string): string {
         </section>
       ))}
     </div>
+
+    <!-- High-Intent Discovery Hubs (Alternatives, Comparisons, Workflows & Curated Stacks) -->
+    <section class="mt-16 border-t-2 border-neutral-900 pt-10 space-y-8" aria-label={locale === 'zh' ? '免登录替代方案与工作流索引' : 'No-Login Alternatives, Comparisons & Workflows'}>
+      <div>
+        <h2 class="text-sm font-black uppercase tracking-wider text-neutral-900 font-mono mb-3 flex items-center gap-2">
+          <span>🔄</span>
+          <span>{locale === 'zh' ? '主流软件免登录替代方案 (No-Login Alternatives)' : 'No-Login Software Alternatives'}</span>
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {getAlternativeTargets().map((alt) => (
+            <a
+              href={getLocalizedPath(`/alternative/${alt.slug}`, locale)}
+              class="px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+            >
+              {locale === 'zh' ? `${alt.name} 免登录替代` : `${alt.name} Alternatives`}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-black uppercase tracking-wider text-neutral-900 font-mono mb-3 flex items-center gap-2">
+          <span>⚔️</span>
+          <span>{locale === 'zh' ? '深度工具横评对比 (Head-to-Head Comparisons)' : 'Head-to-Head Tool Comparisons'}</span>
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {getComparisonPairs().map((pair) => (
+            <a
+              href={getLocalizedPath(`/compare/${pair.slug}`, locale)}
+              class="px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+            >
+              {pair.slug.replace(/-vs-/g, ' vs ').replace(/-/g, ' ')}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-black uppercase tracking-wider text-neutral-900 font-mono mb-3 flex items-center gap-2">
+          <span>⚡</span>
+          <span>{locale === 'zh' ? '零注册工作流与精选工具栈 (Workflows & Stacks)' : 'Zero-Signup Workflows & Curated Stacks'}</span>
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {getWorkflowRecipes().map((wf) => (
+            <a
+              href={getLocalizedPath(`/workflow/${wf.slug}`, locale)}
+              class="px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+            >
+              {wf.title}
+            </a>
+          ))}
+          {CURATED_COLLECTIONS.map((col) => (
+            <a
+              href={getLocalizedPath(`/collection/${col.slug}`, locale)}
+              class="px-2.5 py-1 text-xs font-mono font-bold bg-yellow-50 text-neutral-900 border border-neutral-400 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
+            >
+              {col.icon} {col.title}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <!-- FAQ -->
     <section class="mt-16 border-t border-neutral-200 pt-8">
