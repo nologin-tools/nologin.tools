@@ -409,7 +409,7 @@ const orgLd = {
   ogImagePath={`/api/og/${slug}`}
   locale={locale}
   availableLocales={availableLocales}
-  noindex={availableLocales ? !availableLocales.has(locale) : false}
+  noindex={!isVerified || (availableLocales ? !availableLocales.has(locale) : false)}
 >
   <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />

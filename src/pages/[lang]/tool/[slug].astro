@@ -1,7 +1,7 @@
 ---
 import {
   getAvailableToolLocales,
-  getAllTools,
+  getApprovedTools,
   getLocalizedDescription,
   getLocalizedTool,
   getRelatedTools,
@@ -10,7 +10,7 @@ import ToolDetailPage from '../../../components/ToolDetailPage.astro';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n/config';
 
 export function getStaticPaths() {
-  const tools = getAllTools().filter(
+  const tools = getApprovedTools().filter(
     (tool) => tool.slug && tool.slug.length <= 100 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tool.slug)
   );
   return LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((lang) =>

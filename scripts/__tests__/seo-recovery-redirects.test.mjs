@@ -44,9 +44,11 @@ describe('SEO Recovery - Redirects & Content Pruning', () => {
     assert.equal(isIndexableLocale('pt'), false);
   });
 
-  it('pruned blog collection leaves only high-quality pillar posts', () => {
-    const files = readdirSync(resolve(ROOT, 'src/content/blog')).filter(f => f.endsWith('.md'));
-    assert.equal(files.length, 35, 'Should leave exactly 35 curated pillar posts and tool reviews');
+  it('pruned blog collection leaves only high-quality pillar posts with 100% Chinese translation parity', () => {
+    const enFiles = readdirSync(resolve(ROOT, 'src/content/blog')).filter(f => f.endsWith('.md')).sort();
+    const zhFiles = readdirSync(resolve(ROOT, 'src/content/blog/zh')).filter(f => f.endsWith('.md')).sort();
+    assert.equal(enFiles.length, 35, 'Should leave exactly 35 curated pillar posts and tool reviews');
+    assert.deepEqual(zhFiles, enFiles, 'All 35 English blog posts must have matching Chinese translations');
   });
 
   it('public/_redirects redirects to canonical URLs without trailing slash', () => {

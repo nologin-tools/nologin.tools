@@ -44,10 +44,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   // Accept-Language redirect for paths without locale prefix (Exempt all search engine crawlers & bots)
   const BOT_REGEX = /Googlebot|bingbot|Baiduspider|YandexBot|DuckDuckBot|Applebot|Sogou|Slurp|facebookexternalhit|Twitterbot|LinkedInBot|Bytespider|ClaudeBot|GPTBot|PerplexityBot|NoLoginTools/i;
-  const userAgent = request.headers.get('user-agent') || '';
-  const isBot = BOT_REGEX.test(userAgent);
+  const hasRuntimeDb = Boolean((context.locals as any).runtime?.env?.DB);
 
-  if (request.method === 'GET' && !isBot && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+  if (hasRuntimeDb && request.method === 'GET' && !SKIP_REDIRECT_REGEX.test(pathname) && !HAS_EXTENSION_REGEX.test(pathname)) {
+    const userAgent = request.headers.get('user-agent') || '';
+    const isBot = BOT_REGEX.test(userAgent);
+    if (!isBot) {
     const firstSegment = pathname.split('/').filter(Boolean)[0];
     const hasLocalePrefix = firstSegment && NON_DEFAULT_LOCALES.includes(firstSegment);
 
@@ -74,15 +76,16 @@ export const onRequest = defineMiddleware(async (context, next) => {
         }
       }
 
-      if (targetLocale) {
-        const redirectUrl = new URL(`/${targetLocale}${pathname === '/' ? '' : pathname}`, url);
-        return new Response(null, {
-          status: 302,
-          headers: {
-            Location: redirectUrl.pathname + url.search,
-            Vary: 'Accept-Language',
-          },
-        });
+        if (targetLocale) {
+          const redirectUrl = new URL(`/${targetLocale}${pathname === '/' ? '' : pathname}`, url);
+          return new Response(null, {
+            status: 302,
+            headers: {
+              Location: redirectUrl.pathname + url.search,
+              Vary: 'Accept-Language',
+            },
+          });
+        }
       }
     }
   }
@@ -108,9 +111,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const isApprovedStatic = existingTool && existingTool.status === 'approved';
 
   // If tool is NOT approved or not in build data (e.g. pending, rejected, newly submitted, or unknown),
-  // rewrite directly to the SSR route before calling next() so Cloudflare Pages / Astro
+  // rewrite directly to the SSR route in Worker runtime so Cloudflare Pages / Astro
   // serves the dynamic state instead of a static 404!
-  if (!isApprovedStatic) {
+  if (!isApprovedStatic && hasRuntimeDb) {
     const ssrPath = rewriteToSSR(pathname);
     try {
       const ssrResponse = await context.rewrite(ssrPath);

@@ -138,4 +138,46 @@ describe('Middleware SEO Redirects & Crawler Protection', () => {
     assert.ok(!sitemapContent.includes('const staticLastmod = new Date()'), 'Must not stamp staticLastmod with current build time');
     assert.ok(sitemapContent.includes("}, '2026-01-01');"), 'Must initialize reduce accumulator to baseline date');
   });
+
+  it('resolves restored delisted & renamed tools and comparisons in 1 hop across all locales', () => {
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/tool/convertio-com/'), '/tool/convertio-co');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/zh/tool/convertio-com'), '/zh/tool/convertio-co');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/de/tool/convertio-com/'), '/tool/convertio-co');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/tool/archive-today'), '/tool/archive-ph');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/zh/tool/archive-today/'), '/zh/tool/archive-ph');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/tool/svgedit-netlify-app-editor-index-html'), '/category/design');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/ja/tool/quickstart-to/'), '/category/development');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/compare/svgedit-vs-svgomg/'), '/compare/haikei-vs-fffuel');
+    assert.equal(resolveCanonicalRedirect('https://nologin.tools/zh/compare/svgedit-vs-svgomg'), '/zh/compare/haikei-vs-fffuel');
+  });
+
+  it('pre-renders only approved tools in static [slug].astro routes and guards SSR routes against rejected/pending indexing', () => {
+    for (const relPath of [
+      'src/pages/tool/[slug].astro',
+      'src/pages/[lang]/tool/[slug].astro',
+      'src/pages/badge/[slug].astro',
+      'src/pages/[lang]/badge/[slug].astro',
+    ]) {
+      const content = readFileSync(resolve(ROOT, relPath), 'utf-8');
+      assert.ok(content.includes('getApprovedTools()'), `${relPath} must use getApprovedTools() in getStaticPaths`);
+      assert.ok(!content.includes('getAllTools()'), `${relPath} must not pre-render unverified pending tools via getAllTools()`);
+    }
+
+    for (const ssrPath of [
+      'src/pages/ssr/tool/[slug].astro',
+      'src/pages/ssr/[lang]/tool/[slug].astro',
+    ]) {
+      const ssrContent = readFileSync(resolve(ROOT, ssrPath), 'utf-8');
+      assert.ok(
+        ssrContent.includes("tool.status === 'rejected'"),
+        `${ssrPath} must return 404 when tool.status === 'rejected'`
+      );
+    }
+
+    const detailContent = readFileSync(resolve(ROOT, 'src/components/ToolDetailPage.astro'), 'utf-8');
+    assert.ok(
+      detailContent.includes('noindex={!isVerified ||'),
+      'ToolDetailPage.astro must set noindex when tool is not verified'
+    );
+  });
 });

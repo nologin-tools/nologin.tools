@@ -83,6 +83,41 @@ export const REDIRECT_MAP = {
 
 const ALL_LOCALES = ['zh', 'de', 'es', 'fr', 'ja', 'ko', 'pt'];
 
+export const RENAMED_TOOLS_MAP = {
+  'monkeetools-surge-sh': 'monkeetools-pages-dev',
+  'convertio-com': 'convertio-co',
+  'ps-keepmot-com-zh': 'ps-keepmot-com',
+  'preuveenmain-ca-app-index-html': 'preuveenmain-ca-app',
+  'www-reficompass-com': 'reficompass-com',
+  'archive-today': 'archive-ph',
+};
+
+export const DELISTED_TOOLS_CATEGORY_MAP = {
+  'hat-sh': 'privacy',
+  'svgedit-netlify-app-editor-index-html': 'design',
+  'svgedit-netlify-app-editor': 'design',
+  'unscreen-com': 'media',
+  'phind-com': 'ai',
+  'huggingface-co-chat': 'ai',
+  'clideo-com': 'media',
+  'quickstart-to': 'development',
+  'lowrisktradesmart-org': 'finance',
+  'm3u8-player-net': 'media',
+  'alphagaindaily-com': 'finance',
+  'levelwalks-com': 'productivity',
+  'freeqr-pro': 'productivity',
+  'trust-leak-audit-static-vercel-app': 'privacy',
+  'sec-filing-fee-calculator-vercel-app': 'finance',
+  'sec-13d-13g-deadline-calculator-vercel-app': 'finance',
+  'form-d-deadline-calculator-vercel-app': 'finance',
+  'section-16-deadline-calculator-vercel-app': 'finance',
+  'www-quackbuilds-com-apps-oee-pulse-html': 'productivity',
+};
+
+export const RENAMED_COMPARISONS_MAP = {
+  'svgedit-vs-svgomg': 'haikei-vs-fffuel',
+};
+
 export function generateRedirectsContent() {
   const lines = [
     '# =========================================================================',
@@ -115,59 +150,41 @@ export function generateRedirectsContent() {
     '/de/ / 301',
     '/pt/ / 301',
     '',
-    '# --- Delisted & Renamed Tools 301 Redirects (Top priority for Cloudflare 100-rule limit) ---',
-    '/tool/monkeetools-surge-sh /tool/monkeetools-pages-dev 301',
-    '/tool/monkeetools-surge-sh/ /tool/monkeetools-pages-dev 301',
-    '/badge/monkeetools-surge-sh /badge/monkeetools-pages-dev 301',
-    '/badge/monkeetools-surge-sh/ /badge/monkeetools-pages-dev 301',
-    '/zh/tool/monkeetools-surge-sh /zh/tool/monkeetools-pages-dev 301',
-    '/zh/tool/monkeetools-surge-sh/ /zh/tool/monkeetools-pages-dev 301',
-    '/zh/badge/monkeetools-surge-sh /zh/badge/monkeetools-pages-dev 301',
-    '/zh/badge/monkeetools-surge-sh/ /zh/badge/monkeetools-pages-dev 301',
-    '/tool/hat-sh /category/privacy 301',
-    '/tool/hat-sh/ /category/privacy 301',
-    '/badge/hat-sh /category/privacy 301',
-    '/badge/hat-sh/ /category/privacy 301',
-    '/zh/tool/hat-sh /zh/category/privacy 301',
-    '/zh/tool/hat-sh/ /zh/category/privacy 301',
-    '/zh/badge/hat-sh /zh/category/privacy 301',
-    '/zh/badge/hat-sh/ /zh/category/privacy 301',
-    '/tool/unscreen-com /category/media 301',
-    '/tool/unscreen-com/ /category/media 301',
-    '/badge/unscreen-com /category/media 301',
-    '/badge/unscreen-com/ /category/media 301',
-    '/zh/tool/unscreen-com /zh/category/media 301',
-    '/zh/tool/unscreen-com/ /zh/category/media 301',
-    '/zh/badge/unscreen-com /zh/category/media 301',
-    '/zh/badge/unscreen-com/ /zh/category/media 301',
-    '/tool/phind-com /category/ai 301',
-    '/tool/phind-com/ /category/ai 301',
-    '/badge/phind-com /category/ai 301',
-    '/badge/phind-com/ /category/ai 301',
-    '/zh/tool/phind-com /zh/category/ai 301',
-    '/zh/tool/phind-com/ /zh/category/ai 301',
-    '/zh/badge/phind-com /zh/category/ai 301',
-    '/zh/badge/phind-com/ /zh/category/ai 301',
-    '/tool/huggingface-co-chat /category/ai 301',
-    '/tool/huggingface-co-chat/ /category/ai 301',
-    '/badge/huggingface-co-chat /category/ai 301',
-    '/badge/huggingface-co-chat/ /category/ai 301',
-    '/zh/tool/huggingface-co-chat /zh/category/ai 301',
-    '/zh/tool/huggingface-co-chat/ /zh/category/ai 301',
-    '/zh/badge/huggingface-co-chat /zh/category/ai 301',
-    '/zh/badge/huggingface-co-chat/ /zh/category/ai 301',
-    '/tool/clideo-com /category/media 301',
-    '/tool/clideo-com/ /category/media 301',
-    '/badge/clideo-com /category/media 301',
-    '/badge/clideo-com/ /category/media 301',
-    '/zh/tool/clideo-com /zh/category/media 301',
-    '/zh/tool/clideo-com/ /zh/category/media 301',
-    '/zh/badge/clideo-com /zh/category/media 301',
-    '/zh/badge/clideo-com/ /zh/category/media 301',
-    '',
-    '# --- Blog Pruning & Pillar Article Consolidation (301 Permanent) ---',
-    '',
+    '# --- Delisted & Renamed Tools 301 Redirects ---',
   ];
+
+  for (const [fromSlug, toSlug] of Object.entries(RENAMED_TOOLS_MAP)) {
+    lines.push(`/tool/${fromSlug} /tool/${toSlug} 301`);
+    lines.push(`/tool/${fromSlug}/ /tool/${toSlug} 301`);
+    lines.push(`/badge/${fromSlug} /badge/${toSlug} 301`);
+    lines.push(`/badge/${fromSlug}/ /badge/${toSlug} 301`);
+    lines.push(`/zh/tool/${fromSlug} /zh/tool/${toSlug} 301`);
+    lines.push(`/zh/tool/${fromSlug}/ /zh/tool/${toSlug} 301`);
+    lines.push(`/zh/badge/${fromSlug} /zh/badge/${toSlug} 301`);
+    lines.push(`/zh/badge/${fromSlug}/ /zh/badge/${toSlug} 301`);
+  }
+
+  for (const [fromSlug, categorySlug] of Object.entries(DELISTED_TOOLS_CATEGORY_MAP)) {
+    lines.push(`/tool/${fromSlug} /category/${categorySlug} 301`);
+    lines.push(`/tool/${fromSlug}/ /category/${categorySlug} 301`);
+    lines.push(`/badge/${fromSlug} /category/${categorySlug} 301`);
+    lines.push(`/badge/${fromSlug}/ /category/${categorySlug} 301`);
+    lines.push(`/zh/tool/${fromSlug} /zh/category/${categorySlug} 301`);
+    lines.push(`/zh/tool/${fromSlug}/ /zh/category/${categorySlug} 301`);
+    lines.push(`/zh/badge/${fromSlug} /zh/category/${categorySlug} 301`);
+    lines.push(`/zh/badge/${fromSlug}/ /zh/category/${categorySlug} 301`);
+  }
+
+  for (const [fromSlug, toSlug] of Object.entries(RENAMED_COMPARISONS_MAP)) {
+    lines.push(`/compare/${fromSlug} /compare/${toSlug} 301`);
+    lines.push(`/compare/${fromSlug}/ /compare/${toSlug} 301`);
+    lines.push(`/zh/compare/${fromSlug} /zh/compare/${toSlug} 301`);
+    lines.push(`/zh/compare/${fromSlug}/ /zh/compare/${toSlug} 301`);
+  }
+
+  lines.push('');
+  lines.push('# --- Blog Pruning & Pillar Article Consolidation (301 Permanent) ---');
+  lines.push('');
 
   for (const [fromSlug, toSlug] of Object.entries(REDIRECT_MAP)) {
     // English version (pointing directly to canonical non-trailing slash URL)
