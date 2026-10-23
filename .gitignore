@@ -7,3 +7,8 @@ dist-extension/
 .dev.vars
 src/data/build-data.json
 scripts/backups/
+
+# Operator credentials and transient ops artifacts
+.env.local
+scripts/.*.sql
+reports/

@@ -8,6 +8,7 @@ import { urlToSlug, hashIp, getClientIp, isValidSlug } from '../../lib/utils';
 import { api } from '../../lib/api';
 import { archiveUrl } from '../../lib/archive';
 import { checkHealth } from '../../lib/health';
+import { checkHardGates, findSiteDuplicate, normalizeSubmissionUrl } from '../../lib/submission-gates';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const db = getDb(locals.runtime.env.DB);
@@ -50,9 +51,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
   // Validation
   const errors: Record<string, string> = {};
 
-  const cleanUrl = typeof url === 'string' && url.trim() ? url.trim() : tool.url;
+  const rawUrl = typeof url === 'string' && url.trim() ? url.trim() : tool.url;
   try {
-    const parsed = new URL(cleanUrl);
+    const parsed = new URL(rawUrl);
     if (!['http:', 'https:'].includes(parsed.protocol)) {
       errors.url = 'Only HTTP and HTTPS URLs are supported.';
     }
@@ -72,6 +73,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   if (Object.keys(errors).length > 0) {
     return api.error('Validation failed.', 400, errors);
+  }
+
+  // Strip tracking-only params and apply the shared intake hard gates
+  const { url: cleanUrl } = normalizeSubmissionUrl(rawUrl);
+  const violation = checkHardGates({ url: cleanUrl, submitterEmail: submitterEmail || tool.submitterEmail });
+  if (violation) {
+    return api.error(violation.userMessage, 422, { url: violation.userMessage, gate: violation.code });
+  }
+
+  // One entry per site (excluding this tool itself)
+  const siteDuplicate = await findSiteDuplicate(locals.runtime.env.DB, cleanUrl, toolId);
+  if (siteDuplicate) {
+    return api.error('This site already has an entry in the directory.', 409, {
+      url: 'This site has already been submitted under another entry.',
+    });
   }
 
   // Recompute slug if URL changed

@@ -1,4 +1,6 @@
 // @ts-check
+// ARCHIVED 2026-10-23: replaced by scripts/run-health-checks.mjs (full catalog, GitHub Actions twice daily).
+
 import { execSync } from 'node:child_process';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -17,7 +17,8 @@ Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTo
 - **Database**: Cloudflare D1 (SQLite) via Drizzle ORM
 - **Styling**: Tailwind CSS v4 + `@tailwindcss/typography` (prose styles for blog)
 - **Package Manager**: pnpm
-- **Cron & Automation**: Antigravity modular agentic skills (`.agents/skills/`): master orchestrator (`.agents/skills/autonomous-patrol/`), vetting & ingestion (`.agents/skills/submission-review/`), CADES 2.0 evaluation (`.agents/skills/tool-evaluation/`), rolling health & ecosystem (`.agents/skills/health-patrol/`), and technical SEO (`.agents/skills/daily-seo-audit/`) + GitHub Actions daily export (`.github/workflows/data-export.yml`)
+- **Cron & Automation**: Antigravity modular agentic skills (`.agents/skills/`): patrol orchestrator (`.agents/skills/autonomous-patrol/`: hard gates, triage, health anomaly review, rolling regression scan, ecosystem, SEO), **daily deep-evaluation quota** (`.agents/skills/daily-evaluation/`: ≥10 pending evaluations + high regression anomalies per day, separate session), vetting & ingestion (`.agents/skills/submission-review/`), CADES 2.0 evaluation (`.agents/skills/tool-evaluation/`), health & ecosystem (`.agents/skills/health-patrol/`), technical SEO (`.agents/skills/daily-seo-audit/`) + GitHub Actions: daily export (`data-export.yml`), full-catalog health checks twice daily (`health-check.yml`)
+- **Operations state**: `src/data/regression-ledger.json` (committed: per-tool scan rotation + open regression anomalies); `reports/` (gitignored, local: triage reports, `evaluation-queue.json`, `evaluations/<date>.jsonl` quota evidence, regression reports)
 - **Build Data**: D1 REST API → `build-data.json` → static HTML (every 6h scheduled rebuild)
 
 ## Project Structure
@@ -26,7 +27,11 @@ Dual-brand strategy: **nologin.tools** is the product/website brand, **NoLoginTo
 scripts/
 ├── fetch-build-data.mjs          # D1 REST API → build-data.json (run at build time, supports --mock)
 ├── add-blog-hero-image.mjs       # Hero image downloader with 3-level fallback (Unsplash API → Unsplash Source → Picsum)
-├── batch-reject-pending.mjs      # Batch reject non-compliant pending tools (dead links, bots, spam, excessive matrix)
+├── batch-reject-pending.mjs      # Hard-gate rejection of pending tools via review API (shared gates + legacy heuristics)
+├── triage-pending.mjs            # HTTP/static-HTML triage → Tier A/B evaluation queue, Tier C confirm-then-reject
+├── run-health-checks.mjs         # Full-catalog liveness checks (GitHub Actions health-check.yml)
+├── lib/                          # env.mjs (.env.local loader), d1.mjs (D1 REST/wrangler client), admin-api.mjs (canonical write path)
+├── lab/                          # CADES harness + regression-ledger.mjs, regression-signals.mjs, triage-core.mjs, evaluation-queue.mjs
 ├── daily-seo-audit.mjs           # Technical SEO audit & IndexNow pipeline
 ├── prune-blogs-and-generate-redirects.mjs # Blog post pruning and redirect generation
 ├── push-indexnow.mjs             # Push URLs to IndexNow
@@ -45,7 +50,10 @@ scripts/
     ├── seo-geo-schema.test.mjs          # Schema JSON-LD validation tests
     ├── seo-recovery-redirects.test.mjs  # 404 recovery redirects tests
     ├── seo-robots.test.mjs              # robots.txt AI bot directives tests (5 cases)
+    ├── regression-ledger.test.mjs       # Regression rotation, hard signals, health-core semantics
     ├── sitemap.test.mjs                 # Sitemap multi-locale generation tests (23 cases)
+    ├── submission-gates.test.mjs        # Intake hard gates, URL normalization, site identity
+    ├── triage.test.mjs                  # Pending triage tiers + evaluation queue ordering
     ├── syndicate-blog.test.mjs          # Blog syndication tests (29 cases)
     ├── tool-seo.test.mjs                # Tool SEO metadata fallback tests
     └── validate-blog-post.test.mjs      # Blog post validation tests (20 cases)
@@ -163,7 +171,7 @@ sites/org/                # NologinTools.org — organization authority site (in
   - Data export: `featured` boolean field in tools.json, ★ marker after tool name in README
   - Rejecting a tool auto-clears `isFeatured` and `featuredAt`
   - Admin dashboard: Featured count stat card (yellow theme), ★ Featured filter button, Feature/Unfeature toggle per approved tool
-- **Simplified tool submission**: Submissions via `/submit` and `POST /api/submit` require only `url` (required) and `submitterEmail` (optional). Full tool metadata (name, description, core_task, category, and tags) is automatically extracted and populated during review via `submission-review` (using `tool-evaluation` and `ego-browser`).
+- **Simplified tool submission**: Submissions via `/submit` and `POST /api/submit` require only `url` (required) and `submitterEmail` (optional). Intake applies `src/lib/submission-gates-core.mjs`: tracking params (`utm_*`, `fbclid`, `ref`, …) are stripped before storage; tunnels/previews, repository URLs, store listings, and blocked bulk submitters return 422; a URL whose site identity (host without `www.`, or `user.github.io/<project>`) already has any entry returns 409 (one entry per site). Full tool metadata (name, description, core_task, category, and tags) is automatically extracted and populated during review via `submission-review` (using `tool-evaluation` and `ego-browser`).
 - **Status flow**: `pending` → `approved` (= NoLogin Verified) or `rejected`
   - Rejected tools can be resubmitted via `POST /api/resubmit` — resets to `pending`, clears `rejectionReason`
 - **Badge navigation**: Tool detail "NoLogin Verified" label links to `/badge/{slug}`; verified tools show a CTA to get embed code
@@ -204,17 +212,17 @@ sites/org/                # NologinTools.org — organization authority site (in
 - **Admin dashboard tabs**: Dashboard, Tools, Edits, Health, Export, GitHub — URL hash navigation (`#dashboard` / `#tools` / `#edits` / `#health` / `#export` / `#github`)
 - **GitHub tab**: Two sections — "GitHub Data Refresh" (table with stars/forks/license/language, individual + bulk refresh, concurrency=2 with 1.2s delay) and "Badge Notification" (GitHub Issue creation for verified tools, individual + bulk notify, concurrency=3 with 0.5s delay). Bulk operations support cancel via `AbortController`.
 - **Health check on submit**: Tools are health-checked on submission/resubmission via `ctx.waitUntil()`. Results stored in `health_checks` table, displayed on admin review page.
-- **`ctx.waitUntil()` for background work**: In Cloudflare Workers, the execution context terminates after the Response is returned. Any fire-and-forget async work (health checks, archiving, etc.) **must** be registered with `locals.runtime.ctx.waitUntil(promise)` — otherwise the Promise will be killed before completion. The cron worker uses `ctx.waitUntil()` directly from its `ExecutionContext`.
-- **Health check User-Agent**: All health check fetch requests (both `src/lib/health.ts` and `workers/cron/`) include `User-Agent: 'NoLoginTools-HealthChecker/1.0'` to avoid WAF/bot-detection false positives (e.g. WolframAlpha 403). Badge detection uses `NoLoginTools-BadgeChecker/1.0`.
-- **Health check HEAD→GET fallback** (main app only): `src/lib/health.ts` tries HEAD first; if it **throws** (network error) OR returns **non-ok status** (e.g. WolframAlpha returns 404 for HEAD), a GET retry follows with its own independent `AbortController` (each gets a full 10s timeout). The cron worker uses **GET-only** (no HEAD) to halve subrequest count and avoid timeout-sharing issues under concurrent load.
+- **`ctx.waitUntil()` for background work**: In Cloudflare Workers, the execution context terminates after the Response is returned. Any fire-and-forget async work (health checks, archiving, etc.) **must** be registered with `locals.runtime.ctx.waitUntil(promise)` — otherwise the Promise will be killed before completion.
+- **Health check User-Agent**: All health check fetch requests (`src/lib/health.ts` and `scripts/run-health-checks.mjs`, via `HEALTH_CHECK_USER_AGENT` in `src/lib/health-core.mjs`) include `User-Agent: 'NoLoginTools-HealthChecker/1.0'` to avoid WAF/bot-detection false positives (e.g. WolframAlpha 403). Badge detection uses `NoLoginTools-BadgeChecker/1.0`.
+- **Health check HEAD→GET fallback**: `src/lib/health.ts` and `scripts/run-health-checks.mjs` try HEAD first; if it **throws** (network error) OR returns **non-ok status** (e.g. WolframAlpha returns 404 for HEAD), a GET retry follows with its own independent `AbortController` (each gets a full 10s timeout).
 - **Health check HTTP status intelligence**: `isOnline` is determined by `isReachable(status)` — any HTTP response is considered "reachable" (server is up) except 404/410 which indicate the page is gone. This means 403 (WAF), 429 (rate limit), and 5xx (server error) all count as "online" since the server is responding. Network errors (DNS failure, timeout, connection refused) count as offline.
 - **Health check three-level effective status**: `resolveEffectiveStatus(checks)` returns `EffectiveStatus | null` (`'online'|'unstable'|'offline'|null`). Uses fast-recovery rule: if latest check is within 48h and online → immediately `'online'`; if latest is offline → use all LIMIT 5 records (no second 48h filter) to distinguish `'offline'` (all offline) vs `'unstable'` (mixed); if latest check is older than 48h → `null`.
-- **Health check tolerance**: Status uses the last 5 checks (`HEALTH_TOLERANCE = 5`) with a 48-hour freshness check on the most recent record only (`HEALTH_WINDOW_HOURS = 48`). If the latest check is older than 48h, status returns `null` ("No checks yet"). The fast-recovery design prevents false "unstable" states — tolerance is for preventing false offline (one timeout shouldn't mark offline), not for blocking recovery. The helper `resolveEffectiveStatus(checks)` in `src/lib/health.ts` is used by all display layers. The health-check API returns `isOnline` (raw) and `effectiveStatus` (three-level); client-side JS uses `effectiveStatus` for UI updates. The cron worker inlines the same `isReachable()` logic for `isOnline` determination and uses `HEALTH_TOLERANCE`/`HEALTH_WINDOW_HOURS` for archive triggering (queries D1 directly since it can't import `src/lib/`).
-- **Cron GitHub data refresh** (daily 05:00 UTC): Refreshes GitHub repo metadata (stars, forks, license, language, updated_at) for tools with `repo_url` set. Priority: never-fetched tools first (initial failure retry), then stale data (>7 days). Max 10 tools per run, sequential requests to stay within GitHub's 60 req/hr unauthenticated limit. Uses inline `parseGitHubRepoUrl()` since cron worker can't import `src/lib/`.
-- **Cron health check strategy**: The cron worker uses **random sampling** (`ORDER BY RANDOM() LIMIT 15`) — each 6h run checks 15 randomly selected approved tools instead of all tools. This avoids Cloudflare Workers subrequest limits (50 free / 1000 paid) and event-loop contention. Concurrency is capped at **batchSize=3** (vs admin bulk check's 3). Combined with GET-only requests, each run uses at most 15 subrequests. Over 24h (4 runs), ~60 checks are performed, sufficient to cover all tools.
-- **Exported README badges**: The auto-generated `awesome-nologin-tools` README includes 5 shields.io badges on the first line + 1 self-hosted badge on a separate line below the title. First line: Awesome (static, pink `#fc60a8`), Tools count (dynamic from `tools.length`, green `#4c1`), License CC0 (static, grey), Website (static, blue), Submit a Tool (static, orange). Second line: NoLogin Verified (`/badges/flat.svg`, self-hosted, links to `/badge/awesome-nologin-tools`). Both `generateReadme()` in `src/pages/api/admin/data-export.ts` and `workers/cron/src/index.ts` must stay in sync.
-- **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. The cron worker has equivalent inline logic.
-- **Cron export logging**: `runDataExport` in the cron worker always records to `data_exports` table — `GITHUB_TOKEN` missing writes `status: 'error'` with `error_message: 'GITHUB_TOKEN not configured'`; any runtime exception also records error with message. DB writes themselves are wrapped in try-catch to prevent double failures.
+- **Health check tolerance**: Status uses the last 5 checks (`HEALTH_TOLERANCE = 5`) with a 48-hour freshness check on the most recent record only (`HEALTH_WINDOW_HOURS = 48`). If the latest check is older than 48h, status returns `null` ("No checks yet"). The fast-recovery design prevents false "unstable" states — tolerance is for preventing false offline (one timeout shouldn't mark offline), not for blocking recovery. The helper `resolveEffectiveStatus(checks)` in `src/lib/health.ts` is used by all display layers. The health-check API returns `isOnline` (raw) and `effectiveStatus` (three-level); client-side JS uses `effectiveStatus` for UI updates. The pure semantics (`isReachable`, `resolveEffectiveStatus`, `HEALTH_TOLERANCE`, `HEALTH_WINDOW_HOURS`) live in `src/lib/health-core.mjs`, shared by the Worker and the GitHub Actions runner.
+- **Scheduled health checks** (GitHub Actions `.github/workflows/health-check.yml`, 01:00 + 13:00 UTC): `scripts/run-health-checks.mjs` checks **every** approved tool (concurrency 8, HEAD→GET, 10s timeout) and appends results to `health_checks` via the D1 REST API, so every tool always has an observation inside the 48h window. The report artifact lists offline tools and cross-host redirects for `health-patrol` review. (The Cloudflare cron worker was removed on 2026-09-16; the interim 30-tools/day agent patrol covered only ~19% of tools within 48h and is archived.)
+- **GitHub metadata refresh**: `scripts/refresh-github-metadata.mjs` (agent patrol) or `POST /api/admin/github-fetch`.
+- **Exported README badges**: The auto-generated `awesome-nologin-tools` README includes 5 shields.io badges on the first line + 1 self-hosted badge on a separate line below the title. First line: Awesome (static, pink `#fc60a8`), Tools count (dynamic from `tools.length`, green `#4c1`), License CC0 (static, grey), Website (static, blue), Submit a Tool (static, orange). Second line: NoLogin Verified (`/badges/flat.svg`, self-hosted, links to `/badge/awesome-nologin-tools`). `generateReadme()` lives in `src/pages/api/admin/data-export.ts`; the daily export runs via `.github/workflows/data-export.yml` (`scripts/export-awesome-list.mjs`).
+- **Health check self-reference detection**: Cloudflare Workers cannot `fetch()` their own hostname (causes 522). `checkHealth(url, siteUrl?)` compares hostnames — if they match, it short-circuits with `{ isOnline: true, httpStatus: 200, responseTimeMs: 0 }`. All call sites pass `SITE_URL`. `scripts/run-health-checks.mjs` short-circuits `nologin.tools` the same way.
+- **Export logging**: `scripts/export-awesome-list.mjs` always records to the `data_exports` table (`trigger_source: 'cron'` for the scheduled workflow), including error status and message.
 - **Performance — Database indexes**: Three indexes exist for query performance: `idx_tools_status` on `tools(status)`, `idx_tags_tool_id` on `tags(tool_id)`, `idx_health_checks_tool_id_checked_at` on `health_checks(tool_id, checked_at)`.
 - **Performance — JS-layer recommendation score**: The homepage recommendation score is computed in JavaScript (not SQL) using `computeScore()` in `src/data/loader.ts`. Badge weight (explicit +4, implicit +2), health score (+3 online), freshness (+1~5), product power boost (up to +10), evergreen stability bonus (+3 for mature 60d+ online tools), featured boost +5.
 - **Performance — Batch queries**: Admin tools API (`/api/admin/tools`) and admin dashboard (`/admin`) use batch `inArray` queries for tags and health checks instead of per-tool N+1 queries.
@@ -291,7 +299,6 @@ pnpm db:generate          # Generate Drizzle migration
 pnpm db:migrate:local     # Apply migrations locally
 pnpm db:migrate:remote    # Apply migrations to production D1
 pnpm deploy               # Build + deploy to Cloudflare Pages
-pnpm deploy:cron          # Deploy cron worker
 ```
 
 **Local development**: Run `node scripts/fetch-build-data.mjs` first to generate `src/data/build-data.json` (or `--mock` for empty data). When using `wrangler pages dev`, you may need to temporarily unset HTTP proxy: `unset HTTP_PROXY HTTPS_PROXY`.
@@ -308,14 +315,7 @@ pnpm deploy:cron          # Deploy cron worker
 | `RATE_LIMIT_MAX_SUBMISSIONS` | Max submissions per IP per window (default: 3) | wrangler.jsonc vars |
 | `RATE_LIMIT_WINDOW_HOURS` | Rate limit window in hours (default: 24) | wrangler.jsonc vars |
 
-**Important**: The main app (`nologin-tools`) and cron worker (`nologin-tools-cron`) are **separate Cloudflare Workers**. Secrets are isolated per worker, so secrets needed by the cron worker (`GITHUB_TOKEN`, `ARCHIVE_ORG_ACCESS_KEY`, `ARCHIVE_ORG_SECRET_KEY`) must be set separately under `workers/cron/`:
-
-```bash
-cd workers/cron
-wrangler secret put GITHUB_TOKEN
-wrangler secret put ARCHIVE_ORG_ACCESS_KEY
-wrangler secret put ARCHIVE_ORG_SECRET_KEY
-```
+**Operator credentials (local agents/scripts)**: put `ADMIN_SECRET` (and optionally `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`) in the gitignored `.env.local`. `scripts/lib/env.mjs` loads `.env.local` → `.dev.vars` → `.env` without overriding shell exports. All tool status/metadata writes from scripts and agents go through `scripts/lib/admin-api.mjs` (review/admin APIs); there is no SQL fallback.
 
 ## Database Schema
 
@@ -372,17 +372,17 @@ Automated blog cross-posting triggered after Deploy workflow completes on main.
 
 - **Workflow**: `.github/workflows/deploy.yml`
 - **Triggers**: push to `main` → deploy | PR to `main` → build check only | manual `workflow_dispatch` → deploy | **scheduled cron every 6h** (`0 */6 * * *`) → rebuild with fresh D1 data
-- **Jobs** (main branch / schedule / dispatch): `migrate` → `deploy-app` (fetch build data + build + `wrangler pages deploy`) + `deploy-cron` (parallel after migration)
+- **Jobs** (main branch / schedule / dispatch): `migrate` → `deploy-app` (fetch build data + build + `wrangler pages deploy`)
 - **Jobs** (PR): `build-check` only (mock build data + pnpm build)
-- **D1 database_id**: Real ID stored directly in `wrangler.jsonc` and `workers/cron/wrangler.jsonc` (not sensitive — access requires API token)
+- **D1 database_id**: Real ID stored directly in `wrangler.jsonc` (not sensitive — access requires API token)
 - **GitHub Secrets required**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 - **Concurrency**: Same workflow + branch combo cancels in-progress runs
-- **Observability**: Both the main app (`wrangler.jsonc`) and cron worker (`workers/cron/wrangler.jsonc`) have `"observability": { "enabled": true }` for Cloudflare Dashboard logs
+- **Observability**: The main app (`wrangler.jsonc`) has `"observability": { "enabled": true }` for Cloudflare Dashboard logs
 - **Data freshness**: Static pages updated every 6h via scheduled rebuild. New tools between rebuilds served via ISR (SSR fallback + 6h Cache API TTL). Admin can trigger immediate rebuild via `workflow_dispatch`.
 
 ## NologinTools.org (Organization Site)
 
-- **Location**: `sites/org/` — independent Astro project within the monorepo (like `workers/cron/`)
+- **Location**: `sites/org/` — independent Astro project within the monorepo
 - **Purpose**: Organization authority website at `https://nologintools.org`, publishing annual whitepapers (e.g. "The State of No-Login Web 2026"), organization identity, and research reports
 - **Architecture**: Pure static Astro site — no database, no SSR, no cron, no i18n
 - **Deployment**: `sites/org/wrangler.jsonc` → Cloudflare Pages project `nologintools-org`; deployed via `.github/workflows/deploy-org.yml` (triggers on `sites/org/**` changes)

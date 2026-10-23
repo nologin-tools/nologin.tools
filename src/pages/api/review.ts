@@ -109,17 +109,16 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   if (action === 'reject') {
     const { toolId, reason } = body;
-    if (!toolId) return api.error('toolId is required.', 400);
+    if (!toolId || typeof toolId !== 'number') return api.error('toolId is required.', 400);
+    const cleanReason = typeof reason === 'string' ? reason.trim() : '';
+    if (!cleanReason) return api.error('A specific rejection reason is required.', 400);
 
-    await db
-      .update(tools)
-      .set({
-        status: 'rejected',
-        rejectionReason: reason || null,
-        isFeatured: false,
-        featuredAt: null,
-      })
-      .where(eq(tools.id, toolId));
+    const result = await env.DB.prepare(
+      `UPDATE tools SET status = 'rejected', rejection_reason = ?, is_featured = 0, featured_at = NULL WHERE id = ?`
+    )
+      .bind(cleanReason, toolId)
+      .run();
+    if (Number(result.meta?.changes || 0) !== 1) return api.error('Tool not found.', 404);
 
     return api.success({ toolId, status: 'rejected' });
   }

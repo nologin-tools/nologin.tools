@@ -8,6 +8,7 @@ import { urlToSlug, hashIp, getClientIp, isValidSlug } from '../../lib/utils';
 import { api } from '../../lib/api';
 import { archiveUrl } from '../../lib/archive';
 import { checkHealth } from '../../lib/health';
+import { checkHardGates, findSiteDuplicate, normalizeSubmissionUrl } from '../../lib/submission-gates';
 
 function deriveDefaultName(urlStr: string): string {
   try {
@@ -81,7 +82,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Validation failed.', 400, errors);
   }
 
-  const cleanUrl = url.trim();
+  // Strip tracking-only params (utm_*, fbclid, ref, ...) before identity checks
+  const { url: cleanUrl } = normalizeSubmissionUrl(url);
+
+  // Intake hard gates (shared with backlog scripts via submission-gates-core.mjs)
+  const violation = checkHardGates({ url: cleanUrl, submitterEmail });
+  if (violation) {
+    return api.error(violation.userMessage, 422, { url: violation.userMessage, gate: violation.code });
+  }
 
   // Generate slug
   const slug = urlToSlug(cleanUrl);
@@ -103,6 +111,16 @@ export const POST: APIRoute = async ({ request, locals }) => {
       url: 'This URL has already been submitted.',
       slug: existing[0].slug,
       status: existing[0].status,
+    });
+  }
+
+  // One entry per site: block URL slices of an already-submitted site
+  const siteDuplicate = await findSiteDuplicate(locals.runtime.env.DB, cleanUrl);
+  if (siteDuplicate) {
+    return api.error('This site already has an entry in the directory.', 409, {
+      url: 'This site has already been submitted. Each site is listed once.',
+      slug: siteDuplicate.slug,
+      status: siteDuplicate.status,
     });
   }
 

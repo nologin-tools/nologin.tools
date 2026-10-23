@@ -104,13 +104,17 @@ node scripts/lab/dogfood-session.mjs finish "<slug>" --eval "/tmp/eval-<slug>.js
 
 Confirm the command succeeds and `src/data/tool-editorial.json` contains synchronized records across all 8 supported locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`). A contradictory privacy verdict is rejected.
 
+Every `finish` (with or without `--sync`) appends a line to `reports/evaluations/<date>.jsonl`; that file is the evidence for the daily evaluation quota. A successful `--sync` also resolves any open anomalies for the slug in `src/data/regression-ledger.json`.
+
 ## Auxiliary regression scan
 
-`inspect-tool-dogfood.mjs` is triage only:
+`inspect-tool-dogfood.mjs --rolling` is evidence collection only:
 
 ```bash
 node scripts/inspect-tool-dogfood.mjs --rolling 20
 node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --packet-file "/tmp/packet-<slug>.json"
 ```
+
+Rolling selection is least-recently-scanned first from `src/data/regression-ledger.json`. It records hard signals only (no core-task rewrite suggestions) into the ledger's anomaly queue (`node scripts/lab/regression-ledger.mjs queue`), which `daily-evaluation` escalates through this protocol.
 
 `--rolling --sync` is forbidden. A single-tool sync additionally requires `--eval-file`; prefer the stateful protocol above for canonical reviews.

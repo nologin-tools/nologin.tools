@@ -21,6 +21,7 @@ describe('Agent Skills Directory Integrity', () => {
       'tool-evaluation',
       'health-patrol',
       'daily-seo-audit',
+      'daily-evaluation',
     ];
     for (const exp of expected) {
       assert.ok(
@@ -64,5 +65,6 @@ describe('Agent Skills Directory Integrity', () => {
     assert.ok(agentsContent.includes('.agents/skills/tool-evaluation/'));
     assert.ok(agentsContent.includes('.agents/skills/health-patrol/'));
     assert.ok(agentsContent.includes('.agents/skills/daily-seo-audit/'));
+    assert.ok(agentsContent.includes('.agents/skills/daily-evaluation/'));
   });
 });

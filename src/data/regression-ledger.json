@@ -1,0 +1,114 @@
+{
+  "caniuse-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "carbon-now-sh": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "devdocs-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "dillinger-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "excalidraw-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "hemingwayapp-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "jsonformatter-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "languagetool-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "led-run": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "nologin-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "photopea-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "pomofocus-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "regex101-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "remove-bg": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "squoosh-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "til-re": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "tinywow-com": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Start 7-Day Free Trial\" (reported by rolling probe 2026-10-22, never escalated)",
+        "firstSeenAt": "2026-10-22T06:40:00.000Z",
+        "lastSeenAt": "2026-10-22T06:40:00.000Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": [
+      "paywall_copy"
+    ]
+  },
+  "tldraw-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "tmp-tf": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "tools-pdf24-org-en": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  }
+}

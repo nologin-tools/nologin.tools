@@ -1,4 +1,7 @@
 // @ts-check
+// ARCHIVED 2026-10-23: one-off historical ingestion with hard-coded IDs and direct SQL writes.
+// Do not run. Use scripts/lib/admin-api.mjs (review API) for all approvals/rejections.
+
 import { writeFileSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

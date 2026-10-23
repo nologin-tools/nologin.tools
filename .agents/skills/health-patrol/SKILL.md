@@ -19,16 +19,25 @@ description: >-
 
 ## Liveness checks
 
-Select approved tools only, prioritizing missing or old checks and recent anomalies. Prefer the deployed admin health endpoint so the canonical checker and tolerance logic are used:
+Full-catalog checks run in GitHub Actions (`.github/workflows/health-check.yml`, 01:00 and 13:00 UTC) via `scripts/run-health-checks.mjs`, which records every approved tool into `health_checks` and uploads a report artifact with offline tools and cross-host redirects. This keeps every approved tool inside the 48h freshness window; the previous 30-tools-per-day agent patrol covered only ~19%.
 
-```http
-POST /api/admin/health-check
-{"secret":"<ADMIN_SECRET>","toolId":123}
-```
+Agent responsibilities:
 
-The response contains both raw `isOnline` and derived `effectiveStatus`. Preserve both in the patrol report.
+1. Confirm the latest workflow run succeeded (`gh run list --workflow health-check.yml --limit 2`). If it failed or is older than 14h, run it locally:
 
-If direct remote maintenance is unavoidable, insert the observation into `health_checks` and query the latest five rows; do not mutate `tools.status`.
+   ```bash
+   node scripts/run-health-checks.mjs --report reports/tmp/health-approved.json
+   ```
+
+2. Review each offline/unstable tool and cross-host redirect in the report. Re-check individually with the canonical endpoint when needed:
+
+   ```bash
+   node scripts/lib/admin-api.mjs health-check <toolId>
+   ```
+
+   The response contains both raw `isOnline` and derived `effectiveStatus`. Preserve both in the patrol report.
+
+Do not mutate `tools.status` for liveness.
 
 ## Redirect review
 
@@ -48,13 +57,20 @@ Do not rewrite the slug during an automatic redirect repair.
 
 ## CADES regression triage
 
-Run the auxiliary detector without synchronization:
+Run the rolling detector without synchronization:
 
 ```bash
 node scripts/inspect-tool-dogfood.mjs --rolling 20
 ```
 
-It only finds candidates. For auth traps, watermarks, or major drift, follow [`../tool-evaluation/SKILL.md`](../tool-evaluation/SKILL.md). Only a completed deep evaluation may update editorial data. A confirmed policy violation may be rejected through the review API with the evidence-linked reason; a liveness failure alone must not change approval state.
+Rotation is driven by `src/data/regression-ledger.json` (least recently scanned first) and advances every run; ~16 days per full catalog cycle. The scan records only hard signals (auth wall, export auth bait, watermark, login-to-continue copy, paywall/trial copy, cross-host redirect, lost interactive surface, title identity change, unreachable) into the ledger's anomaly queue. It does not emit core-task rewrite suggestions.
+
+Escalation is done by [`daily-evaluation`](../daily-evaluation/SKILL.md): it deep-evaluates the queue head via [`../tool-evaluation/SKILL.md`](../tool-evaluation/SKILL.md) and resolves the ledger entry. Only a completed deep evaluation may update editorial data. A confirmed policy violation may be rejected through the review API with the evidence-linked reason; a liveness failure alone must not change approval state.
+
+```bash
+node scripts/lab/regression-ledger.mjs status
+node scripts/lab/regression-ledger.mjs queue
+```
 
 ## Badge verification
 
@@ -73,4 +89,4 @@ Use `POST /api/admin/github-fetch` with `secret` and `toolId`. This keeps reposi
 
 ## Output
 
-Report raw check counts, effective health counts, affected slugs, redirects applied or declined, CADES escalations, badge classifications, GitHub refresh results, and every failure. Never call an anomalous tool “rejected” unless the review action actually succeeded.
+Report latest health workflow run time and coverage (approved tools with a check <48h / total), effective health counts, affected slugs, redirects applied or declined, regression scan count and ledger status, badge classifications, GitHub refresh results, and every failure. Never call an anomalous tool “rejected” unless the review action actually succeeded.

@@ -18,7 +18,7 @@
  */
 
 import { spawn } from 'node:child_process';
-import { writeFileSync, unlinkSync, readFileSync, existsSync } from 'node:fs';
+import { writeFileSync, unlinkSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,6 +26,8 @@ import { withEgoLock, cleanOrphanTaskSpaces } from './ego-lock.mjs';
 import { generateAllFixtures } from './lab/fixtures/generate-fixtures.mjs';
 import { inspectArtifact, inspectClipboardArtifact } from './lab/inspectors/output-inspector.mjs';
 import { generateCognitivePacket, calibrate5DScore, validateCognitiveEvaluation } from './lab/cades-cognitive.mjs';
+import { classifyRegressionSignals } from './lab/regression-signals.mjs';
+import { loadLedger, saveLedger, selectRollingTargets, recordScan, anomalyQueue } from './lab/regression-ledger.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -55,7 +57,7 @@ Usage:
   node scripts/inspect-tool-dogfood.mjs --rolling [num]
 
 Options:
-  --rolling [num]        Run rolling CADES dogfooding on [num] approved tools (default: 15, oldest tested first)
+  --rolling [num]        Rolling regression scan on [num] approved tools (default: 15, least recently scanned first; updates src/data/regression-ledger.json)
   --sync                 Synchronize a single-tool Agent review; requires --eval-file and is forbidden with --rolling
   --slug <slug>          Tool slug for readable screenshot naming
   --existing-task <str>  Existing core_task from D1 to detect drift & updates
@@ -1375,46 +1377,30 @@ async function main() {
     const buildData = JSON.parse(readFileSync(BUILD_DATA_PATH, 'utf-8'));
     const approvedTools = (buildData.tools || []).filter(t => t.status === 'approved');
 
-    let editorialData = {};
-    if (existsSync(EDITORIAL_PATH)) {
-      try {
-        editorialData = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
-      } catch (e) {
-        editorialData = {};
-      }
-    }
-
-    // Prioritize tools that haven't been CADES-tested, then oldest testedAt
-    const sortedTools = approvedTools.slice().sort((a, b) => {
-      const aTested = editorialData[a.slug]?.en?.testedAt || '';
-      const bTested = editorialData[b.slug]?.en?.testedAt || '';
-      if (!aTested && bTested) return -1;
-      if (aTested && !bTested) return 1;
-      return aTested.localeCompare(bTested);
-    });
-
-    const targetTools = sortedTools.slice(0, rollingLimit);
+    // Rotation is driven by the regression ledger (lastScanAt per slug), which every scan
+    // updates. Editorial `testedAt` has month precision and is never written by --rolling,
+    // so sorting by it selected the same tools every day.
+    const ledger = loadLedger();
+    const targetTools = selectRollingTargets(approvedTools, ledger, rollingLimit);
+    const reportDate = new Date().toISOString().slice(0, 10);
+    const reportPath = resolve(ROOT, `reports/regression/regression-${reportDate}.json`);
 
     console.log(`\n======================================================`);
-    console.log(`🚀 Starting CADES Rolling Dogfooding Patrol`);
+    console.log(`🚀 Starting CADES Rolling Regression Scan (evidence only, no sync)`);
     console.log(`  Candidate Pool:  ${approvedTools.length} approved tools`);
     console.log(`  Batch Selection: ${targetTools.length} tools`);
-    console.log(`  Sync Editorial:  ${shouldSync ? 'ENABLED' : 'DISABLED'}`);
+    console.log(`  Ledger:          ${Object.keys(ledger).length} tools with scan history`);
     console.log(`======================================================\n`);
 
-    const summary = {
-      total: targetTools.length,
-      approved: 0,
-      rejected: 0,
-      drifts: []
-    };
+    const scans = [];
 
     for (let i = 0; i < targetTools.length; i++) {
       const tool = targetTools[i];
-      console.log(`[${i + 1}/${targetTools.length}] Dogfooding: ${tool.name} (${tool.slug}) -> ${tool.url}`);
+      console.log(`[${i + 1}/${targetTools.length}] Scanning: ${tool.name} (${tool.slug}) -> ${tool.url}`);
+      let report = null;
       try {
         await withEgoLock(async () => {
-          const report = await runInspection(
+          report = await runInspection(
             tool.url,
             false,
             isVerbose,
@@ -1422,57 +1408,52 @@ async function main() {
             tool.slug,
             tool.coreTask || tool.core_task || null
           );
-
-          if (report && report.evaluation) {
-            if (report.evaluation.decision === 'Approved') {
-              summary.approved++;
-            } else {
-              summary.rejected++;
-            }
-            if (report.evaluation.drift?.detected) {
-              summary.drifts.push({
-                slug: tool.slug,
-                oldTask: tool.coreTask || tool.core_task,
-                suggestedTask: report.evaluation.drift.suggestedTask
-              });
-            }
-
-            if (shouldSync && report.evaluation.decision === 'Approved') {
-              syncEditorialRecord(editorialData, tool.slug, report);
-            }
-          }
         }, {
-          label: `dogfood-${tool.slug}`,
+          label: `regression-${tool.slug}`,
           preClean: true,
           postClean: true,
           verbose: isVerbose
         });
       } catch (err) {
-        console.error(`  ❌ Dogfooding failed for ${tool.slug}:`, err.message);
-        summary.rejected++;
+        console.error(`  ❌ Probe failed for ${tool.slug}:`, err.message);
       }
+
+      const signals = classifyRegressionSignals(report, tool, ledger[tool.slug]);
+      const evidencePaths = [
+        report?.inspection?.visual?.capturedInitial ? report.inspection.visual.initialScreenshot : null,
+        report?.inspection?.visual?.capturedOutcome ? report.inspection.visual.outcomeScreenshot : null,
+      ].filter(Boolean);
+      recordScan(ledger, tool.slug, { title: report?.inspection?.title || null, signals, evidencePaths });
+      scans.push({ slug: tool.slug, url: tool.url, title: report?.inspection?.title || null, signals, evidencePaths });
+      console.log(signals.length
+        ? `  ⚠️ ${signals.map(s => `${s.severity}:${s.code}`).join(', ')}`
+        : '  ✅ No hard regression signals');
+
+      // Persist after every tool so an interrupted run still advances rotation.
+      saveLedger(ledger);
     }
 
-    if (shouldSync) {
-      writeFileSync(EDITORIAL_PATH, JSON.stringify(editorialData, null, 2) + '\n', 'utf-8');
-      console.log(`\n💾 Successfully synced CADES editorial records into ${EDITORIAL_PATH}`);
-    }
+    const queue = anomalyQueue(ledger);
+    mkdirSync(dirname(reportPath), { recursive: true });
+    writeFileSync(reportPath, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      scanned: scans.length,
+      flagged: scans.filter(s => s.signals.length > 0).length,
+      scans,
+      openAnomalyQueue: queue,
+    }, null, 2) + '\n', 'utf-8');
 
     console.log(`\n======================================================`);
-    console.log(`🏁 CADES Rolling Dogfooding Summary`);
-    console.log(`  Total Audited:  ${summary.total}`);
-    console.log(`  ✅ Healthy:     ${summary.approved}`);
-    console.log(`  ❌ Anomalies:   ${summary.rejected}`);
-    console.log(`  ⚠️ Drifts:      ${summary.drifts.length}`);
-    if (summary.drifts.length > 0) {
-      console.log(`\nDetected Drifts for Self-Healing:`);
-      summary.drifts.forEach(d => {
-        console.log(`  • [${d.slug}]:`);
-        console.log(`    - Old: "${d.oldTask}"`);
-        console.log(`    - New: "${d.suggestedTask}"`);
-        console.log(`    - SQL: UPDATE tools SET core_task = '${d.suggestedTask.replace(/'/g, "''")}' WHERE slug = '${d.slug}';`);
-      });
+    console.log(`🏁 Rolling Regression Summary`);
+    console.log(`  Scanned:              ${scans.length}`);
+    console.log(`  Flagged this run:     ${scans.filter(s => s.signals.length > 0).length}`);
+    console.log(`  Open anomaly queue:   ${queue.filter(q => q.severity === 'high').length} high / ${queue.filter(q => q.severity === 'medium').length} medium`);
+    for (const q of queue.slice(0, 10)) {
+      console.log(`    • [${q.severity}] ${q.slug}: ${q.codes.join(', ')} (since ${q.firstSeenAt.slice(0, 10)})`);
     }
+    console.log(`  Report:               ${reportPath}`);
+    console.log(`  Next step: escalate the queue head through tool-evaluation, then`);
+    console.log(`             node scripts/lab/regression-ledger.mjs resolve <slug> --outcome ... --note ...`);
     console.log(`======================================================\n`);
     return;
   }

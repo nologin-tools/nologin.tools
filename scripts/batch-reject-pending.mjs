@@ -6,15 +6,14 @@
  *   node scripts/batch-reject-pending.mjs --dry-run
  *   node scripts/batch-reject-pending.mjs --execute
  *   node scripts/batch-reject-pending.mjs --execute --tier1-only
+ *
+ * Writes go exclusively through POST /api/review (action: reject) via scripts/lib/admin-api.mjs.
+ * Requires ADMIN_SECRET in the environment or .env.local. There is no SQL fallback.
  */
 
-import { execSync } from 'node:child_process';
-import { writeFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = resolve(__dirname, '..');
+import { queryD1 } from './lib/d1.mjs';
+import { rejectTool } from './lib/admin-api.mjs';
+import { checkHardGates, siteKey } from '../src/lib/submission-gates-core.mjs';
 
 const isDryRun = process.argv.includes('--dry-run') || !process.argv.includes('--execute');
 const tier1Only = process.argv.includes('--tier1-only');
@@ -24,11 +23,13 @@ console.log(`[batch-reject] Target: ${tier1Only ? 'Tier 1 Only' : 'Tier 1 + Tier
 
 // 1. Fetch current pending tools
 console.log('[batch-reject] Fetching pending tools from remote D1...');
-const toolsOutput = execSync(
-  `npx wrangler d1 execute nologin-tools-db --remote --json --command "SELECT id, slug, name, url, description, core_task, submitter_ip_hash, submitter_email, repo_url, datetime(submitted_at, 'unixepoch') as submitted_at FROM tools WHERE status = 'pending' ORDER BY id ASC;"`,
-  { cwd: ROOT_DIR, encoding: 'utf-8', maxBuffer: 20 * 1024 * 1024 }
+const tools = await queryD1(
+  "SELECT id, slug, name, url, description, core_task, submitter_ip_hash, submitter_email, repo_url, datetime(submitted_at, 'unixepoch') as submitted_at FROM tools WHERE status = 'pending' ORDER BY id ASC"
 );
-const tools = JSON.parse(toolsOutput)[0].results;
+// Approved entries own their site identity: pending slices of an approved site are duplicates.
+const approvedSites = new Map(
+  (await queryD1("SELECT id, url FROM tools WHERE status = 'approved'")).map((r) => [siteKey(r.url), r.id])
+);
 console.log(`[batch-reject] Total pending tools: ${tools.length}`);
 
 // 2. Health check function for candidates
@@ -74,10 +75,9 @@ async function classifyTools() {
 
   const hostMap = new Map();
   for (const t of tools) {
-    let host = '';
-    try { host = new URL(t.url).hostname.toLowerCase(); } catch (e) { host = t.url; }
-    if (!hostMap.has(host)) hostMap.set(host, []);
-    hostMap.get(host).push(t);
+    const key = siteKey(t.url) || t.url;
+    if (!hostMap.has(key)) hostMap.set(key, []);
+    hostMap.get(key).push(t);
   }
 
   for (const t of tools) {
@@ -89,6 +89,20 @@ async function classifyTools() {
     const repo = (t.repo_url || '').toLowerCase();
     let host = '';
     try { host = new URL(t.url).hostname.toLowerCase(); } catch (e) { host = t.url; }
+    const key = siteKey(t.url) || t.url;
+
+    // Tier 1: Shared intake hard gates (same rules as POST /api/submit)
+    const violation = checkHardGates({ url: t.url, submitterEmail: t.submitter_email });
+    if (violation) {
+      tier1.push({ id: t.id, name: t.name, url: t.url, reason: violation.reason });
+      continue;
+    }
+
+    // Tier 1: Slice of an already-approved site
+    if (approvedSites.has(key)) {
+      tier1.push({ id: t.id, name: t.name, url: t.url, reason: `同一站点重复切片 (${key} 已收录为 ID ${approvedSites.get(key)})` });
+      continue;
+    }
 
     // Tier 1: Ephemeral tunnels & temporary storage links
     if (
@@ -203,11 +217,11 @@ async function classifyTools() {
     }
 
     // Tier 2: Multi-submission per domain (keep the first/cleanest)
-    const hostTools = hostMap.get(host);
+    const hostTools = hostMap.get(key);
     if (hostTools && hostTools.length > 1) {
       const firstId = hostTools[0].id;
       if (t.id !== firstId) {
-        tier2.push({ id: t.id, name: t.name, url: t.url, reason: `同一主域名重复切片/重复提交 (${host} 已存在首选条目 ID ${firstId})` });
+        tier2.push({ id: t.id, name: t.name, url: t.url, reason: `同一主域名重复切片/重复提交 (${key} 已存在首选条目 ID ${firstId})` });
         continue;
       }
     }
@@ -261,29 +275,23 @@ async function main() {
     process.exit(0);
   }
 
-  // Generate SQL batch file
-  console.log('\n[batch-reject] Generating SQL statements...');
-  const sqlStatements = toReject.map(item => {
-    const reasonEscaped = item.reason.replace(/'/g, "''");
-    return `UPDATE tools SET status = 'rejected', rejection_reason = '${reasonEscaped}', is_featured = 0, featured_at = NULL WHERE id = ${item.id} AND status = 'pending';`;
-  });
-
-  const sqlFilePath = resolve(ROOT_DIR, 'scripts/.batch-reject.sql');
-  writeFileSync(sqlFilePath, sqlStatements.join('\n'), 'utf-8');
-  console.log(`[batch-reject] Wrote ${sqlStatements.length} statements to ${sqlFilePath}`);
-
-  // Execute via wrangler d1 execute
-  console.log('[batch-reject] Executing SQL on remote D1...');
-  try {
-    execSync(
-      `npx wrangler d1 execute nologin-tools-db --remote --file=${sqlFilePath} --yes`,
-      { cwd: ROOT_DIR, stdio: 'inherit' }
-    );
-    console.log('\n[batch-reject] Execution completed successfully!');
-  } catch (error) {
-    console.error('[batch-reject] Execution failed:', error);
-    process.exit(1);
+  // Reject through the canonical review API (sequential, small delay to be gentle on the Worker)
+  console.log('\n[batch-reject] Rejecting via POST /api/review ...');
+  let ok = 0;
+  const failures = [];
+  for (const item of toReject) {
+    try {
+      await rejectTool(item.id, item.reason);
+      ok++;
+      console.log(`  ✓ [${item.id}] ${item.name}: ${item.reason}`);
+    } catch (err) {
+      failures.push({ ...item, error: err.message });
+      console.log(`  ✗ [${item.id}] ${item.name}: ${err.message}`);
+    }
+    await new Promise((r) => setTimeout(r, 150));
   }
+  console.log(`\n[batch-reject] Rejected ${ok}/${toReject.length}. Failures: ${failures.length}`);
+  if (failures.length > 0) process.exit(1);
 }
 
 main().catch(err => {

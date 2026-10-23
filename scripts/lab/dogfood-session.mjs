@@ -17,13 +17,14 @@
  */
 
 import { spawn } from 'node:child_process';
-import { readFileSync, writeFileSync, unlinkSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, unlinkSync, existsSync, mkdirSync, appendFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateAllFixtures } from './fixtures/generate-fixtures.mjs';
 import { inspectArtifact, inspectClipboardArtifact, assessArtifactQuality } from './inspectors/output-inspector.mjs';
 import { validateCognitiveEvaluation, calibrate5DScore } from './cades-cognitive.mjs';
+import { loadLedger, saveLedger, resolveAnomalies } from './regression-ledger.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -1166,6 +1167,21 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
 
       writeFileSync(EDITORIAL_PATH, JSON.stringify(editorial, null, 2) + '\n', 'utf-8');
       console.log(`\n💾 Successfully synced Route A evaluation into ${EDITORIAL_PATH} for [${slug}]!`);
+
+      // A completed deep evaluation closes any open regression anomalies for this tool.
+      try {
+        const ledger = loadLedger();
+        if (ledger[slug]) {
+          resolveAnomalies(ledger, slug, {
+            outcome: 'editorial-updated',
+            note: `CADES deep evaluation synced (overall ${overall}, ${verdictTier})`,
+          });
+          ledger[slug].lastScanAt = new Date().toISOString();
+          saveLedger(ledger);
+        }
+      } catch (ledgerErr) {
+        console.warn(`⚠️ Regression ledger not updated: ${ledgerErr.message}`);
+      }
     } catch (err) {
       console.error(`❌ Failed to apply eval file: ${err.message}`);
       removeSession(slug);
@@ -1214,6 +1230,25 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
   }
   console.log(`Flight Log Saved:    ${flightRecorderPath}`);
   console.log(`========================================================================`);
+
+  // Evaluation ledger: objective evidence for daily quota reporting (briefings count these lines).
+  try {
+    const day = new Date().toISOString().slice(0, 10);
+    const logDir = resolve(ROOT, 'reports/evaluations');
+    mkdirSync(logDir, { recursive: true });
+    appendFileSync(resolve(logDir, `${day}.jsonl`), JSON.stringify({
+      slug,
+      targetUrl: session.targetUrl,
+      finishedAt: new Date().toISOString(),
+      durationSec: flightRecorder.durationSec,
+      steps: session.steps.length,
+      synced: Boolean(evalData && shouldSync),
+      overall: evalData?.productScore?.overall ?? null,
+      verdictTier: evalData?.verdictTier ?? null,
+    }) + '\n', 'utf-8');
+  } catch (e) {
+    console.warn(`⚠️ Evaluation log not written: ${e.message}`);
+  }
 
   removeSession(slug);
   console.log(`\n🧹 Browser space and local session state cleared.\n`);
