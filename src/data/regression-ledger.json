@@ -1,4 +1,16 @@
 {
+  "1600-now": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:23:42.966Z",
+    "lastTitle": "Free SAT Practice & Question Bank | 1600.now",
+    "lastSignals": []
+  },
+  "bytepriva-com-merge-pdf": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:23:36.539Z",
+    "lastTitle": "Merge PDF Files Online Free — No Upload Required | No SignUp",
+    "lastSignals": []
+  },
   "caniuse-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -7,6 +19,24 @@
   "carbon-now-sh": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "citefetch-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:24:08.807Z",
+    "lastTitle": "Free Citation Checker, Catch Fake References | CiteFetch",
+    "lastSignals": []
+  },
+  "compressto100kb-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:23:19.916Z",
+    "lastTitle": "Compress Image to 100KB Online — Free Image Compressor, No Upload",
+    "lastSignals": []
+  },
+  "countlink-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:25:08.871Z",
+    "lastTitle": "Shared Timer — Free Shareable Countdown, Synced by Link | CountLink",
     "lastSignals": []
   },
   "devdocs-io": {
@@ -19,14 +49,38 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "drunkcalc-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:22:46.173Z",
+    "lastTitle": "Drunk Calculator: Free BAC & Sober Time Estimator",
+    "lastSignals": []
+  },
   "excalidraw-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "flukeout-github-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:22:24.804Z",
+    "lastTitle": "CSS Diner - Where we feast on CSS Selectors!",
+    "lastSignals": []
+  },
+  "godbolt-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:24:25.520Z",
+    "lastTitle": "Compiler Explorer",
+    "lastSignals": []
+  },
   "hemingwayapp-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "jottools-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:23:07.455Z",
+    "lastTitle": "JotTools | Free Online Tools",
     "lastSignals": []
   },
   "jsonformatter-org": {
@@ -39,9 +93,21 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "lanternpathbooks-com-free-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:25:27.939Z",
+    "lastTitle": "Free Printable Tools for Parents & Teachers | Lantern Path Books",
+    "lastSignals": []
+  },
   "led-run": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "nextgenailearning-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:22:29.580Z",
+    "lastTitle": "The ID Toolbox: free tools for instructional designers",
     "lastSignals": []
   },
   "nologin-tools": {
@@ -49,14 +115,59 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "nutilz-com-caa-record-generator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:25:21.539Z",
+    "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
+    "lastSignals": []
+  },
+  "pdftomdconverter-app": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-24T06:23:51.500Z",
+        "lastSeenAt": "2026-10-24T06:23:51.500Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdftomdconverter-app-intent-1792823023100.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdftomdconverter-app-outcome-1792823023100.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-24T06:23:51.500Z",
+    "lastTitle": "pdf to md converter",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "photopea-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "playfatelab-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:24:35.918Z",
+    "lastTitle": "FATE // LAB — Random Tools for Decisions, Games & Chaos",
+    "lastSignals": []
+  },
   "pomofocus-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "productivitytimer-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:22:41.521Z",
+    "lastTitle": "Productivity Timer",
+    "lastSignals": []
+  },
+  "ray-so": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:23:02.367Z",
+    "lastTitle": "Create beautiful images of your code",
     "lastSignals": []
   },
   "regex101-com": {
@@ -69,9 +180,21 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "shields-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:24:00.467Z",
+    "lastTitle": "Shields.io",
+    "lastSignals": []
+  },
   "squoosh-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "t-8ma-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:24:56.785Z",
+    "lastTitle": "8码快传 · 文件点对点直传",
     "lastSignals": []
   },
   "til-re": {
@@ -109,6 +232,33 @@
   "tools-pdf24-org-en": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "toolsphare-tech-en": {
+    "openAnomalies": [
+      {
+        "code": "cross_host_redirect",
+        "severity": "medium",
+        "evidence": "toolsphare.tech → toolsphare.com",
+        "firstSeenAt": "2026-10-24T06:24:50.536Z",
+        "lastSeenAt": "2026-10-24T06:24:50.536Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-intent-1792823076050.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-outcome-1792823076050.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-24T06:24:50.536Z",
+    "lastTitle": "655+ Free Online Tools — PDF, Image & Text | ToolSphare",
+    "lastSignals": [
+      "cross_host_redirect"
+    ]
+  },
+  "worldtimebuddy-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-24T06:22:52.831Z",
+    "lastTitle": "Time Converter and World Clock - Conversion at a Glance - Pick best time to schedule conference calls, webinars, online meetings and phone calls.",
     "lastSignals": []
   }
 }
