@@ -37,10 +37,34 @@
       "surface_lost"
     ]
   },
+  "astexplorer-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:49.580Z",
+    "lastTitle": "AST explorer",
+    "lastSignals": []
+  },
+  "at-use-com-tools-json-formatter": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:26:20.495Z",
+    "lastTitle": "JSON Formatter & Validator — Free Online Tool | AT USE",
+    "lastSignals": []
+  },
   "betterhabitsdaily-com-tracker": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:25.361Z",
     "lastTitle": "Free Habit Tracker — No Signup, No Account, No Cloud",
+    "lastSignals": []
+  },
+  "bitibybit-com-volunteer-roster": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:26:09.017Z",
+    "lastTitle": "Volunteer Roster — free sign up sheet online",
+    "lastSignals": []
+  },
+  "bytepane-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:26:36.326Z",
+    "lastTitle": "BytePane: 70+ Free Dev Tools for JSON, JWT, Regex, YAML & Hashes",
     "lastSignals": []
   },
   "bytepriva-com-merge-pdf": {
@@ -82,10 +106,40 @@
     "lastTitle": "Free Citation Checker, Catch Fake References | CiteFetch",
     "lastSignals": []
   },
+  "comparetexts-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:30:56.002Z",
+    "lastTitle": "Compare Two Texts Online — Private Text Diff | CompareTexts",
+    "lastSignals": []
+  },
   "compressto100kb-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:23:19.916Z",
     "lastTitle": "Compress Image to 100KB Online — Free Image Compressor, No Upload",
+    "lastSignals": []
+  },
+  "comprimirpdf-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:24:40.276Z",
+    "lastTitle": "comprimir pdf gratis online",
+    "lastSignals": []
+  },
+  "contextwindowvramcalculator-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:29:32.562Z",
+    "lastTitle": "Context Window VRAM Calculator — KV Cache & Max Tokens",
+    "lastSignals": []
+  },
+  "convertilo-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:24:25.362Z",
+    "lastTitle": "Convertilo — Images, PDFs, Translator Online in Browser",
+    "lastSignals": []
+  },
+  "convertlo-pro": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:22.088Z",
+    "lastTitle": "Free Online File Converter — No Upload Required | Convertlo",
     "lastSignals": []
   },
   "countlink-app": {
@@ -111,6 +165,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T04:49:33.348Z"
   },
+  "cssgridgarden-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:24:31.360Z",
+    "lastTitle": "Grid Garden - A game for learning CSS grid",
+    "lastSignals": []
+  },
   "dataformatkit-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:22:27.414Z",
@@ -122,9 +182,21 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "diffhero-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:32.425Z",
+    "lastTitle": "Diffhero — Free Online Diff Checker for Text & Code",
+    "lastSignals": []
+  },
   "dillinger-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "dnsleaktest-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:27:10.105Z",
+    "lastTitle": "DNS leak test",
     "lastSignals": []
   },
   "drunkcalc-org": {
@@ -142,6 +214,12 @@
   "excalidraw-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "fast-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:27:19.425Z",
+    "lastTitle": "Internet Speed Test | Fast.com",
     "lastSignals": []
   },
   "fffuel-co": {
@@ -162,15 +240,57 @@
     "lastTitle": "CSS Diner - Where we feast on CSS Selectors!",
     "lastSignals": []
   },
+  "fontjoy-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:26:55.866Z",
+    "lastTitle": "Fontjoy - Generate font pairings in one click",
+    "lastSignals": []
+  },
+  "formatdrop-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:31:19.683Z",
+    "lastTitle": "FormatDrop — Free Online File Converter",
+    "lastSignals": []
+  },
+  "geogebra-org-calculator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:29:11.420Z",
+    "lastTitle": "计算器套件 - GeoGebra",
+    "lastSignals": []
+  },
+  "geojson-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:29:23.198Z",
+    "lastTitle": "geojson.io | Powered by Mapbox",
+    "lastSignals": []
+  },
   "godbolt-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:25.520Z",
     "lastTitle": "Compiler Explorer",
     "lastSignals": []
   },
+  "happyhues-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:26:43.745Z",
+    "lastTitle": "Happy Hues - Curated colors in context.",
+    "lastSignals": []
+  },
   "hemingwayapp-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "iformat-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:29:05.680Z",
+    "lastTitle": "iFormat - Free Online File Converter, Compressor & Editor",
+    "lastSignals": []
+  },
+  "it-tools-tech": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:31:02.338Z",
+    "lastTitle": "IT Tools - Handy online tools for developers",
     "lastSignals": []
   },
   "jottools-com": {
@@ -211,16 +331,40 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "lensup-ai": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:31:48.467Z",
+    "lastTitle": "LensUp — 免费在线文档扫描工具（照片 → PDF）",
+    "lastSignals": []
+  },
   "max-agent-hub-github-io-browser-sop-builder": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:18.177Z",
     "lastTitle": "Browser SOP Builder | Mackanic Technologies",
     "lastSignals": []
   },
+  "metadataremover-ai": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:31:11.704Z",
+    "lastTitle": "Metadata Remover — Remove Metadata from Images Online Free",
+    "lastSignals": []
+  },
+  "midiplayeronline-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:02.612Z",
+    "lastTitle": "Online MIDI Player — Play & Visualize MIDI Files in Your Browser",
+    "lastSignals": []
+  },
   "mockaroo-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:19:56.609Z",
     "lastTitle": "Mockaroo - Random Data Generator and API Mocking Tool | JSON / CSV / SQL / Excel",
+    "lastSignals": []
+  },
+  "monkeetools-pages-dev": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:27:37.794Z",
+    "lastTitle": "Get Paid Faster: Free Invoice Generator, No Signup",
     "lastSignals": []
   },
   "nextgenailearning-com": {
@@ -238,6 +382,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:25:21.539Z",
     "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
+    "lastSignals": []
+  },
+  "pairdrop-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:38.544Z",
+    "lastTitle": "PairDrop | Transfer Files Cross-Platform. No Setup, No Signup.",
     "lastSignals": []
   },
   "pdftomdconverter-app": {
@@ -262,6 +412,12 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "pixotter-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:28:35.927Z",
+    "lastTitle": "Free Online Image Compressor, Resizer & Converter | Pixotter",
+    "lastSignals": []
+  },
   "playfatelab-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:35.918Z",
@@ -277,6 +433,18 @@
   "pomofocus-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "preuveenmain-ca-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:28:22.949Z",
+    "lastTitle": "PEM PRÊT · Preuve en main",
+    "lastSignals": []
+  },
+  "printable-tools-lab-pages-dev": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:29:44.564Z",
+    "lastTitle": "Free Printable PDF, Image, and QR Tools - PrintableTools Lab",
     "lastSignals": []
   },
   "privacytests-org": {
@@ -349,6 +517,27 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T05:02:35.009Z"
   },
+  "quillbot-com": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Premium\"",
+        "firstSeenAt": "2026-10-26T06:28:51.094Z",
+        "lastSeenAt": "2026-10-26T06:28:51.094Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quillbot-com-intent-1792996116043.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quillbot-com-outcome-1792996116043.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-26T06:28:51.094Z",
+    "lastTitle": "Quillbot: Write, Design & Create",
+    "lastSignals": [
+      "paywall_copy"
+    ]
+  },
   "quixcalc-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:43.617Z",
@@ -377,6 +566,18 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "rentry-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:24:45.256Z",
+    "lastTitle": "Rentry.co - Markdown Paste Service",
+    "lastSignals": []
+  },
+  "sharedrop-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:57.175Z",
+    "lastTitle": "ShareDrop — Share Files From Your Browser, No App or Signup",
+    "lastSignals": []
+  },
   "shields-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:00.467Z",
@@ -393,6 +594,48 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
+  },
+  "stackedit-io": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-26T06:24:51.678Z",
+        "lastSeenAt": "2026-10-26T06:24:51.678Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-intent-1792995885399.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-outcome-1792995885399.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-26T06:24:51.678Z",
+    "lastTitle": "StackEdit – In-browser Markdown editor",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
+  "svgrepo-com": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-26T06:28:14.444Z",
+        "lastSeenAt": "2026-10-26T06:28:14.444Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-svgrepo-com-intent-1792996089043.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-svgrepo-com-outcome-1792996089043.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-26T06:28:14.444Z",
+    "lastTitle": "Vercel Security Checkpoint",
+    "lastSignals": [
+      "surface_lost"
+    ]
   },
   "t-8ma-co": {
     "openAnomalies": [],
@@ -465,6 +708,12 @@
     "lastTitle": "Webhook.site - Test, transform and automate Web requests and emails",
     "lastSignals": []
   },
+  "wolframalpha-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:30:04.461Z",
+    "lastTitle": "Wolfram|Alpha：计算型智能",
+    "lastSignals": []
+  },
   "worldtimebuddy-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:22:52.831Z",
@@ -492,6 +741,18 @@
       "paywall_copy"
     ]
   },
+  "www-amortio-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:26:30.176Z",
+    "lastTitle": "Mortgage Calculator 2026: PITI Payment + Amortization Schedule",
+    "lastSignals": []
+  },
+  "www-calculatorcampus-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:25:08.376Z",
+    "lastTitle": "Calculator Campus | Practical Online Calculators",
+    "lastSignals": []
+  },
   "www-textfixhub-com": {
     "openAnomalies": [
       {
@@ -513,6 +774,18 @@
       "surface_lost"
     ]
   },
+  "www-whatsmyiplive-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:28:08.909Z",
+    "lastTitle": "404: NOT_FOUND",
+    "lastSignals": []
+  },
+  "www-when2meet-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:30:33.395Z",
+    "lastTitle": "When2meet",
+    "lastSignals": []
+  },
   "www-yourboddy-com-form-check": {
     "lastDeepEvalAt": "2026-10-26T02:52:00.125Z",
     "lastResolution": {
@@ -523,5 +796,32 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T02:52:00.125Z"
+  },
+  "xe-com-currencyconverter": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T06:28:00.226Z",
+    "lastTitle": "Currency Converter - Currency Exchange | Xe",
+    "lastSignals": []
+  },
+  "xueboyang1985-github-io-kindle-exporter": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to PRO\"",
+        "firstSeenAt": "2026-10-26T06:31:32.970Z",
+        "lastSeenAt": "2026-10-26T06:31:32.970Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-intent-1792996279828.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-outcome-1792996279828.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-26T06:31:32.970Z",
+    "lastTitle": "Kindle Highlights Exporter - Export Kindle Clippings to Markdown, CSV, JSON",
+    "lastSignals": [
+      "paywall_copy"
+    ]
   }
 }
