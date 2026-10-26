@@ -2,7 +2,8 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyRegressionSignals, titleIdentityChanged } from '../lab/regression-signals.mjs';
-import { selectRollingTargets, recordScan, resolveAnomalies, anomalyQueue } from '../lab/regression-ledger.mjs';
+import { selectRollingTargets, recordScan, resolveAnomalies, anomalyQueue, selectRetestTargets } from '../lab/regression-ledger.mjs';
+import { dailyReport } from '../lab/evaluation-queue.mjs';
 import { isReachable, resolveEffectiveStatus } from '../../src/lib/health-core.mjs';
 
 /** @param {any} overrides */
@@ -151,5 +152,49 @@ describe('health-core', () => {
     assert.equal(resolveEffectiveStatus([{ isOnline: true, checkedAt: fresh }, { isOnline: false }], now), 'online');
     assert.equal(resolveEffectiveStatus([{ isOnline: false, checkedAt: fresh }, { isOnline: true }], now), 'unstable');
     assert.equal(resolveEffectiveStatus([{ isOnline: false, checkedAt: fresh }, { isOnline: false }], now), 'offline');
+  });
+});
+
+describe('selectRetestTargets', () => {
+  const approved = Array.from({ length: 30 }, (_, i) => ({ slug: `t${i}` }));
+  const editorial = Object.fromEntries(approved.map((t, i) => [t.slug, { en: { testedAt: i < 10 ? '2026-09' : '2026-10' } }]));
+
+  it('puts high anomalies first, then medium, then stalest evaluations', () => {
+    /** @type {Record<string, any>} */
+    const ledger = {};
+    recordScan(ledger, 't20', { signals: [{ code: 'paywall_copy', severity: 'medium', evidence: 'trial' }] }, '2026-10-22T00:00:00.000Z');
+    recordScan(ledger, 't25', { signals: [{ code: 'auth_wall', severity: 'high', evidence: 'login' }] }, '2026-10-24T00:00:00.000Z');
+    const picks = selectRetestTargets(approved, ledger, editorial, 4);
+    assert.deepEqual(picks.slice(0, 2).map((p) => `${p.tool.slug}:${p.reason}`), ['t25:high_anomaly', 't20:medium_anomaly']);
+    assert.ok(picks.slice(2).every((p) => p.reason === 'stale_evaluation'));
+    assert.ok(picks.slice(2).every((p) => Number(p.tool.slug.slice(1)) < 10), 'stalest (2026-09) tools are chosen before 2026-10 ones');
+  });
+
+  it('skips anomalies of tools that are no longer approved', () => {
+    /** @type {Record<string, any>} */
+    const ledger = {};
+    recordScan(ledger, 'gone', { signals: [{ code: 'auth_wall', severity: 'high', evidence: 'x' }] });
+    const picks = selectRetestTargets(approved, ledger, editorial, 2);
+    assert.ok(!picks.some((p) => p.tool.slug === 'gone'));
+    assert.equal(picks.length, 2);
+  });
+
+  it('rotates: a recent lastDeepEvalAt moves a tool to the back', () => {
+    /** @type {Record<string, any>} */
+    const ledger = {};
+    const first = selectRetestTargets(approved, ledger, editorial, 3);
+    for (const f of first) resolveAnomalies(ledger, f.tool.slug, { outcome: 'cleared', note: 'ok' }, '2026-10-26T00:00:00.000Z');
+    const second = selectRetestTargets(approved, ledger, editorial, 3);
+    assert.equal(second.filter((p) => first.some((f) => f.tool.slug === p.tool.slug)).length, 0);
+  });
+});
+
+describe('dailyReport quota split', () => {
+  it('reports pending and retest quotas independently', () => {
+    const report = dailyReport('1999-01-01', new Set(['a']), { items: [{ tier: 'A' }] });
+    assert.equal(report.quota.pending, 10);
+    assert.equal(report.quota.retest, 3);
+    assert.equal(report.quotaMet.retest, false);
+    assert.equal(report.pendingEvaluated, 0);
   });
 });

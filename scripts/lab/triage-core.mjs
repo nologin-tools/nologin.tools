@@ -82,11 +82,11 @@ export function analyzeHtml(html) {
 const RE = {
   parked: /\b(this domain (?:is|may be) for sale|buy this domain|domain (?:is )?parked|parked free|hugedomains|sedo\.com|dan\.com\/buy)\b/i,
   loginTitle: /^(?:sign in|log ?in|login|sign up|create (?:an )?account|register)\b/i,
-  loginRequired: /\b((?:sign|log) ?in (?:to|required to) (?:continue|use|start|access)|login required|please (?:sign|log) ?in|create (?:a |an )?(?:free )?account to (?:continue|use|start|get started))\b/i,
+  loginRequired: /(?<!\b(?:no|without|zero|never)[\s-]{1,3})\b((?:sign|log) ?in (?:to|required to) (?:continue|use|start|access)|login required|please (?:sign|log) ?in|create (?:a |an )?(?:free )?account to (?:continue|use|start|get started))\b/i,
   entertainment: /\b(tarot|horoscope|astrology|zodiac|natal chart|numerology|fortune ?telling|personality test|love (?:test|calculator)|unblocked games?|play (?:now|online|free)|brain ?rot|meme generator|crush test|iq test)\b/i,
   game: /\b(game|games|puzzle|arcade|wordle|sudoku|solitaire|crossword)\b/i,
   directory: /\b((?:best|top) \d* ?ai tools|ai tools? directory|submit your (?:tool|ai|startup)|tools? directory|list of (?:free )?tools|discover \d+\+? (?:ai )?tools)\b/i,
-  article: /\b(\d+\s*min(?:ute)?s? read|table of contents|posted (?:on|by)|written by|published (?:on|by)|leave a (?:comment|reply)|related (?:posts|articles))\b/i,
+  article: /\b(\d+\s*min(?:ute)?s? read|leave a (?:comment|reply)|related (?:posts|articles)|posted on)\b/i,
   paywall: /\b(free trial|start (?:your |a )?(?:\d+[- ]day )?(?:free )?trial|\d+[- ]day (?:free )?trial|upgrade to (?:pro|premium)|buy credits|credits? (?:left|remaining)|per month|\/mo\b|pricing plans?)\b/i,
 };
 
@@ -160,7 +160,7 @@ export function triageSubmission(tool, fetched) {
   } catch {}
   // Calculators often ship long SEO copy inside <article> with JS-rendered inputs, so an
   // <article> tag alone is only a soft signal. Blocking requires article copy or a blog path.
-  if (!interactive && page.wordCount > 600 && (articleCopy || blogPath)) {
+  if (!interactive && ((blogPath && page.wordCount > 600) || (articleCopy && page.wordCount > 1200))) {
     blocking.push({ code: 'static_article', detail: articleCopy || `blog-style path with ${page.wordCount} words and no tool inputs` });
   } else if (!interactive && page.hasArticleTag && page.wordCount > 600) {
     soft.push({ code: 'long_text_no_static_inputs', detail: `<article> with ${page.wordCount} words` });

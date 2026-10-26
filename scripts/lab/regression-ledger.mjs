@@ -13,6 +13,7 @@
  * CLI:
  *   node scripts/lab/regression-ledger.mjs status                 # coverage summary
  *   node scripts/lab/regression-ledger.mjs queue [--limit N]      # open anomalies, most urgent first
+ *   node scripts/lab/regression-ledger.mjs retest [--limit N]     # today's full re-evaluation targets (anomalies first, then stalest)
  *   node scripts/lab/regression-ledger.mjs resolve <slug> --outcome <cleared|rejected|editorial-updated> --note "<text>"
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
@@ -152,6 +153,59 @@ export function anomalyQueue(ledger) {
   );
 }
 
+/** Daily number of full re-evaluations of approved tools (see daily-evaluation skill). */
+export const DAILY_RETEST_QUOTA = 3;
+
+/**
+ * Pick approved tools for a full CADES re-evaluation.
+ * Priority: open high anomalies, then open medium anomalies, then the tools whose last
+ * deep evaluation is oldest (ledger `lastDeepEvalAt`, falling back to editorial `testedAt`
+ * month, then a stable hash so ties do not follow database ID order).
+ * @template {{ slug: string }} T
+ * @param {T[]} approvedTools
+ * @param {Record<string, any>} ledger
+ * @param {Record<string, any>} editorial tool-editorial.json
+ * @param {number} limit
+ * @returns {{ tool: T, reason: 'high_anomaly' | 'medium_anomaly' | 'stale_evaluation', since: string }[]}
+ */
+export function selectRetestTargets(approvedTools, ledger, editorial, limit) {
+  const bySlug = new Map(approvedTools.map((t) => [t.slug, t]));
+  /** @type {{ tool: T, reason: 'high_anomaly' | 'medium_anomaly' | 'stale_evaluation', since: string }[]} */
+  const picked = [];
+  const taken = new Set();
+
+  for (const row of anomalyQueue(ledger)) {
+    if (picked.length >= limit) break;
+    const tool = bySlug.get(row.slug);
+    if (!tool) continue; // no longer approved
+    picked.push({ tool, reason: row.severity === 'high' ? 'high_anomaly' : 'medium_anomaly', since: row.firstSeenAt });
+    taken.add(row.slug);
+  }
+
+  if (picked.length < limit) {
+    /** @param {string} slug */
+    const lastEval = (slug) => {
+      const fromLedger = ledger[slug]?.lastDeepEvalAt;
+      if (fromLedger) return fromLedger;
+      const month = editorial?.[slug]?.en?.testedAt; // YYYY-MM precision
+      return month ? `${month}-01T00:00:00.000Z` : '';
+    };
+    const stale = approvedTools
+      .filter((t) => !taken.has(t.slug))
+      .sort((a, b) => {
+        const la = lastEval(a.slug);
+        const lb = lastEval(b.slug);
+        if (la !== lb) return la.localeCompare(lb);
+        return stableHash(a.slug) - stableHash(b.slug);
+      });
+    for (const tool of stale) {
+      if (picked.length >= limit) break;
+      picked.push({ tool, reason: 'stale_evaluation', since: lastEval(tool.slug) || 'never' });
+    }
+  }
+  return picked;
+}
+
 // ---------------------------------------------------------------------------
 // CLI
 // ---------------------------------------------------------------------------
@@ -191,6 +245,25 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   } else if (cmd === 'queue') {
     const limit = Number(opt('--limit') || 50);
     console.log(JSON.stringify(anomalyQueue(ledger).slice(0, limit), null, 2));
+  } else if (cmd === 'retest') {
+    const limit = Number(opt('--limit') || DAILY_RETEST_QUOTA);
+    const buildPath = resolve(__dirname, '../../src/data/build-data.json');
+    const editorialPath = resolve(__dirname, '../../src/data/tool-editorial.json');
+    if (!existsSync(buildPath)) {
+      console.error('build-data.json not found. Run: node scripts/fetch-build-data.mjs');
+      process.exit(1);
+    }
+    const approved = (JSON.parse(readFileSync(buildPath, 'utf-8')).tools || []).filter((/** @type {any} */ t) => t.status === 'approved');
+    const editorial = existsSync(editorialPath) ? JSON.parse(readFileSync(editorialPath, 'utf-8')) : {};
+    const rows = selectRetestTargets(approved, ledger, editorial, limit).map((r) => ({
+      slug: r.tool.slug,
+      url: r.tool.url,
+      id: r.tool.id,
+      reason: r.reason,
+      since: r.since,
+      anomalies: (ledger[r.tool.slug]?.openAnomalies || []).map((/** @type {any} */ a) => `${a.code}: ${a.evidence}`),
+    }));
+    console.log(JSON.stringify(rows, null, 2));
   } else if (cmd === 'resolve') {
     const slug = rest[0];
     const outcome = opt('--outcome');
@@ -203,7 +276,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     saveLedger(ledger);
     console.log(`Resolved ${slug} (${outcome})`);
   } else {
-    console.error('Usage: regression-ledger.mjs <status|queue|resolve> ...');
+    console.error('Usage: regression-ledger.mjs <status|queue|retest|resolve> ...');
     process.exit(1);
   }
 }

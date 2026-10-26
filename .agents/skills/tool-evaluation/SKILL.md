@@ -111,7 +111,7 @@ Every `finish` (with or without `--sync`) appends a line to `reports/evaluations
 `inspect-tool-dogfood.mjs --rolling` is evidence collection only:
 
 ```bash
-node scripts/inspect-tool-dogfood.mjs --rolling 20
+node scripts/inspect-tool-dogfood.mjs --rolling 40
 node scripts/inspect-tool-dogfood.mjs "<URL>" --slug "<slug>" --packet-file "/tmp/packet-<slug>.json"
 ```
 

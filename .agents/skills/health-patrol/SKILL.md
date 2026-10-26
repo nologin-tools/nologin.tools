@@ -60,12 +60,12 @@ Do not rewrite the slug during an automatic redirect repair.
 Run the rolling detector without synchronization:
 
 ```bash
-node scripts/inspect-tool-dogfood.mjs --rolling 20
+node scripts/inspect-tool-dogfood.mjs --rolling 40
 ```
 
-Rotation is driven by `src/data/regression-ledger.json` (least recently scanned first) and advances every run; ~16 days per full catalog cycle. The scan records only hard signals (auth wall, export auth bait, watermark, login-to-continue copy, paywall/trial copy, cross-host redirect, lost interactive surface, title identity change, unreachable) into the ledger's anomaly queue. It does not emit core-task rewrite suggestions.
+Rotation is driven by `src/data/regression-ledger.json` (least recently scanned first) and advances every run; ~8 days per full catalog cycle at 40 per day. The scan records only hard signals (auth wall, export auth bait, watermark, login-to-continue copy, paywall/trial copy, cross-host redirect, lost interactive surface, title identity change, unreachable) into the ledger's anomaly queue. It does not emit core-task rewrite suggestions.
 
-Escalation is done by [`daily-evaluation`](../daily-evaluation/SKILL.md): it deep-evaluates the queue head via [`../tool-evaluation/SKILL.md`](../tool-evaluation/SKILL.md) and resolves the ledger entry. Only a completed deep evaluation may update editorial data. A confirmed policy violation may be rejected through the review API with the evidence-linked reason; a liveness failure alone must not change approval state.
+Escalation is done by [`daily-evaluation`](../daily-evaluation/SKILL.md), which re-evaluates 3 approved tools per day (open anomalies first, then the stalest evaluations) and deep-evaluates the queue head via [`../tool-evaluation/SKILL.md`](../tool-evaluation/SKILL.md) and resolves the ledger entry. Only a completed deep evaluation may update editorial data. A confirmed policy violation may be rejected through the review API with the evidence-linked reason; a liveness failure alone must not change approval state.
 
 ```bash
 node scripts/lab/regression-ledger.mjs status

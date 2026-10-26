@@ -1170,15 +1170,15 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
 
       // A completed deep evaluation closes any open regression anomalies for this tool.
       try {
+        // Always record lastDeepEvalAt (even for tools with no ledger entry yet) so the
+        // re-evaluation rotation advances instead of re-selecting the same tool tomorrow.
         const ledger = loadLedger();
-        if (ledger[slug]) {
-          resolveAnomalies(ledger, slug, {
-            outcome: 'editorial-updated',
-            note: `CADES deep evaluation synced (overall ${overall}, ${verdictTier})`,
-          });
-          ledger[slug].lastScanAt = new Date().toISOString();
-          saveLedger(ledger);
-        }
+        resolveAnomalies(ledger, slug, {
+          outcome: 'editorial-updated',
+          note: `CADES deep evaluation synced (overall ${overall}, ${verdictTier})`,
+        });
+        ledger[slug].lastScanAt = new Date().toISOString();
+        saveLedger(ledger);
       } catch (ledgerErr) {
         console.warn(`⚠️ Regression ledger not updated: ${ledgerErr.message}`);
       }

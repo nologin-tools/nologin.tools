@@ -41,6 +41,12 @@ describe('triageSubmission', () => {
     assert.equal(r.tier, 'A');
   });
 
+  it('does not treat negated copy ("No login required") as a login wall', () => {
+    const r = triageSubmission(tool, ok('<title>Printables</title><p>No login required. Works without sign-up.</p><textarea></textarea>'));
+    assert.ok(!r.signals.some((s) => s.code === 'login_wall'));
+    assert.equal(r.tier, 'A');
+  });
+
   it('Tier C for entertainment / divination', () => {
     assert.equal(triageSubmission(tool, ok('<title>Free Tarot Reading Online</title><button>Draw</button>')).signals[0].code, 'entertainment');
   });
@@ -52,7 +58,7 @@ describe('triageSubmission', () => {
 
   it('Tier C for static articles without tool inputs', () => {
     const words = Array.from({ length: 800 }, () => 'word').join(' ');
-    const r = triageSubmission(tool, ok(`<title>How to compress PDFs</title><article><p>8 min read</p><p>${words}</p></article>`));
+    const r = triageSubmission(tool, ok(`<title>How to compress PDFs</title><article><p>8 min read</p><p>${words} ${words}</p></article>`));
     assert.equal(r.signals[0].code, 'static_article');
   });
 

@@ -2,9 +2,9 @@
 name: daily-evaluation
 description: >-
   Daily deep-evaluation run for nologin.tools. Works through the persistent evaluation
-  queue (pending submissions) and the regression anomaly queue (approved tools) using the
-  full CADES tool-evaluation protocol, with a hard daily quota and evidence-based
-  reporting. Runs as its own scheduled session, separate from autonomous-patrol.
+  queue (pending submissions) and re-evaluates approved tools (open regression anomalies
+  first, then the stalest evaluations) using the full CADES tool-evaluation protocol, with
+  a hard daily quota and evidence-based reporting. Runs as its own scheduled session, separate from autonomous-patrol.
 ---
 
 # Daily Evaluation
@@ -18,12 +18,14 @@ Read and follow:
 
 ## Quota
 
-| Queue | Daily minimum |
+| Work | Daily minimum |
 |---|---|
-| Regression anomalies (`high`) | all open `high` items, max 3 |
 | Pending submissions (evaluation queue) | **10** (or the whole queue if smaller) |
+| Re-evaluation of already-approved tools | **3** |
 
-The quota counts **distinct slugs with a finished `dogfood-session`** today, as recorded in `reports/evaluations/<date>.jsonl`. Starting a session and aborting it does not count.
+The quota counts **distinct slugs with a finished `dogfood-session`** today, as recorded in `reports/evaluations/<date>.jsonl`. Starting a session and aborting it does not count. `node scripts/lab/evaluation-queue.mjs report` splits the count into `pendingEvaluated` and `retested`.
+
+The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` anomalies first, then open `medium` anomalies, then the approved tools whose last deep evaluation is oldest. Anomalies therefore always jump the line, and when there are none the catalog is still re-verified on a rotation instead of being left untouched.
 
 ## Workflow
 
@@ -35,15 +37,16 @@ The quota counts **distinct slugs with a finished `dogfood-session`** today, as 
    ```
    Confirm and reject Tier C items per submission-review §2 (quick; do not let this exceed ~15 minutes).
 
-2. **Regression anomalies first**
+2. **Re-evaluate approved tools first (3)**
    ```bash
-   node scripts/lab/regression-ledger.mjs queue --limit 5
+   node scripts/lab/regression-ledger.mjs retest --limit 3
    ```
-   For each `high` item (max 3), and `medium` items if time allows: run the full tool-evaluation on the approved tool.
+   Run the full tool-evaluation on each returned tool; `reason` says why it was chosen (`high_anomaly`, `medium_anomaly`, `stale_evaluation`) and `anomalies` lists the evidence the rolling scan recorded. Treat that evidence as a lead, not a verdict: verify it yourself in the browser.
    - Confirmed policy violation → `node scripts/lib/admin-api.mjs reject <id> "<evidence>"`, then
      `node scripts/lab/regression-ledger.mjs resolve <slug> --outcome rejected --note "<evidence>"`.
-   - Still compliant → `finish --sync` updates editorial and auto-resolves the ledger; if you did not sync, run
-     `resolve <slug> --outcome cleared --note "<what you verified>"`.
+   - Still compliant → `finish --sync` updates editorial, refreshes `lastDeepEvalAt`, and auto-resolves open anomalies. If you did not sync, run
+     `resolve <slug> --outcome cleared --note "<what you verified>"` (this also records `lastDeepEvalAt`, so the tool moves to the back of the rotation).
+   - Score or tier changed noticeably → sync the new evaluation; do not leave stale editorial in place.
 
 3. **Pending queue**
    ```bash
@@ -71,11 +74,11 @@ The quota counts **distinct slugs with a finished `dogfood-session`** today, as 
 
 Paste the `report` JSON and add:
 
-- `quota_met`: true/false. If false, list the concrete blocker for each missing slot (e.g. "browser crashed at item 6, restarted twice"). "Time ran out" is not an acceptable blocker unless the elapsed time per evaluation is listed.
+- `quota_met`: the `quotaMet.pending` and `quotaMet.retest` flags from the report. If either is false, list the concrete blocker for each missing slot (e.g. "browser crashed at item 6, restarted twice"). "Time ran out" is not an acceptable blocker unless the elapsed time per evaluation is listed.
 - Approved: slug, score, tier.
 - Rejected: slug, evidence sentence.
 - Deferred: slug, blocker.
-- Regression: escalated slugs and their resolution.
+- Re-evaluated tools (3): slug, why it was chosen, resolution (cleared / rejected / editorial updated), and any score or tier change.
 - Queue remaining (A/B) and pending total.
 
 Every phase is reported as `executed`, `partial (n/m)`, or `skipped (reason)`. Never describe unevaluated candidates as having failed a gate.

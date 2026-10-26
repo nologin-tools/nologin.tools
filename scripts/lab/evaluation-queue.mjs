@@ -23,6 +23,7 @@ const ROOT = resolve(__dirname, '../..');
 export const QUEUE_PATH = resolve(ROOT, 'reports/evaluation-queue.json');
 export const OUTCOME_LOG_DIR = resolve(ROOT, 'reports/evaluations');
 export const DAILY_EVALUATION_QUOTA = 10;
+export const DAILY_RETEST_QUOTA = 3;
 
 const TIER_RANK = { A: 0, B: 1 };
 
@@ -83,10 +84,25 @@ export function mergeTriage(queue, triaged, stillPendingIds) {
   return queue;
 }
 
+/** Slugs of currently approved tools (from build-data.json); empty when the file is absent. */
+function approvedSlugs() {
+  const path = resolve(ROOT, 'src/data/build-data.json');
+  if (!existsSync(path)) return new Set();
+  try {
+    return new Set((JSON.parse(readFileSync(path, 'utf-8')).tools || []).filter((/** @type {any} */ t) => t.status === 'approved').map((/** @type {any} */ t) => t.slug));
+  } catch {
+    return new Set();
+  }
+}
+
 /**
+ * Daily quota evidence. A finished session on an already-approved tool is a re-evaluation
+ * (retest); any other finished session is a pending-submission evaluation.
  * @param {string} day YYYY-MM-DD
+ * @param {Set<string>} [approved] override for tests
+ * @param {{ items: any[] }} [queueOverride] override for tests
  */
-export function dailyReport(day) {
+export function dailyReport(day, approved = approvedSlugs(), queueOverride) {
   const read = (/** @type {string} */ file) =>
     existsSync(file)
       ? readFileSync(file, 'utf-8').split('\n').filter(Boolean).map((l) => {
@@ -95,18 +111,28 @@ export function dailyReport(day) {
       : [];
   const sessions = read(resolve(OUTCOME_LOG_DIR, `${day}.jsonl`));
   const outcomes = read(resolve(OUTCOME_LOG_DIR, `${day}.outcomes.jsonl`));
-  const queue = loadQueue();
+  const queue = queueOverride || loadQueue();
+  const slugs = new Set(sessions.map((s) => s.slug));
+  const retestSlugs = [...slugs].filter((s) => approved.has(s));
+  // Approving a pending tool during the run makes its slug "approved" afterwards, so also
+  // count slugs whose outcome today was approved/rejected via the pending queue as pending.
+  const pendingOutcomeSlugs = new Set(outcomes.filter((o) => o.slug).map((o) => o.slug));
+  const retestDone = retestSlugs.filter((s) => !pendingOutcomeSlugs.has(s)).length;
+  const pendingDone = slugs.size - retestDone;
+  const pendingNeeded = Math.min(DAILY_EVALUATION_QUOTA, queue.items.length + pendingDone);
   return {
     date: day,
-    quota: DAILY_EVALUATION_QUOTA,
+    quota: { pending: DAILY_EVALUATION_QUOTA, retest: DAILY_RETEST_QUOTA },
     browserSessionsFinished: sessions.length,
-    distinctToolsEvaluated: new Set(sessions.map((s) => s.slug)).size,
+    distinctToolsEvaluated: slugs.size,
+    pendingEvaluated: pendingDone,
+    retested: retestDone,
     outcomes: {
       approved: outcomes.filter((o) => o.outcome === 'approved').length,
       rejected: outcomes.filter((o) => o.outcome === 'rejected').length,
       deferred: outcomes.filter((o) => o.outcome === 'deferred').length,
     },
-    quotaMet: new Set(sessions.map((s) => s.slug)).size >= Math.min(DAILY_EVALUATION_QUOTA, queue.items.length + sessions.length),
+    quotaMet: { pending: pendingDone >= pendingNeeded, retest: retestDone >= DAILY_RETEST_QUOTA },
     queueRemaining: queue.items.length,
     queueByTier: { A: queue.items.filter((i) => i.tier === 'A').length, B: queue.items.filter((i) => i.tier === 'B').length },
   };

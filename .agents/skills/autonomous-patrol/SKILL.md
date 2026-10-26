@@ -22,7 +22,7 @@ Use this skill only as the coordinator. Read and follow each delegated skill bef
 |---|---|
 | Full-catalog liveness checks | GitHub Actions `health-check.yml` (01:00 + 13:00 UTC) |
 | Data export | GitHub Actions `data-export.yml` |
-| Deep evaluation of pending submissions + high regression anomalies (quota 10/day) | [`daily-evaluation`](../daily-evaluation/SKILL.md) (separate session) |
+| Deep evaluation: 10 pending submissions + 3 full re-evaluations of approved tools per day | [`daily-evaluation`](../daily-evaluation/SKILL.md) (separate session) |
 | Hard gates, triage, Tier C confirmation, health anomaly review, rolling regression scan, badges, GitHub metadata, SEO | **this skill** |
 
 ## Safety invariants
@@ -41,7 +41,7 @@ Use this skill only as the coordinator. Read and follow each delegated skill bef
 4. Rolling regression scan:
 
    ```bash
-   node scripts/inspect-tool-dogfood.mjs --rolling 20
+   node scripts/inspect-tool-dogfood.mjs --rolling 40
    ```
 
    Rotation comes from `src/data/regression-ledger.json` and always advances. The scan never syncs scores; it records only hard signals into the anomaly queue, which `daily-evaluation` consumes.
