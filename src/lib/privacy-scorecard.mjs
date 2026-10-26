@@ -1,4 +1,5 @@
 // @ts-check
+import { resolveEffectiveStatus } from './health-core.mjs';
 
 /**
  * @typedef {Object} ScorecardDimension
@@ -54,7 +55,7 @@ export function normalizeTags(tags) {
 }
 
 /**
- * Computes deep privacy & sandbox audit scorecard for a tool
+ * Summarizes catalog metadata. These heuristic scores are not runtime evidence.
  * @param {any} tool - Tool record
  * @param {any} [health] - Health check record or array of recent checks
  * @param {any} [editorial] - Editorial metadata
@@ -80,7 +81,7 @@ export function computePrivacyScorecard(tool, health, editorial) {
   const hasDriftEgress = Boolean(isClientSide && runtimeCloudDetected);
   const effectiveClientSide = (isClientSide || runtimeLocalVerified) && !hasDriftEgress;
 
-  const hasNoTrackers = (privacyTags.has('No Trackers') || effectiveClientSide) && privacyAudit?.statedPolicyCompliance !== 'violation-detected';
+  const hasNoTrackers = privacyTags.has('No Trackers') && privacyAudit?.statedPolicyCompliance !== 'violation-detected';
   const isPrivacyFocused = privacyTags.has('Privacy Focused');
 
   // 1. Dimension: Data Sandbox & Storage Isolation (max 25)
@@ -103,11 +104,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Data Sandbox & Storage Isolation',
       score: 25,
       maxScore: 25,
-      status: 'In-Browser RAM Sandbox',
+      status: 'Client-Side Processing Listed',
       highlights: [
-        'Client-side processing is supported by catalog metadata and runtime evidence',
-        'Bounded runtime observation found no payload egress; this is not architectural proof',
-        worksOffline ? 'Verified full offline execution capability' : 'Runs locally without persistent server dependencies',
+        'Catalog classification: client-side processing',
+        'Processing location does not establish retention or tracking behavior',
+        worksOffline ? 'Catalog lists offline support' : 'Offline support has not been recorded',
       ],
     };
   } else if (worksOffline || isPwa) {
@@ -115,11 +116,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Data Sandbox & Storage Isolation',
       score: 22,
       maxScore: 25,
-      status: 'Local-First / Offline Capable',
+      status: 'Offline / PWA Metadata',
       highlights: [
-        'Local Service Worker and caching support',
-        'Operates with minimal ongoing cloud roundtrips',
-        'No account authentication required for local state',
+        'Catalog lists offline support or PWA installation',
+        'PWA installation alone does not establish offline operation',
+        'Network behavior depends on the selected workflow',
       ],
     };
   } else if (isSelfHostable) {
@@ -129,9 +130,9 @@ export function computePrivacyScorecard(tool, health, editorial) {
       maxScore: 25,
       status: 'Self-Hostable Architecture',
       highlights: [
-        'Full software stack can be deployed on private infrastructure',
-        'User retains sovereign control over database and network egress',
-        'No vendor lock-in or forced account identity',
+        'Catalog lists a self-hosting option',
+        'A self-hosted deployment may use different settings from the public site',
+        'Review the project deployment instructions before hosting',
       ],
     };
   } else {
@@ -139,11 +140,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Data Sandbox & Storage Isolation',
       score: 14,
       maxScore: 25,
-      status: 'Zero-Account Ephemeral Server',
+      status: 'Processing Not Verified Locally',
       highlights: [
-        'Temporary stateless processing without user profile retention',
-        'No persistent identity linking or mandatory account creation',
-        'Requires network connection to execute backend tasks',
+        'No local-only processing evidence is recorded in this scorecard',
+        'Account requirements and data retention are separate properties',
+        'See the editorial notes and provider policy for data handling',
       ],
     };
   }
@@ -156,11 +157,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Zero Trackers & Telemetry Hygiene',
       score: 25,
       maxScore: 25,
-      status: 'Zero Third-Party Trackers',
+      status: 'No Trackers Tag Recorded',
       highlights: [
-        'No commercial ad networks or cross-site tracking beacons',
-        'Zero tracking pixels or third-party behavioral profiling scripts',
-        'Clean script execution environment without user fingerprinting',
+        'Catalog tag: No Trackers',
+        'This tag does not represent a continuous traffic audit',
+        'Third-party integrations can change between evaluations',
       ],
     };
   } else if (isPrivacyFocused) {
@@ -168,11 +169,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Zero Trackers & Telemetry Hygiene',
       score: 22,
       maxScore: 25,
-      status: 'Privacy-Hardened Policy',
+      status: 'Privacy Focused Tag Recorded',
       highlights: [
-        'Audited privacy policy protecting user confidentiality',
-        'No mandatory email, telephone, or identity correlation',
-        'Strict limits on operational telemetry',
+        'Catalog tag: Privacy Focused',
+        'See the hands-on review for the tested no-login workflow',
+        'Retention and telemetry depend on the provider policy',
       ],
     };
   } else {
@@ -180,11 +181,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Zero Trackers & Telemetry Hygiene',
       score: 16,
       maxScore: 25,
-      status: 'Standard No-Auth Policy',
+      status: 'Tracking Evidence Not Recorded',
       highlights: [
-        'Zero forced signup or login cookies required',
-        'Operates without identity or social logins',
-        'Standard server-side HTTP access logging applies',
+        'No dedicated tracker assessment is recorded here',
+        'No-login access does not establish anonymity',
+        'Consult the provider policy for logs and cookies',
       ],
     };
   }
@@ -205,7 +206,7 @@ export function computePrivacyScorecard(tool, health, editorial) {
         status: `Open Source (${license})`,
         highlights: [
           `Publicly auditable code repository at ${repoUrl}`,
-          `OSI-recognized open license: ${license}`,
+          `Repository license metadata: ${license}`,
           stars ? `${stars.toLocaleString()} GitHub community stars` : 'Verifiable public commit history',
         ],
       };
@@ -227,11 +228,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
       name: 'Source Transparency & Auditability',
       score: 12,
       maxScore: 25,
-      status: 'Proprietary / Freeware',
+      status: 'Repository Not Listed',
       highlights: [
-        'Proprietary frontend and application service',
-        'Zero-login functionality verified by NoLoginTools manual audit',
-        'Runtime network egress and cookies verified via automated scanner',
+        'No source repository is recorded in the catalog',
+        'This does not establish that the software is proprietary',
+        'See the review for observations from the tested workflow',
       ],
     };
   }
@@ -239,14 +240,15 @@ export function computePrivacyScorecard(tool, health, editorial) {
   // 4. Dimension: Availability & Infrastructure Resilience (max 25)
   /** @type {ScorecardDimension} */
   let resilience;
-  let status = 'online';
+  let status = tool.effectiveStatus || 'unknown';
   let responseTimeMs = 0;
 
   if (health) {
-    if (Array.isArray(health) && health.length > 0) {
-      const latest = health[0];
-      status = latest.isOnline ? 'online' : 'offline';
-      responseTimeMs = latest.responseTimeMs || 0;
+    if (Array.isArray(health)) {
+      status = resolveEffectiveStatus(health.map(check => ({ ...check,
+        checkedAt: check.checkedAt ? new Date(check.checkedAt) : undefined,
+      }))) || 'unknown';
+      responseTimeMs = health[0]?.responseTimeMs || 0;
     } else if (typeof health === 'object') {
       status = health.status || (health.isOnline ? 'online' : 'offline');
       responseTimeMs = health.responseTimeMs || 0;
@@ -261,11 +263,11 @@ export function computePrivacyScorecard(tool, health, editorial) {
         name: 'Availability & Infrastructure Resilience',
         score: 25,
         maxScore: 25,
-        status: 'High Uptime & Sub-Second Latency',
+        status: 'Latest Check: Reachable',
         highlights: [
-          `Fully operational with fast edge response (~${responseTimeMs}ms)`,
-          'Verified active on Cloudflare automated 6h health probe',
-          'Reliable service accessibility without login barriers',
+          `Latest HTTP response time (~${responseTimeMs}ms)`,
+          'Result comes from the latest recorded health check',
+          'An HTTP response does not verify the complete user workflow',
         ],
       };
     } else {
@@ -273,14 +275,22 @@ export function computePrivacyScorecard(tool, health, editorial) {
         name: 'Availability & Infrastructure Resilience',
         score: 22,
         maxScore: 25,
-        status: 'Operational & Verified',
+        status: 'Latest Check: Reachable',
         highlights: [
-          'Tool is online and accessible',
-          'Monitored continuously by NoLoginTools automated prober',
-          'No scheduled downtime or access gating detected',
+          'The latest check received a response',
+          'Availability can change after the recorded check',
+          'This is a reachability observation, not an uptime guarantee',
         ],
       };
     }
+  } else if (status === 'unknown') {
+    resilience = {
+      name: 'Availability & Infrastructure Resilience',
+      score: 0,
+      maxScore: 25,
+      status: 'No Recent Check',
+      highlights: ['No health check from the last 48 hours is available'],
+    };
   } else if (status === 'unstable') {
     resilience = {
       name: 'Availability & Infrastructure Resilience',
@@ -315,16 +325,16 @@ export function computePrivacyScorecard(tool, health, editorial) {
 
   if (overallScore >= 90) {
     overallGrade = 'A+';
-    summary = 'Gold Standard Privacy: 100% in-browser client sandbox, verified zero trackers, and auditable open-source code.';
+    summary = 'Catalog signals score in the highest band. This score summarizes recorded metadata; it is not a privacy certification.';
   } else if (overallScore >= 75) {
     overallGrade = 'A';
-    summary = 'High-Assurance Privacy: Exceptional privacy hygiene, zero registration friction, and verified infrastructure reliability.';
+    summary = 'Catalog signals score in the upper band. Consult the hands-on notes for tested behavior.';
   } else if (overallScore >= 60) {
     overallGrade = 'B+';
-    summary = 'Verified No-Login Utility: Dependable instant utility without signup, with standard cloud session architecture.';
+    summary = 'Catalog signals score in the middle band. Missing metadata can affect this score.';
   } else {
     overallGrade = 'B';
-    summary = 'Functional No-Login Tool: Provides access without accounts, but operates on proprietary or degraded infrastructure.';
+    summary = 'Catalog signals score in the lower band. See the recorded metadata and health results for details.';
   }
 
   // Override summary if editorial verdict is available

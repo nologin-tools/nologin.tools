@@ -3,9 +3,12 @@ import { hasLocalizedToolContent, getLocalizedToolFields as buildLocalizedToolFi
 import { LOCALES, type Locale } from '../i18n/config';
 import { isValidSlug } from '../lib/utils';
 import { computeScore as computeRawScore } from '../lib/score.mjs';
+import { toolContentDate } from '../lib/content-dates.mjs';
+import { getToolGuide } from '../lib/tool-guides';
 
 type ToolTranslation = {
   _hash?: string;
+  contentUpdatedAt?: string;
   description?: string;
   coreTask?: string;
   seoTitle?: string;
@@ -117,6 +120,7 @@ export interface BuildDataTool {
   status: string;
   submittedAt: string;
   approvedAt: string | null;
+  contentUpdatedAt?: string | null;
   rejectionReason: string | null;
   submitterEmail: string | null;
   archiveUrl: string | null;
@@ -206,11 +210,17 @@ export interface ToolEditorial {
   verdictTier?: EditorialVerdictTier;
   benchmarkNotes?: string;
   testedAt?: string;
+  contentUpdatedAt?: string;
   dueDiligence?: DueDiligenceEvidence;
 }
 
 import editorialJson from './tool-editorial.json';
 const editorialData = editorialJson as Record<string, Record<string, ToolEditorial>>;
+
+export function getToolContentDate(tool: Pick<BuildDataTool, 'slug' | 'approvedAt' | 'contentUpdatedAt'>, locale: Locale = 'en'): string | undefined {
+  return toolContentDate(tool, editorialData[tool.slug]?.[locale] ?? editorialData[tool.slug]?.en,
+    loadToolTranslations(locale)[tool.slug], getToolGuide(tool.slug, locale));
+}
 
 export function getToolEditorial(slug: string, locale: Locale = 'en'): ToolEditorial | null {
   const toolEntry = editorialData[slug];

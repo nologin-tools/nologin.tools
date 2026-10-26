@@ -9,6 +9,7 @@ import { api } from '../../../lib/api';
 import { TAG_DEFINITIONS } from '../../../lib/tags';
 import { validateTwitterUrl, validateGitHubProfileUrl, validateDiscordUrl, validateRepoUrl, parseGitHubRepoUrl, fetchGitHubRepoData } from '../../../lib/github';
 import { SEO_INTENTS, includesNoLoginIntent } from '../../../lib/tool-seo.mjs';
+import { sameTags } from '../../../lib/content-dates.mjs';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const env = locals.runtime.env;
@@ -233,8 +234,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       }
     }
 
-    batchStatements.push(db.delete(tags).where(eq(tags.toolId, toolId)));
-    if (filteredTags.length > 0) {
+    const existingTags = await db.select().from(tags).where(eq(tags.toolId, toolId));
+    if (!sameTags(existingTags, filteredTags)) {
+      batchStatements.push(db.update(tools).set({ contentUpdatedAt: new Date() }).where(eq(tools.id, toolId)));
+      batchStatements.push(db.delete(tags).where(eq(tags.toolId, toolId)));
       batchStatements.push(db.insert(tags).values(
         filteredTags.map((t) => ({
           toolId,

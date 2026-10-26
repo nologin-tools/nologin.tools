@@ -295,6 +295,7 @@ const tools = validTools.map((t) => {
     status: t.status,
     submittedAt: toISO(t.submitted_at),
     approvedAt: toISO(t.approved_at),
+    contentUpdatedAt: toISO(t.content_updated_at),
     rejectionReason: t.rejection_reason,
     submitterEmail: t.submitter_email,
     archiveUrl: t.archive_url,

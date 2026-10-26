@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getApprovedTools, getToolContentDate } from '../data/loader';
 import { getFinderTools, type FinderToolItem } from '../lib/finder';
 import { TAG_DEFINITIONS } from '../lib/tags';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
@@ -34,12 +35,7 @@ const pageTitle = t(locale, 'finder.title');
 const pageDescription = t(locale, 'finder.description');
 const canonicalPath = getLocalizedPath('/finder', locale);
 
-const toolDates = tools
-  .map((t) => t.approvedAt ? new Date(t.approvedAt).getTime() : 0)
-  .filter((d) => !isNaN(d) && d > 0);
-const latestToolDate = toolDates.length > 0
-  ? new Date(Math.max(...toolDates)).toISOString()
-  : new Date().toISOString();
+const latestToolDate = getApprovedTools().map(tool => getToolContentDate(tool, locale)).filter(Boolean).sort().at(-1);
 
 // Schema.org WebPage + SearchAction
 const webPageLd = {

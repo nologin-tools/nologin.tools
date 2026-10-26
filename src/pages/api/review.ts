@@ -2,7 +2,8 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { getDb } from '../../db';
-import { tools, editSuggestions } from '../../db/schema';
+import { tools, tags, editSuggestions } from '../../db/schema';
+import { sameTags } from '../../lib/content-dates.mjs';
 import { eq, and, ne } from 'drizzle-orm';
 import { api } from '../../lib/api';
 import { urlToSlug } from '../../lib/utils';
@@ -194,8 +195,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
       if (!editedTool) return api.error('Tool not found.', 404);
       if (editedTool.repoUrl) validTags.push({ key: 'source', value: 'Open Source' });
 
+      const existingTags = await db.select().from(tags).where(eq(tags.toolId, edit.toolId));
+      const tagsChanged = !sameTags(existingTags, validTags);
+
       const pendingEditExistsSql = `EXISTS (SELECT 1 FROM edit_suggestions WHERE id = ? AND status = 'pending')`;
       const results = await env.DB.batch([
+        ...(tagsChanged ? [env.DB.prepare(
+          `UPDATE tools SET content_updated_at = unixepoch() WHERE id = ? AND ${pendingEditExistsSql}`
+        ).bind(edit.toolId, editId)] : []),
         env.DB.prepare(`DELETE FROM tags WHERE tool_id = ? AND ${pendingEditExistsSql}`).bind(edit.toolId, editId),
         ...validTags.map(tag =>
           env.DB.prepare(

@@ -50,7 +50,7 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     assert.ok(content.includes("name: 'NoLoginTools.org'"), 'Must attribute publisher to NoLoginTools.org');
     assert.ok(content.includes("itemReviewed: {"), 'Must explicitly include itemReviewed in Review');
     assert.ok(content.includes("award: \"NoLogin Verified Editor's Choice 2026\""), 'Must include award for Editor Choice tier');
-    assert.ok(content.includes("'@type': 'AggregateRating'"), 'Must declare AggregateRating');
+    assert.ok(!content.includes("AggregateRating"), 'A single editorial review must not claim aggregated user ratings');
   });
 
   it('HomePage has enhanced WebSite and Organization schema', () => {
@@ -75,7 +75,7 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     const content = readFileSync(TOOL_DETAIL_PAGE, 'utf-8');
     assert.ok(content.includes("'@type': 'WebSite'"), 'ToolDetailPage must contain WebSite schema');
     assert.ok(content.includes("'@type': 'Organization'"), 'ToolDetailPage must contain Organization schema');
-    assert.ok(content.includes("modifiedTime={approvedDate}"), 'ToolDetailPage must pass modifiedTime to Layout');
+    assert.ok(content.includes("modifiedTime={contentDate}"), 'ToolDetailPage must pass modifiedTime to Layout');
   });
 
   it('FinderPage has WebSite, Organization schemas and WebMCP search form', () => {

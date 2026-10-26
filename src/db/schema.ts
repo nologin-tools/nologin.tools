@@ -20,6 +20,7 @@ export const tools = sqliteTable('tools', {
     .default('pending'),
   submittedAt: integer('submitted_at', { mode: 'timestamp' }).notNull(),
   approvedAt: integer('approved_at', { mode: 'timestamp' }),
+  contentUpdatedAt: integer('content_updated_at', { mode: 'timestamp' }),
   rejectionReason: text('rejection_reason'),
   submitterIpHash: text('submitter_ip_hash'),
   submitterEmail: text('submitter_email'),

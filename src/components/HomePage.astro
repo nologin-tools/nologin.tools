@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TestedWorkflowLinks from './TestedWorkflowLinks.astro';
 import HealthBadge from './HealthBadge.astro';
 import { getCollection } from 'astro:content';
 import { TAG_DEFINITIONS, categoryToSlug, TAG_PAGES_ALLOWLIST, tagValueToSlug } from '../lib/tags';
-import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription, getToolEditorial } from '../data/loader';
+import { getApprovedTools, getToolHealthStatus, computeScore as computeToolScore, getLocalizedDescription, getToolEditorial, getToolContentDate } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import LanguageSwitcher from './LanguageSwitcher.astro';
@@ -30,10 +31,7 @@ const toolsWithMeta = approvedTools.map(tool => {
 
 const allTools = [...toolsWithMeta].sort((a, b) => b.score - a.score);
 
-const latestApprovedAt = approvedTools.reduce((latest, tool) => {
-  const ts = tool.approvedAt || tool.submittedAt;
-  return ts && ts > latest ? ts : latest;
-}, '2026-01-01T00:00:00Z');
+const latestApprovedAt = approvedTools.map(tool => getToolContentDate(tool, locale)).filter(Boolean).sort().at(-1);
 
 // Group tools by category
 const categoryDef = TAG_DEFINITIONS.find(d => d.key === 'category');
@@ -319,6 +317,8 @@ function translateTagValue(key: string, value: string): string {
     </div>
 
     <!-- Featured In-Depth Guides & Analysis -->
+    <TestedWorkflowLinks tools={approvedTools} locale={locale} />
+
     {featuredPosts.length > 0 && (
       <section class="mb-16 border-t-2 border-b-2 border-neutral-900 py-8 bg-neutral-50/50" aria-label="Featured guides">
         <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">

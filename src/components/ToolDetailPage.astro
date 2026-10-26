@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ToolGuide from './ToolGuide.astro';
+import { getToolContentDate } from '../data/loader';
 import HealthBadge from './HealthBadge.astro';
 import TagPicker from './TagPicker.astro';
 import { formatDate, timeAgo } from '../lib/utils';
@@ -34,6 +36,7 @@ interface Props {
     seoTaskPhrase?: string | null;
     status: string;
     approvedAt: Date | string | null;
+    contentUpdatedAt?: Date | string | null;
     archiveUrl: string | null;
     isFeatured: boolean;
     submitterEmail: string | null;
@@ -161,6 +164,7 @@ function buildOffers() {
 }
 
 const editorial = getToolEditorial(slug, locale);
+const contentDate = getToolContentDate({ ...tool, slug, approvedAt: tool.approvedAt ? new Date(tool.approvedAt).toISOString() : null, contentUpdatedAt: tool.contentUpdatedAt ? new Date(tool.contentUpdatedAt).toISOString() : null }, locale);
 const dueDiligence = editorial ? resolveDueDiligence({ ...tool, tags: toolTags }, editorial) : null;
 const scorecard = computePrivacyScorecard({ ...tool, tags: toolTags }, recentChecks, editorial ? { ...editorial, dueDiligence } : null);
 const radarSvg = editorial?.productScore
@@ -215,9 +219,7 @@ const jsonLd = {
   },
   ...(tool.repoUrl ? { downloadUrl: tool.repoUrl, codeRepository: tool.repoUrl } : {}),
   ...(approvedDate ? { datePublished: approvedDate } : {}),
-  ...(tool.githubUpdatedAt
-    ? { dateModified: new Date(tool.githubUpdatedAt).toISOString().split('T')[0] }
-    : approvedDate ? { dateModified: approvedDate } : {}),
+  ...(contentDate ? { dateModified: contentDate } : {}),
   ...(sameAs.length > 0 ? { sameAs } : {}),
   ...(keywords ? { keywords } : {}),
   ...(editorial?.verdictTier === 'editors-choice' ? {
@@ -229,7 +231,7 @@ const jsonLd = {
       name: alt,
     })),
   } : {}),
-  ...(editorial ? {
+  ...(editorial?.productScore ? {
     review: {
       '@type': 'Review',
       itemReviewed: {
@@ -241,11 +243,9 @@ const jsonLd = {
       },
       reviewRating: {
         '@type': 'Rating',
-        ratingValue: editorial.productScore
-          ? (editorial.productScore.overall / 20).toFixed(1)
-          : (scorecard.overallScore / 20).toFixed(1),
+        ratingValue: (editorial.productScore.overall / 20).toFixed(1),
         bestRating: 5,
-        worstRating: 1,
+        worstRating: 0,
       },
       reviewBody: editorial.benchmarkNotes ? `${scorecard.summary} — ${editorial.benchmarkNotes}` : scorecard.summary,
       positiveNotes: {
@@ -298,18 +298,6 @@ const jsonLd = {
           },
         ],
       } : {}),
-    },
-  } : {}),
-  ...((editorial?.productScore || (scorecard && scorecard.overallScore > 0)) ? {
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: editorial?.productScore
-        ? (editorial.productScore.overall / 20).toFixed(1)
-        : (scorecard.overallScore / 20).toFixed(1),
-      bestRating: 5,
-      worstRating: 1,
-      ratingCount: editorial?.productScore ? 12 : 5,
-      reviewCount: 1,
     },
   } : {}),
   ...(relatedArticles.length > 0 ? {
@@ -405,7 +393,7 @@ const orgLd = {
   ogType="article"
   canonicalOverride={getToolCanonicalPath(slug, canonicalLocale)}
   publishedTime={approvedDate}
-  modifiedTime={approvedDate}
+  modifiedTime={contentDate}
   ogImagePath={`/api/og/${slug}`}
   locale={locale}
   availableLocales={availableLocales}
@@ -558,6 +546,8 @@ const orgLd = {
         </p>
       </div>
 
+      <ToolGuide slug={slug} locale={locale} />
+
       <!-- Editorial Review & Hands-on Verification (E-E-A-T & GEO) -->
       {editorial && (
         <section class="border-t border-neutral-100 pt-8 space-y-6" aria-labelledby="editorial-review-heading">
@@ -709,9 +699,9 @@ const orgLd = {
                       {t(locale, 'tool.scorecard.overallGrade')}
                     </div>
                     <div class="text-base font-bold text-neutral-900">
-                      {scorecard.overallGrade === 'A+' ? 'Gold Standard: Zero Account' :
-                       scorecard.overallGrade === 'A' ? 'High-Assurance Privacy' :
-                       scorecard.overallGrade === 'B+' ? 'Verified No-Login Utility' :
+                      {scorecard.overallGrade === 'A+' ? 'Catalog Signals: A+' :
+                       scorecard.overallGrade === 'A' ? 'Catalog Signals: A' :
+                       scorecard.overallGrade === 'B+' ? 'Catalog Signals: B+' :
                        'Functional No-Login Standard'}
                     </div>
                   </div>
@@ -1039,154 +1029,14 @@ const orgLd = {
           </div>
         </div>
 
-        {/* NoLogin Lab Verified Telemetry & Empirical Audit Panel */}
         {dueDiligence && (
-          <div class="border-t border-neutral-200 pt-6 space-y-4">
-            <div class="flex flex-wrap items-center justify-between gap-3">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 bg-amber-500 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"></span>
-                <h3 class="text-xs font-mono font-bold text-neutral-600 uppercase tracking-wider">
-                  {t(locale, 'tool.dueDiligence.telemetryHeading')}
-                </h3>
-              </div>
-              <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-neutral-100 border border-neutral-900 text-neutral-800">
-                CADES 2.0 Empirical Test
-              </span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-              {/* Proof 1: Network Sniffing & Egress */}
-              <div class="bg-white border-2 border-neutral-900 p-3.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between gap-1 mb-1.5">
-                    <span class="text-[11px] font-mono font-bold uppercase text-neutral-600 flex items-center gap-1">
-                      <span>🛡️</span>
-                      <span>{t(locale, 'tool.dueDiligence.networkSniffing')}</span>
-                    </span>
-                    <span class={`px-1.5 py-0.5 text-[10px] font-mono font-bold border border-neutral-900 ${
-                      dueDiligence.privacyAudit?.zeroEgressConfirmed ? 'bg-emerald-100 text-emerald-950' : 'bg-sky-100 text-sky-950'
-                    }`}>
-                      {dueDiligence.privacyAudit?.zeroEgressConfirmed
-                        ? t(locale, 'tool.dueDiligence.localVerified')
-                        : t(locale, 'tool.dueDiligence.cloudObserved')}
-                    </span>
-                  </div>
-                  <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                    {dueDiligence.privacyAudit?.dataRetentionPolicy || (dueDiligence.privacyAudit?.zeroEgressConfirmed
-                      ? 'No outbound telemetry or user payload transmission observed during runtime task execution.'
-                      : 'Stateless cloud processing with transient payload handling.')}
-                  </p>
-                </div>
-                <div class="mt-2 pt-2 border-t border-neutral-100 text-[10px] font-mono text-neutral-500">
-                  Audit: {dueDiligence.privacyAudit?.statedPolicyCompliance || 'verified-consistent'}
-                </div>
-              </div>
-
-              {/* Proof 2: Execution Sandbox Engine */}
-              <div class="bg-white border-2 border-neutral-900 p-3.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between gap-1 mb-1.5">
-                    <span class="text-[11px] font-mono font-bold uppercase text-neutral-600 flex items-center gap-1">
-                      <span>💻</span>
-                      <span>{t(locale, 'tool.dueDiligence.runtimeEngine')}</span>
-                    </span>
-                    <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-neutral-100 border border-neutral-900 text-neutral-800">
-                      {dueDiligence.privacyAudit?.runtimeClassification || 'Local Sandbox'}
-                    </span>
-                  </div>
-                  <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                    {dueDiligence.privacyAudit?.runtimeClassification === 'Local Only'
-                      ? 'Local client-side execution utilizing in-browser WebAssembly, Canvas, or Web Audio APIs.'
-                      : 'Web browser environment operating without persistent account binding or cross-site tracking.'}
-                  </p>
-                </div>
-                <div class="mt-2 pt-2 border-t border-neutral-100 text-[10px] font-mono text-neutral-500">
-                  Sandbox: {dataTag?.tagValue || 'Client-Side Sandbox'}
-                </div>
-              </div>
-
-              {/* Proof 3: Artifact Integrity & Watermark Check */}
-              <div class="bg-white border-2 border-neutral-900 p-3.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between gap-1 mb-1.5">
-                    <span class="text-[11px] font-mono font-bold uppercase text-neutral-600 flex items-center gap-1">
-                      <span>📦</span>
-                      <span>{t(locale, 'tool.dueDiligence.artifactIntegrity')}</span>
-                    </span>
-                    <span class={`px-1.5 py-0.5 text-[10px] font-mono font-bold border border-neutral-900 ${
-                      dueDiligence.visualCraft?.watermarkFree ? 'bg-emerald-100 text-emerald-950' : 'bg-neutral-100 text-neutral-800'
-                    }`}>
-                      {dueDiligence.visualCraft?.watermarkFree
-                        ? t(locale, 'tool.dueDiligence.watermarkClean')
-                        : 'Standard Formats'}
-                    </span>
-                  </div>
-                  <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                    {dueDiligence.visualCraft?.watermarkFree
-                      ? 'Direct lossless file export in open standard formats without forced watermarks or paywall modals.'
-                      : 'Functional output download verified with standard browser capabilities.'}
-                  </p>
-                </div>
-                <div class="mt-2 pt-2 border-t border-neutral-100 text-[10px] font-mono text-neutral-500">
-                  Ad Tier: {dueDiligence.visualCraft?.adPollutionTier || 'zero-ads'}
-                </div>
-              </div>
-
-              {/* Proof 4: Access Velocity & Friction */}
-              <div class="bg-white border-2 border-neutral-900 p-3.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between gap-1 mb-1.5">
-                    <span class="text-[11px] font-mono font-bold uppercase text-neutral-600 flex items-center gap-1">
-                      <span>⚡</span>
-                      <span>{t(locale, 'tool.dueDiligence.accessVelocity')}</span>
-                    </span>
-                    <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-amber-100 text-amber-950 border border-neutral-900">
-                      {t(locale, 'tool.dueDiligence.instantLaunch')}
-                    </span>
-                  </div>
-                  <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                    Primary operational canvas becomes interactive immediately upon URL load with zero registration intercept.
-                  </p>
-                </div>
-                <div class="mt-2 pt-2 border-t border-neutral-100 text-[10px] font-mono text-neutral-500">
-                  Onboarding: 0-Click Gate
-                </div>
-              </div>
-
-              {/* Proof 5: Source Code & Governance */}
-              <div class="bg-white border-2 border-neutral-900 p-3.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:col-span-2 lg:col-span-2 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between gap-1 mb-1.5">
-                    <span class="text-[11px] font-mono font-bold uppercase text-neutral-600 flex items-center gap-1">
-                      <span>📜</span>
-                      <span>{t(locale, 'tool.dueDiligence.provenance')}</span>
-                    </span>
-                    <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-neutral-100 border border-neutral-900 text-neutral-800">
-                      {dueDiligence.openSource?.isRepoVerified
-                        ? t(locale, 'tool.dueDiligence.openSourceVerified')
-                        : t(locale, 'tool.dueDiligence.independentDomain')}
-                    </span>
-                  </div>
-                  <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                    {dueDiligence.community?.summary || 'Independent web application verified for authentic functionality and TLS 1.3 encryption.'}
-                  </p>
-                </div>
-                <div class="mt-2 pt-2 border-t border-neutral-100 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-500">
-                  <span>License: {dueDiligence.openSource?.license || 'Web Standard'}</span>
-                  {dueDiligence.openSource?.repoUrl && (
-                    <a
-                      href={dueDiligence.openSource.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-neutral-900 hover:underline font-bold"
-                    >
-                      GitHub Repo &rarr;
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+          <section class="border-t border-neutral-200 pt-6 space-y-3">
+            <h3 class="text-sm font-semibold">{locale === 'zh' ? '补充评测记录' : 'Additional evaluation evidence'}</h3>
+            {dueDiligence.privacyAudit?.runtimeClassification && <p class="text-sm text-neutral-700">{dueDiligence.privacyAudit.runtimeClassification}</p>}
+            {dueDiligence.privacyAudit?.dataRetentionPolicy && <p class="text-sm text-neutral-700">{dueDiligence.privacyAudit.dataRetentionPolicy}</p>}
+            {dueDiligence.community?.summary && <p class="text-sm text-neutral-700">{dueDiligence.community.summary}</p>}
+            {dueDiligence.openSource?.repoUrl && <a class="text-sm underline" href={dueDiligence.openSource.repoUrl}>{locale === 'zh' ? '源代码仓库' : 'Source repository'}</a>}
+          </section>
         )}
 
         {/* Verification Details factsheet for GEO quotability */}

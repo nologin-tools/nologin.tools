@@ -101,8 +101,9 @@ describe('Developer API v1 Core Logic', () => {
 
       // Scorecard
       assert.ok(serialized.scorecard, 'Expected scorecard to be present');
-      assert.equal(serialized.scorecard.overallGrade, 'A+');
-      assert.ok(serialized.scorecard.overallScore >= 90);
+      // A client-side tag alone does not establish the absence of trackers.
+      assert.equal(serialized.scorecard.overallGrade, 'A');
+      assert.equal(serialized.scorecard.dimensions.telemetry.score, 16);
       assert.ok(serialized.scorecard.dimensions.sandbox);
 
       assert.equal(serialized.links.canonical, 'https://nologin.tools/tool/gchq-github-io-cyberchef');

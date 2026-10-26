@@ -4,6 +4,17 @@ import assert from 'node:assert/strict';
 import { computePrivacyScorecard, normalizeTags } from '../../src/lib/privacy-scorecard.mjs';
 
 describe('Deep Privacy & Sandbox Audit Scorecard', () => {
+  it('does not infer tracker absence or retention policy from client-side metadata', () => {
+    const card = computePrivacyScorecard({ tags: ['data:Client-Side Only'] }, []);
+    assert.notEqual(card.dimensions.telemetry.score, 25);
+    assert.equal(card.dimensions.resilience.status, 'No Recent Check');
+    assert.doesNotMatch(JSON.stringify(card), /zero data retention|stateless processing|network egress and cookies verified|runtime observation found/i);
+  });
+
+  it('does not present an expired health check as current availability', () => {
+    const card = computePrivacyScorecard({ tags: [] }, [{ isOnline: true, checkedAt: new Date('2020-01-01'), responseTimeMs: 25 }]);
+    assert.equal(card.dimensions.resilience.status, 'No Recent Check');
+  });
   it('normalizes various tag array representations into a unified map', () => {
     const rawA = [{ tagKey: 'data', tagValue: 'Client-Side Only' }, { tagKey: 'privacy', tagValue: 'No Trackers' }];
     const mapA = normalizeTags(rawA);
@@ -104,7 +115,7 @@ describe('Deep Privacy & Sandbox Audit Scorecard', () => {
 
     const scorecard = computePrivacyScorecard(toolWithoutExplicitTag, null, editorial);
     assert.equal(scorecard.dimensions.sandbox.score, 25);
-    assert.equal(scorecard.dimensions.sandbox.status, 'In-Browser RAM Sandbox');
+    assert.equal(scorecard.dimensions.sandbox.status, 'Client-Side Processing Listed');
   });
 
   it('does not treat a bounded no-egress observation as proof of local-only processing', () => {
@@ -118,7 +129,7 @@ describe('Deep Privacy & Sandbox Audit Scorecard', () => {
       },
     });
 
-    assert.notEqual(scorecard.dimensions.sandbox.status, 'In-Browser RAM Sandbox');
+    assert.notEqual(scorecard.dimensions.sandbox.status, 'Client-Side Processing Listed');
     assert.ok(scorecard.dimensions.sandbox.score < 25);
   });
 

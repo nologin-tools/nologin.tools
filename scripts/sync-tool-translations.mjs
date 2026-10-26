@@ -1,5 +1,6 @@
 // @ts-check
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { withContentUpdatedAt } from '../src/lib/content-dates.mjs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -192,7 +193,7 @@ export function applyTranslations({ buildData, translationsDir = TRANSLATIONS_DI
       if (data.seoFocusKeyword?.trim()) entry.seoFocusKeyword = data.seoFocusKeyword.trim();
       if (data.seoTaskPhrase?.trim()) entry.seoTaskPhrase = data.seoTaskPhrase.trim();
 
-      translationsByLocale[locale][slug] = entry;
+      translationsByLocale[locale][slug] = withContentUpdatedAt(translationsByLocale[locale][slug], entry);
       updatedLocalesSet.add(locale);
       updatedSlugsSet.add(slug);
     }

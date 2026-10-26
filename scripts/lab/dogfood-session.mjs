@@ -26,6 +26,7 @@ import { inspectArtifact, inspectClipboardArtifact, assessArtifactQuality } from
 import { validateCognitiveEvaluation, calibrate5DScore } from './cades-cognitive.mjs';
 import { loadLedger, saveLedger, resolveAnomalies } from './regression-ledger.mjs';
 import { summarizeSteps, assessDepth } from './evaluation-depth.mjs';
+import { withContentUpdatedAt } from '../../src/lib/content-dates.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -105,13 +106,13 @@ function installCadesPageInstrumentation() {
     if (typeof window.Notification !== 'undefined') {
       try {
         Object.defineProperty(window.Notification, 'permission', {
-          get: () => 'granted',
+          get: () => 'denied',
           configurable: true
         });
       } catch (e) {}
       window.Notification.requestPermission = function(cb) {
-        if (typeof cb === 'function') cb('granted');
-        return Promise.resolve('granted');
+        if (typeof cb === 'function') cb('denied');
+        return Promise.resolve('denied');
       };
     }
   } catch (e) {}
@@ -555,6 +556,7 @@ async function cmdAct(slug, options) {
         const btns = getElements(document);
         const match = btns.find(b => (b.innerText || b.value || b.getAttribute('aria-label') || b.getAttribute('title') || '').trim().toLowerCase().includes(target.toLowerCase()));
         if (match) {
+          if (match.disabled || match.getAttribute('aria-disabled') === 'true') return null;
           match.click();
           return "Clicked text: " + (match.innerText || target);
         }
@@ -573,6 +575,7 @@ async function cmdAct(slug, options) {
         };
         const el = findSelector(document, target);
         if (el) {
+          if (el.disabled || el.getAttribute('aria-disabled') === 'true') return null;
           el.click();
           return "Clicked selector: " + target;
         }
@@ -585,22 +588,9 @@ async function cmdAct(slug, options) {
     ${options.fill ? `
       const fillSel = ${JSON.stringify(options.fill.selector)};
       const fillVal = ${JSON.stringify(options.fill.value)};
-      const filled = await page.evaluate(({ sel, val }) => {
-        const el = document.querySelector(sel) || document.querySelector('textarea, input[type="text"], [contenteditable="true"]');
-        if (el) {
-          if (el.value !== undefined) {
-            el.value = val;
-            el.dispatchEvent(new Event('input', { bubbles: true }));
-            el.dispatchEvent(new Event('change', { bubbles: true }));
-          } else {
-            el.innerText = val;
-          }
-          return "Filled into " + (el.tagName || sel);
-        }
-        return null;
-      }, { sel: fillSel, val: fillVal });
-      result.actionSummary = filled || ("Input element not found: " + fillSel);
-      result.actionPerformed = Boolean(filled) || result.actionPerformed;
+      await page.fill(fillSel, fillVal);
+      result.actionSummary = "Filled into " + fillSel;
+      result.actionPerformed = true;
     ` : ''}
 
     ${options.upload ? `
@@ -1140,7 +1130,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         return fallback;
       };
 
-      editorial[slug].en = {
+      editorial[slug].en = withContentUpdatedAt(editorial[slug].en, {
         bestFor: evalData.bestFor,
         pros: evalData.pros,
         cons: evalData.cons,
@@ -1150,8 +1140,8 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         verdictTier,
         benchmarkNotes: evalData.benchmarkNotes,
         testedAt
-      };
-      editorial[slug].zh = {
+      });
+      editorial[slug].zh = withContentUpdatedAt(editorial[slug].zh, {
         bestFor: evalData.bestForZh,
         pros: evalData.prosZh,
         cons: evalData.consZh,
@@ -1161,7 +1151,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         verdictTier,
         benchmarkNotes: evalData.benchmarkNotesZh,
         testedAt
-      };
+      });
 
       // Support and synchronize any extended locales (ja, ko, es, fr, de, pt)
       const extendedLocales = ['ja', 'ko', 'es', 'fr', 'de', 'pt'];

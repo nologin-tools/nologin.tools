@@ -1,0 +1,56 @@
+{
+  "duck-ai": {
+    "en": {
+      "title": "Turn a short order into JSON without an account",
+      "summary": "We tested a two-turn text task in Duck.ai: structure an order, then change the quantity while keeping the unit price. The chat opened and returned both answers without requiring an account.",
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T09:36:50.008Z",
+      "input": "Return valid JSON for a notebook order: quantity 3, unit_price_usd 4.50, total_usd.",
+      "steps": [
+        "Open Duck.ai and enter the sample in the chat box. In this test the selected model was GPT-6 Luna; the available models may change.",
+        "Submit the prompt. Check that the response contains quantity, unit_price_usd and total_usd.",
+        "Send the follow-up: “Change quantity to 4 and recalculate the total. Return valid JSON only.”"
+      ],
+      "result": "The first response gave total_usd 13.50. The follow-up retained unit_price_usd 4.50 and returned quantity 4 with total_usd 18.00. Both responses used JSON syntax, and the second answer preserved the earlier context.",
+      "limitations": "This was a small text and arithmetic task, not a general accuracy benchmark. Model output can be wrong. Duck.ai sends chats to remote model providers through DuckDuckGo; it is not an offline or local-inference tool. Export and attachment handling were not verified in this test.",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/duck-ai.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Duck.ai returns quantity 4, unit_price_usd 4.50 and total_usd 18.00 for the follow-up prompt."
+      },
+      "sources": [
+        {
+          "href": "https://duckduckgo.com/duckduckgo-help-pages/what-information-does-duckai-share-with-model-providers",
+          "label": "DuckDuckGo: information shared with model providers"
+        }
+      ]
+    },
+    "zh": {
+      "title": "免注册把订单文字转成 JSON",
+      "summary": "我们在 Duck.ai 中完成了两轮文字任务：先把订单转成结构化数据，再修改数量并保留单价。打开对话和获取两次回答都没有遇到账号要求。",
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T09:36:50.008Z",
+      "input": "Return valid JSON for a notebook order: quantity 3, unit_price_usd 4.50, total_usd.",
+      "steps": [
+        "打开 Duck.ai，在对话框中输入这段样例。本次选中的模型是 GPT-6 Luna；可用模型可能变化。",
+        "提交问题，检查回答是否包含 quantity、unit_price_usd 和 total_usd。",
+        "继续输入：“Change quantity to 4 and recalculate the total. Return valid JSON only.”"
+      ],
+      "result": "第一轮回答的总价为 13.50。第二轮保留了 4.50 的单价，将数量改为 4，总价更新为 18.00。两次回答都使用 JSON 语法，第二次回答也保留了上文的订单信息。",
+      "limitations": "这次只测试了简短的文字与算术任务，不能代表模型的整体准确率。模型仍可能出错。Duck.ai 经由 DuckDuckGo 将对话发送给远程模型服务商，并非离线或本地推理工具。本次尚未验证导出和附件处理。",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/duck-ai.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Duck.ai 在追问后返回数量 4、单价 4.50、总价 18.00 的 JSON。"
+      },
+      "sources": [
+        {
+          "href": "https://duckduckgo.com/duckduckgo-help-pages/what-information-does-duckai-share-with-model-providers",
+          "label": "DuckDuckGo：与模型服务商共享的信息"
+        }
+      ]
+    }
+  }
+}

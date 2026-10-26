@@ -18,70 +18,17 @@ describe('due-diligence resolver', () => {
     assert.deepEqual(resolved, mockEditorial.dueDiligence);
   });
 
-  it('derives grounded evidence for an open-source client-side tool', () => {
-    const tool = {
-      name: 'Excalidraw',
-      repoUrl: 'https://github.com/excalidraw/excalidraw',
-      githubStars: 85000,
-      githubLicense: 'MIT',
-      tags: [
-        { tagKey: 'data', tagValue: 'Client-Side Only' },
-        { tagKey: 'privacy', tagValue: 'No Trackers' },
-      ],
-    };
-    const editorial = {
-      verdictTier: 'editors-choice',
-      productScore: {
-        overall: 96,
-        frictionless: 20,
-        depth: 25,
-        exportFreedom: 19,
-        privacy: 20,
-        polish: 14,
-      },
-    };
-
-    const dd = resolveDueDiligence(tool, editorial);
-
-    assert.equal(dd.community?.status, 'community-acclaimed');
-    assert.ok(dd.community?.sources?.includes('GitHub'));
-    assert.equal(dd.openSource?.isRepoVerified, true);
-    assert.equal(dd.openSource?.license, 'MIT');
-    assert.equal(dd.openSource?.vitality, 'active');
-    assert.equal(dd.privacyAudit?.runtimeClassification, 'Local Only');
-    assert.equal(dd.privacyAudit?.zeroEgressConfirmed, true);
-    assert.equal(dd.visualCraft?.watermarkFree, true);
-    assert.equal(dd.visualCraft?.adPollutionTier, 'zero-ads');
+  it('does not turn high scores, tags or repository metadata into test evidence', () => {
+    const tool = { repoUrl: 'https://github.com/example/project', githubStars: 100000,
+      githubLicense: 'MIT', tags: [{ tagKey: 'data', tagValue: 'Client-Side Only' }] };
+    assert.equal(resolveDueDiligence(tool, { productScore: { overall: 99, privacy: 20, exportFreedom: 20 } }), null);
+    assert.equal(resolveDueDiligence(tool, { dueDiligence: {} }), null);
+    assert.equal(resolveDueDiligence({}, undefined), null);
   });
 
-  it('derives grounded evidence for a proprietary cloud tool', () => {
-    const tool = {
-      name: 'Web Utility',
-      tags: [
-        { tagKey: 'data', tagValue: 'Server / Cloud' },
-        { tagKey: 'pricing', tagValue: 'Free' },
-      ],
-    };
-    const editorial = {
-      verdictTier: 'capable-utility',
-      productScore: {
-        overall: 75,
-        frictionless: 17,
-        depth: 18,
-        exportFreedom: 15,
-        privacy: 14,
-        polish: 11,
-      },
-    };
-
-    const dd = resolveDueDiligence(tool, editorial);
-
-    assert.equal(dd.community?.status, 'verified-authentic');
-    assert.equal(dd.openSource?.isRepoVerified, false);
-    assert.equal(dd.openSource?.license, 'Proprietary');
-    assert.equal(dd.openSource?.vitality, 'closed-source');
-    assert.equal(dd.privacyAudit?.runtimeClassification, 'Cloud Processed');
-    assert.equal(dd.privacyAudit?.zeroEgressConfirmed, false);
-    assert.equal(dd.visualCraft?.watermarkFree, false); // exportScore 15 < 16
+  it('preserves partial observations without inventing untested categories', () => {
+    const evidence = { privacyAudit: { runtimeClassification: 'Payload Egress Observed', zeroEgressConfirmed: false } };
+    assert.deepEqual(resolveDueDiligence({}, { dueDiligence: evidence }), evidence);
+    assert.equal(resolveDueDiligence({}, { dueDiligence: evidence }).visualCraft, undefined);
   });
 });

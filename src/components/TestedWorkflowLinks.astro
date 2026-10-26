@@ -1,0 +1,23 @@
+---
+import { getToolGuide } from '../lib/tool-guides';
+import { getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props { tools: { slug: string; name: string }[]; locale: Locale }
+const { tools, locale } = Astro.props;
+const links = tools.map(tool => ({ ...tool, guide: getToolGuide(tool.slug, locale) })).filter(tool => tool.guide);
+---
+
+{links.length > 0 && (
+  <section class="mb-10 border-t border-neutral-300 pt-6" aria-labelledby="tested-workflows-heading">
+    <h2 id="tested-workflows-heading" class="font-bold text-neutral-900 mb-4">{locale === 'zh' ? '跟着实测步骤试用' : 'Try a tested workflow'}</h2>
+    <ul class="grid gap-x-8 gap-y-3 sm:grid-cols-2 text-sm">
+      {links.map(tool => (
+        <li>
+          <a class="text-neutral-800 underline underline-offset-4 hover:text-neutral-500" href={`${getLocalizedPath(`/tool/${tool.slug}`, locale)}#tested-workflow`}>{tool.guide!.title}</a>
+          <span class="block mt-1 text-xs text-neutral-500">{tool.name}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

@@ -6,6 +6,7 @@ export interface SitemapPage {
   priority: string;
   changefreq: string;
   lastmod?: string;
+  lastmodByLocale?: Partial<Record<Locale, string>>;
   /** Optional locale availability for hreflang expansion */
   availableLocales?: Set<Locale>;
   /** If true, this is a blog post page (locale availability may be limited) */
@@ -87,7 +88,7 @@ export function expandToAllLocales(
           url: getLocalizedPath(page.url, locale),
           priority: page.priority,
           changefreq: page.changefreq,
-          lastmod: page.lastmod,
+          lastmod: page.lastmodByLocale?.[locale] ?? page.lastmod,
           englishPath: page.url,
           availableLocales,
           imageUrl: page.imageUrl,
@@ -102,7 +103,7 @@ export function expandToAllLocales(
           url: getLocalizedPath(page.url, locale),
           priority: page.priority,
           changefreq: page.changefreq,
-          lastmod: page.lastmod,
+          lastmod: page.lastmodByLocale?.[locale] ?? page.lastmod,
           englishPath: page.url,
           availableLocales: pageAvailableLocales,
           imageUrl: page.imageUrl,
