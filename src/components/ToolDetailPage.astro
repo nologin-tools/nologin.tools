@@ -19,6 +19,7 @@ import { findCollectionsForTool } from '../lib/collections';
 import { computePrivacyScorecard } from '../lib/privacy-scorecard.mjs';
 import { renderRadarChartSvg } from '../lib/radar-chart.mjs';
 import { resolveDueDiligence } from '../lib/due-diligence.mjs';
+import { getVibeBadgePrompt } from '../lib/badge';
 
 
 interface Props {
@@ -431,11 +432,101 @@ const orgLd = {
 
     <!-- Status banners -->
     {isPending && (
-      <div class="border-l-4 border-amber-500 pl-4 py-2 bg-amber-50 mb-8">
-        <p class="text-amber-900 font-bold text-sm">{t(locale, 'tool.pendingReview')}</p>
-        <p class="text-xs text-amber-800/70 leading-relaxed">
-          {t(locale, 'tool.pendingDesc')}
-        </p>
+      <div
+        id="tool-pending-console"
+        data-slug={slug}
+        data-locale={locale}
+        data-lane-standard={t(locale, 'queue.currentLaneStandard')}
+        data-lane-priority={t(locale, 'queue.currentLanePriority')}
+        class:list={[
+          'border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-5 sm:p-6 mb-8 space-y-4',
+          tool.badgeDisplayType === 'explicit' ? 'bg-emerald-50' : 'bg-amber-50',
+        ]}
+      >
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b-2 border-neutral-900">
+          <div>
+            <p class="text-neutral-900 font-black font-mono uppercase text-sm sm:text-base">
+              {t(locale, 'tool.pendingReview')}
+            </p>
+            <p class="text-xs text-neutral-700 font-mono mt-0.5 leading-relaxed">
+              {t(locale, 'tool.pendingDesc')}
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <span
+              id="pending-queue-pill"
+              class:list={[
+                'px-2.5 py-1 border-2 border-neutral-900 font-mono text-xs font-black uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]',
+                tool.badgeDisplayType === 'explicit' ? 'bg-emerald-300 text-neutral-900' : 'bg-amber-200 text-amber-950',
+              ]}
+            >
+              {tool.badgeDisplayType === 'explicit'
+                ? t(locale, 'queue.priorityLaneTitle')
+                : t(locale, 'queue.standardLaneTitle')}
+            </span>
+            <span
+              id="pending-queue-eta"
+              class="px-2 py-1 bg-white border border-neutral-900 font-mono text-xs font-bold text-neutral-900"
+            >
+              {tool.badgeDisplayType === 'explicit'
+                ? (locale === 'zh' ? '预计 24–48 小时内' : '~24–48 hours')
+                : (locale === 'zh' ? '查询排队中...' : 'Checking ETA...')}
+            </span>
+          </div>
+        </div>
+
+        <div id="pending-fast-track-panel" class:list={[tool.badgeDisplayType === 'explicit' ? 'hidden' : 'space-y-4']}>
+          <div class="p-4 bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span class="px-2 py-0.5 text-[10px] font-mono font-black uppercase bg-yellow-300 text-neutral-900 border border-neutral-900">
+                  {t(locale, 'vibe.badgeTag')}
+                </span>
+                <h3 class="text-xs sm:text-sm font-bold text-neutral-900 mt-1">
+                  {t(locale, 'vibe.cardTitle')} ({t(locale, 'vibe.cardTools')})
+                </h3>
+              </div>
+              <button
+                type="button"
+                id="btn-copy-pending-vibe"
+                data-copied-text={t(locale, 'vibe.copiedPromptBtn')}
+                class="shrink-0 text-xs font-mono font-bold text-white px-3 py-1.5 bg-neutral-900 border-2 border-neutral-900 hover:bg-neutral-800 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
+              >
+                {t(locale, 'vibe.copyPromptBtn')}
+              </button>
+            </div>
+            <pre id="pending-vibe-prompt" class="bg-neutral-900 text-emerald-300 p-3 rounded-none text-[11px] font-mono overflow-x-auto whitespace-pre-wrap leading-relaxed border border-neutral-900"><code>{getVibeBadgePrompt(slug, 'https://nologin.tools', 'flat')}</code></pre>
+
+            <div class="pt-2 border-t border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <input
+                type="url"
+                id="pending-repo-input"
+                value={tool.repoUrl || ''}
+                placeholder={t(locale, 'queue.repoOptionalPlaceholder')}
+                class="flex-1 px-3 py-1.5 bg-neutral-50 border border-neutral-900 text-xs font-mono text-neutral-900 placeholder:text-neutral-400"
+              />
+              <div class="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  id="btn-pending-verify"
+                  data-slug={slug}
+                  data-default-text={t(locale, 'queue.verifyAndJumpBtn')}
+                  data-loading-text={t(locale, 'queue.verifyingBtn')}
+                  class="btn-primary px-4 py-1.5 text-xs font-mono font-bold uppercase cursor-pointer"
+                >
+                  {t(locale, 'queue.verifyAndJumpBtn')}
+                </button>
+                <a
+                  href={`${getLocalizedPath('/submit/success', locale)}?slug=${encodeURIComponent(slug)}`}
+                  class="text-xs font-mono font-bold text-neutral-800 underline hover:text-neutral-950"
+                >
+                  {t(locale, 'submitSuccess.selectStyle')} &rarr;
+                </a>
+              </div>
+            </div>
+            <div id="pending-verify-feedback" class="hidden p-2.5 border border-neutral-900 text-xs font-mono font-bold"></div>
+          </div>
+        </div>
       </div>
     )}
 
@@ -1656,5 +1747,100 @@ const orgLd = {
         }
       }
     });
+
+    // Pending Queue Console & Fast-Track Verify
+    const pendingConsole = document.getElementById('tool-pending-console');
+    if (pendingConsole) {
+      const slug = pendingConsole.dataset.slug || '';
+      const locale = (pendingConsole.dataset.locale || 'en') as 'en' | 'zh';
+      const laneStandardTpl = pendingConsole.dataset.laneStandard || 'Standard Queue #{pos}';
+      const lanePriorityTpl = pendingConsole.dataset.lanePriority || 'Priority Queue #{pos}';
+      const pillEl = document.getElementById('pending-queue-pill');
+      const etaEl = document.getElementById('pending-queue-eta');
+      const fastTrackPanel = document.getElementById('pending-fast-track-panel');
+      const copyVibeBtn = document.getElementById('btn-copy-pending-vibe');
+      const vibePre = document.getElementById('pending-vibe-prompt');
+      const verifyBtn = document.getElementById('btn-pending-verify') as HTMLButtonElement | null;
+      const repoInput = document.getElementById('pending-repo-input') as HTMLInputElement | null;
+      const feedbackEl = document.getElementById('pending-verify-feedback');
+
+      if (slug) {
+        fetch(`/api/queue?slug=${encodeURIComponent(slug)}&limit=1`)
+          .then((r) => r.json())
+          .then((json) => {
+            const item = json?.data?.lookup;
+            if (!item) return;
+            const eta = item.etaLabel?.[locale] || item.etaLabel?.en || '';
+            if (pillEl) {
+              pillEl.textContent = (item.lane === 'priority' ? lanePriorityTpl : laneStandardTpl).replace('{pos}', String(item.position));
+              pillEl.className = `px-2.5 py-1 border-2 border-neutral-900 font-mono text-xs font-black uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${
+                item.lane === 'priority' ? 'bg-emerald-300 text-neutral-900' : 'bg-amber-200 text-amber-950'
+              }`;
+            }
+            if (etaEl && eta) etaEl.textContent = eta;
+            if (item.lane === 'priority') {
+              pendingConsole.classList.remove('bg-amber-50');
+              pendingConsole.classList.add('bg-emerald-50');
+              fastTrackPanel?.classList.add('hidden');
+            }
+          })
+          .catch(() => {});
+      }
+
+      copyVibeBtn?.addEventListener('click', () => {
+        if (!vibePre) return;
+        navigator.clipboard.writeText(vibePre.textContent || '');
+        const orig = copyVibeBtn.textContent;
+        copyVibeBtn.textContent = copyVibeBtn.dataset.copiedText || 'Copied!';
+        setTimeout(() => {
+          copyVibeBtn.textContent = orig;
+        }, 2000);
+      });
+
+      verifyBtn?.addEventListener('click', async () => {
+        if (!slug) return;
+        const defaultText = verifyBtn.dataset.defaultText || 'Verify Badge';
+        const loadingText = verifyBtn.dataset.loadingText || 'Scanning...';
+        verifyBtn.disabled = true;
+        verifyBtn.textContent = loadingText;
+        feedbackEl?.classList.add('hidden');
+
+        try {
+          const repoUrl = repoInput?.value.trim() || undefined;
+          const res = await fetch('/api/badge-verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug, repoUrl }),
+          });
+          const json = await res.json();
+          if (res.ok && json.ok && json.data?.verified) {
+            const qPos = json.data.queuePosition;
+            const pos = qPos?.position || 1;
+            const eta = qPos?.etaLabel?.[locale] || qPos?.etaLabel?.en || (locale === 'zh' ? '预计 24–48 小时内' : '~24–48 hours');
+            pendingConsole.classList.remove('bg-amber-50');
+            pendingConsole.classList.add('bg-emerald-50');
+            if (pillEl) {
+              pillEl.textContent = lanePriorityTpl.replace('{pos}', String(pos));
+              pillEl.className = 'px-2.5 py-1 border-2 border-neutral-900 font-mono text-xs font-black uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] bg-emerald-300 text-neutral-900';
+            }
+            if (etaEl) etaEl.textContent = eta;
+            fastTrackPanel?.classList.add('hidden');
+          } else if (feedbackEl) {
+            feedbackEl.textContent = json.error || json.data?.message || 'Badge not detected yet.';
+            feedbackEl.className = 'p-2.5 border border-neutral-900 text-xs font-mono font-bold bg-red-100 text-red-900';
+            feedbackEl.classList.remove('hidden');
+          }
+        } catch {
+          if (feedbackEl) {
+            feedbackEl.textContent = 'Network error. Please try again.';
+            feedbackEl.className = 'p-2.5 border border-neutral-900 text-xs font-mono font-bold bg-red-100 text-red-900';
+            feedbackEl.classList.remove('hidden');
+          }
+        } finally {
+          verifyBtn.disabled = false;
+          verifyBtn.textContent = defaultText;
+        }
+      });
+    }
   </script>
 </Layout>

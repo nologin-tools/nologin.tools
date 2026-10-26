@@ -7,6 +7,7 @@ import { getDb } from '../db';
 import { tools } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { parseGitHubRepoUrl } from '../lib/github';
+import { fetchReviewQueueSnapshot, type QueueItem, type ReviewQueueSnapshot } from '../lib/queue';
 
 interface Props {
   locale?: Locale;
@@ -20,24 +21,52 @@ const siteUrl = Astro.locals.runtime?.env?.SITE_URL || 'https://nologin.tools';
 
 let githubInfo: { owner: string; repo: string } | null = null;
 let toolName = slug;
+let repoUrlStr = '';
+let queueItem: QueueItem | null = null;
+let queueSummary: ReviewQueueSnapshot['summary'] | null = null;
 
-if (slug && Astro.locals.runtime?.env?.DB) {
+if ( Astro.locals.runtime?.env?.DB ) {
   try {
-    const db = getDb(Astro.locals.runtime.env.DB);
-    const [tool] = await db
-      .select({ name: tools.name, repoUrl: tools.repoUrl })
-      .from(tools)
-      .where(eq(tools.slug, slug));
-    if (tool) {
-      if (tool.name) toolName = tool.name;
-      if (tool.repoUrl) {
-        githubInfo = parseGitHubRepoUrl(tool.repoUrl);
+    const d1 = Astro.locals.runtime.env.DB;
+    const db = getDb(d1);
+    if (slug) {
+      const [tool] = await db
+        .select({ name: tools.name, repoUrl: tools.repoUrl })
+        .from(tools)
+        .where(eq(tools.slug, slug));
+      if (tool) {
+        if (tool.name) toolName = tool.name;
+        if (tool.repoUrl) {
+          repoUrlStr = tool.repoUrl;
+          githubInfo = parseGitHubRepoUrl(tool.repoUrl);
+        }
       }
     }
+    const snapshot = await fetchReviewQueueSnapshot(d1, {
+      limit: 5,
+      lookupQuery: slug || null,
+    });
+    queueItem = snapshot.lookup;
+    queueSummary = snapshot.summary;
   } catch {
     // Graceful fallback if DB fails
   }
 }
+
+const isPriorityActive = queueItem?.lane === 'priority';
+const currentPos = queueItem?.position ?? (queueSummary ? Math.max(1, queueSummary.standardCount) : 12);
+const currentEta =
+  queueItem?.etaLabel?.[locale] ||
+  queueItem?.etaLabel?.en ||
+  (locale === 'zh' ? '预计 1–2 周' : '~1–2 weeks');
+const targetPriorityPos =
+  queueItem?.fastTrackJump?.targetPosition ??
+  (queueSummary ? queueSummary.nextPriorityPosition : 1);
+const targetPriorityEta =
+  queueItem?.fastTrackJump?.targetEtaLabel?.[locale] ||
+  queueItem?.fastTrackJump?.targetEtaLabel?.en ||
+  (locale === 'zh' ? '预计 24–48 小时内' : '~24–48 hours');
+const daysSaved = queueItem?.fastTrackJump?.daysSaved ?? 7;
 
 const embedCode = getBadgeEmbedCode(slug, siteUrl, 'flat');
 const allEmbedCodes = Object.fromEntries(
@@ -65,20 +94,130 @@ const allEmbedCodes = Object.fromEntries(
     </div>
 
     <div class="space-y-12">
-      <!-- Tool page preview link -->
+      <!-- Live Queue Position & 1-Click Fast-Track Upgrade Console -->
       {slug && (
-        <section class="border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rounded-none p-5 sm:p-6">
-          <h2 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2">{t(locale, 'submitSuccess.pendingTitle')}</h2>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <section
+          id="live-queue-console"
+          data-slug={slug}
+          data-locale={locale}
+          data-lane-priority-tpl={t(locale, 'queue.currentLanePriority')}
+          data-priority-title={t(locale, 'queue.priorityUnlockedTitle')}
+          data-priority-desc-tpl={t(locale, 'queue.priorityUnlockedDesc')}
+          class:list={[
+            'border-2 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none p-6 sm:p-8 transition-colors',
+            isPriorityActive ? 'bg-emerald-50' : 'bg-amber-50/90',
+          ]}
+        >
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b-2 border-neutral-900">
             <div>
-              <p class="text-neutral-900 font-bold mb-1">{t(locale, 'submitSuccess.previewListing')}</p>
-              <a href={getLocalizedPath(`/tool/${slug}`, locale)} class="text-sm text-neutral-900 hover:underline break-all font-mono font-bold">{siteUrl}{getLocalizedPath(`/tool/${slug}`, locale)}</a>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 block mb-1">
+                {t(locale, 'queue.yourPosition')}
+              </span>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span
+                  id="queue-lane-pill"
+                  class:list={[
+                    'px-3 py-1 border-2 border-neutral-900 font-mono text-sm font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
+                    isPriorityActive ? 'bg-emerald-300 text-neutral-900' : 'bg-amber-200 text-amber-950',
+                  ]}
+                >
+                  {isPriorityActive
+                    ? t(locale, 'queue.currentLanePriority', { pos: currentPos })
+                    : t(locale, 'queue.currentLaneStandard', { pos: currentPos })}
+                </span>
+                <span
+                  id="queue-eta-badge"
+                  class="px-2.5 py-1 bg-white border border-neutral-900 font-mono text-xs font-bold text-neutral-900"
+                >
+                  {t(locale, 'queue.estWait')}: {currentEta}
+                </span>
+              </div>
             </div>
-            <a href={getLocalizedPath(`/tool/${slug}`, locale)} class="btn-retro text-xs font-mono font-bold whitespace-nowrap">
+
+            <a
+              href={getLocalizedPath(`/tool/${slug}`, locale)}
+              class="btn-retro text-xs font-mono font-bold whitespace-nowrap self-start sm:self-center"
+            >
               {t(locale, 'submitSuccess.viewPage')} &rarr;
             </a>
           </div>
-          <p class="text-xs font-mono text-neutral-500 mt-3 pt-3 border-t border-neutral-200">
+
+          <!-- Upgrade Callout & Self-Service Verify Trigger -->
+          <div id="queue-upgrade-box" class="pt-5">
+            {isPriorityActive ? (
+              <div class="space-y-1">
+                <h2 class="text-base sm:text-lg font-black text-emerald-950 font-mono">
+                  {t(locale, 'queue.priorityUnlockedTitle')}
+                </h2>
+                <p class="text-xs sm:text-sm font-mono text-emerald-900 leading-relaxed">
+                  {t(locale, 'queue.priorityUnlockedDesc', { pos: currentPos, eta: currentEta })}
+                </p>
+              </div>
+            ) : (
+              <div class="space-y-4">
+                <div>
+                  <h2 id="queue-callout-title" class="text-base sm:text-lg font-black text-neutral-900 font-mono">
+                    {t(locale, 'queue.upgradeCalloutTitle', { days: daysSaved })}
+                  </h2>
+                  <p id="queue-callout-desc" class="text-xs sm:text-sm font-mono text-neutral-700 mt-1 leading-relaxed">
+                    {t(locale, 'queue.upgradeCalloutDesc', {
+                      currentPos,
+                      currentEta,
+                      targetPos: targetPriorityPos,
+                      targetEta: targetPriorityEta,
+                    })}
+                  </p>
+                </div>
+
+                <!-- Optional GitHub Repo URL input + Verify Button -->
+                <div class="p-4 bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] space-y-3">
+                  <div>
+                    <label for="fast-track-repo-url" class="block text-xs font-mono font-bold text-neutral-700 mb-1.5">
+                      {t(locale, 'queue.repoOptionalLabel')}
+                    </label>
+                    <input
+                      type="url"
+                      id="fast-track-repo-url"
+                      value={repoUrlStr}
+                      placeholder={t(locale, 'queue.repoOptionalPlaceholder')}
+                      class="w-full px-3 py-2 bg-neutral-50 border border-neutral-900 rounded-none text-xs font-mono text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-yellow-50"
+                    />
+                  </div>
+
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      id="btn-verify-fast-track"
+                      data-slug={slug}
+                      data-default-text={t(locale, 'queue.verifyAndJumpBtn')}
+                      data-loading-text={t(locale, 'queue.verifyingBtn')}
+                      class="btn-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
+                    >
+                      <svg id="fast-track-spinner" class="w-4 h-4 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span id="fast-track-btn-text">{t(locale, 'queue.verifyAndJumpBtn')}</span>
+                    </button>
+
+                    <a
+                      href="#vibe-coding-card"
+                      class="text-xs font-mono font-bold text-neutral-800 hover:text-neutral-950 underline"
+                    >
+                      {t(locale, 'vibe.copyPromptBtn')} &darr;
+                    </a>
+                  </div>
+
+                  <div
+                    id="fast-track-feedback"
+                    class="hidden p-3 border border-neutral-900 text-xs font-mono font-bold"
+                  ></div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <p class="text-xs font-mono text-neutral-500 mt-4 pt-3 border-t border-neutral-900/15">
             {t(locale, 'submitSuccess.pendingNote')}
           </p>
         </section>
@@ -205,6 +344,37 @@ const allEmbedCodes = Object.fromEntries(
         </div>
 
         <div class="grid grid-cols-1 gap-6 text-left max-w-2xl mx-auto">
+          <!-- ✨ Vibe Coding Prompt (Featured #1) -->
+          <div id="vibe-coding-card" class="p-5 bg-emerald-50 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="px-2 py-0.5 text-[10px] font-mono font-black uppercase bg-yellow-300 text-neutral-900 border border-neutral-900">
+                    {t(locale, 'vibe.badgeTag')}
+                  </span>
+                  <span class="text-[11px] font-mono font-bold text-emerald-900">
+                    {t(locale, 'vibe.cardTools')}
+                  </span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-neutral-900">
+                  {t(locale, 'vibe.cardTitle')}
+                </h3>
+              </div>
+              <button
+                type="button"
+                class="copy-btn shrink-0 text-xs font-mono font-bold text-white px-3.5 py-2 bg-neutral-900 border-2 border-neutral-900 hover:bg-neutral-800 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer rounded-none"
+                data-code="vibe"
+                data-copied-text={t(locale, 'vibe.copiedPromptBtn')}
+              >
+                {t(locale, 'vibe.copyPromptBtn')}
+              </button>
+            </div>
+            <p class="text-xs font-mono text-neutral-700 leading-relaxed">
+              {t(locale, 'vibe.cardDesc')}
+            </p>
+            <pre id="code-vibe" class="bg-neutral-900 text-emerald-300 p-4 rounded-none text-[11px] font-mono overflow-x-auto whitespace-pre-wrap leading-relaxed border-2 border-neutral-900"><code>{embedCode.vibePrompt}</code></pre>
+          </div>
+
           <!-- Markdown (GitHub README) -->
           <div class="space-y-2">
             <div class="flex items-center justify-between">
@@ -267,13 +437,21 @@ const allEmbedCodes = Object.fromEntries(
 
   <script>
     // Badge style switching
-    const embedCodes: Record<string, { svg: string; markdown: string; meta: string }> = JSON.parse(
+    const embedCodes: Record<string, { svg: string; markdown: string; meta: string; vibePrompt: string }> = JSON.parse(
       document.getElementById('embed-codes-data')!.textContent!
     );
     const styleBtns = document.querySelectorAll('.badge-style-btn');
     const badgePreview = document.getElementById('badge-preview') as HTMLImageElement;
     const codeMarkdown = document.getElementById('code-markdown');
     const codeSvg = document.getElementById('code-svg');
+    const codeVibe = document.getElementById('code-vibe');
+
+    function escapeHtml(str: string): string {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
 
     styleBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -283,10 +461,13 @@ const allEmbedCodes = Object.fromEntries(
         badgePreview.src = badgePath;
 
         if (codeMarkdown && embedCodes[style]) {
-          codeMarkdown.innerHTML = `<code>${embedCodes[style].markdown.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
+          codeMarkdown.innerHTML = `<code>${escapeHtml(embedCodes[style].markdown)}</code>`;
         }
         if (codeSvg && embedCodes[style]) {
-          codeSvg.innerHTML = `<code>${embedCodes[style].svg.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
+          codeSvg.innerHTML = `<code>${escapeHtml(embedCodes[style].svg)}</code>`;
+        }
+        if (codeVibe && embedCodes[style]?.vibePrompt) {
+          codeVibe.innerHTML = `<code>${escapeHtml(embedCodes[style].vibePrompt)}</code>`;
         }
 
         styleBtns.forEach((b) => {
@@ -323,5 +504,90 @@ const allEmbedCodes = Object.fromEntries(
         }
       });
     });
+
+    // 1-Click Fast-Track Verification & Queue Jump
+    const btnVerifyFastTrack = document.getElementById('btn-verify-fast-track') as HTMLButtonElement | null;
+    if (btnVerifyFastTrack) {
+      btnVerifyFastTrack.addEventListener('click', async () => {
+        const slug = btnVerifyFastTrack.dataset.slug;
+        if (!slug) return;
+
+        const consoleEl = document.getElementById('live-queue-console');
+        const locale = (consoleEl?.dataset.locale || 'en') as 'en' | 'zh';
+        const repoInput = document.getElementById('fast-track-repo-url') as HTMLInputElement | null;
+        const spinner = document.getElementById('fast-track-spinner');
+        const btnText = document.getElementById('fast-track-btn-text');
+        const feedback = document.getElementById('fast-track-feedback');
+        const lanePill = document.getElementById('queue-lane-pill');
+        const etaBadge = document.getElementById('queue-eta-badge');
+        const upgradeBox = document.getElementById('queue-upgrade-box');
+
+        const defaultText = btnVerifyFastTrack.dataset.defaultText || 'Verify Badge & Jump Queue Now';
+        const loadingText = btnVerifyFastTrack.dataset.loadingText || 'Scanning...';
+
+        btnVerifyFastTrack.disabled = true;
+        if (spinner) spinner.classList.remove('hidden');
+        if (btnText) btnText.textContent = loadingText;
+        if (feedback) feedback.classList.add('hidden');
+
+        try {
+          const repoUrl = repoInput?.value.trim() || undefined;
+          const res = await fetch('/api/badge-verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug, repoUrl }),
+          });
+          const json = await res.json();
+
+          if (res.ok && json.ok && json.data?.verified) {
+            const qPos = json.data.queuePosition;
+            const pos = qPos?.position || 1;
+            const eta = qPos?.etaLabel?.[locale] || qPos?.etaLabel?.en || (locale === 'zh' ? '预计 24–48 小时内' : '~24–48 hours');
+            const lanePriorityTpl = consoleEl?.dataset.lanePriorityTpl || '⚡ Priority Fast-Track #{pos}';
+            const priorityTitle = consoleEl?.dataset.priorityTitle || '⚡ Priority Fast-Track Active!';
+            const priorityDescTpl = consoleEl?.dataset.priorityDescTpl || 'Your tool is queued at Priority #{pos} ({eta}).';
+
+            if (consoleEl) {
+              consoleEl.classList.remove('bg-amber-50/90');
+              consoleEl.classList.add('bg-emerald-50');
+            }
+            if (lanePill) {
+              lanePill.className = 'px-3 py-1 border-2 border-neutral-900 font-mono text-sm font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-emerald-300 text-neutral-900';
+              lanePill.textContent = lanePriorityTpl.replace('{pos}', String(pos));
+            }
+            if (etaBadge) {
+              etaBadge.textContent = eta;
+            }
+            if (upgradeBox) {
+              upgradeBox.innerHTML = `
+                <div class="space-y-1">
+                  <h2 class="text-base sm:text-lg font-black text-emerald-950 font-mono">${escapeHtml(priorityTitle)}</h2>
+                  <p class="text-xs sm:text-sm font-mono text-emerald-900 leading-relaxed">
+                    ${escapeHtml(priorityDescTpl.replace('{pos}', String(pos)).replace('{eta}', eta))}
+                  </p>
+                </div>
+              `;
+            }
+          } else {
+            const msg = json.error || json.data?.message || 'Badge not detected yet.';
+            if (feedback) {
+              feedback.textContent = msg;
+              feedback.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold bg-red-100 text-red-900';
+              feedback.classList.remove('hidden');
+            }
+          }
+        } catch {
+          if (feedback) {
+            feedback.textContent = 'Network error while verifying badge. Please try again.';
+            feedback.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold bg-red-100 text-red-900';
+            feedback.classList.remove('hidden');
+          }
+        } finally {
+          btnVerifyFastTrack.disabled = false;
+          if (spinner) spinner.classList.add('hidden');
+          if (btnText) btnText.textContent = defaultText;
+        }
+      });
+    }
   </script>
 </Layout>

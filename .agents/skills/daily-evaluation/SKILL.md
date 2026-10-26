@@ -49,11 +49,11 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
      `resolve <slug> --outcome cleared --note "<what you verified>"` (this also records `lastDeepEvalAt`, so the tool moves to the back of the rotation).
    - Score or tier changed noticeably → sync the new evaluation; do not leave stale editorial in place.
 
-3. **Pending queue**
+3. **Pending queue (Priority Badge Fast-Track first, then Tier A → Tier B)**
    ```bash
    node scripts/lab/evaluation-queue.mjs next --limit 10
    ```
-   For each item, in order:
+   Items with a verified visible SVG badge (`hasExplicitBadge: true`) automatically sort to the front of `evaluation-queue.mjs` so Fast-Track submissions are evaluated first. For each item, in order:
    - `dogfood-session start` → give a real input → run the core task → `export` when the tool has export → view every screenshot. A login/credit/paywall verdict requires hitting the gate (run the task, try the download), not reading "sign in to download" on the page.
    - Decide:
      - **approve**: `verify <slug> --decision approve` → eval JSON → `finish --eval ... --sync` (the depth gate runs here too) → translations → `admin-api.mjs approve-evaluated` → `evaluation-queue.mjs done <id> --outcome approved --note "score N, tier"`

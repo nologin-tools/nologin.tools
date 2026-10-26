@@ -48,7 +48,10 @@ export function saveQueue(queue, path = QUEUE_PATH) {
 
 /** @param {any} a @param {any} b */
 export function compareItems(a, b) {
+  const badgeA = a.hasExplicitBadge || a.badgeDisplayType === 'explicit' ? 0 : 1;
+  const badgeB = b.hasExplicitBadge || b.badgeDisplayType === 'explicit' ? 0 : 1;
   return (
+    badgeA - badgeB ||
     (TIER_RANK[/** @type {'A'|'B'} */ (a.tier)] ?? 9) - (TIER_RANK[/** @type {'A'|'B'} */ (b.tier)] ?? 9) ||
     String(a.submittedAt || '').localeCompare(String(b.submittedAt || '')) ||
     a.id - b.id
@@ -58,7 +61,7 @@ export function compareItems(a, b) {
 /**
  * Merge triage results (tier A/B only) and drop items that are no longer pending.
  * @param {{ items: any[] }} queue
- * @param {{ id: number, slug: string, url: string, tier: string, signals: any[], submittedAt: string }[]} triaged
+ * @param {{ id: number, slug: string, url: string, tier: string, hasExplicitBadge?: boolean, badgeDisplayType?: string | null, signals: any[], submittedAt: string }[]} triaged
  * @param {Set<number>} stillPendingIds
  */
 export function mergeTriage(queue, triaged, stillPendingIds) {
@@ -70,11 +73,18 @@ export function mergeTriage(queue, triaged, stillPendingIds) {
       continue;
     }
     const prev = byId.get(t.id);
+    const hasExplicitBadge = Boolean(
+      t.hasExplicitBadge ||
+      t.badgeDisplayType === 'explicit' ||
+      prev?.hasExplicitBadge ||
+      prev?.badgeDisplayType === 'explicit'
+    );
     byId.set(t.id, {
       id: t.id,
       slug: t.slug,
       url: t.url,
       tier: t.tier,
+      hasExplicitBadge,
       signals: t.signals.map((s) => s.code),
       submittedAt: t.submittedAt,
       addedAt: prev?.addedAt || now,

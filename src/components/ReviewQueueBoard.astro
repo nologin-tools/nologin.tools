@@ -1,0 +1,345 @@
+---
+import { t, getLocalizedPath } from '../i18n/utils';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const toolBaseUrl = getLocalizedPath('/tool', locale);
+const fastTrackBaseUrl = getLocalizedPath('/submit/success', locale);
+---
+
+<section
+  id="review-queue-board"
+  data-locale={locale}
+  data-tool-base={toolBaseUrl}
+  data-fast-track-base={fastTrackBaseUrl}
+  data-empty-priority={t(locale, 'queue.emptyPriority')}
+  data-empty-standard={t(locale, 'queue.emptyStandard')}
+  data-showing-top={t(locale, 'queue.showingTop')}
+  data-jump-cta={t(locale, 'queue.jumpCta')}
+  data-lane-standard={t(locale, 'queue.currentLaneStandard')}
+  data-lane-priority={t(locale, 'queue.currentLanePriority')}
+  data-status-approved={t(locale, 'queue.statusApproved')}
+  data-status-rejected={t(locale, 'queue.statusRejected')}
+  data-status-not-found={t(locale, 'queue.statusNotFound')}
+  class="mt-14 pt-10 border-t-2 border-neutral-900"
+>
+  <div class="mb-6">
+    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-yellow-200 border border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] text-xs font-mono font-bold uppercase text-neutral-900 mb-2">
+      <span>⚡</span>
+      <span>NoLogin Lab · 10 Deep Audits / Day</span>
+    </div>
+    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900">
+      {t(locale, 'queue.boardTitle')}
+    </h2>
+    <p class="text-xs sm:text-sm text-neutral-600 font-mono mt-1.5 leading-relaxed">
+      {t(locale, 'queue.boardSubtitle')}
+    </p>
+  </div>
+
+  <!-- 2-Lane Summary Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+    <!-- Priority Lane Card -->
+    <div class="p-4 sm:p-5 bg-emerald-50 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <h3 class="text-xs sm:text-sm font-mono font-bold uppercase text-neutral-900">
+            {t(locale, 'queue.priorityLaneTitle')}
+          </h3>
+          <span class="px-2 py-0.5 text-[10px] font-mono font-bold uppercase bg-emerald-300 text-neutral-900 border border-neutral-900">
+            {t(locale, 'queue.priorityLaneBadge')}
+          </span>
+        </div>
+        <p class="text-xs text-neutral-700 font-mono leading-relaxed mb-4">
+          {t(locale, 'queue.priorityLaneDesc')}
+        </p>
+      </div>
+      <div class="pt-3 border-t border-emerald-900/20 flex items-center justify-between font-mono">
+        <div>
+          <span class="block text-[10px] uppercase text-neutral-500 font-bold">{t(locale, 'queue.inQueue')}</span>
+          <span id="queue-priority-count" class="text-lg font-black text-neutral-900">—</span>
+        </div>
+        <div class="text-right">
+          <span class="block text-[10px] uppercase text-neutral-500 font-bold">{t(locale, 'queue.estWait')}</span>
+          <span id="queue-priority-eta" class="text-sm font-black text-emerald-800 bg-emerald-200 px-2 py-0.5 border border-neutral-900">
+            {locale === 'zh' ? '预计 24–48 小时内' : '~24–48 hours'}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard Lane Card -->
+    <div class="p-4 sm:p-5 bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <h3 class="text-xs sm:text-sm font-mono font-bold uppercase text-neutral-900">
+            {t(locale, 'queue.standardLaneTitle')}
+          </h3>
+          <span class="px-2 py-0.5 text-[10px] font-mono font-bold uppercase bg-neutral-100 text-neutral-700 border border-neutral-900">
+            {t(locale, 'queue.standardLaneBadge')}
+          </span>
+        </div>
+        <p class="text-xs text-neutral-600 font-mono leading-relaxed mb-4">
+          {t(locale, 'queue.standardLaneDesc')}
+        </p>
+      </div>
+      <div class="pt-3 border-t border-neutral-200 flex items-center justify-between font-mono">
+        <div>
+          <span class="block text-[10px] uppercase text-neutral-500 font-bold">{t(locale, 'queue.inQueue')}</span>
+          <span id="queue-standard-count" class="text-lg font-black text-neutral-900">—</span>
+        </div>
+        <div class="text-right">
+          <span class="block text-[10px] uppercase text-neutral-500 font-bold">{t(locale, 'queue.estWait')}</span>
+          <span id="queue-standard-eta" class="text-sm font-bold text-amber-900 bg-amber-100 px-2 py-0.5 border border-neutral-900">
+            —
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self-Lookup Search Bar -->
+  <div class="mb-6">
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input
+        type="text"
+        id="queue-lookup-input"
+        placeholder={t(locale, 'queue.searchPlaceholder')}
+        class="flex-1 px-3.5 py-2.5 bg-white border-2 border-neutral-900 rounded-none text-xs sm:text-sm font-mono text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+      />
+      <button
+        type="button"
+        id="queue-lookup-btn"
+        class="px-5 py-2.5 bg-neutral-900 text-white border-2 border-neutral-900 rounded-none text-xs font-mono font-bold uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-neutral-800 cursor-pointer whitespace-nowrap"
+      >
+        {t(locale, 'queue.searchBtn')}
+      </button>
+    </div>
+    <div id="queue-lookup-result" class="hidden mt-3 p-4 border-2 border-neutral-900 bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-xs font-mono"></div>
+  </div>
+
+  <!-- Dual Queue Lists -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Priority Queue Column -->
+    <div class="border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+      <div class="px-4 py-2.5 bg-emerald-200 border-b-2 border-neutral-900 flex items-center justify-between">
+        <span class="text-xs font-mono font-bold uppercase text-neutral-900">
+          {t(locale, 'queue.priorityLaneTitle')}
+        </span>
+        <span id="queue-priority-pill" class="text-[11px] font-mono font-bold text-emerald-950"></span>
+      </div>
+      <div id="queue-priority-list" class="divide-y divide-neutral-200 text-xs font-mono">
+        <div class="p-4 text-neutral-400 text-center">Loading queue...</div>
+      </div>
+    </div>
+
+    <!-- Standard Queue Column -->
+    <div class="border-2 border-neutral-900 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+      <div class="px-4 py-2.5 bg-neutral-100 border-b-2 border-neutral-900 flex items-center justify-between">
+        <span class="text-xs font-mono font-bold uppercase text-neutral-900">
+          {t(locale, 'queue.standardLaneTitle')}
+        </span>
+        <span id="queue-standard-pill" class="text-[11px] font-mono font-bold text-neutral-600"></span>
+      </div>
+      <div id="queue-standard-list" class="divide-y divide-neutral-200 text-xs font-mono">
+        <div class="p-4 text-neutral-400 text-center">Loading queue...</div>
+      </div>
+      <div id="queue-standard-footer" class="hidden px-4 py-2 bg-neutral-50 border-t border-neutral-200 text-[11px] font-mono text-neutral-500 text-center"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const board = document.getElementById('review-queue-board');
+  if (board) {
+    const locale = (board.dataset.locale || 'en') as 'en' | 'zh';
+    const toolBase = board.dataset.toolBase || '/tool';
+    const fastTrackBase = board.dataset.fastTrackBase || '/submit/success';
+    const emptyPriorityText = board.dataset.emptyPriority || 'No tools in priority queue.';
+    const emptyStandardText = board.dataset.emptyStandard || 'No tools in standard queue.';
+    const showingTopTpl = board.dataset.showingTop || 'Showing top {shown} of {total}';
+    const jumpCtaTpl = board.dataset.jumpCta || 'Jump to Priority #{pos} ({eta}) →';
+    const laneStandardTpl = board.dataset.laneStandard || 'Standard Queue #{pos}';
+    const lanePriorityTpl = board.dataset.lanePriority || 'Priority Queue #{pos}';
+    const statusApprovedText = board.dataset.statusApproved || 'Approved & Live!';
+    const statusRejectedText = board.dataset.statusRejected || 'Not approved.';
+    const statusNotFoundText = board.dataset.statusNotFound || 'Not found.';
+
+    const priorityCountEl = document.getElementById('queue-priority-count');
+    const priorityEtaEl = document.getElementById('queue-priority-eta');
+    const standardCountEl = document.getElementById('queue-standard-count');
+    const standardEtaEl = document.getElementById('queue-standard-eta');
+    const priorityListEl = document.getElementById('queue-priority-list');
+    const standardListEl = document.getElementById('queue-standard-list');
+    const standardFooterEl = document.getElementById('queue-standard-footer');
+    const lookupInput = document.getElementById('queue-lookup-input') as HTMLInputElement | null;
+    const lookupBtn = document.getElementById('queue-lookup-btn');
+    const lookupResultEl = document.getElementById('queue-lookup-result');
+
+    function escapeHtml(str: string): string {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderQueueItem(item: any, isPriority: boolean): string {
+      const eta = item.etaLabel?.[locale] || item.etaLabel?.en || '';
+      const host = escapeHtml(item.hostname || '');
+      const name = escapeHtml(item.name || item.slug);
+      const slug = encodeURIComponent(item.slug);
+      const posBadgeClass = isPriority
+        ? 'bg-emerald-200 text-emerald-950 border-neutral-900'
+        : 'bg-neutral-100 text-neutral-700 border-neutral-400';
+
+      return `
+        <div class="px-3.5 py-2.5 flex items-center justify-between gap-2 hover:bg-neutral-50 transition-colors">
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-bold border ${posBadgeClass} shrink-0">
+              #${item.position}
+            </span>
+            ${host ? `<img src="https://www.google.com/s2/favicons?domain=${host}&sz=32" alt="" width="14" height="14" class="w-3.5 h-3.5 shrink-0" loading="lazy" onerror="this.style.display='none'" />` : ''}
+            <a href="${toolBase}/${slug}" class="font-bold text-neutral-900 hover:underline truncate">${name}</a>
+            ${host ? `<span class="text-neutral-400 truncate hidden sm:inline">(${host})</span>` : ''}
+          </div>
+          <span class="text-[11px] font-bold ${isPriority ? 'text-emerald-800' : 'text-neutral-500'} shrink-0">
+            ${escapeHtml(eta)}
+          </span>
+        </div>
+      `;
+    }
+
+    function renderSnapshot(data: any) {
+      if (!data?.summary) return;
+      const s = data.summary;
+      if (priorityCountEl) priorityCountEl.textContent = String(s.priorityCount ?? 0);
+      if (priorityEtaEl && s.nextPriorityEtaLabel) {
+        priorityEtaEl.textContent = s.nextPriorityEtaLabel[locale] || s.nextPriorityEtaLabel.en;
+      }
+      if (standardCountEl) standardCountEl.textContent = String(s.standardCount ?? 0);
+      if (standardEtaEl && s.standardTailEtaLabel) {
+        standardEtaEl.textContent = s.standardTailEtaLabel[locale] || s.standardTailEtaLabel.en;
+      }
+
+      if (priorityListEl) {
+        const items = data.priorityQueue || [];
+        if (items.length === 0) {
+          priorityListEl.innerHTML = `<div class="p-5 text-emerald-900 bg-emerald-50/50 text-center leading-relaxed font-bold">${escapeHtml(emptyPriorityText)}</div>`;
+        } else {
+          priorityListEl.innerHTML = items.map((item: any) => renderQueueItem(item, true)).join('');
+        }
+      }
+
+      if (standardListEl) {
+        const items = data.standardQueue || [];
+        if (items.length === 0) {
+          standardListEl.innerHTML = `<div class="p-5 text-neutral-400 text-center">${escapeHtml(emptyStandardText)}</div>`;
+          if (standardFooterEl) standardFooterEl.classList.add('hidden');
+        } else {
+          standardListEl.innerHTML = items.map((item: any) => renderQueueItem(item, false)).join('');
+          if (standardFooterEl && s.standardCount > items.length) {
+            standardFooterEl.textContent = showingTopTpl
+              .replace('{shown}', String(items.length))
+              .replace('{total}', String(s.standardCount));
+            standardFooterEl.classList.remove('hidden');
+          } else if (standardFooterEl) {
+            standardFooterEl.classList.add('hidden');
+          }
+        }
+      }
+    }
+
+    async function loadQueue(query?: string) {
+      try {
+        const url = query
+          ? `/api/queue?limit=10&q=${encodeURIComponent(query)}`
+          : `/api/queue?limit=10`;
+        const res = await fetch(url);
+        const json = await res.json();
+        if (!json.ok || !json.data) return;
+
+        if (!query) {
+          renderSnapshot(json.data);
+        } else if (lookupResultEl) {
+          const item = json.data.lookup;
+          const resolved = json.data.resolvedTool;
+          lookupResultEl.classList.remove('hidden');
+
+          if (item) {
+            const eta = item.etaLabel?.[locale] || item.etaLabel?.en || '';
+            const laneTitle = (item.lane === 'priority' ? lanePriorityTpl : laneStandardTpl).replace('{pos}', String(item.position));
+            const jump = item.fastTrackJump;
+            const jumpEta = jump?.targetEtaLabel?.[locale] || jump?.targetEtaLabel?.en || '';
+            const jumpText = jump
+              ? jumpCtaTpl.replace('{pos}', String(jump.targetPosition)).replace('{eta}', jumpEta)
+              : '';
+
+            lookupResultEl.innerHTML = `
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div class="font-bold text-neutral-900 text-sm">
+                    ${escapeHtml(item.name)} <span class="text-neutral-500">(${escapeHtml(item.hostname)})</span>
+                  </div>
+                  <div class="mt-1 flex flex-wrap items-center gap-2">
+                    <span class="px-2 py-0.5 border border-neutral-900 font-bold ${item.lane === 'priority' ? 'bg-emerald-200 text-emerald-950' : 'bg-amber-200 text-amber-950'}">
+                      ${escapeHtml(laneTitle)}
+                    </span>
+                    <span class="text-neutral-700 font-bold">${escapeHtml(eta)}</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                  ${
+                    item.lane === 'standard' && jump
+                      ? `<a href="${fastTrackBase}?slug=${encodeURIComponent(item.slug)}" class="px-3 py-1.5 bg-emerald-300 hover:bg-emerald-400 text-neutral-900 border-2 border-neutral-900 font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          ⚡ ${escapeHtml(jumpText)}
+                        </a>`
+                      : `<a href="${toolBase}/${encodeURIComponent(item.slug)}" class="px-3 py-1.5 bg-white hover:bg-neutral-100 text-neutral-900 border-2 border-neutral-900 font-bold">
+                          View Listing →
+                        </a>`
+                  }
+                </div>
+              </div>
+            `;
+          } else if (resolved) {
+            if (resolved.status === 'approved') {
+              lookupResultEl.innerHTML = `
+                <div class="flex items-center justify-between gap-3">
+                  <div>
+                    <span class="font-bold text-emerald-800">✓ ${escapeHtml(resolved.name)}: ${escapeHtml(statusApprovedText)}</span>
+                  </div>
+                  <a href="${toolBase}/${encodeURIComponent(resolved.slug)}" class="underline font-bold text-neutral-900">View Listing →</a>
+                </div>
+              `;
+            } else {
+              lookupResultEl.innerHTML = `<div class="text-amber-900 font-bold">${escapeHtml(resolved.name)}: ${escapeHtml(statusRejectedText)}</div>`;
+            }
+          } else {
+            lookupResultEl.innerHTML = `<div class="text-neutral-600 font-bold">${escapeHtml(statusNotFoundText)}</div>`;
+          }
+        }
+      } catch {
+        // Ignore network errors silently on initial load
+      }
+    }
+
+    loadQueue();
+
+    if (lookupBtn && lookupInput) {
+      const triggerSearch = () => {
+        const q = lookupInput.value.trim();
+        if (q) loadQueue(q);
+      };
+      lookupBtn.addEventListener('click', triggerSearch);
+      lookupInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          triggerSearch();
+        }
+      });
+    }
+  }
+</script>

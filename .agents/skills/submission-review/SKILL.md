@@ -47,7 +47,7 @@ Triage is an ordering tool, not a verdict (calibration: static HTML cannot see p
   ```
 
   A Tier C item you could not confirm stays pending and is re-triaged with `--ids`.
-- **Tier A/B**: never rejected or approved from triage alone. They go to the evaluation queue.
+- **Tier A/B**: never rejected or approved from triage alone. They go to the evaluation queue (`reports/evaluation-queue.json`), where submissions with a verified visible SVG badge (`hasExplicitBadge: true` / `badgeDisplayType === 'explicit'`) are automatically prioritized ahead of standard Tier A/B items.
 
 ## 3. Deep evaluation (daily quota)
 

@@ -219,51 +219,49 @@ const allEmbedCodes = Object.fromEntries(
               </dd>
             </div>
           )}
-          {!isPending && (
-            <div class="space-y-1 md:col-span-2 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" id="badge-exhibition-container">
-              <div>
-                <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.badgeExhibition')}</dt>
-                <dd class="flex items-center gap-2 mt-1">
-                  <span
-                    id="badge-status-pill"
-                    class:list={[
-                      'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]',
-                      isBadgeActive ? 'bg-green-200 text-green-950' : 'bg-amber-200 text-amber-950'
-                    ]}
-                  >
-                    <span id="badge-status-dot" class:list={['w-2 h-2 rounded-none border border-neutral-900', isBadgeActive ? 'bg-green-600' : 'bg-amber-500']}></span>
-                    <span id="badge-status-text">{isBadgeActive ? t(locale, 'badgeDetail.badgeActive') : t(locale, 'badgeDetail.badgePending')}</span>
-                  </span>
-                  <span id="badge-status-desc" class:list={['text-xs text-neutral-400 font-medium hidden sm:inline', isBadgeActive ? '' : 'hidden']}>
-                    {t(locale, 'badgeDetail.badgeActiveDesc')}
-                  </span>
-                </dd>
-              </div>
-
-              {!isBadgeActive && (
-                <div class="shrink-0" id="verify-action-wrapper">
-                  <button
-                    type="button"
-                    id="btn-verify-badge"
-                    data-slug={slug}
-                    data-original-text={t(locale, 'badgeDetail.verifyNowBtn')}
-                    data-loading-text={t(locale, 'badgeDetail.verifying')}
-                    data-success-text={t(locale, 'badgeDetail.verifySuccess')}
-                    data-not-found-text={t(locale, 'badgeDetail.verifyNotFound')}
-                    data-active-text={t(locale, 'badgeDetail.badgeActive')}
-                    data-active-desc={t(locale, 'badgeDetail.badgeActiveDesc')}
-                    class="btn-primary inline-flex items-center gap-2 px-4 py-2 text-xs cursor-pointer"
-                  >
-                    <svg id="verify-spinner" class="w-3.5 h-3.5 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span id="verify-btn-text">{t(locale, 'badgeDetail.verifyNowBtn')}</span>
-                  </button>
-                </div>
-              )}
+          <div class="space-y-1 md:col-span-2 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" id="badge-exhibition-container">
+            <div>
+              <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.badgeExhibition')}</dt>
+              <dd class="flex items-center gap-2 mt-1">
+                <span
+                  id="badge-status-pill"
+                  class:list={[
+                    'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]',
+                    isBadgeActive ? 'bg-green-200 text-green-950' : 'bg-amber-200 text-amber-950'
+                  ]}
+                >
+                  <span id="badge-status-dot" class:list={['w-2 h-2 rounded-none border border-neutral-900', isBadgeActive ? 'bg-green-600' : 'bg-amber-500']}></span>
+                  <span id="badge-status-text">{isBadgeActive ? t(locale, 'badgeDetail.badgeActive') : t(locale, 'badgeDetail.badgePending')}</span>
+                </span>
+                <span id="badge-status-desc" class:list={['text-xs text-neutral-400 font-medium hidden sm:inline', isBadgeActive ? '' : 'hidden']}>
+                  {t(locale, 'badgeDetail.badgeActiveDesc')}
+                </span>
+              </dd>
             </div>
-          )}
+
+            {!isBadgeActive && (
+              <div class="shrink-0" id="verify-action-wrapper">
+                <button
+                  type="button"
+                  id="btn-verify-badge"
+                  data-slug={slug}
+                  data-original-text={isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}
+                  data-loading-text={t(locale, 'badgeDetail.verifying')}
+                  data-success-text={t(locale, 'badgeDetail.verifySuccess')}
+                  data-not-found-text={t(locale, 'badgeDetail.verifyNotFound')}
+                  data-active-text={t(locale, 'badgeDetail.badgeActive')}
+                  data-active-desc={t(locale, 'badgeDetail.badgeActiveDesc')}
+                  class="btn-primary inline-flex items-center gap-2 px-4 py-2 text-xs cursor-pointer"
+                >
+                  <svg id="verify-spinner" class="w-3.5 h-3.5 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span id="verify-btn-text">{isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {toolTags.length > 0 && (
@@ -405,6 +403,37 @@ const allEmbedCodes = Object.fromEntries(
 
         <!-- Code Displays -->
         <div class="grid grid-cols-1 gap-8 text-left max-w-3xl mx-auto">
+          <!-- ✨ Vibe Coding Prompt (Featured #1) -->
+          <div class="p-5 bg-emerald-50 border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="px-2 py-0.5 text-[10px] font-mono font-black uppercase bg-yellow-300 text-neutral-900 border border-neutral-900">
+                    {t(locale, 'vibe.badgeTag')}
+                  </span>
+                  <span class="text-[11px] font-mono font-bold text-emerald-900">
+                    {t(locale, 'vibe.cardTools')}
+                  </span>
+                </div>
+                <h3 class="text-sm sm:text-base font-bold text-neutral-900">
+                  {t(locale, 'vibe.cardTitle')}
+                </h3>
+              </div>
+              <button
+                type="button"
+                class="copy-btn shrink-0 text-xs font-mono font-bold text-white px-3.5 py-2 bg-neutral-900 border-2 border-neutral-900 hover:bg-neutral-800 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer rounded-none"
+                data-code="vibe"
+                data-copied-text={t(locale, 'vibe.copiedPromptBtn')}
+              >
+                {t(locale, 'vibe.copyPromptBtn')}
+              </button>
+            </div>
+            <p class="text-xs font-mono text-neutral-700 leading-relaxed">
+              {t(locale, 'vibe.cardDesc')}
+            </p>
+            <pre id="code-vibe" class="bg-neutral-900 text-emerald-300 p-4 rounded-none text-[11px] font-mono overflow-x-auto whitespace-pre-wrap leading-relaxed border-2 border-neutral-900"><code>{embedCode.vibePrompt}</code></pre>
+          </div>
+
           <!-- Dynamic Live Status Badge (Recommended) -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
@@ -543,13 +572,14 @@ const allEmbedCodes = Object.fromEntries(
     });
 
     // Badge style switching
-    const embedCodes: Record<string, { svg: string; markdown: string; meta: string }> = JSON.parse(
+    const embedCodes: Record<string, { svg: string; markdown: string; meta: string; vibePrompt: string }> = JSON.parse(
       document.getElementById('embed-codes-data')!.textContent!
     );
     const styleBtns = document.querySelectorAll('.badge-style-btn');
     const badgePreview = document.getElementById('badge-preview') as HTMLImageElement;
     const codeMarkdown = document.getElementById('code-markdown');
     const codeSvg = document.getElementById('code-svg');
+    const codeVibe = document.getElementById('code-vibe');
 
     styleBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -559,12 +589,15 @@ const allEmbedCodes = Object.fromEntries(
         // Update preview image
         badgePreview.src = badgePath;
 
-        // Update Markdown and SVG embed code
+        // Update Markdown, SVG, and Vibe Prompt embed code
         if (codeMarkdown && embedCodes[style]) {
           codeMarkdown.innerHTML = `<code>${embedCodes[style].markdown.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
         }
         if (codeSvg && embedCodes[style]) {
           codeSvg.innerHTML = `<code>${embedCodes[style].svg.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
+        }
+        if (codeVibe && embedCodes[style]?.vibePrompt) {
+          codeVibe.innerHTML = `<code>${embedCodes[style].vibePrompt.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>`;
         }
 
         // Update button styles

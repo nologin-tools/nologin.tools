@@ -21,6 +21,7 @@ import { queryD1 } from './lib/d1.mjs';
 import { ROOT_DIR } from './lib/env.mjs';
 import { rejectTool } from './lib/admin-api.mjs';
 import { checkHardGates } from '../src/lib/submission-gates-core.mjs';
+import { detectBadgeDisplayType } from '../src/lib/badge-core.mjs';
 import { triageSubmission } from './lab/triage-core.mjs';
 import { loadQueue, mergeTriage, saveQueue } from './lab/evaluation-queue.mjs';
 
@@ -145,7 +146,7 @@ async function main() {
   if (opt('--reject-ids')) return rejectConfirmed();
 
   const pendingRows = await queryD1(
-    "SELECT id, slug, url, submitter_email, datetime(submitted_at, 'unixepoch') AS submitted_at FROM tools WHERE status = 'pending' ORDER BY submitted_at ASC"
+    "SELECT tools.id, tools.slug, tools.url, tools.submitter_email, bd.display_type AS badge_display_type, datetime(tools.submitted_at, 'unixepoch') AS submitted_at FROM tools LEFT JOIN badge_displays bd ON bd.tool_id = tools.id WHERE tools.status = 'pending' ORDER BY tools.submitted_at ASC"
   );
   const pendingIds = new Set(pendingRows.map((r) => r.id));
   const explicit = idList(opt('--ids'));
@@ -157,10 +158,20 @@ async function main() {
   const results = await mapPool(targets, Number(opt('--concurrency') || 8), async (t) => {
     const gate = checkHardGates({ url: t.url, submitterEmail: t.submitter_email });
     let out;
+    let hasExplicitBadge = t.badge_display_type === 'explicit';
     if (gate) {
       out = { tier: 'C', signals: [{ code: gate.code, detail: gate.reason }], suggestedReason: gate.reason, page: null, fetch: null };
     } else {
       const fetched = await fetchPage(t.url);
+      if (!hasExplicitBadge && fetched.html && detectBadgeDisplayType(fetched.html) === 'explicit') {
+        hasExplicitBadge = true;
+        const apiBase = (process.env.NOLOGIN_API_BASE || 'https://nologin.tools').replace(/\/+$/, '');
+        await fetch(`${apiBase}/api/badge-verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'User-Agent': UA },
+          body: JSON.stringify({ slug: t.slug }),
+        }).catch(() => {});
+      }
       const r = triageSubmission(t, fetched);
       out = {
         ...r,
@@ -170,7 +181,7 @@ async function main() {
     }
     done++;
     if (done % 25 === 0 || done === targets.length) console.log(`[triage] ${done}/${targets.length}`);
-    return { id: t.id, slug: t.slug, url: t.url, submittedAt: t.submitted_at, ...out };
+    return { id: t.id, slug: t.slug, url: t.url, submittedAt: t.submitted_at, hasExplicitBadge, badgeDisplayType: t.badge_display_type || null, ...out };
   });
 
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');

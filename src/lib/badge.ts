@@ -34,6 +34,8 @@ export {
   BADGE_STYLES,
   ORIGINAL_BADGE,
   getBadgeEmbedCode,
+  getVibeBadgePrompt,
+  detectBadgeDisplayType,
   getBadgeWeight,
   measureBadgeTextWidth,
   generateDynamicBadgeSvg,

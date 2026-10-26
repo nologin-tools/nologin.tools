@@ -34,6 +34,22 @@ export const ORIGINAL_BADGE = {
   height: 28,
 };
 
+export function getVibeBadgePrompt(slug, siteUrl, style = 'flat') {
+  const badge = style === 'original'
+    ? ORIGINAL_BADGE
+    : BADGE_STYLES.find((s) => s.id === style) || BADGE_STYLES[0];
+  const badgeImgUrl = `${siteUrl}${badge.path}`;
+  const certUrl = `${siteUrl}/badge/${slug}`;
+
+  return [
+    `Add the official "NoLogin Verified" badge to this project so it passes NoLoginTools.org fast-track verification:`,
+    ``,
+    `1. Website Footer UI: Add a clean, visible badge in our global footer (matching existing layout, theme, and spacing) linking to "${certUrl}" wrapping the SVG image "${badgeImgUrl}" (alt="NoLogin Verified", title="Verified by NoLoginTools.org").`,
+    `2. Static Crawler Compatibility (for CSR/SPA): The verification bot inspects raw HTTP HTML without executing JS. If this app is a client-side SPA (e.g. Vite/React/Vue with an index.html shell), also add <noscript><a href="${certUrl}"><img src="${badgeImgUrl}" alt="NoLogin Verified" title="Verified by NoLoginTools.org" /></a></noscript> inside index.html.`,
+    `3. GitHub README (if applicable): Also add [![NoLogin Verified](${badgeImgUrl})](${certUrl} "Verified by NoLoginTools.org") near the top of README.md.`,
+  ].join('\n');
+}
+
 export function getBadgeEmbedCode(slug, siteUrl, style = 'flat') {
   const badge = style === 'original'
     ? ORIGINAL_BADGE
@@ -44,7 +60,35 @@ export function getBadgeEmbedCode(slug, siteUrl, style = 'flat') {
     markdown: `[![NoLogin Verified](${siteUrl}${badge.path})](${siteUrl}/badge/${slug} "Verified by NoLoginTools.org")`,
     meta: `<meta name="nologin-verified" content="${slug}" />`,
     link: `<a href="${siteUrl}/badge/${slug}">NoLogin Verified</a>`,
+    vibePrompt: getVibeBadgePrompt(slug, siteUrl, style),
   };
+}
+
+/**
+ * Detect whether HTML/Markdown/JS text contains an explicit SVG badge or implicit reference.
+ * @param {string | null | undefined} content
+ * @returns {'explicit' | 'implicit' | 'none'}
+ */
+export function detectBadgeDisplayType(content) {
+  if (!content || typeof content !== 'string') return 'none';
+  if (
+    content.includes('nologin.tools/badge.svg') ||
+    content.includes('nologin.tools/badge/') ||
+    content.includes('nologin.tools/badges/') ||
+    content.includes('nologin.tools/api/badge/') ||
+    content.includes('nologintools.org/badge') ||
+    content.includes('nologintools.org/badges')
+  ) {
+    return 'explicit';
+  }
+  if (
+    content.includes('nologin-verified') ||
+    content.includes('nologin.tools') ||
+    content.includes('nologintools.org')
+  ) {
+    return 'implicit';
+  }
+  return 'none';
 }
 
 export function getBadgeWeight(displayType) {

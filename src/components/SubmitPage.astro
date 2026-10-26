@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ReviewQueueBoard from './ReviewQueueBoard.astro';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 
@@ -149,6 +150,8 @@ await loadTranslations(locale);
         </div>
       </div>
     </div>
+
+    <ReviewQueueBoard locale={locale} />
   </div>
 
   <script>
