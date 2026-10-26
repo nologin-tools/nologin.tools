@@ -73231,51 +73231,59 @@
   },
   "crochetchartmaker-com": {
     "en": {
-      "bestFor": "Crocheters and fiber artists converting photos into gauge-accurate tapestry grids with interactive stitch-by-stitch color editing and unwatermarked PNG exports.",
+      "bestFor": "Crocheters and fiber artists turning a photo into a gauge-aware single-crochet chart: set finished width, stitch and row gauge, reduce the palette, repaint individual stitches, then download or print the chart.",
       "pros": [
-        "Gauge-aware canvas quantization converting uploaded images into stitch and row grids with color palette breakdowns",
-        "Interactive canvas workbench allowing single-stitch overrides, undo history, and instant high-resolution PNG downloads"
+        "Gauge-aware sizing was verified against the output: a 20 cm width at 20 stitches and 22 rows per 10 cm produced a 40 x 33 grid (1,320 stitches, 20 x 15 cm), and the exported PNG repeats the same numbers.",
+        "Per-stitch repaint on the canvas with an Undo edit button: repainting one stitch moved the legend from 353/342 to 354/341, and Undo restored 353/342 exactly.",
+        "Colour control is real: the Colors slider (2-10) and the 'Reduce isolated color changes' select changed the legend to four colours with exact stitch counts per colour.",
+        "Export is clean: Download PNG returned a 1600 x 946, 120,751-byte PNG that passed magic-byte inspection with no watermark and no login prompt; a Print button is also provided."
       ],
       "cons": [
-        "Large complex photographic images with gradients require manual color palette reduction to produce clean charts",
-        "Does not export interactive stitch-tracking formats or mobile-specific knitting chart files"
+        "Only one raster export (PNG) plus browser print; no PDF, CSV, or stitch-tracking file is offered.",
+        "The page loads Google Analytics: two POST beacons to www.google-analytics.com/g/collect were captured during the session.",
+        "Single image workflow with no multi-panel or project saving, so depth stays at the configurable-utility level.",
+        "The exported PNG carries a small 'Made locally at crochetchartmaker.com' footer credit line."
       ],
-      "privacyVerdict": "Image processing, color quantization, and canvas rendering execute entirely in browser memory; runtime telemetry confirmed zero outgoing payload egress (0 egress).",
+      "privacyVerdict": "During the tested flow (one 325 KB PNG upload, parameter changes, repaint, undo, export) no request carrying the image was observed; two Google Analytics POST beacons were captured, and local processing was not independently verified.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 88,
+        "overall": 76,
         "frictionless": 18,
-        "depth": 19,
-        "exportFreedom": 18,
-        "privacy": 19,
-        "polish": 14
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 13,
+        "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Uploaded 325 KB PNG fixture into the tapestry workbench; quantized into a stitch grid in 73ms and exported a clean 105,662-byte unwatermarked 1800x1140 PNG chart across 0 outgoing payload requests.",
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.png, set width 20 cm with 20 x 22 gauge and 4 colours: the Canvas grid became 40 x 33 (1,320 stitches). One repaint changed a legend count from 342 to 341 and Undo edit restored it. Download PNG produced a 1600x946 PNG of 120,751 bytes without watermark; longest main-thread task was 93 ms with CLS 0.005 and 2 Google Analytics POST requests captured.",
       "testedAt": "2026-10"
     },
     "zh": {
-      "bestFor": "需要根据针目与行距密度将照片转换为钩织提花方格图、在线微调针目颜色并导出高清图纸的手作爱好者。",
+      "bestFor": "钩针和纤维艺术爱好者把照片转成考虑织片密度的单钩图表：设置成品宽度、针数与行数密度、缩减色板、逐针重涂，然后下载或打印图表。",
       "pros": [
-        "基于真实针目与行距密度的画布量化算法，将上传图片转化为带有色号统计的提花网格",
-        "支持在工作区交互式画布上逐针点选修改颜色、具备撤销历史并可直接导出无水印高分 PNG 图纸"
+        "织片密度换算经输出核对：宽 20 cm、每 10 cm 20 针 22 行，生成 40 x 33 网格（1,320 针，成品 20 x 15 cm），导出的 PNG 中数字一致。",
+        "画布支持逐针重涂和撤销：重涂一针后图例从 353/342 变为 354/341，点击撤销后精确恢复为 353/342。",
+        "颜色控制有效：颜色滑块（2-10）和“减少孤立色块”选项会改变图例，得到四种颜色及各色精确针数。",
+        "导出干净：下载 PNG 得到 1600 x 946、120,751 字节的图片，通过魔数校验，无水印、无登录提示；另有打印按钮。"
       ],
       "cons": [
-        "对于包含复杂渐变的大尺寸摄影图片，需手动减少调色板颜色以确保图案清晰",
-        "未提供交互式织图跟进格式或专用移动端图表工程文件导出"
+        "只有一种位图导出（PNG）加浏览器打印，没有 PDF、CSV 或针脚跟踪文件。",
+        "页面加载了 Google Analytics：会话中捕获了 2 个发往 www.google-analytics.com/g/collect 的 POST 信标。",
+        "只支持单张图片流程，没有多片或项目保存，因此功能深度停留在可配置工具级别。",
+        "导出的 PNG 底部带有一行小字“Made locally at crochetchartmaker.com”署名。"
       ],
-      "privacyVerdict": "图像解析、色彩量化及画布绘制全流程完全在本地浏览器内存中运算，实测网络载荷为 0（零数据外传）。",
+      "privacyVerdict": "在测试流程（上传一张 325 KB 的 PNG、调整参数、重涂、撤销、导出）中没有观察到携带图片的请求；仅有的携带载荷的请求是两个 Google Analytics 信标，因此不能支持“零外发”的说法，本地处理也未经独立验证。",
       "alternativeTo": [],
       "productScore": {
-        "overall": 88,
+        "overall": 76,
         "frictionless": 18,
-        "depth": 19,
-        "exportFreedom": 18,
-        "privacy": 19,
-        "polish": 14
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 13,
+        "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "载入 325 KB PNG 图像样本，系统在 73ms 内完成量化网格渲染，成功导出 105,662 字节 1800x1140 分辨率无水印 PNG 图纸，外发网络载荷为 0。",
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 sample.png，设置宽 20 cm、密度 20 x 22、4 种颜色：Canvas 网格为 40 x 33（1,320 针）。重涂一针后图例计数从 342 变为 341，撤销后恢复。下载 PNG 得到 1600x946、120,751 字节且无水印；最长主线程任务 93 ms，CLS 0.005，捕获 2 个 Google Analytics POST 请求。",
       "testedAt": "2026-10"
     }
   },
@@ -73331,51 +73339,57 @@
   },
   "calcrobin-com": {
     "en": {
-      "bestFor": "Developers, analysts, and students needing an extensive directory of 270+ client-side calculators, tokenizers, and converters running entirely offline in the browser.",
+      "bestFor": "Users and developers who want a fast, ad-free collection of 270 calculators, converters, and developer utilities (finance, health, math, dates, and LLM token budgeting) that run in the browser with shareable links and PNG result cards.",
       "pros": [
-        "Extensive suite of 270+ single-purpose calculators spanning LLM token counters, finance, and math running on-device",
-        "Generates clean unwatermarked high-resolution PNG summary exports alongside one-click clipboard copying"
+        "270 specialized calculators across 6 categories (Finance 71, Math 95, Health 35, Date & Time 29, Developer & IT 27, Text & Media 13) open immediately without sign-up or ad clutter.",
+        "Verified financial depth on the Mortgage Calculator: entering a $550,000 price, 15% down ($82,500), 5.75% rate, and 15-year term computed a $4,799.88 monthly payment ($3,882.17 P&I, $572.92 tax, $150.00 insurance, $194.79 PMI), $231,290.09 total interest, PMI drop-off at month 23, and expandable monthly amortization schedules.",
+        "Verified developer utility depth on the LLM Token Counter: a 141-character, 18-word test string produced an exact 33-token count under cl100k_base alongside model-family estimates (Claude ≈ 56/43, Gemini ≈ 35) and context-window fit bars up to 1M tokens.",
+        "Every calculator result card includes Copy link, Copy as image, and Download as image; tested PNG export produced a 1332 x 1572, 246,747-byte image with no watermark."
       ],
       "cons": [
-        "Directory landing page can feel dense given the breadth of 270+ categorized utilities",
-        "Does not support user accounts or persistent cross-session calculation state synchronization"
+        "Tabular outputs such as the monthly mortgage amortization schedule cannot be exported as CSV or XLSX files.",
+        "No cross-session workspace history or saved scenario comparison table across multiple runs.",
+        "Dynamic result panel updates caused a minor layout shift (CLS 0.11) when switching between empty and populated calculator states."
       ],
-      "privacyVerdict": "Calculations, token counting, and conversion algorithms run entirely on-device in client JavaScript; zero input text or numeric data egressed to backend servers.",
+      "privacyVerdict": "During the tested flows across the Mortgage Calculator and LLM Token Counter, no requests carrying calculator inputs or pasted text were observed; three Cloudflare Web Analytics beacons (cloudflareinsights.com/cdn-cgi/rum) were captured on page navigations.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 85,
         "frictionless": 19,
-        "depth": 20,
-        "exportFreedom": 18,
-        "privacy": 19,
-        "polish": 13
+        "depth": 19,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Executed LLM token counting on a 112-character input; correctly calculated 15 o200k_base tokens and model context fits in 0ms freeze, exporting a clean 415,261-byte unwatermarked PNG graphic.",
+      "benchmarkNotes": "Tested two tools across 22 steps: (1) Mortgage Calculator with $550,000 home price, 15% down, 5.75% interest, and 15-yr term produced $4,799.88/mo with expandable monthly amortization, a shareable link via clipboard, and a 1332x1572 PNG download (246,747 bytes, watermark-free); (2) LLM Token Counter counted 141 characters / 18 words as 33 exact cl100k_base tokens with 0 ms main-thread freeze and 3 Cloudflare RUM beacons.",
       "testedAt": "2026-10"
     },
     "zh": {
-      "bestFor": "需要在浏览器纯本地离线使用包含大模型 Token 计数、财务、数学与转换等 270 余款开箱即用工具的开发者与分析师。",
+      "bestFor": "需要快速、无广告的 270 款在线计算器、转换器与开发者工具（涵盖金融、健康、数学、日期及 LLM Token 预算），且希望支持分享链接与导出 PNG 结果卡片的用户与开发者。",
       "pros": [
-        "内置 270 多款覆盖大模型 Token 测算、金融投资与实用数学计算的纯前端小工具",
-        "支持生成无水印高分辨率 PNG 结果图卡片并支持一键快捷复制运算结果"
+        "涵盖 6 大分类共 270 款专项工具（金融 71、数学 95、健康 35、日期时间 29、开发与 IT 27、文本与媒体 13），无需注册且无广告干扰即可直接使用。",
+        "实测房贷计算器（Mortgage Calculator）深度：输入房价 $550,000、首付 15%（$82,500）、利率 5.75% 与 15 年期，即时算出月供 $4,799.88（本息 $3,882.17、房产税 $572.92、保险 $150.00、PMI $194.79）、总利息 $231,290.09、第 23 个月自动取消 PMI 及可展开的按月摊销明细表。",
+        "实测 LLM Token 计数器深度：输入 141 字符（18 词）测试文本，精确算出 cl100k_base 编码下为 33 个 Token，并同步给出 Claude（≈ 56/43）与 Gemini（≈ 35）估算值及百万级上下文窗口占比。",
+        "每款计算器结果区均支持复制链接、复制为图片与下载图片；实测导出 PNG 生成了 1332 x 1572、246,747 字节的无水印图片。"
       ],
       "cons": [
-        "因涵盖 270 多款小工具，工具导航首页信息密度较高",
-        "完全免登录设计导致不支持跨设备同步历史计算记录与偏好配置"
+        "按月房贷摊销表等表格类结果不支持导出为 CSV 或 XLSX 文件。",
+        "不支持跨会话保存历史计算方案或多方案并排对比视图。",
+        "计算结果面板在空状态与填充状态切换时存在轻微布局偏移（CLS 0.11）。"
       ],
-      "privacyVerdict": "计算公式与 Token 分词算法均在前端浏览器本地执行，实测输入文本与数字完全零网络外传（零数据外传）。",
+      "privacyVerdict": "在房贷计算器与 LLM Token 计数器的多轮交互测试中，未观察到任何携带计算参数或粘贴文本的请求；页面跳转期间捕获了 3 个 Cloudflare Web Analytics 性能信标（cloudflareinsights.com/cdn-cgi/rum）。",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 85,
         "frictionless": 19,
-        "depth": 20,
-        "exportFreedom": 18,
-        "privacy": 19,
-        "polish": 13
+        "depth": 19,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "对 112 字符文本执行 Token 计算，在 0ms 主线程卡顿下即时得出 15 个 o200k_base 编码 Token，并成功导出 415,261 字节无水印高分 PNG 结果图。",
+      "benchmarkNotes": "在 22 个步骤中实测了两款子工具：（1）房贷计算器输入 $550,000 房价、15% 首付、5.75% 利率与 15 年期，输出月供 $4,799.88 及按月摊销表，验证了剪贴板链接复制与 1332x1572 PNG 图片下载（246,747 字节，无水印）；（2）LLM Token 计数器将 141 字符 / 18 词精确计为 33 个 cl100k_base Token，主线程冻结 0 ms，捕获 3 个 Cloudflare RUM 性能信标。",
       "testedAt": "2026-10"
     }
   },
@@ -73431,51 +73445,57 @@
   },
   "puresume-com": {
     "en": {
-      "bestFor": "Job seekers and professionals seeking a privacy-first, client-side resume builder with real-world role templates, ATS scoring heuristics, and clean PDF and DOCX exports.",
+      "bestFor": "Job seekers who want a browser-based resume builder with 60 templates, role-specific examples, a job-advert keyword comparison panel, and direct PDF and Word (.docx) downloads without creating an account.",
       "pros": [
-        "Comprehensive resume workbench with 60 ATS-compatible templates, live keyword matching, and real-time score auditing",
-        "Direct unwatermarked PDF and DOCX downloads generated purely on-device without requiring registration"
+        "Full editor at /en/builder/ includes 60 layout templates (such as Harvard one-column and Dark side column), 21 font families, 10 color accents, and a Compact page-fitting toggle.",
+        "Built-in Resume Check scores completeness out of 100 across Contact (20), Summary (20), Experience (30), Skills (20), and Education (10), paired with a live page-fill meter ('PDF: 1 page · last page 51% full').",
+        "Includes a local 'Compare with a job advert' panel, one-click role skill chips, custom sections (+ Projects, + Certifications, + Publications, + Volunteering, + Awards, + Languages), and a plain-text bulk editor.",
+        "Export Gatekeeper verified a clean 14,015-byte PDF download with valid PDF magic bytes and no watermark, alongside Download Word (.docx), Copy link, and Print controls."
       ],
       "cons": [
-        "Browser-local storage model means drafts do not automatically sync across multiple devices or mobile browsers",
-        "Advanced multi-column graphical styling options are limited compared to desktop vector design suites"
+        "On the homepage quick-studio widget, clicking a template thumbnail resets any name or job title already typed into #studio-name and #studio-title back to the example defaults (Alex Morgan / Registered Nurse).",
+        "No JSON or Markdown resume import/export for version-controlling resume data outside the browser.",
+        "Adding custom sections inside the builder caused a brief 75 ms main-thread task spike."
       ],
-      "privacyVerdict": "Resume contents, contact information, and job descriptions are stored and parsed entirely within browser memory and local storage; zero personal resume data egresses to backend servers.",
+      "privacyVerdict": "During the 11-step session covering homepage studio inputs, builder editing, job-advert comparison, and PDF export, no outgoing requests carrying resume fields or job-advert text were observed; drafts are stored locally in the browser.",
       "alternativeTo": [],
       "productScore": {
         "overall": 88,
         "frictionless": 19,
-        "depth": 20,
+        "depth": 19,
         "exportFreedom": 19,
-        "privacy": 19,
-        "polish": 11
+        "privacy": 18,
+        "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Edited candidate contact details and exported an unwatermarked 13,615-byte vector PDF resume via client-side DOM rendering in 0ms UI freeze, confirming clean export without login gating or watermarks.",
+      "benchmarkNotes": "Tested across 11 steps: filled homepage studio inputs, opened /en/builder/, edited contact/experience/job-advert fields, added a Projects section, switched template accent color #3 (royal blue), and triggered Download PDF (14,015 bytes, valid PDF structure, no watermark, no auth prompt). Max main-thread task was 75 ms with CLS 0.05 on the landing page and 0.00 in the builder.",
       "testedAt": "2026-10"
     },
     "zh": {
-      "bestFor": "需要一款注重隐私保护、基于浏览器纯本地运行，且具备真实职业模板、ATS 评分检测与无水印 PDF/Word 导出功能的求职者与职场人士。",
+      "bestFor": "希望无需注册即可使用 60 款简历模板、岗位范例、职位描述关键词对比面板，并直接导出 PDF 与 Word（.docx）文件的求职者。",
       "pros": [
-        "集成 60 种兼容 ATS 的简历排版模板，支持实时岗位关键词比对与多维度简历评分审计",
-        "无需注册登录即可在本地即时导出完全无水印的高清 PDF 与 DOCX Word 格式文件"
+        "/en/builder/ 完整编辑器提供 60 款排版模板（如 Harvard 单栏、Dark 侧边栏）、21 种字体、10 种主题配色以及“紧凑单页适配（Compact）”开关。",
+        "内置简历完整度检查（Resume check，满分 100：联系方式 20、摘要 20、经历 30、技能 20、教育 10），并实时显示页面填充进度（“PDF: 1 page · last page 51% full”）。",
+        "配备“与招聘启事对比（Compare with a job advert）”面板、岗位常见技能一键添加标签、6 类扩展模块（项目、证书、出版物、志愿服务、奖项、语言）及纯文本批量编辑模式。",
+        "实测 Download PDF 直接导出 14,015 字节的标准 PDF 文件（通过魔数校验且无水印），同时提供 Download Word（.docx）、复制链接与打印功能。"
       ],
       "cons": [
-        "依托浏览器本地存储，草稿内容无法在多台设备或移动端浏览器之间自动云同步",
-        "排版以规范的 ATS 文本流为主，相比专业桌面级矢量设计软件在自由拖拽排版上有一定局限"
+        "在首页快速预览区先输入姓名和职位后再点击模板缩略图，会将已输入的字段重置为示例默认值（Alex Morgan / Registered Nurse）。",
+        "不支持导入或导出结构化 JSON / Markdown 简历文件以进行外部版本管理。",
+        "在编辑器中新增模块时出现了短暂的 75 ms 主线程任务峰值。"
       ],
-      "privacyVerdict": "简历正文、个人联系方式及目标岗位描述均保存在浏览器本地内存与本地存储中，全程零个人简历数据外传。",
+      "privacyVerdict": "在涵盖首页输入、编辑器修改、招聘启事对比及 PDF 导出的 11 步实测流程中，未观察到任何外发请求携带简历内容或职位描述文本；草稿仅保存在本地浏览器中。",
       "alternativeTo": [],
       "productScore": {
         "overall": 88,
         "frictionless": 19,
-        "depth": 20,
+        "depth": 19,
         "exportFreedom": 19,
-        "privacy": 19,
-        "polish": 11
+        "privacy": 18,
+        "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "对候选人联系方式进行实时编辑，通过前端 DOM 渲染在 0ms 界面冻结下成功导出 13,615 字节纯净无水印矢量 PDF 简历，验证全程免登录且无任何导出限制。",
+      "benchmarkNotes": "在 11 个步骤中完成深度实测：填写首页快速预览字段、进入 /en/builder/、更新联系信息/工作经历/招聘启事对比文本、新增 Projects 模块、切换第 3 种主题色（皇家蓝），并触发 Download PDF（生成 14,015 字节有效 PDF，无水印、无登录拦截）。主线程最大耗时 75 ms，首页 CLS 为 0.05，编辑器内 CLS 为 0.00。",
       "testedAt": "2026-10"
     }
   }

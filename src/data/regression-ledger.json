@@ -50,15 +50,15 @@
     "lastSignals": []
   },
   "calcrobin-com": {
-    "lastDeepEvalAt": "2026-10-26T02:59:29.254Z",
+    "lastDeepEvalAt": "2026-10-26T04:54:03.103Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 89, highly-recommended)",
-      "at": "2026-10-26T02:59:29.254Z",
+      "note": "CADES deep evaluation synced (overall 87, highly-recommended)",
+      "at": "2026-10-26T04:54:03.103Z",
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T02:59:29.254Z"
+    "lastScanAt": "2026-10-26T04:54:03.103Z"
   },
   "calorique-io": {
     "openAnomalies": [],
@@ -101,15 +101,15 @@
     "lastSignals": []
   },
   "crochetchartmaker-com": {
-    "lastDeepEvalAt": "2026-10-26T02:39:32.641Z",
+    "lastDeepEvalAt": "2026-10-26T04:49:33.348Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
-      "at": "2026-10-26T02:39:32.641Z",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-10-26T04:49:33.348Z",
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T02:39:32.641Z"
+    "lastScanAt": "2026-10-26T04:49:33.348Z"
   },
   "dataformatkit-com": {
     "openAnomalies": [],
@@ -339,15 +339,15 @@
     ]
   },
   "puresume-com": {
-    "lastDeepEvalAt": "2026-10-26T03:11:40.170Z",
+    "lastDeepEvalAt": "2026-10-26T05:02:35.009Z",
     "lastResolution": {
       "outcome": "editorial-updated",
       "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
-      "at": "2026-10-26T03:11:40.170Z",
+      "at": "2026-10-26T05:02:35.009Z",
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T03:11:40.170Z"
+    "lastScanAt": "2026-10-26T05:02:35.009Z"
   },
   "quixcalc-com": {
     "openAnomalies": [],

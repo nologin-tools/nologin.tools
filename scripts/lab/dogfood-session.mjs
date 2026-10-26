@@ -1067,13 +1067,7 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
     let task = null;
     try {
       task = await taskSpace(${JSON.stringify(session.spaceId)});
-    } catch (spaceErr) {
-      try {
-        if (typeof takeOverTaskSpace !== 'undefined') {
-          task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)});
-        }
-      } catch (takeErr) {}
-    }
+    } catch (spaceErr) {}
     if (task) {
       const page = task.page("p1");
       const payloads = await page.evaluate(() => window.__netPayloads || []).catch(() => []);
@@ -1091,17 +1085,18 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
 
   console.log(`\n🏁 [CADES 2.0 Route A] Finalizing session for [${slug}]...`);
   let netPayloads = [];
+  const hasRecordedHistory = Array.isArray(session.netPayloads) && Array.isArray(session.steps) && session.steps.length > 1;
   try {
     await runEgoScript(script, 30000);
     const res = JSON.parse(readFileSync(resultFile, 'utf-8'));
     try { unlinkSync(resultFile); } catch {}
-    if (res.error && (!session.netPayloads || session.netPayloads.length === 0)) {
+    if (res.error && !hasRecordedHistory) {
       console.error(`❌ Failed to finalize browser session: ${res.error}`);
       return false;
     }
     netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
   } catch (e) {
-    if (!session.netPayloads || session.netPayloads.length === 0) {
+    if (!hasRecordedHistory) {
       console.error(`❌ Failed during task.finish: ${e.message}`);
       return false;
     }
@@ -1121,7 +1116,10 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
         /(?:zero[- ]egress|100%\s+(?:client|local)|pure(?:ly)?\s+(?:client|local)|no\s+(?:payload|data)\s+(?:egress|transmission))/i.test(evalData.privacyVerdict)
       ) {
         console.error('❌ privacyVerdict contradicts observed payload egress; editorial was not synchronized.');
-        removeSession(slug);
+        console.error('   Reword the privacy verdict to match the observed requests and run finish again (the browser is already closed; recorded evidence is kept).');
+        // Keep the session so the verdict can be corrected without redoing the evaluation.
+        session.netPayloads = netPayloads;
+        saveSession(slug, session);
         return false;
       }
 
