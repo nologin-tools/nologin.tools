@@ -11191,54 +11191,60 @@
   },
   "browserleaks-com": {
     "en": {
-      "bestFor": "Instant online processing directly in browser.",
+      "bestFor": "Inspecting browser fingerprint exposure and looking up public IP network information without an account.",
       "pros": [
-        "Zero registration required",
-        "Immediate task execution"
+        "The IP lookup returned hostname, ASN, geolocation and registry information for the public sample 1.1.1.1.",
+        "Canvas and JavaScript reports exposed browser capabilities immediately; the camera control exported the IP report as a readable PNG."
       ],
       "cons": [
-        "Dependent on local browser performance"
+        "Detection reports describe exposure; they do not block fingerprinting or prove that a browser is anonymous.",
+        "IP geolocation is database-derived and may not identify the physical location of an anycast endpoint.",
+        "The exported PNG preserved the text tables, but some map tiles were replaced by 403 access-blocked panels."
       ],
-      "privacyVerdict": "No login required. Local processing verified.",
+      "privacyVerdict": "The suite combines browser-side capability tests with remote IP and network lookups. The public IP lookup appeared in the /ip/1.1.1.1 URL and the report used external map tiles. BrowserLeaks states that it does not retain personal fingerprints, but this test cannot independently verify server retention. Treat fingerprint and IP reports as potentially identifying data.",
       "alternativeTo": [
         "Desktop software"
       ],
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Benchmarked Privacy utility (TTI 0.7s): Wasm engine detected, Interactive Form Field (secure-payload-benchmark) processed in 1501ms, 100% local in-browser memory execution (0 bytes egress), frictionless execution verified.",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested the IP lookup form with 1.1.1.1, inspected Canvas support and PNG headers, and opened the JavaScript capability report. The camera control downloaded a valid non-blank 950x1950 PNG (362778 bytes) without registration. Visual inspection found blocked external map tiles in the exported image.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:41:46.568Z"
     },
     "zh": {
-      "bestFor": "免注册直接在浏览器完成在线任务。",
+      "bestFor": "无需账号，检查浏览器指纹暴露情况并查询公开 IP 的网络信息。",
       "pros": [
-        "免注册即开即用",
-        "秒级进入工作流"
+        "输入公开样例 1.1.1.1 后，IP 查询返回了主机名、ASN、位置及注册信息。",
+        "Canvas 和 JavaScript 报告直接展示浏览器能力；相机按钮可将 IP 报告导出为可读 PNG。"
       ],
       "cons": [
-        "受本地浏览器内存限制"
+        "这些报告用于发现暴露信息，不会阻止指纹追踪，也不能证明浏览器匿名。",
+        "IP 地理位置来自数据库，不一定对应 Anycast 节点的实际物理位置。",
+        "导出的 PNG 保留了文字表格，但部分地图瓦片变成了 403 访问受限提示。"
       ],
-      "privacyVerdict": "无需登录，本地数据流处理验证通过。",
+      "privacyVerdict": "该套件结合了浏览器端能力检测和远程 IP、网络查询。测试中的公开 IP 出现在 /ip/1.1.1.1 地址中，报告也加载了外部地图瓦片。BrowserLeaks 声称不保留个人指纹，但本次测试无法独立验证服务端保留策略。IP 和指纹报告应视为可能识别设备或网络的信息。",
       "alternativeTo": [
         "本地商业软件"
       ],
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "实测 Privacy 实用工具（首屏就绪 0.7s）：成功识别 Wasm 引擎，通过 Interactive Form Field (secure-payload-benchmark) 完成计算渲染（耗时 1501ms），纯前端本地内存运算（零字节外泄），全流程免登可用。",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "使用 1.1.1.1 测试 IP 查询表单，查看 Canvas 支持情况与 PNG 头信息，并打开 JavaScript 能力报告。相机按钮无需注册即可下载有效、非空的 950×1950 PNG，文件为 362778 字节。视觉检查发现导出图片中的外部地图瓦片有被阻止的情况。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:41:46.568Z"
     },
     "ja": {
       "bestFor": "ブラウザーで直接オンラインで即時処理。",
@@ -11252,18 +11258,18 @@
       "privacyVerdict": "ログインは必要ありません。ローカル処理が確認されました。",
       "benchmarkNotes": "ベンチマークされたプライバシー ユーティリティ (TTI 0.7 秒): Wasm エンジンが検出され、インタラクティブ フォーム フィールド (secure-payload-benchmark) が 1501 ミリ秒で処理され、100% ローカルのブラウザ内メモリ実行 (0 バイト送信)、摩擦のない実行が検証されました。",
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "ko": {
       "bestFor": "브라우저에서 직접 즉각적인 온라인 처리가 가능합니다.",
@@ -11277,18 +11283,18 @@
       "privacyVerdict": "로그인이 필요하지 않습니다. 로컬 처리가 확인되었습니다.",
       "benchmarkNotes": "벤치마크된 개인 정보 보호 유틸리티(TTI 0.7s): Wasm 엔진 감지, 대화형 양식 필드(보안 페이로드-벤치마크)가 1501ms로 처리됨, 100% 로컬 브라우저 내 메모리 실행(0바이트 송신), 마찰 없는 실행이 확인되었습니다.",
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "es": {
       "bestFor": "Procesamiento instantáneo en línea directamente en el navegador.",
@@ -11302,18 +11308,18 @@
       "privacyVerdict": "No es necesario iniciar sesión. Procesamiento local verificado.",
       "benchmarkNotes": "Utilidad de privacidad comparada (TTI 0.7s): motor Wasm detectado, campo de formulario interactivo (secure-payload-benchmark) procesado en 1501 ms, ejecución 100 % de la memoria local en el navegador (salida de 0 bytes), ejecución sin fricciones verificada.",
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "fr": {
       "bestFor": "Traitement en ligne instantané directement dans le navigateur.",
@@ -11327,18 +11333,18 @@
       "privacyVerdict": "Aucune connexion requise. Traitement local vérifié.",
       "benchmarkNotes": "Utilitaire de confidentialité benchmarké (TTI 0.7s) : moteur Wasm détecté, champ de formulaire interactif (benchmark de charge utile sécurisée) traité en 1 501 ms, exécution à 100 % de la mémoire locale dans le navigateur (sortie de 0 octet), exécution sans friction vérifiée.",
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "de": {
       "bestFor": "Sofortige Online-Bearbeitung direkt im Browser.",
@@ -11352,18 +11358,18 @@
       "privacyVerdict": "Kein Login erforderlich. Lokale Verarbeitung überprüft.",
       "benchmarkNotes": "Benchmarked Privacy Utility (TTI 0,7 s): Wasm-Engine erkannt, interaktives Formularfeld (secure-payload-benchmark) in 1501 ms verarbeitet, 100 % lokale Ausführung im Browser-Speicher (0 Byte Ausgang), reibungslose Ausführung verifiziert.",
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "pt": {
       "bestFor": "Processamento on-line instantâneo diretamente no navegador.",
@@ -11377,70 +11383,74 @@
       "privacyVerdict": "Não é necessário fazer login. Processamento local verificado.",
       "benchmarkNotes": "Utilitário de privacidade de referência (TTI 0.7s): mecanismo Wasm detectado, campo de formulário interativo (benchmark de carga útil segura) processado em 1501 ms, execução de memória 100% local no navegador (saída de 0 bytes), execução sem atrito verificada.",
       "productScore": {
-        "overall": 84,
-        "frictionless": 18,
+        "overall": 77,
+        "frictionless": 19,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 12
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     }
   },
   "themeasureofaplan-com": {
     "en": {
-      "bestFor": "Instant online processing directly in browser.",
+      "bestFor": "Checking a simple savings scenario with explicit assumptions.",
       "pros": [
-        "Zero registration required",
-        "Immediate task execution"
+        "The Savings Goal Solver recalculated a zero-return example to $1,200 from twelve $100 contributions.",
+        "Inputs, explanation and contribution chart were available without a site account."
       ],
       "cons": [
-        "Dependent on local browser performance"
+        "Third-party ads and an overlay interrupted the calculator, even after Reject All was selected in the cookie banner.",
+        "The Excel link opened a Google Drive template folder; an export of our calculated scenario was not obtained."
       ],
-      "privacyVerdict": "No login required. Local processing verified.",
+      "privacyVerdict": "The calculator source reads form values and computes the savings result in browser JavaScript. The site also displayed third-party advertising and a cookie banner covering analytics and advertising; local calculation must not be presented as no tracking or no data collection.",
       "alternativeTo": [
         "Desktop software"
       ],
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
-      "benchmarkNotes": "Benchmarked Finance utility (TTI 2.2s): Wasm engine detected, Interactive Form Field (12500) processed in 1502ms, cloud API roundtrip (1.6 KB), frictionless execution verified.",
-      "testedAt": "2026-09"
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Entered $0 initial savings, $100 monthly contribution, 1 year, 0 extra months and 0% annual return. The live result was $1,200, with $1,200 contributions and $0 returns. Followed the Excel link to a folder listing a 72 KB workbook, but did not verify an anonymous download or workbook formulas.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:56:20.190Z"
     },
     "zh": {
-      "bestFor": "免注册直接在浏览器完成在线任务。",
+      "bestFor": "使用明确假设检查简单的储蓄算术场景。",
       "pros": [
-        "免注册即开即用",
-        "秒级进入工作流"
+        "储蓄计算器将 12 个月每月 100、收益率为零的样例计算为 1,200。",
+        "输入、文字说明和缴款图表均无需站点账号即可使用。"
       ],
       "cons": [
-        "受本地浏览器内存限制"
+        "拒绝 Cookie 后仍出现第三方广告，弹层一度遮挡计算器操作。",
+        "Excel 链接打开的是 Google Drive 模板目录，本次未获得当前计算结果的导出文件。"
       ],
-      "privacyVerdict": "无需登录，本地数据流处理验证通过。",
+      "privacyVerdict": "计算器源码读取表单值并在浏览器 JavaScript 中完成储蓄计算。页面同时展示第三方广告，并提供涉及分析与广告的 Cookie 提示；本地计算不能等同于无追踪或无数据收集。",
       "alternativeTo": [
         "本地商业软件"
       ],
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
-      "benchmarkNotes": "实测 Finance 实用工具（首屏就绪 2.2s）：成功识别 Wasm 引擎，通过 Interactive Form Field (12500) 完成计算渲染（耗时 1502ms），云端 API 交互 (1.6 KB)，全流程免登可用。",
-      "testedAt": "2026-09"
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "输入初始储蓄 0、每月 100、1 年、额外月份 0、年收益率 0%。结果为 1,200，其中缴款 1,200、收益 0。Excel 链接打开了包含 72 KB 工作簿的目录，但本次未验证匿名下载或工作簿公式。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:56:20.191Z"
     },
     "ja": {
       "bestFor": "ブラウザーで直接オンラインで即時処理。",
@@ -11454,18 +11464,18 @@
       "privacyVerdict": "ログインは必要ありません。ローカル処理が確認されました。",
       "benchmarkNotes": "ベンチマークされた財務ユーティリティ (TTI 2.2s): Wasm エンジンが検出され、インタラクティブ フォーム フィールド (12500) が 1502 ミリ秒で処理され、クラウド API ラウンドトリップ (1.6 KB)、スムーズな実行が検証されました。",
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "emergency-only",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "ko": {
       "bestFor": "브라우저에서 직접 즉각적인 온라인 처리가 가능합니다.",
@@ -11479,18 +11489,18 @@
       "privacyVerdict": "로그인이 필요하지 않습니다. 로컬 처리가 확인되었습니다.",
       "benchmarkNotes": "벤치마킹된 금융 유틸리티(TTI 2.2s): Wasm 엔진 감지, Interactive Form Field(12500)가 1502ms로 처리됨, 클라우드 API 왕복(1.6KB), 마찰 없는 실행이 확인되었습니다.",
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "emergency-only",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "es": {
       "bestFor": "Procesamiento instantáneo en línea directamente en el navegador.",
@@ -11504,18 +11514,18 @@
       "privacyVerdict": "No es necesario iniciar sesión. Procesamiento local verificado.",
       "benchmarkNotes": "Utilidad financiera comparada (TTI 2.2s): motor Wasm detectado, campo de formulario interactivo (12500) procesado en 1502 ms, ida y vuelta de API en la nube (1,6 KB), ejecución sin fricciones verificada.",
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "emergency-only",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "fr": {
       "bestFor": "Traitement en ligne instantané directement dans le navigateur.",
@@ -11529,18 +11539,18 @@
       "privacyVerdict": "Aucune connexion requise. Traitement local vérifié.",
       "benchmarkNotes": "Utilitaire Benchmarked Finance (TTI 2.2s) : moteur Wasm détecté, champ de formulaire interactif (12 500) traité en 1 502 ms, aller-retour de l'API cloud (1,6 Ko), exécution sans friction vérifiée.",
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "emergency-only",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "de": {
       "bestFor": "Sofortige Online-Bearbeitung direkt im Browser.",
@@ -11554,18 +11564,18 @@
       "privacyVerdict": "Kein Login erforderlich. Lokale Verarbeitung überprüft.",
       "benchmarkNotes": "Benchmarked Finance Utility (TTI 2.2s): Wasm-Engine erkannt, interaktives Formularfeld (12500) in 1502 ms verarbeitet, Cloud-API-Roundtrip (1,6 KB), reibungslose Ausführung verifiziert.",
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "emergency-only",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "pt": {
       "bestFor": "Processamento on-line instantâneo diretamente no navegador.",
@@ -11579,70 +11589,74 @@
       "privacyVerdict": "Não é necessário fazer login. Processamento local verificado.",
       "benchmarkNotes": "Utilitário financeiro de referência (TTI 2.2s): mecanismo Wasm detectado, campo de formulário interativo (12.500) processado em 1.502 ms, ida e volta da API na nuvem (1,6 KB), execução sem atrito verificada.",
       "productScore": {
-        "overall": 74,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 17,
-        "polish": 12
+        "overall": 61,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 10,
+        "privacy": 10,
+        "polish": 10
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "emergency-only",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     }
   },
   "pairdrop-net": {
     "en": {
-      "bestFor": "Instant online processing directly in browser.",
+      "bestFor": "Moving a small file between browser peers without an account.",
       "pros": [
-        "Zero registration required",
-        "Immediate task execution"
+        "A temporary room made our two test tabs visible to each other.",
+        "The receiver could accept and download a 55-byte JSON file without signing in; the downloaded bytes matched the original."
       ],
       "cons": [
-        "Dependent on local browser performance"
+        "Automatic discovery initially showed no peer; we joined the same temporary room.",
+        "This run used two tabs in one browser, so cross-device, large-file and cross-network reliability remain untested."
       ],
-      "privacyVerdict": "No login required. Local processing verified.",
+      "privacyVerdict": "The page opened a WebSocket connection and exchanged room/discovery messages with its service. This test does not establish the transport used for file content, server retention, or operation without an internet connection.",
       "alternativeTo": [
         "Desktop software"
       ],
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Benchmarked Communication utility (TTI 0.3s): Wasm engine detected, Interactive Form Field (secure-payload-benchmark) processed in 1502ms, 100% local in-browser memory execution (0 bytes egress), frictionless execution verified.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Sent a 55-byte JSON order from Aqua Crawdad to Sapphire Dormouse, accepted and downloaded it, then sent the downloaded file back. Both download flows required no account, and the first downloaded file matched the source byte for byte.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:50:58.304Z"
     },
     "zh": {
-      "bestFor": "免注册直接在浏览器完成在线任务。",
+      "bestFor": "无需账号，在浏览器节点之间传送小文件。",
       "pros": [
-        "免注册即开即用",
-        "秒级进入工作流"
+        "加入同一个临时房间后，两个测试标签页互相可见。",
+        "接收端可免登录接收并下载 55 字节的 JSON，下载内容与原文件逐字节一致。"
       ],
       "cons": [
-        "受本地浏览器内存限制"
+        "初始自动发现没有显示对端，需要加入同一临时房间。",
+        "本次只测试同一浏览器的两个标签页，未验证跨设备、大文件或跨网络的可靠性。"
       ],
-      "privacyVerdict": "无需登录，本地数据流处理验证通过。",
+      "privacyVerdict": "页面通过 WebSocket 与服务交换房间和发现消息。本次测试未确认文件内容使用的具体传输路径、服务端保留策略或断网可用性。",
       "alternativeTo": [
         "本地商业软件"
       ],
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "实测 Communication 实用工具（首屏就绪 0.3s）：成功识别 Wasm 引擎，通过 Interactive Form Field (secure-payload-benchmark) 完成计算渲染（耗时 1502ms），纯前端本地内存运算（零字节外泄），全流程免登可用。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "将 55 字节的订单 JSON 从 Aqua Crawdad 发送到 Sapphire Dormouse，接收并下载后再反向发送。两次下载均未要求账号，首次下载内容与源文件逐字节一致。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:50:58.304Z"
     },
     "ja": {
       "bestFor": "ブラウザーで直接オンラインで即時処理。",
@@ -11656,18 +11670,18 @@
       "privacyVerdict": "ログインは必要ありません。ローカル処理が確認されました。",
       "benchmarkNotes": "ベンチマークされた通信ユーティリティ (TTI 0.3 秒): Wasm エンジンが検出され、インタラクティブ フォーム フィールド (secure-payload-benchmark) が 1502 ミリ秒で処理され、100% ローカルのブラウザ内メモリ実行 (0 バイト送信)、摩擦のない実行が検証されました。",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "ko": {
       "bestFor": "브라우저에서 직접 즉각적인 온라인 처리가 가능합니다.",
@@ -11681,18 +11695,18 @@
       "privacyVerdict": "로그인이 필요하지 않습니다. 로컬 처리가 확인되었습니다.",
       "benchmarkNotes": "벤치마크 통신 유틸리티(TTI 0.3s): Wasm 엔진 감지, 대화형 양식 필드(보안 페이로드 벤치마크)가 1502ms로 처리됨, 100% 로컬 브라우저 내 메모리 실행(0바이트 송신), 마찰 없는 실행이 확인되었습니다.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "es": {
       "bestFor": "Procesamiento instantáneo en línea directamente en el navegador.",
@@ -11706,18 +11720,18 @@
       "privacyVerdict": "No es necesario iniciar sesión. Procesamiento local verificado.",
       "benchmarkNotes": "Utilidad de comunicación comparada (TTI 0.3s): motor Wasm detectado, campo de formulario interactivo (secure-payload-benchmark) procesado en 1502 ms, ejecución 100 % de la memoria local en el navegador (salida de 0 bytes), ejecución sin fricciones verificada.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "fr": {
       "bestFor": "Traitement en ligne instantané directement dans le navigateur.",
@@ -11731,18 +11745,18 @@
       "privacyVerdict": "Aucune connexion requise. Traitement local vérifié.",
       "benchmarkNotes": "Utilitaire de communication benchmarké (TTI 0,3s) : moteur Wasm détecté, champ de formulaire interactif (benchmark de charge utile sécurisée) traité en 1 502 ms, exécution à 100 % de la mémoire locale dans le navigateur (sortie de 0 octet), exécution sans friction vérifiée.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "de": {
       "bestFor": "Sofortige Online-Bearbeitung direkt im Browser.",
@@ -11756,18 +11770,18 @@
       "privacyVerdict": "Kein Login erforderlich. Lokale Verarbeitung überprüft.",
       "benchmarkNotes": "Benchmarked Communication Utility (TTI 0,3 s): Wasm-Engine erkannt, interaktives Formularfeld (secure-payload-benchmark) in 1502 ms verarbeitet, 100 % lokale Ausführung im Browser-Speicher (0 Byte Ausgang), reibungslose Ausführung verifiziert.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "pt": {
       "bestFor": "Processamento on-line instantâneo diretamente no navegador.",
@@ -11781,70 +11795,74 @@
       "privacyVerdict": "Não é necessário fazer login. Processamento local verificado.",
       "benchmarkNotes": "Utilitário de comunicação de referência (TTI 0.3s): mecanismo Wasm detectado, campo de formulário interativo (benchmark de carga útil segura) processado em 1502 ms, execução de memória 100% local no navegador (saída de 0 bytes), execução sem atrito verificada.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
       },
       "verdictTier": "capable-utility",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     }
   },
   "duck-ai": {
     "en": {
-      "bestFor": "Instant online processing directly in browser.",
+      "bestFor": "Short anonymous text conversations, drafts and structured-data transformations with a hosted AI model.",
       "pros": [
-        "Zero registration required",
-        "Immediate task execution"
+        "Completed a two-turn order-to-JSON task without creating an account; the follow-up retained the original unit price.",
+        "The response copy button produced valid JSON without a promotional tail or a login prompt."
       ],
       "cons": [
-        "Dependent on local browser performance"
+        "Inference requires a remote service; this is not a local or offline AI tool.",
+        "This test covered text chat and copying only; attachment processing, model switching and long conversations were not verified."
       ],
-      "privacyVerdict": "No login required. Local processing verified.",
+      "privacyVerdict": "The tested workflow sent POST requests to /duckchat/v1/chat and activity endpoints on improving.duckduckgo.com. DuckDuckGo documents forwarding chats to model providers with privacy protections. This is cloud processing; the test does not independently verify server retention.",
       "alternativeTo": [
         "Desktop software"
       ],
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
-      "benchmarkNotes": "Benchmarked AI utility (TTI 2.0s): Wasm engine detected, Interactive Form Field (Hello, summarize in 1 sentence.) processed in 1501ms, 100% local in-browser memory execution (0 bytes egress), frictionless execution verified.",
-      "testedAt": "2026-09"
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "On 2026-10-26, GPT-6 Luna converted quantity 3 at USD 4.50 into JSON with total_usd 13.50. A follow-up changed quantity to 4 and returned 18.00. The response copy button exported valid JSON to the clipboard without an account or watermark tail.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:37:02.040Z"
     },
     "zh": {
-      "bestFor": "免注册直接在浏览器完成在线任务。",
+      "bestFor": "无需注册，使用云端 AI 完成简短对话、草稿撰写和结构化数据转换。",
       "pros": [
-        "免注册即开即用",
-        "秒级进入工作流"
+        "无需创建账号即可完成两轮订单转 JSON 任务，追问时保留了原始单价。",
+        "回答旁的复制按钮导出了有效 JSON，没有附加推广文字，也没有触发登录要求。"
       ],
       "cons": [
-        "受本地浏览器内存限制"
+        "推理依赖远程服务，并非本地或离线 AI 工具。",
+        "本次只验证了文字对话和复制，未验证附件处理、模型切换或长对话。"
       ],
-      "privacyVerdict": "无需登录，本地数据流处理验证通过。",
+      "privacyVerdict": "本次观察到向 /duckchat/v1/chat 和 improving.duckduckgo.com 活动统计端点发送 POST 请求。DuckDuckGo 官方说明会在隐私保护措施下将对话转发给模型服务商。这属于云端处理，不能称为零外发本地推理；本测试也无法独立验证服务端的数据保留情况。",
       "alternativeTo": [
         "本地商业软件"
       ],
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
-      "benchmarkNotes": "实测 AI 实用工具（首屏就绪 2.0s）：成功识别 Wasm 引擎，通过 Interactive Form Field (Hello, summarize in 1 sentence.) 完成计算渲染（耗时 1501ms），纯前端本地内存运算（零字节外泄），全流程免登可用。",
-      "testedAt": "2026-09"
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "2026-10-26，GPT-6 Luna 将数量 3、单价 4.50 美元的订单转成 JSON，总价为 13.50。追问将数量改为 4 后，总价变为 18.00。回答的复制按钮将有效 JSON 导出到剪贴板，没有账号要求或推广尾注。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-26T10:37:02.042Z"
     },
     "ja": {
       "bestFor": "ブラウザーで直接オンラインで即時処理。",
@@ -11858,18 +11876,18 @@
       "privacyVerdict": "ログインは必要ありません。ローカル処理が確認されました。",
       "benchmarkNotes": "ベンチマークされた AI ユーティリティ (TTI 2.0s): Wasm エンジンが検出され、インタラクティブ フォーム フィールド (こんにちは、1 文で要約してください) が 1501 ミリ秒で処理され、100% ローカルのブラウザ内メモリ実行 (出力 0 バイト)、摩擦のない実行が検証されました。",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "ko": {
       "bestFor": "브라우저에서 직접 즉각적인 온라인 처리가 가능합니다.",
@@ -11883,18 +11901,18 @@
       "privacyVerdict": "로그인이 필요하지 않습니다. 로컬 처리가 확인되었습니다.",
       "benchmarkNotes": "벤치마킹된 AI 유틸리티(TTI 2.0s): Wasm 엔진 감지, 대화형 양식 필드(안녕하세요, 1문장으로 요약)가 1501ms로 처리됨, 100% 로컬 브라우저 내 메모리 실행(0바이트 송신), 마찰 없는 실행이 확인되었습니다.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "es": {
       "bestFor": "Procesamiento instantáneo en línea directamente en el navegador.",
@@ -11908,18 +11926,18 @@
       "privacyVerdict": "No es necesario iniciar sesión. Procesamiento local verificado.",
       "benchmarkNotes": "Utilidad de IA comparada (TTI 2.0): motor Wasm detectado, campo de formulario interactivo (Hola, resumir en 1 oración) procesado en 1501 ms, ejecución 100 % de la memoria local en el navegador (salida de 0 bytes), ejecución sin fricciones verificada.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "fr": {
       "bestFor": "Traitement en ligne instantané directement dans le navigateur.",
@@ -11933,18 +11951,18 @@
       "privacyVerdict": "Aucune connexion requise. Traitement local vérifié.",
       "benchmarkNotes": "Utilitaire d'IA de référence (TTI 2.0s) : moteur Wasm détecté, champ de formulaire interactif (Bonjour, résumez en 1 phrase.) traité en 1 501 ms, exécution à 100 % de la mémoire locale du navigateur (sortie de 0 octet), exécution sans friction vérifiée.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "de": {
       "bestFor": "Sofortige Online-Bearbeitung direkt im Browser.",
@@ -11958,18 +11976,18 @@
       "privacyVerdict": "Kein Login erforderlich. Lokale Verarbeitung überprüft.",
       "benchmarkNotes": "Benchmarked AI Utility (TTI 2.0s): Wasm-Engine erkannt, interaktives Formularfeld (Hallo, in einem Satz zusammenfassen) in 1501 ms verarbeitet, 100 % lokale Ausführung im Browser-Speicher (0 Byte Ausgang), reibungslose Ausführung verifiziert.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     },
     "pt": {
       "bestFor": "Processamento on-line instantâneo diretamente no navegador.",
@@ -11983,18 +12001,18 @@
       "privacyVerdict": "Não é necessário fazer login. Processamento local verificado.",
       "benchmarkNotes": "Utilitário de IA de referência (TTI 2.0s): mecanismo Wasm detectado, campo de formulário interativo (Olá, resumido em 1 frase.) processado em 1501 ms, execução de memória 100% local no navegador (saída de 0 bytes), execução sem atrito verificada.",
       "productScore": {
-        "overall": 72,
-        "frictionless": 17,
-        "depth": 13,
-        "exportFreedom": 15,
-        "privacy": 15,
-        "polish": 12
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-10"
     }
   },
   "nologin-tools": {

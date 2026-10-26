@@ -104,9 +104,14 @@
     "description": "免费的浏览器端照片隐私保护工具，可自动检测并模糊人脸。所有处理均在浏览器本地完成，图片绝不上载到服务器。支持批量上传处理以及一键擦除 EXIF 拍摄元数据。"
   },
   "browserleaks-com": {
-    "_hash": "7a4a7987f3763d3b",
-    "description": "全面的浏览器指纹测试套件。检查浏览器泄露的信息：IP、WebRTC、Canvas、字体等。",
-    "coreTask": "检测浏览器指纹泄露"
+    "_hash": "280e2f373c49ab29",
+    "description": "无需账号即可检查浏览器指纹信号和查询 IP 信息，包含 Canvas、JavaScript 检测及远程 IP 查询服务。",
+    "coreTask": "检查浏览器指纹信号与 IP 信息",
+    "seoTitle": "BrowserLeaks — 浏览器指纹与 IP 检测",
+    "seoDescription": "免登录检查浏览器信号和 IP 信息。实测包括 IP 查询、Canvas、JavaScript 检测，以及含地图错误的报告导出。",
+    "seoFocusKeyword": "免登录浏览器指纹检测",
+    "seoTaskPhrase": "无需登录检查浏览器指纹与 IP 信息",
+    "contentUpdatedAt": "2026-10-26T11:09:35.395Z"
   },
   "bundlephobia-com": {
     "_hash": "47c6969436044ca3",
@@ -411,9 +416,14 @@
     "description": "基于改良 Widmark 公式打造的免费血液酒精浓度（BAC）估算工具。输入体重、标准饮酒量或饮品规格与酒精度（ABV），以及距首次饮酒的时间，即可实时估算当前浓度及代谢归零的大致时间。计算完全在浏览器本地完成，免登录。内置 BAC 参考指南。仅供教育参考，并非专业医学测量，不能作为是否适合驾驶的依据。"
   },
   "duck-ai": {
-    "_hash": "515c2a91f909df11",
-    "description": "以隐私为中心的 AI 聊天，由 Claude、Llama、Mistral 和 GPT-4o mini 提供支持。所有对话匿名且永不用于 AI 训练。",
-    "coreTask": "私密地与 AI 模型聊天"
+    "_hash": "d67274b8dd793870",
+    "description": "通过 DuckDuckGo 免账号使用 AI 对话，支持追问和复制回答；消息经由 DuckDuckGo 交给远程模型服务商处理。",
+    "coreTask": "免账号向 AI 提问并整理文字",
+    "seoTitle": "Duck.ai — 免账号 AI 对话",
+    "seoDescription": "免注册使用 Duck.ai，查看我们的两轮 JSON 任务、复制输出和远程 AI 对话的适用边界。",
+    "seoFocusKeyword": "免账号 AI 对话",
+    "seoTaskPhrase": "无需登录与 AI 对话并整理文字",
+    "contentUpdatedAt": "2026-10-26T11:09:35.390Z"
   },
   "earchord-com": {
     "description": "免费的浏览器端和弦识别工具，可直接从音频文件中解析和弦进行、歌曲调性与速度。所有处理均在本地设备运行，音频零上传，无需注册账号。",
@@ -985,9 +995,14 @@
     "coreTask": "播放音频信号，调节频率与波形，控制音量与左右声道平衡，导出 WAV 文件，无需登录"
   },
   "pairdrop-net": {
-    "_hash": "afb926fcd3ec7f85",
-    "description": "与本地网络中的附近设备即时共享文件。Snapdrop 的开源继任者，支持点对点传输。",
-    "coreTask": "在局域网设备间共享文件"
+    "_hash": "3ffa9547bcac0ba5",
+    "description": "无需账号即可在浏览器节点之间传送文件和文字。通过附近发现或临时房间找到对端，接收者可选择是否接收文件。",
+    "coreTask": "免账号在浏览器节点之间传送文件",
+    "seoTitle": "PairDrop — 免账号文件传输",
+    "seoDescription": "免注册在浏览器节点间传送文件。查看我们的 55 字节 JSON 收发、下载与完整性检查，以及测试范围。",
+    "seoFocusKeyword": "免账号文件传输",
+    "seoTaskPhrase": "无需注册在浏览器节点之间传送文件",
+    "contentUpdatedAt": "2026-10-26T11:09:35.395Z"
   },
   "pdfandimagetools-com": {
     "coreTask": "免登录使用全部 64 款工具：合并、拆分、压缩与转换 PDF，压缩/调整尺寸/转换图片格式，运行本地 OCR，以及智能抠图去除背景",
@@ -1400,9 +1415,14 @@
     "description": "Textunnel 是一款轻量级的跨设备分享工具，让你无需创建账号或登录，即可在不同设备间快速传输文本、链接、代码和文件。直接在浏览器中打开即可开始传输，便捷安全。"
   },
   "themeasureofaplan-com": {
-    "_hash": "a6caf0776055340e",
-    "description": "精美的个人理财计算器，涵盖退休、投资、房贷和预算规划。交互式可视化，不收集任何数据。",
-    "coreTask": "个人理财计算器和规划工具"
+    "_hash": "bb41b5df46e9e09e",
+    "description": "提供个人财务计算器、电子表格与学习资料。Savings Goal Solver 在浏览器中根据输入假设更新计算，网站同时显示第三方广告。",
+    "coreTask": "用交互式计算器探索储蓄假设",
+    "seoTitle": "The Measure of a Plan — 储蓄计算器与表格模板",
+    "seoDescription": "无需站点账号使用储蓄计算器。查看零收益算术样例、实际观察到的广告，以及表格模板链接的限制。",
+    "seoFocusKeyword": "免注册储蓄计算器",
+    "seoTaskPhrase": "无需注册计算储蓄场景",
+    "contentUpdatedAt": "2026-10-26T11:09:35.395Z"
   },
   "til-re": {
     "_hash": "7c613b80a2aadfbd",

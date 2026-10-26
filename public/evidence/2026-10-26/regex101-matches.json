@@ -1,0 +1,22 @@
+[
+  [
+    {
+      "matchNum": 0,
+      "content": "NL-2026",
+      "groupNum": 0,
+      "groupName": null,
+      "startPos": 9,
+      "endPos": 16
+    }
+  ],
+  [
+    {
+      "matchNum": 1,
+      "content": "QA-0017",
+      "groupNum": 0,
+      "groupName": null,
+      "startPos": 18,
+      "endPos": 25
+    }
+  ]
+]

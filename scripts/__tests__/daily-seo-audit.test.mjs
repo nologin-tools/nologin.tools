@@ -20,6 +20,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
 
 describe('Daily SEO Audit & IndexNow Scheduled Pipeline', () => {
+  it('checks real image alt attributes without scanning markup inside data attributes', () => {
+    const html = `<button data-prompt="Use <img src=&#34;example.png&#34;> in your page">Copy</button>
+      <img src="decorative.png" alt=""><img src="icon.png" alt = icon>`;
+    assert.equal(validateHtmlSeo(html, 'https://nologin.tools/').warnings.length, 0);
+    const result = validateHtmlSeo(html + '<img src="missing.png">', 'https://nologin.tools/');
+    assert.ok(result.warnings.some(warning => warning.includes('1/3 <img>')));
+  });
+
   it('IndexNow key file exists and matches key', () => {
     const keyFilePath = resolve(ROOT, `public/${DEFAULT_INDEXNOW_KEY}.txt`);
     assert.ok(existsSync(keyFilePath), `IndexNow key file ${keyFilePath} must exist`);

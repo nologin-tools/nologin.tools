@@ -286,14 +286,17 @@ export function validateHtmlSeo(html, url) {
 
   // 6. Multimodal Image Alt Quality Check (ignore script template strings)
   const contentWithoutScripts = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-  const imgRegex = /<img\b([^>]*?)>/gi;
+  // Consume complete tags so example markup inside quoted attributes is not
+  // mistaken for a rendered image (e.g. a copy button's data-prompt).
+  const tagRegex = /<([a-z][\w:-]*)\b((?:"[^"]*"|'[^']*'|[^'">])*)>/gi;
   let imgMatch;
   let missingAltCount = 0;
   let totalImgCount = 0;
-  while ((imgMatch = imgRegex.exec(contentWithoutScripts)) !== null) {
+  while ((imgMatch = tagRegex.exec(contentWithoutScripts)) !== null) {
+    if (imgMatch[1].toLowerCase() !== 'img') continue;
     totalImgCount++;
-    const attrs = imgMatch[1];
-    if (!/\balt=["']/i.test(attrs)) {
+    const attrs = imgMatch[2];
+    if (!/\balt\s*=\s*(?:["']|[^\s>]+)/i.test(attrs)) {
       missingAltCount++;
     }
   }
