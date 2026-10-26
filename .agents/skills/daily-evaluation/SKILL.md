@@ -23,7 +23,7 @@ Read and follow:
 | Pending submissions (evaluation queue) | **10** (or the whole queue if smaller) |
 | Re-evaluation of already-approved tools | **3** |
 
-The quota counts **distinct slugs with a finished `dogfood-session`** today, as recorded in `reports/evaluations/<date>.jsonl`. Starting a session and aborting it does not count. `node scripts/lab/evaluation-queue.mjs report` splits the count into `pendingEvaluated` and `retested`.
+The quota counts **distinct slugs with a finished, depth-qualified `dogfood-session`** today, as recorded in `reports/evaluations/<date>.jsonl`. Starting and aborting does not count, and neither does a session that fails the depth gate (see [tool-evaluation](../tool-evaluation/SKILL.md): a real input, the core task actually run, exports tried, and depth scores backed by interactions). `node scripts/lab/evaluation-queue.mjs report` splits the count into `pendingEvaluated` and `retested`.
 
 The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` anomalies first, then open `medium` anomalies, then the approved tools whose last deep evaluation is oldest. Anomalies therefore always jump the line, and when there are none the catalog is still re-verified on a rotation instead of being left untouched.
 
@@ -42,6 +42,7 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
    node scripts/lab/regression-ledger.mjs retest --limit 3
    ```
    Run the full tool-evaluation on each returned tool; `reason` says why it was chosen (`high_anomaly`, `medium_anomaly`, `stale_evaluation`) and `anomalies` lists the evidence the rolling scan recorded. Treat that evidence as a lead, not a verdict: verify it yourself in the browser.
+   - Before acting on any verdict, run `node scripts/lab/evaluation-queue.mjs verify <slug> --decision <approve|reject|clear>`. If it fails, keep testing; do not decide on a shallow session.
    - Confirmed policy violation → `node scripts/lib/admin-api.mjs reject <id> "<evidence>"`, then
      `node scripts/lab/regression-ledger.mjs resolve <slug> --outcome rejected --note "<evidence>"`.
    - Still compliant → `finish --sync` updates editorial, refreshes `lastDeepEvalAt`, and auto-resolves open anomalies. If you did not sync, run
@@ -53,10 +54,10 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
    node scripts/lab/evaluation-queue.mjs next --limit 10
    ```
    For each item, in order:
-   - `dogfood-session start` → at least one successful `act` → `export` when the tool has export → view every screenshot.
+   - `dogfood-session start` → give a real input → run the core task → `export` when the tool has export → view every screenshot. A login/credit/paywall verdict requires hitting the gate (run the task, try the download), not reading "sign in to download" on the page.
    - Decide:
-     - **approve**: eval JSON → `finish --eval ... --sync` → translations → `admin-api.mjs approve-evaluated` → `evaluation-queue.mjs done <id> --outcome approved --note "score N, tier"`
-     - **reject**: `finish` (no sync) → `admin-api.mjs reject <id> "<observed evidence>"` → `done <id> --outcome rejected --note "..."`
+     - **approve**: `verify <slug> --decision approve` → eval JSON → `finish --eval ... --sync` (the depth gate runs here too) → translations → `admin-api.mjs approve-evaluated` → `evaluation-queue.mjs done <id> --outcome approved --note "score N, tier"`
+     - **reject**: `finish` (no sync) → `verify <slug> --decision reject` → `admin-api.mjs reject <id> "<observed evidence>"` → `done <id> --outcome rejected --note "..."`
      - **defer** (operational blocker only): `abort` → `done <id> --outcome deferred --note "<blocker>"`
    - Keep going until 10 distinct slugs are finished or the queue is empty.
 
@@ -74,7 +75,7 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
 
 Paste the `report` JSON and add:
 
-- `quota_met`: the `quotaMet.pending` and `quotaMet.retest` flags from the report. If either is false, list the concrete blocker for each missing slot (e.g. "browser crashed at item 6, restarted twice"). "Time ran out" is not an acceptable blocker unless the elapsed time per evaluation is listed.
+- `quota_met`: the `quotaMet.pending` and `quotaMet.retest` flags from the report, plus `depthQualifiedSessions` and every entry of `unqualifiedSessions` with what was missing. If either is false, list the concrete blocker for each missing slot (e.g. "browser crashed at item 6, restarted twice"). "Time ran out" is not an acceptable blocker unless the elapsed time per evaluation is listed.
 - Approved: slug, score, tier.
 - Rejected: slug, evidence sentence.
 - Deferred: slug, blocker.

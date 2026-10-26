@@ -3,7 +3,7 @@ name: submission-review
 description: >-
   Review pending nologin.tools submissions and edit suggestions. Applies shared hard
   gates, runs lightweight triage, confirms and rejects Tier C through the review API,
-  feeds the persistent evaluation queue, prepares metadata, taxonomy, full 8-locale
+  feeds the persistent evaluation queue, prepares metadata, taxonomy, bilingual (EN/ZH)
   editorial and zh translations for evaluated tools, then performs an atomic
   approval through the canonical review API.
 ---
@@ -55,7 +55,7 @@ Run by the [`daily-evaluation`](../daily-evaluation/SKILL.md) skill: at least **
 
 - core task completed without mandatory login;
 - no bait-and-switch export wall or forced commercial watermark;
-- grounded 8-locale evaluation synchronized successfully;
+- grounded EN/ZH evaluation synchronized successfully (`finish --sync` passes the depth gate);
 - score at least 70;
 - strict Anti-Inflation scoring: Editor's Choice ($\ge 90$) is reserved for verified workstations with Functional Depth $\ge 22$ and empirical architecture proof; standard single-task utilities belong in `capable-utility` (70–79) or `highly-recommended` (80–89).
 

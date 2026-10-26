@@ -25,6 +25,7 @@ import { generateAllFixtures } from './fixtures/generate-fixtures.mjs';
 import { inspectArtifact, inspectClipboardArtifact, assessArtifactQuality } from './inspectors/output-inspector.mjs';
 import { validateCognitiveEvaluation, calibrate5DScore } from './cades-cognitive.mjs';
 import { loadLedger, saveLedger, resolveAnomalies } from './regression-ledger.mjs';
+import { summarizeSteps, assessDepth } from './evaluation-depth.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -669,6 +670,11 @@ async function cmdAct(slug, options) {
     result.ux = await page.evaluate(() => window.__uxTelemetry || null);
     result.netPayloads = await page.evaluate(() => window.__netPayloads || []);
     try {
+      result.controls = await page.evaluate(() => Array.from(document.querySelectorAll('button, a, [role="button"], input[type="button"], input[type="submit"]'))
+        .map(b => (b.innerText || b.value || b.getAttribute('aria-label') || '').trim())
+        .filter(t => t.length > 0 && t.length < 40).slice(0, 80));
+    } catch { result.controls = []; }
+    try {
       await page.screenshot({ path: ${JSON.stringify(actionPicPath)} });
     } catch {
       const fs = await import("node:fs");
@@ -708,6 +714,8 @@ async function cmdAct(slug, options) {
     });
     session.currentUrl = res.url;
     session.netPayloads = mergeObservedPayloads(session.netPayloads, res.netPayloads);
+    session.surface = session.surface || {};
+    session.surface.postActionControls = [...new Set([...(session.surface.postActionControls || []), ...(res.controls || [])])].slice(0, 200);
     if (res.ux) {
       session.uxTelemetry = res.ux;
       const isButter = (res.ux.maxLongTaskDuration < 60 && res.ux.clsScore === 0);
@@ -970,6 +978,9 @@ async function cmdExport(slug, trigger = null) {
     console.log(`\n📸 Export State Screenshot:`);
     console.log(`   👉 ${exportPicPath} (Agent inspect via view_image)\n`);
     if (!res.triggerClicked && !res.downloadTriggered && !res.clipboardTriggered) {
+      // Remember the attempt: an export that found nothing is still evidence the agent looked.
+      session.exportAttempts = (session.exportAttempts || 0) + 1;
+      saveSession(slug, session);
       console.error('❌ No export control matched the requested trigger. This does not count as an interaction.');
       return false;
     }
@@ -1032,6 +1043,19 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
       return false;
     }
     console.log('\n✅ Agent evaluation validated successfully.');
+  }
+
+  // Depth gate: syncing an approval requires evidence that the tool was really exercised.
+  const depthMetrics = summarizeSteps(session.steps, session.surface, session.exportAttempts || 0);
+  if (shouldSync && evalData) {
+    const depthCheck = assessDepth(depthMetrics, 'approve', { depth: evalData.productScore?.depth });
+    if (!depthCheck.ok) {
+      console.error('\n❌ Depth gate failed; session remains open and nothing was synchronized:');
+      depthCheck.failures.forEach((f) => console.error(`   • ${f}`));
+      console.error(`   (inputs ${depthMetrics.inputs}, triggers ${depthMetrics.triggers}, exports ${depthMetrics.exports}, interactions ${depthMetrics.interactions})`);
+      console.error('   Keep testing in this session, then run finish again.');
+      return false;
+    }
   }
 
   const resultFile = join(tmpdir(), `dogfood-finish-res-${Date.now()}.json`);
@@ -1243,7 +1267,15 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
       durationSec: flightRecorder.durationSec,
       steps: session.steps.length,
       synced: Boolean(evalData && shouldSync),
+      allowShallow: Boolean(allowShallow),
+      metrics: depthMetrics,
+      depth: {
+        approve: assessDepth(depthMetrics, 'approve', { depth: evalData?.productScore?.depth }),
+        reject: assessDepth(depthMetrics, 'reject'),
+        clear: assessDepth(depthMetrics, 'clear'),
+      },
       overall: evalData?.productScore?.overall ?? null,
+      depthScore: evalData?.productScore?.depth ?? null,
       verdictTier: evalData?.verdictTier ?? null,
     }) + '\n', 'utf-8');
   } catch (e) {

@@ -12,11 +12,13 @@
  *   node scripts/lab/evaluation-queue.mjs status
  *   node scripts/lab/evaluation-queue.mjs next [--limit 10]
  *   node scripts/lab/evaluation-queue.mjs done <id> --outcome <approved|rejected|deferred> --note "<evidence>"
- *   node scripts/lab/evaluation-queue.mjs report [--date YYYY-MM-DD]   # daily quota evidence
+ *   node scripts/lab/evaluation-queue.mjs verify <slug> --decision <approve|reject|clear>   # depth gate; run BEFORE calling the review API
+ *   node scripts/lab/evaluation-queue.mjs report [--date YYYY-MM-DD]   # daily quota evidence (only depth-qualified sessions count)
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { assessDepth, summarizeSteps } from './evaluation-depth.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -84,6 +86,40 @@ export function mergeTriage(queue, triaged, stillPendingIds) {
   return queue;
 }
 
+/**
+ * Latest finished-session log entry for a slug on a given day (null when none).
+ * @param {string} slug
+ * @param {string} [day]
+ */
+export function latestSession(slug, day = new Date().toISOString().slice(0, 10)) {
+  const file = resolve(OUTCOME_LOG_DIR, `${day}.jsonl`);
+  if (!existsSync(file)) return null;
+  const rows = readFileSync(file, 'utf-8').split('\n').filter(Boolean).map((l) => {
+    try { return JSON.parse(l); } catch { return null; }
+  }).filter(Boolean).filter((r) => r.slug === slug);
+  return rows.length ? rows[rows.length - 1] : null;
+}
+
+/**
+ * Verify that a finished session is deep enough to back a decision.
+ * @param {string} slug
+ * @param {'approve' | 'reject' | 'clear'} decision
+ * @param {string} [day]
+ * @returns {{ ok: boolean, failures: string[], session: any }}
+ */
+export function verifySession(slug, decision, day) {
+  const session = latestSession(slug, day);
+  if (!session) {
+    return { ok: false, session: null, failures: [`No finished dogfood-session for "${slug}" today. Run start -> act -> (export) -> finish first.`] };
+  }
+  // Logs written before the depth gate existed carry no metrics: they cannot qualify.
+  if (!session.metrics) {
+    return { ok: false, session, failures: ['This session log predates the depth gate and has no interaction metrics; re-run the evaluation.'] };
+  }
+  const result = assessDepth(session.metrics, decision, { depth: typeof session.depthScore === 'number' ? session.depthScore : undefined });
+  return { ...result, session };
+}
+
 /** Slugs of currently approved tools (from build-data.json); empty when the file is absent. */
 function approvedSlugs() {
   const path = resolve(ROOT, 'src/data/build-data.json');
@@ -109,9 +145,13 @@ export function dailyReport(day, approved = approvedSlugs(), queueOverride) {
           try { return JSON.parse(l); } catch { return null; }
         }).filter(Boolean)
       : [];
-  const sessions = read(resolve(OUTCOME_LOG_DIR, `${day}.jsonl`));
+  const allSessions = read(resolve(OUTCOME_LOG_DIR, `${day}.jsonl`));
   const outcomes = read(resolve(OUTCOME_LOG_DIR, `${day}.outcomes.jsonl`));
   const queue = queueOverride || loadQueue();
+  // A session counts only when it passes the depth gate for at least one decision type.
+  const qualified = (/** @type {any} */ s) => Boolean(s.metrics) && (s.depth?.approve?.ok || s.depth?.reject?.ok || s.depth?.clear?.ok);
+  const sessions = allSessions.filter(qualified);
+  const unqualified = allSessions.filter((s) => !qualified(s));
   const slugs = new Set(sessions.map((s) => s.slug));
   const retestSlugs = [...slugs].filter((s) => approved.has(s));
   // Approving a pending tool during the run makes its slug "approved" afterwards, so also
@@ -123,7 +163,9 @@ export function dailyReport(day, approved = approvedSlugs(), queueOverride) {
   return {
     date: day,
     quota: { pending: DAILY_EVALUATION_QUOTA, retest: DAILY_RETEST_QUOTA },
-    browserSessionsFinished: sessions.length,
+    browserSessionsFinished: allSessions.length,
+    depthQualifiedSessions: sessions.length,
+    unqualifiedSessions: unqualified.map((u) => ({ slug: u.slug, reason: u.metrics ? 'failed depth gate' : 'no depth metrics (pre-gate session)' })),
     distinctToolsEvaluated: slugs.size,
     pendingEvaluated: pendingDone,
     retested: retestDone,
@@ -168,6 +210,20 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     }
     const item = queue.items.find((i) => i.id === id);
     const day = new Date().toISOString().slice(0, 10);
+    if (outcome === 'approved' || outcome === 'rejected') {
+      const slug = item?.slug || opt('--slug');
+      if (!slug) {
+        console.error('Cannot verify depth: item is not in the queue. Pass --slug <slug>.');
+        process.exit(1);
+      }
+      const check = verifySession(slug, outcome === 'approved' ? 'approve' : 'reject');
+      if (!check.ok) {
+        console.error(`Depth gate: "${slug}" cannot be recorded as ${outcome}.`);
+        check.failures.forEach((f) => console.error(`  - ${f}`));
+        console.error('Continue testing the tool (a new session if the old one is finished) before deciding.');
+        process.exit(1);
+      }
+    }
     mkdirSync(OUTCOME_LOG_DIR, { recursive: true });
     appendFileSync(
       resolve(OUTCOME_LOG_DIR, `${day}.outcomes.jsonl`),
@@ -183,10 +239,20 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     }
     saveQueue(queue);
     console.log(`Recorded ${outcome} for ${id}`);
+  } else if (cmd === 'verify') {
+    const slug = rest[0];
+    const decision = opt('--decision');
+    if (!slug || !['approve', 'reject', 'clear'].includes(String(decision))) {
+      console.error('Usage: verify <slug> --decision <approve|reject|clear>');
+      process.exit(1);
+    }
+    const check = verifySession(slug, /** @type {'approve'|'reject'|'clear'} */ (decision));
+    console.log(JSON.stringify({ slug, decision, ok: check.ok, failures: check.failures, metrics: check.session?.metrics || null }, null, 2));
+    process.exit(check.ok ? 0 : 1);
   } else if (cmd === 'report') {
     console.log(JSON.stringify(dailyReport(opt('--date') || new Date().toISOString().slice(0, 10)), null, 2));
   } else {
-    console.error('Usage: evaluation-queue.mjs <status|next|done|report> ...');
+    console.error('Usage: evaluation-queue.mjs <status|next|done|verify|report> ...');
     process.exit(1);
   }
 }

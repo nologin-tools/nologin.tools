@@ -272,6 +272,14 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
       console.error('Usage: resolve <slug> --outcome <cleared|rejected|editorial-updated> --note "<evidence-backed note>"');
       process.exit(1);
     }
+    // Clearing or rejecting an approved tool needs a depth-qualified session from today.
+    const { verifySession } = await import('./evaluation-queue.mjs');
+    const check = verifySession(slug, outcome === 'rejected' ? 'reject' : 'clear');
+    if (!check.ok) {
+      console.error(`Depth gate: "${slug}" cannot be marked ${outcome}.`);
+      check.failures.forEach((f) => console.error(`  - ${f}`));
+      process.exit(1);
+    }
     resolveAnomalies(ledger, slug, { outcome, note });
     saveLedger(ledger);
     console.log(`Resolved ${slug} (${outcome})`);

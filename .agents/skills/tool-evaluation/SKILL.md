@@ -4,7 +4,7 @@ description: >-
   Agent-led CADES 2.0 evaluation for nologin.tools. Use to operate a tool through
   a stateful browser session, inspect screenshots, exercise real fixtures, verify
   export artifacts, assess observed data flow, calibrate the 5D score, and sync a
-  grounded 8-locale editorial record.
+  grounded bilingual (EN/ZH) editorial record.
 ---
 
 # Tool Evaluation
@@ -15,10 +15,23 @@ Follow [`../../../docs/CADES-2.0-ROUTE-A-SPEC.md`](../../../docs/CADES-2.0-ROUTE
 
 - Run browser evaluations sequentially and clean browser spaces before and after a batch.
 - A successful `act` or `export` is mandatory. Failed selectors and failed exports do not count.
+- **Depth gate (enforced by the tooling, not optional).** A session only backs a decision, and only counts toward the daily quota, when it shows the tool was actually run:
+  - **D1** a real input was given (fill, or upload a fixture);
+  - **D2** the core task was run after that input: click the run/process/generate/download control, press a key, or run `export`. For a live-updating tool with no run button, read the result after typing. A login wall, credit wall, or paywall must be **observed by hitting it** (run the task, try the download), never inferred from page copy such as "sign in to download";
+  - **D3** (approve) if export-like controls are visible, run `export` and inspect the artifact; a failed export attempt still counts as having looked;
+  - **D4** (approve) the functional-depth score must be backed by interactions: depth ≥ 13 needs ≥ 3 interactions, depth ≥ 18 needs ≥ 5 (input, trigger, export each count; DOM reads do not). Otherwise exercise more features or lower the score.
+
+  `finish --sync` refuses to synchronize when the gate fails and leaves the session open: keep testing, then run `finish` again. Check any decision before acting on it:
+
+  ```bash
+  node scripts/lab/evaluation-queue.mjs verify "<slug>" --decision approve   # or reject / clear
+  ```
+
+  `--allow-shallow` never satisfies the gate for an approval or rejection.
 - Use `view_image` on every screenshot used as evidence.
 - Network hooks observe traffic after navigation and during tested actions. “No payload egress observed” only describes that bounded observation; it does not prove local-only architecture, offline support, lack of server processing, or data-retention policy.
 - Do not synchronize heuristic output from the auxiliary rolling probe.
-- `finish --sync` requires a valid evaluation baseline (EN/ZH), which the system automatically expands and validates across all 8 supported locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`). If validation fails, leave the session open, correct the payload, and retry.
+- `finish --sync` requires a valid evaluation baseline (EN/ZH), which is the full editorial record for the site's two active locales (`en`, `zh`). If validation or the depth gate fails, leave the session open, correct the payload or keep testing, and retry.
 
 ## Stateful protocol
 
@@ -102,9 +115,9 @@ Finalize and synchronize:
 node scripts/lab/dogfood-session.mjs finish "<slug>" --eval "/tmp/eval-<slug>.json" --sync
 ```
 
-Confirm the command succeeds and `src/data/tool-editorial.json` contains synchronized records across all 8 supported locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`). A contradictory privacy verdict is rejected.
+Confirm the command succeeds and `src/data/tool-editorial.json` contains the synchronized `en` and `zh` records. A contradictory privacy verdict is rejected.
 
-Every `finish` (with or without `--sync`) appends a line to `reports/evaluations/<date>.jsonl`; that file is the evidence for the daily evaluation quota. A successful `--sync` also resolves any open anomalies for the slug in `src/data/regression-ledger.json`.
+Every `finish` (with or without `--sync`) appends a line to `reports/evaluations/<date>.jsonl`; that file is the evidence for the daily evaluation quota, including the interaction metrics the depth gate judged. A successful `--sync` also resolves any open anomalies for the slug in `src/data/regression-ledger.json`.
 
 ## Auxiliary regression scan
 

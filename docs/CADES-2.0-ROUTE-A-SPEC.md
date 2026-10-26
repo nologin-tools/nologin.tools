@@ -182,6 +182,9 @@ node scripts/lab/dogfood-session.mjs finish excalidraw-com --eval /tmp/eval-exca
 > [!NOTE]
 > **Anti-Slacking Guardrail**: Sessions with 0 interactive user actions (`act` or `export`) will be rejected unless explicitly passed `--allow-shallow` (reserved for purely static landing pages).
 
+> [!IMPORTANT]
+> **Depth Gate** (`scripts/lab/evaluation-depth.mjs`): a finished session backs an approval, rejection, or regression clearance, and counts toward the daily quota, only if it shows the tool was run. **D1** a real input was given; **D2** the core task ran after that input (trigger, export, or reading the live result of a tool with no run button); **D3** for approvals, visible export-like controls were tried; **D4** for approvals, `productScore.depth` ≥ 13 needs ≥ 3 interactions and ≥ 18 needs ≥ 5. A gate (login, credits, paywall) must be observed by hitting it, not inferred from page copy. `finish --sync` refuses to synchronize a session that fails the gate; `evaluation-queue.mjs verify <slug> --decision approve|reject|clear` checks any decision before it is made, and `done` / `regression-ledger.mjs resolve` re-check it.
+
 ### 4.6 `abort <slug>`
 Emergency cleanup: forcefully destroys the `taskSpace` and cleans up temporary session files.
 
@@ -277,6 +280,9 @@ To ensure reviews sound authentic, critical, and authoritative rather than like 
      - Exact UI elements observed: modal names, button labels, dropdown choices.
 
 ### 6.2 Full 8-Locale Editorial Expansion Pipeline
+
+> [!NOTE]
+> The site currently serves only `en` and `zh` (`src/i18n/config.ts`). `finish --sync` writes the `en` and `zh` records; the 8-locale expansion below applies only if additional locales are re-enabled.
 
 To uphold equal localized user experiences across all supported directory locales (`en`, `zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`), CADES 2.0 mandates full editorial parity in `src/data/tool-editorial.json`:
 1. **Authoring Decoupling**: The reviewing Agent authors the primary empirical ground truth in English (`en`) and Chinese (`zh`), ensuring direct human/agent cognitive accountability over score calibration, privacy analysis, and grounded metrics.
