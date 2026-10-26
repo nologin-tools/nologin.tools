@@ -147,7 +147,7 @@ console.log('[build-data] Fetching data from D1...');
 const toolRows = await queryD1(`
   SELECT id, slug, name, url, description, core_task, seo_title, seo_description,
          seo_focus_keyword, seo_intent, seo_task_phrase, status,
-         submitted_at, approved_at, rejection_reason, submitter_email,
+         submitted_at, approved_at, content_updated_at, rejection_reason, submitter_email,
          archive_url, is_featured, featured_at, submitter_ip_hash,
          twitter_url, github_url, discord_url, repo_url,
          github_stars, github_forks, github_license, github_language,
