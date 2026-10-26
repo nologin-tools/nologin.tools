@@ -9,10 +9,11 @@
       "steps": [
         "Open Duck.ai and enter the sample in the chat box. In this test the selected model was GPT-6 Luna; the available models may change.",
         "Submit the prompt. Check that the response contains quantity, unit_price_usd and total_usd.",
-        "Send the follow-up: “Change quantity to 4 and recalculate the total. Return valid JSON only.”"
+        "Send the follow-up: “Change quantity to 4 and recalculate the total. Return valid JSON only.”",
+        "Use the response copy button to copy the JSON. The captured clipboard output parsed successfully."
       ],
       "result": "The first response gave total_usd 13.50. The follow-up retained unit_price_usd 4.50 and returned quantity 4 with total_usd 18.00. Both responses used JSON syntax, and the second answer preserved the earlier context.",
-      "limitations": "This was a small text and arithmetic task, not a general accuracy benchmark. Model output can be wrong. Duck.ai sends chats to remote model providers through DuckDuckGo; it is not an offline or local-inference tool. Export and attachment handling were not verified in this test.",
+      "limitations": "This was a small text and arithmetic task, not a general accuracy benchmark. Model output can be wrong. Duck.ai sends chats to remote model providers through DuckDuckGo; it is not an offline or local-inference tool. Copying was verified; file export and attachment handling were not tested.",
       "screenshot": {
         "src": "/evidence/2026-10-26/duck-ai.png",
         "width": 1862,
@@ -24,7 +25,11 @@
           "href": "https://duckduckgo.com/duckduckgo-help-pages/what-information-does-duckai-share-with-model-providers",
           "label": "DuckDuckGo: information shared with model providers"
         }
-      ]
+      ],
+      "artifact": {
+        "href": "/evidence/2026-10-26/duck-ai.json",
+        "label": "Download the captured JSON response"
+      }
     },
     "zh": {
       "title": "免注册把订单文字转成 JSON",
@@ -35,10 +40,11 @@
       "steps": [
         "打开 Duck.ai，在对话框中输入这段样例。本次选中的模型是 GPT-6 Luna；可用模型可能变化。",
         "提交问题，检查回答是否包含 quantity、unit_price_usd 和 total_usd。",
-        "继续输入：“Change quantity to 4 and recalculate the total. Return valid JSON only.”"
+        "继续输入：“Change quantity to 4 and recalculate the total. Return valid JSON only.”",
+        "点击回答旁的复制按钮，复制 JSON。本次捕获的剪贴板内容通过了 JSON 解析检查。"
       ],
       "result": "第一轮回答的总价为 13.50。第二轮保留了 4.50 的单价，将数量改为 4，总价更新为 18.00。两次回答都使用 JSON 语法，第二次回答也保留了上文的订单信息。",
-      "limitations": "这次只测试了简短的文字与算术任务，不能代表模型的整体准确率。模型仍可能出错。Duck.ai 经由 DuckDuckGo 将对话发送给远程模型服务商，并非离线或本地推理工具。本次尚未验证导出和附件处理。",
+      "limitations": "这次只测试了简短的文字与算术任务，不能代表模型的整体准确率。模型仍可能出错。Duck.ai 经由 DuckDuckGo 将对话发送给远程模型服务商，并非离线或本地推理工具。本次验证了复制功能，未测试文件导出和附件处理。",
       "screenshot": {
         "src": "/evidence/2026-10-26/duck-ai.png",
         "width": 1862,
@@ -50,7 +56,501 @@
           "href": "https://duckduckgo.com/duckduckgo-help-pages/what-information-does-duckai-share-with-model-providers",
           "label": "DuckDuckGo：与模型服务商共享的信息"
         }
+      ],
+      "artifact": {
+        "href": "/evidence/2026-10-26/duck-ai.json",
+        "label": "下载实测复制出的 JSON"
+      }
+    }
+  },
+  "browserleaks-com": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:42:21.735Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/browserleaks-com.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "BrowserLeaks IP lookup for the public address 1.1.1.1, showing hostname and Cloudflare network information."
+      },
+      "title": "Look up a public IP and export its report",
+      "summary": "BrowserLeaks exposes several different kinds of information. We tested its public IP lookup, then opened the Canvas and JavaScript reports to distinguish network lookup results from browser capability measurements.",
+      "input": "1.1.1.1",
+      "steps": [
+        "Enter 1.1.1.1 in the IP Address Lookup field and submit it.",
+        "Inspect the hostname, network ASN and registry sections. The lookup result is also available at /ip/1.1.1.1.",
+        "Use the camera icon beside the report heading to download the page as a PNG. Open the file and check both the text tables and the map."
+      ],
+      "result": "The report identified one.one.one.one and AS13335 / Cloudflare, with APNIC registry data. The exported PNG was 950×1950 pixels and preserved the text tables. Some external map tiles in the downloaded image showed 403 access-blocked panels, although the in-page map rendered normally.",
+      "limitations": "This example uses a public resolver address, not a personal IP. Database geolocation can be misleading for anycast services. Browser fingerprint reports can identify a device; the tests diagnose exposure but do not prevent tracking. The suite includes remote lookups and should not be described as entirely local.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/browserleaks-ip-report.png",
+        "label": "Download the tested PNG report (includes blocked map tiles)"
+      },
+      "sources": [
+        {
+          "href": "https://browserleaks.com/ip/1.1.1.1",
+          "label": "Reproduce the public IP lookup"
+        },
+        {
+          "href": "https://browserleaks.com/canvas",
+          "label": "Canvas fingerprint test"
+        }
       ]
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:42:21.735Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/browserleaks-com.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "BrowserLeaks 查询公开地址 1.1.1.1，展示主机名及 Cloudflare 网络信息。"
+      },
+      "title": "查询公开 IP 并导出报告",
+      "summary": "BrowserLeaks 展示的信息来自不同检测方式。我们测试了公开 IP 查询，并查看 Canvas 与 JavaScript 报告，区分网络查询结果和浏览器能力检测。",
+      "input": "1.1.1.1",
+      "steps": [
+        "在 IP Address Lookup 输入框填入 1.1.1.1 并提交。",
+        "查看主机名、网络 ASN 和注册信息。结果也可通过 /ip/1.1.1.1 访问。",
+        "点击报告标题旁的相机图标，下载 PNG；打开后同时检查文字表格和地图。"
+      ],
+      "result": "报告识别出 one.one.one.one、AS13335 / Cloudflare，并展示 APNIC 注册信息。导出的 PNG 为 950×1950 像素，文字表格保留正常。网页上的地图正常显示，但下载图片中的部分外部地图瓦片出现了 403 访问受限提示。",
+      "limitations": "案例使用公开 DNS 地址，并非个人 IP。Anycast 服务的数据库位置可能造成误解。浏览器指纹报告可能识别设备；检测能揭示暴露情况，但不会阻止追踪。该套件包含远程查询，不能笼统称为完全本地工具。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/browserleaks-ip-report.png",
+        "label": "下载实测 PNG 报告（含受限地图瓦片）"
+      },
+      "sources": [
+        {
+          "href": "https://browserleaks.com/ip/1.1.1.1",
+          "label": "复现公开 IP 查询"
+        },
+        {
+          "href": "https://browserleaks.com/canvas",
+          "label": "Canvas 指纹检测"
+        }
+      ]
+    }
+  },
+  "pairdrop-net": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:51:28.001Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/pairdrop-net.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "PairDrop displays a received 55-byte JSON file and a Save again button."
+      },
+      "title": "Transfer a small JSON file between browser peers",
+      "summary": "We used two tabs in one browser, joined the same temporary room, and sent a small file in both directions without creating an account.",
+      "input": "duck-ai.json — 55 bytes\n{\"quantity\":4,\"unit_price_usd\":4.50,\"total_usd\":18.00}",
+      "steps": [
+        "Open PairDrop in both test tabs. If the other tab is not listed, create a temporary room and enter its room code in the second tab.",
+        "Match the displayed peer names before selecting a recipient. We used Aqua Crawdad and Sapphire Dormouse.",
+        "Choose the JSON file on the sending tab. On the receiving tab, accept the request and select Save.",
+        "Compare the downloaded file with the source. We also sent the downloaded file back and tested Save on the original tab."
+      ],
+      "result": "The 55-byte JSON arrived with its content intact. A byte-for-byte comparison of the first download and original file found no difference. Neither send, receive nor download required an account.",
+      "limitations": "This is a same-browser, small-file test. It does not establish cross-device or cross-network reliability. Room discovery uses a remote service; we did not verify the file transport or server retention. Share room codes only with intended recipients and check the sender name before accepting.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/pairdrop-received.json",
+        "label": "Download the received JSON file"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:51:28.001Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/pairdrop-net.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "PairDrop 显示已收到 55 字节的 JSON 文件，并提供再次保存按钮。"
+      },
+      "title": "在浏览器节点间传送 JSON 小文件",
+      "summary": "我们在同一浏览器中打开两个标签页，加入同一个临时房间，并完成双向文件传输，全程无需注册账号。",
+      "input": "duck-ai.json — 55 字节\n{\"quantity\":4,\"unit_price_usd\":4.50,\"total_usd\":18.00}",
+      "steps": [
+        "在两个测试标签页中打开 PairDrop。若看不到对端，创建临时房间，并在另一标签页输入房间号。",
+        "选择收件人之前核对设备名称。本次两个节点分别为 Aqua Crawdad 和 Sapphire Dormouse。",
+        "在发送端选择 JSON 文件；接收端确认请求后，点击保存。",
+        "将下载文件与原文件比较。我们还把下载文件反向发送，并在原标签页验证了保存功能。"
+      ],
+      "result": "55 字节的 JSON 完整送达。首次下载文件与原文件逐字节比较，没有发现差异。发送、接收和下载均未要求账号。",
+      "limitations": "这次仅验证了同一浏览器内的小文件传输，不能代表跨设备或跨网络可靠性。房间发现依赖远程服务；我们没有确认文件传输路径或服务端保留策略。房间号应只分享给预期收件人，接收前需核对发送端名称。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/pairdrop-received.json",
+        "label": "下载实测收到的 JSON 文件"
+      }
+    }
+  },
+  "themeasureofaplan-com": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:56:19.389Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/themeasureofaplan-com.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Savings Goal Solver shows the synthetic inputs and a $1,200 result."
+      },
+      "title": "Check a zero-return savings example",
+      "summary": "We tested the Savings Goal Solver with synthetic numbers that are easy to check independently. The live calculation worked without a site account.",
+      "input": "Initial savings: $0\nMonthly contribution: $100\nTime: 1 year, 0 extra months\nAnnual return: 0%",
+      "steps": [
+        "Open Savings Goal Solver and choose Final Savings.",
+        "Enter the sample assumptions, then move focus out of the last field so the change is applied.",
+        "Read the final savings, contribution total and investment-return total.",
+        "The separate Excel link opens a Google Drive template folder; it is not an export of the current browser scenario."
+      ],
+      "result": "The page showed $1,200 final savings, entirely from $1,200 of contributions, with $0 investment returns. This matches 12 × $100.",
+      "limitations": "This verifies one arithmetic case, not forecasting accuracy or financial suitability. The model assumes constant inputs. Ads and an overlay interrupted the page after we rejected optional cookies. The Excel template download and formulas were not verified.",
+      "sources": [
+        {
+          "href": "https://themeasureofaplan.com/savings-goal-solver/",
+          "label": "Open the tested Savings Goal Solver"
+        }
+      ]
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:56:19.389Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/themeasureofaplan-com.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Savings Goal Solver 显示虚构的输入假设，以及 1,200 的计算结果。"
+      },
+      "title": "用零收益样例核对储蓄计算",
+      "summary": "我们使用便于独立核算的虚构数字测试 Savings Goal Solver。网页计算无需站点账号即可完成。",
+      "input": "初始储蓄：0\n每月缴款：100\n期限：1 年，额外月份 0\n年收益率：0%",
+      "steps": [
+        "打开 Savings Goal Solver，选择 Final Savings。",
+        "填入样例假设，离开最后一个输入框，使变更生效。",
+        "查看最终储蓄、累计缴款和投资收益三个结果。",
+        "页面另有 Excel 链接，打开的是 Google Drive 模板目录，并非当前网页场景的导出文件。"
+      ],
+      "result": "页面显示最终储蓄为 1,200，全部来自 1,200 的缴款，投资收益为 0，与 12 × 100 一致。",
+      "limitations": "这只验证一个算术案例，不代表预测准确性或适合某项财务决策。模型假设各项输入保持不变。拒绝可选 Cookie 后，页面仍有广告和遮挡操作的弹层。本次未验证 Excel 模板下载及其公式。",
+      "sources": [
+        {
+          "href": "https://themeasureofaplan.com/savings-goal-solver/",
+          "label": "打开本次测试的储蓄计算器"
+        }
+      ]
+    }
+  },
+  "gchq-github-io-cyberchef": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:57:54.826Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/cyberchef.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "CyberChef shows the To Base64 recipe, nologin.tools input and the encoded output."
+      },
+      "title": "Encode text as Base64 and check the round trip",
+      "summary": "We built a short CyberChef recipe, saved its output, then added a decoding step to check that the original text returned.",
+      "input": "nologin.tools",
+      "steps": [
+        "Double-click To Base64 in Operations to add it to the recipe.",
+        "Enter nologin.tools in Input and run Bake, or leave Auto Bake enabled.",
+        "Use the Output save button, enter a filename, and download the text file.",
+        "Add From Base64 after To Base64. The output should return to the original text."
+      ],
+      "result": "The encoded result was bm9sb2dpbi50b29scw==. The downloaded file contained exactly that string. Adding From Base64 returned nologin.tools, without an account prompt.",
+      "limitations": "Base64 is encoding, not encryption. This small UTF-8 text test does not verify every recipe, large files, or operations that intentionally make network requests.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/cyberchef-base64.txt",
+        "label": "Download the saved Base64 output"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T10:57:54.826Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/cyberchef.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "CyberChef 显示 To Base64 配方、nologin.tools 输入和对应的编码输出。"
+      },
+      "title": "把文字转成 Base64，并验证往返还原",
+      "summary": "我们搭建了一个简短的 CyberChef 配方，保存输出文件，再增加解码步骤，检查是否能还原原文。",
+      "input": "nologin.tools",
+      "steps": [
+        "在 Operations 中双击 To Base64，将其加入配方。",
+        "在 Input 中输入 nologin.tools，点击 Bake，或保持 Auto Bake 开启。",
+        "点击 Output 的保存按钮，输入文件名并下载文本文件。",
+        "在 To Base64 后增加 From Base64，检查输出是否还原为原文。"
+      ],
+      "result": "编码结果为 bm9sb2dpbi50b29scw==，下载文件与该字符串完全一致。增加 From Base64 后，输出还原为 nologin.tools，全程未要求账号。",
+      "limitations": "Base64 是编码，不是加密。本次仅测试一段 UTF-8 短文本，不能代表全部配方、大文件性能或主动访问网络的操作。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/cyberchef-base64.txt",
+        "label": "下载实测保存的 Base64 输出"
+      }
+    }
+  },
+  "regex101-com": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:00:00.031Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/regex101.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Regex101 exports the two ticket matches as JSON, including start and end positions."
+      },
+      "title": "Find ticket IDs and export the matches as JSON",
+      "summary": "We tested a small regular expression against two valid ticket IDs and one invalid lookalike, then copied the match export.",
+      "input": "Pattern: [A-Z]{2}-\\d{4}\nFlags: gm; flavor: PCRE2 (PHP)\nText: Tickets: NL-2026, QA-0017; skip N-12.",
+      "steps": [
+        "Enter the pattern in Regular Expression and the sample sentence in Test String.",
+        "Wait for the match result; the default PCRE2 flavor and gm flags were used.",
+        "Open Export Matches and leave the format at JSON.",
+        "Select Copy all matches and parse the copied JSON."
+      ],
+      "result": "The page found NL-2026 at positions 9–16 and QA-0017 at 18–25. N-12 did not match. The copied JSON contained both results with their positions and parsed successfully without an account prompt.",
+      "limitations": "This pattern is for the sample format, not universal ticket validation. Regex syntax and performance differ between engines. We did not test workspace sharing, account features or the other export formats.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/regex101-matches.json",
+        "label": "Download the copied match JSON"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:00:00.031Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/regex101.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Regex101 将两个工单编号及其起止位置导出为 JSON。"
+      },
+      "title": "匹配工单编号并导出 JSON",
+      "summary": "我们用一条简短的正则表达式匹配两个有效编号和一个不符合格式的字符串，再复制匹配结果。",
+      "input": "表达式：[A-Z]{2}-\\d{4}\n标志：gm；引擎：PCRE2 (PHP)\n文本：Tickets: NL-2026, QA-0017; skip N-12.",
+      "steps": [
+        "在 Regular Expression 中输入表达式，在 Test String 中输入样例句子。",
+        "等待匹配完成。本次使用默认 PCRE2 引擎和 gm 标志。",
+        "打开 Export Matches，保持 JSON 格式。",
+        "点击 Copy all matches，检查复制出的 JSON。"
+      ],
+      "result": "页面匹配到位置 9–16 的 NL-2026 和位置 18–25 的 QA-0017，N-12 未被匹配。复制出的 JSON 包含两条结果及其位置，通过解析检查，未要求账号。",
+      "limitations": "该表达式仅针对样例格式，并非通用工单验证规则。不同正则引擎的语法与性能有差异。本次未测试工作区分享、账号功能或其他导出格式。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/regex101-matches.json",
+        "label": "下载实测复制的匹配结果"
+      }
+    }
+  },
+  "tableconvert-com": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:00:47.235Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/tableconvert.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "TableConvert shows the two JSON objects; login_required is a string in the default output."
+      },
+      "title": "Convert a pasted spreadsheet table to JSON",
+      "summary": "We pasted a two-row table into TableConvert, reviewed the JSON and downloaded the result without signing in.",
+      "input": "tool\tlogin_required\nExcalidraw\tfalse\nCyberChef\tfalse",
+      "steps": [
+        "Leave the data source on Excel and paste the tab-separated sample into the source box. Use a real paste action so the table is imported.",
+        "Review the two rows in the table editor.",
+        "Keep JSON output and Array of Object format.",
+        "Select Download File and parse the downloaded JSON."
+      ],
+      "result": "The downloaded JSON contained two objects with tool and login_required keys. The values false were preserved as strings (\"false\"), not converted to JSON booleans.",
+      "limitations": "Check data types before using the output in code. We tested only this small pasted table and the default JSON settings, not file imports, APIs or large tables. Third-party ads were visible around the workspace.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/tableconvert.json",
+        "label": "Download the tested JSON output"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:00:47.235Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/tableconvert.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "TableConvert 显示两个 JSON 对象，默认输出中的 login_required 为字符串。"
+      },
+      "title": "把粘贴的表格转换为 JSON",
+      "summary": "我们在 TableConvert 中粘贴两行表格，检查 JSON，并免登录下载了结果。",
+      "input": "tool\tlogin_required\nExcalidraw\tfalse\nCyberChef\tfalse",
+      "steps": [
+        "数据来源保持 Excel，将含制表符的样例粘贴进输入框。使用粘贴操作触发表格导入。",
+        "在表格编辑区核对两行数据。",
+        "输出选择 JSON，数据格式保持 Array of Object。",
+        "点击 Download File，解析下载的 JSON。"
+      ],
+      "result": "下载文件包含两个对象，字段为 tool 和 login_required。输入的 false 保留为字符串 \"false\"，没有自动变成 JSON 布尔值。",
+      "limitations": "在代码中使用结果之前，应检查数据类型。本次只验证了小表格粘贴和默认 JSON 输出，未验证文件导入、API 或大表格。工作区周围有第三方广告。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/tableconvert.json",
+        "label": "下载实测生成的 JSON"
+      }
+    }
+  },
+  "dillinger-io": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:04:29.333Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/dillinger.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Dillinger shows the Markdown source, rendered list and table, with the HTML export menu open."
+      },
+      "title": "Preview Markdown and download an HTML document",
+      "summary": "We created a short Markdown document with a heading, list and table, then checked the downloaded HTML.",
+      "input": "# NoLogin test\n\n- Draft\n- Export\n\n| Tool | Login |\n| --- | --- |\n| Dillinger | No |",
+      "steps": [
+        "Create a new document and paste the Markdown sample into the editor.",
+        "Check the live preview for the heading, two list items and the two-column table.",
+        "Choose Export as → HTML.",
+        "Open the downloaded file and check its heading, list and table cells."
+      ],
+      "result": "The HTML download preserved NoLogin test, Draft, Export and the Dillinger / No table row. Editing, preview and this export did not require an account.",
+      "limitations": "This test covered basic Markdown and plain HTML export. PDF, styled HTML, image uploads and cloud integrations were not tested. The page displayed an advertisement, and browser autosave is not a substitute for a downloaded backup.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/dillinger.html",
+        "label": "Download the exported HTML"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:04:29.333Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/dillinger.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Dillinger 显示 Markdown 源文、列表和表格预览，以及展开的 HTML 导出菜单。"
+      },
+      "title": "预览 Markdown 并下载 HTML 文档",
+      "summary": "我们创建了包含标题、列表和表格的简短 Markdown 文档，并检查了下载的 HTML。",
+      "input": "# NoLogin test\n\n- Draft\n- Export\n\n| Tool | Login |\n| --- | --- |\n| Dillinger | No |",
+      "steps": [
+        "新建文档，将样例 Markdown 粘贴到编辑区。",
+        "在实时预览中检查标题、两个列表项和两列表格。",
+        "选择 Export as → HTML。",
+        "打开下载文件，检查 HTML 中的标题、列表和表格单元格。"
+      ],
+      "result": "HTML 下载保留了 NoLogin test 标题、Draft 与 Export 列表项，以及 Dillinger / No 表格行。编辑、预览和本次导出均未要求账号。",
+      "limitations": "本次仅验证基础 Markdown 和普通 HTML 导出，未测试 PDF、带样式 HTML、图片上传及云端集成。页面显示广告；浏览器自动保存也不能替代下载备份。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/dillinger.html",
+        "label": "下载实测导出的 HTML"
+      }
+    }
+  },
+  "excalidraw-com": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:04:29.341Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/excalidraw.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Excalidraw previews the full Draft → Export diagram and confirms the PNG clipboard action."
+      },
+      "title": "Draw a two-step flow and copy it as a PNG",
+      "summary": "We drew a small Draft → Export diagram with the shape and text tools, then captured and inspected the PNG produced by Copy to clipboard.",
+      "input": "Two rectangles labelled Draft and Export, connected by a right-pointing arrow.",
+      "steps": [
+        "Draw two rectangles with the rectangle tool and connect them with an arrow.",
+        "Use the text tool to add Draft and Export inside the shapes.",
+        "Open Export image (Cmd/Ctrl + Shift + E). Disable Only selected to include the whole diagram.",
+        "Keep 1× scale and use Copy to clipboard. Paste the PNG into a destination that accepts images."
+      ],
+      "result": "The copied PNG was 680 × 140 pixels and 8,790 bytes. Both labels, both boxes and the arrow were present, without a visible watermark or account prompt.",
+      "limitations": "The file-save path opened a native save picker that the test browser could not complete, so this case verifies clipboard PNG export. Collaboration, SVG export and large canvases were not tested. Save an editable drawing separately if you need to revise its shapes later.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/excalidraw-diagram.png",
+        "label": "Download the PNG captured from the clipboard export"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:04:29.341Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/excalidraw.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "Excalidraw 预览完整的 Draft → Export 图，并显示 PNG 复制成功。"
+      },
+      "title": "绘制两步流程图并复制为 PNG",
+      "summary": "我们使用形状和文字工具绘制 Draft → Export 流程图，并捕获、检查了“复制到剪贴板”生成的 PNG。",
+      "input": "两个分别标注 Draft 和 Export 的矩形，中间用向右箭头连接。",
+      "steps": [
+        "用矩形工具绘制两个框，并用箭头连接。",
+        "使用文字工具，在两个框内分别写入 Draft 和 Export。",
+        "打开导出图片窗口（Cmd/Ctrl + Shift + E），关闭“仅选中”，包含整张图。",
+        "保持 1× 比例，点击复制到剪贴板，再粘贴到支持图片的应用中。"
+      ],
+      "result": "复制得到的 PNG 为 680 × 140 像素、8,790 字节。两个文字标签、两个框和箭头均完整显示，没有可见水印或账号要求。",
+      "limitations": "文件保存路径打开了测试浏览器无法完成的系统保存选择器，因此本案例验证的是剪贴板 PNG 导出。未测试协作、SVG 或大画布。若需要继续编辑图形，应另存可编辑的绘图文件。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/excalidraw-diagram.png",
+        "label": "下载从实测剪贴板导出中捕获的 PNG"
+      }
+    }
+  },
+  "audiomass-co": {
+    "en": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:06:23.560Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/audiomass.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "AudioMass offers WAV, 16-bit mono and whole-file export for the processed two-second waveform."
+      },
+      "title": "Reduce a test tone to half amplitude and export WAV",
+      "summary": "We loaded a synthetic tone, applied 50% gain, and checked the samples in the exported WAV file.",
+      "input": "2-second 440 Hz sine wave; 44,100 Hz; mono; 16-bit PCM; peak sample 16,383.",
+      "steps": [
+        "Use File → Load from Computer to open the WAV fixture.",
+        "Open Effects → Gain, set Gain percentage to 50%, and apply it to the full two-second selection.",
+        "Open File → Export / Download and choose WAV, 16-bit, Mono and Export whole file.",
+        "Download the output and compare its duration, sample rate and peak amplitude with the input."
+      ],
+      "result": "The exported WAV remained 2 seconds long at 44,100 Hz, mono, 16-bit PCM. Its peak sample was 8,191 versus 16,383 in the original, approximately half amplitude. Loading, processing and export required no account.",
+      "limitations": "A synthetic sine wave checks gain and file integrity, not perceptual audio quality. Other effects, long recordings, multitrack editing and compressed exports were not tested.",
+      "artifact": {
+        "href": "/evidence/2026-10-26/audiomass-half-gain.wav",
+        "label": "Download the processed WAV test tone"
+      }
+    },
+    "zh": {
+      "testedAt": "2026-10-26",
+      "updatedAt": "2026-10-26T11:06:23.560Z",
+      "screenshot": {
+        "src": "/evidence/2026-10-26/audiomass.png",
+        "width": 1862,
+        "height": 1073,
+        "alt": "AudioMass 显示处理后的两秒波形，以及 WAV、16 位、单声道和整段导出选项。"
+      },
+      "title": "将测试音的振幅减半并导出 WAV",
+      "summary": "我们导入合成测试音，应用 50% 增益，再检查导出 WAV 文件中的采样数据。",
+      "input": "2 秒、440 Hz 正弦波；采样率 44,100 Hz；单声道；16 位 PCM；峰值采样为 16,383。",
+      "steps": [
+        "通过 File → Load from Computer 打开 WAV 测试文件。",
+        "选择 Effects → Gain，将 Gain percentage 设为 50%，应用到完整的两秒选区。",
+        "打开 File → Export / Download，选择 WAV、16-bit、Mono 和 Export whole file。",
+        "下载结果，比较输入和输出的时长、采样率与峰值振幅。"
+      ],
+      "result": "导出 WAV 仍为 2 秒、44,100 Hz、单声道、16 位 PCM。峰值采样从 16,383 降为 8,191，约为原来的一半。导入、处理和导出均未要求账号。",
+      "limitations": "合成正弦波用于检查增益和文件完整性，不能代替主观音质评测。本次未测试其他效果、长录音、多轨编辑或压缩格式导出。",
+      "artifact": {
+        "href": "/evidence/2026-10-26/audiomass-half-gain.wav",
+        "label": "下载经过处理的 WAV 测试音"
+      }
     }
   }
 }

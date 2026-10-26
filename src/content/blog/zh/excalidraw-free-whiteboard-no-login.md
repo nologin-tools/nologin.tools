@@ -1,6 +1,7 @@
 ---
 title: "Excalidraw：免费在线白板，无需注册登录"
 description: "Excalidraw 是一款免费开源的白板工具，直接在浏览器中使用，无需注册。支持手绘风格图表，协作数据端对端加密。"
+updatedAt: 2026-10-26
 publishedAt: 2026-04-07
 author: "nologin.tools"
 tags: ["tools", "review", "privacy", "open-source", "browser"]
@@ -12,6 +13,10 @@ sourceHash: "ba7bcfac58d58f30"
 ---
 
 ![Hero image](/blog/images/excalidraw-free-whiteboard-no-login/hero.jpg)
+
+## 实测样例 — 2026 年 10 月 26 日
+
+查看我们的[两步流程图实测](/zh/tool/excalidraw-com#tested-workflow)：包含输入、导出设置与从剪贴板捕获的 680 × 140 PNG。两个框、标签和箭头均完整保留，没有可见水印。
 
 大多数白板工具都要求你在画第一条线之前先创建账号。Miro 要你的邮箱，FigJam 要你的 Figma 账号，Lucidchart 画超过五个图形就要付费。而且一旦付费，他们就能看到你画的所有内容。
 

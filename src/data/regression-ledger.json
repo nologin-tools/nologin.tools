@@ -61,6 +61,17 @@
     "lastTitle": "Volunteer Roster — free sign up sheet online",
     "lastSignals": []
   },
+  "browserleaks-com": {
+    "lastDeepEvalAt": "2026-10-26T10:41:11.333Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced; corrected after exported PNG inspection to overall 77, capable-utility (map tiles returned 403).",
+      "at": "2026-10-26T10:41:11.333Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T10:41:11.333Z"
+  },
   "bytepane-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:26:36.326Z",
@@ -204,6 +215,17 @@
     "lastScanAt": "2026-10-24T06:22:46.173Z",
     "lastTitle": "Drunk Calculator: Free BAC & Sober Time Estimator",
     "lastSignals": []
+  },
+  "duck-ai": {
+    "lastDeepEvalAt": "2026-10-26T10:37:02.059Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-10-26T10:37:02.059Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T10:37:02.059Z"
   },
   "earchord-com": {
     "openAnomalies": [],
@@ -386,9 +408,16 @@
   },
   "pairdrop-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T06:25:38.544Z",
+    "lastScanAt": "2026-10-26T10:50:58.320Z",
     "lastTitle": "PairDrop | Transfer Files Cross-Platform. No Setup, No Signup.",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-10-26T10:50:58.320Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-10-26T10:50:58.320Z",
+      "closed": []
+    }
   },
   "pdftomdconverter-app": {
     "openAnomalies": [],
@@ -642,6 +671,17 @@
     "lastScanAt": "2026-10-24T06:24:56.785Z",
     "lastTitle": "8码快传 · 文件点对点直传",
     "lastSignals": []
+  },
+  "themeasureofaplan-com": {
+    "lastDeepEvalAt": "2026-10-26T10:56:20.233Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 61, emergency-only)",
+      "at": "2026-10-26T10:56:20.233Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T10:56:20.234Z"
   },
   "til-re": {
     "openAnomalies": [],

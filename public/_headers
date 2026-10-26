@@ -39,6 +39,10 @@
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
 
+/evidence/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=86400
+
 /api/v1/*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, OPTIONS

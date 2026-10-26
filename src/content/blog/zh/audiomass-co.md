@@ -1,6 +1,7 @@
 ---
 title: "AudioMass：一款完全运行在浏览器里的音频编辑器"
 description: "AudioMass 是一款免费开源的网页音频编辑器——支持剪切、裁剪、应用效果和导出音频，无需安装软件，无需注册账号。"
+updatedAt: 2026-10-26
 publishedAt: 2026-03-23
 author: "nologin.tools"
 tags: ["tools", "review", "media", "audio"]
@@ -12,6 +13,10 @@ heroImageQuery: "audio waveform editing studio"
 ---
 
 ![Hero image](/blog/images/audiomass-co/hero.jpg)
+
+## 实测样例 — 2026 年 10 月 26 日
+
+我们的[50% 增益实测](/zh/tool/audiomass-co#tested-workflow)使用两秒合成测试音。导出 WAV 保留了采样率和时长，测得峰值振幅约为输入的一半；案例包含可下载结果和测试边界。
 
 打开音频编辑器，就像打开 Google 文档一样简单——只需一个网址，没有下载提示，没有注册页面。这种体验，在过去根本不存在。认真做音频编辑，意味着你得安装 Audacity、GarageBand 或 Adobe Audition。这些都是优秀的工具，但门槛不低：需要磁盘空间、需要兼容的操作系统，Adobe 的还得掏订阅费。
 

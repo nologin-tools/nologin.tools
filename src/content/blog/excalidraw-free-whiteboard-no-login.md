@@ -1,6 +1,7 @@
 ---
 title: "Excalidraw: Free Online Whiteboard, No Login Required"
 description: "Excalidraw is a free, open-source whiteboard tool that works in your browser without signup. Draw diagrams with a hand-drawn look, collaborate privately."
+updatedAt: 2026-10-26
 publishedAt: 2026-04-07
 author: "nologin.tools"
 tags: ["tools", "review", "privacy", "open-source", "browser"]
@@ -9,6 +10,10 @@ heroImageQuery: "whiteboard sketching digital drawing hand-drawn"
 ---
 
 ![Hero image](/blog/images/excalidraw-free-whiteboard-no-login/hero.jpg)
+
+## Tested example — October 26, 2026
+
+Our [tested two-step diagram workflow](/tool/excalidraw-com#tested-workflow) includes the input, export settings and the actual 680 × 140 PNG captured from the clipboard. Both boxes, labels and the arrow were preserved without a visible watermark.
 
 Most whiteboard tools ask you to create an account before you draw your first line. Miro wants your email. FigJam wants your Figma account. Lucidchart puts a paywall after five shapes. And if you pay, they can see everything you draw.
 

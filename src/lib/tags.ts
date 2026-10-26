@@ -22,7 +22,7 @@ export const TAG_DEFINITIONS: TagDefinition[] = [
   {
     key: 'privacy',
     label: 'Privacy',
-    values: ['No Trackers', 'Privacy Focused'],
+    values: ['No Trackers', 'Privacy Focused', 'Not Verified'],
     multiSelect: true,
   },
   {

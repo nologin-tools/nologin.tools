@@ -1,6 +1,7 @@
 ---
 title: "AudioMass: A Full Audio Editor That Lives in Your Browser Tab"
 description: "AudioMass is a free, open-source web audio editor — trim, cut, apply effects, and export audio without installing software or creating an account."
+updatedAt: 2026-10-26
 publishedAt: 2026-03-23
 author: "nologin.tools"
 tags: ["tools", "review", "media", "audio"]
@@ -9,6 +10,10 @@ heroImageQuery: "audio waveform editing studio"
 ---
 
 ![Hero image](/blog/images/audiomass-co/hero.jpg)
+
+## Tested example — October 26, 2026
+
+Our [50% gain test](/tool/audiomass-co#tested-workflow) uses a two-second synthetic tone. The exported WAV retained its sample rate and duration, and its measured peak amplitude was approximately half the input. The case includes the downloadable output and test limits.
 
 What if you could open a capable audio editor the same way you open a Google Doc — just a URL, no download prompt, no signup screen? For a long time, serious audio editing meant installing Audacity, GarageBand, or Adobe Audition. Those are excellent tools, but they require commitment: disk space, an operating system that supports them, and in Adobe's case, a subscription.
 

@@ -14,7 +14,7 @@ await loadTranslations(locale);
 
 const approvedTools = getApprovedTools();
 const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'explicit');
-const sampleVibePrompt = getVibeBadgePrompt('your-domain-com');
+const sampleVibePrompt = getVibeBadgePrompt('your-domain-com', 'https://nologin.tools');
 const badgeModifiedDate = '2026-03-20T00:00:00.000Z';
 
 const websiteLd = {
