@@ -59,12 +59,13 @@ export function compareItems(a, b) {
 }
 
 /**
- * Merge triage results (tier A/B only) and drop items that are no longer pending.
+ * Merge triage results (tier A/B only), sync live D1 explicit-badge status, and drop items that are no longer pending.
  * @param {{ items: any[] }} queue
  * @param {{ id: number, slug: string, url: string, tier: string, hasExplicitBadge?: boolean, badgeDisplayType?: string | null, signals: any[], submittedAt: string }[]} triaged
  * @param {Set<number>} stillPendingIds
+ * @param {Set<number>} [explicitBadgeIds]
  */
-export function mergeTriage(queue, triaged, stillPendingIds) {
+export function mergeTriage(queue, triaged, stillPendingIds, explicitBadgeIds = new Set()) {
   const byId = new Map(queue.items.filter((i) => stillPendingIds.has(i.id)).map((i) => [i.id, i]));
   const now = new Date().toISOString();
   for (const t of triaged) {
@@ -76,6 +77,7 @@ export function mergeTriage(queue, triaged, stillPendingIds) {
     const hasExplicitBadge = Boolean(
       t.hasExplicitBadge ||
       t.badgeDisplayType === 'explicit' ||
+      explicitBadgeIds.has(t.id) ||
       prev?.hasExplicitBadge ||
       prev?.badgeDisplayType === 'explicit'
     );
@@ -91,6 +93,11 @@ export function mergeTriage(queue, triaged, stillPendingIds) {
       attempts: prev?.attempts || 0,
       lastOutcome: prev?.lastOutcome || null,
     });
+  }
+  for (const item of byId.values()) {
+    if (explicitBadgeIds.has(item.id)) {
+      item.hasExplicitBadge = true;
+    }
   }
   queue.items = [...byId.values()].sort(compareItems);
   return queue;

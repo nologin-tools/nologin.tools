@@ -149,10 +149,19 @@ async function main() {
     "SELECT tools.id, tools.slug, tools.url, tools.submitter_email, bd.display_type AS badge_display_type, datetime(tools.submitted_at, 'unixepoch') AS submitted_at FROM tools LEFT JOIN badge_displays bd ON bd.tool_id = tools.id WHERE tools.status = 'pending' ORDER BY tools.submitted_at ASC"
   );
   const pendingIds = new Set(pendingRows.map((r) => r.id));
+  const explicitBadgeIds = new Set(
+    pendingRows.filter((r) => r.badge_display_type === 'explicit').map((r) => r.id)
+  );
+  const currentQueue = loadQueue();
+  const queuedIds = new Set(currentQueue.items.map((i) => i.id));
   const explicit = idList(opt('--ids'));
   const already = args.includes('--all') ? new Set() : triagedIds();
-  const targets = pendingRows.filter((r) => (explicit.length ? explicit.includes(r.id) : !already.has(r.id)));
-  console.log(`[triage] ${pendingRows.length} pending, triaging ${targets.length}`);
+  const targets = pendingRows.filter((r) =>
+    explicit.length
+      ? explicit.includes(r.id)
+      : !already.has(r.id) || (explicitBadgeIds.has(r.id) && !queuedIds.has(r.id))
+  );
+  console.log(`[triage] ${pendingRows.length} pending (${explicitBadgeIds.size} priority badge), triaging ${targets.length}`);
 
   let done = 0;
   const results = await mapPool(targets, Number(opt('--concurrency') || 8), async (t) => {
@@ -189,7 +198,7 @@ async function main() {
   const jsonPath = resolve(TRIAGE_DIR, `triage-${stamp}.json`);
   writeFileSync(jsonPath, JSON.stringify({ generatedAt: new Date().toISOString(), results }, null, 2) + '\n');
 
-  const queue = mergeTriage(loadQueue(), results, pendingIds);
+  const queue = mergeTriage(currentQueue, results, pendingIds, explicitBadgeIds);
   saveQueue(queue);
 
   const byTier = { A: results.filter((r) => r.tier === 'A'), B: results.filter((r) => r.tier === 'B'), C: results.filter((r) => r.tier === 'C') };
