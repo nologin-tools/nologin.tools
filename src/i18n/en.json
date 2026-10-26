@@ -736,5 +736,9 @@
   "vibe.cardTools": "Cursor · Claude Code · Antigravity · Windsurf · Lovable · Bolt",
   "vibe.cardDesc": "Building with AI? Copy this prompt and paste it into your coding agent. It automatically styles the badge in your footer, adds static crawler compatibility for CSR/SPA apps, and updates your README.",
   "vibe.copyPromptBtn": "✨ Copy Vibe Prompt",
-  "vibe.copiedPromptBtn": "✓ Prompt Copied!"
+  "vibe.copiedPromptBtn": "✓ Prompt Copied!",
+  "badge.vibeSectionTag": "✨ Vibe Coding Ready · ⚡ Priority Fast-Track",
+  "badge.vibeSectionTitle": "Skip the Line with 1-Click AI Integration",
+  "badge.vibeSectionDesc": "Using Cursor, Claude Code, Antigravity, Lovable, Bolt, or Windsurf? Paste this prompt into your AI coding agent after submitting your URL. Once deployed, your tool automatically jumps to the Priority Fast-Track Queue (~24–48h review) and unlocks a permanent ranking boost.",
+  "badge.vibeViewQueueBtn": "⚡ View Live Review Queue →"
 }

@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return api.error('Invalid JSON body.', 400);
   }
 
-  const { secret, status, search, page = 1, featured } = body;
+  const { secret, status, search, page = 1, featured, badgePriority, badgeVerified } = body;
 
   if (!env.ADMIN_SECRET || secret !== env.ADMIN_SECRET) {
     return api.error('Unauthorized.', 401);
@@ -33,6 +33,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
   if (featured === true) {
     conditions.push(eq(tools.isFeatured, true));
+  }
+  if (badgePriority === true || badgeVerified === true) {
+    conditions.push(
+      sql`EXISTS (SELECT 1 FROM badge_displays bd WHERE bd.tool_id = ${tools.id} AND bd.display_type = 'explicit')`
+    );
   }
   if (search && typeof search === 'string' && search.trim()) {
     const term = `%${search.trim()}%`;
@@ -57,13 +62,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
     .where(where);
   const total = countResult[0].count;
 
-  // Fetch tools
+  // Fetch tools (prioritize pending tools with explicit badge first)
   const offset = (Math.max(1, Number(page)) - 1) * PAGE_SIZE;
+  const priorityOrder = sql`CASE WHEN ${tools.status} = 'pending' AND EXISTS (SELECT 1 FROM badge_displays bd WHERE bd.tool_id = ${tools.id} AND bd.display_type = 'explicit') THEN 0 ELSE 1 END`;
   const toolList = await db
     .select()
     .from(tools)
     .where(where)
-    .orderBy(desc(tools.submittedAt))
+    .orderBy(priorityOrder, desc(tools.submittedAt))
     .limit(PAGE_SIZE)
     .offset(offset);
 

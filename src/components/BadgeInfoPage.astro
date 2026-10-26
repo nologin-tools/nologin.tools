@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 import { getApprovedTools, getLocalizedDescription } from '../data/loader';
+import { getVibeBadgePrompt } from '../lib/badge';
 
 interface Props {
   locale: Locale;
@@ -13,6 +14,7 @@ await loadTranslations(locale);
 
 const approvedTools = getApprovedTools();
 const verifiedExhibitors = approvedTools.filter((t) => t.badgeDisplayType === 'explicit');
+const sampleVibePrompt = getVibeBadgePrompt('your-domain-com');
 const badgeModifiedDate = '2026-03-20T00:00:00.000Z';
 
 const websiteLd = {
@@ -263,6 +265,42 @@ const orgLd = {
         </section>
       </div>
 
+      <!-- Vibe Coding & Priority Fast-Track Callout -->
+      <section class="border-2 border-neutral-900 bg-amber-50/70 p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+          <div>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-300 border border-neutral-900 text-[10px] font-mono font-black uppercase tracking-wider text-neutral-900">
+              {t(locale, 'badge.vibeSectionTag')}
+            </span>
+            <h2 class="text-lg sm:text-xl font-bold font-mono text-neutral-900 mt-1.5 uppercase">
+              {t(locale, 'badge.vibeSectionTitle')}
+            </h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              id="badge-info-vibe-copy-btn"
+              data-prompt={sampleVibePrompt}
+              data-copy-label={t(locale, 'vibe.copyPromptBtn')}
+              data-copied-label={t(locale, 'vibe.copiedPromptBtn')}
+              class="px-3.5 py-2 bg-neutral-900 text-white hover:bg-neutral-800 text-xs font-mono font-bold uppercase tracking-wider border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(16,185,129,1)] transition-all cursor-pointer"
+            >
+              {t(locale, 'vibe.copyPromptBtn')}
+            </button>
+            <a
+              href={`${getLocalizedPath('/submit', locale)}#review-queue-board`}
+              class="px-3.5 py-2 bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-mono font-bold uppercase tracking-wider border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+            >
+              {t(locale, 'badge.vibeViewQueueBtn')}
+            </a>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-3">
+          {t(locale, 'badge.vibeSectionDesc')}
+        </p>
+        <pre class="bg-white border-2 border-neutral-900 p-3 text-[11px] font-mono text-neutral-800 overflow-x-auto whitespace-pre-wrap max-h-36 overflow-y-auto">{sampleVibePrompt}</pre>
+      </section>
+
       <!-- Ranking Boost -->
       <section class="border-t-2 border-neutral-900 pt-8 mt-8">
         <h2 class="text-xl font-bold font-mono text-neutral-900 mb-2 text-center uppercase tracking-wide">{t(locale, 'badge.rankingBoostTitle')}</h2>
@@ -400,6 +438,20 @@ const orgLd = {
         const slug = match ? match[1] : val;
         const targetPath = locale === 'en' ? `/badge/${encodeURIComponent(slug)}` : `/${locale}/badge/${encodeURIComponent(slug)}`;
         window.location.href = targetPath;
+      });
+    }
+
+    const vibeCopyBtn = document.getElementById('badge-info-vibe-copy-btn');
+    if (vibeCopyBtn) {
+      vibeCopyBtn.addEventListener('click', async () => {
+        const prompt = vibeCopyBtn.getAttribute('data-prompt') || '';
+        const copyLabel = vibeCopyBtn.getAttribute('data-copy-label') || 'Copy';
+        const copiedLabel = vibeCopyBtn.getAttribute('data-copied-label') || 'Copied!';
+        try {
+          await navigator.clipboard.writeText(prompt);
+          vibeCopyBtn.textContent = copiedLabel;
+          setTimeout(() => { vibeCopyBtn.textContent = copyLabel; }, 2200);
+        } catch {}
       });
     }
   </script>

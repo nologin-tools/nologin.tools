@@ -724,5 +724,9 @@
   "vibe.cardTools": "适用 Cursor · Claude Code · Antigravity · Windsurf · Lovable · Bolt",
   "vibe.cardDesc": "正在用 AI 写代码？复制下方提示词直接发给你的 AI 编程助手。它会自动将徽章融入你的网站页脚风格、补齐纯前端 SPA 静态爬虫兼容标签，并同步更新 README。",
   "vibe.copyPromptBtn": "✨ 复制 Vibe 提示词",
-  "vibe.copiedPromptBtn": "✓ 提示词已复制！"
+  "vibe.copiedPromptBtn": "✓ 提示词已复制！",
+  "badge.vibeSectionTag": "✨ Vibe Coding 友好 · ⚡ 优先审核通道",
+  "badge.vibeSectionTitle": "一键复制 AI 提示词，立享 24–48h 极速审核",
+  "badge.vibeSectionDesc": "正在使用 Cursor、Claude Code、Antigravity、Lovable、Bolt 或 Windsurf 开发？提交网址后，只需将下方提示词发给你的 AI 编程助手即可自动完成页脚与 README 徽章接入，直接跃升至优先审核通道（预计 24–48h 内完成测评）并解锁永久排名加权。",
+  "badge.vibeViewQueueBtn": "⚡ 查看实时双通道审核队列 →"
 }
