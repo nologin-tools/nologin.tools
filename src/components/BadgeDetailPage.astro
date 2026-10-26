@@ -219,46 +219,72 @@ const allEmbedCodes = Object.fromEntries(
               </dd>
             </div>
           )}
-          <div class="space-y-1 md:col-span-2 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" id="badge-exhibition-container">
-            <div>
-              <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.badgeExhibition')}</dt>
-              <dd class="flex items-center gap-2 mt-1">
-                <span
-                  id="badge-status-pill"
-                  class:list={[
-                    'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]',
-                    isBadgeActive ? 'bg-green-200 text-green-950' : 'bg-amber-200 text-amber-950'
-                  ]}
-                >
-                  <span id="badge-status-dot" class:list={['w-2 h-2 rounded-none border border-neutral-900', isBadgeActive ? 'bg-green-600' : 'bg-amber-500']}></span>
-                  <span id="badge-status-text">{isBadgeActive ? t(locale, 'badgeDetail.badgeActive') : t(locale, 'badgeDetail.badgePending')}</span>
-                </span>
-                <span id="badge-status-desc" class:list={['text-xs text-neutral-400 font-medium hidden sm:inline', isBadgeActive ? '' : 'hidden']}>
-                  {t(locale, 'badgeDetail.badgeActiveDesc')}
-                </span>
-              </dd>
+          <div class="space-y-3 md:col-span-2 pt-6 border-t border-neutral-100" id="badge-exhibition-container" data-locale={locale}>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <dt class="text-sm font-medium text-neutral-500">{t(locale, 'badgeDetail.badgeExhibition')}</dt>
+                <dd class="flex items-center gap-2 mt-1">
+                  <span
+                    id="badge-status-pill"
+                    class:list={[
+                      'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]',
+                      isBadgeActive ? 'bg-green-200 text-green-950' : 'bg-amber-200 text-amber-950'
+                    ]}
+                  >
+                    <span id="badge-status-dot" class:list={['w-2 h-2 rounded-none border border-neutral-900', isBadgeActive ? 'bg-green-600' : 'bg-amber-500']}></span>
+                    <span id="badge-status-text">{isBadgeActive ? t(locale, 'badgeDetail.badgeActive') : t(locale, 'badgeDetail.badgePending')}</span>
+                  </span>
+                  <span id="badge-status-desc" class:list={['text-xs text-neutral-400 font-medium hidden sm:inline', isBadgeActive ? '' : 'hidden']}>
+                    {t(locale, 'badgeDetail.badgeActiveDesc')}
+                  </span>
+                </dd>
+              </div>
+
+              {!isBadgeActive && (
+                <div class="shrink-0" id="verify-action-wrapper">
+                  <button
+                    type="button"
+                    id="btn-verify-badge"
+                    data-slug={slug}
+                    data-original-text={isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}
+                    data-loading-text={t(locale, 'badgeDetail.verifying')}
+                    data-success-text={t(locale, 'badgeDetail.verifySuccess')}
+                    data-not-found-text={t(locale, 'badgeDetail.verifyNotFound')}
+                    data-active-text={t(locale, 'badgeDetail.badgeActive')}
+                    data-active-desc={t(locale, 'badgeDetail.badgeActiveDesc')}
+                    class="btn-verify-badge-trigger btn-primary inline-flex items-center gap-2 px-4 py-2 text-xs cursor-pointer"
+                  >
+                    <svg class="verify-spinner w-3.5 h-3.5 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span class="verify-btn-text">{isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}</span>
+                  </button>
+                </div>
+              )}
             </div>
 
             {!isBadgeActive && (
-              <div class="shrink-0" id="verify-action-wrapper">
-                <button
-                  type="button"
-                  id="btn-verify-badge"
-                  data-slug={slug}
-                  data-original-text={isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}
-                  data-loading-text={t(locale, 'badgeDetail.verifying')}
-                  data-success-text={t(locale, 'badgeDetail.verifySuccess')}
-                  data-not-found-text={t(locale, 'badgeDetail.verifyNotFound')}
-                  data-active-text={t(locale, 'badgeDetail.badgeActive')}
-                  data-active-desc={t(locale, 'badgeDetail.badgeActiveDesc')}
-                  class="btn-primary inline-flex items-center gap-2 px-4 py-2 text-xs cursor-pointer"
-                >
-                  <svg id="verify-spinner" class="w-3.5 h-3.5 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  <span id="verify-btn-text">{isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}</span>
-                </button>
+              <div class="space-y-2 pt-1">
+                <p class="text-xs font-mono text-neutral-600">{t(locale, 'queue.verifyDefaultHint')}</p>
+                <details class="text-left">
+                  <summary class="text-xs font-mono font-bold text-neutral-600 hover:text-neutral-900 cursor-pointer select-none">
+                    {t(locale, 'queue.optionalTargetSummary')}
+                  </summary>
+                  <div class="mt-2 space-y-1">
+                    <label for="badge-verify-custom-url" class="block text-[11px] font-mono font-bold text-neutral-600">
+                      {t(locale, 'queue.repoOptionalLabel')}
+                    </label>
+                    <input
+                      type="url"
+                      id="badge-verify-custom-url"
+                      value={tool.repoUrl || ''}
+                      placeholder={t(locale, 'queue.repoOptionalPlaceholder')}
+                      class="w-full px-3 py-1.5 bg-neutral-50 border border-neutral-900 text-xs font-mono text-neutral-900 placeholder:text-neutral-400"
+                    />
+                  </div>
+                </details>
+                <div id="badge-verify-feedback" class="hidden p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed"></div>
               </div>
             )}
           </div>
@@ -517,6 +543,49 @@ const allEmbedCodes = Object.fromEntries(
             </div>
             <pre id="code-meta" class="bg-neutral-900 text-neutral-200 p-5 rounded-none text-[11px] font-mono overflow-x-auto border-2 border-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"><code>{embedCode.meta}</code></pre>
           </div>
+
+          {!isBadgeActive && (
+            <div class="pt-6 border-t-2 border-neutral-900 space-y-3">
+              <p class="text-xs font-mono text-neutral-700 leading-relaxed">{t(locale, 'queue.verifyDefaultHint')}</p>
+              <div class="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  data-slug={slug}
+                  data-original-text={isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}
+                  data-loading-text={t(locale, 'badgeDetail.verifying')}
+                  data-success-text={t(locale, 'badgeDetail.verifySuccess')}
+                  data-not-found-text={t(locale, 'badgeDetail.verifyNotFound')}
+                  data-active-text={t(locale, 'badgeDetail.badgeActive')}
+                  data-active-desc={t(locale, 'badgeDetail.badgeActiveDesc')}
+                  class="btn-verify-badge-trigger btn-primary inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono font-bold uppercase cursor-pointer"
+                >
+                  <svg class="verify-spinner w-3.5 h-3.5 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span class="verify-btn-text">{isPending ? t(locale, 'queue.verifyAndJumpBtn') : t(locale, 'badgeDetail.verifyNowBtn')}</span>
+                </button>
+              </div>
+              <details>
+                <summary class="text-xs font-mono font-bold text-neutral-600 hover:text-neutral-900 cursor-pointer select-none">
+                  {t(locale, 'queue.optionalTargetSummary')}
+                </summary>
+                <div class="mt-2 space-y-1">
+                  <label for="badge-embed-custom-url" class="block text-[11px] font-mono font-bold text-neutral-600">
+                    {t(locale, 'queue.repoOptionalLabel')}
+                  </label>
+                  <input
+                    type="url"
+                    id="badge-embed-custom-url"
+                    value={tool.repoUrl || ''}
+                    placeholder={t(locale, 'queue.repoOptionalPlaceholder')}
+                    class="w-full px-3 py-1.5 bg-neutral-50 border border-neutral-900 text-xs font-mono text-neutral-900 placeholder:text-neutral-400"
+                  />
+                </div>
+              </details>
+              <div id="badge-embed-verify-feedback" class="hidden p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed"></div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -637,20 +706,28 @@ const allEmbedCodes = Object.fromEntries(
       });
     });
 
-    // Self-service badge verification
-    const btnVerify = document.getElementById('btn-verify-badge') as HTMLButtonElement | null;
-    if (btnVerify) {
+    // Self-service badge verification (works from both Verification tab and Embed Code tab)
+    const verifyBtns = document.querySelectorAll('.btn-verify-badge-trigger') as NodeListOf<HTMLButtonElement>;
+    const exhibitionContainer = document.getElementById('badge-exhibition-container');
+    const pageLocale = (exhibitionContainer?.dataset.locale || 'en') as 'en' | 'zh';
+
+    verifyBtns.forEach((btnVerify) => {
       btnVerify.addEventListener('click', async () => {
         const slug = btnVerify.getAttribute('data-slug');
         if (!slug) return;
 
-        const spinner = document.getElementById('verify-spinner');
-        const btnText = document.getElementById('verify-btn-text');
+        const spinner = btnVerify.querySelector('.verify-spinner');
+        const btnText = btnVerify.querySelector('.verify-btn-text');
         const statusPill = document.getElementById('badge-status-pill');
         const statusDot = document.getElementById('badge-status-dot');
         const statusText = document.getElementById('badge-status-text');
         const statusDesc = document.getElementById('badge-status-desc');
         const actionWrapper = document.getElementById('verify-action-wrapper');
+        const feedbackMain = document.getElementById('badge-verify-feedback');
+        const feedbackEmbed = document.getElementById('badge-embed-verify-feedback');
+        const customUrlMain = (document.getElementById('badge-verify-custom-url') as HTMLInputElement | null)?.value.trim();
+        const customUrlEmbed = (document.getElementById('badge-embed-custom-url') as HTMLInputElement | null)?.value.trim();
+        const customUrl = customUrlEmbed || customUrlMain || undefined;
 
         const originalText = btnVerify.getAttribute('data-original-text') || 'Verify Badge Now';
         const loadingText = btnVerify.getAttribute('data-loading-text') || 'Scanning...';
@@ -659,22 +736,27 @@ const allEmbedCodes = Object.fromEntries(
         const activeText = btnVerify.getAttribute('data-active-text') || 'Active Exhibitor (Level 3)';
         const activeDesc = btnVerify.getAttribute('data-active-desc') || '';
 
-        // Loading state
         btnVerify.setAttribute('disabled', 'true');
         btnVerify.classList.add('opacity-75', 'cursor-not-allowed');
         if (spinner) spinner.classList.remove('hidden');
         if (btnText) btnText.textContent = loadingText;
+        feedbackMain?.classList.add('hidden');
+        feedbackEmbed?.classList.add('hidden');
 
         try {
           const res = await fetch('/api/badge-verify', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ slug }),
+            body: JSON.stringify({ slug, customUrl }),
           });
-          const json = await res.json() as { ok: boolean; error?: string; data?: { verified: boolean; message?: string } };
+          const json = await res.json() as {
+            ok: boolean;
+            error?: string;
+            data?: { verified: boolean; message?: string; messages?: { en: string; zh: string } };
+          };
+          const localizedMsg = json.data?.messages?.[pageLocale] || json.error || json.data?.message;
 
           if (res.ok && json.ok && json.data?.verified) {
-            // Upgrade UI to Level 3 Active
             if (statusPill) {
               statusPill.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-none text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] bg-green-200 text-green-950';
             }
@@ -689,25 +771,40 @@ const allEmbedCodes = Object.fromEntries(
               statusDesc.classList.remove('hidden');
             }
             if (actionWrapper) {
-              actionWrapper.innerHTML = '<span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-green-900 bg-green-200 px-3 py-1.5 rounded-none border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">✓ Level 3 Active</span>';
+              actionWrapper.innerHTML = '<span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-green-900 bg-green-200 px-3 py-1.5 rounded-none border-2 border-neutral-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">✓ Active</span>';
             }
-            alert(successText);
+            for (const fb of [feedbackMain, feedbackEmbed]) {
+              if (fb) {
+                fb.textContent = localizedMsg || successText;
+                fb.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed bg-emerald-100 text-emerald-950';
+                fb.classList.remove('hidden');
+              }
+            }
           } else {
-            const errorMsg = json.error || json.data?.message || notFoundText;
-            alert(errorMsg);
-            btnVerify.removeAttribute('disabled');
-            btnVerify.classList.remove('opacity-75', 'cursor-not-allowed');
-            if (spinner) spinner.classList.add('hidden');
-            if (btnText) btnText.textContent = originalText;
+            const errorMsg = localizedMsg || notFoundText;
+            for (const fb of [feedbackMain, feedbackEmbed]) {
+              if (fb) {
+                fb.textContent = errorMsg;
+                fb.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed bg-red-100 text-red-900';
+                fb.classList.remove('hidden');
+              }
+            }
           }
         } catch {
-          alert('Network error while checking badge. Please try again.');
+          for (const fb of [feedbackMain, feedbackEmbed]) {
+            if (fb) {
+              fb.textContent = 'Network error while checking badge. Please try again.';
+              fb.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed bg-red-100 text-red-900';
+              fb.classList.remove('hidden');
+            }
+          }
+        } finally {
           btnVerify.removeAttribute('disabled');
           btnVerify.classList.remove('opacity-75', 'cursor-not-allowed');
           if (spinner) spinner.classList.add('hidden');
           if (btnText) btnText.textContent = originalText;
         }
       });
-    }
+    });
   </script>
 </Layout>

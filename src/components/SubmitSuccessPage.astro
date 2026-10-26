@@ -169,20 +169,11 @@ const allEmbedCodes = Object.fromEntries(
                   </p>
                 </div>
 
-                <!-- Optional GitHub Repo URL input + Verify Button -->
+                <!-- Primary 1-Click Website Scan + Collapsible Optional Target -->
                 <div class="p-4 bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] space-y-3">
-                  <div>
-                    <label for="fast-track-repo-url" class="block text-xs font-mono font-bold text-neutral-700 mb-1.5">
-                      {t(locale, 'queue.repoOptionalLabel')}
-                    </label>
-                    <input
-                      type="url"
-                      id="fast-track-repo-url"
-                      value={repoUrlStr}
-                      placeholder={t(locale, 'queue.repoOptionalPlaceholder')}
-                      class="w-full px-3 py-2 bg-neutral-50 border border-neutral-900 rounded-none text-xs font-mono text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-yellow-50"
-                    />
-                  </div>
+                  <p class="text-xs font-mono text-neutral-700 leading-relaxed">
+                    {t(locale, 'queue.verifyDefaultHint')}
+                  </p>
 
                   <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <button
@@ -208,9 +199,27 @@ const allEmbedCodes = Object.fromEntries(
                     </a>
                   </div>
 
+                  <details class="pt-2 border-t border-neutral-200 group">
+                    <summary class="text-xs font-mono font-bold text-neutral-600 hover:text-neutral-900 cursor-pointer select-none">
+                      {t(locale, 'queue.optionalTargetSummary')}
+                    </summary>
+                    <div class="mt-2.5 space-y-1.5">
+                      <label for="fast-track-repo-url" class="block text-[11px] font-mono font-bold text-neutral-600">
+                        {t(locale, 'queue.repoOptionalLabel')}
+                      </label>
+                      <input
+                        type="url"
+                        id="fast-track-repo-url"
+                        value={repoUrlStr}
+                        placeholder={t(locale, 'queue.repoOptionalPlaceholder')}
+                        class="w-full px-3 py-2 bg-neutral-50 border border-neutral-900 rounded-none text-xs font-mono text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-yellow-50"
+                      />
+                    </div>
+                  </details>
+
                   <div
                     id="fast-track-feedback"
-                    class="hidden p-3 border border-neutral-900 text-xs font-mono font-bold"
+                    class="hidden p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed"
                   ></div>
                 </div>
               </div>
@@ -569,10 +578,10 @@ const allEmbedCodes = Object.fromEntries(
               `;
             }
           } else {
-            const msg = json.error || json.data?.message || 'Badge not detected yet.';
+            const msg = json.data?.messages?.[locale] || json.error || json.data?.message || 'Badge not detected yet.';
             if (feedback) {
               feedback.textContent = msg;
-              feedback.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold bg-red-100 text-red-900';
+              feedback.className = 'p-3 border border-neutral-900 text-xs font-mono font-bold leading-relaxed bg-red-100 text-red-900';
               feedback.classList.remove('hidden');
             }
           }

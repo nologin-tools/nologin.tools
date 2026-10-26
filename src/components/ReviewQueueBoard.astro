@@ -25,6 +25,9 @@ const fastTrackBaseUrl = getLocalizedPath('/submit/success', locale);
   data-status-approved={t(locale, 'queue.statusApproved')}
   data-status-rejected={t(locale, 'queue.statusRejected')}
   data-status-not-found={t(locale, 'queue.statusNotFound')}
+  data-verify-inline={t(locale, 'queue.verifyInlineBtn')}
+  data-verifying={t(locale, 'queue.verifyingBtn')}
+  data-get-badge-code={t(locale, 'queue.getBadgeCodeLink')}
   class="mt-14 pt-10 border-t-2 border-neutral-900"
 >
   <div class="mb-6">
@@ -167,6 +170,9 @@ const fastTrackBaseUrl = getLocalizedPath('/submit/success', locale);
     const statusApprovedText = board.dataset.statusApproved || 'Approved & Live!';
     const statusRejectedText = board.dataset.statusRejected || 'Not approved.';
     const statusNotFoundText = board.dataset.statusNotFound || 'Not found.';
+    const verifyInlineText = board.dataset.verifyInline || '⚡ Verify Badge Now';
+    const verifyingText = board.dataset.verifying || 'Scanning...';
+    const getBadgeCodeText = board.dataset.getBadgeCode || '📋 Get Badge / Vibe Prompt →';
 
     const priorityCountEl = document.getElementById('queue-priority-count');
     const priorityEtaEl = document.getElementById('queue-priority-eta');
@@ -279,31 +285,75 @@ const fastTrackBaseUrl = getLocalizedPath('/submit/success', locale);
               : '';
 
             lookupResultEl.innerHTML = `
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <div class="font-bold text-neutral-900 text-sm">
-                    ${escapeHtml(item.name)} <span class="text-neutral-500">(${escapeHtml(item.hostname)})</span>
+              <div class="space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <div class="font-bold text-neutral-900 text-sm">
+                      ${escapeHtml(item.name)} <span class="text-neutral-500">(${escapeHtml(item.hostname)})</span>
+                    </div>
+                    <div class="mt-1 flex flex-wrap items-center gap-2">
+                      <span class="px-2 py-0.5 border border-neutral-900 font-bold ${item.lane === 'priority' ? 'bg-emerald-200 text-emerald-950' : 'bg-amber-200 text-amber-950'}">
+                        ${escapeHtml(laneTitle)}
+                      </span>
+                      <span class="text-neutral-700 font-bold">${escapeHtml(eta)}</span>
+                    </div>
                   </div>
-                  <div class="mt-1 flex flex-wrap items-center gap-2">
-                    <span class="px-2 py-0.5 border border-neutral-900 font-bold ${item.lane === 'priority' ? 'bg-emerald-200 text-emerald-950' : 'bg-amber-200 text-amber-950'}">
-                      ${escapeHtml(laneTitle)}
-                    </span>
-                    <span class="text-neutral-700 font-bold">${escapeHtml(eta)}</span>
+                  <div class="flex flex-wrap items-center gap-2 shrink-0">
+                    ${
+                      item.lane === 'standard' && jump
+                        ? `<button type="button" id="queue-inline-verify-btn" data-slug="${escapeHtml(item.slug)}" class="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white border-2 border-neutral-900 font-bold shadow-[2px_2px_0px_0px_rgba(16,185,129,1)] cursor-pointer">
+                            ${escapeHtml(verifyInlineText)}
+                          </button>
+                          <a href="${fastTrackBase}?slug=${encodeURIComponent(item.slug)}" class="px-3 py-1.5 bg-emerald-200 hover:bg-emerald-300 text-neutral-900 border-2 border-neutral-900 font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            ${escapeHtml(getBadgeCodeText)}
+                          </a>`
+                        : `<a href="${toolBase}/${encodeURIComponent(item.slug)}" class="px-3 py-1.5 bg-white hover:bg-neutral-100 text-neutral-900 border-2 border-neutral-900 font-bold">
+                            View Listing →
+                          </a>`
+                    }
                   </div>
                 </div>
-                <div class="flex items-center gap-2 shrink-0">
-                  ${
-                    item.lane === 'standard' && jump
-                      ? `<a href="${fastTrackBase}?slug=${encodeURIComponent(item.slug)}" class="px-3 py-1.5 bg-emerald-300 hover:bg-emerald-400 text-neutral-900 border-2 border-neutral-900 font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                          ⚡ ${escapeHtml(jumpText)}
-                        </a>`
-                      : `<a href="${toolBase}/${encodeURIComponent(item.slug)}" class="px-3 py-1.5 bg-white hover:bg-neutral-100 text-neutral-900 border-2 border-neutral-900 font-bold">
-                          View Listing →
-                        </a>`
-                  }
-                </div>
+                <div id="queue-inline-feedback" class="hidden p-2.5 border border-neutral-900 font-bold leading-relaxed"></div>
               </div>
             `;
+
+            const inlineVerifyBtn = document.getElementById('queue-inline-verify-btn') as HTMLButtonElement | null;
+            const inlineFeedback = document.getElementById('queue-inline-feedback');
+            if (inlineVerifyBtn) {
+              inlineVerifyBtn.addEventListener('click', async () => {
+                const targetSlug = inlineVerifyBtn.dataset.slug || '';
+                if (!targetSlug) return;
+                inlineVerifyBtn.disabled = true;
+                inlineVerifyBtn.textContent = verifyingText;
+                inlineFeedback?.classList.add('hidden');
+                try {
+                  const vRes = await fetch('/api/badge-verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ slug: targetSlug }),
+                  });
+                  const vJson = await vRes.json();
+                  const msg = vJson.data?.messages?.[locale] || vJson.error || vJson.data?.message || '';
+                  if (vRes.ok && vJson.ok && vJson.data?.verified) {
+                    await loadQueue();
+                    await loadQueue(targetSlug);
+                  } else if (inlineFeedback) {
+                    inlineFeedback.textContent = msg;
+                    inlineFeedback.className = 'p-2.5 border border-neutral-900 font-bold leading-relaxed bg-red-100 text-red-900';
+                    inlineFeedback.classList.remove('hidden');
+                  }
+                } catch {
+                  if (inlineFeedback) {
+                    inlineFeedback.textContent = 'Network error. Please try again.';
+                    inlineFeedback.className = 'p-2.5 border border-neutral-900 font-bold leading-relaxed bg-red-100 text-red-900';
+                    inlineFeedback.classList.remove('hidden');
+                  }
+                } finally {
+                  inlineVerifyBtn.disabled = false;
+                  inlineVerifyBtn.textContent = verifyInlineText;
+                }
+              });
+            }
           } else if (resolved) {
             if (resolved.status === 'approved') {
               lookupResultEl.innerHTML = `
