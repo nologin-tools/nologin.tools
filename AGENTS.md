@@ -100,7 +100,7 @@ src/
 │   ├── blog/[slug].astro     # English blog post static
 │   ├── category/[slug].astro # English category landing page static
 │   ├── [lang]/               # ★ Multi-language dynamic routes
-│   │   ├── index.astro       # getStaticPaths() for zh/ja/ko/es/fr/de/pt
+│   │   ├── index.astro       # getStaticPaths() for zh
 │   │   ├── about.astro
 │   │   ├── submit.astro
 │   │   ├── submit/success.astro # SSR (reads URL params) → <SubmitSuccessPage locale={lang} />
@@ -136,7 +136,7 @@ sites/org/                # NologinTools.org — organization authority site (in
 | `/blog/[slug]` | Static | Content Collection + `render()` |
 | `/{lang}/` (all pages) | Static | Same as English + locale prop |
 | `/{lang}/tool/[slug]` | Static + ISR | Same as English + locale prop |
-| `/category/[slug]` | Static | `loader.ts` + `tags.ts` (11 categories × 8 locales) |
+| `/category/[slug]` | Static | `loader.ts` + `tags.ts` (11 categories × 2 locales) |
 | `/about`, `/submit`, `/badge`, `/404` | Static | No data needed |
 | `/submit/success` | SSR | URL params |
 | `/admin` | SSR | D1 (batch queries) |
@@ -240,7 +240,7 @@ sites/org/                # NologinTools.org — organization authority site (in
 - **SEO — robots.txt**: `public/robots.txt` blocks `/admin`, `/api/`, `/ssr/` from crawlers, welcomes AI search bots, and declares sitemap and llms-txt locations.
 - **SEO — OG image**: Default OG image is `public/og-default.png` (1200×630, brand logo + tagline). Layout defaults to `/og-default.png`. Dynamic per-tool OG images generated at `/api/og/[slug]` using `satori` + `@resvg/resvg-wasm` (SSR, 6h cache). Layout accepts `ogImagePath` prop; `ToolDetailPage` passes `/api/og/${slug}`.
 - **SEO — Layout props**: `Layout.astro` supports optional `canonicalOverride` (string path, resolves against `https://nologin.tools`), `publishedTime` (ISO date string for `article:published_time`), `modifiedTime` (ISO date string for `article:modified_time`), `articleTags` (string array for `article:tag` meta, used by blog posts), `ogImagePath` (path for dynamic OG image), and `noindex` (boolean, adds `<meta name="robots" content="noindex">`). Canonical URL uses `Astro.url.pathname` to strip query params. `ToolDetailPage` and `BadgeDetailPage` use `canonicalOverride` to ensure ISR pages (`/ssr/tool/*`, `/ssr/badge/*`) point canonical to `/tool/*` and `/badge/*`.
-- **SEO — Sitemap multi-locale**: `sitemap.xml.ts` generates a `<url>` entry for every locale variant of every page (8 locales × N pages). Core logic extracted to `src/lib/sitemap.ts` (pure functions: `buildBlogTranslationMap`, `expandToAllLocales`, `generateHreflangLinks`). Non-blog pages expand to all 8 locales; blog posts only expand to locales with actual translations (determined by `buildBlogTranslationMap`). Each `<url>` includes hreflang links matching its available locales + `x-default` (English). Tests: `node --test scripts/__tests__/sitemap.test.mjs` (20 cases).
+- **SEO — Sitemap multi-locale**: `sitemap.xml.ts` generates a `<url>` entry for every locale variant of every page (2 locales × N pages). Core logic extracted to `src/lib/sitemap.ts` (pure functions: `buildBlogTranslationMap`, `expandToAllLocales`, `generateHreflangLinks`). Non-blog pages expand to all 8 locales; blog posts only expand to locales with actual translations (determined by `buildBlogTranslationMap`). Each `<url>` includes hreflang links matching its available locales + `x-default` (English). Tests: `node --test scripts/__tests__/sitemap.test.mjs` (20 cases).
 - **SEO — Sitemap lastmod**: `sitemap.xml.ts` includes `<lastmod>` for tool/badge pages (from `approvedAt`). Static pages use build-time date.
 - **SEO — JSON-LD**: Homepage has `WebSite` + `SearchAction` (supports Sitelinks Searchbox). Tool detail pages have `SoftwareApplication` (with `offers`, `operatingSystem`, `datePublished`, `dateModified`) + `BreadcrumbList`. Badge pages have `BreadcrumbList`. About page has `Organization` + `BreadcrumbList`. Submit page has `BreadcrumbList`. Badge info page (`/badge`) has `FAQPage` + `HowTo`. Blog list page has `Blog` + `BreadcrumbList`. Blog post pages have `BlogPosting` (with `mainEntityOfPage`, `wordCount`) + `BreadcrumbList`. Category pages have `CollectionPage` (with `ItemList` mainEntity) + `BreadcrumbList`. All page-level JSON-LD schemas include `inLanguage` matching the current locale. BreadcrumbList and ItemList URLs are locale-aware (use `getLocalizedPath`).
 - **SEO — Meta tags**: Layout includes `og:site_name`, `og:locale`, `twitter:site` (`@nologin_tools`), explicit `twitter:title`/`twitter:description`/`twitter:image`, `og:image:width`/`og:image:height`/`og:image:alt`, `theme-color` (`#22c55e`), `<link rel="sitemap">`, and `<link rel="preconnect">` for Google Fonts.

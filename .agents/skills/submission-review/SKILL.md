@@ -4,7 +4,7 @@ description: >-
   Review pending nologin.tools submissions and edit suggestions. Applies shared hard
   gates, runs lightweight triage, confirms and rejects Tier C through the review API,
   feeds the persistent evaluation queue, prepares metadata, taxonomy, full 8-locale
-  editorial and seven-locale translations for evaluated tools, then performs an atomic
+  editorial and zh translations for evaluated tools, then performs an atomic
   approval through the canonical review API.
 ---
 
@@ -83,7 +83,7 @@ Use objective English metadata and current taxonomy values:
 
 ## 5. Prepare translations before approval
 
-Generate all seven locale records (`zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`) with the exact English source embedded as `_source`, allowing pending tools that are not in build data yet:
+The site is bilingual (`en` + `zh`). Generate the `zh` locale record (English is the source) with the exact English source embedded as `_source`, allowing pending tools that are not in build data yet:
 
 ```json
 {
@@ -92,13 +92,7 @@ Generate all seven locale records (`zh`, `ja`, `ko`, `es`, `fr`, `de`, `pt`) wit
       "description": "Objective English description.",
       "coreTask": "Concrete English core task."
     },
-    "zh": {"description": "...", "coreTask": "..."},
-    "ja": {"description": "...", "coreTask": "..."},
-    "ko": {"description": "...", "coreTask": "..."},
-    "es": {"description": "...", "coreTask": "..."},
-    "fr": {"description": "...", "coreTask": "..."},
-    "de": {"description": "...", "coreTask": "..."},
-    "pt": {"description": "...", "coreTask": "..."}
+    "zh": {"description": "...", "coreTask": "..."}
   }
 }
 ```
@@ -109,7 +103,7 @@ Apply it and verify the changed locale files:
 node scripts/sync-tool-translations.mjs --apply /tmp/translations-<slug>.json
 ```
 
-Do not use the global `--status` backlog as proof for a single pending record; inspect that slug in all seven files.
+Do not use the global `--status` backlog as proof for a single pending record; inspect that slug in `src/data/translations/zh.json`.
 
 ## 6. Atomic approval
 
@@ -144,7 +138,7 @@ The endpoint validates current pending state and writes metadata, tags, and fina
 
 ## Edit suggestions
 
-Verify the proposed value first, then `node scripts/lib/admin-api.mjs approve-edit <id>` or `reject-edit <id> "<reason>"`. The approved edit and suggestion status transition are batched atomically. If description or core task changes, prepare and apply all seven translations before approval. If URL changes, verify identity and collision behavior; community edits intentionally update the slug through the endpoint.
+Verify the proposed value first, then `node scripts/lib/admin-api.mjs approve-edit <id>` or `reject-edit <id> "<reason>"`. The approved edit and suggestion status transition are batched atomically. If description or core task changes, prepare and apply the zh translation before approval. If URL changes, verify identity and collision behavior; community edits intentionally update the slug through the endpoint.
 
 ## Output
 

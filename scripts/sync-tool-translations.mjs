@@ -9,7 +9,7 @@ const ROOT_DIR = resolve(__dirname, '..');
 const BUILD_DATA_PATH = resolve(ROOT_DIR, 'src/data/build-data.json');
 const TRANSLATIONS_DIR = resolve(ROOT_DIR, 'src/data/translations');
 
-export const SUPPORTED_LOCALES = ['zh', 'ja', 'ko', 'es', 'fr', 'de', 'pt'];
+export const SUPPORTED_LOCALES = ['zh'];
 
 /**
  * Compute the 16-character SHA-256 source hash for a tool.
