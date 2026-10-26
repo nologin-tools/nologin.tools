@@ -3,6 +3,11 @@
     "description": "Kostenlose SAT-Vorbereitung für Schüler: Fragenpool filterbar nach Fach, Fähigkeit und Schwierigkeit, ausführliche Erklärungen, Tests mit Zeitlimit, Vokabelübungen und Video-Walkthroughs für schwierige Matheaufgaben. Üben funktioniert ganz ohne Login.",
     "coreTask": "SAT-Aufgaben üben, Erklärungen lesen, zeitgesteuerte Tests absolvieren und Vokabeln lernen, ohne ein Konto anzulegen"
   },
+  "aislopdetector-net": {
+    "_hash": "ea8a352069e3cbaf",
+    "description": "Überprüfen Sie Texte und Bilder direkt im Browser auf KI-Klischees, Vorlagenphrasen und Spuren minderwertiger generativer Inhalte.",
+    "coreTask": "Erkennen Sie KI-Schreibmuster und überprüfen Sie visuelle Spuren generierter Bilder ohne Registrierung."
+  },
   "alphabeticallyordered-com": {
     "description": "Kostenloses Online-Tool zum alphabetischen Sortieren von Listen und Textzeilen. Fügen Sie Namen, Wörter oder Zeilen ein und sortieren Sie sofort von A–Z oder Z–A, inklusive Duplikatentfernung, Groß-/Kleinschreibungsoptionen und Spaltensortierung. Ohne Konto.",
     "coreTask": "Listen einfügen und ohne Konto alphabetisch sortieren und deduplizieren"
@@ -119,6 +124,11 @@
   "bytepriva-com-merge-pdf": {
     "coreTask": "Mehrere PDF-Dateien zusammenfügen, Seiten neu anordnen und die fertige Datei herunterladen – ganz ohne Kontoerstellung und ohne Server-Upload.",
     "description": "Mehrere PDF-Dateien direkt im Browser zu einer Datei zusammenfügen – kein Upload, keine Registrierung. Die Verarbeitung erfolgt vollständig clientseitig auf Ihrem eigenen Gerät, sodass keine Daten Ihren Computer verlassen. Einfach per Drag-and-Drop anordnen und sofort herunterladen."
+  },
+  "calcrobin-com": {
+    "_hash": "2fab3732dc7122fd",
+    "description": "Greifen Sie auf einen umfangreichen Katalog mit über 270 Rechnern und Dienstprogrammen für LLM-Tokens, Finanzen, Gesundheit und Mathematik direkt im Browser zu.",
+    "coreTask": "Führen Sie Berechnungen mit über 270 Tools direkt auf dem Gerät aus und exportieren Sie Grafikberichte ohne Registrierung."
   },
   "calorique-io": {
     "coreTask": "Grundumsatz (BMR), Kalorien, BMI, Körperfett und Makronährstoffe ohne Anmeldung berechnen",
@@ -281,6 +291,11 @@
   "crochet-chart-maker-com": {
     "coreTask": "Bilder in ein bearbeitbares Häkel-Pixelraster umwandeln, leere Raster erstellen, Farben und Felder anpassen und nummerierte PNG-Muster ohne Registrierung herunterladen.",
     "description": "Crochet Chart Maker ist ein kostenloses Browser-Tool, das JPG-, PNG- oder WebP-Bilder in bearbeitbare Farbpixelraster umwandelt oder bei einem leeren Raster startet. Größe anpassen, zuschneiden, Farbpalette reduzieren, einzelne Quadrate bearbeiten und ein hochauflösendes PNG samt Nummerierung und Farblegende herunterladen. Bilder verbleiben auf Ihrem Gerät, kein Konto erforderlich."
+  },
+  "crochetchartmaker-com": {
+    "_hash": "9174a9e3423952b8",
+    "description": "Verwandeln Sie Fotos in maschenprobengenaue Häkel-Tapestry-Muster mit anpassbaren Farbpaletten, Rasterbearbeitung und hochauflösendem PNG-Export.",
+    "coreTask": "Konvertieren Sie ein Bild in ein Häkelmuster-Gitter und laden Sie eine druckbare PNG-Vorlage ohne Registrierung herunter."
   },
   "crontab-guru": {
     "_hash": "5688064aba7dbe2b",
@@ -712,6 +727,11 @@
     "coreTask": "HEIC-, SVG- und Bildformate umwandeln, Fotos komprimieren und zuschneiden, PDFs zusammenfügen und komprimieren, QR-Codes erstellen, Farben wählen und CSS-Verläufe generieren, JSON formatieren und über 130 weitere Tools ohne Konto nutzen",
     "description": "JotTools ist eine kostenlose Sammlung von über 130 Online-Tools (PDF, Bild, Text, Farbe, Rechner und Entwickler-Tools), die vollständig in Ihrem Browser laufen. Keine Anmeldung, keine Registrierung und keine Uploads auf externe Server – die gesamte Verarbeitung findet lokal auf Ihrem Gerät statt. Verfügbar in 6 Sprachen."
   },
+  "joysky77-github-io-csv-cleanup-services-csv-encoding-checker-html": {
+    "_hash": "76749d17b2583add",
+    "description": "Überprüfen Sie lokal im Browser, ob chinesische CSV-Dateien strikt als UTF-8 oder GB18030 dekodiert werden.",
+    "coreTask": "CSV-Dateikodierung prüfen und dekodierten Text lokal in der Vorschau anzeigen, ohne ein Konto zu erstellen."
+  },
   "jsoncrack-com": {
     "_hash": "9eb60dfe6ddf6c93",
     "description": "Visualisiert JSON-Daten als interaktive Graphen. Komplexe JSON-Strukturen mit einer Baumgraph-Ansicht, Suche und Filtern erkunden.",
@@ -1098,6 +1118,11 @@
     "description": "Kostenlose Online-Produktivitäts-Timer-Suite: Pomodoro-Timer, Countdown, Stoppuhr, Aufgabenschätzung, Gewohnheitstracker und Fokusprotokoll. Kein Konto oder Login erforderlich, funktioniert sofort im Browser.",
     "coreTask": "Pomodoro- und Countdown-Timer starten, Fokusphasen protokollieren und Gewohnheiten ohne Konto erfassen"
   },
+  "productlair-com-profit-calculator": {
+    "_hash": "316b76ec2388f386",
+    "description": "Berechnen Sie Produktkosten, Versandkosten, Verkaufspreise und Gewinnspannen für E-Commerce und Dropshipping in Echtzeit.",
+    "coreTask": "Berechnen Sie die Bruttomarge und die Umsatzaufschlüsselung für Dropshipping ohne Kontoerstellung."
+  },
   "ps-keepmot-com": {
     "_hash": "d7f18389cc80a647",
     "description": "Kostenloses Online-Bildcollagen- und Bearbeitungswerkzeug. Kein Login, vollständig kostenlos. Vollständig frontend-seitig aufgebaut, gewährleistet absolute Privatsphäre und Sicherheit für deine Bilder. Hochauflösende Ergebnisse ohne Wasserzeichen herunterladen. Ein sauberes, professionelles Tool zum Erstellen schöner visueller Werke.",
@@ -1106,6 +1131,11 @@
   "pst-aivismonitor-com": {
     "coreTask": "PST-, OST-, OLM-, MBOX- oder EML-Archive von der Festplatte öffnen, Ordner durchsuchen sowie jede Nachricht lesen und durchsuchen.",
     "description": "Mailward öffnet Outlook-PST- und OST-Archive, Outlook-für-Mac-OLM-Exporte, MBOX-Postfächer (einschließlich Google Takeout) und EML/MSG-Nachrichten direkt im Browser. Die Datei wird lokal in einem Web Worker verarbeitet und nie hochgeladen; kein Konto für irgendetwas erforderlich. Lesen und Suchen sind kostenlos; Stapel-Export und die parallele Ansicht zweier Archive kosten einmalig 19 $. Funktioniert auf Mac, Windows, Linux und ChromeOS ohne installiertes Outlook."
+  },
+  "puresume-com": {
+    "_hash": "745630b79427656a",
+    "description": "Erstellen, formatieren und laden Sie ATS-freundliche Lebensläufe als PDF oder Word direkt im Browser ohne Konto herunter.",
+    "coreTask": "Lebenslauf-Vorlagen anpassen, ATS-Konformität prüfen und PDF- oder DOCX-Dateien ohne Registrierung exportieren."
   },
   "pythontutor-com": {
     "_hash": "833183ed664c9c1a",
@@ -1265,8 +1295,9 @@
     "coreTask": "Internetgeschwindigkeit und Latenz testen"
   },
   "spritesheettool-com": {
-    "coreTask": "Ohne Registrierung anonym eine Vorschau von Sprite-Sheets direkt im Browser generieren.",
-    "description": "Erstellen Sie Sprite-Sheets online in Ihrem Browser: Generieren Sie RPG-Sprite-Sheets, teilen Sie GIFs oder Sheets in Einzelbilder auf und erstellen Sie Textur-Atlanten."
+    "_hash": "7a5e33fa32fd2f8f",
+    "description": "Kostenlose, anmeldefreie Browser-Werkzeuge zum Zusammenstellen vorhandener Sprite-Frames, Aufteilen von Sheets oder GIFs, Vorschau von Animationen und lokalem Exportieren von Assets. Die separate KI-RPG-Laufpaket-Generierung erfordert Cloud-Verarbeitung, Anmeldung und Credits.",
+    "coreTask": "Bestehende Sprite-Frames anordnen, Sprite-Sheets aufteilen, Animationen in der Vorschau ansehen und Assets mit dem kostenlosen Browser-Editor ohne Konto exportieren."
   },
   "squoosh-app": {
     "_hash": "0b0143efc81e2e27",
@@ -1630,6 +1661,11 @@
   "www-yhile-com": {
     "description": "Webseite mit nützlichen kostenlosen Browser-Tools wie HEIC zu JPG, Audio-/Video-Konvertierung, Collagen-Ersteller und mehr. Ohne Wasserzeichen, ohne Werbung und mit lokaler Verarbeitung, sodass Ihre Dateien auf Ihrem Gerät verbleiben. (100 % kostenlos und ohne Konto)",
     "coreTask": "Sammlung nützlicher Browser-Tools wie HEIC-Konvertierung und Collagen-Erstellung lokal nutzen – ohne Anmeldung"
+  },
+  "www-yourboddy-com-form-check": {
+    "_hash": "33f46478eee6325e",
+    "description": "Analysieren Sie Kniebeugen mit dem eigenen Körpergewicht und erfassen Sie 33 Bewegungspunkte vollständig lokal im Browser.",
+    "coreTask": "Überprüfen Sie Ihre Kniebeugenform und zählen Sie Wiederholungen anhand eines Videoclips ohne Registrierung."
   },
   "xe-com-currencyconverter": {
     "_hash": "c1bb28b570aa2ef5",

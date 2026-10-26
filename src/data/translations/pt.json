@@ -3,6 +3,11 @@
     "description": "Treino gratuito para o SAT voltado a estudantes: banco de questões filtrável por matéria, habilidade e dificuldade, explicações de respostas, testes com limite de tempo, vocabulário e vídeos explicativos de matemática. Funciona sem fazer login.",
     "coreTask": "Praticar questões do SAT, ler explicações, realizar testes cronometrados e estudar vocabulário sem conta"
   },
+  "aislopdetector-net": {
+    "_hash": "ea8a352069e3cbaf",
+    "description": "Inspecione textos e imagens em busca de clichês de IA, frases padronizadas e indícios de geração diretamente no seu navegador.",
+    "coreTask": "Detecte padrões de escrita de IA e avalie indícios de geração de imagens sem criar uma conta."
+  },
   "alphabeticallyordered-com": {
     "description": "Ferramenta online gratuita para ordenar listas em ordem alfabética. Cole qualquer lista de nomes, palavras ou linhas e ordene de A-Z ou Z-A instantaneamente, com opções para diferenciar maiúsculas, remover duplicatas e ordenar por colunas. Sem necessidade de conta.",
     "coreTask": "Colar uma lista e organizá-la em ordem alfabética no navegador sem cadastro"
@@ -119,6 +124,11 @@
   "bytepriva-com-merge-pdf": {
     "coreTask": "Juntar vários arquivos PDF, reorganizar páginas e baixar o arquivo combinado — tudo sem criar conta nem enviar nada para um servidor.",
     "description": "Combine vários arquivos PDF em um só direto no navegador — sem upload e sem cadastro. Os arquivos são processados totalmente no lado do cliente usando o poder do seu próprio dispositivo, de modo que nada sai do seu computador. Arraste, solte, reorganize e baixe instantaneamente."
+  },
+  "calcrobin-com": {
+    "_hash": "2fab3732dc7122fd",
+    "description": "Acesse um amplo catálogo de mais de 270 calculadoras e utilitários para tokens de LLM, finanças, saúde e matemática executados diretamente no navegador.",
+    "coreTask": "Realize cálculos no dispositivo em mais de 270 ferramentas e exporte relatórios gráficos sem criar uma conta."
   },
   "calorique-io": {
     "coreTask": "Calcular taxa metabólica basal (TMB), calorias, IMC, gordura corporal e macronutrientes sem login",
@@ -281,6 +291,11 @@
   "crochet-chart-maker-com": {
     "coreTask": "Transformar imagem em grade de pixels editável para crochê, criar grade em branco, refinar cores e quadrados e baixar um PNG numerado sem cadastro.",
     "description": "O Crochet Chart Maker é uma ferramenta gratuita no navegador que converte imagens JPG, PNG ou WebP em grades de pixels coloridas e editáveis, ou permite iniciar do zero. Ajuste o tamanho, recorte, reduza cores, edite quadrados individuais e baixe um PNG em alta resolução com numeração e legenda de cores. As imagens permanecem no seu dispositivo e a ferramenta básica não exige conta."
+  },
+  "crochetchartmaker-com": {
+    "_hash": "9174a9e3423952b8",
+    "description": "Converta fotos em gráficos de tapeçaria em crochê ajustados à sua amostra, com paletas personalizadas, edição na tela e exportação de PNG em alta resolução.",
+    "coreTask": "Converta uma imagem em um gráfico quadriculado de crochê e baixe uma receita em PNG para impressão sem criar uma conta."
   },
   "crontab-guru": {
     "_hash": "5688064aba7dbe2b",
@@ -712,6 +727,11 @@
     "coreTask": "Converter HEIC, SVG e imagens, comprimir e cortar fotos, juntar e comprimir PDFs, gerar QR codes, escolher cores, criar gradientes CSS, formatar JSON e mais de 130 ferramentas sem conta",
     "description": "O JotTools é um pacote gratuito com mais de 130 ferramentas online (PDF, imagem, texto, cor, calculadoras e utilitários para desenvolvedores) que rodam inteiramente no navegador. Sem login, sem cadastro e sem envio para servidores: todo o processamento acontece localmente no seu dispositivo. Disponível em 6 idiomas."
   },
+  "joysky77-github-io-csv-cleanup-services-csv-encoding-checker-html": {
+    "_hash": "76749d17b2583add",
+    "description": "Verifique localmente no navegador se arquivos CSV em chinês são decodificados estritamente como UTF-8 ou GB18030.",
+    "coreTask": "Verifique a codificação de arquivos CSV e visualize o texto decodificado localmente sem criar uma conta."
+  },
   "jsoncrack-com": {
     "_hash": "9eb60dfe6ddf6c93",
     "description": "Visualiza dados JSON como grafos interativos. Explore estruturas JSON complexas com uma visualização em grafo de árvore, pesquisa e filtros.",
@@ -1098,6 +1118,11 @@
     "description": "Conjunto gratuito de cronômetros de produtividade: método Pomodoro, contagem regressiva, cronômetro, estimativa de tarefas, rastreador de hábitos e registro de foco. Sem necessidade de conta ou login, funciona instantaneamente no navegador.",
     "coreTask": "Executar timers Pomodoro, registrar sessões de foco e acompanhar tarefas e hábitos sem cadastro"
   },
+  "productlair-com-profit-calculator": {
+    "_hash": "316b76ec2388f386",
+    "description": "Calcule custos de produtos, despesas de envio, preços de venda e margens de lucro para e-commerce e dropshipping em tempo real.",
+    "coreTask": "Calcule a margem de lucro bruto e o detalhamento de receita para dropshipping sem criar uma conta."
+  },
   "ps-keepmot-com": {
     "_hash": "d7f18389cc80a647",
     "description": "Ferramenta gratuita de colagem e edição de imagens online. Sem login, totalmente gratuita. Construída inteiramente no frontend, garantindo privacidade e segurança absolutas para suas imagens. Baixe resultados em alta resolução sem marca d'água. Uma ferramenta limpa e profissional para criar obras visuais bonitas.",
@@ -1106,6 +1131,11 @@
   "pst-aivismonitor-com": {
     "coreTask": "Abrir arquivos PST, OST, OLM, MBOX ou EML do disco, navegar pelas pastas, ler e pesquisar todas as mensagens.",
     "description": "O Mailward abre arquivos PST e OST do Outlook, exportações OLM do Outlook para Mac, caixas de correio MBOX (incluindo Google Takeout) e mensagens EML/MSG direto no navegador. O arquivo é analisado localmente em um Web Worker, sem upload nem necessidade de conta. Leitura e busca são gratuitas; exportação em lote e abertura lado a lado têm licença única de US$ 19. Funciona no Mac, Windows, Linux e ChromeOS sem o Outlook instalado."
+  },
+  "puresume-com": {
+    "_hash": "745630b79427656a",
+    "description": "Crie, formate e baixe currículos compatíveis com ATS em PDF ou Word diretamente no navegador sem necessidade de conta.",
+    "coreTask": "Personalize modelos de currículo, verifique a pontuação ATS e exporte arquivos PDF ou DOCX sem criar conta."
   },
   "pythontutor-com": {
     "_hash": "833183ed664c9c1a",
@@ -1265,8 +1295,9 @@
     "coreTask": "Testar velocidade e latência de internet"
   },
   "spritesheettool-com": {
-    "coreTask": "Gerar prévia de folha de sprites de forma anônima no navegador sem precisar criar conta.",
-    "description": "Crie folhas de sprites online no seu navegador: gere spritesheets para RPG, divida GIFs ou folhas em quadros individuais e monte atlas de textura."
+    "_hash": "7a5e33fa32fd2f8f",
+    "description": "Ferramentas de navegador gratuitas e sem login para organizar quadros de sprites existentes, dividir folhas ou GIFs, pré-visualizar animações e exportar ativos localmente. A geração separada de pacotes de caminhada RPG por IA exige processamento em nuvem, login e créditos.",
+    "coreTask": "Organizar quadros de sprites existentes, dividir folhas de sprites, pré-visualizar animações e exportar recursos com o editor gratuito do navegador sem criar uma conta."
   },
   "squoosh-app": {
     "_hash": "0b0143efc81e2e27",
@@ -1630,6 +1661,11 @@
   "www-yhile-com": {
     "description": "Site com uma série de ferramentas gratuitas no navegador, como conversão de HEIC para JPG, conversão de áudio/vídeo, criador de colagens e mais. Sem marcas d'água, sem anúncios e com processamento local para manter seus arquivos no dispositivo. (100% gratuito e sem cadastro)",
     "coreTask": "Utilizar ferramentas no navegador como HEIC para JPG, conversão de mídia e colagens sem login"
+  },
+  "www-yourboddy-com-form-check": {
+    "_hash": "33f46478eee6325e",
+    "description": "Analise a postura de agachamentos com peso corporal e rastreie 33 pontos de movimento corporal totalmente no dispositivo pelo navegador.",
+    "coreTask": "Avalie a postura do agachamento e conte repetições a partir de um vídeo sem criar uma conta."
   },
   "xe-com-currencyconverter": {
     "_hash": "c1bb28b570aa2ef5",

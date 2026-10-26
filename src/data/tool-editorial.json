@@ -73128,5 +73128,355 @@
       "benchmarkNotes": "Comparou cenários de refinanciamento sobre saldo de US$ 320.000, calculando o ponto de equilíbrio e exportando a planilha CSV diretamente no cliente sem tráfego externo.",
       "testedAt": "2026-10"
     }
+  },
+  "productlair-com-profit-calculator": {
+    "en": {
+      "bestFor": "Dropshippers and e-commerce sellers needing quick gross margin and net profit calculation without creating an account.",
+      "pros": [
+        "Instant client-side calculation updating profit margin dynamically on input changes",
+        "Accounts for product cost, customer shipping fees, and optional upsells in a single view"
+      ],
+      "cons": [
+        "No file export or CSV download for calculated breakdowns",
+        "Does not calculate variable ad spend ROAS or payment processor transaction fees directly inside the tool"
+      ],
+      "privacyVerdict": "All calculation formulas run entirely in client-side JavaScript memory; zero user input data or financial figures were transmitted to backend servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 11,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested input values with 12.00 cost and 19.99 sell price; dynamically updated profit to 7.99 and margin to 39.97% with 0ms jank across 0 outgoing payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要快速测算一件代发与电商产品毛利率和利润额、无需注册登录的独立站运营者。",
+      "pros": [
+        "输入数值即时在前端完成计算并动态呈现利润率与总收益",
+        "支持在单一面板中录入采购成本、运费以及附加增销选项"
+      ],
+      "cons": [
+        "缺少计算结果的一键导出或 CSV 下载功能",
+        "未直接集成广告投放成本（ROAS）与支付渠道交易手续费联动计算"
+      ],
+      "privacyVerdict": "计算逻辑完全由前端浏览器执行，交互全程未监测到包含用户录入财务数据的网络外传载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 11,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "录入 12.00 采购价与 19.99 售价，系统在 0ms 延迟下即时计算出 7.99 利润与 39.97% 利润率，外发网络载荷为 0。",
+      "testedAt": "2026-10"
+    }
+  },
+  "aislopdetector-net": {
+    "en": {
+      "bestFor": "Readers, editors, and researchers checking articles or essays for AI buzzwords and template slop entirely in client-side browser memory.",
+      "pros": [
+        "Strictly local client-side analysis without sending pasted text or uploaded images to any remote API",
+        "Provides transparent signal breakdowns including template phrase matches and AI-favorite word frequencies"
+      ],
+      "cons": [
+        "Does not export formal detection reports as PDF or JSON",
+        "Image verification relies on local metadata reading and manual heuristic checklists rather than on-device neural vision models"
+      ],
+      "privacyVerdict": "Pasted text and uploaded images stay strictly in browser memory; runtime inspection confirmed zero outgoing network payload requests (0 egress).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 13,
+        "exportFreedom": 12,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Analyzed a 48-word text sample containing AI template phrases; returned score 44/100 with template phrase breakdown in 0ms main thread freeze and 0 outgoing network payloads.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地离线检测文章与文案中的 AI 刻板套话及废话模板、绝不上传隐私文本的编辑与读者。",
+      "pros": [
+        "完全在浏览器前端本地完成文本分析，绝不向任何外部 API 发送用户内容或图片",
+        "提供清晰的检测特征分类拆解，包括 AI 高频套话模板与词频偏离统计"
+      ],
+      "cons": [
+        "未提供将检测结论直接导出为 PDF 或 JSON 报告的功能",
+        "图片检测主要依赖本地元数据读取与视觉线索核查清单，未集成端侧神经网络像素识别"
+      ],
+      "privacyVerdict": "用户粘贴的文本及选择的图片仅在本地浏览器内存中即时处理，实测网络载荷为 0（零数据外传）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 13,
+        "exportFreedom": 12,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "对包含 AI 套话的 48 词文本进行本地检测，0ms 主线程卡顿下即时输出 44/100 评分及特征词归因，全流程外发网络载荷为 0。",
+      "testedAt": "2026-10"
+    }
+  },
+  "crochetchartmaker-com": {
+    "en": {
+      "bestFor": "Crocheters and fiber artists converting photos into gauge-accurate tapestry grids with interactive stitch-by-stitch color editing and unwatermarked PNG exports.",
+      "pros": [
+        "Gauge-aware canvas quantization converting uploaded images into stitch and row grids with color palette breakdowns",
+        "Interactive canvas workbench allowing single-stitch overrides, undo history, and instant high-resolution PNG downloads"
+      ],
+      "cons": [
+        "Large complex photographic images with gradients require manual color palette reduction to produce clean charts",
+        "Does not export interactive stitch-tracking formats or mobile-specific knitting chart files"
+      ],
+      "privacyVerdict": "Image processing, color quantization, and canvas rendering execute entirely in browser memory; runtime telemetry confirmed zero outgoing payload egress (0 egress).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 325 KB PNG fixture into the tapestry workbench; quantized into a stitch grid in 73ms and exported a clean 105,662-byte unwatermarked 1800x1140 PNG chart across 0 outgoing payload requests.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要根据针目与行距密度将照片转换为钩织提花方格图、在线微调针目颜色并导出高清图纸的手作爱好者。",
+      "pros": [
+        "基于真实针目与行距密度的画布量化算法，将上传图片转化为带有色号统计的提花网格",
+        "支持在工作区交互式画布上逐针点选修改颜色、具备撤销历史并可直接导出无水印高分 PNG 图纸"
+      ],
+      "cons": [
+        "对于包含复杂渐变的大尺寸摄影图片，需手动减少调色板颜色以确保图案清晰",
+        "未提供交互式织图跟进格式或专用移动端图表工程文件导出"
+      ],
+      "privacyVerdict": "图像解析、色彩量化及画布绘制全流程完全在本地浏览器内存中运算，实测网络载荷为 0（零数据外传）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "载入 325 KB PNG 图像样本，系统在 73ms 内完成量化网格渲染，成功导出 105,662 字节 1800x1140 分辨率无水印 PNG 图纸，外发网络载荷为 0。",
+      "testedAt": "2026-10"
+    }
+  },
+  "www-yourboddy-com-form-check": {
+    "en": {
+      "bestFor": "Lifters and fitness enthusiasts wanting private, on-device video analysis of bodyweight squats without registering or uploading workout videos to cloud servers.",
+      "pros": [
+        "100% on-device video processing keeping workout clips and movement data strictly in local browser memory",
+        "Tracks 33 body landmarks to evaluate squat depth, knee alignment, and repetition counts"
+      ],
+      "cons": [
+        "No export options to download pose data as JSON or save annotated video clips",
+        "Currently restricted to bodyweight squat analysis and requires full-body visibility from a stable camera angle"
+      ],
+      "privacyVerdict": "Video decoding and 33-point pose landmark estimation run locally in browser memory; video bytes are never uploaded to remote servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 5-second 640x480 test MP4 fixture; local video element loaded as a blob URL in 0ms freeze, gracefully validated pose landmark requirements without data egress.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器端完全离线分析深蹲动作姿态、深蹲幅度与重复次数，且绝不上传个人健身视频的运动爱好者。",
+      "pros": [
+        "100% 端侧本地视频解析，运动视频与肢体数据全程保留在浏览器内存中绝不上传",
+        "基于 33 个关键骨骼点进行三维姿态估算，针对下潜深度与膝盖轨迹给出纠错建议"
+      ],
+      "cons": [
+        "缺少将姿态骨骼数据导出为 JSON 或下载标注视频的功能",
+        "目前仅支持自重深蹲动作检验，且对全身入镜与拍摄角度有严格要求"
+      ],
+      "privacyVerdict": "视频解码与姿态关键点检测均在前端浏览器本地执行，视频流未向云端后端外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "载入 5 秒 640x480 MP4 测试视频，系统以本地 blob 形式快速挂载，在 0ms 主线程卡顿下完成端侧姿态校验流程，全程未外发视频数据。",
+      "testedAt": "2026-10"
+    }
+  },
+  "calcrobin-com": {
+    "en": {
+      "bestFor": "Developers, analysts, and students needing an extensive directory of 270+ client-side calculators, tokenizers, and converters running entirely offline in the browser.",
+      "pros": [
+        "Extensive suite of 270+ single-purpose calculators spanning LLM token counters, finance, and math running on-device",
+        "Generates clean unwatermarked high-resolution PNG summary exports alongside one-click clipboard copying"
+      ],
+      "cons": [
+        "Directory landing page can feel dense given the breadth of 270+ categorized utilities",
+        "Does not support user accounts or persistent cross-session calculation state synchronization"
+      ],
+      "privacyVerdict": "Calculations, token counting, and conversion algorithms run entirely on-device in client JavaScript; zero input text or numeric data egressed to backend servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Executed LLM token counting on a 112-character input; correctly calculated 15 o200k_base tokens and model context fits in 0ms freeze, exporting a clean 415,261-byte unwatermarked PNG graphic.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器纯本地离线使用包含大模型 Token 计数、财务、数学与转换等 270 余款开箱即用工具的开发者与分析师。",
+      "pros": [
+        "内置 270 多款覆盖大模型 Token 测算、金融投资与实用数学计算的纯前端小工具",
+        "支持生成无水印高分辨率 PNG 结果图卡片并支持一键快捷复制运算结果"
+      ],
+      "cons": [
+        "因涵盖 270 多款小工具，工具导航首页信息密度较高",
+        "完全免登录设计导致不支持跨设备同步历史计算记录与偏好配置"
+      ],
+      "privacyVerdict": "计算公式与 Token 分词算法均在前端浏览器本地执行，实测输入文本与数字完全零网络外传（零数据外传）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对 112 字符文本执行 Token 计算，在 0ms 主线程卡顿下即时得出 15 个 o200k_base 编码 Token，并成功导出 415,261 字节无水印高分 PNG 结果图。",
+      "testedAt": "2026-10"
+    }
+  },
+  "joysky77-github-io-csv-cleanup-services-csv-encoding-checker-html": {
+    "en": {
+      "bestFor": "Data analysts and engineers who need to quickly verify whether a Chinese CSV file uses UTF-8 or GB18030 encoding before importing it into databases or spreadsheets.",
+      "pros": [
+        "Strict local client-side validation between UTF-8 and GB18030 without any server data transmission",
+        "Immediate dual-encoding heuristic breakdown with raw byte count and decoded Chinese text preview"
+      ],
+      "cons": [
+        "Limited strictly to UTF-8 and GB18030 validation without automated re-encoding or CSV file export",
+        "Inspects up to the first 64 KB of the file rather than validating full multi-gigabyte files"
+      ],
+      "privacyVerdict": "Decoding occurs strictly inside the local browser JavaScript engine; zero bytes or file contents egress over the network.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 20,
+        "depth": 12,
+        "exportFreedom": 11,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded both UTF-8 (82 bytes) and GB18030 (56 bytes) Chinese CSV fixtures; tool accurately differentiated encodings with strict multi-byte decoders and previewed text with 0ms UI lag and 0 egress.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要在将中文 CSV 文件导入数据库或表格前，快速核验文件属于 UTF-8 还是 GB18030 编码的数据分析师与工程师。",
+      "pros": [
+        "完全在浏览器本地严格比对 UTF-8 与 GB18030 编码，绝无任何服务端数据上传与网络传输",
+        "即时展示双编码判定依据、校验字节数及解码后的中文文本预览"
+      ],
+      "cons": [
+        "仅提供 UTF-8 与 GB18030 两种编码的判定与预览，不支持在线重编码转存或导出修复文件",
+        "仅校验文件前 64 KB 字节片段，不支持对大文件全文进行穷尽校验"
+      ],
+      "privacyVerdict": "所有解码与字符判定逻辑均在本地浏览器端执行，零网络请求，无任何数据外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 20,
+        "depth": 12,
+        "exportFreedom": 11,
+        "privacy": 20,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "分别上传 UTF-8（82 字节）与 GB18030（56 字节）测试样本；工具凭借严格的多字节解码器准确分辨两者并在 0ms 界面卡顿与 0 数据外传下渲染预览。",
+      "testedAt": "2026-10"
+    }
+  },
+  "puresume-com": {
+    "en": {
+      "bestFor": "Job seekers and professionals seeking a privacy-first, client-side resume builder with real-world role templates, ATS scoring heuristics, and clean PDF and DOCX exports.",
+      "pros": [
+        "Comprehensive resume workbench with 60 ATS-compatible templates, live keyword matching, and real-time score auditing",
+        "Direct unwatermarked PDF and DOCX downloads generated purely on-device without requiring registration"
+      ],
+      "cons": [
+        "Browser-local storage model means drafts do not automatically sync across multiple devices or mobile browsers",
+        "Advanced multi-column graphical styling options are limited compared to desktop vector design suites"
+      ],
+      "privacyVerdict": "Resume contents, contact information, and job descriptions are stored and parsed entirely within browser memory and local storage; zero personal resume data egresses to backend servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 11
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Edited candidate contact details and exported an unwatermarked 13,615-byte vector PDF resume via client-side DOM rendering in 0ms UI freeze, confirming clean export without login gating or watermarks.",
+      "testedAt": "2026-10"
+    },
+    "zh": {
+      "bestFor": "需要一款注重隐私保护、基于浏览器纯本地运行，且具备真实职业模板、ATS 评分检测与无水印 PDF/Word 导出功能的求职者与职场人士。",
+      "pros": [
+        "集成 60 种兼容 ATS 的简历排版模板，支持实时岗位关键词比对与多维度简历评分审计",
+        "无需注册登录即可在本地即时导出完全无水印的高清 PDF 与 DOCX Word 格式文件"
+      ],
+      "cons": [
+        "依托浏览器本地存储，草稿内容无法在多台设备或移动端浏览器之间自动云同步",
+        "排版以规范的 ATS 文本流为主，相比专业桌面级矢量设计软件在自由拖拽排版上有一定局限"
+      ],
+      "privacyVerdict": "简历正文、个人联系方式及目标岗位描述均保存在浏览器本地内存与本地存储中，全程零个人简历数据外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 11
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对候选人联系方式进行实时编辑，通过前端 DOM 渲染在 0ms 界面冻结下成功导出 13,615 字节纯净无水印矢量 PDF 简历，验证全程免登录且无任何导出限制。",
+      "testedAt": "2026-10"
+    }
   }
 }

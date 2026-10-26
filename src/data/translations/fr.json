@@ -3,6 +3,11 @@
     "description": "Préparation gratuite au SAT pour lycéens : banque de questions filtrable par matière, compétence et difficulté, explications détaillées, tests chronométrés, exercices de vocabulaire et vidéos explicatives en maths. Utilisable sans connexion.",
     "coreTask": "S'entraîner aux questions du SAT, consulter les corrigés, passer des tests chronométrés et étudier le vocabulaire sans compte"
   },
+  "aislopdetector-net": {
+    "_hash": "ea8a352069e3cbaf",
+    "description": "Analysez vos textes et images pour repérer les clichés d'IA, les phrases modèles et les indices de génération directement dans votre navigateur.",
+    "coreTask": "Détectez les modèles de rédaction IA et évaluez les caractéristiques de génération d'images sans créer de compte."
+  },
   "alphabeticallyordered-com": {
     "description": "Outil en ligne gratuit pour classer des listes par ordre alphabétique et trier du texte. Collez une liste de noms, mots ou lignes pour la trier de A à Z ou Z à A instantanément, avec suppression des doublons et gestion de la casse. Sans compte requis.",
     "coreTask": "Coller une liste et la trier par ordre alphabétique directement dans le navigateur, sans inscription"
@@ -119,6 +124,11 @@
   "bytepriva-com-merge-pdf": {
     "coreTask": "Fusionner plusieurs fichiers PDF, réorganiser les pages et télécharger le fichier combiné — sans créer de compte ni rien envoyer sur un serveur.",
     "description": "Fusionnez plusieurs fichiers PDF en un seul directement dans votre navigateur — sans envoi de fichier, sans inscription. Les fichiers sont traités intégralement côté client grâce aux ressources de votre appareil : rien ne quitte votre ordinateur. Glissez, déposez, réorganisez et téléchargez instantanément."
+  },
+  "calcrobin-com": {
+    "_hash": "2fab3732dc7122fd",
+    "description": "Accédez à un catalogue complet de plus de 270 calculatrices et utilitaires pour les jetons LLM, la finance, la santé et les mathématiques exécutés localement dans votre navigateur.",
+    "coreTask": "Effectuez des calculs locaux avec plus de 270 outils et exportez des fiches graphiques sans créer de compte."
   },
   "calorique-io": {
     "coreTask": "Calculer le métabolisme de base (MB), les calories, l'IMC, la masse grasse et les macronutriments sans connexion",
@@ -281,6 +291,11 @@
   "crochet-chart-maker-com": {
     "coreTask": "Transformer une image en grille de pixels modifiable pour le crochet, créer une grille vierge, ajuster couleurs et cases, et télécharger un PNG numéroté sans inscription.",
     "description": "Crochet Chart Maker est un outil en ligne gratuit qui convertit des images JPG, PNG ou WebP en grilles de pixels colorées et modifiables, ou permet de démarrer sur une grille vierge. Ajustez la taille, cadrez, réduisez les couleurs, modifiez chaque case et téléchargez un PNG haute résolution avec numérotation et légende des couleurs. Les images restent sur votre appareil et aucun compte n'est requis."
+  },
+  "crochetchartmaker-com": {
+    "_hash": "9174a9e3423952b8",
+    "description": "Transformez des photos en grilles de crochet tapisserie calibrées selon votre échantillon, avec palettes sur mesure, retouche sur canevas et export PNG haute définition.",
+    "coreTask": "Convertissez une image en grille de motif pour tapisserie au crochet et téléchargez une fiche PNG imprimable sans créer de compte."
   },
   "crontab-guru": {
     "_hash": "5688064aba7dbe2b",
@@ -712,6 +727,11 @@
     "coreTask": "Convertir des fichiers HEIC, SVG et images, compresser et recadrer des photos, fusionner et compresser des PDF, générer des QR codes, choisir des couleurs, créer des dégradés CSS, formater du JSON et plus de 130 outils sans compte",
     "description": "JotTools est une suite gratuite de plus de 130 outils en ligne (PDF, image, texte, couleur, calculatrices et utilitaires pour développeurs) fonctionnant entièrement dans votre navigateur. Sans connexion, sans inscription et sans téléversement sur serveur : tout le traitement s'effectue côté client sur votre appareil. Disponible en 6 langues."
   },
+  "joysky77-github-io-csv-cleanup-services-csv-encoding-checker-html": {
+    "_hash": "76749d17b2583add",
+    "description": "Vérifiez localement dans votre navigateur si les fichiers CSV en chinois se décodent strictement en UTF-8 ou GB18030.",
+    "coreTask": "Vérifiez l'encodage des fichiers CSV et prévisualisez le texte décodé sans créer de compte."
+  },
   "jsoncrack-com": {
     "_hash": "9eb60dfe6ddf6c93",
     "description": "Visualise des données JSON sous forme de graphes interactifs. Explore des structures JSON complexes avec une vue en arbre, une recherche et des filtres.",
@@ -1098,6 +1118,11 @@
     "description": "Suite d'outils de chronométrage et de productivité gratuite : minuteur Pomodoro, compte à rebours, chronomètre, estimation des tâches, suivi des habitudes et journal de concentration. Sans compte ni connexion, fonctionne immédiatement dans le navigateur.",
     "coreTask": "Lancer des minuteurs Pomodoro, enregistrer ses sessions de travail et suivre ses habitudes sans compte"
   },
+  "productlair-com-profit-calculator": {
+    "_hash": "316b76ec2388f386",
+    "description": "Calculez en temps réel le coût de revient, les frais d'expédition, le prix de vente et les marges bénéficiaires de vos produits e-commerce et dropshipping.",
+    "coreTask": "Calculez la marge brute et la ventilation des revenus en dropshipping sans avoir à créer de compte."
+  },
   "ps-keepmot-com": {
     "_hash": "d7f18389cc80a647",
     "description": "Outil de collage et d'édition d'images en ligne gratuit. Sans login, entièrement gratuit. Entièrement construit côté frontend, garantissant une confidentialité et sécurité absolues pour tes images. Télécharge des résultats haute résolution sans filigrane. Un outil propre et professionnel pour créer de belles œuvres visuelles.",
@@ -1106,6 +1131,11 @@
   "pst-aivismonitor-com": {
     "coreTask": "Ouvrir une archive PST, OST, OLM, MBOX ou EML depuis votre disque, parcourir ses dossiers, lire et rechercher chaque message.",
     "description": "Mailward ouvre directement dans le navigateur les archives Outlook PST et OST, les exports OLM d'Outlook pour Mac, les boîtes MBOX (dont Google Takeout) et les messages EML/MSG. Le fichier est analysé localement dans un Web Worker sans aucun transfert réseau, sans aucun compte. La lecture et la recherche sont gratuites ; l'export groupé et l'ouverture côte à côte sont proposés via une licence unique de 19 $. Fonctionne sur Mac, Windows, Linux et ChromeOS sans Outlook installé."
+  },
+  "puresume-com": {
+    "_hash": "745630b79427656a",
+    "description": "Créez, mettez en page et téléchargez des CV compatibles ATS au format PDF ou Word directement dans votre navigateur sans compte.",
+    "coreTask": "Personnalisez des modèles de CV, auditez votre score ATS et exportez des fichiers PDF ou DOCX sans créer de compte."
   },
   "pythontutor-com": {
     "_hash": "833183ed664c9c1a",
@@ -1265,8 +1295,9 @@
     "coreTask": "Tester la vitesse et la latence internet"
   },
   "spritesheettool-com": {
-    "coreTask": "Générer un aperçu de feuille de sprites de manière anonyme dans le navigateur sans créer de compte.",
-    "description": "Créez des feuilles de sprites (sprite sheets) en ligne dans votre navigateur : générez des sprites pour jeux de rôle (RPG), découpez des GIF ou des planches en images individuelles et créez des atlas de textures."
+    "_hash": "7a5e33fa32fd2f8f",
+    "description": "Outils de navigation gratuits et sans inscription pour assembler des images de sprites existantes, découper des feuilles ou GIF, prévisualiser des animations et exporter des ressources localement. La génération séparée de packs de marche RPG par IA utilise un traitement cloud, une connexion et des crédits.",
+    "coreTask": "Organiser des images existantes, découper des feuilles de sprites, prévisualiser des animations et exporter des ressources avec l'éditeur web gratuit sans créer de compte."
   },
   "squoosh-app": {
     "_hash": "0b0143efc81e2e27",
@@ -1630,6 +1661,11 @@
   "www-yhile-com": {
     "description": "Site proposant divers outils gratuits dans le navigateur : conversion HEIC en JPG, conversion audio/vidéo, création de collages et bien plus. Sans filigrane, sans publicité et avec traitement local pour préserver vos fichiers sur votre appareil. (100 % gratuit et sans inscription)",
     "coreTask": "Utiliser une collection d'outils comme la conversion HEIC en JPG et le collage sans inscription"
+  },
+  "www-yourboddy-com-form-check": {
+    "_hash": "33f46478eee6325e",
+    "description": "Analysez la posture de vos squats au poids du corps et suivez 33 repères corporels entièrement en local dans votre navigateur.",
+    "coreTask": "Vérifiez votre posture de squat et comptez vos répétitions à partir d'une vidéo sans créer de compte."
   },
   "xe-com-currencyconverter": {
     "_hash": "c1bb28b570aa2ef5",

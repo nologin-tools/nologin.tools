@@ -5,6 +5,17 @@
     "lastTitle": "Free SAT Practice & Question Bank | 1600.now",
     "lastSignals": []
   },
+  "aislopdetector-net": {
+    "lastDeepEvalAt": "2026-10-26T02:32:02.049Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-10-26T02:32:02.049Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T02:32:02.049Z"
+  },
   "app-diagrams-net": {
     "openAnomalies": [
       {
@@ -37,6 +48,17 @@
     "lastScanAt": "2026-10-24T06:23:36.539Z",
     "lastTitle": "Merge PDF Files Online Free — No Upload Required | No SignUp",
     "lastSignals": []
+  },
+  "calcrobin-com": {
+    "lastDeepEvalAt": "2026-10-26T02:59:29.254Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 89, highly-recommended)",
+      "at": "2026-10-26T02:59:29.254Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T02:59:29.254Z"
   },
   "calorique-io": {
     "openAnomalies": [],
@@ -77,6 +99,17 @@
     "lastScanAt": "2026-10-25T06:22:58.570Z",
     "lastTitle": "Crochet Graph Maker – Free Image to Pixel Chart",
     "lastSignals": []
+  },
+  "crochetchartmaker-com": {
+    "lastDeepEvalAt": "2026-10-26T02:39:32.641Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-10-26T02:39:32.641Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T02:39:32.641Z"
   },
   "dataformatkit-com": {
     "openAnomalies": [],
@@ -146,6 +179,17 @@
     "lastTitle": "JotTools | Free Online Tools",
     "lastSignals": []
   },
+  "joysky77-github-io-csv-cleanup-services-csv-encoding-checker-html": {
+    "lastDeepEvalAt": "2026-10-26T03:03:15.896Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-10-26T03:03:15.896Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T03:03:15.896Z"
+  },
   "jsonformatter-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -197,25 +241,21 @@
     "lastSignals": []
   },
   "pdftomdconverter-app": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-24T06:23:51.500Z",
-        "lastSeenAt": "2026-10-24T06:23:51.500Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdftomdconverter-app-intent-1792823023100.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdftomdconverter-app-outcome-1792823023100.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:23:51.500Z",
     "lastTitle": "pdf to md converter",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-26T02:04:04.375Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified complete workflow: PDF uploaded, local text extraction completed, editable preview populated, and clean 34-byte .md artifact exported with zero login requirements.",
+      "at": "2026-10-26T02:04:04.375Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "photopea-com": {
     "openAnomalies": [],
@@ -266,6 +306,17 @@
     "lastTitle": "Productivity Timer",
     "lastSignals": []
   },
+  "productlair-com-profit-calculator": {
+    "lastDeepEvalAt": "2026-10-26T02:13:35.704Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-10-26T02:13:35.704Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T02:13:35.704Z"
+  },
   "ps-keepmot-com": {
     "openAnomalies": [
       {
@@ -286,6 +337,17 @@
     "lastSignals": [
       "surface_lost"
     ]
+  },
+  "puresume-com": {
+    "lastDeepEvalAt": "2026-10-26T03:11:40.170Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-10-26T03:11:40.170Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T03:11:40.170Z"
   },
   "quixcalc-com": {
     "openAnomalies": [],
@@ -344,21 +406,20 @@
     "lastSignals": []
   },
   "tinywow-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Start 7-Day Free Trial\" (reported by rolling probe 2026-10-22, never escalated)",
-        "firstSeenAt": "2026-10-22T06:40:00.000Z",
-        "lastSeenAt": "2026-10-22T06:40:00.000Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-26T02:02:21.561Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified PDF compression and upload workflow. Core task operates without login; 'Try for free' button is an optional premium tier upsell and does not block core task.",
+      "at": "2026-10-26T02:02:21.561Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "tldraw-com": {
     "openAnomalies": [],
@@ -376,25 +437,21 @@
     "lastSignals": []
   },
   "toolsphare-tech-en": {
-    "openAnomalies": [
-      {
-        "code": "cross_host_redirect",
-        "severity": "medium",
-        "evidence": "toolsphare.tech → toolsphare.com",
-        "firstSeenAt": "2026-10-24T06:24:50.536Z",
-        "lastSeenAt": "2026-10-24T06:24:50.536Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-intent-1792823076050.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-outcome-1792823076050.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:50.536Z",
     "lastTitle": "655+ Free Online Tools — PDF, Image & Text | ToolSphare",
     "lastSignals": [
       "cross_host_redirect"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-26T02:07:58.732Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Redirect from toolsphare.tech/en/ to toolsphare.com confirmed as legitimate domain rebranding/migration. Verified Base64 encode and download workflow; fully functional without sign-in.",
+      "at": "2026-10-26T02:07:58.732Z",
+      "closed": [
+        "cross_host_redirect"
+      ]
+    }
   },
   "wave-webaim-org": {
     "openAnomalies": [],
@@ -455,5 +512,16 @@
     "lastSignals": [
       "surface_lost"
     ]
+  },
+  "www-yourboddy-com-form-check": {
+    "lastDeepEvalAt": "2026-10-26T02:52:00.125Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-10-26T02:52:00.125Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-26T02:52:00.125Z"
   }
 }

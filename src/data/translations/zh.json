@@ -3,6 +3,11 @@
     "description": "面向高中生的免费 SAT 备考题库平台：支持按科目、考点和难度筛选题目，配备详尽解析、限时模考、词汇练习以及数学难题视频讲解。免登录即可直接刷题（可自选注册以保存进度）。",
     "coreTask": "无需账号即可练习 SAT 真题、查看解析、参加限时模考及背记词汇"
   },
+  "aislopdetector-net": {
+    "_hash": "ea8a352069e3cbaf",
+    "description": "完全在浏览器本地检测文本与图片中的 AI 套话模板、高频词及低质生成特征。",
+    "coreTask": "无需创建账号，即可离线检测文本中的 AI 写作特征并核对图像生成痕迹。"
+  },
   "alphabeticallyordered-com": {
     "description": "免费在线文本按字母/拼音排序工具。粘贴任意名单、单词或行列表，即可按 A-Z 或 Z-A 快速排序，支持区分大小写、去除重复项以及按列排序。还附带 20 多个预置参考列表（婴儿姓名、运动队、国家、化学元素等）。无需账号，浏览器本地即刻处理。",
     "coreTask": "粘贴文本列表并按字母顺序排序，支持去重和按列排序，无需注册账号"
@@ -119,6 +124,11 @@
   "bytepriva-com-merge-pdf": {
     "coreTask": "合并多个 PDF 文件、调整页面顺序并下载合并后的文件——全程无需注册账号，零数据上传到服务器。",
     "description": "直接在浏览器中将多个 PDF 文件合并为一个——零上传、免注册。文件完全利用您本地设备的计算性能在客户端处理，任何数据都不会离开您的电脑。拖拽添加、排序页面，即刻下载合并文件。"
+  },
+  "calcrobin-com": {
+    "_hash": "2fab3732dc7122fd",
+    "description": "一站式访问 270 多款涵盖大模型 Token 测算、金融投资、健康与数学计算等完全在浏览器本地运行的实用小工具。",
+    "coreTask": "无需创建账号，即可在 270 余款纯本地工具中进行运算并导出结果卡片。"
   },
   "calorique-io": {
     "coreTask": "免登录计算基础代谢率 (BMR)、卡路里摄入、BMI、体脂率及宏量营养素配比",
@@ -281,6 +291,11 @@
   "crochet-chart-maker-com": {
     "coreTask": "无需注册即可将图片转换为可编辑的钩针编织像素网格、创建空白网格、优化配色和方格，并下载带编号的 PNG 图纸。",
     "description": "Crochet Chart Maker 是一款免费的浏览器工具，可将 JPG、PNG 或 WebP 图片转换为可编辑的彩色像素网格，或从空白网格开始设计。支持调整画布尺寸、适应或裁剪、减少颜色数量、单独编辑方格，并导出带有编号标记和颜色图例的高清 PNG 图纸。图片始终保留在本地设备上，核心功能无需账号。"
+  },
+  "crochetchartmaker-com": {
+    "_hash": "9174a9e3423952b8",
+    "description": "根据针距与行距将照片转为钩织提花图解，支持自定义配色、画布逐针编辑与高清 PNG 图纸导出。",
+    "coreTask": "无需创建账号，即可将图片转化为钩织提花方格图并下载可打印的无水印 PNG 图纸。"
   },
   "crontab-guru": {
     "_hash": "5688064aba7dbe2b",
@@ -712,6 +727,11 @@
     "coreTask": "转换 HEIC、SVG 与各类图片，压缩与裁剪照片，合并与压缩 PDF，生成二维码，调色与生成 CSS 渐变，格式化 JSON 等 130 多款免登录工具",
     "description": "JotTools 是一套包含 130 多个完全在浏览器端运行的免费在线工具套件（覆盖 PDF、图像、文本、色彩、计算器和开发者工具）。无需登录，无需注册，所有处理均在本地设备的前端完成，绝不上传至服务器。提供 6 种语言支持。"
   },
+  "joysky77-github-io-csv-cleanup-services-csv-encoding-checker-html": {
+    "_hash": "76749d17b2583add",
+    "description": "在浏览器本地严格检测中文 CSV 文件是符合 UTF-8 还是 GB18030 字符编码。",
+    "coreTask": "无需创建账号，即可在本地核验 CSV 文件编码并预览解码文本。"
+  },
   "jsoncrack-com": {
     "_hash": "9eb60dfe6ddf6c93",
     "description": "将 JSON 数据可视化为交互式图形。以树状节点图的形式探索复杂 JSON 结构，支持搜索和过滤。",
@@ -1098,6 +1118,11 @@
     "description": "免费的在线高效计时工具套件：包含番茄钟、倒计时、秒表、任务工时预估、习惯打卡以及专注记录。无需注册或登录账号，在浏览器中即开即用。",
     "coreTask": "运行番茄钟和倒计时、记录专注时光、预估任务并打卡习惯，免登录开箱即用"
   },
+  "productlair-com-profit-calculator": {
+    "_hash": "316b76ec2388f386",
+    "description": "实时测算电商与一件代发产品的采购成本、物流费用、销售价格与利润率。",
+    "coreTask": "无需创建账号，即可在线测算一件代发产品的毛利率与收益构成明细。"
+  },
   "ps-keepmot-com": {
     "_hash": "d7f18389cc80a647",
     "description": "免费在线拼图和图像编辑工具。无需登录，完全免费使用。完全基于前端构建，确保图像的绝对隐私和安全。下载无水印的高分辨率结果。简洁专业的视觉创作工具。",
@@ -1106,6 +1131,11 @@
   "pst-aivismonitor-com": {
     "coreTask": "直接从本地磁盘打开 PST、OST、OLM、MBOX 或 EML 邮件归档，浏览目录文件夹，阅读并搜索所有邮件。",
     "description": "Mailward 支持在浏览器中直接打开 Outlook PST/OST 归档文件、Mac 版 Outlook OLM 导出文件、MBOX 邮箱格式（包含 Gmail Takeout 归档）以及 EML/MSG 邮件。文件通过 Web Worker 在本地解析，零数据上传，全程无需注册账号。邮件阅读与检索完全免费；批量导出及双归档并行对比为 19 美元单次买断许可。支持 Mac、Windows、Linux 和 ChromeOS，无需安装 Outlook 软件。"
+  },
+  "puresume-com": {
+    "_hash": "745630b79427656a",
+    "description": "无需注册账号即可在浏览器端排版并导出符合 ATS 规范的 PDF 或 Word 格式简历。",
+    "coreTask": "无需创建账号，即可定制简历模板、进行 ATS 评分检测并导出 PDF 或 DOCX 文件。"
   },
   "pythontutor-com": {
     "_hash": "833183ed664c9c1a",
@@ -1265,8 +1295,9 @@
     "coreTask": "测试网络速度和延迟"
   },
   "spritesheettool-com": {
-    "coreTask": "无需创建账号，即可在浏览器中匿名生成精灵图（Sprite Sheet）预览。",
-    "description": "在浏览器中在线制作精灵图：生成 RPG 角色精灵图、将 GIF 动画或图集拆分为独立帧，并构建纹理图集（Texture Atlas）。"
+    "_hash": "7a5e33fa32fd2f8f",
+    "description": "无需登录的免费浏览器工具集，支持本地拼合现有精灵图帧、拆分图集或 GIF、预览动画并导出资源。另设的 AI RPG 行走图生成功能需云端处理、登录账户与消耗点数。",
+    "coreTask": "无需创建账号，即可使用免费浏览器编辑器排布现有精灵帧、拆分精灵图集、预览动画并导出资源。"
   },
   "squoosh-app": {
     "_hash": "0b0143efc81e2e27",
@@ -1630,6 +1661,11 @@
   "www-yhile-com": {
     "description": "提供一系列实用的免费浏览器工具合集，涵盖 HEIC 转 JPG、音视频格式转换、拼图拼贴制作等。无水印、无广告，通过浏览器本地处理保护数据隐私，文件绝不上报。（100% 免费免登录）",
     "coreTask": "在本地使用 HEIC 转 JPG、音视频转换、拼图等免费浏览器小工具，无需注册"
+  },
+  "www-yourboddy-com-form-check": {
+    "_hash": "33f46478eee6325e",
+    "description": "完全在浏览器本地解析自重深蹲动作视频，基于 33 个肢体关键点提供端侧动作评估与纠错建议。",
+    "coreTask": "无需创建账号，即可通过本地视频检测深蹲动作姿态并统计完成次数。"
   },
   "xe-com-currencyconverter": {
     "_hash": "c1bb28b570aa2ef5",
