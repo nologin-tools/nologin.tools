@@ -20,20 +20,18 @@
 
 ## 2. Detailed Description (Paste into Chrome Developer Dashboard)
 
-Tired of mandatory signup walls, "Sign in with Google" prompts, and credit card traps just to edit a PDF, remove a background, convert an image, or format JSON?
-
-**NoLogin Tools (v2.0)** is a lightweight, Zero Telemetry browser companion powered by the **NoLogin Lab CADES 2.0 Benchmark**. It surfaces verified zero-login scores right on search engine results and lets you switch from closed, paywalled SaaS platforms to 100% client-side, account-free web tools in one click.
+NoLogin Tools (v2.0) is a zero-telemetry browser companion powered by the NoLogin Lab CADES 2.0 benchmark. It surfaces verified zero-login scores right on search engine result pages and lets you switch from restrictive, signup-walled web services to 100% client-side, account-free web utilities in one click.
 
 ### 🌟 Key Features in v2.0
 
-1. **Search Engine (SERP) Truth Badges & Paywall Alerts**:
-   On Google, Bing, DuckDuckGo, Brave, and Baidu search results, see single-line `🛡️ NoLogin Verified · ⚡ 95/100 · 🔒 100% Local` badges next to verified tools, plus `⚡ Signup Wall · Free No-Login Switch` links beneath paywalled SaaS results before you even click.
+1. **Search Engine Result Badges & Signup Wall Alerts**:
+   Directly on search engine result pages, view single-line `🛡️ NoLogin Verified · ⚡ 95/100 · 🔒 100% Local` badges next to verified tools, plus `⚡ Signup Wall · Free No-Login Switch` links beneath signup-walled results before you even click.
 
 2. **Non-Intrusive Toolbar Score Badge & 5D Lab HUD**:
-   Zero floating cards or DOM clutter on tool websites! The toolbar icon displays the CADES 2.0 integer score (e.g. `95`) on 320+ verified tools or the available alternative count (e.g. `4`) on 55+ closed SaaS domains (Canva, Figma, Smallpdf, Notion, WeTransfer, etc.). Click the icon to inspect 5D sub-scores (`UX`, `Depth`, `Export`, `Privacy`, `Polish`) and head-to-head comparisons.
+   Zero floating overlays or DOM clutter on tool websites. The toolbar icon displays the CADES 2.0 integer score (such as `95`) on 320+ verified tools or the available alternative count (such as `4`) when visiting restrictive commercial web applications. Open the panel to inspect five-dimensional sub-scores (`UX`, `Depth`, `Export`, `Privacy`, `Polish`) alongside head-to-head comparisons.
 
 3. **Instant Spotlight Mini-Finder with Scenario Presets**:
-   Search 320+ verified zero-login web applications with full keyboard navigation (`↑` / `↓` / `Enter`) and 1-click scenario chips (`⚡ Top Scored`, `🔒 100% Local`, `★ Editor's Choice ≥90`, `🐙 Open Source`).
+   Browse and search 320+ verified zero-login web applications with full keyboard navigation (`↑` / `↓` / `Enter`) and 1-click scenario chips (`⚡ Top Scored`, `🔒 100% Local`, `★ Editor's Choice ≥90`, `🐙 Open Source`).
 
 4. **24-Hour Silent Index Sync & Bilingual UI (EN / 中文)**:
    Works instantaneously offline from its bundled index and refreshes every 24 hours from `https://nologin.tools/api/extension-index.json`.
@@ -53,8 +51,3 @@ In strict accordance with the Chrome Web Store Minimum Permissions Policy:
 - No tracking scripts, analytics beacons, or browsing history collection.
 - Dedicated Privacy Policy: https://nologin.tools/privacy
 - Fully Open Source and publicly audited: https://github.com/nologin-tools/nologin.tools
-
----
-
-### 🏷️ Recommended Tags & Keywords
-`privacy`, `no login`, `free tools`, `pdf editor`, `image converter`, `json formatter`, `open source`, `productivity`, `offline tools`

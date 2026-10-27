@@ -21,8 +21,8 @@ Break free from mandatory account creation, email verification gates, and subscr
 NoLogin Tools (v2.0) is a lightweight, privacy-focused extension powered by the NoLogin Lab CADES 2.0 benchmark. It surfaces verified zero-login scores on search results, detects when you are visiting restrictive commercial web services, and recommends vetted, client-side, zero-login alternatives.
 
 ### ✨ Features
-- **Search Engine (SERP) Badges & Paywall Switcher**: Displays single-line CADES 2.0 score strips and no-login alternative links on Google, Bing, DuckDuckGo, and Brave search results.
-- **Toolbar Score Badge & 5D Lab HUD**: Shows the CADES 2.0 integer score (`95`) on 320+ verified tools or available alternative counts (`4`) on 55+ closed SaaS sites, with zero DOM injection on tool websites.
+- **Search Engine (SERP) Badges & Signup Wall Switcher**: Displays single-line CADES 2.0 score strips and no-login alternative links directly on search engine result pages.
+- **Toolbar Score Badge & 5D Lab HUD**: Shows the CADES 2.0 integer score (`95`) on 320+ verified tools or available alternative counts (`4`) when visiting restrictive commercial web services, with zero DOM injection on tool websites.
 - **Offline Tool Directory & 24h Sync**: Instantly search 320+ verified tools in English or Chinese, with scenario presets (`100% Local`, `Editor's Choice`, `Open Source`) and daily silent index updates.
 - **Pure Client-Side Execution**: All search and matching logic executes locally in Firefox with zero telemetry.
 
