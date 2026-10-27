@@ -411,7 +411,10 @@ function translateTagValue(key: string, value: string): string {
                   </div>
                   <a href={getLocalizedPath('/category/design', locale)} class="nl-g-heading">Online Photo Editor &amp; Graphic Design Suite – ProStudio</a>
                   <div class="nl-inline-strip nl-strip-warn">
-                    <strong class="nl-strip-warn-title">{l('需登录/付费墙 · 免登录平替：', 'Signup Wall · No-Login Switch:')}</strong>
+                    <strong class="nl-strip-warn-title">⚠ ProStudio</strong>
+                    <span class="nl-amber-score-pill">42/100</span>
+                    <span class="nl-dot">·</span>
+                    <strong class="nl-strip-warn-title">{l('强制登录/付费墙 · 免登录平替：', 'Signup Paywall · Free Switch:')}</strong>
                     <a href={getLocalizedPath('/tool/photopea-com', locale)} class="nl-alt-chip">
                       <span>Photopea</span>
                       <span class="nl-white-score-pill nl-pill-sm">95</span>
@@ -423,8 +426,6 @@ function translateTagValue(key: string, value: string): string {
                       <span class="nl-white-score-pill nl-pill-sm">96</span>
                       <span>↗</span>
                     </a>
-                    <span class="nl-dot">·</span>
-                    <a href={getLocalizedPath('/category/design', locale)}>{l('全部 4 款对比 ↗', 'Compare all 4 ↗')}</a>
                   </div>
                   <p class="nl-g-desc">{l('在线编辑照片与设计海报。需使用邮箱或手机号注册登录账号并开启会员试用后方可进入工作台下载高清无水印文件……', 'Create graphics and edit photos online. Sign up with email or social account and start a subscription trial to export HD files...')}</p>
                 </div>
@@ -450,9 +451,9 @@ function translateTagValue(key: string, value: string): string {
               </div>
               <div class="nl-chrome-tray">
                 <span class="nl-toolbar-callout">{l('点击角标 ↘', 'Click badge ↘')}</span>
-                <span class="nl-toolbar-active-btn" title={l('NoLogin 实测角标（纯白分数）', 'NoLogin live toolbar badge')}>
+                <span class="nl-toolbar-active-btn nl-toolbar-warn-btn" title={l('当前站点低分预警角标（42分）', 'Low score paywall alert badge (42)')}>
                   <span class="nl-toolbar-icon-box">✓</span>
-                  <span class="nl-toolbar-badge-num">95</span>
+                  <span class="nl-toolbar-badge-num nl-toolbar-badge-warn">42</span>
                 </span>
                 <span class="nl-chrome-puzzle" aria-hidden="true">🧩</span>
               </div>
@@ -492,7 +493,7 @@ function translateTagValue(key: string, value: string): string {
                   </div>
                   <p class="nl-mock-pain-hint">
                     <span class="nl-hint-desktop">{l('↑ 排好版才发现导出要登录绑卡？看右侧插件弹窗 →', '↑ Hit a login/paywall when exporting? See the popup →')}</span>
-                    <span class="nl-hint-mobile">{l('↑ 排好版才发现导出要登录？点右上角 [✓ 95] 弹出下方免费平替 ↓', '↑ Hit a paywall? Tap [✓ 95] above for zero-login alternatives ↓')}</span>
+                    <span class="nl-hint-mobile">{l('↑ 排好版才发现导出要登录？点右上角 [✓ 42] 弹出下方免费平替 ↓', '↑ Hit a paywall? Tap [✓ 42] above for zero-login alternatives ↓')}</span>
                   </p>
                 </div>
               </div>
@@ -505,51 +506,49 @@ function translateTagValue(key: string, value: string): string {
                   <span class="nl-sim-popup-count">{totalTools} {l('款工具 · 零遥测', 'tools · 0 telemetry')}</span>
                 </div>
 
-                <!-- 1. 付费墙一键免登录平替 -->
+                <!-- 1. 当前受限网站诊断卡（ProStudio 仅 42/100） -->
                 <div class="nl-sim-popup-section nl-sim-popup-warn">
+                  <div class="nl-sim-popup-site-line">
+                    <strong>ProStudio <small class="nl-sub-domain">(prostudio.example)</small></strong>
+                    <span class="nl-amber-score-pill">42/100</span>
+                  </div>
+                  <div class="nl-sim-warn-tags">
+                    <span class="nl-wtag bad">✗ {l('强制登录注册', 'Forced Login')}</span>
+                    <span class="nl-wtag warn">⚠ {l('高清导出需绑卡', 'HD Paywalled')}</span>
+                    <span class="nl-wtag">{l('免登录UX 4/20', 'UX 4/20')}</span>
+                  </div>
+                </div>
+
+                <!-- 2. 同题免登录高分替代方案（Photopea 95 / Excalidraw 96） -->
+                <div class="nl-sim-popup-section">
                   <div class="nl-sim-popup-alt-title">
-                    <span>⚡ {l('同题高分免登录平替', 'Top Zero-Login Switches')}</span>
-                    <span class="nl-sim-active-filter">{l('100% 本地', '100% Local')}</span>
+                    <span>⚡ {l('同题高分免登录平替', 'Top Zero-Login Replacements')}</span>
+                    <span class="nl-sim-active-filter">{l('✓ 免登录+本地', '✓ No login + Local')}</span>
                   </div>
                   <ul class="nl-sim-popup-alt-list">
                     <li>
                       <div>
                         <a href={getLocalizedPath('/tool/photopea-com', locale)}>
                           <strong>Photopea</strong>
-                          <span class="nl-white-score-pill nl-pill-sm">95</span>
+                          <span class="nl-white-score-pill nl-pill-sm">95/100</span>
                         </a>
-                        <small>{l('本地 WebAssembly · 免登录直出 PSD/PNG', 'Local WebAssembly · Free PSD/PNG export')}</small>
+                        <small>{l('免登录 · 本地 WebAssembly · 直出无水印 PSD/PNG', 'No login · Local WebAssembly · Free HD PSD/PNG')}</small>
                       </div>
-                      <a class="nl-sim-mini-go" href={getLocalizedPath('/tool/photopea-com', locale)}>{l('直达 ↗', 'Open ↗')}</a>
+                      <a class="nl-sim-mini-go" href={getLocalizedPath('/tool/photopea-com', locale)}>{l('切换 ↗', 'Switch ↗')}</a>
                     </li>
                     <li>
                       <div>
                         <a href={getLocalizedPath('/tool/excalidraw-com', locale)}>
                           <strong>Excalidraw</strong>
-                          <span class="nl-white-score-pill nl-pill-sm">96</span>
+                          <span class="nl-white-score-pill nl-pill-sm">96/100</span>
                         </a>
-                        <small>{l('本地手绘白板 · 端到端加密 · 开源', 'Local whiteboard · E2EE · Open Source')}</small>
+                        <small>{l('免登录 · 本地手绘白板 · 端到端加密 · 开源', 'No login · Local whiteboard · E2EE · Open Source')}</small>
                       </div>
-                      <a class="nl-sim-mini-go" href={getLocalizedPath('/tool/excalidraw-com', locale)}>{l('直达 ↗', 'Open ↗')}</a>
+                      <a class="nl-sim-mini-go" href={getLocalizedPath('/tool/excalidraw-com', locale)}>{l('切换 ↗', 'Switch ↗')}</a>
                     </li>
                   </ul>
-                </div>
-
-                <!-- 2. CADES 2.0 五维实测评分卡 -->
-                <div class="nl-sim-popup-section">
-                  <div class="nl-sim-popup-site-line">
-                    <strong>Photopea · CADES 2.0</strong>
-                    <span class="nl-white-score-pill">95/100</span>
-                  </div>
-                  <div class="nl-sim-5d-grid">
-                    <div><span>UX</span><strong>19/20</strong></div>
-                    <div><span>{l('深度', 'Depth')}</span><strong>24/25</strong></div>
-                    <div><span>{l('导出', 'Export')}</span><strong>19/20</strong></div>
-                    <div><span>{l('隐私', 'Privacy')}</span><strong>19/20</strong></div>
-                    <div><span>{l('稳定', 'Polish')}</span><strong>14/15</strong></div>
-                  </div>
                   <a class="nl-sim-popup-pk-btn" href={getLocalizedPath('/category/design', locale)}>
-                    {l('⚔️ 查看设计修图免登录工具全榜单 →', '⚔️ Browse All Zero-Login Design Tools →')}
+                    {l('⚔️ 查看全部免登录设计修图工具榜单 →', '⚔️ Browse All Zero-Login Design Tools →')}
                   </a>
                 </div>
               </div>
@@ -1329,6 +1328,19 @@ function translateTagValue(key: string, value: string): string {
       line-height: 1.25;
       font-variant-numeric: tabular-nums;
     }
+    .nl-amber-score-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #b45309;
+      color: #ffffff !important;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.25;
+      font-variant-numeric: tabular-nums;
+    }
     .nl-pill-sm {
       padding: 0 5px;
       font-size: 10px;
@@ -1383,6 +1395,11 @@ function translateTagValue(key: string, value: string): string {
       border: 2px solid #08695d;
       box-shadow: 0 0 0 3px rgba(8, 105, 93, 0.2);
     }
+    .nl-toolbar-warn-btn {
+      background: #fffbeb;
+      border-color: #b45309;
+      box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.2);
+    }
     .nl-toolbar-icon-box {
       display: grid;
       place-items: center;
@@ -1402,6 +1419,10 @@ function translateTagValue(key: string, value: string): string {
       font-size: 10.5px;
       font-weight: 800;
       font-variant-numeric: tabular-nums;
+    }
+    .nl-toolbar-badge-warn {
+      background: #b45309;
+      color: #ffffff;
     }
     .nl-chrome-puzzle { font-size: 12px; opacity: 0.65; }
 
@@ -1651,6 +1672,35 @@ function translateTagValue(key: string, value: string): string {
       gap: 6px;
       font-size: 11.5px;
       color: #0f1d24;
+    }
+    .nl-sub-domain {
+      font-weight: 500;
+      color: #64748b;
+      font-size: 10px;
+    }
+    .nl-sim-warn-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .nl-wtag {
+      font-size: 10px;
+      font-weight: 650;
+      padding: 1px 5px;
+      border-radius: 3px;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .nl-wtag.bad {
+      background: #fef2f2;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+    .nl-wtag.warn {
+      background: #fffbeb;
+      color: #b45309;
+      border-color: #fde68a;
     }
     .nl-sim-5d-grid {
       display: grid;
