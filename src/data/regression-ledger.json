@@ -17,25 +17,21 @@
     "lastScanAt": "2026-10-26T02:32:02.049Z"
   },
   "app-diagrams-net": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-25T06:21:30.509Z",
-        "lastSeenAt": "2026-10-25T06:21:30.509Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-intent-1792909285510.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-outcome-1792909285510.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:30.509Z",
     "lastTitle": "Flowchart Maker & Online Diagram Software",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-27T02:45:03.800Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified draw.io client-side diagramming suite; rolling scan hit during initial splash load, app is fully operational with shape search and file export.",
+      "at": "2026-10-27T02:45:03.800Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "astexplorer-net": {
     "openAnomalies": [],
@@ -110,6 +106,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
+  },
+  "chordfold-com": {
+    "lastDeepEvalAt": "2026-10-27T03:02:28.977Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 92, editors-choice)",
+      "at": "2026-10-27T03:02:28.977Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T03:02:28.977Z"
   },
   "citefetch-com": {
     "openAnomalies": [],
@@ -359,6 +366,17 @@
     "lastTitle": "LensUp — 免费在线文档扫描工具（照片 → PDF）",
     "lastSignals": []
   },
+  "letriza-com": {
+    "lastDeepEvalAt": "2026-10-27T03:46:07.455Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-10-27T03:46:07.455Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T03:46:07.455Z"
+  },
   "max-agent-hub-github-io-browser-sop-builder": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:18.177Z",
@@ -388,6 +406,17 @@
     "lastScanAt": "2026-10-26T06:27:37.794Z",
     "lastTitle": "Get Paid Faster: Free Invoice Generator, No Signup",
     "lastSignals": []
+  },
+  "mtempmail-com": {
+    "lastDeepEvalAt": "2026-10-27T02:48:54.834Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-10-27T02:48:54.834Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T02:48:54.834Z"
   },
   "nextgenailearning-com": {
     "openAnomalies": [],
@@ -436,6 +465,17 @@
       ]
     }
   },
+  "peptidetracks-com": {
+    "lastDeepEvalAt": "2026-10-27T02:54:54.882Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-10-27T02:54:54.882Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T02:54:54.882Z"
+  },
   "photopea-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -476,6 +516,17 @@
     "lastTitle": "Free Printable PDF, Image, and QR Tools - PrintableTools Lab",
     "lastSignals": []
   },
+  "printpagecheck-com": {
+    "lastDeepEvalAt": "2026-10-27T03:15:28.473Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-10-27T03:15:28.473Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T03:15:28.473Z"
+  },
   "privacytests-org": {
     "openAnomalies": [
       {
@@ -515,25 +566,21 @@
     "lastScanAt": "2026-10-26T02:13:35.704Z"
   },
   "ps-keepmot-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-25T06:20:45.808Z",
-        "lastSeenAt": "2026-10-25T06:20:45.808Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1792909225665.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1792909225665.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:45.808Z",
     "lastTitle": "Free Online Collage Maker_No Login_No Watermark_HD Image Stitching Tool",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-27T02:41:14.713Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified design canvas at /zh/design/; landing page is marketing hero but studio remains fully functional with template selection, layout, and watermark settings.",
+      "at": "2026-10-27T02:41:14.713Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "puresume-com": {
     "lastDeepEvalAt": "2026-10-26T05:02:35.009Z",
@@ -572,6 +619,17 @@
     "lastScanAt": "2026-10-25T06:21:43.617Z",
     "lastTitle": "Free Online Calculators and Tools | QuixCalc",
     "lastSignals": []
+  },
+  "randomtopicgenerators-com": {
+    "lastDeepEvalAt": "2026-10-27T03:33:33.121Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-10-27T03:33:33.121Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T03:33:33.121Z"
   },
   "ray-so": {
     "openAnomalies": [],
@@ -793,26 +851,33 @@
     "lastTitle": "Calculator Campus | Practical Online Calculators",
     "lastSignals": []
   },
+  "www-imagesplit-online": {
+    "lastDeepEvalAt": "2026-10-27T03:39:20.699Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, capable-utility)",
+      "at": "2026-10-27T03:39:20.699Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T03:39:20.699Z"
+  },
   "www-textfixhub-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-25T06:21:04.115Z",
-        "lastSeenAt": "2026-10-25T06:21:04.115Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-intent-1792909258076.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-outcome-1792909258076.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:04.115Z",
     "lastTitle": "Free Text Tools: Alphabetize, Count & More | TextFixHub",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-27T02:43:10.122Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified text tools suite; landing page is directory/hub, individual tools like Alphabetizer at /tools/alphabetizer function client-side with live sorting and deduplication.",
+      "at": "2026-10-27T02:43:10.122Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "www-whatsmyiplive-com": {
     "openAnomalies": [],

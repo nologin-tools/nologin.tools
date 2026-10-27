@@ -177,6 +177,12 @@
     "description": "免费的浏览器端配音练习与短剧游戏。提供丰富预制短剧场景，支持角色声线模仿、节奏把握与台词演绎练习。即开即练，录音即时对比——全程无需创建账号。",
     "coreTask": "在浏览器中挑选短剧场景、录制配音并对比练习，无需注册账号"
   },
+  "chordfold-com": {
+    "_hash": "e2c3c8f6a8a19c0b",
+    "description": "基于浏览器本地 AI 的音频和弦识别工作台，可将音频快速解析为带同步波形与可交互指法图示的和弦进行。",
+    "coreTask": "从音频文件中检测识别和弦序列并查看吉他与钢琴指法谱。",
+    "contentUpdatedAt": "2026-10-27T03:03:25.950Z"
+  },
   "chordgen-app": {
     "description": "免费在线和弦进行生成器。挑选调性与情绪氛围，点击播放即可开启创作灵感，免注册、无需登录即刻使用。",
     "coreTask": "在浏览器中生成并播放和弦进行，无需注册账号"
@@ -911,6 +917,12 @@
     "description": "在线剪切和修剪音频文件。支持 MP3、WAV、OGG 和 300 多种格式——直接在浏览器中处理文件。",
     "coreTask": "在线剪切和修剪音频文件"
   },
+  "mtempmail-com": {
+    "_hash": "84d582d3fb18314c",
+    "description": "免注册临时邮箱生成工具，支持即时创建临时收件箱与自定义别名前缀。",
+    "coreTask": "生成免注册临时邮箱收件箱并支持自定义别名。",
+    "contentUpdatedAt": "2026-10-27T02:51:16.149Z"
+  },
   "musicforprogramming-net": {
     "_hash": "40a44cf3074bf142",
     "description": "精心策划的环境音乐和电子音乐混音，旨在帮助编程时保持专注。60 多集专注音乐。",
@@ -1020,6 +1032,12 @@
     "coreTask": "直接在浏览器中合并多个 PDF、调整页面顺序并压缩文件",
     "description": "直接在浏览器中合并、重新排序和压缩 PDF 文件。核心流程无需注册账号，不添加任何水印，所有文件均在本地设备处理。"
   },
+  "peptidetracks-com": {
+    "_hash": "6e2c6b35c588c3d0",
+    "description": "交互式多肽稀释配比与剂量折算计算器，可将药剂规格与稀释液体积快速换算为注射器抽取刻度单位。",
+    "coreTask": "计算多肽稀释容量、浓度配比及注射器抽取刻度单位。",
+    "contentUpdatedAt": "2026-10-27T02:55:33.625Z"
+  },
   "perplexity-ai": {
     "_hash": "17b9ed99cdcad38c",
     "description": "AI 驱动的搜索引擎，提供带有引用来源的准确答案。基础搜索查询无需注册。",
@@ -1109,6 +1127,12 @@
   "printable-tools-lab-pages-dev": {
     "coreTask": "免登录使用 PDF、图片、二维码和常用文档小工具并直接下载生成的文件",
     "description": "面向 PDF、图像、二维码和日常办公纸质文档任务的免费免登录浏览器工具。无需注册账号，即可按目标 KB 压缩图片、调整照片尺寸、图片转 PDF、生成二维码以及排版简易 PDF。"
+  },
+  "printpagecheck-com": {
+    "_hash": "892b74458b53ed80",
+    "description": "在线打印机测试页工具，提供涵盖彩色色块、灰阶渐变、精细线条与边距校准测试样的即时下载与打印。",
+    "coreTask": "生成并下载打印机校准测试页。",
+    "contentUpdatedAt": "2026-10-27T03:16:33.570Z"
   },
   "privacy-sexy": {
     "_hash": "966b15f83aace66e",
@@ -1719,5 +1743,23 @@
     "_hash": "f620e01c3824091c",
     "description": "在浏览器中直接检测、精确定位并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。支持精确码点映射与本地剪贴板复制。",
     "coreTask": "检测并清除不可见Unicode字符"
+  },
+  "randomtopicgenerators-com": {
+    "_hash": "73f4e3b0fe760fa5",
+    "description": "面向演讲、写作、日常交流与辩论场景的免登录随机话题与灵感生成器，支持按领域、深度和数量筛选，提供讨论要点与一键 CSV 导出。",
+    "coreTask": "按领域与深度筛选生成对话、写作与演讲主题并导出 CSV。",
+    "contentUpdatedAt": "2026-10-27T03:35:34.051Z"
+  },
+  "www-imagesplit-online": {
+    "_hash": "5c4da21e90ba0729",
+    "description": "免费在线图片切图工具，支持在浏览器本地将图片裁切为网格九宫格、社交轮播图、自定义像素切片及固定尺寸瓦片，并提供打包 ZIP 下载。",
+    "coreTask": "将图片自由裁切为网格九宫格或轮播图切片并一键下载 ZIP 压缩包。",
+    "contentUpdatedAt": "2026-10-27T03:39:42.953Z"
+  },
+  "letriza-com": {
+    "_hash": "ad6cfc999c3f8f7a",
+    "description": "在线花样字体与 Unicode 特殊字符生成器，提供超 3600 种艺术排版样式、风格混搭与一键复制功能，完全免注册使用。",
+    "coreTask": "生成花样 Unicode 特殊字体与艺术排版文本并一键复制。",
+    "contentUpdatedAt": "2026-10-27T03:46:32.604Z"
   }
 }

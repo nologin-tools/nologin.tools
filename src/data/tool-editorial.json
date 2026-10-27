@@ -73516,5 +73516,371 @@
       "benchmarkNotes": "在 11 个步骤中完成深度实测：填写首页快速预览字段、进入 /en/builder/、更新联系信息/工作经历/招聘启事对比文本、新增 Projects 模块、切换第 3 种主题色（皇家蓝），并触发 Download PDF（生成 14,015 字节有效 PDF，无水印、无登录拦截）。主线程最大耗时 75 ms，首页 CLS 为 0.05，编辑器内 CLS 为 0.00。",
       "testedAt": "2026-10"
     }
+  },
+  "mtempmail-com": {
+    "en": {
+      "bestFor": "Users needing a quick disposable email address or custom prefix without sign-up to receive verification codes.",
+      "pros": [
+        "Generates disposable inboxes instantly with support for custom email aliases",
+        "One-click clipboard copy without login walls or forced subscriptions"
+      ],
+      "cons": [
+        "Page layout contains prominent display advertisements",
+        "Requires server-side mail reception infrastructure"
+      ],
+      "privacyVerdict": "Server-side disposable email reception observed; email prefixes and mailbox data are managed through backend APIs, accompanied by standard advertising network telemetry.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 16,
+        "depth": 12,
+        "exportFreedom": 17,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Created custom alias tester789@mtempmail.com and copied cleanly to clipboard in 23 chars without watermarks.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T02:48:54.811Z"
+    },
+    "zh": {
+      "bestFor": "需要快速获取免注册临时邮箱或自定义前缀以接收验证码的用户。",
+      "pros": [
+        "即时生成临时收件箱，支持自定义邮箱别名前缀与域名切换",
+        "一键复制邮箱地址至剪贴板，无登录要求或强制订阅门槛"
+      ],
+      "cons": [
+        "页面包含较为明显的展示型横幅广告",
+        "邮件接收需依赖服务端中转基础设施"
+      ],
+      "privacyVerdict": "观测到服务端临时邮件接收流程；邮箱别名生成与收件箱轮询通过后端 API 处理，同时伴随常规广告联盟网络请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 16,
+        "depth": 12,
+        "exportFreedom": 17,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "成功创建自定义别名 tester789@mtempmail.com，并以 23 字符完整复制至剪贴板，无诱导水印。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T02:48:54.811Z"
+    }
+  },
+  "peptidetracks-com": {
+    "en": {
+      "bestFor": "Individuals calculating peptide vial reconstitution, dosing concentration, and syringe unit markings without an account.",
+      "pros": [
+        "Instant client-side arithmetic for reconstitution volume and syringe draw units",
+        "Dynamic visual syringe gauge updates live with vial strength and liquid adjustments"
+      ],
+      "cons": [
+        "Single-purpose calculation without multi-protocol storage or dose schedule export on the web",
+        "Broader dose tracking features require the mobile application"
+      ],
+      "privacyVerdict": "Reconstitution calculations run entirely client-side in browser memory with zero tracking beacons or data telemetry captured.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Recalculated 10mg vial with 3mL diluent and 250mcg target dose to 7.5 syringe units in under 20ms.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T02:54:54.864Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册在线快速计算多肽稀释浓度、剂量折算与注射器刻度单位的用户。",
+      "pros": [
+        "纯前端实时计算多肽稀释液配比与对应注射器抽取刻度单位",
+        "直观的注射器动态视觉图表，随药量与稀释液容量即时联动展示"
+      ],
+      "cons": [
+        "功能专注于单次配比折算，网页端不支持多方案保存或日程导出",
+        "完整的长期给药日程记录功能需依赖移动端 App"
+      ],
+      "privacyVerdict": "配比折算完全在浏览器前端本地执行，实测未监测到任何数据外发或统计追踪载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "对 10mg 药剂加入 3mL 溶剂及 250mcg 目标剂量进行折算，20ms 内即时联动渲染 7.5 单位注射刻度。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T02:54:54.864Z"
+    }
+  },
+  "chordfold-com": {
+    "en": {
+      "bestFor": "Musicians, producers, and learners transcribing chords from audio recordings locally using in-browser AI with guitar and piano fingering diagrams.",
+      "pros": [
+        "Runs local client-side ONNX and WASM audio inference without transmitting song recordings to external servers",
+        "Interactive living score features synchronized waveform visualization and real-time audio playback for guitar and piano voicings",
+        "Exports unencumbered timestamped CSV chord progressions with zero watermarks or subscription barriers"
+      ],
+      "cons": [
+        "Initial model setup requires downloading an in-browser ONNX model (~14 MB)",
+        "Complex polyphonic arrangements or dense jazz harmony may yield approximations"
+      ],
+      "privacyVerdict": "Local WASM and ONNX Runtime Web audio inference verified; uploaded audio files remain entirely within browser memory with zero tracking beacons or egress payloads captured.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Executed in-browser WASM model pipeline, inspected interactive waveform and living score across 11 turns, and exported 327-byte CSV chord timeline cleanly.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:02:28.951Z"
+    },
+    "zh": {
+      "bestFor": "需要通过浏览器本地 AI 将音频转换为和弦乐谱、并查看吉他与钢琴指法指引的音乐人与学习者。",
+      "pros": [
+        "基于浏览器端 WASM 与 ONNX Runtime Web 进行本地音频推断，音频文件完全不离开本地设备",
+        "动态交互式乐谱具备同步波形可视化与吉他/钢琴实时和弦发声试听功能",
+        "一键导出带时间戳的纯净 CSV 和弦进行序列，无任何水印或强制付费门槛"
+      ],
+      "cons": [
+        "首次使用需在浏览器中下载约 14MB 的轻量级本地 ONNX 模型权重",
+        "在极为复杂的复调或前卫爵士和声编排下，识别结果可能存在一定近似误差"
+      ],
+      "privacyVerdict": "经实测验证本地 WASM 与 ONNX Runtime Web 音频推理流程；音频文件仅保存在浏览器前端内存中，未发生任何服务器上传或遥测载荷外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 92,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 19,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "完成浏览器端 WASM 模型管线运行，经 11 轮深度交互检验波形视图与活体乐谱，并成功导出 327 字节纯净 CSV 和弦时间轴。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:02:28.952Z"
+    }
+  },
+  "printpagecheck-com": {
+    "en": {
+      "bestFor": "Users needing ready-to-print calibration sheets, grayscale wedges, and margin alignment test pages without sign-up.",
+      "pros": [
+        "Instant download of printer test pages across color blocks, grayscale gradients, fine lines, and margin references",
+        "Completely free with zero account requirements, software installations, or watermarks"
+      ],
+      "cons": [
+        "Test patterns are pre-rendered PDF templates rather than custom user-configurable vector designs",
+        "Lacks advanced custom ICC color profile calibration tools"
+      ],
+      "privacyVerdict": "Direct static download of printer test calibration sheets; no user data transmission or tracking beacons observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Selected US Letter grayscale calibration pattern and downloaded clean 4,940-byte PDF directly in under 1 second.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:15:28.445Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册即时下载打印机校准样张、灰阶过渡卡及边距对齐测试页的用户。",
+      "pros": [
+        "即时下载涵盖 CMYK 色块、平滑灰阶、精细线条及边距对准等多维度打印机测试样张",
+        "完全免费，无须注册登录、无任何附加水印或软件安装要求"
+      ],
+      "cons": [
+        "测试图样为预制标准 PDF 模板，网页端不支持自定义矢量图样参数调整",
+        "不具备高级 ICC 色彩配置文件校准等专业级色彩管理功能"
+      ],
+      "privacyVerdict": "静态分发打印机校准样张文件；实测未监测到任何用户数据上传或第三方追踪载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "切换至 US Letter 灰阶测试模式，1 秒内直接触发并下载 4,940 字节纯净 PDF 校准文件。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:15:28.445Z"
+    }
+  },
+  "randomtopicgenerators-com": {
+    "en": {
+      "bestFor": "Writers, public speakers, educators, and event organizers seeking categorized discussion topics and writing prompts without registration.",
+      "pros": [
+        "Zero registration or signup required; instantaneous client-side topic selection and presentation",
+        "Multi-faceted filtering across category, depth levels, and topic count with follow-up talking points",
+        "Direct clean CSV download and clipboard copy with no watermarks or email walls"
+      ],
+      "cons": [
+        "Topics originate from a curated static taxonomy rather than open-ended LLM synthesis"
+      ],
+      "privacyVerdict": "Operates fully client-side on static topic sets without transmitting user queries, selections, or prompts to external servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 14,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Filtered 3 deep creative prompts across Speech and Conversation categories in 15ms latency, downloading a clean 515 bytes CSV payload with 0ms long-task freeze.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:33:33.098Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册获取分类演讲话题、写作灵感、破冰问答与辩论题目的创作者与演讲者。",
+      "pros": [
+        "完全无需注册或登录，纯前端极速筛选与生成精选话题",
+        "支持按领域分类、深度层级及数量多维度过滤，并附带针对性讨论要点",
+        "提供一键无水印 CSV 文件下载与文本复制，无任何导出门槛"
+      ],
+      "cons": [
+        "话题库基于精选分类静态库，非开放式大语言模型动态生成"
+      ],
+      "privacyVerdict": "所有筛选与生成逻辑均在浏览器本地执行，实测未向外部服务器回传任何用户配置或导出内容。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 14,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "成功筛选 3 条'深度·创意'主题演讲与对话题目，响应延迟低于 15ms，并完成 515 字节纯净 CSV 下载导出与 0ms 主线程卡顿。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:33:33.098Z"
+    }
+  },
+  "www-imagesplit-online": {
+    "en": {
+      "bestFor": "Designers, social media managers, and developers needing to slice images into grids, carousels, or custom pixel tiles without account creation.",
+      "pros": [
+        "Comprehensive client-side canvas slicing modes including grid, custom pixel cuts, horizontal, vertical, and carousels",
+        "Generates clean multi-file ZIP bundles and single-slice downloads with zero watermark or compression degradation",
+        "Complete zero-login workflow operating entirely within browser memory with no server uploads"
+      ],
+      "cons": [
+        "Advanced vector SVG slicing and batch multi-image processing are not supported"
+      ],
+      "privacyVerdict": "Image processing runs entirely within local HTML5 canvas; zero image payloads or telemetry beacons transmitted externally.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Sliced a 600x600 PNG into a 3x3 grid (9 tiles) with 124ms processing latency, exporting a clean 179727-byte ZIP archive without DOM freezes.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:39:20.681Z"
+    },
+    "zh": {
+      "bestFor": "需要将图片无损切分为九宫格、社交媒体轮播图或自定义尺寸瓦片切片的设计师与运营人员。",
+      "pros": [
+        "提供九宫格、自由像素划线、横向纵向及多图轮播等丰富的前端切图模式",
+        "一键打包导出包含全部切片的纯净 ZIP 压缩包，无任何水印或强制压缩",
+        "完全基于浏览器 HTML5 Canvas 本地渲染处理，无需登录且图片零上传"
+      ],
+      "cons": [
+        "暂不支持矢量 SVG 图形切片及多张图片批量同时切割"
+      ],
+      "privacyVerdict": "图像切片与压缩包组装均在浏览器内存 Canvas 中完成，实测未向任何外部服务器上传图片载荷或分析数据。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "将 600x600 PNG 图像以 3x3 模板切分为 9 张切片，处理延迟仅 124ms，并顺利生成 179727 字节纯净 ZIP 压缩包。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:39:20.682Z"
+    }
+  },
+  "letriza-com": {
+    "en": {
+      "bestFor": "Users seeking instantaneous Unicode font styling, aesthetic text conversions, and decorative lettering for social profiles without registration.",
+      "pros": [
+        "Instant real-time Unicode text conversion across more than 3600 decorative styles and categories",
+        "Interactive style mixing ('Mezclar') and category filters with zero account creation or usage caps",
+        "One-click copy workflow operating entirely client-side without sending text to external servers"
+      ],
+      "cons": [
+        "Limited to Unicode glyph substitutions without custom OTF/TTF web font generation or vector exports"
+      ],
+      "privacyVerdict": "All Unicode character mapping algorithms run entirely within the local browser runtime with zero outgoing telemetry beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Rendered 3600+ styled variants for sample input text with 0ms layout shift and 60ms task latency upon triggering the Mezclar filter.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:46:07.437Z"
+    },
+    "zh": {
+      "bestFor": "需要在社交媒体个人资料、聊天或文案中使用个性花样字体、特殊 Unicode 符号与艺术排版的用户。",
+      "pros": [
+        "纯前端实时将输入文本转换为涵盖哥特、草书、气泡等超 3600 种花样 Unicode 样式",
+        "支持一键风格混搭（Mezclar）与分类过滤，完全免注册、无使用次数限制",
+        "一键点击复制，所有字符映射均在本地设备完成，不上传用户文本"
+      ],
+      "cons": [
+        "仅基于 Unicode 特殊字符映射，不支持生成或下载真实 OTF/TTF 字体文件"
+      ],
+      "privacyVerdict": "所有字符转换算法均在浏览器本地前端执行，未监测到任何向外部服务器上传文本或分析数据的行为。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入示例文本后即时完成 3600+ 种样式渲染，点击 Mezclar 混合效果的主线程任务耗时仅 60ms 且无布局偏移。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T03:46:07.438Z"
+    }
   }
 }
