@@ -9,54 +9,110 @@
 <body>
   <header class="header">
     <div class="header-brand">
-      <span class="logo-mark">🛡️</span>
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 128 128" fill="none">
+          <rect width="128" height="128" rx="28" fill="#08695d" />
+          <path d="M64 18 L104 34 V63 C104 89 86 105 64 112 C42 105 24 89 24 63 V34 L64 18 Z" fill="#10b981" fill-opacity="0.25" />
+          <path d="M46 64 L59 77 L84 49" stroke="#ffffff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
       <div>
-        <h1 class="logo-text">nologin.tools</h1>
-        <p class="tagline">Zero Signup · Zero Telemetry</p>
+        <div class="logo-row">
+          <a id="header-brand-link" href="https://nologin.tools" target="_blank" rel="noopener" class="logo-text">nologin.tools</a>
+          <span class="ver-pill">v2.0</span>
+        </div>
+        <p id="header-tagline" class="tagline">Zero Signup · CADES 2.0 Lab Verified</p>
       </div>
     </div>
-    <a href="https://nologin.tools" target="_blank" rel="noopener" class="header-link" title="Open Directory">
-      ↗
-    </a>
+    <div class="header-actions">
+      <button id="lang-toggle" type="button" class="lang-btn" title="Switch Language (EN / 中文)">中文</button>
+      <a id="header-home-link" href="https://nologin.tools" target="_blank" rel="noopener" class="header-link" title="Open nologin.tools">
+        ↗
+      </a>
+    </div>
   </header>
 
-  <!-- Contextual Alternatives Highlight -->
-  <div id="alternative-banner" class="alternative-banner hidden">
+  <!-- 1. Verified Tool HUD Card (shown when visiting an approved NoLogin tool) -->
+  <section id="verified-banner" class="verified-banner hidden">
+    <div class="verified-top">
+      <div class="verified-title-wrap">
+        <span class="pulse-dot"></span>
+        <span id="verified-badge-label" class="verified-badge-label">NoLogin Verified</span>
+        <span id="verified-tier-pill" class="verified-tier-pill"></span>
+      </div>
+      <span id="verified-score-pill" class="verified-score-pill"></span>
+    </div>
+    <div id="verified-tool-title" class="verified-tool-title"></div>
+    <div id="verified-5d-bar" class="verified-5d-bar"></div>
+    <div id="verified-cap-pills" class="verified-cap-pills"></div>
+    <p id="verified-verdict" class="verified-verdict"></p>
+    <div id="verified-actions" class="verified-actions"></div>
+    <div id="verified-peers" class="verified-peers hidden"></div>
+  </section>
+
+  <!-- 2. Paywall / Forced-Login Switcher Banner (shown when visiting closed SaaS) -->
+  <section id="alternative-banner" class="alternative-banner hidden">
     <div class="banner-header">
-      <span class="pulse-dot"></span>
+      <span class="warn-dot"></span>
       <span id="banner-title" class="banner-title">Alternatives Available</span>
     </div>
     <p id="banner-desc" class="banner-desc"></p>
     <div id="banner-tools" class="banner-tools"></div>
-  </div>
+    <div id="banner-footer" class="banner-footer hidden"></div>
+  </section>
 
-  <!-- Search & Filter Controls -->
+  <!-- 3. Unlisted Website Nomination Bar (shown when visiting an unindexed website) -->
+  <section id="nominate-banner" class="nominate-banner hidden">
+    <div class="nominate-info">
+      <span class="nominate-host" id="nominate-host"></span>
+      <span class="nominate-sub" id="nominate-sub">Not yet in NoLogin Lab</span>
+    </div>
+    <a id="nominate-btn" href="https://nologin.tools/submit" target="_blank" rel="noopener" class="nominate-btn">
+      + Nominate ↗
+    </a>
+  </section>
+
+  <!-- Search Input -->
   <div class="search-container">
+    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
     <input
       type="text"
       id="search-input"
       class="search-input"
-      placeholder="Search 180+ zero-login tools..."
+      placeholder="Search 320+ zero-login tools or SaaS to replace..."
       autocomplete="off"
       spellcheck="false"
     />
   </div>
 
-  <!-- Categories -->
+  <!-- Scenario Preset Chips -->
+  <div class="preset-chips" id="preset-chips">
+    <button type="button" class="preset-chip active" data-preset="all" id="preset-all">Top Scored</button>
+    <button type="button" class="preset-chip" data-preset="local" id="preset-local">100% Local</button>
+    <button type="button" class="preset-chip" data-preset="editors" id="preset-editors">Editor's Choice</button>
+    <button type="button" class="preset-chip" data-preset="opensource" id="preset-opensource">Open Source</button>
+  </div>
+
+  <!-- Category Pills -->
   <div class="category-pills" id="category-pills">
-    <button class="pill active" data-cat="all">All</button>
-    <button class="pill" data-cat="AI">AI</button>
-    <button class="pill" data-cat="Design">Design</button>
-    <button class="pill" data-cat="Productivity">PDF & Office</button>
-    <button class="pill" data-cat="Media">Media</button>
-    <button class="pill" data-cat="Privacy">Privacy</button>
-    <button class="pill" data-cat="Development">Dev</button>
+    <button type="button" class="pill active" data-cat="all" id="cat-all">All</button>
+    <button type="button" class="pill" data-cat="AI" id="cat-ai">AI</button>
+    <button type="button" class="pill" data-cat="Design" id="cat-design">Design</button>
+    <button type="button" class="pill" data-cat="Productivity" id="cat-prod">PDF &amp; Office</button>
+    <button type="button" class="pill" data-cat="Development" id="cat-dev">Dev</button>
+    <button type="button" class="pill" data-cat="Media" id="cat-media">Media</button>
+    <button type="button" class="pill" data-cat="Privacy" id="cat-privacy">Privacy</button>
+    <button type="button" class="pill" data-cat="Writing" id="cat-writing">Writing</button>
+    <button type="button" class="pill" data-cat="Data" id="cat-data">Data</button>
   </div>
 
   <!-- Stats & Count -->
   <div class="stats-bar">
     <span id="results-count" class="results-count">Loading tools...</span>
-    <span class="shortcut-hint">Esc to close</span>
+    <span id="shortcut-hint" class="shortcut-hint">↑↓ Enter · Esc</span>
   </div>
 
   <!-- Tool Results List -->
@@ -68,7 +124,7 @@
   <div id="review-banner" class="review-banner hidden">
     <div class="review-content">
       <span class="review-stars">★★★★★</span>
-      <span class="review-text">Enjoying NoLogin? Leave a review!</span>
+      <span id="review-text" class="review-text">Enjoying NoLogin? Leave a review!</span>
     </div>
     <div class="review-actions">
       <button id="review-btn" class="review-btn">Rate ↗</button>
@@ -77,11 +133,12 @@
   </div>
 
   <footer class="footer">
-    <span>Verified by <a href="https://nologintools.org" target="_blank" rel="noopener">NoLoginTools.org</a></span>
+    <span id="footer-issuer">Verified by <a href="https://nologintools.org" target="_blank" rel="noopener">NoLoginTools.org</a></span>
     <div class="footer-links">
-      <a href="https://nologin.tools/finder" target="_blank" rel="noopener">Finder</a>
-      <a href="https://nologin.tools/privacy" target="_blank" rel="noopener">Privacy</a>
-      <a href="https://nologin.tools/submit" target="_blank" rel="noopener">Submit</a>
+      <a id="footer-lab" href="https://nologin.tools/lab" target="_blank" rel="noopener">Lab</a>
+      <a id="footer-finder" href="https://nologin.tools/finder" target="_blank" rel="noopener">Finder</a>
+      <a id="footer-privacy" href="https://nologin.tools/privacy" target="_blank" rel="noopener">Privacy</a>
+      <a id="footer-submit" href="https://nologin.tools/submit" target="_blank" rel="noopener">Submit</a>
     </div>
   </footer>
 

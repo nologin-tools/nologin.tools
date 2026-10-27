@@ -44,25 +44,25 @@ const smallPromoSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="440" heigh
 
   <!-- Title & Tagline -->
   <text x="220" y="132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
-    NoLogin Tools
+    NoLogin Tools v2.0
   </text>
   <text x="220" y="156" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" fill="#10b981" text-anchor="middle" letter-spacing="0.5">
-    ZERO-SIGNUP SWITCHER
+    SERP RADAR · PAYWALL SWITCHER · 5D HUD
   </text>
   <text x="220" y="184" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="12" fill="#94a3b8" text-anchor="middle">
-    Instant In-Browser Privacy Alternatives
+    320+ Verified Zero-Login Tools &amp; 55+ SaaS Alternatives
   </text>
 
   <!-- Feature Pills -->
-  <g transform="translate(55, 218)">
-    <rect x="0" y="0" width="100" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="50" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">⚡ 0 Accounts</text>
+  <g transform="translate(42, 218)">
+    <rect x="0" y="0" width="108" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
+    <text x="54" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🔍 SERP Badges</text>
 
-    <rect x="115" y="0" width="100" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="165" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🔒 100% Local</text>
+    <rect x="122" y="0" width="108" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
+    <text x="176" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">⚡ CADES 5D</text>
 
-    <rect x="230" y="0" width="100" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="280" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🛡️ Zero Telemetry</text>
+    <rect x="244" y="0" width="112" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
+    <text x="300" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🛡️ Zero Telemetry</text>
   </g>
 </svg>`;
 
@@ -90,32 +90,32 @@ const marqueeSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1400" height=
 
   <!-- Left Side: Copy & Headlines -->
   <g transform="translate(100, 140)">
-    <rect x="0" y="0" width="180" height="34" rx="17" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
-    <text x="90" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#34d399" text-anchor="middle" letter-spacing="1">OFFICIAL EXTENSION</text>
+    <rect x="0" y="0" width="210" height="34" rx="17" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
+    <text x="105" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#34d399" text-anchor="middle" letter-spacing="1">OFFICIAL EXTENSION V2.0</text>
 
     <text x="0" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="54" fill="#ffffff" letter-spacing="-1.5">
       NoLogin Tools
     </text>
-    <text x="0" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="28" fill="#10b981" letter-spacing="-0.5">
-      Zero-Signup Switcher &amp; Privacy HUD
+    <text x="0" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="26" fill="#10b981" letter-spacing="-0.5">
+      SERP Radar · Paywall Switcher · CADES 2.0 5D HUD
     </text>
     <text x="0" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="18" fill="#94a3b8">
-      Browse closed, paywalled web tools? Instantly get 100% free,
+      See CADES 2.0 lab scores &amp; paywall warnings directly on Google, Bing &amp; DDG.
     </text>
     <text x="0" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="18" fill="#94a3b8">
-      client-side in-browser alternatives with zero account creation.
+      Auto-switch from 55+ closed SaaS apps to 320+ zero-login tools.
     </text>
 
     <!-- Stats row -->
     <g transform="translate(0, 275)">
-      <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#ffffff">180+</text>
+      <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#ffffff">320+</text>
       <text x="0" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">Verified Tools</text>
 
-      <text x="140" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#10b981">0</text>
-      <text x="140" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">Accounts Needed</text>
+      <text x="140" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#10b981">55+</text>
+      <text x="140" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">SaaS Targets Mapped</text>
 
-      <text x="310" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#38bdf8">100%</text>
-      <text x="310" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">Local Memory Execution</text>
+      <text x="310" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#38bdf8">12+</text>
+      <text x="310" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">Search Engine SERPs</text>
     </g>
   </g>
 
@@ -222,7 +222,7 @@ const screenshotSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" heig
     <!-- Search Input -->
     <g transform="translate(24, 80)">
       <rect width="412" height="40" rx="10" fill="#f8fafc" stroke="#cbd5e1" />
-      <text x="14" y="25" font-family="-apple-system, sans-serif" font-size="13" fill="#94a3b8">Search 180+ verified privacy tools...</text>
+      <text x="14" y="25" font-family="-apple-system, sans-serif" font-size="13" fill="#94a3b8">Search 320+ verified tools or "alternative to..."</text>
     </g>
 
     <!-- Contextual Suggestion Banner -->
@@ -291,17 +291,17 @@ const screenshot2Svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" hei
     <text x="80" y="21" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#34d399" text-anchor="middle" letter-spacing="1">INSTANT MINI-FINDER</text>
 
     <text x="0" y="90" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="-1">
-      180+ Verified Tools,
+      320+ Verified Tools,
     </text>
     <text x="0" y="140" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#10b981" letter-spacing="-1">
-      Zero Tabs Abandoned
+      SERP Radar &amp; 5D HUD
     </text>
 
     <text x="0" y="195" font-family="-apple-system, sans-serif" font-weight="500" font-size="17" fill="#94a3b8">
-      Search, filter, and launch privacy-respecting alternatives
+      Search, filter by CADES 2.0 score, and launch zero-signup tools
     </text>
     <text x="0" y="225" font-family="-apple-system, sans-serif" font-weight="500" font-size="17" fill="#94a3b8">
-      directly from your browser toolbar at any moment.
+      directly from your browser toolbar or search results.
     </text>
 
     <g transform="translate(0, 270)">
@@ -325,7 +325,7 @@ const screenshot2Svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" hei
     <rect y="48" width="480" height="16" fill="#0f172a" />
     <text x="24" y="38" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#ffffff">nologin.tools</text>
     <rect x="150" y="24" width="80" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
-    <text x="190" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#34d399" text-anchor="middle">180+ TOOLS</text>
+    <text x="190" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#34d399" text-anchor="middle">320+ TOOLS</text>
 
     <!-- Search Input Filled -->
     <g transform="translate(24, 80)">

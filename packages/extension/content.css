@@ -1,0 +1,167 @@
+/* NoLogin Quick Switcher v2.0 — Scoped, low-noise styles for SERP inline annotations only */
+.nl-serp-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  max-width: 100%;
+  clear: both;
+  margin: 4px 0 5px;
+  padding: 2.5px 9px;
+  border-radius: 5px;
+  font: 12px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  box-sizing: border-box;
+  transform: none !important;
+  direction: ltr;
+  text-align: left;
+  list-style: none !important;
+}
+
+.nl-serp-badge.nl-serp-verified {
+  background: #f5f9f8;
+  border: 1px solid #cfe3de;
+  color: #2b3b42;
+}
+
+.nl-serp-badge.nl-serp-verified strong {
+  color: #08695d !important;
+  font-weight: 700;
+}
+
+.nl-serp-badge.nl-serp-paywall {
+  background: #fff9ed;
+  border: 1px solid #eadcbe;
+  color: #5c4018;
+}
+
+.nl-serp-badge.nl-serp-paywall strong {
+  color: #996112 !important;
+  font-weight: 700;
+}
+
+/* White-text Score Pill inside SERP badge */
+.nl-serp-score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  height: 17px;
+  border-radius: 3px;
+  background: #08695d !important;
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.2px;
+}
+
+.nl-serp-score.nl-serp-score-sm {
+  margin-left: 4px;
+  padding: 0 4px;
+  height: 15px;
+  font-size: 10.5px;
+}
+
+.nl-serp-sep {
+  color: #9ab0b8;
+  user-select: none;
+}
+
+.nl-serp-tag {
+  color: #17694c;
+  font-weight: 600;
+}
+
+.nl-serp-meta {
+  color: #52656d;
+}
+
+.nl-serp-link,
+.nl-serp-alt-link {
+  color: #08695d !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nl-serp-badge.nl-serp-paywall .nl-serp-alt-link {
+  color: #08695d !important;
+  background: #f0f7f5;
+  padding: 0 5px;
+  border-radius: 3px;
+  border: 1px solid #cfe3de;
+}
+
+.nl-serp-badge.nl-serp-paywall .nl-serp-link {
+  color: #996112 !important;
+}
+
+.nl-serp-link:hover,
+.nl-serp-alt-link:hover {
+  text-decoration: underline !important;
+}
+
+.nl-serp-summary-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  max-width: 672px;
+  margin: 4px 0 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #f4f9f8;
+  border: 1px solid #c5dfd9;
+  color: #1e2f36;
+  font: 12px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  box-sizing: border-box;
+  transform: none !important;
+  direction: ltr;
+  text-align: left;
+  list-style: none !important;
+}
+
+.nl-serp-summary-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #1e2f36;
+}
+
+.nl-serp-summary-bar strong {
+  color: #08695d !important;
+  font-weight: 700;
+}
+
+.nl-serp-summary-actions {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.nl-serp-cta {
+  color: #08695d !important;
+  text-decoration: none !important;
+  font-weight: 700;
+}
+
+.nl-serp-cta:hover {
+  text-decoration: underline !important;
+}
+
+@media (max-width: 560px) {
+  .nl-serp-summary-bar {
+    flex-wrap: wrap;
+  }
+  .nl-serp-summary-text {
+    white-space: normal;
+  }
+}

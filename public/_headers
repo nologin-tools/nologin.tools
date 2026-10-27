@@ -58,4 +58,15 @@
   Cache-Control: public, max-age=86400
   Content-Type: application/json; charset=utf-8
 
+/api/extension-index.json
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+  Content-Type: application/json; charset=utf-8
+
+/zh/api/extension-index.json
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+  Content-Type: application/json; charset=utf-8
+
+
 

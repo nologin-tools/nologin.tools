@@ -159,6 +159,13 @@ await loadTranslations(locale);
     const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
     const formError = document.getElementById('form-error')!;
 
+    // Prefill URL from query parameter (e.g. from NoLogin Browser Extension nomination)
+    const prefillUrl = new URLSearchParams(window.location.search).get('url');
+    const urlInput = document.getElementById('url') as HTMLInputElement | null;
+    if (prefillUrl && urlInput && !urlInput.value) {
+      urlInput.value = prefillUrl.trim();
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 

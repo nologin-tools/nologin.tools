@@ -1,18 +1,18 @@
-# Chrome Web Store Listing Submission Kit
+# Chrome Web Store Listing Submission Kit (v2.0)
 
 ## 1. Store Metadata
 
 - **Extension Name**: NoLogin Tools - Zero-Signup Switcher
   *(37 / 45 characters)*
 - **Short Description**:
-  Instantly discover verified zero-login, private in-browser alternatives when browsing closed or paywalled web tools.
-  *(116 / 132 characters)*
+  Spot CADES-verified zero-login tools & 100% local badges on search results, bypass SaaS signup walls, and switch in one click.
+  *(126 / 132 characters)*
 - **Extension ID**: `hblmlbgnglelpkogmadngkjepiapnnon`
 - **Store URL**: https://chromewebstore.google.com/detail/hblmlbgnglelpkogmadngkjepiapnnon
 - **Reviews URL**: https://chromewebstore.google.com/detail/hblmlbgnglelpkogmadngkjepiapnnon/reviews
 - **Category**: Productivity
-- **Primary Language**: English
-- **Website**: https://nologin.tools
+- **Primary Language**: English (with built-in English & Chinese bilingual UI)
+- **Website**: https://nologin.tools/extension
 - **Support URL**: https://github.com/nologin-tools/nologin.tools/issues
 - **Privacy Policy URL**: https://nologin.tools/privacy
 
@@ -20,23 +20,23 @@
 
 ## 2. Detailed Description (Paste into Chrome Developer Dashboard)
 
-Tired of mandatory signup walls, "Sign in with Google" prompts, and credit card traps just to edit a PDF, convert an image, or inspect a JSON payload?
+Tired of mandatory signup walls, "Sign in with Google" prompts, and credit card traps just to edit a PDF, remove a background, convert an image, or format JSON?
 
-NoLogin Tools is a lightweight, zero-telemetry browser companion that instantly suggests verified, privacy-respecting in-browser alternatives that work immediately with zero account registration.
+**NoLogin Tools (v2.0)** is a lightweight, Zero Telemetry browser companion powered by the **NoLogin Lab CADES 2.0 Benchmark**. It surfaces verified zero-login scores right on search engine results and lets you switch from closed, paywalled SaaS platforms to 100% client-side, account-free web tools in one click.
 
-### 🌟 Key Features
+### 🌟 Key Features in v2.0
 
-1. **Contextual Alternative Detection**:
-   Browsing paywalled, closed, or restrictive web applications (such as graphics editors, diagram whiteboards, grammar checkers, document converters, or file sharing services)? Click the NoLogin extension to instantly discover vetted in-browser alternatives that execute locally on your device without signing up.
+1. **Search Engine (SERP) Truth Badges & Paywall Alerts**:
+   On Google, Bing, DuckDuckGo, Brave, and Baidu search results, see single-line `🛡️ NoLogin Verified · ⚡ 95/100 · 🔒 100% Local` badges next to verified tools, plus `⚡ Signup Wall · Free No-Login Switch` links beneath paywalled SaaS results before you even click.
 
-2. **Instant Offline Tool Search**:
-   Search 180+ verified no-login web applications directly from your browser toolbar. Filter by category, client-side execution, offline PWA capability, and open-source license.
+2. **Non-Intrusive Toolbar Score Badge & 5D Lab HUD**:
+   Zero floating cards or DOM clutter on tool websites! The toolbar icon displays the CADES 2.0 integer score (e.g. `95`) on 320+ verified tools or the available alternative count (e.g. `4`) on 55+ closed SaaS domains (Canva, Figma, Smallpdf, Notion, WeTransfer, etc.). Click the icon to inspect 5D sub-scores (`UX`, `Depth`, `Export`, `Privacy`, `Polish`) and head-to-head comparisons.
 
-3. **Privacy & Sandbox Audit Signals**:
-   Quickly see whether a tool runs 100% in local WebAssembly memory, its verified privacy audit grade (A+, A, B+), and uptime health signals verified by NoLoginTools.org.
+3. **Instant Spotlight Mini-Finder with Scenario Presets**:
+   Search 320+ verified zero-login web applications with full keyboard navigation (`↑` / `↓` / `Enter`) and 1-click scenario chips (`⚡ Top Scored`, `🔒 100% Local`, `★ Editor's Choice ≥90`, `🐙 Open Source`).
 
-4. **1-Click Launch**:
-   Open clean, distraction-free tools immediately with zero onboarding friction.
+4. **24-Hour Silent Index Sync & Bilingual UI (EN / 中文)**:
+   Works instantaneously offline from its bundled index and refreshes every 24 hours from `https://nologin.tools/api/extension-index.json`.
 
 ---
 
@@ -44,12 +44,13 @@ NoLogin Tools is a lightweight, zero-telemetry browser companion that instantly 
 
 In strict accordance with the Chrome Web Store Minimum Permissions Policy:
 
-- `activeTab`: Used exclusively when you explicitly click the extension popup to inspect the active tab's domain name (such as matching a web application domain) to suggest relevant no-login alternatives from an offline database. The extension CANNOT and DOES NOT read page content, forms, passwords, keystrokes, background navigation, or browsing history.
+- `activeTab` & `tabs`: Used strictly locally inside your browser to match the active tab's hostname against the local benchmark index so the toolbar icon badge (e.g. `95` or `4`) and popup panel stay in sync. Tab URLs never leave your device.
+- `storage`: Used exclusively to cache the public benchmark index snapshot (`extension-index.json`) and language preference in `chrome.storage.local` for instant offline lookup.
+- `host_permissions` (`https://nologin.tools/*`): Used solely to perform a read-only GET request once every 24 hours to `https://nologin.tools/api/extension-index.json` to refresh the public benchmark snapshot, without sending any user identifiers or browsing context.
+- Search Engine Content Scripts: Runs strictly on search result pages to render read-only score badges and alternative links. Zero content scripts or CSS are injected into third-party tool websites.
 
 **Zero Telemetry & Transparency Disclosures**:
-- Bundled Database: All tool directories and alternative mappings execute 100% locally from bundled metadata.
-- Asset Disclosure: To display visual website icons in the tool list, public domain hostnames are retrieved via Google Favicon Service. Zero user identifiers, personal information, or browsing habits are transmitted.
-- No tracking scripts, analytics beacons, or remote code execution.
+- No tracking scripts, analytics beacons, or browsing history collection.
 - Dedicated Privacy Policy: https://nologin.tools/privacy
 - Fully Open Source and publicly audited: https://github.com/nologin-tools/nologin.tools
 

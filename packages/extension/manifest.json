@@ -1,24 +1,154 @@
 {
   "manifest_version": 3,
-  "name": "NoLogin Tools - Privacy & Zero-Signup Switcher",
-  "version": "1.0.1",
-  "description": "Instantly discover verified zero-login, private in-browser alternatives to closed and paywalled SaaS tools.",
-  "homepage_url": "https://nologin.tools",
+  "name": "NoLogin Tools — Zero-Signup Switcher & Privacy Benchmark",
+  "short_name": "NoLogin Tools",
+  "version": "2.0.0",
+  "description": "Spot CADES-verified zero-login tools & 100% local badges on search results, bypass SaaS signup walls, and switch in one click.",
+  "homepage_url": "https://nologin.tools/extension",
+  "minimum_chrome_version": "114",
   "icons": {
     "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://nologin.tools/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup/popup.html",
     "default_title": "NoLogin Quick Switcher",
     "default_icon": {
       "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
       "48": "icons/icon-48.png",
       "128": "icons/icon-128.png"
     }
   },
-  "permissions": [
-    "activeTab"
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/search*",
+        "https://www.google.com.hk/search*",
+        "https://www.google.com.tw/search*",
+        "https://www.google.co.jp/search*",
+        "https://www.google.co.uk/search*",
+        "https://www.google.ca/search*",
+        "https://www.google.de/search*",
+        "https://www.google.fr/search*",
+        "https://www.google.com.sg/search*",
+        "https://www.google.com.au/search*",
+        "https://www.google.co.kr/search*",
+        "https://www.google.co.in/search*",
+        "https://www.google.es/search*",
+        "https://www.google.it/search*",
+        "https://www.google.nl/search*",
+        "https://www.google.com.br/search*",
+        "https://www.google.pl/search*",
+        "https://www.google.ch/search*",
+        "https://www.google.se/search*",
+        "https://www.google.com.mx/search*",
+        "https://www.google.com.ar/search*",
+        "https://www.google.cl/search*",
+        "https://www.google.com.co/search*",
+        "https://www.google.com.pe/search*",
+        "https://www.google.pt/search*",
+        "https://www.google.be/search*",
+        "https://www.google.at/search*",
+        "https://www.google.ie/search*",
+        "https://www.google.dk/search*",
+        "https://www.google.no/search*",
+        "https://www.google.fi/search*",
+        "https://www.google.gr/search*",
+        "https://www.google.cz/search*",
+        "https://www.google.hu/search*",
+        "https://www.google.ro/search*",
+        "https://www.google.com.ua/search*",
+        "https://www.google.com.tr/search*",
+        "https://www.google.co.il/search*",
+        "https://www.google.ae/search*",
+        "https://www.google.com.sa/search*",
+        "https://www.google.com.eg/search*",
+        "https://www.google.co.za/search*",
+        "https://www.google.co.nz/search*",
+        "https://www.google.com.my/search*",
+        "https://www.google.com.ph/search*",
+        "https://www.google.co.id/search*",
+        "https://www.google.co.th/search*",
+        "https://www.google.com.vn/search*",
+        "https://*.bing.com/*",
+        "https://*.duckduckgo.com/*",
+        "https://*.baidu.com/*",
+        "https://*.search.yahoo.com/*",
+        "https://search.yahoo.co.jp/*",
+        "https://search.goo.ne.jp/*",
+        "https://search.naver.com/*",
+        "https://search.daum.net/*",
+        "https://search.brave.com/*",
+        "https://*.startpage.com/*",
+        "https://*.ecosia.org/*",
+        "https://kagi.com/*",
+        "https://*.qwant.com/*",
+        "https://*.mojeek.com/*",
+        "https://*.swisscows.com/*",
+        "https://*.metager.org/*",
+        "https://*.metager.de/*",
+        "https://*.presearch.com/*",
+        "https://searx.be/*",
+        "https://priv.au/*",
+        "https://opnxng.com/*",
+        "https://search.bus-hit.me/*",
+        "https://searx.tiekoetter.com/*",
+        "https://search.inetol.net/*",
+        "https://paulgo.io/*",
+        "https://*.yandex.com/*",
+        "https://*.yandex.ru/*",
+        "https://*.yandex.by/*",
+        "https://*.yandex.kz/*",
+        "https://*.yandex.com.tr/*",
+        "https://ya.ru/*",
+        "https://*.sogou.com/*",
+        "https://*.so.com/*",
+        "https://so.toutiao.com/*",
+        "https://ai.quark.cn/*",
+        "https://www.quark.cn/*",
+        "https://search.seznam.cz/*",
+        "https://*.perplexity.ai/*",
+        "https://you.com/*",
+        "https://*.you.com/*",
+        "https://*.phind.com/*",
+        "https://*.felo.ai/*",
+        "https://*.genspark.ai/*",
+        "https://*.metaso.cn/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/extension-index.en.json",
+        "src/extension-index.zh.json",
+        "src/tools-data.json",
+        "src/alternatives-data.json"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
   ]
 }

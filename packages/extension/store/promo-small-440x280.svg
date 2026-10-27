@@ -33,24 +33,24 @@
 
   <!-- Title & Tagline -->
   <text x="220" y="132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
-    NoLogin Tools
+    NoLogin Tools v2.0
   </text>
   <text x="220" y="156" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" fill="#10b981" text-anchor="middle" letter-spacing="0.5">
-    ZERO-SIGNUP SWITCHER
+    SERP RADAR · PAYWALL SWITCHER · 5D HUD
   </text>
   <text x="220" y="184" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="12" fill="#94a3b8" text-anchor="middle">
-    Instant In-Browser Privacy Alternatives
+    320+ Verified Zero-Login Tools &amp; 55+ SaaS Alternatives
   </text>
 
   <!-- Feature Pills -->
-  <g transform="translate(55, 218)">
-    <rect x="0" y="0" width="100" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="50" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">⚡ 0 Accounts</text>
+  <g transform="translate(42, 218)">
+    <rect x="0" y="0" width="108" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
+    <text x="54" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🔍 SERP Badges</text>
 
-    <rect x="115" y="0" width="100" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="165" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🔒 100% Local</text>
+    <rect x="122" y="0" width="108" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
+    <text x="176" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">⚡ CADES 5D</text>
 
-    <rect x="230" y="0" width="100" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="280" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🛡️ Zero Telemetry</text>
+    <rect x="244" y="0" width="112" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
+    <text x="300" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🛡️ Zero Telemetry</text>
   </g>
 </svg>

@@ -46,7 +46,7 @@
     <!-- Search Input -->
     <g transform="translate(24, 80)">
       <rect width="412" height="40" rx="10" fill="#f8fafc" stroke="#cbd5e1" />
-      <text x="14" y="25" font-family="-apple-system, sans-serif" font-size="13" fill="#94a3b8">Search 180+ verified privacy tools...</text>
+      <text x="14" y="25" font-family="-apple-system, sans-serif" font-size="13" fill="#94a3b8">Search 320+ verified tools or "alternative to..."</text>
     </g>
 
     <!-- Contextual Suggestion Banner -->
