@@ -637,6 +637,17 @@
     "lastTitle": "Create beautiful images of your code",
     "lastSignals": []
   },
+  "realtest-org": {
+    "lastDeepEvalAt": "2026-10-27T05:19:20.754Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-10-27T05:19:20.754Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-27T05:19:20.754Z"
+  },
   "realtimecolors-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:57.929Z",
