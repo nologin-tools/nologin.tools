@@ -73882,5 +73882,59 @@
       "testedAt": "2026-10",
       "contentUpdatedAt": "2026-10-27T03:46:07.438Z"
     }
+  },
+  "realtest-org": {
+    "en": {
+      "bestFor": "Developers and privacy-conscious users comparing online utilities by empirical task benchmarks, inspecting tool output artifacts locally, or surfacing no-login alternatives via its browser extension.",
+      "pros": [
+        "Combines an interactive alternative tool search and side-by-side comparator (/compare/) across 86 products and 224 task assessments with difference-only filtering",
+        "Includes a client-side Canvas and OpenXML File Inspector (/benchmark) that computes resolution, byte size, SAD(k), and mad_band metrics locally in the browser",
+        "Provides a companion Manifest V3 browser extension (v0.2.1 on Chrome Web Store and offline ZIP) plus open CC-BY-4.0 JSON and CSV benchmark dataset downloads"
+      ],
+      "cons": [
+        "Client-side image error preview metrics on /benchmark operate on a 1024px preview rather than full-resolution server-timed pipelines",
+        "Emits first-party Cloudflare Web Analytics beacons (/cdn-cgi/rum) during page navigation"
+      ],
+      "privacyVerdict": "File inspection on /benchmark runs locally in the browser via HTML5 Canvas and OpenXML parsing with zero file upload egress observed when testing a 332,574-byte PNG fixture; standard page navigation and search emit GET /search/ requests and first-party Cloudflare RUM beacons (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Executed a 10-step session across /, /search/, /compare/, /data, /benchmark, and /extension/ with 0ms main-thread freeze and 0.00 CLS; queried 'PDF24' to retrieve 4 task assessments (scores 96-99/100) and uploaded a 332,574-byte 800x600 PNG fixture into the /benchmark File Inspector, which computed SAD(k) 1866.46 and mad_band 0.4874 locally.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T05:19:20.737Z"
+    },
+    "zh": {
+      "bestFor": "适合需要基于实测基准对比同类在线工具、在本地浏览器检验导出文件指标，或通过浏览器扩展实时查询免登录替代方案的开发者与注重隐私的用户。",
+      "pros": [
+        "提供覆盖 86 款产品与 224 项任务实测的同类工具检索及多工具并排对比工作台（/compare/），支持仅看差异与历史明细筛选",
+        "内置基于 HTML5 Canvas 与 OpenXML 的纯前端文件检验器（/benchmark），可在浏览器本地计算分辨率、字节大小、SAD(k) 与 mad_band 误差指标",
+        "配套提供 Chrome Web Store 与离线 ZIP 双渠道 Manifest V3 浏览器扩展（v0.2.1），并开放 CC-BY-4.0 协议的 JSON/CSV 基准数据集下载"
+      ],
+      "cons": [
+        "/benchmark 页面的前端图像误差预览基于 1024px 预览尺寸计算，不等同于包含服务端耗时的全分辨率正式评测流水线",
+        "页面浏览与导航过程中会发送第一方 Cloudflare Web Analytics 性能信标（/cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "/benchmark 文件检验器通过浏览器本地 Canvas 与 OpenXML 解析运行，实测上传 332,574 字节 PNG 样本期间未观察到文件外发；常规页面导航与检索会发起 GET /search/ 请求及第一方 Cloudflare RUM 统计信标（/cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 /、/search/、/compare/、/data、/benchmark 与 /extension/ 完成 10 步实测，主线程最大阻塞 0ms、CLS 0.00；检索“PDF24”返回 4 项任务实测档案（96–99/100），并在 /benchmark 上传 332,574 字节（800×600）PNG 样本，本地即时算出 SAD(k) 1866.46 与 mad_band 0.4874。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-27T05:19:20.738Z"
+    }
   }
 }

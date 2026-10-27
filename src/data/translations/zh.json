@@ -823,6 +823,12 @@
     "coreTask": "将手机拍摄的照片转换为清晰可打印的 PDF——零上传、无需注册",
     "description": "LensUp 是一款完全在浏览器本地运行的免费在线文档扫描工具。拍摄纸质文件即可生成清晰可打印的 PDF：支持透视矫正与裁剪、阴影消除、压缩至目标大小、添加可选水印或签名，以及将身份证双面排在单页上。无需下载应用，无需注册，无强制水印，文件零上传，保护隐私。"
   },
+  "letriza-com": {
+    "_hash": "ad6cfc999c3f8f7a",
+    "description": "在线花样字体与 Unicode 特殊字符生成器，提供超 3600 种艺术排版样式、风格混搭与一键复制功能，完全免注册使用。",
+    "coreTask": "生成花样 Unicode 特殊字体与艺术排版文本并一键复制。",
+    "contentUpdatedAt": "2026-10-27T03:46:32.604Z"
+  },
   "lite-datasette-io": {
     "_hash": "c14de1e6cf05bccf",
     "description": "通过 WebAssembly（Pyodide）完全在浏览器中运行的 Datasette。上传 SQLite 数据库或 CSV 文件，用完整的 SQL 界面直接探索数据——无需服务器，无需账号，数据始终留在你的设备上。基于 Simon Willison 开发的知名 Datasette 数据探索框架。",
@@ -1217,6 +1223,12 @@
     "description": "QuixCalc 是一个包含 60 多款在线计算器与实用工具的免费合集，涵盖金融理财到家居项目等场景，全部在浏览器本地快速运行，免登录即用。",
     "coreTask": "在线免费使用站内所有快捷实用的计算器与工具，无需注册"
   },
+  "randomtopicgenerators-com": {
+    "_hash": "73f4e3b0fe760fa5",
+    "description": "面向演讲、写作、日常交流与辩论场景的免登录随机话题与灵感生成器，支持按领域、深度和数量筛选，提供讨论要点与一键 CSV 导出。",
+    "coreTask": "按领域与深度筛选生成对话、写作与演讲主题并导出 CSV。",
+    "contentUpdatedAt": "2026-10-27T03:35:34.051Z"
+  },
   "rawgraphs-io": {
     "_hash": "e4f54a4b1faf0367",
     "description": "开源数据可视化框架。粘贴数据，选择图表类型，导出精美的 SVG 或 PNG 可视化结果。",
@@ -1230,6 +1242,12 @@
   "readanytext-com": {
     "description": "ReadAnyText 可将纯文本、PDF、Word、EPUB 及文章链接转换为自然语音，涵盖 75 种语言的 322 种神经网络声音。无账号、免注册、无付费门槛。支持导出 MP3/WAV 音频以及精准对齐的 SRT/VTT 字幕，支持多说话人对话与语速/语调控制。文档解析在浏览器本地运行，文件绝不出设备。",
     "coreTask": "粘贴文本或导入文档/文章链接，选择 322 种自然音色生成语音，导出 MP3、WAV 及字幕文件，免登录即可使用"
+  },
+  "realtest-org": {
+    "_hash": "b665a632fc6cfd54",
+    "description": "在线工具实测基准、同类替代查询与纯前端文件检验平台，覆盖 86 款产品的 224 项任务实测对比，并提供配套 Chrome 浏览器扩展。",
+    "coreTask": "检索并并排对比同类在线工具、在浏览器本地检验导出图像或 DOCX 文件指标，并通过浏览器扩展实时展示实测数据",
+    "contentUpdatedAt": "2026-10-27T05:20:11.723Z"
   },
   "realtimecolors-com": {
     "_hash": "093e3df2113223e0",
@@ -1668,6 +1686,12 @@
     "description": "基于浏览器的发票生成工具，支持行项目实时核算、税率及折扣自定义，无需登录即可在客户端直接导出 PDF 发票。",
     "coreTask": "无需登录在线生成并下载 PDF 商业发票"
   },
+  "www-imagesplit-online": {
+    "_hash": "5c4da21e90ba0729",
+    "description": "免费在线图片切图工具，支持在浏览器本地将图片裁切为网格九宫格、社交轮播图、自定义像素切片及固定尺寸瓦片，并提供打包 ZIP 下载。",
+    "coreTask": "将图片自由裁切为网格九宫格或轮播图切片并一键下载 ZIP 压缩包。",
+    "contentUpdatedAt": "2026-10-27T03:39:42.953Z"
+  },
   "www-ottopoll-com": {
     "description": "Otto 是一款免费在线投票工具，可在 2 分钟内与朋友或团队发起投票，免登录、无需注册。选择日期、地点或时间段并分享链接，所有人均可实时投票，无需邮箱或创建账号。",
     "coreTask": "创建投票并分享链接，所有人实时参与投票并查看结果，无需注册账号"
@@ -1743,23 +1767,5 @@
     "_hash": "f620e01c3824091c",
     "description": "在浏览器中直接检测、精确定位并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。支持精确码点映射与本地剪贴板复制。",
     "coreTask": "检测并清除不可见Unicode字符"
-  },
-  "randomtopicgenerators-com": {
-    "_hash": "73f4e3b0fe760fa5",
-    "description": "面向演讲、写作、日常交流与辩论场景的免登录随机话题与灵感生成器，支持按领域、深度和数量筛选，提供讨论要点与一键 CSV 导出。",
-    "coreTask": "按领域与深度筛选生成对话、写作与演讲主题并导出 CSV。",
-    "contentUpdatedAt": "2026-10-27T03:35:34.051Z"
-  },
-  "www-imagesplit-online": {
-    "_hash": "5c4da21e90ba0729",
-    "description": "免费在线图片切图工具，支持在浏览器本地将图片裁切为网格九宫格、社交轮播图、自定义像素切片及固定尺寸瓦片，并提供打包 ZIP 下载。",
-    "coreTask": "将图片自由裁切为网格九宫格或轮播图切片并一键下载 ZIP 压缩包。",
-    "contentUpdatedAt": "2026-10-27T03:39:42.953Z"
-  },
-  "letriza-com": {
-    "_hash": "ad6cfc999c3f8f7a",
-    "description": "在线花样字体与 Unicode 特殊字符生成器，提供超 3600 种艺术排版样式、风格混搭与一键复制功能，完全免注册使用。",
-    "coreTask": "生成花样 Unicode 特殊字体与艺术排版文本并一键复制。",
-    "contentUpdatedAt": "2026-10-27T03:46:32.604Z"
   }
 }
