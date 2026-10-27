@@ -72,6 +72,22 @@ export function validateCognitiveEvaluation(data, options = {}) {
   const allowedTiers = ['editors-choice', 'highly-recommended', 'capable-utility', 'emergency-only'];
   if (data.verdictTier !== undefined && !allowedTiers.includes(data.verdictTier)) {
     errors.push(`verdictTier must be one of: ${allowedTiers.join(', ')}`);
+  } else if (
+    data.verdictTier !== undefined &&
+    ps &&
+    typeof ps.overall === 'number' &&
+    ps.overall >= 0 &&
+    ps.overall <= 100
+  ) {
+    const expectedTier =
+      ps.overall >= 90 ? 'editors-choice' :
+      ps.overall >= 80 ? 'highly-recommended' :
+      ps.overall >= 70 ? 'capable-utility' : 'emergency-only';
+    if (data.verdictTier !== expectedTier) {
+      errors.push(
+        `verdictTier "${data.verdictTier}" does not match overall score ${ps.overall} (expected "${expectedTier}": >=90 editors-choice, 80-89 highly-recommended, 70-79 capable-utility, <70 emergency-only)`
+      );
+    }
   }
 
   // Anti-Inflation Gate: High-Score Defense (Editor's Choice requires documented workstation depth)

@@ -121,7 +121,11 @@ function installCadesPageInstrumentation() {
     const origWriteText = navigator.clipboard.writeText?.bind(navigator.clipboard);
     navigator.clipboard.writeText = async function(text) {
       window.__capturedClipboard.push({ type: 'writeText', text: String(text), timestamp: Date.now() });
-      return origWriteText ? origWriteText(text) : undefined;
+      try {
+        return origWriteText ? await origWriteText(text) : undefined;
+      } catch {
+        return undefined;
+      }
     };
     try { navigator.clipboard.__cadesWrapped = true; } catch {}
   }
@@ -255,6 +259,32 @@ export function summarizeObservedEgress(payloads) {
       ? 'Payload Egress Observed'
       : 'No Payload Egress Observed (not proof of local-only processing)'
   };
+}
+
+export function formatObservedEgressTargets(payloads, limit = 6) {
+  const list = Array.isArray(payloads) ? payloads : [];
+  const sampleEndpoints = [];
+  const seen = new Set();
+  for (const item of list) {
+    if (!item || typeof item !== 'object') continue;
+    const method = String(item.method || 'POST').toUpperCase();
+    const rawUrl = String(item.url || '').trim();
+    if (!rawUrl) continue;
+    let shortTarget = rawUrl;
+    try {
+      const parsed = new URL(rawUrl);
+      shortTarget = `${parsed.host}${parsed.pathname}`;
+    } catch {
+      shortTarget = rawUrl.split('?')[0];
+    }
+    const label = `${method} ${shortTarget}`;
+    if (!seen.has(label)) {
+      seen.add(label);
+      sampleEndpoints.push(label);
+      if (sampleEndpoints.length >= limit) break;
+    }
+  }
+  return sampleEndpoints;
 }
 
 export function mergeObservedPayloads(...groups) {
@@ -1094,18 +1124,32 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
   }
 
   const egressObservation = summarizeObservedEgress(netPayloads);
+  const sampleEndpoints = formatObservedEgressTargets(netPayloads);
 
   console.log(`\n🌐 Runtime Payload-Egress Observation:`);
   console.log(`   - Outgoing Payloads: ${egressObservation.outgoingPayloadCount}`);
   console.log(`   - Classification:    ${egressObservation.classification}`);
+  if (sampleEndpoints.length > 0) {
+    console.log(`   - Sample Endpoints:  ${sampleEndpoints.join(', ')}`);
+  }
 
   if (evalData && shouldSync) {
     try {
-      if (
-        egressObservation.observed &&
-        /(?:zero[- ]egress|100%\s+(?:client|local)|pure(?:ly)?\s+(?:client|local)|no\s+(?:payload|data)\s+(?:egress|transmission))/i.test(evalData.privacyVerdict)
-      ) {
+      const enVerdict = String(evalData.privacyVerdict || '');
+      const zhVerdict = String(evalData.privacyVerdictZh || '');
+      const claimsStrictZeroEgress =
+        /(?:zero[- ]egress|100%\s+(?:client|local)|pure(?:ly)?\s+(?:client|local)|no\s+(?:payload|data)\s+(?:egress|transmission))/i.test(enVerdict);
+      const claimsZeroTelemetryWithoutCaveat =
+        (/(?:zero|no)\s+(?:[\w-]+\s+){0,4}(?:telemetry|tracking|tracker)\s*(?:beacons?|payloads?|requests?)?/i.test(enVerdict) &&
+          !/(?:though|although|however|except|aside from|accompanied|rum|analytics|clarity)/i.test(enVerdict)) ||
+        (/未监测到任何.*(?:遥测|追踪|统计|分析)|零(?:遥测|追踪|外发)/.test(zhVerdict) &&
+          !/(?:但|不过|除.*外|伴随|观测到)/.test(zhVerdict));
+
+      if (egressObservation.observed && (claimsStrictZeroEgress || claimsZeroTelemetryWithoutCaveat)) {
         console.error('❌ privacyVerdict contradicts observed payload egress; editorial was not synchronized.');
+        if (sampleEndpoints.length > 0) {
+          console.error(`   Observed endpoints: ${sampleEndpoints.join(', ')}`);
+        }
         console.error('   Reword the privacy verdict to match the observed requests and run finish again (the browser is already closed; recorded evidence is kept).');
         // Keep the session so the verdict can be corrected without redoing the evaluation.
         session.netPayloads = netPayloads;
@@ -1297,6 +1341,9 @@ function cmdStatus(slug) {
   if (session.exportArtifact) {
     console.log(`\nExport Status: Downloaded=${session.exportArtifact.downloadTriggered}, AuthTrap=${session.exportArtifact.authIntercepted}`);
   }
+  const egress = summarizeObservedEgress(session.netPayloads || []);
+  const targets = formatObservedEgressTargets(session.netPayloads || []);
+  console.log(`Observed Egress: ${egress.outgoingPayloadCount} payload(s)${targets.length ? ` (${targets.join(', ')})` : ''}`);
   console.log('');
 }
 
@@ -1339,13 +1386,18 @@ async function main() {
   const cmd = args[0].toLowerCase();
 
   if (cmd === 'start') {
-    const targetUrl = args[1];
+    let targetUrl = args[1];
     if (!targetUrl || targetUrl.startsWith('--')) {
       console.error('Error: start requires a target URL.');
       process.exit(1);
     }
     const slugIdx = args.indexOf('--slug');
-    const slug = slugIdx !== -1 && slugIdx + 1 < args.length ? args[slugIdx + 1] : null;
+    let slug = slugIdx !== -1 && slugIdx + 1 < args.length ? args[slugIdx + 1] : null;
+    // Support `start <slug> <URL>` positional order as well as `start <URL> [--slug <slug>]`
+    if (!slug && !/^https?:\/\//i.test(targetUrl) && args[2] && /^https?:\/\//i.test(args[2])) {
+      slug = targetUrl;
+      targetUrl = args[2];
+    }
     const ok = await cmdStart(targetUrl, slug);
     if (!ok) process.exitCode = 1;
   } else if (cmd === 'act') {
