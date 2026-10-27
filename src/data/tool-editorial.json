@@ -73633,7 +73633,7 @@
         "Initial model setup requires downloading an in-browser ONNX model (~14 MB)",
         "Complex polyphonic arrangements or dense jazz harmony may yield approximations"
       ],
-      "privacyVerdict": "Local WASM and ONNX Runtime Web audio inference verified; uploaded audio files remain entirely within browser memory with zero tracking beacons or egress payloads captured.",
+      "privacyVerdict": "Local WASM and ONNX Runtime Web audio inference verified; uploaded audio files remain entirely within browser memory without server upload, though standard Google Analytics and Cloudflare RUM telemetry requests were observed.",
       "alternativeTo": [],
       "productScore": {
         "overall": 92,
@@ -73659,7 +73659,7 @@
         "首次使用需在浏览器中下载约 14MB 的轻量级本地 ONNX 模型权重",
         "在极为复杂的复调或前卫爵士和声编排下，识别结果可能存在一定近似误差"
       ],
-      "privacyVerdict": "经实测验证本地 WASM 与 ONNX Runtime Web 音频推理流程；音频文件仅保存在浏览器前端内存中，未发生任何服务器上传或遥测载荷外发。",
+      "privacyVerdict": "经实测验证本地 WASM 与 ONNX Runtime Web 音频推理流程；音频文件仅保存在浏览器前端内存中未发生服务端上传，但页面伴随常规 Google Analytics 与 Cloudflare RUM 统计请求。",
       "alternativeTo": [],
       "productScore": {
         "overall": 92,
@@ -73686,7 +73686,7 @@
         "Test patterns are pre-rendered PDF templates rather than custom user-configurable vector designs",
         "Lacks advanced custom ICC color profile calibration tools"
       ],
-      "privacyVerdict": "Direct static download of printer test calibration sheets; no user data transmission or tracking beacons observed.",
+      "privacyVerdict": "Static download of printer test calibration sheets requires no user file uploads, though third-party Google Analytics and Microsoft Clarity telemetry beacons were observed during the session.",
       "alternativeTo": [],
       "productScore": {
         "overall": 78,
@@ -73711,7 +73711,7 @@
         "测试图样为预制标准 PDF 模板，网页端不支持自定义矢量图样参数调整",
         "不具备高级 ICC 色彩配置文件校准等专业级色彩管理功能"
       ],
-      "privacyVerdict": "静态分发打印机校准样张文件；实测未监测到任何用户数据上传或第三方追踪载荷。",
+      "privacyVerdict": "静态分发打印机校准样张文件无需上传用户数据，但实测期间观测到 Google Analytics 与 Microsoft Clarity 第三方统计追踪载荷。",
       "alternativeTo": [],
       "productScore": {
         "overall": 78,
@@ -73738,7 +73738,7 @@
       "cons": [
         "Topics originate from a curated static taxonomy rather than open-ended LLM synthesis"
       ],
-      "privacyVerdict": "Operates fully client-side on static topic sets without transmitting user queries, selections, or prompts to external servers.",
+      "privacyVerdict": "Topic filtering and CSV export execute client-side without transmitting user selections to an application backend; only a single Cloudflare RUM performance beacon (/cdn-cgi/rum) was observed.",
       "alternativeTo": [],
       "productScore": {
         "overall": 78,
@@ -73763,7 +73763,7 @@
       "cons": [
         "话题库基于精选分类静态库，非开放式大语言模型动态生成"
       ],
-      "privacyVerdict": "所有筛选与生成逻辑均在浏览器本地执行，实测未向外部服务器回传任何用户配置或导出内容。",
+      "privacyVerdict": "话题筛选与 CSV 导出逻辑均在浏览器本地执行，未向应用后端回传用户所选话题；实测仅观测到单次 Cloudflare RUM 性能统计信标（/cdn-cgi/rum）。",
       "alternativeTo": [],
       "productScore": {
         "overall": 78,
@@ -73790,7 +73790,7 @@
       "cons": [
         "Advanced vector SVG slicing and batch multi-image processing are not supported"
       ],
-      "privacyVerdict": "Image processing runs entirely within local HTML5 canvas; zero image payloads or telemetry beacons transmitted externally.",
+      "privacyVerdict": "Image slicing and ZIP assembly run locally within HTML5 canvas with zero image payload uploads, though standard Google Analytics page telemetry (/g/collect) was observed.",
       "alternativeTo": [],
       "productScore": {
         "overall": 86,
@@ -73800,7 +73800,7 @@
         "privacy": 18,
         "polish": 15
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "benchmarkNotes": "Sliced a 600x600 PNG into a 3x3 grid (9 tiles) with 124ms processing latency, exporting a clean 179727-byte ZIP archive without DOM freezes.",
       "testedAt": "2026-10",
       "contentUpdatedAt": "2026-10-27T03:39:20.681Z"
@@ -73815,7 +73815,7 @@
       "cons": [
         "暂不支持矢量 SVG 图形切片及多张图片批量同时切割"
       ],
-      "privacyVerdict": "图像切片与压缩包组装均在浏览器内存 Canvas 中完成，实测未向任何外部服务器上传图片载荷或分析数据。",
+      "privacyVerdict": "图像切片与压缩包组装均在浏览器内存 Canvas 中完成、图片数据零上传，但页面伴随常规 Google Analytics 统计请求（/g/collect）。",
       "alternativeTo": [],
       "productScore": {
         "overall": 86,
@@ -73825,7 +73825,7 @@
         "privacy": 18,
         "polish": 15
       },
-      "verdictTier": "capable-utility",
+      "verdictTier": "highly-recommended",
       "benchmarkNotes": "将 600x600 PNG 图像以 3x3 模板切分为 9 张切片，处理延迟仅 124ms，并顺利生成 179727 字节纯净 ZIP 压缩包。",
       "testedAt": "2026-10",
       "contentUpdatedAt": "2026-10-27T03:39:20.682Z"
@@ -73842,7 +73842,7 @@
       "cons": [
         "Limited to Unicode glyph substitutions without custom OTF/TTF web font generation or vector exports"
       ],
-      "privacyVerdict": "All Unicode character mapping algorithms run entirely within the local browser runtime with zero outgoing telemetry beacons.",
+      "privacyVerdict": "Unicode character mapping runs locally in the browser without uploading typed text, though standard Google Analytics (/g/collect) and Cloudflare RUM telemetry requests were observed.",
       "alternativeTo": [],
       "productScore": {
         "overall": 76,
@@ -73867,7 +73867,7 @@
       "cons": [
         "仅基于 Unicode 特殊字符映射，不支持生成或下载真实 OTF/TTF 字体文件"
       ],
-      "privacyVerdict": "所有字符转换算法均在浏览器本地前端执行，未监测到任何向外部服务器上传文本或分析数据的行为。",
+      "privacyVerdict": "所有字符转换算法均在浏览器本地前端执行、不上传用户输入的文本，但页面伴随常规 Google Analytics 与 Cloudflare RUM 统计请求。",
       "alternativeTo": [],
       "productScore": {
         "overall": 76,

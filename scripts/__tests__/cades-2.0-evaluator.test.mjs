@@ -94,6 +94,26 @@ describe('CADES 2.0: Cognitive Evaluation Protocol & Anti-Inflation Calibrator',
     assert.ok(res.errors.some(e => e.includes('pros must contain at least 2')));
     assert.ok(res.errors.some(e => e.includes('cons must contain at least 1')));
     assert.ok(res.errors.some(e => e.includes('benchmarkNotes must contain')));
+
+    // Mismatched verdictTier vs overall score (86 requires highly-recommended, not capable-utility)
+    const mismatchedTier = validateCognitiveEvaluation({
+      productScore: {
+        overall: 86,
+        frictionless: 19,
+        depth: 16,
+        exportFreedom: 18,
+        privacy: 18,
+        polish: 15
+      },
+      verdictTier: 'capable-utility',
+      bestFor: 'Designers needing to slice images into grids or carousels without account creation.',
+      pros: ['Client-side HTML5 canvas image slicing', 'Clean multi-file ZIP archive download'],
+      cons: ['No batch multi-image processing'],
+      privacyVerdict: 'Image slicing runs in local HTML5 canvas, though Google Analytics requests were observed.',
+      benchmarkNotes: 'Sliced a 600x600 PNG into 9 tiles in 124ms and exported a 179727-byte ZIP archive.'
+    });
+    assert.equal(mismatchedTier.valid, false);
+    assert.ok(mismatchedTier.errors.some(e => e.includes('does not match overall score 86')));
   });
 
   it('enforces anti-inflation calibration for simple single-task utilities (prevents false 90+ clustering)', () => {
