@@ -330,12 +330,6 @@ function translateTagValue(key: string, value: string): string {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
             {l('添加至 Chrome（免费一键安装）↗', 'Add to Chrome — Free Install ↗')}
           </a>
-          <a class="nl-cta-secondary" href={getLocalizedPath('/extension', locale)}>
-            {l('交互沙盒 & Firefox / 离线包 (.zip) →', 'Interactive Sandbox & Firefox / .zip →')}
-          </a>
-          <a class="nl-scroll-link" href="#directory-browse">
-            {l(`↓ 或直接在网页端按分类检索 ${totalTools} 款免登录工具`, `↓ Or browse all ${totalTools} verified tools below`)}
-          </a>
         </div>
       </div>
 
@@ -406,16 +400,16 @@ function translateTagValue(key: string, value: string): string {
                   <p class="nl-g-desc">{l('基于 WebAssembly 在浏览器本地内存直接运行，无需注册登录即可打开和导出 PSD、AI、Sketch 与高清透明 PNG 原图……', 'Free online photo editor supporting PSD, XCF, Sketch, XD and CDR formats. Runs locally in WebAssembly memory with zero login...')}</p>
                 </div>
 
-                <!-- 搜索结果 #2（封闭 SaaS 付费墙 + 琥珀色一键平替条） -->
+                <!-- 搜索结果 #2（封闭 SaaS 付费墙示例 + 琥珀色一键平替条） -->
                 <div class="nl-g-item">
                   <div class="nl-g-cite-row">
-                    <span class="nl-g-fav nl-g-fav-slate" aria-hidden="true">C</span>
+                    <span class="nl-g-fav nl-g-fav-slate" aria-hidden="true">P</span>
                     <div class="nl-g-cite-text">
-                      <span class="nl-g-site-title">Canva</span>
-                      <span class="nl-g-site-url">https://www.canva.com › photo-editor &nbsp;⋮</span>
+                      <span class="nl-g-site-title">ProStudio Cloud</span>
+                      <span class="nl-g-site-url">https://prostudio.example › photo-editor &nbsp;⋮</span>
                     </div>
                   </div>
-                  <a href={getLocalizedPath('/alternative/canva', locale)} class="nl-g-heading">Free Online Photo Editor &amp; Graphic Design Suite – Canva</a>
+                  <a href={getLocalizedPath('/category/design', locale)} class="nl-g-heading">Online Photo Editor &amp; Graphic Design Suite – ProStudio</a>
                   <div class="nl-inline-strip nl-strip-warn">
                     <strong class="nl-strip-warn-title">{l('需登录/付费墙 · 免登录平替：', 'Signup Wall · No-Login Switch:')}</strong>
                     <a href={getLocalizedPath('/tool/photopea-com', locale)} class="nl-alt-chip">
@@ -430,9 +424,9 @@ function translateTagValue(key: string, value: string): string {
                       <span>↗</span>
                     </a>
                     <span class="nl-dot">·</span>
-                    <a href={getLocalizedPath('/alternative/canva', locale)}>{l('全部 4 款对比 ↗', 'Compare all 4 ↗')}</a>
+                    <a href={getLocalizedPath('/category/design', locale)}>{l('全部 4 款对比 ↗', 'Compare all 4 ↗')}</a>
                   </div>
-                  <p class="nl-g-desc">{l('使用 Canva 在线编辑照片与设计海报。需使用 Google、邮箱或手机号注册登录账号后方可进入工作台并下载设计文件……', 'Create designs with Canva. Sign up with Google, Facebook, or email to access workspace templates and export files...')}</p>
+                  <p class="nl-g-desc">{l('在线编辑照片与设计海报。需使用邮箱或手机号注册登录账号并开启会员试用后方可进入工作台下载高清无水印文件……', 'Create graphics and edit photos online. Sign up with email or social account and start a subscription trial to export HD files...')}</p>
                 </div>
               </div>
             </div>
@@ -452,7 +446,7 @@ function translateTagValue(key: string, value: string): string {
               <div class="nl-chrome-nav" aria-hidden="true"><span>←</span><span>→</span><span>↻</span></div>
               <div class="nl-chrome-address">
                 <span class="nl-chrome-lock" aria-hidden="true">🔒</span>
-                <span class="nl-chrome-domain">canva.com</span><span class="nl-chrome-path">/design/export</span>
+                <span class="nl-chrome-domain">prostudio.example</span><span class="nl-chrome-path">/design/export</span>
               </div>
               <div class="nl-chrome-tray">
                 <span class="nl-toolbar-callout">{l('点击角标 ↘', 'Click badge ↘')}</span>
@@ -468,7 +462,7 @@ function translateTagValue(key: string, value: string): string {
               <!-- 左侧：底层网页工作台（展示零遮挡 + 遭遇导出登录墙） -->
               <div class="nl-mock-webapp" aria-hidden="true">
                 <div class="nl-mock-webapp-nav">
-                  <strong>Canva<span>Studio</span></strong>
+                  <strong>Pro<span>Studio</span></strong>
                   <span>Export</span>
                   <span class="nl-clean-indicator">{l('✓ 零网页遮挡', '✓ Zero Clutter')}</span>
                 </div>
@@ -514,7 +508,7 @@ function translateTagValue(key: string, value: string): string {
                 <!-- 1. 付费墙一键免登录平替 -->
                 <div class="nl-sim-popup-section nl-sim-popup-warn">
                   <div class="nl-sim-popup-alt-title">
-                    <span>⚡ {l('Canva 免登录高分平替', 'Canva Zero-Login Switches')}</span>
+                    <span>⚡ {l('同题高分免登录平替', 'Top Zero-Login Switches')}</span>
                     <span class="nl-sim-active-filter">{l('100% 本地', '100% Local')}</span>
                   </div>
                   <ul class="nl-sim-popup-alt-list">
@@ -554,8 +548,8 @@ function translateTagValue(key: string, value: string): string {
                     <div><span>{l('隐私', 'Privacy')}</span><strong>19/20</strong></div>
                     <div><span>{l('稳定', 'Polish')}</span><strong>14/15</strong></div>
                   </div>
-                  <a class="nl-sim-popup-pk-btn" href={getLocalizedPath('/alternative/canva', locale)}>
-                    {l('⚔️ 查看 Canva 免登录平替完整对比矩阵 →', '⚔️ Full Canva vs Zero-Login Comparison →')}
+                  <a class="nl-sim-popup-pk-btn" href={getLocalizedPath('/category/design', locale)}>
+                    {l('⚔️ 查看设计修图免登录工具全榜单 →', '⚔️ Browse All Zero-Login Design Tools →')}
                   </a>
                 </div>
               </div>

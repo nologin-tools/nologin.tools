@@ -172,7 +172,7 @@ const extensionLd = {
           data-demo-tab="paywall"
           class="demo-tab-btn px-3.5 py-2 text-xs font-black uppercase border-2 border-neutral-900 bg-white text-neutral-800 hover:bg-yellow-100 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
         >
-          ⚡ {l('场景 2：访问封闭 SaaS 付费墙 (Canva)', '2. SaaS Paywall Auto-Switcher (Canva)')}
+          ⚡ {l('场景 2：访问封闭 SaaS 付费墙 (ProStudio)', '2. SaaS Paywall Auto-Switcher (ProStudio)')}
         </button>
         <button
           type="button"
@@ -249,8 +249,8 @@ const extensionLd = {
 
           {/* Search Result 2: Paywalled SaaS Target */}
           <div class="bg-white border border-neutral-200 p-4 rounded shadow-xs space-y-1.5">
-            <div class="text-[11px] text-neutral-500 font-mono">https://www.canva.com › photo-editor</div>
-            <div class="text-base font-bold text-blue-700">Canva Free Online Photo Editor & Graphic Design Suite</div>
+            <div class="text-[11px] text-neutral-500 font-mono">https://prostudio.example › photo-editor</div>
+            <div class="text-base font-bold text-blue-700">ProStudio Cloud — Online Photo Editor & Graphic Design Suite</div>
             {/* Injected Paywall Switch Strip */}
             <div class="inline-flex flex-wrap items-center gap-1.5 px-2.5 py-1 rounded bg-amber-50 border border-amber-300 text-xs text-amber-950 font-medium">
               <strong class="text-amber-800 font-bold">{l('需登录/付费墙 · 免登录平替：', 'Signup Wall · No-Login Switch:')}</strong>
@@ -266,17 +266,17 @@ const extensionLd = {
                 <span>↗</span>
               </a>
               <span class="text-neutral-400">·</span>
-              <a href={getLocalizedPath('/alternative/canva', locale)} class="text-amber-800 font-bold underline">
+              <a href={getLocalizedPath('/category/design', locale)} class="text-amber-800 font-bold underline">
                 {l('全部 4 款对比 ↗', 'Compare all 4 ↗')}
               </a>
             </div>
             <p class="text-xs text-neutral-600">
-              Create designs with Canva. Sign up with Google, Facebook, or email to access workspace templates and export.
+              Create designs with ProStudio Cloud. Sign up with email or social account and start a subscription trial to export HD files.
             </p>
           </div>
         </div>
 
-        {/* Scenario 2: Visiting Paywalled SaaS (Canva) */}
+        {/* Scenario 2: Visiting Paywalled SaaS (ProStudio) */}
         <div id="demo-panel-paywall" class="hidden p-6 sm:p-8 bg-neutral-50 flex flex-col md:flex-row gap-6 items-center">
           <div class="flex-1 bg-white border-2 border-neutral-900 p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center space-y-3 w-full">
             <div class="text-xs font-bold font-mono uppercase text-amber-700 tracking-wider">
@@ -303,11 +303,11 @@ const extensionLd = {
             </div>
 
             <div class="bg-yellow-50 border-2 border-amber-600 p-2.5 text-xs space-y-1.5">
-              <div class="font-bold text-amber-900">⚡ {l('正在访问 Canva？一键免登录平替：', 'Visiting Canva? Switch to No-Login:')}</div>
+              <div class="font-bold text-amber-900">⚡ {l('检测到付费墙 · 一键免登录平替：', 'Signup Wall Detected · Switch to No-Login:')}</div>
               <div class="space-y-1.5 pt-1">
                 <div class="p-2 bg-white border border-amber-400 flex items-center justify-between">
                   <div>
-                    <div class="font-bold text-neutral-900">Photopea <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1 border border-emerald-400">⚡95</span></div>
+                    <div class="font-bold text-neutral-900">Photopea <span class="text-[9px] bg-[#08695d] text-white px-1 rounded">95</span></div>
                     <div class="text-[10px] text-neutral-500">🔒 {l('纯本地 WebAssembly · 免登录', '100% Local · Zero Login')}</div>
                   </div>
                   <a href={getLocalizedPath('/tool/photopea-com', locale)} class="px-2 py-1 bg-neutral-900 text-white text-[10px] font-bold hover:bg-emerald-600">
@@ -316,7 +316,7 @@ const extensionLd = {
                 </div>
                 <div class="p-2 bg-white border border-amber-400 flex items-center justify-between">
                   <div>
-                    <div class="font-bold text-neutral-900">Excalidraw <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1 border border-emerald-400">⚡96</span></div>
+                    <div class="font-bold text-neutral-900">Excalidraw <span class="text-[9px] bg-[#08695d] text-white px-1 rounded">96</span></div>
                     <div class="text-[10px] text-neutral-500">🔒 {l('端到端加密手绘白板', 'Local & E2EE Whiteboard')}</div>
                   </div>
                   <a href={getLocalizedPath('/tool/excalidraw-com', locale)} class="px-2 py-1 bg-neutral-900 text-white text-[10px] font-bold hover:bg-emerald-600">
@@ -325,8 +325,8 @@ const extensionLd = {
                 </div>
               </div>
               <div class="pt-1 border-t border-amber-300 text-[10px]">
-                <a href={getLocalizedPath('/alternative/canva', locale)} class="font-bold text-amber-900 underline">
-                  {l('查看 Canva 完整免登录替代对比矩阵 →', 'Full Canva No-Login Comparison Matrix →')}
+                <a href={getLocalizedPath('/category/design', locale)} class="font-bold text-amber-900 underline">
+                  {l('查看设计修图免登录工具全榜单 →', 'Browse All Zero-Login Design Tools →')}
                 </a>
               </div>
             </div>
@@ -667,7 +667,7 @@ const extensionLd = {
       badgeClass: 'bg-emerald-600 text-white px-1.5 py-0.2 text-[10px] font-black',
     },
     paywall: {
-      url: 'https://www.canva.com/design/play',
+      url: 'https://prostudio.example/design/export',
       badgeText: '4',
       badgeClass: 'bg-amber-600 text-white px-1.5 py-0.2 text-[10px] font-black',
     },
