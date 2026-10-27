@@ -86,8 +86,8 @@ const extensionLd = {
           <div class="text-[11px] text-neutral-600 font-bold uppercase">{l('封闭 SaaS 域名拦截平替', 'SaaS Paywall Switchers')}</div>
         </div>
         <div class="bg-white border-2 border-neutral-900 p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div class="text-xl font-black text-neutral-900">12+</div>
-          <div class="text-[11px] text-neutral-600 font-bold uppercase">{l('主流搜索引擎 SERP 标注', 'Search Engines Supported')}</div>
+          <div class="text-xl font-black text-neutral-900">30+</div>
+          <div class="text-[11px] text-neutral-600 font-bold uppercase">{l('全球与 AI 搜索引擎支持', 'Search & AI Engines')}</div>
         </div>
         <div class="bg-white border-2 border-neutral-900 p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <div class="text-xl font-black text-sky-700">0 DOM</div>
@@ -231,13 +231,14 @@ const extensionLd = {
             <div class="text-base font-bold text-blue-700">Photopea | Online Photo Editor — PSD, AI, XD, Sketch</div>
             {/* Injected Verified Strip */}
             <div class="inline-flex flex-wrap items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 border border-emerald-300 text-xs text-emerald-950 font-medium">
-              <strong class="text-emerald-700 font-bold">🛡️ {l('NoLogin 已验证', 'NoLogin Verified')} · ⚡ 95/100</strong>
+              <strong class="text-emerald-800 font-bold">✓ {l('NoLogin 已验证', 'NoLogin Verified')}</strong>
+              <span class="px-1.5 py-0.5 rounded bg-[#08695d] text-white text-[11px] font-extrabold">95/100</span>
               <span class="text-neutral-400">·</span>
-              <span class="text-emerald-800 font-semibold">{l('编辑精选', "Editor's Choice")}</span>
+              <span class="text-emerald-800 font-semibold">{l('★ 编辑精选', "★ Editor's Choice")}</span>
               <span class="text-neutral-400">·</span>
-              <span class="text-emerald-800 font-semibold">🔒 {l('100% 本地处理', '100% Local')}</span>
+              <span class="text-emerald-800 font-semibold">{l('本地处理', '100% Local')}</span>
               <span class="text-neutral-400">·</span>
-              <a href={getLocalizedPath('/tool/photopea-com', locale)} class="text-emerald-700 font-bold underline">
+              <a href={getLocalizedPath('/tool/photopea-com', locale)} class="text-emerald-800 font-bold underline">
                 {l('实测档案 ↗', 'Lab Report ↗')}
               </a>
             </div>
@@ -252,13 +253,17 @@ const extensionLd = {
             <div class="text-base font-bold text-blue-700">Canva Free Online Photo Editor & Graphic Design Suite</div>
             {/* Injected Paywall Switch Strip */}
             <div class="inline-flex flex-wrap items-center gap-1.5 px-2.5 py-1 rounded bg-amber-50 border border-amber-300 text-xs text-amber-950 font-medium">
-              <strong class="text-amber-800 font-bold">⚡ {l('需登录/付费墙 · 免登录平替：', 'Signup Wall · Free No-Login Switch:')}</strong>
-              <a href={getLocalizedPath('/tool/photopea-com', locale)} class="px-1.5 py-0.5 bg-amber-100 border border-amber-300 rounded text-amber-900 font-bold hover:underline">
-                Photopea ⚡95 ({l('本地', 'Local')}) ↗
+              <strong class="text-amber-800 font-bold">{l('需登录/付费墙 · 免登录平替：', 'Signup Wall · No-Login Switch:')}</strong>
+              <a href={getLocalizedPath('/tool/photopea-com', locale)} class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-white border border-amber-300 rounded text-amber-900 font-bold hover:underline">
+                <span>Photopea</span>
+                <span class="px-1 py-0.2 rounded bg-[#08695d] text-white text-[10px] font-extrabold">95</span>
+                <span>↗</span>
               </a>
               <span class="text-neutral-400">·</span>
-              <a href={getLocalizedPath('/tool/excalidraw-com', locale)} class="px-1.5 py-0.5 bg-amber-100 border border-amber-300 rounded text-amber-900 font-bold hover:underline">
-                Excalidraw ⚡96 ({l('本地', 'Local')}) ↗
+              <a href={getLocalizedPath('/tool/excalidraw-com', locale)} class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-white border border-amber-300 rounded text-amber-900 font-bold hover:underline">
+                <span>Excalidraw</span>
+                <span class="px-1 py-0.2 rounded bg-[#08695d] text-white text-[10px] font-extrabold">96</span>
+                <span>↗</span>
               </a>
               <span class="text-neutral-400">·</span>
               <a href={getLocalizedPath('/alternative/canva', locale)} class="text-amber-800 font-bold underline">

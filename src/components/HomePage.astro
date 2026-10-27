@@ -12,6 +12,8 @@ import { getAlternativeTargets } from '../lib/alternatives';
 import { getComparisonPairs } from '../lib/comparisons';
 import { getWorkflowRecipes } from '../lib/workflows';
 import { CURATED_COLLECTIONS } from '../lib/collections';
+import { CHROME_STORE_URL } from '../lib/extension';
+import extManifest from '../../packages/extension/manifest.json';
 
 interface Props {
   locale: Locale;
@@ -19,6 +21,9 @@ interface Props {
 
 const { locale } = Astro.props;
 await loadTranslations(locale);
+const isZh = locale === 'zh';
+const l = (zh: string, en: string) => (isZh ? zh : en);
+const extVersion = extManifest?.version || '2.0.0';
 
 const approvedTools = getApprovedTools();
 
@@ -213,16 +218,32 @@ function translateTagValue(key: string, value: string): string {
     ],
   })} />
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-    <!-- Hero -->
-    <header class="mb-16 border-b-4 border-neutral-900 pb-8">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NoLogin Tools — Zero-Signup Switcher & Privacy Benchmark",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome, Edge, Brave, Arc, Ego, Firefox",
+    "softwareVersion": extVersion,
+    "installUrl": CHROME_STORE_URL,
+    "downloadUrl": "https://nologin.tools/downloads/nologin-quick-switcher-chrome.zip",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  })} />
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+    <!-- Top Brand & Navigation Header -->
+    <header class="mb-10 border-b-4 border-neutral-900 pb-6">
       <div class="flex items-start justify-between">
-        <h1 class="text-4xl sm:text-5xl font-black text-neutral-900 mb-4 tracking-tight uppercase italic">
+        <h1 class="text-4xl sm:text-5xl font-black text-neutral-900 mb-3 tracking-tight uppercase italic">
           nologin.tools
         </h1>
         <LanguageSwitcher locale={locale} />
       </div>
-      <p class="text-xl text-neutral-700 font-medium mb-6">
+      <p class="text-lg sm:text-xl text-neutral-700 font-medium mb-5">
         {t(locale, 'home.tagline')} <span class="bg-yellow-200 px-1">{t(locale, 'home.taglineHighlight')}</span>
       </p>
       <div class="flex flex-wrap gap-x-3 gap-y-2 text-sm text-retro-mono font-bold uppercase tracking-wider items-center">
@@ -277,90 +298,313 @@ function translateTagValue(key: string, value: string): string {
       });
     </script>
 
-    <!-- Category Navigation -->
-    <nav class="mb-6 text-sm text-retro-mono" aria-label="Category navigation">
-      <div class="flex flex-wrap gap-x-2.5 gap-y-2 items-center">
-        {editorsChoiceTools.length > 0 && (
-          <a
-            href="#editors-choice"
-            class="px-2.5 py-1 text-xs border-2 border-amber-500 bg-amber-100/90 text-amber-950 hover:bg-amber-200 transition-all uppercase font-bold shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-          >
-            {t(locale, 'home.editorsChoiceSpotlight', { count: String(editorsChoiceTools.length) })}
-          </a>
-        )}
-        {categoryGroups.map((group) => (
-          <a
-            href={`#${catAnchor(group.category)}`}
-            class="px-2.5 py-1 text-xs border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase font-bold hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-          >
-            {translateCategory(group.category)}
-          </a>
-        ))}
-      </div>
-    </nav>
-
-    <!-- Trust Tags / Verification Standards -->
-    <div class="mb-10">
-      <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">
-        {t(locale, 'home.trustTags')}
-      </div>
-      <div class="flex flex-wrap gap-2">
-        {TAG_PAGES_ALLOWLIST.map((tag) => (
-          <a
-            href={getLocalizedPath(`/tag/${tagValueToSlug(tag.value)}`, locale)}
-            class="px-2.5 py-1 text-xs font-mono font-bold bg-neutral-50 text-neutral-700 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-          >
-            #{translateTagValue(tag.key, tag.value)}
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <!-- Core Selling Point: NoLogin Browser Extension v2.0 Spotlight -->
-    <section
-      class="mb-12 border-2 border-neutral-900 bg-emerald-50/70 p-5 sm:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-      aria-label={locale === 'zh' ? 'NoLogin 浏览器扩展 v2.0' : 'NoLogin Browser Extension v2.0'}
-    >
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
-        <div class="space-y-2.5 flex-1">
-          <div class="inline-flex items-center gap-2 px-2 py-0.5 bg-neutral-900 text-emerald-300 text-[10px] font-mono font-bold uppercase tracking-wider">
-            <span>⚡ EXTENSION V2.0</span>
-            <span>·</span>
-            <span>{locale === 'zh' ? 'SERP 雷达 + 付费墙切换器 + 5D 评分舱' : 'SERP RADAR + PAYWALL SWITCHER + 5D HUD'}</span>
-          </div>
-          <h2 class="text-lg sm:text-xl font-black text-neutral-900 uppercase tracking-tight">
-            {locale === 'zh'
-              ? `把 ${totalTools} 款免登录工具与 CADES 2.0 实验室评分装进浏览器`
-              : `Bring ${totalTools} Zero-Login Tools & CADES 2.0 Lab Scores Into Your Browser`}
-          </h2>
-          <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed">
-            {locale === 'zh'
-              ? '在 Google / Bing / DuckDuckGo 搜索结果旁直接透视工具免登录评分与付费墙预警；访问 Canva、Acrobat、Notion 等 55+ 款强制登录软件时一键切换本地免登录替代品。零遥测，支持中英双语。'
-              : 'Inject verified CADES 5D scores and SaaS paywall warnings directly into Google, Bing & DuckDuckGo SERPs. Auto-detect 55+ sign-up-walled apps (Canva, Acrobat, Notion) and switch to 100% local alternatives in one click.'}
-          </p>
-          <div class="flex flex-wrap gap-1.5 pt-1 text-[11px] font-mono font-bold">
-            <span class="px-2 py-0.5 bg-white border border-neutral-900 text-emerald-900">✓ 95/100 SERP Truth Badges</span>
-            <span class="px-2 py-0.5 bg-white border border-neutral-900 text-amber-900">⚠ 55+ SaaS Paywall Targets</span>
-            <span class="px-2 py-0.5 bg-white border border-neutral-900 text-neutral-800">🔒 Zero Telemetry · EN/中文</span>
-          </div>
+    <!-- Flagship Hero: Chrome Web Store Extension v2.0 + Realistic Dual-Scenario Browser Simulations -->
+    <section class="nl-ext-hero" aria-labelledby="ext-hero-heading">
+      <div class="nl-ext-hero-header">
+        <div class="nl-ext-badge-row">
+          <span class="nl-cws-pill">
+            <span class="nl-cws-dot" aria-hidden="true"></span>
+            {l(`Chrome Web Store 官方认证上架 · v${extVersion}`, `Live on Chrome Web Store · v${extVersion}`)}
+          </span>
+          <span class="nl-trust-pill">
+            {l('100% 免费 · 网页零悬浮广告注入 · 零隐私遥测', '100% Free · Zero Floating Ad Injection · Zero Telemetry')}
+          </span>
         </div>
-        <div class="flex sm:flex-row md:flex-col gap-2.5 shrink-0">
-          <a
-            href={getLocalizedPath('/extension', locale)}
-            class="px-4 py-2.5 bg-neutral-900 text-white text-xs font-mono font-black uppercase tracking-wider border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(16,185,129,1)] hover:bg-emerald-700 transition-all text-center"
-          >
-            {locale === 'zh' ? '体验交互沙盒 & 安装 →' : 'Interactive Sandbox & Install →'}
+
+        <h2 id="ext-hero-heading" class="nl-ext-hero-title">
+          {l(
+            '搜工具时直接透视免登录实测分，遇注册付费墙时一键秒换纯本地平替',
+            'Spot verified zero-login scores on search results, and bypass SaaS signup walls in 1 click'
+          )}
+        </h2>
+
+        <p class="nl-ext-hero-lead">
+          {l(
+            `将 NoLogin Lab 实机核验的 ${totalTools} 款免登录工具、55+ 款封闭 SaaS 平替映射与 CADES 2.0 五维档案装进浏览器——在 Google / Bing / 百度 搜索结果页直接标出谁是「100% 本地处理、免登录无水印直出」，谁是「强制注册/付费墙套路」；在工具站遇到注册或导出限制时，点一下浏览器右上角角标即可秒换免登录方案。`,
+            `Equip your browser with ${totalTools} CADES-verified zero-login tools and 55+ SaaS paywall switchers. See which tools run 100% locally with zero signup vs. mandatory account walls directly on Google, Bing, DuckDuckGo, and Baidu search results—and switch to top free alternatives from your toolbar in 1 click.`
+          )}
+        </p>
+
+        <div class="nl-ext-hero-actions">
+          <a class="nl-cta-cws" href={CHROME_STORE_URL} target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+            {l('添加至 Chrome（免费一键安装）↗', 'Add to Chrome — Free Install ↗')}
           </a>
-          <a
-            href="/downloads/nologin-tools-extension.zip"
-            download="nologin-tools-extension.zip"
-            class="px-4 py-2 bg-white text-neutral-900 text-xs font-mono font-bold uppercase tracking-wider border-2 border-neutral-900 hover:bg-yellow-100 transition-all text-center"
-          >
-            {locale === 'zh' ? '⬇ 直接下载 v2.0 (.zip)' : '⬇ Direct Download v2.0 (.zip)'}
+          <a class="nl-cta-secondary" href={getLocalizedPath('/extension', locale)}>
+            {l('交互沙盒 & Firefox / 离线包 (.zip) →', 'Interactive Sandbox & Firefox / .zip →')}
+          </a>
+          <a class="nl-scroll-link" href="#directory-browse">
+            {l(`↓ 或直接在网页端按分类检索 ${totalTools} 款免登录工具`, `↓ Or browse all ${totalTools} verified tools below`)}
           </a>
         </div>
+      </div>
+
+      <div class="nl-ext-scenarios" aria-label={l('浏览器扩展两大真实工作场景还原', 'Two real-world extension scenarios')}>
+        <!-- 场景 1：Google / Bing / 百度 搜索结果页高仿真 Chrome 窗口 -->
+        <article class="nl-sim-scene">
+          <div class="nl-sim-caption">
+            <span class="nl-sim-badge">{l('场景 1 · 在 Google / Bing / 百度 搜索结果页', 'Scene 1 · On Google / Bing / Baidu Search Results')}</span>
+            <h3>{l('在搜索结果直接嵌入「CADES 实测分 + 付费墙平替」，点进去前就看清套路', 'Inline CADES scores & paywall switchers on search results—spot signup traps before clicking')}</h3>
+          </div>
+
+          <div class="nl-chrome-window" role="region" aria-label={l('Google 搜索结果页插件效果仿真窗口', 'Simulated Google Search window with NoLogin annotations')}>
+            <div class="nl-chrome-omnibar">
+              <div class="nl-chrome-lights" aria-hidden="true"><span class="cl-r"></span><span class="cl-y"></span><span class="cl-g"></span></div>
+              <div class="nl-chrome-nav" aria-hidden="true"><span>←</span><span>→</span><span>↻</span></div>
+              <div class="nl-chrome-address">
+                <span class="nl-chrome-lock" aria-hidden="true">🔒</span>
+                <span class="nl-chrome-domain">google.com</span><span class="nl-chrome-path">/search?q={l('在线修图+免登录', 'online+photo+editor+free')}</span>
+              </div>
+              <div class="nl-chrome-tray" aria-hidden="true">
+                <span class="nl-chrome-pin" title="NoLogin Quick Switcher">✓</span>
+              </div>
+            </div>
+
+            <div class="nl-google-canvas">
+              <div class="nl-google-top-row" aria-hidden="true">
+                <span class="nl-google-wordmark"><b class="gw-b">G</b><b class="gw-r">o</b><b class="gw-y">o</b><b class="gw-b">g</b><b class="gw-g">l</b><b class="gw-r">e</b></span>
+                <div class="nl-google-search-pill">
+                  <span>{l('在线修图 免登录', 'online photo editor free')}</span>
+                  <span class="nl-google-search-icons">✕ &nbsp;|&nbsp; 🔍</span>
+                </div>
+              </div>
+
+              <div class="nl-google-results">
+                <!-- 插件注入 1：顶部多工具汇总条 -->
+                <div class="nl-mock-serp-bar">
+                  <div class="nl-serp-bar-left">
+                    <span class="nl-injected-pill">{l('插件自动生成', 'Extension Auto-Bar')}</span>
+                    <strong>✓ nologin.tools：</strong>
+                    <span>{l('已为本页结果匹配 3 款免登录工具（Photopea 95 · Excalidraw 96 · Squoosh 95）', '3 zero-login tools matched for this search (Photopea 95 · Excalidraw 96 · Squoosh 95)')}</span>
+                  </div>
+                  <div class="nl-serp-bar-links">
+                    <a href={getLocalizedPath('/compare/squoosh-vs-tinypng', locale)}>{l('Squoosh vs TinyPNG 对比 ↗', 'Squoosh vs TinyPNG ↗')}</a>
+                    <a href={getLocalizedPath('/finder', locale)}>{l('免登录罗盘 ↗', 'No-Login Finder ↗')}</a>
+                  </div>
+                </div>
+
+                <!-- 搜索结果 #1（已验证免登录工具 + 翠绿白字分数胶囊） -->
+                <div class="nl-g-item">
+                  <div class="nl-g-cite-row">
+                    <span class="nl-g-fav nl-g-fav-emerald" aria-hidden="true">P</span>
+                    <div class="nl-g-cite-text">
+                      <span class="nl-g-site-title">Photopea</span>
+                      <span class="nl-g-site-url">https://www.photopea.com &nbsp;⋮</span>
+                    </div>
+                  </div>
+                  <a href={getLocalizedPath('/tool/photopea-com', locale)} class="nl-g-heading">Photopea | Online Photo Editor — Free PSD, AI, XD &amp; Sketch</a>
+                  <div class="nl-inline-strip nl-strip-good">
+                    <strong class="nl-strip-brand">✓ {l('NoLogin 已验证', 'NoLogin Verified')}</strong>
+                    <span class="nl-white-score-pill">95/100</span>
+                    <span class="nl-dot">·</span>
+                    <span class="nl-ok">{l('★ 编辑精选', "★ Editor's Choice")}</span>
+                    <span class="nl-dot">·</span>
+                    <span class="nl-ok">{l('本地处理', '100% Local')}</span>
+                    <span class="nl-dot">·</span>
+                    <a href={getLocalizedPath('/tool/photopea-com', locale)}>{l('实测档案 ↗', 'Lab Report ↗')}</a>
+                  </div>
+                  <p class="nl-g-desc">{l('基于 WebAssembly 在浏览器本地内存直接运行，无需注册登录即可打开和导出 PSD、AI、Sketch 与高清透明 PNG 原图……', 'Free online photo editor supporting PSD, XCF, Sketch, XD and CDR formats. Runs locally in WebAssembly memory with zero login...')}</p>
+                </div>
+
+                <!-- 搜索结果 #2（封闭 SaaS 付费墙 + 琥珀色一键平替条） -->
+                <div class="nl-g-item">
+                  <div class="nl-g-cite-row">
+                    <span class="nl-g-fav nl-g-fav-slate" aria-hidden="true">C</span>
+                    <div class="nl-g-cite-text">
+                      <span class="nl-g-site-title">Canva</span>
+                      <span class="nl-g-site-url">https://www.canva.com › photo-editor &nbsp;⋮</span>
+                    </div>
+                  </div>
+                  <a href={getLocalizedPath('/alternative/canva', locale)} class="nl-g-heading">Free Online Photo Editor &amp; Graphic Design Suite – Canva</a>
+                  <div class="nl-inline-strip nl-strip-warn">
+                    <strong class="nl-strip-warn-title">{l('需登录/付费墙 · 免登录平替：', 'Signup Wall · No-Login Switch:')}</strong>
+                    <a href={getLocalizedPath('/tool/photopea-com', locale)} class="nl-alt-chip">
+                      <span>Photopea</span>
+                      <span class="nl-white-score-pill nl-pill-sm">95</span>
+                      <span>↗</span>
+                    </a>
+                    <span class="nl-dot">·</span>
+                    <a href={getLocalizedPath('/tool/excalidraw-com', locale)} class="nl-alt-chip">
+                      <span>Excalidraw</span>
+                      <span class="nl-white-score-pill nl-pill-sm">96</span>
+                      <span>↗</span>
+                    </a>
+                    <span class="nl-dot">·</span>
+                    <a href={getLocalizedPath('/alternative/canva', locale)}>{l('全部 4 款对比 ↗', 'Compare all 4 ↗')}</a>
+                  </div>
+                  <p class="nl-g-desc">{l('使用 Canva 在线编辑照片与设计海报。需使用 Google、邮箱或手机号注册登录账号后方可进入工作台并下载设计文件……', 'Create designs with Canva. Sign up with Google, Facebook, or email to access workspace templates and export files...')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 场景 2：工具站/付费墙画布 + 右上角悬浮 Popup 弹窗高仿真 Chrome 窗口 -->
+        <article class="nl-sim-scene">
+          <div class="nl-sim-caption">
+            <span class="nl-sim-badge">{l('场景 2 · 工具站/付费墙站内救场', 'Scene 2 · Inside Any Tool or SaaS Website')}</span>
+            <h3>{l('网页画布零遮挡；遇到强制登录或导出付费墙时，点右上角角标秒换免登录方案', 'Zero canvas clutter—click the toolbar score badge to bypass signup walls with top alternatives')}</h3>
+          </div>
+
+          <div class="nl-chrome-window" role="region" aria-label={l('工具网站浏览器工具栏角标与弹出面板仿真窗口', 'Simulated SaaS website with browser toolbar badge and extension popup')}>
+            <div class="nl-chrome-omnibar">
+              <div class="nl-chrome-lights" aria-hidden="true"><span class="cl-r"></span><span class="cl-y"></span><span class="cl-g"></span></div>
+              <div class="nl-chrome-nav" aria-hidden="true"><span>←</span><span>→</span><span>↻</span></div>
+              <div class="nl-chrome-address">
+                <span class="nl-chrome-lock" aria-hidden="true">🔒</span>
+                <span class="nl-chrome-domain">canva.com</span><span class="nl-chrome-path">/design/export</span>
+              </div>
+              <div class="nl-chrome-tray">
+                <span class="nl-toolbar-callout">{l('点击角标 ↘', 'Click badge ↘')}</span>
+                <span class="nl-toolbar-active-btn" title={l('NoLogin 实测角标（纯白分数）', 'NoLogin live toolbar badge')}>
+                  <span class="nl-toolbar-icon-box">✓</span>
+                  <span class="nl-toolbar-badge-num">95</span>
+                </span>
+                <span class="nl-chrome-puzzle" aria-hidden="true">🧩</span>
+              </div>
+            </div>
+
+            <div class="nl-tool-stage">
+              <!-- 左侧：底层网页工作台（展示零遮挡 + 遭遇导出登录墙） -->
+              <div class="nl-mock-webapp" aria-hidden="true">
+                <div class="nl-mock-webapp-nav">
+                  <strong>Canva<span>Studio</span></strong>
+                  <span>Export</span>
+                  <span class="nl-clean-indicator">{l('✓ 零网页遮挡', '✓ Zero Clutter')}</span>
+                </div>
+                <div class="nl-mock-webapp-workspace">
+                  <div class="nl-mock-checker-preview">
+                    <div class="nl-mock-art">
+                      <span class="nl-mock-art-icon">🎨</span>
+                      <span class="nl-mock-art-label">poster-final.psd</span>
+                    </div>
+                    <span class="nl-mock-img-tag">2048×2048</span>
+                  </div>
+                  <div class="nl-mock-dl-panel">
+                    <div class="nl-mock-dl-row">
+                      <div>
+                        <strong>{l('草稿预览图', 'Draft Preview')}</strong>
+                        <span>{l('带水印 · 压缩画质', 'Watermarked · Low-res')}</span>
+                      </div>
+                      <span class="nl-mock-dl-btn free">{l('需登录下载', 'Sign in first')}</span>
+                    </div>
+                    <div class="nl-mock-dl-row gated">
+                      <div>
+                        <strong>{l('透明背景高清 PNG', 'Transparent HD PNG')}</strong>
+                        <span>2048 × 2048 px</span>
+                      </div>
+                      <span class="nl-mock-dl-btn locked">🔒 {l('需升级 Pro 绑卡', 'Pro Trial ($12.99)')}</span>
+                    </div>
+                  </div>
+                  <p class="nl-mock-pain-hint">
+                    <span class="nl-hint-desktop">{l('↑ 排好版才发现导出要登录绑卡？看右侧插件弹窗 →', '↑ Hit a login/paywall when exporting? See the popup →')}</span>
+                    <span class="nl-hint-mobile">{l('↑ 排好版才发现导出要登录？点右上角 [✓ 95] 弹出下方免费平替 ↓', '↑ Hit a paywall? Tap [✓ 95] above for zero-login alternatives ↓')}</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- 右侧：从工具栏图标浮出落下的 v2.0 真实插件 Popup -->
+              <div class="nl-sim-popup">
+                <div class="nl-sim-popup-caret" aria-hidden="true"></div>
+                <div class="nl-sim-popup-header">
+                  <span class="nl-sim-popup-logo">✓ NoLogin.tools <em>v{extVersion}</em></span>
+                  <span class="nl-sim-popup-count">{totalTools} {l('款工具 · 零遥测', 'tools · 0 telemetry')}</span>
+                </div>
+
+                <!-- 1. 付费墙一键免登录平替 -->
+                <div class="nl-sim-popup-section nl-sim-popup-warn">
+                  <div class="nl-sim-popup-alt-title">
+                    <span>⚡ {l('Canva 免登录高分平替', 'Canva Zero-Login Switches')}</span>
+                    <span class="nl-sim-active-filter">{l('100% 本地', '100% Local')}</span>
+                  </div>
+                  <ul class="nl-sim-popup-alt-list">
+                    <li>
+                      <div>
+                        <a href={getLocalizedPath('/tool/photopea-com', locale)}>
+                          <strong>Photopea</strong>
+                          <span class="nl-white-score-pill nl-pill-sm">95</span>
+                        </a>
+                        <small>{l('本地 WebAssembly · 免登录直出 PSD/PNG', 'Local WebAssembly · Free PSD/PNG export')}</small>
+                      </div>
+                      <a class="nl-sim-mini-go" href={getLocalizedPath('/tool/photopea-com', locale)}>{l('直达 ↗', 'Open ↗')}</a>
+                    </li>
+                    <li>
+                      <div>
+                        <a href={getLocalizedPath('/tool/excalidraw-com', locale)}>
+                          <strong>Excalidraw</strong>
+                          <span class="nl-white-score-pill nl-pill-sm">96</span>
+                        </a>
+                        <small>{l('本地手绘白板 · 端到端加密 · 开源', 'Local whiteboard · E2EE · Open Source')}</small>
+                      </div>
+                      <a class="nl-sim-mini-go" href={getLocalizedPath('/tool/excalidraw-com', locale)}>{l('直达 ↗', 'Open ↗')}</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- 2. CADES 2.0 五维实测评分卡 -->
+                <div class="nl-sim-popup-section">
+                  <div class="nl-sim-popup-site-line">
+                    <strong>Photopea · CADES 2.0</strong>
+                    <span class="nl-white-score-pill">95/100</span>
+                  </div>
+                  <div class="nl-sim-5d-grid">
+                    <div><span>UX</span><strong>19/20</strong></div>
+                    <div><span>{l('深度', 'Depth')}</span><strong>24/25</strong></div>
+                    <div><span>{l('导出', 'Export')}</span><strong>19/20</strong></div>
+                    <div><span>{l('隐私', 'Privacy')}</span><strong>19/20</strong></div>
+                    <div><span>{l('稳定', 'Polish')}</span><strong>14/15</strong></div>
+                  </div>
+                  <a class="nl-sim-popup-pk-btn" href={getLocalizedPath('/alternative/canva', locale)}>
+                    {l('⚔️ 查看 Canva 免登录平替完整对比矩阵 →', '⚔️ Full Canva vs Zero-Login Comparison →')}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
+
+    <div id="directory-browse" class="scroll-mt-8">
+      <!-- Category Navigation -->
+      <nav class="mb-6 text-sm text-retro-mono" aria-label="Category navigation">
+        <div class="flex flex-wrap gap-x-2.5 gap-y-2 items-center">
+          {editorsChoiceTools.length > 0 && (
+            <a
+              href="#editors-choice"
+              class="px-2.5 py-1 text-xs border-2 border-amber-500 bg-amber-100/90 text-amber-950 hover:bg-amber-200 transition-all uppercase font-bold shadow-[2px_2px_0px_0px_rgba(217,119,6,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+            >
+              {t(locale, 'home.editorsChoiceSpotlight', { count: String(editorsChoiceTools.length) })}
+            </a>
+          )}
+          {categoryGroups.map((group) => (
+            <a
+              href={`#${catAnchor(group.category)}`}
+              class="px-2.5 py-1 text-xs border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all uppercase font-bold hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+            >
+              {translateCategory(group.category)}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <!-- Trust Tags / Verification Standards -->
+      <div class="mb-12">
+        <div class="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">
+          {t(locale, 'home.trustTags')}
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {TAG_PAGES_ALLOWLIST.map((tag) => (
+            <a
+              href={getLocalizedPath(`/tag/${tagValueToSlug(tag.value)}`, locale)}
+              class="px-2.5 py-1 text-xs font-mono font-bold bg-neutral-50 text-neutral-700 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+            >
+              #{translateTagValue(tag.key, tag.value)}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
 
     <!-- Featured In-Depth Guides & Analysis -->
     <TestedWorkflowLinks tools={approvedTools} locale={locale} />
@@ -691,4 +935,792 @@ function translateTagValue(key: string, value: string): string {
     </aside>
   </div>
 
+  <style>
+    .nl-ext-hero {
+      margin-bottom: 40px;
+      padding: 24px;
+      background: #f6f9f8;
+      border: 2px solid #171717;
+      box-shadow: 5px 5px 0 0 #171717;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+    }
+    .nl-ext-hero-header {
+      margin-bottom: 24px;
+    }
+    .nl-ext-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .nl-cws-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #08695d;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .nl-cws-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #6ef3d6;
+      box-shadow: 0 0 0 3px rgba(110, 243, 214, 0.3);
+    }
+    .nl-trust-pill {
+      display: inline-block;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #cbd7dc;
+      color: #384d56;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .nl-ext-hero-title {
+      font-size: 28px;
+      line-height: 1.26;
+      font-weight: 850;
+      letter-spacing: -0.5px;
+      margin: 0 0 12px;
+      color: #0f1d24;
+    }
+    .nl-ext-hero-lead {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #3f535d;
+      margin: 0 0 18px;
+      max-width: 980px;
+    }
+    .nl-ext-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nl-cta-cws {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 6px;
+      background: #08695d;
+      color: #ffffff !important;
+      font-size: 14.5px;
+      font-weight: 750;
+      text-decoration: none !important;
+      box-shadow: 0 6px 18px rgba(8, 105, 93, 0.24);
+      transition: background 0.15s ease, transform 0.12s ease;
+    }
+    .nl-cta-cws:hover {
+      background: #065249;
+      transform: translateY(-1px);
+    }
+    .nl-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1.5px solid #08695d;
+      color: #08695d !important;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none !important;
+    }
+    .nl-cta-secondary:hover {
+      background: #e9f5f2;
+    }
+    .nl-scroll-link {
+      font-size: 13px;
+      font-weight: 650;
+      color: #4a616a;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .nl-scroll-link:hover {
+      color: #08695d;
+      text-decoration: underline;
+    }
+
+    /* Two Realistic Browser Windows Side-by-Side */
+    .nl-ext-scenarios {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+    .nl-sim-scene {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+    .nl-sim-caption {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0 2px;
+    }
+    .nl-sim-badge {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 2px 9px;
+      border-radius: 4px;
+      background: #0f2926;
+      color: #7ef0d6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .nl-sim-caption h3 {
+      font-size: 15.5px;
+      font-weight: 750;
+      line-height: 1.4;
+      margin: 0;
+      color: #122229;
+    }
+
+    /* Authentic macOS Chrome Browser Window */
+    .nl-chrome-window {
+      background: #ffffff;
+      border: 1px solid #b6c4cc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 38px rgba(15, 28, 36, 0.13), 0 2px 6px rgba(15, 28, 36, 0.06);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .nl-chrome-omnibar {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      background: #f3f5f8;
+      border-bottom: 1px solid #dce2e8;
+    }
+    .nl-chrome-lights {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+      margin-right: 2px;
+    }
+    .nl-chrome-lights span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .nl-chrome-lights .cl-r { background: #ff5f56; border: 1px solid #e0443e; }
+    .nl-chrome-lights .cl-y { background: #ffbd2e; border: 1px solid #dea123; }
+    .nl-chrome-lights .cl-g { background: #27c93f; border: 1px solid #1aab29; }
+    .nl-chrome-nav {
+      display: flex;
+      gap: 7px;
+      color: #5f6368;
+      font-size: 12px;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .nl-chrome-address {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 12px;
+      background: #ffffff;
+      border: 1px solid #d5dde3;
+      border-radius: 999px;
+      font-size: 11.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nl-chrome-lock { font-size: 10px; margin-right: 2px; }
+    .nl-chrome-domain { color: #202124; font-weight: 600; }
+    .nl-chrome-path { color: #5f6368; }
+    .nl-chrome-tray {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .nl-chrome-pin {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 5px;
+      background: #08695d;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Scene 1: Authentic Google Search Canvas */
+    .nl-google-canvas {
+      background: #ffffff;
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .nl-google-top-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .nl-google-wordmark {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+    .gw-b { color: #4285f4; }
+    .gw-r { color: #ea4335; }
+    .gw-y { color: #fbbc05; }
+    .gw-g { color: #34a853; }
+    .nl-google-search-pill {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 14px;
+      background: #ffffff;
+      border: 1px solid #dfe1e5;
+      border-radius: 24px;
+      box-shadow: 0 1px 6px rgba(32, 33, 36, 0.12);
+      font-size: 12.5px;
+      color: #202124;
+    }
+    .nl-google-search-icons { color: #5f6368; font-size: 11px; }
+    .nl-google-results {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Injected Top SERP Summary Bar */
+    .nl-mock-serp-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 7px 10px;
+      border-radius: 6px;
+      background: #eaf6f3;
+      border: 1.5px solid #08695d;
+      box-shadow: 0 3px 10px rgba(8, 105, 93, 0.12);
+      font-size: 11.5px;
+      color: #152c33;
+    }
+    .nl-serp-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .nl-injected-pill {
+      padding: 1px 6px;
+      border-radius: 3px;
+      background: #08695d;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .nl-serp-bar-left strong { color: #08695d; font-weight: 750; }
+    .nl-serp-bar-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+    }
+    .nl-serp-bar-links a {
+      color: #08695d;
+      background: #ffffff;
+      border: 1px solid #8ec8ba;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .nl-serp-bar-links a:hover { background: #dfeee9; }
+
+    /* Google Result Items */
+    .nl-g-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 2px 0;
+    }
+    .nl-g-cite-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nl-g-fav {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .nl-g-fav-emerald { background: #e6f4f1; color: #08695d; }
+    .nl-g-fav-slate { background: #f1f3f4; color: #3c4043; }
+    .nl-g-cite-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .nl-g-site-title { font-size: 12.5px; color: #202124; font-weight: 500; }
+    .nl-g-site-url { font-size: 11px; color: #4d5156; }
+    .nl-g-heading {
+      font-size: 15.5px;
+      font-weight: 500;
+      color: #1a0dab;
+      line-height: 1.3;
+      margin: 2px 0 3px;
+      text-decoration: none;
+    }
+    .nl-g-heading:hover { text-decoration: underline; }
+
+    /* Injected SERP Badges with Pure White Score Pills */
+    .nl-inline-strip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      width: fit-content;
+      max-width: 100%;
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-size: 11.5px;
+      line-height: 1.35;
+      margin: 1px 0 3px;
+    }
+    .nl-strip-good {
+      background: #effaf6;
+      border: 1.5px solid #168065;
+      box-shadow: 0 2px 6px rgba(8, 105, 93, 0.08);
+    }
+    .nl-strip-brand { color: #08695d; font-weight: 750; }
+    .nl-strip-warn {
+      background: #fff8eb;
+      border: 1.5px solid #d98218;
+      box-shadow: 0 2px 6px rgba(180, 100, 10, 0.08);
+    }
+    .nl-strip-warn-title { color: #9a4a06; font-weight: 750; }
+    .nl-white-score-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #08695d;
+      color: #ffffff !important;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.25;
+      font-variant-numeric: tabular-nums;
+    }
+    .nl-pill-sm {
+      padding: 0 5px;
+      font-size: 10px;
+      border-radius: 3px;
+    }
+    .nl-dot { color: #9ab0b8; }
+    .nl-ok { color: #116b49; font-weight: 700; }
+    .nl-alt-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #ffffff;
+      border: 1px solid #e6c699;
+      color: #7c3a03 !important;
+      font-weight: 700;
+      text-decoration: none !important;
+    }
+    .nl-alt-chip:hover { background: #fff3dc; border-color: #d49b53; }
+    .nl-inline-strip > a:not(.nl-alt-chip) {
+      color: #08695d;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nl-inline-strip > a:not(.nl-alt-chip):hover { text-decoration: underline; }
+    .nl-g-desc {
+      margin: 0;
+      font-size: 12px;
+      color: #4d5156;
+      line-height: 1.45;
+    }
+
+    /* Scene 2: Tool Workspace + Floating Top-Right Extension Popup */
+    .nl-toolbar-callout {
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #fef08a;
+      border: 1px solid #eab308;
+      color: #713f12;
+      font-size: 10.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .nl-toolbar-active-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #e6f4f1;
+      border: 2px solid #08695d;
+      box-shadow: 0 0 0 3px rgba(8, 105, 93, 0.2);
+    }
+    .nl-toolbar-icon-box {
+      display: grid;
+      place-items: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      background: #08695d;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .nl-toolbar-badge-num {
+      padding: 0 4px;
+      border-radius: 3px;
+      background: #08695d;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .nl-chrome-puzzle { font-size: 12px; opacity: 0.65; }
+
+    .nl-tool-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 295px;
+      gap: 12px;
+      padding: 12px;
+      background: #f4f6f8;
+      flex: 1;
+      align-items: start;
+    }
+    .nl-mock-webapp {
+      background: #ffffff;
+      border: 1px solid #dde3e8;
+      border-radius: 7px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .nl-mock-webapp-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-bottom: 1px solid #ebeef2;
+      font-size: 11px;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .nl-mock-webapp-nav strong {
+      font-size: 13px;
+      color: #1e293b;
+      letter-spacing: -0.3px;
+    }
+    .nl-mock-webapp-nav strong span { color: #94a3b8; }
+    .nl-clean-indicator {
+      margin-left: auto;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #047857;
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .nl-mock-webapp-workspace {
+      padding: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .nl-mock-checker-preview {
+      position: relative;
+      height: 104px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      background: repeating-conic-gradient(#e5e7eb 0% 25%, #ffffff 0% 50%) 0 0 / 14px 14px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .nl-mock-art {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #cbd5e1;
+    }
+    .nl-mock-art-icon { font-size: 22px; line-height: 1; }
+    .nl-mock-art-label { font-size: 10.5px; font-weight: 700; color: #334155; font-family: ui-monospace, monospace; }
+    .nl-mock-img-tag {
+      position: absolute;
+      bottom: 5px;
+      left: 6px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      background: rgba(15, 23, 42, 0.72);
+      color: #ffffff;
+      font-size: 10px;
+      font-family: ui-monospace, monospace;
+    }
+    .nl-mock-dl-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .nl-mock-dl-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 7px 9px;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      font-size: 11px;
+    }
+    .nl-mock-dl-row strong { display: block; color: #1e293b; font-size: 11.5px; }
+    .nl-mock-dl-row span { color: #64748b; font-size: 10.5px; }
+    .nl-mock-dl-row.gated { background: #fffbeb; border-color: #fde68a; }
+    .nl-mock-dl-btn {
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .nl-mock-dl-btn.free { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+    .nl-mock-dl-btn.locked { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+    .nl-mock-pain-hint {
+      margin: 2px 0 0;
+      font-size: 11px;
+      font-weight: 650;
+      color: #b45309;
+      line-height: 1.35;
+    }
+    .nl-hint-mobile { display: none; }
+
+    /* Right Side: Floating v2.0 Extension Popup */
+    .nl-sim-popup {
+      position: relative;
+      background: #f6f8f9;
+      border: 1.5px solid #08695d;
+      border-radius: 9px;
+      padding: 10px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22), 0 2px 8px rgba(8, 105, 93, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 2;
+    }
+    .nl-sim-popup-caret {
+      position: absolute;
+      top: -7px;
+      right: 24px;
+      width: 12px;
+      height: 12px;
+      background: #f6f8f9;
+      border-top: 1.5px solid #08695d;
+      border-left: 1.5px solid #08695d;
+      transform: rotate(45deg);
+    }
+    .nl-sim-popup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #dce3e6;
+    }
+    .nl-sim-popup-logo {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #08695d;
+    }
+    .nl-sim-popup-logo em {
+      font-style: normal;
+      font-size: 10px;
+      background: #e6f4f1;
+      border: 1px solid #b8dcd4;
+      padding: 0 5px;
+      border-radius: 3px;
+      margin-left: 3px;
+    }
+    .nl-sim-popup-count { font-size: 10.5px; color: #5c6b73; }
+    .nl-sim-popup-section {
+      background: #ffffff;
+      border: 1px solid #dce3e6;
+      border-radius: 6px;
+      padding: 8px 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nl-sim-popup-warn {
+      background: linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+      border-color: #f3c68f;
+    }
+    .nl-sim-popup-alt-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 750;
+      color: #92400e;
+    }
+    .nl-sim-active-filter {
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: #08695d;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .nl-sim-popup-alt-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 5px;
+    }
+    .nl-sim-popup-alt-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 5px 7px;
+      background: #f6faf9;
+      border: 1px solid #d5e6e2;
+      border-radius: 5px;
+      font-size: 11px;
+    }
+    .nl-sim-popup-alt-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #0f1d24;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .nl-sim-popup-alt-list small {
+      display: block;
+      font-size: 10px;
+      color: #52656d;
+      margin-top: 1px;
+    }
+    .nl-sim-mini-go {
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #08695d;
+      color: #ffffff !important;
+      font-size: 10px;
+      font-weight: 750;
+      flex-shrink: 0;
+    }
+    .nl-sim-popup-site-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: 11.5px;
+      color: #0f1d24;
+    }
+    .nl-sim-5d-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      padding: 5px;
+      border-radius: 5px;
+      background: #f4f8f7;
+      border: 1px solid #dce6e4;
+      text-align: center;
+    }
+    .nl-sim-5d-grid span {
+      display: block;
+      font-size: 9.5px;
+      color: #5a6d77;
+      font-weight: 600;
+    }
+    .nl-sim-5d-grid strong {
+      display: block;
+      font-size: 10.5px;
+      color: #08695d;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .nl-sim-popup-pk-btn {
+      display: block;
+      text-align: center;
+      padding: 6px 8px;
+      border-radius: 5px;
+      background: #08695d;
+      color: #ffffff !important;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none !important;
+    }
+    .nl-sim-popup-pk-btn:hover { background: #065249; }
+
+    @media (max-width: 1100px) {
+      .nl-ext-scenarios {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    @media (max-width: 720px) {
+      .nl-ext-hero {
+        padding: 16px;
+      }
+      .nl-ext-hero-title {
+        font-size: 22px;
+      }
+      .nl-chrome-nav,
+      .nl-chrome-puzzle,
+      .nl-sim-popup-caret,
+      .nl-hint-desktop {
+        display: none;
+      }
+      .nl-hint-mobile {
+        display: inline;
+      }
+      .nl-tool-stage {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+      }
+    }
+  </style>
 </Layout>
