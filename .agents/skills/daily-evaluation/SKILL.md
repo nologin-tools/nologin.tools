@@ -54,11 +54,12 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
    node scripts/lab/evaluation-queue.mjs next --limit 10
    ```
    Items with a verified visible SVG badge (`hasExplicitBadge: true`) automatically sort to the front of `evaluation-queue.mjs` so Fast-Track submissions are evaluated first. For each item, in order:
-   - `dogfood-session start` → give a real input → run the core task → `export` when the tool has export → view every screenshot. A login/credit/paywall verdict requires hitting the gate (run the task, try the download), not reading "sign in to download" on the page.
+   - `dogfood-session start` → give a real input → run the core task → `export` when the tool has export → **view every screenshot (`view_image` / `read_file`) before calling `finish`**. A login/credit/paywall verdict requires hitting the gate (run the task, try the download), not reading "sign in to download" on the page.
+   - For `hasExplicitBadge: true` Fast-Track candidates (or any multi-page utility), check top-level navigation links (`/compare`, `/benchmark`, `/inspector`, `/extension`, `/playground`) before concluding a site is a "static directory". Interactive benchmark/comparison workbenches, client-side file inspectors, and browser extension platforms qualify as utility tools.
    - Decide:
-     - **approve**: `verify <slug> --decision approve` → eval JSON → `finish --eval ... --sync` (the depth gate runs here too) → translations → `admin-api.mjs approve-evaluated` → `evaluation-queue.mjs done <id> --outcome approved --note "score N, tier"`
-     - **reject**: `finish` (no sync) → `verify <slug> --decision reject` → `admin-api.mjs reject <id> "<observed evidence>"` → `done <id> --outcome rejected --note "..."`
-     - **defer** (operational blocker only): `abort` → `done <id> --outcome deferred --note "<blocker>"`
+     - **approve**: `verify <slug> --decision approve` → eval JSON (ensure `verdictTier` matches `productScore.overall` and `privacyVerdict` + `privacy`/`data` tags match observed `Sample Endpoints`) → `finish --eval ... --sync` (the depth gate runs here too) → translations → `admin-api.mjs approve-evaluated` → `evaluation-queue.mjs done <id> --slug <slug> --outcome approved --note "score N, tier"`
+     - **reject**: inspect all action screenshots first → `finish` (no sync) → `verify <slug> --decision reject` → `admin-api.mjs reject <id> "<observed evidence>"` → `done <id> --slug <slug> --outcome rejected --note "..."`
+     - **defer** (operational blocker only): `abort` → `done <id> --slug <slug> --outcome deferred --note "<blocker>"`
    - Keep going until 10 distinct slugs are finished or the queue is empty.
 
 4. **Commit editorial/translation/ledger changes**

@@ -28,10 +28,11 @@ Follow [`../../../docs/CADES-2.0-ROUTE-A-SPEC.md`](../../../docs/CADES-2.0-ROUTE
   ```
 
   `--allow-shallow` never satisfies the gate for an approval or rejection.
-- Use `view_image` on every screenshot used as evidence.
-- Network hooks observe traffic after navigation and during tested actions. “No payload egress observed” only describes that bounded observation; it does not prove local-only architecture, offline support, lack of server processing, or data-retention policy.
+- Use `view_image` (or `read_file`) on every screenshot used as evidence **before** calling `finish` or making a reject/approve decision. Never finish or reject a tool without inspecting the post-action screenshots (`dogfood-<slug>-step<N>-action.png`).
+- **Sub-route & interactive workbench discovery before rejection**: Many utility platforms host their interactive comparators, client-side file inspectors, playgrounds, or companion browser extensions on primary sub-routes (e.g., `/compare/`, `/benchmark/`, `/inspector/`, `/playground/`, `/extension/`). Before rejecting any site as a "pure directory" or "static article", inspect the top-level navigation links and test at least one interactive sub-route if present. Interactive alternative finders, empirical benchmark comparators, client-side artifact inspectors, and browser extension platforms (e.g., `realtest.org`, `privacytests.org`, `bundlephobia.com`) are valid utilities—not static link directories.
+- Network hooks observe traffic after navigation and during tested actions. “No payload egress observed” only describes that bounded observation; it does not prove local-only architecture, offline support, lack of server processing, or data-retention policy. Always inspect the `Sample Endpoints` printed by `dogfood-session.mjs status` and `finish`: if any outgoing payloads (`POST /api/...`, analytics/RUM beacons like `googletagmanager`, `clarity`, `umami`, `/cdn-cgi/rum`) were captured, `privacyVerdict` and `privacyVerdictZh` must name or accurately characterize those observed requests—never claim "zero outgoing network payloads" when `Outgoing Payloads > 0`.
 - Do not synchronize heuristic output from the auxiliary rolling probe.
-- `finish --sync` requires a valid evaluation baseline (EN/ZH), which is the full editorial record for the site's two active locales (`en`, `zh`). If validation or the depth gate fails, leave the session open, correct the payload or keep testing, and retry.
+- `finish --sync` requires a valid evaluation baseline (EN/ZH), which is the full editorial record for the site's two active locales (`en`, `zh`). `verdictTier` must strictly match `productScore.overall` (`>= 90` `editors-choice`, `80–89` `highly-recommended`, `70–79` `capable-utility`, `< 70` `emergency-only`). If validation or the depth gate fails, leave the session open, correct the payload or keep testing, and retry.
 
 ## Stateful protocol
 

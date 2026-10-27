@@ -563,11 +563,60 @@ async function cmdAct(slug, options) {
 
   const script = `
 (async () => {
-  const result = { success: false, actionPerformed: false, netPayloads: [], url: null, title: "", actionSummary: "", error: null };
+  const result = { success: false, actionPerformed: false, actionSummaries: [], netPayloads: [], url: null, title: "", actionSummary: "", error: null };
   try {
     const task = await taskSpace(${JSON.stringify(session.spaceId)});
     const page = task.page("p1");
     await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
+
+    ${options.fill ? `
+      const fillSel = ${JSON.stringify(options.fill.selector)};
+      const fillVal = ${JSON.stringify(options.fill.value)};
+      await page.fill(fillSel, fillVal);
+      result.actionSummaries.push("Filled into " + fillSel);
+      result.actionPerformed = true;
+    ` : ''}
+
+    ${options.upload ? `
+      const fixPath = ${JSON.stringify(resolvedFixture)};
+      try {
+        await page.setInputFiles('input[type="file"]', fixPath);
+        result.actionSummaries.push("Uploaded fixture: " + fixPath);
+        result.actionPerformed = true;
+      } catch (err) {
+        try {
+          const specificSelector = await page.evaluate(() => {
+            const candidates = Array.from(document.querySelectorAll('input[type="file"]'));
+            const fileCandidate = candidates.find(c => !c.hasAttribute('webkitdirectory')) || candidates[0];
+            if (fileCandidate && fileCandidate.id) {
+              return '#' + fileCandidate.id;
+            }
+            for (const el of candidates) {
+              let p = el.parentElement;
+              while (p && p !== document.body) {
+                if (p.className && typeof p.className === 'string' && p.className.trim()) {
+                  const firstCls = p.className.trim().split(/\\s+/)[0];
+                  if (firstCls && document.querySelectorAll('.' + firstCls + ' input[type="file"]').length === 1) {
+                    return '.' + firstCls + ' input[type="file"]';
+                  }
+                }
+                p = p.parentElement;
+              }
+            }
+            return candidates.length > 0 ? 'input[type="file"]:nth-of-type(1)' : null;
+          });
+          if (specificSelector) {
+            await page.setInputFiles(specificSelector, fixPath);
+            result.actionSummaries.push("Uploaded fixture via disambiguated selector (" + specificSelector + "): " + fixPath);
+            result.actionPerformed = true;
+          } else {
+            throw err;
+          }
+        } catch (fallbackErr) {
+          result.actionSummaries.push("File input not found for upload: " + err.message);
+        }
+      }
+    ` : ''}
 
     ${options.click ? `
       const clickTarget = ${JSON.stringify(options.click)};
@@ -611,63 +660,14 @@ async function cmdAct(slug, options) {
         }
         return null;
       }, clickTarget);
-      result.actionSummary = clicked || ("Element not found for click: " + clickTarget);
+      result.actionSummaries.push(clicked || ("Element not found for click: " + clickTarget));
       result.actionPerformed = Boolean(clicked) || result.actionPerformed;
-    ` : ''}
-
-    ${options.fill ? `
-      const fillSel = ${JSON.stringify(options.fill.selector)};
-      const fillVal = ${JSON.stringify(options.fill.value)};
-      await page.fill(fillSel, fillVal);
-      result.actionSummary = "Filled into " + fillSel;
-      result.actionPerformed = true;
-    ` : ''}
-
-    ${options.upload ? `
-      const fixPath = ${JSON.stringify(resolvedFixture)};
-      try {
-        await page.setInputFiles('input[type="file"]', fixPath);
-        result.actionSummary = "Uploaded fixture: " + fixPath;
-        result.actionPerformed = true;
-      } catch (err) {
-        try {
-          const specificSelector = await page.evaluate(() => {
-            const candidates = Array.from(document.querySelectorAll('input[type="file"]'));
-            const fileCandidate = candidates.find(c => !c.hasAttribute('webkitdirectory')) || candidates[0];
-            if (fileCandidate && fileCandidate.id) {
-              return '#' + fileCandidate.id;
-            }
-            for (const el of candidates) {
-              let p = el.parentElement;
-              while (p && p !== document.body) {
-                if (p.className && typeof p.className === 'string' && p.className.trim()) {
-                  const firstCls = p.className.trim().split(/\s+/)[0];
-                  if (firstCls && document.querySelectorAll('.' + firstCls + ' input[type="file"]').length === 1) {
-                    return '.' + firstCls + ' input[type="file"]';
-                  }
-                }
-                p = p.parentElement;
-              }
-            }
-            return candidates.length > 0 ? 'input[type="file"]:nth-of-type(1)' : null;
-          });
-          if (specificSelector) {
-            await page.setInputFiles(specificSelector, fixPath);
-            result.actionSummary = "Uploaded fixture via disambiguated selector (" + specificSelector + "): " + fixPath;
-            result.actionPerformed = true;
-          } else {
-            throw err;
-          }
-        } catch (fallbackErr) {
-          result.actionSummary = "File input not found for upload: " + err.message;
-        }
-      }
     ` : ''}
 
     ${options.press ? `
       const key = ${JSON.stringify(options.press)};
       await page.keyboard.press(key);
-      result.actionSummary = "Pressed key: " + key;
+      result.actionSummaries.push("Pressed key: " + key);
       result.actionPerformed = true;
     ` : ''}
 
@@ -680,9 +680,11 @@ async function cmdAct(slug, options) {
         }
         catch (e) { return { ok: false, value: "Eval error: " + e.message }; }
       }, jsCode);
-      result.actionSummary = "Evaluated JS: " + evalRes.value;
+      result.actionSummaries.push("Evaluated JS: " + evalRes.value);
       result.actionPerformed = Boolean(evalRes.ok) || result.actionPerformed;
     ` : ''}
+
+    result.actionSummary = result.actionSummaries.join(' ; ');
 
     await page.waitForTimeout(1500);
     result.url = await page.url();

@@ -54,6 +54,15 @@ describe('summarizeSteps', () => {
     const m = summarizeSteps([start, { type: 'act', performed: false, summary: 'Uploaded fixture: x' }], {});
     assert.equal(m.inputs, 0);
   });
+
+  it('handles compound act steps (--fill and --click in a single step)', () => {
+    const m = summarizeSteps([start, act('Filled into textarea ; Clicked text: Process')], {});
+    assert.equal(m.inputs, 1);
+    assert.equal(m.triggers, 1);
+    assert.equal(m.interactions, 2);
+    assert.equal(m.triggerAfterInput, true);
+    assert.equal(assessDepth(m, 'approve', { depth: 10 }).ok, true);
+  });
 });
 
 describe('EXPORT_LIKE', () => {

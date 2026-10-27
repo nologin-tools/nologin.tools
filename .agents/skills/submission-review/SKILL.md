@@ -40,7 +40,9 @@ Outputs `reports/triage/triage-<ts>.md|json` and merges Tier A/B into `reports/e
 
 Triage is an ordering tool, not a verdict (calibration: static HTML cannot see post-interaction login walls or thin wrappers, and long SEO copy can hide JS-rendered calculators).
 
-- **Tier C** (unreachable, parked, cross-host redirect, login wall, entertainment, directory, static article): open the evidence. When the signal is not self-evident from the triage row, take one screenshot with ego-browser and view it. Then reject only the IDs you confirmed:
+- **Tier C** (unreachable, parked, cross-host redirect, login wall, entertainment, directory, static article): open the evidence. When the signal is not self-evident from the triage row, take one screenshot with ego-browser and view it.
+  - **Directory vs. Interactive Utility / Benchmark / Extension**: Only reject as a "directory" when a site is a passive link list or affiliate directory with no interactive tool. Platforms that provide interactive side-by-side comparison workbenches (`/compare/`), client-side file/artifact inspectors (`/benchmark/`), interactive alternative lookup, or companion browser extensions (`/extension/`)—such as `realtest.org`, `privacytests.org`, or `bundlephobia.com`—are valid utility tools and must be evaluated through `tool-evaluation`, not rejected as directories.
+  - Then reject only the IDs you confirmed:
 
   ```bash
   node scripts/triage-pending.mjs --reject-ids 1801,1805
@@ -48,6 +50,7 @@ Triage is an ordering tool, not a verdict (calibration: static HTML cannot see p
 
   A Tier C item you could not confirm stays pending and is re-triaged with `--ids`.
 - **Tier A/B**: never rejected or approved from triage alone. They go to the evaluation queue (`reports/evaluation-queue.json`), where submissions with a verified visible SVG badge (`hasExplicitBadge: true` / `badgeDisplayType === 'explicit'`) are automatically prioritized ahead of standard Tier A/B items.
+  - **Priority Badge (`hasExplicitBadge: true`) care rule**: Creators who embed the NoLogin Verified badge have actively integrated with `nologin.tools`. Before rejecting any `hasExplicitBadge: true` submission as a "directory", "thin wrapper", or "static page", you must inspect all post-action screenshots (`view_image`/`read_file`) and check its top-level navigation routes (`/compare`, `/benchmark`, `/extension`, `/playground`, `/app`) to ensure no interactive workbench or browser extension was missed.
 
 ## 3. Deep evaluation (daily quota)
 
@@ -61,10 +64,10 @@ Run by the [`daily-evaluation`](../daily-evaluation/SKILL.md) skill: at least **
 
 Do not infer local-only processing solely from a run with no captured payload request.
 
-Record every queue outcome:
+Record every queue outcome (include `--slug <slug>` so depth verification succeeds even if the queue was refreshed):
 
 ```bash
-node scripts/lab/evaluation-queue.mjs done <id> --outcome <approved|rejected|deferred> --note "<evidence>"
+node scripts/lab/evaluation-queue.mjs done <id> --slug <slug> --outcome <approved|rejected|deferred> --note "<evidence>"
 ```
 
 `deferred` is only for operational blockers (site down during test, browser failure) and must name the blocker.
@@ -80,6 +83,11 @@ Use objective English metadata and current taxonomy values:
 - hosting: `Self-Hostable` or `Cloud Only`;
 - offline: `Works Offline` or `Online Only`;
 - pricing: `Free`, `Freemium`, or `Ad-Supported`.
+
+**Telemetry-to-Taxonomy Consistency Rule**:
+- Always check the `Sample Endpoints` output from `dogfood-session.mjs finish` before selecting `data` and `privacy` tags:
+  - If the core task uploads/POSTs user input to a remote API (`POST /api/...`) for processing, tag `data: Server-Side` (never `Client-Side Only`).
+  - If analytics, RUM, or telemetry beacons (`googletagmanager`, `google-analytics`, `clarity`, `umami`, `plausible`, `/api/stats`, `/cdn-cgi/rum`) were observed, tag `privacy: Privacy Focused` (never `No Trackers`). Reserve `privacy: No Trackers` for tools with zero third-party or analytics tracking beacons.
 
 ## 5. Prepare translations before approval
 

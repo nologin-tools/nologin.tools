@@ -52,24 +52,30 @@ export function summarizeSteps(steps, surface, exportAttempts = 0) {
   let triggerAfterInput = false;
   let observationAfterInput = false;
 
-  steps.forEach((s, i) => {
+  let seq = 0;
+  steps.forEach((s) => {
     if (s.performed !== true) return;
     const text = s.summary || '';
     if (s.type === 'export') {
+      seq++;
       exports++;
-      if (firstInputAt !== -1 && i > firstInputAt) triggerAfterInput = true;
+      if (firstInputAt !== -1 && seq > firstInputAt) triggerAfterInput = true;
       return;
     }
     if (s.type !== 'act') return;
-    if (INPUT_RE.test(text) || JS_INPUT_RE.test(text)) {
-      inputs++;
-      if (firstInputAt === -1) firstInputAt = i;
-      lastInputAt = i;
-    } else if (CLICK_RE.test(text) || KEY_RE.test(text) || JS_CLICK_RE.test(text)) {
-      triggers++;
-      if (firstInputAt !== -1 && i > firstInputAt) triggerAfterInput = true;
-    } else if (/^Evaluated JS:/i.test(text) && lastInputAt !== -1 && i > lastInputAt) {
-      observationAfterInput = true; // read the DOM after the last input: live-updating tools
+    const parts = text.includes(' ; ') ? text.split(/\s*;\s*/).filter(Boolean) : [text];
+    for (const part of parts) {
+      seq++;
+      if (INPUT_RE.test(part) || JS_INPUT_RE.test(part)) {
+        inputs++;
+        if (firstInputAt === -1) firstInputAt = seq;
+        lastInputAt = seq;
+      } else if (CLICK_RE.test(part) || KEY_RE.test(part) || JS_CLICK_RE.test(part)) {
+        triggers++;
+        if (firstInputAt !== -1 && seq > firstInputAt) triggerAfterInput = true;
+      } else if (/^Evaluated JS:/i.test(part) && lastInputAt !== -1 && seq > lastInputAt) {
+        observationAfterInput = true; // read the DOM after the last input: live-updating tools
+      }
     }
   });
 
