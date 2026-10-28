@@ -33,6 +33,12 @@
     "lastTitle": "Alphabetize Any List Online — Free Alphabetizer Tool",
     "lastSignals": []
   },
+  "animista-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:27:44.459Z",
+    "lastTitle": "Animista - On-Demand CSS Animations Library",
+    "lastSignals": []
+  },
   "app-diagrams-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:30.509Z",
@@ -71,6 +77,12 @@
       "surface_lost"
     ]
   },
+  "artboardlab-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:22:45.286Z",
+    "lastTitle": "ArtboardLab — Free browser-based tools for designers",
+    "lastSignals": []
+  },
   "articleformatter-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:26:21.216Z",
@@ -93,6 +105,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:26:20.495Z",
     "lastTitle": "JSON Formatter & Validator — Free Online Tool | AT USE",
+    "lastSignals": []
+  },
+  "aup4-aivismonitor-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:22:52.799Z",
+    "lastTitle": "Open .aup4 Files Without Audacity — Play & Export | Waveward",
     "lastSignals": []
   },
   "betterhabitsdaily-com-tracker": {
@@ -222,6 +240,12 @@
     "lastTitle": "Convertilo — Images, PDFs, Translator Online in Browser",
     "lastSignals": []
   },
+  "convertio-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:27:14.475Z",
+    "lastTitle": "Convertio — 文件转换器",
+    "lastSignals": []
+  },
   "convertlo-pro": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:25:22.088Z",
@@ -240,10 +264,28 @@
     "lastTitle": "Coolors - The super fast color palettes generator!",
     "lastSignals": []
   },
+  "copychar-cc": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:25:54.831Z",
+    "lastTitle": "CopyChar – Copy special characters to your clipboard",
+    "lastSignals": []
+  },
   "countlink-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:25:08.871Z",
     "lastTitle": "Shared Timer — Free Shareable Countdown, Synced by Link | CountLink",
+    "lastSignals": []
+  },
+  "coveryourtracks-eff-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:27:31.565Z",
+    "lastTitle": "Cover Your Tracks",
+    "lastSignals": []
+  },
+  "craiyon-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:16.373Z",
+    "lastTitle": "Free AI Image Generator | Craiyon",
     "lastSignals": []
   },
   "crochet-chart-maker-com": {
@@ -263,6 +305,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T04:49:33.348Z"
   },
+  "crontab-guru": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:39.805Z",
+    "lastTitle": "Crontab.guru - The cron schedule expression generator",
+    "lastSignals": []
+  },
   "cssgridgarden-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:24:31.360Z",
@@ -273,6 +321,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:22:27.414Z",
     "lastTitle": "Text to CSV Converter - Free Browser Tool | DataFormatKit",
+    "lastSignals": []
+  },
+  "decibelshield-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:44.663Z",
+    "lastTitle": "Decibel Meter Online: Free Real-Time Sound Level Meter (dB)",
     "lastSignals": []
   },
   "devdocs-io": {
@@ -336,16 +390,52 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "explainshell-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:28:09.892Z",
+    "lastTitle": "explainshell.com - match command-line arguments to their help text",
+    "lastSignals": []
+  },
+  "extract-express": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:26:35.679Z",
+    "lastTitle": "Extractor — Video and Audio Downloader",
+    "lastSignals": []
+  },
+  "ezgif-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:28:02.662Z",
+    "lastTitle": "Ezgif - free online animated GIF editor",
+    "lastSignals": []
+  },
   "fast-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:27:19.425Z",
     "lastTitle": "Internet Speed Test | Fast.com",
     "lastSignals": []
   },
+  "favicon-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:23:25.412Z",
+    "lastTitle": "The Best Free Favicon Generator - favicon.ico and App Icons - favicon.io",
+    "lastSignals": []
+  },
   "fffuel-co": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:25.526Z",
     "lastTitle": "Free SVG generators, color tools & web design tools",
+    "lastSignals": []
+  },
+  "ficalc-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:28.339Z",
+    "lastTitle": "FI Calc",
+    "lastSignals": []
+  },
+  "file-converter-free-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:26:05.374Z",
+    "lastTitle": "FileFormer - Free File Converter & 100+ Online Tools",
     "lastSignals": []
   },
   "financier-io": {
@@ -405,6 +495,12 @@
     "lastTitle": "fwd2. Shorten a link. Keep the key. Forward to",
     "lastSignals": []
   },
+  "gantt-chart-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:25:41.780Z",
+    "lastTitle": "gantt-chart.io — paste a task list, get a live Gantt",
+    "lastSignals": []
+  },
   "geogebra-org-calculator": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:29:11.420Z",
@@ -446,6 +542,18 @@
     "lastTitle": "Happy Hues - Curated colors in context.",
     "lastSignals": []
   },
+  "haveibeenpwned-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:25:31.922Z",
+    "lastTitle": "Have I Been Pwned: Check if your email address has been exposed in a data breach",
+    "lastSignals": []
+  },
+  "headlinecapitalization-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:25:22.706Z",
+    "lastTitle": "Headline Capitalization: Title Case Tool",
+    "lastSignals": []
+  },
   "hemingwayapp-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -455,6 +563,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:25:03.482Z",
     "lastTitle": "Free Remove Photo Location Online — Share photos without embedded location data | HereBytes",
+    "lastSignals": []
+  },
+  "httpbin-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:23:03.485Z",
+    "lastTitle": "httpbin.org",
     "lastSignals": []
   },
   "icyzip-com": {
@@ -469,10 +583,43 @@
     "lastTitle": "iFormat - Free Online File Converter, Compressor & Editor",
     "lastSignals": []
   },
+  "ignlab-net": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-28T06:28:23.279Z",
+        "lastSeenAt": "2026-10-28T06:28:23.279Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-intent-1793168897914.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-outcome-1793168897914.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-28T06:28:23.279Z",
+    "lastTitle": "IgnLab — Free Web Tools, Browser Games & Indie Directories",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
+  "imagetoascii-art": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:27:05.512Z",
+    "lastTitle": "Image to ASCII Converter - Free, Private ASCII Art Generator",
+    "lastSignals": []
+  },
   "it-tools-tech": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:31:02.338Z",
     "lastTitle": "IT Tools - Handy online tools for developers",
+    "lastSignals": []
+  },
+  "jakearchibald-github-io-svgomg": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:23:15.705Z",
+    "lastTitle": "SVGOMG - SVGO's Missing GUI for minifying SVGs",
     "lastSignals": []
   },
   "jottools-com": {
@@ -586,6 +733,12 @@
       "probe_failed"
     ]
   },
+  "mdprevieweditor-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:23:39.123Z",
+    "lastTitle": "Markdown 在线编辑器：实时预览，免费使用",
+    "lastSignals": []
+  },
   "meet-jit-si": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:23:24.641Z",
@@ -620,6 +773,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:27:37.794Z",
     "lastTitle": "Get Paid Faster: Free Invoice Generator, No Signup",
+    "lastSignals": []
+  },
+  "monkeytype-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:02.145Z",
+    "lastTitle": "Monkeytype | A minimalistic, customizable typing test",
     "lastSignals": []
   },
   "mtempmail-com": {
@@ -726,6 +885,40 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T02:54:54.882Z"
   },
+  "photomosh-com": {
+    "openAnomalies": [
+      {
+        "code": "cross_host_redirect",
+        "severity": "medium",
+        "evidence": "photomosh.com → moshpro.app",
+        "firstSeenAt": "2026-10-28T06:22:38.566Z",
+        "lastSeenAt": "2026-10-28T06:22:38.566Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-intent-1793168550234.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-outcome-1793168550234.png"
+        ]
+      },
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-28T06:22:38.566Z",
+        "lastSeenAt": "2026-10-28T06:22:38.566Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-intent-1793168550234.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-outcome-1793168550234.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-28T06:22:38.566Z",
+    "lastTitle": "Mosh-Pro — Glitch & Video Effects App",
+    "lastSignals": [
+      "cross_host_redirect",
+      "surface_lost"
+    ]
+  },
   "photopea-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -749,10 +942,37 @@
     "lastTitle": "A Neural Network Playground",
     "lastSignals": []
   },
+  "polymarketscan-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:28:17.787Z",
+    "lastTitle": "PolymarketScan - Polymarket 扫描器和浏览器",
+    "lastSignals": []
+  },
   "pomofocus-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
+  },
+  "prettier-io-playground": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-28T06:23:49.171Z",
+        "lastSeenAt": "2026-10-28T06:23:49.171Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-prettier-io-playground-intent-1793168619275.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-prettier-io-playground-outcome-1793168619275.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-28T06:23:49.171Z",
+    "lastTitle": "Prettier",
+    "lastSignals": [
+      "surface_lost"
+    ]
   },
   "preuveenmain-ca-app": {
     "openAnomalies": [],
@@ -845,6 +1065,12 @@
     "lastTitle": "Questions Generator - 3,000+ Random Questions to Ask",
     "lastSignals": []
   },
+  "quicktinyv2-vercel-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:27:55.350Z",
+    "lastTitle": "QuickTiny — Paste Anything. Find the Right Tool.",
+    "lastSignals": []
+  },
   "quillbot-com": {
     "openAnomalies": [
       {
@@ -911,6 +1137,12 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "regexlearn-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:22:00.650Z",
+    "lastTitle": "Regex Learn - Step by step, from zero to advanced.",
+    "lastSignals": []
+  },
   "remove-bg": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -926,6 +1158,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:23:17.621Z",
     "lastTitle": "Salitronic Gerber Analyzer",
+    "lastSignals": []
+  },
+  "seatsolver-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:28:41.626Z",
+    "lastTitle": "Seating Chart Maker - Import Your Guest List, Free PDF, No Signup",
     "lastSignals": []
   },
   "securityheaders-com": {
@@ -963,6 +1201,27 @@
     "lastTitle": "Shields.io",
     "lastSignals": []
   },
+  "siteage-org": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-28T06:25:48.005Z",
+        "lastSeenAt": "2026-10-28T06:25:48.005Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-intent-1793168741924.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-outcome-1793168741924.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-28T06:25:48.005Z",
+    "lastTitle": "Website Age Certification | SiteAge.org",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "sortvisualizer-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:03.511Z",
@@ -991,6 +1250,12 @@
       ]
     }
   },
+  "subsuperscript-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:28:33.698Z",
+    "lastTitle": "Subscript and Superscript Generator — Copy & Paste ¹²³",
+    "lastSignals": []
+  },
   "svgrepo-com": {
     "openAnomalies": [
       {
@@ -1012,16 +1277,46 @@
       "surface_lost"
     ]
   },
+  "svgviewer-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:22:30.083Z",
+    "lastTitle": "SVG Viewer - Free Online SVG Viewer and Converter",
+    "lastSignals": []
+  },
   "t-8ma-co": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:56.785Z",
     "lastTitle": "8码快传 · 文件点对点直传",
     "lastSignals": []
   },
+  "tableconvert-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:25:10.715Z",
+    "lastTitle": "Table Convert - Free Online Table Converter and Generator",
+    "lastSignals": []
+  },
+  "taimaa-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:51.322Z",
+    "lastTitle": "タイマー｜無料で使えるオンラインタイマー",
+    "lastSignals": []
+  },
+  "telemetry-sh-sql-playground": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:22:13.504Z",
+    "lastTitle": "结构化事件的浏览器 SQL Playground | Telemetry",
+    "lastSignals": []
+  },
   "textkit-tech": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:26:50.865Z",
     "lastTitle": "TextKit — Free Online Text Tools",
+    "lastSignals": []
+  },
+  "textunnel-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:26:19.123Z",
+    "lastTitle": "Textunnel — Transfer Files Between Devices over Wi-Fi",
     "lastSignals": []
   },
   "themeasureofaplan-com": {
@@ -1100,11 +1395,38 @@
       ]
     }
   },
+  "transform-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:21:52.467Z",
+    "lastTitle": "Transform",
+    "lastSignals": []
+  },
   "tryink-me": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:26:09.849Z",
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
+  },
+  "uicolors-app": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Pro\"",
+        "firstSeenAt": "2026-10-28T06:26:52.295Z",
+        "lastSeenAt": "2026-10-28T06:26:52.295Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-intent-1793168795840.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-outcome-1793168795840.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-28T06:26:52.295Z",
+    "lastTitle": "Tailwind CSS Colors - All colors + Custom color generator",
+    "lastSignals": [
+      "paywall_copy"
+    ]
   },
   "visualpromptcompiler-com": {
     "openAnomalies": [],
@@ -1282,6 +1604,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:25:24.709Z",
     "lastTitle": "End-to-End Encrypted Secret Sharing | Yopass",
+    "lastSignals": []
+  },
+  "zenpen-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T06:24:56.189Z",
+    "lastTitle": "ZenPen ~ Minimal Distraction, Maximum Zen",
     "lastSignals": []
   },
   "zerowidthcleaner-com-zero-width-space": {
