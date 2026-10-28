@@ -16,6 +16,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T02:32:02.049Z"
   },
+  "all2url-com": {
+    "lastDeepEvalAt": "2026-10-28T03:32:28.740Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-10-28T03:32:28.740Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T03:32:28.740Z"
+  },
   "alphabeticallyordered-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:21:08.158Z",
@@ -309,6 +320,17 @@
     "lastTitle": "Chord Finder from Audio - Free, Unlimited, No Signup | EarChord",
     "lastSignals": []
   },
+  "enshroudedsaveeditor-com": {
+    "lastDeepEvalAt": "2026-10-28T02:52:17.900Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-10-28T02:52:17.900Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T02:52:17.900Z"
+  },
   "excalidraw-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -400,6 +422,17 @@
     "lastScanAt": "2026-10-24T06:24:25.520Z",
     "lastTitle": "Compiler Explorer",
     "lastSignals": []
+  },
+  "gonzalezreciogpt-a11y-github-io-facturas-pendientes-csv": {
+    "lastDeepEvalAt": "2026-10-28T03:52:51.145Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-10-28T03:52:51.145Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T03:52:51.145Z"
   },
   "haikei-app": {
     "openAnomalies": [],
@@ -612,6 +645,17 @@
     "lastTitle": "The ID Toolbox: free tools for instructional designers",
     "lastSignals": []
   },
+  "nitroide-com": {
+    "lastDeepEvalAt": "2026-10-28T03:09:45.383Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-10-28T03:09:45.383Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T03:09:45.383Z"
+  },
   "nologin-tools": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -734,25 +778,21 @@
     "lastScanAt": "2026-10-27T03:15:28.473Z"
   },
   "privacytests-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-25T06:22:32.703Z",
-        "lastSeenAt": "2026-10-25T06:22:32.703Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-intent-1792909347563.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-outcome-1792909347563.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:22:32.703Z",
     "lastTitle": "What are the best private browsers in 2026?",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-28T02:43:08.180Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified active benchmark matrix tabs (Desktop, iOS, Android, Nightly) and interactive empirical privacy data without login. No regression; platform remains compliant.",
+      "at": "2026-10-28T02:43:08.180Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "productivitytimer-com": {
     "openAnomalies": [],
@@ -900,6 +940,17 @@
     "lastTitle": "Resale Fee Calculator 2026 — Compare 6 Platforms at Once | SellWhere",
     "lastSignals": []
   },
+  "shard-tools": {
+    "lastDeepEvalAt": "2026-10-28T03:00:28.502Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-10-28T03:00:28.502Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T03:00:28.502Z"
+  },
   "sharedrop-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:25:57.175Z",
@@ -924,25 +975,21 @@
     "lastSignals": []
   },
   "stackedit-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-26T06:24:51.678Z",
-        "lastSeenAt": "2026-10-26T06:24:51.678Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-intent-1792995885399.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-outcome-1792995885399.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:24:51.678Z",
     "lastTitle": "StackEdit – In-browser Markdown editor",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-28T02:46:12.967Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified editor loads from START WRITING link to /app, markdown input updates preview, export to markdown generates unwatermarked 7.2KB file without login.",
+      "at": "2026-10-28T02:46:12.967Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "svgrepo-com": {
     "openAnomalies": [
@@ -1071,6 +1118,17 @@
     "lastTitle": "Vocal Remover and Isolation [AI]",
     "lastSignals": []
   },
+  "watermarklift-com": {
+    "lastDeepEvalAt": "2026-10-28T03:42:51.182Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-10-28T03:42:51.182Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-28T03:42:51.182Z"
+  },
   "wave-webaim-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:23:13.112Z",
@@ -1108,25 +1166,21 @@
     "lastSignals": []
   },
   "write-as": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"14-day trial\"",
-        "firstSeenAt": "2026-10-25T06:21:38.159Z",
-        "lastSeenAt": "2026-10-25T06:21:38.159Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-intent-1792909290647.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-outcome-1792909290647.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:38.159Z",
     "lastTitle": "Write.as — A place for focused writing.",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-28T02:40:55.320Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified anonymous writing and publishing still works without login. '14-day trial' copy on homepage is for optional paid subscription.",
+      "at": "2026-10-28T02:40:55.320Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "www-amortio-com": {
     "openAnomalies": [],

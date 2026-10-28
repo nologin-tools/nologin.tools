@@ -8,6 +8,12 @@
     "description": "完全在浏览器本地检测文本与图片中的 AI 套话模板、高频词及低质生成特征。",
     "coreTask": "无需创建账号，即可离线检测文本中的 AI 写作特征并核对图像生成痕迹。"
   },
+  "all2url-com": {
+    "_hash": "069b56d8b791e06b",
+    "description": "无需注册账户即可将 HTML 文件、ZIP 项目、PDF、图片与文档转换为在线分享链接。",
+    "coreTask": "上传文件或粘贴 HTML 即时生成可在线访问的独立网页链接，免注册登录。",
+    "contentUpdatedAt": "2026-10-28T03:36:48.225Z"
+  },
   "alphabeticallyordered-com": {
     "description": "免费在线文本按字母/拼音排序工具。粘贴任意名单、单词或行列表，即可按 A-Z 或 Z-A 快速排序，支持区分大小写、去除重复项以及按列排序。还附带 20 多个预置参考列表（婴儿姓名、运动队、国家、化学元素等）。无需账号，浏览器本地即刻处理。",
     "coreTask": "粘贴文本列表并按字母顺序排序，支持去重和按列排序，无需注册账号"
@@ -435,6 +441,12 @@
     "description": "免费的浏览器端和弦识别工具，可直接从音频文件中解析和弦进行、歌曲调性与速度。所有处理均在本地设备运行，音频零上传，无需注册账号。",
     "coreTask": "在本地分析音频文件，即时显示其和弦走向、调性与节拍速度，无需账号"
   },
+  "enshroudedsaveeditor-com": {
+    "_hash": "a8124253573c7b05",
+    "description": "基于浏览器的 Enshrouded 雾锁王国角色存档文件（.ksd）在线编辑器。",
+    "coreTask": "上传 Enshrouded 的 .ksd 角色存档文件以调整角色等级、技能点与背包装备。",
+    "contentUpdatedAt": "2026-10-28T02:53:06.803Z"
+  },
   "entityminder-smoke-web-app-em-lookup": {
     "description": "一键查询美国各州 LLC 或股份有限公司的年度/两年期报告截止日期：包含官方报告名称、申报周期、特许经营税要求以及直达该州申报页面的链接。覆盖全美 50 州及华盛顿特区，无需账号，无需邮箱，无付费墙。",
     "coreTask": "选择任意美国州，立即查看该州 LLC/公司的年报截止日期、官方报告名称、特许经营税说明及官方申报链接"
@@ -611,6 +623,12 @@
     "_hash": "cb0c8164c6bbbcf2",
     "description": "交互式编译器浏览器，显示 60 多种语言的汇编输出。并排比较编译器和优化级别。",
     "coreTask": "交互式查看编译器汇编输出"
+  },
+  "gonzalezreciogpt-a11y-github-io-facturas-pendientes-csv": {
+    "_hash": "656e14d0b757f3de",
+    "description": "免费开源的纯浏览器端 CSV 发票与逾期账款核算计算器。",
+    "coreTask": "基于 CSV 数据在本地即时核算已开票、已收款与逾期发票余额，完全免注册。",
+    "contentUpdatedAt": "2026-10-28T03:53:28.167Z"
   },
   "haikei-app": {
     "_hash": "06db3a60b652a26c",
@@ -972,6 +990,12 @@
     "coreTask": "无需注册账号即可浏览重置历史与官方 AI 故障报告，并在本地保存个人重置倒计时器。",
     "description": "为使用 AI 编程工具的开发者打造的免费独立资源站点。浏览附带来源链接的 Codex 重置历史、官方 AI 服务故障事件与客户端更新动态，并在本地设备上保存个性化重置计时器，无需注册账号。官方公告与个人账号权限各自独立。非 OpenAI 或 Anthropic 官方附属站点。"
   },
+  "nitroide-com": {
+    "_hash": "4b62c2404d5e01f7",
+    "description": "基于 Monaco 引擎构建的零延迟浏览器 IDE，支持 HTML、CSS 与 JS 快速原型开发。",
+    "coreTask": "在浏览器中编写 HTML、CSS 和 JavaScript，支持实时预览与本地工作区持久化。",
+    "contentUpdatedAt": "2026-10-28T03:10:24.554Z"
+  },
   "nologin-tools": {
     "_hash": "87c68339344dc359",
     "description": "一个精心整理的工具和服务目录，无需创建账号或登录即可使用。按分类、隐私、价格等条件浏览、搜索和筛选工具——全程无需注册。",
@@ -1314,6 +1338,12 @@
     "description": "一款实时二手电商佣金计算器，可横向对比 eBay、Poshmark、Mercari、Depop、Etsy 和 Vinted 六大平台的抽成、运费分担与预估净到手收益。",
     "coreTask": "无需注册账号，输入商品售价与运费承担方式即可一键对比六大转售平台的实际到账收益。"
   },
+  "shard-tools": {
+    "_hash": "8abca90c1f863838",
+    "description": "以本地处理为核心的浏览器工具箱，支持文件格式化、格式转换与压缩。",
+    "coreTask": "在浏览器本地对文档、媒体及数据进行格式化、转换或压缩处理。",
+    "contentUpdatedAt": "2026-10-28T03:01:08.037Z"
+  },
   "sharedrop-io": {
     "_hash": "d604388a21e49b7f",
     "description": "在浏览器中进行点对点文件共享。类似苹果 AirDrop 但支持所有平台——无需安装应用。",
@@ -1601,6 +1631,12 @@
     "_hash": "e86d371624ea4a27",
     "description": "AI 人声去除工具，可将任意歌曲的人声与伴奏分离。适合制作卡拉 OK 伴奏或混音。",
     "coreTask": "从伴奏中分离人声"
+  },
+  "watermarklift-com": {
+    "_hash": "9e0b82323d36af70",
+    "description": "基于浏览器的免费本地 Gemini 水印去除工具，图片无需上传至云端服务器。",
+    "coreTask": "在本地设备直接去除 Google Gemini 生成图片的可见星标水印，免登录免注册。",
+    "contentUpdatedAt": "2026-10-28T03:43:15.737Z"
   },
   "watermarkzero-org": {
     "description": "在浏览器本地去除 Gemini 生成图片中的可见水印，实现高保真无损修复。纯前端离线算法处理，零上传、无需注册账号。",

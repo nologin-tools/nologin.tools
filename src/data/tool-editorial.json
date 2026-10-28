@@ -73936,5 +73936,327 @@
       "testedAt": "2026-10",
       "contentUpdatedAt": "2026-10-27T05:19:20.738Z"
     }
+  },
+  "enshroudedsaveeditor-com": {
+    "en": {
+      "bestFor": "Enshrouded players looking to inspect, customize, or repair .ksd character save files entirely in the browser without third-party desktop tools.",
+      "pros": [
+        "Fully client-side parsing and structure verification of Enshrouded .ksd save containers",
+        "Detailed diagnostic error classification (wrong extension, magic byte validation, checksum checks) preventing corrupted writes",
+        "Completely free to use with zero registration, login walls, or export restrictions"
+      ],
+      "cons": [
+        "Supports character saves only; world saves are inspectable in read-only mode",
+        "Strict save layout requirements refuse older or unrecognized game patch formats"
+      ],
+      "privacyVerdict": "Local browser-based file processing; no save contents are uploaded during editing. Telemetry beacons (Google Analytics collect and Cloudflare RUM) and client-side error diagnostics dispatches were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 16,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Audited SV2C save container parser using input[type='file'] with 16 B and 23.2 KB fixtures in 35 ms. Verified strict format validation rejecting invalid headers with 0ms task freeze.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T02:52:17.881Z"
+    },
+    "zh": {
+      "bestFor": "希望直接在浏览器中免安装检视、修改或修复 Enshrouded 雾锁王国 .ksd 角色存档的玩家。",
+      "pros": [
+        "完全在浏览器本地解析并校验 Enshrouded .ksd 角色存档文件结构",
+        "具备详尽的错误诊断与格式校验机制（文件扩展名、SV2C 幻数及数据块校验），防止损坏游戏存档",
+        "全程免注册、无登录门槛、无导出收费"
+      ],
+      "cons": [
+        "目前仅支持角色存档的编辑，世界存档仅供结构只读检视",
+        "严格的存档版本匹配机制会拒绝未适配的旧版或未识别补丁格式"
+      ],
+      "privacyVerdict": "存档数据完全在浏览器端本地解析，编辑过程中不上传存档内容。检测到 Google Analytics、Cloudflare RUM 统计信标及客户端错误诊断请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 16,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "使用 input[type='file'] 对比测试了 16 B 与 23.2 KB 的 SV2C 存档测试包，解析响应耗时约 35ms，格式校验与诊断报错流程稳定，主线程冻结为 0ms。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T02:52:17.881Z"
+    }
+  },
+  "shard-tools": {
+    "en": {
+      "bestFor": "Developers and privacy-conscious users needing an instant, local-first browser utility suite for formatting, file conversions, and PDF tasks without server uploads.",
+      "pros": [
+        "Comprehensive client-side utility suite with over 290 local-first tools for documents, data, and media",
+        "Verified instant client-side JSON formatting and unwatermarked file downloads without accounts",
+        "Transparent local execution with zero third-party marketing or tracking scripts"
+      ],
+      "cons": [
+        "Large tool catalog navigation relies heavily on text search rather than nested category hierarchies"
+      ],
+      "privacyVerdict": "Client-side processing in the browser; files and payloads remain local on the user device. Network egress during the audit was limited to Cloudflare RUM performance beacons (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited JSON Formatter and Validator workbench at /tools/json-formatter. Tested 80-byte JSON structure formatting and validation in 42 ms with 0ms freeze, and exported unwatermarked formatted.json artifact via blob download.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:00:28.486Z"
+    },
+    "zh": {
+      "bestFor": "需要快速在浏览器本地处理数据格式化、文件转换及 PDF 操作，且杜绝文件上传服务端的开发者与重视隐私的用户。",
+      "pros": [
+        "功能完备的纯前端工具箱，集成超过 290 款面向文档、数据和媒体的本地即时小工具",
+        "实测支持秒级本地 JSON 格式化与校验，一键导出无水印文件且全程无需登录",
+        "透明的本地化运行模式，未嵌入任何第三方营销统计或商业追踪脚本"
+      ],
+      "cons": [
+        "工具数量庞大，主要依赖顶部搜索定位具体子工具而非多级层级目录"
+      ],
+      "privacyVerdict": "完全基于浏览器本地处理，输入数据与文件不离开本地设备。审计过程中捕获的出站网络请求仅包含 Cloudflare RUM 性能遥测（/cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "审计了 /tools/json-formatter 格式化工作台，在 42ms 内完成 80 字节 JSON 测试结构的格式化与层级解析，主线程冻结为 0ms，并通过 Blob 触发无水印 formatted.json 下载。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:00:28.486Z"
+    }
+  },
+  "nitroide-com": {
+    "en": {
+      "bestFor": "Front-end developers and students seeking a zero-latency, client-side Monaco code editor for HTML, CSS, and JavaScript prototyping without server dependencies or mandatory accounts.",
+      "pros": [
+        "Full client-side multi-pane IDE powered by the Microsoft Monaco editor engine running entirely in browser memory",
+        "Instant real-time DOM rendering and synchronization across HTML, CSS, and JS models",
+        "Zero account creation, zero tracking scripts, and offline-capable project workspace persistence"
+      ],
+      "cons": [
+        "Bundled ZIP export relies on client-side JSZip packaging which can feel slightly delayed on larger asset bundles",
+        "AI completion integration requires user-supplied external API keys"
+      ],
+      "privacyVerdict": "Local-first execution model with client-side Monaco editor instances and in-memory compilation. Aside from 1 observed Cloudflare security challenge request (/cdn-cgi/challenge-platform), zero third-party marketing trackers or analytics payloads were transmitted.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited Monaco IDE workspace at /tools/codebox.html across 11 turns. Initialized 3 simultaneous editor models, verified 0ms main-thread freeze on code injection, and confirmed instantaneous live iframe compilation.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:09:45.366Z"
+    },
+    "zh": {
+      "bestFor": "寻找基于 Monaco 引擎、零延迟、纯前端运行的 HTML/CSS/JS 快速原型代码工作台且不愿注册账户的前端开发者与学习者。",
+      "pros": [
+        "基于 Microsoft Monaco 引擎构建的纯客户端三栏 IDE，完全在浏览器内存中实时运行",
+        "支持 HTML、CSS 与 JavaScript 模型的毫秒级即时编译与无缝 DOM 预览同步",
+        "完全无需注册账户，无追踪脚本，支持本地项目工作区持久化"
+      ],
+      "cons": [
+        "ZIP 打包导出依赖纯前端 JSZip 打包，大型资源项目打包时有轻微等待感",
+        "AI 辅助编码功能需要用户自行配置外部大模型 API Key"
+      ],
+      "privacyVerdict": "以本地运行为核心的架构，基于浏览器端 Monaco 编辑器实例及内存编译。除观测到 1 次 Cloudflare 基础安全防护流量（/cdn-cgi/challenge-platform）外，未监测到任何第三方商业追踪或分析脚本。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对 /tools/codebox.html 代码工作区进行了 11 轮实测，成功初始化 3 个独立 Monaco 编辑模型，代码注入与实时编译主线程冻结为 0ms，即时更新渲染视图。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:09:45.366Z"
+    }
+  },
+  "all2url-com": {
+    "en": {
+      "bestFor": "Quickly hosting and converting files, HTML snippets, and documents into unlisted shareable live URLs without creating an account or subscribing to cloud hosting.",
+      "pros": [
+        "Instant file-to-URL conversion for HTML, images, and documents without requiring registration or email verification",
+        "Generated live URLs are immediately copyable to clipboard with clean URLs on the all2url.app subdomain",
+        "Clean and minimalist interface with built-in preview and drag-and-drop file upload"
+      ],
+      "cons": [
+        "Anonymous uploads have a 20 MB file size limit and are kept out of the public showcase",
+        "Does not provide custom domain configuration or long-term persistence guarantees for unverified uploads"
+      ],
+      "privacyVerdict": "Transmits diagnostic telemetry to Google Analytics and Cloudflare RUM during site usage; uploaded files are published to public or unlisted subdomains (all2url.app) without requiring user accounts or credentials.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Successfully converted HTML snippet to live hosted URL (https://4c768aeukj.all2url.app/) within ~2500ms; verified clean 31-character clipboard copy action with 0 bytes watermark payload across 18 dogfood steps.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:32:28.724Z"
+    },
+    "zh": {
+      "bestFor": "希望快速将文件、HTML 代码片段或文档转换并发布为无需注册的独立分享链接的用户与开发者。",
+      "pros": [
+        "即时将 HTML、图片及文档转为在线独立链接，全程无需注册账户或验证邮箱",
+        "生成的在线链接支持一键纯净复制到剪贴板，使用独立的 all2url.app 子域名托管",
+        "界面简洁易用，提供直观的拖拽上传及实时预览功能"
+      ],
+      "cons": [
+        "匿名上传限制文件大小在 20MB 以内，且不进入公开展示列表",
+        "匿名上传不支持自定义域名绑定，亦无长期持久化服务等级保证"
+      ],
+      "privacyVerdict": "在页面访问期间会向 Google Analytics 及 Cloudflare RUM 发送遥测数据；上传文件通过独立的 all2url.app 子域名公开或非公开分发，无需用户登录或凭据。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测在约 2500ms 内成功将 HTML 片段转为在线独立链接（https://4c768aeukj.all2url.app/）；18 步交互验证其剪贴板复制 31 字符纯净链接且无水印残留。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:32:28.724Z"
+    }
+  },
+  "watermarklift-com": {
+    "en": {
+      "bestFor": "Creators and editors looking to remove visible star watermarks from Gemini-generated images directly on-device without server uploads or account registration.",
+      "pros": [
+        "100% on-device image processing running in local browser memory with zero image file uploads to cloud servers",
+        "Clean full-resolution PNG download without quality loss, ads, or secondary watermarking",
+        "Supports batch processing of up to 10 images per batch (PNG, JPEG, WebP) with 1:1 corner inspection"
+      ],
+      "cons": [
+        "Specialized solely for visible bottom-right Gemini overlay watermarks; does not remove general copyright marks or SynthID",
+        "Requires manual confirmation checkbox regarding image ownership before cleaning"
+      ],
+      "privacyVerdict": "Local-first browser canvas processing verified with zero image file uploads to remote servers. Transmits cookie-free site usage analytics to Ahrefs (analytics.ahrefs.com); all pixel detection, watermarking checks, and PNG exports occur purely in client-side memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Audited in-browser canvas workspace across 8 turns. Verified on-device file parsing and clean 332,574-byte unwatermarked PNG download (800x600 px) in under 120ms with 0ms main-thread freeze.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:42:51.162Z"
+    },
+    "zh": {
+      "bestFor": "希望在本地设备直接去除 Google Gemini 生成图片的星标可见水印，且不愿上传图片到云端或注册账户的创作者与设计人员。",
+      "pros": [
+        "纯本地浏览器内存处理，图片完全不上传至任何云端服务器，保障隐私安全",
+        "支持无损全分辨率 PNG 格式下载，无强制广告或二次平台水印",
+        "支持单批次多达 10 张图片（PNG/JPEG/WebP）批量处理与 1:1 局部角落预览比对"
+      ],
+      "cons": [
+        "仅专用于 Google Gemini 右下角星标水印去除，不支持通用版权水印或 SynthID 隐形水印处理",
+        "开始处理前需手动勾选图片所有权或授权许可确认复选框"
+      ],
+      "privacyVerdict": "验证为本地浏览器画布处理，图像文件完全不上传至云端服务器。在访问与操作期间会向 Ahrefs（analytics.ahrefs.com）发送无 Cookie 统计分析请求；所有像素检测、水印分析及 PNG 导出均在纯前端客户端内存中完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "对浏览器端工作台进行了 8 轮交互实测，验证本地文件解析与 332,574 字节无水印纯净 PNG（800x600 像素）即时导出，处理延迟低于 120ms 且主线程冻结为 0ms。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:42:51.162Z"
+    }
+  },
+  "gonzalezreciogpt-a11y-github-io-facturas-pendientes-csv": {
+    "en": {
+      "bestFor": "Freelancers, accountants, and small business owners needing a private, zero-telemetry tool to parse invoice CSV files and calculate overdue balances locally.",
+      "pros": [
+        "100% client-side execution running on GitHub Pages with zero remote server transmission of financial data",
+        "Instant breakdown of issued, collected, pending, and overdue balances categorized within 7-day windows",
+        "Open-source under MIT license with one-click dummy data loading and sample template download"
+      ],
+      "cons": [
+        "Interface is currently available only in Spanish",
+        "Requires strict adherence to the expected semicolon/comma CSV column format"
+      ],
+      "privacyVerdict": "Zero telemetry scripts, zero cookies, and zero outgoing network payloads detected. All CSV invoice parsing, balance calculations, and date logic execute entirely in local browser memory without transmitting financial data.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 14,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated in-browser CSV calculation engine across 7 turns. Parsed sample and custom 2-invoice CSV datasets (INV-001, INV-002) within 15ms; verified 204-byte sample CSV download with 0 outgoing network payloads.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:52:51.119Z"
+    },
+    "zh": {
+      "bestFor": "需要快速分析发票 CSV 数据、核算逾期与待收账款且注重财务数据隐私的自由职业者与小微企业主。",
+      "pros": [
+        "基于 GitHub Pages 部署的纯前端工具，敏感财务数据完全在本地解析，不向服务器发送任何数据",
+        "毫秒级统计已开票、已收款、待收款与已逾期账款总额，自动分类 7 天内到期款项",
+        "基于 MIT 协议开源，提供一键载入样例数据及示例模板下载功能"
+      ],
+      "cons": [
+        "目前界面仅提供西班牙语界面",
+        "对 CSV 文件的列结构与分号/逗号分隔符有较严格的格式要求"
+      ],
+      "privacyVerdict": "未检测到任何遥测分析脚本、Cookie 或外发网络请求。所有 CSV 发票解析、账期与逾期余额统计计算均在本地浏览器内存中即时完成，财务敏感数据绝不外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 14,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "对浏览器端 CSV 计算工作台进行了 7 轮交互测试，解析自定义 2 笔发票（INV-001, INV-002）耗时仅 15ms；成功触发 204 字节示例 CSV 文件下载且网络外发监控全程为 0 次请求。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-28T03:52:51.120Z"
+    }
   }
 }
