@@ -1164,6 +1164,12 @@
     "coreTask": "生成并下载打印机校准测试页。",
     "contentUpdatedAt": "2026-10-27T03:16:33.570Z"
   },
+  "printstencil-com-pumpkin-painting-stencils-name-stencil": {
+    "_hash": "be46e5e9913f8734",
+    "description": "用于南瓜彩绘与雕刻的在线姓名模板制作工具，支持实时尺寸预览与 PDF 打印文件下载。",
+    "coreTask": "实时生成定制文本字形模板，支持按尺寸换算并免登录下载 PDF 打印文件。",
+    "contentUpdatedAt": "2026-10-29T02:54:27.367Z"
+  },
   "privacy-sexy": {
     "_hash": "966b15f83aace66e",
     "description": "开源浏览器工具，可为 Windows、macOS 和 Linux 生成可自定义的隐私加固脚本。浏览 900 多个分类整理的优化项——禁用遥测、广告 ID、数据收集服务等——选择你需要的，下载即可运行的脚本。所有脚本生成均在客户端完成：无需账号，无需上传，数据不离开你的浏览器。",
@@ -1366,6 +1372,12 @@
     "_hash": "affe6193ee9eff15",
     "description": "通过互联网档案馆追溯任意网站的起源。查询任意域名，获取包含建立日期、寿命排名、历史时间线和可嵌入 SVG 徽章的认证年龄报告。",
     "coreTask": "查询任意域名的年龄，查看历史时间线，获取可嵌入的 SVG 年龄徽章"
+  },
+  "sitelemetry-com-launch-readiness": {
+    "_hash": "f9b307da8de2f60a",
+    "description": "免登录网站上线就绪度检测工具，全面排查 DNS 解析、邮件安全策略、TLS 证书及 HTTP 安全标头。",
+    "coreTask": "审计域名的 DNS、TLS、邮件配置与安全标头，并导出高分辨率 PNG 评分卡。",
+    "contentUpdatedAt": "2026-10-29T03:01:30.798Z"
   },
   "sizecompare-app": {
     "coreTask": "以真实比例对比现实世界物品尺寸，并可输入自定义测量数据。",
@@ -1586,6 +1598,12 @@
     "description": "在浏览器中编写、编译和运行 TypeScript 代码。微软官方工具，支持完整类型检查和 IntelliSense。",
     "coreTask": "在线编写和测试 TypeScript 代码"
   },
+  "u2c-app": {
+    "_hash": "699e441570ea2eb4",
+    "description": "纯本地运行的通用度量衡单位换算工具，涵盖数十种物理量与高精度公式换算，零追踪零数据上传。",
+    "coreTask": "在长度、重量、容积、温度与数据等数十种物理量之间进行即时高精度换算并复制结果。",
+    "contentUpdatedAt": "2026-10-29T03:19:51.567Z"
+  },
   "uicolors-app": {
     "_hash": "1da01cb02001c1d1",
     "description": "从任意颜色生成 Tailwind CSS 色阶。一键获取完整的 50-950 色调调色板，可直接用于配置文件。",
@@ -1599,6 +1617,12 @@
   "untrackedtools-com-en": {
     "description": "100 多款纯前端运行的免费在线工具箱。涵盖 PDF 合并、拆分、压缩、格式转换；图片压缩、转码、缩放；JSON/YAML 格式化、Markdown 编辑器、Token 计数器、取色器、单位换算等。零文件上传，数据全程保留在本地设备上。无需注册、零追踪、不使用 Cookie。基于 JS 与 WebAssembly 本地处理，首次加载后支持离线使用。",
     "coreTask": "纯前端合并 PDF 等 100 多款在线工具，数据绝不上报服务器，完全免登录"
+  },
+  "uslawexplained-com-tools-substantial-presence-test": {
+    "_hash": "b1952daaa6ef1b06",
+    "description": "根据美国国税局（IRS）183 天实质性居留测试规则评估非居民税务身份的交互计算器，支持下载工作底稿。",
+    "coreTask": "计算 IRS 3 年加权在美居留天数并免登录导出纯文本税务工作底稿。",
+    "contentUpdatedAt": "2026-10-29T03:25:28.890Z"
   },
   "utilbear-com": {
     "coreTask": "统计字数与字符数，将 HEIC 格式照片转换为 JPG 或 PNG，以及将 WebP 图片转换为 PNG。所有工具均免账号，文件与文本均在浏览器本地处理。",
@@ -1728,6 +1752,18 @@
     "coreTask": "将图片自由裁切为网格九宫格或轮播图切片并一键下载 ZIP 压缩包。",
     "contentUpdatedAt": "2026-10-27T03:39:42.953Z"
   },
+  "www-keyboardanalyzer-com": {
+    "_hash": "b254793071427370",
+    "description": "在线键盘检测与键位测试工具，实时可视化检测全键盘按键响应、无冲状态与键码映射并导出诊断报告。",
+    "coreTask": "测试物理键盘按键触发与全键布局响应，并免登录一键复制纯文本诊断报告。",
+    "contentUpdatedAt": "2026-10-29T03:44:24.112Z"
+  },
+  "www-nameideabox-com": {
+    "_hash": "66031826f53343af",
+    "description": "基于自然语言描述生成商业、产品、项目等主题名称与读音释义的 AI 命名工具。",
+    "coreTask": "根据提示词生成带有音标读音与一键复制功能的主题命名候选。",
+    "contentUpdatedAt": "2026-10-29T02:49:10.779Z"
+  },
   "www-ottopoll-com": {
     "description": "Otto 是一款免费在线投票工具，可在 2 分钟内与朋友或团队发起投票，免登录、无需注册。选择日期、地点或时间段并分享链接，所有人均可实时投票，无需邮箱或创建账号。",
     "coreTask": "创建投票并分享链接，所有人实时参与投票并查看结果，无需注册账号"
@@ -1747,6 +1783,18 @@
   "www-textfixhub-com": {
     "coreTask": "列表按字母排序、去除换行、统计词句音节、镜像翻转文本、上下标小字转换，即开即用无需账号",
     "description": "快速且注重隐私的纯前端文本工具集。支持列表字母排序、消除换行符、统计句子和音节数、生成假词、婚礼标签、镜像文本等多种功能。无需注册，免登录，输入的文本绝对不会离开你的设备。"
+  },
+  "www-toolcabana-com-en": {
+    "_hash": "2300fb9ac491021b",
+    "description": "包含 400 多款在线实用工具的综合工具箱，支持 PDF 处理、二维码生成、开发者数据转换及日常计算。",
+    "coreTask": "在浏览器中生成矢量二维码及运行常用计算转换工具，支持无水印直接下载。",
+    "contentUpdatedAt": "2026-10-29T03:59:58.090Z"
+  },
+  "www-videotoimagesequence-online": {
+    "_hash": "00d4b6b6c1014628",
+    "description": "纯浏览器端运行的视频抽帧与图像序列转换工具，可将 MP4 和 WebM 视频转换为高画质序列图并打包下载。",
+    "coreTask": "按自定义帧率从视频中提取图片序列并免登录打包下载无水印 ZIP 文件。",
+    "contentUpdatedAt": "2026-10-29T03:38:52.112Z"
   },
   "www-whatsmyiplive-com": {
     "coreTask": "免登录即时查询公网 IP 地址、地理位置、运营商及使用网络隐私排查工具",

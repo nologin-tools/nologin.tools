@@ -997,6 +997,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T03:15:28.473Z"
   },
+  "printstencil-com-pumpkin-painting-stencils-name-stencil": {
+    "lastDeepEvalAt": "2026-10-29T02:53:48.210Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-10-29T02:53:48.210Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T02:53:48.210Z"
+  },
   "privacytests-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:22:32.703Z",
@@ -1072,25 +1083,21 @@
     "lastSignals": []
   },
   "quillbot-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Premium\"",
-        "firstSeenAt": "2026-10-26T06:28:51.094Z",
-        "lastSeenAt": "2026-10-26T06:28:51.094Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quillbot-com-intent-1792996116043.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quillbot-com-outcome-1792996116043.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:28:51.094Z",
     "lastTitle": "Quillbot: Write, Design & Create",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-29T02:40:21.500Z",
+    "lastResolution": {
+      "outcome": "rejected",
+      "note": "Hitting the Paraphrase button triggers mandatory 'Sign up to continue' modal blocking unauthenticated output.",
+      "at": "2026-10-29T02:40:21.500Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "quixcalc-com": {
     "openAnomalies": [],
@@ -1222,6 +1229,17 @@
       "surface_lost"
     ]
   },
+  "sitelemetry-com-launch-readiness": {
+    "lastDeepEvalAt": "2026-10-29T03:00:39.902Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-10-29T03:00:39.902Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T03:00:39.902Z"
+  },
   "sortvisualizer-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:03.511Z",
@@ -1257,25 +1275,21 @@
     "lastSignals": []
   },
   "svgrepo-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-26T06:28:14.444Z",
-        "lastSeenAt": "2026-10-26T06:28:14.444Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-svgrepo-com-intent-1792996089043.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-svgrepo-com-outcome-1792996089043.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:28:14.444Z",
     "lastTitle": "Vercel Security Checkpoint",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-29T02:36:46.271Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified landing surface is present after Vercel security challenge resolves; searched rocket vector successfully; export button has zero auth trap.",
+      "at": "2026-10-29T02:36:46.271Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "svgviewer-app": {
     "openAnomalies": [],
@@ -1407,6 +1421,17 @@
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
   },
+  "u2c-app": {
+    "lastDeepEvalAt": "2026-10-29T03:19:07.008Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-10-29T03:19:07.008Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T03:19:07.008Z"
+  },
   "uicolors-app": {
     "openAnomalies": [
       {
@@ -1427,6 +1452,17 @@
     "lastSignals": [
       "paywall_copy"
     ]
+  },
+  "uslawexplained-com-tools-substantial-presence-test": {
+    "lastDeepEvalAt": "2026-10-29T03:24:32.680Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-10-29T03:24:32.680Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T03:24:32.680Z"
   },
   "visualpromptcompiler-com": {
     "openAnomalies": [],
@@ -1527,6 +1563,28 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T03:39:20.699Z"
   },
+  "www-keyboardanalyzer-com": {
+    "lastDeepEvalAt": "2026-10-29T03:44:09.682Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-10-29T03:44:09.682Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T03:44:09.682Z"
+  },
+  "www-nameideabox-com": {
+    "lastDeepEvalAt": "2026-10-29T02:48:40.832Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-10-29T02:48:40.832Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T02:48:40.832Z"
+  },
   "www-textfixhub-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:04.115Z",
@@ -1543,6 +1601,28 @@
         "surface_lost"
       ]
     }
+  },
+  "www-toolcabana-com-en": {
+    "lastDeepEvalAt": "2026-10-29T03:59:35.590Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-10-29T03:59:35.590Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T03:59:35.590Z"
+  },
+  "www-videotoimagesequence-online": {
+    "lastDeepEvalAt": "2026-10-29T03:37:53.124Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-10-29T03:37:53.124Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T03:37:53.124Z"
   },
   "www-whatsmyiplive-com": {
     "openAnomalies": [],
@@ -1580,25 +1660,21 @@
     "lastSignals": []
   },
   "xueboyang1985-github-io-kindle-exporter": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-10-26T06:31:32.970Z",
-        "lastSeenAt": "2026-10-26T06:31:32.970Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-intent-1792996279828.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-outcome-1792996279828.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:31:32.970Z",
     "lastTitle": "Kindle Highlights Exporter - Export Kindle Clippings to Markdown, CSV, JSON",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-29T02:43:54.759Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Uploaded Kindle clippings fixture, parsed locally without network egress, and exported clean unwatermarked 233-byte Markdown file without login wall; PRO upgrade is strictly optional bulk-export upsell.",
+      "at": "2026-10-29T02:43:54.759Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "yopass-se": {
     "openAnomalies": [],

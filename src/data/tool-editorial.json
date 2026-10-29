@@ -74258,5 +74258,415 @@
       "testedAt": "2026-10",
       "contentUpdatedAt": "2026-10-28T03:52:51.120Z"
     }
+  },
+  "www-nameideabox-com": {
+    "en": {
+      "bestFor": "Founders, creators, and parents seeking curated, themed naming suggestions from natural language prompts without signing up.",
+      "pros": [
+        "Instant generation of categorized name candidates with phonetic pronunciation guides and contextual rationales",
+        "Zero signup required to generate, copy, pronounce, or compare shortlist candidates",
+        "Clean responsive interface with categorized presets for business, product, baby, and pet names"
+      ],
+      "cons": [
+        "Relies on server-side inference endpoint with Google Analytics tracking beacons present"
+      ],
+      "privacyVerdict": "Observed network egress includes POST requests to /api/generators/home-name-generator to process the naming prompt via remote models, alongside Google Analytics telemetry (www.google-analytics.com/g/collect). No user account or authentication is required.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Processed a 63-character naming prompt in 12s, generating 6 distinct branded name candidates with pronunciation keys and one-click copy controls.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T02:48:40.813Z"
+    },
+    "zh": {
+      "bestFor": "需要根据自然语言描述快速获取分类命名灵感与音标释义，且无需注册登录的创作者与创业者。",
+      "pros": [
+        "免登录即时生成结构化命名候选，附带音标读音指南与命名契合度说明",
+        "支持免登录一键复制、发音朗读与加入对比候选清单",
+        "界面排版典雅精致，内置商业、产品、婴儿及宠物等多维度预设"
+      ],
+      "cons": [
+        "生成依赖服务端推理接口，且页面包含 Google Analytics 遥测请求"
+      ],
+      "privacyVerdict": "实测监测到发往 /api/generators/home-name-generator 的服务端模型推理请求，以及 Google Analytics 遥测记录。整个生成与复制过程完全无需注册或登录账户。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入 63 字符命名需求后在 12 秒内完成生成，输出 6 组附带音标与一键复制功能的高质量命名候选。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T02:48:40.813Z"
+    }
+  },
+  "printstencil-com-pumpkin-painting-stencils-name-stencil": {
+    "en": {
+      "bestFor": "Crafters, parents, and decorators creating custom printable pumpkin painting and carving name stencils without an account.",
+      "pros": [
+        "Interactive dual HTML5 canvas renders typography changes, lettering styles, and sizing previews in real time",
+        "Generates clean, print-ready, unwatermarked 66 KB vector PDFs sized for US Letter and A4",
+        "Configurable design width with automatic pumpkin dimension guidance and outline tracing mode"
+      ],
+      "cons": [
+        "Page transmits telemetry beacons to Google Analytics and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Stencil generation and PDF export execute locally in the browser canvas. Observed network egress is limited to 5 telemetry and performance payloads sent to Google Analytics (www.google-analytics.com/g/collect) and Cloudflare RUM (/cdn-cgi/rum). No user account or sign-in is required.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Configured custom stencil text 'PUMPKIN' with Halloween font and 8-inch width; exported unwatermarked 66,776-byte PDF in 0 ms without auth gate.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T02:53:48.195Z"
+    },
+    "zh": {
+      "bestFor": "需要为万圣节南瓜彩绘或雕刻制作定制姓名模板，并即时下载打印 PDF 的手作爱好者与家长。",
+      "pros": [
+        "双 HTML5 Canvas 实时渲染字体排版、粗体样式与物理尺寸预览",
+        "支持一键免登录导出 66 KB 纯净无水印高清晰度 PDF 打印文件，适配 US Letter 与 A4",
+        "支持按英寸自定义模板宽度，内置南瓜尺寸换算与描边描线模式"
+      ],
+      "cons": [
+        "页面包含发往 Google Analytics 与 Cloudflare RUM 的遥测请求"
+      ],
+      "privacyVerdict": "模板排版计算与 PDF 导出均在浏览器 Canvas 本地完成。实测观测到 5 条遥测信标（Google Analytics 与 Cloudflare RUM），核心手作数据无需上传，全流程无需注册登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入定制文本 PUMPKIN 并切换为 Halloween 风格及 8 英寸尺寸，即时导出 66,776 字节纯净无水印 PDF，全流程零鉴权拦截。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T02:53:48.195Z"
+    }
+  },
+  "sitelemetry-com-launch-readiness": {
+    "en": {
+      "bestFor": "Web developers, DevOps engineers, and site owners auditing domain launch readiness across DNS, TLS, mail, and security headers.",
+      "pros": [
+        "Audits 33 public health checks across DNS, SPF/DMARC/CAA mail policies, TLS certificate chains, and HSTS headers in seconds",
+        "Generates clean unwatermarked 1200x630 PNG score card exports and shareable permalinks without requiring sign-up",
+        "Structured categorized findings with drill-down explanations for passed and warning items"
+      ],
+      "cons": [
+        "Advanced vulnerability scanning and AI fix prompts are upsold behind optional account creation"
+      ],
+      "privacyVerdict": "Queries public DNS and server endpoints via POST /api/public/snapshot to analyze domain configuration. Transmits first-party telemetry to /api/telemetry/events without third-party commercial ad trackers or cookies. No account required for public audits.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited github.com in 4s returning 33 diagnostic items across 6 categories; exported a crisp 132,079-byte 1200x630 PNG score card with zero authentication barriers.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:00:39.882Z"
+    },
+    "zh": {
+      "bestFor": "需要在网站上线前快速排查 DNS、TLS 证书、邮件策略与安全标头配置的开发者与运维工程师。",
+      "pros": [
+        "数秒内完成涵盖 DNS 解析、SPF/DMARC/CAA 邮件配置、TLS 证书链及 HSTS 标头的 33 项诊断检查",
+        "免登录一键导出 1200x630 高清无水印 PNG 评分卡并支持生成分享链接",
+        "结构化分类展示检查结果，支持展开查看每一项指标的实测值与优化建议"
+      ],
+      "cons": [
+        "深度安全扫描与 AI 修复 Prompt 需要选择性注册账户"
+      ],
+      "privacyVerdict": "通过 POST /api/public/snapshot 检索公开 DNS 与服务器配置。实测仅记录第一方遥测信标（/api/telemetry/events），无第三方广告追踪器，全流程免注册免登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 4 秒内完成 github.com 的 33 项指标扫描，一键导出 132,079 字节 1200x630 纯净无水印 PNG 评分卡，无任何鉴权拦截。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:00:39.882Z"
+    }
+  },
+  "u2c-app": {
+    "en": {
+      "bestFor": "Engineers, students, and professionals needing instant high-precision unit conversions across dozens of metric and imperial categories.",
+      "pros": [
+        "Supports dozens of unit categories including length, mass, temperature, data, pressure, and energy with exact formulas",
+        "Instant real-time in-browser calculation with zero account requirements and zero ads",
+        "Clean one-click clipboard copy of exact high-precision conversion results"
+      ],
+      "cons": [
+        "Does not include bulk CSV file conversion for tabular datasets"
+      ],
+      "privacyVerdict": "Pure client-side mathematical conversion execution with zero network payload egress observed during testing. Calculations occur strictly within local browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Executed live weight and length conversions in 0 ms without server requests; copied 32-character high-precision result to clipboard with zero watermark or auth trap.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:19:06.989Z"
+    },
+    "zh": {
+      "bestFor": "需要在公制与英制单位之间进行高精度换算，且追求即开即用、零数据上传的工程师、科研人员与学生。",
+      "pros": [
+        "覆盖长度、重量、温度、数据、压强与能量等数十种度量衡分类，并提供精确换算公式",
+        "纯浏览器端即时响应换算，无需登录注册且无广告侵扰",
+        "支持一键免登录复制高精度换算结果至剪贴板"
+      ],
+      "cons": [
+        "暂不支持表格批量上传与 CSV 文件换算"
+      ],
+      "privacyVerdict": "测试期间未监测到任何网络发包（0 负载），换算数学计算完全在浏览器本地内存中完成，具有出色的隐私隔离性。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 0 毫秒内完成重量与长度换算，一键复制 32 字符高精度数值到剪贴板，全流程零网络发包、零鉴权拦截。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:19:06.990Z"
+    }
+  },
+  "uslawexplained-com-tools-substantial-presence-test": {
+    "en": {
+      "bestFor": "Non-US citizens, international students, and frequent business travelers calculating IRS 183-day substantial presence tax residency status.",
+      "pros": [
+        "Evaluates IRS 3-year weighted presence formula (current year + 1/3 prior year + 1/6 second prior year) in browser memory",
+        "Preloaded with official IRS 120-day scenario and configurable exclusion categories for Form 8840 and Form 8843",
+        "Direct unwatermarked 1,518-byte plain text worksheet download and print-ready PDF export without sign-up"
+      ],
+      "cons": [
+        "Page dispatches telemetry payloads to Google Analytics and internal portal telemetry"
+      ],
+      "privacyVerdict": "Tax day-count arithmetic and worksheet generation execute in client-side JavaScript. Observed network egress consists of 7 telemetry payloads sent to Google Analytics (www.google-analytics.com/g/collect) and /portal-api/v1/tool-telemetry. No user identity, tax documents, or travel logs are uploaded to servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Calculated 3-year weighted day count (180.00 weighted days) in 0 ms; downloaded clean 1,518-byte plain text worksheet with zero auth interception.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:24:32.663Z"
+    },
+    "zh": {
+      "bestFor": "需要根据美国国税局（IRS）183 天实质性居留测试公式计算税务居民身份的留学生、跨国差旅人士及涉税从业者。",
+      "pros": [
+        "本地实时计算 IRS 3 年加权居留测试公式（当年 + 去年 1/3 + 前年 1/6），直观判定 183 天门槛",
+        "内置 IRS 官方 120 天标准用例，支持添加豁免天数与 Form 8840/8843 申报提示",
+        "支持一键免登录下载 1,518 字节纯文本工作底稿（.txt）及浏览器打印保存 PDF"
+      ],
+      "cons": [
+        "页面包含发往 Google Analytics 与内部站点遥测接口的统计信标"
+      ],
+      "privacyVerdict": "居留天数数学运算与底稿生成完全在浏览器本地完成。实测仅记录 7 条遥测请求（Google Analytics 与 /portal-api/v1/tool-telemetry），用户输入的具体旅行天数不会持久化至远端服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 0 毫秒内完成 3 年 180 天加权计算，一键下载 1,518 字节纯文本工作底稿，全流程无任何鉴权或强制注册拦截。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:24:32.664Z"
+    }
+  },
+  "www-videotoimagesequence-online": {
+    "en": {
+      "bestFor": "Extracting clean image frames from MP4 and WebM video files at configurable frame rates directly in the browser.",
+      "pros": [
+        "Executes frame extraction client-side using WebCodecs and Canvas without remote video uploading",
+        "Provides granular controls including exact FPS (1-60 fps), scene change detection, and output formats (JPG, PNG, WebP, AVIF)"
+      ],
+      "cons": [
+        "High frame-rate batch extraction on long 4K videos can consume significant browser memory before ZIP compression"
+      ],
+      "privacyVerdict": "Client-side processing verified with zero video egress. Observed network traffic was limited to 4 telemetry calls (Google Analytics and Vercel insights).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Processed test.mp4 at 30 fps in under 2s; packaged frames into an unwatermarked 74KB ZIP archive triggered via Download All button.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:37:53.107Z"
+    },
+    "zh": {
+      "bestFor": "直接在浏览器中按自定帧率从 MP4 和 WebM 视频中提取高清图像序列与分帧导出。",
+      "pros": [
+        "基于 WebCodecs 与 Canvas 的纯客户端本地抽帧架构，视频文件无需上传至远程服务器",
+        "支持 1-60 FPS 自定义帧率、场景变动切片及 JPG、PNG、WebP、AVIF 等多种导出格式"
+      ],
+      "cons": [
+        "针对超长或 4K 高码率视频进行高帧率密集抽帧时会暂用较多浏览器标签页内存"
+      ],
+      "privacyVerdict": "验证视频帧提取全在本地浏览器执行，无视频二进制外发，仅观测到常规的 Google Analytics 和 Vercel 分析埋点。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对 test.mp4 进行 30 fps 本地分帧提取仅耗时约 2 秒，点击下载后顺利保存 74KB 无水印 ZIP 序列包。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:37:53.107Z"
+    }
+  },
+  "www-keyboardanalyzer-com": {
+    "en": {
+      "bestFor": "Testing physical keyboard switch responsiveness, rollover, and keycode registration with real-time visual feedback.",
+      "pros": [
+        "Comprehensive full-size, ANSI, and ISO keycap layout maps showing real-time keystroke registration",
+        "Generates detailed diagnostic reports listing observed and unobserved keys with direct clipboard export"
+      ],
+      "cons": [
+        "Loads Google Funding Choices and Google Analytics scripts on initial page load"
+      ],
+      "privacyVerdict": "Keystrokes are captured and analyzed locally within the browser; observed network traffic was restricted to Cloudflare RUM, Google Analytics, and Funding Choices consent scripts.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Successfully captured 13 keypresses across letter and modifier keys; generated a 953-character diagnostic report via Copy as text button.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:44:09.654Z"
+    },
+    "zh": {
+      "bestFor": "在线检测键盘按键响应、全键无冲状态与键码映射，并生成硬件检测报告。",
+      "pros": [
+        "支持全尺寸、ANSI 与 ISO 布局的实时按键高亮及按键间隔统计",
+        "可一键复制包含已触发与未触发键位列表的 953 字符本地硬件诊断报告"
+      ],
+      "cons": [
+        "页面初次加载时会引入 Google Analytics 和 Google Funding Choices 统计与合规脚本"
+      ],
+      "privacyVerdict": "按键捕获与报告生成全程在本地浏览器执行，无按键内容外传；网络流量仅包含 Cloudflare 与 Google 统计脚本。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "测试了 13 个键位触发与组合修饰键，成功通过点击 Copy as text 导出 953 字符的纯文本检测报告。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:44:09.655Z"
+    }
+  },
+  "www-toolcabana-com-en": {
+    "en": {
+      "bestFor": "Generating static QR codes, converting files, and running everyday calculations in-browser without accounts.",
+      "pros": [
+        "Extensive suite of 400+ lightweight web utilities running primarily client-side",
+        "Generates clean vector SVG and PNG downloads with customizable error correction and zero watermarks"
+      ],
+      "cons": [
+        "Loads Google Analytics tracking for pageview metrics"
+      ],
+      "privacyVerdict": "Tool processing occurs locally within the browser; observed egress was restricted to a single Google Analytics collect payload.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Generated static QR code from URL input in under 100ms; downloaded unwatermarked 1,618-byte SVG via direct trigger button.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:59:35.562Z"
+    },
+    "zh": {
+      "bestFor": "在浏览器中生成静态二维码、处理常用文件转换与执行轻量计算，免登录且无使用限制。",
+      "pros": [
+        "收录逾 400 款轻量在线工具，大部分功能均在本地浏览器直接运行",
+        "支持自定义容错等级并一键导出 1,618 字节纯净无水印的矢量 SVG 与 PNG 二维码"
+      ],
+      "cons": [
+        "页面初次加载时会向 Google Analytics 发送基础访问统计数据"
+      ],
+      "privacyVerdict": "二维码生成与核心计算均在本地浏览器完成，无用户输入外发，仅观测到 1 次 Google Analytics 统计埋点。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "输入网址后百毫秒内完成渲染，通过点击下载按钮成功获取 1,618 字节无水印 SVG 矢量文件。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-29T03:59:35.563Z"
+    }
   }
 }
