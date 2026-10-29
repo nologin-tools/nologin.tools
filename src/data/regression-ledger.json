@@ -125,6 +125,12 @@
     "lastTitle": "Volunteer Roster — free sign up sheet online",
     "lastSignals": []
   },
+  "blur-face-com-blur-face": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:22:55.645Z",
+    "lastTitle": "Face Blur Effect Online — Blur Faces in Photos | Blur Face",
+    "lastSignals": []
+  },
   "browserleaks-com": {
     "lastDeepEvalAt": "2026-10-26T10:41:11.333Z",
     "lastResolution": {
@@ -187,6 +193,12 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "cfiresim-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:27:36.389Z",
+    "lastTitle": "cFIREsim",
+    "lastSignals": []
+  },
   "chordfold-com": {
     "lastDeepEvalAt": "2026-10-27T03:02:28.977Z",
     "lastResolution": {
@@ -202,6 +214,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:08.807Z",
     "lastTitle": "Free Citation Checker, Catch Fake References | CiteFetch",
+    "lastSignals": []
+  },
+  "claude-resets-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:25:26.229Z",
+    "lastTitle": "Claude 用量重置追踪：距上次 Claude 重置的天数",
     "lastSignals": []
   },
   "comparetexts-net": {
@@ -233,6 +251,23 @@
     "lastScanAt": "2026-10-27T06:20:48.776Z",
     "lastTitle": "Controller Tester – Online Gamepad Test (Xbox, PS5, Switch)",
     "lastSignals": []
+  },
+  "converters-live": {
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-10-29T06:26:13.643Z",
+        "lastSeenAt": "2026-10-29T06:26:13.643Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-10-29T06:26:13.643Z",
+    "lastSignals": [
+      "probe_failed"
+    ]
   },
   "convertilo-io": {
     "openAnomalies": [],
@@ -311,10 +346,28 @@
     "lastTitle": "Crontab.guru - The cron schedule expression generator",
     "lastSignals": []
   },
+  "cssgradient-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:24:49.925Z",
+    "lastTitle": "CSS Gradient – Generator, Maker, and Background",
+    "lastSignals": []
+  },
   "cssgridgarden-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:24:31.360Z",
     "lastTitle": "Grid Garden - A game for learning CSS grid",
+    "lastSignals": []
+  },
+  "cubic-bezier-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:25:04.186Z",
+    "lastTitle": "cubic-bezier(.17,.67,.83,.67) ✿ cubic-bezier.com",
+    "lastSignals": []
+  },
+  "currawongweb-com-verify-china-usci-checker": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:27:14.169Z",
+    "lastTitle": "Unified social credit code checker: China USCI validation",
     "lastSignals": []
   },
   "dataformatkit-com": {
@@ -327,6 +380,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:24:44.663Z",
     "lastTitle": "Decibel Meter Online: Free Real-Time Sound Level Meter (dB)",
+    "lastSignals": []
+  },
+  "desmos-com-calculator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:22:06.312Z",
+    "lastTitle": "Desmos | 图形计算器",
     "lastSignals": []
   },
   "devdocs-io": {
@@ -489,6 +548,12 @@
     "lastTitle": "FormatDrop — Free Online File Converter",
     "lastSignals": []
   },
+  "free-qr-codes-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:23:59.089Z",
+    "lastTitle": "Free QR Code Generator | Free QR Codes",
+    "lastSignals": []
+  },
   "fwd2-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:21:55.607Z",
@@ -499,6 +564,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:25:41.780Z",
     "lastTitle": "gantt-chart.io — paste a task list, get a live Gantt",
+    "lastSignals": []
+  },
+  "gchq-github-io-cyberchef": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:28:46.497Z",
+    "lastTitle": "CyberChef",
     "lastSignals": []
   },
   "geogebra-org-calculator": {
@@ -554,6 +625,12 @@
     "lastTitle": "Headline Capitalization: Title Case Tool",
     "lastSignals": []
   },
+  "heic-to-jpg-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:27:05.146Z",
+    "lastTitle": "HEIC to JPG Converter Online - Free, Private, Batch | heic-to-jpg.app",
+    "lastSignals": []
+  },
   "hemingwayapp-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -604,10 +681,22 @@
       "surface_lost"
     ]
   },
+  "imageconverttools-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:27:23.389Z",
+    "lastTitle": "Free online image converter and editing tools",
+    "lastSignals": []
+  },
   "imagetoascii-art": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:27:05.512Z",
     "lastTitle": "Image to ASCII Converter - Free, Private ASCII Art Generator",
+    "lastSignals": []
+  },
+  "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:26:50.829Z",
+    "lastTitle": "Compound Interest Calculator | Investor.gov",
     "lastSignals": []
   },
   "it-tools-tech": {
@@ -650,10 +739,45 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "jwt-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:22:37.596Z",
+    "lastTitle": "JSON Web Tokens - jwt.io",
+    "lastSignals": []
+  },
+  "kitelabs-netlify-app-kitchen": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:27:41.883Z",
+    "lastTitle": "Food Cost Calculator + Free Recipe Costing Spreadsheet",
+    "lastSignals": []
+  },
   "kitparlor-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:22:58.408Z",
     "lastTitle": "KitParlor — Free Tools & Guides for Online Sellers",
+    "lastSignals": []
+  },
+  "kivtools-com": {
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-10-29T06:24:20.120Z",
+        "lastSeenAt": "2026-10-29T06:24:20.120Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-10-29T06:24:20.120Z",
+    "lastSignals": [
+      "probe_failed"
+    ]
+  },
+  "kmag-ro-en": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:25:54.697Z",
+    "lastTitle": "Kmag — Shared grocery lists with voice and smart aisle sorting",
     "lastSignals": []
   },
   "languagetool-org": {
@@ -751,6 +875,27 @@
     "lastTitle": "meeting.to-go — find a time that works for everyone",
     "lastSignals": []
   },
+  "mermaid-live": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-29T06:25:18.918Z",
+        "lastSeenAt": "2026-10-29T06:25:18.918Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mermaid-live-intent-1793255112132.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mermaid-live-outcome-1793255112132.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-29T06:25:18.918Z",
+    "lastTitle": "Online FlowChart & Diagrams Editor - Mermaid Live Editor",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "metadataremover-ai": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:31:11.704Z",
@@ -792,16 +937,60 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T02:48:54.834Z"
   },
+  "musicforprogramming-net": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-29T06:22:12.194Z",
+        "lastSeenAt": "2026-10-29T06:22:12.194Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-musicforprogramming-net-intent-1793254926452.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-musicforprogramming-net-outcome-1793254926452.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-29T06:22:12.194Z",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "musictoolslab-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:25:39.101Z",
     "lastTitle": "Free Music Tools for BPM, Key & Audio | Music Tools Lab",
     "lastSignals": []
   },
+  "mystery-knightlab-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:23:42.600Z",
+    "lastTitle": "The SQL Murder Mystery",
+    "lastSignals": []
+  },
+  "needgohome-netlify-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:28:30.302Z",
+    "lastTitle": "Need Go Home | Professional early-leave messages in seconds",
+    "lastSignals": []
+  },
+  "neumorphism-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:28:07.945Z",
+    "lastTitle": "Neumorphism CSS shadow generator",
+    "lastSignals": []
+  },
   "nextgenailearning-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:22:29.580Z",
     "lastTitle": "The ID Toolbox: free tools for instructional designers",
+    "lastSignals": []
+  },
+  "nextreset-ai": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:26:25.983Z",
+    "lastTitle": "Codex Reset Tracker & Prediction — Tibo Reset Watch | NextReset",
     "lastSignals": []
   },
   "nitroide-com": {
@@ -856,6 +1045,12 @@
       "at": "2026-10-26T10:50:58.320Z",
       "closed": []
     }
+  },
+  "pdfandimagetools-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:23:49.222Z",
+    "lastTitle": "PDF & Image Tools | Free, Private, No Watermarks",
+    "lastSignals": []
   },
   "pdftomdconverter-app": {
     "openAnomalies": [],
@@ -1059,6 +1254,12 @@
       ]
     }
   },
+  "pst-aivismonitor-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:26:02.001Z",
+    "lastTitle": "Open a PST File Without Outlook, Even on a Mac | Mailward",
+    "lastSignals": []
+  },
   "puresume-com": {
     "lastDeepEvalAt": "2026-10-26T05:02:35.009Z",
     "lastResolution": {
@@ -1116,10 +1317,22 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T03:33:33.121Z"
   },
+  "rawgraphs-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:24:40.720Z",
+    "lastTitle": "RAWGraphs",
+    "lastSignals": []
+  },
   "ray-so": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:23:02.367Z",
     "lastTitle": "Create beautiful images of your code",
+    "lastSignals": []
+  },
+  "readanytext-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:26:35.499Z",
+    "lastTitle": "ReadAnyText - Free Text to Speech with Natural AI Voices",
     "lastSignals": []
   },
   "realtest-org": {
@@ -1159,6 +1372,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:24:45.256Z",
     "lastTitle": "Rentry.co - Markdown Paste Service",
+    "lastSignals": []
+  },
+  "roascompare-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:24:31.366Z",
+    "lastTitle": "Break-Even ROAS Calculator & Comparison | ROAS Compare",
     "lastSignals": []
   },
   "salitronic-com-gerber-analyzer": {
@@ -1208,6 +1427,12 @@
     "lastTitle": "Shields.io",
     "lastSignals": []
   },
+  "signaturefont-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:23:34.256Z",
+    "lastTitle": "Signature Fonts Generator - Free Signature Font Download",
+    "lastSignals": []
+  },
   "siteage-org": {
     "openAnomalies": [
       {
@@ -1245,6 +1470,27 @@
     "lastScanAt": "2026-10-25T06:20:03.511Z",
     "lastTitle": "Sort Visualizer",
     "lastSignals": []
+  },
+  "spritesheettool-com": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"buy credits\"",
+        "firstSeenAt": "2026-10-29T06:23:21.374Z",
+        "lastSeenAt": "2026-10-29T06:23:21.374Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-spritesheettool-com-intent-1793254987004.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-spritesheettool-com-outcome-1793254987004.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-29T06:23:21.374Z",
+    "lastTitle": "RPG Sprite Sheet Generator for Character Walk Packs",
+    "lastSignals": [
+      "paywall_copy"
+    ]
   },
   "squoosh-app": {
     "openAnomalies": [],
@@ -1315,6 +1561,27 @@
     "lastTitle": "タイマー｜無料で使えるオンラインタイマー",
     "lastSignals": []
   },
+  "teachablemachine-withgoogle-com": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-29T06:28:59.744Z",
+        "lastSeenAt": "2026-10-29T06:28:59.744Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-teachablemachine-withgoogle-com-intent-1793255332387.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-teachablemachine-withgoogle-com-outcome-1793255332387.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-29T06:28:59.744Z",
+    "lastTitle": "Teachable Machine",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "telemetry-sh-sql-playground": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:22:13.504Z",
@@ -1381,6 +1648,12 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "tools-berry-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:28:52.247Z",
+    "lastTitle": "Tools Berry: Free Online Calculators & Tools",
+    "lastSignals": []
+  },
   "tools-pdf24-org-en": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -1419,6 +1692,18 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:26:09.849Z",
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
+    "lastSignals": []
+  },
+  "typescale-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:27:56.094Z",
+    "lastTitle": "Typescale - Create stunning typography, generate CSS, and find inspiration.",
+    "lastSignals": []
+  },
+  "typescriptlang-org-play": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:28:20.457Z",
+    "lastTitle": "TypeScript: TS Playground - An online editor for exploring TypeScript and JavaScript",
     "lastSignals": []
   },
   "u2c-app": {
@@ -1505,6 +1790,12 @@
     "lastTitle": "Webhook.site - Test, transform and automate Web requests and emails",
     "lastSignals": []
   },
+  "whatthegif-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:21:53.039Z",
+    "lastTitle": "What the GIF: Frame-Perfect Video to GIF Maker. Zero Uploads.",
+    "lastSignals": []
+  },
   "wolframalpha-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:30:04.461Z",
@@ -1521,6 +1812,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:22:52.831Z",
     "lastTitle": "Time Converter and World Clock - Conversion at a Glance - Pick best time to schedule conference calls, webinars, online meetings and phone calls.",
+    "lastSignals": []
+  },
+  "wormhole-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:25:43.882Z",
+    "lastTitle": "Wormhole - 简单、私密的文件共享",
     "lastSignals": []
   },
   "write-as": {
@@ -1540,6 +1837,12 @@
       ]
     }
   },
+  "www-allsubconverter-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:25:11.996Z",
+    "lastTitle": "Free Online Subtitle Converter & Editor | AllSubConverter",
+    "lastSignals": []
+  },
   "www-amortio-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:26:30.176Z",
@@ -1550,6 +1853,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:25:08.376Z",
     "lastTitle": "Calculator Campus | Practical Online Calculators",
+    "lastSignals": []
+  },
+  "www-freedominvoice-com-tools-invoice-generator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:24:13.312Z",
+    "lastTitle": "Free Online Invoice Generator | Pocket Invoice",
     "lastSignals": []
   },
   "www-imagesplit-online": {
@@ -1584,6 +1893,18 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T02:48:40.832Z"
+  },
+  "www-ottopoll-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:23:06.876Z",
+    "lastTitle": "Otto · Create a free poll with friends, no account",
+    "lastSignals": []
+  },
+  "www-pastecurl-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-29T06:22:26.390Z",
+    "lastTitle": "cURL to Code Converter | Python, JavaScript & More | PasteCurl",
+    "lastSignals": []
   },
   "www-textfixhub-com": {
     "openAnomalies": [],
