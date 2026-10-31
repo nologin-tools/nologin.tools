@@ -57,25 +57,21 @@
     }
   },
   "archive-ph": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-27T06:22:51.730Z",
-        "lastSeenAt": "2026-10-27T06:22:51.730Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-archive-ph-intent-1793082167312.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-archive-ph-outcome-1793082167312.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:22:51.730Z",
     "lastTitle": "archive.ph",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-31T02:44:17.756Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified Cloudflare captcha challenge can be passed, historical snapshot index search executes without login.",
+      "at": "2026-10-31T02:44:17.756Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "artboardlab-com": {
     "openAnomalies": [],
@@ -95,6 +91,12 @@
     "lastTitle": "askmeanythi.ng",
     "lastSignals": []
   },
+  "aspectratiocalculator-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:20:09.095Z",
+    "lastTitle": "Aspect Ratio Calculator - Images & Video Dimensions",
+    "lastSignals": []
+  },
   "astexplorer-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:25:49.580Z",
@@ -105,6 +107,18 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:26:20.495Z",
     "lastTitle": "JSON Formatter & Validator — Free Online Tool | AT USE",
+    "lastSignals": []
+  },
+  "audiomass-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:20:29.817Z",
+    "lastTitle": "AudioMass - Audio Editor",
+    "lastSignals": []
+  },
+  "audiotrimmer-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:22:23.581Z",
+    "lastTitle": "Online Mp3 Cutter - Audio Trimmer",
     "lastSignals": []
   },
   "aup4-aivismonitor-com": {
@@ -123,6 +137,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:26:09.017Z",
     "lastTitle": "Volunteer Roster — free sign up sheet online",
+    "lastSignals": []
+  },
+  "bizntools-com-data-json-to-csv-converter": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:22:33.620Z",
+    "lastTitle": "JSON to CSV Converter — Free, Private & Precise | BiznTools",
     "lastSignals": []
   },
   "blur-face-com-blur-face": {
@@ -199,6 +219,18 @@
     "lastTitle": "cFIREsim",
     "lastSignals": []
   },
+  "chatgpt-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:24:46.829Z",
+    "lastTitle": "ChatGPT: Chat, Work, Create & Code with AI",
+    "lastSignals": []
+  },
+  "choicervoicer-games": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:20:40.075Z",
+    "lastTitle": "Play Choicer Voicer Online Free – Voice Imitation Game",
+    "lastSignals": []
+  },
   "chordfold-com": {
     "lastDeepEvalAt": "2026-10-27T03:02:28.977Z",
     "lastResolution": {
@@ -220,6 +252,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:25:26.229Z",
     "lastTitle": "Claude 用量重置追踪：距上次 Claude 重置的天数",
+    "lastSignals": []
+  },
+  "comparediff-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:24:58.093Z",
+    "lastTitle": "Compare Diff Online - Free Text Compare & Diff Checker",
     "lastSignals": []
   },
   "comparetexts-net": {
@@ -382,6 +420,12 @@
     "lastTitle": "Decibel Meter Online: Free Real-Time Sound Level Meter (dB)",
     "lastSignals": []
   },
+  "decode-base64-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:25:15.682Z",
+    "lastTitle": "Base64 Decode & Encode Online | Decode-Base64.com",
+    "lastSignals": []
+  },
   "desmos-com-calculator": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:22:06.312Z",
@@ -393,6 +437,12 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "diagrflow-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:25:40.504Z",
+    "lastTitle": "Create a PRISMA 2020 flow diagram — Diagrflow",
+    "lastSignals": []
+  },
   "diffhero-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:25:32.425Z",
@@ -402,6 +452,12 @@
   "dillinger-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "discrete-logarithm-tomasz-slapinski-pl": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:19.934Z",
+    "lastTitle": "Logarytm dyskretny (DLP) — Baby-step Giant-step",
     "lastSignals": []
   },
   "dnsleaktest-com": {
@@ -443,6 +499,18 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T02:52:17.900Z"
+  },
+  "entityminder-smoke-web-app-em-lookup": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:23:40.841Z",
+    "lastTitle": "Free state annual-report deadline lookup — EntityMinder",
+    "lastSignals": []
+  },
+  "excalideck-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:20:19.143Z",
+    "lastTitle": "Excalideck | Weapon for Legendary Slides",
+    "lastSignals": []
   },
   "excalidraw-com": {
     "openAnomalies": [],
@@ -497,31 +565,39 @@
     "lastTitle": "FileFormer - Free File Converter & 100+ Online Tools",
     "lastSignals": []
   },
+  "fileontap-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:26.736Z",
+    "lastTitle": "Free File Converter in Your Browser — No Upload | FileOnTap",
+    "lastSignals": []
+  },
   "financier-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-27T06:21:26.157Z",
-        "lastSeenAt": "2026-10-27T06:21:26.157Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-intent-1793082080200.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-outcome-1793082080200.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:21:26.157Z",
     "lastTitle": "Financier. Better Budgeting Software",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-31T02:37:26.399Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified offline IndexedDB budget creation, envelope allocation grid, JSON backup export without login.",
+      "at": "2026-10-31T02:37:26.399Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "findthescam-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:22:17.614Z",
     "lastTitle": "Check if Website is Legit or Scam, Website Info, Reviews | FindTheScam",
+    "lastSignals": []
+  },
+  "flexboxfroggy-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:22:49.905Z",
+    "lastTitle": "Flexbox Froggy - A game for learning CSS flexbox",
     "lastSignals": []
   },
   "flukeout-github-io": {
@@ -534,6 +610,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:23:38.832Z",
     "lastTitle": "FluxOps — Auto-sync inventory. Kill spreadsheet hell.",
+    "lastSignals": []
+  },
+  "fomrix-com-stl-viewer": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:25:25.901Z",
+    "lastTitle": "在线 STL 查看器，检查 3D 打印模型 | Fomrix",
     "lastSignals": []
   },
   "fontjoy-com": {
@@ -584,6 +666,18 @@
     "lastTitle": "geojson.io | Powered by Mapbox",
     "lastSignals": []
   },
+  "geometry-formulas-com-geometry-calculator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:19:25.039Z",
+    "lastTitle": "Geometry Calculator with Steps for 2D and 3D Shapes",
+    "lastSignals": []
+  },
+  "goblin-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:23:26.733Z",
+    "lastTitle": "首页 - Goblin Tools",
+    "lastSignals": []
+  },
   "godbolt-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:25.520Z",
@@ -613,6 +707,12 @@
     "lastTitle": "Happy Hues - Curated colors in context.",
     "lastSignals": []
   },
+  "hardenmyrepo-github-io-browser-audit": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:23:33.864Z",
+    "lastTitle": "AI Coding-Agent Repository Audit — Local and Private",
+    "lastSignals": []
+  },
   "haveibeenpwned-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:25:31.922Z",
@@ -631,6 +731,12 @@
     "lastTitle": "HEIC to JPG Converter Online - Free, Private, Batch | heic-to-jpg.app",
     "lastSignals": []
   },
+  "heictopdf-dev": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:24:39.231Z",
+    "lastTitle": "HEIC to PDF Converter - Convert & Merge iPhone Photos Online Free",
+    "lastSignals": []
+  },
   "hemingwayapp-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -641,6 +747,17 @@
     "lastScanAt": "2026-10-27T06:25:03.482Z",
     "lastTitle": "Free Remove Photo Location Online — Share photos without embedded location data | HereBytes",
     "lastSignals": []
+  },
+  "hosthtmlfile-com": {
+    "lastDeepEvalAt": "2026-10-31T03:01:18.867Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-10-31T03:01:18.867Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T03:01:18.867Z"
   },
   "httpbin-org": {
     "openAnomalies": [],
@@ -693,10 +810,22 @@
     "lastTitle": "Image to ASCII Converter - Free, Private ASCII Art Generator",
     "lastSignals": []
   },
+  "imgrove-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:19:04.135Z",
+    "lastTitle": "Free Browser Image Tools, No Upload | imgrove",
+    "lastSignals": []
+  },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:26:50.829Z",
     "lastTitle": "Compound Interest Calculator | Investor.gov",
+    "lastSignals": []
+  },
+  "ipleak-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:25:06.329Z",
+    "lastTitle": "IP/DNS Detect - What is your IP, what is your DNS, what informations you send to websites.",
     "lastSignals": []
   },
   "it-tools-tech": {
@@ -780,6 +909,12 @@
     "lastTitle": "Kmag — Shared grocery lists with voice and smart aisle sorting",
     "lastSignals": []
   },
+  "kuakua-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:22:07.683Z",
+    "lastTitle": "Kuakua夸夸 - 用简单心理学与AI工具带来幸福、激发内在力量 | 成为更好的自己",
+    "lastSignals": []
+  },
   "languagetool-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
@@ -813,6 +948,24 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T03:46:07.455Z"
   },
+  "lite-datasette-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:33.806Z",
+    "lastTitle": "Datasette",
+    "lastSignals": []
+  },
+  "makehalftone-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:53.517Z",
+    "lastTitle": "Halftone Generator — Convert Images to Print-Ready Dot Patterns",
+    "lastSignals": []
+  },
+  "markany-ai": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:22:42.958Z",
+    "lastTitle": "Markdown Converter – Files to MD & MD to Files | MarkAny",
+    "lastSignals": []
+  },
   "markmap-js-org": {
     "openAnomalies": [
       {
@@ -841,21 +994,20 @@
     "lastSignals": []
   },
   "mdconvert-net-zh-markdown-to-word": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-10-27T06:22:21.482Z",
-        "lastSeenAt": "2026-10-27T06:22:21.482Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:22:21.482Z",
     "lastSignals": [
       "probe_failed"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-10-31T02:39:20.602Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified markdown to word conversion, client-side preview, direct .doc export without login.",
+      "at": "2026-10-31T02:39:20.602Z",
+      "closed": [
+        "probe_failed"
+      ]
+    }
   },
   "mdprevieweditor-com": {
     "openAnomalies": [],
@@ -924,6 +1076,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:24:02.145Z",
     "lastTitle": "Monkeytype | A minimalistic, customizable typing test",
+    "lastSignals": []
+  },
+  "morsecodetranslator-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:23:15.125Z",
+    "lastTitle": "Morse Code Translator – Text to Morse & Morse to Text",
     "lastSignals": []
   },
   "mtempmail-com": {
@@ -1046,6 +1204,17 @@
       "closed": []
     }
   },
+  "parsebloom-com": {
+    "lastDeepEvalAt": "2026-10-31T02:46:51.258Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-10-31T02:46:51.258Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T02:46:51.258Z"
+  },
   "pdfandimagetools-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:23:49.222Z",
@@ -1119,10 +1288,22 @@
     "lastScanAt": "2026-10-23T06:30:00.000Z",
     "lastSignals": []
   },
+  "piccollages-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:20:50.137Z",
+    "lastTitle": "照片拼贴工具-免费在线拼图制作器-九宫格长图拼接网格布局模板-本地处理100%隐私安全-高清PNG导出 | PicCollages",
+    "lastSignals": []
+  },
   "pixotter-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:28:35.927Z",
     "lastTitle": "Free Online Image Compressor, Resizer & Converter | Pixotter",
+    "lastSignals": []
+  },
+  "play-rust-lang-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:00.605Z",
+    "lastTitle": "Rust Playground",
     "lastSignals": []
   },
   "playfatelab-com": {
@@ -1203,6 +1384,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T02:53:48.210Z"
   },
+  "privacy-sexy": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:20:03.113Z",
+    "lastTitle": "privacy.sexy - Maximize Your Privacy and Security",
+    "lastSignals": []
+  },
   "privacytests-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:22:32.703Z",
@@ -1219,6 +1406,12 @@
         "surface_lost"
       ]
     }
+  },
+  "privnote-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:58.593Z",
+    "lastTitle": "Attention Required! | Cloudflare",
+    "lastSignals": []
   },
   "productivitytimer-com": {
     "openAnomalies": [],
@@ -1275,6 +1468,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:24:16.849Z",
     "lastTitle": "Questions Generator - 3,000+ Random Questions to Ask",
+    "lastSignals": []
+  },
+  "quickbgcut-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:24:25.883Z",
+    "lastTitle": "Free Batch Background Remover — No Signup | QuickBGCut",
     "lastSignals": []
   },
   "quicktinyv2-vercel-app": {
@@ -1372,6 +1571,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:24:45.256Z",
     "lastTitle": "Rentry.co - Markdown Paste Service",
+    "lastSignals": []
+  },
+  "retireclarity-com-calculator": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:19:12.565Z",
+    "lastTitle": "Retirement Calculator - Year-by-Year Projections",
     "lastSignals": []
   },
   "roascompare-com": {
@@ -1514,6 +1719,12 @@
       ]
     }
   },
+  "stayput-dev": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:42.472Z",
+    "lastTitle": "Stayput: Free File Tools That Never Upload Your Files",
+    "lastSignals": []
+  },
   "subsuperscript-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:28:33.698Z",
@@ -1541,6 +1752,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:22:30.083Z",
     "lastTitle": "SVG Viewer - Free Online SVG Viewer and Converter",
+    "lastSignals": []
+  },
+  "syncwhen-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:25:34.645Z",
+    "lastTitle": "SyncWhen - Free Scheduling Poll",
     "lastSignals": []
   },
   "t-8ma-co": {
@@ -1749,6 +1966,39 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T03:24:32.680Z"
   },
+  "verifiedlimits-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:22:57.529Z",
+    "lastTitle": "Ledger&Leaf — Free HSA, IRA & 401(k) Calculators",
+    "lastSignals": []
+  },
+  "video-size-reducer-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:19:36.257Z",
+    "lastTitle": "Video Size Reducer — Compress Videos to a Target Size",
+    "lastSignals": []
+  },
+  "virustotal-com": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-10-31T06:23:02.241Z",
+        "lastSeenAt": "2026-10-31T06:23:02.241Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-virustotal-com-intent-1793427777664.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-virustotal-com-outcome-1793427777664.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-10-31T06:23:02.241Z",
+    "lastTitle": "VirusTotal",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "visualpromptcompiler-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:24:51.896Z",
@@ -1761,6 +2011,17 @@
     "lastTitle": "Vocal Remover and Isolation [AI]",
     "lastSignals": []
   },
+  "voltagedropcalculator-net": {
+    "lastDeepEvalAt": "2026-10-31T02:52:22.041Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-10-31T02:52:22.041Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T02:52:22.041Z"
+  },
   "watermarklift-com": {
     "lastDeepEvalAt": "2026-10-28T03:42:51.182Z",
     "lastResolution": {
@@ -1771,6 +2032,12 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T03:42:51.182Z"
+  },
+  "watermarkzero-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:19:53.804Z",
+    "lastTitle": "Free Gemini Watermark Remover Online | Remove Locally",
+    "lastSignals": []
   },
   "wave-webaim-org": {
     "openAnomalies": [],
@@ -1796,6 +2063,12 @@
     "lastTitle": "What the GIF: Frame-Perfect Video to GIF Maker. Zero Uploads.",
     "lastSignals": []
   },
+  "wise-com-gb-currency-converter": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:24:14.869Z",
+    "lastTitle": "Currency Converter | Foreign Exchange Rates | Wise",
+    "lastSignals": []
+  },
   "wolframalpha-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:30:04.461Z",
@@ -1806,6 +2079,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:22:33.838Z",
     "lastTitle": "Wordpad Online | Free Notepad Editor - wordpad-online.com",
+    "lastSignals": []
+  },
+  "wordtojpg-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-10-31T06:21:10.426Z",
+    "lastTitle": "Word to JPG Converter Online Free | Convert DOCX to Images",
     "lastSignals": []
   },
   "worldtimebuddy-com": {
