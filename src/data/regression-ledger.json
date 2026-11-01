@@ -127,6 +127,12 @@
     "lastTitle": "Open .aup4 Files Without Audacity — Play & Export | Waveward",
     "lastSignals": []
   },
+  "banglatools-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:18:25.788Z",
+    "lastTitle": "Free Unicode to Bijoy Converter + DOCX/XLSX",
+    "lastSignals": []
+  },
   "betterhabitsdaily-com-tracker": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:25.361Z",
@@ -242,6 +248,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T03:02:28.977Z"
   },
+  "chordgen-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:17:45.948Z",
+    "lastTitle": "Chord Progression Generator & Maker | chordgen",
+    "lastSignals": []
+  },
   "citefetch-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:24:08.807Z",
@@ -252,6 +264,18 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:25:26.229Z",
     "lastTitle": "Claude 用量重置追踪：距上次 Claude 重置的天数",
+    "lastSignals": []
+  },
+  "codextheme-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:18:39.920Z",
+    "lastTitle": "Free Codex Theme Builder for Desktop | CodexTheme Tools",
+    "lastSignals": []
+  },
+  "colorhunt-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:17:35.070Z",
+    "lastTitle": "Color Hunt - Color Palettes for Designers and Artists",
     "lastSignals": []
   },
   "comparediff-io": {
@@ -276,6 +300,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:24:40.276Z",
     "lastTitle": "comprimir pdf gratis online",
+    "lastSignals": []
+  },
+  "contadordepalabras-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:15:36.338Z",
+    "lastTitle": "Contador de palabras, contador de caracteres",
     "lastSignals": []
   },
   "contextwindowvramcalculator-com": {
@@ -396,6 +426,18 @@
     "lastTitle": "Grid Garden - A game for learning CSS grid",
     "lastSignals": []
   },
+  "csv-safecheck-pages-dev": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:14:03.627Z",
+    "lastTitle": "CSV SafeCheck — Shopify product CSV preflight",
+    "lastSignals": []
+  },
+  "csvjson-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:16:57.818Z",
+    "lastTitle": "CSV to JSON Converter — CSVJSON",
+    "lastSignals": []
+  },
   "cubic-bezier-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:25:04.186Z",
@@ -413,6 +455,27 @@
     "lastScanAt": "2026-10-25T06:22:27.414Z",
     "lastTitle": "Text to CSV Converter - Free Browser Tool | DataFormatKit",
     "lastSignals": []
+  },
+  "db-fiddle-com": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to PRO\"",
+        "firstSeenAt": "2026-11-01T06:17:11.385Z",
+        "lastSeenAt": "2026-11-01T06:17:11.385Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-intent-1793513817969.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-outcome-1793513817969.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:17:11.385Z",
+    "lastTitle": "DB Fiddle - SQL Database Playground",
+    "lastSignals": [
+      "paywall_copy"
+    ]
   },
   "decibelshield-app": {
     "openAnomalies": [],
@@ -465,6 +528,27 @@
     "lastScanAt": "2026-10-26T06:27:10.105Z",
     "lastTitle": "DNS leak test",
     "lastSignals": []
+  },
+  "dochost-io": {
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Pro\"",
+        "firstSeenAt": "2026-11-01T06:19:27.415Z",
+        "lastSeenAt": "2026-11-01T06:19:27.415Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-intent-1793513951926.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-outcome-1793513951926.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:19:27.415Z",
+    "lastTitle": "HTML to URL & Markdown to HTML — Free HTML Host | dochost",
+    "lastSignals": [
+      "paywall_copy"
+    ]
   },
   "drunkcalc-org": {
     "openAnomalies": [],
@@ -612,6 +696,12 @@
     "lastTitle": "FluxOps — Auto-sync inventory. Kill spreadsheet hell.",
     "lastSignals": []
   },
+  "focus2grow-app-dealcove": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:16:44.474Z",
+    "lastTitle": "Einfaches CRM für kleine Unternehmen · Dealcove",
+    "lastSignals": []
+  },
   "fomrix-com-stl-viewer": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-31T06:25:25.901Z",
@@ -670,6 +760,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-31T06:19:25.039Z",
     "lastTitle": "Geometry Calculator with Steps for 2D and 3D Shapes",
+    "lastSignals": []
+  },
+  "getwaves-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:13:32.126Z",
+    "lastTitle": "Get Waves – Create SVG waves for your next design",
     "lastSignals": []
   },
   "goblin-tools": {
@@ -748,6 +844,27 @@
     "lastTitle": "Free Remove Photo Location Online — Share photos without embedded location data | HereBytes",
     "lastSignals": []
   },
+  "hoppscotch-io": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-01T06:16:10.950Z",
+        "lastSeenAt": "2026-11-01T06:16:10.950Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-hoppscotch-io-intent-1793513762271.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-hoppscotch-io-outcome-1793513762271.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:16:10.950Z",
+    "lastTitle": "Hoppscotch • Open source API development ecosystem • Hoppscotch",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "hosthtmlfile-com": {
     "lastDeepEvalAt": "2026-10-31T03:01:18.867Z",
     "lastResolution": {
@@ -797,6 +914,12 @@
     "lastSignals": [
       "surface_lost"
     ]
+  },
+  "imagecompressortokb-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:12:53.241Z",
+    "lastTitle": "Image Compressor to KB - Compress to a Target File Size",
+    "lastSignals": []
   },
   "imageconverttools-app": {
     "openAnomalies": [],
@@ -967,25 +1090,21 @@
     "lastSignals": []
   },
   "markmap-js-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-27T06:26:38.009Z",
-        "lastSeenAt": "2026-10-27T06:26:38.009Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-markmap-js-org-intent-1793082394294.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-markmap-js-org-outcome-1793082394294.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:26:38.009Z",
     "lastTitle": "markmap",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-01T02:35:13.047Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified interactive mindmap repl at /repl: dynamic SVG rendering, Markdown editing, and clean unwatermarked SVG export functioning client-side without auth.",
+      "at": "2026-11-01T02:35:13.047Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "max-agent-hub-github-io-browser-sop-builder": {
     "openAnomalies": [],
@@ -1052,6 +1171,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T06:31:11.704Z",
     "lastTitle": "Metadata Remover — Remove Metadata from Images Online Free",
+    "lastSignals": []
+  },
+  "metatags-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:19:59.874Z",
+    "lastTitle": "Meta Tags — Preview, Edit and Generate",
     "lastSignals": []
   },
   "midiplayeronline-com": {
@@ -1127,6 +1252,12 @@
     "lastTitle": "The SQL Murder Mystery",
     "lastSignals": []
   },
+  "nawtch-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:13:48.733Z",
+    "lastTitle": "Nawtch — Free Calorie & Macro Tracker, No Account Needed",
+    "lastSignals": []
+  },
   "needgohome-netlify-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:28:30.302Z",
@@ -1137,6 +1268,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:28:07.945Z",
     "lastTitle": "Neumorphism CSS shadow generator",
+    "lastSignals": []
+  },
+  "next-tools-dev": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:14:29.185Z",
+    "lastTitle": "Next-Tools - 开发者在线工具箱",
     "lastSignals": []
   },
   "nextgenailearning-com": {
@@ -1185,10 +1322,22 @@
     "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
     "lastSignals": []
   },
+  "olivez-in-tool-image-compressor": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:18:06.652Z",
+    "lastTitle": "Image Compressor - Reduce Image Size Online",
+    "lastSignals": []
+  },
   "omnicalculator-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:24:40.180Z",
     "lastTitle": "Omni Calculator",
+    "lastSignals": []
+  },
+  "online-tone-generator-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:16:02.130Z",
+    "lastTitle": "Online Tone Generator — Sine, Square, Triangle, Sawtooth (20Hz–20kHz)",
     "lastSignals": []
   },
   "pairdrop-net": {
@@ -1221,6 +1370,27 @@
     "lastTitle": "PDF & Image Tools | Free, Private, No Watermarks",
     "lastSignals": []
   },
+  "pdfinjpgumwandeln-com": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-01T06:18:46.405Z",
+        "lastSeenAt": "2026-11-01T06:18:46.405Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdfinjpgumwandeln-com-intent-1793513920063.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdfinjpgumwandeln-com-outcome-1793513920063.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:18:46.405Z",
+    "lastTitle": "PDF in JPG umwandeln - kostenlos im Browser",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
   "pdftomdconverter-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-24T06:23:51.500Z",
@@ -1238,6 +1408,12 @@
       ]
     }
   },
+  "pdfzus-de": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:19:11.774Z",
+    "lastTitle": "PDF Zusammenfügen – vertraulich & ohne Upload | pdfzus.de",
+    "lastSignals": []
+  },
   "peptidetracks-com": {
     "lastDeepEvalAt": "2026-10-27T02:54:54.882Z",
     "lastResolution": {
@@ -1248,6 +1424,33 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T02:54:54.882Z"
+  },
+  "perplexity-ai": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-01T06:18:52.258Z",
+        "lastSeenAt": "2026-11-01T06:18:52.258Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-perplexity-ai-intent-1793513926556.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-perplexity-ai-outcome-1793513926556.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:18:52.258Z",
+    "lastTitle": "Just a moment...",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
+  "phet-colorado-edu": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:19:02.225Z",
+    "lastTitle": "PhET: Free online physics, chemistry, biology, earth science and math simulations | PhET Simulations",
+    "lastSignals": []
   },
   "photomosh-com": {
     "openAnomalies": [
@@ -1292,6 +1495,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-31T06:20:50.137Z",
     "lastTitle": "照片拼贴工具-免费在线拼图制作器-九宫格长图拼接网格布局模板-本地处理100%隐私安全-高清PNG导出 | PicCollages",
+    "lastSignals": []
+  },
+  "pixeltools-io": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:19:34.473Z",
+    "lastTitle": "PixelTools — Free Image, PDF, Audio, Video, Text & Dev Tools",
     "lastSignals": []
   },
   "pixotter-com": {
@@ -1463,6 +1672,33 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-26T05:02:35.009Z"
+  },
+  "pythontutor-com": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-01T06:14:37.920Z",
+        "lastSeenAt": "2026-11-01T06:14:37.920Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pythontutor-com-intent-1793513669333.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pythontutor-com-outcome-1793513669333.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:14:37.920Z",
+    "lastTitle": "Python Tutor - Python Online Compiler with Visual Debugger",
+    "lastSignals": [
+      "surface_lost"
+    ]
+  },
+  "qrcode-monkey-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:15:56.682Z",
+    "lastTitle": "QRCode Monkey - The free QR Code Generator to create custom QR Codes with Logo",
+    "lastSignals": []
   },
   "questionsgenerator-com": {
     "openAnomalies": [],
@@ -1638,6 +1874,12 @@
     "lastTitle": "Signature Fonts Generator - Free Signature Font Download",
     "lastSignals": []
   },
+  "sirenmix-com-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:12:42.557Z",
+    "lastTitle": "Free DJ Tools: BPM, Audio Converter & Spectrum | SirenMix",
+    "lastSignals": []
+  },
   "siteage-org": {
     "openAnomalies": [
       {
@@ -1670,10 +1912,22 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T03:00:39.902Z"
   },
+  "sizecompare-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:17:53.253Z",
+    "lastTitle": "Compare Sizes & Dimensions at True Scale",
+    "lastSignals": []
+  },
   "sortvisualizer-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:03.511Z",
     "lastTitle": "Sort Visualizer",
+    "lastSignals": []
+  },
+  "speed-cloudflare-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:16:28.887Z",
+    "lastTitle": "Internet Speed Test - Measure Network Performance | Cloudflare",
     "lastSignals": []
   },
   "spritesheettool-com": {
@@ -1723,6 +1977,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-31T06:21:42.472Z",
     "lastTitle": "Stayput: Free File Tools That Never Upload Your Files",
+    "lastSignals": []
+  },
+  "studycalcpro-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:16:37.482Z",
+    "lastTitle": "StudyTools — Free Online Calculators &amp; Study Tools for Students",
     "lastSignals": []
   },
   "subsuperscript-com": {
@@ -1805,10 +2065,28 @@
     "lastTitle": "结构化事件的浏览器 SQL Playground | Telemetry",
     "lastSignals": []
   },
+  "temp-mail-org": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:13:16.357Z",
+    "lastTitle": "Temp Mail - Disposable Temporary Email",
+    "lastSignals": []
+  },
+  "textbench-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:14:49.845Z",
+    "lastTitle": "Textbench — 63 text tools, one page, nothing uploaded.",
+    "lastSignals": []
+  },
   "textkit-tech": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:26:50.865Z",
     "lastTitle": "TextKit — Free Online Text Tools",
+    "lastSignals": []
+  },
+  "textlogo-app": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:17:25.403Z",
+    "lastTitle": "Text Logo - Logo Generator",
     "lastSignals": []
   },
   "textunnel-com": {
@@ -1831,6 +2109,12 @@
   "til-re": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-23T06:30:00.000Z",
+    "lastSignals": []
+  },
+  "time-is": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:16:17.913Z",
+    "lastTitle": "Time.is 01:16",
     "lastSignals": []
   },
   "tinypng-com": {
@@ -1955,6 +2239,12 @@
       "paywall_copy"
     ]
   },
+  "untrackedtools-com-en": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:13:01.888Z",
+    "lastTitle": "Free Online Tools - No Signup | UnTrackedTools",
+    "lastSignals": []
+  },
   "uslawexplained-com-tools-substantial-presence-test": {
     "lastDeepEvalAt": "2026-10-29T03:24:32.680Z",
     "lastResolution": {
@@ -1965,6 +2255,27 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T03:24:32.680Z"
+  },
+  "utilbear-com": {
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-01T06:19:40.242Z",
+        "lastSeenAt": "2026-11-01T06:19:40.242Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-utilbear-com-intent-1793513974641.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-utilbear-com-outcome-1793513974641.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-01T06:19:40.242Z",
+    "lastTitle": "UtilBear – Fast, Private Online Tools",
+    "lastSignals": [
+      "surface_lost"
+    ]
   },
   "verifiedlimits-com": {
     "openAnomalies": [],
@@ -1998,6 +2309,12 @@
     "lastSignals": [
       "surface_lost"
     ]
+  },
+  "visualgo-net": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:14:13.777Z",
+    "lastTitle": "visualising data structures and algorithms through animation - VisuAlgo",
+    "lastSignals": []
   },
   "visualpromptcompiler-com": {
     "openAnomalies": [],
@@ -2055,6 +2372,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:20:18.510Z",
     "lastTitle": "Webhook.site - Test, transform and automate Web requests and emails",
+    "lastSignals": []
+  },
+  "webutilslab-com-tools": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:18:12.087Z",
+    "lastTitle": "Free Browser Developer Tools - WebUtilsLab",
     "lastSignals": []
   },
   "whatthegif-com": {
@@ -2185,6 +2508,12 @@
     "lastTitle": "cURL to Code Converter | Python, JavaScript & More | PasteCurl",
     "lastSignals": []
   },
+  "www-slabcalc-co": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:15:16.788Z",
+    "lastTitle": "Concrete Calculator — Cubic Yards, Bags & Weight | SlabCalc",
+    "lastSignals": []
+  },
   "www-textfixhub-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-25T06:21:04.115Z",
@@ -2242,6 +2571,12 @@
     "lastTitle": "Protein Powder Prices, Ingredients & Nutrition | WheyIndex",
     "lastSignals": []
   },
+  "www-yhile-com": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:14:43.993Z",
+    "lastTitle": "yhile.com — Free Online Tools. No Signup. No Data Stored.",
+    "lastSignals": []
+  },
   "www-yourboddy-com-form-check": {
     "lastDeepEvalAt": "2026-10-26T02:52:00.125Z",
     "lastResolution": {
@@ -2280,6 +2615,12 @@
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:25:24.709Z",
     "lastTitle": "End-to-End Encrypted Secret Sharing | Yopass",
+    "lastSignals": []
+  },
+  "z-ai": {
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-01T06:15:28.114Z",
+    "lastTitle": "Z.ai - Advanced AI Chatbot & Agent powered by GLM-5.3-Flash",
     "lastSignals": []
   },
   "zenpen-io": {
