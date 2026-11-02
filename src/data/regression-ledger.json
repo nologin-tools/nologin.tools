@@ -127,6 +127,17 @@
     "lastTitle": "Open .aup4 Files Without Audacity — Play & Export | Waveward",
     "lastSignals": []
   },
+  "badqualityimagemaker-com": {
+    "lastDeepEvalAt": "2026-11-02T02:50:50.209Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-02T02:50:50.209Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-02T02:50:50.209Z"
+  },
   "banglatools-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-01T06:18:25.788Z",
@@ -482,6 +493,17 @@
     "lastScanAt": "2026-10-28T06:24:44.663Z",
     "lastTitle": "Decibel Meter Online: Free Real-Time Sound Level Meter (dB)",
     "lastSignals": []
+  },
+  "declarenta-com": {
+    "lastDeepEvalAt": "2026-11-02T02:46:11.973Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-02T02:46:11.973Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-02T02:46:11.973Z"
   },
   "decode-base64-com": {
     "openAnomalies": [],
@@ -1246,6 +1268,17 @@
     "lastTitle": "Free Music Tools for BPM, Key & Audio | Music Tools Lab",
     "lastSignals": []
   },
+  "myseasonhue-com-virtual-color-draping": {
+    "lastDeepEvalAt": "2026-11-02T03:24:23.365Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-02T03:24:23.365Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-02T03:24:23.365Z"
+  },
   "mystery-knightlab-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:23:42.600Z",
@@ -1298,6 +1331,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T03:09:45.383Z"
+  },
+  "noiseremover-site": {
+    "lastDeepEvalAt": "2026-11-02T03:09:11.839Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-02T03:09:11.839Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-02T03:09:11.839Z"
   },
   "nologin-tools": {
     "openAnomalies": [],
@@ -1453,38 +1497,23 @@
     "lastSignals": []
   },
   "photomosh-com": {
-    "openAnomalies": [
-      {
-        "code": "cross_host_redirect",
-        "severity": "medium",
-        "evidence": "photomosh.com → moshpro.app",
-        "firstSeenAt": "2026-10-28T06:22:38.566Z",
-        "lastSeenAt": "2026-10-28T06:22:38.566Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-intent-1793168550234.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-outcome-1793168550234.png"
-        ]
-      },
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-28T06:22:38.566Z",
-        "lastSeenAt": "2026-10-28T06:22:38.566Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-intent-1793168550234.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-photomosh-com-outcome-1793168550234.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:22:38.566Z",
     "lastTitle": "Mosh-Pro — Glitch & Video Effects App",
     "lastSignals": [
       "cross_host_redirect",
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-02T02:35:13.248Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified in browser: canvas WebGL shader pipeline, MOSH preset randomizer, and clean 800x600 JPEG export without watermarks or login fully functional.",
+      "at": "2026-11-02T02:35:13.248Z",
+      "closed": [
+        "cross_host_redirect",
+        "surface_lost"
+      ]
+    }
   },
   "photopea-com": {
     "openAnomalies": [],
@@ -1539,25 +1568,21 @@
     "lastSignals": []
   },
   "prettier-io-playground": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-28T06:23:49.171Z",
-        "lastSeenAt": "2026-10-28T06:23:49.171Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-prettier-io-playground-intent-1793168619275.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-prettier-io-playground-outcome-1793168619275.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:23:49.171Z",
     "lastTitle": "Prettier",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-02T02:37:52.783Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified in browser: CodeMirror playground, AST formatting, and clipboard copy work smoothly client-side with zero auth requirement.",
+      "at": "2026-11-02T02:37:52.783Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "preuveenmain-ca-app": {
     "openAnomalies": [],
@@ -1881,25 +1906,21 @@
     "lastSignals": []
   },
   "siteage-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-28T06:25:48.005Z",
-        "lastSeenAt": "2026-10-28T06:25:48.005Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-intent-1793168741924.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-outcome-1793168741924.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-28T06:25:48.005Z",
     "lastTitle": "Website Age Certification | SiteAge.org",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-02T02:40:21.650Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified in browser: domain longevity verification, certificate generation, and export controls operate without login.",
+      "at": "2026-11-02T02:40:21.650Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "sitelemetry-com-launch-readiness": {
     "lastDeepEvalAt": "2026-10-29T03:00:39.902Z",
@@ -2194,6 +2215,17 @@
     "lastScanAt": "2026-10-27T06:26:09.849Z",
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
+  },
+  "typepatch-com": {
+    "lastDeepEvalAt": "2026-11-02T03:02:48.681Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-02T03:02:48.681Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-02T03:02:48.681Z"
   },
   "typescale-com": {
     "openAnomalies": [],

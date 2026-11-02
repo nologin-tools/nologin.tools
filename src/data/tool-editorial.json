@@ -74668,5 +74668,427 @@
       "testedAt": "2026-10",
       "contentUpdatedAt": "2026-10-29T03:59:35.563Z"
     }
+  },
+  "parsebloom-com": {
+    "en": {
+      "bestFor": "Developers and data analysts needing quick client-side XML to JSON conversion and download without server uploads.",
+      "pros": [
+        "Executes XML parsing and JSON transformation entirely in client-side browser JavaScript",
+        "Instant direct download of converted JSON files with zero account registration or usage fees",
+        "Provides convenient clipboard copy and clean input reset controls"
+      ],
+      "cons": [
+        "No advanced XML parsing options such as custom attribute prefixing or schema validation",
+        "Telemetry beacons sent to Google Analytics and Cloudflare RUM on page load"
+      ],
+      "privacyVerdict": "XML data is parsed and transformed locally in browser memory without server transmission. Outgoing telemetry payloads were observed to Google Analytics (POST /g/collect) and Cloudflare (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Converted structured XML hierarchy into clean JSON in 24 ms. Downloaded 279-byte JSON artifact without watermarks while observing 2 telemetry payloads.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-31T02:46:51.240Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地快速将 XML 数据结构转换为 JSON 并下载、无需将数据上传至云端的开发者与数据分析师。",
+      "pros": [
+        "完全在浏览器前端本地 JavaScript 引擎中解析 XML 并生成格式化 JSON 数据",
+        "一键直接下载生成的 JSON 文件与复制到剪贴板，无任何注册门槛或限制",
+        "界面简洁无冗余广告，提供便捷的一键清空与重置控制"
+      ],
+      "cons": [
+        "缺少自定义属性前缀配置或 XML Schema 校验等高级解析选项",
+        "页面加载时会向 Google Analytics 和 Cloudflare RUM 发送遥测信标"
+      ],
+      "privacyVerdict": "XML 数据完全在本地浏览器内存中解析转换，未向远端服务器传输源内容。测试期间观察到 2 次发往 Google Analytics 与 Cloudflare RUM 的遥测请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 24ms 内将结构化 XML 转换为标准 JSON。直接下载 279 字节无水印 JSON 文件，期间捕获 2 次第三方遥测出站。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-31T02:46:51.241Z"
+    }
+  },
+  "voltagedropcalculator-net": {
+    "en": {
+      "bestFor": "Electricians, engineers, and DIYers calculating conductor voltage drops and determining NEC 2023 compliant wire sizes with instant PDF reports.",
+      "pros": [
+        "Comprehensive electrical calculation engine implementing NEC 2023 tables for copper and aluminum conductors across conduit types",
+        "Dual calculation modes supporting direct voltage drop percentage analysis and inverse wire gauge sizing recommendations",
+        "Instant client-side PDF engineering report generation without sign-up or licensing fees"
+      ],
+      "cons": [
+        "Loads multiple third-party advertising and analytics beacons including Google AdSense and Ahrefs",
+        "Fixed to NEC standards without direct toggle for IEC or international electrical code tables"
+      ],
+      "privacyVerdict": "Electrical sizing calculations and PDF report compilation occur entirely on the client side. Outgoing network activity included 19 observed payloads to Google Analytics, Ahrefs telemetry, and Google AdSense.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 11,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Calculated 15A 120V single-phase run over 100 ft in 18 ms, determining 8 AWG minimum wire size (1.95% drop). Generated and downloaded a 6620-byte PDF report without watermarks while 19 telemetry/ad payloads were observed.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-31T02:52:22.027Z"
+    },
+    "zh": {
+      "bestFor": "需要根据 NEC 2023 标准快速计算导线压降、选定合规线规并直接导出工程 PDF 报告的电工与电气工程师。",
+      "pros": [
+        "内置完善的电气计算引擎，遵循 NEC 2023 规范支持铜/铝导线及不同导管材质的精确计算",
+        "支持双模式分析：既可计算给定线规的压降百分比，亦可反向推荐满足目标压降的最小线规",
+        "免登录一键直接生成并下载排版工整的电气计算 PDF 报告，无任何收费或强制水印"
+      ],
+      "cons": [
+        "页面加载了包含 Google AdSense、Ahrefs 和 Google Analytics 在内的多个第三方广告与统计信标",
+        "仅支持 NEC 美标规范体系，未内置 IEC 国际电工标准切换选项"
+      ],
+      "privacyVerdict": "电气压降计算与 PDF 报告生成均在本地浏览器前端完成。测试期间观察到 19 次发往 Google Analytics、Ahrefs 统计与 Google AdSense 的网络出站。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 11,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 18ms 内完成 15A 120V 单相 100 英尺导线压降计算，推荐 8 AWG 最小线规（压降 1.95%）。生成并下载 6620 字节纯净 PDF 报告，捕获 19 次广告与遥测出站。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-31T02:52:22.027Z"
+    }
+  },
+  "hosthtmlfile-com": {
+    "en": {
+      "bestFor": "Web developers, designers, and students needing instant zero-configuration temporary hosting and sharing for static HTML pages or ZIP bundles.",
+      "pros": [
+        "Zero-configuration guest hosting: uploads single HTML files or zipped multi-asset bundles without Git repositories or build setups",
+        "Instant temporary public preview URL generated in seconds for sharing and live testing",
+        "Built-in file hierarchy preview panel showing associated CSS, JS, and image assets"
+      ],
+      "cons": [
+        "Cloudflare Turnstile verification challenge must be solved before publishing guest links",
+        "Free guest hosted links are temporary and expire automatically after 1 to 2 hours unless upgraded"
+      ],
+      "privacyVerdict": "Uploaded HTML documents and project bundles are transmitted to the server backend (POST /api/guest/publish) for hosting. Telemetry beacons were observed to Google Analytics, DoubleClick, and Cloudflare RUM.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 16,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 135-byte HTML fixture and published guest preview link in 450 ms. Copied 50-character public preview URL to clipboard without watermarks while observing 6 network payloads.",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-31T03:01:18.849Z"
+    },
+    "zh": {
+      "bestFor": "需要在无需配置 Git 仓库或复杂构建流程的情况下，快速将静态 HTML 文件或 ZIP 打包工程临时上线分享的前端开发者与设计师。",
+      "pros": [
+        "零配置访客极速托管：直接拖拽单文件 HTML 或包含 CSS/JS 资源的 ZIP 包即可上线",
+        "秒级生成公开预览链接，支持一键复制分享并在真实浏览器中即时访问",
+        "提供清晰的文件树结构视图，方便核验 index.html 与关联样式脚本依赖"
+      ],
+      "cons": [
+        "发布访客链接前必须完成 Cloudflare Turnstile 人机验证挑战",
+        "免登录访客链接具有时效性，通常在 1 至 2 小时后自动失效过期"
+      ],
+      "privacyVerdict": "上传的 HTML 文档与资源包通过 POST /api/guest/publish 发往服务器端进行托管存储。测试期间捕获到发往 Google Analytics、DoubleClick 与 Cloudflare RUM 的 6 次出站请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 16,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 135 字节 HTML 测试文件并在 450ms 内完成云端发布。成功复制 50 字符公开预览链接至剪贴板，全程捕获 6 次包含发布接口与第三方统计的出站请求。",
+      "testedAt": "2026-10",
+      "contentUpdatedAt": "2026-10-31T03:01:18.849Z"
+    }
+  },
+  "declarenta-com": {
+    "en": {
+      "bestFor": "Spanish tax residents calculating capital gains and tax returns from international brokers like Degiro, Interactive Brokers, and Revolut.",
+      "pros": [
+        "Parses international broker trade reports entirely client-side across Degiro, IBKR, Trade Republic, and crypto exchanges",
+        "Calculates Spanish tax declarations for Modelo 100, 720, 721, and D-6 with instant breakdown of gains and dividends",
+        "Exports processed tax reports to standard CSV, localized Excel CSV, JSON, and PDF without sign-up or paywalls"
+      ],
+      "cons": [
+        "Primary interface is in Spanish, requiring basic familiarity with Spanish tax terminology"
+      ],
+      "privacyVerdict": "Broker reports are parsed and calculated entirely within client-side browser memory. Bounded network observation captured zero outgoing payload requests during file upload, tax computation, and report export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Parsed 2-trade Degiro CSV fixture and computed Modelo 100 capital gains in under 60 ms. Successfully generated and downloaded a 733-byte tax CSV artifact with 0 network payloads observed.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T02:46:11.937Z"
+    },
+    "zh": {
+      "bestFor": "需要为 Degiro、Interactive Brokers、Revolut 等海外券商投资收益计算西班牙个人所得税申报的西班牙税务居民及投资者。",
+      "pros": [
+        "完全在浏览器本地解析 Degiro、IBKR、Trade Republic 等十余家海外券商及加密交易所导出的账单",
+        "全流程自动化计算西班牙 Modelo 100、720、721 与 D-6 税表，即时输出资本利得与股息统计",
+        "免登录一键导出标准 CSV、西班牙本土 Excel CSV、JSON 与 PDF 报告，无任何收费壁垒"
+      ],
+      "cons": [
+        "界面默认语言为西班牙语，需要对西班牙税务术语（如 Modelo 100/720）有基本了解"
+      ],
+      "privacyVerdict": "券商交易流水完全在浏览器本地内存中完成解析与税务核算。在文件上传、税费计算及报表导出全流程的有界网络观测中，未捕获到任何远端数据出站请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 60ms 内解析双笔 Degiro CSV 交易流水并完成 Modelo 100 资本利得核算。成功生成并直接下载 733 字节税务 CSV 报告，全流程 0 网络请求出站。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T02:46:11.938Z"
+    }
+  },
+  "badqualityimagemaker-com": {
+    "en": {
+      "bestFor": "Content creators and meme makers looking to quickly degrade, pixelate, or deep fry images for retro or lo-fi aesthetics.",
+      "pros": [
+        "Applies blur, pixelation, compression degradation, and deep-fried color shifts directly in client-side canvas",
+        "Instant direct downloads in JPG, PNG, or WebP formats without mandatory account creation or watermarks",
+        "Interactive before-and-after side-by-side comparison with adjustable effect intensity slider"
+      ],
+      "cons": [
+        "Loads multiple third-party analytics and session replay telemetry beacons (Google Analytics, Krillion Analytics, Cloudflare RUM)"
+      ],
+      "privacyVerdict": "Image pixelation and distortion effects are rendered client-side in browser memory without image server uploads. Bounded observation captured 11 outgoing telemetry payloads to Google Analytics, Cloudflare RUM, and Krillion analytics/session-replay endpoints.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Processed a 325 KB PNG fixture with the Pixelated filter in 45 ms. Downloaded a 3303-byte JPEG artifact with zero watermarks while observing 11 telemetry payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T02:50:50.188Z"
+    },
+    "zh": {
+      "bestFor": "需要快速降低图片画质、添加像素化或复古低保真（Lo-fi）滤镜以制作表情包与创意视觉的创作者。",
+      "pros": [
+        "在浏览器本地 Canvas 中即时实现降质压缩、马赛克像素化及饱和度失真效果",
+        "免登录一键导出 JPG、PNG 或 WebP 格式图像，无任何付费限制或强制水印",
+        "提供直观的双栏原图/效果对比视图与连续可调的特效强度滑块"
+      ],
+      "cons": [
+        "页面加载并发送多达 11 条发往 Google Analytics、Krillion 遥测与 Cloudflare RUM 的统计信标"
+      ],
+      "privacyVerdict": "图像处理算法完全在前端浏览器 Canvas 本地运行，原始图片无需上传服务器。有界网络测试中捕获到 11 次发往 Google Analytics、Cloudflare RUM 及 Krillion 分析与会话回放接口的遥测请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 45ms 内完成 325KB PNG 样本的像素化处理。成功导出 3303 字节无水印 JPEG 图像，期间记录 11 次第三方遥测出站。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T02:50:50.189Z"
+    }
+  },
+  "typepatch-com": {
+    "en": {
+      "bestFor": "Designers and translators needing to detect, remove, or replace text inside images entirely within browser local storage.",
+      "pros": [
+        "Runs local client-side OCR text scanning and canvas layer replacement without uploading image files to external servers",
+        "Comprehensive text styling suite including font selection, sizing, spacing, text removal brush, and shape coverups",
+        "Instant 800x600 PNG artifact export with zero watermark insertion or mandatory sign-up"
+      ],
+      "cons": [
+        "Heavy client-side OCR model initial compilation can momentarily pause low-spec browser threads on large image loads"
+      ],
+      "privacyVerdict": "Image rendering, OCR text recognition, and layer composition execute entirely in client-side browser memory without remote image processing. Bounded network observation captured 1 outgoing Cloudflare RUM telemetry beacon (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded an 800x600 PNG fixture, initialized local OCR scanning, and exported a clean 173,809-byte PNG in 115 ms while observing 1 telemetry beacon.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T03:02:48.660Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地直接识别、擦除或替换图片中文字内容且不希望图片上传到云端服务器的设计师与本地化译者。",
+      "pros": [
+        "完全在前端浏览器本地运行 OCR 文字扫描与 Canvas 图层替换，原始图片不上云",
+        "提供丰富的文字排版与修补工具，包含字体字号调节、文字消除画笔与色块遮盖",
+        "一键直接导出 800x600 无水印高质量 PNG 图片，免注册无收费限制"
+      ],
+      "cons": [
+        "首次加载端侧本地 OCR 引擎时在低配设备上可能会占用较多内存与计算资源"
+      ],
+      "privacyVerdict": "图片渲染、OCR 文字识别及图层合成完全在浏览器端侧本地内存中运行，未向外部服务器上传任何图像内容。测试期间仅捕获到 1 次发往 Cloudflare RUM（POST /cdn-cgi/rum）的性能监测请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "成功载入 800x600 PNG 样本并完成端侧 OCR 扫描，在 115ms 内导出 173,809 字节无水印 PNG 图像，全程仅 1 次性能遥测出站。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T03:02:48.661Z"
+    }
+  },
+  "noiseremover-site": {
+    "en": {
+      "bestFor": "Podcasters, voiceover artists, and remote workers needing quick, private background noise reduction on voice recordings without cloud uploads.",
+      "pros": [
+        "Executes voice isolation and background hum suppression locally in browser memory via Web Audio DSP",
+        "Offers three selectable noise reduction profiles (Gentle, Balanced, Strong) with instant A/B playback comparison",
+        "Direct 16-bit uncompressed WAV download with zero watermark, registration, or file count caps"
+      ],
+      "cons": [
+        "Processes single audio tracks up to 50 MB / 5 minutes without multi-track batch editing options"
+      ],
+      "privacyVerdict": "Audio files are analyzed and filtered entirely inside the local browser context without audio data being transmitted to remote servers. Bounded network observation captured 1 outgoing telemetry beacon (POST /58ac45267e581f0e/view).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Filtered a 1-second 48 kHz WAV audio fixture in 78 ms. Successfully generated and downloaded a 96,044-byte 16-bit clean WAV file with 1 telemetry payload observed.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T03:09:11.815Z"
+    },
+    "zh": {
+      "bestFor": "需要对人声录音、播客或旁白进行快速降噪且不希望音频文件上传至云端服务器的内容创作者与远程办公人员。",
+      "pros": [
+        "完全在浏览器本地利用 Web Audio DSP 进行端侧人声提取与背景杂音消除，音频不上云",
+        "提供轻柔、均衡与强力三档降噪强度，并支持处理前后原声与降噪效果即时 A/B 试听对比",
+        "一键直接下载 16 位无损 WAV 音频，无任何强制注册、用量限制或音频水印"
+      ],
+      "cons": [
+        "单次处理限制单个音频文件在 50MB / 5分钟以内，暂不支持多轨批量处理"
+      ],
+      "privacyVerdict": "用户上传的音频文件完全在前端本地浏览器内存中解码与滤波降噪，未向远端服务器传输音频内容。测试期间仅捕获到 1 次页面访问遥测出站（POST /58ac45267e581f0e/view）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 78ms 内完成 1 秒 48kHz WAV 样本的音频滤波降噪。成功导出 96,044 字节 16 位纯净 WAV 文件，全流程记录 1 次遥测出站。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T03:09:11.816Z"
+    }
+  },
+  "myseasonhue-com-virtual-color-draping": {
+    "en": {
+      "bestFor": "Individuals and stylists wanting to test personal seasonal color analysis across 12 palette drapes privately in the browser.",
+      "pros": [
+        "Renders side-by-side virtual color drapes across all 12 seasonal palettes directly in client-side canvas",
+        "Generates and exports an expansive 1600x1740 high-resolution 12-season overview PNG without login or watermarks",
+        "Clear privacy architecture keeping portrait photos strictly in local browser memory with an explicit analytics opt-out"
+      ],
+      "cons": [
+        "Telemetry events dispatched to internal analytics endpoint (POST /api/events) on user actions"
+      ],
+      "privacyVerdict": "Uploaded portraits are processed and layered onto color analysis cards entirely within local browser memory. Bounded network observation captured 3 outgoing telemetry requests to /api/events with zero photo data egressed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Synthesized 12 seasonal palette drape overlays for an 800x600 PNG fixture in 42 ms. Successfully exported a 659,391-byte high-resolution PNG artifact while observing 3 event payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T03:24:23.343Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地私密测试个人 12 季型色彩测试（四季色彩分析）并对比各色盘效果的个人用户与造型师。",
+      "pros": [
+        "完全在前端浏览器本地 Canvas 中即时生成 12 季型虚拟色布比色卡，人像照片绝不上云",
+        "一键直接导出 1600x1740 超高分辨率 12 季型色彩总览长图，免注册且无任何水印",
+        "清晰的隐私声明与用户协议，提供明确的分析遥测一键拒绝（Decline）选项"
+      ],
+      "cons": [
+        "交互过程中会向站点自身事件接口（POST /api/events）发送 3 次用户行为遥测请求"
+      ],
+      "privacyVerdict": "人像照片完全在本地浏览器内存中进行色盘图层叠合与渲染，未向远端服务器传输照片文件。测试期间捕获到 3 次发往 /api/events 的交互事件出站记录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 42ms 内为 800x600 PNG 样本完成 12 季型色卡合成。成功导出 659,391 字节无水印高分 PNG 全景图，记录 3 次事件遥测出站。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-02T03:24:23.343Z"
+    }
   }
 }
