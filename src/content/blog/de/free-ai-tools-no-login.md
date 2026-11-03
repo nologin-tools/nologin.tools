@@ -53,7 +53,7 @@ Der klare Gewinner ist DuckDuckGo: mehrere verfügbare Modelle, dokumentierte Da
 
 Wenn du ein Dokument bearbeitest und Hilfe bei Formulierungen, Ton oder Grammatik brauchst, haben die KI-Schreibtools in diesem Bereich wirklich unterschiedliche Charaktere.
 
-[QuillBot](/tool/quillbot-com) ist der Paraphrasierungsspezialist. Text einfügen, einen Modus wählen (Standard, Flüssig, Formal, Akademisch, Kreativ) und er schreibt um. Die kostenlose Stufe ohne Registrierung deckt die meisten gängigen Aufgaben ab — Paraphrasierung und grundlegende Grammatikprüfung funktionieren vollständig. Funktionen, die ein Konto erfordern, sind der Synonymvorschlag und die Verarbeitung längerer Texte. Für schnelles Umschreiben von Sätzen muss man sich nicht anmelden.
+[QuillBot](https://quillbot.com) ist der Paraphrasierungsspezialist. Text einfügen, einen Modus wählen (Standard, Flüssig, Formal, Akademisch, Kreativ) und er schreibt um. Die kostenlose Stufe ohne Registrierung deckt die meisten gängigen Aufgaben ab — Paraphrasierung und grundlegende Grammatikprüfung funktionieren vollständig. Funktionen, die ein Konto erfordern, sind der Synonymvorschlag und die Verarbeitung längerer Texte. Für schnelles Umschreiben von Sätzen muss man sich nicht anmelden.
 
 [DeepL Translator](/tool/deepl-com-translator) nutzt neuronale Übersetzung, die Google Translate bei europäischen Sprachen laut [unabhängigen Bewertungen](https://www.deepl.com/en/quality) regelmäßig übertrifft. Für die Web-Oberfläche ist kein Konto erforderlich. Bis zu 1.500 Zeichen einfügen und eine Übersetzung erhalten. Für professionelle Nutzung fügt das Pro-Abonnement Dokumentenübersetzung hinzu, aber die kostenlose Version ohne Login deckt die meisten Anforderungen ab.
 

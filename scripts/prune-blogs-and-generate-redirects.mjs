@@ -112,6 +112,7 @@ export const DELISTED_TOOLS_CATEGORY_MAP = {
   'form-d-deadline-calculator-vercel-app': 'finance',
   'section-16-deadline-calculator-vercel-app': 'finance',
   'www-quackbuilds-com-apps-oee-pulse-html': 'productivity',
+  'quillbot-com': 'writing',
 };
 
 export const RENAMED_COMPARISONS_MAP = {

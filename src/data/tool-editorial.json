@@ -21287,7 +21287,7 @@
       "cons": [
         "Advanced cloud palette synchronization and team collaboration features require Pro upgrade"
       ],
-      "privacyVerdict": "Observed network egress includes PostHog analytics (us.i.posthog.com) and an anonymous visitor rate check. Color scale calculation and code export operate entirely client-side without account login.",
+      "privacyVerdict": "Observed network egress includes PostHog analytics (us.i.posthog.com/e/). Color scale calculation and code export operate entirely client-side without account login.",
       "alternativeTo": [
         "realtimecolors-com",
         "colorhunt-co",
@@ -21302,8 +21302,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Interpolated 11-step palette from base hex #cd21a8 in 82 ms; exported 236 chars of clean Tailwind config to clipboard with zero watermarks.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Interpolated 11-step palette across multiple base colors in under 80 ms; verified copy to clipboard in Tailwind format with zero watermarks or login requirement.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-03T02:37:14.551Z"
     },
     "zh": {
       "bestFor": "输入任意单色 HEX 值自动推导全套 11 级 Tailwind CSS 与 Shadcn/ui 兼容色阶调色板。",
@@ -21314,7 +21315,7 @@
       "cons": [
         "多调色板云端跨设备同步与团队协作功能需付费订阅 Pro 版本"
       ],
-      "privacyVerdict": "网络观测记录到 PostHog 遥测（us.i.posthog.com）与匿名频次检查接口。色阶数学推导与代码生成完全在客户端执行，无需注册账号。",
+      "privacyVerdict": "网络观测记录到 PostHog 遥测（us.i.posthog.com/e/）。色阶数学推导与代码生成完全在客户端执行，无需注册账号即可自由复制。",
       "alternativeTo": [
         "realtimecolors-com",
         "colorhunt-co",
@@ -21329,8 +21330,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "基于 #cd21a8 在 82ms 内完成 11 级色阶渲染，一键导出 236 字符无水印 Tailwind 配置对象至剪贴板。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "多色相基色在 80ms 内完成 11 级色阶插值渲染，一键复制无水印 Tailwind 配置对象至剪贴板，全程免登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-03T02:37:14.551Z"
     },
     "ja": {
       "bestFor": "調和のとれた 11 シェードの Tailwind CSS および Shadcn/ui カラー スケールを任意の基本 16 進カラーから生成します。",
@@ -21357,7 +21359,7 @@
         "colorhunt-co",
         "coolors-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "모든 기본 16진수 색상에서 조화로운 11가지 음영 Tailwind CSS 및 Shadcn/ui 색상 스케일을 생성합니다.",
@@ -21384,7 +21386,7 @@
         "colorhunt-co",
         "coolors-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Generación de armoniosas escalas de colores Tailwind CSS y Shadcn/ui de 11 tonos a partir de cualquier color hexadecimal base.",
@@ -21411,7 +21413,7 @@
         "colorhunt-co",
         "coolors-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Génération d'échelles de couleurs Tailwind CSS et Shadcn/ui harmonieuses de 11 nuances à partir de n'importe quelle couleur hexadécimale de base.",
@@ -21438,7 +21440,7 @@
         "colorhunt-co",
         "coolors-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Generieren harmonischer Tailwind CSS- und Shadcn/UI-Farbskalen mit 11 Farbtönen aus jeder Basis-Hex-Farbe.",
@@ -21465,7 +21467,7 @@
         "colorhunt-co",
         "coolors-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Gerando escalas de cores Tailwind CSS e Shadcn/ui harmoniosas de 11 tons a partir de qualquer cor hexadecimal base.",
@@ -21492,7 +21494,7 @@
         "colorhunt-co",
         "coolors-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "happyhues-co": {
@@ -26731,14 +26733,14 @@
     "en": {
       "bestFor": "Listening to uninterrupted cognitive focus mixes and downloading high-bitrate ambient soundscapes while writing code.",
       "pros": [
-        "Over 120 hours across 79 curated long-form ambient and drone mixes specifically sequenced for cognitive concentration",
+        "Over 120 hours across 79 curated longform ambient and drone mixes sequenced specifically for cognitive focus",
         "Direct unthrottled download links to full 320kbps MP3 source files alongside standard RSS podcast subscription feeds",
         "Iconic monospace terminal aesthetic with instant one-click playback, tracklist discography, and zero paywalls"
       ],
       "cons": [
         "Site loads Google Analytics telemetry scripts (google-analytics.com) on initial page visit"
       ],
-      "privacyVerdict": "Observed network egress is strictly bounded to 2 Google Analytics telemetry beacons (google-analytics.com/j/collect and g/collect). Audio files stream directly from media CDNs (datashat.net) without requiring user registration, authentication cookies, or listening history profiling.",
+      "privacyVerdict": "Observed network egress is strictly limited to 2 Google Analytics telemetry beacons (google-analytics.com/j/collect and g/collect). Audio files stream directly from media CDNs without requiring user registration, authentication cookies, or listening history profiling.",
       "alternativeTo": [
         "brain-fm"
       ],
@@ -26751,20 +26753,21 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Streamed Episode 79 (4-hour ambient mix) in 162 ms max long task and 0.00 CLS; verified direct 420 MB MP3 source download link and RSS feed with 2 Google Analytics beacons observed.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Streamed Episode 78 (Datassette mix) in max 61 ms long task and 0.01 CLS; verified audio playback controls and unthrottled MP3 source links with 2 Google Analytics beacons observed.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-03T02:50:13.301Z"
     },
     "zh": {
-      "bestFor": "在编程写代码或深度脑力劳动时聆听连续不间断的专注力环境氛围声学混音，并免登录下载高码率完整音频。",
+      "bestFor": "写代码或深度工作时沉浸式收听无干扰的认知专注型氛围电音，并直接下载高码率原盘音频文件。",
       "pros": [
-        "收录 79 期、超 120 小时专为提升认知专注力编排的长时环境音乐、无人声氛围声学混音",
-        "提供完整高码率 MP3 源文件直链免登录下载（单期长达数小时），并提供标准 RSS Podcast 订阅源",
-        "极简等宽终端代码风格界面，支持一键极速起播、完整曲目单解析与免登录纯净体验"
+        "收录超过 120 小时、79 期精心编排的极简氛围（Ambient）与无人声 Drone 专注长音频",
+        "直接提供 320kbps 完整 MP3 源文件直链下载，无需注册任何流媒体平台账号，支持标准 RSS 订阅",
+        "经典极简等宽字符终端美学，单机一键点播播放，界面零广告零付费墙"
       ],
       "cons": [
-        "页面初次加载时会触发 Google Analytics 访问统计遥测请求"
+        "首屏加载时会引入 Google Analytics（google-analytics.com）访问统计信标"
       ],
-      "privacyVerdict": "实测网络出站严格限定为 2 次发往 Google Analytics（google-analytics.com）的页面访问遥测。音频流直接通过媒体分发源（datashat.net）加载，全程无需注册账号、无需偏好 Cookie，无任何收听行为画像追踪。",
+      "privacyVerdict": "网络观测记录到 2 次 Google Analytics 统计信标（google-analytics.com/j/collect 与 g/collect）。音频媒体直连 CDN 分发，无用户账号体系、无追踪 Cookie，不对用户播放历史做商业画像。",
       "alternativeTo": [],
       "productScore": {
         "overall": 72,
@@ -26775,8 +26778,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "在 162ms 最大任务耗时与 0.00 CLS 下即时启动第 79 期（4小时长音频）播放；成功验证 420 MB MP3 原始音频直链下载与 RSS 订阅源，实测捕获 2 条 Google Analytics 遥测记录。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "流畅点播第 78 期 Datassette 专注混音，界面长任务响应最大 61ms，CLS 0.01；播放控制与 151MB MP3 资源直链完好，抓取到 2 次 GA 信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-03T02:50:13.301Z"
     },
     "ja": {
       "bestFor": "コードを書きながら、中断のないコグニティブ フォーカス ミックスを聴いたり、高ビットレートのアンビエント サウンドスケープをダウンロードしたりできます。",
@@ -26802,7 +26806,7 @@
       "alternativeTo": [
         "brain-fm"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "코드를 작성하는 동안 중단 없이 인지 포커스 믹스를 듣고 높은 비트율의 주변 소리 풍경을 다운로드합니다.",
@@ -26828,7 +26832,7 @@
       "alternativeTo": [
         "brain-fm"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Escuchar mezclas ininterrumpidas de enfoque cognitivo y descargar paisajes sonoros ambientales de alta velocidad de bits mientras se escribe código.",
@@ -26854,7 +26858,7 @@
       "alternativeTo": [
         "brain-fm"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Écouter des mixages de concentration cognitive ininterrompus et télécharger des paysages sonores ambiants à haut débit tout en écrivant du code.",
@@ -26880,7 +26884,7 @@
       "alternativeTo": [
         "brain-fm"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Hören Sie ununterbrochen kognitive Fokusmischungen und laden Sie Umgebungsgeräuschlandschaften mit hoher Bitrate herunter, während Sie Code schreiben.",
@@ -26906,7 +26910,7 @@
       "alternativeTo": [
         "brain-fm"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Ouvir mixagens de foco cognitivo ininterruptas e baixar paisagens sonoras ambientais com alta taxa de bits enquanto escreve código.",
@@ -26932,7 +26936,7 @@
       "alternativeTo": [
         "brain-fm"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "copychar-cc": {
@@ -40918,11 +40922,11 @@
         "Clean dark-mode interface with configurable quality slider and multi-format output targets"
       ],
       "cons": [
-        "Image conversion relies on server processing via POST /api/convert rather than client-side execution",
+        "Image conversion relies on server processing via POST ignlab.net/api/convert rather than client-side execution",
         "Server drops connections on larger image uploads (300KB+), triggering conversion failures",
         "Contains Google AdSense advertising scripts and Google Analytics tracking beacons"
       ],
-      "privacyVerdict": "Image files are transmitted to a backend uvicorn server via POST /api/convert during conversion; observed 2 Google Analytics (GA4) beacons and 5 /api/convert image payloads alongside Google AdSense scripts.",
+      "privacyVerdict": "Image files are transmitted to a backend uvicorn server via POST ignlab.net/api/convert during conversion; observed Google Analytics (GA4) beacons and POST ignlab.net/api/convert payloads alongside Google AdSense scripts.",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -40937,8 +40941,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Uploaded 28.6KB PNG fixture, executed server conversion to JPEG (85% quality) via POST /api/convert, and downloaded a clean 7,425-byte unwatermarked JPEG artifact in 2.1s.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Uploaded 11.8KB PNG fixture, executed server conversion to JPEG (85% quality) via POST ignlab.net/api/convert, and downloaded a clean 2,613-byte unwatermarked JPEG artifact in 1.8s.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-03T02:45:26.730Z"
     },
     "zh": {
       "bestFor": "免登录将图片转为 JPG/WebP 格式，以及使用 SVG 气泡、CSS 样式与 QR 码等轻量设计生成器的开发者与设计师。",
@@ -40948,11 +40953,11 @@
         "暗色系视觉风格，提供可调压缩质量滑块与多目标格式切换"
       ],
       "cons": [
-        "图片转换需通过 POST /api/convert 将二进制上传至后端 uvicorn 服务器，并非纯端侧处理",
+        "图片转换需通过 POST ignlab.net/api/convert 将二进制上传至后端 uvicorn 服务器，并非纯端侧处理",
         "后端接口对较大文件（如 300KB+）存在连接重置问题，易导致转换中断报错",
         "页面内嵌 Google AdSense 广告脚本及 Google Analytics 访问统计信标"
       ],
-      "privacyVerdict": "图片转换过程需将文件上传至远端 uvicorn 服务器接口（POST /api/convert）；测试中抓取到 2 次 GA4 数据信标及 5 次 /api/convert 上传请求，且引入了 Google AdSense 脚本。",
+      "privacyVerdict": "图片转换过程需将文件上传至远端 uvicorn 服务器接口（POST ignlab.net/api/convert）；测试中抓取到 GA4 数据信标及 POST ignlab.net/api/convert 上传请求，且引入了 Google AdSense 脚本。",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -40967,8 +40972,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "上传 28.6KB 的 PNG 测试样例，通过 POST /api/convert 完成 85% 质量的 JPEG 转码，并在 2.1 秒内无损下载 7,425 字节无水印图片成品。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "上传 11.8KB 的 PNG 测试样例，通过 POST ignlab.net/api/convert 完成 85% 质量的 JPEG 转码，并在 1.8 秒内无损下载 2,613 字节无水印图片成品。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-03T02:45:26.731Z"
     },
     "ja": {
       "bestFor": "画像を JPG/WebP に変換し、登録なしで SVG BLOB、CSS 効果、QR コードなどのデザイナー ジェネレーターにアクセスします。",
@@ -40998,7 +41004,7 @@
         "TinyPNG",
         "CloudConvert"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "등록 없이 이미지를 JPG/WebP로 변환하고 SVG blob, CSS 효과, QR 코드와 같은 디자이너 생성기에 액세스합니다.",
@@ -41028,7 +41034,7 @@
         "TinyPNG",
         "CloudConvert"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Convierta imágenes a JPG/WebP y acceda a generadores de diseño como blobs SVG, efectos CSS y códigos QR sin registrarse.",
@@ -41058,7 +41064,7 @@
         "TinyPNG",
         "CloudConvert"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Conversion d'images en JPG/WebP et accès à des générateurs de concepteurs tels que des blobs SVG, des effets CSS et des codes QR sans inscription.",
@@ -41088,7 +41094,7 @@
         "TinyPNG",
         "CloudConvert"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Konvertieren Sie Bilder in JPG/WebP und greifen Sie ohne Registrierung auf Designer-Generatoren wie SVG-Blobs, CSS-Effekte und QR-Codes zu.",
@@ -41118,7 +41124,7 @@
         "TinyPNG",
         "CloudConvert"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Convertendo imagens para JPG/WebP e acessando geradores de designer como blobs SVG, efeitos CSS e códigos QR sem registro.",
@@ -41148,7 +41154,7 @@
         "TinyPNG",
         "CloudConvert"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "comparediff-io": {

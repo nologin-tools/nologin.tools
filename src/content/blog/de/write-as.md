@@ -74,7 +74,7 @@ Aber das Bezahl-Angebot ist eindeutig ein Upsell für Menschen, die schon Mehrwe
 
 Das ist ein bedeutender Unterschied. Viele Freemium-Tools legen ihr kostenloses Angebot bewusst frustrierend an, um dich per Limitierung in ein Abo zu drängen. Das kostenlose Angebot von Write.as tut genau das, was es verspricht. Wer nie ein Konto anlegt, hat trotzdem ein vollständig funktionsfähiges Publishing-Tool.
 
-Vergleich das mit der Erfahrung bei den meisten KI-Schreibassistenten: Tools wie [QuillBot](/tool/quillbot-com) bieten ein funktionales kostenloses Angebot, drängen aber ständig zum Upgrade. Write.as unterbricht das Schreiberlebnis nicht mit Abo-Hinweisen.
+Vergleich das mit der Erfahrung bei den meisten KI-Schreibassistenten: Tools wie [QuillBot](https://quillbot.com) bieten ein funktionales kostenloses Angebot, drängen aber ständig zum Upgrade. Write.as unterbricht das Schreiberlebnis nicht mit Abo-Hinweisen.
 
 ## Wer das wirklich nutzt
 

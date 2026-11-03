@@ -53,7 +53,7 @@ Le grand gagnant ici, c'est DuckDuckGo : plusieurs modèles disponibles, archite
 
 Quand tu édites un document et que tu as besoin d'aide pour la formulation, le ton ou la grammaire, les outils d'écriture IA de ce secteur ont des personnalités vraiment différentes.
 
-[QuillBot](/tool/quillbot-com) est le spécialiste de la paraphrase. Colle un texte, choisis un mode (Standard, Fluidité, Formel, Académique, Créatif) et il réécrit. Le niveau gratuit sans inscription couvre la plupart des tâches courantes — la paraphrase et le correcteur grammatical de base fonctionnent entièrement. Les fonctionnalités nécessitant un compte sont le suggéreur de synonymes et le traitement de textes plus longs. Pour des reformulations rapides, pas besoin de s'inscrire.
+[QuillBot](https://quillbot.com) est le spécialiste de la paraphrase. Colle un texte, choisis un mode (Standard, Fluidité, Formel, Académique, Créatif) et il réécrit. Le niveau gratuit sans inscription couvre la plupart des tâches courantes — la paraphrase et le correcteur grammatical de base fonctionnent entièrement. Les fonctionnalités nécessitant un compte sont le suggéreur de synonymes et le traitement de textes plus longs. Pour des reformulations rapides, pas besoin de s'inscrire.
 
 [DeepL Translator](/tool/deepl-com-translator) utilise une traduction neuronale qui surpasse régulièrement Google Traduction pour les sorties naturelles en langues européennes, selon des [évaluations indépendantes](https://www.deepl.com/en/quality). Pas de compte requis pour l'interface web. Colle jusqu'à 1 500 caractères et obtiens une traduction. Pour un usage professionnel, l'abonnement Pro ajoute la traduction de documents, mais la version gratuite sans login couvre l'essentiel des besoins.
 

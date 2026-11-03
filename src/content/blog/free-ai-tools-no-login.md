@@ -51,7 +51,7 @@ The standout here is DuckDuckGo: you get multiple models, the privacy-first arch
 
 When you're editing a document and need help with phrasing, tone, or grammar, the AI writing tools in this space have genuinely different personalities.
 
-[QuillBot](/tool/quillbot-com) is the paraphrasing specialist. Paste in text, pick a mode (Standard, Fluency, Formal, Academic, Creative), and it rewrites. The free tier without signup covers most common tasks—paraphrasing and the basic grammar checker work fully. The account-gated features are the synonym suggester and longer text processing. For quick sentence rewrites, no signup needed.
+[QuillBot](https://quillbot.com) is the paraphrasing specialist. Paste in text, pick a mode (Standard, Fluency, Formal, Academic, Creative), and it rewrites. The free tier without signup covers most common tasks—paraphrasing and the basic grammar checker work fully. The account-gated features are the synonym suggester and longer text processing. For quick sentence rewrites, no signup needed.
 
 [DeepL Translator](/tool/deepl-com-translator) uses neural translation that consistently beats Google Translate for natural-sounding output in European languages, according to [independent evaluations](https://www.deepl.com/en/quality). No account required for the web interface. Paste up to 1,500 characters, get a translation. For professional work, the Pro subscription adds document translation, but the free no-login version handles most needs.
 

@@ -74,7 +74,7 @@ Mais ce niveau payant est clairement un upsell vers ceux qui ont déjà tiré de
 
 C'est une distinction importante. Beaucoup d'outils freemium conçoivent leur niveau gratuit pour être frustrant par nature, en utilisant les limitations pour te pousser vers un abonnement. Le niveau gratuit de Write.as fait exactement ce qu'il annonce. Si tu ne crées jamais de compte, tu disposes quand même d'un outil de publication entièrement fonctionnel.
 
-Compare ça à l'expérience de la plupart des assistants d'écriture IA : des outils comme [QuillBot](/tool/quillbot-com) offrent un niveau gratuit fonctionnel mais te poussent constamment à passer à la version supérieure. Write.as n'interrompt pas l'expérience d'écriture avec des incitations à l'abonnement.
+Compare ça à l'expérience de la plupart des assistants d'écriture IA : des outils comme [QuillBot](https://quillbot.com) offrent un niveau gratuit fonctionnel mais te poussent constamment à passer à la version supérieure. Write.as n'interrompt pas l'expérience d'écriture avec des incitations à l'abonnement.
 
 ## Qui l'utilise vraiment
 

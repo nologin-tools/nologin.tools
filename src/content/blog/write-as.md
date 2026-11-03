@@ -71,7 +71,7 @@ But the paid tier is clearly an upsell to people who have already gotten value f
 
 This is a meaningful distinction. Many freemium tools design their free tier to feel frustrating by design, using limitations to push you toward a subscription. Write.as's free tier does exactly what it advertises. If you never create an account, you still get a fully functional publishing tool.
 
-Compare this to the experience of trying to use most AI writing assistants — tools like [QuillBot](/tool/quillbot-com) give you a functional free tier but prompt you to upgrade constantly. Write.as doesn't interrupt the writing experience with subscription nudges.
+Compare this to the experience of trying to use most AI writing assistants — tools like [QuillBot](https://quillbot.com) give you a functional free tier but prompt you to upgrade constantly. Write.as doesn't interrupt the writing experience with subscription nudges.
 
 ## Who Actually Uses This
 

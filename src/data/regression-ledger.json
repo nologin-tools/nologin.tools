@@ -953,25 +953,21 @@
     "lastSignals": []
   },
   "ignlab-net": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-28T06:28:23.279Z",
-        "lastSeenAt": "2026-10-28T06:28:23.279Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-intent-1793168897914.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-outcome-1793168897914.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-10-28T06:28:23.279Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-03T02:45:26.758Z",
     "lastTitle": "IgnLab — Free Web Tools, Browser Games & Indie Directories",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-03T02:45:26.758Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-03T02:45:26.758Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "imagecompressortokb-com": {
     "openAnomalies": [],
@@ -1315,24 +1311,20 @@
     "lastScanAt": "2026-10-27T02:48:54.834Z"
   },
   "musicforprogramming-net": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-29T06:22:12.194Z",
-        "lastSeenAt": "2026-10-29T06:22:12.194Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-musicforprogramming-net-intent-1793254926452.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-musicforprogramming-net-outcome-1793254926452.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-10-29T06:22:12.194Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-03T02:50:13.332Z",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-03T02:50:13.332Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-03T02:50:13.332Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "musictoolslab-com": {
     "openAnomalies": [],
@@ -2389,25 +2381,21 @@
     "lastScanAt": "2026-10-29T03:19:07.008Z"
   },
   "uicolors-app": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-10-28T06:26:52.295Z",
-        "lastSeenAt": "2026-10-28T06:26:52.295Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-intent-1793168795840.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-outcome-1793168795840.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-10-28T06:26:52.295Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-03T02:37:14.581Z",
     "lastTitle": "Tailwind CSS Colors - All colors + Custom color generator",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-03T02:37:14.581Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-03T02:37:14.581Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "untrackedtools-com-en": {
     "openAnomalies": [],

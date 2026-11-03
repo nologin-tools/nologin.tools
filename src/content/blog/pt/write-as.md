@@ -74,7 +74,7 @@ Mas o plano pago é claramente um upsell para pessoas que já extraíram valor d
 
 Essa é uma distinção importante. Muitas ferramentas freemium projetam seu plano gratuito para ser frustrante por design, usando limitações para te empurrar para uma assinatura. O plano gratuito do Write.as faz exatamente o que promete. Se você nunca criar uma conta, ainda assim tem uma ferramenta de publicação completamente funcional.
 
-Compare isso com a experiência de usar a maioria dos assistentes de escrita com IA: ferramentas como [QuillBot](/tool/quillbot-com) oferecem um plano gratuito funcional, mas ficam te pedindo para fazer upgrade. O Write.as não interrompe a experiência de escrita com lembretes de assinatura.
+Compare isso com a experiência de usar a maioria dos assistentes de escrita com IA: ferramentas como [QuillBot](https://quillbot.com) oferecem um plano gratuito funcional, mas ficam te pedindo para fazer upgrade. O Write.as não interrompe a experiência de escrita com lembretes de assinatura.
 
 ## Quem realmente usa
 

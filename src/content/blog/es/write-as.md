@@ -74,7 +74,7 @@ Pero el nivel de pago es claramente un upsell para personas que ya han obtenido 
 
 Esta es una distinción importante. Muchas herramientas freemium diseñan su nivel gratuito para que resulte frustrante, usando las limitaciones para empujarte hacia una suscripción. El nivel gratuito de Write.as hace exactamente lo que promete. Si nunca creas una cuenta, sigues teniendo una herramienta de publicación completamente funcional.
 
-Compara esto con la experiencia de usar la mayoría de asistentes de escritura con IA: herramientas como [QuillBot](/tool/quillbot-com) ofrecen un nivel gratuito funcional pero te piden que actualices constantemente. Write.as no interrumpe la experiencia de escritura con recordatorios de suscripción.
+Compara esto con la experiencia de usar la mayoría de asistentes de escritura con IA: herramientas como [QuillBot](https://quillbot.com) ofrecen un nivel gratuito funcional pero te piden que actualices constantemente. Write.as no interrumpe la experiencia de escritura con recordatorios de suscripción.
 
 ## Quién lo usa realmente
 
