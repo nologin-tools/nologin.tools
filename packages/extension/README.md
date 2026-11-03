@@ -4,7 +4,7 @@
 
 ## Core Interaction Model (Non-Intrusive by Design)
 
-1. **Search Engine Results Pages (Google, Bing, DuckDuckGo, Baidu, Yahoo, Brave, Startpage, Ecosia, Kagi, Yandex, Sogou, 360 Search)**:
+1. **Search Engine Results Pages (30+ Global & AI Search Engines — Google, Bing, DuckDuckGo, Baidu, Yahoo, Brave, Startpage, Ecosia, Kagi, Qwant, Mojeek, Yandex, Naver, Daum, Perplexity, You.com, Phind, Felo, Genspark, Metaso, etc.)**:
    - `content.js` runs strictly on SERPs (with redirect unwrapping, ad/sitelink skipping, and Google `scaleY(-1)` wrapper protection) to render a single, low-noise inline badge strip per matched domain:
      - **Verified Tools (`.nl-serp-verified`)**: Displays `🛡️ NoLogin Verified · ⚡ 95/100 (Editor's Choice) · 🔒 100% Local · Lab Report ↗` plus direct `vs` comparison links;
      - **Paywalled / Signup-Gated SaaS (`.nl-serp-paywall`)**: Warns `⚡ Signup Wall · Free No-Login Switch:` with 1-click links to verified replacements (e.g., `Photopea ⚡95`, `Excalidraw ⚡96`) before you click into a signup wall;

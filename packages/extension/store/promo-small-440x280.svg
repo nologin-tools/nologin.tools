@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="440" height="280" viewBox="0 0 440 280" fill="none">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090d16" />
-      <stop offset="50%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#022c22" />
+      <stop offset="0%" stop-color="#071118" />
+      <stop offset="55%" stop-color="#0b1f28" />
+      <stop offset="100%" stop-color="#063730" />
     </linearGradient>
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#10b981" />
-      <stop offset="100%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#08695d" />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="12" result="blur" />
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
@@ -18,39 +18,62 @@
   <!-- Background -->
   <rect width="440" height="280" fill="url(#bgGrad)" />
 
-  <!-- Subtle grid lines -->
-  <path d="M0 70 H440 M0 140 H440 M0 210 H440 M110 0 V280 M220 0 V280 M330 0 V280" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <!-- Subtle architectural grid -->
+  <path d="M0 56 H440 M0 112 H440 M0 168 H440 M0 224 H440 M88 0 V280 M176 0 V280 M264 0 V280 M352 0 V280" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
 
   <!-- Ambient Glow -->
-  <circle cx="220" cy="90" r="70" fill="#10b981" fill-opacity="0.15" filter="url(#glow)" />
+  <circle cx="220" cy="72" r="64" fill="#10b981" fill-opacity="0.16" filter="url(#glow)" />
 
-  <!-- Shield Icon -->
-  <g transform="translate(196, 50)">
-    <rect width="48" height="48" rx="14" fill="url(#shieldGrad)" />
-    <path d="M24 11 L35 15.5 V23.5 C35 30.5 29.5 35 24 37 C18.5 35 13 30.5 13 23.5 V15.5 Z" fill="#ffffff" fill-opacity="0.95" />
-    <path d="M19.5 23.5 L22.5 27 L28.5 20.5" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Top Brand Header Pill -->
+  <g transform="translate(80, 18)">
+    <rect width="280" height="24" rx="12" fill="#08695d" fill-opacity="0.35" stroke="#10b981" stroke-opacity="0.45" />
+    <text x="140" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="10.5" fill="#6ee7b7" text-anchor="middle" letter-spacing="0.8">CADES 2.0 PRIVACY &amp; LAB BENCHMARK</text>
   </g>
 
-  <!-- Title & Tagline -->
-  <text x="220" y="132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
+  <!-- Shield Icon + Toolbar Score Badge Preview -->
+  <g transform="translate(184, 52)">
+    <rect width="46" height="46" rx="12" fill="url(#shieldGrad)" stroke="#34d399" stroke-opacity="0.4" />
+    <path d="M23 10 L34 14.5 V22.5 C34 29.5 28.5 34 23 36 C17.5 34 12 29.5 12 22.5 V14.5 Z" fill="#ffffff" fill-opacity="0.96" />
+    <path d="M18.5 22.5 L21.5 26 L27.5 19.5" stroke="#08695d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Live Toolbar Score Badge "95" -->
+    <rect x="34" y="28" width="28" height="18" rx="5" fill="#08695d" stroke="#ffffff" stroke-width="1.5" />
+    <text x="48" y="40.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">95</text>
+  </g>
+
+  <!-- Title & Core Selling Points -->
+  <text x="220" y="124" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="23" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
     NoLogin Tools v2.0
   </text>
-  <text x="220" y="156" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" fill="#10b981" text-anchor="middle" letter-spacing="0.5">
-    SERP RADAR · PAYWALL SWITCHER · 5D HUD
-  </text>
-  <text x="220" y="184" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="12" fill="#94a3b8" text-anchor="middle">
-    320+ Verified Zero-Login Tools &amp; 55+ SaaS Alternatives
+  <text x="220" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#34d399" text-anchor="middle" letter-spacing="0.4">
+    SERP TRUTH BADGES · PAYWALL SWITCHER · 5D HUD
   </text>
 
-  <!-- Feature Pills -->
-  <g transform="translate(42, 218)">
-    <rect x="0" y="0" width="108" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="54" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🔍 SERP Badges</text>
+  <!-- Live SERP Badge Strip Preview -->
+  <g transform="translate(22, 162)">
+    <rect width="396" height="32" rx="6" fill="#f5f9f8" stroke="#10b981" stroke-width="1.2" />
+    <text x="12" y="20.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="11" fill="#08695d">✓ NoLogin Verified</text>
+    <rect x="118" y="7" width="42" height="18" rx="3.5" fill="#08695d" />
+    <text x="139" y="19.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle">95/100</text>
+    <text x="168" y="20.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="10.5" fill="#17694c">· Editor&apos;s Choice · 100% Local</text>
+    <text x="384" y="20.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#08695d" text-anchor="end">Report ↗</text>
+  </g>
 
-    <rect x="122" y="0" width="108" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="176" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">⚡ CADES 5D</text>
+  <!-- 4 Key Metric Pills -->
+  <g transform="translate(22, 212)">
+    <rect x="0" y="0" width="94" height="44" rx="8" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.14" />
+    <text x="47" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle">320+</text>
+    <text x="47" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="9.5" fill="#94a3b8" text-anchor="middle">Verified Tools</text>
 
-    <rect x="244" y="0" width="112" height="26" rx="13" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12" />
-    <text x="300" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="10.5" fill="#e2e8f0" text-anchor="middle">🛡️ Zero Telemetry</text>
+    <rect x="101" y="0" width="94" height="44" rx="8" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.14" />
+    <text x="148" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="14" fill="#fbbf24" text-anchor="middle">55+</text>
+    <text x="148" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="9.5" fill="#94a3b8" text-anchor="middle">SaaS Switchers</text>
+
+    <rect x="202" y="0" width="94" height="44" rx="8" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.14" />
+    <text x="249" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="14" fill="#34d399" text-anchor="middle">30+</text>
+    <text x="249" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="9.5" fill="#94a3b8" text-anchor="middle">Search &amp; AI SERPs</text>
+
+    <rect x="303" y="0" width="93" height="44" rx="8" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.14" />
+    <text x="349.5" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="14" fill="#38bdf8" text-anchor="middle">0 DOM</text>
+    <text x="349.5" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="9.5" fill="#94a3b8" text-anchor="middle">Canvas Clutter</text>
   </g>
 </svg>

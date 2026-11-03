@@ -1,98 +1,384 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
   <defs>
-    <linearGradient id="scBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#1e293b" />
+    <linearGradient id="sc1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06101a" />
+      <stop offset="55%" stop-color="#0d2130" />
+      <stop offset="100%" stop-color="#05332b" />
     </linearGradient>
+    <linearGradient id="floatHudBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1926" />
+      <stop offset="100%" stop-color="#072925" />
+    </linearGradient>
+    <filter id="scShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#000000" flood-opacity="0.48" />
+    </filter>
+    <filter id="floatShadow" x="-12%" y="-10%" width="128%" height="128%">
+      <feDropShadow dx="-6" dy="22" stdDeviation="22" flood-color="#000000" flood-opacity="0.62" />
+    </filter>
+    <filter id="googleBarShadow" x="-4%" y="-15%" width="108%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#3c4043" flood-opacity="0.18" />
+    </filter>
   </defs>
 
-  <!-- Desktop Browser Canvas -->
-  <rect width="1280" height="800" fill="url(#scBg)" />
+  <rect width="1280" height="800" fill="url(#sc1Bg)" />
 
-  <!-- Window Header -->
-  <rect x="40" y="30" width="1200" height="740" rx="16" fill="#ffffff" />
-  <rect x="40" y="30" width="1200" height="46" rx="16" fill="#f1f5f9" />
-  <circle cx="68" cy="53" r="6" fill="#ef4444" />
-  <circle cx="88" cy="53" r="6" fill="#f59e0b" />
-  <circle cx="108" cy="53" r="6" fill="#10b981" />
+  <!-- Top Feature Banner Header -->
+  <g transform="translate(46, 26)">
+    <rect x="0" y="0" width="236" height="28" rx="14" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-opacity="0.5" />
+    <text x="118" y="18.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="800" font-size="11.5" fill="#6ee7b7" text-anchor="middle" letter-spacing="0.8">1 · SEARCH ENGINE SERP RADAR</text>
 
-  <!-- Address Bar with Extension Button -->
-  <rect x="180" y="40" width="700" height="26" rx="13" fill="#ffffff" stroke="#cbd5e1" />
-  <text x="210" y="57" font-family="monospace" font-size="12" fill="#475569">https://www.canva.com/pricing</text>
-  <circle cx="920" cy="53" r="14" fill="#047857" />
-  <text x="920" y="58" font-family="-apple-system, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">n</text>
+    <text x="252" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="900" font-size="21" fill="#ffffff" letter-spacing="-0.4">
+      Spot CADES 2.0 Scores &amp; Signup-Wall Warnings Directly on Google
+    </text>
 
-  <!-- Webpage Background Simulation (Canva Paywall) -->
-  <g transform="translate(100, 130)">
-    <text x="0" y="30" font-family="-apple-system, sans-serif" font-weight="900" font-size="32" fill="#1e293b">Choose your Canva plan</text>
-    <text x="0" y="60" font-family="-apple-system, sans-serif" font-weight="500" font-size="16" fill="#64748b">Mandatory account creation and monthly billing required to continue.</text>
-
-    <!-- Paywall fake cards -->
-    <rect x="0" y="90" width="220" height="280" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
-    <rect x="250" y="90" width="220" height="280" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+    <g transform="translate(994, 0)">
+      <rect width="194" height="28" rx="14" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18" />
+      <text x="97" y="18.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="11.5" fill="#e2e8f0" text-anchor="middle">🌐 30+ Search &amp; AI SERPs</text>
+    </g>
   </g>
 
-  <!-- Open Extension Popover (Right Overlay) -->
-  <g transform="translate(740, 70)">
-    <rect width="460" height="660" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="drop-shadow(0 20px 25px rgba(0,0,0,0.25))" />
+  <!-- ===================================================================== -->
+  <!-- REALISTIC CHROME WINDOW SHOWING PURE GOOGLE SEARCH (Left/Main Canvas) -->
+  <!-- ===================================================================== -->
+  <g transform="translate(46, 68)" filter="url(#scShadow)">
+    <rect width="896" height="702" rx="14" fill="#ffffff" stroke="#334155" stroke-width="1" />
 
-    <!-- Popover Header -->
-    <rect width="460" height="64" rx="16" fill="#0f172a" />
-    <rect y="48" width="460" height="16" fill="#0f172a" />
-    <text x="24" y="38" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#ffffff">nologin.tools</text>
-    <rect x="150" y="24" width="76" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
-    <text x="188" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#34d399" text-anchor="middle">SWITCHER</text>
+    <!-- Chrome Browser Top Frame & Address Bar -->
+    <rect width="896" height="44" rx="14" fill="#dfe3e8" />
+    <rect y="28" width="896" height="16" fill="#dfe3e8" />
+    <line x1="0" y1="44" x2="896" y2="44" stroke="#c8cdd4" stroke-width="1" />
+    <circle cx="22" cy="22" r="6" fill="#ff5f56" />
+    <circle cx="42" cy="22" r="6" fill="#ffbd2e" />
+    <circle cx="62" cy="22" r="6" fill="#27c93f" />
 
-    <!-- Search Input -->
-    <g transform="translate(24, 80)">
-      <rect width="412" height="40" rx="10" fill="#f8fafc" stroke="#cbd5e1" />
-      <text x="14" y="25" font-family="-apple-system, sans-serif" font-size="13" fill="#94a3b8">Search 320+ verified tools or "alternative to..."</text>
+    <!-- Navigation Back/Forward/Reload Icons -->
+    <path d="M92 22 H104 M92 22 L96 18 M92 22 L96 26" stroke="#5f6368" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M126 22 H114 M126 22 L122 18 M126 22 L122 26" stroke="#9aa0a6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M148 17 A5.5 5.5 0 1 1 143 22.5" stroke="#5f6368" stroke-width="1.6" stroke-linecap="round" fill="none" />
+
+    <!-- Chrome Omnibox Pill -->
+    <rect x="170" y="7" width="572" height="30" rx="15" fill="#ffffff" />
+    <circle cx="188" cy="22" r="7" fill="#f1f3f4" />
+    <path d="M185 20.5 H191 M185 23.5 H191" stroke="#5f6368" stroke-width="1.3" stroke-linecap="round" />
+    <text x="204" y="26.5" font-family="Arial, -apple-system, sans-serif" font-size="13" fill="#202124">google.com<tspan fill="#5f6368">/search?q=online+photo+editor+no+signup</tspan></text>
+
+    <!-- Pinned NoLogin Tools Extension Icon in Chrome Toolbar -->
+    <g transform="translate(756, 7)">
+      <rect width="124" height="30" rx="15" fill="#e8f5f1" stroke="#a7dcd0" />
+      <rect x="8" y="5" width="20" height="20" rx="5" fill="#08695d" />
+      <path d="M13.5 15 L16.5 18 L22 12.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="35" y="19" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#08695d">NoLogin</text>
+      <rect x="84" y="7" width="32" height="16" rx="4" fill="#08695d" />
+      <text x="100" y="18.5" font-family="ui-monospace, monospace" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle">ON</text>
     </g>
 
-    <!-- Contextual Suggestion Banner -->
-    <g transform="translate(24, 134)">
-      <rect width="412" height="68" rx="12" fill="#ecfdf5" stroke="#10b981" />
-      <text x="16" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="13" fill="#065f46">Detected: Canva</text>
-      <text x="16" y="44" font-family="-apple-system, sans-serif" font-weight="500" font-size="11" fill="#047857">Switch to verified zero-account in-browser alternatives:</text>
+    <!-- =================================================================== -->
+    <!-- GOOGLE SEARCH PAGE HEADER (y = 44 to 148)                           -->
+    <!-- =================================================================== -->
+    <g transform="translate(0, 44)">
+      <rect width="896" height="104" fill="#ffffff" />
+      <line x1="0" y1="104" x2="896" y2="104" stroke="#ebebeb" stroke-width="1" />
+
+      <!-- Iconic 6-Color Google Wordmark -->
+      <text x="28" y="45" font-family="'Product Sans', 'Google Sans', Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="-1">
+        <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
+      </text>
+
+      <!-- Google Pill Search Box -->
+      <g transform="translate(148, 14)" filter="url(#googleBarShadow)">
+        <rect width="632" height="44" rx="22" fill="#ffffff" stroke="#dfe1e5" stroke-width="1" />
+        <text x="22" y="27.5" font-family="Arial, sans-serif" font-size="16" fill="#202124">online photo editor no signup</text>
+
+        <!-- Clear X Button -->
+        <path d="M490 17 L500 27 M500 17 L490 27" stroke="#70757a" stroke-width="1.8" stroke-linecap="round" />
+        <line x1="514" y1="10" x2="514" y2="34" stroke="#dadce0" stroke-width="1" />
+
+        <!-- Google 4-Color Microphone Icon -->
+        <g transform="translate(530, 12)">
+          <rect x="5" y="1" width="6" height="11" rx="3" fill="#4285f4" />
+          <path d="M2 10 A6 6 0 0 0 8 16" stroke="#fbbc05" stroke-width="1.8" fill="none" stroke-linecap="round" />
+          <path d="M14 10 A6 6 0 0 1 8 16" stroke="#ea4335" stroke-width="1.8" fill="none" stroke-linecap="round" />
+          <line x1="8" y1="16" x2="8" y2="20" stroke="#34a853" stroke-width="1.8" stroke-linecap="round" />
+        </g>
+
+        <!-- Google 4-Color Lens Icon -->
+        <g transform="translate(562, 13)">
+          <path d="M3 6 V4 A2 2 0 0 1 5 2 H7" stroke="#4285f4" stroke-width="1.8" fill="none" stroke-linecap="round" />
+          <path d="M11 2 H13 A2 2 0 0 1 15 4 V6" stroke="#ea4335" stroke-width="1.8" fill="none" stroke-linecap="round" />
+          <path d="M3 12 V14 A2 2 0 0 0 5 16 H7" stroke="#fbbc05" stroke-width="1.8" fill="none" stroke-linecap="round" />
+          <circle cx="9" cy="9" r="2.6" fill="#4285f4" />
+          <circle cx="13.5" cy="14.5" r="1.8" fill="#34a853" />
+        </g>
+
+        <!-- Google Blue Magnifying Glass -->
+        <g transform="translate(594, 13)">
+          <circle cx="7.5" cy="7.5" r="5.5" stroke="#4285f4" stroke-width="2" fill="none" />
+          <line x1="11.5" y1="11.5" x2="16" y2="16" stroke="#4285f4" stroke-width="2" stroke-linecap="round" />
+        </g>
+      </g>
+
+      <!-- Right-side Google Header Controls (9-Dot Apps, Avatar) -->
+      <g transform="translate(796, 22)">
+        <g fill="#5f6368">
+          <circle cx="16" cy="8" r="1.8" /><circle cx="22" cy="8" r="1.8" /><circle cx="28" cy="8" r="1.8" />
+          <circle cx="16" cy="14" r="1.8" /><circle cx="22" cy="14" r="1.8" /><circle cx="28" cy="14" r="1.8" />
+          <circle cx="16" cy="20" r="1.8" /><circle cx="22" cy="20" r="1.8" /><circle cx="28" cy="20" r="1.8" />
+        </g>
+        <circle cx="56" cy="14" r="15" fill="#1a73e8" />
+        <text x="56" y="19" font-family="Arial, sans-serif" font-weight="600" font-size="14" fill="#ffffff" text-anchor="middle">L</text>
+      </g>
+
+      <!-- Google Navigation Filter Tabs (All, Images, Videos, Forums, Web, Shopping, More) -->
+      <g transform="translate(148, 72)" font-family="Arial, sans-serif" font-size="13.5">
+        <text x="6" y="18" font-weight="600" fill="#1f1f1f">All</text>
+        <rect x="0" y="29" width="28" height="3" rx="1.5" fill="#1a73e8" />
+
+        <text x="50" y="18" fill="#5f6368">Images</text>
+        <text x="116" y="18" fill="#5f6368">Videos</text>
+        <text x="178" y="18" fill="#5f6368">Forums</text>
+        <text x="246" y="18" fill="#5f6368">Web</text>
+        <text x="296" y="18" fill="#5f6368">Shopping</text>
+        <text x="376" y="18" fill="#5f6368">⋮ More</text>
+        <text x="596" y="18" fill="#5f6368">Tools</text>
+      </g>
     </g>
 
-    <!-- Tool Card 1 -->
-    <g transform="translate(24, 216)">
-      <rect width="412" height="110" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
-      <text x="16" y="30" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#0f172a">Photopea</text>
-      <rect x="100" y="16" width="64" height="20" rx="6" fill="#10b981" />
-      <text x="132" y="30" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle">GRADE A+</text>
-      <text x="16" y="56" font-family="-apple-system, sans-serif" font-size="12" fill="#475569">Advanced image &amp; raster graphics editor. Supports PSD, XCF.</text>
-      <text x="16" y="86" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#059669">✓ 100% In-Browser  ✓ Zero Accounts</text>
-      <rect x="320" y="36" width="76" height="34" rx="8" fill="#0f172a" />
-      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch →</text>
+    <!-- =================================================================== -->
+    <!-- GOOGLE MAIN RESULTS COLUMN (#center_col at x = 148, width = 652)    -->
+    <!-- =================================================================== -->
+    <g transform="translate(148, 158)">
+      <!-- Classic Google Search Result Count & Latency -->
+      <text x="0" y="14" font-family="Arial, sans-serif" font-size="12.5" fill="#70757a">
+        About 48,200,000 results (0.24 seconds)
+      </text>
+
+      <!-- ① Injected #nl-serp-summary-bar (Matches packages/extension/content.css) -->
+      <g transform="translate(0, 26)">
+        <rect width="652" height="34" rx="6" fill="#f4f9f8" stroke="#c5dfd9" stroke-width="1.2" />
+        <text x="12" y="21.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#08695d">✓ nologin.tools:</text>
+        <text x="114" y="21.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" font-size="12" fill="#1e2f36">3 tools matched (Photopea 95 · Excalidraw 96 · Squoosh 95)</text>
+        <text x="640" y="21.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="11.5" fill="#08695d" text-anchor="end">⚔️ vs TinyPNG ↗  ·  Finder ↗</text>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- ORGANIC RESULT 1: Photopea (Pure Google DOM — No Card Border!)    -->
+      <!-- ================================================================= -->
+      <g transform="translate(0, 78)">
+        <!-- Google Site Favicon Circle + Stacked Site Name & Breadcrumb -->
+        <circle cx="14" cy="14" r="14" fill="#f1f3f4" stroke="#dadce0" stroke-width="0.6" />
+        <rect x="6" y="6" width="16" height="16" rx="3.5" fill="#08695d" />
+        <text x="14" y="18" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle">P</text>
+
+        <text x="38" y="12" font-family="Arial, sans-serif" font-size="14" fill="#202124">Photopea</text>
+        <text x="38" y="27" font-family="Arial, sans-serif" font-size="12" fill="#4d5156">https://www.photopea.com</text>
+        <text x="192" y="27" font-family="Arial, sans-serif" font-size="13" fill="#4d5156">⋮</text>
+
+        <!-- Google <h3> Blue Title Link -->
+        <text x="0" y="53" font-family="Arial, sans-serif" font-size="20" fill="#1a0dab">
+          Photopea | Online Photo Editor
+        </text>
+
+        <!-- ② Injected .nl-serp-badge.nl-serp-verified (Directly under <h3>) -->
+        <g transform="translate(0, 62)">
+          <rect width="632" height="27" rx="5" fill="#f5f9f8" stroke="#cfe3de" stroke-width="1.2" />
+          <text x="10" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#08695d">✓ NoLogin Verified</text>
+          <rect x="132" y="5" width="44" height="17" rx="3" fill="#08695d" />
+          <text x="154" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">95/100</text>
+          <text x="184" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#17694c">·  ★ Editor&apos;s Choice  ·  100% Local  ·  Works Offline</text>
+          <text x="622" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#08695d" text-anchor="end">Lab Report ↗  ·  vs Canva ↗</text>
+        </g>
+
+        <!-- Google Organic Snippet with Bolded Query Keywords -->
+        <text x="0" y="109" font-family="Arial, sans-serif" font-size="14" fill="#4d5156">
+          Photopea <tspan font-weight="700" fill="#3c4043">Online Photo Editor</tspan> lets you edit photos, apply effects, filters, add text, crop or resize
+        </text>
+        <text x="0" y="129" font-family="Arial, sans-serif" font-size="14" fill="#4d5156">
+          pictures. Open PSD, XCF, Sketch, XD and RAW files in your browser for free — <tspan font-weight="700" fill="#3c4043">no signup</tspan> required.
+        </text>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- ORGANIC RESULT 2: Canva (Paywalled SaaS with Instant Switcher)    -->
+      <!-- ================================================================= -->
+      <g transform="translate(0, 236)">
+        <!-- Google Site Favicon Circle + Stacked Site Name & Breadcrumb -->
+        <circle cx="14" cy="14" r="14" fill="#f1f3f4" stroke="#dadce0" stroke-width="0.6" />
+        <circle cx="14" cy="14" r="9" fill="#00c4cc" />
+        <text x="14" y="18" font-family="Arial, sans-serif" font-weight="800" font-size="10.5" fill="#ffffff" text-anchor="middle">C</text>
+
+        <text x="38" y="12" font-family="Arial, sans-serif" font-size="14" fill="#202124">Canva</text>
+        <text x="38" y="27" font-family="Arial, sans-serif" font-size="12" fill="#4d5156">https://www.canva.com › photo-editor</text>
+        <text x="252" y="27" font-family="Arial, sans-serif" font-size="13" fill="#4d5156">⋮</text>
+
+        <!-- Google <h3> Blue Title Link -->
+        <text x="0" y="53" font-family="Arial, sans-serif" font-size="20" fill="#1a0dab">
+          Free Online Photo Editor: Free &amp; easy image editing - Canva
+        </text>
+
+        <!-- ③ Injected .nl-serp-badge.nl-serp-paywall (Directly under <h3>) -->
+        <g transform="translate(0, 62)">
+          <rect width="652" height="27" rx="5" fill="#fff9ed" stroke="#eadcbe" stroke-width="1.2" />
+          <text x="10" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#996112">⚡ Signup Wall · No-Login Switch:</text>
+
+          <!-- Alt Pill 1 -->
+          <g transform="translate(220, 4.5)">
+            <rect width="94" height="18" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+            <text x="6" y="13" font-family="-apple-system, sans-serif" font-weight="600" font-size="11.5" fill="#08695d">Photopea</text>
+            <rect x="61" y="2" width="20" height="14" rx="2.5" fill="#08695d" />
+            <text x="71" y="12.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">95</text>
+            <text x="84" y="13" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#08695d">↗</text>
+          </g>
+
+          <!-- Alt Pill 2 -->
+          <g transform="translate(320, 4.5)">
+            <rect width="102" height="18" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+            <text x="6" y="13" font-family="-apple-system, sans-serif" font-weight="600" font-size="11.5" fill="#08695d">Excalidraw</text>
+            <rect x="69" y="2" width="20" height="14" rx="2.5" fill="#08695d" />
+            <text x="79" y="12.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">96</text>
+            <text x="92" y="13" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#08695d">↗</text>
+          </g>
+
+          <!-- Alt Pill 3 -->
+          <g transform="translate(428, 4.5)">
+            <rect width="88" height="18" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+            <text x="6" y="13" font-family="-apple-system, sans-serif" font-weight="600" font-size="11.5" fill="#08695d">Squoosh</text>
+            <rect x="55" y="2" width="20" height="14" rx="2.5" fill="#08695d" />
+            <text x="65" y="12.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">95</text>
+            <text x="78" y="13" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#08695d">↗</text>
+          </g>
+
+          <text x="642" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" font-size="11.5" fill="#996112" text-anchor="end">Compare All (4) ↗</text>
+        </g>
+
+        <!-- Google Organic Snippet -->
+        <text x="0" y="109" font-family="Arial, sans-serif" font-size="14" fill="#4d5156">
+          Take your photos from meh to amazing with Canva&apos;s <tspan font-weight="700" fill="#3c4043">free online photo editor</tspan>. Sign up for a free
+        </text>
+        <text x="0" y="129" font-family="Arial, sans-serif" font-size="14" fill="#4d5156">
+          account to upload photos, add effects, and remove backgrounds in one click.
+        </text>
+      </g>
+
+      <!-- ================================================================= -->
+      <!-- ORGANIC RESULT 3: Excalidraw (Verified Open-Source Tool)          -->
+      <!-- ================================================================= -->
+      <g transform="translate(0, 394)">
+        <circle cx="14" cy="14" r="14" fill="#f1f3f4" stroke="#dadce0" stroke-width="0.6" />
+        <rect x="6" y="6" width="16" height="16" rx="3.5" fill="#6965db" />
+        <text x="14" y="18" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle">E</text>
+
+        <text x="38" y="12" font-family="Arial, sans-serif" font-size="14" fill="#202124">Excalidraw</text>
+        <text x="38" y="27" font-family="Arial, sans-serif" font-size="12" fill="#4d5156">https://excalidraw.com</text>
+        <text x="174" y="27" font-family="Arial, sans-serif" font-size="13" fill="#4d5156">⋮</text>
+
+        <text x="0" y="53" font-family="Arial, sans-serif" font-size="20" fill="#1a0dab">
+          Excalidraw — Collaborative whiteboarding made easy
+        </text>
+
+        <g transform="translate(0, 62)">
+          <rect width="632" height="27" rx="5" fill="#f5f9f8" stroke="#cfe3de" stroke-width="1.2" />
+          <text x="10" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#08695d">✓ NoLogin Verified</text>
+          <rect x="132" y="5" width="44" height="17" rx="3" fill="#08695d" />
+          <text x="154" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">96/100</text>
+          <text x="184" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#17694c">·  ★ Editor&apos;s Choice  ·  100% Local  ·  Open Source</text>
+          <text x="622" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#08695d" text-anchor="end">Lab Report ↗  ·  vs Miro ↗</text>
+        </g>
+
+        <text x="0" y="109" font-family="Arial, sans-serif" font-size="14" fill="#4d5156">
+          Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams with a
+        </text>
+        <text x="0" y="129" font-family="Arial, sans-serif" font-size="14" fill="#4d5156">
+          hand-drawn feel. Runs locally in your browser with <tspan font-weight="700" fill="#3c4043">no login</tspan> or account required.
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- FLOATING DARK HUD CALLOUT WINDOW (Outside/Overlapping Browser Frame)  -->
+  <!-- ===================================================================== -->
+  <g transform="translate(894, 184)" filter="url(#floatShadow)">
+    <!-- Connector Pointer Lines from Google SERP Strips to Floating HUD -->
+    <path d="M-48 86 H0" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" />
+    <circle cx="-48" cy="86" r="4" fill="#10b981" />
+
+    <path d="M-48 178 H0" stroke="#34d399" stroke-width="2" stroke-dasharray="4 4" />
+    <circle cx="-48" cy="178" r="4" fill="#34d399" />
+
+    <path d="M-48 336 H0" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 4" />
+    <circle cx="-48" cy="336" r="4" fill="#f59e0b" />
+
+    <!-- Dark Glass Floating Window -->
+    <rect width="340" height="534" rx="16" fill="url(#floatHudBg)" stroke="#10b981" stroke-width="1.8" />
+
+    <!-- Floating Window Titlebar -->
+    <rect width="340" height="42" rx="16" fill="#06131d" />
+    <rect y="26" width="340" height="16" fill="#06131d" />
+    <line x1="0" y1="42" x2="340" y2="42" stroke="#1e3a4c" stroke-width="1" />
+    <circle cx="20" cy="21" r="4.5" fill="#10b981" />
+    <text x="34" y="25" font-family="-apple-system, sans-serif" font-weight="800" font-size="11.5" fill="#6ee7b7" letter-spacing="0.6">SERP LOW-NOISE ANNOTATIONS</text>
+    <rect x="258" y="11" width="66" height="20" rx="10" fill="#08695d" fill-opacity="0.45" stroke="#10b981" stroke-opacity="0.5" />
+    <text x="291" y="24.5" font-family="ui-monospace, monospace" font-weight="800" font-size="9.5" fill="#a7f3d0" text-anchor="middle">1-LINE UI</text>
+
+    <!-- Callout 1: Top Summary Bar -->
+    <g transform="translate(20, 62)">
+      <rect width="300" height="84" rx="10" fill="#ffffff" fill-opacity="0.05" stroke="#10b981" stroke-opacity="0.3" />
+      <circle cx="24" cy="24" r="12" fill="#08695d" stroke="#34d399" stroke-width="1.2" />
+      <text x="24" y="28" font-family="-apple-system, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="44" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="13.5" fill="#ffffff">Top SERP Summary Bar</text>
+      <text x="20" y="50" font-family="-apple-system, sans-serif" font-size="11.5" fill="#cbd5e1">Appears only when 2+ tools match —</text>
+      <text x="20" y="67" font-family="-apple-system, sans-serif" font-size="11.5" fill="#cbd5e1">compare scores &amp; open VS matrix in 1 click.</text>
     </g>
 
-    <!-- Tool Card 2 -->
-    <g transform="translate(24, 340)">
-      <rect width="412" height="110" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
-      <text x="16" y="30" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#0f172a">Excalidraw</text>
-      <rect x="110" y="16" width="64" height="20" rx="6" fill="#10b981" />
-      <text x="142" y="30" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle">GRADE A+</text>
-      <text x="16" y="56" font-family="-apple-system, sans-serif" font-size="12" fill="#475569">Virtual whiteboard for sketching hand-drawn diagrams.</text>
-      <text x="16" y="86" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#059669">✓ E2E Encrypted  ✓ Collaborative</text>
-      <rect x="320" y="36" width="76" height="34" rx="8" fill="#0f172a" />
-      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch →</text>
+    <!-- Callout 2: Verified CADES 2.0 Badge -->
+    <g transform="translate(20, 158)">
+      <rect width="300" height="84" rx="10" fill="#ffffff" fill-opacity="0.05" stroke="#34d399" stroke-opacity="0.35" />
+      <circle cx="24" cy="24" r="12" fill="#059669" stroke="#6ee7b7" stroke-width="1.2" />
+      <text x="24" y="28" font-family="-apple-system, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">2</text>
+      <text x="44" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="13.5" fill="#6ee7b7">Single-Line Verified Strip</text>
+      <text x="20" y="50" font-family="-apple-system, sans-serif" font-size="11.5" fill="#cbd5e1">Displays CADES 2.0 score (95/100),</text>
+      <text x="20" y="67" font-family="-apple-system, sans-serif" font-size="11.5" fill="#cbd5e1">100% Local &amp; Offline tags below the title.</text>
     </g>
 
-    <!-- Tool Card 3 -->
-    <g transform="translate(24, 464)">
-      <rect width="412" height="110" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
-      <text x="16" y="30" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#0f172a">Squoosh</text>
-      <rect x="90" y="16" width="64" height="20" rx="6" fill="#10b981" />
-      <text x="122" y="30" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle">GRADE A+</text>
-      <text x="16" y="56" font-family="-apple-system, sans-serif" font-size="12" fill="#475569">WebAssembly image compression with real-time diffing.</text>
-      <text x="16" y="86" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#059669">✓ Client-Side Only  ✓ No Server Logs</text>
-      <rect x="320" y="36" width="76" height="34" rx="8" fill="#0f172a" />
-      <text x="358" y="58" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Launch →</text>
+    <!-- Callout 3: Signup-Wall Auto-Switcher -->
+    <g transform="translate(20, 254)">
+      <rect width="300" height="84" rx="10" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.45" />
+      <circle cx="24" cy="24" r="12" fill="#d97706" stroke="#fcd34d" stroke-width="1.2" />
+      <text x="24" y="28" font-family="-apple-system, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">3</text>
+      <text x="44" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="13.5" fill="#fcd34d">Signup-Wall Auto-Switcher</text>
+      <text x="20" y="50" font-family="-apple-system, sans-serif" font-size="11.5" fill="#fde68a">Flags 55+ signup-walled SaaS results &amp;</text>
+      <text x="20" y="67" font-family="-apple-system, sans-serif" font-size="11.5" fill="#fde68a">links directly to zero-login alternatives.</text>
     </g>
 
-    <!-- Footer link -->
-    <text x="230" y="620" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#94a3b8" text-anchor="middle">Verified by NoLoginTools.org · 100% Free &amp; Open Source</text>
+    <!-- Supported Engines Grid inside Floating Window -->
+    <g transform="translate(20, 356)">
+      <text x="0" y="14" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#94a3b8" letter-spacing="0.6">SUPPORTED ACROSS 30+ SEARCH &amp; AI SERPS</text>
+
+      <g transform="translate(0, 26)" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#e2e8f0">
+        <rect x="0" y="0" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="47" y="17" text-anchor="middle">Google</text>
+        <rect x="103" y="0" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="150" y="17" text-anchor="middle">Bing</text>
+        <rect x="206" y="0" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="253" y="17" text-anchor="middle">DuckDuckGo</text>
+
+        <rect x="0" y="34" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="47" y="51" text-anchor="middle">Brave</text>
+        <rect x="103" y="34" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="150" y="51" text-anchor="middle">Kagi</text>
+        <rect x="206" y="34" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="253" y="51" text-anchor="middle">Perplexity</text>
+
+        <rect x="0" y="68" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="47" y="85" text-anchor="middle">Startpage</text>
+        <rect x="103" y="68" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="150" y="85" text-anchor="middle">Ecosia</text>
+        <rect x="206" y="68" width="94" height="26" rx="6" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15" />
+        <text x="253" y="85" text-anchor="middle">Phind &amp; You</text>
+
+        <rect x="0" y="104" width="300" height="28" rx="6" fill="#08695d" fill-opacity="0.35" stroke="#10b981" stroke-opacity="0.45" />
+        <text x="150" y="122" fill="#6ee7b7" font-weight="700" text-anchor="middle">+ Baidu · Yahoo · Yandex · Qwant · SearXNG</text>
+      </g>
+    </g>
   </g>
 </svg>

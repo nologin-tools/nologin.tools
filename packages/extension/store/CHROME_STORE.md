@@ -24,8 +24,8 @@ NoLogin Tools (v2.0) is a zero-telemetry browser companion powered by the NoLogi
 
 ### 🌟 Key Features in v2.0
 
-1. **Search Engine Result Badges & Signup Wall Alerts**:
-   Directly on search engine result pages, view single-line `🛡️ NoLogin Verified · ⚡ 95/100 · 🔒 100% Local` badges next to verified tools, plus `⚡ Signup Wall · Free No-Login Switch` links beneath signup-walled results before you even click.
+1. **Search Engine Result Badges & Signup Wall Alerts (30+ Global & AI Search Engines)**:
+   Directly on Google, Bing, DuckDuckGo, Brave, Kagi, Perplexity, Baidu, and 25+ other search & AI engines, view single-line `✓ NoLogin Verified · 95/100 · Editor's Choice · 100% Local` badges next to verified tools, plus `⚡ Signup Wall · No-Login Switch` links beneath signup-walled results before you even click.
 
 2. **Non-Intrusive Toolbar Score Badge & 5D Lab HUD**:
    Zero floating overlays or DOM clutter on tool websites. The toolbar icon displays the CADES 2.0 integer score (such as `95`) on 320+ verified tools or the available alternative count (such as `4`) when visiting restrictive commercial web applications. Open the panel to inspect five-dimensional sub-scores (`UX`, `Depth`, `Export`, `Privacy`, `Polish`) alongside head-to-head comparisons.

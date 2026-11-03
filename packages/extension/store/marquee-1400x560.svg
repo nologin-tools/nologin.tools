@@ -1,105 +1,204 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" fill="none">
   <defs>
     <linearGradient id="mqBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#030712" />
-      <stop offset="50%" stop-color="#091428" />
-      <stop offset="100%" stop-color="#022c22" />
-    </linearGradient>
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+      <stop offset="0%" stop-color="#050b14" />
+      <stop offset="50%" stop-color="#0a1929" />
+      <stop offset="100%" stop-color="#042f28" />
     </linearGradient>
     <filter id="mqGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="40" result="blur" />
+      <feGaussianBlur stdDeviation="45" result="blur" />
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.4" />
     </filter>
   </defs>
 
   <rect width="1400" height="560" fill="url(#mqBg)" />
+  <path d="M0 112 H1400 M0 224 H1400 M0 336 H1400 M0 448 H1400 M280 0 V560 M560 0 V560 M840 0 V560 M1120 0 V560" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
 
   <!-- Ambient Glow -->
-  <circle cx="1050" cy="280" r="220" fill="#10b981" fill-opacity="0.2" filter="url(#mqGlow)" />
+  <circle cx="1020" cy="280" r="240" fill="#10b981" fill-opacity="0.18" filter="url(#mqGlow)" />
 
-  <!-- Left Side: Copy & Headlines -->
-  <g transform="translate(100, 140)">
-    <rect x="0" y="0" width="210" height="34" rx="17" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
-    <text x="105" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#34d399" text-anchor="middle" letter-spacing="1">OFFICIAL EXTENSION V2.0</text>
+  <!-- Left Side: Copy & Value Proposition -->
+  <g transform="translate(80, 96)">
+    <rect x="0" y="0" width="330" height="34" rx="17" fill="#08695d" fill-opacity="0.3" stroke="#10b981" stroke-opacity="0.5" />
+    <text x="165" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#6ee7b7" text-anchor="middle" letter-spacing="0.8">OFFICIAL V2.0 · CADES 2.0 LAB BENCHMARK</text>
 
-    <text x="0" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="54" fill="#ffffff" letter-spacing="-1.5">
+    <text x="0" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="54" fill="#ffffff" letter-spacing="-1.5">
       NoLogin Tools
     </text>
-    <text x="0" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="26" fill="#10b981" letter-spacing="-0.5">
-      SERP Radar · Paywall Switcher · CADES 2.0 5D HUD
+    <text x="0" y="142" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="24" fill="#34d399" letter-spacing="-0.3">
+      SERP Truth Badges · Paywall Switcher · 5D Lab HUD
     </text>
-    <text x="0" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="18" fill="#94a3b8">
-      See CADES 2.0 lab scores &amp; paywall warnings directly on Google, Bing &amp; DDG.
+    <text x="0" y="188" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="17" fill="#cbd5e1">
+      Spot CADES 2.0 lab scores &amp; signup-wall alerts on 30+ Search &amp; AI engines.
     </text>
-    <text x="0" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="18" fill="#94a3b8">
-      Auto-switch from 55+ closed SaaS apps to 320+ zero-login tools.
+    <text x="0" y="216" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="17" fill="#cbd5e1">
+      Switch from 55+ signup-walled SaaS apps to 320+ zero-login tools in 1 click.
     </text>
 
-    <!-- Stats row -->
-    <g transform="translate(0, 275)">
-      <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#ffffff">320+</text>
-      <text x="0" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">Verified Tools</text>
+    <!-- 4-Pillar Stats Row -->
+    <g transform="translate(0, 260)">
+      <rect x="0" y="0" width="136" height="74" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12" />
+      <text x="18" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#ffffff">320+</text>
+      <text x="18" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">CADES Verified</text>
 
-      <text x="140" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#10b981">55+</text>
-      <text x="140" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">SaaS Targets Mapped</text>
+      <rect x="150" y="0" width="136" height="74" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12" />
+      <text x="168" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#fbbf24">55+</text>
+      <text x="168" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">SaaS Switchers</text>
 
-      <text x="310" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#38bdf8">12+</text>
-      <text x="310" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13" fill="#64748b">Search Engine SERPs</text>
+      <rect x="300" y="0" width="136" height="74" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12" />
+      <text x="318" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#34d399">30+</text>
+      <text x="318" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">Search &amp; AI SERPs</text>
+
+      <rect x="450" y="0" width="136" height="74" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12" />
+      <text x="468" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="26" fill="#38bdf8">0 DOM</text>
+      <text x="468" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="12" fill="#94a3b8">Canvas Clutter</text>
     </g>
   </g>
 
-  <!-- Right Side: Graphic UI Preview Card -->
-  <g transform="translate(860, 65)">
-    <!-- Browser Mockup Window -->
-    <rect width="440" height="430" rx="20" fill="url(#cardGrad)" stroke="#334155" stroke-width="2" />
-    <!-- Window Controls -->
-    <circle cx="28" cy="24" r="6" fill="#ef4444" />
-    <circle cx="48" cy="24" r="6" fill="#f59e0b" />
-    <circle cx="68" cy="24" r="6" fill="#10b981" />
-    <rect x="110" y="14" width="220" height="20" rx="10" fill="#0f172a" />
-    <text x="220" y="28" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">canva.com/design/...</text>
+  <!-- Right Side: Dual-Layer Live UI Showcase (SERP Annotations + v2.0 5D HUD) -->
+  <g transform="translate(715, 44)">
+    <!-- Card 1: Realistic Google Search SERP Card -->
+    <g filter="url(#cardShadow)">
+      <rect width="615" height="260" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect width="615" height="34" rx="14" fill="#f1f3f4" />
+      <rect y="20" width="615" height="14" fill="#f1f3f4" />
+      <circle cx="18" cy="17" r="4.5" fill="#ea4335" />
+      <circle cx="32" cy="17" r="4.5" fill="#fbbc05" />
+      <circle cx="46" cy="17" r="4.5" fill="#34a853" />
+      <rect x="66" y="6" width="390" height="22" rx="11" fill="#ffffff" stroke="#dadce0" />
+      <text x="80" y="20.5" font-family="Arial, sans-serif" font-size="10.5" fill="#202124">https://www.google.com/search?q=photo+editor+no+signup</text>
+      <rect x="470" y="6" width="128" height="22" rx="6" fill="#e6f4f1" stroke="#b8dcd4" />
+      <text x="534" y="20.5" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#08695d" text-anchor="middle">🌐 30+ SERPs Ready</text>
 
-    <!-- Alternative Alert Banner -->
-    <g transform="translate(24, 52)">
-      <rect width="392" height="74" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
-      <text x="16" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#34d399">💡 No-Login Alternatives for Canva</text>
-      <text x="16" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="11" fill="#a7f3d0">Edit graphics &amp; diagrams instantly in local browser RAM</text>
+      <!-- Mini Google Header Strip -->
+      <g transform="translate(18, 42)">
+        <text x="0" y="18" font-family="Arial, sans-serif" font-weight="700" font-size="18" letter-spacing="-0.5">
+          <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
+        </text>
+        <rect x="72" y="2" width="360" height="22" rx="11" fill="#ffffff" stroke="#dfe1e5" />
+        <text x="86" y="16.5" font-family="Arial, sans-serif" font-size="10.5" fill="#202124">online photo editor no signup</text>
+        <line x1="0" y1="28" x2="579" y2="28" stroke="#ebebeb" stroke-width="1" />
+      </g>
+
+      <!-- Result 1: Verified (Google Style) -->
+      <g transform="translate(18, 78)">
+        <circle cx="9" cy="9" r="9" fill="#e6f4f1" />
+        <text x="9" y="12.5" font-family="Arial, sans-serif" font-weight="800" font-size="9.5" fill="#08695d" text-anchor="middle">P</text>
+        <text x="24" y="8" font-family="Arial, sans-serif" font-size="10" fill="#202124">Photopea</text>
+        <text x="24" y="18" font-family="Arial, sans-serif" font-size="9" fill="#4d5156">https://www.photopea.com  ⋮</text>
+        <text x="0" y="34" font-family="Arial, sans-serif" font-size="14" fill="#1a0dab">Photopea | Online Photo Editor — PSD, AI, XD, Sketch</text>
+        <rect x="0" y="40" width="560" height="22" rx="4" fill="#f5f9f8" stroke="#cfe3de" />
+        <text x="8" y="54.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#08695d">✓ NoLogin Verified</text>
+        <rect x="114" y="43.5" width="38" height="15" rx="3" fill="#08695d" />
+        <text x="133" y="54" font-family="-apple-system, sans-serif" font-weight="800" font-size="9.5" fill="#ffffff" text-anchor="middle">95/100</text>
+        <text x="158" y="54.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#17694c">· Editor&apos;s Choice · 100% Local · Offline</text>
+        <text x="550" y="54.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#08695d" text-anchor="end">Lab Report ↗ · vs Canva ↗</text>
+      </g>
+
+      <!-- Result 2: Paywall Switch (Google Style) -->
+      <g transform="translate(18, 152)">
+        <circle cx="9" cy="9" r="9" fill="#e0f2fe" />
+        <text x="9" y="12.5" font-family="Arial, sans-serif" font-weight="800" font-size="9.5" fill="#0284c7" text-anchor="middle">C</text>
+        <text x="24" y="8" font-family="Arial, sans-serif" font-size="10" fill="#202124">Canva</text>
+        <text x="24" y="18" font-family="Arial, sans-serif" font-size="9" fill="#4d5156">https://www.canva.com › photo-editor  ⋮</text>
+        <text x="0" y="34" font-family="Arial, sans-serif" font-size="14" fill="#1a0dab">Free Online Photo Editor: Free &amp; easy image editing - Canva</text>
+        <rect x="0" y="40" width="560" height="22" rx="4" fill="#fff9ed" stroke="#eadcbe" />
+        <text x="8" y="54.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#996112">⚡ Signup Wall · No-Login Switch:</text>
+        <rect x="194" y="43" width="78" height="16" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="200" y="54" font-family="-apple-system, sans-serif" font-weight="700" font-size="9.5" fill="#08695d">Photopea</text>
+        <rect x="248" y="44" width="18" height="14" rx="2" fill="#08695d" />
+        <text x="257" y="53.5" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">95</text>
+        <rect x="278" y="43" width="84" height="16" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="284" y="54" font-family="-apple-system, sans-serif" font-weight="700" font-size="9.5" fill="#08695d">Excalidraw</text>
+        <rect x="338" y="44" width="18" height="14" rx="2" fill="#08695d" />
+        <text x="347" y="53.5" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">96</text>
+        <text x="550" y="54.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#996112" text-anchor="end">Compare All (4) ↗</text>
+      </g>
     </g>
 
-    <!-- Tool Items -->
-    <!-- Tool 1: Photopea -->
-    <g transform="translate(24, 140)">
-      <rect width="392" height="72" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
-      <text x="20" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="15" fill="#ffffff">Photopea</text>
-      <rect x="95" y="14" width="60" height="18" rx="9" fill="#10b981" fill-opacity="0.2" />
-      <text x="125" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="9" fill="#34d399" text-anchor="middle">GRADE A+</text>
-      <text x="20" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Advanced PSD &amp; raster editing · WebGL WASM</text>
-      <rect x="310" y="20" width="66" height="28" rx="8" fill="#10b981" />
-      <text x="343" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Launch</text>
-    </g>
+    <!-- Card 2: v2.0 5D Lab HUD & Toolbar Score Badge (Overlapping Bottom Card) -->
+    <g transform="translate(55, 252)" filter="url(#cardShadow)">
+      <rect width="560" height="224" rx="14" fill="#f6f8f9" stroke="#08695d" stroke-width="2" />
+      <!-- Header -->
+      <g transform="translate(16, 12)">
+        <rect width="22" height="22" rx="5" fill="#08695d" />
+        <path d="M7 11 L10 14 L15.5 8.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+        <text x="30" y="16" font-family="-apple-system, sans-serif" font-weight="800" font-size="14" fill="#08695d">nologin.tools</text>
+        <rect x="122" y="3" width="32" height="16" rx="3" fill="#e6f4f1" stroke="#b8dcd4" />
+        <text x="138" y="14" font-family="-apple-system, sans-serif" font-weight="700" font-size="9.5" fill="#08695d" text-anchor="middle">v2.0</text>
+        <text x="164" y="15" font-family="-apple-system, sans-serif" font-weight="500" font-size="10.5" fill="#5c6b73">Zero Signup · CADES 2.0 Lab HUD</text>
+        <rect x="444" y="1" width="84" height="20" rx="4" fill="#08695d" />
+        <text x="486" y="14.5" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle">Badge: 95</text>
+      </g>
 
-    <!-- Tool 2: Excalidraw -->
-    <g transform="translate(24, 224)">
-      <rect width="392" height="72" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
-      <text x="20" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="15" fill="#ffffff">Excalidraw</text>
-      <rect x="105" y="14" width="60" height="18" rx="9" fill="#10b981" fill-opacity="0.2" />
-      <text x="135" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="9" fill="#34d399" text-anchor="middle">GRADE A+</text>
-      <text x="20" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">Hand-drawn whiteboard &amp; diagrams · E2EE</text>
-      <rect x="310" y="20" width="66" height="28" rx="8" fill="#10b981" />
-      <text x="343" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Launch</text>
-    </g>
+      <!-- Inner Verified 5D Card -->
+      <g transform="translate(16, 42)">
+        <rect width="528" height="166" rx="8" fill="#ffffff" stroke="#b8dcd4" stroke-width="1.5" />
+        <rect width="4" height="166" rx="2" fill="#08695d" />
+        <circle cx="18" cy="20" r="4" fill="#08695d" />
+        <text x="28" y="24" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#08695d">✓ NoLogin Verified</text>
+        <rect x="142" y="11" width="86" height="18" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="185" y="23" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#17694c" text-anchor="middle">Editor&apos;s Choice</text>
+        <rect x="454" y="10" width="58" height="22" rx="4" fill="#08695d" />
+        <text x="483" y="25" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#ffffff" text-anchor="middle">95/100</text>
 
-    <!-- Tool 3: Squoosh -->
-    <g transform="translate(24, 308)">
-      <rect width="392" height="72" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1" />
-      <text x="20" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="15" fill="#ffffff">Squoosh</text>
-      <rect x="88" y="14" width="60" height="18" rx="9" fill="#10b981" fill-opacity="0.2" />
-      <text x="118" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="9" fill="#34d399" text-anchor="middle">GRADE A+</text>
-      <text x="20" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="11" fill="#94a3b8">WebAssembly image codec with visual diffing</text>
-      <rect x="310" y="20" width="66" height="28" rx="8" fill="#10b981" />
-      <text x="343" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Launch</text>
+        <text x="16" y="48" font-family="-apple-system, sans-serif" font-weight="800" font-size="14" fill="#18252c">Photopea (photopea.com)</text>
+        <text x="200" y="48" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#17694c">· 100% Client-Side · Works Offline · Free</text>
+
+        <!-- 5D Progress Grid -->
+        <g transform="translate(16, 58)">
+          <rect width="496" height="44" rx="5" fill="#f4f9f8" stroke="#dce9e6" />
+          <!-- UX -->
+          <g transform="translate(10, 8)">
+            <text x="0" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">UX</text>
+            <text x="82" y="10" font-family="monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">19/20</text>
+            <rect x="0" y="17" width="82" height="5" rx="2.5" fill="#dce9e6" />
+            <rect x="0" y="17" width="78" height="5" rx="2.5" fill="#08695d" />
+          </g>
+          <!-- Depth -->
+          <g transform="translate(108, 8)">
+            <text x="0" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Depth</text>
+            <text x="82" y="10" font-family="monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">24/25</text>
+            <rect x="0" y="17" width="82" height="5" rx="2.5" fill="#dce9e6" />
+            <rect x="0" y="17" width="79" height="5" rx="2.5" fill="#08695d" />
+          </g>
+          <!-- Export -->
+          <g transform="translate(206, 8)">
+            <text x="0" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Export</text>
+            <text x="82" y="10" font-family="monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">19/20</text>
+            <rect x="0" y="17" width="82" height="5" rx="2.5" fill="#dce9e6" />
+            <rect x="0" y="17" width="78" height="5" rx="2.5" fill="#08695d" />
+          </g>
+          <!-- Privacy -->
+          <g transform="translate(304, 8)">
+            <text x="0" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Privacy</text>
+            <text x="82" y="10" font-family="monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">19/20</text>
+            <rect x="0" y="17" width="82" height="5" rx="2.5" fill="#dce9e6" />
+            <rect x="0" y="17" width="78" height="5" rx="2.5" fill="#08695d" />
+          </g>
+          <!-- Polish -->
+          <g transform="translate(402, 8)">
+            <text x="0" y="10" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Polish</text>
+            <text x="82" y="10" font-family="monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">14/15</text>
+            <rect x="0" y="17" width="82" height="5" rx="2.5" fill="#dce9e6" />
+            <rect x="0" y="17" width="76" height="5" rx="2.5" fill="#08695d" />
+          </g>
+        </g>
+
+        <!-- Action Buttons + Peers -->
+        <g transform="translate(16, 114)">
+          <rect x="0" y="0" width="210" height="32" rx="5" fill="#08695d" />
+          <text x="105" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#ffffff" text-anchor="middle">Lab Report &amp; Details ↗</text>
+
+          <rect x="220" y="0" width="130" height="32" rx="5" fill="#f0f7f5" stroke="#99cbc0" />
+          <text x="285" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#08695d" text-anchor="middle">vs Canva ↗</text>
+
+          <rect x="360" y="0" width="136" height="32" rx="5" fill="#f6faf9" stroke="#cfe3de" />
+          <text x="428" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d" text-anchor="middle">EN / 中文 Bilingual</text>
+        </g>
+      </g>
     </g>
   </g>
 </svg>

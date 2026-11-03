@@ -1,117 +1,271 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
   <defs>
     <linearGradient id="sc2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#022c22" />
-      <stop offset="50%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#090d16" />
+      <stop offset="0%" stop-color="#04261f" />
+      <stop offset="50%" stop-color="#0b1928" />
+      <stop offset="100%" stop-color="#070d16" />
     </linearGradient>
+    <filter id="popShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
   </defs>
 
   <rect width="1280" height="800" fill="url(#sc2Bg)" />
 
-  <!-- Left Side: Value Proposition -->
-  <g transform="translate(80, 220)">
-    <rect x="0" y="0" width="160" height="32" rx="16" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-opacity="0.5" />
-    <text x="80" y="21" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#34d399" text-anchor="middle" letter-spacing="1">INSTANT MINI-FINDER</text>
+  <!-- Left Side: Context & Paywall Detection Story -->
+  <g transform="translate(68, 76)">
+    <rect x="0" y="0" width="286" height="30" rx="15" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-opacity="0.55" />
+    <text x="143" y="19.5" font-family="-apple-system, sans-serif" font-weight="800" font-size="11.5" fill="#fcd34d" text-anchor="middle" letter-spacing="0.8">2 · PAYWALL SWITCHER &amp; MINI-FINDER</text>
 
-    <text x="0" y="90" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="-1">
-      320+ Verified Tools,
+    <text x="0" y="78" font-family="-apple-system, sans-serif" font-weight="900" font-size="40" fill="#ffffff" letter-spacing="-1">
+      Hit a Signup Wall?
     </text>
-    <text x="0" y="140" font-family="-apple-system, sans-serif" font-weight="900" font-size="44" fill="#10b981" letter-spacing="-1">
-      SERP Radar &amp; 5D HUD
-    </text>
-
-    <text x="0" y="195" font-family="-apple-system, sans-serif" font-weight="500" font-size="17" fill="#94a3b8">
-      Search, filter by CADES 2.0 score, and launch zero-signup tools
-    </text>
-    <text x="0" y="225" font-family="-apple-system, sans-serif" font-weight="500" font-size="17" fill="#94a3b8">
-      directly from your browser toolbar or search results.
+    <text x="0" y="124" font-family="-apple-system, sans-serif" font-weight="900" font-size="40" fill="#34d399" letter-spacing="-1">
+      Switch in One Click.
     </text>
 
-    <g transform="translate(0, 270)">
-      <rect x="0" y="0" width="130" height="32" rx="16" fill="#1e293b" />
-      <text x="65" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e2e8f0" text-anchor="middle">🎨 Design</text>
+    <text x="0" y="168" font-family="-apple-system, sans-serif" font-weight="500" font-size="15.5" fill="#cbd5e1">
+      Visiting any of 55+ restrictive SaaS domains lights up your toolbar
+    </text>
+    <text x="0" y="192" font-family="-apple-system, sans-serif" font-weight="500" font-size="15.5" fill="#cbd5e1">
+      badge with verified zero-login replacements — with 0 DOM clutter.
+    </text>
 
-      <rect x="145" y="0" width="130" height="32" rx="16" fill="#1e293b" />
-      <text x="210" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e2e8f0" text-anchor="middle">📄 PDF &amp; Office</text>
+    <!-- Simulated Paywalled Browser Tab Card -->
+    <g transform="translate(0, 224)">
+      <rect width="540" height="248" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <rect width="540" height="42" rx="14" fill="#1e293b" />
+      <rect y="28" width="540" height="14" fill="#1e293b" />
+      <circle cx="20" cy="21" r="5" fill="#ef4444" />
+      <circle cx="36" cy="21" r="5" fill="#f59e0b" />
+      <circle cx="52" cy="21" r="5" fill="#10b981" />
+      <rect x="74" y="10" width="320" height="22" rx="6" fill="#0f172a" stroke="#475569" />
+      <text x="88" y="25" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">https://www.canva.com/design/export</text>
 
-      <rect x="290" y="0" width="130" height="32" rx="16" fill="#1e293b" />
-      <text x="355" y="20" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e2e8f0" text-anchor="middle">🔒 Privacy &amp; PWA</text>
+      <!-- Amber Toolbar Badge "4" Callout -->
+      <rect x="408" y="8" width="118" height="26" rx="6" fill="#78350f" stroke="#f59e0b" />
+      <text x="420" y="25" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#fde68a">🛡️ Badge:</text>
+      <rect x="484" y="12" width="32" height="18" rx="4" fill="#d97706" />
+      <text x="500" y="24.5" font-family="-apple-system, sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">4</text>
+
+      <!-- Blocked SaaS Modal Simulation -->
+      <g transform="translate(32, 62)">
+        <rect width="476" height="162" rx="10" fill="#1e293b" stroke="#475569" stroke-dasharray="4 4" />
+        <text x="238" y="36" font-family="-apple-system, sans-serif" font-weight="800" font-size="12" fill="#fbbf24" text-anchor="middle" letter-spacing="0.6">FORCED ACCOUNT / PAYWALL DETECTED · ZERO DOM INJECTION</text>
+        <text x="238" y="68" font-family="-apple-system, sans-serif" font-weight="800" font-size="18" fill="#ffffff" text-anchor="middle">&quot;Create an account to download your file&quot;</text>
+        <text x="238" y="94" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8" text-anchor="middle">No floating popups injected into the page. Click the toolbar badge [4] →</text>
+        <rect x="148" y="112" width="180" height="32" rx="6" fill="#334155" />
+        <text x="238" y="132" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#94a3b8" text-anchor="middle">Sign up with Email / Google</text>
+      </g>
+    </g>
+
+    <!-- Feature Callout Chips Below -->
+    <g transform="translate(0, 500)">
+      <rect x="0" y="0" width="170" height="58" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14" />
+      <text x="16" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="12.5" fill="#34d399">⚡ Scenario Presets</text>
+      <text x="16" y="43" font-family="-apple-system, sans-serif" font-size="10.5" fill="#94a3b8">100% Local · Top 90+</text>
+
+      <rect x="184" y="0" width="170" height="58" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14" />
+      <text x="200" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="12.5" fill="#fbbf24">⌨️ Keyboard First</text>
+      <text x="200" y="43" font-family="-apple-system, sans-serif" font-size="10.5" fill="#94a3b8">↑ / ↓ / Enter Spotlight UI</text>
+
+      <rect x="368" y="0" width="172" height="58" rx="10" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14" />
+      <text x="384" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="12.5" fill="#38bdf8">🌐 EN / 中文 Switch</text>
+      <text x="384" y="43" font-family="-apple-system, sans-serif" font-size="10.5" fill="#94a3b8">1-Click Bilingual Index</text>
     </g>
   </g>
 
-  <!-- Right Side: Open Extension Mockup -->
-  <g transform="translate(720, 60)">
-    <rect width="480" height="680" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="drop-shadow(0 25px 30px rgba(0,0,0,0.35))" />
+  <!-- Right Side: Authentic v2.0 Popup Mockup (Paywall Banner + Mini-Finder) -->
+  <g transform="translate(668, 42)" filter="url(#popShadow)">
+    <rect width="544" height="716" rx="16" fill="#f6f8f9" stroke="#cbd5e1" stroke-width="2" />
 
-    <!-- Popover Header -->
-    <rect width="480" height="64" rx="16" fill="#0f172a" />
-    <rect y="48" width="480" height="16" fill="#0f172a" />
-    <text x="24" y="38" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#ffffff">nologin.tools</text>
-    <rect x="150" y="24" width="80" height="20" rx="10" fill="#10b981" fill-opacity="0.2" />
-    <text x="190" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="10" fill="#34d399" text-anchor="middle">320+ TOOLS</text>
+    <!-- Popup Header -->
+    <g transform="translate(20, 16)">
+      <rect width="28" height="28" rx="6" fill="#08695d" />
+      <path d="M9 14 L12.5 17.5 L19.5 10.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="38" y="16" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#08695d">nologin.tools</text>
+      <rect x="142" y="3" width="36" height="17" rx="4" fill="#e6f4f1" stroke="#b8dcd4" />
+      <text x="160" y="15" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#08695d" text-anchor="middle">v2.0</text>
+      <text x="38" y="31" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Zero Signup · CADES 2.0 Lab Verified</text>
 
-    <!-- Search Input Filled -->
-    <g transform="translate(24, 80)">
-      <rect width="432" height="42" rx="8" fill="#f8fafc" stroke="#10b981" stroke-width="1.5" />
-      <text x="14" y="26" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#0f172a">pdf editor</text>
+      <!-- Bilingual Toggle + Home Link -->
+      <rect x="434" y="2" width="40" height="26" rx="5" fill="#e6f4f1" stroke="#b8dcd4" />
+      <text x="454" y="19" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#08695d" text-anchor="middle">中文</text>
+      <rect x="480" y="2" width="26" height="26" rx="5" fill="#ffffff" stroke="#cfd8dc" />
+      <text x="493" y="19" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#2c3e47" text-anchor="middle">↗</text>
+    </g>
+    <line x1="20" y1="56" x2="524" y2="56" stroke="#dce3e6" stroke-width="1" />
+
+    <!-- 1. Paywall / Forced-Login Switcher Banner (#alternative-banner) -->
+    <g transform="translate(20, 68)">
+      <rect width="504" height="202" rx="8" fill="#ffffff" stroke="#eadcbe" stroke-width="1.5" />
+      <rect width="4" height="202" rx="2" fill="#d97706" />
+      <circle cx="18" cy="20" r="4" fill="#d97706" />
+      <text x="28" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="13" fill="#996112">Visiting Canva? No-Login Switch</text>
+      <text x="18" y="44" font-family="-apple-system, sans-serif" font-size="11.5" fill="#5c4018">Skip mandatory signups. Switch to a verified, no-signup alternative:</text>
+
+      <!-- Alternative Row 1: Photopea -->
+      <g transform="translate(16, 56)">
+        <rect width="472" height="36" rx="5" fill="#f6faf9" stroke="#dce9e6" />
+        <text x="14" y="23" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">Photopea</text>
+        <rect x="82" y="9" width="28" height="18" rx="3" fill="#08695d" />
+        <text x="96" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">95</text>
+        <rect x="116" y="9" width="44" height="18" rx="3" fill="#e6f4f1" stroke="#cfe3de" />
+        <text x="138" y="21.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#17694c" text-anchor="middle">Local</text>
+        <text x="348" y="22.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Report</text>
+        <rect x="392" y="6" width="72" height="24" rx="4" fill="#08695d" />
+        <text x="428" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Launch ↗</text>
+      </g>
+
+      <!-- Alternative Row 2: Excalidraw -->
+      <g transform="translate(16, 98)">
+        <rect width="472" height="36" rx="5" fill="#f6faf9" stroke="#dce9e6" />
+        <text x="14" y="23" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">Excalidraw</text>
+        <rect x="90" y="9" width="28" height="18" rx="3" fill="#08695d" />
+        <text x="104" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">96</text>
+        <rect x="124" y="9" width="44" height="18" rx="3" fill="#e6f4f1" stroke="#cfe3de" />
+        <text x="146" y="21.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#17694c" text-anchor="middle">Local</text>
+        <text x="348" y="22.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Report</text>
+        <rect x="392" y="6" width="72" height="24" rx="4" fill="#08695d" />
+        <text x="428" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Launch ↗</text>
+      </g>
+
+      <!-- Alternative Row 3: Squoosh -->
+      <g transform="translate(16, 140)">
+        <rect width="472" height="34" rx="5" fill="#f6faf9" stroke="#dce9e6" />
+        <text x="14" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">Squoosh</text>
+        <rect x="78" y="8" width="28" height="18" rx="3" fill="#08695d" />
+        <text x="92" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">95</text>
+        <rect x="112" y="8" width="44" height="18" rx="3" fill="#e6f4f1" stroke="#cfe3de" />
+        <text x="134" y="20.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#17694c" text-anchor="middle">Local</text>
+        <text x="348" y="21.5" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Report</text>
+        <rect x="392" y="5" width="72" height="24" rx="4" fill="#08695d" />
+        <text x="428" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Launch ↗</text>
+      </g>
+
+      <text x="16" y="192" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d">Full Canva No-Login Comparison Matrix →</text>
     </g>
 
-    <!-- Category Pills -->
-    <g transform="translate(24, 134)">
-      <rect x="0" y="0" width="50" height="26" rx="4" fill="#0f172a" />
-      <text x="25" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">All</text>
-
-      <rect x="58" y="0" width="50" height="26" rx="4" fill="#f1f5f9" />
-      <text x="83" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#64748b" text-anchor="middle">AI</text>
-
-      <rect x="116" y="0" width="60" height="26" rx="4" fill="#f1f5f9" />
-      <text x="146" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#64748b" text-anchor="middle">Design</text>
-
-      <rect x="184" y="0" width="90" height="26" rx="4" fill="#059669" />
-      <text x="229" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">PDF &amp; Office</text>
-
-      <rect x="282" y="0" width="60" height="26" rx="4" fill="#f1f5f9" />
-      <text x="312" y="17" font-family="monospace" font-weight="700" font-size="10" fill="#64748b" text-anchor="middle">Privacy</text>
+    <!-- 2. Search Bar -->
+    <g transform="translate(20, 282)">
+      <rect width="504" height="36" rx="6" fill="#ffffff" stroke="#08695d" stroke-width="1.5" />
+      <text x="14" y="23" font-family="-apple-system, sans-serif" font-size="12.5" fill="#18252c">🔍  Search 320+ zero-login tools or SaaS to replace...</text>
     </g>
 
-    <!-- Tool 1: PDF24 -->
-    <g transform="translate(24, 180)">
-      <rect width="432" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
-      <text x="16" y="28" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">PDF24 Tools</text>
-      <rect x="115" y="14" width="70" height="18" rx="4" fill="#10b981" />
-      <text x="150" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">GRADE A+</text>
-      <text x="16" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Complete PDF toolbox: merge, split, compress, and edit in-browser.</text>
-      <text x="16" y="78" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#059669">✓ 100% Free  ✓ No File Upload Limits</text>
-      <rect x="340" y="32" width="76" height="32" rx="6" fill="#0f172a" />
-      <text x="378" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open →</text>
+    <!-- 3. Scenario Preset Chips (#preset-chips) -->
+    <g transform="translate(20, 328)">
+      <rect x="0" y="0" width="90" height="24" rx="12" fill="#08695d" />
+      <text x="45" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#ffffff" text-anchor="middle">Top Scored</text>
+
+      <rect x="98" y="0" width="88" height="24" rx="12" fill="#ffffff" stroke="#c5d3d8" />
+      <text x="142" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#2c3e47" text-anchor="middle">100% Local</text>
+
+      <rect x="194" y="0" width="106" height="24" rx="12" fill="#ffffff" stroke="#c5d3d8" />
+      <text x="247" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#2c3e47" text-anchor="middle">Editor&apos;s Choice</text>
+
+      <rect x="308" y="0" width="94" height="24" rx="12" fill="#ffffff" stroke="#c5d3d8" />
+      <text x="355" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#2c3e47" text-anchor="middle">Open Source</text>
     </g>
 
-    <!-- Tool 2: Stirling PDF -->
-    <g transform="translate(24, 296)">
-      <rect width="432" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
-      <text x="16" y="28" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">Stirling PDF</text>
-      <rect x="110" y="14" width="85" height="18" rx="4" fill="#0284c7" />
-      <text x="152" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">OPEN SOURCE</text>
-      <text x="16" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Self-hosted &amp; WebAssembly offline PDF processing suite.</text>
-      <text x="16" y="78" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#059669">✓ Client-Side Only  ✓ Zero Data Storage</text>
-      <rect x="340" y="32" width="76" height="32" rx="6" fill="#0f172a" />
-      <text x="378" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open →</text>
+    <!-- 4. Category Pills (#category-pills) -->
+    <g transform="translate(20, 360)">
+      <rect x="0" y="0" width="38" height="22" rx="4" fill="#18252c" />
+      <text x="19" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#ffffff" text-anchor="middle">All</text>
+
+      <rect x="44" y="0" width="36" height="22" rx="4" fill="#ffffff" stroke="#dce3e6" />
+      <text x="62" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#5c6b73" text-anchor="middle">AI</text>
+
+      <rect x="86" y="0" width="54" height="22" rx="4" fill="#ffffff" stroke="#dce3e6" />
+      <text x="113" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#5c6b73" text-anchor="middle">Design</text>
+
+      <rect x="146" y="0" width="84" height="22" rx="4" fill="#ffffff" stroke="#dce3e6" />
+      <text x="188" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#5c6b73" text-anchor="middle">PDF &amp; Office</text>
+
+      <rect x="236" y="0" width="44" height="22" rx="4" fill="#ffffff" stroke="#dce3e6" />
+      <text x="258" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#5c6b73" text-anchor="middle">Dev</text>
+
+      <rect x="286" y="0" width="52" height="22" rx="4" fill="#ffffff" stroke="#dce3e6" />
+      <text x="312" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#5c6b73" text-anchor="middle">Media</text>
+
+      <rect x="344" y="0" width="56" height="22" rx="4" fill="#ffffff" stroke="#dce3e6" />
+      <text x="372" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#5c6b73" text-anchor="middle">Privacy</text>
     </g>
 
-    <!-- Tool 3: SimplePDF -->
-    <g transform="translate(24, 412)">
-      <rect width="432" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
-      <text x="16" y="28" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">SimplePDF</text>
-      <rect x="100" y="14" width="70" height="18" rx="4" fill="#10b981" />
-      <text x="135" y="27" font-family="-apple-system, sans-serif" font-weight="800" font-size="9" fill="#ffffff" text-anchor="middle">GRADE A</text>
-      <text x="16" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#475569">Fill, sign, and redact PDF documents privately without accounts.</text>
-      <text x="16" y="78" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#059669">✓ End-to-End Encrypted  ✓ No Sign-up</text>
-      <rect x="340" y="32" width="76" height="32" rx="6" fill="#0f172a" />
-      <text x="378" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open →</text>
+    <!-- Stats Row -->
+    <g transform="translate(20, 392)">
+      <text x="0" y="12" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">320 verified tools</text>
+      <text x="504" y="12" font-family="ui-monospace, monospace" font-size="10.5" fill="#78909c" text-anchor="end">↑↓ Enter · Esc</text>
+      <line x1="0" y1="18" x2="504" y2="18" stroke="#dce3e6" />
     </g>
 
-    <!-- Footer -->
-    <text x="240" y="640" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#94a3b8" text-anchor="middle">Verified by NoLoginTools.org · 100% Free</text>
+    <!-- 5. Tool Results List (Clean Layout, Zero Overlap) -->
+    <!-- Row 1: PDF24 Tools -->
+    <g transform="translate(20, 418)">
+      <rect width="504" height="54" rx="6" fill="#f0f7f5" stroke="#08695d" stroke-width="1.2" />
+      <text x="14" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">PDF24 Tools</text>
+      <rect x="98" y="9" width="28" height="17" rx="3" fill="#08695d" />
+      <text x="112" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">94</text>
+      <rect x="132" y="9" width="76" height="17" rx="3" fill="#f4f6f7" stroke="#dce3e6" />
+      <text x="170" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#5c6b73" text-anchor="middle">Productivity</text>
+      <text x="14" y="41" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Merge, split, compress, and convert PDFs with zero limits</text>
+      <text x="394" y="31" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Info</text>
+      <rect x="428" y="15" width="64" height="24" rx="4" fill="#08695d" />
+      <text x="460" y="31" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Open ↗</text>
+    </g>
+
+    <!-- Row 2: PairDrop -->
+    <g transform="translate(20, 480)">
+      <rect width="504" height="54" rx="6" fill="#ffffff" stroke="#dce3e6" />
+      <text x="14" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">PairDrop</text>
+      <rect x="76" y="9" width="28" height="17" rx="3" fill="#08695d" />
+      <text x="90" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">94</text>
+      <rect x="110" y="9" width="84" height="17" rx="3" fill="#f4f6f7" stroke="#dce3e6" />
+      <text x="152" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#5c6b73" text-anchor="middle">Communication</text>
+      <rect x="200" y="9" width="40" height="17" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+      <text x="220" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#17694c" text-anchor="middle">Local</text>
+      <text x="14" y="41" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Encrypted P2P file sharing across devices via WebRTC</text>
+      <text x="394" y="31" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Info</text>
+      <rect x="428" y="15" width="64" height="24" rx="4" fill="#f0f7f5" stroke="#99cbc0" />
+      <text x="460" y="31" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d" text-anchor="middle">Open ↗</text>
+    </g>
+
+    <!-- Row 3: CyberChef -->
+    <g transform="translate(20, 542)">
+      <rect width="504" height="54" rx="6" fill="#ffffff" stroke="#dce3e6" />
+      <text x="14" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">CyberChef</text>
+      <rect x="86" y="9" width="28" height="17" rx="3" fill="#08695d" />
+      <text x="100" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">96</text>
+      <rect x="120" y="9" width="76" height="17" rx="3" fill="#f4f6f7" stroke="#dce3e6" />
+      <text x="158" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#5c6b73" text-anchor="middle">Development</text>
+      <rect x="202" y="9" width="40" height="17" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+      <text x="222" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#17694c" text-anchor="middle">Local</text>
+      <text x="14" y="41" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Client-side data decoding, encryption, and byte analysis</text>
+      <text x="394" y="31" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Info</text>
+      <rect x="428" y="15" width="64" height="24" rx="4" fill="#f0f7f5" stroke="#99cbc0" />
+      <text x="460" y="31" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d" text-anchor="middle">Open ↗</text>
+    </g>
+
+    <!-- Row 4: SVGOMG -->
+    <g transform="translate(20, 604)">
+      <rect width="504" height="54" rx="6" fill="#ffffff" stroke="#dce3e6" />
+      <text x="14" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">SVGOMG</text>
+      <rect x="78" y="9" width="28" height="17" rx="3" fill="#08695d" />
+      <text x="92" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">92</text>
+      <rect x="112" y="9" width="52" height="17" rx="3" fill="#f4f6f7" stroke="#dce3e6" />
+      <text x="138" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#5c6b73" text-anchor="middle">Design</text>
+      <rect x="170" y="9" width="40" height="17" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+      <text x="190" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#17694c" text-anchor="middle">Local</text>
+      <text x="14" y="41" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">SVGO visual vector optimization and cleanup in browser</text>
+      <text x="394" y="31" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Info</text>
+      <rect x="428" y="15" width="64" height="24" rx="4" fill="#f0f7f5" stroke="#99cbc0" />
+      <text x="460" y="31" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d" text-anchor="middle">Open ↗</text>
+    </g>
+
+    <!-- Popup Footer -->
+    <g transform="translate(20, 676)">
+      <line x1="0" y1="0" x2="504" y2="0" stroke="#dce3e6" />
+      <text x="0" y="22" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Verified by <tspan font-weight="700" fill="#08695d">NoLoginTools.org</tspan></text>
+      <text x="504" y="22" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73" text-anchor="end">Lab  ·  Finder  ·  Privacy  ·  Submit</text>
+    </g>
   </g>
 </svg>

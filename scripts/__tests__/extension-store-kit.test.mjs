@@ -55,22 +55,49 @@ describe('Browser Extension Store Kit & Packaging', () => {
     const smallPromo = path.resolve(storeDir, 'promo-small-440x280.svg');
     const marquee = path.resolve(storeDir, 'marquee-1400x560.svg');
     const screenshot = path.resolve(storeDir, 'screenshot-1280x800.svg');
+    const screenshot2 = path.resolve(storeDir, 'screenshot-2-finder-1280x800.svg');
+    const screenshot3 = path.resolve(storeDir, 'screenshot-3-privacy-1280x800.svg');
 
     assert.ok(fs.existsSync(smallPromo), 'Small promo tile must exist');
     assert.ok(fs.existsSync(marquee), 'Marquee banner must exist');
-    assert.ok(fs.existsSync(screenshot), 'Screenshot preview must exist');
+    assert.ok(fs.existsSync(screenshot), 'Screenshot 1 preview must exist');
+    assert.ok(fs.existsSync(screenshot2), 'Screenshot 2 preview must exist');
+    assert.ok(fs.existsSync(screenshot3), 'Screenshot 3 preview must exist');
 
     const smallContent = fs.readFileSync(smallPromo, 'utf8');
     assert.ok(smallContent.includes('width="440"'));
     assert.ok(smallContent.includes('height="280"'));
+    assert.ok(smallContent.includes('95/100'));
+    assert.ok(smallContent.includes('30+'));
+    assert.ok(smallContent.includes('0 DOM'));
+    assert.ok(!smallContent.includes('GRADE A'));
 
     const marqueeContent = fs.readFileSync(marquee, 'utf8');
     assert.ok(marqueeContent.includes('width="1400"'));
     assert.ok(marqueeContent.includes('height="560"'));
+    assert.ok(marqueeContent.includes('30+'));
+    assert.ok(marqueeContent.includes('0 DOM'));
+    assert.ok(marqueeContent.includes('95/100'));
+    assert.ok(!marqueeContent.includes('GRADE A'));
 
     const screenshotContent = fs.readFileSync(screenshot, 'utf8');
     assert.ok(screenshotContent.includes('width="1280"'));
     assert.ok(screenshotContent.includes('height="800"'));
+    assert.ok(screenshotContent.includes('NoLogin Verified'));
+    assert.ok(screenshotContent.includes('Signup Wall'));
+    assert.ok(!screenshotContent.includes('GRADE A'));
+
+    const screenshot2Content = fs.readFileSync(screenshot2, 'utf8');
+    assert.ok(screenshot2Content.includes('width="1280"'));
+    assert.ok(screenshot2Content.includes('height="800"'));
+    assert.ok(screenshot2Content.includes('Top Scored'));
+    assert.ok(!screenshot2Content.includes('GRADE A'));
+
+    const screenshot3Content = fs.readFileSync(screenshot3, 'utf8');
+    assert.ok(screenshot3Content.includes('width="1280"'));
+    assert.ok(screenshot3Content.includes('height="800"'));
+    assert.ok(screenshot3Content.includes('19/20'));
+    assert.ok(screenshot3Content.includes('Zero Tool-Website DOM Injection'));
   });
 
   it('verifies downloadable zip archives for Chrome, Firefox, and default bundles', () => {

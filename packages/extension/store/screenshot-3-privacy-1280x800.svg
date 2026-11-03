@@ -1,83 +1,253 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
   <defs>
     <linearGradient id="sc3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090d16" />
-      <stop offset="50%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#022c22" />
+      <stop offset="0%" stop-color="#070d17" />
+      <stop offset="50%" stop-color="#0d1e2d" />
+      <stop offset="100%" stop-color="#042f28" />
     </linearGradient>
+    <filter id="hudShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
   </defs>
 
   <rect width="1280" height="800" fill="url(#sc3Bg)" />
 
-  <!-- Center Card: Privacy Audit & Architecture HUD -->
-  <g transform="translate(140, 100)">
-    <rect width="1000" height="600" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="2" filter="drop-shadow(0 25px 30px rgba(0,0,0,0.5))" />
+  <!-- Left Side: 5D Lab HUD + Zero-DOM Privacy Guarantee -->
+  <g transform="translate(68, 66)">
+    <rect x="0" y="0" width="320" height="30" rx="15" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-opacity="0.5" />
+    <text x="160" y="19.5" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#6ee7b7" text-anchor="middle" letter-spacing="0.8">3 · CADES 2.0 5D HUD &amp; ZERO-DOM PRIVACY</text>
 
-    <!-- Window Header -->
-    <rect width="1000" height="60" rx="20" fill="#030712" />
-    <rect y="44" width="1000" height="16" fill="#030712" />
-    <circle cx="36" cy="30" r="7" fill="#ef4444" />
-    <circle cx="58" cy="30" r="7" fill="#f59e0b" />
-    <circle cx="80" cy="30" r="7" fill="#10b981" />
-    <text x="500" y="36" font-family="monospace" font-size="13" fill="#64748b" text-anchor="middle">nologin.tools/privacy-architecture-verification</text>
+    <text x="0" y="76" font-family="-apple-system, sans-serif" font-weight="900" font-size="38" fill="#ffffff" letter-spacing="-0.8">
+      5D Lab Scorecard in Toolbar.
+    </text>
+    <text x="0" y="120" font-family="-apple-system, sans-serif" font-weight="900" font-size="38" fill="#34d399" letter-spacing="-0.8">
+      Zero Clutter on Your Canvas.
+    </text>
 
-    <!-- Main Content Area -->
-    <g transform="translate(60, 90)">
-      <rect x="0" y="0" width="180" height="30" rx="15" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4" />
-      <text x="90" y="20" font-family="-apple-system, sans-serif" font-weight="800" font-size="11" fill="#34d399" text-anchor="middle" letter-spacing="1">ZERO TELEMETRY AUDIT</text>
+    <text x="0" y="162" font-family="-apple-system, sans-serif" font-weight="500" font-size="14.5" fill="#cbd5e1">
+      When working inside any of the 320+ verified tools, the toolbar badge shows
+    </text>
+    <text x="0" y="184" font-family="-apple-system, sans-serif" font-weight="500" font-size="14.5" fill="#cbd5e1">
+      the live CADES 2.0 score (e.g. 95) without injecting a single node into the page.
+    </text>
 
-      <text x="0" y="70" font-family="-apple-system, sans-serif" font-weight="900" font-size="34" fill="#ffffff" letter-spacing="-0.5">
-        Strict Privacy &amp; Data Sovereignty Guarantee
-      </text>
-      <text x="0" y="105" font-family="-apple-system, sans-serif" font-weight="500" font-size="15" fill="#94a3b8">
-        No accounts, no user telemetry, and no remote code execution. Built for absolute peace of mind.
-      </text>
+    <!-- 3 Architecture & Privacy Pillars -->
+    <!-- Pillar 1 -->
+    <g transform="translate(0, 218)">
+      <rect width="540" height="122" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+      <rect x="20" y="22" width="48" height="48" rx="10" fill="#08695d" fill-opacity="0.25" stroke="#10b981" stroke-opacity="0.5" />
+      <text x="44" y="51" font-family="ui-monospace, monospace" font-weight="900" font-size="13.5" fill="#34d399" text-anchor="middle">0 DOM</text>
+      <text x="84" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Zero Tool-Website DOM Injection</text>
+      <text x="84" y="62" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8">Never injects floating banners, overlays, or CSS into third-party tool</text>
+      <text x="84" y="82" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8">workspaces. Your editors, canvases, and export buttons stay 100% pure.</text>
+      <rect x="84" y="92" width="168" height="20" rx="4" fill="#064e3b" />
+      <text x="168" y="105.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#6ee7b7" text-anchor="middle">✓ SERP-Only Content Script</text>
+    </g>
 
-      <!-- 3 Pillars Grid -->
-      <g transform="translate(0, 140)">
-        <!-- Pillar 1 -->
-        <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
-        <circle cx="44" cy="44" r="22" fill="#10b981" fill-opacity="0.2" />
-        <text x="44" y="51" font-family="-apple-system, sans-serif" font-weight="900" font-size="18" fill="#34d399" text-anchor="middle">0</text>
-        <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">0 Accounts Needed</text>
-        <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
-          <tspan x="24" dy="0">No sign-up forms, credit cards,</tspan>
-          <tspan x="24" dy="18">or email verifications. Every tool</tspan>
-          <tspan x="24" dy="18">launches instantly in-browser.</tspan>
-        </text>
-        <rect x="24" y="194" width="130" height="28" rx="6" fill="#065f46" />
-        <text x="89" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#34d399" text-anchor="middle">✓ Instant Access</text>
+    <!-- Pillar 2 -->
+    <g transform="translate(0, 356)">
+      <rect width="540" height="122" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+      <rect x="20" y="22" width="48" height="48" rx="10" fill="#0284c7" fill-opacity="0.22" stroke="#38bdf8" stroke-opacity="0.5" />
+      <text x="44" y="51" font-family="ui-monospace, monospace" font-weight="900" font-size="13.5" fill="#38bdf8" text-anchor="middle">LOCAL</text>
+      <text x="84" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">100% Local Tab Matching &amp; Zero Telemetry</text>
+      <text x="84" y="62" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8">Active tab hostnames are matched strictly locally in browser memory</text>
+      <text x="84" y="82" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8">against the cached public index. Browsing history never leaves your device.</text>
+      <rect x="84" y="92" width="196" height="20" rx="4" fill="#0c4a6e" />
+      <text x="182" y="105.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#7dd3fc" text-anchor="middle">✓ 24h Read-Only Public JSON Sync</text>
+    </g>
 
-        <!-- Pillar 2 -->
-        <g transform="translate(305, 0)">
-          <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
-          <circle cx="44" cy="44" r="22" fill="#38bdf8" fill-opacity="0.2" />
-          <text x="44" y="50" font-family="monospace" font-weight="900" font-size="13" fill="#38bdf8" text-anchor="middle">WASM</text>
-          <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Client-Side WASM</text>
-          <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
-            <tspan x="24" dy="0">Codecs and editors execute</tspan>
-            <tspan x="24" dy="18">directly in local RAM. Zero</tspan>
-            <tspan x="24" dy="18">file upload to remote servers.</tspan>
-          </text>
-          <rect x="24" y="194" width="130" height="28" rx="6" fill="#0369a1" />
-          <text x="89" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#7dd3fc" text-anchor="middle">✓ Zero Data Egress</text>
+    <!-- Pillar 3 -->
+    <g transform="translate(0, 494)">
+      <rect width="540" height="122" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+      <rect x="20" y="22" width="48" height="48" rx="10" fill="#d97706" fill-opacity="0.2" stroke="#fbbf24" stroke-opacity="0.5" />
+      <text x="44" y="51" font-family="ui-monospace, monospace" font-weight="900" font-size="14" fill="#fbbf24" text-anchor="middle">5D</text>
+      <text x="84" y="38" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Empirical CADES 2.0 Lab Verification</text>
+      <text x="84" y="62" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8">Every tool is dogfooded in Chromium across 5 dimensions: Frictionless UX,</text>
+      <text x="84" y="82" font-family="-apple-system, sans-serif" font-size="12.5" fill="#94a3b8">Functional Depth, Export Freedom, Privacy Sovereignty, and Stability.</text>
+      <rect x="84" y="92" width="184" height="20" rx="4" fill="#78350f" />
+      <text x="176" y="105.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#fde68a" text-anchor="middle">✓ Open Source &amp; CWS Verified</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Authentic v2.0 Verified Tool 5D HUD + Nomination Bar -->
+  <g transform="translate(668, 42)" filter="url(#hudShadow)">
+    <rect width="544" height="716" rx="16" fill="#f6f8f9" stroke="#cbd5e1" stroke-width="2" />
+
+    <!-- Browser Toolbar Preview Strip at Top of Card -->
+    <rect width="544" height="46" rx="16" fill="#0f172a" />
+    <rect y="30" width="544" height="16" fill="#0f172a" />
+    <rect x="18" y="10" width="330" height="26" rx="6" fill="#1e293b" stroke="#334155" />
+    <text x="32" y="27" font-family="ui-monospace, monospace" font-size="11.5" fill="#e2e8f0">https://www.photopea.com</text>
+    <g transform="translate(364, 9)">
+      <rect width="162" height="28" rx="6" fill="#064e3b" stroke="#10b981" />
+      <text x="12" y="18.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#a7f3d0">🛡️ Toolbar Badge:</text>
+      <rect x="118" y="4" width="34" height="20" rx="4" fill="#08695d" />
+      <text x="135" y="18" font-family="-apple-system, sans-serif" font-weight="900" font-size="11.5" fill="#ffffff" text-anchor="middle">95</text>
+    </g>
+
+    <!-- Popup Header -->
+    <g transform="translate(20, 60)">
+      <rect width="26" height="26" rx="6" fill="#08695d" />
+      <path d="M8 13 L11.5 16.5 L18.5 9.5" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="36" y="15" font-family="-apple-system, sans-serif" font-weight="800" font-size="15.5" fill="#08695d">nologin.tools</text>
+      <rect x="136" y="2" width="34" height="16" rx="3" fill="#e6f4f1" stroke="#b8dcd4" />
+      <text x="153" y="13.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#08695d" text-anchor="middle">v2.0</text>
+      <text x="36" y="29" font-family="-apple-system, sans-serif" font-size="10.5" fill="#5c6b73">Zero Signup · CADES 2.0 Lab Verified</text>
+
+      <rect x="434" y="2" width="40" height="24" rx="5" fill="#e6f4f1" stroke="#b8dcd4" />
+      <text x="454" y="18" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d" text-anchor="middle">中文</text>
+      <rect x="480" y="2" width="24" height="24" rx="5" fill="#ffffff" stroke="#cfd8dc" />
+      <text x="492" y="18" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#2c3e47" text-anchor="middle">↗</text>
+    </g>
+    <line x1="20" y1="98" x2="524" y2="98" stroke="#dce3e6" stroke-width="1" />
+
+    <!-- 1. Verified Tool 5D Lab HUD Banner (#verified-banner) -->
+    <g transform="translate(20, 110)">
+      <rect width="504" height="310" rx="8" fill="#ffffff" stroke="#b8dcd4" stroke-width="1.5" />
+      <rect width="4" height="310" rx="2" fill="#08695d" />
+
+      <!-- Top Row -->
+      <circle cx="20" cy="22" r="4" fill="#08695d" />
+      <text x="32" y="26" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#08695d">✓ NoLogin Verified</text>
+      <rect x="152" y="12" width="88" height="19" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+      <text x="196" y="25" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#17694c" text-anchor="middle">Editor&apos;s Choice</text>
+
+      <rect x="426" y="10" width="62" height="24" rx="4" fill="#08695d" />
+      <text x="457" y="26" font-family="-apple-system, sans-serif" font-weight="800" font-size="12.5" fill="#ffffff" text-anchor="middle">95/100</text>
+
+      <!-- Tool Title -->
+      <text x="18" y="54" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#18252c">Photopea (photopea.com)</text>
+
+      <!-- 5-Column Mini Progress Grid (#verified-5d-bar) -->
+      <g transform="translate(18, 66)">
+        <rect width="468" height="48" rx="6" fill="#f4f9f8" stroke="#dce9e6" />
+        <!-- UX -->
+        <g transform="translate(10, 9)">
+          <text x="0" y="11" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">UX</text>
+          <text x="78" y="11" font-family="ui-monospace, monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">19/20</text>
+          <rect x="0" y="19" width="78" height="5" rx="2.5" fill="#dce9e6" />
+          <rect x="0" y="19" width="74" height="5" rx="2.5" fill="#08695d" />
         </g>
-
-        <!-- Pillar 3 -->
-        <g transform="translate(610, 0)">
-          <rect x="0" y="0" width="270" height="250" rx="14" fill="#1e293b" stroke="#334155" />
-          <circle cx="44" cy="44" r="22" fill="#eab308" fill-opacity="0.2" />
-          <text x="44" y="51" font-family="-apple-system, sans-serif" font-weight="900" font-size="16" fill="#fde047" text-anchor="middle">MV3</text>
-          <text x="24" y="96" font-family="-apple-system, sans-serif" font-weight="800" font-size="16" fill="#ffffff">Minimal Permission</text>
-          <text x="24" y="126" font-family="-apple-system, sans-serif" font-weight="500" font-size="12" fill="#94a3b8">
-            <tspan x="24" dy="0">Only activeTab on user click.</tspan>
-            <tspan x="24" dy="18">Zero background listeners,</tspan>
-            <tspan x="24" dy="18">zero history inspection.</tspan>
-          </text>
-          <rect x="24" y="194" width="155" height="28" rx="6" fill="#854d0e" />
-          <text x="101" y="212" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#fde047" text-anchor="middle">✓ Google Store Approved</text>
+        <!-- Depth -->
+        <g transform="translate(102, 9)">
+          <text x="0" y="11" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Depth</text>
+          <text x="78" y="11" font-family="ui-monospace, monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">24/25</text>
+          <rect x="0" y="19" width="78" height="5" rx="2.5" fill="#dce9e6" />
+          <rect x="0" y="19" width="75" height="5" rx="2.5" fill="#08695d" />
+        </g>
+        <!-- Export -->
+        <g transform="translate(194, 9)">
+          <text x="0" y="11" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Export</text>
+          <text x="78" y="11" font-family="ui-monospace, monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">19/20</text>
+          <rect x="0" y="19" width="78" height="5" rx="2.5" fill="#dce9e6" />
+          <rect x="0" y="19" width="74" height="5" rx="2.5" fill="#08695d" />
+        </g>
+        <!-- Privacy -->
+        <g transform="translate(286, 9)">
+          <text x="0" y="11" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Privacy</text>
+          <text x="78" y="11" font-family="ui-monospace, monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">19/20</text>
+          <rect x="0" y="19" width="78" height="5" rx="2.5" fill="#dce9e6" />
+          <rect x="0" y="19" width="74" height="5" rx="2.5" fill="#08695d" />
+        </g>
+        <!-- Polish -->
+        <g transform="translate(378, 9)">
+          <text x="0" y="11" font-family="-apple-system, sans-serif" font-weight="600" font-size="10" fill="#5c6b73">Polish</text>
+          <text x="78" y="11" font-family="ui-monospace, monospace" font-weight="800" font-size="10" fill="#08695d" text-anchor="end">14/15</text>
+          <rect x="0" y="19" width="78" height="5" rx="2.5" fill="#dce9e6" />
+          <rect x="0" y="19" width="73" height="5" rx="2.5" fill="#08695d" />
         </g>
       </g>
+
+      <!-- Capability Pills -->
+      <g transform="translate(18, 126)">
+        <rect x="0" y="0" width="102" height="22" rx="4" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="51" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#17694c" text-anchor="middle">100% Client-Side</text>
+
+        <rect x="110" y="0" width="84" height="22" rx="4" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="152" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#17694c" text-anchor="middle">Works Offline</text>
+
+        <rect x="202" y="0" width="52" height="22" rx="4" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="228" y="15" font-family="-apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#17694c" text-anchor="middle">Free</text>
+      </g>
+
+      <!-- Verdict Text -->
+      <text x="18" y="170" font-family="-apple-system, sans-serif" font-size="12" fill="#364954">
+        Multi-layer PSD, XCF, and RAW raster image editing directly in browser RAM
+      </text>
+      <text x="18" y="188" font-family="-apple-system, sans-serif" font-size="12" fill="#364954">
+        with zero server uploads or mandatory account creation.
+      </text>
+
+      <!-- Primary & Secondary Action Buttons -->
+      <g transform="translate(18, 202)">
+        <rect x="0" y="0" width="248" height="32" rx="5" fill="#08695d" />
+        <text x="124" y="20.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Lab Report &amp; Details ↗</text>
+
+        <rect x="258" y="0" width="210" height="32" rx="5" fill="#f0f7f5" stroke="#99cbc0" />
+        <text x="363" y="20.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#08695d" text-anchor="middle">vs Canva Comparison ↗</text>
+      </g>
+
+      <!-- Same-Category High-Score Peers (#verified-peers) -->
+      <line x1="18" y1="248" x2="486" y2="248" stroke="#e6ecee" />
+      <text x="18" y="266" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Top verified peers in this category:</text>
+      <g transform="translate(18, 274)">
+        <rect x="0" y="0" width="114" height="24" rx="4" fill="#f6faf9" stroke="#cfe3de" />
+        <text x="10" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#08695d">Excalidraw</text>
+        <rect x="74" y="4" width="22" height="16" rx="2.5" fill="#08695d" />
+        <text x="85" y="15.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">96</text>
+        <text x="100" y="16" font-family="-apple-system, sans-serif" font-weight="10.5" fill="#08695d">↗</text>
+
+        <rect x="122" y="0" width="102" height="24" rx="4" fill="#f6faf9" stroke="#cfe3de" />
+        <text x="132" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#08695d">Squoosh</text>
+        <rect x="184" y="4" width="22" height="16" rx="2.5" fill="#08695d" />
+        <text x="195" y="15.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">95</text>
+        <text x="210" y="16" font-family="-apple-system, sans-serif" font-weight="10.5" fill="#08695d">↗</text>
+
+        <rect x="232" y="0" width="102" height="24" rx="4" fill="#f6faf9" stroke="#cfe3de" />
+        <text x="242" y="16" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#08695d">SVGOMG</text>
+        <rect x="294" y="4" width="22" height="16" rx="2.5" fill="#08695d" />
+        <text x="305" y="15.5" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">92</text>
+        <text x="320" y="16" font-family="-apple-system, sans-serif" font-weight="10.5" fill="#08695d">↗</text>
+      </g>
+    </g>
+
+    <!-- 2. Unlisted Website 1-Click Nomination Bar Preview (#nominate-banner) -->
+    <g transform="translate(20, 434)">
+      <text x="0" y="14" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#5c6b73" letter-spacing="0.4">BONUS · VISITING AN UNINDEXED ZERO-LOGIN TOOL?</text>
+      <rect x="0" y="22" width="504" height="52" rx="7" fill="#ffffff" stroke="#dce3e6" stroke-width="1.5" />
+      <text x="16" y="44" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">new-wasm-tool.dev</text>
+      <text x="16" y="62" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Not indexed yet · Nominate for NoLogin Lab CADES 2.0 vetting</text>
+      <rect x="382" y="34" width="106" height="28" rx="5" fill="#f0f7f5" stroke="#99cbc0" />
+      <text x="435" y="52" font-family="-apple-system, sans-serif" font-weight="700" font-size="11.5" fill="#08695d" text-anchor="middle">+ Nominate ↗</text>
+    </g>
+
+    <!-- 3. Quick-Search Mini Preview at Bottom -->
+    <g transform="translate(20, 522)">
+      <rect width="504" height="36" rx="6" fill="#ffffff" stroke="#bfcbd0" />
+      <text x="14" y="23" font-family="-apple-system, sans-serif" font-size="12" fill="#78909c">🔍  Search 320+ zero-login tools or SaaS to replace...</text>
+
+      <!-- Top Result Row -->
+      <g transform="translate(0, 48)">
+        <rect width="504" height="54" rx="6" fill="#ffffff" stroke="#dce3e6" />
+        <text x="14" y="22" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#18252c">Excalidraw</text>
+        <rect x="90" y="9" width="28" height="17" rx="3" fill="#08695d" />
+        <text x="104" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#ffffff" text-anchor="middle">96</text>
+        <rect x="124" y="9" width="52" height="17" rx="3" fill="#f4f6f7" stroke="#dce3e6" />
+        <text x="150" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#5c6b73" text-anchor="middle">Design</text>
+        <rect x="182" y="9" width="40" height="17" rx="3" fill="#f0f7f5" stroke="#cfe3de" />
+        <text x="202" y="21" font-family="-apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#17694c" text-anchor="middle">Local</text>
+        <text x="14" y="41" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Hand-drawn diagrams, whiteboards &amp; architecture sketches</text>
+        <text x="394" y="31" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73">Info</text>
+        <rect x="428" y="15" width="64" height="24" rx="4" fill="#f0f7f5" stroke="#99cbc0" />
+        <text x="460" y="31" font-family="-apple-system, sans-serif" font-weight="700" font-size="11" fill="#08695d" text-anchor="middle">Open ↗</text>
+      </g>
+    </g>
+
+    <!-- Popup Footer -->
+    <g transform="translate(20, 676)">
+      <line x1="0" y1="0" x2="504" y2="0" stroke="#dce3e6" />
+      <text x="0" y="22" font-family="-apple-system, sans-serif" font-size="11" fill="#5c6b73">Verified by <tspan font-weight="700" fill="#08695d">NoLoginTools.org</tspan></text>
+      <text x="504" y="22" font-family="-apple-system, sans-serif" font-weight="600" font-size="11" fill="#5c6b73" text-anchor="end">Lab  ·  Finder  ·  Privacy  ·  Submit</text>
     </g>
   </g>
 </svg>
