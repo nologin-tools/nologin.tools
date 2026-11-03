@@ -14,7 +14,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T02:32:02.049Z"
+    "lastScanAt": "2026-11-03T06:19:31.845Z",
+    "lastTitle": "AI Slop Detector: Check Text & Images for AI Slop",
+    "lastSignals": []
   },
   "all2url-com": {
     "lastDeepEvalAt": "2026-10-28T03:32:28.740Z",
@@ -40,8 +42,21 @@
     "lastSignals": []
   },
   "app-diagrams-net": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:30.509Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-03T06:17:43.243Z",
+        "lastSeenAt": "2026-11-03T06:17:43.243Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-intent-1793686659055.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-outcome-1793686659055.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:17:43.243Z",
     "lastTitle": "Flowchart Maker & Online Diagram Software",
     "lastSignals": [
       "surface_lost"
@@ -146,7 +161,7 @@
   },
   "betterhabitsdaily-com-tracker": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:25.361Z",
+    "lastScanAt": "2026-11-03T06:17:38.920Z",
     "lastTitle": "Free Habit Tracker — No Signup, No Account, No Cloud",
     "lastSignals": []
   },
@@ -212,13 +227,43 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T04:54:03.103Z"
+    "lastScanAt": "2026-11-03T06:20:04.601Z",
+    "lastTitle": "CalcRobin — Free Online Calculators and Tools",
+    "lastSignals": []
   },
   "calorique-io": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:09.694Z",
-    "lastTitle": "Free Calorie & Fitness Calculators (2026): Instant Results, No Signup",
-    "lastSignals": []
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-03T06:17:26.335Z",
+        "lastSeenAt": "2026-11-03T06:17:26.335Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-intent-1793686641988.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-outcome-1793686641988.png"
+        ]
+      },
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"Free Calorie & Fitness Calculators (2026): Instant Results, No Signup\" → \"Just a moment...\"",
+        "firstSeenAt": "2026-11-03T06:17:26.335Z",
+        "lastSeenAt": "2026-11-03T06:17:26.335Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-intent-1793686641988.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-outcome-1793686641988.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:17:26.335Z",
+    "lastTitle": "Just a moment...",
+    "lastSignals": [
+      "surface_lost",
+      "title_changed"
+    ]
   },
   "caniemail-com": {
     "openAnomalies": [],
@@ -275,7 +320,7 @@
   },
   "citefetch-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:24:08.807Z",
+    "lastScanAt": "2026-11-03T06:15:03.983Z",
     "lastTitle": "Free Citation Checker, Catch Fake References | CiteFetch",
     "lastSignals": []
   },
@@ -317,7 +362,7 @@
   },
   "comprimirpdf-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T06:24:40.276Z",
+    "lastScanAt": "2026-11-03T06:20:58.992Z",
     "lastTitle": "comprimir pdf gratis online",
     "lastSignals": []
   },
@@ -358,8 +403,8 @@
   },
   "convertilo-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T06:24:25.362Z",
-    "lastTitle": "Convertilo — Images, PDFs, Translator Online in Browser",
+    "lastScanAt": "2026-11-03T06:20:41.045Z",
+    "lastTitle": "convertilo.io | 522: Connection timed out",
     "lastSignals": []
   },
   "convertio-co": {
@@ -394,7 +439,7 @@
   },
   "countlink-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:25:08.871Z",
+    "lastScanAt": "2026-11-03T06:16:00.449Z",
     "lastTitle": "Shared Timer — Free Shareable Countdown, Synced by Link | CountLink",
     "lastSignals": []
   },
@@ -412,7 +457,7 @@
   },
   "crochet-chart-maker-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:22:58.570Z",
+    "lastScanAt": "2026-11-03T06:19:09.695Z",
     "lastTitle": "Crochet Graph Maker – Free Image to Pixel Chart",
     "lastSignals": []
   },
@@ -425,7 +470,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T04:49:33.348Z"
+    "lastScanAt": "2026-11-03T06:19:58.035Z",
+    "lastTitle": "Free Crochet Tapestry Pattern Maker | Gauge-Aware",
+    "lastSignals": []
   },
   "crontab-guru": {
     "openAnomalies": [],
@@ -441,7 +488,7 @@
   },
   "cssgridgarden-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T06:24:31.360Z",
+    "lastScanAt": "2026-11-03T06:20:49.330Z",
     "lastTitle": "Grid Garden - A game for learning CSS grid",
     "lastSignals": []
   },
@@ -471,7 +518,7 @@
   },
   "dataformatkit-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:22:27.414Z",
+    "lastScanAt": "2026-11-03T06:18:44.703Z",
     "lastTitle": "Text to CSV Converter - Free Browser Tool | DataFormatKit",
     "lastSignals": []
   },
@@ -607,7 +654,7 @@
   },
   "earchord-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:22:44.497Z",
+    "lastScanAt": "2026-11-03T06:18:59.975Z",
     "lastTitle": "Chord Finder from Audio - Free, Unlimited, No Signup | EarChord",
     "lastSignals": []
   },
@@ -672,7 +719,7 @@
   },
   "fffuel-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:20:25.526Z",
+    "lastScanAt": "2026-11-03T06:16:58.983Z",
     "lastTitle": "Free SVG generators, color tools & web design tools",
     "lastSignals": []
   },
@@ -713,7 +760,7 @@
   },
   "findthescam-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:22:17.614Z",
+    "lastScanAt": "2026-11-03T06:18:35.272Z",
     "lastTitle": "Check if Website is Legit or Scam, Website Info, Reviews | FindTheScam",
     "lastSignals": []
   },
@@ -833,7 +880,7 @@
   },
   "godbolt-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:24:25.520Z",
+    "lastScanAt": "2026-11-03T06:15:21.958Z",
     "lastTitle": "Compiler Explorer",
     "lastSignals": []
   },
@@ -1032,7 +1079,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T03:03:15.896Z"
+    "lastScanAt": "2026-11-03T06:19:50.200Z",
+    "lastTitle": "Free local CSV encoding checker — UTF-8 or GB18030",
+    "lastSignals": []
   },
   "jsoncrack-com": {
     "openAnomalies": [],
@@ -1101,7 +1150,7 @@
   },
   "lanternpathbooks-com-free-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:25:27.939Z",
+    "lastScanAt": "2026-11-03T06:16:18.506Z",
     "lastTitle": "Free Printable Tools for Parents & Teachers | Lantern Path Books",
     "lastSignals": []
   },
@@ -1171,7 +1220,7 @@
   },
   "max-agent-hub-github-io-browser-sop-builder": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:18.177Z",
+    "lastScanAt": "2026-11-03T06:17:33.743Z",
     "lastTitle": "Browser SOP Builder | Mackanic Technologies",
     "lastSignals": []
   },
@@ -1250,7 +1299,7 @@
   },
   "mockaroo-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:19:56.609Z",
+    "lastScanAt": "2026-11-03T06:16:31.634Z",
     "lastTitle": "Mockaroo - Random Data Generator and API Mocking Tool | JSON / CSV / SQL / Excel",
     "lastSignals": []
   },
@@ -1427,7 +1476,7 @@
   },
   "nutilz-com-caa-record-generator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:25:21.539Z",
+    "lastScanAt": "2026-11-03T06:16:12.650Z",
     "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
     "lastSignals": []
   },
@@ -1501,8 +1550,21 @@
     ]
   },
   "pdftomdconverter-app": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:23:51.500Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-03T06:14:48.535Z",
+        "lastSeenAt": "2026-11-03T06:14:48.535Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdftomdconverter-app-intent-1793686479497.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdftomdconverter-app-outcome-1793686479497.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:14:48.535Z",
     "lastTitle": "pdf to md converter",
     "lastSignals": [
       "surface_lost"
@@ -1618,13 +1680,13 @@
   },
   "playfatelab-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:24:35.918Z",
+    "lastScanAt": "2026-11-03T06:15:31.400Z",
     "lastTitle": "FATE // LAB — Random Tools for Decisions, Games & Chaos",
     "lastSignals": []
   },
   "playground-tensorflow-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:23:03.911Z",
+    "lastScanAt": "2026-11-03T06:19:14.438Z",
     "lastTitle": "A Neural Network Playground",
     "lastSignals": []
   },
@@ -1698,8 +1760,21 @@
     "lastSignals": []
   },
   "privacytests-org": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:22:32.703Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-03T06:18:49.284Z",
+        "lastSeenAt": "2026-11-03T06:18:49.284Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-intent-1793686724839.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-outcome-1793686724839.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:18:49.284Z",
     "lastTitle": "What are the best private browsers in 2026?",
     "lastSignals": [
       "surface_lost"
@@ -1735,14 +1810,42 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T02:13:35.704Z"
+    "lastScanAt": "2026-11-03T06:19:24.473Z",
+    "lastTitle": "Dropshipping Profit Calculator | ProductLair",
+    "lastSignals": []
   },
   "ps-keepmot-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:20:45.808Z",
-    "lastTitle": "Free Online Collage Maker_No Login_No Watermark_HD Image Stitching Tool",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-03T06:17:04.153Z",
+        "lastSeenAt": "2026-11-03T06:17:04.153Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1793686619120.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1793686619120.png"
+        ]
+      },
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"Free Online Collage Maker_No Login_No Watermark_HD Image Stitching Tool\" → \"免费在线拼图工具_免登录无水印_高清图片拼接网站\"",
+        "firstSeenAt": "2026-11-03T06:17:04.153Z",
+        "lastSeenAt": "2026-11-03T06:17:04.153Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1793686619120.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1793686619120.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:17:04.153Z",
+    "lastTitle": "免费在线拼图工具_免登录无水印_高清图片拼接网站",
     "lastSignals": [
-      "surface_lost"
+      "surface_lost",
+      "title_changed"
     ],
     "lastDeepEvalAt": "2026-10-27T02:41:14.713Z",
     "lastResolution": {
@@ -1769,7 +1872,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T05:02:35.009Z"
+    "lastScanAt": "2026-11-03T06:20:16.174Z",
+    "lastTitle": "Free resume builder with examples: PDF and Word | PuReSume.com",
+    "lastSignals": []
   },
   "pythontutor-com": {
     "openAnomalies": [
@@ -1835,7 +1940,7 @@
   },
   "quixcalc-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:43.617Z",
+    "lastScanAt": "2026-11-03T06:17:53.917Z",
     "lastTitle": "Free Online Calculators and Tools | QuixCalc",
     "lastSignals": []
   },
@@ -1881,7 +1986,7 @@
   },
   "realtimecolors-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:20:57.929Z",
+    "lastScanAt": "2026-11-03T06:17:15.718Z",
     "lastTitle": "Realtime Colors",
     "lastSignals": []
   },
@@ -1985,7 +2090,7 @@
   },
   "shields-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:24:00.467Z",
+    "lastScanAt": "2026-11-03T06:14:55.006Z",
     "lastTitle": "Shields.io",
     "lastSignals": []
   },
@@ -2037,7 +2142,7 @@
   },
   "sortvisualizer-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:20:03.511Z",
+    "lastScanAt": "2026-11-03T06:16:37.803Z",
     "lastTitle": "Sort Visualizer",
     "lastSignals": []
   },
@@ -2140,7 +2245,7 @@
   },
   "t-8ma-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:24:56.785Z",
+    "lastScanAt": "2026-11-03T06:15:48.818Z",
     "lastTitle": "8码快传 · 文件点对点直传",
     "lastSignals": []
   },
@@ -2319,11 +2424,9 @@
   },
   "toolsphare-tech-en": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-24T06:24:50.536Z",
-    "lastTitle": "655+ Free Online Tools — PDF, Image & Text | ToolSphare",
-    "lastSignals": [
-      "cross_host_redirect"
-    ],
+    "lastScanAt": "2026-11-03T06:15:42.355Z",
+    "lastTitle": "672+ Free Online Tools — PDF, Image & Text | ToolSphare",
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-10-26T02:07:58.732Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -2516,7 +2619,7 @@
   },
   "wave-webaim-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:23:13.112Z",
+    "lastScanAt": "2026-11-03T06:19:18.670Z",
     "lastTitle": "WAVE Web Accessibility Evaluation Tools",
     "lastSignals": []
   },
@@ -2528,7 +2631,7 @@
   },
   "webhook-site": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:20:18.510Z",
+    "lastScanAt": "2026-11-03T06:16:52.368Z",
     "lastTitle": "Webhook.site - Test, transform and automate Web requests and emails",
     "lastSignals": []
   },
@@ -2581,8 +2684,21 @@
     "lastSignals": []
   },
   "write-as": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:38.159Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"14-day trial\"",
+        "firstSeenAt": "2026-11-03T06:17:48.875Z",
+        "lastSeenAt": "2026-11-03T06:17:48.875Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-intent-1793686663370.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-outcome-1793686663370.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:17:48.875Z",
     "lastTitle": "Write.as — A place for focused writing.",
     "lastSignals": [
       "paywall_copy"
@@ -2673,8 +2789,21 @@
     "lastSignals": []
   },
   "www-textfixhub-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-25T06:21:04.115Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-03T06:17:21.851Z",
+        "lastSeenAt": "2026-11-03T06:17:21.851Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-intent-1793686635859.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-outcome-1793686635859.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-03T06:17:21.851Z",
     "lastTitle": "Free Text Tools: Alphabetize, Count & More | TextFixHub",
     "lastSignals": [
       "surface_lost"
@@ -2744,7 +2873,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-26T02:52:00.125Z"
+    "lastScanAt": "2026-11-03T06:19:44.086Z",
+    "lastTitle": "Free Squat Form Check | Boddy",
+    "lastSignals": []
   },
   "xe-com-currencyconverter": {
     "openAnomalies": [],
