@@ -385,21 +385,20 @@
     "lastSignals": []
   },
   "converters-live": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-10-29T06:26:13.643Z",
-        "lastSeenAt": "2026-10-29T06:26:13.643Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:26:13.643Z",
     "lastSignals": [
       "probe_failed"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-04T02:52:32.221Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Re-evaluated converters-live: site loads file conversion UI, accepts fixture uploads, and sends conversion requests to /api/convert with zero trackers. Probe failed anomaly cleared.",
+      "at": "2026-11-04T02:52:32.221Z",
+      "closed": [
+        "probe_failed"
+      ]
+    }
   },
   "convertilo-io": {
     "openAnomalies": [],
@@ -884,6 +883,17 @@
     "lastTitle": "Compiler Explorer",
     "lastSignals": []
   },
+  "golfclubreference-com-tools-swing-weight-calculator": {
+    "lastDeepEvalAt": "2026-11-04T03:19:02.820Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-04T03:19:02.820Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-04T03:19:02.820Z"
+  },
   "gonzalezreciogpt-a11y-github-io-facturas-pendientes-csv": {
     "lastDeepEvalAt": "2026-10-28T03:52:51.145Z",
     "lastResolution": {
@@ -894,6 +904,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-10-28T03:52:51.145Z"
+  },
+  "graziechef-com-tools-qr-menu-generator": {
+    "lastDeepEvalAt": "2026-11-04T03:40:53.659Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-04T03:40:53.659Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-04T03:40:53.659Z"
   },
   "haikei-app": {
     "openAnomalies": [],
@@ -987,6 +1008,17 @@
     "lastTitle": "httpbin.org",
     "lastSignals": []
   },
+  "humanizeink-com": {
+    "lastDeepEvalAt": "2026-11-04T03:01:44.582Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-04T03:01:44.582Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-04T03:01:44.582Z"
+  },
   "icyzip-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-27T06:25:18.704Z",
@@ -1033,6 +1065,17 @@
     "lastScanAt": "2026-10-28T06:27:05.512Z",
     "lastTitle": "Image to ASCII Converter - Free, Private ASCII Art Generator",
     "lastSignals": []
+  },
+  "imagetovideoprompt-org": {
+    "lastDeepEvalAt": "2026-11-04T03:06:21.437Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-04T03:06:21.437Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-04T03:06:21.437Z"
   },
   "imgrove-com": {
     "openAnomalies": [],
@@ -1259,25 +1302,21 @@
     "lastSignals": []
   },
   "mermaid-live": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-29T06:25:18.918Z",
-        "lastSeenAt": "2026-10-29T06:25:18.918Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mermaid-live-intent-1793255112132.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mermaid-live-outcome-1793255112132.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:25:18.918Z",
     "lastTitle": "Online FlowChart & Diagrams Editor - Mermaid Live Editor",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-04T02:44:11.921Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified Mermaid Live editor initializes with interactive flowchart/sequence canvas, renders live diagram on code update, and exports clean 63KB PNG without login or watermarks. Rolling scan surface_lost was a false positive caused by modal overlay.",
+      "at": "2026-11-04T02:44:11.921Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "metadataremover-ai": {
     "openAnomalies": [],
@@ -2094,6 +2133,17 @@
     "lastTitle": "Shields.io",
     "lastSignals": []
   },
+  "shotmelo-com": {
+    "lastDeepEvalAt": "2026-11-04T03:35:50.056Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-04T03:35:50.056Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-04T03:35:50.056Z"
+  },
   "signaturefont-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:23:34.256Z",
@@ -2153,25 +2203,21 @@
     "lastSignals": []
   },
   "spritesheettool-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"buy credits\"",
-        "firstSeenAt": "2026-10-29T06:23:21.374Z",
-        "lastSeenAt": "2026-10-29T06:23:21.374Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-spritesheettool-com-intent-1793254987004.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-spritesheettool-com-outcome-1793254987004.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:23:21.374Z",
     "lastTitle": "RPG Sprite Sheet Generator for Character Walk Packs",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-04T02:35:26.023Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified Sprite Sheet Maker at /sprite-sheet-maker packs frames locally and exports clean 10KB PNG with no login; landing page RPG generator has credit copy but classic utility remains fully functional and anonymous.",
+      "at": "2026-11-04T02:35:26.023Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "squoosh-app": {
     "openAnomalies": [],

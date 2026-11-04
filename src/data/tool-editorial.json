@@ -75096,5 +75096,265 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-02T03:24:23.343Z"
     }
+  },
+  "humanizeink-com": {
+    "en": {
+      "bestFor": "Rewriting rough English drafts into natural, casual, or professional phrasing without account creation",
+      "pros": [
+        "No registration or email required for up to 3 rewrites per hour and 10 per day",
+        "Offers three distinct tone modes (Natural, Professional, Casual) with quick one-click comparison"
+      ],
+      "cons": [
+        "Server-side processing transmits input text to remote API endpoints (POST /api/humanize)",
+        "Free usage is rate-limited to 3 attempts per hour"
+      ],
+      "privacyVerdict": "Text rewriting is performed server-side via POST /api/humanize. Telemetry beacons were observed to Cloudflare RUM (/cdn-cgi/rum) and first-party event tracking (/api/humanize/events).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested with a 19-word English draft in textarea. The system returned a natural rewrite in approximately 5 seconds without errors, displaying instant copy-to-clipboard controls.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:01:44.564Z"
+    },
+    "zh": {
+      "bestFor": "无需注册账号快速润色英文草稿，将其改写为自然、地道或专业语气的场景",
+      "pros": [
+        "免登录免注册即可使用，每小时提供 3 次、每天 10 次免费改写额度",
+        "提供自然（Natural）、专业（Professional）与随意（Casual）三种语气模式，支持即时对比与一键复制"
+      ],
+      "cons": [
+        "文本处理依赖服务端远程 API（POST /api/humanize），用户草稿会传输至云端",
+        "免费额度限制为每小时 3 次、每天 10 次"
+      ],
+      "privacyVerdict": "文本润色处理经由服务端 POST /api/humanize 完成。外发网络请求中检测到 Cloudflare RUM（/cdn-cgi/rum）以及第一方事件统计（/api/humanize/events）信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入包含 19 个英文单词的段落，系统在约 5 秒内返回改写结果，并提供一键复制与差异对比功能，交互流畅无报错。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:01:44.565Z"
+    }
+  },
+  "imagetovideoprompt-org": {
+    "en": {
+      "bestFor": "Generating formatted motion and camera prompts for AI video generators like Grok, Kling, and Runway without account creation",
+      "pros": [
+        "Instant client-side prompt formatting that adapts text to selected models such as Grok, Kling, and Hailuo",
+        "Requires zero sign-up or email, with immediate live preview as parameters are modified"
+      ],
+      "cons": [
+        "Simple template concatenation rather than advanced LLM-based creative expansion",
+        "Telemetry beacons observed for Google Analytics and Microsoft Clarity on page load"
+      ],
+      "privacyVerdict": "Prompt generation runs client-side in browser memory with zero user text egressed to backend servers. Network traffic is limited to Google Analytics and Microsoft Clarity telemetry beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested input parameter modifications across model selectors (Grok to Kling) in input elements. The motion prompt updated instantly in 0 ms without main-thread freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:06:21.404Z"
+    },
+    "zh": {
+      "bestFor": "免注册为 Grok、Kling、Runway 等 AI 视频生成模型快速组合生成结构化动态与运镜提示词的场景",
+      "pros": [
+        "完全在浏览器端侧即时排版生成提示词，可根据 Grok、Kling、Hailuo 等模型切换适配模板",
+        "免登录免注册，在表单中修改主体、动作与风格参数即刻实时更新提示词"
+      ],
+      "cons": [
+        "本质属于结构化模板拼接工具，未集成深度大模型创作扩展能力",
+        "页面加载时存在 Google Analytics 与 Microsoft Clarity 的数据分析信标"
+      ],
+      "privacyVerdict": "提示词生成完全在浏览器内存中端侧完成，用户输入的文字未向后端服务器传输。网络请求仅包含 Google Analytics 与 Microsoft Clarity 的遥测信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在表单 input 中输入主体描述并切换模型下拉框至 Kling，下方提示词在 0 毫秒内即时响应更新，全程零卡顿零渲染延迟。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:06:21.404Z"
+    }
+  },
+  "golfclubreference-com-tools-swing-weight-calculator": {
+    "en": {
+      "bestFor": "Calculating golf club swing weight on the 14-inch Lorythmic scale and simulating head or grip weight changes without account creation",
+      "pros": [
+        "Instant client-side calculation on the standard 14-inch letter scale with real-time what-if weight simulation",
+        "Supports flexible unit conversion across grams, ounces, inches, and centimeters with zero sign-up required"
+      ],
+      "cons": [
+        "Specialized single-purpose calculator without export to CSV or PDF",
+        "Page load triggers Google Analytics and Cloudflare RUM telemetry beacons"
+      ],
+      "privacyVerdict": "All swing weight and moment calculations execute client-side in browser JavaScript without transmitting equipment numbers to remote servers. Telemetry is restricted to Google Analytics and Cloudflare RUM beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Input a 425g total club weight and 29.2 in balance point across input fields. The calculator immediately rendered D8.2 swing weight and updated to E0.0 upon adding a 4g head weight in 0 ms without jank.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:19:02.801Z"
+    },
+    "zh": {
+      "bestFor": "免注册快速计算高尔夫球杆在标准 14 英寸刻度下的挥重（Swing Weight）并即时模拟配重增减影响的场景",
+      "pros": [
+        "完全基于浏览器端侧本地运算，支持标准 14 英寸刻度挥重计算及增减配重实时推演",
+        "提供克/盎司及英寸/厘米单位无缝切换，无需注册登录即可直接获得精准数值"
+      ],
+      "cons": [
+        "属于单一功能专业计算器，未提供数据导出或报告生成功能",
+        "页面加载伴随 Google Analytics 与 Cloudflare RUM 遥测信标"
+      ],
+      "privacyVerdict": "球杆挥重与力矩推演逻辑均在浏览器端侧本地运行，用户输入的球杆参数不会上传至远程服务器。网络监控仅检测到 Google Analytics 与 Cloudflare RUM 统计信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在表单 input 中输入 425g 球杆总重与 29.2 英寸平衡点，界面即时显示 D8.2 挥重；追加 4g 杆头配重后无缝推演出 E0.0 预测值，全程 0 毫秒延迟零卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:19:02.802Z"
+    }
+  },
+  "shotmelo-com": {
+    "en": {
+      "bestFor": "Planning camera movement, action beats, and structured text prompts for image-to-video tools without requiring an account",
+      "pros": [
+        "Clean client-side structured prompt generation with duration and aspect ratio options",
+        "One-click copy of formatted motion prompts without mandatory account creation or watermark injection"
+      ],
+      "cons": [
+        "Does not render video directly; acts purely as a prompt planning and drafting utility",
+        "Sends telemetry events and view pings to backend endpoints during user interactions"
+      ],
+      "privacyVerdict": "The core prompt synthesis executes locally in client-side script. Network traffic includes telemetry events (POST /a9db3c06af528a33/view and POST /a9db3c06af528a33/event) but no prompt draft data is leaked.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested example generation and custom motion prompt input in the textarea. Clicked 'Build motion prompt' and copied 535 chars across 8 lines of formatted camera and motion plan with 0 ms freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:35:50.035Z"
+    },
+    "zh": {
+      "bestFor": "免注册规划图生视频运镜指令、动作节奏与结构化提示词的创作者",
+      "pros": [
+        "纯端侧运行的结构化运镜提示词生成器，支持时长与画幅比例参数调节",
+        "支持一键复制完整运镜方案至剪贴板，无水印截断且无需注册登录"
+      ],
+      "cons": [
+        "不具备直接渲染生成视频能力，仅作为提示词与分镜规划辅助工具",
+        "操作过程中伴随向后端发送的页面埋点与行为统计请求"
+      ],
+      "privacyVerdict": "提示词组合与草稿排版逻辑完全在浏览器本地完成。网络监控观察到页面统计请求（POST /a9db3c06af528a33/view 及 event），但提示词草稿与输入内容未上传至服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 textarea 中填入运镜描述并点击'Build motion prompt'生成草稿，一键复制出 535 字符（8 行）完整运镜与动作结构化文本，全程 0 ms 卡顿且数据完整无截断。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:35:50.036Z"
+    }
+  },
+  "graziechef-com-tools-qr-menu-generator": {
+    "en": {
+      "bestFor": "Quickly publishing an online restaurant menu and downloading a table-ready QR code without signing up or providing an email",
+      "pros": [
+        "Instantly generates a public mobile-friendly menu page and 512x512 PNG QR code without registration",
+        "Clean export with zero watermark, zero login wall, and no email verification required"
+      ],
+      "cons": [
+        "Pasting dishes publishes a public web page hosted on remote servers rather than keeping data purely local",
+        "Basic text parser expects simple dish and price lines without rich modifier or multi-language options"
+      ],
+      "privacyVerdict": "The menu text is transmitted to the server via POST /tools/qr-menu-generator to publish the public web page. Outgoing telemetry beacons were observed to deus.piratefly.com/api/visita and /api/funnel/conferma.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Pasted a multi-line restaurant menu into the textarea and submitted. The tool generated a hosted menu page and an unwatermarked 512x512 PNG QR code (9,028 bytes) ready for download with 0 ms main thread freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:40:53.635Z"
+    },
+    "zh": {
+      "bestFor": "无需注册或提供邮箱快速发布在线餐厅菜单并下载可供桌台打印的二维码",
+      "pros": [
+        "免登录免留邮箱即可生成移动端自适应公开菜单页面及 512x512 PNG 矢量清晰度二维码",
+        "导出的二维码图片无任何水印截断与诱导拦截，支持直接本地下载"
+      ],
+      "cons": [
+        "菜品内容会通过网络请求上传至服务端用于托管公开网页，非完全本地运行",
+        "文本解析器仅支持基础的一行一菜一价格式，不支持复杂规格与多语言切换"
+      ],
+      "privacyVerdict": "菜单文本经由 POST /tools/qr-menu-generator 提交至远程服务器以托管公开菜单页面。外发请求中检测到 deus.piratefly.com/api/visita 及 /api/funnel/conferma 遥测埋点。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 textarea 中输入多行菜品与价格并提交，系统即时生成在线菜单链接与 512x512 无水印 PNG 二维码（9,028 字节），下载过程无阻拦，全程 0 ms 主线程冻结。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-04T03:40:53.636Z"
+    }
   }
 }

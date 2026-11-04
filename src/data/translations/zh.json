@@ -1899,5 +1899,45 @@
     "_hash": "f620e01c3824091c",
     "description": "在浏览器中直接检测、精确定位并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。支持精确码点映射与本地剪贴板复制。",
     "coreTask": "检测并清除不可见Unicode字符"
+  },
+  "humanizeink-com": {
+    "_source": {
+      "description": "AI-powered English text humanizer that rewrites AI-generated drafts into natural, casual, or professional phrasing without account creation.",
+      "coreTask": "Rewrite English text into natural phrasing"
+    },
+    "description": "免注册 AI 英文文本润色改写工具，将 AI 生成草稿转为自然、地道或专业的常用口吻。",
+    "coreTask": "改写润色英文文本为自然语气"
+  },
+  "imagetovideoprompt-org": {
+    "_source": {
+      "description": "Free in-browser prompt builder that crafts formatted camera and motion prompts for AI video generators like Grok, Kling, and Hailuo without sign-up.",
+      "coreTask": "Build structured motion prompts for AI video models"
+    },
+    "description": "免注册浏览器端 AI 视频提示词生成器，为 Grok、Kling、Hailuo 等模型快速排版动态与镜头描述。",
+    "coreTask": "生成 AI 视频模型运动提示词"
+  },
+  "golfclubreference-com-tools-swing-weight-calculator": {
+    "_source": {
+      "description": "Free in-browser golf club swing weight calculator on the 14-inch Lorythmic scale with live weight-change simulation.",
+      "coreTask": "Calculate golf club swing weight and balance"
+    },
+    "description": "免注册浏览器端高尔夫球杆挥重计算器，基于标准 14 英寸刻度进行挥重推演与配重模拟。",
+    "coreTask": "计算高尔夫球杆挥重与平衡点"
+  },
+  "shotmelo-com": {
+    "_source": {
+      "description": "Visual prompt builder and motion planner for image-to-video AI workflows without mandatory signup.",
+      "coreTask": "Plan and generate image-to-video prompts"
+    },
+    "description": "免注册图生视频 AI 运镜规划与结构化提示词生成工作区。",
+    "coreTask": "规划并生成图生视频提示词"
+  },
+  "graziechef-com-tools-qr-menu-generator": {
+    "_source": {
+      "description": "Free menu page and QR code generator for restaurants without signup or email requirements.",
+      "coreTask": "Generate QR code and web page for restaurant menu"
+    },
+    "description": "免注册餐厅菜单在线页面与桌台二维码生成工具。",
+    "coreTask": "生成餐厅菜单页面与二维码"
   }
 }
