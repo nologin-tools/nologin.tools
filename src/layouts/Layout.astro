@@ -135,5 +135,25 @@ const hreflangLinks = hreflangLocales.map((l) => ({
       <slot />
     </main>
     {!bare && <Footer locale={locale} />}
+    {!basePath.startsWith('/admin') && (
+      <script
+        is:inline
+        defer
+        src="https://tell.st/w.js"
+        data-key="ts_f55db89bafb066"
+        data-accent="#22c55e"
+        data-bg="#fdfdfc"
+        data-variant="outline"
+        data-radius="0"
+        data-locale={locale}
+        data-position="bottom-right"
+        data-offset="24,88"
+        data-collapse="scroll"
+        data-delay="1000"
+        data-shadow="none"
+        data-entrance="none"
+        data-mobile="icon"
+      ></script>
+    )}
   </body>
 </html>
