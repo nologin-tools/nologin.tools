@@ -57,8 +57,10 @@ describe('triageSubmission', () => {
     assert.equal(r.tier, 'A');
   });
 
-  it('Tier C for entertainment / divination', () => {
+  it('Tier C for entertainment / divination / browser games', () => {
     assert.equal(triageSubmission(tool, ok('<title>Free Tarot Reading Online</title><button>Draw</button>')).signals[0].code, 'entertainment');
+    assert.equal(triageSubmission(tool, ok('<title>BaZi & I Ching Calculator</title><button>Cast</button>')).signals[0].code, 'entertainment');
+    assert.equal(triageSubmission(tool, ok('<title>Random Pokemon Team Generator</title><button>Generate</button>')).signals[0].code, 'entertainment');
   });
 
   it('Tier C for parked domains and cross-host redirects', () => {

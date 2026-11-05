@@ -73,6 +73,14 @@ describe('classifyRegressionSignals', () => {
     assert.equal(s[0].code, 'title_changed');
   });
 
+  it('ignores WAF interstitial pages for surface_lost and title_changed', () => {
+    const wafReport = inspection({
+      title: 'Just a moment...',
+      surface: { hasTextInputs: false, hasFileInputs: false, hasCanvas: false, buttonLabels: [], headings: [] },
+    });
+    assert.deepEqual(classifyRegressionSignals(wafReport, tool, { lastTitle: 'Squoosh Image Compressor' }), []);
+  });
+
   it('never emits core-task drift suggestions', () => {
     const s = classifyRegressionSignals(inspection(), tool, undefined);
     assert.ok(!s.some((x) => /drift/.test(x.code)));
@@ -119,16 +127,22 @@ describe('regression ledger rotation', () => {
     assert.notDeepEqual(picked, ['tool-0', 'tool-1', 'tool-2', 'tool-3', 'tool-4']);
   });
 
-  it('merges repeated signals and resolves them', () => {
+  it('merges repeated signals, prioritizes policy signals within severity, and auto-heals transient technical anomalies on clean rescan', () => {
     /** @type {Record<string, any>} */
     const ledger = {};
     const sig = { code: 'paywall_copy', severity: /** @type {'medium'} */ ('medium'), evidence: 'trial' };
-    recordScan(ledger, 'a', { signals: [sig] }, '2026-10-22T00:00:00.000Z');
-    recordScan(ledger, 'a', { signals: [sig] }, '2026-10-23T00:00:00.000Z');
+    recordScan(ledger, 'surface-only', { title: 'Tool S', signals: [{ code: 'surface_lost', severity: 'medium', evidence: 'empty' }] }, '2026-10-20T00:00:00.000Z');
+    recordScan(ledger, 'a', { title: 'Tool A', signals: [sig] }, '2026-10-22T00:00:00.000Z');
+    recordScan(ledger, 'a', { title: 'Just a moment...', signals: [sig] }, '2026-10-23T00:00:00.000Z');
+    assert.equal(ledger.a.lastTitle, 'Tool A', 'WAF title does not overwrite lastTitle');
     recordScan(ledger, 'b', { signals: [{ code: 'auth_wall', severity: 'high', evidence: 'x' }] }, '2026-10-23T00:00:00.000Z');
     assert.equal(ledger.a.openAnomalies[0].seenCount, 2);
     const queue = anomalyQueue(ledger);
     assert.equal(queue[0].slug, 'b', 'high severity first');
+    assert.equal(queue[1].slug, 'a', 'policy medium (paywall_copy) ahead of older technical medium (surface_lost)');
+    // Clean rescan auto-heals surface_lost on surface-only, but does not auto-heal paywall_copy on a
+    recordScan(ledger, 'surface-only', { title: 'Tool S', signals: [] }, '2026-10-24T00:00:00.000Z');
+    assert.equal(ledger['surface-only'].openAnomalies.length, 0);
     resolveAnomalies(ledger, 'a', { outcome: 'cleared', note: 'trial banner is optional upsell' });
     assert.equal(anomalyQueue(ledger).length, 1);
     assert.equal(ledger.a.lastResolution.outcome, 'cleared');

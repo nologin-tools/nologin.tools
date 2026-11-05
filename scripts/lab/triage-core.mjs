@@ -83,11 +83,11 @@ const RE = {
   parked: /\b(this domain (?:is|may be) for sale|buy this domain|domain (?:is )?parked|parked free|hugedomains|sedo\.com|dan\.com\/buy)\b/i,
   loginTitle: /^(?:sign in|log ?in|login|sign up|create (?:an )?account|register)\b/i,
   loginRequired: /(?<!\b(?:no|without|zero|never)[\s-]{1,3})\b((?:sign|log) ?in (?:to|required to) (?:continue|use|start|access)|login required|please (?:sign|log) ?in|create (?:a |an )?(?:free )?account to (?:continue|use|start|get started))\b/i,
-  entertainment: /\b(tarot|horoscope|astrology|zodiac|natal chart|numerology|fortune ?telling|personality test|love (?:test|calculator)|unblocked games?|play (?:now|online|free)|brain ?rot|meme generator|crush test|iq test)\b/i,
-  game: /\b(game|games|puzzle|arcade|wordle|sudoku|solitaire|crossword)\b/i,
-  directory: /\b((?:best|top) \d* ?ai tools|ai tools? directory|submit your (?:tool|ai|startup)|tools? directory|list of (?:free )?tools|discover \d+\+? (?:ai )?tools)\b/i,
+  entertainment: /\b(tarot|horoscope|astrology|zodiac|natal chart|birth chart|numerology|fortune ?telling|bazi|four pillars of destiny|i ?ching|feng ?shui|palmistry|palm ?reading|face ?reading|physiognomy|chinese gender predictor|gender predictor|human design chart|dream interpretation|past life|personality test|love (?:test|calculator)|unblocked games?|play (?:now|online|free)|brain ?rot|meme generator|crush test|iq test|random pokemon|pokemon (?:generator|team)|crazygames|poki games|subway surfers|friday night funkin|gba emulator|nes emulator|sprunki|spranki|clicker game|idle game|dress ?up game)\b/i,
+  game: /\b(game|games|puzzle|arcade|wordle|rngdle|sudoku|solitaire|crossword|pokemon|emulator|funkin)\b/i,
+  directory: /\b((?:best|top) \d* ?ai tools|ai tools? directory|submit your (?:tool|ai|startup)|tools? directory|list of (?:free )?tools|discover \d+\+? (?:ai )?tools|antique malls? (?:in|near|across)|find (?:antique malls|stores|locations) (?:in|near|across))\b/i,
   article: /\b(\d+\s*min(?:ute)?s? read|leave a (?:comment|reply)|related (?:posts|articles)|posted on)\b/i,
-  paywall: /\b(free trial|start (?:your |a )?(?:\d+[- ]day )?(?:free )?trial|\d+[- ]day (?:free )?trial|upgrade to (?:pro|premium)|buy credits|credits? (?:left|remaining)|per month|\/mo\b|pricing plans?)\b/i,
+  paywall: /\b(free trial|start (?:your |a )?(?:\d+[- ]day )?(?:free )?trial|\d+[- ]day (?:free )?trial|upgrade to (?:pro|premium)|buy credits|credits? (?:left|remaining)|\d+\s*credits?\s*for\s*\$\d|per month|\/mo\b|pricing plans?)\b/i,
 };
 
 /**

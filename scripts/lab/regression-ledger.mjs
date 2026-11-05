@@ -19,11 +19,22 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isWafInterstitialTitle } from './regression-signals.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 export const LEDGER_PATH = resolve(__dirname, '../../src/data/regression-ledger.json');
 
 const SEVERITY_RANK = { high: 0, medium: 1 };
+/** Policy signals sort ahead of technical/surface signals within the same severity. */
+const POLICY_SIGNAL_CODES = new Set([
+  'auth_wall',
+  'export_auth_bait',
+  'export_watermark',
+  'login_to_continue_copy',
+  'paywall_copy',
+  'cross_host_redirect',
+]);
+const TRANSIENT_TECHNICAL_CODES = new Set(['surface_lost', 'probe_failed', 'title_changed']);
 
 /** @returns {Record<string, any>} */
 export function loadLedger(path = LEDGER_PATH) {
@@ -87,9 +98,15 @@ export function selectRollingTargets(tools, ledger, limit) {
 export function recordScan(ledger, slug, scan, nowIso = new Date().toISOString()) {
   const entry = ledger[slug] || { openAnomalies: [] };
   entry.lastScanAt = nowIso;
-  if (scan.title) entry.lastTitle = scan.title;
+  const isWafTitle = isWafInterstitialTitle(scan.title);
+  if (scan.title && !isWafTitle) entry.lastTitle = scan.title;
   entry.lastSignals = scan.signals.map((s) => s.code);
   entry.openAnomalies = entry.openAnomalies || [];
+  if (scan.signals.length === 0 && !isWafTitle) {
+    // Auto-heal transient technical-only signals when a subsequent probe observes a healthy surface;
+    // policy signals remain open until verified by a depth-qualified deep evaluation.
+    entry.openAnomalies = entry.openAnomalies.filter((/** @type {any} */ a) => !TRANSIENT_TECHNICAL_CODES.has(a.code));
+  }
   for (const s of scan.signals) {
     const existing = entry.openAnomalies.find((/** @type {any} */ a) => a.code === s.code);
     if (existing) {
@@ -148,9 +165,14 @@ export function anomalyQueue(ledger) {
       evidence: open.map((/** @type {any} */ a) => `${a.code}: ${a.evidence}`),
     });
   }
-  return rows.sort(
-    (a, b) => SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity] || a.firstSeenAt.localeCompare(b.firstSeenAt)
-  );
+  return rows.sort((a, b) => {
+    const sevDiff = SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity];
+    if (sevDiff !== 0) return sevDiff;
+    const polA = a.codes.some((c) => POLICY_SIGNAL_CODES.has(c)) ? 0 : 1;
+    const polB = b.codes.some((c) => POLICY_SIGNAL_CODES.has(c)) ? 0 : 1;
+    if (polA !== polB) return polA - polB;
+    return a.firstSeenAt.localeCompare(b.firstSeenAt);
+  });
 }
 
 /** Daily number of full re-evaluations of approved tools (see daily-evaluation skill). */

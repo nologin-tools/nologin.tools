@@ -28,6 +28,13 @@ export const DAILY_EVALUATION_QUOTA = 10;
 export const DAILY_RETEST_QUOTA = 3;
 
 const TIER_RANK = { A: 0, B: 1 };
+const SUSPICIOUS_SIGNALS = new Set(['paywall_copy', 'game_like_title', 'blocked_or_auth', 'server_error']);
+
+/** @param {any} item */
+function signalPenalty(item) {
+  const sigs = Array.isArray(item?.signals) ? item.signals : [];
+  return sigs.some((s) => SUSPICIOUS_SIGNALS.has(typeof s === 'string' ? s : s?.code)) ? 1 : 0;
+}
 
 export function loadQueue(path = QUEUE_PATH) {
   if (!existsSync(path)) return { updatedAt: null, items: [] };
@@ -53,6 +60,7 @@ export function compareItems(a, b) {
   return (
     badgeA - badgeB ||
     (TIER_RANK[/** @type {'A'|'B'} */ (a.tier)] ?? 9) - (TIER_RANK[/** @type {'A'|'B'} */ (b.tier)] ?? 9) ||
+    signalPenalty(a) - signalPenalty(b) ||
     String(a.submittedAt || '').localeCompare(String(b.submittedAt || '')) ||
     a.id - b.id
   );

@@ -231,31 +231,35 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
 
     await page.waitForTimeout(1000);
 
-    // Visual Checkpoint 1: Initial Screen Impression
-    try {
-      await page.screenshot({ path: ${JSON.stringify(initialPicPath)} });
-      result.visual.capturedInitial = true;
-    } catch (err) {}
+    // 3. Scan DOM Surface & Extract Intent Signals (with SPA hydration retry + open Shadow DOM piercing)
+    const extractSurfaceInfo = () => {
+      const queryAllDeep = (selector, root = document) => {
+        const out = Array.from(root.querySelectorAll(selector));
+        for (const el of root.querySelectorAll('*')) {
+          if (el.shadowRoot) {
+            try { out.push(...queryAllDeep(selector, el.shadowRoot)); } catch {}
+          }
+        }
+        return out;
+      };
 
-    // 3. Scan DOM Surface & Extract Intent Signals
-    const domInfo = await page.evaluate(() => {
       const title = document.title?.trim() || '';
       const metaDesc = document.querySelector('meta[name="description"]')?.content?.trim() ||
                        document.querySelector('meta[property="og:description"]')?.content?.trim() || '';
       const githubLink = document.querySelector('a[href*="github.com/"]')?.href || null;
 
-      const textareas = Array.from(document.querySelectorAll('textarea, .monaco-editor, .cm-editor, [contenteditable="true"], input[type="text"], input[type="search"], input:not([type])'));
-      const fileInputEls = Array.from(document.querySelectorAll('input[type="file"]'));
-      const fileInputsDetail = fileInputEls.map((fi, idx) => ({
+      const textareas = queryAllDeep('textarea, .monaco-editor, .cm-editor, [contenteditable="true"], [role="textbox"], [role="combobox"], [role="slider"], [role="spinbutton"], select, input[type="text"], input[type="search"], input[type="number"], input[type="url"], input[type="tel"], input[type="range"], input[type="color"], input[type="date"], input:not([type])');
+      const fileInputEls = queryAllDeep('input[type="file"]');
+      const fileInputsDetail = fileInputEls.map((fi) => ({
         id: fi.id || '',
         name: fi.name || '',
         accept: (fi.getAttribute('accept') || '').toLowerCase(),
         selector: fi.id ? ('#' + fi.id) : (fi.name ? ('input[name="' + fi.name + '"]') : 'input[type="file"]')
       }));
-      const hasDropzone = Boolean(document.querySelector('.dropzone, [class*="drop-zone"], [class*="dropzone"], [class*="file-upload"], [class*="upload-area"], [id*="dropzone"], [id*="upload-area"]'));
-      const canvases = Array.from(document.querySelectorAll('canvas, svg.drawing-surface'));
+      const hasDropzone = Boolean(queryAllDeep('.dropzone, [class*="drop-zone"], [class*="dropzone"], [class*="file-upload"], [class*="upload-area"], [id*="dropzone"], [id*="upload-area"]').length);
+      const canvases = queryAllDeep('canvas, svg.drawing-surface, [role="application"]');
 
-      const allButtons = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a.btn, a[role="button"], [role="button"]'))
+      const allButtons = queryAllDeep('button, input[type="button"], input[type="submit"], a.btn, a[role="button"], [role="button"], summary')
         .map(b => (b.innerText || b.value || b.getAttribute('aria-label') || b.getAttribute('title') || '').trim())
         .filter(t => t.length > 0 && t.length < 50);
 
@@ -264,7 +268,7 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
         .filter(Boolean)
         .slice(0, 10);
 
-      const headings = Array.from(document.querySelectorAll('h1, h2, h3'))
+      const headings = queryAllDeep('h1, h2, h3')
         .map(h => h.innerText?.trim())
         .filter(Boolean)
         .slice(0, 8);
@@ -296,7 +300,7 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
       }
 
       const isWafChallenge = Boolean(document.querySelector('#challenge-running, #challenge-form, #cf-turnstile, .cf-turnstile-wrapper, iframe[src*="challenges.cloudflare.com"], iframe[src*="turnstile"]')) ||
-                             /just a moment\.\.\.|attention required!\s*\|\s*cloudflare|checking your browser|security check/i.test(title);
+                             /just a moment\.{0,3}|attention required!\s*\|\s*cloudflare|vercel security checkpoint|checking your browser|security check|ddos-guard/i.test(title);
 
       const hasWasm = Boolean(window.WebAssembly);
 
@@ -317,7 +321,19 @@ function buildEgoScript(targetUrl, resultFilePath, initialPicPath, outcomePicPat
         headings,
         hasWasm
       };
-    });
+    };
+
+    let domInfo = await page.evaluate(extractSurfaceInfo);
+    if (!domInfo.isWafChallenge && domInfo.textareaCount === 0 && domInfo.fileInputCount === 0 && !domInfo.hasDropzone && domInfo.canvasCount === 0 && domInfo.buttonLabels.length === 0) {
+      await page.waitForTimeout(2200);
+      domInfo = await page.evaluate(extractSurfaceInfo);
+    }
+
+    // Visual Checkpoint 1: Initial Screen Impression
+    try {
+      await page.screenshot({ path: ${JSON.stringify(initialPicPath)} });
+      result.visual.capturedInitial = true;
+    } catch (err) {}
 
     result.title = domInfo.title;
     result.metaDesc = domInfo.metaDesc;

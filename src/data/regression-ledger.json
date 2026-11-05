@@ -209,38 +209,9 @@
     "lastSignals": []
   },
   "bytepane-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-04T06:14:38.585Z",
-        "lastSeenAt": "2026-11-04T06:14:38.585Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-bytepane-com-intent-1793772874150.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-bytepane-com-outcome-1793772874150.png"
-        ]
-      },
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"BytePane: 70+ Free Dev Tools for JSON, JWT, Regex, YAML & Hashes\" → \"Just a moment...\"",
-        "firstSeenAt": "2026-11-04T06:14:38.585Z",
-        "lastSeenAt": "2026-11-04T06:14:38.585Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-bytepane-com-intent-1793772874150.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-bytepane-com-outcome-1793772874150.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:14:38.585Z",
-    "lastTitle": "Just a moment...",
-    "lastSignals": [
-      "surface_lost",
-      "title_changed"
-    ]
+    "lastSignals": []
   },
   "bytepriva-com-merge-pdf": {
     "openAnomalies": [],
@@ -262,38 +233,9 @@
     "lastSignals": []
   },
   "calorique-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-03T06:17:26.335Z",
-        "lastSeenAt": "2026-11-03T06:17:26.335Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-intent-1793686641988.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-outcome-1793686641988.png"
-        ]
-      },
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"Free Calorie & Fitness Calculators (2026): Instant Results, No Signup\" → \"Just a moment...\"",
-        "firstSeenAt": "2026-11-03T06:17:26.335Z",
-        "lastSeenAt": "2026-11-03T06:17:26.335Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-intent-1793686641988.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-calorique-io-outcome-1793686641988.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-03T06:17:26.335Z",
-    "lastTitle": "Just a moment...",
-    "lastSignals": [
-      "surface_lost",
-      "title_changed"
-    ]
+    "lastSignals": []
   },
   "caniemail-com": {
     "openAnomalies": [],
@@ -1685,25 +1627,9 @@
     "lastScanAt": "2026-10-27T02:54:54.882Z"
   },
   "perplexity-ai": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-01T06:18:52.258Z",
-        "lastSeenAt": "2026-11-01T06:18:52.258Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-perplexity-ai-intent-1793513926556.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-perplexity-ai-outcome-1793513926556.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-01T06:18:52.258Z",
-    "lastTitle": "Just a moment...",
-    "lastSignals": [
-      "surface_lost"
-    ]
+    "lastSignals": []
   },
   "phet-colorado-edu": {
     "openAnomalies": [],
@@ -1880,7 +1806,6 @@
   "privnote-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-10-31T06:21:58.593Z",
-    "lastTitle": "Attention Required! | Cloudflare",
     "lastSignals": []
   },
   "productivitytimer-com": {
@@ -2323,25 +2248,9 @@
     "lastSignals": []
   },
   "svgrepo-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-04T06:15:46.312Z",
-        "lastSeenAt": "2026-11-04T06:15:46.312Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-svgrepo-com-intent-1793772941124.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-svgrepo-com-outcome-1793772941124.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:15:46.312Z",
-    "lastTitle": "Vercel Security Checkpoint",
-    "lastSignals": [
-      "surface_lost"
-    ],
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-10-29T02:36:46.271Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -2842,38 +2751,9 @@
     "lastSignals": []
   },
   "www-amortio-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-04T06:14:34.027Z",
-        "lastSeenAt": "2026-11-04T06:14:34.027Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-amortio-com-intent-1793772869215.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-amortio-com-outcome-1793772869215.png"
-        ]
-      },
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"Mortgage Calculator 2026: PITI Payment + Amortization Schedule\" → \"Just a moment...\"",
-        "firstSeenAt": "2026-11-04T06:14:34.027Z",
-        "lastSeenAt": "2026-11-04T06:14:34.027Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-amortio-com-intent-1793772869215.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-amortio-com-outcome-1793772869215.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:14:34.027Z",
-    "lastTitle": "Just a moment...",
-    "lastSignals": [
-      "surface_lost",
-      "title_changed"
-    ]
+    "lastSignals": []
   },
   "www-calculatorcampus-com": {
     "openAnomalies": [],

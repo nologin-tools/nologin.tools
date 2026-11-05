@@ -64,12 +64,27 @@ const STORE_RULES = [
 const PATH_SCOPED_HOST_SUFFIXES = ['github.io', 'gitlab.io', 'codeberg.page', 'sourceforge.io'];
 
 /** Submitter email domains / addresses with confirmed automated bulk submissions. */
-export const BLOCKED_EMAIL_DOMAINS = ['agent.qq.com', 'foundagent.net'];
+export const BLOCKED_EMAIL_DOMAINS = ['agent.qq.com', 'foundagent.net', 'agentmail.to', '546899.xyz'];
 export const BLOCKED_EMAILS = [
   'leeswal123@gmail.com',
   'dyjae93@gmail.com',
   'samir.asadov.28@gmail.com',
+  'bgnwd15@gmail.com',
+  'toolswithalex@gmail.com',
 ];
+
+/**
+ * Strip plus-addressing tag (`user+tag@domain` → `user@domain`) for blocklist matching.
+ * @param {string} email
+ */
+export function normalizeSubmitterEmail(email) {
+  const clean = (email || '').trim().toLowerCase();
+  const atIdx = clean.indexOf('@');
+  if (atIdx <= 0) return clean;
+  const local = clean.slice(0, atIdx).replace(/\+.*$/, '');
+  const domain = clean.slice(atIdx + 1);
+  return `${local}@${domain}`;
+}
 
 /**
  * @param {string} host
@@ -205,8 +220,13 @@ export function checkHardGates({ url, submitterEmail }) {
 
   const email = (submitterEmail || '').trim().toLowerCase();
   if (email) {
+    const normalizedEmail = normalizeSubmitterEmail(email);
     const domain = email.split('@')[1] || '';
-    if (BLOCKED_EMAILS.includes(email) || BLOCKED_EMAIL_DOMAINS.some((d) => hostMatches(domain, d))) {
+    if (
+      BLOCKED_EMAILS.includes(email) ||
+      BLOCKED_EMAILS.includes(normalizedEmail) ||
+      BLOCKED_EMAIL_DOMAINS.some((d) => hostMatches(domain, d))
+    ) {
       return {
         code: 'blocked_submitter',
         reason: `Automated or bulk submitter (${email})`,

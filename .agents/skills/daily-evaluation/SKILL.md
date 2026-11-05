@@ -60,6 +60,9 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
      - **approve**: `verify <slug> --decision approve` → eval JSON (ensure `verdictTier` matches `productScore.overall` and `privacyVerdict` + `privacy`/`data` tags match observed `Sample Endpoints`) → `finish --eval ... --sync` (the depth gate runs here too) → translations → `admin-api.mjs approve-evaluated` → `evaluation-queue.mjs done <id> --slug <slug> --outcome approved --note "score N, tier"`
      - **reject**: inspect all action screenshots first → `finish` (no sync) → `verify <slug> --decision reject` → `admin-api.mjs reject <id> "<observed evidence>"` → `done <id> --slug <slug> --outcome rejected --note "..."`
      - **defer** (operational blocker only): `abort` → `done <id> --slug <slug> --outcome deferred --note "<blocker>"`
+   - **Unattended TaskSpace lock / browser recovery rule (CRITICAL)**:
+     - Never call `ask_question` or stop the session waiting for a human `"continue"` reply when `ego-browser` reports `Control of this task space is with the user` / `TaskSpace Lock Conflict`.
+     - Instead, immediately run `node scripts/lab/dogfood-session.mjs abort <slug>` (and `node scripts/clean-browser-spaces.mjs` if needed), retry `<slug>` once in a fresh TaskSpace, and if it is still blocked, record `deferred` (`done <id> --slug <slug> --outcome deferred --note "TaskSpace lock conflict"`) and immediately continue to the next item. A single tool's browser lock must never halt the daily quota run.
    - Keep going until 10 distinct slugs are finished or the queue is empty.
 
 4. **Commit editorial/translation/ledger changes**

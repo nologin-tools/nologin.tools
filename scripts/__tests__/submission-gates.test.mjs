@@ -99,9 +99,12 @@ describe('checkHardGates', () => {
     assert.equal(code('https://chrome.google.com/'), null);
   });
 
-  it('rejects blocked submitters', () => {
+  it('rejects blocked submitters including plus-addressed variants and bot domains', () => {
     assert.equal(code('https://ok.com/', 'svay9298@agent.qq.com'), 'blocked_submitter');
     assert.equal(code('https://ok.com/', 'LeesWal123@gmail.com'), 'blocked_submitter');
+    assert.equal(code('https://ok.com/', 'bgnwd15+test@gmail.com'), 'blocked_submitter');
+    assert.equal(code('https://ok.com/', 'bot@agentmail.to'), 'blocked_submitter');
+    assert.equal(code('https://ok.com/', 'openclaw@546899.xyz'), 'blocked_submitter');
     assert.equal(code('https://ok.com/', 'person@qq.com'), null);
   });
 

@@ -16,13 +16,14 @@ describe('Editor\'s Choice Discovery & Alternative Recommendations', () => {
   const editorial = JSON.parse(readFileSync(EDITORIAL_PATH, 'utf-8'));
   const approvedTools = (buildData.tools || []).filter(t => t.status === 'approved');
 
-  it('identifies all 42 Editor\'s Choice tools with score >= 90', () => {
+  it('identifies Editor\'s Choice tools with score >= 90 and enforces anti-inflation bounds', () => {
     const editorsTools = approvedTools.filter(t => {
       const ed = editorial[t.slug]?.en;
       return ed?.verdictTier === 'editors-choice';
     });
 
-    assert.equal(editorsTools.length, 42, 'Must have exactly 42 Editor Choice tools in approved catalog');
+    assert.ok(editorsTools.length >= 42, `Must have at least 42 Editor Choice tools in approved catalog (got ${editorsTools.length})`);
+    assert.ok(editorsTools.length / approvedTools.length <= 0.16, `Editor Choice ratio must remain <= 16% (got ${(editorsTools.length / approvedTools.length * 100).toFixed(1)}%)`);
 
     for (const tool of editorsTools) {
       const ed = editorial[tool.slug]?.en;

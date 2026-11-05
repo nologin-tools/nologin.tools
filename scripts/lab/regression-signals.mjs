@@ -13,6 +13,15 @@
 
 const PAYWALL_COPY = /\b(free trial|start (?:your |a )?(?:\d+[- ]day )?(?:free )?trial|\d+[- ]day (?:free )?trial|upgrade to (?:pro|premium|plus)|subscribe to (?:continue|unlock|download)|buy credits|credits? (?:left|remaining)|out of credits|daily limit reached|go premium|unlock (?:pro|premium))\b/i;
 const LOGIN_TO_CONTINUE = /\b((?:sign|log) ?in to (?:continue|use|download|export|save|start)|create (?:a |an )?(?:free )?account to (?:continue|use|download|export|save)|sign ?up to (?:continue|use|download|export|save))\b/i;
+const WAF_INTERSTITIAL_TITLE = /^(?:just a moment\.{0,3}|attention required!\s*\|\s*cloudflare|vercel security checkpoint|checking your browser.*|security check.*|ddos-guard|one moment, please\.{0,3})$/i;
+
+/**
+ * True when the page title belongs to a CDN/WAF bot-challenge interstitial rather than the tool itself.
+ * @param {string | null | undefined} title
+ */
+export function isWafInterstitialTitle(title) {
+  return Boolean(title && WAF_INTERSTITIAL_TITLE.test(String(title).trim()));
+}
 
 /**
  * @typedef {{ code: string, severity: 'high' | 'medium', evidence: string }} RegressionSignal
@@ -112,13 +121,14 @@ export function classifyRegressionSignals(report, tool, previous) {
     signals.push({ code: 'cross_host_redirect', severity: 'medium', evidence: `${fromHost} → ${toHost}` });
   }
 
+  const isWaf = Boolean(ins.wafChallengeDetected) || isWafInterstitialTitle(ins.title);
   const s = ins.surface || {};
   const interactive = s.hasTextInputs || s.hasFileInputs || s.hasCanvas || (s.buttonLabels || []).length > 0;
-  if (!ins.error && !interactive) {
+  if (!ins.error && !isWaf && !interactive) {
     signals.push({ code: 'surface_lost', severity: 'medium', evidence: 'No inputs, canvas, or buttons detected on the landing page' });
   }
 
-  if (previous?.lastTitle && ins.title && titleIdentityChanged(previous.lastTitle, ins.title)) {
+  if (!isWaf && previous?.lastTitle && ins.title && !isWafInterstitialTitle(previous.lastTitle) && titleIdentityChanged(previous.lastTitle, ins.title)) {
     signals.push({ code: 'title_changed', severity: 'medium', evidence: `"${previous.lastTitle}" → "${ins.title}"` });
   }
 

@@ -14,6 +14,7 @@ Follow [`../../../docs/CADES-2.0-ROUTE-A-SPEC.md`](../../../docs/CADES-2.0-ROUTE
 ## Guardrails
 
 - Run browser evaluations sequentially and clean browser spaces before and after a batch.
+- **Unattended TaskSpace lock recovery**: In scheduled/automated runs (`daily-evaluation` / `autonomous-patrol`), never call `ask_question` or pause waiting for a user `"continue"` reply if `ego-browser` reports a TaskSpace takeover/lock conflict. Run `node scripts/lab/dogfood-session.mjs abort "<slug>"`, retry once in a fresh TaskSpace, and if still blocked, defer the tool and move on.
 - A successful `act` or `export` is mandatory. Failed selectors and failed exports do not count.
 - **Depth gate (enforced by the tooling, not optional).** A session only backs a decision, and only counts toward the daily quota, when it shows the tool was actually run:
   - **D1** a real input was given (fill, or upload a fixture);
