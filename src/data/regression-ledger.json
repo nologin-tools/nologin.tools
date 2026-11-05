@@ -494,25 +494,21 @@
     "lastSignals": []
   },
   "db-fiddle-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-11-01T06:17:11.385Z",
-        "lastSeenAt": "2026-11-01T06:17:11.385Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-intent-1793513817969.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-outcome-1793513817969.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-01T06:17:11.385Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T02:34:42.780Z",
     "lastTitle": "DB Fiddle - SQL Database Playground",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-05T02:34:42.780Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-05T02:34:42.780Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "decibelshield-app": {
     "openAnomalies": [],
@@ -586,25 +582,21 @@
     "lastSignals": []
   },
   "dochost-io": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-01T06:19:27.415Z",
-        "lastSeenAt": "2026-11-01T06:19:27.415Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-intent-1793513951926.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-outcome-1793513951926.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-01T06:19:27.415Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T02:36:54.698Z",
     "lastTitle": "HTML to URL & Markdown to HTML — Free HTML Host | dochost",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-05T02:36:54.698Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-05T02:36:54.698Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "drunkcalc-org": {
     "openAnomalies": [],
@@ -662,6 +654,17 @@
     "lastScanAt": "2026-10-31T06:23:40.841Z",
     "lastTitle": "Free state annual-report deadline lookup — EntityMinder",
     "lastSignals": []
+  },
+  "everytool4u-com": {
+    "lastDeepEvalAt": "2026-11-05T03:39:24.541Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-05T03:39:24.541Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T03:39:24.541Z"
   },
   "excalideck-com": {
     "openAnomalies": [],
@@ -805,6 +808,17 @@
     "lastScanAt": "2026-10-29T06:23:59.089Z",
     "lastTitle": "Free QR Code Generator | Free QR Codes",
     "lastSignals": []
+  },
+  "freegraphpaper-org": {
+    "lastDeepEvalAt": "2026-11-05T03:45:40.905Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-05T03:45:40.905Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T03:45:40.905Z"
   },
   "fwd2-app": {
     "openAnomalies": [],
@@ -958,6 +972,17 @@
     "lastScanAt": "2026-10-27T06:25:03.482Z",
     "lastTitle": "Free Remove Photo Location Online — Share photos without embedded location data | HereBytes",
     "lastSignals": []
+  },
+  "heyutils-com": {
+    "lastDeepEvalAt": "2026-11-05T03:27:42.462Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-05T03:27:42.462Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T03:27:42.462Z"
   },
   "hoppscotch-io": {
     "openAnomalies": [
@@ -1250,6 +1275,17 @@
       ]
     }
   },
+  "matchmytype-org": {
+    "lastDeepEvalAt": "2026-11-05T02:43:48.851Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-05T02:43:48.851Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T02:43:48.851Z"
+  },
   "max-agent-hub-github-io-browser-sop-builder": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-03T06:17:33.743Z",
@@ -1356,25 +1392,21 @@
     "lastSignals": []
   },
   "mp3cut-net": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Premium\"",
-        "firstSeenAt": "2026-11-02T06:19:31.242Z",
-        "lastSeenAt": "2026-11-02T06:19:31.242Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-intent-1793600356473.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-outcome-1793600356473.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-02T06:19:31.242Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T02:38:55.163Z",
     "lastTitle": "Online MP3 Cutter - Cut Songs, Make Ringtones",
     "lastSignals": [
       "paywall_copy"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-05T02:38:55.163Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 50, emergency-only)",
+      "at": "2026-11-05T02:38:55.163Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "mtempmail-com": {
     "lastDeepEvalAt": "2026-10-27T02:48:54.834Z",
@@ -1557,6 +1589,17 @@
     "lastScanAt": "2026-10-29T06:23:49.222Z",
     "lastTitle": "PDF & Image Tools | Free, Private, No Watermarks",
     "lastSignals": []
+  },
+  "pdfannotation-app": {
+    "lastDeepEvalAt": "2026-11-05T03:07:08.637Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-05T03:07:08.637Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T03:07:08.637Z"
   },
   "pdfinjpgumwandeln-com": {
     "openAnomalies": [
@@ -2766,6 +2809,17 @@
     "lastScanAt": "2026-10-29T06:24:13.312Z",
     "lastTitle": "Free Online Invoice Generator | Pocket Invoice",
     "lastSignals": []
+  },
+  "www-gsortho-ma-outils-analyse-cephalometrique": {
+    "lastDeepEvalAt": "2026-11-05T03:00:33.304Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 89, highly-recommended)",
+      "at": "2026-11-05T03:00:33.304Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-05T03:00:33.304Z"
   },
   "www-imagesplit-online": {
     "lastDeepEvalAt": "2026-10-27T03:39:20.699Z",

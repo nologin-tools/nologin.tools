@@ -15353,7 +15353,7 @@
         "Private fiddles and iframe embeds require upgrading to a paid PRO subscription",
         "Emits a Google Analytics telemetry request upon initial page loading"
       ],
-      "privacyVerdict": "SQL code and schema definitions transmit directly to execute.db-fiddle.com and prod-api.db-fiddle.com sandbox instances; ad monetization utilizes privacy-conscious EthicalAds with zero tracking cookies alongside 1 Google Analytics event.",
+      "privacyVerdict": "SQL code and schema definitions transmit directly to execute.db-fiddle.com sandbox instances; ad monetization utilizes privacy-conscious EthicalAds with zero tracking cookies alongside 1 Google Analytics event (POST www.google-analytics.com/j/collect, POST execute.db-fiddle.com/).",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
@@ -15367,9 +15367,10 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Executed SQL schema and query against MySQL in 0.17 ms, formatted tabular rows into Markdown clipboard, and saved shareable fiddle permalink across 3 POST requests.",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Executed SQL schema and query against MySQL in 13.01 ms, formatted tabular rows into Markdown clipboard, and verified zero-login query execution without account requirements.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:34:42.752Z"
     },
     "zh": {
       "bestFor": "需要在 MySQL、PostgreSQL 与 SQLite 之间快速编写、调试并分享 SQL 查询语句的后端工程师与数据库学习者",
@@ -15382,7 +15383,7 @@
         "私有代码片段（Private Fiddle）和网页内嵌功能需付费升级 PRO 套餐",
         "首屏载入时会发出 1 次 Google Analytics 统计遥测请求"
       ],
-      "privacyVerdict": "SQL 脚本与表结构定义通过 HTTPS 发送至 execute.db-fiddle.com 与 prod-api.db-fiddle.com 沙箱后端执行与保存；广告位采用无跟踪 Cookie 的 EthicalAds，伴随 1 条谷歌分析遥测。",
+      "privacyVerdict": "SQL 脚本与表结构定义通过 HTTPS 发送至 execute.db-fiddle.com 沙箱后端执行；广告位采用无跟踪 Cookie 的 EthicalAds，伴随 1 条谷歌分析遥测（POST www.google-analytics.com/j/collect，POST execute.db-fiddle.com/）。",
       "alternativeTo": [],
       "productScore": {
         "overall": 79,
@@ -15392,9 +15393,10 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 0.17 ms 内完成 MySQL 表结构创建与数据查询，支持一键将结果导出为 Markdown 表格并匿名生成持久化分享 URL，全程仅触发 3 次后端请求。",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 13.01 ms 内完成 MySQL 表结构创建与数据查询，支持一键将结果导出为 Markdown 表格，全程无需登录账户。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:34:42.753Z"
     },
     "ja": {
       "bestFor": "MySQL、PostgreSQL、SQLite で SQL クエリを作成、デバッグ、共有するデータベース管理者、バックエンド エンジニア、学生",
@@ -15417,13 +15419,13 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
         "dbdocs.io"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "데이터베이스 관리자, 백엔드 엔지니어 및 MySQL, PostgreSQL 및 SQLite에서 SQL 쿼리를 작성, 디버깅 및 공유하는 학생",
@@ -15446,13 +15448,13 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
         "dbdocs.io"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Administradores de bases de datos, ingenieros de backend y estudiantes que escriben, depuran y comparten consultas SQL en MySQL, PostgreSQL y SQLite.",
@@ -15475,13 +15477,13 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
         "dbdocs.io"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Administrateurs de bases de données, ingénieurs back-end et étudiants écrivant, déboguant et partageant des requêtes SQL sur MySQL, PostgreSQL et SQLite",
@@ -15504,13 +15506,13 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
         "dbdocs.io"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Datenbankadministratoren, Backend-Ingenieure und Studenten schreiben, debuggen und teilen SQL-Abfragen über MySQL, PostgreSQL und SQLite",
@@ -15533,13 +15535,13 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
         "dbdocs.io"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Administradores de banco de dados, engenheiros de back-end e estudantes escrevendo, depurando e compartilhando consultas SQL em MySQL, PostgreSQL e SQLite",
@@ -15562,13 +15564,13 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
         "dbdocs.io"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "mockaroo-com": {
@@ -26121,9 +26123,9 @@
         "Configurable fade-in and fade-out volume curves with direct support for ringtone formats like M4R"
       ],
       "cons": [
-        "Uploads full audio files to remote servers (s89.123apps.io), streams surveillance telemetry via Yandex Metrika WebSockets, and displays deceptive extension bait ads"
+        "Uploads audio data to remote servers (s85.123apps.io) over Socket.IO, accompanied by Google Analytics and DoubleClick telemetry tracking beacons"
       ],
-      "privacyVerdict": "Heavy outbound data egress observed: audio files are uploaded to remote backend servers (s89.123apps.io/acutter/upload/flow/), continuous telemetry is streamed over WebSockets to Yandex Metrika (mc.yandex.com/solid.ws), and tracking beacons are sent to Google Analytics and DoubleClick.",
+      "privacyVerdict": "Heavy outbound data egress observed: audio processing communicates with remote backend servers over WebSockets/Socket.IO (s85.123apps.io/socket.io/), and tracking beacons are sent to Google Analytics (analytics.google.com/g/collect) and DoubleClick (stats.g.doubleclick.net/g/collect).",
       "alternativeTo": [
         "audiomass-co"
       ],
@@ -26136,8 +26138,9 @@
         "polish": 9
       },
       "verdictTier": "emergency-only",
-      "benchmarkNotes": "Uploaded 1-second sample.wav in 109 ms max long task and 0.00 CLS; backend encoding stalled at 0% with 25 outbound network payloads observed including remote audio upload and persistent Yandex WebSockets.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Uploaded 1-second sample.wav in 122 ms max long task and 0.00 CLS; triggered Save export downloading a 220,371 byte audio artifact without requiring login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:38:55.143Z"
     },
     "zh": {
       "bestFor": "在临时设备上无法安装本地音频编辑软件时，应急裁剪非机密的音频片段。",
@@ -26146,9 +26149,9 @@
         "支持为音频两端配置淡入与淡出音量渐变效果，并可生成手机专用的 M4R 铃声格式"
       ],
       "cons": [
-        "将完整音频文件强制上传至远程后端服务器（s89.123apps.io）转码，通过 Yandex Metrika 持续外发 WebSocket 遥测流，且顶部嵌有误导性浏览器扩展下载广告"
+        "音频处理依赖远程后端服务器（s85.123apps.io）通过 Socket.IO 通信，并伴随发往 Google Analytics 与 DoubleClick 的广告追踪遥测"
       ],
-      "privacyVerdict": "实测监测到严重的数据外发：用户上传的音频文件被直接推送到远程后端服务器（s89.123apps.io/acutter/upload/flow/），并伴随发往 Yandex Metrika（mc.yandex.com/solid.ws）的持续 WebSocket 行为监听流以及发往 Google Analytics 和 DoubleClick 的广告追踪遥测。",
+      "privacyVerdict": "实测监测到严重的数据外发：音频处理与远程后端服务器（s85.123apps.io/socket.io/）建立 Socket.IO 通信，并伴随发往 Google Analytics（analytics.google.com/g/collect）与 DoubleClick（stats.g.doubleclick.net/g/collect）的追踪遥测。",
       "alternativeTo": [],
       "productScore": {
         "overall": 50,
@@ -26159,8 +26162,9 @@
         "polish": 9
       },
       "verdictTier": "emergency-only",
-      "benchmarkNotes": "在 109ms 最大任务耗时与 0.00 CLS 下上传 1 秒 sample.wav 音频；后端转码停滞在 0%，实测捕获到包含远程音频上传及持续 Yandex WebSocket 流在内的 25 条网络出站请求。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 122ms 最大任务耗时与 0.00 CLS 下上传 1 秒 sample.wav 音频；触发 Save 成功导出下载 220,371 字节音频文件，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:38:55.143Z"
     },
     "ja": {
       "bestFor": "一時的なマシンでローカル オーディオ編集ツールが使用できない場合に、機密性の低いオーディオ クリップをすばやくトリミングします。",
@@ -26185,7 +26189,7 @@
       "alternativeTo": [
         "audiomass-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "임시 컴퓨터에서 로컬 오디오 편집 도구를 사용할 수 없는 경우 민감하지 않은 오디오 클립을 빠르게 다듬습니다.",
@@ -26210,7 +26214,7 @@
       "alternativeTo": [
         "audiomass-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Recorte rápidamente clips de audio no sensibles cuando las herramientas de edición de audio locales no están disponibles en una máquina temporal.",
@@ -26235,7 +26239,7 @@
       "alternativeTo": [
         "audiomass-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Découpage rapide des clips audio non sensibles lorsque les outils d'édition audio locaux ne sont pas disponibles sur une machine temporaire.",
@@ -26260,7 +26264,7 @@
       "alternativeTo": [
         "audiomass-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Schnelles Zuschneiden unempfindlicher Audioclips, wenn lokale Audiobearbeitungstools auf einem temporären Computer nicht verfügbar sind.",
@@ -26285,7 +26289,7 @@
       "alternativeTo": [
         "audiomass-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Corte rapidamente clipes de áudio não sensíveis quando as ferramentas locais de edição de áudio não estiverem disponíveis em uma máquina temporária.",
@@ -26310,7 +26314,7 @@
       "alternativeTo": [
         "audiomass-co"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "svgrepo-com": {
@@ -56050,10 +56054,10 @@
       ],
       "cons": [
         "Free tier links are ephemeral with an automatic expiry window of 3 to 7 days",
-        "Emits multiple third-party telemetry payloads across PostHog, Google Analytics, and XHorizon",
+        "Emits multiple third-party telemetry payloads across Google Analytics, OpenPanel, and Cloudflare RUM",
         "Custom slugs and password protection features are gated behind paid Pro plans"
       ],
-      "privacyVerdict": "Observed 38 outgoing network payloads including PostHog, Google Analytics (G-YYKFZRCBMW), XHorizon Analytics, and backend publishing APIs. Uploaded or pasted HTML/Markdown files are transmitted to dochost servers to generate public sharing URLs and token-guarded edit endpoints; free tier links remain active for 3 to 7 days.",
+      "privacyVerdict": "Observed 31 outgoing network payloads including Google Analytics (POST www.google-analytics.com/g/collect), OpenPanel (openpanel.xhorizon.org/api/track), Google Ad/DoubleClick beacons, and Cloudflare RUM (/cdn-cgi/rum). Uploaded or pasted HTML/Markdown files are transmitted to dochost servers to generate public sharing URLs and token-guarded edit endpoints; free tier links remain active for 3 to 7 days.",
       "alternativeTo": [
         "Surge.sh",
         "Tiiny Host",
@@ -56069,8 +56073,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Uploaded sample.md fixture file; system auto-detected Markdown format and published the document to https://dochost.co/d/ht23iw7q?v=c. Captured 33-character public share URL via the Copy link button in 0ms with zero task freeze.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Uploaded sample.md fixture file; system auto-detected Markdown format and published the document to https://dochost.co/d/vm2vb4fa?v=c. Captured 33-character public share URL via the Copy link button in 0ms with zero task freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:36:54.676Z"
     },
     "zh": {
       "bestFor": "需要快速将 HTML 页面或 Markdown 文档发布为可分享网页链接、免除 GitHub Pages 配置与账号注册的 Web 开发者、技术写作者与学生。",
@@ -56082,10 +56087,10 @@
       ],
       "cons": [
         "免费版网页链接具有时效性，将在 3 至 7 天后自动失效",
-        "页面包含发送至 PostHog、Google Analytics 与 XHorizon 的第三方分析遥测",
+        "页面包含发送至 Google Analytics、OpenPanel 与 Cloudflare RUM 的多项第三方遥测分析",
         "自定义子路径短链与访问密码保护功能需要付费 Pro 计划支持"
       ],
-      "privacyVerdict": "网络监控记录到 38 次出站网络请求，涉及 PostHog、Google Analytics（G-YYKFZRCBMW）、XHorizon 统计以及后端发布接口。上传或粘贴的 HTML/Markdown 内容需传输至 dochost 服务端以生成公开访问短链与管理 Token，免费版页面具备 3 至 7 天的时效保留期。",
+      "privacyVerdict": "网络监控记录到 31 次出站网络请求，涉及 Google Analytics（POST www.google-analytics.com/g/collect）、OpenPanel（openpanel.xhorizon.org/api/track）、Google 广告信标以及 Cloudflare RUM（/cdn-cgi/rum）。上传或粘贴的 HTML/Markdown 内容需传输至 dochost 服务端以生成公开访问短链与管理 Token，免费版页面具备 3 至 7 天的时效保留期。",
       "alternativeTo": [
         "Surge.sh",
         "Tiiny Host",
@@ -56101,8 +56106,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "上传了 sample.md 样例测试文件，系统自动识别为 Markdown 格式并成功发布生成 https://dochost.co/d/ht23iw7q?v=c。通过 Copy link 按钮以 0ms 耗时截获 33 字符公开链接，主线程运行平稳无卡顿。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "上传了 sample.md 样例测试文件，系统自动识别为 Markdown 格式并成功发布生成 https://dochost.co/d/vm2vb4fa?v=c。通过 Copy link 按钮以 0ms 耗时截获 33 字符公开链接，主线程运行平稳无卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:36:54.676Z"
     },
     "ja": {
       "bestFor": "Web 開発者、テクニカル ライター、学生は、GitHub Pages を設定したりアカウントを登録したりすることなく、インスタント パブリック リンク経由でレンダリングされた HTML ページまたは Markdown ドキュメントを公開および共有する必要があります。",
@@ -56134,7 +56140,7 @@
         "GitHub Gist",
         "Pastebin"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "GitHub 페이지를 설정하거나 계정을 등록하지 않고 즉각적인 공개 링크를 통해 렌더링된 HTML 페이지 또는 Markdown 문서를 게시하고 공유해야 하는 웹 개발자, 기술 작가 및 학생.",
@@ -56166,7 +56172,7 @@
         "GitHub Gist",
         "Pastebin"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Desarrolladores web, escritores técnicos y estudiantes que necesitan publicar y compartir páginas HTML renderizadas o documentos Markdown a través de enlaces públicos instantáneos sin configurar páginas GitHub ni registrar cuentas.",
@@ -56198,7 +56204,7 @@
         "GitHub Gist",
         "Pastebin"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Développeurs Web, rédacteurs techniques et étudiants ayant besoin de publier et de partager des pages HTML rendues ou des documents Markdown via des liens publics instantanés sans configurer de pages GitHub ni enregistrer de compte.",
@@ -56230,7 +56236,7 @@
         "GitHub Gist",
         "Pastebin"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Webentwickler, technische Redakteure und Studenten, die gerenderte HTML-Seiten oder Markdown-Dokumente über sofortige öffentliche Links veröffentlichen und teilen müssen, ohne GitHub-Seiten einzurichten oder Konten zu registrieren.",
@@ -56262,7 +56268,7 @@
         "GitHub Gist",
         "Pastebin"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Desenvolvedores da Web, escritores técnicos e estudantes que precisam publicar e compartilhar páginas HTML renderizadas ou documentos Markdown por meio de links públicos instantâneos, sem configurar páginas do GitHub ou registrar contas.",
@@ -56294,7 +56300,7 @@
         "GitHub Gist",
         "Pastebin"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "csv-safecheck-pages-dev": {
@@ -75355,6 +75361,318 @@
       "benchmarkNotes": "在 textarea 中输入多行菜品与价格并提交，系统即时生成在线菜单链接与 512x512 无水印 PNG 二维码（9,028 字节），下载过程无阻拦，全程 0 ms 主线程冻结。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-04T03:40:53.636Z"
+    }
+  },
+  "matchmytype-org": {
+    "en": {
+      "bestFor": "Individuals and couples exploring MBTI personality compatibility across romance, workplace collaboration, and friendship.",
+      "pros": [
+        "Instant zero-login compatibility matrix supporting all 16 MBTI personality types and 136 pairings",
+        "Detailed multidimensional scores across romance, professional collaboration, and social friendship",
+        "Comprehensive qualitative relationship dynamics breakdown with practical communication tips"
+      ],
+      "cons": [
+        "Loads multiple third-party tracking beacons including Google AdSense, Analytics, and Microsoft Clarity"
+      ],
+      "privacyVerdict": "Transmits analytical telemetry to Google Analytics (POST www.google-analytics.com/g/collect), Microsoft Clarity (POST n.clarity.ms/collect), Google AdSense (pagead2.googlesyndication.com), and Cloudflare RUM (/cdn-cgi/rum); core pairing analysis is processed directly on the server and returned via page routes.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 13,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Selected INTJ and ENFP types, generating full S-Tier compatibility breakdown with 98 overall score and romance/work/friendship sub-scores in 265 ms max freeze without registration.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:43:48.807Z"
+    },
+    "zh": {
+      "bestFor": "希望深入了解 16 型 MBTI 人格在恋爱、职场协作与友情社交维度契合度的个人与伴侣。",
+      "pros": [
+        "无需登录即可自由选择 16 种人格类型，即时生成 136 组双人契合度矩阵",
+        "提供恋爱、工作合作与友情玩伴三大维度的细分百分制契合评分",
+        "包含深入的关系动态剖析与实用的相处沟通建议，内容详实生动"
+      ],
+      "cons": [
+        "页面加载 Google AdSense 广告、Google Analytics 及微软 Clarity 等第三方分析遥测"
+      ],
+      "privacyVerdict": "实测产生包含 Google Analytics（POST www.google-analytics.com/g/collect）、微软 Clarity（POST n.clarity.ms/collect）、Google 广告（pagead2.googlesyndication.com）及 Cloudflare RUM（/cdn-cgi/rum）在内的 25 次遥测外发；人格配对分析由服务端通过页面路由即时返回。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 13,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入 INTJ 与 ENFP 人格类型并点击查看契合度，在 265ms 最大任务耗时内即时生成 98 分天选官配详解与三大维度细分得分，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T02:43:48.808Z"
+    }
+  },
+  "www-gsortho-ma-outils-analyse-cephalometrique": {
+    "en": {
+      "bestFor": "Orthodontists, dental students, and clinical practitioners performing cephalometric Steiner and Tweed diagnostic tracing directly in-browser.",
+      "pros": [
+        "100% client-side cephalometric landmark plotting with real-time Steiner and Tweed orthodontic angle calculations",
+        "Instant diagnostic synthesis identifying skeletal Class III, hyperdivergent patterns, and target FMIA metrics",
+        "One-click unwatermarked result export and clipboard reporting without account creation or cloud image uploads"
+      ],
+      "cons": [
+        "Emits lightweight privacy analytics beacons via GoatCounter upon page navigation"
+      ],
+      "privacyVerdict": "Medical radiographic images are processed entirely in client-side browser memory without transmitting x-ray data to remote servers; outbound network traffic is restricted to 3 GoatCounter privacy-conscious analytics events (POST gsortho.goatcounter.com/count).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded sample image and loaded complete orthodontic demo tracing across 14 anatomical landmarks; computed SNA, SNB, ANB, and Tweed angles in 0ms task freeze and exported a clean 332KB PNG artifact.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:00:33.217Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速完成 Steiner 与 Tweed 头影测量定点与正畸诊断分析的正畸医师、口腔医学生及临床从业者。",
+      "pros": [
+        "完全在浏览器客户端完成头影测量解剖标志点定位，实时自动计算 Steiner 与 Tweed 正畸角度",
+        "即时生成骨面型分类（如骨骼 III 类、高角型）及 Tweed FMIA 目标参考等临床诊断结论",
+        "支持一键无水印导出 332KB 诊断图与复制测量数值，无需注册登录，放射影像绝不上云"
+      ],
+      "cons": [
+        "页面加载时会向 GoatCounter 发出轻量级保护隐私的访问统计遥测"
+      ],
+      "privacyVerdict": "医学 X 光片与定点坐标完全在本地浏览器内存与 Canvas 中运算，不向远程服务端上传任何患者影像数据；全过程仅向 GoatCounter 发送 3 条无个人信息的统计请求（POST gsortho.goatcounter.com/count）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 89,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传测试图像并加载包含 14 个解剖标记点的正畸范例，在 0ms 主线程冻结下完成 SNA/SNB/ANB 与 Tweed 角度计算，并成功导出无水印 332KB PNG 诊断图像。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:00:33.217Z"
+    }
+  },
+  "pdfannotation-app": {
+    "en": {
+      "bestFor": "Students, educators, and office professionals marking up, highlighting, and signing PDF documents in the browser without uploading sensitive files.",
+      "pros": [
+        "100% in-browser PDF annotation engine supporting freehand drawing, text insertion, shapes, and e-signatures",
+        "Direct unrestricted PDF export generating clean, unwatermarked files with all vector annotations preserved",
+        "No registration or cloud file hosting required; documents remain locally in client memory"
+      ],
+      "cons": [
+        "Emits analytics telemetry beacons to PostHog and Google Analytics upon initial load"
+      ],
+      "privacyVerdict": "PDF documents are processed entirely in client-side WebAssembly/JavaScript memory without server-side file transmission; telemetry is limited to 4 tracking beacons sent to PostHog (POST eu.i.posthog.com/e/) and Google Analytics (POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded sample.pdf fixture and downloaded the 2,675 byte annotated PDF artifact in 59ms max freeze, maintaining rock-solid 0.00 CLS without mandatory login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:07:08.601Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速高亮、批注、添加文字及电子签名，且不希望将机密文档上传至云端的学生与办公人士。",
+      "pros": [
+        "完全在浏览器本地运行的 PDF 批注工作台，支持自由手绘、文本输入、几何图形及电子签名",
+        "一键无水印直接导出下载 PDF 文件，完整保留所有矢量批注图层",
+        "无需注册账户或上传服务器，文档数据全程保存在本地浏览器内存中"
+      ],
+      "cons": [
+        "首屏载入时会向 PostHog 与 Google Analytics 发送遥测分析信标"
+      ],
+      "privacyVerdict": "PDF 文档完全在客户端通过本地脚本处理，不向服务端上传任何文件内容；全过程仅向 PostHog（POST eu.i.posthog.com/e/）与 Google Analytics（POST www.google-analytics.com/g/collect）发送 4 条访问遥测。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 sample.pdf 测试样本并成功下载 2,675 字节的批注版 PDF 文件，最大主线程耗时 59ms，全程无任何弹窗或强制登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:07:08.603Z"
+    }
+  },
+  "heyutils-com": {
+    "en": {
+      "bestFor": "Full-stack developers and engineers needing instant in-browser formatting, decoding, and conversion tools without installing CLI packages or logging into cloud platforms.",
+      "pros": [
+        "Extensive suite of 300+ zero-login developer utilities across JSON formatting, JWT inspection, cryptography, and network calculations",
+        "Preserves numerical precision for large 64-bit integer IDs and floating point values during JSON formatting",
+        "Direct client-side file download and clipboard export with zero commercial watermarks or gating"
+      ],
+      "cons": [
+        "Sends privacy-focused pageview telemetry to app.pageview.app and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Data transformations execute entirely within local browser memory without transmitting input payloads to external servers; external network requests are limited to 3 pageview/rum telemetry events (POST app.pageview.app/api/event, POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Loaded JSON formatter, parsed and formatted custom JSON payload with syntax highlighting, and triggered an 18-byte file download in 0ms task freeze without account creation.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:27:42.441Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速完成 JSON 格式化、JWT 解码、时间戳转换等日常开发任务，无需安装本地工具或注册账号的全栈工程师。",
+      "pros": [
+        "内置覆盖 41 个分类的 300+ 款免登录开发者工具，涵盖格式化、加解密与网络计算",
+        "JSON 格式化引擎专门针对 64 位大整数 ID 和精确浮点数优化，避免数据精度丢失",
+        "支持一键直接下载格式化文件及复制剪贴板，全程无任何商业水印或拦截"
+      ],
+      "cons": [
+        "页面访问时会向 app.pageview.app 及 Cloudflare RUM 发送轻量级访问统计遥测"
+      ],
+      "privacyVerdict": "所有数据转换与格式化均在本地浏览器内存中即时完成，用户输入的代码与数据绝不上云；仅捕获到 3 次轻量级访问量统计请求（POST app.pageview.app/api/event，POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "进入 JSON 格式化工具并输入自定义 JSON，在 0ms 主线程冻结耗时下完成高亮格式化并成功触发 18 字节文件导出，零登录门槛。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:27:42.442Z"
+    }
+  },
+  "everytool4u-com": {
+    "en": {
+      "bestFor": "Users seeking an all-in-one browser toolbox for PDF manipulations, image edits, and calculators without installing software or creating accounts.",
+      "pros": [
+        "Comprehensive directory of 109 client-side utilities covering PDF splitting, compression, image conversions, and loan calculators",
+        "Local in-browser file execution model ensuring user documents never transmit to remote cloud servers",
+        "Frictionless zero-login accessibility with clear upfront transparency regarding tool privacy and limits"
+      ],
+      "cons": [
+        "Loads Google AdSense advertising and Cloudflare RUM tracking scripts on page visits"
+      ],
+      "privacyVerdict": "Files are processed locally within the browser; external network requests are limited to Google AdSense / FundingChoices ad monetization beacons and Cloudflare RUM (/cdn-cgi/rum, POST pagead2.googlesyndication.com/pagead/ping).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Navigated to Split PDF tool, loaded sample.pdf into local parser, and executed split workflow in 56 ms max freeze with zero account registration.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:39:24.509Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速完成 PDF 拆分、图像转换、文本处理及日常计算，免除软件安装与账号注册的用户。",
+      "pros": [
+        "涵盖 109 款免登录在线工具，包含 PDF 处理、图像转换、视频工具及财务贷款计算器",
+        "采用纯前端本地处理机制，确保用户上传的文档与媒体文件绝不上云",
+        "零门槛即开即用，对各工具的处理能力与隐私边界具有清晰说明"
+      ],
+      "cons": [
+        "页面加载 Google AdSense 广告展示及 Cloudflare RUM 访问分析信标"
+      ],
+      "privacyVerdict": "文件拆分与处理完全在本地浏览器环境中执行，不向服务端上传文档内容；仅监测到 Google AdSense 广告位与 Cloudflare RUM（/cdn-cgi/rum、pagead2.googlesyndication.com）的外发出站请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "进入 Split PDF 工具并载入测试样本，在 56ms 最大主线程耗时下完成拆分处理流程，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:39:24.509Z"
+    }
+  },
+  "freegraphpaper-org": {
+    "en": {
+      "bestFor": "Students, engineers, and educators needing custom printable graph paper, grid templates, and dot paper PDFs without sign-up or paywalls.",
+      "pros": [
+        "Instant interactive browser customizer for square grid, engineering, dot grid, isometric, and lined paper templates",
+        "Generates clean, precise, unwatermarked vector PDF and PNG exports with customizable grid spacing and line weights",
+        "Zero registration required with instant live canvas preview and standard paper size presets (US Letter, A4)"
+      ],
+      "cons": [
+        "Transmits anonymous Cloudflare Web Analytics telemetry (RUM beacon) on page load"
+      ],
+      "privacyVerdict": "The generator executes entirely client-side in the browser; documents and custom dimensions are never uploaded to a backend server. Observed network egress is confined to Cloudflare RUM analytics (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Configured custom 5 mm grid spacing on US Letter canvas and exported 2.2 KB vector PDF artifact in 0 ms freeze with zero friction.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:45:40.873Z"
+    },
+    "zh": {
+      "bestFor": "需要快速定制并打印坐标方格纸、工程网格、点阵纸及横线纸模板的学生、工程师与教育工作者，免去注册或付费订阅。",
+      "pros": [
+        "免登录即用交互式网格生成器，支持方格、工程网格、点阵纸、等距图与横线模板在线定制",
+        "支持导出无水印高清矢量 PDF 与 PNG 格式，可自由调整网格间距、线宽、边距与主次标线",
+        "纯前端实时画布预览，预设常用美标信纸（Letter）与 A4 纸张规格，即改即打"
+      ],
+      "cons": [
+        "页面加载时会发送 Cloudflare Web Analytics 匿名访问遥测信标（RUM）"
+      ],
+      "privacyVerdict": "网格排版与矢量生成完全在浏览器本地前端运行，不向任何远程服务器上传定制内容；仅观测到 Cloudflare RUM 静态访问信标（/cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在美标信纸规格下配置 5 mm 毫米方格参数，耗时 0ms 冻结完成渲染并无缝导出 2.2KB 矢量 PDF 文件，全程无需账户。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-05T03:45:40.874Z"
     }
   }
 }

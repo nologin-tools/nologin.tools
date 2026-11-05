@@ -463,6 +463,12 @@
     "description": "一键查询美国各州 LLC 或股份有限公司的年度/两年期报告截止日期：包含官方报告名称、申报周期、特许经营税要求以及直达该州申报页面的链接。覆盖全美 50 州及华盛顿特区，无需账号，无需邮箱，无付费墙。",
     "coreTask": "选择任意美国州，立即查看该州 LLC/公司的年报截止日期、官方报告名称、特许经营税说明及官方申报链接"
   },
+  "everytool4u-com": {
+    "_hash": "e57f96c824545907",
+    "description": "一站式免登录在线工具平台，提供覆盖 PDF、图像、视频及文本处理的 109 款纯前端实用工具。",
+    "coreTask": "在浏览器中自由使用 109 款前端工具拆分、压缩或转换文档与多媒体文件，数据全程保留在本地设备上。",
+    "contentUpdatedAt": "2026-11-05T03:40:47.739Z"
+  },
   "excalideck-com": {
     "_hash": "33344e8a80e5345e",
     "description": "使用 Excalidraw 引擎创建手绘风格演示幻灯片。打造独特的草图风格幻灯片组。",
@@ -576,6 +582,12 @@
     "coreTask": "直接在浏览器中生成静态二维码、扫描识别并校验内容，全程无需注册账号",
     "description": "注重隐私的纯前端二维码工具。支持为网址、Wi-Fi、联系人名片等生成静态二维码，并支持摄像头或图片扫描识别。免登录使用，无水印，永不失效。"
   },
+  "freegraphpaper-org": {
+    "_hash": "577aff07b4f700a8",
+    "description": "免费且可高度自定义的可打印网格方格纸生成器，支持导出无水印矢量的方格纸、点阵纸及工程图表 PDF/PNG 文档。",
+    "coreTask": "自由定制网格类型、间距尺寸与纸张方向，即时生成并导出无水印的高清可打印方格纸矢量 PDF。",
+    "contentUpdatedAt": "2026-11-05T03:46:12.082Z"
+  },
   "fwd2-app": {
     "coreTask": "免登录创建带有撤回密钥的短链接、配置 Webhook 触发告警的金丝雀链接，随时一键作废与删除短链",
     "description": "一款无需登录且提供完整 API 的隐私短链接工具。其独特之处在于每个生成的短网址都配有一枚独立的撤销密钥（Revocation Key），用户无需注册账号即可凭借密钥随时撤销或停用链接，全面掌控短链生命周期。"
@@ -636,11 +648,27 @@
     "description": "交互式编译器浏览器，显示 60 多种语言的汇编输出。并排比较编译器和优化级别。",
     "coreTask": "交互式查看编译器汇编输出"
   },
+  "golfclubreference-com-tools-swing-weight-calculator": {
+    "_source": {
+      "description": "Free in-browser golf club swing weight calculator on the 14-inch Lorythmic scale with live weight-change simulation.",
+      "coreTask": "Calculate golf club swing weight and balance"
+    },
+    "description": "免注册浏览器端高尔夫球杆挥重计算器，基于标准 14 英寸刻度进行挥重推演与配重模拟。",
+    "coreTask": "计算高尔夫球杆挥重与平衡点"
+  },
   "gonzalezreciogpt-a11y-github-io-facturas-pendientes-csv": {
     "_hash": "656e14d0b757f3de",
     "description": "免费开源的纯浏览器端 CSV 发票与逾期账款核算计算器。",
     "coreTask": "基于 CSV 数据在本地即时核算已开票、已收款与逾期发票余额，完全免注册。",
     "contentUpdatedAt": "2026-10-28T03:53:28.167Z"
+  },
+  "graziechef-com-tools-qr-menu-generator": {
+    "_source": {
+      "description": "Free menu page and QR code generator for restaurants without signup or email requirements.",
+      "coreTask": "Generate QR code and web page for restaurant menu"
+    },
+    "description": "免注册餐厅菜单在线页面与桌台二维码生成工具。",
+    "coreTask": "生成餐厅菜单页面与二维码"
   },
   "haikei-app": {
     "_hash": "06db3a60b652a26c",
@@ -695,6 +723,12 @@
     "description": "一款免费的浏览器本地工具，可在分享前在设备上清除 JPEG、PNG 和 WebP 图片中的 GPS、EXIF 及其他非像素元数据，零上传更安全。",
     "coreTask": "选择图片并在本地清除嵌入的位置和元数据，预览清理结果并下载，无需注册"
   },
+  "heyutils-com": {
+    "_hash": "ee983ac41370e8cb",
+    "description": "精选 300 余款免登录纯前端开发者工具集合，涵盖代码格式化、格式转换、加密解密及网络计算等常用需求。",
+    "coreTask": "在浏览器中免登录使用包括 JSON 格式化、JWT 解码、正则表达式测试在内的 300+ 款实用开发工具，支持一键导出下载结果。",
+    "contentUpdatedAt": "2026-11-05T03:28:42.926Z"
+  },
   "hoppscotch-io": {
     "_hash": "88276df1cbcc8aa3",
     "description": "开源 API 开发生态系统。测试 REST、GraphQL、WebSocket 等——Postman 的轻量级替代品。",
@@ -715,6 +749,14 @@
     "_hash": "7d9089cdfdb2693e",
     "description": "Hugging Face 推出的开源 AI 聊天界面，可直接在浏览器中与 100+ 主流语言模型对话，涵盖 Llama、DeepSeek、Qwen 和 Mistral，基础功能无需账号。模型可随时切换，仅需要保存对话记录时才登录。",
     "coreTask": "无需注册，与 Llama、DeepSeek、Qwen、Mistral 等开源 AI 模型直接对话"
+  },
+  "humanizeink-com": {
+    "_source": {
+      "description": "AI-powered English text humanizer that rewrites AI-generated drafts into natural, casual, or professional phrasing without account creation.",
+      "coreTask": "Rewrite English text into natural phrasing"
+    },
+    "description": "免注册 AI 英文文本润色改写工具，将 AI 生成草稿转为自然、地道或专业的常用口吻。",
+    "coreTask": "改写润色英文文本为自然语气"
   },
   "icyzip-com": {
     "_hash": "2c576706ff25d659",
@@ -742,6 +784,14 @@
     "_hash": "402511cd1318505e",
     "description": "一款基于浏览器的 ASCII 字符画生成器与图片转换工具，可将 JPG、PNG、GIF 和 WebP 图像转为可自定样式的字符艺术，支持实时分屏对照与高分辨率文件导出。",
     "coreTask": "免登录上传图片，调整 ASCII 字符宽度与渲染预设，即刻导出高清 PNG 图片或纯文本。"
+  },
+  "imagetovideoprompt-org": {
+    "_source": {
+      "description": "Free in-browser prompt builder that crafts formatted camera and motion prompts for AI video generators like Grok, Kling, and Hailuo without sign-up.",
+      "coreTask": "Build structured motion prompts for AI video models"
+    },
+    "description": "免注册浏览器端 AI 视频提示词生成器，为 Grok、Kling、Hailuo 等模型快速排版动态与镜头描述。",
+    "coreTask": "生成 AI 视频模型运动提示词"
   },
   "imgrove-com": {
     "description": "免费的浏览器本地图片工具集合，涵盖格式转换、图片压缩、调整尺寸、简单编辑、元数据查看及导出。所有图片完全保留在本地设备上处理，无水印、免登录、无需注册账号。",
@@ -887,6 +937,12 @@
     "_hash": "4b34f5e048ec3b3c",
     "description": "将 Markdown 转换为交互式思维导图。编写结构化 Markdown，看它变成可缩放、可导航的树状可视化图。",
     "coreTask": "将 Markdown 转换为思维导图"
+  },
+  "matchmytype-org": {
+    "_hash": "e921a261fa1f9783",
+    "description": "交互式 16 型 MBTI 人格契合度分析工具，全面解析 136 组人格配对在恋爱、职场协作与友情社交维度的互动表现。",
+    "coreTask": "选择两种 MBTI 人格类型，即刻查看多维度契合评分、关系动态剖析与实用的相处沟通建议。",
+    "contentUpdatedAt": "2026-11-05T02:44:25.182Z"
   },
   "max-agent-hub-github-io-browser-sop-builder": {
     "coreTask": "起草标准作业程序（SOP）、增删步骤、实时预览生成的 Markdown、一键复制并导出 .md 文件",
@@ -1085,6 +1141,12 @@
   "pdfandimagetools-com": {
     "coreTask": "免登录使用全部 64 款工具：合并、拆分、压缩与转换 PDF，压缩/调整尺寸/转换图片格式，运行本地 OCR，以及智能抠图去除背景",
     "description": "包含 64 款完全在浏览器本地运行的免费 PDF 与图像工具，文件绝不上传服务器。支持合并、拆分、精确压缩至指定大小、格式转换、页面整理、签名和加密保护 PDF；支持约 20 种格式间的图像压缩、尺寸调整与转换，并借助端侧本地 AI 模型运行 OCR 文字识别和智能背景消除。免注册、无用量限制、无水印。在处理文件时打开浏览器控制台 Network 标签页即可验证零网络请求，页面加载后离线断网也能继续使用多数工具。"
+  },
+  "pdfannotation-app": {
+    "_hash": "4c84c97e1d3c8c74",
+    "description": "基于浏览器客户端的 PDF 批注工具，无需上传即可在本地高亮文本、手绘涂鸦、添加图形与电子签名。",
+    "coreTask": "上传本地 PDF 文档，使用手绘涂鸦、几何图形及文本框进行批注，并一键无水印导出下载批注后的 PDF 文件。",
+    "contentUpdatedAt": "2026-11-05T03:08:23.762Z"
   },
   "pdfinjpgumwandeln-com": {
     "coreTask": "纯前端在浏览器中直接将 PDF 转换为 JPG 图片，或将多张 JPG 合并为 PDF",
@@ -1395,6 +1457,14 @@
     "_hash": "bf17ab820f3f1420",
     "description": "为 README 和文档生成高质量的徽章。数百种集成，支持构建状态、覆盖率、版本等。",
     "coreTask": "生成 README 状态徽章"
+  },
+  "shotmelo-com": {
+    "_source": {
+      "description": "Visual prompt builder and motion planner for image-to-video AI workflows without mandatory signup.",
+      "coreTask": "Plan and generate image-to-video prompts"
+    },
+    "description": "免注册图生视频 AI 运镜规划与结构化提示词生成工作区。",
+    "coreTask": "规划并生成图生视频提示词"
   },
   "signaturefont-net": {
     "coreTask": "免登录在浏览器中生成并预览手写签名风格艺术字体",
@@ -1794,6 +1864,12 @@
     "description": "基于浏览器的发票生成工具，支持行项目实时核算、税率及折扣自定义，无需登录即可在客户端直接导出 PDF 发票。",
     "coreTask": "无需登录在线生成并下载 PDF 商业发票"
   },
+  "www-gsortho-ma-outils-analyse-cephalometrique": {
+    "_hash": "d0e717f6fc0342f1",
+    "description": "基于浏览器的交互式正畸头影测量分析工具，直接在本地计算 Steiner 与 Tweed 正畸测量数值与诊断分类。",
+    "coreTask": "上传侧位 X 光片或加载范例描记图，定位解剖标志点并即时计算正畸角度与骨面型诊断结论，无需登录注册。",
+    "contentUpdatedAt": "2026-11-05T03:01:23.810Z"
+  },
   "www-imagesplit-online": {
     "_hash": "5c4da21e90ba0729",
     "description": "免费在线图片切图工具，支持在浏览器本地将图片裁切为网格九宫格、社交轮播图、自定义像素切片及固定尺寸瓦片，并提供打包 ZIP 下载。",
@@ -1899,45 +1975,5 @@
     "_hash": "f620e01c3824091c",
     "description": "在浏览器中直接检测、精确定位并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。支持精确码点映射与本地剪贴板复制。",
     "coreTask": "检测并清除不可见Unicode字符"
-  },
-  "humanizeink-com": {
-    "_source": {
-      "description": "AI-powered English text humanizer that rewrites AI-generated drafts into natural, casual, or professional phrasing without account creation.",
-      "coreTask": "Rewrite English text into natural phrasing"
-    },
-    "description": "免注册 AI 英文文本润色改写工具，将 AI 生成草稿转为自然、地道或专业的常用口吻。",
-    "coreTask": "改写润色英文文本为自然语气"
-  },
-  "imagetovideoprompt-org": {
-    "_source": {
-      "description": "Free in-browser prompt builder that crafts formatted camera and motion prompts for AI video generators like Grok, Kling, and Hailuo without sign-up.",
-      "coreTask": "Build structured motion prompts for AI video models"
-    },
-    "description": "免注册浏览器端 AI 视频提示词生成器，为 Grok、Kling、Hailuo 等模型快速排版动态与镜头描述。",
-    "coreTask": "生成 AI 视频模型运动提示词"
-  },
-  "golfclubreference-com-tools-swing-weight-calculator": {
-    "_source": {
-      "description": "Free in-browser golf club swing weight calculator on the 14-inch Lorythmic scale with live weight-change simulation.",
-      "coreTask": "Calculate golf club swing weight and balance"
-    },
-    "description": "免注册浏览器端高尔夫球杆挥重计算器，基于标准 14 英寸刻度进行挥重推演与配重模拟。",
-    "coreTask": "计算高尔夫球杆挥重与平衡点"
-  },
-  "shotmelo-com": {
-    "_source": {
-      "description": "Visual prompt builder and motion planner for image-to-video AI workflows without mandatory signup.",
-      "coreTask": "Plan and generate image-to-video prompts"
-    },
-    "description": "免注册图生视频 AI 运镜规划与结构化提示词生成工作区。",
-    "coreTask": "规划并生成图生视频提示词"
-  },
-  "graziechef-com-tools-qr-menu-generator": {
-    "_source": {
-      "description": "Free menu page and QR code generator for restaurants without signup or email requirements.",
-      "coreTask": "Generate QR code and web page for restaurant menu"
-    },
-    "description": "免注册餐厅菜单在线页面与桌台二维码生成工具。",
-    "coreTask": "生成餐厅菜单页面与二维码"
   }
 }
