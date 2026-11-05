@@ -65,8 +65,8 @@ The 3 re-evaluations are chosen by `regression-ledger.mjs retest`: open `high` a
      - Instead, immediately run `node scripts/lab/dogfood-session.mjs abort <slug>` (and `node scripts/clean-browser-spaces.mjs` if needed), retry `<slug>` once in a fresh TaskSpace, and if it is still blocked, record `deferred` (`done <id> --slug <slug> --outcome deferred --note "TaskSpace lock conflict"`) and immediately continue to the next item. A single tool's browser lock must never halt the daily quota run.
    - Keep going until 10 distinct slugs are finished or the queue is empty.
 
-4. **Commit editorial/translation/ledger changes**
-   Stage only `src/data/tool-editorial.json`, `src/data/translations/*.json`, `src/data/regression-ledger.json`. Commit with a message listing approved/rejected slugs. Do not commit `reports/`.
+4. **Commit and push editorial/translation/ledger changes**
+   Stage only `src/data/tool-editorial.json`, `src/data/translations/*.json`, `src/data/regression-ledger.json`. Commit with a message listing approved/rejected slugs and push to `origin main` (`git push origin main`) so scheduled Cloudflare Pages rebuilds include the new editorial scores and translations. Do not commit `reports/`.
 
 5. **Post-flight**
    ```bash

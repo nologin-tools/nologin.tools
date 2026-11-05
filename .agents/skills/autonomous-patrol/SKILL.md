@@ -47,7 +47,7 @@ Use this skill only as the coordinator. Read and follow each delegated skill bef
    Rotation comes from `src/data/regression-ledger.json` and always advances. The scan never syncs scores; it records only hard signals into the anomaly queue, which `daily-evaluation` consumes.
 5. Badges and GitHub metadata (health-patrol).
 6. Daily SEO audit; submit IndexNow only if the audit passes.
-7. Post-flight cleanup; commit `src/data/regression-ledger.json` if it changed.
+7. Post-flight cleanup; commit `src/data/regression-ledger.json` (and any updated editorial/translation/redirect files) and push to `origin main` (`git push origin main`) if it changed.
 8. Produce one briefing.
 
 ## Briefing contract
