@@ -88,6 +88,27 @@ const hreflangLinks = hreflangLocales.map((l) => ({
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#22c55e" />
     <meta name="google-site-verification" content="_UNe4YRC1OD17C32JxeE8uSUYK2QTnWux9SEQAu9-Qw" />
+    {!basePath.startsWith('/admin') && (
+      <meta name="tell.st" content="ts_f55db89bafb066" />
+      <script
+        is:inline
+        defer
+        src="https://tell.st/w.js"
+        data-key="ts_f55db89bafb066"
+        data-accent="#22c55e"
+        data-bg="#fdfdfc"
+        data-variant="outline"
+        data-radius="0"
+        data-locale={locale}
+        data-position="bottom-right"
+        data-offset="24,88"
+        data-collapse="scroll"
+        data-delay="1000"
+        data-shadow="none"
+        data-entrance="none"
+        data-mobile="icon"
+      ></script>
+    )}
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonicalUrl} />
@@ -135,25 +156,5 @@ const hreflangLinks = hreflangLocales.map((l) => ({
       <slot />
     </main>
     {!bare && <Footer locale={locale} />}
-    {!basePath.startsWith('/admin') && (
-      <script
-        is:inline
-        defer
-        src="https://tell.st/w.js"
-        data-key="ts_f55db89bafb066"
-        data-accent="#22c55e"
-        data-bg="#fdfdfc"
-        data-variant="outline"
-        data-radius="0"
-        data-locale={locale}
-        data-position="bottom-right"
-        data-offset="24,88"
-        data-collapse="scroll"
-        data-delay="1000"
-        data-shadow="none"
-        data-entrance="none"
-        data-mobile="icon"
-      ></script>
-    )}
   </body>
 </html>
