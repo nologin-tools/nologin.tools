@@ -38,7 +38,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T03:32:28.740Z"
+    "lastScanAt": "2026-11-06T06:16:35.954Z",
+    "lastTitle": "File to URL Converter – Upload & Share Files | All2URL",
+    "lastSignals": []
   },
   "alphabeticallyordered-com": {
     "openAnomalies": [],
@@ -99,19 +101,19 @@
   },
   "artboardlab-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:22:45.286Z",
+    "lastScanAt": "2026-11-06T06:17:50.486Z",
     "lastTitle": "ArtboardLab — Free browser-based tools for designers",
     "lastSignals": []
   },
   "articleformatter-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:21.216Z",
+    "lastScanAt": "2026-11-06T06:14:57.947Z",
     "lastTitle": "Remove special characters from your articles - Article Formatter",
     "lastSignals": []
   },
   "askmeanythi-ng": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:43.398Z",
+    "lastScanAt": "2026-11-06T06:15:23.755Z",
     "lastTitle": "askmeanythi.ng",
     "lastSignals": []
   },
@@ -147,7 +149,7 @@
   },
   "aup4-aivismonitor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:22:52.799Z",
+    "lastScanAt": "2026-11-06T06:17:58.176Z",
     "lastTitle": "Open .aup4 Files Without Audacity — Play & Export | Waveward",
     "lastSignals": []
   },
@@ -415,7 +417,7 @@
   },
   "copychar-cc": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:25:54.831Z",
+    "lastScanAt": "2026-11-06T06:20:50.139Z",
     "lastTitle": "CopyChar – Copy special characters to your clipboard",
     "lastSignals": []
   },
@@ -432,10 +434,38 @@
     "lastSignals": []
   },
   "craiyon-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:16.373Z",
-    "lastTitle": "Free AI Image Generator | Craiyon",
-    "lastSignals": []
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-06T06:19:13.689Z",
+        "lastSeenAt": "2026-11-06T06:19:13.689Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-intent-1793945946739.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-outcome-1793945946739.png"
+        ]
+      },
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"Free AI Image Generator | Craiyon\" → \"请稍候…\"",
+        "firstSeenAt": "2026-11-06T06:19:13.689Z",
+        "lastSeenAt": "2026-11-06T06:19:13.689Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-intent-1793945946739.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-outcome-1793945946739.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-06T06:19:13.689Z",
+    "lastTitle": "请稍候…",
+    "lastSignals": [
+      "surface_lost",
+      "title_changed"
+    ]
   },
   "crochet-chart-maker-com": {
     "openAnomalies": [],
@@ -458,7 +488,7 @@
   },
   "crontab-guru": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:39.805Z",
+    "lastScanAt": "2026-11-06T06:19:35.958Z",
     "lastTitle": "Crontab.guru - The cron schedule expression generator",
     "lastSignals": []
   },
@@ -523,7 +553,7 @@
   },
   "decibelshield-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:44.663Z",
+    "lastScanAt": "2026-11-06T06:19:40.630Z",
     "lastTitle": "Decibel Meter Online: Free Real-Time Sound Level Meter (dB)",
     "lastSignals": []
   },
@@ -658,7 +688,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T02:52:17.900Z"
+    "lastScanAt": "2026-11-06T06:15:51.135Z",
+    "lastTitle": "Enshrouded Save Editor — Edit .ksd Saves in Your Browser",
+    "lastSignals": []
   },
   "entityminder-smoke-web-app-em-lookup": {
     "openAnomalies": [],
@@ -715,7 +747,7 @@
   },
   "favicon-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:23:25.412Z",
+    "lastScanAt": "2026-11-06T06:18:26.924Z",
     "lastTitle": "The Best Free Favicon Generator - favicon.ico and App Icons - favicon.io",
     "lastSignals": []
   },
@@ -738,13 +770,13 @@
   },
   "ficalc-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:28.339Z",
+    "lastScanAt": "2026-11-06T06:19:26.116Z",
     "lastTitle": "FI Calc",
     "lastSignals": []
   },
   "file-converter-free-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:26:05.374Z",
+    "lastScanAt": "2026-11-06T06:20:57.804Z",
     "lastTitle": "FileFormer - Free File Converter & 100+ Online Tools",
     "lastSignals": []
   },
@@ -863,7 +895,7 @@
   },
   "gantt-chart-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:25:41.780Z",
+    "lastScanAt": "2026-11-06T06:20:36.109Z",
     "lastTitle": "gantt-chart.io — paste a task list, get a live Gantt",
     "lastSignals": []
   },
@@ -941,7 +973,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T03:52:51.145Z"
+    "lastScanAt": "2026-11-06T06:16:51.263Z",
+    "lastTitle": "Calculadora gratis de facturas pendientes y vencidas desde CSV",
+    "lastSignals": []
   },
   "graziechef-com-tools-qr-menu-generator": {
     "lastDeepEvalAt": "2026-11-04T03:40:53.659Z",
@@ -974,13 +1008,13 @@
   },
   "haveibeenpwned-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:25:31.922Z",
+    "lastScanAt": "2026-11-06T06:20:26.991Z",
     "lastTitle": "Have I Been Pwned: Check if your email address has been exposed in a data breach",
     "lastSignals": []
   },
   "headlinecapitalization-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:25:22.706Z",
+    "lastScanAt": "2026-11-06T06:20:19.837Z",
     "lastTitle": "Headline Capitalization: Title Case Tool",
     "lastSignals": []
   },
@@ -1053,7 +1087,7 @@
   },
   "httpbin-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:23:03.485Z",
+    "lastScanAt": "2026-11-06T06:18:05.671Z",
     "lastTitle": "httpbin.org",
     "lastSignals": []
   },
@@ -1152,7 +1186,7 @@
   },
   "jakearchibald-github-io-svgomg": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:23:15.705Z",
+    "lastScanAt": "2026-11-06T06:18:15.223Z",
     "lastTitle": "SVGOMG - SVGO's Missing GUI for minifying SVGs",
     "lastSignals": []
   },
@@ -1307,8 +1341,21 @@
     "lastSignals": []
   },
   "markmap-js-org": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:38.009Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-06T06:15:17.469Z",
+        "lastSeenAt": "2026-11-06T06:15:17.469Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-markmap-js-org-intent-1793945711225.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-markmap-js-org-outcome-1793945711225.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-06T06:15:17.469Z",
     "lastTitle": "markmap",
     "lastSignals": [
       "surface_lost"
@@ -1368,7 +1415,7 @@
   },
   "mdprevieweditor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:23:39.123Z",
+    "lastScanAt": "2026-11-06T06:18:43.172Z",
     "lastTitle": "Markdown 在线编辑器：实时预览，免费使用",
     "lastSignals": []
   },
@@ -1439,7 +1486,7 @@
   },
   "monkeytype-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:02.145Z",
+    "lastScanAt": "2026-11-06T06:19:06.613Z",
     "lastTitle": "Monkeytype | A minimalistic, customizable typing test",
     "lastSignals": []
   },
@@ -1585,7 +1632,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T03:09:45.383Z"
+    "lastScanAt": "2026-11-06T06:16:21.147Z",
+    "lastTitle": "NitroIDE | Zero-Latency Browser IDE & Online Code Editor",
+    "lastSignals": []
   },
   "noiseremover-site": {
     "lastDeepEvalAt": "2026-11-02T03:09:11.839Z",
@@ -1764,12 +1813,9 @@
   },
   "photomosh-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:22:38.566Z",
-    "lastTitle": "Mosh-Pro — Glitch & Video Effects App",
-    "lastSignals": [
-      "cross_host_redirect",
-      "surface_lost"
-    ],
+    "lastScanAt": "2026-11-06T06:17:40.021Z",
+    "lastTitle": "Mosh-Lite — Free Real-Time Glitch Effects for Image & Video",
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-11-02T02:35:13.248Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -1843,11 +1889,9 @@
   },
   "prettier-io-playground": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:23:49.171Z",
-    "lastTitle": "Prettier",
-    "lastSignals": [
-      "surface_lost"
-    ],
+    "lastScanAt": "2026-11-06T06:18:59.593Z",
+    "lastTitle": "Prettier v3.9.10",
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-11-02T02:37:52.783Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -2159,7 +2203,7 @@
   },
   "regexlearn-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:22:00.650Z",
+    "lastScanAt": "2026-11-06T06:17:06.193Z",
     "lastTitle": "Regex Learn - Step by step, from zero to advanced.",
     "lastSignals": []
   },
@@ -2220,7 +2264,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T03:00:28.502Z"
+    "lastScanAt": "2026-11-06T06:15:59.645Z",
+    "lastTitle": "Shard Tools - Local-First Browser Tools",
+    "lastSignals": []
   },
   "sharedrop-io": {
     "openAnomalies": [],
@@ -2258,8 +2304,21 @@
     "lastSignals": []
   },
   "siteage-org": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:25:48.005Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-06T06:20:43.973Z",
+        "lastSeenAt": "2026-11-06T06:20:43.973Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-intent-1793946036243.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-outcome-1793946036243.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-06T06:20:43.973Z",
     "lastTitle": "Website Age Certification | SiteAge.org",
     "lastSignals": [
       "surface_lost"
@@ -2390,7 +2449,7 @@
   },
   "svgviewer-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:22:30.083Z",
+    "lastScanAt": "2026-11-06T06:17:32.485Z",
     "lastTitle": "SVG Viewer - Free Online SVG Viewer and Converter",
     "lastSignals": []
   },
@@ -2408,13 +2467,13 @@
   },
   "tableconvert-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:25:10.715Z",
+    "lastScanAt": "2026-11-06T06:20:07.035Z",
     "lastTitle": "Table Convert - Free Online Table Converter and Generator",
     "lastSignals": []
   },
   "taimaa-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:51.322Z",
+    "lastScanAt": "2026-11-06T06:19:48.099Z",
     "lastTitle": "タイマー｜無料で使えるオンラインタイマー",
     "lastSignals": []
   },
@@ -2441,7 +2500,7 @@
   },
   "telemetry-sh-sql-playground": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:22:13.504Z",
+    "lastScanAt": "2026-11-06T06:17:17.513Z",
     "lastTitle": "结构化事件的浏览器 SQL Playground | Telemetry",
     "lastSignals": []
   },
@@ -2459,7 +2518,7 @@
   },
   "textkit-tech": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:50.865Z",
+    "lastScanAt": "2026-11-06T06:15:31.051Z",
     "lastTitle": "TextKit — Free Online Text Tools",
     "lastSignals": []
   },
@@ -2471,7 +2530,7 @@
   },
   "textunnel-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:26:19.123Z",
+    "lastScanAt": "2026-11-06T06:21:12.854Z",
     "lastTitle": "Textunnel — Transfer Files Between Devices over Wi-Fi",
     "lastSignals": []
   },
@@ -2563,7 +2622,7 @@
   },
   "tools-pve-ch": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:56.300Z",
+    "lastScanAt": "2026-11-06T06:15:37.085Z",
     "lastTitle": "Kostenlose Web-Tools ohne Anmeldung | Tools-Portal",
     "lastSignals": []
   },
@@ -2584,13 +2643,13 @@
   },
   "transform-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:21:52.467Z",
+    "lastScanAt": "2026-11-06T06:17:00.464Z",
     "lastTitle": "Transform",
     "lastSignals": []
   },
   "tryink-me": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:09.849Z",
+    "lastScanAt": "2026-11-06T06:14:46.331Z",
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
   },
@@ -2765,7 +2824,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T03:42:51.182Z"
+    "lastScanAt": "2026-11-06T06:16:44.480Z",
+    "lastTitle": "Free Gemini Watermark Remover Online — WatermarkLift",
+    "lastSignals": []
   },
   "watermarkzero-org": {
     "openAnomalies": [],
@@ -2781,7 +2842,7 @@
   },
   "webgpustress-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-27T06:26:34.176Z",
+    "lastScanAt": "2026-11-06T06:15:11.108Z",
     "lastTitle": "GPU Stress Test Online – Free Browser Benchmark | WebGPUStress",
     "lastSignals": []
   },
@@ -3082,7 +3143,7 @@
   },
   "zenpen-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-28T06:24:56.189Z",
+    "lastScanAt": "2026-11-06T06:19:53.190Z",
     "lastTitle": "ZenPen ~ Minimal Distraction, Maximum Zen",
     "lastSignals": []
   },
