@@ -3,6 +3,12 @@
     "description": "面向高中生的免费 SAT 备考题库平台：支持按科目、考点和难度筛选题目，配备详尽解析、限时模考、词汇练习以及数学难题视频讲解。免登录即可直接刷题（可自选注册以保存进度）。",
     "coreTask": "无需账号即可练习 SAT 真题、查看解析、参加限时模考及背记词汇"
   },
+  "aicost-tools": {
+    "_hash": "8aee9da33f09caf9",
+    "description": "对比 150+ 款主流大模型 API 价格并按推理 Token 与提示词缓存命中率精确估算月度调用成本。",
+    "coreTask": "根据自定义 Token 参数计算大模型月度 API 支出，并导出包含完整成本明细的 CSV 报表。",
+    "contentUpdatedAt": "2026-11-06T02:48:18.997Z"
+  },
   "aislopdetector-net": {
     "_hash": "ea8a352069e3cbaf",
     "description": "完全在浏览器本地检测文本与图片中的 AI 套话模板、高频词及低质生成特征。",
@@ -514,6 +520,12 @@
     "seoDescription": "几秒内将文字、图片或 emoji 转为完整的图标套装。下载 ICO、PNG 和 Web Manifest 文件，直接用于你的网站——无需账号。",
     "seoFocusKeyword": "网站图标生成器免费在线",
     "seoTaskPhrase": "无需注册生成网站图标"
+  },
+  "feltandwood-com-tool": {
+    "_hash": "89ceaa6692b73a03",
+    "description": "纯客户端 Etsy 商品 SEO 检测工具，实时评估标题可读性、13 个标签位与详情文案质量，并支持下载建议清单。",
+    "coreTask": "免登录在浏览器中检测并优化 Etsy 商品标题、关键词标签与详情文案。",
+    "contentUpdatedAt": "2026-11-06T03:07:46.061Z"
   },
   "fffuel-co": {
     "_hash": "be69aa2d262ff5e2",
@@ -1041,6 +1053,12 @@
     "description": "通过解决谋杀悬案来学习 SQL。使用 SELECT、JOIN、WHERE 等查询数据库，找出凶手。",
     "coreTask": "通过侦探游戏学习 SQL"
   },
+  "nametracing-org": {
+    "_hash": "fd73b9b4c4471dc7",
+    "description": "自定义生成儿童姓名临摹与手写描红字帖，支持调节字帖行距、字体样式并导出高清打印 PDF。",
+    "coreTask": "免登录输入姓名生成可直接打印的描红练字帖 PDF 或 PNG 文件。",
+    "contentUpdatedAt": "2026-11-06T02:51:29.680Z"
+  },
   "nawtch-app": {
     "description": "Nawtch 是一款完全在浏览器中运行的免费健身与营养追踪工具。记录食物摄入、卡路里、三大营养素、单餐开销、体重变化及训练计划——所有数据均通过 IndexedDB 存储在本地，绝不上报服务器。无需账号、无需邮箱、无注册门槛。内置有据可查的健康计算器（TDEE、BMR、BMI、体脂率），并附带科学研究出处。",
     "coreTask": "在浏览器本地记录饮食、热量营养素、体重变化与健身计划，支持条码扫描与数据导出，零上传无需账号"
@@ -1053,6 +1071,12 @@
     "_hash": "ad2cd23af9a4ea45",
     "description": "可视化拟态 CSS 生成器。调整大小、圆角、距离、强度和颜色，创建柔和的 UI 阴影效果。",
     "coreTask": "生成 CSS 拟态效果"
+  },
+  "newellabs-com-tools-bank-statement-converter": {
+    "_hash": "bb3564f76f705afd",
+    "description": "在浏览器端将银行流水对账单 PDF 转换为 Excel、CSV、QuickBooks 与 OFX 格式，无需上传至服务器。",
+    "coreTask": "免登录在本地将银行或信用卡 PDF 流水对账单解析并导出为结构化表格与会计记账文件。",
+    "contentUpdatedAt": "2026-11-06T03:02:09.860Z"
   },
   "next-tools-dev": {
     "_hash": "8b2b2275c266b430",
@@ -1762,6 +1786,12 @@
   "visualpromptcompiler-com": {
     "description": "在本地将视觉需求简报编译为适配大模型的结构化提示词与便携式 JSON，适用于 Seedream 与 Nano Banana。支持定义保留/修改边界、参考角色、潜在警告及适配器差异，无需注册账号，无需上传图片。",
     "coreTask": "将视觉需求编译为结构化提示词与 JSON，设定保留与修改边界，查看模型适配指令，零上传免注册"
+  },
+  "visualtimer-org": {
+    "_hash": "fdd69ddd34cd8d90",
+    "description": "专为课堂与儿童设计的可视化倒计时工具，具备动态表盘色块、全屏投影模式与参数化分享链接。",
+    "coreTask": "在浏览器中免登录运行支持自定义分钟数与声音提醒的可视化倒计时钟。",
+    "contentUpdatedAt": "2026-11-06T02:57:47.257Z"
   },
   "vocalremover-org": {
     "_hash": "e86d371624ea4a27",

@@ -5,6 +5,17 @@
     "lastTitle": "Free SAT Practice & Question Bank | 1600.now",
     "lastSignals": []
   },
+  "aicost-tools": {
+    "lastDeepEvalAt": "2026-11-06T02:47:57.873Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-06T02:47:57.873Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T02:47:57.873Z"
+  },
   "aislopdetector-net": {
     "lastDeepEvalAt": "2026-10-26T02:32:02.049Z",
     "lastResolution": {
@@ -707,6 +718,17 @@
     "lastScanAt": "2026-10-28T06:23:25.412Z",
     "lastTitle": "The Best Free Favicon Generator - favicon.ico and App Icons - favicon.io",
     "lastSignals": []
+  },
+  "feltandwood-com-tool": {
+    "lastDeepEvalAt": "2026-11-06T03:07:14.754Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-06T03:07:14.754Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T03:07:14.755Z"
   },
   "fffuel-co": {
     "openAnomalies": [],
@@ -1496,6 +1518,17 @@
     "lastTitle": "The SQL Murder Mystery",
     "lastSignals": []
   },
+  "nametracing-org": {
+    "lastDeepEvalAt": "2026-11-06T02:51:06.131Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-06T02:51:06.131Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T02:51:06.131Z"
+  },
   "nawtch-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-01T06:13:48.733Z",
@@ -1513,6 +1546,17 @@
     "lastScanAt": "2026-10-29T06:28:07.945Z",
     "lastTitle": "Neumorphism CSS shadow generator",
     "lastSignals": []
+  },
+  "newellabs-com-tools-bank-statement-converter": {
+    "lastDeepEvalAt": "2026-11-06T03:01:36.195Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-06T03:01:36.195Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T03:01:36.195Z"
   },
   "next-tools-dev": {
     "openAnomalies": [],
@@ -2097,25 +2141,21 @@
     "lastSignals": []
   },
   "regex101-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-02T06:20:42.798Z",
-        "lastSeenAt": "2026-11-02T06:20:42.798Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-intent-1793600428407.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-outcome-1793600428407.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-02T06:20:42.798Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T02:36:04.550Z",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastTitle": "regex101: Online Regex Tester, Builder, Converter & Debugger"
+    "lastTitle": "regex101: Online Regex Tester, Builder, Converter & Debugger",
+    "lastDeepEvalAt": "2026-11-06T02:36:04.550Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 95, editors-choice)",
+      "at": "2026-11-06T02:36:04.550Z",
+      "closed": [
+        "paywall_copy"
+      ]
+    }
   },
   "regexlearn-com": {
     "openAnomalies": [],
@@ -2466,29 +2506,16 @@
     "lastSignals": []
   },
   "tinywow-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Start 7-Day Free Trial\"",
-        "firstSeenAt": "2026-11-02T06:23:19.589Z",
-        "lastSeenAt": "2026-11-02T06:23:19.589Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-tinywow-com-intent-1793600587136.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-tinywow-com-outcome-1793600587136.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-02T06:23:19.589Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T02:39:48.160Z",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-10-26T02:02:21.561Z",
+    "lastDeepEvalAt": "2026-11-06T02:39:48.160Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified PDF compression and upload workflow. Core task operates without login; 'Try for free' button is an optional premium tier upsell and does not block core task.",
-      "at": "2026-10-26T02:02:21.561Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-06T02:39:48.160Z",
       "closed": [
         "paywall_copy"
       ]
@@ -2701,6 +2728,17 @@
     "lastTitle": "Visual Prompt Compiler for AI Image Models",
     "lastSignals": []
   },
+  "visualtimer-org": {
+    "lastDeepEvalAt": "2026-11-06T02:56:48.569Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-06T02:56:48.569Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T02:56:48.569Z"
+  },
   "vocalremover-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-05T06:27:44.982Z",
@@ -2802,30 +2840,17 @@
     "lastSignals": []
   },
   "write-as": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"14-day trial\"",
-        "firstSeenAt": "2026-11-03T06:17:48.875Z",
-        "lastSeenAt": "2026-11-03T06:17:48.875Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-intent-1793686663370.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-outcome-1793686663370.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-03T06:17:48.875Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-06T02:43:05.631Z",
     "lastTitle": "Write.as — A place for focused writing.",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-10-28T02:40:55.320Z",
+    "lastDeepEvalAt": "2026-11-06T02:43:05.631Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified anonymous writing and publishing still works without login. '14-day trial' copy on homepage is for optional paid subscription.",
-      "at": "2026-10-28T02:40:55.320Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-06T02:43:05.631Z",
       "closed": [
         "paywall_copy"
       ]

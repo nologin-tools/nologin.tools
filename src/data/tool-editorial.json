@@ -2125,7 +2125,7 @@
       },
       "verdictTier": "editors-choice",
       "benchmarkNotes": "Executed email pattern evaluation in 5.8ms across 140 steps with 2 capture groups and exported clean JSON matches.",
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "zh": {
       "bestFor": "在无需注册登录的前提下构建、调试复杂正则表达式，查看实时语法树解析与多语言正则引擎匹配结果",
@@ -2154,7 +2154,7 @@
       },
       "verdictTier": "editors-choice",
       "benchmarkNotes": "实测邮箱正则模式耗时 5.8ms、经历 140 个解析步骤完成双匹配项捕获，结构化 JSON 导出结果完整。",
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ja": {
       "bestFor": "リアルタイムの AST 構文説明とマルチフレーバー エンジンのサポートによる複雑な正規表現の設計、テスト、デバッグ",
@@ -2183,7 +2183,7 @@
         "RegExr",
         "Local terminal grep/sed"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "실시간 AST 구문 설명 및 다양한 엔진 지원을 통해 복잡한 정규식 설계, 테스트 및 디버깅",
@@ -2212,7 +2212,7 @@
         "RegExr",
         "Local terminal grep/sed"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Diseño, prueba y depuración de expresiones regulares complejas con explicaciones de sintaxis AST en tiempo real y compatibilidad con motores de múltiples sabores.",
@@ -2241,7 +2241,7 @@
         "RegExr",
         "Local terminal grep/sed"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Concevoir, tester et déboguer des expressions régulières complexes avec des explications de syntaxe AST en temps réel et une prise en charge de moteurs multi-saveurs",
@@ -2270,7 +2270,7 @@
         "RegExr",
         "Local terminal grep/sed"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Entwerfen, Testen und Debuggen komplexer regulärer Ausdrücke mit Echtzeit-AST-Syntaxerklärungen und Unterstützung für Multi-Flavor-Engines",
@@ -2299,7 +2299,7 @@
         "RegExr",
         "Local terminal grep/sed"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Projetar, testar e depurar expressões regulares complexas com explicações de sintaxe AST em tempo real e suporte a mecanismos multivariados",
@@ -2328,7 +2328,7 @@
         "RegExr",
         "Local terminal grep/sed"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "carbon-now-sh": {
@@ -7627,7 +7627,7 @@
       },
       "verdictTier": "capable-utility",
       "benchmarkNotes": "Executed background removal on 332 kB PNG fixture; verified clean 2,539-byte PNG artifact download at 800x600 resolution without watermark. Observed 117 ad-tech payloads and an export reCAPTCHA modal challenge.",
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "zh": {
       "bestFor": "在可接受偶发验证码与展示广告的前提下，进行多品类快捷文件处理（PDF、图像抠图去背景、视频剪辑）。",
@@ -7656,7 +7656,7 @@
       },
       "verdictTier": "capable-utility",
       "benchmarkNotes": "对 332 kB PNG 样本执行抠图去背景，成功下载并验证 2,539 字节 800x600 分辨率无水印 PNG 文件。交互期间记录到 117 次广告技术网络载荷及导出阶段的 reCAPTCHA 验证弹窗。",
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ja": {
       "bestFor": "時折のキャプチャや広告が許容される場合の、複数カテゴリのクイック ファイル ユーティリティ (PDF、画像の背景の削除、ビデオ編集)。",
@@ -7685,7 +7685,7 @@
         "ILovePDF",
         "Kapwing"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "가끔 보안 문자와 광고가 허용되는 경우 다중 카테고리 빠른 파일 유틸리티(PDF, 이미지 배경 제거, 비디오 편집).",
@@ -7714,7 +7714,7 @@
         "ILovePDF",
         "Kapwing"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Utilidades de archivos rápidos de múltiples categorías (PDF, eliminación de fondo de imágenes, ediciones de videos) cuando se aceptan captchas y anuncios ocasionales.",
@@ -7743,7 +7743,7 @@
         "ILovePDF",
         "Kapwing"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Utilitaires de fichiers rapides multicatégories (PDF, suppression de l'arrière-plan de l'image, modifications vidéo) lorsque des captchas et des publicités occasionnels sont acceptables.",
@@ -7772,7 +7772,7 @@
         "ILovePDF",
         "Kapwing"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Schnelle Dateidienstprogramme für mehrere Kategorien (PDF, Bildhintergrundentfernung, Videobearbeitung), wenn gelegentliche Captchas und Werbung akzeptabel sind.",
@@ -7801,7 +7801,7 @@
         "ILovePDF",
         "Kapwing"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Utilitários de arquivo rápido de várias categorias (PDF, remoção de fundo de imagem, edições de vídeo) quando captchas e anúncios ocasionais são aceitáveis.",
@@ -7830,7 +7830,7 @@
         "ILovePDF",
         "Kapwing"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "omnicalculator-com": {
@@ -32324,7 +32324,7 @@
         "Anonymous trial posts auto-expire and unpublish after 1 hour unless upgraded to a paid plan",
         "Limited rich styling options compared to complex WYSIWYG editors"
       ],
-      "privacyVerdict": "Gold standard privacy hygiene. Live browser audits observed zero third-party trackers, zero advertising scripts, and zero telemetry payloads. The only observed network payload was the single functional /api/posts dispatch required to transmit the user's article.",
+      "privacyVerdict": "Gold standard privacy hygiene. Live browser audits observed zero third-party trackers, zero advertising scripts, and zero telemetry payloads, with no requests observed except the single functional POST /api/posts dispatch required to publish the article.",
       "alternativeTo": [
         "Medium",
         "Substack",
@@ -32341,7 +32341,8 @@
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "Conducted end-to-end writing and publishing audit. Verified instant anonymous editing in textarea#writer, published post b1eg2722zaw2w in 472ms, verified direct raw markdown access via .md suffix, and recorded zero extraneous network telemetry.",
-      "testedAt": "2026-09"
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:43:05.612Z"
     },
     "zh": {
       "bestFor": "需要即时、无干扰 Markdown 写作与发布平台且杜绝任何账户、Cookie 或广告追踪的写作者与媒体人",
@@ -32355,7 +32356,7 @@
         "匿名试用发布的文章在 1 小时后会自动下线，长期托管需注册付费账户",
         "相比复杂富文本排版编辑器，样式定制选项相对克制精简"
       ],
-      "privacyVerdict": "标杆级隐私保护规范。浏览器实测全程未检测到任何第三方统计、广告追踪脚本或商业遥测；唯一捕获的网络请求为提交文章所需的单个功能性 /api/posts 接口。",
+      "privacyVerdict": "标杆级隐私保护规范。除发布文章所需的单个功能性 POST /api/posts 接口外，未监测到任何第三方统计、广告追踪脚本或商业遥测。",
       "alternativeTo": [],
       "productScore": {
         "overall": 81,
@@ -32367,7 +32368,8 @@
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "进行了全流程即时写作与发布实测。验证了在 textarea#writer 中秒级即写即发，472ms 内成功生成匿名文章 b1eg2722zaw2w，验证了末尾 .md 后缀获取 Markdown 原文功能，全网仅触发必要发布请求。",
-      "testedAt": "2026-09"
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:43:05.613Z"
     },
     "ja": {
       "bestFor": "作家、ジャーナリスト、思想家は、アカウント、Cookie、広告トラッカーを必要とせず、気を散らすことのない即時マークダウン出版プラットフォームを望んでいます。",
@@ -32398,7 +32400,7 @@
         "Telegra.ph",
         "Ghost"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "계정, 쿠키 또는 광고 추적기 없이 즉각적이고 산만하지 않은 마크다운 게시 플랫폼을 원하는 작가, 언론인 및 사상가",
@@ -32429,7 +32431,7 @@
         "Telegra.ph",
         "Ghost"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Escritores, periodistas y pensadores que desean una plataforma de publicación de rebajas instantánea y sin distracciones, sin cuentas, cookies ni rastreadores de anuncios.",
@@ -32460,7 +32462,7 @@
         "Telegra.ph",
         "Ghost"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Écrivains, journalistes et penseurs souhaitant une plate-forme de publication de démarques instantanée et sans distraction, sans comptes, cookies ou trackers publicitaires",
@@ -32491,7 +32493,7 @@
         "Telegra.ph",
         "Ghost"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Autoren, Journalisten und Denker, die eine sofortige, ablenkungsfreie Markdown-Publishing-Plattform ohne Konten, Cookies oder Werbetracker wünschen",
@@ -32522,7 +32524,7 @@
         "Telegra.ph",
         "Ghost"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Escritores, jornalistas e pensadores que desejam uma plataforma de publicação de descontos instantânea e sem distrações, sem contas, cookies ou rastreadores de anúncios",
@@ -32553,7 +32555,7 @@
         "Telegra.ph",
         "Ghost"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "www-when2meet-com": {
@@ -75673,6 +75675,266 @@
       "benchmarkNotes": "在美标信纸规格下配置 5 mm 毫米方格参数，耗时 0ms 冻结完成渲染并无缝导出 2.2KB 矢量 PDF 文件，全程无需账户。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-05T03:45:40.874Z"
+    }
+  },
+  "aicost-tools": {
+    "en": {
+      "bestFor": "Estimating and comparing monthly API spend across 150+ LLMs with reasoning tokens, caching, and CSV export.",
+      "pros": [
+        "Comprehensive coverage of 152 live-priced models across 33 providers with verified list pricing",
+        "Configurable parameters including reasoning tokens, cache hit rates, batch tiers, and preset scenario templates",
+        "Clean unwatermarked 10KB CSV export containing complete per-model cost breakdowns"
+      ],
+      "cons": [
+        "Preset scenarios cannot be saved to custom user profiles without sharing URL parameters"
+      ],
+      "privacyVerdict": "Cost calculations and CSV generation execute entirely in client-side browser memory; live network inspection observed no server-side prompt transmission, accompanied only by standard Google Analytics and Cloudflare RUM telemetry beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Configured 5,000 requests/month scenario across 152 models, observed instantaneous calculation update to $67.50/mo for Claude Sonnet 4.6, and exported a 10,181-byte clean CSV artifact in under 1 second.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:47:57.847Z"
+    },
+    "zh": {
+      "bestFor": "在免登录环境下估算和对比 150+ 主流大模型 API 月度调用成本，支持推理思考 Token、提示词缓存与 CSV 导出。",
+      "pros": [
+        "收录 33 家模型提供商共 152 款最新大模型，价格来源于官方定价页面并标注更新时间",
+        "支持微调推理 Token 占比、缓存命中率、批量调用折扣等丰富参数，并内置多种场景预设",
+        "提供无水印且格式清晰的 10KB CSV 导出，完整呈现各模型单次与月度成本明细"
+      ],
+      "cons": [
+        "自定义场景需通过包含参数的长链接分享，无法直接保存至用户自建配置库"
+      ],
+      "privacyVerdict": "所有价格估算与 CSV 导出均在浏览器纯客户端内存中即时计算完成；实测未发现任何提示词数据外发，仅伴随常规 Google Analytics 与 Cloudflare RUM 页面分析载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "配置月度 5,000 次调用场景并覆盖 152 款模型，Claude Sonnet 4.6 即时算出月度成本 $67.50，并在 1 秒内成功下载 10,181 字节完整 CSV 报表。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:47:57.847Z"
+    }
+  },
+  "nametracing-org": {
+    "en": {
+      "bestFor": "Generating printable handwriting and name tracing practice worksheets with custom styles and line sizes.",
+      "pros": [
+        "Zero registration required with instant live canvas preview as names are typed",
+        "Supports multiple typography styles including print manuscript, cursive, and dotted guidelines",
+        "Generates clean unwatermarked vector PDF and PNG downloads suitable for classroom printing"
+      ],
+      "cons": [
+        "Worksheet batch generation is limited to 40 names per run without persistent template saving"
+      ],
+      "privacyVerdict": "Worksheet generation runs locally in the browser; network inspection observed no server-side transmission of student names, accompanied only by a single Cloudflare RUM beacon.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Generated custom cursive worksheet for test name Lucas and downloaded a clean 4,238-byte vector PDF artifact in 220 ms.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:51:06.102Z"
+    },
+    "zh": {
+      "bestFor": "免登录快速生成支持自定义字体风格与练习行距的儿童描红与姓名临摹字帖。",
+      "pros": [
+        "打开即用，输入姓名即可在右侧获得即时三线格手写字帖渲染预览",
+        "支持印刷体、连笔手写与点状描红等多种字体样式与不同年级行距预设",
+        "直接导出清晰无水印的矢量 PDF 与 PNG 打印文件，排版规整规范"
+      ],
+      "cons": [
+        "单次批量生成上限为 40 个姓名，不支持云端保存自定义排版模板"
+      ],
+      "privacyVerdict": "字帖渲染与排版逻辑在本地浏览器即时运行；实测未发现学生姓名等输入信息回传后端，仅伴随 1 次 Cloudflare RUM 性能监测请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "针对测试名字 Lucas 切换至连笔手写风格并生成字帖，在 220ms 内成功下载 4,238 字节无水印矢量 PDF 文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:51:06.102Z"
+    }
+  },
+  "visualtimer-org": {
+    "en": {
+      "bestFor": "Displaying high-contrast visual countdowns for classrooms, children, and focused study sessions.",
+      "pros": [
+        "Zero signup required with immediate countdown presets and custom minute inputs",
+        "High-contrast color-depleting dial allowing visual time tracking at a glance",
+        "Provides full-screen presentation mode and shareable URL parameter links"
+      ],
+      "cons": [
+        "Does not support saving recurring multi-interval interval workouts or custom timer sequences"
+      ],
+      "privacyVerdict": "Countdown timer logic and audio chimes run entirely within local browser memory; network audits observed no user-identifying telemetry, accompanied only by self-hosted event pings (/api/e) and Cloudflare RUM beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Configured 15-minute countdown in input[placeholder*='Custom'], observed immediate SVG dial redraw to 15:00 in 45 ms, and verified Start/Pause button transitions with zero UI jank.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:56:48.541Z"
+    },
+    "zh": {
+      "bestFor": "在课堂教学、儿童专注力训练或番茄工作法中展示高对比度可视化倒计时盘面。",
+      "pros": [
+        "打开即用，无需登录即可快速选择常用预设时长或输入任意自定义分钟数",
+        "采用色块逐渐缩小的动态表盘设计，直观呈现剩余时间流逝进度",
+        "支持一键全屏投影展示，并可通过 URL 参数直接分享特定时长倒计时"
+      ],
+      "cons": [
+        "暂不支持保存多时段复合间歇训练计划或循环倒计时任务链"
+      ],
+      "privacyVerdict": "倒计时运行逻辑与音频提示均在本地浏览器端完成；交互期间未监测到个人身份敏感信息，仅伴随站点自建轻量事件接口 (/api/e) 与 Cloudflare RUM 页面性能分析。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 input[placeholder*='Custom'] 中配置 15 分钟倒计时，SVG 刻度盘在 45ms 内即时重绘至 15:00，验证了 Start/Pause 状态平滑切换且主线程无卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T02:56:48.543Z"
+    }
+  },
+  "newellabs-com-tools-bank-statement-converter": {
+    "en": {
+      "bestFor": "Converting bank statement PDFs into Excel, CSV, QuickBooks QBO, and OFX formats locally without uploading sensitive financial data.",
+      "pros": [
+        "Zero registration required with client-side PDF transaction parsing",
+        "Extensive financial export format support including CSV, Excel xlsx, QuickBooks qbo, and OFX",
+        "Interactive transaction table editor allowing inline row addition, editing, and reconciliation"
+      ],
+      "cons": [
+        "Scanned image-only PDFs require text-based layer or OCR preprocessing"
+      ],
+      "privacyVerdict": "Within the tested session, local PDF parsing executed entirely in client-side memory with zero outgoing network payloads observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 1 KB sample.pdf, verified in-browser PDF parsing table detection, clicked Add a row at the end, and exported a 93-byte clean CSV artifact in 110 ms.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T03:01:36.119Z"
+    },
+    "zh": {
+      "bestFor": "在本地浏览器中免登录将银行流水对账单 PDF 转换为 Excel、CSV、QuickBooks QBO 或 OFX 格式，无需上传敏感财务信息。",
+      "pros": [
+        "打开即用，无需登录，在纯客户端本地快速解析银行对账单 PDF 交易记录",
+        "提供极其丰富的财务导出格式，涵盖 CSV、Excel xlsx、QuickBooks qbo 及 OFX 等",
+        "内置交互式交易表格编辑器，支持追加交易行、编辑对账并核验流水平衡"
+      ],
+      "cons": [
+        "仅支持包含文本层的电子对账单 PDF，纯图片扫描件需提前进行 OCR 识别"
+      ],
+      "privacyVerdict": "在本次测试范围内，PDF 解析在本地客户端内存中完成，未监测到任何数据外发或网络载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 1KB sample.pdf 样本文件，验证了浏览器内 PDF 解析与表格检测，追加交易记录并在 110ms 内成功下载 93 字节无水印 CSV 格式对账单。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T03:01:36.120Z"
+    }
+  },
+  "feltandwood-com-tool": {
+    "en": {
+      "bestFor": "Auditing and optimizing Etsy listing titles, tag density, and description copy directly in local browser memory.",
+      "pros": [
+        "Zero registration required with instant client-side draft inspection against Etsy SEO guidelines",
+        "Comprehensive checks covering title scannability, 13 tag slots, and description substance",
+        "Generates clean unwatermarked notes export (1,748 bytes) alongside one-click copy buttons for optimized titles and tags"
+      ],
+      "cons": [
+        "Does not sync live listing metrics directly with Etsy seller API accounts"
+      ],
+      "privacyVerdict": "Draft analysis runs entirely client-side in the browser; network observation confirmed no prompt or listing text egress, accompanied only by standard first-party page asset requests (GET /tool).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 17,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Audited handmade shelf listing draft, tested title and tag optimization rules in 85 ms, and downloaded a clean 1,748-byte text notes artifact.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T03:07:14.732Z"
+    },
+    "zh": {
+      "bestFor": "在本地浏览器中免登录检测并优化 Etsy 商品标题、标签关键词与详情文案质量。",
+      "pros": [
+        "打开即用，无需注册，所有文案审核与规则判定均在浏览器纯本地完成",
+        "深度检查标题可读性、13 个标签位完整度及详情文案实质性内容",
+        "提供无水印 1,748 字节优化报告导出，并支持一键复制优化后的标题、标签托盘与开篇提示词"
+      ],
+      "cons": [
+        "不支持直接与 Etsy 商家后台 API 联动同步实时商品数据与曝光表现"
+      ],
+      "privacyVerdict": "商品草稿与分析逻辑全部在浏览器本地内存中运行；实测未监测到文案或标签数据外发，仅伴随站点自身页面资源请求 (GET /tool)。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 17,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "针对实测货架草稿进行标题与标签优化检测，规则判定耗时 85ms，并成功下载 1,748 字节无水印纯文本建议清单。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-06T03:07:14.732Z"
     }
   }
 }
