@@ -75936,5 +75936,439 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-06T03:07:14.732Z"
     }
+  },
+  "shycut-com": {
+    "en": {
+      "bestFor": "Content creators and privacy-conscious users wanting to trim videos, blur faces, and cut silences entirely in-browser without cloud uploads",
+      "pros": [
+        "Zero-egress client-side video processing powered by in-browser WebCodecs and WebAssembly",
+        "On-device AI privacy filters for automatic face and license plate detection without external API calls",
+        "Multi-feature editing workstation with silence cutting, custom aspect ratio presets, and subtitle generation",
+        "Unrestricted export with zero mandatory watermarks, paywalls, or account login requirements"
+      ],
+      "cons": [
+        "Initial AI detection model download requires a few megabytes on first local run",
+        "Heavy multi-gigabyte 4K footage may encounter browser memory constraints on lower-spec machines"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads observed during live evaluation. Video frames, audio tracks, and AI face-blurring models execute locally on-device in browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded authentic 320x240 MP4 video fixture. Loaded instantly onto timeline canvas with multi-track waveforms. Successfully rendered and exported clean artifact without watermark or auth interception in under 2 seconds.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T02:49:54.960Z"
+    },
+    "zh": {
+      "bestFor": "希望在浏览器本地完成视频剪辑、自动人脸打码及静音消除，且不愿将视频上传至云端服务器的创作者与隐私敏感用户",
+      "pros": [
+        "基于浏览器 WebCodecs 与 WebAssembly 的零外发纯本地视频处理引擎",
+        "端侧离线 AI 隐私遮罩，支持人脸与车牌自动识别模糊，无需调用外部云端接口",
+        "集成静音片段智能切除、多社交平台画幅比例适配及字幕编辑的一体化轻量工作台",
+        "全功能免费导出，绝无商业水印、登录门槛或试用点数限制"
+      ],
+      "cons": [
+        "首次使用离线 AI 识别模型需在浏览器端下载数兆字节的本地模型权重",
+        "处理超大体积 4K 高码率视频时可能受宿主浏览器内存配额限制"
+      ],
+      "privacyVerdict": "实测全程捕获到 0 个网络外发有效载荷。视频解码、渲染、波形绘制及 AI 人脸识别逻辑均在浏览器内存与本地设备端侧完成，视频内容绝不离机。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 320x240 MP4 真实视频测试文件，波形与多轨道时间轴即时渲染就绪。成功测试导出并获得无水印干净产物，耗时不足 2 秒，全程无登录拦截。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T02:49:54.961Z"
+    }
+  },
+  "printabletoolkit-com": {
+    "en": {
+      "bestFor": "Teachers, parents, and homeschoolers needing custom printable handwriting worksheets, planners, and learning sheets generated instantly as clean PDFs",
+      "pros": [
+        "Instant client-side vector PDF generation for handwriting practice, tracing, and planner templates",
+        "Configurable font styles, dotted letter guides, and batch student name tracing on a single sheet",
+        "Clean print-ready PDF downloads with zero watermarks or forced sign-in modals"
+      ],
+      "cons": [
+        "Dispatches analytics and telemetry beacons to Google Analytics, Pageview, and Cloudflare RUM on page load",
+        "Customization scope is focused on fixed school worksheet formats rather than open canvas drawing"
+      ],
+      "privacyVerdict": "Observed 5 outgoing analytics and telemetry payloads (Google Analytics, app.pageview.app, Cloudflare RUM). Worksheet generation logic runs in-browser memory without transmitting entered names or student lists to external servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Configured custom student name tracing worksheet with multiple lines. Switched to Cursive mode and triggered Download PDF, producing a print-ready 22.7 KB vector PDF in under 1 second without auth gates or watermarks.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T02:53:00.296Z"
+    },
+    "zh": {
+      "bestFor": "需要为孩子或学生快速生成描红描字帖、日程规划表及手写练习页并直接打印 PDF 的教师与家长",
+      "pros": [
+        "纯浏览器端即时矢量 PDF 渲染，支持名字描红、连笔书写与字帖练习排版",
+        "支持点阵虚线、字形样式与多行批量名单输入，排版即时更新",
+        "一键下载高清晰度打印级 PDF，无任何水印或强制登录限制"
+      ],
+      "cons": [
+        "页面加载时会向 Google Analytics、Pageview 及 Cloudflare RUM 发送行为统计遥测信标",
+        "功能专注于固定教学练习纸与表格模板，非通用自由绘图画板"
+      ],
+      "privacyVerdict": "实测捕获到 5 个外发统计信标（Google Analytics、Pageview 及 Cloudflare RUM）。字帖与表格生成逻辑均在浏览器内存本地运行，输入的姓名与文本未向外部服务器上传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "配置了自定义学生名字描红练习纸，切换至连笔 Cursive 模式并点击下载 PDF，在 1 秒内生成 22.7 KB 干净矢量 PDF 文件，全程免登录且无水印。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T02:53:00.298Z"
+    }
+  },
+  "gesturesynthlab-com": {
+    "en": {
+      "bestFor": "Musicians, beatmakers, and creative tinkerers wanting to sketch chords, shape analog tones, and record audio clips directly in the browser without DAWs or logins",
+      "pros": [
+        "Zero-latency polyphonic Web Audio synthesis engine with real-time oscilloscope canvas visualization",
+        "Configurable musical scales, root keys, tone brightness filters, and instant keyboard chord triggers",
+        "Built-in local audio recorder capturing lossless WebM audio files directly to the device"
+      ],
+      "cons": [
+        "Dispatches 1 Cloudflare RUM telemetry beacon (/cdn-cgi/rum) on initial connection",
+        "Recording length is capped at 15 seconds per captured audio clip"
+      ],
+      "privacyVerdict": "Observed 1 telemetry beacon to Cloudflare RUM (/cdn-cgi/rum). All audio synthesis, oscillator waveforms, and microphone/hand-tracking camera feeds execute entirely on-device in browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Selected custom root key, triggered live polyphonic C Major chord pad via keyboard shortcut '1', and recorded a 1-second audio snippet. Produced a clean 241 KB WebM audio download in 0ms with zero auth interception.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:00:59.520Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中即兴演奏和弦、调制复古模拟音色并直接录制音频片段的音乐创作者与合成器爱好者",
+      "pros": [
+        "基于 Web Audio API 的零延迟复音合成引擎，配备实时示波器 Canvas 动效呈现",
+        "支持音阶、根音、音色明暗度与滤波参数自由微调，并支持全键盘快捷和弦触发",
+        "内置本地音频捕获录音机，直接生成干净的 WebM 格式音频文件供离线保存"
+      ],
+      "cons": [
+        "初次访问时会向 Cloudflare RUM（/cdn-cgi/rum）发送一次性能统计信标",
+        "单次本地录音时长上限为 15 秒"
+      ],
+      "privacyVerdict": "网络监控记录到 1 次发送至 Cloudflare RUM（/cdn-cgi/rum）的性能信标。音频合成算法、振荡器音色渲染及可选摄像头手势追踪完全在浏览器端本地执行，无任何音频外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "配置了自定义根音，通过键盘快捷键“1”触发复音 C 大三和弦并开启实时内录，测试导出即刻下载 241 KB WebM 高品质音频文件，全程免登录且无商业拦截。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:00:59.520Z"
+    }
+  },
+  "codemodshub-com": {
+    "en": {
+      "bestFor": "Developers and AI engineers wanting to estimate Claude API token costs, model pricing, and prompt caching discounts without creating an account",
+      "pros": [
+        "Interactive in-browser token cost calculator comparing Claude Sonnet, Opus, and Haiku models",
+        "Detailed cost breakdown modeling input/output token volume, prompt caching read/write rates, and monthly active days",
+        "Zero registration or API keys required to model enterprise workload costs"
+      ],
+      "cons": [
+        "Dispatches 2 Cloudflare RUM (/cdn-cgi/rum) telemetry beacons on page load",
+        "Does not include CSV/JSON download export for calculated budget spreadsheets"
+      ],
+      "privacyVerdict": "Observed 2 outgoing performance telemetry payloads to Cloudflare RUM (/cdn-cgi/rum). All token counts, workload sliders, and cost calculations run locally in the browser.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 14,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested Claude Token Cost Calculator workbench with 50,000 input tokens. Toggled prompt caching and Quick estimate presets, rendering instant real-time cost updates ($120/mo) in 0ms with zero auth gates.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:05:05.296Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速测算 Claude API Token 成本、模型定价及 Prompt Caching 缓存减免的开发者与架构师",
+      "pros": [
+        "免登录纯前端 Claude Token 成本测算计算器，支持 Sonnet、Opus 及 Haiku 各主流模型对比",
+        "支持输入/输出 Token 量、缓存读写比率与月度活跃天数的多维度成本细分测算",
+        "无需绑定信用卡、注册账户或填入 API Key 即可进行预算推演"
+      ],
+      "cons": [
+        "页面加载时会向 Cloudflare RUM（/cdn-cgi/rum）发送 2 次性能遥测信标",
+        "暂不支持将生成的月度预算明细导出为 CSV 或 JSON 文件"
+      ],
+      "privacyVerdict": "实测记录到 2 次发送至 Cloudflare RUM（/cdn-cgi/rum）的性能监测请求。输入的 Token 参数、工作负载滑块及所有价格测算逻辑均在本地浏览器内完成计算。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 14,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 Claude Token Cost Calculator 中输入 50,000 Token 测试参数，切换 Prompt Caching 缓存与预设方案，价格即时更新至 $120/月，计算耗时 0ms，无任何登录门槛。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:05:05.297Z"
+    }
+  },
+  "rvstopguide-com": {
+    "en": {
+      "bestFor": "RV owners, electricians, and trailer haulers needing interactive 7-pin blade connector wiring schematics and circuit pinouts without downloading PDF manuals or logging in",
+      "pros": [
+        "Interactive SVG trailer connector schematic mirroring vehicle and trailer plug perspectives",
+        "Detailed circuit pin mapping identifying ground, 12V auxiliary power, brake, and tail light positions",
+        "Instant URL hash synchronization preserving selected wiring parameters for offline sharing"
+      ],
+      "cons": [
+        "Emits 4 telemetry beacons to ProductLair Analytics and Cloudflare RUM on page load",
+        "Lacks a dedicated print-optimized PDF or vector SVG export button"
+      ],
+      "privacyVerdict": "Observed 4 outgoing telemetry payloads to ProductLair Analytics and Cloudflare RUM (/cdn-cgi/rum). Wiring diagram rendering and pin circuit mappings execute entirely in the client-side browser.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 13,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Exercised 7-Way RV Blade Pin Finder workbench. Selected North American 7-way blade, switched perspective to trailer plug front face, and verified circuit pin highlights in 0ms with zero auth requirements.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:11:52.777Z"
+    },
+    "zh": {
+      "bestFor": "需要在拖车或房车接线时快速查验 7 针 RV Blade 插头引脚定义、电路极性与线色标准的车主与维修技师",
+      "pros": [
+        "交互式 SVG 拖车插头引脚定义示意图，支持车辆端母座与拖车端公头视角一键对调",
+        "详细标注地线、12V 辅助电源、电刹与尾灯各引脚电路位置及常见线色标准",
+        "状态参数即时同步至 URL Hash，方便现场维修时离线保存或快速分享"
+      ],
+      "cons": [
+        "页面加载时会向 ProductLair Analytics 与 Cloudflare RUM 发送 4 次分析遥测信标",
+        "暂未提供一键下载打印版接线图 PDF 或矢量图导出按钮"
+      ],
+      "privacyVerdict": "实测捕获到 4 个外发性能与分析信标（ProductLair Analytics 与 Cloudflare RUM）。所有接线图交互、引脚高亮及视角换算逻辑均在前端浏览器完成，无用户数据上传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 13,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "测试了 7-Way RV Blade Pin Finder 工具，选择北美标准 7 针插头并切换至拖车插头正视角，引脚电路与对端触点即刻高亮联动，耗时 0ms，全程免登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:11:52.778Z"
+    }
+  },
+  "photocraft-sailtoworld-com-psd-inspector": {
+    "en": {
+      "bestFor": "Graphic designers, print technicians, and game developers needing to inspect Adobe Photoshop PSD/PSB dimensions, color modes, and bit depths locally without opening heavy editors",
+      "pros": [
+        "Zero-egress local binary header inspection reading only the first 26 bytes directly in browser memory",
+        "Instant extraction of image width, height, bit depth, channel counts, and color mode (RGB, CMYK, Grayscale)",
+        "Clean JSON report download with zero watermarks or registration gates"
+      ],
+      "cons": [
+        "Inspects header metadata only; does not render full layer trees or pixel previews",
+        "Banner prompts for optional analytics consent on initial page view"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads observed during live evaluation. PSD and PSB files are read locally using the browser FileReader API without uploading any bytes to remote servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded authentic 26-byte PSD header fixture with 1200x800 dimensions, RGB mode, and 3 channels. Successfully extracted all metadata in 0ms and downloaded a clean 280-byte JSON report without auth gates.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:18:19.705Z"
+    },
+    "zh": {
+      "bestFor": "需要在不启动庞大 Photoshop 软件的情况下，快速本地查验 PSD/PSB 文件尺寸、色彩模式与位深度的设计师与印前工程师",
+      "pros": [
+        "零网络外发的纯本地二进制文件头解析，仅读取前 26 字节即可在浏览器内存中完成检测",
+        "即时提取图像长宽、位深度（8/16/32-bit）、色彩通道数及色彩模式（RGB、CMYK、灰度）",
+        "一键下载结构化 JSON 诊断报告，绝无商业水印或注册门槛"
+      ],
+      "cons": [
+        "仅提供文件头基础元数据检查，不提供图层树渲染与像素画面预览",
+        "初次访问时页面顶部包含自选统计授权横幅"
+      ],
+      "privacyVerdict": "实测全程捕获到 0 个网络外发有效载荷。PSD/PSB 文件完全通过浏览器原生 FileReader API 在本地内存读取，任何像素或文件内容均不上传外部服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 26 字节真实 PSD 头测试文件（1200x800 分辨率、RGB 模式、3 通道），在 0ms 内即时解析全部元数据，并成功下载 280 字节无水印 JSON 报告，全程无登录拦截。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:18:19.706Z"
+    }
+  },
+  "www-irorecipe-com": {
+    "en": {
+      "bestFor": "UI designers, illustrators, and frontend engineers looking for traditional Japanese color palettes, HEX/RGB/HSL color codes, and instant CSV export without creating an account",
+      "pros": [
+        "Comprehensive dictionary of traditional Japanese color names with accurate HEX, RGB, and HSL conversions",
+        "Interactive color palette board with mood presets (soft, clean, calm) and custom swatch collections",
+        "Direct CSV export of color search results and one-click clipboard copying without watermarks or login walls"
+      ],
+      "cons": [
+        "Emits Google Analytics tracking beacons (www.google-analytics.com/g/collect) during navigation",
+        "Interface and color cultural historical notes are primarily in Japanese"
+      ],
+      "privacyVerdict": "Observed 6 network payloads including Google Analytics telemetry (www.google-analytics.com/g/collect). Color search filtering, palette staging, and CSV file formatting execute client-side in browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Searched hex code '#28566b', matched traditional Japanese color '藍色' (Ai-iro), pinned to palette board, and downloaded a clean 167-byte CSV palette file in 0ms with zero auth interception.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:33:01.450Z"
+    },
+    "zh": {
+      "bestFor": "需要查阅日本传统和色、色彩配方及 HEX/RGB/HSL 色值，并支持直接导出色板 CSV 的插画师与 UI 设计师",
+      "pros": [
+        "收录详尽的日本传统色色名辞典，提供精确的 HEX、RGB 及 HSL 多格式色彩数值转换",
+        "支持根据“柔和、清爽、沉稳”等氛围基调快速搭配色板，并可收藏至专属临时色板夹",
+        "一键下载色板搜索结果的 CSV 表格文件，支持点击复制十六进制色值，无任何商业水印或登录门槛"
+      ],
+      "cons": [
+        "页面加载与检索时会向 Google Analytics（www.google-analytics.com/g/collect）发送行为遥测信标",
+        "界面主要以日文呈现，色彩历史由来与典故均为日文"
+      ],
+      "privacyVerdict": "网络监控记录到 6 次请求（含 Google Analytics 统计信标）。色值计算、色系筛选、色板归类及 CSV 生成导出均在浏览器本地执行，无个人隐私数据外泄。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "搜索色值 '#28566b' 成功匹配传统和色“藍色”，将其加入色板并触发“この一覧をCSV保存”，在 0ms 内即时下载 167 字节无水印 CSV 色卡文件，全程免登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:33:01.451Z"
+    }
+  },
+  "calendarforge-net-make-calendar": {
+    "en": {
+      "bestFor": "Professionals, educators, and organizers needing customized printable or digital monthly calendars with national holidays, custom notes, and multi-format export without account creation",
+      "pros": [
+        "Extensive layout customization including Sunday/Monday starts, week numbers, shaded weekends, and 1971–2100 national holiday overlays for multiple countries",
+        "Per-date custom event and note builder with live visual calendar preview",
+        "Versatile zero-friction export pipeline supporting vector SVG, print-ready PDF, ICS calendar events, CSV, and XLSX spreadsheets without sign-up"
+      ],
+      "cons": [
+        "Transmits first-party telemetry (/api/telemetry) and Google Analytics beacons (www.google-analytics.com/g/collect) during use",
+        "Visual styles are restricted to predefined themes without custom font or custom CSS overrides"
+      ],
+      "privacyVerdict": "Observed 6 outgoing network requests including Google Analytics beacons (www.google-analytics.com/g/collect) and first-party telemetry (/api/telemetry). Calendar configuration, note state, and export file synthesis execute client-side in browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Configured custom title 'Product Roadmap Q4 2026', added per-date milestone note for 2026-11-01, and downloaded a clean 9,730-byte vector SVG calendar in 0ms with zero auth interception.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:37:24.285Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册快速排版并导出可打印月历、团队排班表或多格式日程文件的办公人士与活动策划者",
+      "pros": [
+        "支持自由定制起始星期、周序号、周末阴影及跨越 1971–2100 年的各国法定节假日图层",
+        "提供日期独立备忘录输入与实时日历排版画布联动预览",
+        "支持免登录一键导出矢量 SVG、高分辨率 PDF、iCalendar (.ics)、CSV 及 Excel (.xlsx) 表格等多种开放格式"
+      ],
+      "cons": [
+        "访问与使用时会向第一方 /api/telemetry 接口及 Google Analytics（www.google-analytics.com/g/collect）发送遥测信标",
+        "日历视觉主题仅限预设风格，不支持自定义字体文件导入或深度 CSS 样式编辑"
+      ],
+      "privacyVerdict": "网络监控记录到 6 次外部请求（含 Google Analytics 遥测信标及 /api/telemetry 接口调用）。日历配置、备忘录数据及多格式文件生成导出均在浏览器本地内存处理。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "设置日历标题为“Product Roadmap Q4 2026”，添加 2026-11-01 节点备忘录，并成功一键导出 9,730 字节无水印矢量 SVG 日历文件，全程免登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-07T03:37:24.286Z"
+    }
   }
 }

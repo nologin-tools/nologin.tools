@@ -243,6 +243,17 @@
     "lastTitle": "CalcRobin — Free Online Calculators and Tools",
     "lastSignals": []
   },
+  "calendarforge-net-make-calendar": {
+    "lastDeepEvalAt": "2026-11-07T03:37:24.316Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-07T03:37:24.316Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T03:37:24.316Z"
+  },
   "calorique-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-03T06:17:26.335Z",
@@ -314,6 +325,17 @@
     "lastScanAt": "2026-10-29T06:25:26.229Z",
     "lastTitle": "Claude 用量重置追踪：距上次 Claude 重置的天数",
     "lastSignals": []
+  },
+  "codemodshub-com": {
+    "lastDeepEvalAt": "2026-11-07T03:05:05.318Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-07T03:05:05.318Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T03:05:05.318Z"
   },
   "codextheme-tools": {
     "openAnomalies": [],
@@ -922,6 +944,17 @@
     "lastScanAt": "2026-10-31T06:19:25.039Z",
     "lastTitle": "Geometry Calculator with Steps for 2D and 3D Shapes",
     "lastSignals": []
+  },
+  "gesturesynthlab-com": {
+    "lastDeepEvalAt": "2026-11-07T03:00:59.561Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-07T03:00:59.561Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T03:00:59.561Z"
   },
   "getwaves-io": {
     "openAnomalies": [],
@@ -1811,6 +1844,17 @@
     "lastTitle": "PhET: Free online physics, chemistry, biology, earth science and math simulations | PhET Simulations",
     "lastSignals": []
   },
+  "photocraft-sailtoworld-com-psd-inspector": {
+    "lastDeepEvalAt": "2026-11-07T03:18:19.739Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-07T03:18:19.739Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T03:18:19.739Z"
+  },
   "photomosh-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-06T06:17:40.021Z",
@@ -1913,6 +1957,17 @@
     "lastScanAt": "2026-11-04T06:17:08.747Z",
     "lastTitle": "Free Printable PDF, Image, and QR Tools - PrintableTools Lab",
     "lastSignals": []
+  },
+  "printabletoolkit-com": {
+    "lastDeepEvalAt": "2026-11-07T02:53:00.333Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-07T02:53:00.333Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T02:53:00.333Z"
   },
   "printpagecheck-com": {
     "lastDeepEvalAt": "2026-10-27T03:15:28.473Z",
@@ -2231,6 +2286,17 @@
     "lastTitle": "Break-Even ROAS Calculator & Comparison | ROAS Compare",
     "lastSignals": []
   },
+  "rvstopguide-com": {
+    "lastDeepEvalAt": "2026-11-07T03:11:52.803Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-07T03:11:52.803Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T03:11:52.803Z"
+  },
   "salitronic-com-gerber-analyzer": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-05T06:27:08.563Z",
@@ -2290,6 +2356,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-04T03:35:50.056Z"
+  },
+  "shycut-com": {
+    "lastDeepEvalAt": "2026-11-07T02:49:55.004Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-07T02:49:55.004Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T02:49:55.004Z"
   },
   "signaturefont-net": {
     "openAnomalies": [],
@@ -2478,25 +2555,21 @@
     "lastSignals": []
   },
   "teachablemachine-withgoogle-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-29T06:28:59.744Z",
-        "lastSeenAt": "2026-10-29T06:28:59.744Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-teachablemachine-withgoogle-com-intent-1793255332387.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-teachablemachine-withgoogle-com-outcome-1793255332387.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-29T06:28:59.744Z",
     "lastTitle": "Teachable Machine",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-07T02:44:34.831Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified Teachable Machine workbench at /train and /train/image is fully operational; image training functions without login; surface_lost was due to the landing page link structure.",
+      "at": "2026-11-07T02:44:34.831Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "telemetry-sh-sql-playground": {
     "openAnomalies": [],
@@ -2755,25 +2828,21 @@
     "lastSignals": []
   },
   "virustotal-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-10-31T06:23:02.241Z",
-        "lastSeenAt": "2026-10-31T06:23:02.241Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-virustotal-com-intent-1793427777664.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-virustotal-com-outcome-1793427777664.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-10-31T06:23:02.241Z",
     "lastTitle": "VirusTotal",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-07T02:46:50.250Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified VirusTotal upload and scan workbench functions without login; surface_lost was due to shadow DOM encapsulation of the upload form.",
+      "at": "2026-11-07T02:46:50.250Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "visualgo-net": {
     "openAnomalies": [],
@@ -2964,6 +3033,17 @@
     "lastTitle": "Free Image Splitter Online — Grid & Custom Cuts | ImageSplit",
     "lastSignals": []
   },
+  "www-irorecipe-com": {
+    "lastDeepEvalAt": "2026-11-07T03:33:01.499Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-07T03:33:01.499Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-07T03:33:01.499Z"
+  },
   "www-keyboardanalyzer-com": {
     "lastDeepEvalAt": "2026-10-29T03:44:09.682Z",
     "lastResolution": {
@@ -3100,30 +3180,17 @@
     "lastSignals": []
   },
   "xueboyang1985-github-io-kindle-exporter": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-11-04T06:18:07.852Z",
-        "lastSeenAt": "2026-11-04T06:18:07.852Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-intent-1793773074699.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-outcome-1793773074700.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:18:07.852Z",
     "lastTitle": "Kindle Highlights Exporter - Export Kindle Clippings to Markdown, CSV, JSON",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-10-29T02:43:54.759Z",
+    "lastDeepEvalAt": "2026-11-07T02:37:28.892Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Uploaded Kindle clippings fixture, parsed locally without network egress, and exported clean unwatermarked 233-byte Markdown file without login wall; PRO upgrade is strictly optional bulk-export upsell.",
-      "at": "2026-10-29T02:43:54.759Z",
+      "note": "Verified free first-book markdown export functions without auth or watermark; zero egress observed; PRO is only for bulk batch export as already documented in editorial cons.",
+      "at": "2026-11-07T02:37:28.892Z",
       "closed": [
         "paywall_copy"
       ]

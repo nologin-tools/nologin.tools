@@ -153,6 +153,12 @@
     "description": "一站式访问 270 多款涵盖大模型 Token 测算、金融投资、健康与数学计算等完全在浏览器本地运行的实用小工具。",
     "coreTask": "无需创建账号，即可在 270 余款纯本地工具中进行运算并导出结果卡片。"
   },
+  "calendarforge-net-make-calendar": {
+    "_hash": "861f5da891389018",
+    "description": "高度可定制的免注册月历排版工具，支持多国节假日叠加、单日备忘录与 SVG、PDF、ICS、CSV、XLSX 多格式导出。",
+    "coreTask": "自定义起始周日、节假日、主题风格与日期备忘录，并一键导出矢量 SVG、PDF 或电子表格文件。",
+    "contentUpdatedAt": "2026-11-07T03:37:41.219Z"
+  },
   "calorique-io": {
     "coreTask": "免登录计算基础代谢率 (BMR)、卡路里摄入、BMI、体脂率及宏量营养素配比",
     "description": "免费的健康与健身计算器，可直接在浏览器中计算每日热量消耗、BMR、BMI、体脂率、三大营养素（碳水/蛋白/脂肪）配比和饮食规划，无需创建账号。"
@@ -218,6 +224,12 @@
     "_hash": "80ee725a5ade828f",
     "description": "Clideo 是一款基于浏览器的媒体工具包，提供 20 多种视频和音频编辑工具：剪辑、压缩、格式转换、合并片段、静音、添加字幕、提取音频、循环视频、调整速度以及创建 GIF。核心工具无需账号即可使用——上传文件，在其服务器上处理，然后下载结果。免费版会添加水印，付费版可去除。",
     "coreTask": "无需安装软件或注册账号，直接在浏览器中编辑、转换、剪切和压缩视频及音频文件"
+  },
+  "codemodshub-com": {
+    "_hash": "d6780a83f5c643e8",
+    "description": "Claude Code 插件生态索引与 API Token 成本测算工具，可免登录评估各模型费用与 Prompt Caching 减免方案。",
+    "coreTask": "在浏览器中测算 Claude API Token 消耗、对比不同模型价格并计算 Prompt Caching 缓存带来的费用节省。",
+    "contentUpdatedAt": "2026-11-07T03:05:34.319Z"
   },
   "codextheme-tools": {
     "description": "Codex Desktop 桌面端的免费浏览器本地主题构建器——可将任意壁纸转化为兼具高可读性的个性化主题，零上传更隐私。",
@@ -634,6 +646,12 @@
   "geometry-formulas-com-geometry-calculator": {
     "coreTask": "无需注册账号即可查阅公式表并计算 2D 和 3D 几何图形问题",
     "description": "免费的浏览器端几何公式与计算器，涵盖常见二维与三维图形。提供面积、周长、体积、表面积公式、示意图、解题范例及逐步计算结果，免登录随时使用。"
+  },
+  "gesturesynthlab-com": {
+    "_hash": "80b95e05881f64cb",
+    "description": "基于浏览器的手势与键盘复音合成器工作台，可在线调制模拟音色并直接内录音频，无需安装插件或登录。",
+    "coreTask": "选择调式音阶，通过键盘快捷键或手势触发复音和弦演奏，并一键导出内录的 WebM 高品质音频文件。",
+    "contentUpdatedAt": "2026-11-07T03:01:23.919Z"
   },
   "getwaves-io": {
     "_hash": "1e21cbf881521fa3",
@@ -1205,6 +1223,12 @@
     "description": "专为开发者打造的 AI 搜索引擎。Phind 实时搜索网络，整合代码示例、文档引用和相关来源，提供技术性解答——基础功能无需账号。",
     "coreTask": "通过实时网络搜索和可运行代码示例，获取编程和技术问题的 AI 解答"
   },
+  "photocraft-sailtoworld-com-psd-inspector": {
+    "_hash": "64324400b52e5d81",
+    "description": "基于浏览器的本地 PSD 与 PSB 文件头诊断工具，无需上传即可快速提取 Photoshop 图像尺寸、色彩模式与位深度。",
+    "coreTask": "拖入 PSD 或 PSB 文件，在本地内存中即时解析长宽分辨率、色彩通道及位深度，并下载 JSON 格式诊断报告。",
+    "contentUpdatedAt": "2026-11-07T03:18:54.519Z"
+  },
   "photomosh-com": {
     "_hash": "e5ee5e0d010c18b3",
     "description": "为图像和视频添加故障艺术效果。27 种 mosh 效果，包括像素排序、RGB 偏移、抖动和 VHS——全在浏览器中完成。",
@@ -1279,6 +1303,12 @@
   "printable-tools-lab-pages-dev": {
     "coreTask": "免登录使用 PDF、图片、二维码和常用文档小工具并直接下载生成的文件",
     "description": "面向 PDF、图像、二维码和日常办公纸质文档任务的免费免登录浏览器工具。无需注册账号，即可按目标 KB 压缩图片、调整照片尺寸、图片转 PDF、生成二维码以及排版简易 PDF。"
+  },
+  "printabletoolkit-com": {
+    "_hash": "6e8d6ca18bc5a5e6",
+    "description": "在线可打印练习纸、日程规划表与描红练习页生成工具，无需注册即可直接下载高清打印级 PDF。",
+    "coreTask": "自定义名字描字帖、手写练习行及日程模板，并即时下载无水印的高清矢量 PDF 文件。",
+    "contentUpdatedAt": "2026-11-07T02:53:26.288Z"
   },
   "printpagecheck-com": {
     "_hash": "892b74458b53ed80",
@@ -1447,6 +1477,12 @@
     "description": "面向电商卖家的免费保本 ROAS 计算器。输入营收、产品成本、运费和平台费率，即刻测算保本 ROAS、最高承受 CPA 及目标 ROAS。支持不同定价方案对比并导出 CSV，输入数据留在浏览器本地，免注册使用。",
     "coreTask": "测算保本 ROAS 与目标 CPA，对比多套订单利润方案，并可导出 CSV 报表，免登录使用"
   },
+  "rvstopguide-com": {
+    "_hash": "e9f8434e4ea1a230",
+    "description": "交互式 7 针拖车接线图与房车引脚电路速查工具，无需下载 PDF 手册或注册即可快速对准插头接线。",
+    "coreTask": "交互式查验 7 针 RV Blade 拖车插头引脚定义、切换车端与拖车端透视角度并核对对应功能线色。",
+    "contentUpdatedAt": "2026-11-07T03:12:28.093Z"
+  },
   "salitronic-com-gerber-analyzer": {
     "coreTask": "在浏览器中查看 Gerber、ODB++ 和 IPC-2581 文件，执行 DRC 规则检查、双层对比以及元器件贴片视图，零上传且无需安装",
     "description": "免费的浏览器端 PCB 制造文件查看工具。支持读取 Gerber、ODB++ 和 IPC-2581 格式，展示各层图纸与装配后的电路板效果，并提供 DRC 设计规则检查、图层比对和贴片坐标视图。所有处理均在浏览器本地完成，无需上传文件，也无需注册账号。"
@@ -1489,6 +1525,12 @@
     },
     "description": "免注册图生视频 AI 运镜规划与结构化提示词生成工作区。",
     "coreTask": "规划并生成图生视频提示词"
+  },
+  "shycut-com": {
+    "_hash": "ff794d25827a8fed",
+    "description": "基于浏览器的本地纯隐私视频编辑器，支持视频剪辑、智能人脸与车牌自动打码、静音切除与画幅比例调整，视频无需上传到云端。",
+    "coreTask": "拖入视频文件，完成多轨道剪辑、智能遮罩打码人脸或车牌，并在本地一键导出剪辑成品。",
+    "contentUpdatedAt": "2026-11-07T02:50:38.194Z"
   },
   "signaturefont-net": {
     "coreTask": "免登录在浏览器中生成并预览手写签名风格艺术字体",
@@ -1905,6 +1947,12 @@
     "description": "免费在线图片切图工具，支持在浏览器本地将图片裁切为网格九宫格、社交轮播图、自定义像素切片及固定尺寸瓦片，并提供打包 ZIP 下载。",
     "coreTask": "将图片自由裁切为网格九宫格或轮播图切片并一键下载 ZIP 压缩包。",
     "contentUpdatedAt": "2026-10-27T03:39:42.953Z"
+  },
+  "www-irorecipe-com": {
+    "_hash": "815176ff00e8020a",
+    "description": "日本传统和色辞典、调色板搭配与色值转换工具，支持一键导出色板 CSV 与剪贴板色值。",
+    "coreTask": "检索日本传统色或十六进制色值，搭配情境色板，并一键下载色板 CSV 表格。",
+    "contentUpdatedAt": "2026-11-07T03:33:14.566Z"
   },
   "www-keyboardanalyzer-com": {
     "_hash": "b254793071427370",
