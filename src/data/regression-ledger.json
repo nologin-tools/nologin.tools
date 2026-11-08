@@ -130,7 +130,7 @@
   },
   "aspectratiocalculator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:20:09.095Z",
+    "lastScanAt": "2026-11-08T06:27:05.248Z",
     "lastTitle": "Aspect Ratio Calculator - Images & Video Dimensions",
     "lastSignals": []
   },
@@ -148,7 +148,7 @@
   },
   "audiomass-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:20:29.817Z",
+    "lastScanAt": "2026-11-08T06:27:28.785Z",
     "lastTitle": "AudioMass - Audio Editor",
     "lastSignals": []
   },
@@ -301,7 +301,7 @@
   },
   "cfiresim-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:27:36.389Z",
+    "lastScanAt": "2026-11-08T06:23:49.002Z",
     "lastTitle": "cFIREsim",
     "lastSignals": []
   },
@@ -313,7 +313,7 @@
   },
   "choicervoicer-games": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:20:40.075Z",
+    "lastScanAt": "2026-11-08T06:27:39.707Z",
     "lastTitle": "Play Choicer Voicer Online Free – Voice Imitation Game",
     "lastSignals": []
   },
@@ -426,10 +426,8 @@
   },
   "converters-live": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:26:13.643Z",
-    "lastSignals": [
-      "probe_failed"
-    ],
+    "lastScanAt": "2026-11-08T06:22:25.076Z",
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-11-04T02:52:32.221Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -438,7 +436,8 @@
       "closed": [
         "probe_failed"
       ]
-    }
+    },
+    "lastTitle": "在线文件转换器——图片、视频、音频 | Converters.live"
   },
   "convertilo-io": {
     "openAnomalies": [],
@@ -579,7 +578,7 @@
   },
   "currawongweb-com-verify-china-usci-checker": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:27:14.169Z",
+    "lastScanAt": "2026-11-08T06:23:25.465Z",
     "lastTitle": "Unified social credit code checker: China USCI validation",
     "lastSignals": []
   },
@@ -667,7 +666,7 @@
   },
   "discrete-logarithm-tomasz-slapinski-pl": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:19.934Z",
+    "lastScanAt": "2026-11-08T06:28:24.535Z",
     "lastTitle": "Logarytm dyskretny (DLP) — Baby-step Giant-step",
     "lastSignals": []
   },
@@ -766,7 +765,7 @@
   },
   "excalideck-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:20:19.143Z",
+    "lastScanAt": "2026-11-08T06:27:17.917Z",
     "lastTitle": "Excalideck | Weapon for Legendary Slides",
     "lastSignals": []
   },
@@ -837,7 +836,7 @@
   },
   "fileontap-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:26.736Z",
+    "lastScanAt": "2026-11-08T06:28:31.700Z",
     "lastTitle": "Free File Converter in Your Browser — No Upload | FileOnTap",
     "lastSignals": []
   },
@@ -956,7 +955,7 @@
   },
   "gchq-github-io-cyberchef": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:28:46.497Z",
+    "lastScanAt": "2026-11-08T06:24:58.281Z",
     "lastTitle": "CyberChef",
     "lastSignals": []
   },
@@ -974,7 +973,7 @@
   },
   "geometry-formulas-com-geometry-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:19:25.039Z",
+    "lastScanAt": "2026-11-08T06:26:14.183Z",
     "lastTitle": "Geometry Calculator with Steps for 2D and 3D Shapes",
     "lastSignals": []
   },
@@ -1097,7 +1096,7 @@
   },
   "heic-to-jpg-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:27:05.146Z",
+    "lastScanAt": "2026-11-08T06:23:16.543Z",
     "lastTitle": "HEIC to JPG Converter Online - Free, Private, Batch | heic-to-jpg.app",
     "lastSignals": []
   },
@@ -1156,7 +1155,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T03:01:18.867Z"
+    "lastScanAt": "2026-11-08T06:25:46.913Z",
+    "lastTitle": "Host HTML File",
+    "lastSignals": []
   },
   "httpbin-org": {
     "openAnomalies": [],
@@ -1212,7 +1213,7 @@
   },
   "imageconverttools-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:27:23.389Z",
+    "lastScanAt": "2026-11-08T06:23:35.193Z",
     "lastTitle": "Free online image converter and editing tools",
     "lastSignals": []
   },
@@ -1235,13 +1236,13 @@
   },
   "imgrove-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:19:04.135Z",
+    "lastScanAt": "2026-11-08T06:25:52.746Z",
     "lastTitle": "Free Browser Image Tools, No Upload | imgrove",
     "lastSignals": []
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:26:50.829Z",
+    "lastScanAt": "2026-11-08T06:22:58.244Z",
     "lastTitle": "Compound Interest Calculator | Investor.gov",
     "lastSignals": []
   },
@@ -1302,7 +1303,7 @@
   },
   "kitelabs-netlify-app-kitchen": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:27:41.883Z",
+    "lastScanAt": "2026-11-08T06:23:54.547Z",
     "lastTitle": "Food Cost Calculator + Free Recipe Costing Spreadsheet",
     "lastSignals": []
   },
@@ -1331,7 +1332,7 @@
   },
   "kmag-ro-en": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:25:54.697Z",
+    "lastScanAt": "2026-11-08T06:22:06.080Z",
     "lastTitle": "Kmag — Shared grocery lists with voice and smart aisle sorting",
     "lastSignals": []
   },
@@ -1397,13 +1398,13 @@
   },
   "lite-datasette-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:33.806Z",
+    "lastScanAt": "2026-11-08T06:28:37.001Z",
     "lastTitle": "Datasette",
     "lastSignals": []
   },
   "makehalftone-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:53.517Z",
+    "lastScanAt": "2026-11-08T06:28:54.955Z",
     "lastTitle": "Halftone Generator — Convert Images to Print-Ready Dot Patterns",
     "lastSignals": []
   },
@@ -1678,13 +1679,13 @@
   },
   "needgohome-netlify-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:28:30.302Z",
+    "lastScanAt": "2026-11-08T06:24:42.163Z",
     "lastTitle": "Need Go Home | Professional early-leave messages in seconds",
     "lastSignals": []
   },
   "neumorphism-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:28:07.945Z",
+    "lastScanAt": "2026-11-08T06:24:20.528Z",
     "lastTitle": "Neumorphism CSS shadow generator",
     "lastSignals": []
   },
@@ -1713,7 +1714,7 @@
   },
   "nextreset-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:26:25.983Z",
+    "lastScanAt": "2026-11-08T06:22:39.282Z",
     "lastTitle": "Codex Reset Tracker & Prediction — Tibo Reset Watch | NextReset",
     "lastSignals": []
   },
@@ -1805,7 +1806,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T02:46:51.258Z"
+    "lastScanAt": "2026-11-08T06:25:28.481Z",
+    "lastTitle": "XML to JSON Converter | Runs Entirely in Your Browser",
+    "lastSignals": []
   },
   "pdfandimagetools-com": {
     "openAnomalies": [],
@@ -1936,7 +1939,7 @@
   },
   "piccollages-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:20:50.137Z",
+    "lastScanAt": "2026-11-08T06:27:52.765Z",
     "lastTitle": "照片拼贴工具-免费在线拼图制作器-九宫格长图拼接网格布局模板-本地处理100%隐私安全-高清PNG导出 | PicCollages",
     "lastSignals": []
   },
@@ -1954,7 +1957,7 @@
   },
   "play-rust-lang-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:00.605Z",
+    "lastScanAt": "2026-11-08T06:28:05.018Z",
     "lastTitle": "Rust Playground",
     "lastSignals": []
   },
@@ -2068,7 +2071,7 @@
   },
   "privacy-sexy": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:20:03.113Z",
+    "lastScanAt": "2026-11-08T06:26:59.487Z",
     "lastTitle": "privacy.sexy - Maximize Your Privacy and Security",
     "lastSignals": []
   },
@@ -2104,7 +2107,7 @@
   },
   "privnote-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:58.593Z",
+    "lastScanAt": "2026-11-08T06:29:01.304Z",
     "lastSignals": []
   },
   "productivitytimer-com": {
@@ -2171,7 +2174,7 @@
   },
   "pst-aivismonitor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:26:02.001Z",
+    "lastScanAt": "2026-11-08T06:22:14.933Z",
     "lastTitle": "Open a PST File Without Outlook, Even on a Mac | Mailward",
     "lastSignals": []
   },
@@ -2302,7 +2305,7 @@
   },
   "readanytext-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:26:35.499Z",
+    "lastScanAt": "2026-11-08T06:22:48.259Z",
     "lastTitle": "ReadAnyText - Free Text to Speech with Natural AI Voices",
     "lastSignals": []
   },
@@ -2368,7 +2371,7 @@
   },
   "retireclarity-com-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:19:12.565Z",
+    "lastScanAt": "2026-11-08T06:26:01.852Z",
     "lastTitle": "Retirement Calculator - Year-by-Year Projections",
     "lastSignals": []
   },
@@ -2586,7 +2589,7 @@
   },
   "stayput-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:42.472Z",
+    "lastScanAt": "2026-11-08T06:28:44.017Z",
     "lastTitle": "Stayput: Free File Tools That Never Upload Your Files",
     "lastSignals": []
   },
@@ -2648,11 +2651,9 @@
   },
   "teachablemachine-withgoogle-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:28:59.744Z",
+    "lastScanAt": "2026-11-08T06:25:15.380Z",
     "lastTitle": "Teachable Machine",
-    "lastSignals": [
-      "surface_lost"
-    ],
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-11-07T02:44:34.831Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -2775,7 +2776,7 @@
   },
   "tools-berry-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:28:52.247Z",
+    "lastScanAt": "2026-11-08T06:25:04.129Z",
     "lastTitle": "Tools Berry: Free Online Calculators & Tools",
     "lastSignals": []
   },
@@ -2831,13 +2832,13 @@
   },
   "typescale-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:27:56.094Z",
+    "lastScanAt": "2026-11-08T06:24:05.357Z",
     "lastTitle": "Typescale - Create stunning typography, generate CSS, and find inspiration.",
     "lastSignals": []
   },
   "typescriptlang-org-play": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-29T06:28:20.457Z",
+    "lastScanAt": "2026-11-08T06:24:31.468Z",
     "lastTitle": "TypeScript: TS Playground - An online editor for exploring TypeScript and JavaScript",
     "lastSignals": []
   },
@@ -2919,7 +2920,7 @@
   },
   "video-size-reducer-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:19:36.257Z",
+    "lastScanAt": "2026-11-08T06:26:27.238Z",
     "lastTitle": "Video Size Reducer — Compress Videos to a Target Size",
     "lastSignals": []
   },
@@ -2978,7 +2979,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T02:52:22.041Z"
+    "lastScanAt": "2026-11-08T06:25:35.310Z",
+    "lastTitle": "Voltage Drop Calculator | Free NEC 2023 Wire Sizing Tool",
+    "lastSignals": []
   },
   "watermarklift-com": {
     "lastDeepEvalAt": "2026-10-28T03:42:51.182Z",
@@ -2995,7 +2998,7 @@
   },
   "watermarkzero-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:19:53.804Z",
+    "lastScanAt": "2026-11-08T06:26:45.340Z",
     "lastTitle": "Free Gemini Watermark Remover Online | Remove Locally",
     "lastSignals": []
   },
@@ -3049,7 +3052,7 @@
   },
   "wordtojpg-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-10-31T06:21:10.426Z",
+    "lastScanAt": "2026-11-08T06:28:16.819Z",
     "lastTitle": "Word to JPG Converter Online Free | Convert DOCX to Images",
     "lastSignals": []
   },
