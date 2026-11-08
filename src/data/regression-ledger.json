@@ -16,6 +16,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-06T02:47:57.873Z"
   },
+  "aiexpert-fun-iskraai-en-tools-proofreader": {
+    "lastDeepEvalAt": "2026-11-08T03:09:25.361Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-08T03:09:25.361Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T03:09:25.361Z"
+  },
   "aislopdetector-net": {
     "lastDeepEvalAt": "2026-10-26T02:32:02.049Z",
     "lastResolution": {
@@ -188,6 +199,17 @@
     "lastTitle": "JSON to CSV Converter — Free, Private & Precise | BiznTools",
     "lastSignals": []
   },
+  "blackscreen-vip": {
+    "lastDeepEvalAt": "2026-11-08T03:22:37.689Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-08T03:22:37.689Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T03:22:37.689Z"
+  },
   "blur-face-com-blur-face": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-07T06:21:30.270Z",
@@ -348,6 +370,17 @@
     "lastScanAt": "2026-11-01T06:17:35.070Z",
     "lastTitle": "Color Hunt - Color Palettes for Designers and Artists",
     "lastSignals": []
+  },
+  "compare-text-org": {
+    "lastDeepEvalAt": "2026-11-08T02:59:13.491Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-08T02:59:13.491Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T02:59:13.491Z"
   },
   "comparediff-io": {
     "openAnomalies": [],
@@ -986,6 +1019,17 @@
     "lastTitle": "Compiler Explorer",
     "lastSignals": []
   },
+  "goldcalctool-com": {
+    "lastDeepEvalAt": "2026-11-08T03:40:32.487Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-08T03:40:32.487Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T03:40:32.487Z"
+  },
   "golfclubreference-com-tools-swing-weight-calculator": {
     "lastDeepEvalAt": "2026-11-04T03:19:02.820Z",
     "lastResolution": {
@@ -1087,25 +1131,21 @@
     "lastScanAt": "2026-11-05T03:27:42.462Z"
   },
   "hoppscotch-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-01T06:16:10.950Z",
-        "lastSeenAt": "2026-11-01T06:16:10.950Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-hoppscotch-io-intent-1793513762271.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-hoppscotch-io-outcome-1793513762271.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-01T06:16:10.950Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T02:41:39.214Z",
     "lastTitle": "Hoppscotch • Open source API development ecosystem • Hoppscotch",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-08T02:41:39.214Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 94, editors-choice)",
+      "at": "2026-11-08T02:41:39.214Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "hosthtmlfile-com": {
     "lastDeepEvalAt": "2026-10-31T03:01:18.867Z",
@@ -1419,6 +1459,17 @@
     "lastScanAt": "2026-11-03T06:17:33.743Z",
     "lastTitle": "Browser SOP Builder | Mackanic Technologies",
     "lastSignals": []
+  },
+  "mazegenerator-online": {
+    "lastDeepEvalAt": "2026-11-08T02:54:00.984Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-08T02:54:00.984Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T02:54:00.984Z"
   },
   "mdconvert-net-zh-markdown-to-word": {
     "openAnomalies": [
@@ -1774,25 +1825,21 @@
     "lastScanAt": "2026-11-05T03:07:08.637Z"
   },
   "pdfinjpgumwandeln-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-01T06:18:46.405Z",
-        "lastSeenAt": "2026-11-01T06:18:46.405Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdfinjpgumwandeln-com-intent-1793513920063.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pdfinjpgumwandeln-com-outcome-1793513920063.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-01T06:18:46.405Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T02:45:17.448Z",
     "lastTitle": "PDF in JPG umwandeln - kostenlos im Browser",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-08T02:45:17.448Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-08T02:45:17.448Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
   },
   "pdftomdconverter-app": {
     "openAnomalies": [
@@ -2142,25 +2189,32 @@
     "lastSignals": []
   },
   "pythontutor-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-01T06:14:37.920Z",
-        "lastSeenAt": "2026-11-01T06:14:37.920Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pythontutor-com-intent-1793513669333.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pythontutor-com-outcome-1793513669333.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-01T06:14:37.920Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T02:35:48.470Z",
     "lastTitle": "Python Tutor - Python Online Compiler with Visual Debugger",
     "lastSignals": [
       "surface_lost"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-08T02:35:48.470Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 92, editors-choice)",
+      "at": "2026-11-08T02:35:48.470Z",
+      "closed": [
+        "surface_lost"
+      ]
+    }
+  },
+  "qistna-com": {
+    "lastDeepEvalAt": "2026-11-08T03:17:34.996Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-08T03:17:34.996Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-08T03:17:34.996Z"
   },
   "qrcode-monkey-com": {
     "openAnomalies": [],

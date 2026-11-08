@@ -17169,17 +17169,18 @@
   },
   "hoppscotch-io": {
     "en": {
-      "bestFor": "API developers, backend engineers, and QA testers testing REST, GraphQL, WebSocket, SSE, and gRPC endpoints without heavy desktop software or mandatory cloud logins",
+      "bestFor": "API developers, backend engineers, and QA testers testing REST, GraphQL, WebSocket, SSE, and gRPC endpoints without heavy desktop software or mandatory cloud logins.",
       "pros": [
-        "Full-featured open-source Postman alternative requiring zero login for testing REST, GraphQL, WebSocket, and gRPC endpoints",
+        "Full-featured open-source API workbench requiring zero login for testing REST, GraphQL, WebSocket, and gRPC endpoints",
         "Generates executable client code snippets across cURL, Python, JavaScript, Go, and Ruby with one click",
-        "Sends API requests directly from the client browser without routing sensitive tokens through third-party servers"
+        "Sends API requests directly from the client browser without routing sensitive tokens through third-party proxy servers",
+        "IndexedDB client-side local storage persists request histories and environment collections without cloud sync"
       ],
       "cons": [
         "Browser-based requests to external APIs are subject to browser CORS policies unless using the Hoppscotch browser extension or proxy",
-        "Dispatches product analytics payloads to PostHog and loads the Crisp customer support chat widget"
+        "Dispatches product analytics payloads to PostHog and synchronizes public schemas via api.hoppscotch.io GraphQL"
       ],
-      "privacyVerdict": "API requests execute directly from the client browser without passing request headers or authentication tokens through Hoppscotch proxy servers; telemetry includes PostHog analytics and Crisp chat connections.",
+      "privacyVerdict": "API requests execute directly from the client browser without passing request headers or auth tokens through middleman proxies. Outbound observation captured 6 network payloads including PostHog telemetry (POST eu.posthog.com/flags/, POST eu.i.posthog.com/e/) and Hoppscotch GraphQL configuration calls (POST api.hoppscotch.io/graphql).",
       "alternativeTo": [
         "Postman",
         "Insomnia",
@@ -17194,21 +17195,23 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Dispatched GET request to echo endpoint, rendered 1.96 KB formatted JSON payload in 1171 ms, and generated cURL snippet with 11 telemetry requests to PostHog and Crisp.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Dispatched GET request to echo endpoint, rendered 1.98 KB formatted JSON payload in 1011 ms, and exported response body with 0ms freeze and zero required authentication.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:41:39.181Z"
     },
     "zh": {
-      "bestFor": "需要在浏览器中免安装、免登录调试 RESTful、GraphQL、WebSocket、SSE 及 gRPC 接口的后端开发与测试工程师",
+      "bestFor": "无需注册登录即可在浏览器中测试 REST、GraphQL、WebSocket、SSE 与 gRPC 接口的 API 开发者与后端测试人员。",
       "pros": [
-        "开源轻量级 API 调试工具，无需注册或绑定账号即可无限制调试 REST、GraphQL 与 WebSocket 接口",
-        "一键自动生成 cURL、Python、Node.js、Go、Ruby 等十余种语言的标准客户端调用代码片段",
-        "API 请求直接由浏览器端或本地插件直接发出，避免敏感 Token 与请求体流经第三方中转服务器"
+        "功能完备的开源 API 工作台，零门槛直接测试 REST、GraphQL、WebSocket 及 gRPC 接口",
+        "一键生成覆盖 cURL、Python、JavaScript、Go、Ruby 等语言的可执行客户端代码片段",
+        "直接由浏览器客户端发起 API 请求，敏感 Token 和请求头不经过第三方中转代理",
+        "基于 IndexedDB 的本地客户端存储架构，无需云端同步即可保留请求历史与环境配置"
       ],
       "cons": [
-        "纯浏览器端直连请求受目标 API 的 CORS 跨域策略限制，跨域场景需配合官方浏览器扩展或代理",
-        "页面加载时会向 PostHog 发送产品交互统计并初始化 Crisp 在线客服浮窗"
+        "受浏览器 CORS 跨域策略限制，部分跨域接口需配合官方浏览器扩展或代理运行",
+        "会向 PostHog 发送产品分析遥测信标，并通过 api.hoppscotch.io GraphQL 接口同步配置"
       ],
-      "privacyVerdict": "业务 API 请求直接从客户端浏览器发出，接口认证密钥不经由 Hoppscotch 中心服务器中转；全站遥测包含向 PostHog 节点与 Crisp 客服发送的 11 条连接载荷。",
+      "privacyVerdict": "API 请求直接在客户端浏览器本地发起，不通过第三方代理中转请求头或认证 Token。实测网络捕获到 6 次外发负载，包含 PostHog 遥测（POST eu.posthog.com/flags/, POST eu.i.posthog.com/e/）与 Hoppscotch 自身配置接口（POST api.hoppscotch.io/graphql）。",
       "alternativeTo": [],
       "productScore": {
         "overall": 94,
@@ -17219,8 +17222,9 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "在 1171 ms 内完成向 echo 接口的 GET 探测并解析 1.96 KB 格式化 JSON 响应，成功生成 cURL 调用命令，记录到 11 次 PostHog 与 Crisp 遥测载荷。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "向 echo 接口发起 GET 请求并在 1011ms 内渲染 1.98KB 格式化 JSON 响应，成功导出响应内容，全程 0ms 冻结且完全无需注册登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:41:39.182Z"
     },
     "ja": {
       "bestFor": "API 開発者、バックエンド エンジニア、QA テスターは、重いデスクトップ ソフトウェアや必須のクラウド ログインを使用せずに、REST、GraphQL、WebSocket、SSE、gRPC エンドポイントをテストします。",
@@ -17249,7 +17253,7 @@
         "Insomnia",
         "Bruno"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "무거운 데스크톱 소프트웨어나 필수 클라우드 로그인 없이 REST, GraphQL, WebSocket, SSE 및 gRPC 엔드포인트를 테스트하는 API 개발자, 백엔드 엔지니어 및 QA 테스터",
@@ -17278,7 +17282,7 @@
         "Insomnia",
         "Bruno"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Desarrolladores de API, ingenieros de backend y evaluadores de control de calidad que prueban puntos finales REST, GraphQL, WebSocket, SSE y gRPC sin software de escritorio pesado ni inicios de sesión obligatorios en la nube.",
@@ -17307,7 +17311,7 @@
         "Insomnia",
         "Bruno"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Développeurs d'API, ingénieurs back-end et testeurs d'assurance qualité testant les points de terminaison REST, GraphQL, WebSocket, SSE et gRPC sans logiciels de bureau lourds ni connexions cloud obligatoires",
@@ -17336,7 +17340,7 @@
         "Insomnia",
         "Bruno"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "API-Entwickler, Backend-Ingenieure und QS-Tester testen REST-, GraphQL-, WebSocket-, SSE- und gRPC-Endpunkte ohne umfangreiche Desktop-Software oder obligatorische Cloud-Anmeldungen",
@@ -17365,7 +17369,7 @@
         "Insomnia",
         "Bruno"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Desenvolvedores de API, engenheiros de back-end e testadores de controle de qualidade testando endpoints REST, GraphQL, WebSocket, SSE e gRPC sem software de desktop pesado ou logins obrigatórios na nuvem",
@@ -17394,7 +17398,7 @@
         "Insomnia",
         "Bruno"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "astexplorer-net": {
@@ -23249,17 +23253,18 @@
   },
   "pythontutor-com": {
     "en": {
-      "bestFor": "Step-by-step code execution tracing and memory stack/pointer visualization across Python, C, C++, Java, and JavaScript.",
+      "bestFor": "Step-by-step code execution tracing, memory stack frames, and pointer visualization across Python, C, C++, Java, and JavaScript without registration.",
       "pros": [
         "World-class stack frame and memory pointer visualization illustrating recursion, heap objects, and variable bindings step-by-step",
         "Multi-language execution engine supporting Python 3.11, Java, C, C++, and JavaScript with bidirectional step scrubbing",
-        "Self-contained URL hash permanent links embedding complete source code, language version, and instruction step pointer"
+        "Self-contained URL hash permanent links embedding complete source code, language version, and instruction step pointer",
+        "Interactive AST execution tracer decomposing code into atomic instruction steps and frame allocations"
       ],
       "cons": [
         "Code is transmitted over network to remote backend execution servers (web_exec_py311.py) rather than running in client WebAssembly",
-        "Ad-supported interface incorporates Google AdSense scripts and Google Analytics tracking beacons"
+        "Ad-supported interface incorporates third-party display ads and Google Analytics tracking beacons"
       ],
-      "privacyVerdict": "Code execution requires transmitting script content via XHR to pythontutor.com backend endpoints (web_exec_py311.py). Outbound telemetry includes Google Analytics and Google Funding Choices ad consent beacons.",
+      "privacyVerdict": "Code execution transmits script content via backend execution API endpoints (web_exec_py311.py). Outbound network observation captured 1 telemetry request to Google Analytics (POST www.google-analytics.com/g/collect).",
       "alternativeTo": [
         "visualgo-net",
         "algorithm-visualizer-org",
@@ -23274,21 +23279,23 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Executed 19-step recursive factorial code in Python 3.11 with 76 ms max long task; visualized 4 stack frames and generated portable URL hash permalink.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Executed 17-step recursive factorial in Python 3.11 with 0ms freeze and visual stack frames; generated portable URL hash permalink in 0ms with zero login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:35:48.440Z"
     },
     "zh": {
-      "bestFor": "针对 Python、C、C++、Java 与 JavaScript 的逐行代码单步执行跟踪与内存栈帧、指针引用拓扑可视化。",
+      "bestFor": "无需注册即可对 Python、C、C++、Java 和 JavaScript 进行逐步代码执行跟踪、内存调用栈与指针可视化。",
       "pros": [
-        "学术级内存栈帧与指针引用图解，清晰呈现递归调用、堆对象分配与变量绑定关系的演进过程",
-        "支持 Python 3.11、Java、C、C++ 与 JavaScript 多种语言，具备前后双向步进微调控制条",
-        "生成纯 URL 哈希片段的永久分享链接，完整嵌入全部源代码、目标语言版本与当前单步指针"
+        "顶级的栈帧与内存指针可视化，逐步展示递归、堆对象与变量绑定过程",
+        "支持 Python 3.11、Java、C、C++ 与 JavaScript 的多语言执行引擎，提供双向步骤穿梭调试",
+        "一键生成独立 URL Hash 永久链接，完整内嵌源码、语言版本与指令步骤指针",
+        "交互式 AST 执行追踪器，将代码拆解为原子指令步进与调用栈帧映射"
       ],
       "cons": [
-        "代码执行依赖将脚本发送至服务端接口（web_exec_py311.py）进行沙箱运算，非纯本地 WebAssembly 执行",
-        "页面包含 Google AdSense 广告位脚本与 Google Analytics 追踪信标"
+        "代码通过网络传输至后端服务器执行（web_exec_py311.py），而非在纯本地 WebAssembly 环境运行",
+        "支持广告的界面集成了第三方展示广告脚本及 Google Analytics 追踪信标"
       ],
-      "privacyVerdict": "运行代码需通过 XHR 将用户脚本发送至 pythontutor.com 后端执行端点（如 web_exec_py311.py）。外发网络请求亦包含 Google Analytics 与 Google 广告合规检测信标，免注册免登录。",
+      "privacyVerdict": "代码执行需将脚本内容发送至后端执行接口（web_exec_py311.py）。实测网络捕获到 1 次 Google Analytics 遥测请求（POST www.google-analytics.com/g/collect）。",
       "alternativeTo": [],
       "productScore": {
         "overall": 92,
@@ -23299,8 +23306,9 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "以 76ms 最大任务耗时成功运行 Python 3.11 递归阶乘 19 步演算，清晰图解 4 层调用栈帧并生成全状态 URL 哈希链接。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 Python 3.11 中执行 17 步递归阶乘，0ms 阻塞并生成调用栈帧；即时生成可移植 URL Hash 永久链接，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:35:48.440Z"
     },
     "ja": {
       "bestFor": "Python、C、C++、Java、JavaScript にわたる段階的なコード実行トレースとメモリ スタック/ポインタの視覚化。",
@@ -23329,7 +23337,7 @@
         "algorithm-visualizer-org",
         "replit-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "Python, C, C++, Java 및 JavaScript 전반에 걸친 단계별 코드 실행 추적 및 메모리 스택/포인터 시각화.",
@@ -23358,7 +23366,7 @@
         "algorithm-visualizer-org",
         "replit-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Seguimiento de ejecución de código paso a paso y visualización de puntero/pila de memoria en Python, C, C++, Java y JavaScript.",
@@ -23387,7 +23395,7 @@
         "algorithm-visualizer-org",
         "replit-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Suivi étape par étape de l'exécution du code et visualisation de la pile mémoire/du pointeur sur Python, C, C++, Java et JavaScript.",
@@ -23416,7 +23424,7 @@
         "algorithm-visualizer-org",
         "replit-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Schrittweise Verfolgung der Codeausführung und Visualisierung des Speicherstapels/Zeigers in Python, C, C++, Java und JavaScript.",
@@ -23445,7 +23453,7 @@
         "algorithm-visualizer-org",
         "replit-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Rastreamento de execução de código passo a passo e visualização de pilha/ponteiro de memória em Python, C, C++, Java e JavaScript.",
@@ -23474,7 +23482,7 @@
         "algorithm-visualizer-org",
         "replit-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "regexlearn-com": {
@@ -36797,18 +36805,18 @@
   },
   "pdfinjpgumwandeln-com": {
     "en": {
-      "bestFor": "German-speaking users, students, and professionals needing to convert PDF pages into high-resolution JPG images directly in the browser without uploading sensitive documents to cloud services",
+      "bestFor": "German-speaking users, students, and professionals needing to convert PDF pages into high-resolution JPG images directly in the browser without uploading sensitive documents to cloud services.",
       "pros": [
-        "Client-side PDF rasterization: leverages Mozilla PDF.js within browser memory to render pages into images without transmitting PDF binaries to remote servers",
-        "Configurable quality presets: includes Web, Scharf (Sharp), and Drucknah (Print-ready) modes alongside a fine-grained 1% to 100% JPEG compression slider",
-        "Clean high-fidelity artifact export: outputs unwatermarked 1224x1584 JPG images with page range selection and multi-page ZIP packaging",
+        "Client-side PDF rasterization leverages Mozilla PDF.js within browser memory to render pages into images without transmitting PDF binaries to remote servers",
+        "Configurable quality presets include Web, Scharf (Sharp), and Drucknah (Print-ready) modes alongside a fine-grained JPEG compression slider",
+        "Clean high-fidelity artifact export outputs unwatermarked 1224x1584 JPG images with zero registration or paywall hurdles",
         "Zero-login workflow with no subscription funnels, email collection, or waiting queues"
       ],
       "cons": [
-        "Transmits standard visit telemetry to Google Analytics (G-K3FJG1HMVP) and Cloudflare RUM",
+        "Transmits standard visit telemetry to Google Analytics and Cloudflare RUM",
         "Primary interface text and documentation are available exclusively in German"
       ],
-      "privacyVerdict": "PDF decoding and canvas rasterization execute locally in the browser runtime using PDF.js. External network requests during testing were limited to 2 observed payloads: Google Analytics (G-K3FJG1HMVP) and Cloudflare RUM, with zero document contents sent to external servers.",
+      "privacyVerdict": "PDF decoding and canvas rasterization execute locally in the browser runtime using PDF.js. Observed network telemetry was limited to 2 outbound requests (POST www.google-analytics.com/g/collect, POST /cdn-cgi/rum), with zero document contents sent to external servers.",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
@@ -36823,23 +36831,24 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Audited PDF to JPG conversion using a 90.9 KB vector PDF document. Mozilla PDF.js rasterized the page to a canvas at 1224x1584 px resolution within 0 ms without main thread freeze. Clicked valid-test-seite-01.jpg download button to verify direct export of an 85369 bytes clean JPEG artifact with zero watermarks, while recording 2 network payloads.",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Audited client-side PDF to JPG rasterization using a vector PDF. Mozilla PDF.js processed the page to a canvas at 1224x1584 px resolution with 0ms freeze, exporting an unwatermarked 29,008-byte clean JPEG artifact in 0ms with zero login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:45:17.420Z"
     },
     "zh": {
-      "bestFor": "需要在不将敏感文档上传至云端服务器的前提下，直接在浏览器中将 PDF 页面高保真转换为 JPG 图片的德语区用户及日常办公者",
+      "bestFor": "需要在浏览器中直接将 PDF 页面转换为高分辨率 JPG 图像，而无需将敏感文件上传至云端服务的德语用户与学生。",
       "pros": [
-        "纯前端 PDF.js 本地栅格化：在浏览器内存中直接将 PDF 解析并渲染为图像，文件数据绝不上传云端后端",
-        "清晰的画质预设与滑块微调：提供 Web（网页）、Scharf（清晰）、Drucknah（接近印刷）三档预设及 1% 至 100% 连续质量调节",
-        "无水印高保真图片导出：直接下载 1224x1584 像素的高清 JPG 文件，支持单页提取与多页 ZIP 自动打包",
-        "免注册免登录无阻碍使用，无收费墙、邮箱采集或转码等待队列"
+        "基于 Mozilla PDF.js 的纯浏览器内存光栅化渲染，无需将 PDF 文件传输至远端服务器",
+        "提供 Web、Scharf（清晰）与 Drucknah（印刷级）预设以及细粒度的 JPEG 压缩比滑块调节",
+        "生成无水印的 1224x1584 高分辨率 JPG 图片，完全无导出付费墙或强制注册门槛",
+        "完全无需登录的极简工作流，无订阅陷阱、邮箱收集或导出等待队列"
       ],
       "cons": [
-        "包含发往 Google Analytics (G-K3FJG1HMVP) 与 Cloudflare RUM 的基础访问遥测请求",
-        "界面语言与操作说明目前仅提供德语版本"
+        "页面加载与操作时会向 Google Analytics 与 Cloudflare RUM 发送访问遥测信标",
+        "界面主要文本与使用文档仅提供德语版本"
       ],
-      "privacyVerdict": "PDF 解析与 Canvas 绘制完全由客户端浏览器内的 Mozilla PDF.js 引擎执行。测试期间捕获到的外部网络请求仅为 2 次常规遥测（Google Analytics G-K3FJG1HMVP 与 Cloudflare RUM），用户上传的 PDF 文档绝无外部传输记录。",
+      "privacyVerdict": "PDF 解码与 Canvas 光栅化均在浏览器本地借助 PDF.js 执行。实测外发网络请求仅捕获到 2 个遥测信标（POST www.google-analytics.com/g/collect 与 POST /cdn-cgi/rum），文档本体数据未发生外流。",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
@@ -36854,9 +36863,10 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "使用 90.9 KB 矢量 PDF 文档实测 PDF 转 JPG 功能。浏览器端 PDF.js 在 0 ms 内将页面栅格化为 1224x1584 px 画布。点击 valid-test-seite-01.jpg 下载按钮验证直接导出 85369 bytes 的无水印 JPEG 图片，全程仅捕获 2 次基础遥测请求。",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "对矢量 PDF 进行本地光栅化转换，Mozilla PDF.js 在 0ms 冻结下渲染出 1224x1584 分辨率画布，直接导出 29008 字节无水印纯净 JPEG 文件，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:45:17.420Z"
     },
     "ja": {
       "bestFor": "機密文書をクラウド サービスにアップロードせずに、ブラウザーで直接 PDF ページを高解像度の JPG 画像に変換する必要があるドイツ語を話すユーザー、学生、専門家",
@@ -36880,14 +36890,14 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "PDF2JPG.net",
         "Adobe Acrobat Web"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "민감한 문서를 클라우드 서비스에 업로드하지 않고 브라우저에서 직접 PDF 페이지를 고해상도 JPG 이미지로 변환해야 하는 독일어를 사용하는 사용자, 학생 및 전문가",
@@ -36911,14 +36921,14 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "PDF2JPG.net",
         "Adobe Acrobat Web"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Usuarios, estudiantes y profesionales de habla alemana que necesitan convertir páginas PDF en imágenes JPG de alta resolución directamente en el navegador sin cargar documentos confidenciales en servicios en la nube.",
@@ -36942,14 +36952,14 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "PDF2JPG.net",
         "Adobe Acrobat Web"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Utilisateurs, étudiants et professionnels germanophones ayant besoin de convertir des pages PDF en images JPG haute résolution directement dans le navigateur sans télécharger de documents sensibles sur les services cloud",
@@ -36973,14 +36983,14 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "PDF2JPG.net",
         "Adobe Acrobat Web"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Deutschsprachige Benutzer, Studenten und Berufstätige müssen PDF-Seiten direkt im Browser in hochauflösende JPG-Bilder konvertieren, ohne vertrauliche Dokumente in Cloud-Dienste hochzuladen",
@@ -37004,14 +37014,14 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "PDF2JPG.net",
         "Adobe Acrobat Web"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Usuários, estudantes e profissionais de língua alemã que precisam converter páginas PDF em imagens JPG de alta resolução diretamente no navegador, sem enviar documentos confidenciais para serviços em nuvem",
@@ -37035,14 +37045,14 @@
         "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "PDF2JPG.net",
         "Adobe Acrobat Web"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "www-amortio-com": {
@@ -76369,6 +76379,342 @@
       "benchmarkNotes": "设置日历标题为“Product Roadmap Q4 2026”，添加 2026-11-01 节点备忘录，并成功一键导出 9,730 字节无水印矢量 SVG 日历文件，全程免登录。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-07T03:37:24.286Z"
+    }
+  },
+  "mazegenerator-online": {
+    "en": {
+      "bestFor": "Educators, parents, and puzzle enthusiasts looking to generate customizable, solvable mazes with answer keys and export printable PDFs without signing up.",
+      "pros": [
+        "Versatile maze generation supporting square, circular, hexagonal, and triangular grid architectures",
+        "Instant client-side generation with eight difficulty tiers, custom seed reproducibility, and live answer key previews",
+        "Clean printable PDF export with title integration, paper presets (Letter/A4), and zero promotional watermarks",
+        "Privacy-friendly client-side computation with explicit cookie/analytics consent banner and stateful URL hash permalinks"
+      ],
+      "cons": [
+        "Advanced grid shapes and custom boundary masks are primarily designed for print rather than interactive touchscreen solving",
+        "Initial page navigation dispatches a Cloudflare RUM performance beacon"
+      ],
+      "privacyVerdict": "Maze generation logic and pathfinding run entirely client-side in browser memory without sending configuration parameters to remote servers. Network egress observation captured 1 performance beacon (POST /cdn-cgi/rum); optional Google Analytics requires explicit user consent.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Configured a hexagonal maze at difficulty 4 with custom title 'Lab Maze Challenge', enabled answer preview, and exported an unwatermarked 7,922-byte PDF artifact in 0ms with zero login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:54:00.957Z"
+    },
+    "zh": {
+      "bestFor": "需要生成支持多种网格类型与难度、自带解答路径的高清可打印 PDF 迷宫，且无需注册的教师、家长与益智游戏爱好者。",
+      "pros": [
+        "支持方形、圆形、六边形与三角形等多种经典迷宫几何网格算法",
+        "纯本地快速计算，具备 8 级难度滑块、自定义随机种子复现与实时路径答案预览",
+        "一键导出高清纯净 PDF 打印文件，自带解答页与 Letter/A4 页面预设，零宣传水印",
+        "完全在客户端内存运算，提供显式分析信标选择权，并通过 URL Hash 保存完整迷宫状态"
+      ],
+      "cons": [
+        "复杂网格与版面设置主要针对打印设计，缺少在线触摸交互式动态走迷宫模式",
+        "初始页面访问时会向 Cloudflare 发送 RUM 性能遥测信标"
+      ],
+      "privacyVerdict": "迷宫生成与寻路算法全部在本地浏览器内存中即时完成，配置与标题不上传服务器。实测网络捕获到 1 次 Cloudflare RUM 性能监控请求（POST /cdn-cgi/rum），可选的 Google Analytics 需经用户显式同意。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "配置难度 4 的六边形迷宫并注入标题，实时开启解题路径预览，即时导出 7922 字节无水印纯净 PDF 文件，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:54:00.958Z"
+    }
+  },
+  "compare-text-org": {
+    "en": {
+      "bestFor": "Developers, writers, and students needing to quickly inspect character-level differences between two text snippets or files locally in the browser without sending data to cloud servers.",
+      "pros": [
+        "100% client-side text diffing comparing additions, removals, and modifications completely inside browser memory",
+        "Granular character-level, word-level, and line-level diff highlighting with side-by-side and inline display toggles",
+        "Comprehensive diff statistics showing similarity percentage, added count, removed count, and modified line metrics",
+        "Direct file drag-and-drop support with side swapping and instant comparison shortcuts (Ctrl/Cmd+Enter)"
+      ],
+      "cons": [
+        "Dropdown export menu relies on Radix UI popover layers that may require explicit click focus",
+        "Page load dispatches telemetry requests to Google Analytics (G-...) and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Diff computation executes entirely in client browser memory using local JavaScript algorithms; input text is never uploaded to remote servers. Outbound network telemetry was limited to 3 observed analytics payloads (POST www.google-analytics.com/g/collect, POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Compared 47-character and 65-character JavaScript snippets, generating character-level diff highlighting and similarity metrics with 0ms freeze and zero required authentication.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:59:13.367Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地比对两段文本或文件的字符级差异，而无需将敏感内容上传至云端服务器的开发者、文字工作者与学生。",
+      "pros": [
+        "100% 纯本地客户端文本差异比对，代码与文本完全在浏览器内存中完成 Diff 计算",
+        "提供字符级、词级与行级的精细差异高亮，支持左右分栏（Side-by-side）与内联（Inline）双模式切换",
+        "完整的差异指标统计，实时展示相似度百分比、增添数、删减数与变更行统计",
+        "支持文本文件拖拽载入、左右内容快速互换（Swap）及快捷键（Ctrl/Cmd+Enter）即时比对"
+      ],
+      "cons": [
+        "导出菜单基于 Radix UI 浮层，部分浏览器环境下需要二次点击激活聚焦",
+        "页面访问时会向 Google Analytics 与 Cloudflare RUM 发送常规访问遥测信标"
+      ],
+      "privacyVerdict": "文本差异比对与高亮渲染完全在客户端浏览器本地运行，用户输入的文本或文件不会上传至任何远程服务器。网络实测捕获到 3 个遥测请求（POST www.google-analytics.com/g/collect 与 POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对比两段 JavaScript 代码片段，0ms 阻塞即时计算出字符级改动高亮与差异统计指标，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T02:59:13.368Z"
+    }
+  },
+  "aiexpert-fun-iskraai-en-tools-proofreader": {
+    "en": {
+      "bestFor": "Writers, students, and non-native speakers seeking a quick, zero-login AI proofreader to correct English spelling, punctuation, and grammar mistakes.",
+      "pros": [
+        "One-click AI grammar and spelling correction preserving author tone without mandatory account creation",
+        "Multi-language output selector with optional tone, style, and formatting constraints",
+        "Direct unwatermarked TXT file download and one-click clipboard export",
+        "Built-in sample prompt trigger for quick testing"
+      ],
+      "cons": [
+        "Text processing runs remotely on backend LLM servers via POST /iskraai/api/generate",
+        "Sponsored affiliate banners appear prominently above the primary editing card"
+      ],
+      "privacyVerdict": "Proofreading requests transmit entered text to server-side AI generation endpoints (POST /iskraai/api/generate). Outbound observation captured 10 network requests including usage analytics events (POST /iskraai/api/event).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 16,
+        "depth": 14,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Corrected a 50-character sentence with spelling errors in 1840 ms, rendering clean text into the result container and exporting an unwatermarked 51-byte TXT file with zero account signup.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:09:25.327Z"
+    },
+    "zh": {
+      "bestFor": "需要快速检查英文拼写、标点与语法错误，且无需注册账号的内容创作者、学生与非母语写作者。",
+      "pros": [
+        "一键完成 AI 语法与拼写校对，在修正错误的同时保留原作者语气风格，完全无需注册",
+        "支持多语言输出选择器，并提供可选的语气、风格与格式微调选项",
+        "支持直接导出无水印 TXT 纯文本文件以及一键复制到剪贴板",
+        "自带快捷测试样例按钮，方便快速体验校对效果"
+      ],
+      "cons": [
+        "文本内容需通过 POST /iskraai/api/generate 发送至远端大模型服务器处理，非本地运算",
+        "主卡片上方展示有显著的第三方赞助广告横幅"
+      ],
+      "privacyVerdict": "校对请求会将用户输入的文本发送至远端 AI 生成接口（POST /iskraai/api/generate）。网络实测捕获到 10 次外发请求，包含内部使用事件分析（POST /iskraai/api/event）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 16,
+        "depth": 14,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入包含拼写错误的 50 字符英文句子，AI 在 1840 ms 内完成校对并在结果容器中渲染，即时导出 51 字节无水印 TXT 文件，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:09:25.328Z"
+    }
+  },
+  "qistna-com": {
+    "en": {
+      "bestFor": "Residents and borrowers in Saudi Arabia needing an instant, no-login personal finance comparison to estimate monthly installments across licensed micro-lenders.",
+      "pros": [
+        "Instant client-side installment calculations comparing licensed Saudi lenders side by side",
+        "Interactive dual-slider controls for loan amount (2,000 to 30,000 SAR) and duration (3 to 30 months)",
+        "Highlights lowest-cost option in real time without requiring phone number or salary verification",
+        "Zero registration barrier for financial calculations and APR estimates"
+      ],
+      "cons": [
+        "No built-in export button to download comparisons as PDF, CSV, or shareable link",
+        "User interface is available exclusively in Arabic"
+      ],
+      "privacyVerdict": "Loan installment comparisons and monthly payment calculations run in the client browser. Outbound network observation captured 3 telemetry requests (POST /cdn-cgi/rum, POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 14,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Adjusted loan amount to 30,000 SAR and repayment duration to 6 months with 0ms freeze, instantly rendering ranked monthly installments (Sanad 5,422 SAR/mo vs Tamam 5,590 SAR/mo) with zero login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:17:34.965Z"
+    },
+    "zh": {
+      "bestFor": "需要在沙特阿拉伯快速比对个人消费信贷月供，且无需注册手机号或上传薪资证明的借贷者。",
+      "pros": [
+        "纯客户端即时计算并横向对比沙特合规微贷机构的月供与总成本",
+        "提供借款额度（2,000 至 30,000 里亚尔）与借款期限（3 至 30 个月）双滑块及快速预设按钮",
+        "实时自动标注成本最低方案，完全无需提供电话号码或进行薪水验证",
+        "零门槛直接查看费率估算与月供明细，无强制注册或商业线索阻拦"
+      ],
+      "cons": [
+        "未提供将比对结果直接导出为 PDF/CSV 或生成可分享链接的导出按钮",
+        "站点界面目前仅提供阿拉伯语支持"
+      ],
+      "privacyVerdict": "贷款月供计算与各机构对比逻辑均在客户端浏览器本地完成，无需提交个人身份或收入数据。网络实测捕获到 3 个遥测请求（POST /cdn-cgi/rum 与 POST www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 14,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "将贷款额调整至 30,000 里亚尔并将期限设为 6 个月，0ms 阻塞即时渲染出各机构月供阶梯排序（最低方案 5,422 里亚尔/月），全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:17:34.966Z"
+    }
+  },
+  "blackscreen-vip": {
+    "en": {
+      "bestFor": "Users looking for a simple, zero-login utility to display an uninterrupted black fullscreen or generate solid color wallpapers in custom resolutions.",
+      "pros": [
+        "One-click fullscreen black and multi-color screen display for monitor testing, cleaning, and focus",
+        "Generates solid color background images with customizable width and height inputs",
+        "Supports multiple export formats including PNG, JPG, and WEBP with unwatermarked output",
+        "Fast client-side canvas generation without requiring accounts or permissions"
+      ],
+      "cons": [
+        "Limited functional scope focused entirely on solid color backgrounds and fullscreen displays",
+        "Page load dispatches telemetry requests to Cloudflare RUM and custom analytics (ff.880009.xyz)"
+      ],
+      "privacyVerdict": "Wallpaper creation and fullscreen display run client-side using browser canvas elements. Observed network egress captured 2 telemetry payloads (POST /cdn-cgi/rum, POST ff.880009.xyz/api/event).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Configured custom dimensions to 1920x1080 px in WEBP format with 0ms freeze, instantly exporting an unwatermarked 4,256-byte clean WEBP image artifact with zero login.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:22:37.663Z"
+    },
+    "zh": {
+      "bestFor": "需要全屏纯黑显示以进行屏幕坏点测试、防烧屏、清洁显示器或生成纯色壁纸且无需注册的用户。",
+      "pros": [
+        "一键全屏纯黑及多色显示，适合屏幕清洁、坏点排查及夜间专注使用",
+        "支持自定义像素宽高数值，按需生成任意分辨率的纯色背景壁纸",
+        "支持 PNG、JPG 与 WEBP 多种导出格式，输出文件纯净无水印",
+        "基于浏览器 Canvas 的轻量客户端渲染，完全无需注册或授权"
+      ],
+      "cons": [
+        "功能维度较为单一，仅涵盖纯色全屏展示与壁纸生成",
+        "页面访问时会向 Cloudflare RUM 和自建统计端点（ff.880009.xyz）发送遥测信标"
+      ],
+      "privacyVerdict": "壁纸生成与全屏显示完全在客户端借助浏览器 Canvas 渲染完成。实测网络捕获到 2 次遥测请求（POST /cdn-cgi/rum 与 POST ff.880009.xyz/api/event）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "配置 1920x1080 自定义分辨率与 WEBP 格式，0ms 阻塞即时导出 4256 字节无水印纯净 WEBP 图像文件，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:22:37.664Z"
+    }
+  },
+  "goldcalctool-com": {
+    "en": {
+      "bestFor": "Users and jewelry sellers seeking an instant, zero-login gold melt value calculator with live scrap gold spot prices across major karat purities and units.",
+      "pros": [
+        "Immediate real-time calculation updating dynamically upon changing weight, unit, or purity",
+        "Supports multiple gold purities (from 10K to 24K) and units (Troy Ounces, grams, kilograms)",
+        "Includes dealer discount mode simulation and live spot price breakdown per gram",
+        "Requires zero account creation, email sign-up, or payment"
+      ],
+      "cons": [
+        "No file export functionality (CSV/PDF), relying solely on clipboard copy and on-screen display",
+        "Prominent third-party advertising banners (Google AdSense) displayed around the calculator card"
+      ],
+      "privacyVerdict": "Gold valuation calculations execute entirely on the client side in JavaScript. Network egress consists of standard ad network and analytics beacons (Google AdSense / Syndication, app.pageview.app, Cloudflare RUM).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Calculated melt value for 5 Troy Oz of 24K gold at $4,065.85/oz in 0ms freeze, rendering $20,308.92 instantly with live spot breakdowns across 24K, 18K, 14K, and 10K.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:40:32.459Z"
+    },
+    "zh": {
+      "bestFor": "需要快速估算废旧黄金回熔价值、查看实时国际金价行情且无需注册登录的个人及珠宝交易者。",
+      "pros": [
+        "即时动态计算，修改金重、单位或成色时无需刷新即可毫秒级更新估值",
+        "支持从 10K 到 24K 纯金等多种成色，以及金衡盎司、克、千克多种计量单位",
+        "内置回收商折扣模拟滑块与各成色每克实时金价参考对照表",
+        "完全无需注册账号、输入邮箱或付费订阅"
+      ],
+      "cons": [
+        "缺乏文件导出功能（如 CSV/PDF 报告），仅支持剪贴板一键复制与屏幕查看",
+        "计算器两侧及底部包含较多 Google AdSense 广告横幅"
+      ],
+      "privacyVerdict": "黄金价值估算完全基于浏览器前端 JavaScript 本地计算。监控捕获的 23 次网络请求均为第三方广告与分析信标（Google AdSense/Syndication、app.pageview.app、Cloudflare RUM）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入 5 金衡盎司 24K 黄金样本（国际金价基准 $4,065.85/oz），0ms 阻塞即时呈现估值 $20,308.92 及 24K/18K/14K/10K 梯度参考价，全程无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-08T03:40:32.460Z"
     }
   }
 }

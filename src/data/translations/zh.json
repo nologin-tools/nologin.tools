@@ -9,6 +9,12 @@
     "coreTask": "根据自定义 Token 参数计算大模型月度 API 支出，并导出包含完整成本明细的 CSV 报表。",
     "contentUpdatedAt": "2026-11-06T02:48:18.997Z"
   },
+  "aiexpert-fun-iskraai-en-tools-proofreader": {
+    "_hash": "bf279baf0759bde3",
+    "description": "基于 AI 的在线文本校对工具，在保留原作者语气风格的前提下修正拼写、标点与语法错误，无需注册。",
+    "coreTask": "校对并修正文本中的语法、拼写与风格问题，支持直接导出纯文本文件。",
+    "contentUpdatedAt": "2026-11-08T03:10:03.188Z"
+  },
   "aislopdetector-net": {
     "_hash": "ea8a352069e3cbaf",
     "description": "完全在浏览器本地检测文本与图片中的 AI 套话模板、高频词及低质生成特征。",
@@ -116,6 +122,12 @@
     "_hash": "40d69749708add58",
     "description": "在浏览器中将 JSON 数组与嵌套对象层级展平成干净的 CSV 表格。支持实时表格预览、自定义分隔符与本地文件导出，无需上传服务器。",
     "coreTask": "JSON转CSV表格"
+  },
+  "blackscreen-vip": {
+    "_hash": "d42921ca4c9596f1",
+    "description": "全屏纯黑与纯色背景壁纸生成工具，支持自定义分辨率尺寸与多种图片格式导出。",
+    "coreTask": "一键全屏纯黑显示或导出自定义分辨率的纯色背景壁纸。",
+    "contentUpdatedAt": "2026-11-08T03:23:32.999Z"
   },
   "blur-face-com-blur-face": {
     "coreTask": "自动识别并模糊人脸、批量处理照片、清除 EXIF 元数据并快速下载，全程无需创建账号",
@@ -239,6 +251,12 @@
     "_hash": "add188da1aa0fd40",
     "description": "精心策划的精美配色方案合集。浏览热门配色或按颜色搜索——一键复制十六进制代码。",
     "coreTask": "浏览精选配色方案"
+  },
+  "compare-text-org": {
+    "_hash": "fa8dd533ca26452c",
+    "description": "免费在线文本差异比对工具，完全在浏览器本地比对两段文本、代码或文件并高亮字符级差异。",
+    "coreTask": "在浏览器中并排比对两段文本或文件，呈现精细的字符级增删修改差异高亮。",
+    "contentUpdatedAt": "2026-11-08T02:59:47.897Z"
   },
   "comparediff-io": {
     "coreTask": "比较文本、代码、JSON 和文档的差异，支持按行、按词和按字符多维度查看改动",
@@ -678,6 +696,12 @@
     "description": "交互式编译器浏览器，显示 60 多种语言的汇编输出。并排比较编译器和优化级别。",
     "coreTask": "交互式查看编译器汇编输出"
   },
+  "goldcalctool-com": {
+    "_hash": "89686b749d731142",
+    "description": "实时黄金废料回熔价值计算器，支持多成色与多单位即时估算。",
+    "coreTask": "输入金重、单位与成色，实时估算废旧黄金回熔价值与每克参考价。",
+    "contentUpdatedAt": "2026-11-08T03:42:35.940Z"
+  },
   "golfclubreference-com-tools-swing-weight-calculator": {
     "_source": {
       "description": "Free in-browser golf club swing weight calculator on the 14-inch Lorythmic scale with live weight-change simulation.",
@@ -977,6 +1001,12 @@
   "max-agent-hub-github-io-browser-sop-builder": {
     "coreTask": "起草标准作业程序（SOP）、增删步骤、实时预览生成的 Markdown、一键复制并导出 .md 文件",
     "description": "Browser SOP Builder 是一个专注于将草稿笔记整理为规范受控操作流程（SOP）的浏览器端工具。它能规范记录负责人、触发条件、编号操作、完成标准、质量检查和异常分支，并即时预览和导出 Markdown 文件。所有输入内容仅保留在浏览器内存中。"
+  },
+  "mazegenerator-online": {
+    "_hash": "70c0b82cc36f662d",
+    "description": "生成支持方形、圆形、六边形与三角形网格的自定义可解迷宫，支持即时导出含解答的可打印 PDF。",
+    "coreTask": "生成并导出含解答路径的自定义可打印 PDF 迷宫。",
+    "contentUpdatedAt": "2026-11-08T02:54:31.702Z"
   },
   "mdconvert-net-zh-markdown-to-word": {
     "coreTask": "免登录在线将 Markdown 文档转换为 Word (.docx)",
@@ -1368,6 +1398,12 @@
     "_hash": "833183ed664c9c1a",
     "description": "逐步可视化代码执行过程。查看 Python、Java、C、C++ 和 JavaScript 的变量、调用栈和堆对象。",
     "coreTask": "逐步可视化代码执行过程"
+  },
+  "qistna-com": {
+    "_hash": "165bfa0ab4a1f445",
+    "description": "沙特个人消费信贷与微贷月供比对工具，纯客户端即时计算并对比各机构还款方案。",
+    "coreTask": "计算并横向对比沙特合规借贷机构的个人贷款月供与总还款额。",
+    "contentUpdatedAt": "2026-11-08T03:18:24.404Z"
   },
   "qrcode-monkey-com": {
     "_hash": "95f88bc1344eb99b",
