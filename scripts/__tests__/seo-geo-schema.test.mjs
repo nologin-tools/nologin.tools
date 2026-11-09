@@ -428,6 +428,17 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
       }
     }
   });
+
+  it('Internal links to noindex /badge/[slug] pages carry rel="nofollow" and localized paths', () => {
+    const toolDetailContent = readFileSync(TOOL_DETAIL_PAGE, 'utf-8');
+    assert.ok(!toolDetailContent.includes('href={`/badge/${tool.slug}#embed`}'), 'ToolDetailPage must not hardcode unlocalized /badge/${tool.slug}#embed');
+    assert.ok(toolDetailContent.includes('href={getLocalizedPath(`/badge/${tool.slug}#embed`, locale)}'), 'ToolDetailPage must localize /badge/${tool.slug}#embed');
+    const badgeLinkMatches = toolDetailContent.match(/href=\{getLocalizedPath\(`\/badge\/\$\{[^}]+\}[^`]*`, locale\)\}\s+rel="nofollow"/g) || [];
+    assert.equal(badgeLinkMatches.length, 2, 'Both /badge/[slug] links in ToolDetailPage must include rel="nofollow"');
+
+    const badgeInfoContent = readFileSync(resolve(ROOT, 'src/components/BadgeInfoPage.astro'), 'utf-8');
+    assert.ok(/href=\{getLocalizedPath\(`\/badge\/\$\{tool\.slug\}`, locale\)\}\s+rel="nofollow"/.test(badgeInfoContent), 'BadgeInfoPage link to /badge/[slug] must include rel="nofollow"');
+  });
 });
 
 

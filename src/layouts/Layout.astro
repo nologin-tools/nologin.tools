@@ -114,12 +114,16 @@ const hreflangLinks = hreflangLocales.map((l) => ({
     <link rel="canonical" href={canonicalUrl} />
     {noindex || !isIndexableLocale(locale)
       ? <meta name="robots" content="noindex, follow" />
-      : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      : (
+        <>
+          <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+          {hreflangLinks.map(({ locale: l, href }) => (
+            <link rel="alternate" hreflang={l} href={href} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={new URL(getLocalizedPath(basePath, DEFAULT_LOCALE), 'https://nologin.tools').href} />
+        </>
+      )
     }
-    {hreflangLinks.map(({ locale: l, href }) => (
-      <link rel="alternate" hreflang={l} href={href} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(getLocalizedPath(basePath, DEFAULT_LOCALE), 'https://nologin.tools').href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content={ogType} />

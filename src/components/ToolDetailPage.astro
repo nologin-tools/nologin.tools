@@ -575,7 +575,8 @@ const orgLd = {
             <>
               <span class="text-neutral-300">·</span>
               <a
-                href={`/badge/${tool.slug}#embed`}
+                href={getLocalizedPath(`/badge/${tool.slug}#embed`, locale)}
+                rel="nofollow"
                 class="inline-flex items-center gap-1 text-xs font-mono font-bold text-green-800 bg-green-100 border border-green-700 px-2 py-0.5 rounded-none hover:bg-green-200 transition-all shadow-[1px_1px_0px_0px_rgba(0,0,0,0.5)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
                 title={t(locale, 'tool.badgeActiveDesc')}
               >
@@ -1283,7 +1284,7 @@ const orgLd = {
             <img src={`/api/badge/${slug}.svg`} alt="NoLogin Verified" class="h-5" />
             <img src={`/api/badge/${slug}.svg?type=grade`} alt={`Privacy Grade ${scorecard.overallGrade}`} class="h-5" />
           </div>
-          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} class="text-xs font-mono font-bold text-neutral-900 underline decoration-2 uppercase flex items-center gap-1">
+          <a href={getLocalizedPath(`/badge/${slug}${isVerified ? '#embed' : ''}`, locale)} rel="nofollow" class="text-xs font-mono font-bold text-neutral-900 underline decoration-2 uppercase flex items-center gap-1">
             <span>{isVerified ? t(locale, 'tool.viewBadgeEmbed') : t(locale, 'tool.viewBadgePage')}</span>
             <span>&rarr;</span>
           </a>

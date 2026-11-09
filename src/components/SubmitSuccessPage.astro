@@ -262,6 +262,7 @@ const allEmbedCodes = Object.fromEntries(
               {slug && (
                 <a
                   href={getLocalizedPath(`/badge/${slug}`, locale)}
+                  rel="nofollow"
                   class="inline-flex items-center justify-center gap-1 text-xs font-mono font-bold text-neutral-800 hover:text-neutral-950 underline py-1"
                 >
                   <span>{t(locale, 'submitSuccess.viewCertificate')}</span> &rarr;
@@ -346,7 +347,7 @@ const allEmbedCodes = Object.fromEntries(
           <span class="text-xs font-mono font-bold text-neutral-500 uppercase">Live Badge Preview</span>
           <img id="badge-preview" src="/badges/flat.svg" alt="NoLogin Verified" class="h-8" />
           {slug && (
-            <a href={getLocalizedPath(`/badge/${slug}`, locale)} class="text-xs font-mono font-bold text-neutral-900 hover:underline underline-offset-2">
+            <a href={getLocalizedPath(`/badge/${slug}`, locale)} rel="nofollow" class="text-xs font-mono font-bold text-neutral-900 hover:underline underline-offset-2">
               View Digital Certificate &rarr;
             </a>
           )}
