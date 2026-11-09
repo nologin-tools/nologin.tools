@@ -15,6 +15,12 @@
     "coreTask": "校对并修正文本中的语法、拼写与风格问题，支持直接导出纯文本文件。",
     "contentUpdatedAt": "2026-11-08T03:10:03.188Z"
   },
+  "aion2pets-app": {
+    "_hash": "0f0e41aab72e1835",
+    "description": "规划《永恒之塔2》宠物灵气突破升级、计算洗炼属性水晶预算并查询野外刷怪地图。",
+    "coreTask": "即时推演宠物灵气升级需求、计算封锁槽位洗炼消耗并检索宠物刷新位置，无需注册登录。",
+    "contentUpdatedAt": "2026-11-09T03:04:03.020Z"
+  },
   "aislopdetector-net": {
     "_hash": "ea8a352069e3cbaf",
     "description": "完全在浏览器本地检测文本与图片中的 AI 套话模板、高频词及低质生成特征。",
@@ -68,6 +74,12 @@
     "_hash": "d25aa391b2b90551",
     "description": "举办 AMA（Ask Me Anything）会话最简单的方式。创建空间，分享链接，开始回答问题。无需注册。",
     "coreTask": "创建和主持 AMA 会话，分享链接，提问和回答"
+  },
+  "aspectratiocalc-im": {
+    "_hash": "356cdc1bff2d23ba",
+    "description": "实时计算画面宽高比、缩放图像与视频尺寸，并支持本地图片尺寸识别与画幅比例预览。",
+    "coreTask": "输入长宽尺寸或上传本地图片即时换算画幅比例并预览取景框，无需注册登录。",
+    "contentUpdatedAt": "2026-11-09T02:46:50.432Z"
   },
   "aspectratiocalculator-com": {
     "description": "免费的图片与视频长宽比计算器。输入长宽像素即可计算宽高比，或选择常用预设（16:9、4:3、1:1）推算对应分辨率。同时支持像素密度计算以及多比例直观对比。免登录注册，所有计算均在浏览器中即时完成。",
@@ -132,6 +144,12 @@
   "blur-face-com-blur-face": {
     "coreTask": "自动识别并模糊人脸、批量处理照片、清除 EXIF 元数据并快速下载，全程无需创建账号",
     "description": "免费的浏览器端照片隐私保护工具，可自动检测并模糊人脸。所有处理均在浏览器本地完成，图片绝不上载到服务器。支持批量上传处理以及一键擦除 EXIF 拍摄元数据。"
+  },
+  "breachline-io-tools": {
+    "_hash": "6fb1e2918d30cf5a",
+    "description": "面向开发者的本地优先安全工具箱，支持审计 JWT、比对 SBOM 与依赖锁文件及检查 CI 配置。",
+    "coreTask": "在本地解码分析 JWT 声明、比对依赖锁文件与物料清单差异并审计构建配置，无需注册登录。",
+    "contentUpdatedAt": "2026-11-09T03:20:02.033Z"
   },
   "browserleaks-com": {
     "_hash": "280e2f373c49ab29",
@@ -911,6 +929,12 @@
     "description": "专为 JSON Web Token 调试设计的浏览器工具。粘贴任意 JWT，即刻解码其 Header、Payload 和签名。支持使用密钥或公钥验证 Token 签名，兼容 HS256、RS256、ES256 等常见算法——所有处理均在浏览器本地完成，无需账号。",
     "coreTask": "直接在浏览器中解码和验证 JSON Web Token，无需将 Token 发送至任何服务器"
   },
+  "keyboardtester-vip": {
+    "_hash": "f7d851516aa7bfac",
+    "description": "在线测试 104 键全尺寸键盘，排查按键连击双击故障并验证多键无冲防鬼键。",
+    "coreTask": "在 104 键虚拟键盘上击键实测按键响应、防鬼键无冲与连击抖动，无需注册登录。",
+    "contentUpdatedAt": "2026-11-09T02:50:37.909Z"
+  },
   "kitelabs-netlify-app-kitchen": {
     "coreTask": "计算完整菜品配方成本、应用出成率，并即时得出单份成本、食材成本占比和单品毛利润——无需账号即开即用。",
     "description": "专为后厨设计的单品成本与菜单定价计算器。支持将采购规格换算为配方用量并折算净料率（出成率），例如每公斤 22 美元购入、出成率为 62% 的三文鱼，其实际可用成本为 35.48 美元/公斤，避免餐厅成本核算中最常见的误区。即时计算单份成本、食材成本百分比及每道菜毛利。全程浏览器本地计算，不上传、不存储、不追踪，无需账号或邮箱。由 Kite Labs 开发。"
@@ -1447,6 +1471,12 @@
     "coreTask": "按领域与深度筛选生成对话、写作与演讲主题并导出 CSV。",
     "contentUpdatedAt": "2026-10-27T03:35:34.051Z"
   },
+  "rasterbator-im": {
+    "_hash": "cdcd5eb4c5c53952",
+    "description": "制作多页拼贴大幅墙面海报，支持自定义半色调光栅艺术效果并导出高清打印 PDF。",
+    "coreTask": "上传图片并配置半色调网点样式与多页切片尺寸，直接下载免水印拼贴打印 PDF，无需注册登录。",
+    "contentUpdatedAt": "2026-11-09T02:58:54.098Z"
+  },
   "rawgraphs-io": {
     "_hash": "e4f54a4b1faf0367",
     "description": "开源数据可视化框架。粘贴数据，选择图表类型，导出精美的 SVG 或 PNG 可视化结果。",
@@ -1512,6 +1542,12 @@
   "roascompare-com": {
     "description": "面向电商卖家的免费保本 ROAS 计算器。输入营收、产品成本、运费和平台费率，即刻测算保本 ROAS、最高承受 CPA 及目标 ROAS。支持不同定价方案对比并导出 CSV，输入数据留在浏览器本地，免注册使用。",
     "coreTask": "测算保本 ROAS 与目标 CPA，对比多套订单利润方案，并可导出 CSV 报表，免登录使用"
+  },
+  "rumikejawi-com": {
+    "_hash": "01d01574c15eea3e",
+    "description": "在线将拉丁马来文（Rumi）转译为爪夷文（Jawi），遵循 DBP 正字法并支持导出书法图片。",
+    "coreTask": "在 Rumi 与 Jawi 之间双向转译文本并直接导出免水印书法卡片图片，无需注册登录。",
+    "contentUpdatedAt": "2026-11-09T03:08:28.148Z"
   },
   "rvstopguide-com": {
     "_hash": "e9f8434e4ea1a230",
@@ -1601,6 +1637,12 @@
     "description": "Cloudflare 出品的全面网速和延迟测试。测量下载、上传、延迟、抖动和丢包率。",
     "coreTask": "测试网络速度和延迟"
   },
+  "spritefuse-com-sprite-sheet-cutter": {
+    "_hash": "06682abc93f7b140",
+    "description": "纯浏览器端精灵表切片工具，可将素材切割为独立 PNG 序列帧，支持实时动画播放预览并打包为 ZIP 下载。",
+    "coreTask": "在无需注册的情况下将精灵表切片为单帧 PNG 序列并打包导出 ZIP",
+    "contentUpdatedAt": "2026-11-09T03:30:54.688Z"
+  },
   "spritesheettool-com": {
     "_hash": "7a5e33fa32fd2f8f",
     "description": "无需登录的免费浏览器工具集，支持本地拼合现有精灵图帧、拆分图集或 GIF、预览动画并导出资源。另设的 AI RPG 行走图生成功能需云端处理、登录账户与消耗点数。",
@@ -1689,6 +1731,12 @@
     "seoDescription": "即时获取匿名临时邮箱——无需注册，无需提供个人信息。适合一次性注册，使用后自动删除。",
     "seoFocusKeyword": "临时一次性邮箱地址",
     "seoTaskPhrase": "无需注册获取一次性邮箱"
+  },
+  "teslawrapgenerator-com-tesla-wrap-3d-preview": {
+    "_hash": "976a137e4a62555d",
+    "description": "专为特斯拉设计的 3D 车身改色膜实时预览与 Paint Shop 贴膜规范修复工具。无需注册即可在浏览器中上传 PNG 贴膜，映射到 3D Model Y 模型上，自动校验规格并导出修复后的贴膜。",
+    "coreTask": "在 3D 特斯拉模型上预览改色膜并修复 Paint Shop 规格",
+    "contentUpdatedAt": "2026-11-09T03:26:07.740Z"
   },
   "textbench-app": {
     "coreTask": "即时使用全部 64 款文本工具——字数统计、格式转换、文本清理、编码/解码、哈希计算以及文本生成",

@@ -479,7 +479,7 @@
         "Real-time cloud collaboration requires account authentication",
         "Third-party analytics telemetry requests observed on page load"
       ],
-      "privacyVerdict": "Client-side infinite canvas execution with Google Analytics telemetry beacons observed during session",
+      "privacyVerdict": "Client-side infinite canvas execution with Google Analytics telemetry beacons observed during session (POST analytics.tldraw.com, analytics.google.com).",
       "alternativeTo": [
         "Miro",
         "FigJam",
@@ -494,21 +494,22 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Canvas initial load under 60ms with smooth 60fps shape rendering and zero canvas payload egress during local sketching.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Infinite canvas initial load with smooth frame pacing and local shape rendering (rectangle, sticky notes) verified with zero canvas drawing payload egress.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:40:32.897Z"
     },
     "zh": {
-      "bestFor": "无需注册账号即可开展的即时视觉头脑风暴、架构图绘制与手绘原型设计",
+      "bestFor": "无需账户注册即可进行即时视觉头脑风暴、架构图绘制与手绘线框图设计。",
       "pros": [
-        "打开即用的无限画布，零门槛直接开始构思与绘制",
-        "提供丰富的几何图形、箭头引导、手绘笔刷、便签与图层框架工具",
-        "本地优先架构，支持将画作导出为 SVG、PNG 图像或本地 JSON 工程文件"
+        "基于浏览器的即时无限画布引擎，零上手门槛直接可用",
+        "丰富的几何图形、便笺、箭头与自由手绘工具集",
+        "本地优先文档持久化，支持直接导出 SVG、PNG 与 JSON 文件"
       ],
       "cons": [
-        "多人实时云端协作功能需要登录账号后才能使用",
-        "页面初始化时存在向第三方分析服务发送的遥测信标请求"
+        "多人实时云端协同功能需要账户登录认证",
+        "实测观察到页面包含第三方分析与性能遥测信标"
       ],
-      "privacyVerdict": "画布核心操作与数据均在浏览器本地运算，会话期间观测到第三方统计遥测信标",
+      "privacyVerdict": "客户端无限画布本地运行，实测观察到发往 analytics.tldraw.com 与 Google Analytics 的分析遥测信标，核心画布绘图数据无外发。",
       "alternativeTo": [
         "Miro",
         "FigJam",
@@ -523,8 +524,9 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "画布初始化耗时低于 60ms，图元操作稳定在 60fps，本地绘图无画板数据上传至远端服务器。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "无限画布初始加载顺畅，帧率稳定，成功实测矩形与便笺渲染，核心绘图数据完全在本地处理。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:40:32.898Z"
     },
     "ja": {
       "bestFor": "アカウントの摩擦を伴わない瞬時のビジュアルブレインストーミング、アーキテクチャ図作成、およびフリーハンドのワイヤーフレーム作成",
@@ -553,7 +555,7 @@
         "FigJam",
         "Apple Freeform"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "계정 마찰 없이 즉각적인 시각적 브레인스토밍, 아키텍처 다이어그램 작성 및 자유 와이어프레임 작성",
@@ -582,7 +584,7 @@
         "FigJam",
         "Apple Freeform"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Lluvia de ideas visual instantánea, diagramación de arquitectura y creación de esquemas a mano alzada sin fricciones en la cuenta",
@@ -611,7 +613,7 @@
         "FigJam",
         "Apple Freeform"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Brainstorming visuel instantané, création de diagrammes d'architecture et wireframing à main levée sans friction de compte",
@@ -640,7 +642,7 @@
         "FigJam",
         "Apple Freeform"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Sofortiges visuelles Brainstorming, Architekturdiagramme und freihändiges Wireframing ohne Reibungsverluste beim Konto",
@@ -669,7 +671,7 @@
         "FigJam",
         "Apple Freeform"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Brainstorming visual instantâneo, diagramação de arquitetura e wireframing à mão livre sem atrito de conta",
@@ -698,7 +700,7 @@
         "FigJam",
         "Apple Freeform"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "squoosh-app": {
@@ -44800,7 +44802,7 @@
         "Browser memory constraints may limit simultaneous batch conversion of very large (50MB+) HEIC photo collections",
         "Sends passive Cloudflare RUM telemetry beacons for aggregate page performance monitoring"
       ],
-      "privacyVerdict": "All text calculations and image format conversions execute locally inside the browser with complete metadata stripping; observed only 4 passive Cloudflare RUM beacons with zero file or text content egress.",
+      "privacyVerdict": "All text calculations and image format conversions execute locally inside the browser with complete metadata stripping; observed only 3 passive Cloudflare RUM beacons with zero file or text content egress.",
       "alternativeTo": [
         "EZGIF",
         "CloudConvert",
@@ -44816,22 +44818,23 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Entered 14-word text fixture into Word Counter with 0ms freeze latency and 0.00 CLS. Converted 922-byte WebP sample into PNG and exported a clean 3,131-byte ZIP archive with 4 Cloudflare RUM beacons recorded.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Entered 14-word text fixture into Word Counter and tested Character Counter with 0ms freeze latency and 0.00 CLS. Real-time updates verified with 3 Cloudflare RUM beacons recorded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:35:38.499Z"
     },
     "zh": {
-      "bestFor": "需要免注册、零上传在浏览器中快速统计文本字数指标（附带主流社媒字符限制参考），以及将 WebP、HEIC 格式图片本地批量转为 PNG/JPG 并自动清除 EXIF 隐私元数据的写作者、社媒运营与开发者。",
+      "bestFor": "需要快速、无需上传的浏览器工具来根据平台限制统计文本指标，以及将 WebP 或 HEIC 图像转换为带有自动去除 EXIF 元数据的 PNG/JPG 的作者、社交媒体运营者和开发者。",
       "pros": [
-        "纯本地前端图像解析，自动抹除相机型号、拍摄日期与 GPS 地理位置等敏感 EXIF 元数据",
-        "全功能实时字数统计器，同步计算字符数、空格数、段落数、预估阅读时间以及主流社媒平台的剩余字符限额",
-        "支持 WebP 转 PNG 与 iPhone HEIC 转 JPG 批量转换，提供免水印 ZIP 打包一键下载",
-        "无广告清爽排版，支持 8 种语言界面切换，附带详实的格式转换原理与使用建议"
+        "客户端图像处理，自动剥离相机型号、GPS 位置和 EXIF 元数据",
+        "全能实时字数统计器，实时跟踪字符、句子、阅读时间和社交平台字符配额",
+        "批量 WebP 转 PNG 与 HEIC 转 JPG 转换器，支持免水印 ZIP 打包即时下载",
+        "简洁无广告界面，支持多语言本地化和实用的技术说明"
       ],
       "cons": [
-        "受限于浏览器内存分配，同时批量处理超高分辨率（50MB+）的大规模 HEIC 图库时速度受限",
-        "页面加载时会向 Cloudflare RUM 发送被动的匿名网络性能监测信标"
+        "浏览器内存限制可能会影响超大容量（50MB+）HEIC 照片集的批量并发转换",
+        "发送被动 Cloudflare RUM 遥测信标用于聚合页面性能监控"
       ],
-      "privacyVerdict": "所有文本计算与图像格式转码均在浏览器本地完成，并主动剥离 EXIF 元数据；实测仅记录到 4 次被动 Cloudflare RUM 性能监测信标，无任何文本或图片内容外传。",
+      "privacyVerdict": "所有文本计算与图像格式转换均在浏览器本地执行，实测观察到 3 次被动 Cloudflare RUM 遥测信标，未发生任何文件或文本内容外发。",
       "alternativeTo": [
         "EZGIF",
         "CloudConvert",
@@ -44847,8 +44850,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在字数统计器中输入 14 词测试文本，界面卡顿 0ms 且 CLS 为 0.00。将 922 字节的 WebP 样本本地转码为 PNG 并成功导出 3,131 字节的免水印 ZIP 压缩包，记录到 4 次 Cloudflare RUM 性能信标。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在字数统计器中输入 14 词测试文本并实测字符统计器，界面保持 0ms 冻结延迟和 0.00 CLS。实时更新经实测验证，捕获 3 次 Cloudflare RUM 信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:35:38.500Z"
     },
     "ja": {
       "bestFor": "ライター、ソーシャル メディア マネージャー、開発者は、プラットフォームの制限に対してテキスト メトリクスをカウントし、自動 EXIF メタデータ ストリップを使用して WebP または HEIC 画像を PNG/JPG に変換する、高速でアップロード不要のブラウザ ユーティリティを求めています。",
@@ -44879,7 +44883,7 @@
         "WordCounter.net",
         "Squoosh"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "플랫폼 제한에 따라 텍스트 측정항목을 계산하고 자동 EXIF ​​메타데이터 스트리핑을 통해 WebP 또는 HEIC 이미지를 PNG/JPG로 변환하기 위해 빠르고 업로드가 필요 없는 브라우저 유틸리티를 원하는 작가, 소셜 미디어 관리자 및 개발자.",
@@ -44910,7 +44914,7 @@
         "WordCounter.net",
         "Squoosh"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Escritores, administradores de redes sociales y desarrolladores que buscan utilidades de navegador rápidas y sin carga para contar métricas de texto con respecto a los límites de la plataforma y convertir imágenes WebP o HEIC a PNG/JPG con eliminación automática de metadatos EXIF.",
@@ -44941,7 +44945,7 @@
         "WordCounter.net",
         "Squoosh"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Écrivains, gestionnaires de médias sociaux et développeurs à la recherche d'utilitaires de navigateur rapides et sans téléchargement pour compter les métriques de texte par rapport aux limites de la plate-forme et convertir les images WebP ou HEIC en PNG/JPG avec suppression automatique des métadonnées EXIF.",
@@ -44972,7 +44976,7 @@
         "WordCounter.net",
         "Squoosh"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Autoren, Social-Media-Manager und Entwickler, die schnelle Browser-Dienstprogramme ohne Upload benötigen, um Textmetriken anhand der Plattformbeschränkungen zu vergleichen und WebP- oder HEIC-Bilder mit automatischer Entfernung von EXIF-Metadaten in PNG/JPG zu konvertieren.",
@@ -45003,7 +45007,7 @@
         "WordCounter.net",
         "Squoosh"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Escritores, gerentes de mídia social e desenvolvedores que buscam utilitários de navegador rápidos e sem upload para contar métricas de texto em relação aos limites da plataforma e converter imagens WebP ou HEIC em PNG/JPG com remoção automática de metadados EXIF.",
@@ -45034,7 +45038,7 @@
         "WordCounter.net",
         "Squoosh"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "blur-face-com-blur-face": {
@@ -45316,22 +45320,23 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Uploaded 610-byte PDF test fixture into PDFtoMDConverter with 122ms main thread latency and 0.00 CLS. Instantly parsed text layer, rendered editable preview, and exported a clean 34-byte .md artifact with 0 outgoing network payloads recorded.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Uploaded 610-byte PDF test fixture into PDFtoMDConverter with 0ms freeze latency and 0.04 CLS. Instantly parsed text layer, rendered editable preview, and exported a clean 34-byte .md artifact with 0 outgoing network payloads recorded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:43:08.640Z"
     },
     "zh": {
-      "bestFor": "需要将包含文字层或扫描件的 PDF 文档在浏览器本地转为清晰排版的 Markdown，用于知识库构建、技术文档迁移或大模型 RAG 预处理，且严格杜绝文档上传泄露的研究人员、开发者与文字工作者。",
+      "bestFor": "需要将文本型 PDF 或清晰英文扫描件直接转换为结构化 Markdown 用于笔记、文档归档或 LLM/RAG 数据预处理，且不愿将敏感文件上传至云端服务器的研究员、开发者与撰稿人。",
       "pros": [
-        "完全零数据外传的纯前端架构，所有 PDF 内容、文件名与生成的 Markdown 文本均严格保留在设备本地",
-        "双轨处理引擎，兼具高速文本层结构解析与针对英文扫描页面的纯本地 OCR 识别",
-        "内置双模式工作区，支持在导出前直接在线编辑 Markdown 源码并实时对照渲染预览",
-        "一键导出无水印的 .md 文件或复制到剪贴板，支持指定起始与结束页面范围过滤"
+        "纯客户端零外发架构，所有 PDF 文档内容、文件名及转换结果严格保留在本地设备",
+        "双轨解析机制，结合快速文本层解析与用于英文扫描件的浏览器本地 OCR",
+        "内置双模式交互界面，支持导出前实时编辑 Markdown 文本与所见即所得渲染预览",
+        "即时下载免水印 .md 格式文件，支持一键复制到剪贴板与指定页码范围过滤"
       ],
       "cons": [
-        "本地 OCR 引擎目前主要针对清晰的英文扫描件进行了优化，对手写体或复杂非拉丁字体的识别率相对有限",
-        "极为复杂的多栏分栏排版或包含多重合并单元格的表格可能需要用户手动校对格式"
+        "本地 OCR 引擎目前主要针对清晰英文扫描优化，对复杂手写体或非拉丁语系识别率较低",
+        "复杂的多栏排版或深层嵌套表格在转为 Markdown 后可能需要轻微的手动格式微调"
       ],
-      "privacyVerdict": "PDF 解析、文本提取与本地 OCR 识别全流程均在浏览器内存中本地执行，绝不向任何远程服务器发送文档数据；实测记录到 0 次网络数据外传（零外传）。",
+      "privacyVerdict": "PDF 解码、文本提取与本地 OCR 全程在浏览器内存中运行，未向远程服务器发送任何文档数据或处理结果；实测捕获到 0 次外发网络请求（0 egress）。",
       "alternativeTo": [
         "Marker",
         "Mathpix",
@@ -45347,8 +45352,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "在 PDFtoMDConverter 中载入 610 字节 PDF 测试文档，主线程任务延迟 122ms 且 CLS 为 0.00。系统瞬时完成本地解析并在编辑器中呈现预览，成功导出 34 字节的纯净 .md 文件，记录到 0 次网络数据外传。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 PDFtoMDConverter 中上传 610 字节 PDF 测试样例，主线程冻结为 0ms，CLS 为 0.04。毫秒级完成文本层解析并渲染编辑区，成功导出 34 字节干净的 .md 附件，全过程捕获到 0 次外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:43:08.641Z"
     },
     "ja": {
       "bestFor": "研究者、開発者、ライターは、機密ファイルをクラウド サーバーにアップロードすることなく、テキスト PDF またはスキャンした英語文書を、メモ取り、文書化、または LLM/RAG パイプライン用のクリーンで構造化された Markdown に直接変換します。",
@@ -45379,7 +45385,7 @@
         "CloudConvert PDF to Markdown",
         "Nougat"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "연구원, 개발자 및 작가는 중요한 파일을 클라우드 서버에 업로드하지 않고도 텍스트 PDF 또는 스캔한 영어 문서를 메모 작성, 문서화 또는 LLM/RAG 파이프라인을 위해 깔끔하고 구조화된 Markdown으로 직접 변환합니다.",
@@ -45410,7 +45416,7 @@
         "CloudConvert PDF to Markdown",
         "Nougat"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Investigadores, desarrolladores y escritores que convierten archivos PDF de texto o documentos escaneados en inglés directamente en Markdown limpio y estructurado para tomar notas, documentación o procesos LLM/RAG sin cargar archivos confidenciales a servidores en la nube.",
@@ -45441,7 +45447,7 @@
         "CloudConvert PDF to Markdown",
         "Nougat"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Les chercheurs, les développeurs et les rédacteurs convertissent des textes PDF ou des documents anglais numérisés directement en Markdown propre et structuré pour la prise de notes, la documentation ou les pipelines LLM/RAG sans télécharger de fichiers sensibles sur des serveurs cloud.",
@@ -45472,7 +45478,7 @@
         "CloudConvert PDF to Markdown",
         "Nougat"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Forscher, Entwickler und Autoren konvertieren Text-PDFs oder gescannte englische Dokumente direkt in sauberes, strukturiertes Markdown für Notizen, Dokumentation oder LLM/RAG-Pipelines, ohne sensible Dateien auf Cloud-Server hochzuladen.",
@@ -45503,7 +45509,7 @@
         "CloudConvert PDF to Markdown",
         "Nougat"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Pesquisadores, desenvolvedores e escritores convertem PDFs de texto ou documentos digitalizados em inglês diretamente em Markdown limpo e estruturado para anotações, documentação ou pipelines LLM/RAG sem enviar arquivos confidenciais para servidores em nuvem.",
@@ -45534,7 +45540,7 @@
         "CloudConvert PDF to Markdown",
         "Nougat"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "olivez-in-tool-image-compressor": {
@@ -76715,6 +76721,438 @@
       "benchmarkNotes": "输入 5 金衡盎司 24K 黄金样本（国际金价基准 $4,065.85/oz），0ms 阻塞即时呈现估值 $20,308.92 及 24K/18K/14K/10K 梯度参考价，全程无需登录。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-08T03:40:32.460Z"
+    }
+  },
+  "aspectratiocalc-im": {
+    "en": {
+      "bestFor": "Video editors, designers, and web developers calculating custom aspect ratios, resizing image or video dimensions, and verifying framing ratios with local image upload detection.",
+      "pros": [
+        "Instant local calculation of aspect ratios, decimal fractions, and standard broadcast/display presets (16:9, 9:16, 4:5, 1:1, 21:9)",
+        "Client-side image file dimension detection with interactive visual canvas frame preview",
+        "Clean, ad-free responsive interface with dark mode and zero telemetry egress observed"
+      ],
+      "cons": [
+        "Does not include batch image resizing or file export capabilities",
+        "Limited to two-dimensional geometric ratio arithmetic"
+      ],
+      "privacyVerdict": "All dimension calculations and image ratio detections run locally in browser memory without transmitting uploaded images or numeric inputs to remote servers; observed zero outgoing network payloads (0 egress).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 800x600 test image and entered 2560x1440 custom dimensions with 0ms freeze latency and 0.02 CLS. Instant ratio derivation verified with 0 outgoing network payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:46:28.991Z"
+    },
+    "zh": {
+      "bestFor": "需要快速计算自定义宽高比、缩放图像与视频尺寸、并基于本地图片自动识别画幅比例的视频剪辑师、设计师与前端开发者。",
+      "pros": [
+        "即时本地计算画面宽高比、小数比值与常见行业预设（16:9、9:16、4:5、1:1、21:9）",
+        "纯客户端图片尺寸读取与交互式实时画幅比例取景预览",
+        "清爽无广告响应式界面，支持深色模式且未捕获到任何网络遥测外发"
+      ],
+      "cons": [
+        "不包含批量图像压缩缩放或导出修改后图片文件的功能",
+        "功能专注于二维几何比例换算与预设匹配"
+      ],
+      "privacyVerdict": "所有尺寸计算与图片比例检测均在浏览器本地内存中执行，未将上传的图片或数值输入上传至远程服务器；实测观察到 0 次外发网络请求（0 egress）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 800x600 测试图像并实测输入 2560x1440 自定义尺寸，主线程冻结为 0ms，CLS 为 0.02。毫秒级推导画幅比例，全程捕获到 0 次外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:46:28.992Z"
+    }
+  },
+  "keyboardtester-vip": {
+    "en": {
+      "bestFor": "Gamers, typists, and hardware enthusiasts testing mechanical keyboard switches, diagnosing key chatter, and verifying multi-key rollover (N-key ghosting).",
+      "pros": [
+        "Full 104-key visual keyboard representation with real-time key registration and sound effects",
+        "Dedicated keyboard ghosting test verifying multi-key simultaneous rollover combinations",
+        "Built-in double typing chatter detection workbench with configurable threshold milliseconds (80ms default)"
+      ],
+      "cons": [
+        "Emits passive telemetry beacons to Microsoft Clarity, Pageview, and Cloudflare RUM",
+        "System-level OS shortcut keys may be intercepted by the host before reaching the browser"
+      ],
+      "privacyVerdict": "Keystroke events and chatter calculations run locally in the browser; observed telemetry payloads directed to Microsoft Clarity (j.clarity.ms), Pageview (app.pageview.app), and Cloudflare RUM (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Dispatched key events and exercised Ghosting and Double-Type testing modules with 74ms maximum task duration and 0.00 CLS. Real-time visual key registration verified with 17 telemetry beacons captured.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:50:14.028Z"
+    },
+    "zh": {
+      "bestFor": "需要检测机械键盘轴体健康状况、排查按键连击双击故障、并验证多键无冲（防鬼键）的游戏玩家与办公打字员。",
+      "pros": [
+        "104 键完整视觉键盘界面，支持实时按键状态点亮与拟真键盘音效",
+        "专有防鬼键测试模块，用于验证多键同时按下的无冲识别能力",
+        "内置按键双击连击抖动检测工具，支持自定义判定阈值毫秒数（默认 80ms）"
+      ],
+      "cons": [
+        "页面包含发送至 Microsoft Clarity、Pageview 与 Cloudflare RUM 的被动遥测信标",
+        "部分系统级全局快捷键可能被操作系统拦截而无法完全捕获"
+      ],
+      "privacyVerdict": "所有键盘事件与连击抖动检测均在浏览器本地执行，实测捕获到发往 Microsoft Clarity（j.clarity.ms）、Pageview（app.pageview.app）与 Cloudflare RUM（/cdn-cgi/rum）的遥测信标，未将按键内容上传至远程服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测按键输入并切换测试了防鬼键与双击连击检测模块，最大任务耗时 74ms，CLS 为 0.00。按键点亮与阈值响应正常，捕获 17 次遥测信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:50:14.029Z"
+    }
+  },
+  "rasterbator-im": {
+    "en": {
+      "bestFor": "Artists, educators, and makers turning standard images into large tiled multi-page wall posters with custom halftone raster effects and printable PDF layouts.",
+      "pros": [
+        "Client-side image rasterization and multi-page grid tiling supporting A4, Letter, and custom dimensions",
+        "Extensive library of over 16 artistic raster styles including Classic Halftone, Color Halftone, Mosaic, and ASCII",
+        "Generates complete, unwatermarked high-resolution 300 DPI printable PDFs with crop marks and page coordinates"
+      ],
+      "cons": [
+        "Emits passive telemetry beacons to Microsoft Clarity, Cloudflare RUM, and aggregate analytics",
+        "Large multi-page poster generation with complex effects can require noticeable browser CPU and memory"
+      ],
+      "privacyVerdict": "Halftone processing, image tiling, and PDF synthesis execute locally inside browser memory; observed telemetry payloads directed to Microsoft Clarity (p.clarity.ms), analytics (ff.880009.xyz), and Cloudflare RUM (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 800x600 test image and rasterized a 12-page A4 tiled poster in 117ms task latency and 0.00 CLS. Exported a 5.3 MB unwatermarked 300 DPI PDF document with 12 telemetry beacons recorded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:58:18.665Z"
+    },
+    "zh": {
+      "bestFor": "需要将普通图像制作成包含自定义半色调网点艺术效果与多页拼贴打印排版的大型墙面海报的设计师、教师与创作者。",
+      "pros": [
+        "纯客户端图像光栅化与多页网格拼接切分，支持 A4、Letter 及自定义纸张规格",
+        "包含经典半色调、彩色半色调、马赛克及 ASCII 在内的 16 余种艺术光栅渲染风格",
+        "直接导出免水印 300 DPI 高清多页打印 PDF，包含裁切标记与行列坐标标注"
+      ],
+      "cons": [
+        "页面包含发送至 Microsoft Clarity、Cloudflare RUM 与分析服务的被动遥测信标",
+        "生成超大幅面及复杂半色调网点时对浏览器 CPU 与内存性能有一定要求"
+      ],
+      "privacyVerdict": "图像半色调处理、拼贴切片与 PDF 合成均在浏览器本地内存中完成，实测捕获到发往 Microsoft Clarity（p.clarity.ms）、ff.880009.xyz 与 Cloudflare RUM（/cdn-cgi/rum）的遥测信标，未将图片内容上传至远程服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 800x600 测试图像并实测生成 12 页 A4 拼贴海报，任务耗时 117ms，CLS 为 0.00。成功导出 5.3 MB 免水印 300 DPI PDF 附件，记录到 12 次遥测信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T02:58:18.665Z"
+    }
+  },
+  "aion2pets-app": {
+    "en": {
+      "bestFor": "AION 2 MMORPG players and theorycrafters planning companion pet soul upgrades, calculating analysis crystal budgets, and tracking regional pet spawn points.",
+      "pros": [
+        "Interactive Pet Insight soul planner calculating required duplicate souls and Genus EXP in real time",
+        "Analysis budget calculator estimating Soul Crystals and Kina currency costs across locked trait slots",
+        "Clean, ad-free responsive design with zero account friction and client-side collection tracking"
+      ],
+      "cons": [
+        "Specialized exclusively for AION 2 companion mechanics",
+        "Does not include external file export or account-based multi-device synchronization"
+      ],
+      "privacyVerdict": "All upgrade algorithms, budget formulas, and collection state execute locally in browser memory without sending user inputs to remote servers; observed only 3 passive Cloudflare RUM beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Exercised Pet Insight soul planner and Analysis budget calculator with 0ms freeze latency and 0.00 CLS. Real-time cost updates verified with 3 Cloudflare RUM beacons recorded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:03:32.797Z"
+    },
+    "zh": {
+      "bestFor": "需要规划宠物灵气突破升级、计算属性洗炼封锁槽位消耗预算、并查询野外刷怪点的《永恒之塔2》（AION 2）游戏玩家与数据攻略制作者。",
+      "pros": [
+        "交互式宠物 Insight 灵气计算器，实时计算目标等级所需同名本体数量与属相经验",
+        "属性洗炼预算工具，精确推算不同锁定槽位数下的灵气水晶与基纳货币总消耗",
+        "清爽无广告响应式界面，零注册门槛且支持本地离线收藏状态记录"
+      ],
+      "cons": [
+        "功能高度垂直于《永恒之塔2》单一游戏内的宠物培养与探险系统",
+        "不包含外部文件数据导出或跨设备云端同步机制"
+      ],
+      "privacyVerdict": "所有升级计算公式、洗炼预算推演及图鉴收藏均在浏览器本地内存中运行，未将用户数据上传至远程服务器；实测观察到 3 次被动 Cloudflare RUM 遥测信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在宠物 Insight 规划器与洗炼预算工具中实测输入数值，界面保持 0ms 冻结延迟与 0.00 CLS。实时消耗计算正常，记录到 3 次 Cloudflare RUM 信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:03:32.798Z"
+    }
+  },
+  "rumikejawi-com": {
+    "en": {
+      "bestFor": "Malaysian and Indonesian students, educators, and cultural researchers transliterating Latin Malay (Rumi) text into Arabic-script Jawi with official DBP orthography.",
+      "pros": [
+        "Instant client-side transliteration between Rumi and Jawi scripts supporting both new DBP and classical spellings",
+        "Interactive dictionary assistance highlighting ambiguous or unmatched words with contextual suggestions",
+        "One-click clipboard copying and direct high-resolution PNG calligraphy image generation without watermarks"
+      ],
+      "cons": [
+        "Emits passive telemetry beacons to Google Analytics, Cloudflare RUM, and pvuv analytics",
+        "Vocabulary is specialized for Malay language grammar and orthographic conventions"
+      ],
+      "privacyVerdict": "Rumi to Jawi transliteration and image rendering execute locally inside browser memory; observed telemetry beacons directed to Google Analytics (www.google-analytics.com), Cloudflare RUM (/cdn-cgi/rum), and in.pvuv.ai.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Transliterated a 5-word Malay sentence into Jawi calligraphy with 107ms task latency and 0.00 initial CLS. Exported a clean 27 KB PNG calligraphy image with 6 telemetry beacons recorded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:07:51.218Z"
+    },
+    "zh": {
+      "bestFor": "需要将拉丁马来文（Rumi）实时转译为阿拉伯字母爪夷文（Jawi），并遵循马来西亚国家语文出版局（DBP）正字法规范的学生、学者与文化工作者。",
+      "pros": [
+        "纯客户端毫秒级 Rumi 与 Jawi 双向转译，同时支持现代 DBP 标准与传统老式拼写法",
+        "交互式词典辅助标注机制，对多音词或生僻词提供候选词上下文释义建议",
+        "支持一键复制到剪贴板，并可一键渲染导出免水印高清 PNG 书法卡片图片"
+      ],
+      "cons": [
+        "页面包含发往 Google Analytics、Cloudflare RUM 与分析服务的被动遥测信标",
+        "转译词库与正字法规则深度绑定马来语语言规范"
+      ],
+      "privacyVerdict": "文字转译逻辑与书法图片渲染均在浏览器本地内存中执行，未将输入的文本上传至远程服务器；实测观察到 6 次发往 Google Analytics（www.google-analytics.com）、Cloudflare RUM（/cdn-cgi/rum）与 in.pvuv.ai 的遥测信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入 5 词马来语句子即时完成爪夷文转译，任务耗时 107ms，初始 CLS 为 0.00。成功导出 27 KB 干净的 PNG 书法图片，记录到 6 次遥测信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:07:51.218Z"
+    }
+  },
+  "breachline-io-tools": {
+    "en": {
+      "bestFor": "Security engineers, DevOps teams, and web developers auditing JWT tokens, analyzing SBOMs and lockfile diffs, and reviewing GitHub Actions workflows locally without account friction.",
+      "pros": [
+        "Comprehensive suite of client-side security workbenches including JWT inspection, SBOM diffing, lockfile comparison, and Dockerfile/CI review",
+        "Detailed claim and signature diagnostics highlighting alg:none vulnerabilities, expiration status, and untrusted key references",
+        "Instant, unwatermarked structured JSON audit report downloads and clipboard export"
+      ],
+      "cons": [
+        "Emits passive Cloudflare RUM telemetry beacons for page performance monitoring",
+        "Client-side inspection does not perform online server signature verification against remote identity providers"
+      ],
+      "privacyVerdict": "All token decoding, manifest parsing, and security heuristics execute locally in browser memory without sending sensitive tokens, secrets, or configurations to remote servers; observed only 3 passive Cloudflare RUM beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Inspected custom HS256 JWT fixture and generated comprehensive claim analysis in 55ms task latency and 0.12 CLS. Exported a 1.7 KB structured JSON audit report with 3 Cloudflare RUM beacons recorded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:19:24.969Z"
+    },
+    "zh": {
+      "bestFor": "需要在本地私密解码分析 JWT 令牌、比对 SBOM 软件物料清单与依赖锁文件差异、并审计 GitHub Actions 与 Dockerfile 配置的安全工程师与开发运维人员。",
+      "pros": [
+        "涵盖 JWT 解码诊断、SBOM 比对、Lockfile 差异分析及 CI/CD 工作流审计在内的全能安全工作台",
+        "深度解析令牌声明与安全风险，自动标识 alg:none、签名未验证与过期时间异常",
+        "支持一键下载免水印结构化 JSON 审计报告与一键复制结果"
+      ],
+      "cons": [
+        "页面包含发送至 Cloudflare RUM 的被动性能监控信标",
+        "纯客户端离线解码无法针对远程身份提供商（IdP）公钥进行在线验签"
+      ],
+      "privacyVerdict": "所有令牌解码、清单解析与安全规则校验均在浏览器本地内存中运行，敏感的密钥、Token 或代码配置绝不外发；实测观察到 3 次被动 Cloudflare RUM 遥测信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 JWT 检查器中输入标准 HS256 令牌并完成安全分析，任务耗时 55ms，CLS 为 0.12。成功导出 1.7 KB 结构化 JSON 报告，记录到 3 次 Cloudflare RUM 信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:19:24.970Z"
+    }
+  },
+  "teslawrapgenerator-com-tesla-wrap-3d-preview": {
+    "en": {
+      "bestFor": "Tesla owners, vinyl wrap designers, and custom vehicle enthusiasts wanting to preview custom wrap designs on a 3D Tesla Model Y and validate Paint Shop specifications without signing up.",
+      "pros": [
+        "Interactive 3D WebGL preview of Tesla wraps mapped onto realistic vehicle panel geometry with 360-degree rotation",
+        "Automated Paint Shop validation checking PNG format, resolution compliance, file size limits, and template panel coverage",
+        "One-click wrap trimming and download producing compliant 332 KB PNG files without watermarks or account gates"
+      ],
+      "cons": [
+        "Wrap trimming and fixing relies on server-side processing at /api/wrap/fix rather than purely client-side canvas routines",
+        "Requests Google Identity Services status (accounts.google.com/gsi/status) for optional header sign-in"
+      ],
+      "privacyVerdict": "The 3D preview renders locally in WebGL, while wrap fixing communicates with /api/wrap/fix, /api/config/get-configs, and checks Google sign-in status (accounts.google.com/gsi/status); observed 7 outgoing network payloads.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 16,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded standard 800x600 PNG texture fixture onto 3D Tesla Model Y, inspected Paint Shop compliance feedback, toggled outside-panel trimming, and exported clean 332 KB PNG wrap with 7 recorded egress payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:25:30.300Z"
+    },
+    "zh": {
+      "bestFor": "需要在无需注册的情况下在 3D 特斯拉 Model Y 模型上实时预览车身改色膜设计并检验 Paint Shop 上传规格的车主与汽车贴膜设计师。",
+      "pros": [
+        "支持 360 度交互式 WebGL 3D 车辆模型，可将车膜图案精确映射至车身覆盖件",
+        "内置自动化 Paint Shop 规范检测，即时校验 PNG 格式、分辨率、文件大小与板件覆盖率",
+        "支持一键裁切多余漆面并免登录直接导出 332 KB 无水印 PNG 贴膜文件"
+      ],
+      "cons": [
+        "车膜裁切修正依赖 /api/wrap/fix 服务端处理，而非纯浏览器端 Canvas 离线运算",
+        "页面会请求 Google 身份服务状态 (accounts.google.com/gsi/status) 以支持顶部可选登录"
+      ],
+      "privacyVerdict": "3D 预览通过本地 WebGL 渲染，车膜修复和配置获取会向 /api/wrap/fix 与 /api/config/get-configs 发送网络请求，并包含 Google 登录状态检查；实测共观察到 7 次网络外发请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 16,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "成功上传 800x600 PNG 贴膜纹理并在 3D 特斯拉模型上实时映射渲染，完成 Paint Shop 合规检测后导出 332 KB 无水印修复后 PNG 图像，实测记录 7 次网络外发。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:25:30.301Z"
+    }
+  },
+  "spritefuse-com-sprite-sheet-cutter": {
+    "en": {
+      "bestFor": "Indie game developers, pixel artists, and 2D animators needing to quickly slice sprite sheets into individual PNG frames with live animation preview without registration.",
+      "pros": [
+        "Instant in-browser sprite sheet slicing supporting both uniform grid counts (columns/rows) and custom cell dimensions with border offsets",
+        "Real-time sprite animation preview widget with variable framerate (FPS) control and start/end frame range selection",
+        "One-click, unwatermarked bulk ZIP export containing neatly numbered individual PNG frame sequences"
+      ],
+      "cons": [
+        "Lacks automatic optical character boundary or contour-based non-uniform sprite detection",
+        "Loads multiple third-party tracking scripts including Google Analytics and Microsoft Clarity"
+      ],
+      "privacyVerdict": "Image processing, grid calculation, and ZIP packing execute entirely client-side without uploading graphics to remote servers; observed 32 analytics telemetry payloads to myplausible.app, Google Analytics, and Microsoft Clarity.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Sliced standard 800x600 PNG fixture into 16 uniform 200x150 frames, verified animated playback preview, and exported a clean 178 KB ZIP archive with 32 recorded telemetry beacons.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:30:33.256Z"
+    },
+    "zh": {
+      "bestFor": "需要在无需注册登录的情况下快速将精灵表切片为单帧 PNG 序列并实时预览动画效果的独立游戏开发者、像素画师与 2D 动画师。",
+      "pros": [
+        "纯浏览器端即时精灵表切片，支持按行列数或像素尺寸自由划分网格并支持边框留白设置",
+        "内置实时动画播放预览组件，支持无级调节帧率 (FPS) 及自定义起止帧播放区间",
+        "一键导出免水印 ZIP 压缩包，自动按帧序号整齐打包所有切割后的独立 PNG 图像"
+      ],
+      "cons": [
+        "暂不支持基于轮廓识别与不规则边缘的自动光学精灵捕捉切片",
+        "页面加载了包含 Google Analytics 与 Microsoft Clarity 在内的多项第三方分析监控脚本"
+      ],
+      "privacyVerdict": "图像切片运算与 ZIP 打包压缩完全在客户端本地完成，素材图片绝不上传服务器；实测观察到发往 myplausible.app、Google Analytics 与 Microsoft Clarity 的 32 次分析遥测请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "成功将 800x600 PNG 测试图切片为 16 帧 200x150 独立切片，检验了动画帧播放器，并无水印导出 178 KB ZIP 文件，记录到 32 次遥测信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-09T03:30:33.256Z"
     }
   }
 }
