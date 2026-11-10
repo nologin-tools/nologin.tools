@@ -2797,7 +2797,7 @@
     "en": {
       "bestFor": "Designing flowcharts, architecture diagrams, UML models, and network topologies purely locally with zero registration and zero cloud lock-in.",
       "pros": [
-        "Zero payload egress observed during testing; all diagramming and graph layout computations execute 100% locally in the browser.",
+        "Zero payload egress observed during testing; all diagramming and graph layout computations execute 100% locally in the browser canvas runtime.",
         "Unrivaled functional depth with comprehensive shape libraries, UML/flowchart presets, Mermaid support, and clean unwatermarked .drawio/XML exports."
       ],
       "cons": [
@@ -2818,13 +2818,14 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Inserted a rectangle vertex onto the canvas via keyboard shortcut 'd' with 0.00 CLS, and exported an unwatermarked 620 bytes XML diagram file directly via button download.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Searched database shapes in the stencil library, opened the File menu, inspected Save as and export dialogs, and verified local mxGraph canvas rendering with zero outgoing network egress.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:46:29.924Z"
     },
     "zh": {
       "bestFor": "无需注册即可在本地浏览器中绘制流程图、架构图、UML 及网络拓扑图，数据纯本地留存且无云端绑定。",
       "pros": [
-        "实测全流程未观察到任何网络载荷外发，图表与布局运算完全在本地浏览器中进行，数据主权完整保留。",
+        "实测全流程未观察到任何网络载荷外发，图表与布局运算完全在本地浏览器 canvas 运行环境中进行，数据主权完整保留。",
         "极具深度的图表工程能力，具备丰富的 UML、流程图及网络拓扑形状库，支持免登录直接导出无水印 .drawio/XML 文件。"
       ],
       "cons": [
@@ -2845,8 +2846,9 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "实测通过快捷键 'd' 在 canvas 画布中插入矩形节点（CLS 保持 0.00），并经由下载按钮直接导出 620 bytes 无水印规范的 XML 图表模型文件。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在模具库中检索数据库图元，调出文件菜单并测试 Save as 导出逻辑，完整验证了本地 mxGraph 画布渲染与零数据外发特性。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:46:29.925Z"
     },
     "ja": {
       "bestFor": "フローチャート、アーキテクチャ図、UML モデル、およびネットワーク トポロジを、登録やクラウド ロックインを必要とせずに純粋にローカルで設計します。",
@@ -2873,7 +2875,7 @@
         "Lucidchart",
         "OmniGraffle"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "등록 및 클라우드 잠금이 필요 없는 순서도, 아키텍처 다이어그램, UML 모델 및 네트워크 토폴로지를 로컬로만 설계합니다.",
@@ -2900,7 +2902,7 @@
         "Lucidchart",
         "OmniGraffle"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Diseñar diagramas de flujo, diagramas de arquitectura, modelos UML y topologías de red de forma puramente local sin registro ni dependencia de la nube.",
@@ -2927,7 +2929,7 @@
         "Lucidchart",
         "OmniGraffle"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Concevoir des organigrammes, des diagrammes d'architecture, des modèles UML et des topologies de réseau uniquement localement, sans enregistrement ni verrouillage dans le cloud.",
@@ -2954,7 +2956,7 @@
         "Lucidchart",
         "OmniGraffle"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Entwerfen von Flussdiagrammen, Architekturdiagrammen, UML-Modellen und Netzwerktopologien rein lokal ohne Registrierung und ohne Cloud-Lock-in.",
@@ -2981,7 +2983,7 @@
         "Lucidchart",
         "OmniGraffle"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Projetar fluxogramas, diagramas de arquitetura, modelos UML e topologias de rede puramente localmente, com zero registro e zero dependência de nuvem.",
@@ -3008,7 +3010,7 @@
         "Lucidchart",
         "OmniGraffle"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "pomofocus-io": {
@@ -3965,7 +3967,7 @@
       ],
       "cons": [
         "Dense matrix table requires technical familiarity with web privacy mechanisms to interpret nuances",
-        "No built-in CSV export button on the web interface (data available via GitHub repo)"
+        "No interactive custom comparison builder on the web interface"
       ],
       "privacyVerdict": "Flawless zero-egress architecture; zero network requests or analytics payloads were observed across all interaction turns.",
       "alternativeTo": [
@@ -3982,21 +3984,22 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Inspected empirical matrix spanning 12 browsers and multiple test categories. Navigated between normal and private browser tabs with 0ms task freeze and 0 layout shifts. Recorded 0 outgoing network payloads during the entire inspection session.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Inspected empirical matrix spanning 12 browsers across desktop, private modes, and iOS tabs. Tested raw JSON dataset export link with zero outgoing network telemetry payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:49:49.305Z"
     },
     "zh": {
-      "bestFor": "核查与深度横向对比主流主流与小众浏览器在状态隔离、反追踪及抗指纹识别方面的真实防护表现。",
+      "bestFor": "评估与对比不同主流浏览器的隐私防护能力、反追踪特性以及指纹隔离效果。",
       "pros": [
-        "严谨的开源实测评估体系，全面覆盖桌面端、移动端及无痕模式下的 12+ 款主流浏览器",
-        "深度拆解状态分区隔离、跳转追踪防护、抗指纹识别及 HTTPS 强制加密等关键指标",
-        "零出站网络载荷、零追踪脚本与零商业广告，纯净极简"
+        "严谨的开源实测基准测试套件，涵盖桌面端、移动端与隐私模式下 12 款以上浏览器的隐私隔离表现",
+        "详尽拆解状态分区、导航追踪保护、指纹识别防御与 HTTPS 强制策略",
+        "测试全流程零外发网络载荷、无第三方追踪器、无商业广告侵扰"
       ],
       "cons": [
-        "高信息密度的对照表格需要使用者具备一定的 Web 隐私和安全技术基础知识才能充分理解",
-        "网页端未提供一键 CSV 导出按钮（数据需通过 GitHub 仓库获取）"
+        "多维度矩阵表格技术信息密集，需要具备一定的 Web 隐私技术常识才能准确解读细节",
+        "网页端未提供可视化的自定义浏览器比对构建器"
       ],
-      "privacyVerdict": "纯粹的零外发无泄露架构；所有交互轮次中监测到的出站网络请求与统计分析载荷均为 0。",
+      "privacyVerdict": "实测表现出完善的零外发架构；在全部交互过程中未记录到任何外发网络请求或统计分析载荷。",
       "alternativeTo": [
         "Cover Your Tracks (EFF)",
         "Browserleaks",
@@ -4011,8 +4014,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "审查了涵盖 12 款浏览器及多个评测维度的实测矩阵。在常规与隐私模式标签页之间切换响应即时，主线程长任务为 0ms，布局偏移为 0。整个审计会话期间记录到 0 个出站网络载荷。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "深入检查了涵盖 12 款浏览器的桌面端、隐私模式与 iOS 标签页实测数据，测试了原始 JSON 数据集链接，全程零遥测数据外发。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:49:49.306Z"
     },
     "ja": {
       "bestFor": "経験に基づくプライバシー保護、追跡耐性、および Web ブラウザー間でのフィンガープリント分離を監査および比較します。",
@@ -4041,7 +4045,7 @@
         "Browserleaks",
         "Commercial VPN marketing tests"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "경험적 개인 정보 보호, 추적 저항, 웹 브라우저 전반의 지문 격리를 감사 및 비교합니다.",
@@ -4070,7 +4074,7 @@
         "Browserleaks",
         "Commercial VPN marketing tests"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Auditar y comparar protecciones de privacidad empíricas, resistencia al seguimiento y aislamiento de huellas dactilares en todos los navegadores web.",
@@ -4099,7 +4103,7 @@
         "Browserleaks",
         "Commercial VPN marketing tests"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Auditer et comparer les protections empiriques de la confidentialité, la résistance au suivi et l’isolation des empreintes digitales sur les navigateurs Web.",
@@ -4128,7 +4132,7 @@
         "Browserleaks",
         "Commercial VPN marketing tests"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Prüfung und Vergleich empirischer Datenschutzmaßnahmen, Tracking-Resistenz und Fingerabdruck-Isolation in allen Webbrowsern.",
@@ -4157,7 +4161,7 @@
         "Browserleaks",
         "Commercial VPN marketing tests"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Auditar e comparar proteções de privacidade empíricas, resistência ao rastreamento e isolamento de impressões digitais em navegadores da web.",
@@ -4186,7 +4190,7 @@
         "Browserleaks",
         "Commercial VPN marketing tests"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "crontab-guru": {
@@ -31644,14 +31648,14 @@
       "bestFor": "Photographers, social media creators, and designers needing to compose multi-image collages, photo walls, and long stitched graphics without registration or watermarks",
       "pros": [
         "Supports grid collages, photo wall arrangements, long graphic stitching, and custom aspect ratios up to 4K UHD resolution",
-        "Processes all image composition locally within browser canvas memory with zero server-side file transmission",
+        "Processes image composition locally within browser canvas memory with zero server-side file transmission",
         "Exports high-resolution PNG and JPG graphics without watermarks, trial limitations, or mandatory account creation"
       ],
       "cons": [
-        "Production site includes Google Analytics tracking beacons and Cloudflare RUM telemetry",
-        "Requires navigating past the marketing landing page to access the full web-based design canvas"
+        "Includes Google Analytics tracking beacons and Cloudflare RUM telemetry during usage",
+        "Requires navigating past the marketing landing page (/zh/design/) to access the full web-based design canvas"
       ],
-      "privacyVerdict": "Local client-side image processing verified; collage composition and canvas rendering execute entirely in browser memory without image uploads, with observed network activity limited to Google Analytics (`G-YTR709HP3R`) and Cloudflare RUM beacons.",
+      "privacyVerdict": "Local client-side image processing verified; collage composition and canvas rendering execute in browser memory without image uploads, with observed network activity limited to Google Analytics (www.google-analytics.com) and Cloudflare RUM (/cdn-cgi/rum) beacons.",
       "alternativeTo": [
         "canva",
         "photopea",
@@ -31666,21 +31670,22 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Recorded 3 analytics and RUM payloads, 74ms main thread baseline with 0.00 CLS, and fully inspected canvas design studio across 8 interaction steps.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Recorded 3 analytics and RUM payloads (Google Analytics, Cloudflare RUM). Tested canvas design studio across multiple actions, configured custom 2K QHD resolution, and triggered export with zero auth traps.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:38:48.365Z"
     },
     "zh": {
-      "bestFor": "需要在线制作多图拼图、照片墙或长图拼接，且追求免注册、无水印高分辨率导出的摄影爱好者与设计创作者",
+      "bestFor": "需要在线制作多图拼图、照片墙或长图拼接，且追求免注册、无水印高分辨率导出的摄影爱好者与设计创作者。",
       "pros": [
         "提供网格拼图、照片墙、长图拼接等多种模式，支持最高达 4K UHD 的多设备画布比例预设",
-        "所有图像合成与排版均在浏览器 Canvas 本地内存处理，原始图片完全无需上传至远程服务器",
-        "支持无水印导出高分辨率 PNG 与 JPG 图像，没有任何功能锁定或付费订阅限制"
+        "图像合成与排版均在浏览器 Canvas 本地内存处理，原始图片完全无需上传至远程服务器",
+        "支持无水印导出高分辨率 PNG 与 JPG 图像，无任何强制登录或付费限制"
       ],
       "cons": [
         "线上部署包含 Google Analytics 访问统计脚本与 Cloudflare RUM 监控",
-        "初次访问时需要从介绍落地页点击进入具体的设计工作台界面"
+        "初次访问时需要从介绍落地页点击进入具体的设计工作台界面（/zh/design/）"
       ],
-      "privacyVerdict": "本地客户端图片处理经实测验证；所有拼图排版、滤镜渲染与画布生成均在浏览器内存中运行，用户图片不上传至任何服务器，观测到的网络通信仅限于 Google Analytics（G-YTR709HP3R）与 Cloudflare RUM 页面访问统计指标。",
+      "privacyVerdict": "本地客户端图片处理经实测验证；拼图排版与画布生成均在浏览器内存中运行，用户图片不上传至任何服务器，观测到的网络通信仅限于 Google Analytics 与 Cloudflare RUM 页面访问统计指标。",
       "alternativeTo": [],
       "productScore": {
         "overall": 82,
@@ -31691,8 +31696,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "记录到 3 次统计与性能网络载荷，主线程基线延迟 74ms，CLS 0.00，历经 8 步交互深度验证了拼图设计工作台的画布排版功能。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "记录到 3 次统计与性能网络载荷（Google Analytics 与 Cloudflare RUM），在 /zh/design/ 画布工作台中配置 2K QHD 分辨率并触发导出，全程无强制登录阻拦。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:38:48.365Z"
     },
     "ja": {
       "bestFor": "登録や透かしを使用せずに、複数画像のコラージュ、フォト ウォール、長いステッチのグラフィックを作成する必要がある写真家、ソーシャル メディア クリエーター、デザイナー",
@@ -31721,7 +31727,7 @@
         "photopea",
         "befunky"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "등록이나 워터마크 없이 다중 이미지 콜라주, 포토월, 긴 스티치 그래픽을 구성해야 하는 사진작가, 소셜 미디어 제작자 및 디자이너",
@@ -31750,7 +31756,7 @@
         "photopea",
         "befunky"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Fotógrafos, creadores de redes sociales y diseñadores que necesitan componer collages de múltiples imágenes, paredes fotográficas y gráficos largos sin registro ni marcas de agua.",
@@ -31779,7 +31785,7 @@
         "photopea",
         "befunky"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Photographes, créateurs de médias sociaux et concepteurs ayant besoin de composer des collages multi-images, des murs de photos et de longs graphiques assemblés sans enregistrement ni filigrane",
@@ -31808,7 +31814,7 @@
         "photopea",
         "befunky"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Fotografen, Social-Media-Ersteller und Designer, die Collagen mit mehreren Bildern, Fotowänden und lang zusammengefügten Grafiken ohne Registrierung oder Wasserzeichen erstellen müssen",
@@ -31837,7 +31843,7 @@
         "photopea",
         "befunky"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Fotógrafos, criadores de mídias sociais e designers que precisam compor colagens de múltiplas imagens, paredes de fotos e gráficos com costura longa sem registro ou marcas d’água",
@@ -31866,7 +31872,7 @@
         "photopea",
         "befunky"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "kuakua-app": {
@@ -77153,6 +77159,438 @@
       "benchmarkNotes": "成功将 800x600 PNG 测试图切片为 16 帧 200x150 独立切片，检验了动画帧播放器，并无水印导出 178 KB ZIP 文件，记录到 32 次遥测信标。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-09T03:30:33.256Z"
+    }
+  },
+  "looprel-com": {
+    "en": {
+      "bestFor": "Crochet and fiber craft makers converting images into color-matched stitch charts with row numbers and printable grids without registration.",
+      "pros": [
+        "Converts uploaded images into color-matched crochet grids with multiple stitch style options (Tapestry, C2C, Filet)",
+        "Processes image quantization entirely in the browser without transmitting user photos to remote backend servers",
+        "Generates clean, unwatermarked high-resolution printable charts with stitch counts and color legends"
+      ],
+      "cons": [
+        "Transmits telemetry beacons to Google Analytics and Cloudflare RUM on page load",
+        "Does not currently support custom palette color remapping or manual stitch editing"
+      ],
+      "privacyVerdict": "Image processing runs entirely within browser memory; user photos are not uploaded to servers. Observed network traffic is strictly limited to Google Analytics (www.google-analytics.com) and Cloudflare RUM (/cdn-cgi/rum) telemetry.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Quantized a 60x45 grid with 28 colors across 2,700 stitches, toggled C2C and Filet views with 0ms freeze, and exported a clean 332 KB PNG chart.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:52:45.376Z"
+    },
+    "zh": {
+      "bestFor": "需要将照片转换为带行号与颜色图例的编织针法图解，且无需注册登录的钩针与手工艺爱好者。",
+      "pros": [
+        "支持将上传图片转换为带颜色匹配的钩针图表，涵盖 Tapestry、C2C、Filet 等多种针法模式",
+        "图像量化与网格计算完全在浏览器本地内存运行，用户图片不上传至任何远程服务器",
+        "一键导出无水印的高清打印图纸与针数统计表，零付费锁定"
+      ],
+      "cons": [
+        "页面加载时存在发送至 Google Analytics 与 Cloudflare RUM 的访问统计指标",
+        "目前暂不支持手动微调单格针目颜色或自定义毛线色号映射"
+      ],
+      "privacyVerdict": "图片解析与网格量化全程在浏览器内存中运行，用户图片不上传至服务器。实测网络传输仅限于 Google Analytics 与 Cloudflare RUM 页面访问统计。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "成功将测试图像量化为 60x45 网格、28 色、2700 针的图表，切换 C2C 与 Filet 视图延迟低于 16ms，并成功导出 332KB 无水印 PNG 图纸。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:52:45.377Z"
+    }
+  },
+  "getspellgenie-com": {
+    "en": {
+      "bestFor": "Teachers, parents, and students generating audio spelling quizzes and interactive practice cards with instant grading.",
+      "pros": [
+        "Generates customizable audio spelling tests and practice flashcards from custom or pre-set grade-level Dolch word lists",
+        "Encodes quiz parameters directly in client-side URL hashes with instant automated answer evaluation",
+        "Provides interactive audio pronunciation with configurable accents and word repetition counts"
+      ],
+      "cons": [
+        "Emits third-party analytics and RUM payloads to Google Analytics, Microsoft Clarity, Ahrefs, and Vercel Insights",
+        "Lacks direct offline file export options on the active testing card interface"
+      ],
+      "privacyVerdict": "Spelling tests and scoring logic execute client-side with parameters encoded in base64 URL paths. Observed network activity includes third-party telemetry to Google Analytics (www.google-analytics.com), Microsoft Clarity (u.clarity.ms), Ahrefs (analytics.ahrefs.com), and Vercel Insights.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Loaded 20 Dolch Pre-Primer words into textarea in 12ms, initiated Practice mode with 0.00 CLS, and submitted spelling for 'the' into input with instant client-side validation across 6 interaction turns.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:59:54.166Z"
+    },
+    "zh": {
+      "bestFor": "需要为学生或孩子快速生成带语音朗读、即时判分的单词拼写测验与听写练习的教师和家长。",
+      "pros": [
+        "支持自定义词表或一键载入分级 Dolch 词库，快速生成带音频听写与即时批改的拼写测验",
+        "测验配置完全通过客户端 URL 哈希编码传递，无需注册账号即可开始测试",
+        "具备交互式语音发音播放，支持自定义美音/英音以及单词朗读重复次数"
+      ],
+      "cons": [
+        "页面加载与测试过程中包含发送至 Google Analytics、Microsoft Clarity、Ahrefs 与 Vercel Insights 的遥测信标",
+        "在卡片式测试界面内未提供直接的单文件离线导出功能"
+      ],
+      "privacyVerdict": "拼写测试与判分逻辑完全在客户端运行，测试数据通过 Base64 编码保存在 URL 路径中。测试期间观测到发往 Google Analytics、Microsoft Clarity、Ahrefs 以及 Vercel Insights 的第三方统计遥测网络请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 12ms 内将 20 个 Dolch Pre-Primer 词目填入 textarea，以 0.00 CLS 进入练习模式，并在 input 元素中对单词 'the' 完成拼写校验，全程响应迅速。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T02:59:54.167Z"
+    }
+  },
+  "footballlegends-si": {
+    "en": {
+      "bestFor": "Football enthusiasts and researchers comparing career statistics, tactical roles, and historical records across legendary football players.",
+      "pros": [
+        "Interactive side-by-side comparison engine comparing career records, honours, and tactical roles across iconic players",
+        "Preserves comparison selections directly in shareable URL query parameters without requiring registration",
+        "Curated historical database with verified club and international match statistics"
+      ],
+      "cons": [
+        "Transmits telemetry beacons to Google Analytics and Cloudflare RUM during browsing",
+        "Lacks direct CSV or PDF export controls on the comparison workbench"
+      ],
+      "privacyVerdict": "Player comparison engine executes client-side state retrieval via URL query parameters. Observed network egress includes analytics beacons to Google Analytics (www.google-analytics.com) and Cloudflare RUM (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 14,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Configured comparison for Cristiano Ronaldo and Lionel Messi via select dropdowns, rendered side-by-side comparison table in 85ms with 0.00 CLS across 8 turns.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:10:07.598Z"
+    },
+    "zh": {
+      "bestFor": "需要对比不同时代传奇足球运动员的职业生涯数据、荣誉战绩以及战术角色的球迷与足球历史研究者。",
+      "pros": [
+        "提供交互式横向对比引擎，可直接对比传奇球员的生涯场次、进球、战术风格及所获荣誉",
+        "对比结果通过 URL 参数完全可重现并支持直接分享，全程无注册门槛",
+        "界面排版考究，收录了经过核实的俱乐部与国家队权威历史数据"
+      ],
+      "cons": [
+        "页面加载与查询过程中包含发往 Google Analytics 与 Cloudflare RUM 的遥测请求",
+        "对比工作台界面目前未提供直接导出 CSV 或 PDF 文件的功能"
+      ],
+      "privacyVerdict": "球员对比运算与状态通过 URL 查询参数传递，数据检索在浏览器中完成。实测观测到发往 Google Analytics 与 Cloudflare RUM 的页面访问统计信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 14,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "通过下拉菜单配置了克里斯蒂亚诺·罗纳尔多与莱昂内尔·梅西的对比参数，在 85ms 内以 0.00 CLS 渲染出横向比对表格，交互顺畅。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:10:07.599Z"
+    }
+  },
+  "thredly-io-templates-ai-coding-handover": {
+    "en": {
+      "bestFor": "Developers and prompt engineers crafting structured handover briefs and context summaries when switching between AI coding chats.",
+      "pros": [
+        "Provides a focused, structured template covering objectives, constraints, decisions, and open issues for AI coding handovers",
+        "Instant one-click clipboard export copying 1,257 characters of clean Markdown with zero promotional watermarks",
+        "Includes an in-browser form to assemble custom handover briefs without saving data or requiring accounts"
+      ],
+      "cons": [
+        "Emits analytics telemetry payloads to datafa.st and Vercel Insights on page load",
+        "Template is static markdown structure rather than an automated AST-based codebase context extractor"
+      ],
+      "privacyVerdict": "Template copying and manual brief formatting execute locally in browser memory without sending text content to servers. Network egress was observed for analytics and telemetry to datafa.st (datafa.st/api/events) and Vercel Insights.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Filled handover objective into textarea, triggered Copy template button in 0ms, and captured clean 1,257-character Markdown brief to clipboard without watermarks.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:25:41.626Z"
+    },
+    "zh": {
+      "bestFor": "在切换 AI 编程会话或更换大模型助手时，需要快速编写结构化上下文交接摘要的开发者与提示词工程师。",
+      "pros": [
+        "提供针对 AI 编程任务交接的标准结构化模板，涵盖目标、约束、既定决策及未决问题",
+        "一键剪贴板导出 1257 字符标准 Markdown 格式文本，无任何广告或营销尾缀",
+        "支持在浏览器端直接展开并填写交接内容，纯本地排版，无需注册登录"
+      ],
+      "cons": [
+        "页面加载时存在发往 datafa.st 与 Vercel Insights 的访问统计信标",
+        "本质为结构化文本模板与本地表单排版工具，无法自动解析本地代码仓库生成上下文"
+      ],
+      "privacyVerdict": "模板复制与表单文字排版均在浏览器本地内存完成，用户填写的代码交接内容不上传至服务器。测试期间观测到发往 datafa.st 与 Vercel Insights 的统计遥测载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 textarea 中配置任务交接目标，通过一键复制按钮在 0ms 内截获 1257 字符的完整 Markdown 交接文档，全程无水印。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:25:41.626Z"
+    }
+  },
+  "fontique-art-tools-text-to-png": {
+    "en": {
+      "bestFor": "Designers, video editors, and content creators generating transparent PNG typography overlays with custom fonts and canvas dimensions without accounts.",
+      "pros": [
+        "Renders customizable text with 45+ curated typefaces and adjustable aspect ratios (Square, Wide, Portrait) directly to transparent PNG",
+        "Client-side canvas rendering processes text in browser memory without sending string content to remote image rendering servers",
+        "Exports unwatermarked 1080x1080 PNG graphics with clean alpha transparency and zero credit gates"
+      ],
+      "cons": [
+        "Emits analytics telemetry beacons to Google Analytics and Cloudflare RUM during use",
+        "Maximum text length is capped at 500 characters and 12 lines per export"
+      ],
+      "privacyVerdict": "Canvas font rasterization executes client-side within browser memory; entered text is not transmitted to backend servers. Network traffic is limited to Google Analytics (www.google-analytics.com) and Cloudflare RUM (/cdn-cgi/rum) beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Rendered 'NoLogin Tools' onto a 1080x1080 canvas using Instrument Serif, switched to Square preset in 18ms with 0.00 CLS, and exported an 84 KB transparent PNG.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:31:43.374Z"
+    },
+    "zh": {
+      "bestFor": "需要为视频封面、海报设计或社交媒体图文快速生成自定义字体、透明背景文字 PNG 的创作者与设计师。",
+      "pros": [
+        "支持 45 款精选字体，提供正方形、横屏与竖屏等多种画布比例，直接在本地渲染透明 PNG",
+        "基于浏览器 Canvas 原生文字光栅化，输入的文本内容完全在本地处理，不发送至后端图片合成服务器",
+        "一键导出无水印的 1080x1080 透明 PNG 图片，无任何额度消耗或登录限制"
+      ],
+      "cons": [
+        "页面包含发往 Google Analytics 与 Cloudflare RUM 的常规访问统计信标",
+        "单次生成文本长度限制在 500 字符与 12 行以内"
+      ],
+      "privacyVerdict": "文字排版与画布光栅化全部在浏览器本地内存中完成，文本数据不上传至服务器。测试期间观测到发往 Google Analytics 与 Cloudflare RUM 的统计监控网络请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 1080x1080 画布中以 Instrument Serif 字体渲染 'NoLogin Tools'，切换正方形比例耗时 18ms，并顺利导出 84KB 高清透明 PNG。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:31:43.375Z"
+    }
+  },
+  "excelcraft-app": {
+    "en": {
+      "bestFor": "Knowledge workers, financial analysts, and privacy-conscious users needing to open, edit, and recalculate XLSX workbooks locally in their browser without account creation or cloud data uploads.",
+      "pros": [
+        "Client-side spreadsheet engine parses, edits, and evaluates formulas entirely in local browser memory without uploading sensitive workbooks to cloud servers",
+        "Comprehensive XLSX compatibility supporting multi-sheet workbooks, formula recalculation, cell styling, and local draft persistence",
+        "Exports unwatermarked 5,154-byte XLSX workbooks and PDF documents with zero mandatory signups or paywalls"
+      ],
+      "cons": [
+        "Advanced cloud collaboration features and AI assistant integrations require an optional account upgrade",
+        "Extremely large workbooks with hundreds of thousands of rows may encounter browser tab memory constraints"
+      ],
+      "privacyVerdict": "Spreadsheet computation, formula execution, and XLSX parsing execute entirely in-browser without sending cell data or workbook payloads over the network. Zero network payload egress was observed during testing.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 10
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Initialized formula sample workbook, updated cell range B5:B10 in 0ms with 0.00 CLS, and exported an uncorrupted 5,154-byte XLSX spreadsheet without account prompts.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:41:34.772Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器中快速查看、编辑与重新计算 XLSX 电子表格，且注重财务与业务数据本地隐私的职场人士与分析师。",
+      "pros": [
+        "纯客户端电子表格处理引擎，表格解析与公式重算完全在本地内存运行，绝不将工作簿上传至云端服务器",
+        "完整支持多工作表切换、常用函数公式计算、单元格格式调整及本地草稿暂存",
+        "支持无水印快速导出 5KB 标准 XLSX 格式与 PDF 文档，免登录且无额度限制"
+      ],
+      "cons": [
+        "实时云端协同与 AI 智能公式助手功能需要额外账号授权或升级",
+        "面对包含数十万行数据的超大尺寸表格时受限于浏览器单个标签页内存配额"
+      ],
+      "privacyVerdict": "电子表格解析、公式计算与导出均在本地浏览器环境内完成，核心表格数据零外传。测试期间未观测到任何敏感数据出站网络请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 10
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "秒级加载公式范例工作簿，在 0ms 内完成 B5:B10 单元格区域更新与公式求值，0.00 CLS，并顺利导出 5,154 字节有效 XLSX 文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:41:34.773Z"
+    }
+  },
+  "tariffschart-com": {
+    "en": {
+      "bestFor": "Importers, freight forwarders, e-commerce brands, and supply chain analysts needing to resolve US import duty stacks by HTS code and estimate total landed costs with downloadable CSV reports.",
+      "pros": [
+        "Resolves source-backed US duty layers including MFN rates, Section 301, and Section 232 flags directly from official USITC feeds",
+        "Carries resolved duty subtotals directly into a multi-input landed cost model calculating invoice value, freight, and target gross margin",
+        "Exports unwatermarked, citation-backed CSV planning breakdowns with source URLs and policy timestamps without requiring an account"
+      ],
+      "cons": [
+        "Transmits tariff resolution queries to remote backend endpoints (/api/tariffs/resolve)",
+        "Includes Google Analytics and Google Ads remarketing telemetry scripts on the page"
+      ],
+      "privacyVerdict": "Tariff lookups and landed cost queries are evaluated via backend server endpoints (/api/tariffs/resolve). Testing identified third-party telemetry beacons transmitted to Google Analytics (analytics.google.com) and Google Ads/DoubleClick (google.com/ccm).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Resolved HTS code 7318.15.20 for China origin with a $10,000 customs valuation in 68ms with 0.07 CLS, successfully generating a 1,638-byte CSV report.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:46:46.240Z"
+    },
+    "zh": {
+      "bestFor": "需要通过 HTS 编码快速核算美国进口关税分层、规避 301/232 条款风险并测算到岸成本（Landed Cost）的外贸与跨境电商从业者。",
+      "pros": [
+        "直接对接 USITC 官方关税目录，准确解析 MFN 最惠国基准税率及 Section 301/232 贸易合规核查标记",
+        "支持将关税层级一键带入到岸成本计算模型，支持运费、保险、目标毛利率等多种进阶参数试算",
+        "免登录一键导出完整引用了官方法规来源的 1.6KB CSV 成本核算报告，零水印无门槛"
+      ],
+      "cons": [
+        "关税分层计算依赖后端服务器接口（/api/tariffs/resolve）完成",
+        "页面包含发往 Google Analytics 与 Google Ads 的常规访问与广告跟踪信标"
+      ],
+      "privacyVerdict": "关税税率检索与到岸成本由服务端接口实时计算，核心查询参数经由网络传输。测试中观测到 Google Analytics 及 Google Ads 广告转化分析网络请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 68ms 内完成中国原产 HTS 7318.15.20 编码与 $10,000 报关价值的关税分层解析，0.07 CLS，并成功导出 1,638 字节详细 CSV 测算报告。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:46:46.241Z"
+    }
+  },
+  "www-outreachgenie-ai-linkedin-csv-checker": {
+    "en": {
+      "bestFor": "Sales development reps, recruiters, and outbound growth marketers needing to audit, deduplicate, and normalize LinkedIn prospect CSVs locally before CRM import.",
+      "pros": [
+        "Client-side CSV parsing detects duplicate LinkedIn profiles, strips tracking parameters, and standardizes profile URLs without uploading contact data to remote servers",
+        "Interactive conflict resolution interface lets users compare conflicting records for the same profile and choose which version to retain",
+        "Exports sanitized 302-byte CSV files and exclusion reports with zero paywalls, mandatory signups, or watermarks"
+      ],
+      "cons": [
+        "Emits privacy-friendly analytics beacons to Keen/DataFast (c.getkeen.cc) and Cloudflare RUM during site usage",
+        "Maximum supported file size is 5 MB or 10,000 data rows per session"
+      ],
+      "privacyVerdict": "Contact lists and CSV records are processed exclusively inside browser memory; prospect data is never uploaded to backend servers. Network traffic is restricted to page analytics via Keen/DataFast (c.getkeen.cc) and Cloudflare RUM.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Parsed 7 sample prospect rows, identified 1 duplicate and 2 conflicting titles, normalized tracking URLs in 0ms with 0.20 CLS, and exported a 302-byte clean CSV.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:56:03.307Z"
+    },
+    "zh": {
+      "bestFor": "在将潜在客户名单导入 CRM 或自动化拓展工具前，需要本地清洗、去重并规范化 LinkedIn 个人主页链接的销售（SDR）与招聘人员。",
+      "pros": [
+        "纯浏览器端本地解析，智能识别重复 LinkedIn 主页、自动剔除跟踪参数（如 trk=public_profile）且绝不将客户名单上传云端",
+        "提供可视化的多版本冲突比对界面，遇到同一主页存在不同职位/公司时可手动选择保留版本",
+        "一键导出 302 字节规范化 CSV 文件及被排除行报告，免注册且无任何使用门槛"
+      ],
+      "cons": [
+        "页面包含发往 Keen/DataFast（c.getkeen.cc）与 Cloudflare RUM 的常规匿名访问统计信标",
+        "单次处理上限为 5 MB、10,000 行数据或 400,000 个单元格"
+      ],
+      "privacyVerdict": "联系人名单与 CSV 记录完全在浏览器本地内存中处理，不向任何远程服务器传输。测试期间仅观测到发往 Keen/DataFast 和 Cloudflare RUM 的访问统计请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "秒级解析 7 条范例名单，成功检出 1 个重复主页与 2 处冲突记录，0ms 完成链接清洗与格式规整，0.20 CLS，并顺利导出 302 字节标准 CSV。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-10T03:56:03.307Z"
     }
   }
 }

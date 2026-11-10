@@ -77,30 +77,17 @@
     "lastSignals": []
   },
   "app-diagrams-net": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-03T06:17:43.243Z",
-        "lastSeenAt": "2026-11-03T06:17:43.243Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-intent-1793686659055.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-outcome-1793686659055.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-03T06:17:43.243Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T02:46:29.966Z",
     "lastTitle": "Flowchart Maker & Online Diagram Software",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-10-27T02:45:03.800Z",
+    "lastDeepEvalAt": "2026-11-10T02:46:29.966Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified draw.io client-side diagramming suite; rolling scan hit during initial splash load, app is fully operational with shape search and file export.",
-      "at": "2026-10-27T02:45:03.800Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 93, editors-choice)",
+      "at": "2026-11-10T02:46:29.966Z",
       "closed": [
         "surface_lost"
       ]
@@ -808,6 +795,17 @@
     "lastSignals": [],
     "lastTitle": "Excalidraw Whiteboard"
   },
+  "excelcraft-app": {
+    "lastDeepEvalAt": "2026-11-10T03:41:34.794Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-10T03:41:34.794Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T03:41:34.794Z"
+  },
   "explainshell-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-07T06:18:18.728Z",
@@ -939,11 +937,33 @@
     "lastTitle": "在线 STL 查看器，检查 3D 打印模型 | Fomrix",
     "lastSignals": []
   },
+  "fontique-art-tools-text-to-png": {
+    "lastDeepEvalAt": "2026-11-10T03:31:43.393Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-10T03:31:43.393Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T03:31:43.393Z"
+  },
   "fontjoy-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:14:51.027Z",
     "lastTitle": "Fontjoy - Generate font pairings in one click",
     "lastSignals": []
+  },
+  "footballlegends-si": {
+    "lastDeepEvalAt": "2026-11-10T03:10:07.621Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-10T03:10:07.621Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T03:10:07.621Z"
   },
   "formatdrop-com": {
     "openAnomalies": [],
@@ -1020,6 +1040,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-07T03:00:59.561Z"
+  },
+  "getspellgenie-com": {
+    "lastDeepEvalAt": "2026-11-10T02:59:54.197Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-10T02:59:54.197Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T02:59:54.197Z"
   },
   "getwaves-io": {
     "openAnomalies": [],
@@ -1460,6 +1491,17 @@
     "lastScanAt": "2026-11-08T06:28:37.001Z",
     "lastTitle": "Datasette",
     "lastSignals": []
+  },
+  "looprel-com": {
+    "lastDeepEvalAt": "2026-11-10T02:52:45.403Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-10T02:52:45.403Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T02:52:45.403Z"
   },
   "makehalftone-com": {
     "openAnomalies": [],
@@ -2122,30 +2164,17 @@
     "lastSignals": []
   },
   "privacytests-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-03T06:18:49.284Z",
-        "lastSeenAt": "2026-11-03T06:18:49.284Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-intent-1793686724839.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-outcome-1793686724839.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-03T06:18:49.284Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T02:49:49.351Z",
     "lastTitle": "What are the best private browsers in 2026?",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-10-28T02:43:08.180Z",
+    "lastDeepEvalAt": "2026-11-10T02:49:49.351Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified active benchmark matrix tabs (Desktop, iOS, Android, Nightly) and interactive empirical privacy data without login. No regression; platform remains compliant.",
-      "at": "2026-10-28T02:43:08.180Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-10T02:49:49.351Z",
       "closed": [
         "surface_lost"
       ]
@@ -2176,45 +2205,21 @@
     "lastSignals": []
   },
   "ps-keepmot-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-03T06:17:04.153Z",
-        "lastSeenAt": "2026-11-03T06:17:04.153Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1793686619120.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1793686619120.png"
-        ]
-      },
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"Free Online Collage Maker_No Login_No Watermark_HD Image Stitching Tool\" → \"免费在线拼图工具_免登录无水印_高清图片拼接网站\"",
-        "firstSeenAt": "2026-11-03T06:17:04.153Z",
-        "lastSeenAt": "2026-11-03T06:17:04.153Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1793686619120.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1793686619120.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-03T06:17:04.153Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T02:38:48.391Z",
     "lastTitle": "免费在线拼图工具_免登录无水印_高清图片拼接网站",
     "lastSignals": [
       "surface_lost",
       "title_changed"
     ],
-    "lastDeepEvalAt": "2026-10-27T02:41:14.713Z",
+    "lastDeepEvalAt": "2026-11-10T02:38:48.391Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified design canvas at /zh/design/; landing page is marketing hero but studio remains fully functional with template selection, layout, and watermark settings.",
-      "at": "2026-10-27T02:41:14.713Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-10T02:38:48.391Z",
       "closed": [
-        "surface_lost"
+        "surface_lost",
+        "title_changed"
       ]
     }
   },
@@ -2728,6 +2733,17 @@
     "lastTitle": "タイマー｜無料で使えるオンラインタイマー",
     "lastSignals": []
   },
+  "tariffschart-com": {
+    "lastDeepEvalAt": "2026-11-10T03:46:46.262Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-10T03:46:46.262Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T03:46:46.262Z"
+  },
   "teachablemachine-withgoogle-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-08T06:25:15.380Z",
@@ -2801,6 +2817,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:19:12.017Z",
     "lastSignals": []
+  },
+  "thredly-io-templates-ai-coding-handover": {
+    "lastDeepEvalAt": "2026-11-10T03:25:41.646Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-10T03:25:41.646Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T03:25:41.646Z"
   },
   "til-re": {
     "openAnomalies": [],
@@ -3265,6 +3292,17 @@
     "lastScanAt": "2026-11-07T06:21:37.841Z",
     "lastTitle": "Otto · Create a free poll with friends, no account",
     "lastSignals": []
+  },
+  "www-outreachgenie-ai-linkedin-csv-checker": {
+    "lastDeepEvalAt": "2026-11-10T03:56:03.325Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-10T03:56:03.325Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-10T03:56:03.325Z"
   },
   "www-pastecurl-com": {
     "openAnomalies": [],

@@ -537,6 +537,12 @@
     "seoFocusKeyword": "免费在线白板无需注册",
     "seoTaskPhrase": "无需注册协作绘制图表"
   },
+  "excelcraft-app": {
+    "_hash": "fcf47bc8e706ccb8",
+    "description": "基于浏览器的本地 Excel 电子表格编辑器，支持打开、编辑与公式重算 XLSX 工作簿，文件无需上传云端，支持即时导出。",
+    "coreTask": "在浏览器中直接查看、编辑并导出 XLSX 电子表格，无需登录或上传文件。",
+    "contentUpdatedAt": "2026-11-10T03:41:54.235Z"
+  },
   "explainshell-com": {
     "_hash": "a771295a72ecba3d",
     "description": "解析并解释 shell 命令。粘贴任意命令行，获取每个参数和标志的详细说明。",
@@ -625,10 +631,22 @@
     "coreTask": "无需创建账号，即可打开 STL 网格文件，进行旋转与缩放，并检查三角面数与几何尺寸。",
     "description": "Fomrix STL Viewer 是一款免费的在线 STL 查看器，支持在浏览器中直接打开并检查 3D 网格几何结构，无需注册账号。支持旋转和缩放模型、查看三角面数和尺寸参数，且不会修改原始文件。本查看器不提供可打印性认证。该条目仅收录独立的 STL 查看器功能；Fomrix AI 模型生成属于独立服务，需要注册账号及消耗点数。"
   },
+  "fontique-art-tools-text-to-png": {
+    "_hash": "4f4db0afac02214f",
+    "description": "基于浏览器的透明背景文字 PNG 生成工具，内置 45 款精选字体与多比例画布，支持无水印导出高分辨率图片。",
+    "coreTask": "将自定义文本转换为带透明背景的高清 PNG 字体图文。",
+    "contentUpdatedAt": "2026-11-10T03:32:26.993Z"
+  },
   "fontjoy-com": {
     "_hash": "962325de66817db6",
     "description": "基于深度学习的 AI 字体搭配生成器。为标题、副标题和正文生成和谐的字体组合。",
     "coreTask": "生成 AI 字体搭配方案"
+  },
+  "footballlegends-si": {
+    "_hash": "25f9660fb28e4564",
+    "description": "无需注册的交互式足球历史档案与球员对比工具，可对比不同时代传奇球员的生涯数据、荣誉及战术角色。",
+    "coreTask": "横向对比历史传奇足球球员的生涯数据、比赛记录与战术特点。",
+    "contentUpdatedAt": "2026-11-10T03:10:42.708Z"
   },
   "formatdrop-com": {
     "coreTask": "无需上传文件，在浏览器本地进行格式转换",
@@ -688,6 +706,12 @@
     "description": "基于浏览器的手势与键盘复音合成器工作台，可在线调制模拟音色并直接内录音频，无需安装插件或登录。",
     "coreTask": "选择调式音阶，通过键盘快捷键或手势触发复音和弦演奏，并一键导出内录的 WebM 高品质音频文件。",
     "contentUpdatedAt": "2026-11-07T03:01:23.919Z"
+  },
+  "getspellgenie-com": {
+    "_hash": "c1d370b5522c2155",
+    "description": "免注册的在线听写拼写测验生成器与交互式练习卡片，内置分级词表并支持即时自动批改。",
+    "coreTask": "生成带有语音朗读与自动批改功能的单词拼写测验与听写练习。",
+    "contentUpdatedAt": "2026-11-10T03:00:28.244Z"
   },
   "getwaves-io": {
     "_hash": "1e21cbf881521fa3",
@@ -997,6 +1021,12 @@
     "_hash": "c14de1e6cf05bccf",
     "description": "通过 WebAssembly（Pyodide）完全在浏览器中运行的 Datasette。上传 SQLite 数据库或 CSV 文件，用完整的 SQL 界面直接探索数据——无需服务器，无需账号，数据始终留在你的设备上。基于 Simon Willison 开发的知名 Datasette 数据探索框架。",
     "coreTask": "无需安装或注册，直接在浏览器中用 SQL 查询和探索 SQLite 数据库与 CSV 文件"
+  },
+  "looprel-com": {
+    "_hash": "1b34befaf02b5385",
+    "description": "无需注册的浏览器端钩针图解生成工具，可将照片转换为带有行号、网格和毛线配色的针法图解。",
+    "coreTask": "将上传的照片转换为适用于 C2C、tapestry 或 filet 针法的钩针编织图解。",
+    "contentUpdatedAt": "2026-11-10T02:54:02.537Z"
   },
   "lowrisktradesmart-org": {
     "_hash": "c5d2032cbde99c56",
@@ -1714,6 +1744,12 @@
     "coreTask": "无需创建账号，直接设置并运行基于浏览器的倒计时器",
     "description": "专为日语用户打造的免费在线倒计时工具，免登录即可使用。"
   },
+  "tariffschart-com": {
+    "_hash": "906f5425e1287234",
+    "description": "美国进口关税分层解析与到岸成本核算工具，支持根据 HTS 编码查询税率、核查 301/232 贸易条款，并一键导出 CSV 报告。",
+    "coreTask": "根据 HTS 编码解析美国进口关税并测算到岸成本，无需登录。",
+    "contentUpdatedAt": "2026-11-10T03:47:08.821Z"
+  },
   "teachablemachine-withgoogle-com": {
     "_hash": "336f6d1a3e015ed4",
     "description": "谷歌的无代码浏览器端机器学习模型训练工具。使用自己的数据训练图像、声音或姿势识别模型，全程在客户端处理。",
@@ -1763,6 +1799,12 @@
     "seoFocusKeyword": "免注册储蓄计算器",
     "seoTaskPhrase": "无需注册计算储蓄场景",
     "contentUpdatedAt": "2026-10-26T11:09:35.395Z"
+  },
+  "thredly-io-templates-ai-coding-handover": {
+    "_hash": "e6b5ad4a6907751d",
+    "description": "结构化 AI 编程任务交接模板与浏览器端工作简报生成器，用于在不同模型会话间无缝迁移任务上下文，免注册登录。",
+    "coreTask": "排版并复制用于新 AI 会话的结构化编程任务交接文档。",
+    "contentUpdatedAt": "2026-11-10T03:26:22.725Z"
   },
   "til-re": {
     "_hash": "7c613b80a2aadfbd",
@@ -2053,6 +2095,12 @@
   "www-ottopoll-com": {
     "description": "Otto 是一款免费在线投票工具，可在 2 分钟内与朋友或团队发起投票，免登录、无需注册。选择日期、地点或时间段并分享链接，所有人均可实时投票，无需邮箱或创建账号。",
     "coreTask": "创建投票并分享链接，所有人实时参与投票并查看结果，无需注册账号"
+  },
+  "www-outreachgenie-ai-linkedin-csv-checker": {
+    "_hash": "9793c3fd00622720",
+    "description": "基于浏览器的 LinkedIn 潜在客户 CSV 清洗工具，可自动识别重复主页、解决多版本冲突并规范化主页链接，免注册一键导出。",
+    "coreTask": "在浏览器中本地清洗、去重与规范化 LinkedIn 潜在客户 CSV 名单，无需登录。",
+    "contentUpdatedAt": "2026-11-10T03:56:23.395Z"
   },
   "www-pastecurl-com": {
     "description": "免费的浏览器端 cURL 转代码工具，支持 23 种编程语言与 40 多种常用请求库。粘贴 Bash 风格的 cURL 命令，即可一键复制 Python、JavaScript、Go 等语言的等效代码。无需账号，命令保留在本地设备，零上传更安全。",
