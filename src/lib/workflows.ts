@@ -4,6 +4,7 @@ import {
   getLocalizedDescription,
   type BuildDataTool,
 } from '../data/loader';
+import programmaticZh from '../data/translations/programmatic-zh.json';
 import type { Locale } from '../i18n/config';
 
 export {
@@ -16,7 +17,13 @@ export {
   type WorkflowFAQ,
 } from './workflows-data.mjs';
 
-import type { WorkflowRecipe, WorkflowStep } from './workflows-data.mjs';
+import {
+  WORKFLOW_RECIPES,
+  findWorkflowsForTool,
+  type WorkflowRecipe,
+  type WorkflowStep,
+  type WorkflowFAQ,
+} from './workflows-data.mjs';
 
 export interface HydratedWorkflowStep extends WorkflowStep {
   tool: BuildDataTool;
@@ -28,16 +35,63 @@ export interface HydratedWorkflowStep extends WorkflowStep {
 }
 
 export interface HydratedWorkflowRecipe extends Omit<WorkflowRecipe, 'steps'> {
+  durationMinutes: number;
+  difficultyLabel: string;
   steps: HydratedWorkflowStep[];
+}
+
+export function localizeWorkflowSummary(recipe: WorkflowRecipe, locale: Locale = 'en'): WorkflowRecipe {
+  if (locale !== 'zh') return recipe;
+  const zhWf = (programmaticZh.workflows as Record<string, {
+    title: string;
+    category: string;
+    timeEstimate: string;
+    privacyGuarantee: string;
+    headline: string;
+    summary: string;
+    whyThisStack: string;
+    steps: Record<string, { actionTitle: string; actionDescription: string; inputFormat: string; outputFormat: string; proTip: string }>;
+    faqs: WorkflowFAQ[];
+  } | undefined>)[recipe.slug];
+  if (!zhWf) return recipe;
+  return {
+    ...recipe,
+    title: zhWf.title,
+    category: zhWf.category,
+    timeEstimate: zhWf.timeEstimate,
+    privacyGuarantee: zhWf.privacyGuarantee,
+    headline: zhWf.headline,
+    summary: zhWf.summary,
+    whyThisStack: zhWf.whyThisStack,
+    steps: recipe.steps.map((step) => {
+      const zs = zhWf.steps[String(step.stepNumber)];
+      return zs ? { ...step, ...zs } : step;
+    }),
+    faqs: zhWf.faqs,
+  };
+}
+
+export function getLocalizedWorkflowRecipes(locale: Locale = 'en'): WorkflowRecipe[] {
+  return WORKFLOW_RECIPES.map((wf) => localizeWorkflowSummary(wf, locale));
+}
+
+export function findLocalizedWorkflowsForTool(toolSlug: string, locale: Locale = 'en'): WorkflowRecipe[] {
+  return findWorkflowsForTool(toolSlug).map((wf) => localizeWorkflowSummary(wf, locale));
 }
 
 /**
  * Hydrates a workflow recipe with live tool data from build data
  */
 export function resolveWorkflowDetails(
-  recipe: WorkflowRecipe,
+  rawRecipe: WorkflowRecipe,
   locale: Locale = 'en'
 ): HydratedWorkflowRecipe {
+  const durationMinutes = parseInt(rawRecipe.timeEstimate, 10) || 15;
+  const recipe = localizeWorkflowSummary(rawRecipe, locale);
+  const difficultyLabel = locale === 'zh'
+    ? ((programmaticZh.difficulty as Record<string, string | undefined>)[rawRecipe.difficulty] || rawRecipe.difficulty)
+    : rawRecipe.difficulty;
+
   const steps: HydratedWorkflowStep[] = recipe.steps.map((step) => {
     const foundTool = getToolBySlug(step.toolSlug);
 
@@ -80,7 +134,10 @@ export function resolveWorkflowDetails(
     const tool = foundTool || fallbackTool;
     const health = getToolHealthStatus(tool);
     const localizedDesc = getLocalizedDescription(tool, locale) || tool.description || '';
-    const categoryTag = tool.tags.find((t) => t.tagKey === 'category')?.tagValue;
+    const rawCat = tool.tags.find((t) => t.tagKey === 'category')?.tagValue;
+    const categoryTag = locale === 'zh' && rawCat
+      ? ((programmaticZh.categories as Record<string, string | undefined>)[rawCat] || rawCat)
+      : rawCat;
 
     return {
       ...step,
@@ -95,6 +152,8 @@ export function resolveWorkflowDetails(
 
   return {
     ...recipe,
+    durationMinutes,
+    difficultyLabel,
     steps,
   };
 }

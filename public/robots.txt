@@ -15,6 +15,10 @@ User-agent: cohere-ai
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /api/og/
+Allow: /api/v1/
+Allow: /api/badge/
+Allow: /api/extension-index.json
 Disallow: /admin
 Disallow: /api/
 Disallow: /ssr/
@@ -26,6 +30,10 @@ User-agent: *
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /api/og/
+Allow: /api/v1/
+Allow: /api/badge/
+Allow: /api/extension-index.json
 Disallow: /admin
 Disallow: /api/
 Disallow: /ssr/

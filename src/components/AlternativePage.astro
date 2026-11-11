@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getAlternativeBySlug, getAlternativeTargets, getToolsForAlternative } from '../lib/alternatives';
+import { getAlternativeBySlug, getAlternativeTargets, getToolsForAlternative, resolveAlternativeTarget } from '../lib/alternatives';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 import { getLocalizedDescription } from '../data/loader';
@@ -13,11 +13,14 @@ interface Props {
 
 const { locale, slug } = Astro.props;
 await loadTranslations(locale);
+const isZh = locale === 'zh';
+const l = (zh: string, en: string) => (isZh ? zh : en);
 
-const target = getAlternativeBySlug(slug);
-if (!target) {
+const rawTarget = getAlternativeBySlug(slug);
+if (!rawTarget) {
   throw new Error(`Alternative target not found for slug: ${slug}`);
 }
+const target = resolveAlternativeTarget(rawTarget, locale);
 
 const tools = getToolsForAlternative(target, locale);
 const allTargets = getAlternativeTargets();
@@ -42,6 +45,12 @@ const collectionLd = {
   description: pageDescription,
   url: `https://nologin.tools${canonicalPath}`,
   inLanguage: locale,
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://nologin.tools/#organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
   about: {
     '@type': 'SoftwareApplication',
     name: target.name,
@@ -129,13 +138,13 @@ const breadcrumbLd = {
       <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-white text-neutral-900 border-2 border-neutral-900 text-xs font-mono font-bold uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4">
         <span>🛡️ {t(locale, 'alternative.page.badge')}</span>
         <span>&bull;</span>
-        <span>{target.category}</span>
+        <span>{target.categoryLabel}</span>
       </div>
       <h1 class="text-3xl sm:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
         {t(locale, 'alternative.page.heading', { target: target.name })}
       </h1>
       <p class="mt-4 text-base sm:text-lg text-neutral-700 leading-relaxed max-w-3xl">
-        {target.headline}.
+        {target.headline}{isZh ? '。' : '.'}
       </p>
       <div class="mt-5 flex items-center gap-3 text-xs font-mono font-bold text-neutral-600">
         <span class="inline-flex items-center gap-1.5 text-emerald-950 bg-emerald-100 px-2.5 py-1 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -229,7 +238,7 @@ const breadcrumbLd = {
                     href={getLocalizedPath(`/tool/${tool.slug}`, locale)}
                     class="px-3 py-2 bg-white hover:bg-yellow-50 text-neutral-900 text-xs font-mono font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-none"
                   >
-                    Audit
+                    {l('评测档案', 'Audit')}
                   </a>
                 </div>
               </div>
@@ -294,7 +303,7 @@ const breadcrumbLd = {
       <div class="space-y-1.5 text-neutral-900 font-mono">
         <div class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-neutral-900 text-white text-[11px] font-bold uppercase tracking-wider">
           <span>⚡</span>
-          <span>Official Browser Extension</span>
+          <span>{l('官方浏览器扩展', 'Official Browser Extension')}</span>
         </div>
         <h3 class="text-base sm:text-lg font-black uppercase tracking-tight">
           {t(locale, 'alternative.banner.title', { target: target.name })}

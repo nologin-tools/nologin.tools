@@ -56,18 +56,20 @@ const labModifiedDate = '2026-03-20T00:00:00.000Z';
 const websiteLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': 'https://nologin.tools/#website',
   name: 'nologin.tools',
   url: 'https://nologin.tools',
   description: 'Curated directory of verified privacy-friendly web tools that work without login or accounts.',
   inLanguage: locale,
   publisher: {
-    '@type': 'Organization',
-    name: 'NoLoginTools.org',
-    url: 'https://nologintools.org',
+    '@id': 'https://nologin.tools/#organization',
   },
   potentialAction: {
     '@type': 'SearchAction',
-    target: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `https://nologin.tools${getLocalizedPath('/finder', locale)}?q={search_term_string}`,
+    },
     'query-input': 'required name=search_term_string',
   },
 };
@@ -76,13 +78,24 @@ const websiteLd = {
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://nologin.tools/#organization',
   name: 'NoLoginTools.org',
   url: 'https://nologintools.org',
-  logo: 'https://nologin.tools/icon-192.png',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://nologin.tools/og-default.png',
+    width: 1200,
+    height: 630,
+  },
+  description: t(locale, 'home.jsonLd.orgDescription'),
+  foundingDate: '2025',
+  areaServed: 'Worldwide',
+  email: 'contact@nologintools.org',
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'hello@nologin.tools',
-    contactType: 'editorial and privacy inquiries',
+    email: 'contact@nologintools.org',
+    contactType: 'customer support',
+    url: 'https://nologintools.org/about',
   },
   sameAs: [
     'https://x.com/nologin_tools',

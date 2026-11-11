@@ -1,0 +1,1425 @@
+{
+  "categories": {
+    "AI": "AI 工具",
+    "Design": "平面与矢量设计",
+    "Design & Media": "设计与音视频",
+    "Writing": "写作与文本",
+    "Writing & Education": "写作与学术研究",
+    "Development": "软件开发",
+    "Productivity": "效率与文档",
+    "Productivity & Privacy": "效率与隐私交付",
+    "Media": "音视频与媒体",
+    "Media & Marketing": "媒体制作与增长",
+    "Privacy": "隐私与安全",
+    "Finance & Security": "加密资产与安全",
+    "Data": "数据与图表",
+    "Data & Analytics": "数据清洗与分析",
+    "Communication": "即时协作与传输",
+    "Collaboration": "团队实时协作",
+    "Education": "STEM 与科学计算",
+    "Finance": "金融与汇率"
+  },
+  "difficulty": {
+    "Beginner": "入门级",
+    "Intermediate": "进阶级",
+    "Advanced": "专家级"
+  },
+  "alternatives": {
+    "photoshop": {
+      "headline": "无需订阅 Adobe Creative Cloud 或注册登录，直接在浏览器内完成专业位图修图与 PSD 图层编辑",
+      "primaryUtility": "照片精修、PSD 分层编辑与多图层图像合成"
+    },
+    "canva": {
+      "headline": "无需强制注册账号，打开网页即可完成海报排版、智能抠图与社交媒体视觉创作",
+      "primaryUtility": "社媒配图制作、海报排版与矢量设计素材"
+    },
+    "figma": {
+      "headline": "绕过团队工作区账号围墙，在浏览器内自由绘制矢量线框图、架构图与交互草稿",
+      "primaryUtility": "交互式矢量设计、UI 线框原型与实时协作白板"
+    },
+    "miro": {
+      "headline": "零注册开启无限数字白板，随时开展头脑风暴、冲刺规划与系统架构梳理",
+      "primaryUtility": "团队头脑风暴、敏捷冲刺看板与可视化思维导图"
+    },
+    "lucidchart": {
+      "headline": "兼顾客户端本地隐私的架构制图方案，免登录绘制系统流程图、UML 与网络拓扑图",
+      "primaryUtility": "技术架构图、云基础设施拓扑与标准业务流程图"
+    },
+    "notion": {
+      "headline": "告别云端账号绑定与导出限制，享受无干扰的本地优先 Markdown 写作与文档起草体验",
+      "primaryUtility": "Markdown 实时编辑、文档撰写与纯文本知识整理"
+    },
+    "grammarly": {
+      "headline": "无云端按键记录与行为遥测，实时检查多语种拼写、语法错误与行文可读性",
+      "primaryUtility": "语法纠错、可读性分级分析与写作文风润色"
+    },
+    "zoom": {
+      "headline": "无需下载客户端或注册账号，点击链接即可发起端到端加密视频会议与屏幕共享",
+      "primaryUtility": "多人高清视频通话、屏幕共享与点对点音视频协作"
+    },
+    "smallpdf": {
+      "headline": "在浏览器本地安全完成 PDF 合并、拆分、压缩与格式转换，远离文件次数限制",
+      "primaryUtility": "PDF 拆分合并、体积压缩与电子签名处理"
+    },
+    "postman": {
+      "headline": "零遥测、免强制云端同步，在浏览器内可视化调试 API 请求、格式化 JSON 与解析令牌",
+      "primaryUtility": "HTTP/GraphQL 接口调试、JSON 树形解析与 JWT 校验"
+    },
+    "audacity": {
+      "headline": "基于浏览器原生 WebAudio API 实现多轨波形剪辑、均衡器调音与母带导出",
+      "primaryUtility": "音频波形裁剪、播客后期降噪与多格式音频导出"
+    },
+    "tinypng": {
+      "headline": "借助 WebAssembly 在本地内存完成无损与有损图片压缩，文件零上传第三方服务器",
+      "primaryUtility": "图片体积瘦身与现代 WebP / AVIF 编码转换"
+    },
+    "cloudconvert": {
+      "headline": "无需注册排队或购买积分，快速转换音视频、办公文档与压缩归档格式",
+      "primaryUtility": "跨格式多媒体转码与办公文档互转"
+    },
+    "illustrator": {
+      "headline": "告别高昂的 Creative Cloud 订阅费，在网页端直接编辑矢量路径并极致精简 SVG 代码",
+      "primaryUtility": "SVG 矢量插画绘制、节点路径编辑与代码体积优化"
+    },
+    "visio": {
+      "headline": "免登录绘制企业级业务流程图、网络拓扑结构图与标准 UML 建模图",
+      "primaryUtility": "业务流程图、网络架构拓扑与系统工程建模"
+    },
+    "ilovepdf": {
+      "headline": "无需将机密合同上传至不明云端，在浏览器内一站式完成全套 PDF 文档处理",
+      "primaryUtility": "PDF 格式转换、页面提取重组与权限清理"
+    },
+    "wetransfer": {
+      "headline": "无账号锁定、无强制收件邮箱验证，支持端到端加密阅后即焚与 WebRTC 点对点直传",
+      "primaryUtility": "加密临时文件分享、大文件传输与局域网/跨设备点对点直连"
+    },
+    "excel": {
+      "headline": "无需登录 Office 365，在浏览器客户端完成表格数据清洗、格式互转与可视化制图",
+      "primaryUtility": "电子表格解析、CSV/JSON/SQL 转换与浏览器内存 SQL 查询"
+    },
+    "chatgpt": {
+      "headline": "无需手机号或邮箱注册验证，即开即用的隐私优先 AI 问答、检索总结与代码解析工具",
+      "primaryUtility": "AI 文本问答、代码释义、联网检索总结与提示词辅助"
+    },
+    "bitly": {
+      "headline": "无需注册营销账号，快速生成短链接、自定义跳转与高分辨率矢量二维码",
+      "primaryUtility": "网址缩短、链接跳转管理与矢量二维码即时生成"
+    }
+  },
+  "comparisons": {
+    "excalidraw-vs-tldraw": {
+      "headline": "支持端到端加密的手绘风架构白板 vs 清爽利落的现代极简矢量画布",
+      "verdict": {
+        "summary": "Excalidraw 非常适合偏爱低保真手绘草图与零知识端到端加密协作的架构师与工程师；而 tldraw 在干净利落的几何矢量线条、便签聚类与丝滑触控板交互上表现更胜一筹。",
+        "chooseAIf": [
+          "你偏爱手绘草图质感，希望团队讨论聚焦于系统逻辑而非纠结视觉对齐细节",
+          "你需要零知识端到端加密协作房间，确保中继服务器无法窥探白板内容",
+          "你希望把可编辑场景数据直接嵌入导出的 SVG 或 PNG 文件，方便日后二次修改"
+        ],
+        "chooseBIf": [
+          "你更喜欢干净利落的现代几何矢量线条与清晰的排版视觉",
+          "你需要流畅的便签自动对齐、形状动态连线吸附等高频白板交互",
+          "你想要轻量无干扰、对触控板与手写板手势支持极佳的现代画布体验"
+        ]
+      }
+    },
+    "squoosh-vs-tinypng": {
+      "headline": "带实时画质对比滑块的纯本地 WebAssembly 压缩器 vs 全自动云端批量有损压缩工具",
+      "verdict": {
+        "summary": "Squoosh 在浏览器本地内存中提供 100% 隐私保护，并可精细调节 WebP、AVIF、MozJPEG 等现代编码参数；而 TinyPNG 则擅长零参数、拖拽即压的多图快速批量瘦身。",
+        "chooseAIf": [
+          "你要求 100% 纯客户端隐私保护，原始图片字节绝不离开本地设备内存",
+          "你需要通过左右分屏滑块精细对比画质，微调色度抽样与 AVIF / WebP 编码参数",
+          "你需要离线断网工作，或处理涉密企业设计稿、未公开产品截图"
+        ],
+        "chooseBIf": [
+          "你手头有几十张 PNG / JPEG 图片，希望一次拖入同时完成批量压缩",
+          "你倾向于“拖入即出结果”的智能有损量化，不想手动调整复杂编码参数",
+          "你追求数秒内获得稳定、成熟的网页图片体积缩减效果"
+        ]
+      }
+    },
+    "drawio-vs-excalidraw": {
+      "headline": "企业级 UML 与云架构标准制图工作站 vs 快速低阻力团队手绘白板",
+      "verdict": {
+        "summary": "Diagrams.net（Draw.io）是绘制严谨系统流程图、云厂商架构拓扑与数据库 ER 图的行业标杆；而 Excalidraw 则在敏捷头脑风暴、早期方案草绘与实时可视化沟通上更加轻快自如。",
+        "chooseAIf": [
+          "你需要严谨的标准化图元库（AWS、GCP、Azure、Kubernetes、UML、BPMN 等）",
+          "你需要自动布局算法、精确的正交折线路由以及多页工程文档管理",
+          "你希望直接读写本地磁盘文件，或按需接入 GitHub 仓库与网盘存储"
+        ],
+        "chooseBIf": [
+          "你希望零门槛快速勾勒想法，无需在复杂的图元面板中翻找组件",
+          "你喜欢轻松的手绘视觉风格，避免评审时陷入无关紧要的样式争论",
+          "你需要通过一条加密链接秒开多人实时协作白板"
+        ]
+      }
+    },
+    "pdf24-vs-tinywow": {
+      "headline": "无配额限制的专业全能 PDF 工具箱 vs 覆盖音视频与图像的跨格式万用转换套件",
+      "verdict": {
+        "summary": "PDF24 Tools 是高频、无限制办理 PDF 合并、拆分、压缩与 OCR 识别的首选利器；而 TinyWow 则是一站式跨媒体百宝箱，在同一个界面内同时覆盖视频、音频、图片与 PDF 转换。",
+        "chooseAIf": [
+          "你的核心需求集中在 PDF 文档处理（合并、拆分、压缩、OCR、提取页面、签名）",
+          "你需要处理较大体积文档，不想受到每日次数或文件大小配额限制",
+          "你重视文档机密性与客户端优先处理能力"
+        ],
+        "chooseBIf": [
+          "除了 PDF 之外，你还需要顺手转换视频、音频与图片格式",
+          "你希望在同一页面使用智能抠图、格式提取等轻量辅助工具",
+          "你偶尔有跨多种媒体类型的零散文件转换需求"
+        ]
+      }
+    },
+    "hemingway-vs-languagetool": {
+      "headline": "专注精简句式与可读性分级的写作画布 vs 支持 30+ 语种的语法拼写与标点校对引擎",
+      "verdict": {
+        "summary": "Hemingway Editor 通过高亮被动语态与冗长难句，帮助你锤炼简练有力的英文表达；而 LanguageTool 则是强大的多语言语言学校对引擎，可精准捕捉 30 余种语言的语法、拼写与标点错误。",
+        "chooseAIf": [
+          "你希望提升英文文章可读性、消除过多被动语态并精简冗长从句",
+          "你偏爱清爽无干扰的写作界面，并支持直观的色彩分级反馈",
+          "你想实时查看文章对应的阅读难度年级指标"
+        ],
+        "chooseBIf": [
+          "你需要严谨的语法结构、标点符号与上下文拼写纠错",
+          "你使用中文、德语、法语、西班牙语等非英语语种或双语写作",
+          "你在撰写正式商务邮件、学术论文或技术文档，需要语气与用词建议"
+        ]
+      }
+    },
+    "audiomass-vs-audiotrimmer": {
+      "headline": "功能完备的浏览器多轨 WebAudio 数字音频工作站 vs 秒开秒剪的在线音频裁剪与铃声工具",
+      "verdict": {
+        "summary": "AudioMass 是运行在浏览器中的完整数字音频工作站（DAW），内置均衡器、压缩器与频谱分析；而 Audio Trimmer 则是专为快速掐头去尾、制作淡入淡出片段而生的极速剪辑小工具。",
+        "chooseAIf": [
+          "你需要波形精细编辑、频率滤波、参数均衡（EQ）、降噪门限或响度归一化",
+          "你希望在浏览器内查看频谱分析并进行播客或音乐母带级微调",
+          "你要求利用 WebAudio API 在本地内存中处理较长录音而不上传服务器"
+        ],
+        "chooseBIf": [
+          "你只需要零学习成本地剪掉 MP3 / WAV 首尾多余片段",
+          "你想在几秒内制作带平滑淡入淡出效果的手机铃声或短视频音效",
+          "你在手机或电脑上追求极简、轻量的单步裁剪体验"
+        ]
+      }
+    },
+    "jsoncrack-vs-jsonformatter": {
+      "headline": "深层嵌套 JSON 交互式节点关系图谱 vs 极速语法校验、格式化与压缩转换器",
+      "verdict": {
+        "summary": "JSON Crack 能将层层嵌套的复杂 JSON 数据瞬间渲染为可缩放的交互式树形图谱；而 JSON Formatter 则是日常高频使用的轻量级语法校验、缩进美化与最小化主力工具。",
+        "chooseAIf": [
+          "你正在排查结构复杂、多层嵌套的 API 响应，需要鸟瞰式节点拓扑图",
+          "你需要将数据结构图导出为 SVG 或 PNG 插入技术文档与架构方案",
+          "你希望在大型响应体中按字段名搜索并直观追踪实体层级关系"
+        ],
+        "chooseBIf": [
+          "你需要毫秒级完成 JSON 语法报错定位、缩进美化与单行压缩",
+          "你经常需要在 JSON、XML、CSV 与 YAML 之间快速互转",
+          "你在处理超大原始 JSON 文本，希望避免图形化渲染带来的额外开销"
+        ]
+      }
+    },
+    "photopea-vs-ezgif": {
+      "headline": "Photoshop 级全功能图层修图工作站 vs 专业 GIF 动图帧级编辑与视频转 GIF 工具集",
+      "verdict": {
+        "summary": "Photopea 是支持完整 PSD 图层、蒙版与智能对象的专业级图像编辑工作站；而 ezGIF 则是深耕动态 GIF 裁剪、视频转 GIF、逐帧延时调整与有损体积优化的垂直利器。",
+        "chooseAIf": [
+          "你需要完整的位图精修、调色曲线、图层混合模式与文字排版能力",
+          "你需要直接打开并保存 PSD、AI、Sketch 或相机 RAW 格式源文件",
+          "你习惯 Photoshop 快捷键体系，希望在浏览器内完成专业平面合成"
+        ],
+        "chooseBIf": [
+          "你需要制作、裁剪、反转或深度压缩动态 GIF 与动态 WebP 文件",
+          "你想把 MP4 / WebM 录屏片段按自定义帧率转换为清晰流畅的动图",
+          "你希望直观地逐帧调整动画停留时长或剔除多余帧"
+        ]
+      }
+    },
+    "haikei-vs-fffuel": {
+      "headline": "一体化多层矢量背景视觉工作台 vs 收录 40+ 款生成式 SVG 纹理与渐变微工具合集",
+      "verdict": {
+        "summary": "Haikei 提供统一的可视化画布工作台，方便快速组合波浪、流体斑块与低多边形背景；而 Fffuel 则像一座由 40 多款独立微工具组成的创意宝库，专注噪点纹理、流体渐变与等高线图案生成。",
+        "chooseAIf": [
+          "你希望在统一画布中交互式叠加多层波浪、流体图形与几何网格背景",
+          "你需要实时调节图形复杂度、对比度与画幅比例并一键导出网站首屏背景",
+          "你想要直接导出生产可用的纯净 SVG 或高分辨率 PNG 海报底图"
+        ],
+        "chooseBIf": [
+          "你在寻找颗粒噪点、手绘波浪线、等高线地形图等独具风格的细分 SVG 生成器",
+          "你需要纯 CSS 网格渐变或轻量级程序化 SVG 图案代码",
+          "你喜欢在数十款专注单一美学的创意小工具之间自由探索灵感"
+        ]
+      }
+    },
+    "csvjson-vs-tableconvert": {
+      "headline": "面向开发者的结构化数据解析与 SQL 生成器 vs 面向文档排版的 Markdown / Excel / LaTeX 表格互转器",
+      "verdict": {
+        "summary": "CSVJSON 擅长面向工程开发的 CSV、嵌套 JSON 与数据库 SQL 脚本结构化转换；而 TableConvert 则专注于文档写作场景，提供类电子表格可视化编辑并一键输出 Markdown、LaTeX 与 HTML 表格。",
+        "chooseAIf": [
+          "你需要将复杂嵌套 JSON 数组展开为平面 CSV，或自动生成数据库 SQL INSERT 语句",
+          "你需要精细控制分隔符解析、引号转义与 JSON 层级拍平规则",
+          "你正在处理后端接口响应导出与数据库迁移清洗任务"
+        ],
+        "chooseBIf": [
+          "你需要为技术文档或学术论文生成 GitHub Markdown、HTML 或 LaTeX 表格代码",
+          "你希望像编辑 Excel 一样在网页网格中增删行列、修改单元格后再导出",
+          "你想直接粘贴 Excel 或飞书/Google 表格区域并瞬间转为干净的网页表格"
+        ]
+      }
+    },
+    "desmos-vs-geogebra": {
+      "headline": "极速丝滑的 2D 函数绘图与动态参数推演器 vs 涵盖 3D 立体几何、微积分与符号代数的全能数学实验室",
+      "verdict": {
+        "summary": "Desmos 是响应最敏捷、交互最直观的二维函数绘图与滑块动画标杆；而 GeoGebra 则是一座完整的 STEM 数学实验室，集成了三维空间几何、CAS 符号代数运算与尺规作图证明。",
+        "chooseAIf": [
+          "你需要极速绘制二维直角坐标或极坐标方程，并用动态滑块实时观察曲线变化",
+          "你追求清爽无遮挡的函数图像界面，用于物理、微积分或统计教学演示",
+          "你希望零门槛输入数学表达式即可立刻获得平滑高精度曲线"
+        ],
+        "chooseBIf": [
+          "你需要构建三维空间几何体、空间向量平面与曲面旋转投影",
+          "你需要符号代数系统（CAS）进行因式分解、求导积分与精确代数求解",
+          "你正在制作交互式欧几里得几何尺规作图与定理推导课件"
+        ]
+      }
+    },
+    "browserleaks-vs-ipleak": {
+      "headline": "深度硬件熵与 Canvas / WebGL 浏览器指纹审计套件 vs 实时公网 IP、WebRTC 与 DNS 泄露快速诊断仪",
+      "verdict": {
+        "summary": "BrowserLeaks 专注于深度剖析浏览器硬件指纹熵（Canvas 哈希、WebGL 渲染器、音频上下文与字体度量）；而 IPLeak 则聚焦网络层匿名性体检，快速揪出 VPN 下的 WebRTC 真实 IP 暴露与 DNS 解析劫持。",
+        "chooseAIf": [
+          "你想全面检测 HTML5 Canvas、WebGL 显卡信息、AudioContext 等深层浏览器追踪指纹",
+          "你正在评估 Brave、Firefox 或隐私浏览器的抗指纹伪装与隔离效果",
+          "你需要查看详尽的字体渲染度量、屏幕硬件属性与客户端请求头参数报告"
+        ],
+        "chooseBIf": [
+          "你刚连上 VPN 或代理，需要一页式快速排查 WebRTC STUN/TURN 真实 IP 泄露",
+          "你想检测是否存在运营商透明 DNS 劫持，确认 DNS 查询均走加密隧道",
+          "你需要测试客户端公网 IPv4 / IPv6 双栈暴露情况与归属地一致性"
+        ]
+      }
+    },
+    "cyberchef-vs-transform-tools": {
+      "headline": "密码学编解码与字节级流水线瑞士军刀 vs 多语言 AST 代码类型与 Schema 自动转译工作台",
+      "verdict": {
+        "summary": "CyberChef 是网络安全与数据取证领域的首席字节流水线工作站，可自由串联上百种哈希、加解密与二进制解析操作；而 transform.tools 则专为前后端研发打造，一键完成 JSON 转 TypeScript/Rust/Go 类型、SVG 转 JSX 等代码生成。",
+        "chooseAIf": [
+          "你需要解码 Base64、Hex、URL 编码、Gzip 数据流或分析原始二进制十六进制转储",
+          "你希望把多步数据操作串联成可复用配方（如 Base64 解码 → 解压 → JSON 美化 → SHA-256 校验）",
+          "你在进行安全应急响应、日志脱敏或逆向分析，要求 100% 纯本地无外联执行"
+        ],
+        "chooseBIf": [
+          "你需要根据接口示例 JSON 瞬间生成 TypeScript 接口、Go 结构体或 Rust Serde 类型定义",
+          "你想将 SVG 图标转为 React JSX 组件、CSS 转为 Tailwind 类名或 JSON 转为 Zod 校验代码",
+          "你在日常前后端开发中希望彻底省去手写样板类型定义的时间"
+        ]
+      }
+    },
+    "comparediff-vs-diffhero": {
+      "headline": "极简零延迟行内文本与配置差异比对器 vs 支持语法高亮与未改行折叠的双栏源码文件对比工作台",
+      "verdict": {
+        "summary": "Compare Diff 提供纯本地内存运行的极速行内/分栏文本对比，适合随手粘贴配置片段或文稿查重；而 Diffhero 则面向完整源代码文件比对，提供多语言语法高亮、同步滚动与补丁导出。",
+        "chooseAIf": [
+          "你只需快速粘贴两段文本、Markdown 草稿或配置文件查看字符级增删差异",
+          "你偏爱零多余控件、打开即粘即看的极简交互",
+          "你要求 100% 本地内存比对且无任何外部网络请求"
+        ],
+        "chooseBIf": [
+          "你在对比完整源代码文件，需要感知编程语言的语法高亮与精确行号对照",
+          "你需要左右分栏同步滚动，并折叠大段未改动代码以聚焦核心变更",
+          "你需要上传较大代码文件或导出标准 `.patch / .diff` 变更补丁"
+        ]
+      }
+    }
+  },
+  "collections": {
+    "ephemeral-creative-suite": {
+      "title": "零账号数字创意工作室",
+      "tagline": "100% 运行于浏览器本地内存的全栈视觉设计、矢量绘图与多轨音频创作套件",
+      "persona": "平面设计师、插画师与独立内容创作者",
+      "category": "设计与音视频",
+      "heroQuote": "绝不让订阅付费墙或强制云端登录打断你的创作心流。",
+      "description": "现代商业设计软件早已演变为捆绑高额月费订阅、强制云盘同步与后台遥测的封闭花园。「零账号数字创意工作室」精选基于 WebAssembly 与 WebGL 构建的旗舰级位图、矢量与音频工作站：每一款工具均在浏览器标签页内秒级启动，全部运算严格限制在本地设备硬件中执行，绝不将你的原创设计稿上传至远程云端。",
+      "guarantees": [
+        "100% 客户端 WebAssembly 本地运算",
+        "零注册、零账号体系、无绑卡套路",
+        "云端零留存项目源文件与草稿",
+        "免安装打开即用，跨平台一致体验"
+      ],
+      "items": {
+        "photopea-com": {
+          "roleTitle": "全功能 Photoshop 网页平替",
+          "whySelected": "直接在浏览器 WebGL 内存中流畅打开和编辑复杂多层 PSD、XCF 与 RAW 文件，完整支持调整图层、蒙版与智能滤镜。"
+        },
+        "excalidraw-com": {
+          "roleTitle": "手绘风架构白板与线框草图",
+          "whySelected": "支持端到端加密的虚拟白板，非常适合快速绘制系统架构图、产品交互流与早期概念头脑风暴。"
+        },
+        "squoosh-app": {
+          "roleTitle": "高保真本地图像编码压缩",
+          "whySelected": "Google 出品的 WebAssembly 图像编码器，提供实时左右分屏画质对比，支持 MozJPEG、WebP 与 AVIF 精细压制。"
+        },
+        "app-diagrams-net": {
+          "roleTitle": "精密矢量流程图与架构构建",
+          "whySelected": "企业级流程图与矢量编辑器，无需繁琐云账号即可输出干净、符合标准的纯净 SVG 图形。"
+        },
+        "audiomass-co": {
+          "roleTitle": "32 位浮点浏览器音频工作站",
+          "whySelected": "完整的多轨音频波形编辑器，在 Web Audio API 内存缓冲区内实现参数均衡、动态压缩与响度归一化。"
+        },
+        "coolors-co": {
+          "roleTitle": "和谐色彩方案生成器",
+          "whySelected": "按下空格键即可极速生成专业配色卡，内置无障碍对比度检测并支持一键导出 Hex / RGB 色值变量。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "这套浏览器创意工具栈能否胜任高分辨率印刷级大图？",
+          "answer": "完全可以。现代 64 位浏览器运行时可为 WebAssembly 分配数 GB 本地内存：Photopea 能流畅编辑多层 300 DPI 海报源文件，Squoosh 也能在本地轻松压制 50MB 级别的导出大图。"
+        },
+        {
+          "question": "我未公开的插画草稿或音频母带会被网站运营方看到吗？",
+          "answer": "不会。本工具栈收录的核心编辑器均采用纯客户端架构运行，位图像素、矢量节点与音频采样缓冲区始终停留在你自己的设备内存中。"
+        }
+      ]
+    },
+    "secure-freelancer-toolkit": {
+      "title": "高保密客户交付工具栈",
+      "tagline": "免留痕完成合同签署、端到端加密大文件交付与阅后即焚密钥交接",
+      "persona": "自由职业者、独立顾问与外部技术专家",
+      "category": "效率与隐私交付",
+      "heroQuote": "交付一流专业成果的同时，严守商业保密协议（NDA）与客户底稿安全。",
+      "description": "独立顾问与自由职业者日常经手大量受严格 NDA 保护的商业机密、财务报表与未公开产品路线图。若将这些敏感资产随手传上充满追踪脚本的第三方云端工具，极易引发合规与泄密风险。本工具栈为你打造零账号留痕的安全作业底座：在浏览器本地合并签署 PDF 协议、通过端到端加密通道传输数 GB 交付物，并用阅后即焚链接安全移交生产密钥。",
+      "guarantees": [
+        "客户机密文档严格在浏览器内处理",
+        "交付文件全程端到端加密传输",
+        "云端零留存保密协议（NDA）与账单",
+        "无供应商账号锁定或跨站行为追踪"
+      ],
+      "items": {
+        "tools-pdf24-org-en": {
+          "roleTitle": "合同合并签署与 PDF 脱敏加固",
+          "whySelected": "无需强制注册即可完成敏感合同合并、签名、加密与图层拍平，避免机密条款外泄。"
+        },
+        "wormhole-app": {
+          "roleTitle": "端到端加密大文件临时交付",
+          "whySelected": "支持高达 10GB 文件的浏览器端预加密传输，链接在 24 小时或达到下载次数后自动彻底销毁。"
+        },
+        "privnote-com": {
+          "roleTitle": "阅后即焚密钥与口令移交",
+          "whySelected": "用一次性自毁加密便签安全传递客户 API 密钥、测试服密码与临时访问凭据，读取后立即销毁。"
+        },
+        "temp-mail-org": {
+          "roleTitle": "客户注册流 QA 测试临时邮箱",
+          "whySelected": "秒级生成免登录一次性收件箱，方便验证客户系统注册流程与邮件触达，避免个人主邮箱被垃圾信污染。"
+        },
+        "hemingwayapp-com": {
+          "roleTitle": "项目提案与报告可读性打磨",
+          "whySelected": "在本地浏览器分析英文提案与交付报告的句式复杂度与被动语态，零远程日志记录。"
+        },
+        "time-is": {
+          "roleTitle": "全球跨时区客户精准对时",
+          "whySelected": "零延迟、零追踪 Cookie 展示原子钟级全球城市标准时间，确保跨国远程会议准点衔接。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "用这些工具签署和整理 PDF 合同符合企业保密协议（NDA）要求吗？",
+          "answer": "符合。使用本地优先的 PDF 处理模式与端到端预加密传输通道，可避免将明文合同永久托管在第三方商业 SaaS 网盘中，显著降低供应链泄露面。"
+        },
+        {
+          "question": "通过 Wormhole 发送的交付包在客户下载后会怎样？",
+          "answer": "Wormhole 的解密密钥仅保存在分享链接的 URL 锚点（#）中，不会发送给服务器；一旦达到设定有效期或下载上限，加密密文即从中继节点永久清除。"
+        }
+      ]
+    },
+    "web-developer-quick-kit": {
+      "title": "零阻力全栈研发调试武器库",
+      "tagline": "毫秒级启动的语法校验、JSON 图谱可视化、离线 API 文档与 HTTP 接口沙盒",
+      "persona": "前端工程师、后端研发与 SRE 运维工程师",
+      "category": "软件开发",
+      "heroQuote": "在线上故障争分夺秒排障时，绝不被“请先使用 GitHub 登录”挡在门外。",
+      "description": "每位工程师都经历过这样的烦躁时刻：只想快速看一眼嵌套 JSON 结构或验证一条正则表达式，却被强制弹出的登录框和五步新手引导拦住去路。「零阻力全栈研发调试武器库」汇集了全网响应最快、最纯粹的免登录研发利器——毫秒级冷启动、支持 Service Worker 离线缓存，且绝不记录你的内部接口报文、数据库连接串或核心代码片段。",
+      "guarantees": [
+        "毫秒级冷启动，零新手引导打扰",
+        "绝不远程记录内部 API 报文与凭据",
+        "完备的键盘快捷键与剪贴板高效交互",
+        "支持 PWA 离线断网持续可用"
+      ],
+      "items": {
+        "devdocs-io": {
+          "roleTitle": "离线统一技术文档工作站",
+          "whySelected": "极速、全键盘驱动的聚合文档检索器，支持将 100+ 种编程语言、框架与 Web 标准文档缓存至本地离线查阅。"
+        },
+        "regex101-com": {
+          "roleTitle": "深度正则表达式调试与性能分析",
+          "whySelected": "提供可视化正则语法树拆解、步进回溯性能统计、多引擎（PCRE / JS / Python / Go）切换与单元测试套件。"
+        },
+        "jsoncrack-com": {
+          "roleTitle": "嵌套数据可视化节点图谱",
+          "whySelected": "将冗长深层嵌套的 JSON 与 GraphQL 响应体即时转化为可平移缩放的交互式树状节点图。"
+        },
+        "hoppscotch-io": {
+          "roleTitle": "开源纯网页 API 调试沙盒",
+          "whySelected": "高性能 REST、WebSocket 与 GraphQL 接口测试客户端，无需注册强制云端账号即可在浏览器直接发起请求。"
+        },
+        "carbon-now-sh": {
+          "roleTitle": "高颜值代码语法高亮配图生成",
+          "whySelected": "为技术博客、架构评审幻灯片与开源仓库 README 快速渲染高分辨率精美代码截图。"
+        },
+        "caniuse-com": {
+          "roleTitle": "浏览器 Web API 兼容性权威矩阵",
+          "whySelected": "查询 CSS、HTML5 与现代 JavaScript 特性在各桌面及移动端浏览器内核支持率的行业黄金标准。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "把公司内部接口返回的 JSON 数据粘贴到这些工具里安全吗？",
+          "answer": "安全。诸如 JSON Crack 与 Regex101 等核心工具均在浏览器本地 DOM 与 WebAssembly 内存中完成解析，不会将你的输入报文上传或持久化到远程服务器。"
+        },
+        {
+          "question": "在飞机上或内网断网环境下还能查阅 DevDocs 吗？",
+          "answer": "可以。DevDocs 利用浏览器 IndexedDB 与 Service Worker 将所选文档库完整下载到本地磁盘，断网状态下依然毫秒级秒搜。"
+        }
+      ]
+    },
+    "academic-privacy-station": {
+      "title": "气隙级学术写作与科研工作台",
+      "tagline": "无干扰 Markdown 论文起草、多语种学术语法审校与交互式数理推演",
+      "persona": "高校学者、科研人员与硕博研究生",
+      "category": "写作与学术研究",
+      "heroQuote": "守护未发表学术手稿与原创科研发现，远离商业 AI 语料抓取与数据经纪商。",
+      "description": "未发表的学术论文、实验数据与数学证明凝聚着数年心血。一旦将初稿托管进商业云写作平台，往往面临被默认用于大模型训练、行为遥测分析甚至抢发泄密的风险。「气隙级学术写作与科研工作台」为你构建自主可控的纯净研究空间：用清爽 Markdown 撰写正文、精准校对多语种学术表达、推演复杂微积分方程并压缩归档 PDF 文献，全程零账号、零追踪留痕。",
+      "guarantees": [
+        "未发表论文手稿免受商业 AI 语料抓取",
+        "本地优先公式渲染与数理函数计算",
+        "极简无干扰沉浸式学术排版界面",
+        "零云端同步冲突、零订阅付费墙"
+      ],
+      "items": {
+        "dillinger-io": {
+          "roleTitle": "沉浸式双栏 Markdown 论文起草",
+          "whySelected": "无干扰实时分屏预览 Markdown 编辑器，内置字数统计并支持直接编译导出干净的 HTML 与 PDF 文稿。"
+        },
+        "languagetool-org": {
+          "roleTitle": "多语种学术语法与文风审校",
+          "whySelected": "支持英、德、法、西、中等 30 余种语言的拼写、标点与学术书面语体校对，无需注册即可即贴即查。"
+        },
+        "desmos-com-calculator": {
+          "roleTitle": "交互式函数绘图与回归分析沙盒",
+          "whySelected": "全球数学与理工科通用的高精度函数曲线、回归模型、极坐标与微积分动态可视化标准工具。"
+        },
+        "wolframalpha-com": {
+          "roleTitle": "符号数学与科学计算知识引擎",
+          "whySelected": "免登录求解微分方程、概率统计分布、物理常数换算与化学反应计量等复杂科学计算问题。"
+        },
+        "tools-pdf24-org-en": {
+          "roleTitle": "文献扫描件 OCR 与投稿体积压缩",
+          "whySelected": "提取论文页面、执行 OCR 文字识别并将超标的高清扫描 PDF 压缩至期刊投稿系统大小限制以内。"
+        },
+        "duck-ai": {
+          "roleTitle": "匿名零留存 AI 科研文献助手",
+          "whySelected": "通过隐私代理匿名调用主流大语言模型辅助文献梳理，不绑定研究者身份且承诺不将提问用于模型训练。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "在 DuckDuckGo AI 中提问的科研思路会被拿去训练未来大模型吗？",
+          "answer": "不会。DuckDuckGo AI Chat 先剥离请求方 IP 等身份元数据再通过隐私中继转发，并与底层模型服务商签署了零数据留存、禁止用于模型训练的协议保障。"
+        },
+        {
+          "question": "能否方便地导出 LaTeX 公式用于期刊排版？",
+          "answer": "非常方便。Desmos 支持直接复制标准 LaTeX 数学表达式，Dillinger 也支持常见学术公式与表格语法排版。"
+        }
+      ]
+    },
+    "crypto-investor-privacy-suite": {
+      "title": "零 KYC 密码学与安全加固工具栈",
+      "tagline": "纯本地密码学哈希流水线、零知识机密分享、网络泄露体检与防篡改网页存证",
+      "persona": "Web3 建设者、安全研究员与数字隐私倡导者",
+      "category": "加密资产与安全",
+      "heroQuote": "以零身份关联与气隙级密码学保障，稳妥执行高安全等级的数字操作。",
+      "description": "在去中心化金融与高对抗安全场景中，操作安全（OpSec）容不得半点闪失。随意访问采集 IP、浏览器 Canvas 指纹或设备遥测的中心化小工具，极易导致链上地址与现实身份产生不可逆关联。本工具栈严选经过实战检验的纯客户端安全利器：本地生成操作系统去遥测脚本、离线执行哈希与编码分析、通过零知识链接传递一次性恢复码，并在签名前彻底排查网络 DNS 泄露。",
+      "guarantees": [
+        "纯客户端标准密码学原语运算",
+        "零身份验证（Zero-KYC）与零 IP 画像关联",
+        "完整的 WebRTC 与递归 DNS 泄露交叉核验",
+        "不可篡改的第三方公开网页快照存证"
+      ],
+      "items": {
+        "privacy-sexy": {
+          "roleTitle": "操作系统级隐私加固与遥测剥离",
+          "whySelected": "在浏览器本地生成开源透明的 Bash / PowerShell 脚本，一键关闭系统后台遥测、广告 ID 与云剪贴板同步。"
+        },
+        "gchq-github-io-cyberchef": {
+          "roleTitle": "GCHQ 开源密码学瑞士军刀",
+          "whySelected": "100% 本地构建复杂密码学流水线：Keccak-256 / SHA 哈希、Base58 / Hex 互转、ABI 字节解码与信息熵分析。"
+        },
+        "yopass-se": {
+          "roleTitle": "端到端加密阅后即焚机密共享",
+          "whySelected": "在客户端浏览器内使用 OpenPGP / AES 预加密恢复码或敏感配置，生成单次读取后自动销毁的零知识链接。"
+        },
+        "privacytests-org": {
+          "roleTitle": "浏览器抗指纹与隔离防御基准榜",
+          "whySelected": "持续自动化审计主流浏览器的反追踪、状态分区（State Partitioning）与指纹随机化真实防护水平。"
+        },
+        "dnsleaktest-com": {
+          "roleTitle": "VPN / Tor 隧道 DNS 完整性审计",
+          "whySelected": "在执行高敏操作前快速检测 DNS 查询是否绕过加密隧道泄露给本地宽带运营商（ISP）。"
+        },
+        "archive-ph": {
+          "roleTitle": "链上公告与审计报告永久快照存证",
+          "whySelected": "为项目代币经济模型、治理提案网页与安全审计披露创建不可篡改的永久公开网页快照。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "为什么敏感恢复短语更适合使用纯客户端加密工具而非云端密码管理器传递？",
+          "answer": "中心化云端工具往往要求绑定手机号或主邮箱账号，存在单点撞库与元数据关联风险；纯客户端零知识加密在浏览器本地 RAM 内完成加解密，中继节点永远无法获知明文。"
+        },
+        {
+          "question": "CyberChef 会把我的哈希输入或密钥发送到远程服务器吗？",
+          "answer": "绝不会。CyberChef 作为完全静态的纯客户端 Web 应用运行，全部编解码与加密运算均在本地浏览器 JavaScript 线程内闭环完成。"
+        }
+      ]
+    },
+    "remote-meeting-clean-stack": {
+      "title": "零追踪远程会议与团队协作栈",
+      "tagline": "免装客户端视频会议、跨时区空闲网格投票、实时协作白板与局域网秒传",
+      "persona": "远程分布式团队、敏捷小组与注重隐私的协作组织",
+      "category": "团队实时协作",
+      "heroQuote": "无需强迫外部客户或队友下载臃肿客户端、注册新账号，点开链接即刻开会协作。",
+      "description": "繁琐的会前准备最容易扼杀团队沟通效率：要求外部客户安装视频软件、注册白板账号或授权日历权限，不仅拖慢节奏，还会留下大量企业监控日志。「零追踪远程会议与团队协作栈」提供纯现代浏览器即开即用的协作闭环：涂抹色块快速对齐多人时间、一键开启加密高清视频房、在无限画布上同步绘制方案，并通过 WebRTC 点对点通道秒传文件。",
+      "guarantees": [
+        "参会者免下载客户端、免注册任何账号",
+        "基于 WebRTC 的高清音视频加密传输",
+        "局域网与跨设备点对点直连文件空投",
+        "零参会行为画像与持久会议监控留存"
+      ],
+      "items": {
+        "meet-jit-si": {
+          "roleTitle": "即开即用加密视频会议室",
+          "whySelected": "无需注册或安装插件，输入房间名即可开启支持高清屏幕共享、多人宫格视图与端到端加密的在线视频会议。"
+        },
+        "www-when2meet-com": {
+          "roleTitle": "多人空闲时间热力图快速对齐",
+          "whySelected": "最轻快的团队排期工具，参会者无需注册邮箱，直接在共享时间网格上拖拽涂抹各自可用时段即可找出最佳交集。"
+        },
+        "tldraw-com": {
+          "roleTitle": "丝滑多人实时协作无限白板",
+          "whySelected": "多光标低延迟同步白板，内置几何图形、便签与智能连接箭头，非常适合远程架构评审与工作坊。"
+        },
+        "til-re": {
+          "roleTitle": "链接同步共享会议倒计时器",
+          "whySelected": "可通过 URL 一键共享的倒计时、秒表与议程时钟，帮助每日站会、闪电演讲与设计冲刺严格把控时间。"
+        },
+        "pairdrop-net": {
+          "roleTitle": "WebRTC 跨平台局域网文件空投",
+          "whySelected": "利用浏览器点对点数据通道在手机、Mac、Windows 与 Linux 之间直接互传文件与剪贴板文本，零云端中转存储。"
+        },
+        "privnote-com": {
+          "roleTitle": "一次性会议口令安全分发",
+          "whySelected": "用阅读后自动销毁的加密链接安全发送会议室密码、测试环境入口或保密议程提纲。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "受邀参会的外部客户需要注册账号或填写邮箱吗？",
+          "answer": "完全不需要。本工具栈中的每一款协作工具都通过分享链接直接工作，参会者在浏览器点开链接即可立刻加入讨论。"
+        },
+        {
+          "question": "Jitsi Meet 能否满足大型团队演示与高清屏幕共享需求？",
+          "answer": "可以。Jitsi 原生支持多人同时在线语音视频、1080p 清晰屏幕与窗口共享以及主讲人焦点视图，无需安装任何桌面客户端。"
+        }
+      ]
+    },
+    "social-media-growth-box": {
+      "title": "新媒体创作者极速沙盒",
+      "tagline": "无水印动图精剪、AI 一键抠图、社媒分享卡片预览调试与矢量二维码生成",
+      "persona": "新媒体运营、独立开发者（Indie Hackers）与内容增长团队",
+      "category": "媒体制作与增长",
+      "heroQuote": "告别按月扣费的营销工具订阅疲劳，几分钟内产出高点击率社媒视觉物料。",
+      "description": "在快节奏的内容增长与独立产品发布中，执行速度决定传播效率。为了一次简单的头像抠图、产品录屏转 GIF 或排查社交分享预览图而下载大型桌面软件、开通自动续费会员，往往得不偿失。「新媒体创作者极速沙盒」集结免登录高频创作利器：快速剥离照片背景、压制轻量流畅的产品演示 GIF、发帖前精准预览 Open Graph 卡片，并导出无限放大的印刷级矢量二维码。",
+      "guarantees": [
+        "素材秒级处理与标准无损格式导出",
+        "导出成品零商业水印、零强制品牌尾标",
+        "无需绑定信用卡或掉入免费试用扣费陷阱",
+        "发布前安全校验多平台社交卡片渲染效果"
+      ],
+      "items": {
+        "ezgif-com": {
+          "roleTitle": "GIF 动图与短视频帧级处理瑞士军刀",
+          "whySelected": "一站式完成 MP4 转 GIF、画面裁切、尺寸缩放、倒放与帧率抽帧压缩，全程无任何强制水印。"
+        },
+        "remove-bg": {
+          "roleTitle": "AI 智能人像与商品瞬间抠图",
+          "whySelected": "拖入图片数秒内精准分离发丝与复杂商品边缘，快速输出干净的透明背景 PNG 素材。"
+        },
+        "metatags-io": {
+          "roleTitle": "社交分享卡片（Open Graph）实时调试器",
+          "whySelected": "在正式发帖前实时预览网页链接在 X/Twitter、Facebook、LinkedIn 与 Slack 中的标题、摘要与封面裁切效果。"
+        },
+        "audiotrimmer-com": {
+          "roleTitle": "播客金句与短视频音效快速切片",
+          "whySelected": "精准截取高光音频片段并添加平滑淡入淡出，轻松适配短视频配乐与播客预告分发。"
+        },
+        "qrcode-monkey-com": {
+          "roleTitle": "高分辨率品牌矢量二维码定制器",
+          "whySelected": "支持自定义渐变色、嵌入品牌 Logo 并免费导出可无限放大的 SVG / EPS 印刷级矢量二维码。"
+        },
+        "ray-so": {
+          "roleTitle": "高视觉冲击力代码与金句渐变海报框",
+          "whySelected": "用现代质感渐变背景装裱代码片段与版本更新亮点，非常适合在 X 与技术社区发布产品动态。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "用这些工具导出的动图或二维码会被强行加上网站水印吗？",
+          "answer": "不会。本工具栈严选的创作工具均可直接导出干净、可用于商业传播的无水印成品素材。"
+        },
+        {
+          "question": "为什么正式发布产品链接前要先用 MetaTags.io 预览调试？",
+          "answer": "社交平台会强力缓存首次抓取到的 Open Graph 预览图；提前用调试器确认封面宽高比与描述文案无误，可避免首发推文出现破图或标题截断。"
+        }
+      ]
+    },
+    "data-analyst-sanitizer-box": {
+      "title": "气隙级数据清洗与可视化工具箱",
+      "tagline": "浏览器本地 SQLite 分析、多格式表格互转、学术级矢量图表与合成脱敏数据生成",
+      "persona": "数据分析师、商业智能（BI）顾问与调查记者",
+      "category": "数据清洗与分析",
+      "heroQuote": "在不把敏感业务表格上传给第三方云平台的前提下，本地完成清洗、SQL 聚合与出版级制图。",
+      "description": "数据分析师与调查记者经常处理包含薪资明细、财务流水或受访者隐私的原始 CSV 报表。将这些表格直接上传到在线转换器或云端 BI 看板，极易触碰 GDPR 与企业数据合规红线。「气隙级数据清洗与可视化工具箱」将核心计算收归本地浏览器：通过 WebAssembly 版 SQLite 在内存运行复杂关联查询、清洗重组异构表格、绘制可编辑矢量统计图，并快速生成脱敏测试数据集。",
+      "guarantees": [
+        "敏感业务报表零服务端留存",
+        "浏览器内置 WebAssembly SQLite 查询引擎",
+        "直接导出出版级可编辑 SVG 矢量图表",
+        "从源头隔绝第三方云数据仓库泄露风险"
+      ],
+      "items": {
+        "lite-datasette-io": {
+          "roleTitle": "浏览器本地 WASM SQLite 分析引擎",
+          "whySelected": "借助 Pyodide 与 WebAssembly 直接在浏览器内存加载 CSV 与 SQLite 数据库，零上传执行完整 SQL JOIN 与聚合分析。"
+        },
+        "csvjson-com": {
+          "roleTitle": "异构表格解析、清洗与结构重塑",
+          "whySelected": "在本地内存中将杂乱的 CSV / TSV 文本快速转换为层级 JSON 对象或数据库导入脚本。"
+        },
+        "tableconvert-com": {
+          "roleTitle": "全格式文档表格双向互转器",
+          "whySelected": "支持在 Excel 单元格、GitHub Markdown、CSV、HTML 与 LaTeX 学术表格格式之间秒级双向转换。"
+        },
+        "rawgraphs-io": {
+          "roleTitle": "出版级 D3 矢量数据可视化工作台",
+          "whySelected": "在浏览器画布内直接构建桑基冲积图、矩形树图、蜂群图与弦图，导出可在矢量软件二次精修的纯净 SVG。"
+        },
+        "mockaroo-com": {
+          "roleTitle": "高仿真合成测试数据集生成器",
+          "whySelected": "免登录快速生成上千行高度拟真的虚拟姓名、地址、邮箱与交易金额，避免在开发测试环境使用真实用户隐私数据。"
+        },
+        "gchq-github-io-cyberchef": {
+          "roleTitle": "批量字段正则脱敏与哈希匿名化",
+          "whySelected": "数秒内串联执行列提取、正则清洗以及手机号/身份证号字段的 SHA-256 单向哈希脱敏处理。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "可以用 Datasette Lite 直接查询包含客户敏感字段的本地 CSV 文件吗？",
+          "answer": "可以。Datasette Lite 基于 WebAssembly 完全运行在你的本地浏览器标签页内，本地挂载的 CSV 文件字节不会上传到远程服务器，非常适合严格的数据合规场景。"
+        },
+        {
+          "question": "RAWGraphs 支持导出哪些图表格式用于报告排版？",
+          "answer": "支持直接导出无限缩放的矢量 SVG、高清 PNG 位图以及原始图表配置模型；导出的 SVG 可直接拖入矢量设计软件或插入学术论文。"
+        }
+      ]
+    }
+  },
+  "workflows": {
+    "private-podcast-production": {
+      "title": "隐私优先播客录制与后期分发流水线",
+      "category": "音视频与媒体",
+      "timeEstimate": "15 分钟",
+      "privacyGuarantee": "100% 浏览器内存音频处理、纯客户端封面压缩与端到端加密母带分发",
+      "headline": "无需注册任何账号，在浏览器内完成多轨播客录音、片头片尾精剪、正方形封面压制与加密母带交付",
+      "summary": "传统播客制作流程往往把创作者绑在 Adobe Audition、Canva 与付费网盘的月度订阅与账号追踪体系里。本工作流让独立播客主、记者与注重隐私的声音创作者完全在本地浏览器内存中完成高保真节目录制、降噪混音、封面优化与零知识加密分发。",
+      "whyThisStack": "商业音频云平台常常收集语音波形元数据、项目名称与分发行为。将 AudioMass（本地 Web Audio 数字音频工作站）、AudioTrimmer（快速边界精剪）、Squoosh（客户端 WebAssembly 图像编码）与 Wormhole（零知识端到端加密传输）串联后，未公开的访谈录音与封面原稿全程不会以明文形式滞留在第三方云服务器上。",
+      "steps": {
+        "1": {
+          "actionTitle": "录制人声并执行多轨均衡降噪",
+          "actionDescription": "在浏览器打开 AudioMass，直接将麦克风人声录入 Web Audio 内存缓冲区，或拖入本地干声文件。在本地直接应用参数均衡器（EQ）、噪声门限、动态压缩与响度归一化，语音数据零上传。",
+          "inputFormat": "麦克风实时流 / 本地 WAV / MP3",
+          "outputFormat": "无损 44.1kHz WAV 母带文件",
+          "proTip": "导出前在主母线使用 AudioMass 的 Normalize（归一化至 -1.0 dBFS），可有效避免后续编码出现削波爆音。"
+        },
+        "2": {
+          "actionTitle": "精剪片头片尾与金句预告切片",
+          "actionDescription": "将导出的 WAV 母带载入 AudioTrimmer，精确设定起止时间戳，添加自然的 2 秒淡入与淡出过渡，快速切出整期成片与社交媒体传播用的精华语音片段。",
+          "inputFormat": "导出的 WAV / MP3 母带",
+          "outputFormat": "首尾干净的 MP3 / M4A 成品音频",
+          "proTip": "裁出 30 秒以内的高光金句片段非常适合社交平台预热，同时能将文件体积控制在移动网络秒开范围内。"
+        },
+        "3": {
+          "actionTitle": "本地无损压制 3000×3000 播客封面",
+          "actionDescription": "将 3000×3000 像素的高清节目封面拖入 Squoosh，使用 Google WebAssembly 编码器（MozJPEG 或 WebP）配合分屏画质滑块，在肉眼零画质损失的前提下把十几 MB 的原图压至 300KB 以内。",
+          "inputFormat": "高清 PNG / PSD 导出图（3000×3000px）",
+          "outputFormat": "优化后的 WebP / JPEG 封面（<300KB）",
+          "proTip": "Apple Podcasts 与 Spotify 要求单期封面文件小于 512KB，在 MozJPEG 中设定 85% 质量通常能兼顾锐度与极小体积。"
+        },
+        "4": {
+          "actionTitle": "通过端到端加密链接交付成片包",
+          "actionDescription": "将最终音频成片与封面图一并拖入 Wormhole。文件在浏览器客户端预加密后再传输，并生成 24 小时后或达到下载次数后自动销毁的临时下载链接。",
+          "inputFormat": "成片音频 + 节目封面打包文件",
+          "outputFormat": "零知识端到端加密临时分享链接",
+          "proTip": "Wormhole 支持最高 10GB 大文件与边传边下的流式点对点传输，搭档无需等待你上传完毕即可开始高速拉取。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "不安装任何桌面软件，只靠浏览器真的能做出广播级音质的播客吗？",
+          "answer": "完全可以。现代浏览器 WebAssembly 与 Web Audio 引擎具备亚毫秒级音频缓冲处理能力，AudioMass 支持 32 位浮点音频运算，足以胜任专业人声剪辑与动态处理。"
+        },
+        {
+          "question": "剪辑过程中我的受访者录音会被上传到云端服务器吗？",
+          "answer": "不会。AudioMass 与 Squoosh 完全在你本地浏览器的内存沙盒中运行；除非你在最后一步主动使用加密通道分享，原始录音绝不离开本机。"
+        }
+      ]
+    },
+    "secure-document-redaction": {
+      "title": "机密 PDF 彻底涂黑脱敏与阅后即焚共享",
+      "category": "隐私与安全",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "文本层永久拍平抹除、EXIF/隐藏元数据剥离与客户端 AES-256 端到端加密",
+      "headline": "彻底抹除敏感文字图层、清除隐藏作者与设备元数据，并通过零知识自毁链接安全送达机密文档",
+      "summary": "法律合同、税务申报表与医疗记录包含高度敏感的个人身份信息（PII）。随手把它们传上不明云端 PDF 网站，极易面临后台留存与 OCR 索引泄露。本工作流组合 PDF24、CyberChef、Yopass 与 Wormhole，实现从底层字符彻底销毁到端到端加密投递的全链路闭环。",
+      "whyThisStack": "商业云端文档套件往往在后台留存文档副本。通过串联 PDF24（拍平底层文字图层防止复制还原）、CyberChef（剥离隐藏元数据并生成哈希校验）、Yopass（客户端预加密口令分发）与 Wormhole（阅后即焚文件传输），可确保涉密文件全程可控。",
+      "steps": {
+        "1": {
+          "actionTitle": "永久涂黑敏感字段并合并拍平页面",
+          "actionDescription": "使用 PDF24 工具合并源文档并涂黑身份证号、银行卡号与手写签名。涂黑后底层文本层会被彻底栅格化拍平，杜绝他人通过鼠标选中复制恢复黑框下方的原始文字。",
+          "inputFormat": "未脱敏原始 PDF / 扫描件",
+          "outputFormat": "视觉与底层文本层双重抹除的脱敏 PDF",
+          "proTip": "切勿仅在普通阅读器里画一个黑色矩形遮挡——那只会盖住表面而保留底层可复制文字；务必执行拍平（Flatten）或专用涂黑操作。"
+        },
+        "2": {
+          "actionTitle": "审计文件头并剥离隐藏元数据足迹",
+          "actionDescription": "将脱敏后的文件载入 CyberChef，检查并清理隐藏的打印机序列号、创建者姓名、编辑软件版本、GPS 坐标与修改时间戳，同时计算 SHA-256 完整性校验值。",
+          "inputFormat": "已涂黑的 PDF 文件",
+          "outputFormat": "零元数据残留的纯净文档 + SHA-256 哈希",
+          "proTip": "CyberChef 由英国 GCHQ 开源，100% 在本地浏览器 JavaScript 内存中运行，无任何服务端上传请求。"
+        },
+        "3": {
+          "actionTitle": "用客户端端到端加密传递解压口令",
+          "actionDescription": "将文档访问口令或校验哈希粘贴进 Yopass，浏览器会在本地完成 AES-256 加密并生成仅限读取一次的自毁访问链接。",
+          "inputFormat": "脱敏口令 / 解密密钥说明",
+          "outputFormat": "单次读取后立即销毁的零知识加密链接",
+          "proTip": "遵循双通道安全原则：比如通过即时通讯发送文档下载链接，再通过另一独立渠道发送 Yopass 一次性口令链接。"
+        },
+        "4": {
+          "actionTitle": "通过单次下载自毁链接投递加密文件",
+          "actionDescription": "将处理完毕的加密文档拖入 Wormhole，将有效期设为 24 小时或“下载 1 次后即销毁”。收件人取走文件后，中继缓存随即永久清空。",
+          "inputFormat": "加密后的最终文档包",
+          "outputFormat": "单次下载后自动销毁的传输链接",
+          "proTip": "即便传输链接在网络链路中被截获，没有独立通道传递的解密口令，第三方依然无法解开载荷内容。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "为什么不能直接在普通 PDF 阅读器里画黑色方块遮住敏感词？",
+          "answer": "大多数简易阅读器只是在文字上方叠加了一层黑色矢量图形，底层的可选中文本字符仍然原封不动留在文件里，任何人复制粘贴到记事本就能看到原文；真正的脱敏必须销毁底层字符并拍平。"
+        },
+        {
+          "question": "这些工具会在后台保存我的密码或未加密原件吗？",
+          "answer": "不会。CyberChef 完全离线运行于浏览器内存，Yopass 与 Wormhole 均在你的浏览器本地使用 Web Crypto API 完成加密，服务器从头到尾只接触密文。"
+        }
+      ]
+    },
+    "vector-to-web-asset": {
+      "title": "矢量架构草图转生产级超轻量网页素材",
+      "category": "平面与矢量设计",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "100% 客户端矢量合成、本地 SVGO 冗余清理与现代图像编码",
+      "headline": "无需安装臃肿设计套件或注册云账号，从架构草图一路精细化排版、剔除 SVG 冗余标签并生成响应式 WebP / AVIF 资源",
+      "summary": "现代高性能网站既需要放大不失真的锐利矢量插图，也需要超小体积的位图兜底卡片。传统桌面设计软件导出的 SVG 往往夹带大量私有 XML 命名空间与冗余坐标精度。本四步流水线完全在浏览器内直接产出几 KB 大小的生产级纯净素材。",
+      "whyThisStack": "前端性能优化要求图标与架构配图尽可能控制在 10KB 以内。通过串联 Excalidraw（快速构思草图）、Diagrams.net（精确节点对齐）、SVGOMG（可视化 SVGO 极致瘦身）与 Squoosh（高压缩比 WebP/AVIF 兜底生成），无需 Figma 或 Adobe 账号即可搭建完整前端视觉流水线。",
+      "steps": {
+        "1": {
+          "actionTitle": "快速勾勒系统架构与流程概念图",
+          "actionDescription": "在 Excalidraw 画布中快速绘制线框原型、数据库关系或业务流向，利用自动吸附箭头迅速理清结构，并导出原始 SVG 矢量文件。",
+          "inputFormat": "构思草图 / 画布绘制",
+          "outputFormat": "包含完整图形元素的原始 SVG",
+          "proTip": "导出时勾选“Embed Scene（嵌入场景数据）”保留一份可编辑备份，后续随时拖回 Excalidraw 继续修改。"
+        },
+        "2": {
+          "actionTitle": "精细调整矢量路径与网格对齐",
+          "actionDescription": "将原始 SVG 导入 Diagrams.net，借助 4px 标准网格校准节点间距、统一描边粗细与品牌色值，输出排版严整的技术插图。",
+          "inputFormat": "原始草图 SVG",
+          "outputFormat": "对齐精修后的标准 SVG 插图",
+          "proTip": "Diagrams.net 纯前端运行，支持直接导出无多余商业水印的标准 SVG 源码。"
+        },
+        "3": {
+          "actionTitle": "用 SVGO 可视化界面剥离 XML 冗余",
+          "actionDescription": "把精修后的 SVG 拖入 Jake Archibald 开发的 SVGOMG：移除编辑器命名空间、合并多余分组、精简路径浮点小数位并缩短十六进制色值，文件体积通常立减 40%–75%。",
+          "inputFormat": "未压缩 SVG（25KB–150KB）",
+          "outputFormat": "生产级极简内联 SVG（<5KB）",
+          "proTip": "将坐标精度（Precision）设为保留 2 位小数，既能保持视网膜屏下的锐利边缘，又能大幅砍掉无意义的浮点噪点。"
+        },
+        "4": {
+          "actionTitle": "生成响应式 WebP 与 AVIF 社交预览兜底图",
+          "actionDescription": "针对不支持内联 SVG 的邮件或 Open Graph 社交分享卡片场景，将高分辨率 PNG 渲染图拖入 Squoosh，输出 1x 与 2x 清晰度的极小体积 WebP / AVIF 图片。",
+          "inputFormat": "高清位图导出（2400px PNG）",
+          "outputFormat": "50KB 以内的响应式 WebP / AVIF 资源",
+          "proTip": "对于高对比度的技术架构图与线条插画，Squoosh 中的 AVIF 编码往往比 WebP 还能再省约 20% 体积。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "为什么从设计软件导出的 SVG 还需要专门做一次压缩优化？",
+          "answer": "设计工具默认会在文件里写入大量编辑器私有元数据、注释与长达 6 位小数的冗余路径坐标；使用 SVGOMG 剥离这些无用字符后，可直接加快网页首屏渲染（FCP）。"
+        },
+        {
+          "question": "SVGOMG 优化后的代码可以直接粘贴进 React 或 Astro 组件吗？",
+          "answer": "完全可以。清理后的 SVG 不含冲突的 DOCTYPE 声明与冗余属性，非常适合直接内联嵌入现代前端组件。"
+        }
+      ]
+    },
+    "anonymous-markdown-publishing": {
+      "title": "无干扰沉浸式写作与零账号匿名发布",
+      "category": "写作与文本",
+      "timeEstimate": "12 分钟",
+      "privacyGuarantee": "100% 无状态本地草稿缓存、实时可读性诊断与零身份追踪网页发布",
+      "headline": "从分屏 Markdown 起草、句式精简、多语种语法校对到一键生成公开独立网页，全程无需注册邮箱或绑定身份",
+      "summary": "如今在主流内容平台发表文章，往往绕不开实名手机号验证、强制登录弹窗与算法推荐围墙。本工作流专为极简写作者、独立评论人与技术专栏作者设计，让你安静打磨文字并在数秒内发布为无广告、无追踪脚本的纯净网页。",
+      "whyThisStack": "商业内容平台普遍强制读者登录并植入大量行为追踪器。将 Dillinger（本地缓存 Markdown 起草）、Hemingway（句式精简）、LanguageTool（语法标点严校）与 Write.as（免注册即时网页发布）组合，即可拥有自由、克制的现代独立出版流水线。",
+      "steps": {
+        "1": {
+          "actionTitle": "在双栏实时预览画布中撰写 Markdown 初稿",
+          "actionDescription": "打开 Dillinger 进入无干扰写作模式，左侧编写支持表格与代码高亮的 GitHub 风格 Markdown，右侧实时预览排版效果，草稿自动保存在本地浏览器存储中。",
+          "inputFormat": "大纲笔记 / 纯文本灵感",
+          "outputFormat": "结构化 Markdown 文稿（`.md`）",
+          "proTip": "Dillinger 将草稿保存在浏览器本地 `localStorage` 中，加载完成后即便断开 Wi-Fi 也能安心离线写作。"
+        },
+        "2": {
+          "actionTitle": "诊断阅读阻力并砍掉冗长从句",
+          "actionDescription": "将初稿粘贴进 Hemingway Editor，借助彩色高亮一眼识别过长难句（红色）、过多被动语态（绿色）与冗余副词（蓝色），让文章节奏更干净利落。",
+          "inputFormat": "Markdown 正文草稿",
+          "outputFormat": "逻辑清晰、精练易读的修订稿",
+          "proTip": "尽量把红色高亮的超长难句比例控制在总段落数的 5% 以内，能显著降低长文阅读疲劳。"
+        },
+        "3": {
+          "actionTitle": "执行多语种上下文拼写与标点终审",
+          "actionDescription": "将润色后的文稿送入 LanguageTool 进行终审，精准排查易混词、中英文混排标点疏漏与语法不一致问题。",
+          "inputFormat": "精简后的文章定稿",
+          "outputFormat": "零低级错漏的待发布清稿",
+          "proTip": "LanguageTool 能识别普通拼写检查器容易漏掉的上下文同音误用与复合词连字符规范。"
+        },
+        "4": {
+          "actionTitle": "免注册一键发布为极简公开网页",
+          "actionDescription": "将定稿 Markdown 粘贴进 Write.as 并点击 Publish，瞬间生成排版优雅的独立公开文章链接——无需验证邮箱、无用户名绑定，读者页面也不注入任何广告追踪脚本。",
+          "inputFormat": "最终 Markdown 文稿",
+          "outputFormat": "可全球访问的无广告纯净文章 URL",
+          "proTip": "请妥善备份发布后浏览器生成的专属编辑令牌（Token），日后可凭它在本地更新或删除该匿名文章。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "读者打开我发布的 Write.as 文章时会被弹窗要求登录或订阅吗？",
+          "answer": "绝不会。Write.as 输出轻量纯净的静态排版网页，手机与电脑读者点开即读，没有任何登录遮罩或付费墙打扰。"
+        },
+        {
+          "question": "发布匿名文章时需要提供个人邮箱或手机号吗？",
+          "answer": "不需要。整个起草、校对与一键发布流程均无需注册账号或提交个人身份凭据。"
+        }
+      ]
+    },
+    "api-payload-debugging": {
+      "title": "开发者 API 报文透视与 JWT 令牌安全联调",
+      "category": "软件开发",
+      "timeEstimate": "8 分钟",
+      "privacyGuarantee": "100% 浏览器内存 AST 遍历、零远程接口日志与离线令牌解码",
+      "headline": "在不泄露线上凭据与客户隐私字段的前提下，本地可视化嵌套 JSON 树、严格校验语法、自动生成强类型定义并解码 JWT",
+      "summary": "在线上排障时随手将生产环境 API 响应体、数据库记录或 OAuth Bearer 令牌粘进来路不明的在线格式化网站，极易造成会话密钥与客户隐私外泄。本研发联调流水线全程运行于本地浏览器内存沙盒，安全高效地走完报文诊断到代码生成的全过程。",
+      "whyThisStack": "生产接口报文往往夹带内部用户 ID 与鉴权令牌。串联 JSON Crack、JSON Formatter、transform.tools 与 JWT.io 四款纯前端工具，可确保内部数据结构与令牌声明绝不落入第三方云端日志。",
+      "steps": {
+        "1": {
+          "actionTitle": "将多层嵌套响应体渲染为交互式节点图",
+          "actionDescription": "将原始 API 返回的 JSON 字符串粘贴进 JSON Crack，立即获得支持平移、缩放与节点折叠的可视化关系树，一眼定位深层空值或异常数组层级。",
+          "inputFormat": "未格式化的原始 JSON 响应串",
+          "outputFormat": "可交互缩放的树形节点拓扑图",
+          "proTip": "利用右上角节点搜索框输入 `id`、`error` 或 `status`，可在数 MB 的复杂响应体中瞬间高亮全部匹配字段。"
+        },
+        "2": {
+          "actionTitle": "严格校验 RFC 8259 语法并美化/压缩报文",
+          "actionDescription": "使用 JSON Formatter 检查遗漏括号或非法尾随逗号，输出规范的 2 空格缩进文本用于技术文档，或压成单行字符串用于接口回归测试。",
+          "inputFormat": "可能存在格式瑕疵的 JSON 文本",
+          "outputFormat": "严格合规的标准缩进或最小化 JSON",
+          "proTip": "严格按 RFC 8259 标准校验双引号与尾逗号，能提前规避 Go、Java 等强类型后端解析器线上报错。"
+        },
+        "3": {
+          "actionTitle": "一键生成 TypeScript / Go / Rust 强类型代码",
+          "actionDescription": "把校验通过的示例报文拖入 transform.tools，毫秒级自动推导出带完整注解的 TypeScript Interface、Go `json` 标签结构体、Rust Serde 类型或 Python Pydantic 模型。",
+          "inputFormat": "标准示例 JSON 对象",
+          "outputFormat": "生产级类型定义代码（TS / Go / Rust / Python）",
+          "proTip": "transform.tools 会自动识别联合类型与可空可选字段，省去大量枯燥易错的手写样板代码时间。"
+        },
+        "4": {
+          "actionTitle": "在本地浏览器解码并核验 JWT 鉴权令牌",
+          "actionDescription": "将请求头中的 Bearer Token 粘贴到 JWT.io，在本地即时解码 Base64URL 头部与载荷声明（`iss`、`sub`、`exp`、`roles`），无需把签名密钥发往外网即可排查权限故障。",
+          "inputFormat": "Base64URL 编码的 JWT 字符串（`eyJ...`）",
+          "outputFormat": "明文 JSON 声明字段与签名算法参数",
+          "proTip": "重点核对载荷中的 `exp` 时间戳与服务器时钟偏差，九成莫名其妙的网关 401 报错都能在此快速破案。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "把包含内部字段结构的生产 JSON 粘贴进这套工具安全吗？",
+          "answer": "安全。JSON Crack、transform.tools 与 JWT.io 的核心解析与转换逻辑均在本地浏览器 JavaScript 线程内完成，不会把你的报文上传至后台数据库。"
+        },
+        {
+          "question": "能否同时为前端和后端不同编程语言生成对应的数据模型？",
+          "answer": "可以。transform.tools 原生支持一键切换输出 TypeScript、Go、Rust、Kotlin、Swift、Python 与 Zod 等十余种语言及校验框架代码。"
+        }
+      ]
+    },
+    "ephemeral-team-sync": {
+      "title": "5 分钟零账号加密远程会议与白板共创",
+      "category": "效率与文档",
+      "timeEstimate": "5 分钟",
+      "privacyGuarantee": "匿名时间网格投票、WebRTC 加密音视频房间与端到端加密实时白板",
+      "headline": "不发繁琐日历邀请、不装桌面客户端、不注册任何账号，5 分钟内拉齐跨团队空闲时间并开启加密音视频白板脑暴",
+      "summary": "与外部顾问、跨公司合作方或临时项目组约一次快速对齐会，往往卡在日历权限不互通、强制安装视频客户端与白板登录限制上。本配方只需三条链接，即可零门槛完成排期、视频通话与架构共创。",
+      "whyThisStack": "商业办公套件会持久记录参会者社交关系图谱与设备信息。组合 When2meet（免注册空闲热力图）、Jitsi Meet（开放 WebRTC 加密视频）与 Excalidraw（URL 哈希密钥端到端加密白板），开完即走，不留永久数字包袱。",
+      "steps": {
+        "1": {
+          "actionTitle": "免注册投票汇总全员共同空闲时段",
+          "actionDescription": "在 When2meet 选定候选日期范围生成专属链接发给参会人；大家无需登录，直接输入昵称并在网格上涂抹各自有空的时间段，深绿色区块即刻标出全员交集。",
+          "inputFormat": "候选开会日期与每日起止时间段",
+          "outputFormat": "全员可用时段可视化热力交集图",
+          "proTip": "把鼠标悬停在任意色块上即可实时查看该半小时内哪些成员有空、谁存在冲突，拍板定档一目了然。"
+        },
+        "2": {
+          "actionTitle": "在浏览器直接拉起加密高清视频会议室",
+          "actionDescription": "打开 Jitsi Meet 输入自定义高熵房间名并将链接发给团队，直接在 Chrome、Firefox 或 Safari 内开启高清音视频与屏幕共享，全程无需注册。",
+          "inputFormat": "浏览器摄像头与麦克风临时授权",
+          "outputFormat": "多人实时加密音视频与屏幕共享会话",
+          "proTip": "等全员到齐后，可在右下角安全面板立即为房间加上临时口令并开启端到端加密，防止外人误入。"
+        },
+        "3": {
+          "actionTitle": "开启端到端加密多人实时协作白板",
+          "actionDescription": "在 Excalidraw 点击实时协作并将生成的加密房间链接贴入会议聊天框，全员即可同步查看彼此光标、手绘系统框图并在会后一键导出 SVG / PNG 纪要图。",
+          "inputFormat": "团队讨论草图与架构方案",
+          "outputFormat": "端到端加密同步画布 + 导出的高清纪要图",
+          "proTip": "Excalidraw 协作链接的解密密钥保存在 URL 的 `#key=` 片段中，中继服务器不会收到该片段，天然具备零知识保密属性。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "参会人员在手机或平板上需要下载任何 App 才能加入吗？",
+          "answer": "不需要。When2meet、Jitsi Meet 与 Excalidraw 均完美支持现代桌面与移动浏览器直接打开使用。"
+        },
+        {
+          "question": "视频会议会有类似商业软件免费版 40 分钟强制断线的限制吗？",
+          "answer": "没有。Jitsi Meet 不设人为的 40 分钟强制切断倒计时。"
+        }
+      ]
+    },
+    "csv-data-cleansing-and-viz": {
+      "title": "本地表格数据清洗、多格式排版与出版级制图",
+      "category": "数据与图表",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "100% 客户端内存数据解析、零云端入库存储与纯净矢量图表导出",
+      "headline": "无需上传商业机密报表，在本地内存清洗杂乱 CSV、转换为 Markdown / LaTeX 标准表格并渲染出版级矢量统计图",
+      "summary": "分析师与研究人员常需清理业务导出的原始表格、插入技术文档或制作汇报图表。若把核心销售明细或实验原始数据传上云端看板，极易产生合规隐患。本流水线在浏览器本地一站式走完清洗、转码与高阶可视化。",
+      "whyThisStack": "传统商业 BI 软件订阅昂贵且要求数据上云。串联 CSVJSON（内存级结构化清洗）、TableConvert（文档与论文表格代码生成）与 RAWGraphs（客户端 D3 矢量制图），即可构建零外泄的数据科学案头工作台。",
+      "steps": {
+        "1": {
+          "actionTitle": "解析、清洗并转置杂乱分隔符数据",
+          "actionDescription": "把原始 CSV、TSV 或系统导出文本粘贴进 CSVJSON，自动识别分隔符与引号转义、推断列类型、执行行列转置，或将扁平记录归一化为标准 JSON 数组。",
+          "inputFormat": "原始逗号/制表符分隔文本",
+          "outputFormat": "归一化 JSON 数组或干净的标准 CSV",
+          "proTip": "开启“Parse JSON values”开关可自动展开嵌套在单个表格列里的 JSON 字符串。"
+        },
+        "2": {
+          "actionTitle": "一键转换为 Markdown、HTML 与 LaTeX 表格",
+          "actionDescription": "将清洗好的表格载入 TableConvert，在线可视化微调单元格与列对齐方式，直接导出适配 GitHub 文档的 Markdown 表格、网页 `<table>` 或 Overleaf 论文级 LaTeX 代码。",
+          "inputFormat": "清洗后的规整二维表数据",
+          "outputFormat": "Markdown 表格 / HTML 代码 / LaTeX 矩阵",
+          "proTip": "在 TableConvert 顶部的交互网格中可直接按列排序、批量查找替换并一键复制排版整齐的源码。"
+        },
+        "3": {
+          "actionTitle": "渲染出版级高维矢量数据可视化图表",
+          "actionDescription": "将干净数据集拖入 RAWGraphs，把字段拖拽映射到视觉通道，自由绘制桑基冲积图、圆形树图、蜂群图或凸包分布图，并导出无损 SVG 矢量图。",
+          "inputFormat": "标准 CSV / JSON 数据集",
+          "outputFormat": "可无限缩放的出版级 SVG / 高清 PNG 图表",
+          "proTip": "优先导出为 SVG 格式，方便后续直接放进论文排版系统或在矢量编辑器中微调字体与图例位置。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "RAWGraphs 会把我的业务数据表上传到它的后台服务器吗？",
+          "answer": "不会。RAWGraphs 的全部聚合计算与 D3 矢量渲染均在你本地浏览器的 JavaScript 线程中执行，数据绝不发往外部服务器。"
+        },
+        {
+          "question": "生成的统计图能直接插进学术论文或印刷报告里吗？",
+          "answer": "完全可以。导出的纯净矢量 SVG 在任意高 DPI 印刷尺寸下都保持边缘锐利，无任何像素锯齿或平台水印。"
+        }
+      ]
+    },
+    "social-media-media-prep": {
+      "title": "社交媒体海报合成、动图瘦身与极速 WebP 发布流",
+      "category": "平面与矢量设计",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "纯浏览器本地图层合成、无水印动图帧级压制与客户端 WebP / AVIF 编码",
+      "headline": "不订购 Adobe 或 Canva 会员，在网页内完成多层视觉海报排版、录屏动图裁剪瘦身与超轻量缩略图导出",
+      "summary": "为 X、LinkedIn、技术博客与产品发布页制作高吸睛度配图，离不开精细图层排版、流畅的演示 GIF 与秒开的封面图。本工作流组合 Photopea、ezGIF 与 Squoosh，零月费、零水印搞定全套新媒体视觉生产。",
+      "whyThisStack": "许多商业在线设计工具把透明 PNG 导出与自定义尺寸锁在付费墙后。串联 Photopea（完整 PSD 图层能力）、ezGIF（精准抽帧与有损动图瘦身）与 Squoosh（本地 WebAssembly 图像压缩），赋予创作者彻底的导出自由。",
+      "steps": {
+        "1": {
+          "actionTitle": "在多层画布中排版合成社媒横幅海报",
+          "actionDescription": "打开 Photopea 新建标准社媒画布（如 1200×675px），自由叠加位图图层、混合模式、文字阴影与曲线调色，操作手感与桌面 Photoshop 如出一辙。",
+          "inputFormat": "PSD 模板 / JPG / 透明 PNG 素材",
+          "outputFormat": "高保真合成封面原图",
+          "proTip": "建议顺手保存一份原生 `.psd` 源文件到本地磁盘，下次发新刊时拖回浏览器即可秒改标题复用模板。"
+        },
+        "2": {
+          "actionTitle": "裁剪产品演示录屏并大幅压缩动态 GIF",
+          "actionDescription": "将功能演示 MP4 / WebM 短片导入 ezGIF，掐准起止关键帧、裁掉多余黑边、设定合适帧率，并运行有损 GIF 优化器将体积缩减 30%–60%。",
+          "inputFormat": "MP4 录屏短片 / 原始大体积 GIF",
+          "outputFormat": "流畅清晰且符合平台限额的轻量 GIF（<5MB）",
+          "proTip": "配合色彩精简与合理抽帧（12–15 fps），可轻松把超标动图压进主流社交与社区平台的上传体积上限内。"
+        },
+        "3": {
+          "actionTitle": "使用现代 WebP 编码极速瘦身博客缩略图",
+          "actionDescription": "将最终静态封面拖入 Squoosh，拖动中间对比标尺实时观察细节表现，用 WebP 或 MozJPEG 将大图压至 150KB 以内，显著提升着陆页加载速度。",
+          "inputFormat": "高分辨率 PNG / JPEG 成品图",
+          "outputFormat": "150KB 以内的超快加载 WebP / JPEG",
+          "proTip": "在同等主观清晰度下，WebP 通常能比传统 JPEG 节省 25%–35% 的字节传输体积。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "Photopea 真的能替代桌面版 Photoshop 来做日常社媒视觉图吗？",
+          "answer": "完全绰绰有余。它完整支持图层样式、矢量蒙版、智能对象与常用快捷键，且直接在浏览器 WebGL 中流畅运行。"
+        },
+        {
+          "question": "怎样把演示 GIF 控制在 Discord 或社交平台的体积限制以内？",
+          "answer": "在 ezGIF 中先裁掉无关浏览器边框、将帧率控制在 12–15 fps，再开启 Lossy GIF 压缩（强度 35–75），通常能直接减半体积且保持界面文字清晰。"
+        }
+      ]
+    },
+    "geodata-to-interactive-map": {
+      "title": "地理空间数据绘制、坐标互转与密度可视化流水线",
+      "category": "数据与图表",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "浏览器端矢量地理几何编辑、快速跨格式坐标桥接与纯本地 SVG 空间分布制图",
+      "headline": "无需配置商业 GIS 许可证或申请地图 API Key，在网页内直接绘制编辑 GeoJSON 多边形、转换坐标格式并输出矢量空间分布图",
+      "summary": "城市规划、物流围栏划定与空间数据分析常受困于繁琐的 KML、GPX、GeoJSON 格式壁垒以及昂注重重的桌面 GIS 软件。本工作流让你打开浏览器标签页即可完成地理要素勾勒、表格转换与空间聚类制图。",
+      "whyThisStack": "企业级 GIS 平台上手门槛高且强依赖账号授权。组合 GeoJSON.io（实时交互矢量标绘）、Convertio（地理与表格格式快速互转）与 RAWGraphs（空间散点与六边形分箱密度渲染），几分钟内即可交付干净的空间分析图。",
+      "steps": {
+        "1": {
+          "actionTitle": "在交互底图上直观绘制与编辑 GeoJSON 几何要素",
+          "actionDescription": "打开 GeoJSON.io，直接在街道或卫星底图上标点、连线或勾勒电子围栏多边形；右侧代码栏实时同步生成标准 GeoJSON 结构并支持在线编辑属性字段。",
+          "inputFormat": "手绘地图要素 / 现有 GeoJSON、KML、GPX 文件",
+          "outputFormat": "标准规范的 GeoJSON FeatureCollection",
+          "proTip": "直接将运动手表或测绘导出的 `.kml`、`.gpx` 文件拖进地图窗口，即可自动解析渲染出完整轨迹与航点。"
+        },
+        "2": {
+          "actionTitle": "转换 GIS 空间轨迹与结构化坐标表格",
+          "actionDescription": "使用 Convertio 在 KML、KMZ、GPX 与结构化 CSV / XML 表格格式之间快速桥接转换，提取经纬度坐标矩阵。",
+          "inputFormat": "GeoJSON / KML / GPX 空间文件",
+          "outputFormat": "标准经纬度 CSV 坐标表或目标地理格式",
+          "proTip": "转换导出的平面经纬度 CSV 表格可直接无缝喂给下游统计与可视化引擎。"
+        },
+        "3": {
+          "actionTitle": "渲染空间聚类散点图与六边形密度分布图",
+          "actionDescription": "将经纬度坐标与业务指标载入 RAWGraphs，选用散点图、等高密度图或六边形分箱（Hexagonal Binning）直观呈现空间热点聚集规律，并导出高清矢量 SVG。",
+          "inputFormat": "带经纬度与指标列的干净 CSV 数据",
+          "outputFormat": "高分辨率矢量空间分布图（SVG）",
+          "proTip": "当城市内坐标点高度密集重叠时，优先选用六边形分箱图能最清晰地展现真实空间热力密度。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "我能用 GeoJSON.io 快速画出业务配送范围围栏并拿到坐标数组吗？",
+          "answer": "非常合适。使用左侧多边形工具沿街道画出闭合区域后，右侧面板立即输出可直接存入后端数据库的合法 GeoJSON 多边形坐标。"
+        },
+        {
+          "question": "支持直接查看户外骑行或手表导出的 GPX 轨迹文件吗？",
+          "answer": "支持。把 `.gpx` 文件直接拖入 GeoJSON.io 画布即可完整呈现路线与坐标节点。"
+        }
+      ]
+    },
+    "browser-privacy-and-leak-audit": {
+      "title": "浏览器指纹、网络隧道泄露与系统隐私全景体检",
+      "category": "隐私与安全",
+      "timeEstimate": "8 分钟",
+      "privacyGuarantee": "零注册在线网络层泄露交叉诊断、HTTP 安全响应头评分与纯本地系统加固脚本生成",
+      "headline": "全面排查 WebRTC 真实 IP 暴露、运营商 DNS 劫持与站点安全头缺失，并在本地生成开源透明的操作系统去遥测加固脚本",
+      "summary": "许多网络代理工具宣称“开启即彻底匿名”，但隐藏的浏览器 WebRTC 穿透、ISP 透明 DNS 劫持与系统级后台遥测仍在持续泄露真实网络身份。本四步工作流无需注册任何商业安全账号，即可完成从浏览器、网络层、服务端响应头到操作系统的纵深安全体检。",
+      "whyThisStack": "真正的数字隐私需要端到端纵深防御。串联 IPLeak（公网与 WebRTC 穿透检测）、DNS Leak Test（递归解析服务器核验）、Security Headers（网站传输层防护审计）与 privacy.sexy（本地生成明文系统去遥测脚本），客观透明且不夹带商业推销。",
+      "steps": {
+        "1": {
+          "actionTitle": "扫描公网 IP、WebRTC 穿透泄露与地理位置暴露",
+          "actionDescription": "访问 IPLeak 即刻扫描当前网络连接，核查浏览器是否通过 WebRTC STUN 请求绕过代理暴露真实家庭宽带 IPv4 / IPv6 地址，并检查时区与硬件信息一致性。",
+          "inputFormat": "当前浏览器活跃网络会话",
+          "outputFormat": "公网 IP、WebRTC 候选地址与归属地诊断报告",
+          "proTip": "若开启 VPN 后在 WebRTC 栏仍看到本地宽带真实 IP，请立即在浏览器隐私设置中限制 WebRTC 非代理 UDP 传输。"
+        },
+        "2": {
+          "actionTitle": "执行扩展测试排查运营商 DNS 解析劫持",
+          "actionDescription": "在 DNS Leak Test 运行 Extended Test（扩展测试），通过数十次合成域名解析请求确认你的全部 DNS 查询是否均由受信任的加密解析器处理，而非悄悄回落给本地运营商。",
+          "inputFormat": "合成递归 DNS 测试请求流",
+          "outputFormat": "实际生效的 DNS 解析器 IP 与运营商清单",
+          "proTip": "理想状态下，检测结果列表应仅出现你配置的加密 DNS（如 Cloudflare、Quad9 或代理内置节点），不应出现本地宽带商节点。"
+        },
+        "3": {
+          "actionTitle": "审计个人或团队站点的 HTTP 安全响应头等级",
+          "actionDescription": "在 Security Headers 输入你的网站域名，秒级评估 HSTS、CSP（内容安全策略）、X-Frame-Options 与 Referrer-Policy 等关键浏览器防护头配置并获取修复建议。",
+          "inputFormat": "待测目标网站 URL",
+          "outputFormat": "A+ 至 F 安全评级报告与逐项修复指南",
+          "proTip": "冲击 A+ 评级需同时配置带 `includeSubDomains; preload` 的 HSTS 以及限制未授权外链脚本执行的严格 CSP 策略。"
+        },
+        "4": {
+          "actionTitle": "在本地生成可读可逆的操作系统去遥测脚本",
+          "actionDescription": "打开 privacy.sexy 选择 Windows、macOS 或 Linux 平台，按需勾选关闭系统诊断收集、广告追踪 ID 与云同步选项，在本地下载明文开源脚本审阅后执行。",
+          "inputFormat": "目标操作系统与隐私加固开关组合",
+          "outputFormat": "完全透明可读且附带一键还原命令的 Bash / PowerShell 脚本",
+          "proTip": "privacy.sexy 生成的每一行命令都是纯文本明文且自带反向恢复脚本，执行前可逐行审阅确认。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "什么是 WebRTC 泄露，为什么连了代理还可能暴露真实 IP？",
+          "answer": "WebRTC 是浏览器内置的实时音视频通信接口，默认情况下其 STUN 探测包可能直接查询本地网卡接口而绕过普通代理规则，导致任何网页都能读出你的真实宽带 IP。"
+        },
+        {
+          "question": "在自己电脑上运行 privacy.sexy 生成的脚本安全可控吗？",
+          "answer": "非常透明可控。项目完全开源，界面会直接展示每一项开关对应的底层终端命令或注册表操作，并同时提供一键恢复默认值的还原脚本。"
+        }
+      ]
+    },
+    "hardware-engineering-and-3d-inspection": {
+      "title": "硬件工程 3D 结构预览与 PCB Gerber 本地审计流水线",
+      "category": "软件开发",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "100% 浏览器 WebGL 本地三维渲染、纯客户端 Gerber 解析与零上传阻抗核算",
+      "headline": "绝不把涉密 CAD 外壳模型与电路板投板文件传上外部云服务器，在本地浏览器内存直接检视 3D STL 网格、仿真多层 PCB Gerber 并核算走线阻抗",
+      "summary": "硬件打样与电子研发团队若将未量产的 3D 结构件和 PCB 制板文件随手传进在线云看图网站，极易造成核心硬件知识产权外泄。本纯客户端工程流水线让结构与硬件工程师在浏览器内存内安全完成投板前三维装配检查、多层铜皮阻焊核对与电气参数验算。",
+      "whyThisStack": "工业 CAD 与电路制板文件属于核心研发机密。通过串联 Fomrix STL Viewer（WebGL 本地网格检视）、Salitronic Gerber Analyzer（纯前端多层制板仿真）与 Omni Calculator（走线特征阻抗与载流温升计算），无需安装庞大 EDA 软件即可满足严格的 NDA 保密合规要求。",
+      "steps": {
+        "1": {
+          "actionTitle": "在本地 WebGL 视口检视 3D 外壳 STL 模型",
+          "actionDescription": "将二进制或 ASCII 格式的 `.stl` 结构件文件直接拖入 Fomrix STL Viewer，通过 HTML5 File API 在本地内存中实时旋转、缩放、剖视网格面片并核查装配间隙。",
+          "inputFormat": "二进制 / ASCII STL 三维模型文件",
+          "outputFormat": "实时交互 3D WebGL 网格与尺寸检视",
+          "proTip": "发往 3D 打印机切片前，切换至线框模式（Wireframe）重点检查高密度圆角处是否存在破面或非流形边缘。"
+        },
+        "2": {
+          "actionTitle": "纯前端仿真多层 PCB Gerber 与钻孔叠层",
+          "actionDescription": "将标准 RS-274X Gerber、ODB++ 或打样压缩包载入 Salitronic Gerber Analyzer，完全在浏览器客户端逐层核对顶底层敷铜、丝印极性标识、阻焊桥开窗与过孔对齐。",
+          "inputFormat": "Gerber / ODB++ / Excellon 钻孔 ZIP 包",
+          "outputFormat": "可独立开关透明度的多层 PCB 叠层仿真视图",
+          "proTip": "重点放大检查密脚 QFN 与 BGA 焊盘周边的阻焊桥（Solder Mask）开窗，提前揪出回流焊连锡隐患。"
+        },
+        "3": {
+          "actionTitle": "核算微带线特征阻抗与最大安全载流温升",
+          "actionDescription": "在 Omni Calculator 电子工程计算模型中输入铜厚、FR-4 介质常数与线宽线距，快速验算 50Ω 单端特征阻抗以及大电流电源走线的温升余量。",
+          "inputFormat": "PCB 叠层与几何参数（mil / mm / oz）",
+          "outputFormat": "特征阻抗（Ω）与安全载流温升计算值",
+          "proTip": "针对高速 USB 差分对或高频时钟线，微调线距使差分阻抗精准落在 90Ω 或 100Ω 目标区间后再正式发板。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "我拖进去的 3D 模型或 PCB Gerber 制板包会被上传到网站服务器吗？",
+          "answer": "不会。Fomrix STL Viewer 与 Salitronic Gerber Analyzer 均采用浏览器 HTML5 本地文件读取配合 WebGL / Canvas 内存渲染，工程文件字节全程不离开本机。"
+        },
+        {
+          "question": "能否同时叠加查看钻孔文件与正反面多层铜皮？",
+          "answer": "可以。解析器原生支持 Excellon 钻孔文件与顶底层铜箔、阻焊、丝印层同屏叠加，并可逐层调节显隐与透明度。"
+        }
+      ]
+    },
+    "air-gapped-developer-payload-and-sql-audit": {
+      "title": "气隙级研发报文脱敏、浏览器内存 DuckDB 分析与加密直传",
+      "category": "数据与图表",
+      "timeEstimate": "8 分钟",
+      "privacyGuarantee": "100% 纯客户端编解码、DuckDB-WASM 浏览器内存 SQL 引擎与 WebRTC 端到端加密同步",
+      "headline": "零云端日志泄露：在本地内存解码格式化敏感报文、用 DuckDB-WASM 直接对百万行日志跑 SQL 聚合，并通过点对点加密通道跨机同步结果",
+      "summary": "线上应急排障时，研发人员经常需要分析夹带用户敏感标识的 JSONL 日志转储或测试库导出的 Parquet 文件。本气隙级工作流利用纯前端密码学工具箱与编译为 WebAssembly 的 DuckDB 分析引擎，无需额外部署数据库服务器即可在本地标签页内完成高速 SQL 排查与跨设备安全传参。",
+      "whyThisStack": "应急响应最忌把生产日志传上第三方在线调试台。BytePane 提供零外联的本地 JWT / JSON / 哈希处理，Telemetry SQL Playground 借助 DuckDB-WASM 在本地内存秒查大规模分析数据，Textunnel 则用关闭即焚的 WebRTC 通道安全同步修复补丁。",
+      "steps": {
+        "1": {
+          "actionTitle": "纯本地解码鉴权头、美化报文并生成校验哈希",
+          "actionDescription": "将回调请求头、压缩 JSON 或 JWT 粘贴进 BytePane，在客户端内存中解码令牌声明、格式化嵌套结构并计算 SHA-256 / HMAC 签名校验值。",
+          "inputFormat": "原始 JSON / JWT / Base64 / Hex 字符串",
+          "outputFormat": "结构化明文代码、令牌声明与加密哈希值",
+          "proTip": "排查令牌偶发失效时，可同时打开内置时间戳转换器对照 `iat` 与 `exp` 窗口漂移。"
+        },
+        "2": {
+          "actionTitle": "用浏览器内存 DuckDB-WASM 直接查询 Parquet 与 JSONL 日志",
+          "actionDescription": "将本地导出的 CSV、Parquet 或 JSONL 故障日志直接拖入 Telemetry SQL Playground，在浏览器内零服务端运行窗口函数、多表 JOIN 与分组聚合 SQL 查询。",
+          "inputFormat": "本地 CSV / Parquet / JSONL 数据转储文件",
+          "outputFormat": "交互式 SQL 查询结果集与统计汇总指标",
+          "proTip": "利用 DuckDB 原生的自动模式推断能力，无需预先建表即可直接用标准 SQL 剖析深层嵌套的可观测性追踪日志。"
+        },
+        "3": {
+          "actionTitle": "通过 WebRTC 点对点加密剪贴板同步到测试机",
+          "actionDescription": "打开 Textunnel 在本地开发机与远程验证终端之间建立浏览器点对点加密数据通道，直接传递脱敏查询摘要或热修补丁，云端零持久存储。",
+          "inputFormat": "脱敏 SQL 排查摘要 / 代码补丁文本",
+          "outputFormat": "远端设备解密后的内存剪贴板内容",
+          "proTip": "Textunnel 基于临时 WebRTC 数据通道传输，一旦关闭浏览器标签页，同步会话与内存缓冲即刻彻底销毁。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "在浏览器里跑 DuckDB-WASM 能抗住多大体量的日志文件？",
+          "answer": "得益于 WebAssembly 列式向量化执行引擎，在常规开发机内存下即可流畅对数十万乃至数百万行级别的 CSV / Parquet 数据集执行毫秒至秒级聚合查询。"
+        },
+        {
+          "question": "BytePane 会保存我解码过的密钥或 Token 吗？",
+          "answer": "绝不会。BytePane 纯客户端静态运行，无后台数据收集接口，所有编解码与哈希运算均停留在本地浏览器内存中。"
+        }
+      ]
+    },
+    "zero-server-audio-synthesis-and-sound-design": {
+      "title": "零服务端音频波形合成、多轨混音与封面抠图流水线",
+      "category": "音视频与媒体",
+      "timeEstimate": "12 分钟",
+      "privacyGuarantee": "100% Web Audio 数学振荡器合成、客户端多轨混音与浏览器端神经网络抠图",
+      "headline": "免安装庞大宿主软件、零云端素材上传，在浏览器本地内存合成精准声学波形、完成多轨音效混音并导出透明背景专辑视觉图",
+      "summary": "独立游戏开发者、交互设计师与声音创作者经常需要定制 UI 提示音、频率扫频测试音或环境白噪音。本纯前端声音设计流水线利用浏览器原生振荡器节点合成纯净波形，在本地完成多轨效果器混音，并通过端侧机器学习模型一键剥离封面背景。",
+      "whyThisStack": "将 Online Tone Generator（Web Audio 精确频率合成）、AudioMass（多轨参数均衡与动态压缩）与 QuickBGCut（WebAssembly/WebGPU 本地神经网络抠图）串联，无需支付昂贵音效库订阅即可在浏览器内闭环产出原创商用声画资产。",
+      "steps": {
+        "1": {
+          "actionTitle": "合成纯净正弦波、粉红噪底与频率扫频采样",
+          "actionDescription": "打开 Online Tone Generator，利用浏览器原生振荡器精确设定频率（如 440Hz 标准音）、波形类别或对数扫频区间，直接导出未压缩的高保真 WAV 采样。",
+          "inputFormat": "振荡器参数（频率 Hz、波形、起止扫频范围）",
+          "outputFormat": "无损未压缩 WAV 原始声音采样",
+          "proTip": "生成 20Hz–20kHz 指数扫频测试音，可用来快速检验监听音箱频响平直度与分频衔接。"
+        },
+        "2": {
+          "actionTitle": "执行多轨音效拼接、滤波塑形与母带限幅",
+          "actionDescription": "将合成的基础波形采样与实录环境声导入 AudioMass，在多轨时间轴上切片叠音、叠加混响延迟、调节参数均衡与动态压缩，直接在本地渲染出立体声母带。",
+          "inputFormat": "多段 WAV / MP3 / OGG 声音干声素材",
+          "outputFormat": "母带级无损 48kHz WAV 成品音轨",
+          "proTip": "对低频合成音与清脆瞬态音效施加适度的多段动态压缩，能让混合后的游戏音效听感更紧实饱满且不破音。"
+        },
+        "3": {
+          "actionTitle": "在浏览器本地用端侧模型制作透明背景器材与专辑图",
+          "actionDescription": "把乐器实拍图、音效包图标或播客人物照拖入 QuickBGCut，完全依赖本地浏览器 WebAssembly / WebGPU 视觉模型剥离杂乱背景，导出边缘干净的透明 PNG。",
+          "inputFormat": "JPG / PNG 封面素材或器材照片",
+          "outputFormat": "高分辨率透明背景 PNG 视觉资产",
+          "proTip": "支持一次性拖入多张器材照片在本地批量去背，几分钟即可整理出一套视觉风格统一的音效库目录。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "用这套流程合成混音出来的音效可以直接放进商业游戏或付费视频里吗？",
+          "answer": "可以。基础波形由你自己在本地浏览器通过数学振荡器实时生成并混音创作，不依赖受版权限制的第三方采样录音，作品归属完全由你自主掌控。"
+        },
+        {
+          "question": "QuickBGCut 抠图时会把我的照片传到外部 AI 服务器吗？",
+          "answer": "不会。QuickBGCut 将轻量分割模型加载至本地浏览器通过 WebAssembly 与 WebGPU 加速推理，图片全程留在你自己的设备上。"
+        }
+      ]
+    },
+    "offline-code-diff-and-schema-transformation": {
+      "title": "零外联代码差异审计、类型契约生成与 AST 语法树检视流",
+      "category": "软件开发",
+      "timeEstimate": "10 分钟",
+      "privacyGuarantee": "100% 浏览器沙盒 AST 解析、纯本地类型代码生成与零网络外传 Diff 比对",
+      "headline": "绝不向外部云网站粘贴一行核心源码：在纯客户端内存完成字符级代码比对、自动生成强类型契约、检视抽象语法树并打包校验",
+      "summary": "研发团队在重构核心模块或升级接口协议时，若将私有源码片段粘进带服务端记录的在线对比或转码工具，极易触犯企业代码安全红线。本四步纯前端流水线基于 WebAssembly 与 Web Worker 构建，断网状态下依然能在浏览器沙盒内走完代码比对、Schema 生成、AST 核验与校验打包。",
+      "whyThisStack": "Compare Diff 在本地执行零延迟字符级比对，transform.tools 在浏览器 Worker 线程内运行编译器直接产出 TypeScript / Rust / Go / Zod 契约，AST Explorer 原地剖析 50+ 种语言语法树节点，最后由 CyberChef 完成 SHA-256 签名与载荷压缩，全链路零源码外泄。",
+      "steps": {
+        "1": {
+          "actionTitle": "在本地内存逐字符比对源码与配置变更差异",
+          "actionDescription": "将修改前后的源代码、配置文件或接口报文粘贴进 Compare Diff，即时高亮字符级增删位置，不向任何后端服务器发送一字节代码。",
+          "inputFormat": "修改前后的源码 / 配置文件 / JSON",
+          "outputFormat": "字符级行内或双栏可视化差异视图",
+          "proTip": "排查大型配置文件中的隐蔽拼写改动时，来回切换行内（Inline）与分栏（Split）视图能最快锁定单字符误改。"
+        },
+        "2": {
+          "actionTitle": "将确认无误的数据结构转译为强类型代码契约",
+          "actionDescription": "把干净的 JSON 载荷或样式规则输入 transform.tools，在浏览器本地瞬间转换为 TypeScript 接口、Rust Serde 结构体、Go 类型或 Zod 运行时校验代码。",
+          "inputFormat": "合法的 JSON / GraphQL / CSS 片段",
+          "outputFormat": "TypeScript / Rust / Go / Zod 强类型定义",
+          "proTip": "在设置中开启可选字段识别，能自动为潜在为空的接口属性补齐安全的可选标记。"
+        },
+        "3": {
+          "actionTitle": "深度检视抽象语法树（AST）节点层级与作用域",
+          "actionDescription": "将生成的代码契约或重构脚本贴入 AST Explorer，切换对应语言解析器（TypeScript、Babel、Rust、Python 等），精细核查语法树节点结构与标识符绑定。",
+          "inputFormat": "TypeScript / JavaScript / Python / Rust 源码",
+          "outputFormat": "交互式 AST 节点树与精确偏移量映射",
+          "proTip": "鼠标点击左侧任意关键字或变量名，右侧语法树会自动展开并高亮对应的精确 AST 节点类型与行列起止坐标。"
+        },
+        "4": {
+          "actionTitle": "生成生产载荷 SHA-256 校验值与压缩编码包",
+          "actionDescription": "将最终定稿的配置或补丁载入 CyberChef，在本地一键生成 SHA-256 完整性指纹，并按需执行空白剥离、Gzip 压缩与 Base64 编码封装。",
+          "inputFormat": "定稿代码契约 / 配置 JSON / 补丁文件",
+          "outputFormat": "Gzip 压缩编码包 + SHA-256 完整性校验哈希",
+          "proTip": "可将“去空白 → Gzip → Base64”保存为固定配方，反复用于 Webhook 压测与发布包指纹核对。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "走完这四步，我粘贴的私有业务代码会产生任何外网上传流量吗？",
+          "answer": "不会。Compare Diff、transform.tools、AST Explorer 与 CyberChef 的核心解析器均在本地浏览器 WebAssembly 与 Web Worker 沙盒中运行，不会将你粘贴的代码发往外部服务器。"
+        },
+        {
+          "question": "生成的 TypeScript 与 Zod 定义能否直接复制进正式工程仓库？",
+          "answer": "完全可以。输出代码严格遵循主流社区规范，复制粘贴进工程目录即可直接通过编译器类型检查。"
+        }
+      ]
+    },
+    "stem-math-and-physics-simulation": {
+      "title": "交互式理工科符号求导、2D/3D 函数绘图与物理仿真流水线",
+      "category": "STEM 与科学计算",
+      "timeEstimate": "15 分钟",
+      "privacyGuarantee": "零学生账号注册、客户端 WebGL 三维几何渲染与无追踪交互式物理实验",
+      "headline": "无需购买昂贵商业数学软件许可或注册校园账号，一站式完成符号微积分求导、二维动态曲线推演、三维空间曲面构建与交互式物理定律仿真",
+      "summary": "理工科学生、教师与研发工程师在推导数学模型和验证物理规律时，常被商业计算软件的高昂授权费和强制教育邮箱注册拦在门外。本工作流汇聚四大免登录殿堂级科学计算与仿真引擎，打开浏览器即可从解析求导一路推演到三维空间几何与力学电磁学动态实验。",
+      "whyThisStack": "WolframAlpha 提供强大的符号微积分与科学常数解析，Desmos 带来极致丝滑的二维动态参数绘图，GeoGebra 补齐硬件加速的三维空间几何与向量场建模，最后配合科罗拉多大学出品的 PhET 交互式物理化学实验沙盒，构成零门槛的完整线上理工实验室。",
+      "steps": {
+        "1": {
+          "actionTitle": "精确求解符号积分、微分方程与级数展开",
+          "actionDescription": "在 WolframAlpha 直接输入数学方程、导数积分或物理量纲表达式，无需登录即可获得精确的闭合解析解、极值点与泰勒级数展开式。",
+          "inputFormat": "自然语言算式或标准 LaTeX 数学表达式",
+          "outputFormat": "精确符号解析解与关键数学性质指标",
+          "proTip": "无需死记复杂专有语法，直接输入类似 `integrate sin(x)^2 from 0 to pi` 的直观表达式即可精准识别求解。"
+        },
+        "2": {
+          "actionTitle": "绘制二维函数图像并驱动动态参数滑块",
+          "actionDescription": "把推导出的解析函数输入 Desmos，即时绘制直角坐标、极坐标或参数方程曲线，并为振幅、阻尼系数或初速度添加动态滑块，直观观察参数变化对曲线形态的影响。",
+          "inputFormat": "显函数 / 隐函数 / 参数方程表达式",
+          "outputFormat": "可交互动态演化的高精度二维函数图",
+          "proTip": "点击任意参数滑块左侧的播放按钮，即可自动循环播放波形演化动画并调节播放倍速。"
+        },
+        "3": {
+          "actionTitle": "在 WebGL 三维空间构建曲面交线与几何证明",
+          "actionDescription": "打开 GeoGebra 3D 计算器，构建多元函数三维曲面、空间平面、多面体与空间向量，利用硬件加速 WebGL 自由旋转视角验证立体几何性质。",
+          "inputFormat": "三维空间坐标方程 / 向量表达式",
+          "outputFormat": "可 360° 交互旋转的三维几何模型与交线",
+          "proTip": "使用“两曲面交线（Intersect Two Surfaces）”指令，可瞬间高亮算出两个复杂空间曲面相交形成的空间曲线。"
+        },
+        "4": {
+          "actionTitle": "运行交互式经典力学、电路与波粒干涉物理实验",
+          "actionDescription": "启动 PhET 交互式科学仿真实验室，动手拨动电压电阻旋钮、抛体初速度或双缝间距，在浏览器 Canvas 中实时观察受力矢量、电流分布与波前干涉条纹。",
+          "inputFormat": "可交互物理实验旋钮（电压、质量、摩擦系数等）",
+          "outputFormat": "实时物理运动仿真画面与虚拟仪器读数",
+          "proTip": "在力学仿真中勾选“显示合力与速度矢量（Vectors）”，能在运动过程中实时看清加速度与速度方向关系。"
+        }
+      },
+      "faqs": [
+        {
+          "question": "使用这四款理工计算与仿真工具需要学校统一采购账号或教育邮箱认证吗？",
+          "answer": "完全不需要。WolframAlpha、Desmos、GeoGebra 与 PhET 的核心交互计算、三维绘图与实验仿真均对公众免登录直接开放。"
+        },
+        {
+          "question": "画好的函数曲线和三维几何图能导出高清矢量图插进实验报告吗？",
+          "answer": "可以。Desmos 与 GeoGebra 均支持直接导出无损 SVG、PDF 或高分辨率 PNG 图像，完美适配 LaTeX 实验报告与学术课件排版。"
+        }
+      ]
+    }
+  }
+}

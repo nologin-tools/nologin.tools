@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import {
   getCollectionBySlug,
-  CURATED_COLLECTIONS,
+  resolveCollectionDetails,
+  getLocalizedCollections,
 } from '../lib/collections';
-import { getToolBySlug } from '../data/loader';
+import { getToolBySlug, getToolContentDate } from '../data/loader';
 import { computePrivacyScorecard } from '../lib/privacy-scorecard.mjs';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
@@ -16,11 +17,14 @@ interface Props {
 
 const { locale, slug } = Astro.props;
 await loadTranslations(locale);
+const isZh = locale === 'zh';
+const l = (zh: string, en: string) => (isZh ? zh : en);
 
-const collection = getCollectionBySlug(slug);
-if (!collection) {
+const rawCollection = getCollectionBySlug(slug);
+if (!rawCollection) {
   throw new Error(`Curated collection not found for slug: ${slug}`);
 }
+const collection = resolveCollectionDetails(rawCollection, locale);
 
 const resolvedItems = collection.items.map((item) => {
   const tool = getToolBySlug(item.toolSlug);
@@ -34,9 +38,10 @@ const resolvedItems = collection.items.map((item) => {
 
 const relatedCollections = collection.relatedSlugs
   .map((s) => getCollectionBySlug(s))
-  .filter((c): c is NonNullable<typeof c> => Boolean(c));
+  .filter((c): c is NonNullable<typeof c> => Boolean(c))
+  .map((c) => resolveCollectionDetails(c, locale));
 
-const allCollections = CURATED_COLLECTIONS.filter((c) => c.slug !== slug);
+const allCollections = getLocalizedCollections(locale).filter((c) => c.slug !== slug);
 
 function getHostname(url: string): string {
   try {
@@ -52,6 +57,12 @@ const pageDescription = t(locale, 'collection.page.description', {
   persona: collection.persona,
 });
 const canonicalPath = getLocalizedPath(`/collection/${slug}`, locale);
+const collectionDate =
+  resolvedItems
+    .map((item) => (item.tool ? getToolContentDate(item.tool, locale) : undefined))
+    .filter(Boolean)
+    .sort()
+    .at(-1) || '2026-03-20';
 
 // Schema.org CollectionPage + ItemList structured data
 const collectionLd = {
@@ -60,9 +71,17 @@ const collectionLd = {
   name: collection.title,
   description: collection.description,
   url: `https://nologin.tools${canonicalPath}`,
+  inLanguage: locale,
+  dateModified: collectionDate,
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://nologin.tools/#organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
   mainEntity: {
     '@type': 'ItemList',
-    name: `${collection.title} - Tool Stack`,
+    name: isZh ? `${collection.title} — 精选工具栈` : `${collection.title} - Tool Stack`,
     numberOfItems: resolvedItems.length,
     itemListElement: resolvedItems.map((item, idx) => ({
       '@type': 'ListItem',
@@ -126,7 +145,7 @@ const breadcrumbLd = {
         {t(locale, 'common.home')}
       </a>
       <span>/</span>
-      <span class="text-neutral-400">Collections</span>
+      <span class="text-neutral-400">{l('精选工具栈', 'Collections')}</span>
       <span>/</span>
       <span class="text-neutral-900 font-bold truncate max-w-[240px]">{collection.title}</span>
     </nav>
@@ -191,7 +210,7 @@ const breadcrumbLd = {
           {t(locale, 'collection.page.arsenalHeading', { count: String(resolvedItems.length) })}
         </h2>
         <span class="text-xs font-mono font-bold text-neutral-500 uppercase">
-          Zero-Account Stack
+          {l('零账号精选栈', 'Zero-Account Stack')}
         </span>
       </div>
 

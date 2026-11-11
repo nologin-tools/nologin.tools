@@ -79,6 +79,33 @@ describe('GEO: llms.txt standard compliance', () => {
 
     // Badge embed code example
     assert.ok(content.includes('https://nologin.tools/badges/flat.svg'), 'Must include SVG badge embed example');
+
+    // Public v1 API endpoints (no stale /api/tools references)
+    assert.ok(content.includes('https://nologin.tools/api/v1/tools'), 'Must document /api/v1/tools');
+    assert.ok(content.includes('https://nologin.tools/api/v1/openapi.json'), 'Must document /api/v1/openapi.json');
+    assert.ok(!/https:\/\/nologin\.tools\/api\/tools(?:\b|\/)/.test(content), 'Must not reference legacy /api/tools endpoint');
+  });
+
+  it('public/llms.txt and llms-full.txt contain zero dead or redirected catalog links when dist/ is present', () => {
+    const distDir = resolve(ROOT, 'dist');
+    if (!existsSync(resolve(distDir, 'sitemap.xml'))) return;
+
+    for (const filePath of [LLMS_PATH, LLMS_FULL_PATH]) {
+      const content = readFileSync(filePath, 'utf-8');
+      const matches = [...content.matchAll(/https:\/\/nologin\.tools([^\s\)\]`"'<>]+)/g)].map((m) =>
+        m[1].replace(/[.,;:]+$/, '')
+      );
+      for (const rawPath of new Set(matches)) {
+        if (!rawPath || rawPath === '/' || rawPath.includes('{') || /^\/(?:zh\/)?api(?:\/|$)/.test(rawPath)) continue;
+        const rel = rawPath.replace(/^\/+/, '');
+        const directFile = resolve(distDir, rel);
+        const indexFile = resolve(distDir, rel, 'index.html');
+        assert.ok(
+          existsSync(directFile) || existsSync(indexFile),
+          `Stale or dead link in ${filePath}: https://nologin.tools${rawPath}`
+        );
+      }
+    }
   });
 
   it('sites/org/public/llms.txt exists and outlines organization mission & research', () => {

@@ -1,4 +1,5 @@
 import editorialJson from '../data/tool-editorial.json';
+import programmaticZh from '../data/translations/programmatic-zh.json';
 import { getApprovedTools, getToolBySlug, getToolHealthStatus, computeScore, type BuildDataTool } from '../data/loader';
 import type { Locale } from '../i18n/config';
 
@@ -11,7 +12,23 @@ export {
   type ComparisonVerdict,
 } from './comparisons-data.mjs';
 
-import type { ComparisonPair } from './comparisons-data.mjs';
+import type { ComparisonPair, ComparisonVerdict } from './comparisons-data.mjs';
+
+export function resolveComparisonPair(pair: ComparisonPair, locale: Locale = 'en'): ComparisonPair {
+  if (locale === 'zh') {
+    const zhEntry = (programmaticZh.comparisons as Record<string, { headline: string; verdict: ComparisonVerdict } | undefined>)[pair.slug];
+    const categoryLabel = (programmaticZh.categories as Record<string, string | undefined>)[pair.category] || pair.category;
+    if (zhEntry) {
+      return {
+        ...pair,
+        category: categoryLabel,
+        headline: zhEntry.headline,
+        verdict: zhEntry.verdict,
+      };
+    }
+  }
+  return pair;
+}
 
 export interface ComparedToolItem extends BuildDataTool {
   health: ReturnType<typeof getToolHealthStatus>;
@@ -97,8 +114,9 @@ export function resolveComparedTool(toolSlug: string, locale: Locale = 'en'): Co
 }
 
 export function resolveComparisonDetails(pair: ComparisonPair, locale: Locale = 'en'): ComparisonDetails {
+  const localizedPair = resolveComparisonPair(pair, locale);
   return {
-    pair,
+    pair: localizedPair,
     toolA: resolveComparedTool(pair.toolASlug, locale),
     toolB: resolveComparedTool(pair.toolBSlug, locale),
   };

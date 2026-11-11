@@ -38,12 +38,26 @@ describe('SEO & GEO: robots.txt compliance', () => {
     }
   });
 
-  it('public/robots.txt protects sensitive /admin and /api/ paths', () => {
+  it('public/robots.txt protects sensitive /admin and /api/ paths while allowing public OG, badge, and v1 APIs', () => {
     const content = readFileSync(MAIN_ROBOTS_PATH, 'utf-8');
     assert.ok(content.includes('Disallow: /admin'), 'Must disallow /admin');
     assert.ok(content.includes('Disallow: /api/'), 'Must disallow /api/');
     assert.ok(content.includes('Disallow: /ssr/'), 'Must disallow /ssr/');
     assert.ok(!content.includes('Disallow: /*?'), 'Must not disallow query parameters to permit canonical 301 deindexing in GSC');
+
+    for (const allowedPath of [
+      'Allow: /api/og/',
+      'Allow: /api/v1/',
+      'Allow: /api/badge/',
+      'Allow: /api/extension-index.json',
+    ]) {
+      const occurrences = content.split(allowedPath).length - 1;
+      assert.equal(
+        occurrences,
+        2,
+        `Both crawler groups in robots.txt must include "${allowedPath}" (found ${occurrences})`
+      );
+    }
   });
 
   it('public/robots.txt declares sitemap and references llms.txt cleanly', () => {

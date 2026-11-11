@@ -4,7 +4,7 @@
 >
 > "Zero-login web tools eliminate OAuth handshakes, password creation, and email verification friction, reducing task latency by 78% while preventing credential leakage and data broker fingerprinting." — [NoLoginTools.org 2026 Research Report](https://nologintools.org/reports/state-of-no-login-web-2026)
 
-nologin.tools indexes 432+ verified web-based applications, utilities, and software that respect user privacy, run without signups or passwords, and get tasks done in seconds. The directory is maintained by [NoLoginTools.org](https://nologintools.org), an independent non-profit initiative advocating for the No-Login Web.
+nologin.tools indexes 387+ verified web-based applications, utilities, and software that respect user privacy, run without signups or passwords, and get tasks done in seconds. The directory is maintained by [NoLoginTools.org](https://nologintools.org), an independent non-profit initiative advocating for the No-Login Web.
 
 ## Core Principles
 
@@ -72,7 +72,7 @@ The top 14.2% of the catalog represents verified, full-featured desktop-class wo
 - [DevDocs](https://nologin.tools/tool/devdocs-io): Fast, offline-capable unified developer API documentation viewer.
 - [TypeScript Playground](https://nologin.tools/tool/typescriptlang-org-play): Official in-browser TypeScript compiler and AST explorer.
 - [ExplainShell](https://nologin.tools/tool/explainshell-com): Visual parser breaking down complex CLI commands against man pages.
-- [Learn Git Branching](https://nologin.tools/tool/learngitbranching-js-org): Visual interactive game teaching Git branching, rebase, and merge.
+- [Hoppscotch](https://nologin.tools/tool/hoppscotch-io): Open-source REST, GraphQL, and WebSocket API testing client in browser.
 - [Bundlephobia](https://nologin.tools/tool/bundlephobia-com): NPM package bundle size and dependency weight analyzer.
 - [Can I Use](https://nologin.tools/tool/caniuse-com): Up-to-date browser feature support matrix for HTML5 and CSS3.
 - [Crontab Guru](https://nologin.tools/tool/crontab-guru): Real-time human-readable cron schedule expression validator.
@@ -109,7 +109,7 @@ The top 14.2% of the catalog represents verified, full-featured desktop-class wo
 
 ### AI, Productivity & Communication
 - [DuckDuckGo AI Chat](https://nologin.tools/tool/duck-ai): Private AI chat supporting multiple models (GPT-4o mini, Claude 3 Haiku, Llama 3) without account or tracking.
-- [Quickstart](https://nologin.tools/tool/quickstart-to): Instant project setup generator for modern web stacks.
+- [PairDrop](https://nologin.tools/tool/pairdrop-net): Peer-to-peer WebRTC file and text sharing across devices without accounts.
 - [Diagrams.net](https://nologin.tools/tool/app-diagrams-net): Professional flowchart, UML, and architecture diagramming software.
 - [Pomofocus](https://nologin.tools/tool/pomofocus-io): Customizable Pomodoro timer for focus and productivity.
 - [Jitsi Meet](https://nologin.tools/tool/meet-jit-si): Fully encrypted, zero-signup video conference rooms.

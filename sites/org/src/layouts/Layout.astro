@@ -28,7 +28,7 @@ const {
 const defaultDescription = 'An independent organization dedicated to documenting, verifying, and advocating for the No-Login Web.';
 const desc = description || defaultDescription;
 
-const fullTitle = `${title} | NoLoginTools.org`;
+const fullTitle = title.includes('NoLoginTools.org') ? title : `${title} | NoLoginTools.org`;
 const canonicalUrl = new URL(Astro.url.pathname, 'https://nologintools.org').href;
 const ogImageUrl = new URL(ogImage, 'https://nologintools.org').href;
 ---
@@ -45,6 +45,8 @@ const ogImageUrl = new URL(ogImage, 'https://nologintools.org').href;
 
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
+    <meta name="author" content="NoLoginTools.org" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" title="NoLoginTools.org RSS Feed" href="https://nologin.tools/rss.xml" />
     {modifiedTime && <meta name="dateModified" content={modifiedTime} />}

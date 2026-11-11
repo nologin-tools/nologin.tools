@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import {
   getWorkflowBySlug,
-  getWorkflowRecipes,
+  getLocalizedWorkflowRecipes,
   resolveWorkflowDetails,
 } from '../lib/workflows';
+import { getToolBySlug, getToolContentDate } from '../data/loader';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import type { Locale } from '../i18n/config';
 
@@ -15,6 +16,8 @@ interface Props {
 
 const { locale, slug } = Astro.props;
 await loadTranslations(locale);
+const isZh = locale === 'zh';
+const l = (zh: string, en: string) => (isZh ? zh : en);
 
 const rawRecipe = getWorkflowBySlug(slug);
 if (!rawRecipe) {
@@ -22,7 +25,7 @@ if (!rawRecipe) {
 }
 
 const recipe = resolveWorkflowDetails(rawRecipe, locale);
-const allRecipes = getWorkflowRecipes().filter((w) => w.slug !== slug);
+const allRecipes = getLocalizedWorkflowRecipes(locale).filter((w) => w.slug !== slug);
 
 function getHostname(url: string): string {
   try {
@@ -36,20 +39,27 @@ const pageTitle = t(locale, 'workflow.page.title', { title: recipe.title });
 const pageDescription = t(locale, 'workflow.page.description', { headline: recipe.headline });
 const canonicalPath = getLocalizedPath(`/workflow/${slug}`, locale);
 
-const workflowDate = '2026-03-20T00:00:00.000Z';
+const workflowDate =
+  recipe.steps
+    .map((s) => {
+      const stepTool = getToolBySlug(s.toolSlug);
+      return stepTool ? getToolContentDate(stepTool, locale) : undefined;
+    })
+    .filter(Boolean)
+    .sort()
+    .at(-1) || '2026-03-20';
 
 // Schema.org WebSite
 const websiteLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': 'https://nologin.tools/#website',
   name: 'nologin.tools',
   url: 'https://nologin.tools',
-  description: 'Curated directory of verified privacy-friendly web tools that work without login or accounts.',
+  description: t(locale, 'home.jsonLd.orgDescription'),
   inLanguage: locale,
   publisher: {
-    '@type': 'Organization',
-    name: 'NoLoginTools.org',
-    url: 'https://nologintools.org',
+    '@id': 'https://nologin.tools/#organization',
   },
   potentialAction: {
     '@type': 'SearchAction',
@@ -62,13 +72,23 @@ const websiteLd = {
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://nologin.tools/#organization',
   name: 'NoLoginTools.org',
   url: 'https://nologintools.org',
-  logo: 'https://nologin.tools/icon-192.png',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://nologin.tools/og-default.png',
+    width: 1200,
+    height: 630,
+  },
+  foundingDate: '2025',
+  areaServed: 'Worldwide',
+  email: 'contact@nologintools.org',
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'hello@nologin.tools',
-    contactType: 'editorial and privacy inquiries',
+    email: 'contact@nologintools.org',
+    contactType: 'customer support',
+    url: 'https://nologintools.org/about',
   },
   sameAs: [
     'https://x.com/nologin_tools',
@@ -83,14 +103,12 @@ const howToLd = {
   '@type': 'HowTo',
   name: recipe.title,
   description: recipe.headline,
-  totalTime: `PT${parseInt(recipe.timeEstimate, 10) || 15}M`,
+  totalTime: `PT${recipe.durationMinutes}M`,
   datePublished: '2026-01-15T00:00:00.000Z',
   dateModified: workflowDate,
   inLanguage: locale,
   publisher: {
-    '@type': 'Organization',
-    name: 'NoLoginTools.org',
-    url: 'https://nologintools.org',
+    '@id': 'https://nologin.tools/#organization',
   },
   tool: recipe.steps.map((s) => ({
     '@type': 'HowToTool',
@@ -162,7 +180,7 @@ const breadcrumbLd = {
         {t(locale, 'common.home')}
       </a>
       <span>/</span>
-      <span class="text-neutral-400">Workflows</span>
+      <span class="text-neutral-400">{l('工作流配方', 'Workflows')}</span>
       <span>/</span>
       <span class="text-neutral-900 font-medium truncate max-w-[240px]">{recipe.title}</span>
     </nav>
@@ -190,7 +208,7 @@ const breadcrumbLd = {
         </span>
         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 border-2 border-neutral-900 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-neutral-900 font-mono font-bold">
           <span>🎯</span>
-          <span>{t(locale, 'workflow.page.difficulty', { level: recipe.difficulty })}</span>
+          <span>{t(locale, 'workflow.page.difficulty', { level: recipe.difficultyLabel })}</span>
         </span>
         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 border-2 border-neutral-900 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-neutral-900 font-mono font-bold">
           <span>📁</span>
@@ -198,7 +216,7 @@ const breadcrumbLd = {
         </span>
         <span class="inline-flex items-center gap-1.5 px-2.5 py-1 border-2 border-neutral-900 bg-emerald-100 text-emerald-950 font-mono font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <span>✓</span>
-          <span>{recipe.steps.length} Chained Tools (100% Free Without Login)</span>
+          <span>{isZh ? `${recipe.steps.length} 款串联工具（100% 免费免登录）` : `${recipe.steps.length} Chained Tools (100% Free Without Login)`}</span>
         </span>
       </div>
 
@@ -291,7 +309,7 @@ const breadcrumbLd = {
                           ? 'bg-emerald-100 text-emerald-900'
                           : 'bg-amber-100 text-amber-900'
                       }`}>
-                        {step.toolHealth.status === 'online' ? '✓ Online' : '⚠ Unstable'}
+                        {step.toolHealth.status === 'online' ? l('✓ 在线', '✓ Online') : l('⚠ 波动', '⚠ Unstable')}
                       </span>
                     )}
                   </div>
@@ -361,7 +379,7 @@ const breadcrumbLd = {
             {/* Tool Detail Link */}
             <div class="pt-4 border-t-2 border-neutral-900 flex items-center justify-between text-xs font-mono">
               <span class="text-neutral-600">
-                Verified NoLogin Tool: <strong class="text-neutral-900">{step.toolName}</strong> ({getHostname(step.toolUrl)})
+                {l('已验证免登录工具：', 'Verified NoLogin Tool: ')}<strong class="text-neutral-900">{step.toolName}</strong> ({getHostname(step.toolUrl)})
               </span>
               <a
                 href={getLocalizedPath(`/tool/${step.toolSlug}`, locale)}
@@ -381,7 +399,7 @@ const breadcrumbLd = {
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-mono font-bold bg-neutral-800 text-emerald-400 border border-neutral-700 mb-4">
           <span>🛡️</span>
-          <span>Zero-Account Architecture</span>
+          <span>{l('零账号安全架构', 'Zero-Account Architecture')}</span>
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-4 font-mono">
           {t(locale, 'workflow.page.whyHeading')}
@@ -450,7 +468,7 @@ const breadcrumbLd = {
               </p>
             </div>
             <div class="text-xs font-mono font-bold text-neutral-900 inline-flex items-center gap-1 group-hover:underline">
-              <span>View Recipe</span>
+              <span>{l('查看工作流配方', 'View Recipe')}</span>
               <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </div>
           </a>

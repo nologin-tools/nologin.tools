@@ -10,6 +10,9 @@ interface Props {
 const { locale } = Astro.props;
 await loadTranslations(locale);
 
+const isZh = locale === 'zh';
+const l = (zh: string, en: string) => (isZh ? zh : en);
+
 const pageTitle = t(locale, 'dev.title');
 const pageDescription = t(locale, 'dev.description');
 const canonicalPath = getLocalizedPath('/developers', locale);
@@ -162,60 +165,60 @@ const breadcrumbLd = {
               </span>
             </div>
             <span class="text-xs font-mono text-neutral-500">
-              Search, filter, and paginate verified tools
+              {l('检索、筛选并分页获取已验证工具', 'Search, filter, and paginate verified tools')}
             </span>
           </div>
 
           <div class="p-6 space-y-5">
             <div>
               <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-3">
-                Query Parameters
+                {l('查询参数', 'Query Parameters')}
               </h4>
               <div class="overflow-x-auto border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 <table class="w-full text-left text-xs">
                   <thead class="bg-neutral-900 border-b-2 border-neutral-900 font-mono font-bold text-white">
                     <tr>
-                      <th class="p-2.5 border-r border-neutral-700">Parameter</th>
-                      <th class="p-2.5 border-r border-neutral-700">Type</th>
-                      <th class="p-2.5 border-r border-neutral-700">Description</th>
-                      <th class="p-2.5">Example</th>
+                      <th class="p-2.5 border-r border-neutral-700">{l('参数名', 'Parameter')}</th>
+                      <th class="p-2.5 border-r border-neutral-700">{l('类型', 'Type')}</th>
+                      <th class="p-2.5 border-r border-neutral-700">{l('说明', 'Description')}</th>
+                      <th class="p-2.5">{l('示例', 'Example')}</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-neutral-200 font-mono bg-white">
                     <tr>
                       <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">q</td>
                       <td class="p-2.5 text-neutral-500 border-r border-neutral-200">string</td>
-                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Keyword search across name, task, and description</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">{l('按名称、核心任务与描述进行关键词搜索', 'Keyword search across name, task, and description')}</td>
                       <td class="p-2.5 text-neutral-900 font-bold">q=pdf</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">category</td>
                       <td class="p-2.5 text-neutral-500 border-r border-neutral-200">string</td>
-                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter by category (AI, Design, Media, Privacy, etc.)</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">{l('按一级分类筛选（AI、Design、Media、Privacy 等）', 'Filter by category (AI, Design, Media, Privacy, etc.)')}</td>
                       <td class="p-2.5 text-neutral-900 font-bold">category=Design</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">clientSide</td>
                       <td class="p-2.5 text-neutral-500 border-r border-neutral-200">boolean</td>
-                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter for in-browser client-side memory processing</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">{l('仅筛选纯浏览器本地内存处理的工具', 'Filter for in-browser client-side memory processing')}</td>
                       <td class="p-2.5 text-neutral-900 font-bold">clientSide=1</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">offline</td>
                       <td class="p-2.5 text-neutral-500 border-r border-neutral-200">boolean</td>
-                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter for PWA offline-capable tools</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">{l('仅筛选支持离线运行的 PWA 工具', 'Filter for PWA offline-capable tools')}</td>
                       <td class="p-2.5 text-neutral-900 font-bold">offline=1</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">openSource</td>
                       <td class="p-2.5 text-neutral-500 border-r border-neutral-200">boolean</td>
-                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Filter for verified open-source tools</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">{l('仅筛选已验证开源仓库的工具', 'Filter for verified open-source tools')}</td>
                       <td class="p-2.5 text-neutral-900 font-bold">openSource=1</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-bold text-neutral-900 border-r border-neutral-200">limit / offset</td>
                       <td class="p-2.5 text-neutral-500 border-r border-neutral-200">integer</td>
-                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">Pagination limit (max 100) and offset</td>
+                      <td class="p-2.5 text-neutral-700 border-r border-neutral-200">{l('分页单页条数（上限 100）与偏移量', 'Pagination limit (max 100) and offset')}</td>
                       <td class="p-2.5 text-neutral-900 font-bold">limit=10&offset=0</td>
                     </tr>
                   </tbody>
@@ -225,7 +228,7 @@ const breadcrumbLd = {
 
             <div>
               <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-2">
-                Sample Request & Response
+                {l('请求示例', 'Sample Request & Response')}
               </h4>
               <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/tools?category=Media&clientSide=1&limit=2"</code></pre>
             </div>
@@ -244,14 +247,14 @@ const breadcrumbLd = {
               </span>
             </div>
             <span class="text-xs font-mono text-neutral-500">
-              Fetch full security audit, specs, and health for a single tool
+              {l('获取单个工具的完整安全评测、规格标签与在线状态', 'Fetch full security audit, specs, and health for a single tool')}
             </span>
           </div>
 
           <div class="p-6 space-y-4">
             <div>
               <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-2">
-                Sample Request
+                {l('请求示例', 'Sample Request')}
               </h4>
               <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/tools/excalidraw-com"</code></pre>
             </div>
@@ -270,14 +273,14 @@ const breadcrumbLd = {
               </span>
             </div>
             <span class="text-xs font-mono text-neutral-500">
-              Retrieve curated multi-tool workflow recipes
+              {l('获取精选的多工具免登录工作流配方', 'Retrieve curated multi-tool workflow recipes')}
             </span>
           </div>
 
           <div class="p-6 space-y-4">
             <div>
               <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-2">
-                Sample Request
+                {l('请求示例', 'Sample Request')}
               </h4>
               <pre class="bg-neutral-900 text-neutral-200 text-xs font-mono p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-x-auto"><code>curl -s "https://nologin.tools/api/v1/workflows?slug=private-podcast-production"</code></pre>
             </div>
@@ -303,7 +306,7 @@ const breadcrumbLd = {
         <div class="space-y-4 mb-6">
           <div>
             <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">
-              Instant AI Assistant Setup (`claude_desktop_config.json` or `.cursor/mcp.json`)
+              {l('AI 助手快速配置（`claude_desktop_config.json` 或 `.cursor/mcp.json`）', 'Instant AI Assistant Setup (`claude_desktop_config.json` or `.cursor/mcp.json`)')}
             </h4>
             <pre class="bg-neutral-950 text-neutral-200 text-xs font-mono p-4 border border-neutral-800 overflow-x-auto"><code>{JSON.stringify({
   mcpServers: {
@@ -319,19 +322,19 @@ const breadcrumbLd = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
           <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">search_nologin_tools</div>
-            <div class="text-neutral-400 text-[11px]">Filter tools by query, offline status, and client-side execution.</div>
+            <div class="text-neutral-400 text-[11px]">{l('按关键词、离线支持与纯客户端运行属性筛选工具。', 'Filter tools by query, offline status, and client-side execution.')}</div>
           </div>
           <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">get_tool_details</div>
-            <div class="text-neutral-400 text-[11px]">Retrieve security audit, privacy specs, and uptime stats.</div>
+            <div class="text-neutral-400 text-[11px]">{l('读取工具安全评测、隐私规格与实时在线健康率。', 'Retrieve security audit, privacy specs, and uptime stats.')}</div>
           </div>
           <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">list_workflows</div>
-            <div class="text-neutral-400 text-[11px]">Query multi-tool chained recipes for end-to-end tasks.</div>
+            <div class="text-neutral-400 text-[11px]">{l('查询端到端任务的多工具串联工作流配方。', 'Query multi-tool chained recipes for end-to-end tasks.')}</div>
           </div>
           <div class="p-3 bg-neutral-800/90 border border-neutral-700">
             <div class="font-mono font-bold text-emerald-400 mb-1">find_alternatives</div>
-            <div class="text-neutral-400 text-[11px]">Instantly find zero-login replacements for closed SaaS (Canva, Photoshop, etc.).</div>
+            <div class="text-neutral-400 text-[11px]">{l('快速查找封闭付费 SaaS（Canva、Photoshop 等）的免登录替代方案。', 'Instantly find zero-login replacements for closed SaaS (Canva, Photoshop, etc.).')}</div>
           </div>
         </div>
       </div>
@@ -341,9 +344,9 @@ const breadcrumbLd = {
     <section class="mb-16">
       <div class="flex items-center gap-2 mb-2">
         <span class="px-2 py-0.5 text-xs font-mono font-bold bg-emerald-100 text-emerald-950 border border-neutral-900">
-          Widget
+          {l('嵌入式组件', 'Widget')}
         </span>
-        <span class="text-xs text-neutral-500 font-mono">&lt;4KB · Shadow DOM · Zero Dependencies</span>
+        <span class="text-xs text-neutral-500 font-mono">&lt;4KB · Shadow DOM · {l('零外部依赖', 'Zero Dependencies')}</span>
       </div>
       <h2 class="text-2xl font-bold text-neutral-900 tracking-tight mb-2 font-mono">
         {t(locale, 'dev.section.widget')}
@@ -387,17 +390,17 @@ const breadcrumbLd = {
               id="widget-category-select"
               class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
             >
-              <option value="">All Categories (Featured)</option>
-              <option value="Design" selected>Design</option>
-              <option value="Utilities">Utilities</option>
-              <option value="Privacy">Privacy</option>
-              <option value="Development">Development</option>
-              <option value="Media">Media</option>
+              <option value="">{l('全部分类（精选工具）', 'All Categories (Featured)')}</option>
+              <option value="Design" selected>{l('设计 (Design)', 'Design')}</option>
+              <option value="Utilities">{l('实用工具 (Utilities)', 'Utilities')}</option>
+              <option value="Privacy">{l('隐私安全 (Privacy)', 'Privacy')}</option>
+              <option value="Development">{l('开发工具 (Development)', 'Development')}</option>
+              <option value="Media">{l('音视频媒体 (Media)', 'Media')}</option>
               <option value="AI">AI</option>
-              <option value="Writing">Writing</option>
-              <option value="Productivity">Productivity</option>
-              <option value="Security">Security</option>
-              <option value="Network">Network</option>
+              <option value="Writing">{l('写作编辑 (Writing)', 'Writing')}</option>
+              <option value="Productivity">{l('效率办公 (Productivity)', 'Productivity')}</option>
+              <option value="Security">{l('安全审计 (Security)', 'Security')}</option>
+              <option value="Network">{l('网络工具 (Network)', 'Network')}</option>
             </select>
           </div>
 
@@ -410,14 +413,14 @@ const breadcrumbLd = {
               id="widget-alternative-select"
               class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
             >
-              <option value="canva" selected>Canva (Graphics & Design)</option>
-              <option value="figma">Figma (Vector & Wireframes)</option>
-              <option value="notion">Notion (Docs & Markdown)</option>
-              <option value="photoshop">Photoshop (Raster & Photo)</option>
-              <option value="wetransfer">WeTransfer (File Transfer)</option>
-              <option value="tinyurl">TinyURL / Bitly (Link Shortener)</option>
-              <option value="miro">Miro (Whiteboard)</option>
-              <option value="lucidchart">Lucidchart (Architecture & Flowcharts)</option>
+              <option value="canva" selected>{l('Canva（平面与海报设计）', 'Canva (Graphics & Design)')}</option>
+              <option value="figma">{l('Figma（矢量与原型设计）', 'Figma (Vector & Wireframes)')}</option>
+              <option value="notion">{l('Notion（文档与 Markdown）', 'Notion (Docs & Markdown)')}</option>
+              <option value="photoshop">{l('Photoshop（图像与修图）', 'Photoshop (Raster & Photo)')}</option>
+              <option value="wetransfer">{l('WeTransfer（大文件传输）', 'WeTransfer (File Transfer)')}</option>
+              <option value="tinyurl">{l('TinyURL / Bitly（短链分享）', 'TinyURL / Bitly (Link Shortener)')}</option>
+              <option value="miro">{l('Miro（无限协作白板）', 'Miro (Whiteboard)')}</option>
+              <option value="lucidchart">{l('Lucidchart（架构与流程图）', 'Lucidchart (Architecture & Flowcharts)')}</option>
             </select>
           </div>
 
@@ -431,9 +434,9 @@ const breadcrumbLd = {
                 id="widget-theme-select"
                 class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
-                <option value="auto">Auto (System)</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
+                <option value="auto">{l('跟随系统 (Auto)', 'Auto (System)')}</option>
+                <option value="light">{l('浅色 (Light)', 'Light')}</option>
+                <option value="dark">{l('深色 (Dark)', 'Dark')}</option>
               </select>
             </div>
 
@@ -445,10 +448,10 @@ const breadcrumbLd = {
                 id="widget-max-select"
                 class="w-full text-xs font-mono font-bold px-3 py-2.5 bg-white border-2 border-neutral-900 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
-                <option value="2">2 Tools</option>
-                <option value="3" selected>3 Tools</option>
-                <option value="4">4 Tools</option>
-                <option value="5">5 Tools</option>
+                <option value="2">{l('2 个工具', '2 Tools')}</option>
+                <option value="3" selected>{l('3 个工具', '3 Tools')}</option>
+                <option value="4">{l('4 个工具', '4 Tools')}</option>
+                <option value="5">{l('5 个工具', '5 Tools')}</option>
               </select>
             </div>
           </div>
@@ -456,7 +459,7 @@ const breadcrumbLd = {
           {/* Embed Code & Copy */}
           <div class="pt-2 border-t-2 border-neutral-900">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">HTML Snippet</span>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">{l('HTML 嵌入代码', 'HTML Snippet')}</span>
               <button
                 type="button"
                 id="widget-copy-btn"
@@ -477,7 +480,7 @@ const breadcrumbLd = {
             <span class="uppercase tracking-wider">{t(locale, 'dev.widget.preview')}</span>
             <span class="text-[11px] text-emerald-800 flex items-center gap-1">
               <span class="w-2 h-2 bg-emerald-600 inline-block"></span>
-              Isolated Shadow DOM
+              {l('隔离式 Shadow DOM', 'Isolated Shadow DOM')}
             </span>
           </div>
 
@@ -496,18 +499,18 @@ const breadcrumbLd = {
 
       <div class="bg-white border-2 border-neutral-900 p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] space-y-6">
         <p class="text-sm text-neutral-700 leading-relaxed font-mono">
-          Embed official real-time verification shields into your open-source README, docs, or landing page:
+          {l('在您的开源项目 README、文档或产品官网嵌入官方实时验证徽章：', 'Embed official real-time verification shields into your open-source README, docs, or landing page:')}
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="p-4 bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            <div class="text-xs font-mono font-bold text-neutral-900 mb-2 uppercase">Live Dynamic SVG Badge:</div>
+            <div class="text-xs font-mono font-bold text-neutral-900 mb-2 uppercase">{l('实时动态 SVG 徽章：', 'Live Dynamic SVG Badge:')}</div>
             <img src="/api/badge/excalidraw-com.svg" alt="NoLogin Verified" class="mb-3" />
             <pre class="bg-neutral-900 text-neutral-200 text-[11px] font-mono p-2.5 border border-neutral-900 overflow-x-auto"><code>[![NoLogin Verified](https://nologin.tools/api/badge/excalidraw-com.svg)](https://nologin.tools/badge/excalidraw-com)</code></pre>
           </div>
 
           <div class="p-4 bg-neutral-900 text-white border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            <div class="text-xs font-mono font-bold text-neutral-200 mb-2 uppercase">Dark Theme SVG Shield:</div>
+            <div class="text-xs font-mono font-bold text-neutral-200 mb-2 uppercase">{l('深色主题 SVG 徽章：', 'Dark Theme SVG Shield:')}</div>
             <img src="/badges/flat-dark.svg" alt="NoLogin Verified" class="mb-3" />
             <pre class="bg-neutral-950 text-neutral-200 text-[11px] font-mono p-2.5 border border-neutral-800 overflow-x-auto"><code>[![NoLogin Verified](https://nologin.tools/badges/flat-dark.svg)](https://nologin.tools/badge/excalidraw-com)</code></pre>
           </div>

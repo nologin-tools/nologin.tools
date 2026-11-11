@@ -3,14 +3,17 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
   const reports = await getCollection('reports');
-  const buildDate = new Date().toISOString().split('T')[0];
+  const latestReportLastmod = reports.reduce((latest, report) => {
+    const d = (report.data.updatedAt || report.data.publishedAt).toISOString().split('T')[0];
+    return d > latest ? d : latest;
+  }, '2026-03-15');
   const site = 'https://nologintools.org';
 
   const staticPages = [
-    { url: '/', changefreq: 'monthly', priority: '1.0', lastmod: buildDate },
-    { url: '/about', changefreq: 'monthly', priority: '0.7', lastmod: buildDate },
-    { url: '/standards', changefreq: 'monthly', priority: '0.9', lastmod: buildDate },
-    { url: '/reports', changefreq: 'weekly', priority: '0.9', lastmod: buildDate },
+    { url: '/', changefreq: 'monthly', priority: '1.0', lastmod: latestReportLastmod },
+    { url: '/about', changefreq: 'monthly', priority: '0.7', lastmod: '2026-03-15' },
+    { url: '/standards', changefreq: 'monthly', priority: '0.9', lastmod: '2026-03-20' },
+    { url: '/reports', changefreq: 'weekly', priority: '0.9', lastmod: latestReportLastmod },
   ];
 
   const reportPages = reports.map((report) => ({

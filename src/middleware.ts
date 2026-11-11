@@ -117,7 +117,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const ssrPath = rewriteToSSR(pathname);
     try {
       const ssrResponse = await context.rewrite(ssrPath);
-      return withContentLanguage(ssrResponse, pathname);
+      return withContentLanguage(ssrResponse, pathname, { noStore: true });
     } catch (err) {
       console.error('[isr] direct rewrite error:', err);
     }
@@ -224,19 +224,42 @@ function getLocaleFromPath(pathname: string): string {
   return 'en';
 }
 
-function withContentLanguage(response: Response, pathname: string): Response {
+const PRIVATE_HTML_REGEX = /^\/(?:admin|api|ssr|(?:zh\/)?submit\/success)(\/|$)/;
+
+function withContentLanguage(
+  response: Response,
+  pathname: string,
+  options?: { noStore?: boolean }
+): Response {
   const contentType = response.headers.get('content-type') || '';
   if (!contentType.includes('text/html')) {
     return response;
   }
   const locale = getLocaleFromPath(pathname);
-  const newResponse = new Response(response.body, {
+  const headers = new Headers(response.headers);
+  headers.set('Content-Language', locale);
+
+  if (options?.noStore || PRIVATE_HTML_REGEX.test(pathname)) {
+    headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  } else if (response.status === 200) {
+    const hasLocalePrefix = locale !== 'en';
+    if (hasLocalePrefix) {
+      // Locale-prefixed paths (/zh/*) never trigger Accept-Language / Cookie redirects,
+      // so shared CDN edge caching with stale-while-revalidate is safe.
+      headers.set('Cache-Control', 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400');
+    } else {
+      // Unprefixed paths (/, /about, /tool/*) negotiate Accept-Language & Cookie: lang in Worker;
+      // prevent shared CDN edge cache from bypassing human locale redirects while preserving ETag revalidation.
+      headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
+      headers.set('Vary', 'Accept-Language, Cookie');
+    }
+  }
+
+  return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
-    headers: new Headers(response.headers),
+    headers,
   });
-  newResponse.headers.set('Content-Language', locale);
-  return newResponse;
 }
 
 function isISRPath(pathname: string): boolean {

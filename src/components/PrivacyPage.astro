@@ -10,16 +10,38 @@ interface Props {
 const { locale } = Astro.props;
 await loadTranslations(locale);
 
-const effectiveDate = 'September 17, 2026';
+const isZh = locale === 'zh';
+const l = (zh: string, en: string) => (isZh ? zh : en);
+
+const effectiveDate = isZh ? '2026 年 9 月 17 日' : 'September 17, 2026';
+const canonicalPath = getLocalizedPath('/privacy', locale);
+
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: t(locale, 'privacy.title'),
+  description: t(locale, 'privacy.description'),
+  url: `https://nologin.tools${canonicalPath}`,
+  inLanguage: locale,
+  datePublished: '2026-09-17',
+  dateModified: '2026-09-17',
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://nologin.tools/#organization',
+    name: 'NoLoginTools.org',
+    url: 'https://nologintools.org',
+  },
+};
 ---
 
 <Layout title={t(locale, 'privacy.title')} description={t(locale, 'privacy.description')} locale={locale}>
+  <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
-      { '@type': 'ListItem', position: 2, name: t(locale, 'privacy.heading'), item: `https://nologin.tools${getLocalizedPath('/privacy', locale)}` },
+      { '@type': 'ListItem', position: 2, name: t(locale, 'privacy.heading'), item: `https://nologin.tools${canonicalPath}` },
     ],
   })} />
 
@@ -40,35 +62,42 @@ const effectiveDate = 'September 17, 2026';
     <!-- Header -->
     <div class="mb-12 border-b-2 border-neutral-900 pb-8">
       <div class="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-mono font-bold bg-emerald-100 text-emerald-800 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wider mb-4">
-        <span>🔒 Zero Data Collection Guarantee</span>
+        <span>{l('🔒 零数据收集承诺', '🔒 Zero Data Collection Guarantee')}</span>
       </div>
       <h1 class="text-3xl font-black tracking-tight text-neutral-900 mb-3">{t(locale, 'privacy.heading')}</h1>
       <p class="text-base text-neutral-700 max-w-2xl leading-relaxed">
-        This Privacy Policy outlines the data handling practices for <strong>nologin.tools</strong> (the website) and the <strong>NoLogin Tools - Privacy &amp; Zero-Signup Switcher</strong> browser extension.
+        {isZh ? (
+          <>本隐私政策说明 <strong>nologin.tools</strong>（主站目录）与 <strong>NoLogin Tools - Privacy &amp; Zero-Signup Switcher</strong> 浏览器扩展的数据处理准则与隐私边界。</>
+        ) : (
+          <>This Privacy Policy outlines the data handling practices for <strong>nologin.tools</strong> (the website) and the <strong>NoLogin Tools - Privacy &amp; Zero-Signup Switcher</strong> browser extension.</>
+        )}
       </p>
       <p class="text-xs font-mono font-bold text-neutral-500 mt-3">
-        Effective Date: {effectiveDate} · Maintained by <a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-neutral-900 underline hover:text-emerald-700 transition-colors">NoLoginTools.org</a>
+        {l('生效日期：', 'Effective Date: ')}{effectiveDate} · {l('维护机构：', 'Maintained by ')}<a href="https://nologintools.org" target="_blank" rel="noopener noreferrer" class="text-neutral-900 underline hover:text-emerald-700 transition-colors">NoLoginTools.org</a>
       </p>
     </div>
 
     <!-- 1. Executive Summary -->
     <section class="border-2 border-neutral-900 bg-white p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-8">
-      <h2 class="text-lg font-bold font-mono text-neutral-900 mb-3 uppercase tracking-wide">1. Executive Summary &amp; Core Philosophy</h2>
+      <h2 class="text-lg font-bold font-mono text-neutral-900 mb-3 uppercase tracking-wide">{l('1. 核心摘要与隐私理念', '1. Executive Summary & Core Philosophy')}</h2>
       <p class="text-sm text-neutral-700 leading-relaxed mb-4">
-        We believe privacy is a fundamental human right. Our core mission is to index and promote software tools that function completely without requiring account creation, login credentials, personal email harvesting, or behavioral tracking.
+        {l(
+          '我们坚信隐私是一项基本权利。我们的核心使命是收录与推广无需注册账号、无需登录凭据、不采集个人邮箱且无行为追踪的纯净在线软件工具。',
+          'We believe privacy is a fundamental human right. Our core mission is to index and promote software tools that function completely without requiring account creation, login credentials, personal email harvesting, or behavioral tracking.'
+        )}
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
         <div class="p-3 bg-neutral-50 border border-neutral-300">
-          <span class="text-emerald-700 font-bold block mb-1">✓ ZERO ACCOUNTS</span>
-          No user profiles, passwords, social logins, or cloud session cookies.
+          <span class="text-emerald-700 font-bold block mb-1">{l('✓ 零账号体系', '✓ ZERO ACCOUNTS')}</span>
+          {l('不设用户档案、密码、社交登录或云端会话 Cookie。', 'No user profiles, passwords, social logins, or cloud session cookies.')}
         </div>
         <div class="p-3 bg-neutral-50 border border-neutral-300">
-          <span class="text-emerald-700 font-bold block mb-1">✓ ZERO TRACKERS</span>
-          No Google Analytics, Meta Pixels, ad beacons, or fingerprinting.
+          <span class="text-emerald-700 font-bold block mb-1">{l('✓ 零追踪脚本', '✓ ZERO TRACKERS')}</span>
+          {l('不加载 Google Analytics、Meta Pixel、广告信标或指纹脚本。', 'No Google Analytics, Meta Pixels, ad beacons, or fingerprinting.')}
         </div>
         <div class="p-3 bg-neutral-50 border border-neutral-300">
-          <span class="text-emerald-700 font-bold block mb-1">✓ 100% LOCAL</span>
-          Search indexing and matching execute directly on your device.
+          <span class="text-emerald-700 font-bold block mb-1">{l('✓ 100% 本地匹配', '✓ 100% LOCAL')}</span>
+          {l('工具检索索引与域名匹配完全在您的本地设备上运行。', 'Search indexing and matching execute directly on your device.')}
         </div>
       </div>
     </section>
@@ -76,45 +105,70 @@ const effectiveDate = 'September 17, 2026';
     <!-- 2. Browser Extension Privacy Disclosure -->
     <section class="border-b-2 border-neutral-900 pb-8 mb-8">
       <h2 class="text-xl font-bold font-mono text-neutral-900 mb-4 uppercase tracking-wide">
-        2. Browser Extension Privacy Policy
+        {l('2. 浏览器扩展隐私政策', '2. Browser Extension Privacy Policy')}
       </h2>
       <p class="text-xs font-mono text-neutral-500 mb-4">
-        Applicable to: <strong>NoLogin Tools - Privacy &amp; Zero-Signup Switcher</strong> (Chrome Web Store, Firefox AMO, Edge Add-ons)
+        {l('适用范围：', 'Applicable to: ')}<strong>NoLogin Tools - Privacy &amp; Zero-Signup Switcher</strong> (Chrome Web Store, Firefox AMO, Edge Add-ons)
       </p>
 
       <div class="space-y-4 text-sm text-neutral-700 leading-relaxed">
         <div class="border-2 border-neutral-900 bg-white p-5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <h3 class="font-bold text-neutral-900 mb-2 font-mono uppercase text-xs">2.1 Single Purpose Specification</h3>
+          <h3 class="font-bold text-neutral-900 mb-2 font-mono uppercase text-xs">{l('2.1 单一用途声明', '2.1 Single Purpose Specification')}</h3>
           <p>
-            The extension has one single, clearly defined purpose: to contextually identify when you are visiting restrictive, closed, or paywalled web tools (such as graphic editors, diagram whiteboards, or document utilities) and immediately recommend verified, zero-login, client-side web alternatives directly within your browser.
+            {l(
+              '本扩展仅具备唯一且明确的用途：当您访问受登录墙、付费墙或强制注册限制的在线软件（如图像编辑器、白板工具或文档转换网站）时，在浏览器内即时推荐经过人工验证的免登录、客户端优先替代工具。',
+              'The extension has one single, clearly defined purpose: to contextually identify when you are visiting restrictive, closed, or paywalled web tools (such as graphic editors, diagram whiteboards, or document utilities) and immediately recommend verified, zero-login, client-side web alternatives directly within your browser.'
+            )}
           </p>
         </div>
 
         <div class="border-2 border-neutral-900 bg-white p-5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <h3 class="font-bold text-neutral-900 mb-2 font-mono uppercase text-xs">2.2 Permission Disclosures &amp; Strict Scope</h3>
+          <h3 class="font-bold text-neutral-900 mb-2 font-mono uppercase text-xs">{l('2.2 最小权限披露与严格边界', '2.2 Permission Disclosures & Strict Scope')}</h3>
           <p class="mb-3">
-            In compliance with the Chrome Web Store Minimum Permissions Policy, the extension requests only one permission:
+            {l(
+              '严格遵循 Chrome 应用商店最小权限原则，本扩展仅申请唯一一项权限：',
+              'In compliance with the Chrome Web Store Minimum Permissions Policy, the extension requests only one permission:'
+            )}
           </p>
           <ul class="space-y-2 text-xs font-mono">
             <li class="p-2 bg-neutral-50 border border-neutral-200">
-              <strong class="text-neutral-900">activeTab:</strong> Granted temporarily <em>only when you explicitly click the toolbar icon</em>. The extension inspects solely the hostname of your currently active tab (e.g., matching a domain like <code class="bg-neutral-200 px-1">canva.com</code> against an offline table) to suggest relevant alternatives.
+              {isZh ? (
+                <><strong class="text-neutral-900">activeTab：</strong>仅在您<em>主动点击工具栏图标</em>时临时授予。扩展仅读取当前激活标签页的主机域名（例如将 <code class="bg-neutral-200 px-1">canva.com</code> 与本地离线映射表比对）以推荐替代方案。</>
+              ) : (
+                <><strong class="text-neutral-900">activeTab:</strong> Granted temporarily <em>only when you explicitly click the toolbar icon</em>. The extension inspects solely the hostname of your currently active tab (e.g., matching a domain like <code class="bg-neutral-200 px-1">canva.com</code> against an offline table) to suggest relevant alternatives.</>
+              )}
             </li>
           </ul>
           <p class="mt-3 text-xs text-neutral-600">
-            <strong>Explicit Restrictions:</strong> The extension <strong>CANNOT</strong> and <strong>DOES NOT</strong> read website content, DOM nodes, form fields, passwords, keystrokes, browsing history across other tabs, or background network traffic.
+            {isZh ? (
+              <><strong>明确禁止范围：</strong>本扩展<strong>无法且绝不会</strong>读取网页正文、DOM 节点、表单输入、密码、按键记录、其他标签页浏览历史或后台网络流量。</>
+            ) : (
+              <><strong>Explicit Restrictions:</strong> The extension <strong>CANNOT</strong> and <strong>DOES NOT</strong> read website content, DOM nodes, form fields, passwords, keystrokes, browsing history across other tabs, or background network traffic.</>
+            )}
           </p>
         </div>
 
         <div class="border-2 border-neutral-900 bg-white p-5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <h3 class="font-bold text-neutral-900 mb-2 font-mono uppercase text-xs">2.3 External Network Requests &amp; Third-Party Services</h3>
+          <h3 class="font-bold text-neutral-900 mb-2 font-mono uppercase text-xs">{l('2.3 外部网络请求与第三方服务', '2.3 External Network Requests & Third-Party Services')}</h3>
           <p class="mb-2">
-            The extension runs completely offline using a bundled, pre-compiled JSON database of verified tools.
+            {l(
+              '本扩展内置预编译的已验证工具 JSON 数据库，核心检索与匹配完全离线运行。',
+              'The extension runs completely offline using a bundled, pre-compiled JSON database of verified tools.'
+            )}
           </p>
           <p class="text-xs text-neutral-600 mb-3">
-            <strong>Favicon Display Disclosure:</strong> To provide visual cues in search results, the extension requests public website favicons via Google's Favicon Service (<code class="bg-neutral-100 px-1">https://www.google.com/s2/favicons?domain=...</code>). These requests contain only the public domain name of the curated tool (e.g., <code class="bg-neutral-100 px-1">excalidraw.com</code>). No user identity, IP-identifying data, browser cookies, or browsing history are ever transmitted.
+            {isZh ? (
+              <><strong>站点图标加载说明：</strong>为在结果列表中展示直观图标，扩展会通过 Google Favicon 服务（<code class="bg-neutral-100 px-1">https://www.google.com/s2/favicons?domain=...</code>）加载公开站点图标。请求仅包含被收录工具的公开域名（如 <code class="bg-neutral-100 px-1">excalidraw.com</code>），绝不携带用户身份、Cookie 或浏览记录。</>
+            ) : (
+              <><strong>Favicon Display Disclosure:</strong> To provide visual cues in search results, the extension requests public website favicons via Google's Favicon Service (<code class="bg-neutral-100 px-1">https://www.google.com/s2/favicons?domain=...</code>). These requests contain only the public domain name of the curated tool (e.g., <code class="bg-neutral-100 px-1">excalidraw.com</code>). No user identity, IP-identifying data, browser cookies, or browsing history are ever transmitted.</>
+            )}
           </p>
           <p class="text-xs text-neutral-600">
-            <strong>No Remote Code Execution:</strong> The extension contains zero dynamically evaluated code (<code class="bg-neutral-100 px-1">eval</code>, remote scripts, or external WASM). All code is bundled inside the static package reviewed by store operators.
+            {isZh ? (
+              <><strong>零远程代码执行：</strong>扩展不包含任何动态执行代码（无 <code class="bg-neutral-100 px-1">eval</code>、远程脚本或外部 WASM），全部代码均静态打包并接受应用商店审核。</>
+            ) : (
+              <><strong>No Remote Code Execution:</strong> The extension contains zero dynamically evaluated code (<code class="bg-neutral-100 px-1">eval</code>, remote scripts, or external WASM). All code is bundled inside the static package reviewed by store operators.</>
+            )}
           </p>
         </div>
       </div>
@@ -123,17 +177,29 @@ const effectiveDate = 'September 17, 2026';
     <!-- 3. Website Privacy Policy -->
     <section class="border-b-2 border-neutral-900 pb-8 mb-8">
       <h2 class="text-xl font-bold font-mono text-neutral-900 mb-4 uppercase tracking-wide">
-        3. Website Privacy Policy (nologin.tools)
+        {l('3. 网站隐私政策 (nologin.tools)', '3. Website Privacy Policy (nologin.tools)')}
       </h2>
       <div class="space-y-4 text-sm text-neutral-700 leading-relaxed">
         <p>
-          <strong>No Cookies or User Tracking:</strong> The nologin.tools website does not set tracking cookies, local storage identifiers for cross-site tracking, or session identifiers. Language preferences are stored locally in your browser to deliver your preferred translation.
+          {isZh ? (
+            <><strong>无追踪 Cookie：</strong>nologin.tools 网站不设置跨站追踪 Cookie、广告指纹或会话标识符。仅在您切换界面语言时，于浏览器本地保存语言偏好设置。</>
+          ) : (
+            <><strong>No Cookies or User Tracking:</strong> The nologin.tools website does not set tracking cookies, local storage identifiers for cross-site tracking, or session identifiers. Language preferences are stored locally in your browser to deliver your preferred translation.</>
+          )}
         </p>
         <p>
-          <strong>Server &amp; CDN Infrastructure:</strong> The website is served statically via Cloudflare Pages. Cloudflare may process transient network connection metadata (such as IP address and request headers) strictly for DDoS mitigation, caching efficiency, and security auditing per Cloudflare's standard infrastructure terms. We do not store or inspect individual visitor access logs.
+          {isZh ? (
+            <><strong>服务器与 CDN 基础设施：</strong>网站通过 Cloudflare Pages 提供静态分发。Cloudflare 可能依据其标准安全条款短暂处理网络连接元数据（如 IP 地址与请求头），仅用于 DDoS 防护、边缘缓存与安全审计；我们不保存或查阅个人访问日志。</>
+          ) : (
+            <><strong>Server &amp; CDN Infrastructure:</strong> The website is served statically via Cloudflare Pages. Cloudflare may process transient network connection metadata (such as IP address and request headers) strictly for DDoS mitigation, caching efficiency, and security auditing per Cloudflare's standard infrastructure terms. We do not store or inspect individual visitor access logs.</>
+          )}
         </p>
         <p>
-          <strong>Tool Submissions:</strong> If you choose to submit a tool via <a href={getLocalizedPath('/submit', locale)} class="underline hover:text-neutral-900">/submit</a>, providing an email address is entirely optional. Any submitted email is used strictly for review status notifications and is never sold, shared, or used for marketing.
+          {isZh ? (
+            <><strong>工具提交：</strong>当您通过 <a href={getLocalizedPath('/submit', locale)} class="underline hover:text-neutral-900">/submit</a> 提交工具时，邮箱地址为纯可选项。所填邮箱仅用于发送审核状态通知，绝不出售、共享或用于营销推送。</>
+          ) : (
+            <><strong>Tool Submissions:</strong> If you choose to submit a tool via <a href={getLocalizedPath('/submit', locale)} class="underline hover:text-neutral-900">/submit</a>, providing an email address is entirely optional. Any submitted email is used strictly for review status notifications and is never sold, shared, or used for marketing.</>
+          )}
         </p>
       </div>
     </section>
@@ -141,29 +207,50 @@ const effectiveDate = 'September 17, 2026';
     <!-- 4. Data Retention, Sharing & Rights -->
     <section class="border-b-2 border-neutral-900 pb-8 mb-8">
       <h2 class="text-xl font-bold font-mono text-neutral-900 mb-4 uppercase tracking-wide">
-        4. Data Retention, Sharing &amp; User Rights
+        {l('4. 数据保留、共享与用户权利', '4. Data Retention, Sharing & User Rights')}
       </h2>
       <ul class="space-y-3 text-sm text-neutral-700 leading-relaxed">
         <li class="flex items-start gap-2">
           <span class="text-emerald-700 font-mono font-bold shrink-0">[✓]</span>
-          <span><strong>No Data Sale:</strong> We never sell, rent, monetize, or trade any user information to data brokers, advertisers, or third parties under any circumstances.</span>
+          <span>
+            {isZh ? (
+              <><strong>绝不出售数据：</strong>在任何情况下，我们绝不向数据经纪商、广告商或任何第三方出售、出租、变现或交换用户信息。</>
+            ) : (
+              <><strong>No Data Sale:</strong> We never sell, rent, monetize, or trade any user information to data brokers, advertisers, or third parties under any circumstances.</>
+            )}
+          </span>
         </li>
         <li class="flex items-start gap-2">
           <span class="text-emerald-700 font-mono font-bold shrink-0">[✓]</span>
-          <span><strong>No Targeted Advertising:</strong> Neither the website nor the browser extension displays advertisements, affiliate trackers, or sponsored search injections.</span>
+          <span>
+            {isZh ? (
+              <><strong>无定向广告：</strong>网站与浏览器扩展均不展示商业广告、返利追踪链接或竞价排名结果。</>
+            ) : (
+              <><strong>No Targeted Advertising:</strong> Neither the website nor the browser extension displays advertisements, affiliate trackers, or sponsored search injections.</>
+            )}
+          </span>
         </li>
         <li class="flex items-start gap-2">
           <span class="text-emerald-700 font-mono font-bold shrink-0">[✓]</span>
-          <span><strong>GDPR &amp; CCPA Compliance:</strong> Because we do not collect personal identifying information or maintain user databases, there is no personal profile to request deletion of. If you have submitted an email during tool submission and wish for it to be purged, contact us at any time.</span>
+          <span>
+            {isZh ? (
+              <><strong>GDPR 与 CCPA 合规：</strong>由于我们不收集个人身份信息，也不维护用户数据库，因此不存在可供画像的个人档案。若您在提交工具时填写过通知邮箱并希望彻底擦除，可随时联系我们处理。</>
+            ) : (
+              <><strong>GDPR &amp; CCPA Compliance:</strong> Because we do not collect personal identifying information or maintain user databases, there is no personal profile to request deletion of. If you have submitted an email during tool submission and wish for it to be purged, contact us at any time.</>
+            )}
+          </span>
         </li>
       </ul>
     </section>
 
     <!-- 5. Open Source Transparency & Contact -->
     <section class="border-2 border-neutral-900 bg-neutral-50 p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-      <h2 class="text-lg font-bold font-mono text-neutral-900 mb-2 uppercase tracking-wide">5. Open Source Transparency &amp; Contact</h2>
+      <h2 class="text-lg font-bold font-mono text-neutral-900 mb-2 uppercase tracking-wide">{l('5. 开源透明与联系方式', '5. Open Source Transparency & Contact')}</h2>
       <p class="text-sm text-neutral-700 leading-relaxed mb-4">
-        Our complete source code—including the website, the browser extension, the review pipeline, and database export scripts—is publicly available and auditable under open-source licenses.
+        {l(
+          '我们的全部源代码——包括主站目录、浏览器扩展、审核流水线与数据库导出脚本——均遵循开源协议公开，随时接受公众与安全社区审计。',
+          'Our complete source code—including the website, the browser extension, the review pipeline, and database export scripts—is publicly available and auditable under open-source licenses.'
+        )}
       </p>
       <div class="flex flex-wrap items-center gap-3 text-xs font-mono font-bold">
         <a
@@ -172,7 +259,7 @@ const effectiveDate = 'September 17, 2026';
           rel="noopener noreferrer"
           class="btn-retro uppercase"
         >
-          View Source on GitHub &rarr;
+          {l('在 GitHub 查看源码', 'View Source on GitHub')} &rarr;
         </a>
         <a
           href="https://github.com/nologin-tools/nologin.tools/issues"
@@ -180,7 +267,7 @@ const effectiveDate = 'September 17, 2026';
           rel="noopener noreferrer"
           class="btn-minimal"
         >
-          Report Privacy Issue
+          {l('报告隐私问题', 'Report Privacy Issue')}
         </a>
       </div>
     </section>

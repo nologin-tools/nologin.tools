@@ -10,7 +10,7 @@ import {
   generateHreflangLinks,
   type SitemapPage,
 } from '../lib/sitemap';
-import { getAlternativeTargets } from '../lib/alternatives';
+import { getAlternativeTargets, getToolsForAlternative } from '../lib/alternatives';
 import { getComparisonPairs } from '../lib/comparisons';
 import { getWorkflowRecipes } from '../lib/workflows';
 import { CURATED_COLLECTIONS } from '../lib/collections';
@@ -30,12 +30,12 @@ export const GET: APIRoute = async () => {
     { url: '/', priority: '1.0', changefreq: 'daily', lastmodByLocale: catalogDates },
     { url: '/finder', priority: '0.8', changefreq: 'daily', lastmodByLocale: catalogDates },
     { url: '/lab', priority: '0.8', changefreq: 'daily', lastmodByLocale: catalogDates },
-    { url: '/extension', priority: '0.8', changefreq: 'weekly' },
-    { url: '/developers', priority: '0.7', changefreq: 'weekly' },
-    { url: '/about', priority: '0.5', changefreq: 'monthly' },
-    { url: '/privacy', priority: '0.5', changefreq: 'monthly' },
-    { url: '/badge', priority: '0.6', changefreq: 'monthly' },
-    { url: '/submit', priority: '0.7', changefreq: 'monthly' },
+    { url: '/extension', priority: '0.8', changefreq: 'weekly', lastmod: '2026-09-17' },
+    { url: '/developers', priority: '0.7', changefreq: 'weekly', lastmod: '2026-09-17' },
+    { url: '/about', priority: '0.5', changefreq: 'monthly', lastmod: '2026-03-20' },
+    { url: '/privacy', priority: '0.5', changefreq: 'monthly', lastmod: '2026-09-17' },
+    { url: '/badge', priority: '0.6', changefreq: 'monthly', lastmod: '2026-03-20' },
+    { url: '/submit', priority: '0.7', changefreq: 'monthly', lastmod: '2026-03-20' },
   ];
 
   const categoryDef = TAG_DEFINITIONS.find((d) => d.key === 'category');
@@ -53,29 +53,42 @@ export const GET: APIRoute = async () => {
     lastmodByLocale: getLatestToolDates((t) => t.tags.some((tag) => tag.tagKey === item.key && tag.tagValue === item.value)),
   }));
 
-  const alternativePages: SitemapPage[] = getAlternativeTargets().map((alt) => ({
-    url: `/alternative/${alt.slug}`,
-    priority: '0.8',
-    changefreq: 'weekly',
-  }));
+  const alternativePages: SitemapPage[] = getAlternativeTargets().map((alt) => {
+    const altSlugs = new Set(getToolsForAlternative(alt).map((t) => t.slug));
+    return {
+      url: `/alternative/${alt.slug}`,
+      priority: '0.8',
+      changefreq: 'weekly',
+      lastmodByLocale: getLatestToolDates((t) => altSlugs.has(t.slug)),
+    };
+  });
 
   const comparisonPages: SitemapPage[] = getComparisonPairs().map((pair) => ({
     url: `/compare/${pair.slug}`,
     priority: '0.8',
     changefreq: 'weekly',
+    lastmodByLocale: getLatestToolDates((t) => t.slug === pair.toolASlug || t.slug === pair.toolBSlug),
   }));
 
-  const workflowPages: SitemapPage[] = getWorkflowRecipes().map((workflow) => ({
-    url: `/workflow/${workflow.slug}`,
-    priority: '0.8',
-    changefreq: 'weekly',
-  }));
+  const workflowPages: SitemapPage[] = getWorkflowRecipes().map((workflow) => {
+    const stepSlugs = new Set(workflow.steps.map((s) => s.toolSlug));
+    return {
+      url: `/workflow/${workflow.slug}`,
+      priority: '0.8',
+      changefreq: 'weekly',
+      lastmodByLocale: getLatestToolDates((t) => stepSlugs.has(t.slug)),
+    };
+  });
 
-  const collectionPages: SitemapPage[] = CURATED_COLLECTIONS.map((col) => ({
-    url: `/collection/${col.slug}`,
-    priority: '0.8',
-    changefreq: 'weekly',
-  }));
+  const collectionPages: SitemapPage[] = CURATED_COLLECTIONS.map((col) => {
+    const itemSlugs = new Set(col.items.map((item) => item.toolSlug));
+    return {
+      url: `/collection/${col.slug}`,
+      priority: '0.8',
+      changefreq: 'weekly',
+      lastmodByLocale: getLatestToolDates((t) => itemSlugs.has(t.slug)),
+    };
+  });
 
   const toolPages: SitemapPage[] = approvedTools.map((t) => ({
     url: `/tool/${t.slug}`,

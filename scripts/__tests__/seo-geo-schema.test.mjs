@@ -439,6 +439,16 @@ describe('SEO & GEO: Structured Data & Semantic Markup', () => {
     const badgeInfoContent = readFileSync(resolve(ROOT, 'src/components/BadgeInfoPage.astro'), 'utf-8');
     assert.ok(/href=\{getLocalizedPath\(`\/badge\/\$\{tool\.slug\}`, locale\)\}\s+rel="nofollow"/.test(badgeInfoContent), 'BadgeInfoPage link to /badge/[slug] must include rel="nofollow"');
   });
+
+  it('Organization JSON-LD across all Astro components uses unified logo and official contact email', () => {
+    const components = ['HomePage.astro', 'AboutPage.astro', 'BadgeInfoPage.astro', 'LabPage.astro', 'FinderPage.astro', 'ToolDetailPage.astro', 'WorkflowPage.astro'];
+    for (const file of components) {
+      const content = readFileSync(resolve(ROOT, `src/components/${file}`), 'utf-8');
+      assert.ok(!content.includes('icon-192.png'), `${file} must not reference non-existent /icon-192.png`);
+      assert.ok(!content.includes('hello@nologin.tools'), `${file} must not reference deprecated hello@nologin.tools`);
+      assert.ok(content.includes('https://nologin.tools/#organization'), `${file} must use canonical Organization @id`);
+    }
+  });
 });
 
 

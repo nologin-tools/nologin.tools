@@ -180,4 +180,25 @@ describe('Middleware SEO Redirects & Crawler Protection', () => {
       'ToolDetailPage.astro must set noindex when tool is not verified'
     );
   });
+
+  it('isolates HTML Cache-Control headers across pending SSR rewrites, unprefixed negotiation routes, and /zh/* static routes', () => {
+    const middlewareContent = readFileSync(resolve(ROOT, 'src/middleware.ts'), 'utf-8');
+    assert.ok(
+      middlewareContent.includes('withContentLanguage(ssrResponse, pathname, { noStore: true })'),
+      'Pending/unapproved dynamic SSR rewrites must set { noStore: true } so live review status is never edge-cached'
+    );
+    assert.ok(
+      middlewareContent.includes("headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate')"),
+      'Private or pending SSR HTML must receive no-store Cache-Control'
+    );
+    assert.ok(
+      middlewareContent.includes("headers.set('Cache-Control', 'public, max-age=0, must-revalidate')") &&
+        middlewareContent.includes("headers.set('Vary', 'Accept-Language, Cookie')"),
+      'Unprefixed English routes must avoid s-maxage shared edge caching so Accept-Language & Cookie redirects are never bypassed'
+    );
+    assert.ok(
+      middlewareContent.includes("headers.set('Cache-Control', 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400')"),
+      'Locale-prefixed /zh/* static HTML routes can safely use s-maxage + stale-while-revalidate'
+    );
+  });
 });

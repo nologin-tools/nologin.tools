@@ -408,11 +408,13 @@ const faqLd = {
           class="tool-card bg-white border-2 border-neutral-900 rounded-none p-5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between"
           data-slug={tool.slug}
           data-name={tool.name}
+          data-host={tool.hostname}
           data-category={tool.category.toLowerCase()}
           data-clientside={tool.isClientSideOnly ? '1' : '0'}
           data-offline={tool.worksOffline ? '1' : '0'}
           data-oss={tool.isOpenSource ? '1' : '0'}
           data-free={tool.isFree ? '1' : '0'}
+          data-featured={tool.isFeatured ? '1' : undefined}
           data-score={tool.score}
         >
           <div>
@@ -455,14 +457,14 @@ const faqLd = {
             {/* Core Task Badge */}
             {tool.coreTask && (
               <div class="mb-3">
-                <span class="inline-block text-[11px] font-mono text-neutral-800 bg-neutral-100 px-2 py-0.5 border border-neutral-300 truncate max-w-full">
+                <span data-task class="inline-block text-[11px] font-mono text-neutral-800 bg-neutral-100 px-2 py-0.5 border border-neutral-300 truncate max-w-full">
                   {tool.coreTask}
                 </span>
               </div>
             )}
 
             {/* Description */}
-            <p class="text-xs text-neutral-600 leading-relaxed line-clamp-2 mb-4">
+            <p data-desc class="text-xs text-neutral-600 leading-relaxed line-clamp-2 mb-4">
               {tool.description}
             </p>
 
@@ -553,20 +555,11 @@ const faqLd = {
     </section>
   </div>
 
-  {/* Embedded Pure Data for Client Engine */}
-  <script id="finder-raw-data" type="application/json" set:html={JSON.stringify(tools)} />
-
-  {/* Client-Side Interactive Filter Engine */}
+  {/* Client-Side Interactive Filter Engine (Hydrated Directly from SSR Cards) */}
   <script define:vars={{
     matchTemplate: t(locale, 'finder.results.matching', { count: '{count}' })
   }}>
     document.addEventListener('DOMContentLoaded', () => {
-      const rawDataEl = document.getElementById('finder-raw-data');
-      if (!rawDataEl) return;
-
-      /** @type {Array<any>} */
-      const allTools = JSON.parse(rawDataEl.textContent || '[]');
-
       const searchInput = document.getElementById('finder-search-input');
       const clearSearchBtn = document.getElementById('finder-clear-search-btn');
       const categoryChips = document.querySelectorAll('.cat-chip');
@@ -580,6 +573,30 @@ const faqLd = {
       const emptyResetBtn = document.getElementById('empty-reset-btn');
       const emptyStateEl = document.getElementById('finder-empty-state');
       const resultsGrid = document.getElementById('results-grid');
+      if (!resultsGrid) return;
+
+      const cards = Array.from(resultsGrid.querySelectorAll('.tool-card'));
+      const cardMap = new Map();
+      const allTools = cards.map((card) => {
+        const slug = card.getAttribute('data-slug') || '';
+        const name = card.getAttribute('data-name') || '';
+        const hostname = card.getAttribute('data-host') || '';
+        const coreTask = card.querySelector('[data-task]')?.textContent || '';
+        const description = card.querySelector('[data-desc]')?.textContent || '';
+        cardMap.set(slug, card);
+        return {
+          slug,
+          name,
+          searchBlob: `${name}\n${hostname}\n${coreTask}\n${description}`.toLowerCase(),
+          category: card.getAttribute('data-category') || 'other',
+          isClientSideOnly: card.getAttribute('data-clientside') === '1',
+          worksOffline: card.getAttribute('data-offline') === '1',
+          isOpenSource: card.getAttribute('data-oss') === '1',
+          isFree: card.getAttribute('data-free') === '1',
+          isFeatured: card.getAttribute('data-featured') === '1',
+          score: Number(card.getAttribute('data-score') || '0'),
+        };
+      });
 
       const presetPills = document.querySelectorAll('.finder-preset-pill');
       let currentCategory = 'all';
@@ -663,17 +680,11 @@ const faqLd = {
         const matchedItems = [];
 
         for (const tool of allTools) {
-          if (query) {
-            const matchName = tool.name.toLowerCase().includes(query);
-            const matchHost = tool.hostname.toLowerCase().includes(query);
-            const matchTask = tool.coreTask.toLowerCase().includes(query);
-            const matchDesc = tool.description.toLowerCase().includes(query);
-            if (!matchName && !matchHost && !matchTask && !matchDesc) {
-              continue;
-            }
+          if (query && !tool.searchBlob.includes(query)) {
+            continue;
           }
 
-          if (currentCategory !== 'all' && tool.category.toLowerCase() !== currentCategory) {
+          if (currentCategory !== 'all' && tool.category !== currentCategory) {
             continue;
           }
 
@@ -695,24 +706,19 @@ const faqLd = {
         });
 
         // Reorder DOM cards
-        if (resultsGrid) {
-          const cards = Array.from(resultsGrid.querySelectorAll('.tool-card'));
-          const cardMap = new Map(cards.map((c) => [c.getAttribute('data-slug'), c]));
-
-          for (const card of cards) {
-            const slug = card.getAttribute('data-slug');
-            if (matchingSlugs.has(slug)) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
+        for (const card of cards) {
+          const slug = card.getAttribute('data-slug');
+          if (matchingSlugs.has(slug)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
           }
+        }
 
-          // Append in sorted order
-          for (const item of matchedItems) {
-            const el = cardMap.get(item.slug);
-            if (el) resultsGrid.appendChild(el);
-          }
+        // Append in sorted order
+        for (const item of matchedItems) {
+          const el = cardMap.get(item.slug);
+          if (el) resultsGrid.appendChild(el);
         }
 
         // Update counter

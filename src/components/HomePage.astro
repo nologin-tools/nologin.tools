@@ -10,8 +10,8 @@ import { LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import { getAlternativeTargets } from '../lib/alternatives';
 import { getComparisonPairs } from '../lib/comparisons';
-import { getWorkflowRecipes } from '../lib/workflows';
-import { CURATED_COLLECTIONS } from '../lib/collections';
+import { getLocalizedWorkflowRecipes } from '../lib/workflows';
+import { getLocalizedCollections } from '../lib/collections';
 import { CHROME_STORE_URL } from '../lib/extension';
 import extManifest from '../../packages/extension/manifest.json';
 
@@ -149,9 +149,9 @@ function translateTagValue(key: string, value: string): string {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": t(locale, 'home.jsonLd.itemListName'),
-    "numberOfItems": allTools.length,
+    "numberOfItems": Math.min(allTools.length, 50),
     "inLanguage": locale,
-    "itemListElement": allTools.map((tool, i) => ({
+    "itemListElement": allTools.slice(0, 50).map((tool, i) => ({
       "@type": "ListItem",
       "position": i + 1,
       "name": tool.name,
@@ -869,7 +869,7 @@ function translateTagValue(key: string, value: string): string {
           <span>{locale === 'zh' ? '零注册工作流与精选工具栈 (Workflows & Stacks)' : 'Zero-Signup Workflows & Curated Stacks'}</span>
         </h2>
         <div class="flex flex-wrap gap-2">
-          {getWorkflowRecipes().map((wf) => (
+          {getLocalizedWorkflowRecipes(locale).map((wf) => (
             <a
               href={getLocalizedPath(`/workflow/${wf.slug}`, locale)}
               class="px-2.5 py-1 text-xs font-mono font-bold bg-white text-neutral-800 border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
@@ -877,7 +877,7 @@ function translateTagValue(key: string, value: string): string {
               {wf.title}
             </a>
           ))}
-          {CURATED_COLLECTIONS.map((col) => (
+          {getLocalizedCollections(locale).map((col) => (
             <a
               href={getLocalizedPath(`/collection/${col.slug}`, locale)}
               class="px-2.5 py-1 text-xs font-mono font-bold bg-yellow-50 text-neutral-900 border border-neutral-400 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"

@@ -111,6 +111,7 @@ const hreflangLinks = hreflangLocales.map((l) => ({
     )}
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
+    <meta name="author" content="NoLoginTools.org" />
     <link rel="canonical" href={canonicalUrl} />
     {noindex || !isIndexableLocale(locale)
       ? <meta name="robots" content="noindex, follow" />

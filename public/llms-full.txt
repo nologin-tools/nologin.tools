@@ -164,6 +164,9 @@ Verified tools are invited to display the official trust badge on their homepage
 - XML Multi-lingual Sitemap: `https://nologin.tools/sitemap.xml`
 - Global RSS Feed: `https://nologin.tools/rss.xml`
 - GitHub Awesome List (daily synced): `https://github.com/nologin-tools/awesome-nologin-tools`
-- REST API (Tool List): `GET https://nologin.tools/api/tools`
-- REST API (Tool Detail): `GET https://nologin.tools/api/tools/{slug}`
+- REST API (Tool List): `GET https://nologin.tools/api/v1/tools`
+- REST API (Tool Detail): `GET https://nologin.tools/api/v1/tools/{slug}`
+- REST API (Workflows): `GET https://nologin.tools/api/v1/workflows`
+- OpenAPI 3.1 Specification: `GET https://nologin.tools/api/v1/openapi.json`
+- Model Context Protocol (MCP): `GET https://nologin.tools/api/v1/mcp.json`
 - Dynamic OpenGraph Generator: `GET https://nologin.tools/api/og/{slug}`

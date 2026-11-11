@@ -181,12 +181,19 @@ function expectedSchemaTypes(url) {
   if (/^\/blog\/[^/]+\/?$/.test(path)) return ['BlogPosting'];
   if (/^\/blog\/?$/.test(path)) return ['Blog'];
   if (/^\/category\/[^/]+\/?$/.test(path)) return ['CollectionPage'];
+  if (/^\/alternative\/[^/]+\/?$/.test(path)) return ['CollectionPage', 'BreadcrumbList', 'FAQPage'];
+  if (/^\/compare\/[^/]+\/?$/.test(path)) return ['WebPage', 'BreadcrumbList', 'FAQPage'];
+  if (/^\/collection\/[^/]+\/?$/.test(path)) return ['CollectionPage', 'BreadcrumbList', 'FAQPage'];
+  if (/^\/tag\/[^/]+\/?$/.test(path)) return ['CollectionPage', 'BreadcrumbList', 'FAQPage'];
   if (/^\/about\/?$/.test(path)) return ['Organization', 'WebSite', 'FAQPage'];
   if (/^\/submit\/?$/.test(path)) return ['BreadcrumbList'];
   if (/^\/badge\/?$/.test(path)) return ['FAQPage', 'HowTo', 'WebSite', 'Organization'];
   if (/^\/badge\/[^/]+\/?$/.test(path)) return ['BreadcrumbList'];
   if (/^\/finder\/?$/.test(path)) return ['WebPage', 'WebSite', 'Organization', 'FAQPage'];
   if (/^\/lab\/?$/.test(path)) return ['TechArticle', 'WebSite', 'Organization'];
+  if (/^\/developers\/?$/.test(path)) return ['TechArticle', 'BreadcrumbList'];
+  if (/^\/extension\/?$/.test(path)) return ['SoftwareApplication'];
+  if (/^\/privacy\/?$/.test(path)) return ['WebPage', 'BreadcrumbList'];
   if (/^\/workflow\/[^/]+\/?$/.test(path)) return ['HowTo', 'WebSite', 'Organization', 'FAQPage'];
   return [];
 }
@@ -356,6 +363,25 @@ export async function runLocalAudit(limit) {
   for (const link of internalLinks) {
     if (!isResolvableLocalLink(link, redirects)) {
       allErrors.push(`[${link}] Broken internal link: no generated page, public asset, or valid static redirect found`);
+    }
+  }
+
+  for (const llmsFile of ['llms.txt', 'llms-full.txt']) {
+    const llmsPath = resolve(DIST, llmsFile);
+    if (!existsSync(llmsPath)) continue;
+    const llmsContent = readFileSync(llmsPath, 'utf-8');
+    const urlMatches = llmsContent.matchAll(/https:\/\/nologin\.tools[^\s\)\]`"'<>]*/g);
+    for (const match of urlMatches) {
+      const candidate = match[0].replace(/[.,;:]$/, '');
+      if (candidate.includes('{')) continue;
+      try {
+        const normalized = normalizeAuditUrl(candidate);
+        const parsed = new URL(normalized);
+        if (/^\/(?:zh\/)?api(?:\/|$)/.test(parsed.pathname)) continue;
+        if (!localFileCandidates(normalized).some(isFile)) {
+          allErrors.push(`[${llmsFile}] Stale or missing static link in GEO discovery file: ${normalized}`);
+        }
+      } catch {}
     }
   }
 
@@ -540,6 +566,8 @@ export async function runDiscoveryAudit(options = {}) {
         for (const directive of [
           'Sitemap: https://nologin.tools/sitemap.xml',
           'Allow: /llms.txt',
+          'Allow: /api/og/',
+          'Allow: /api/v1/',
           'GPTBot',
           'ClaudeBot',
           'PerplexityBot',

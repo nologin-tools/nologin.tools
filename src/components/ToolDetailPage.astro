@@ -12,10 +12,10 @@ import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { t, loadTranslations, getLocalizedPath } from '../i18n/utils';
 import { getToolEditorial, getTopEditorChoiceAlternative } from '../data/loader';
 import { getRelatedArticlesForTool } from '../lib/tool-blogs';
-import { findAlternativeByAlias } from '../lib/alternatives';
-import { findComparisonsForTool } from '../lib/comparisons';
-import { findWorkflowsForTool } from '../lib/workflows';
-import { findCollectionsForTool } from '../lib/collections';
+import { findAlternativeByAlias, resolveAlternativeTarget } from '../lib/alternatives';
+import { findComparisonsForTool, resolveComparisonPair } from '../lib/comparisons';
+import { findLocalizedWorkflowsForTool } from '../lib/workflows';
+import { findLocalizedCollectionsForTool } from '../lib/collections';
 import { computePrivacyScorecard } from '../lib/privacy-scorecard.mjs';
 import { renderRadarChartSvg } from '../lib/radar-chart.mjs';
 import { resolveDueDiligence } from '../lib/due-diligence.mjs';
@@ -133,6 +133,14 @@ const keywords = [seo.focusKeyword, ...toolTags.map(t => t.tagValue)].filter(Boo
 const pricingTag = toolTags.find(t => t.tagKey === 'pricing');
 const pricingValue = pricingTag?.tagValue;
 
+function translateTagValue(dim: string, val?: string | null): string {
+  if (!val) return '';
+  const key = `tag.${dim}.${val}`;
+  const translated = t(locale, key);
+  return translated === key ? val : translated;
+}
+const categoryDisplay = categoryTag ? translateTagValue('category', categoryTag.tagValue) : '';
+
 function getApplicationCategory(cat?: string): string {
   switch (cat) {
     case 'AI': return 'AIApplication';
@@ -181,9 +189,9 @@ const radarSvg = editorial?.productScore
     })
   : null;
 const relatedArticles = getRelatedArticlesForTool(slug, locale);
-const toolComparisons = findComparisonsForTool(slug);
-const toolWorkflows = findWorkflowsForTool(slug);
-const toolCollections = findCollectionsForTool(slug);
+const toolComparisons = findComparisonsForTool(slug).map((c) => resolveComparisonPair(c, locale));
+const toolWorkflows = findLocalizedWorkflowsForTool(slug, locale);
+const toolCollections = findLocalizedCollectionsForTool(slug, locale);
 const topAlternative = (editorial?.verdictTier !== 'editors-choice' && categoryTag?.tagValue)
   ? getTopEditorChoiceAlternative(slug, categoryTag.tagValue, locale)
   : null;
@@ -191,7 +199,8 @@ const matchedAlternatives = (editorial?.alternativeTo || [])
   .map((alt) => findAlternativeByAlias(alt))
   .filter((target, idx, self): target is NonNullable<typeof target> => 
     Boolean(target) && self.findIndex((t) => t?.slug === target?.slug) === idx
-  );
+  )
+  .map((target) => resolveAlternativeTarget(target, locale));
 
 const featureList = [
   tool.coreTask,
@@ -316,7 +325,7 @@ const breadcrumbLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: t(locale, 'common.home'), item: `https://nologin.tools${getLocalizedPath('/', locale)}` },
-    ...(categoryTag ? [{ '@type': 'ListItem', position: 2, name: categoryTag.tagValue, item: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(categoryTag.tagValue)}`, locale)}` }] : []),
+    ...(categoryTag ? [{ '@type': 'ListItem', position: 2, name: categoryDisplay, item: `https://nologin.tools${getLocalizedPath(`/category/${categoryToSlug(categoryTag.tagValue)}`, locale)}` }] : []),
     { '@type': 'ListItem', position: categoryTag ? 3 : 2, name: tool.name, item: `https://nologin.tools${getLocalizedPath(`/tool/${slug}`, locale)}` },
   ],
 };
@@ -419,7 +428,7 @@ const orgLd = {
         {categoryTag && (
           <>
             <li>
-              <a href={getLocalizedPath(`/category/${categoryToSlug(categoryTag.tagValue)}`, locale)} class="hover:text-neutral-900 transition-colors">{categoryTag.tagValue}</a>
+              <a href={getLocalizedPath(`/category/${categoryToSlug(categoryTag.tagValue)}`, locale)} class="hover:text-neutral-900 transition-colors">{categoryDisplay}</a>
             </li>
             <li aria-hidden="true">
               <svg class="w-4 h-4 text-neutral-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
@@ -1147,23 +1156,23 @@ const orgLd = {
 
         {/* Verification Details factsheet for GEO quotability */}
         <div class="border-t border-neutral-200/80 pt-4">
-          <h3 class="text-xs font-mono font-bold text-neutral-400 uppercase tracking-wider mb-3">Verification Details</h3>
+          <h3 class="text-xs font-mono font-bold text-neutral-400 uppercase tracking-wider mb-3">{locale === 'zh' ? '认证参数总览' : 'Verification Details'}</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm bg-neutral-50 p-4 border-2 border-neutral-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3">
             <div>
-              <span class="block text-xs text-neutral-500 font-mono">Account</span>
-              <span class="font-bold text-neutral-900">None Required</span>
+              <span class="block text-xs text-neutral-500 font-mono">{locale === 'zh' ? '账号要求' : 'Account'}</span>
+              <span class="font-bold text-neutral-900">{locale === 'zh' ? '免注册登录' : 'None Required'}</span>
             </div>
             <div>
-              <span class="block text-xs text-neutral-500 font-mono">Category</span>
-              <span class="font-bold text-neutral-900">{categoryTag?.tagValue || 'General'}</span>
+              <span class="block text-xs text-neutral-500 font-mono">{locale === 'zh' ? '功能分类' : 'Category'}</span>
+              <span class="font-bold text-neutral-900">{categoryDisplay || (locale === 'zh' ? '通用工具' : 'General')}</span>
             </div>
             <div>
-              <span class="block text-xs text-neutral-500 font-mono">Processing</span>
-              <span class="font-bold text-neutral-900">{dataTag?.tagValue || 'Browser / Web'}</span>
+              <span class="block text-xs text-neutral-500 font-mono">{locale === 'zh' ? '计算方式' : 'Processing'}</span>
+              <span class="font-bold text-neutral-900">{dataTag ? translateTagValue('data', dataTag.tagValue) : (locale === 'zh' ? '浏览器 / Web' : 'Browser / Web')}</span>
             </div>
             <div>
-              <span class="block text-xs text-neutral-500 font-mono">Pricing</span>
-              <span class="font-bold text-neutral-900">{pricingValue || 'Free'}</span>
+              <span class="block text-xs text-neutral-500 font-mono">{locale === 'zh' ? '定价模式' : 'Pricing'}</span>
+              <span class="font-bold text-neutral-900">{pricingValue ? translateTagValue('pricing', pricingValue) : (locale === 'zh' ? '免费' : 'Free')}</span>
             </div>
           </div>
           {editorial?.privacyVerdict && (

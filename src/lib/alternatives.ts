@@ -1,4 +1,5 @@
 import editorialJson from '../data/tool-editorial.json';
+import programmaticZh from '../data/translations/programmatic-zh.json';
 import { getApprovedTools, getToolHealthStatus, computeScore } from '../data/loader';
 import type { Locale } from '../i18n/config';
 
@@ -11,6 +12,23 @@ export {
 } from './alternatives-data.mjs';
 
 import type { AlternativeTarget } from './alternatives-data.mjs';
+
+export function resolveAlternativeTarget(target: AlternativeTarget, locale: Locale = 'en'): AlternativeTarget & { categoryLabel: string } {
+  if (locale === 'zh') {
+    const zhEntry = (programmaticZh.alternatives as Record<string, { headline: string; primaryUtility: string } | undefined>)[target.slug];
+    const categoryLabel = (programmaticZh.categories as Record<string, string | undefined>)[target.category] || target.category;
+    if (zhEntry) {
+      return {
+        ...target,
+        headline: zhEntry.headline,
+        primaryUtility: zhEntry.primaryUtility,
+        categoryLabel,
+      };
+    }
+    return { ...target, categoryLabel };
+  }
+  return { ...target, categoryLabel: target.category };
+}
 
 export function getToolsForAlternative(target: AlternativeTarget, locale: Locale = 'en') {
   const editorialData = editorialJson as Record<string, Record<string, { alternativeTo?: string[]; bestFor?: string; pros?: string[]; cons?: string[]; privacyVerdict?: string }>>;
