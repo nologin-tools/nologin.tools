@@ -321,6 +321,17 @@
     "lastSignals": [],
     "lastTitle": "Carbon | Create and share beautiful images of your source code"
   },
+  "carejobs-now-tools-healthcare-cover-letter-generator": {
+    "lastDeepEvalAt": "2026-11-11T09:25:56.036Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-11T09:25:56.036Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T09:25:56.036Z"
+  },
   "cfiresim-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-08T06:23:49.002Z",
@@ -735,28 +746,17 @@
     "lastSignals": []
   },
   "duck-ai": {
-    "lastDeepEvalAt": "2026-10-26T10:37:02.059Z",
+    "lastDeepEvalAt": "2026-11-11T09:16:28.584Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
-      "at": "2026-10-26T10:37:02.059Z",
-      "closed": []
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-11T09:16:28.584Z",
+      "closed": [
+        "surface_lost"
+      ]
     },
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-04T06:18:40.418Z",
-        "lastSeenAt": "2026-11-04T06:18:40.418Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-duck-ai-intent-1793773108997.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-duck-ai-outcome-1793773108997.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-04T06:18:40.418Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T09:16:28.584Z",
     "lastTitle": "Duck.ai 是由 DuckDuckGo 提供的免费人工智能私聊工具。",
     "lastSignals": [
       "surface_lost"
@@ -1296,6 +1296,17 @@
         "surface_lost"
       ]
     }
+  },
+  "image-conversion-com": {
+    "lastDeepEvalAt": "2026-11-11T09:51:08.693Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-11T09:51:08.693Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T09:51:08.693Z"
   },
   "imagecompressortokb-com": {
     "openAnomalies": [],
@@ -2543,6 +2554,17 @@
     "lastTitle": "Resale Fee Calculator 2026 — Compare 6 Platforms at Once | SellWhere",
     "lastSignals": []
   },
+  "sginsure-sg-1m65-fire-html": {
+    "lastDeepEvalAt": "2026-11-11T09:30:38.013Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-11T09:30:38.013Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T09:30:38.013Z"
+  },
   "shard-tools": {
     "lastDeepEvalAt": "2026-10-28T03:00:28.502Z",
     "lastResolution": {
@@ -2969,32 +2991,19 @@
     "lastSignals": []
   },
   "toolsphare-tech-en": {
-    "openAnomalies": [
-      {
-        "code": "login_to_continue_copy",
-        "severity": "high",
-        "evidence": "Visible copy: \"sign up to use\"",
-        "firstSeenAt": "2026-11-11T06:46:08.129Z",
-        "lastSeenAt": "2026-11-11T06:46:08.129Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-intent-1794379555669.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-outcome-1794379555669.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-11T06:46:08.129Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T09:08:05.287Z",
     "lastTitle": "674+ Free Online Tools — PDF, Image & Text | ToolSphare",
     "lastSignals": [
       "login_to_continue_copy"
     ],
-    "lastDeepEvalAt": "2026-10-26T02:07:58.732Z",
+    "lastDeepEvalAt": "2026-11-11T09:08:05.287Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Redirect from toolsphare.tech/en/ to toolsphare.com confirmed as legitimate domain rebranding/migration. Verified Base64 encode and download workflow; fully functional without sign-in.",
-      "at": "2026-10-26T02:07:58.732Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 91, editors-choice)",
+      "at": "2026-11-11T09:08:05.287Z",
       "closed": [
-        "cross_host_redirect"
+        "login_to_continue_copy"
       ]
     }
   },
@@ -3060,30 +3069,17 @@
     "lastSignals": []
   },
   "uicolors-app": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-11T06:44:56.886Z",
-        "lastSeenAt": "2026-11-11T06:44:56.886Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-intent-1794379483807.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-outcome-1794379483807.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-11T06:44:56.886Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T09:10:34.310Z",
     "lastTitle": "Tailwind CSS Colors - All colors + Custom color generator",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-03T02:37:14.581Z",
+    "lastDeepEvalAt": "2026-11-11T09:10:34.310Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
-      "at": "2026-11-03T02:37:14.581Z",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-11T09:10:34.310Z",
       "closed": [
         "paywall_copy"
       ]

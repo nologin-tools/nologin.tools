@@ -57,6 +57,19 @@ describe('NoLogin Quick Switcher Extension', () => {
     assert.ok(domains.includes('wetransfer.com'), 'Must map wetransfer.com');
     assert.ok(domains.includes('smallpdf.com'), 'Must map smallpdf.com');
     assert.ok(domains.includes('miro.com'), 'Must map miro.com');
+    assert.ok(domains.includes('kapwing.com'), 'Must map kapwing.com');
+    assert.ok(domains.includes('doodle.com'), 'Must map doodle.com');
+    assert.ok(domains.includes('toggl.com'), 'Must map toggl.com');
+    assert.ok(domains.includes('iloveimg.com'), 'Must map iloveimg.com');
+    assert.ok(domains.includes('pastebin.com'), 'Must map pastebin.com');
+    assert.ok(domains.includes('devtoys.app'), 'Must map devtoys.app');
+
+    assert.equal(alts['kapwing.com'].alternativePageUrl, 'https://nologin.tools/alternative/kapwing');
+    assert.equal(alts['doodle.com'].alternativePageUrl, 'https://nologin.tools/alternative/doodle');
+    assert.equal(alts['toggl.com'].alternativePageUrl, 'https://nologin.tools/alternative/toggl');
+    assert.equal(alts['iloveimg.com'].alternativePageUrl, 'https://nologin.tools/alternative/iloveimg');
+    assert.equal(alts['pastebin.com'].alternativePageUrl, 'https://nologin.tools/alternative/pastebin');
+    assert.equal(alts['devtoys.app'].alternativePageUrl, 'https://nologin.tools/alternative/devtoys');
 
     for (const [domain, entry] of Object.entries(alts)) {
       assert.ok(entry.targetName, `${domain} must have targetName`);

@@ -216,6 +216,12 @@
     "seoFocusKeyword": "代码截图生成器免费",
     "seoTaskPhrase": "无需注册生成代码图片"
   },
+  "carejobs-now-tools-healthcare-cover-letter-generator": {
+    "_hash": "7f4961b0bc8b29fb",
+    "description": "面向护士、康复师与临床技术人员等 20 类医疗岗位的免登录 AI 求职信生成工具，支持自定义资质证书、科室与语气。",
+    "coreTask": "无需注册即可根据临床资质、科室经验与招聘要求生成针对性的医疗岗位英文求职信。",
+    "contentUpdatedAt": "2026-11-11T09:26:30.104Z"
+  },
   "cfiresim-com": {
     "_hash": "6a26813a78ccca0b",
     "description": "开源的 FIRE 退休投资组合模拟器，将你的计划与 150 年以上的美国历史市场数据进行对比验证。配置投资组合规模、年支出、资产配置、取款策略、社保收入等，直观看到你的退休计划在多少比例的历史场景中能够存活。",
@@ -873,6 +879,12 @@
   "ignlab-net": {
     "coreTask": "批量转换与优化图片、生成 CSS/SVG 效果、制作二维码、从文本中提取数据等，全部工具完整功能无需账号即可直接使用",
     "description": "专为开发者和设计师打造的 14 款免费浏览器端网页工具合集：包含批量图片转换与压缩、CSS 和 SVG 生成器、二维码生成工具、数据提取器、邮件模板测试器、敏捷看板等。所有工具 100% 在纯前端客户端运行。"
+  },
+  "image-conversion-com": {
+    "_hash": "c61f88a5aec0c285",
+    "description": "基于浏览器本地运行的隐私图片工具箱，支持在设备端批量转换、压缩、缩放与留白裁剪 JPG、PNG、WebP、HEIC、AVIF、SVG 及 PDF。",
+    "coreTask": "在浏览器本地按目标 KB/MB 体积上限批量转换、压缩与缩放图片并打包导出 ZIP",
+    "contentUpdatedAt": "2026-11-11T09:51:08.818Z"
   },
   "imagecompressortokb-com": {
     "coreTask": "将 JPG、PNG 和 WebP 图片压缩至指定的 KB 大小上限，支持批量处理、预览实际输出细节并快速下载",
@@ -1621,6 +1633,12 @@
     "_hash": "b851bd7b04e81003",
     "description": "一款实时二手电商佣金计算器，可横向对比 eBay、Poshmark、Mercari、Depop、Etsy 和 Vinted 六大平台的抽成、运费分担与预估净到手收益。",
     "coreTask": "无需注册账号，输入商品售价与运费承担方式即可一键对比六大转售平台的实际到账收益。"
+  },
+  "sginsure-sg-1m65-fire-html": {
+    "_hash": "a6498dcfc1fe6649",
+    "description": "支持中英双语的纯前端新加坡 1M65 公积金复利、4% 法则 FIRE 财务自由与 Coast FIRE 退休测算工具。",
+    "coreTask": "无需登录即可在浏览器本地测算 CPF 1M65 复利余额、FIRE 退休目标金额与预计达成时间。",
+    "contentUpdatedAt": "2026-11-11T09:30:38.125Z"
   },
   "shard-tools": {
     "_hash": "8abca90c1f863838",

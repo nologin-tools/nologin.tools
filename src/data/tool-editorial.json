@@ -11817,58 +11817,60 @@
   },
   "duck-ai": {
     "en": {
-      "bestFor": "Short anonymous text conversations, drafts and structured-data transformations with a hosted AI model.",
+      "bestFor": "Anonymous multi-turn AI chat, structured JSON drafting, and cross-model comparison without creating a user account.",
       "pros": [
-        "Completed a two-turn order-to-JSON task without creating an account; the follow-up retained the original unit price.",
-        "The response copy button produced valid JSON without a promotional tail or a login prompt."
+        "Multi-turn chat with hosted frontier models (including GPT-6 Luna and one-click '2nd Opinion' model comparison) works immediately without registration",
+        "Supports both one-click clipboard copy and full conversation transcript file download (1,162 bytes) with zero watermarks or signup prompts"
       ],
       "cons": [
-        "Inference requires a remote service; this is not a local or offline AI tool.",
-        "This test covered text chat and copying only; attachment processing, model switching and long conversations were not verified."
+        "All prompts require remote cloud inference and cannot operate offline",
+        "Emits frequent DuckDuckGo product telemetry beacons alongside chat inference requests (improving.duckduckgo.com)"
       ],
-      "privacyVerdict": "The tested workflow sent POST requests to /duckchat/v1/chat and activity endpoints on improving.duckduckgo.com. DuckDuckGo documents forwarding chats to model providers with privacy protections. This is cloud processing; the test does not independently verify server retention.",
+      "privacyVerdict": "Observed 37 outgoing requests including DuckDuckGo chat inference and product telemetry endpoints (POST improving.duckduckgo.com/e, /t/dc_impression, /t/wide_event_duck-chat-auth_token). DuckDuckGo proxies prompts without account identity, though processing remains server-side.",
       "alternativeTo": [
-        "Desktop software"
+        "ChatGPT",
+        "Claude",
+        "Perplexity"
       ],
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "On 2026-10-26, GPT-6 Luna converted quantity 3 at USD 4.50 into JSON with total_usd 13.50. A follow-up changed quantity to 4 and returned 18.00. The response copy button exported valid JSON to the clipboard without an account or watermark tail.",
-      "testedAt": "2026-10",
-      "contentUpdatedAt": "2026-10-26T10:37:02.040Z"
+      "benchmarkNotes": "Completed a 2-turn structured JSON arithmetic conversation on GPT-6 Luna (5 notebooks at $3.20 -> total_usd 16, updated to qty 8 -> total_usd 25.6 with currency USD) at 112 ms max main-thread task, then exported a clean 1,162-byte transcript file without login. Confirmed 'surface_lost' anomaly was an async hydration false positive.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:16:28.555Z"
     },
     "zh": {
-      "bestFor": "无需注册，使用云端 AI 完成简短对话、草稿撰写和结构化数据转换。",
+      "bestFor": "适合无需注册账号即可进行多轮匿名 AI 对话、结构化 JSON 生成及多模型“第二意见”对比的日常效率场景。",
       "pros": [
-        "无需创建账号即可完成两轮订单转 JSON 任务，追问时保留了原始单价。",
-        "回答旁的复制按钮导出了有效 JSON，没有附加推广文字，也没有触发登录要求。"
+        "无需注册即可直接调用 GPT-6 Luna 等前沿托管模型完成多轮上下文对话，并支持一键“2nd Opinion”切换模型复核",
+        "同时支持单条回复复制与整段对话记录文件直接下载（1,162 字节），无强制同步或登录拦截"
       ],
       "cons": [
-        "推理依赖远程服务，并非本地或离线 AI 工具。",
-        "本次只验证了文字对话和复制，未验证附件处理、模型切换或长对话。"
+        "所有对话推理均依赖云端服务器，不支持断网本地运行",
+        "会话期间除聊天请求外还会向 improving.duckduckgo.com 发送多条匿名产品事件埋点"
       ],
-      "privacyVerdict": "本次观察到向 /duckchat/v1/chat 和 improving.duckduckgo.com 活动统计端点发送 POST 请求。DuckDuckGo 官方说明会在隐私保护措施下将对话转发给模型服务商。这属于云端处理，不能称为零外发本地推理；本测试也无法独立验证服务端的数据保留情况。",
+      "privacyVerdict": "实测捕获 37 条外发请求，包含聊天推理与 DuckDuckGo 产品事件埋点（POST improving.duckduckgo.com/e、/t/dc_impression 等）。DuckDuckGo 通过匿名代理剥离账号身份，但文本仍需在远端服务端处理。",
       "alternativeTo": [
         "本地商业软件"
       ],
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "2026-10-26，GPT-6 Luna 将数量 3、单价 4.50 美元的订单转成 JSON，总价为 13.50。追问将数量改为 4 后，总价变为 18.00。回答的复制按钮将有效 JSON 导出到剪贴板，没有账号要求或推广尾注。",
-      "testedAt": "2026-10",
-      "contentUpdatedAt": "2026-10-26T10:37:02.042Z"
+      "benchmarkNotes": "在 GPT-6 Luna 模型上完成两轮结构化 JSON 计算对话（5 本单价 3.20 美元算得 16，追问改 8 本算得 25.6 并补充 USD 字段），主线程最大阻塞 112ms，随后直接下载 1,162 字节无水印对话记录文件。核实此前 surface_lost 告警系前端异步水合导致的误报。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:16:28.556Z"
     },
     "ja": {
       "bestFor": "ブラウザーで直接オンラインで即時処理。",
@@ -11882,9 +11884,9 @@
       "privacyVerdict": "ログインは必要ありません。ローカル処理が確認されました。",
       "benchmarkNotes": "ベンチマークされた AI ユーティリティ (TTI 2.0s): Wasm エンジンが検出され、インタラクティブ フォーム フィールド (こんにちは、1 文で要約してください) が 1501 ミリ秒で処理され、100% ローカルのブラウザ内メモリ実行 (出力 0 バイト)、摩擦のない実行が検証されました。",
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
@@ -11893,7 +11895,7 @@
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "브라우저에서 직접 즉각적인 온라인 처리가 가능합니다.",
@@ -11907,9 +11909,9 @@
       "privacyVerdict": "로그인이 필요하지 않습니다. 로컬 처리가 확인되었습니다.",
       "benchmarkNotes": "벤치마킹된 AI 유틸리티(TTI 2.0s): Wasm 엔진 감지, 대화형 양식 필드(안녕하세요, 1문장으로 요약)가 1501ms로 처리됨, 100% 로컬 브라우저 내 메모리 실행(0바이트 송신), 마찰 없는 실행이 확인되었습니다.",
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
@@ -11918,7 +11920,7 @@
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Procesamiento instantáneo en línea directamente en el navegador.",
@@ -11932,9 +11934,9 @@
       "privacyVerdict": "No es necesario iniciar sesión. Procesamiento local verificado.",
       "benchmarkNotes": "Utilidad de IA comparada (TTI 2.0): motor Wasm detectado, campo de formulario interactivo (Hola, resumir en 1 oración) procesado en 1501 ms, ejecución 100 % de la memoria local en el navegador (salida de 0 bytes), ejecución sin fricciones verificada.",
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
@@ -11943,7 +11945,7 @@
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Traitement en ligne instantané directement dans le navigateur.",
@@ -11957,9 +11959,9 @@
       "privacyVerdict": "Aucune connexion requise. Traitement local vérifié.",
       "benchmarkNotes": "Utilitaire d'IA de référence (TTI 2.0s) : moteur Wasm détecté, champ de formulaire interactif (Bonjour, résumez en 1 phrase.) traité en 1 501 ms, exécution à 100 % de la mémoire locale du navigateur (sortie de 0 octet), exécution sans friction vérifiée.",
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
@@ -11968,7 +11970,7 @@
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Sofortige Online-Bearbeitung direkt im Browser.",
@@ -11982,9 +11984,9 @@
       "privacyVerdict": "Kein Login erforderlich. Lokale Verarbeitung überprüft.",
       "benchmarkNotes": "Benchmarked AI Utility (TTI 2.0s): Wasm-Engine erkannt, interaktives Formularfeld (Hallo, in einem Satz zusammenfassen) in 1501 ms verarbeitet, 100 % lokale Ausführung im Browser-Speicher (0 Byte Ausgang), reibungslose Ausführung verifiziert.",
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
@@ -11993,7 +11995,7 @@
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Processamento on-line instantâneo diretamente no navegador.",
@@ -12007,9 +12009,9 @@
       "privacyVerdict": "Não é necessário fazer login. Processamento local verificado.",
       "benchmarkNotes": "Utilitário de IA de referência (TTI 2.0s): mecanismo Wasm detectado, campo de formulário interativo (Olá, resumido em 1 frase.) processado em 1501 ms, execução de memória 100% local no navegador (saída de 0 bytes), execução sem atrito verificada.",
       "productScore": {
-        "overall": 80,
-        "frictionless": 18,
-        "depth": 16,
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
         "exportFreedom": 18,
         "privacy": 14,
         "polish": 14
@@ -12018,7 +12020,7 @@
       "alternativeTo": [
         "Desktop software"
       ],
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     }
   },
   "nologin-tools": {
@@ -21291,60 +21293,62 @@
   },
   "uicolors-app": {
     "en": {
-      "bestFor": "Generating harmonious 11-shade Tailwind CSS and Shadcn/ui color scales from any base hex color.",
+      "bestFor": "Frontend developers generating 11-shade Tailwind CSS v3 and v4 color scales from any base hex color with live UI component previews.",
       "pros": [
-        "Automatic algorithmic interpolation of full 11-step Tailwind palettes (50 to 950) with WCAG contrast indicators",
-        "Comprehensive export formats including Tailwind v3/v4 config objects, pure CSS, SCSS, SVG, and Figma tokens"
+        "Instant client-side interpolation of 11-step Tailwind palettes (50 to 950) with live previews across Cards, Dashboards, Shadcn/ui, and Charts",
+        "Unwatermarked one-click clipboard export for Tailwind v3 and Tailwind v4 hex configuration objects without signing in"
       ],
       "cons": [
-        "Advanced cloud palette synchronization and team collaboration features require Pro upgrade"
+        "Non-Tailwind export formats (CSS, SCSS, SVG, Figma Tokens, OKLCH/HSL) and numeric APCA contrast cell values require a paid Pro upgrade",
+        "Sends 2 PostHog telemetry payloads (us.i.posthog.com) during session interaction"
       ],
-      "privacyVerdict": "Observed network egress includes PostHog analytics (us.i.posthog.com/e/). Color scale calculation and code export operate entirely client-side without account login.",
+      "privacyVerdict": "Observed 2 outgoing PostHog analytics requests (POST us.i.posthog.com/e/ and POST us.i.posthog.com/i/v0/e/); palette interpolation and Tailwind config clipboard export run locally in browser memory without account registration.",
       "alternativeTo": [
         "realtimecolors-com",
         "colorhunt-co",
         "coolors-co"
       ],
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Interpolated 11-step palette across multiple base colors in under 80 ms; verified copy to clipboard in Tailwind format with zero watermarks or login requirement.",
+      "benchmarkNotes": "Generated full 11-step 'Genoa' scale from #0f766e with 96 ms max main-thread task and exported a clean 13-line (231 chars) Tailwind v3 hex config via clipboard with zero login prompt. Verified 'Upgrade to Pro' gates secondary formats (CSS/SVG/OKLCH) and detailed APCA numbers while leaving core Tailwind v3/v4 generation free.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-03T02:37:14.551Z"
+      "contentUpdatedAt": "2026-11-11T09:10:34.275Z"
     },
     "zh": {
-      "bestFor": "输入任意单色 HEX 值自动推导全套 11 级 Tailwind CSS 与 Shadcn/ui 兼容色阶调色板。",
+      "bestFor": "适合需要从任意主色 HEX 快速生成 11 阶 Tailwind CSS v3/v4 色板并实时预览 UI 组件效果的前端开发者。",
       "pros": [
-        "基于色彩科学自动插值生成 50 至 950 完整 11 阶 Tailwind 色板，并实时标注 WCAG 对比度",
-        "导出能力全面，支持 Tailwind v3/v4 配置对象、纯 CSS 变量、SCSS、SVG 以及 Figma Tokens"
+        "纯前端瞬时插值计算 50–950 共 11 阶色板，支持在卡片、仪表盘、Shadcn/ui 与图表组件上实时预览配色",
+        "无需注册即可一键无水印复制完整的 Tailwind v3 与 Tailwind v4 HEX 配置代码"
       ],
       "cons": [
-        "多调色板云端跨设备同步与团队协作功能需付费订阅 Pro 版本"
+        "CSS/SCSS/SVG/Figma Tokens、OKLCH/HSL 格式导出以及对比度矩阵的具体数值需升级 Pro 解锁",
+        "会话期间向 PostHog（us.i.posthog.com）发送了 2 条前端行为统计请求"
       ],
-      "privacyVerdict": "网络观测记录到 PostHog 遥测（us.i.posthog.com/e/）。色阶数学推导与代码生成完全在客户端执行，无需注册账号即可自由复制。",
+      "privacyVerdict": "实测捕获 2 条发往 PostHog（POST us.i.posthog.com/e/ 与 us.i.posthog.com/i/v0/e/）的统计请求；色板插值运算与 Tailwind 配置复制均在浏览器本地完成，无需登录账号。",
       "alternativeTo": [
         "realtimecolors-com",
         "colorhunt-co",
         "coolors-co"
       ],
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "多色相基色在 80ms 内完成 11 级色阶插值渲染，一键复制无水印 Tailwind 配置对象至剪贴板，全程免登录。",
+      "benchmarkNotes": "输入 #0f766e 实时生成 11 阶 Genoa 色板（主线程最大任务耗时 96ms），免登录一键复制 13 行（231 字符）干净的 Tailwind v3 配置代码。核实“Upgrade to Pro”仅限制 CSS/SVG/OKLCH 等扩展导出及 APCA 详细数值，核心 Tailwind v3/v4 色板生成完全免费可用。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-03T02:37:14.551Z"
+      "contentUpdatedAt": "2026-11-11T09:10:34.276Z"
     },
     "ja": {
       "bestFor": "調和のとれた 11 シェードの Tailwind CSS および Shadcn/ui カラー スケールを任意の基本 16 進カラーから生成します。",
@@ -21358,12 +21362,12 @@
       "privacyVerdict": "観察されたネットワーク下りには、PostHog 分析 (us.i.posthog.com) と匿名の訪問者率チェックが含まれます。カラー スケールの計算とコードのエクスポートは、アカウントにログインせずに完全にクライアント側で動作します。",
       "benchmarkNotes": "ベース 16 進数 #cd21a8 から 11 ステップのパレットを 82 ミリ秒で補間。 236 文字のクリーンな Tailwind 構成をウォーターマークなしでクリップボードにエクスポートしました。",
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "alternativeTo": [
@@ -21385,12 +21389,12 @@
       "privacyVerdict": "관찰된 네트워크 송신에는 PostHog 분석(us.i.posthog.com) 및 익명 방문자 비율 확인이 포함됩니다. 색상 스케일 계산 및 코드 내보내기는 계정 로그인 없이 전적으로 클라이언트 측에서 작동합니다.",
       "benchmarkNotes": "82ms 내에 기본 16진수 #cd21a8에서 보간된 11단계 팔레트. 깨끗한 Tailwind 구성 236자를 워터마크 없이 클립보드로 내보냈습니다.",
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "alternativeTo": [
@@ -21412,12 +21416,12 @@
       "privacyVerdict": "La salida de red observada incluye análisis de PostHog (us.i.posthog.com) y una verificación de la tasa de visitantes anónimos. El cálculo de la escala de colores y la exportación de códigos funcionan completamente en el lado del cliente sin necesidad de iniciar sesión en la cuenta.",
       "benchmarkNotes": "Paleta interpolada de 11 pasos desde el hexadecimal base #cd21a8 en 82 ms; Exportó 236 caracteres de configuración limpia de Tailwind al portapapeles sin marcas de agua.",
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "alternativeTo": [
@@ -21439,12 +21443,12 @@
       "privacyVerdict": "La sortie réseau observée comprend les analyses PostHog (us.i.posthog.com) et une vérification anonyme du taux de visiteurs. Le calcul de l'échelle de couleurs et l'exportation du code fonctionnent entièrement côté client sans connexion au compte.",
       "benchmarkNotes": "Palette interpolée en 11 étapes à partir de l'hexagone de base #cd21a8 en 82 ms ; exporté 236 caractères de configuration Tailwind propre vers le presse-papiers sans filigrane.",
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "alternativeTo": [
@@ -21466,12 +21470,12 @@
       "privacyVerdict": "Der beobachtete Netzwerkausgang umfasst PostHog-Analysen (us.i.posthog.com) und eine anonyme Besucherratenprüfung. Die Berechnung der Farbskala und der Code-Export erfolgen vollständig clientseitig und ohne Kontoanmeldung.",
       "benchmarkNotes": "Interpolierte 11-stufige Palette vom Basishex #cd21a8 in 82 ms; 236 Zeichen der sauberen Tailwind-Konfiguration wurden ohne Wasserzeichen in die Zwischenablage exportiert.",
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "alternativeTo": [
@@ -21493,12 +21497,12 @@
       "privacyVerdict": "A saída de rede observada inclui análises PostHog (us.i.posthog.com) e uma verificação anônima da taxa de visitantes. O cálculo da escala de cores e a exportação de código operam inteiramente no lado do cliente, sem login na conta.",
       "benchmarkNotes": "Paleta interpolada de 11 etapas da base hexadecimal #cd21a8 em 82 ms; exportou 236 caracteres de configuração limpa do Tailwind para a área de transferência sem marcas d'água.",
       "productScore": {
-        "overall": 84,
+        "overall": 80,
         "frictionless": 18,
         "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 18,
-        "polish": 13
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "alternativeTo": [
@@ -68005,17 +68009,17 @@
   },
   "toolsphare-tech-en": {
     "en": {
-      "bestFor": "Accessing a broad directory of 280+ client-side PDF, image, text, and developer utilities in one place",
+      "bestFor": "Developers, designers, and office workflows needing an all-in-one suite of 674+ browser-based PDF, image, QR, and JSON utilities without creating an account.",
       "pros": [
-        "Massive multi-category catalog spanning 284+ utilities with client-side execution for core developer tools",
-        "Zero-signup workflow with immediate input formatting and unwatermarked clipboard and file exports",
-        "Clean dark-mode interface featuring search shortcuts and distinct category indexing"
+        "Expansive 674-tool multi-category workbench spanning 28 categories with HTML5 canvas rendering for QR and image utilities",
+        "Rich QR generator supporting 10 payload schemas (URL, Wi-Fi, vCard, Event), real-time WCAG contrast checking, and unwatermarked PNG, SVG, and PDF exports",
+        "Zero-signup execution across developer formatters and design generators with PWA install support"
       ],
       "cons": [
-        "Loads Google Analytics telemetry beacon on initial page visit",
-        "Certain AI-branded sub-tools require external server processing rather than local sandboxing"
+        "Sends 1 Google Analytics telemetry request (www.google-analytics.com/g/collect) during navigation",
+        "Selected AI-labeled sub-utilities rely on remote server endpoints rather than purely local browser execution"
       ],
-      "privacyVerdict": "Developer utilities and formatters execute entirely in client-side JavaScript memory. Outgoing network requests are restricted to 1 Google Analytics beacon, with no user data or code sent to remote servers.",
+      "privacyVerdict": "Observed 1 outgoing Google Analytics request (POST www.google-analytics.com/g/collect) during session navigation; QR canvas generation, JSON formatting, and 512x512 PNG export completed locally in browser memory without transmitting user input payloads.",
       "alternativeTo": [
         "TinyWow",
         "10015.io",
@@ -68023,29 +68027,30 @@
         "Omni Calculator"
       ],
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Dogfooded JSON Formatter utility inside the Developer Tools suite with a 10-line JSON object. Formatted instantly with 0 ms jank and verified one-click copy to clipboard yielding 112 chars of valid data. Network telemetry recorded 1 outgoing Google Analytics request; 0 bytes of user payload data egressed.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Tested JSON Formatter and HTML5 canvas QR Code Generator on https://toolsphare.com: encoded custom URL with #0F766E foreground (17.9:1 contrast) in 99 ms max frame freeze and exported a clean, unwatermarked 512x512 PNG (18,362 bytes). Confirmed FAQ text 'Do I need to sign up to use the tools?' is benign documentation, not an auth gate.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:08:05.262Z"
     },
     "zh": {
-      "bestFor": "一站式快速调用涵盖 PDF 处理、图像转换、文本与开发者工具等 280 余款纯前端实用小工具",
+      "bestFor": "需要在一个免注册工作台中快速调用 674 余款 PDF、图像、二维码与 JSON 开发者工具的研发、设计与日常办公人群。",
       "pros": [
-        "集成 284 余款跨门类在线工具，核心开发者与文本格式化工具均在浏览器本地运算",
-        "免登录开箱即用，支持快速格式化、无水印直接复制剪贴板与文件导出",
-        "具备清晰的深色主题界面，支持快捷搜索与详尽的分类索引浏览"
+        "覆盖 28 个分类共 674 余款在线实用工具，二维码与图像工具采用 HTML5 Canvas 本地渲染架构",
+        "二维码工作台支持 URL、Wi-Fi、vCard 等 10 种数据结构、实时对比度校验（17.9:1）及无水印 PNG/SVG/PDF 导出",
+        "开发者格式化与设计生成流程全程免登录，并支持渐进式 Web 应用（PWA）安装"
       ],
       "cons": [
-        "首次访问页面时会发送基础 Google Analytics 流量统计请求",
-        "部分标有 AI 特性的子工具依赖外部云端接口，非纯本地沙盒计算"
+        "页面访问期间会向 Google Analytics（www.google-analytics.com/g/collect）发送 1 条统计请求",
+        "部分标注 AI 的子工具需调用远端接口，并非全部为纯本地沙盒运算"
       ],
-      "privacyVerdict": "开发者小工具及格式化功能完全在本地浏览器 JavaScript 内存中运行。外发网络通信仅限 1 次 Google Analytics 统计上报，用户输入数据与代码不会上传至远程服务器。",
+      "privacyVerdict": "实测捕获 1 条发往 Google Analytics（POST www.google-analytics.com/g/collect）的访问统计请求；二维码 Canvas 渲染、JSON 格式化及 512x512 PNG 导出均在浏览器内存中完成，未外发用户输入内容。",
       "alternativeTo": [
         "TinyWow",
         "10015.io",
@@ -68053,16 +68058,17 @@
         "Omni Calculator"
       ],
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "在开发者工具集中对 JSON Formatter 进行端到端测试，输入 10 行 JSON 数据。在 0 毫秒卡顿下实现瞬时格式化，并通过一键复制至剪贴板获取 112 字符的有效数据。网络流量仅记录到 1 次 Google Analytics 统计请求，用户输入数据传输量为 0 字节。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "实测 JSON 格式化器与基于 HTML5 Canvas 的二维码生成器：输入自定义链接与 #0F766E 前景色（对比度 17.9:1），最大主线程阻塞 99ms，直接导出无水印 512x512 PNG（18,362 字节）。核实“Do I need to sign up to use the tools?”仅为 FAQ 问答文案而非登录拦截。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:08:05.263Z"
     },
     "ja": {
       "bestFor": "280 を超えるクライアント側 PDF、画像、テキスト、開発者ユーティリティの広範なディレクトリに 1 か所でアクセス",
@@ -68078,9 +68084,9 @@
       "privacyVerdict": "開発者ユーティリティとフォーマッタは完全にクライアント側の JavaScript メモリ内で実行されます。送信ネットワーク リクエストは 1 つの Google Analytics ビーコンに制限され、ユーザー データやコードはリモート サーバーに送信されません。",
       "benchmarkNotes": "10 行の JSON オブジェクトを含む、開発者ツール スイート内のドッグフード型 JSON Formatter ユーティリティ。 0 ミリ秒のジャンクで即座にフォーマットされ、112 文字の有効なデータが得られるクリップボードへのワンクリック コピーが確認されました。ネットワーク テレメトリは 1 件の送信 Google Analytics リクエストを記録しました。 0 バイトのユーザー ペイロード データが出力されました。",
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
@@ -68092,7 +68098,7 @@
         "CyberChef",
         "Omni Calculator"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "280개 이상의 클라이언트 측 PDF, 이미지, 텍스트 및 개발자 유틸리티로 구성된 광범위한 디렉토리를 한 곳에서 액세스",
@@ -68108,9 +68114,9 @@
       "privacyVerdict": "개발자 유틸리티 및 포맷터는 전적으로 클라이언트 측 JavaScript 메모리에서 실행됩니다. 발신 네트워크 요청은 1개의 Google Analytics 비콘으로 제한되며 사용자 데이터나 코드는 원격 서버로 전송되지 않습니다.",
       "benchmarkNotes": "10줄 JSON 개체가 포함된 개발자 도구 제품군 내의 Dogfooded JSON 포맷터 유틸리티입니다. 0ms 버벅거림으로 즉시 포맷되고 확인된 원클릭 복사로 클립보드에 복사되어 112자의 유효한 데이터가 생성됩니다. 네트워크 원격 측정으로 1개의 나가는 Google Analytics 요청이 기록되었습니다. 0바이트의 사용자 페이로드 데이터가 유출되었습니다.",
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
@@ -68122,7 +68128,7 @@
         "CyberChef",
         "Omni Calculator"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Acceder a un amplio directorio de más de 280 PDF, imágenes, texto y utilidades para desarrolladores del lado del cliente en un solo lugar",
@@ -68138,9 +68144,9 @@
       "privacyVerdict": "Las utilidades y formateadores del desarrollador se ejecutan completamente en la memoria JavaScript del lado del cliente. Las solicitudes de red salientes están restringidas a 1 baliza de Google Analytics, sin que se envíen datos ni códigos de usuario a servidores remotos.",
       "benchmarkNotes": "Utilidad JSON Formatter incorporada dentro del paquete de herramientas para desarrolladores con un objeto JSON de 10 líneas. Formateado instantáneamente con 0 ms jank y copia verificada con un solo clic al portapapeles, lo que produce 112 caracteres de datos válidos. La telemetría de red registró 1 solicitud saliente de Google Analytics; 0 bytes de datos de carga útil del usuario salidos.",
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
@@ -68152,7 +68158,7 @@
         "CyberChef",
         "Omni Calculator"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Accès à un vaste répertoire de plus de 280 utilitaires PDF, images, texte et développeurs côté client en un seul endroit",
@@ -68168,9 +68174,9 @@
       "privacyVerdict": "Les utilitaires de développement et les formateurs s'exécutent entièrement dans la mémoire JavaScript côté client. Les requêtes réseau sortantes sont limitées à 1 balise Google Analytics, sans données utilisateur ni code envoyés aux serveurs distants.",
       "benchmarkNotes": "Utilitaire Dogfooded JSON Formatter dans la suite Developer Tools avec un objet JSON de 10 lignes. Formaté instantanément avec 0 ms jenk et copie vérifiée en un clic dans le presse-papiers, produisant 112 caractères de données valides. La télémétrie réseau a enregistré 1 requête Google Analytics sortante ; 0 octet de données utiles de l'utilisateur évacué.",
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
@@ -68182,7 +68188,7 @@
         "CyberChef",
         "Omni Calculator"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Zugriff auf ein umfangreiches Verzeichnis mit über 280 clientseitigen PDF-, Bild-, Text- und Entwicklerdienstprogrammen an einem Ort",
@@ -68198,9 +68204,9 @@
       "privacyVerdict": "Entwicklerdienstprogramme und Formatierer werden vollständig im clientseitigen JavaScript-Speicher ausgeführt. Ausgehende Netzwerkanfragen sind auf einen Google Analytics-Beacon beschränkt, ohne dass Benutzerdaten oder Code an Remote-Server gesendet werden.",
       "benchmarkNotes": "Dogfooded JSON Formatter-Dienstprogramm innerhalb der Developer Tools-Suite mit einem 10-zeiligen JSON-Objekt. Sofort mit 0 ms Jank formatiert und überprüft, mit einem Klick in die Zwischenablage kopiert, was 112 Zeichen gültiger Daten ergibt. Die Netzwerktelemetrie zeichnete 1 ausgehende Google Analytics-Anfrage auf; Es wurden 0 Byte Benutzernutzdaten ausgegeben.",
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
@@ -68212,7 +68218,7 @@
         "CyberChef",
         "Omni Calculator"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Acessando um amplo diretório de mais de 280 PDFs, imagens, textos e utilitários de desenvolvedor do lado do cliente em um só lugar",
@@ -68228,9 +68234,9 @@
       "privacyVerdict": "Utilitários e formatadores de desenvolvedor são executados inteiramente na memória JavaScript do lado do cliente. As solicitações de rede de saída são restritas a 1 beacon do Google Analytics, sem dados do usuário ou código enviado a servidores remotos.",
       "benchmarkNotes": "Utilitário JSON Formatter dogfooded dentro do conjunto de ferramentas do desenvolvedor com um objeto JSON de 10 linhas. Formatado instantaneamente com 0 ms de instabilidade e cópia verificada com um clique para a área de transferência, gerando 112 caracteres de dados válidos. A telemetria de rede registrou 1 solicitação de saída do Google Analytics; 0 bytes de dados de carga útil do usuário foram emitidos.",
       "productScore": {
-        "overall": 92,
+        "overall": 91,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 23,
         "exportFreedom": 19,
         "privacy": 16,
         "polish": 14
@@ -68242,7 +68248,7 @@
         "CyberChef",
         "Omni Calculator"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "bytepriva-com-merge-pdf": {
@@ -78027,6 +78033,184 @@
       "benchmarkNotes": "录入 Acme Consulting LLC 开具给 Global Logistics Corp 的 2,500.00 美元安全咨询账单，切换 Modern 模板，成功导出 99,759 字节纯净无水印矢量 PDF，耗时 200 毫秒内。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-11T03:44:59.566Z"
+    }
+  },
+  "carejobs-now-tools-healthcare-cover-letter-generator": {
+    "en": {
+      "bestFor": "Nurses, CNAs, therapists, and clinical technicians drafting tailored job-application cover letters without creating an account.",
+      "pros": [
+        "Tailored to 20 healthcare clinical roles (RN, LPN, NP, CNA, EMT, pharmacist) with structured fields for licenses, unit specialty, clinical outcomes, and tone",
+        "Generates specific, non-generic cover letters with actionable pre-send bracket reminders and clean Copy all clipboard output without registration"
+      ],
+      "cons": [
+        "Requires cloud AI processing and offers plain-text copy only (no direct DOCX or PDF download)",
+        "Includes affiliate career-tool recommendations below the form and sends first-party /api/track events"
+      ],
+      "privacyVerdict": "Observed 5 outgoing requests including cloud generation (POST /api/tools/healthcare-cover-letter-generator) and first-party analytics (POST /api/track, POST /api/mcp). Operates without user accounts, though submitted role and clinical notes are processed server-side.",
+      "alternativeTo": [
+        "ChatGPT",
+        "Zety",
+        "Resume.io"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 17,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested with Registered Nurse (RN), ICU & Critical Care specialty, CCRN/ACLS/BLS credentials, and trauma ICU clinical metrics at 70-86 ms max main-thread task; verified tailored 3-paragraph cover letter output with unwatermarked Copy all support.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:25:56.010Z"
+    },
+    "zh": {
+      "bestFor": "适合护士、护工、康复治疗师及医疗技术人员免注册快速起草针对性医疗岗位求职信。",
+      "pros": [
+        "内置 20 类医疗临床岗位（注册护士 RN、执业护士、急救员、药师等），支持填写执业证书、科室方向、临床成果与行文语气",
+        "无需注册即可生成结合具体科室经验的求职信正文与投递前自查清单，支持一键复制全文且无水印"
+      ],
+      "cons": [
+        "依赖云端接口生成文本，仅提供纯文本复制，不支持直接导出 PDF 或 Word 文档",
+        "页面底部包含第三方简历工具返利推荐卡片，并发送第一方 /api/track 统计请求"
+      ],
+      "privacyVerdict": "实测捕获 5 条外发请求，包含求职信云端生成接口（POST /api/tools/healthcare-cover-letter-generator）与第一方统计接口（POST /api/track、/api/mcp）。全程无需注册登录，但所填岗位与经历需上传至服务端处理。",
+      "alternativeTo": [
+        "ChatGPT",
+        "Zety",
+        "Resume.io"
+      ],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 17,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测选择注册护士（RN）、重症监护（ICU）方向及 CCRN/ACLS/BLS 资质并填入创伤 ICU 护理数据，主线程最大阻塞 70–86ms，成功生成融合具体临床指标的三段式求职信与投递提示，无登录或付费拦截。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:25:56.010Z"
+    }
+  },
+  "sginsure-sg-1m65-fire-html": {
+    "en": {
+      "bestFor": "Residents and savers modeling Singapore CPF 1M65 compounding, 4%-rule FIRE targets, and Coast FIRE timelines privately in the browser.",
+      "pros": [
+        "Bundles three synchronized retirement calculators (CPF 1M65 with first-$60k +1% bonus toggle, SWR FIRE years-to-independence, and Coast FIRE) with live SVG growth charts",
+        "Instant slider and numeric updates with native English/Chinese (EN/中文) switching and zero observed network requests during calculation"
+      ],
+      "cons": [
+        "Lacks a local CSV or PDF export button for saving year-by-year amortization tables offline",
+        "Includes optional financial-consultant inquiry CTAs and a floating WhatsApp widget alongside the calculators"
+      ],
+      "privacyVerdict": "No outgoing network payloads were observed during calculator input changes and language switching; projections compute in client-side JavaScript, while the optional consultant inquiry form at the bottom remains unused unless explicitly submitted.",
+      "alternativeTo": [
+        "Engaging Data FIRE Calculator",
+        "WalletBurst Coast FIRE",
+        "Excel"
+      ],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested CPF 1M65 balance ($85,000 + $12,000/yr -> $1,263,436 at age 65), FIRE spending ($54,000/yr at 4% SWR -> $1,350,000 in 24.9 years), Coast FIRE ($220,000), and EN/中文 toggle across SVG charts in 155 ms max main-thread task with 0.00 CLS and 0 bytes of outgoing network payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:30:37.981Z"
+    },
+    "zh": {
+      "bestFor": "适合在浏览器内免注册测算新加坡 CPF 1M65 复利目标、4% 法则 FIRE 退休金及 Coast FIRE 时间线的储蓄与理财人群。",
+      "pros": [
+        "同页集成三套交互式退休计算器（含首 6 万新元 +1% 额外利息开关的 CPF 1M65、4% 提领率 FIRE 年限及 Coast FIRE），配备实时 SVG 增长曲线",
+        "滑块与数字输入即时联动，原生支持中英文切换，测算全过程零网络请求外发"
+      ],
+      "cons": [
+        "暂未提供逐年复利明细表的本地 CSV 或 PDF 导出按钮",
+        "计算器下方附带可选的理财顾问咨询表单与右下角 WhatsApp 悬浮入口"
+      ],
+      "privacyVerdict": "在修改各项财务参数与切换中英文的实测范围内未捕获任何外发网络请求，复利与退休年限均由前端 JavaScript 即时运算（页面底部的顾问咨询表单仅在用户主动提交时才会发送）。",
+      "alternativeTo": [
+        "Engaging Data FIRE Calculator",
+        "WalletBurst Coast FIRE",
+        "Excel"
+      ],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 12,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 CPF 1M65（本金 85,000 + 年缴 12,000 新元 → 65 岁达 1,263,436 新元）、FIRE 目标（年支出 54,000 新元按 4% 提领需 1,350,000 新元、约 24.9 年达成）、Coast FIRE（220,000 新元）及中英文切换，CLS 为 0.00 且外发负载为 0。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:30:37.982Z"
+    }
+  },
+  "image-conversion-com": {
+    "en": {
+      "bestFor": "Batch converting, compressing, and resizing JPG, PNG, WebP, HEIC, AVIF, SVG, and PDF files locally in the browser with strict file-size caps and presets.",
+      "pros": [
+        "Processes up to 25 files (50 MB each, 150 MB per batch) directly on-device with presets for Shopify WebP, thumbnails, and strict KB/MB upload limits.",
+        "Provides per-image before/after visual comparison, custom background fill, dimension constraints, ZIP batch export, and installable Service Worker offline support."
+      ],
+      "cons": [
+        "Batch queue caps at 25 files or 150 MB per run, and lossless-like 100% WebP presets can increase byte size on already-compact PNG graphics unless target KB/MB compression is set."
+      ],
+      "privacyVerdict": "Zero outgoing conversion payloads were observed during preset configuration, PNG-to-WebP conversion, and Blob download; files process locally in the browser while Cloudflare Web Analytics (beacon.min.js) loads on page open.",
+      "alternativeTo": [
+        "iLoveIMG",
+        "TinyPNG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Applied the Shopify WebP preset (longest edge 2,000 px, 1.5 MB cap) to the 39.2 KB (1280x840) sample PNG and exported a clean 58,052-byte 1280x840 WebP artifact via Blob URL with 55 ms max main-thread task and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:51:08.666Z"
+    },
+    "zh": {
+      "bestFor": "适合在浏览器本地批量转换、压缩与缩放 JPG、PNG、WebP、HEIC、AVIF、SVG 与 PDF 文件，并按严格体积上限与预设导出。",
+      "pros": [
+        "支持单批最多 25 个文件（单文件 50 MB、总计 150 MB）纯本地处理，内置电商 WebP 预设与精确 KB/MB 上传体积上限控制。",
+        "提供转换前后画质对比、透明底色填充、长边尺寸约束、ZIP 批量打包下载以及 Service Worker 离线安装能力。"
+      ],
+      "cons": [
+        "单次队列上限为 25 个文件或 150 MB；对已高度压缩的 PNG 图标若使用 100% 质量 WebP 预设且未设定目标 KB 上限，导出体积可能变大。"
+      ],
+      "privacyVerdict": "在应用预设、PNG 转 WebP 转换及 Blob 下载全过程中观测到 0 次业务载荷外发，图片均在设备本地处理；页面初始加载包含 Cloudflare Web Analytics（beacon.min.js）统计脚本。",
+      "alternativeTo": [
+        "iLoveIMG",
+        "TinyPNG",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对 39.2 KB（1280x840）示例 PNG 应用 Shopify WebP 预设（长边上限 2,000 px、1.5 MB 限制），主线程最大耗时仅 55 ms、CLS 为 0.00，通过 Blob URL 导出无水印的 58,052 字节 1280x840 WebP 文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T09:51:08.667Z"
     }
   }
 }

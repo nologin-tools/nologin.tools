@@ -71,6 +71,12 @@ const TARGET_HEADLINES_ZH = {
   excel: '无需登录 Office 365，在浏览器本地完成 CSV/JSON/Excel 清洗、转换与可视化图表',
   chatgpt: '无需手机号或邮箱注册，即开即用的 AI 问答、代码解释与智能检索工具',
   bitly: '无需注册账号，快速生成短链接、自定义跳转与高颜值二维码',
+  kapwing: '无需注册账号或忍受强制导出水印，在浏览器内直接裁剪视频、转换 GIF 与录制屏幕',
+  doodle: '无需强制参与者注册账号，打开链接即可完成群组排期协调与即时匿名投票',
+  toggl: '在浏览器本地记录番茄钟、专注时长与项目工时，无需注册云端监控账号',
+  iloveimg: '纯前端批量压缩、缩放图片、智能抠图与 WebP/AVIF 转换，告别上传排队限制',
+  pastebin: '免注册在线剪贴板、阅后即焚加密便签与跨设备点对点文本传输工具',
+  devtoys: '打开浏览器即用的开发者瑞士军刀，本地完成编码解码、哈希生成、JSON 格式化与 JWT 调试',
 };
 
 const DOMAIN_MAP = {
@@ -83,7 +89,7 @@ const DOMAIN_MAP = {
   grammarly: ['grammarly.com', 'quillbot.com', 'prowritingaid.com'],
   zoom: ['zoom.us', 'meet.google.com', 'teams.microsoft.com'],
   smallpdf: ['smallpdf.com', 'acrobat.adobe.com'],
-  ilovepdf: ['ilovepdf.com', 'iloveimg.com'],
+  ilovepdf: ['ilovepdf.com'],
   postman: ['postman.com', 'insomnia.rest'],
   audacity: ['audacityteam.org', 'soundtrap.com'],
   tinypng: ['tinypng.com', 'kraken.io', 'compressor.io'],
@@ -94,38 +100,43 @@ const DOMAIN_MAP = {
   excel: ['sheets.google.com', 'airtable.com'],
   chatgpt: ['chatgpt.com', 'chat.openai.com', 'openai.com'],
   bitly: ['bitly.com', 'tinyurl.com', 'dub.co', 'short.io'],
+  kapwing: ['kapwing.com', 'veed.io', 'clipchamp.com'],
+  doodle: ['doodle.com', 'calendly.com', 'strawpoll.com'],
+  toggl: ['toggl.com', 'clockify.me'],
+  iloveimg: ['iloveimg.com', 'remove.bg', 'photoroom.com', 'clippingmagic.com'],
+  pastebin: ['pastebin.com', 'gist.github.com'],
+  devtoys: ['devtoys.app', 'devutils.com', 'jsonlint.com'],
+};
+
+const TARGET_FALLBACK_SLUGS = {
+  kapwing: ['ezgif-com', 'recordrtc-org', 'audiomass-co', 'audiotrimmer-com'],
+  doodle: ['when2meet-com', 'syncwhen-com', 'askmeanythi-ng', 'worldtimebuddy-com'],
+  toggl: ['pomofocus-io', 'til-re'],
+  iloveimg: ['squoosh-app', 'image-conversion-com', 'photopea-com', 'ezgif-com'],
+  pastebin: ['pairdrop-net', 'sharedrop-io', 'cryptgeon-org'],
+  devtoys: ['it-tools-tech', 'gchq-github-io-cyberchef', 'transform-tools'],
 };
 
 const EXTRA_PAYWALL_TARGETS = [
   {
-    domains: ['loom.com', 'veed.io', 'descript.com', 'kapwing.com'],
-    targetName: 'Loom / Kapwing',
+    domains: ['loom.com', 'descript.com'],
+    targetName: 'Loom / Descript',
     targetSlug: 'loom',
     category: 'Media',
     headlineEn: 'Record screen, trim audio/video, and edit media in-browser without account signup or watermark gates',
     headlineZh: '无需注册账号或忍受导出水印，在浏览器内直接录制屏幕与剪辑音视频',
-    aliases: ['Loom', 'Kapwing', 'Veed.io', 'Descript', 'Audacity'],
+    aliases: ['Loom', 'Descript', 'Audacity'],
     fallbackSlugs: ['recordrtc-org', 'audiomass-co', 'ezgif-com', 'audiotrimmer-com'],
   },
   {
-    domains: ['doodle.com', 'calendly.com', 'strawpoll.com', 'typeform.com'],
-    targetName: 'Doodle / Calendly',
-    targetSlug: 'doodle',
+    domains: ['typeform.com'],
+    targetName: 'Typeform',
+    targetSlug: 'typeform',
     category: 'Productivity',
-    headlineEn: 'Schedule group meetings and run instant polls without forcing participants to create accounts',
-    headlineZh: '无需强制参与者注册账号，一键发起群组时间协调与匿名投票',
-    aliases: ['Doodle', 'Calendly', 'StrawPoll', 'Typeform'],
-    fallbackSlugs: [' worldtimebuddy-com', 'askmeanythi-ng'],
-  },
-  {
-    domains: ['toggl.com', 'clockify.me'],
-    targetName: 'Toggl Track',
-    targetSlug: 'toggl',
-    category: 'Productivity',
-    headlineEn: 'Track focus sessions, Pomodoro timers, and work hours locally in your browser without account walls',
-    headlineZh: '在浏览器本地记录番茄钟、专注时长与工时，无需注册云端账号',
-    aliases: ['Toggl Track', 'Toggl', 'Clockify'],
-    fallbackSlugs: ['pomofocus-io', 'til-re'],
+    headlineEn: 'Run instant polls and lightweight Q&A sessions without forcing participants to create accounts',
+    headlineZh: '无需强制参与者注册账号，一键发起即时匿名投票与问答收集',
+    aliases: ['Typeform', 'StrawPoll', 'Slido'],
+    fallbackSlugs: ['askmeanythi-ng', 'when2meet-com'],
   },
 ];
 
@@ -266,7 +277,7 @@ function buildExtensionIndex(lang = 'en') {
 
   for (const target of ALTERNATIVE_TARGETS) {
     const domains = DOMAIN_MAP[target.slug] || [`${target.slug}.com`];
-    const matchingSlugs = new Set();
+    const matchingSlugs = new Set(TARGET_FALLBACK_SLUGS[target.slug] || []);
 
     for (const [toolSlug, entry] of Object.entries(editorialData)) {
       const alts = entry.en?.alternativeTo || [];
