@@ -44,6 +44,7 @@ async function checkUrl(url) {
       redirect: 'follow'
     });
     clearTimeout(t);
+    await res.body?.cancel().catch(() => {});
     if (res.status === 404 || res.status === 410) return { ok: false, status: res.status };
     return { ok: true, status: res.status };
   } catch (e) {
@@ -58,6 +59,7 @@ async function checkUrl(url) {
         redirect: 'follow'
       });
       clearTimeout(t2);
+      await res2.body?.cancel().catch(() => {});
       if (res2.status === 404 || res2.status === 410) return { ok: false, status: res2.status };
       return { ok: true, status: res2.status };
     } catch (e2) {
@@ -286,7 +288,7 @@ async function main() {
       console.log(`  ✓ [${item.id}] ${item.name}: ${item.reason}`);
     } catch (err) {
       failures.push({ ...item, error: err.message });
-      console.log(`  ✗ [${item.id}] ${item.name}: ${err.message}`);
+      console.log(`  ✗ [${item.id}] ${item.name}: ${err.message}${err.cause ? ` (${err.cause.message || err.cause})` : ''}`);
     }
     await new Promise((r) => setTimeout(r, 150));
   }
