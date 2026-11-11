@@ -1,8 +1,8 @@
 {
   "AI": {
     "en": {
-      "title": "Registration-Free AI Tools & Prompt Privacy Guide",
-      "overview": "The modern AI landscape is heavily dominated by accounts, persistent user profiling, and aggressive prompt telemetry used to train commercial foundation models. No-login AI tools offer an essential counterweight: instant access to machine learning capabilities (code generation, search synthesis, background removal, voice conversion) without attaching your personal identity, email address, or payment records to your queries.",
+      "title": "No-Login & No-Signup AI Tools — Prompt Privacy Guide",
+      "overview": "The modern AI landscape is heavily dominated by mandatory accounts, persistent user profiling, and aggressive prompt telemetry used to train commercial foundation models. Free AI tools without login, sign-in, or signup offer an essential counterweight: instant access to machine learning capabilities (chat assistants, code generation, search synthesis, background removal, voice conversion) without attaching your personal identity, email address, or phone number to your queries.",
       "architectureInsights": "No-login AI services typically operate under two architectural paradigms: stateless server-side inference (where requests are processed in volatile GPU memory and immediately purged without persistent logging) or client-side WebAssembly inference (using ONNX Runtime or WebGPU to execute lightweight neural networks directly inside your browser).",
       "tradeoffs": {
         "gain": "Zero prompt-to-identity linkage, immunity to credential leaks, and immediate workflow access without credit card forms or waiting lists.",
@@ -11,7 +11,7 @@
       "recommendedWorkflow": "For technical problem solving, pair Phind (developer-tuned search synthesis without accounts) with specialized client-side utilities like Squoosh or Remove.bg for media preprocessing."
     },
     "zh": {
-      "title": "无需登录的 AI 工具与提示词隐私保护指南",
+      "title": "免登录、免注册 AI 工具与提示词隐私保护指南",
       "overview": "当今主流 AI 商业生态被强制注册、多端行为追踪和提示词语料回流高度垄断。免登录 AI 工具为用户提供了一道坚实的隐私屏障：在完全不泄露个人邮箱、手机号或支付凭据的前提下，即开即用代码推理、技术检索、智能去背景与图像修复等前沿算力。",
       "architectureInsights": "免登录 AI 工具主要依托两种架构实现：无状态云端推理（请求在易失性 GPU 显存中完成推理后立即释放会话，不进行持久化入库）与纯前端 WebAssembly/WebGPU 推理（利用 ONNX Runtime 在本地浏览器内直接运行量化小模型，数据零出海）。",
       "tradeoffs": {

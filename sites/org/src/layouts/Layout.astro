@@ -29,7 +29,8 @@ const defaultDescription = 'An independent organization dedicated to documenting
 const desc = description || defaultDescription;
 
 const fullTitle = title.includes('NoLoginTools.org') ? title : `${title} | NoLoginTools.org`;
-const canonicalUrl = new URL(Astro.url.pathname, 'https://nologintools.org').href;
+const cleanPathname = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/+$/, '');
+const canonicalUrl = new URL(cleanPathname, 'https://nologintools.org').href;
 const ogImageUrl = new URL(ogImage, 'https://nologintools.org').href;
 ---
 

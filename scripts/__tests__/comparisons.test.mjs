@@ -13,14 +13,16 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const editorialPath = resolve(__dirname, '../../src/data/tool-editorial.json');
+const programmaticZhPath = resolve(__dirname, '../../src/data/translations/programmatic-zh.json');
 /** @type {Record<string, Record<string, { alternativeTo?: string[]; bestFor?: string; pros?: string[]; cons?: string[]; privacyVerdict?: string }>>} */
 const editorialData = JSON.parse(readFileSync(editorialPath, 'utf-8'));
+const programmaticZh = JSON.parse(readFileSync(programmaticZhPath, 'utf-8'));
 
 describe('Comparison Pairs Data Model', () => {
-  it('defines 14 high-intent comparison pairs', () => {
-    assert.equal(COMPARISON_PAIRS.length, 14);
+  it('defines 18 high-intent comparison pairs', () => {
+    assert.equal(COMPARISON_PAIRS.length, 18);
     const pairs = getComparisonPairs();
-    assert.equal(pairs.length, 14);
+    assert.equal(pairs.length, 18);
   });
 
   it('has valid URL-safe slugs for all pairs', () => {
@@ -57,6 +59,17 @@ describe('Comparison Pairs Data Model', () => {
       assert.ok(pair.verdict.summary.length >= 20, `Pair ${pair.slug} summary too short`);
       assert.ok(pair.verdict.chooseAIf.length >= 2, `Pair ${pair.slug} must have >= 2 chooseA points`);
       assert.ok(pair.verdict.chooseBIf.length >= 2, `Pair ${pair.slug} must have >= 2 chooseB points`);
+    }
+  });
+
+  it('has complete Chinese translations in programmatic-zh.json for all pairs', () => {
+    for (const pair of COMPARISON_PAIRS) {
+      const zh = programmaticZh.comparisons?.[pair.slug];
+      assert.ok(zh, `Missing programmatic-zh.json comparisons entry for ${pair.slug}`);
+      assert.ok(zh.headline && zh.headline.length >= 8, `Short/missing zh headline for ${pair.slug}`);
+      assert.ok(zh.verdict?.summary && zh.verdict.summary.length >= 15, `Short/missing zh summary for ${pair.slug}`);
+      assert.ok(Array.isArray(zh.verdict?.chooseAIf) && zh.verdict.chooseAIf.length >= 2, `Missing zh chooseAIf for ${pair.slug}`);
+      assert.ok(Array.isArray(zh.verdict?.chooseBIf) && zh.verdict.chooseBIf.length >= 2, `Missing zh chooseBIf for ${pair.slug}`);
     }
   });
 });

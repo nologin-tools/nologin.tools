@@ -4,7 +4,9 @@ import { getCollection } from 'astro:content';
 
 const reports = await getCollection('reports');
 const latestReport = reports.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
-const modifiedTime = latestReport ? latestReport.data.publishedAt.toISOString() : '2026-03-15T00:00:00.000Z';
+const modifiedTime = latestReport
+  ? (latestReport.data.updatedAt || latestReport.data.publishedAt).toISOString()
+  : '2026-03-15T00:00:00.000Z';
 
 const orgLd = {
   '@context': 'https://schema.org',
@@ -164,6 +166,14 @@ const faqLd = {
           Tracking data from <strong class="text-neutral-700">nologin.tools</strong> forms the primary data source for our industry reports and research.
         </p>
       </a>
+      <nav aria-label="Verified ecosystem hubs" class="mt-4 flex flex-wrap gap-2 text-xs text-retro-mono font-bold">
+        <a href="https://nologin.tools/finder" class="px-2.5 py-1 border border-neutral-300 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">Tool Finder &rarr;</a>
+        <a href="https://nologin.tools/category/ai" class="px-2.5 py-1 border border-neutral-300 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">No-Login AI Tools &rarr;</a>
+        <a href="https://nologin.tools/lab" class="px-2.5 py-1 border border-neutral-300 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">CADES Lab Benchmarks &rarr;</a>
+        <a href="https://nologin.tools/alternative/chatgpt" class="px-2.5 py-1 border border-neutral-300 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">ChatGPT Alternatives &rarr;</a>
+        <a href="https://nologin.tools/alternative/pastebin" class="px-2.5 py-1 border border-neutral-300 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">Online Clipboard &amp; Pastebin &rarr;</a>
+        <a href="https://nologin.tools/compare/pairdrop-vs-sharedrop" class="px-2.5 py-1 border border-neutral-300 text-neutral-700 hover:border-neutral-900 hover:text-neutral-900 transition-colors">PairDrop vs ShareDrop &rarr;</a>
+      </nav>
     </section>
 
     <!-- What We Do -->

@@ -299,6 +299,86 @@ export const COMPARISON_PAIRS = [
       ],
     },
   },
+  {
+    slug: 'it-tools-vs-cyberchef',
+    toolASlug: 'it-tools-tech',
+    toolBSlug: 'gchq-github-io-cyberchef',
+    category: 'Development',
+    headline: 'Clean categorized 70+ developer utility dashboard vs chainable GCHQ cryptographic recipe pipeline & hex analyzer',
+    verdict: {
+      summary: 'IT Tools gives everyday developers a clean, single-purpose card dashboard for quick UUID, JWT, hash, and Docker conversions, whereas CyberChef is an industrial-strength Web Worker workbench built for chaining multi-step decoding, decompression, and forensic byte operations.',
+      chooseAIf: [
+        'You want dedicated, clean single-task forms for everyday dev chores like generating UUIDs, parsing crontabs, or converting Docker run commands',
+        'You prefer an approachable, searchable UI without wiring multi-stage input/output pipelines',
+        'You want a lightweight, self-hostable developer dashboard for quick daily lookups and client-side formatting',
+      ],
+      chooseBIf: [
+        'You need to chain multiple operations together (e.g., Base64 decode -> gunzip -> AES decrypt -> regex extract) in one reproducible recipe',
+        'You are inspecting binary files, magic bytes, entropy distributions, X.509 certificates, or raw hex dumps',
+        'You want URL-shareable forensic recipes executing inside isolated browser Web Workers with zero payload egress',
+      ],
+    },
+  },
+  {
+    slug: 'pairdrop-vs-sharedrop',
+    toolASlug: 'pairdrop-net',
+    toolBSlug: 'sharedrop-io',
+    category: 'Communication',
+    headline: 'Cross-device browser peer room & instant clipboard sharing vs cloud-relayed temporary up-to-4GB browser file transfer',
+    verdict: {
+      summary: 'PairDrop focuses on AirDrop-style nearby browser discovery, temporary rooms, and instant cross-device text/file handoffs without accounts, while ShareDrop now operates as a centralized cloud upload service (up to 4GB) backed by commercial ad-tech infrastructure.',
+      chooseAIf: [
+        'You want to beam files or clipboard text directly between your phone and laptop using LAN discovery or a 6-digit room code',
+        'You want explicit receiver accept/decline prompts and zero advertising tracker networks',
+        'You prefer an open-source, self-hostable cross-platform AirDrop workflow in any browser',
+      ],
+      chooseBIf: [
+        'You need to upload a multi-gigabyte archive (up to 4GB) to a temporary cloud link so recipients can download asynchronously later',
+        'Sender and receiver are not online simultaneously to complete a live peer-to-peer handoff',
+        'You do not mind centralized cloud storage and commercial ad-supported hosting for non-sensitive files',
+      ],
+    },
+  },
+  {
+    slug: 'when2meet-vs-syncwhen',
+    toolASlug: 'www-when2meet-com',
+    toolBSlug: 'syncwhen-com',
+    category: 'Productivity',
+    headline: 'Classic drag-to-paint group availability heatmap grid vs modern ad-free yes/maybe/no time-slot poll with calendar export',
+    verdict: {
+      summary: 'When2meet excels when a large group needs to paint continuous 15-minute availability blocks across an entire week to spot overlap visually, whereas SyncWhen is faster, cleaner, and completely ad-free when voting yes/maybe/no on specific proposed meeting slots.',
+      chooseAIf: [
+        'You are coordinating 10+ students or teammates with fragmented schedules and want a continuous 15-minute heatmap grid',
+        'You want to survey recurring weekly availability (e.g., Mondays–Fridays) rather than fixed calendar dates',
+        'Your participants already know the classic drag-and-highlight When2meet grid workflow',
+      ],
+      chooseBIf: [
+        'You already have 3–8 candidate meeting times and want fast mobile-friendly Yes / Maybe / No voting',
+        'You want a clean, ad-free scheduling page without third-party display ads or remarketing trackers',
+        'You want one-click .ics or Google Calendar export once the winning meeting time is chosen',
+      ],
+    },
+  },
+  {
+    slug: 'coolors-vs-realtimecolors',
+    toolASlug: 'coolors-co',
+    toolBSlug: 'realtimecolors-com',
+    category: 'Design',
+    headline: 'Spacebar-driven harmonious color palette generator & swatch exporter vs live landing-page UI typography & contrast previewer',
+    verdict: {
+      summary: 'Coolors is unbeatable for rapidly discovering, locking, and exporting 5-color brand harmonies from scratch, while Realtime Colors solves the hardest UI step—seeing how primary, secondary, accent, background, and text tokens actually read on a live web layout.',
+      chooseAIf: [
+        'You want to press the spacebar to rapidly explore harmonious 5-swatch palettes while locking favorite hex codes',
+        'You need color-blindness simulation, shade variations, and instant CSS/SVG/PDF swatch exports',
+        'You are brainstorming brand, illustration, or poster color schemes before designing UI components',
+      ],
+      chooseBIf: [
+        'You are designing a website or SaaS app and need to see your 5 semantic color roles applied to real buttons, cards, charts, and body copy',
+        'You want instant WCAG contrast feedback and Google Fonts pairing previews on a realistic light/dark page',
+        'You want 100% local CSS custom-variable recalculation ready to export straight to Tailwind or CSS `:root` tokens',
+      ],
+    },
+  },
 ];
 
 /**

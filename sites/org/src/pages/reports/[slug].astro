@@ -53,7 +53,7 @@ const articleLd = {
       '@type': 'WebSite',
       name: 'nologin.tools',
       url: 'https://nologin.tools',
-      description: 'Primary data source: 140+ verified no-login tools',
+      description: 'Primary data source: 387+ verified no-login and zero-signup web tools',
     },
   ],
   isPartOf: {
@@ -111,6 +111,14 @@ const breadcrumbLd = {
         <time datetime={report.data.publishedAt.toISOString()}>
           Published {publishedDate}
         </time>
+        {modifiedDate && report.data.updatedAt && (
+          <>
+            <span class="text-neutral-300">&middot;</span>
+            <time datetime={report.data.updatedAt.toISOString()}>
+              Updated {modifiedDate}
+            </time>
+          </>
+        )}
         <span class="text-neutral-300">&middot;</span>
         <span>{readingTime} min read</span>
         <span class="text-neutral-300">&middot;</span>

@@ -13,14 +13,16 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const editorialPath = resolve(__dirname, '../../src/data/tool-editorial.json');
+const programmaticZhPath = resolve(__dirname, '../../src/data/translations/programmatic-zh.json');
 /** @type {Record<string, Record<string, { alternativeTo?: string[]; bestFor?: string; pros?: string[]; cons?: string[]; privacyVerdict?: string }>>} */
 const editorialData = JSON.parse(readFileSync(editorialPath, 'utf-8'));
+const programmaticZh = JSON.parse(readFileSync(programmaticZhPath, 'utf-8'));
 
 describe('Alternative Targets Definitions', () => {
-  it('defines 20 high-intent software targets', () => {
-    assert.equal(ALTERNATIVE_TARGETS.length, 20);
+  it('defines 26 high-intent software targets', () => {
+    assert.equal(ALTERNATIVE_TARGETS.length, 26);
     const targets = getAlternativeTargets();
-    assert.equal(targets.length, 20);
+    assert.equal(targets.length, 26);
   });
 
   it('has valid URL-safe slugs for all targets', () => {
@@ -38,6 +40,15 @@ describe('Alternative Targets Definitions', () => {
     const slugs = ALTERNATIVE_TARGETS.map((t) => t.slug);
     const uniqueSlugs = new Set(slugs);
     assert.equal(uniqueSlugs.size, slugs.length, 'Duplicate slugs found in ALTERNATIVE_TARGETS');
+  });
+
+  it('has complete Chinese translations in programmatic-zh.json for all targets', () => {
+    for (const target of ALTERNATIVE_TARGETS) {
+      const zh = programmaticZh.alternatives?.[target.slug];
+      assert.ok(zh, `Missing programmatic-zh.json alternatives entry for ${target.slug}`);
+      assert.ok(zh.headline && zh.headline.length >= 8, `Short/missing zh headline for ${target.slug}`);
+      assert.ok(zh.primaryUtility && zh.primaryUtility.length >= 4, `Short/missing zh primaryUtility for ${target.slug}`);
+    }
   });
 });
 
@@ -91,7 +102,7 @@ describe('findAlternativeByAlias', () => {
   });
 });
 
-describe('Editorial Tool Matching for All 20 Targets', () => {
+describe('Editorial Tool Matching for All 26 Targets', () => {
   function getMatchingSlugs(target) {
     const matchingSlugs = new Set();
     for (const [toolSlug, entry] of Object.entries(editorialData)) {

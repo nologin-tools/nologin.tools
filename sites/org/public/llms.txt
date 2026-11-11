@@ -20,7 +20,9 @@ NoLoginTools.org is the governance authority and research institution behind the
 
 - [NLW-STD-001 Verification Standard](https://nologintools.org/standards): The normative specification defining zero-barrier web tools, 3-tier trust hierarchy (Directory Listed, Certified, Active Badge Exhibitor), 13 badge SVG criteria, and 6-hour automated crawler auditing.
 - [NoLogin Verified Badge Portal](https://nologin.tools/badge): The developer portal providing embed codes and certificate lookups for verified web software.
-- [Tool Verification Directory](https://nologin.tools): The live execution platform cataloging 387+ verified tools across 11 categories.
+- [Tool Verification Directory](https://nologin.tools): The live execution platform cataloging 387+ verified no-login and zero-signup tools across 11 categories.
+- [No-Login AI Tools Hub](https://nologin.tools/category/ai): Audited AI assistants, code search, and local WebGPU utilities requiring zero signup or login.
+- [NoLogin Lab Empirical Benchmarks](https://nologin.tools/lab): 5-dimension CADES 2.0 browser evaluations and zero-egress network audits.
 
 ## Organization Identity & Contact
 

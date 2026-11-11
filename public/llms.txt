@@ -153,6 +153,12 @@ Programmatic alternative indexes mapping closed-source or login-gated proprietar
 - [Microsoft Excel Alternatives](https://nologin.tools/alternative/excel): Client-side tabular data cleansing, spreadsheet parsing, and visual charting without Office 365.
 - [ChatGPT Alternatives](https://nologin.tools/alternative/chatgpt): Instant AI query resolution and search answering without telephone or email registration.
 - [Bitly Alternatives](https://nologin.tools/alternative/bitly): Fast URL shortening, custom redirection, and ephemeral link sharing without accounts.
+- [Kapwing Alternatives](https://nologin.tools/alternative/kapwing): In-browser video compression, GIF editing, and subtitle conversion without watermarks or login walls.
+- [Doodle Alternatives](https://nologin.tools/alternative/doodle): Instant group meeting polls and availability grids without forcing participants to register.
+- [Toggl Track Alternatives](https://nologin.tools/alternative/toggl): Distraction-free Pomodoro focus timers and local session tracking without cloud accounts.
+- [iLoveIMG Alternatives](https://nologin.tools/alternative/iloveimg): Client-side batch image compression, resizing, and background removal without upload queues.
+- [Pastebin Alternatives](https://nologin.tools/alternative/pastebin): Zero-signup online clipboard, encrypted self-destructing notes, and P2P text sharing.
+- [DevToys Alternatives](https://nologin.tools/alternative/devtoys): Browser-based developer Swiss Army knife for encoding, hashing, formatting, and token debugging.
 
 ## Head-to-Head No-Login Tool Comparisons
 
@@ -172,6 +178,10 @@ Direct side-by-side technical benchmarks, privacy matrices, and scenario-based v
 - [BrowserLeaks vs IPLeak](https://nologin.tools/compare/browserleaks-vs-ipleak): Deep canvas/WebGL/hardware entropy suite vs fast connection & WebRTC leak diagnostics.
 - [CyberChef vs Transform Tools](https://nologin.tools/compare/cyberchef-vs-transform-tools): Cryptographic recipe pipeline & hex parser vs frontend AST/schema code generator.
 - [CompareDiff vs DiffHero](https://nologin.tools/compare/comparediff-vs-diffhero): Client-side zero-egress text diff engine vs side-by-side syntax comparison workspace.
+- [IT Tools vs CyberChef](https://nologin.tools/compare/it-tools-vs-cyberchef): Categorized 70+ developer utility dashboard vs chainable GCHQ cryptographic recipe workbench.
+- [PairDrop vs ShareDrop](https://nologin.tools/compare/pairdrop-vs-sharedrop): Browser peer room & clipboard sharing vs cloud-relayed temporary browser file transfer.
+- [When2meet vs SyncWhen](https://nologin.tools/compare/when2meet-vs-syncwhen): Classic drag-to-paint availability heatmap grid vs ad-free yes/maybe/no slot poll with calendar export.
+- [Coolors vs Realtime Colors](https://nologin.tools/compare/coolors-vs-realtimecolors): Spacebar-driven color palette generator vs live landing-page UI typography & contrast previewer.
 
 ## Curated No-Login Workflow Recipes
 
