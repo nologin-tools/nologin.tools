@@ -577,7 +577,18 @@ async function cmdAct(slug, options) {
 (async () => {
   const result = { success: false, actionPerformed: false, actionSummaries: [], netPayloads: [], url: null, title: "", actionSummary: "", error: null };
   try {
-    const task = await taskSpace(${JSON.stringify(session.spaceId)});
+    const spaces = await listTaskSpaces();
+    const targetSpace = spaces.find(s => s.id === ${JSON.stringify(session.spaceId)});
+    let task;
+    if (targetSpace && targetSpace.ownership !== 'agent') {
+      task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)});
+    } else {
+      try {
+        task = await taskSpace(${JSON.stringify(session.spaceId)});
+      } catch {
+        task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)});
+      }
+    }
     const page = task.page("p1");
     await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
 
@@ -785,7 +796,18 @@ async function cmdExport(slug, trigger = null) {
 (async () => {
   const result = { downloadTriggered: false, downloadPath: null, clipboardTriggered: false, clipboardText: null, printTriggered: false, netPayloads: [], authIntercepted: false, authDetails: null, error: null };
   try {
-    const task = await taskSpace(${JSON.stringify(session.spaceId)});
+    const spaces = await listTaskSpaces();
+    const targetSpace = spaces.find(s => s.id === ${JSON.stringify(session.spaceId)});
+    let task;
+    if (targetSpace && targetSpace.ownership !== 'agent') {
+      task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)});
+    } else {
+      try {
+        task = await taskSpace(${JSON.stringify(session.spaceId)});
+      } catch {
+        task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)});
+      }
+    }
     const page = task.page("p1");
     await page.evaluate(${installCadesPageInstrumentation.toString()}).catch(() => false);
 
@@ -1098,7 +1120,18 @@ async function cmdFinish(slug, evalFilePath = null, shouldSync = false, allowSha
 (async () => {
   const result = { netPayloads: [], error: null };
   try {
-    const task = await taskSpace(${JSON.stringify(session.spaceId)});
+    const spaces = await listTaskSpaces();
+    const targetSpace = spaces.find(s => s.id === ${JSON.stringify(session.spaceId)});
+    let task;
+    if (targetSpace && targetSpace.ownership !== 'agent') {
+      try { task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)}); } catch {}
+    } else {
+      try {
+        task = await taskSpace(${JSON.stringify(session.spaceId)});
+      } catch {
+        try { task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)}); } catch {}
+      }
+    }
     if (task) {
       const page = task.page("p1");
       const payloads = await page.evaluate(() => window.__netPayloads || []).catch(() => []);
@@ -1372,8 +1405,19 @@ async function cmdAbort(slug) {
     const script = `
 (async () => {
   try {
-    const task = await taskSpace(${JSON.stringify(session.spaceId)});
-    await task.finish({ keep: [] }).catch(() => false);
+    const spaces = await listTaskSpaces();
+    const targetSpace = spaces.find(s => s.id === ${JSON.stringify(session.spaceId)});
+    let task;
+    if (targetSpace && targetSpace.ownership !== 'agent') {
+      try { task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)}); } catch {}
+    } else {
+      try {
+        task = await taskSpace(${JSON.stringify(session.spaceId)});
+      } catch {
+        try { task = await takeOverTaskSpace(${JSON.stringify(session.spaceId)}); } catch {}
+      }
+    }
+    if (task) await task.finish({ keep: [] }).catch(() => false);
   } catch (e) {}
 })();
 `;

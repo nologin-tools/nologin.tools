@@ -193,7 +193,8 @@ export function listEgoSpaces() {
   }
 
   try {
-    const lines = (res.stdout || '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const raw = (res.stdout || '') + '\n' + (res.stderr || '');
+    const lines = raw.trim().split('\n').map(l => l.trim()).filter(Boolean);
     const jsonLine = lines.reverse().find(l => l.startsWith('{"ok":'));
     if (!jsonLine) return [];
     const parsed = JSON.parse(jsonLine);
@@ -221,9 +222,16 @@ export function cleanOrphanTaskSpaces(options = {}) {
     const cleaned = [];
     for (const s of targets) {
       try {
-        const t = await taskSpace(s.id);
-        await t.finish({ keep: [] });
-        cleaned.push({ id: s.id, name: s.name });
+        let t;
+        try {
+          t = await taskSpace(s.id);
+        } catch {
+          t = await takeOverTaskSpace(s.id);
+        }
+        if (t) {
+          await t.finish({ keep: [] });
+          cleaned.push({ id: s.id, name: s.name });
+        }
       } catch (e) {}
     }
     console.log(JSON.stringify({ ok: true, cleaned }));
@@ -245,7 +253,8 @@ export function cleanOrphanTaskSpaces(options = {}) {
       return { cleanedCount: 0, cleaned: [] };
     }
 
-    const lines = (res.stdout || '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const raw = (res.stdout || '') + '\n' + (res.stderr || '');
+    const lines = raw.trim().split('\n').map(l => l.trim()).filter(Boolean);
     const jsonLine = lines.reverse().find(l => l.startsWith('{"ok":'));
     if (!jsonLine) return { cleanedCount: 0, cleaned: [] };
     const parsed = JSON.parse(jsonLine);

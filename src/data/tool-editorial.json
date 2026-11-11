@@ -77592,5 +77592,441 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-10T03:56:03.307Z"
     }
+  },
+  "www-imageconvertlab-com-tools-remove-image-background-html": {
+    "en": {
+      "bestFor": "E-commerce sellers, graphic designers, and casual creators needing quick AI-driven background removal from product photos and portraits entirely in the browser without registration.",
+      "pros": [
+        "In-browser AI segmentation executing locally via browser memory without uploading image files to external servers",
+        "Instant direct download of transparent PNG files preserving 800x600 resolution with zero promotional watermarks",
+        "Clean visual workflow displaying processing progress and compressed file size reduction (324.8 KB to 164.5 KB)"
+      ],
+      "cons": [
+        "Emits analytics telemetry payloads to Google Analytics (GA4) and Cloudflare RUM during page navigation and interaction",
+        "Limited manual masking or edge refinement brush controls after automatic segmentation"
+      ],
+      "privacyVerdict": "Observed 4 outgoing telemetry requests to Google Analytics (GA4) and Cloudflare RUM. Image processing and background segmentation run locally in browser memory without transmitting image payloads off-device.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded an 800x600 PNG benchmark fixture (324.8 KB); in-browser AI model segmented and removed background in approximately 5.8s, yielding a 164.5 KB transparent PNG exported with zero watermarks or authentication traps.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T02:55:57.973Z"
+    },
+    "zh": {
+      "bestFor": "需要直接在浏览器内通过本地 AI 快速抠图、去除商品图或人像背景且无需注册账号的电商卖家与设计师。",
+      "pros": [
+        "浏览器端本地 AI 图像分割与抠图，图片数据不上传至远端服务器",
+        "一键直接下载 800x600 透明通道 PNG 文件，无水印、无强制付费门槛",
+        "直观展示处理进度条与体积对比（324.8 KB 降至 164.5 KB）"
+      ],
+      "cons": [
+        "页面加载与操作期间向 Google Analytics (GA4) 和 Cloudflare RUM 发送遥测信标",
+        "自动分割后缺少手动微调画笔或边缘平滑擦除工具"
+      ],
+      "privacyVerdict": "测试期间观察到 4 次针对 Google Analytics (GA4) 和 Cloudflare RUM 的遥测请求。图像处理和背景消除完全在浏览器内存中本地执行，未将图像数据传输至外部服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 800x600 PNG 基准测试图片（324.8 KB），浏览器端本地 AI 模型在约 5.8 秒内完成分割并生成 164.5 KB 透明 PNG，直接下载无水印或登录拦截。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T02:55:57.974Z"
+    }
+  },
+  "tools-nyxiontech-com": {
+    "en": {
+      "bestFor": "Privacy-conscious professionals, developers, and researchers seeking an offline-capable, open-source workstation to edit, OCR, sign, merge, and extract text from PDF documents without cloud uploads.",
+      "pros": [
+        "Comprehensive suite of 19 client-side PDF utilities including text extraction, OCR, page numbering, signing, and format conversion",
+        "Zero network egress observed during document processing with all operations running in local browser memory",
+        "Open-source AGPL-3.0 architecture with PWA offline support and self-hosting capabilities",
+        "Clean unwatermarked export of extracted text and converted files with zero account registration"
+      ],
+      "cons": [
+        "Large complex PDFs or high-resolution OCR tasks may experience browser memory pressure on low-spec client machines",
+        "Document batch processing is limited to merging rather than bulk parallel script transforms"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads were observed across the entire workflow. PDF file parsing, text extraction, and document synthesis execute completely on-device within browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded a 610-byte PDF benchmark fixture to the PDF to text module; client-side engine extracted all 34 characters in 65ms, and exported a clean, unwatermarked .txt file with zero egress payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:01:28.032Z"
+    },
+    "zh": {
+      "bestFor": "注重隐私的专业人员、开发者与学术研究者，无需将文档上传至云端即可在浏览器本地完成 PDF 编辑、OCR、签名、合并与文本提取。",
+      "pros": [
+        "集成 19 种纯客户端本地 PDF 处理工具，涵盖文本提取、OCR 识别、页码编排、电子签名与格式转换",
+        "测试全流程观察到零网络外发数据包，所有文件解析与处理均在本地浏览器内存中完成",
+        "基于 AGPL-3.0 开源协议，支持 PWA 离线安装与私有化部署",
+        "导出文本及处理后文档完全干净、无任何宣传水印与登录限制"
+      ],
+      "cons": [
+        "处理超大体积 PDF 或高分辨率 OCR 时受限于客户端浏览器内存与设备性能",
+        "批量处理主要支持合并操作，暂不支持多文件并发并行脚本转换"
+      ],
+      "privacyVerdict": "整个测试流程中未观察到任何外发网络请求。PDF 文件解析、文本提取及文档渲染均完全在设备本地浏览器内存中运行。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "向 PDF 转文本模块上传 610 字节 PDF 基准测试文件，纯客户端引擎在 65 毫秒内提取全部 34 个字符，并导出无水印 .txt 文本，全程零网络负载外发。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:01:28.033Z"
+    }
+  },
+  "mamatool-com": {
+    "en": {
+      "bestFor": "Developers, system administrators, and content creators looking for an accessible collection of 44 in-browser utilities to format JSON, generate passwords, create QR codes, and compress images without account creation.",
+      "pros": [
+        "Wide catalog of 44 focused browser-side utilities spanning developer, text, converter, and media workflows",
+        "JSON Formatter features local key sorting, schema validation, minification, and indentation customization",
+        "Instant direct file download (.json) and clipboard copy with clean formatting and no promotional watermarks"
+      ],
+      "cons": [
+        "Emits performance telemetry requests to Cloudflare Insights (Cloudflare RUM) during sessions",
+        "Lacks bulk file batch processing or advanced JSON schema diffing capabilities"
+      ],
+      "privacyVerdict": "Observed 2 outgoing performance telemetry requests to Cloudflare Insights (Cloudflare RUM). JSON parsing, validation, key sorting, and export generation execute entirely client-side within browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Audited JSON Formatter with an unsorted 3-key object; sorted keys and formatted into 2-space indentation in under 30ms, exporting a valid unwatermarked 32-byte .json file with 2 observed Cloudflare RUM beacons.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:06:56.645Z"
+    },
+    "zh": {
+      "bestFor": "需要使用 44 款纯前端在线工具进行 JSON 格式化、密码生成、二维码制作及图片压缩且无需登录的开发者与办公人员。",
+      "pros": [
+        "聚合 44 款涵盖开发、文本、转换与多媒体领域的浏览器端常用小工具",
+        "JSON 格式化工具支持本地键名排序、语法校验、压缩混淆及自定义缩进空格",
+        "一键直接下载 .json 文件及复制结果，无宣传水印或强制引导"
+      ],
+      "cons": [
+        "使用期间向 Cloudflare Insights (Cloudflare RUM) 发送性能遥测信标",
+        "缺少多文件批量批处理以及高级 JSON Schema 对比功能"
+      ],
+      "privacyVerdict": "测试期间观察到 2 次针对 Cloudflare Insights (Cloudflare RUM) 的性能遥测请求。JSON 解析、语法校验、键名排序及导出均完全在本地浏览器内存中完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "使用无序的 3 键 JSON 对象测试 JSON 格式化工具，在 30 毫秒内完成键名排序并格式化为 2 空格缩进，导出 32 字节无水印 .json 文件，观察到 2 次 Cloudflare RUM 请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:06:56.647Z"
+    }
+  },
+  "mdformats-com": {
+    "en": {
+      "bestFor": "Technical writers, documentation managers, and students needing to convert Markdown notes and tables into standard editable Word (.docx) files locally without cloud uploads or registration.",
+      "pros": [
+        "Compiles Markdown into genuine compressed OpenXML (.docx) Word archives directly in browser memory",
+        "Real-time synchronized dual-pane preview rendering headings, lists, tables, blockquotes, and code styling",
+        "Zero network egress payloads observed during file import, DOM rendering, and document export",
+        "Completely unwatermarked output with instant direct file download and zero account friction"
+      ],
+      "cons": [
+        "Does not yet support custom Word style templates (.dotx) or custom font family overrides",
+        "Complex nested LaTeX mathematical equations render as raw code rather than Word Equation objects"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads were observed during testing. Markdown parsing, DOM preview rendering, and binary .docx archive generation execute entirely within the local browser sandbox.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded an 87-line Markdown benchmark fixture via file input; synchronized Word preview rendered instantly with 0 jank, exporting an unwatermarked 11,509-byte genuine .docx archive in under 50ms with zero egress payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:15:53.290Z"
+    },
+    "zh": {
+      "bestFor": "需要将 Markdown 笔记与表格转换为标准可编辑 Word (.docx) 文档，且不希望上传文件至云端的文档工程师与学生。",
+      "pros": [
+        "在浏览器本地内存中直接将 Markdown 编译为标准 OpenXML (.docx) 格式的 Word 压缩包",
+        "实时双栏同步预览，高保真渲染标题、列表、表格、引用块与代码块样式",
+        "测试全流程观察到零网络外发数据包，文件导入、解析与导出均在本地沙箱运行",
+        "完全干净无水印，直接一键下载原生 .docx 文件，无登录限制"
+      ],
+      "cons": [
+        "暂不支持导入自定义 Word 样式模板 (.dotx) 或自定义字体映射",
+        "复杂的嵌套 LaTeX 数学公式仅作为原始代码呈现，未转为 Word 原生公式对象"
+      ],
+      "privacyVerdict": "测试期间观察到零外发网络请求。Markdown 解析、DOM 预览生成以及二进制 .docx 压缩包生成均完全在本地浏览器沙箱内完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "通过文件导入功能上传 87 行 Markdown 基准测试文件，双栏预览瞬间渲染（0 帧卡顿），并在 50 毫秒内导出 11,509 字节无水印原生 .docx 文档，全程零网络外发。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:15:53.291Z"
+    }
+  },
+  "cutefontgen-com-upside-down-text": {
+    "en": {
+      "bestFor": "Social media users, Discord community members, and gamer bio creators wanting to flip text upside down or backwards with Unicode look-alikes without registration.",
+      "pros": [
+        "Instant real-time Unicode glyph transformation across six distinct upside-down, backwards, and mirrored styles",
+        "Clean one-click clipboard copying without promotional watermarks or tracking tails",
+        "Responsive interactive preview with adjustable font size slider and dark mode support"
+      ],
+      "cons": [
+        "Emits analytics telemetry beacons to Vercel Insights and Google Analytics (GA4) during sessions",
+        "Limited to short phrases and names rather than rich multiline document transformations"
+      ],
+      "privacyVerdict": "Observed 2 outgoing telemetry requests to Vercel Insights and Google Analytics (GA4). Character mapping, glyph replacement, and clipboard transfers operate locally in browser memory without sending user text to remote servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Input 14-character string into the live editor; mapped to 6 upside-down Unicode variants in under 10ms with 0 frame jank, capturing an unwatermarked 13-character flipped payload via clipboard.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:24:46.740Z"
+    },
+    "zh": {
+      "bestFor": "需要在社交媒体、Discord 个人简介或游戏中生成倒置、反向和镜像 Unicode 趣味艺术字体且无需登录的用户。",
+      "pros": [
+        "实时将输入文本快速映射为倒置、反向、镜像等 6 种 Unicode 艺术字符样式",
+        "一键复制到剪贴板，干净无广告尾巴或强制宣传文本",
+        "支持字体预览大小滑动调节与深色模式切换"
+      ],
+      "cons": [
+        "使用期间向 Vercel Insights 和 Google Analytics (GA4) 发送访问分析信标",
+        "主要适合短文本、网名与昵称，不适合大段文档的批量格式转换"
+      ],
+      "privacyVerdict": "测试期间观察到 2 次针对 Vercel Insights 和 Google Analytics (GA4) 的遥测请求。字符映射、字形转换及剪贴板复制完全在本地浏览器内存中运行，用户文本不会上传至远程服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在输入框中输入 14 个字符的短语，10 毫秒内生成 6 种倒置样式（0 帧卡顿），通过剪贴板导出 13 字符无水印反转文本，观察到 2 次分析信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:24:46.742Z"
+    }
+  },
+  "treadmillpace-com": {
+    "en": {
+      "bestFor": "Runners, athletes, and treadmill fitness trainers needing instant bidirectional speed-to-pace conversions with training presets on the gym floor without registration.",
+      "pros": [
+        "Instant bidirectional conversion between treadmill speed (mph) and running pace (min/mile) with preset training buttons (Easy, Steady, Tempo, Fast)",
+        "Includes incline percentage estimation to calculate flat-equivalent running pace",
+        "Clean one-click clipboard copy without promotional watermarks or marketing trailers"
+      ],
+      "cons": [
+        "Emits lightweight analytics beacons to Vercel Insights and pvuv.ai during interaction",
+        "Only supports imperial units (mph and min/mile) on the primary conversion card"
+      ],
+      "privacyVerdict": "Observed 4 outgoing telemetry requests to Vercel Insights and pvuv.ai for page view analytics. All speed and pace calculations run entirely client-side in the browser with zero user input sent to remote endpoints.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested speed conversion at 7.5 mph (rendered 8:00 pace), toggled Tempo 8:30 preset (rendered 7.1 mph), and verified clean clipboard copy of 7.1 in under 15ms with 0 frame jank.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:32:00.020Z"
+    },
+    "zh": {
+      "bestFor": "需要在健身房跑步机上快速进行时速（mph）与配速（min/mile）双向换算并带常用训练预设的跑步爱好者与健身教练。",
+      "pros": [
+        "支持跑步机带速与跑步配速双向即时换算，并提供轻松跑、稳定跑、节奏跑、快速跑等常用预设",
+        "提供坡度估算功能，可推算平地等效配速",
+        "一键复制数值到剪贴板，无水印或推广尾巴"
+      ],
+      "cons": [
+        "页面加载与操作期间向 Vercel Insights 及 pvuv.ai 发送轻量遥测信标",
+        "主卡片默认以英制单位（mph / min:mile）为主"
+      ],
+      "privacyVerdict": "观察到 4 次向 Vercel Insights 和 pvuv.ai 发出的访问统计请求。所有时速与配速数学计算完全在前端浏览器本地执行，输入数据不经过任何远端接口。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "测试输入 7.5 mph 换算为 8:00 配速，点击 Tempo 8:30 预设计算出 7.1 mph，剪贴板导出 7.1 无水印文本，耗时 15ms 内且无卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:32:00.021Z"
+    }
+  },
+  "tapmetronome-app": {
+    "en": {
+      "bestFor": "Musicians, music students, and band performers seeking a clean, accurate online metronome with tap tempo, customizable time signatures, rhythm subdivisions, and a practice timer without sign-up.",
+      "pros": [
+        "Full-featured tempo engine with tap tempo detection, adjustable time signatures (4/4, 3/4, 2/4, 6/8, compound meters), rhythmic subdivisions, and accent patterns",
+        "Clean, modern, responsive interface featuring dynamic beat visualization, Italian tempo markings, and built-in practice timer",
+        "Instant Web Audio API synthesis running entirely client-side with zero audio lag and clean iframe embed code export"
+      ],
+      "cons": [
+        "Sends standard anonymous pageview analytics to Google Analytics (GA4)",
+        "Audio playback requires an initial user interaction due to modern browser autoplay policies"
+      ],
+      "privacyVerdict": "Observed 1 outgoing telemetry beacon to Google Analytics (GA4) for pageview metrics. Web Audio generation, tap-tempo calculations, beat tracking, and practice timers execute client-side in the browser, while audio synthesis never uploads user inputs or audio streams to external servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested metronome startup, switched from 4/4 to 3/4 time signature in 15ms latency, stepped BPM from 120 to 130, engaged 1/8 rhythm subdivisions, and exported clean 283-byte iframe embed snippet via clipboard without frame jank or DOM errors.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:39:11.497Z"
+    },
+    "zh": {
+      "bestFor": "需要一款免登录、高精度且支持点击测速（Tap Tempo）、拍号切换、音符细分及练琴计时器的音乐人与乐器学习者。",
+      "pros": [
+        "功能完备的节拍引擎，支持 Tap Tempo 测速、多种拍号切换（4/4、3/4、2/4、6/8 及复合拍）、节拍细分与重音模式定制",
+        "界面现代优雅，配备动态节拍圆点可视化指示、意大利速度术语标注与专注练琴倒计时器",
+        "基于 Web Audio API 本地实时合成音频，零延迟且提供纯净的网页嵌入代码复制"
+      ],
+      "cons": [
+        "页面加载时向 Google Analytics (GA4) 发送匿名页面访问遥测信标",
+        "受现代浏览器自动播放策略限制，首次播放需主动点击启动"
+      ],
+      "privacyVerdict": "测试期间观察到 1 次向 Google Analytics (GA4) 发送的页面访问分析请求。Web Audio 节拍声音合成、测速算法与练琴计时均在浏览器前端客户端执行，音频合成与交互数据均不会上传至外部服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "完成节拍器启动、在 15 毫秒内从 4/4 拍切换至 3/4 拍（节拍指示灯即时重排）、BPM 从 120 微调至 130、切换 1/8 音符细分并通过剪贴板导出 283 字节纯净嵌入代码，全程零卡顿零 DOM 错误。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:39:11.498Z"
+    }
+  },
+  "invosmith-com-invoice-generator": {
+    "en": {
+      "bestFor": "Freelancers, independent contractors, and small business owners needing to generate professional, unwatermarked PDF invoices, estimates, or receipts with real-time preview without creating an account.",
+      "pros": [
+        "Full-featured document generator supporting invoices, estimates, and receipts across multiple visual styles (Classic, Modern, Trade)",
+        "Real-time synchronized split-pane preview updating company details, line items, tax, and currency calculations as you type",
+        "Direct client-side vector PDF generation exporting a clean, high-resolution 99.8 KB PDF document free of promotional watermarks"
+      ],
+      "cons": [
+        "Transmits usage analytics beacons to Google Analytics (GA4), Microsoft Clarity, Cloudflare RUM, and internal event endpoints",
+        "Requires completing business name, client name, and at least one line item before allowing document download"
+      ],
+      "privacyVerdict": "Observed 20 outgoing telemetry requests to Google Analytics (GA4), Microsoft Clarity, Cloudflare RUM, and /api/events for interaction analytics. Invoice generation and PDF compilation operate client-side in browser memory without persisting financial data on remote servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Configured invoice for Acme Consulting LLC and Global Logistics Corp, set line item Cloud Security Architecture Review at $2,500.00, toggled Modern template, and downloaded a clean 99,759-byte vector PDF with 0 watermark artifacts in under 200ms.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:44:59.566Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册在线快速制作专业无水印 PDF 账单、估价单或收据，并支持双栏实时预览的自由职业者与小微企业主。",
+      "pros": [
+        "支持发票、估价单、收据三种单据类型，提供经典（Classic）、现代（Modern）与商贸（Trade）多种排版模板",
+        "双栏左右对照实时渲染，输入企业抬头、客户信息、明细条目与税率时即刻同步更新总额",
+        "纯前端生成并导出无水印的高清 PDF 矢量文档（实测 99.8 KB），无需注册或捆绑付费"
+      ],
+      "cons": [
+        "使用过程中向 Google Analytics (GA4)、Microsoft Clarity、Cloudflare RUM 及内部事件接口发送操作遥测信标",
+        "导出前要求必须填入开票人、客户名称及至少一项明细"
+      ],
+      "privacyVerdict": "测试期间观察到 20 次向 Google Analytics (GA4)、Microsoft Clarity、Cloudflare RUM 和 /api/events 发出的遥测请求。单据排版与 PDF 渲染均在浏览器本地内存中完成，未发现财务数据被持久化到远程服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "录入 Acme Consulting LLC 开具给 Global Logistics Corp 的 2,500.00 美元安全咨询账单，切换 Modern 模板，成功导出 99,759 字节纯净无水印矢量 PDF，耗时 200 毫秒内。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-11T03:44:59.566Z"
+    }
   }
 }

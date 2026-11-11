@@ -604,6 +604,17 @@
     "lastTitle": "Unified social credit code checker: China USCI validation",
     "lastSignals": []
   },
+  "cutefontgen-com-upside-down-text": {
+    "lastDeepEvalAt": "2026-11-11T03:24:46.767Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-11T03:24:46.767Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:24:46.767Z"
+  },
   "dataformatkit-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-03T06:18:44.703Z",
@@ -1314,6 +1325,17 @@
     "lastTitle": "Compound Interest Calculator | Investor.gov",
     "lastSignals": []
   },
+  "invosmith-com-invoice-generator": {
+    "lastDeepEvalAt": "2026-11-11T03:44:59.591Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-11T03:44:59.591Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:44:59.591Z"
+  },
   "ipleak-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T06:31:13.544Z",
@@ -1513,6 +1535,17 @@
     "lastTitle": "Halftone Generator — Convert Images to Print-Ready Dot Patterns",
     "lastSignals": []
   },
+  "mamatool-com": {
+    "lastDeepEvalAt": "2026-11-11T03:06:56.682Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-11T03:06:56.682Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:06:56.682Z"
+  },
   "markany-ai": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T06:29:05.404Z",
@@ -1578,30 +1611,31 @@
     "lastScanAt": "2026-11-08T02:54:00.984Z"
   },
   "mdconvert-net-zh-markdown-to-word": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-05T06:26:15.195Z",
-        "lastSeenAt": "2026-11-05T06:26:15.195Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-05T06:26:15.195Z",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-10-31T02:39:20.602Z",
+    "lastDeepEvalAt": "2026-11-11T02:48:18.592Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Verified markdown to word conversion, client-side preview, direct .doc export without login.",
-      "at": "2026-10-31T02:39:20.602Z",
+      "note": "Uploaded sample.md fixture and triggered 下载 .doc to export 6,766-byte Word-compatible document with live dual-pane preview. Observed 1 Cloudflare RUM telemetry beacon with no auth gate.",
+      "at": "2026-11-11T02:48:18.592Z",
       "closed": [
         "probe_failed"
       ]
     }
+  },
+  "mdformats-com": {
+    "lastDeepEvalAt": "2026-11-11T03:15:53.318Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-11T03:15:53.318Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:15:53.318Z"
   },
   "mdprevieweditor-com": {
     "openAnomalies": [],
@@ -2650,30 +2684,17 @@
     "lastTitle": "Squoosh"
   },
   "stackedit-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-04T06:13:06.693Z",
-        "lastSeenAt": "2026-11-04T06:13:06.693Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-intent-1793772782832.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-outcome-1793772782832.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-04T06:13:06.693Z",
     "lastTitle": "StackEdit – In-browser Markdown editor",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-10-28T02:46:12.967Z",
+    "lastDeepEvalAt": "2026-11-11T02:43:02.947Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Verified editor loads from START WRITING link to /app, markdown input updates preview, export to markdown generates unwatermarked 7.2KB file without login.",
-      "at": "2026-10-28T02:46:12.967Z",
+      "note": "Landing page has START WRITING link to /app. Exercised Markdown editor with live preview, input text, and exported 7,247-byte unwatermarked Markdown file. Zero payload egress observed.",
+      "at": "2026-11-11T02:43:02.947Z",
       "closed": [
         "surface_lost"
       ]
@@ -2740,6 +2761,17 @@
     "lastScanAt": "2026-11-06T06:19:48.099Z",
     "lastTitle": "タイマー｜無料で使えるオンラインタイマー",
     "lastSignals": []
+  },
+  "tapmetronome-app": {
+    "lastDeepEvalAt": "2026-11-11T03:39:11.518Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-11T03:39:11.518Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:39:11.518Z"
   },
   "tariffschart-com": {
     "lastDeepEvalAt": "2026-11-10T03:46:46.262Z",
@@ -2901,6 +2933,17 @@
     "lastTitle": "Tools Berry: Free Online Calculators & Tools",
     "lastSignals": []
   },
+  "tools-nyxiontech-com": {
+    "lastDeepEvalAt": "2026-11-11T03:01:28.053Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-11T03:01:28.053Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:01:28.053Z"
+  },
   "tools-pdf24-org-en": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-10T06:19:13.360Z",
@@ -2933,6 +2976,17 @@
     "lastScanAt": "2026-11-06T06:17:00.464Z",
     "lastTitle": "Transform",
     "lastSignals": []
+  },
+  "treadmillpace-com": {
+    "lastDeepEvalAt": "2026-11-11T03:32:00.045Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-11T03:32:00.045Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T03:32:00.045Z"
   },
   "tryink-me": {
     "openAnomalies": [],
@@ -3236,6 +3290,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-05T03:00:33.304Z"
   },
+  "www-imageconvertlab-com-tools-remove-image-background-html": {
+    "lastDeepEvalAt": "2026-11-11T02:55:57.995Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-11T02:55:57.995Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-11T02:55:57.995Z"
+  },
   "www-imagesplit-online": {
     "lastDeepEvalAt": "2026-10-27T03:39:20.699Z",
     "lastResolution": {
@@ -3327,30 +3392,17 @@
     "lastSignals": []
   },
   "www-textfixhub-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-03T06:17:21.851Z",
-        "lastSeenAt": "2026-11-03T06:17:21.851Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-intent-1793686635859.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-outcome-1793686635859.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-03T06:17:21.851Z",
     "lastTitle": "Free Text Tools: Alphabetize, Count & More | TextFixHub",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-10-27T02:43:10.122Z",
+    "lastDeepEvalAt": "2026-11-11T02:40:37.822Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Verified text tools suite; landing page is directory/hub, individual tools like Alphabetizer at /tools/alphabetizer function client-side with live sorting and deduplication.",
-      "at": "2026-10-27T02:43:10.122Z",
+      "note": "Landing page is a hub linking to 14 text tools. Verified Alphabetizer in browser: entered list, clicked Remove Duplicates, real-time client-side sorting executed with no auth gate. Observed 3 analytics payloads to GA4 and Cloudflare RUM.",
+      "at": "2026-11-11T02:40:37.822Z",
       "closed": [
         "surface_lost"
       ]

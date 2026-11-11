@@ -67,12 +67,15 @@ async function main() {
     return;
   }
 
-  const prefix = cleanAllAgent ? '' : 'nologin-';
-  console.log(`\n🧹 Sweeping spaces with prefix '${prefix || '<all agent>'}'...`);
-  const result = cleanOrphanTaskSpaces({ prefix, verbose: true });
+  const prefixes = cleanAllAgent ? [''] : ['nologin-', 'cades-dogfood-'];
+  let totalCleaned = 0;
+  for (const p of prefixes) {
+    const result = cleanOrphanTaskSpaces({ prefix: p, verbose: true });
+    totalCleaned += result.cleanedCount;
+  }
 
-  if (result.cleanedCount > 0) {
-    console.log(`\n🎉 Successfully closed ${result.cleanedCount} TaskSpace(s) and freed associated browser memory.`);
+  if (totalCleaned > 0) {
+    console.log(`\n🎉 Successfully closed ${totalCleaned} TaskSpace(s) and freed associated browser memory.`);
   } else {
     console.log(`\n✅ No orphan spaces matched the target criteria.`);
   }

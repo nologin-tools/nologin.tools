@@ -412,6 +412,12 @@
     "description": "一款免费免登录的浏览器校验工具，用于核对中国大陆 18 位统一社会信用代码（USCI/USCC）的格式与校验码，并展示其结构分段组成。所有计算均在浏览器本地完成，录入的代码不会被上传；匿名使用统计亦不包含任何代码内容。校验通过并不代表确认企业注册状态、权属关系、生产能力或支付安全性。可选的企业档案报告为独立的付费服务。",
     "coreTask": "免登录输入 18 位统一社会信用代码，即刻校验校验码有效性并查阅其分段结构信息。"
   },
+  "cutefontgen-com-upside-down-text": {
+    "_hash": "954dae4418e06a97",
+    "description": "基于浏览器的文本工具，可将文字倒置、反转并转换为镜像 Unicode 字符样式，支持一键复制到剪贴板。",
+    "coreTask": "在浏览器本地将文本反转并转换为倒置的 Unicode 艺术字。",
+    "contentUpdatedAt": "2026-11-11T03:25:32.164Z"
+  },
   "dataformatkit-com": {
     "coreTask": "无需注册即可将文本、XML 或 JSON 转换为 CSV，从 CSV 或 JSON 生成 Excel 文件，预览表格数据并校验 CSV 结构。",
     "description": "DataFormatKit 提供免费的数据转换工具，支持将文本转为 CSV、XML 转为 CSV、JSON 转为 CSV 或 Excel，以及 CSV 转为 Excel。支持预览表格行列、检查 CSV 结构并即时下载处理结果。源文件均在浏览器本地处理，核心工具无需注册账号。"
@@ -1037,6 +1043,12 @@
     "coreTask": "在浏览器中直接将照片转换为可直接打印的半色调网点图案。",
     "description": "将照片转换为适用于丝网印刷、DTF 热转印和海报印刷的半色调网点图案。纯浏览器本地运行，零数据上传。"
   },
+  "mamatool-com": {
+    "_hash": "06d95576d28c1359",
+    "description": "聚合 44 款纯前端在线工具的实用工具箱，可在浏览器本地格式化 JSON、生成密码、制作二维码及转换文件，无需注册账号。",
+    "coreTask": "在浏览器本地格式化、校验并处理 JSON 及日常数据。",
+    "contentUpdatedAt": "2026-11-11T03:07:37.233Z"
+  },
   "markany-ai": {
     "coreTask": "免注册即可批量将支持的文件或公开 HTTPS 文件链接转换为 Markdown，预览结果、复制并下载 Markdown 文件。",
     "description": "支持将 PDF、Word、Excel、PowerPoint、HTML、EPUB 以及图片文件转换为带有自动 OCR 识别的结构化 Markdown，同时支持将可编辑的 Markdown 导出为常见的文档、图像、电子书、幻灯片和电子表格格式。"
@@ -1065,6 +1077,12 @@
   "mdconvert-net-zh-markdown-to-word": {
     "coreTask": "免登录在线将 Markdown 文档转换为 Word (.docx)",
     "description": "在浏览器中快速将 Markdown 文本和文档转换为 Word 格式，轻松满足写作与文档流转需求，全程无需登录。"
+  },
+  "mdformats-com": {
+    "_hash": "d885e35440bdd6c9",
+    "description": "基于浏览器的 Markdown 转 Word 转换器，具备双栏实时同步预览，在本地将文档编译为标准可编辑 DOCX 文件。",
+    "coreTask": "在浏览器本地将 Markdown 文本与表格转换为可编辑的 Word (.docx) 文件。",
+    "contentUpdatedAt": "2026-11-11T03:16:40.584Z"
   },
   "mdprevieweditor-com": {
     "_hash": "6c68615157232aad",
@@ -1860,6 +1878,12 @@
     "coreTask": "免账号在浏览器中计算全美各州到手工资、统计字数、生成二维码、账单及随机密码",
     "description": "Tools Berry 是一套免费高效且免登录的在线工具合集，涵盖美国 50 个州的薪资到手所得税计算器、图片缩放与压缩、二维码与强密码生成、发票制作、字数统计以及数十款日常计算工具。所有功能均在浏览器内运行，无需注册账号，零文件上传。"
   },
+  "tools-nyxiontech-com": {
+    "_hash": "5dc31fa4592594fa",
+    "description": "开源纯客户端 PDF 工具套件，可在本地浏览器中编辑、OCR、签名、合并、拆分并提取 PDF 文本，无账户限制且不上传文件至服务器。",
+    "coreTask": "在本地浏览器中通过 AGPL-3.0 开源工具离线处理与操作 PDF 文档。",
+    "contentUpdatedAt": "2026-11-11T03:02:03.059Z"
+  },
   "tools-pdf24-org-en": {
     "_hash": "5231e2bd16a01766",
     "description": "免费好用的在线 PDF 工具集：合并、拆分、压缩、转换、旋转、添加水印等应有尽有。所有处理均在浏览器本地完成。",
@@ -2067,6 +2091,12 @@
     "description": "基于浏览器的交互式正畸头影测量分析工具，直接在本地计算 Steiner 与 Tweed 正畸测量数值与诊断分类。",
     "coreTask": "上传侧位 X 光片或加载范例描记图，定位解剖标志点并即时计算正畸角度与骨面型诊断结论，无需登录注册。",
     "contentUpdatedAt": "2026-11-05T03:01:23.810Z"
+  },
+  "www-imageconvertlab-com-tools-remove-image-background-html": {
+    "_hash": "4128b099432c105e",
+    "description": "基于浏览器的本地 AI 抠图去背景工具，在本地处理照片并直接导出透明通道 PNG，无需注册账号。",
+    "coreTask": "在浏览器内通过本地 AI 消除图片背景并下载透明 PNG。",
+    "contentUpdatedAt": "2026-11-11T02:56:29.926Z"
   },
   "www-imagesplit-online": {
     "_hash": "5c4da21e90ba0729",
