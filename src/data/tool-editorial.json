@@ -25520,7 +25520,7 @@
       "cons": [
         "Interactive HTML export references external CDN resources by default unless embed assets option is selected before export"
       ],
-      "privacyVerdict": "Observed network egress is strictly bounded to 3 Google Analytics telemetry beacons (google-analytics.com/g/collect). Markdown document parsing, KaTeX math rendering, and SVG layout generation execute entirely client-side without transmitting user document content to remote servers.",
+      "privacyVerdict": "Observed network egress was bounded to Google Analytics telemetry beacons (google-analytics.com/g/collect) and first-party navigation GET requests. Markdown document parsing, KaTeX math rendering, and SVG layout generation execute entirely client-side without transmitting user document content to remote servers.",
       "alternativeTo": [
         "xmind-app"
       ],
@@ -25533,8 +25533,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Rendered 45 lines of complex Markdown with KaTeX math in 0 ms max long task and 0.36 CLS; exported a clean 9,049-byte vector SVG with 3 Google Analytics beacons observed.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-verified in CADES 2.0 dogfood session: uploaded 36-line benchmark Markdown outline into CodeMirror editor, switched to Org chart layout, and exported clean 16,500-byte vector SVG with 989 ms max task freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:01:03.414Z"
     },
     "zh": {
       "bestFor": "将层级 Markdown 笔记转换为包含数学公式、语法高亮代码与交互式节点的可视化树状思维导图。",
@@ -25546,7 +25547,7 @@
       "cons": [
         "导出的交互式 HTML 文件默认引用外部 CDN 资源，在断网离线环境打开需预先在顶部菜单开启内嵌资源模式"
       ],
-      "privacyVerdict": "实际网络外发严格限定为 3 次 Google Analytics 访问统计遥测（google-analytics.com/g/collect）。Markdown 语法树解析、KaTeX 数学排版与 SVG 矢量图渲染均在客户端本地离线完成，用户编写的文档大纲与笔记内容绝不上云。",
+      "privacyVerdict": "实际网络外发限定为 Google Analytics 访问统计遥测（google-analytics.com/g/collect）与首方页面导航请求。Markdown 语法树解析、KaTeX 数学排版与 SVG 矢量图渲染均在客户端本地完成，用户编写的文档大纲与笔记内容绝不上云。",
       "alternativeTo": [],
       "productScore": {
         "overall": 84,
@@ -25557,8 +25558,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 0ms 线程阻塞耗时与 0.36 CLS 下成功渲染包含 KaTeX 数学公式的 45 行 Markdown 大纲；导出 9,049 字节纯净无水印 SVG 矢量图，观测到 3 次 Google Analytics 访问遥测。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 CADES 2.0 评测中重新验证：上传 36 行基准 Markdown 大纲文件至编辑器，切换至 Org chart 组织架构图布局，成功导出 16,500 字节 SVG 矢量图，最大任务耗时 989ms。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:01:03.415Z"
     },
     "ja": {
       "bestFor": "階層的な Markdown ノートを、数式、コード、HTML/SVG の直接エクスポートを使用して、インタラクティブなビジュアル マインド マップに変換します。",
@@ -25584,7 +25586,7 @@
       "alternativeTo": [
         "xmind-app"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "수식, 코드 및 직접 HTML/SVG 내보내기를 통해 계층적 마크다운 노트를 대화형 시각적 마인드 맵으로 변환합니다.",
@@ -25610,7 +25612,7 @@
       "alternativeTo": [
         "xmind-app"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Conversión de notas jerárquicas de Markdown en mapas mentales visuales interactivos con fórmulas, código y exportación directa HTML/SVG.",
@@ -25636,7 +25638,7 @@
       "alternativeTo": [
         "xmind-app"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Conversion de notes Markdown hiérarchiques en cartes mentales visuelles interactives avec des formules, du code et une exportation HTML/SVG directe.",
@@ -25662,7 +25664,7 @@
       "alternativeTo": [
         "xmind-app"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Konvertieren hierarchischer Markdown-Notizen in interaktive visuelle Mindmaps mit Formeln, Code und direktem HTML/SVG-Export.",
@@ -25688,7 +25690,7 @@
       "alternativeTo": [
         "xmind-app"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Convertendo notas hierárquicas de Markdown em mapas mentais visuais interativos com fórmulas, código e exportação direta de HTML/SVG.",
@@ -25714,7 +25716,7 @@
       "alternativeTo": [
         "xmind-app"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "photomosh-com": {
@@ -28443,7 +28445,7 @@
   },
   "financier-io": {
     "en": {
-      "bestFor": "Zero-based envelope budgeting and personal account ledger tracking with 100% offline privacy and no required account.",
+      "bestFor": "Zero-based envelope budgeting and personal account ledger tracking with offline privacy and no required account.",
       "pros": [
         "Offline-first zero-based envelope budgeting engine inspired by classic desktop financial software",
         "Stores all ledgers, transactions, and categories locally in browser IndexedDB with zero cloud synchronization requirements",
@@ -28454,7 +28456,7 @@
         "Free offline mode relies solely on local browser storage; clearing browser cache without a manual backup will erase local budgets",
         "Multi-device automatic cloud synchronization requires a separate optional paid account"
       ],
-      "privacyVerdict": "Local IndexedDB storage verified. Budget data remains stored in browser IndexedDB; observed network egress was limited to the initial first-party navigation form GET to app.financier.io/create-budget with zero third-party telemetry.",
+      "privacyVerdict": "Local IndexedDB storage verified. Budget data remains stored in browser IndexedDB; observed network egress was limited to the initial first-party navigation GET to app.financier.io/create-budget, with no tracking beacons aside from that single request.",
       "alternativeTo": [
         "YNAB",
         "Actual Budget"
@@ -28468,11 +28470,12 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Created local budget 'Household 2026' in IndexedDB under 84ms freeze. Verified multi-month zero-based budgeting grid and triggered budget options gear with local JSON backup and CSV export without any external network egress.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-verified in CADES 2.0 dogfood session: created 'Household 2026 Nov' budget locally in IndexedDB, tested Reports and Budget views, and exported budget archive (ZIP 13.5 KB) via options cog with zero third-party tracking.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T02:46:09.629Z"
     },
     "zh": {
-      "bestFor": "在无需注册任何账户的情况下，利用 100% 离线隐私架构进行零基信封式个人财务记账与预算规划。",
+      "bestFor": "在无需注册任何账户的情况下，利用离线架构进行零基信封式个人财务记账与预算规划。",
       "pros": [
         "完全离线优先的零基信封预算引擎，支持多账户流水记账与分类预算分配",
         "所有收支明细与账本数据完全存储于本地浏览器 IndexedDB，不依赖任何云端服务器",
@@ -28483,7 +28486,7 @@
         "免费离线模式完全依赖本地浏览器存储，清理浏览器缓存若未提前备份将导致账本数据丢失",
         "跨设备多端实时云同步功能需要选购付费订阅账户"
       ],
-      "privacyVerdict": "验证本地 IndexedDB 存储。预算数据保存在浏览器本地数据库中，观察到的网络出站仅限首方页面导航请求（GET app.financier.io/create-budget），未发现任何第三方追踪或数据上传。",
+      "privacyVerdict": "验证本地 IndexedDB 存储。预算数据保存在浏览器本地数据库中，观察到的网络出站仅限首方页面导航请求（GET app.financier.io/create-budget），除该首方请求外未发现任何第三方追踪或数据上传。",
       "alternativeTo": [
         "YNAB",
         "Actual Budget"
@@ -28497,8 +28500,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在浏览器中初始化 'Household 2026' 本地账本，主线程耗时仅 84ms 即可在 IndexedDB 完成构建。验证多月份信封预算分配矩阵，并通过设置齿轮触发 JSON 备份与 CSV 导出功能，零网络出站请求。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 CADES 2.0 评测中重新验证：在本地 IndexedDB 初始化 'Household 2026 Nov' 账本，测试报表与预算表格，并通过设置齿轮导出 13.5 KB ZIP 归档，除首方请求外零外部遥测。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T02:46:09.629Z"
     },
     "ja": {
       "bestFor": "ゼロベースのエンベロープ予算作成と個人アカウントの台帳追跡。100% オフライン プライバシーがあり、アカウントは必要ありません。",
@@ -28527,7 +28531,7 @@
         "YNAB",
         "Actual Budget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "제로 기반 봉투 예산 책정 및 100% 오프라인 개인정보 보호를 갖춘 개인 계정 원장 추적 및 필수 계정 없음.",
@@ -28556,7 +28560,7 @@
         "YNAB",
         "Actual Budget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Presupuesto de sobres de base cero y seguimiento del libro mayor de cuentas personales con 100% de privacidad fuera de línea y sin necesidad de cuenta.",
@@ -28585,7 +28589,7 @@
         "YNAB",
         "Actual Budget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Budgétisation des enveloppes base zéro et suivi du grand livre des comptes personnels avec 100 % de confidentialité hors ligne et aucun compte requis.",
@@ -28614,7 +28618,7 @@
         "YNAB",
         "Actual Budget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Nullbasierte Umschlagsbudgetierung und persönliche Kontobuchverfolgung mit 100 % Offline-Datenschutz und kein erforderliches Konto.",
@@ -28643,7 +28647,7 @@
         "YNAB",
         "Actual Budget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Orçamento de envelope base zero e rastreamento de contabilidade de conta pessoal com 100% de privacidade offline e sem necessidade de conta.",
@@ -28672,7 +28676,7 @@
         "YNAB",
         "Actual Budget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "chatgpt-com": {
@@ -73879,7 +73883,7 @@
       "pros": [
         "Instant real-time Unicode text conversion across more than 3600 decorative styles and categories",
         "Interactive style mixing ('Mezclar') and category filters with zero account creation or usage caps",
-        "One-click copy workflow operating entirely client-side without sending text to external servers"
+        "One-click copy workflow operating client-side without sending text to external servers"
       ],
       "cons": [
         "Limited to Unicode glyph substitutions without custom OTF/TTF web font generation or vector exports"
@@ -73895,9 +73899,9 @@
         "polish": 15
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Rendered 3600+ styled variants for sample input text with 0ms layout shift and 60ms task latency upon triggering the Mezclar filter.",
-      "testedAt": "2026-10",
-      "contentUpdatedAt": "2026-10-27T03:46:07.437Z"
+      "benchmarkNotes": "Re-verified in CADES 2.0 dogfood session: entered text into textarea and rendered 3600+ Unicode variations within 143 ms, executing Mezclar style mixing with 0 layout shift and 408 ms latency.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T02:51:25.501Z"
     },
     "zh": {
       "bestFor": "需要在社交媒体个人资料、聊天或文案中使用个性花样字体、特殊 Unicode 符号与艺术排版的用户。",
@@ -73920,9 +73924,9 @@
         "polish": 15
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "输入示例文本后即时完成 3600+ 种样式渲染，点击 Mezclar 混合效果的主线程任务耗时仅 60ms 且无布局偏移。",
-      "testedAt": "2026-10",
-      "contentUpdatedAt": "2026-10-27T03:46:07.438Z"
+      "benchmarkNotes": "在 CADES 2.0 评测中重新验证：在 textarea 输入文本后 143ms 内渲染 3600+ 种 Unicode 样式，执行 Mezclar 混搭耗时 408ms，全程零布局偏移。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T02:51:25.501Z"
     }
   },
   "realtest-org": {
@@ -78211,6 +78215,318 @@
       "benchmarkNotes": "对 39.2 KB（1280x840）示例 PNG 应用 Shopify WebP 预设（长边上限 2,000 px、1.5 MB 限制），主线程最大耗时仅 55 ms、CLS 为 0.00，通过 Blob URL 导出无水印的 58,052 字节 1280x840 WebP 文件。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-11T09:51:08.667Z"
+    }
+  },
+  "collagemaker-org": {
+    "en": {
+      "bestFor": "Creating multi-photo grid collages, aesthetic moodboards, and social photo layouts without sign-up or watermarks.",
+      "pros": [
+        "Clean in-browser collage workbench supporting 2 to 30 photos with instant sample presets",
+        "Rich styling controls including custom story templates, frame styles, background colors, and randomized arrangements",
+        "One-click unwatermarked full-resolution JPEG/PNG download without registration",
+        "Client-side photo processing keeping user images on device memory"
+      ],
+      "cons": [
+        "Emits third-party analytics and RUM telemetry beacons on page load and interaction"
+      ],
+      "privacyVerdict": "Image compositing and layout operations execute client-side in the browser, though outgoing telemetry beacons to Google Analytics (google-analytics.com/g/collect) and Cloudflare RUM (/cdn-cgi/rum) were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Loaded 6 sample photos into grid collage, tested random arrangement, and exported unwatermarked 59.7 KB JPEG in 193 ms max task freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:07:11.153Z"
+    },
+    "zh": {
+      "bestFor": "快速制作多图网格拼贴、情绪板及社交媒体排版，全程无需注册或添加水印。",
+      "pros": [
+        "纯浏览器拼贴工作台，支持 2-30 张照片自由排版并提供一键示例素材",
+        "内置故事模板、相框样式、背景渐变与随机重排等多维度视觉微调工具",
+        "一键下载高分辨率无水印 JPEG/PNG 图片，完全免登录",
+        "纯客户端照片处理架构，用户图片保留在本地设备内存"
+      ],
+      "cons": [
+        "页面加载与操作时包含发送至 Google Analytics 与 Cloudflare RUM 的统计遥测"
+      ],
+      "privacyVerdict": "所有照片拼贴与画板渲染均在浏览器客户端本地执行，但页面伴随向 Google Analytics（google-analytics.com/g/collect）与 Cloudflare RUM（/cdn-cgi/rum）发送的统计遥测请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "加载 6 张照片完成故事拼贴排版，测试随机重排交互，并在 193ms 任务延迟内成功导出 59.7 KB 无水印 JPEG 图片。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:07:11.153Z"
+    }
+  },
+  "tymepath-com-excel-to-powerpoint-gantt": {
+    "en": {
+      "bestFor": "Converting Excel and CSV project task spreadsheets into presentation-ready Gantt chart slides without accounts or software installation.",
+      "pros": [
+        "Instant client-side spreadsheet conversion supporting .csv, .xlsx, and .xls files with automatic column detection",
+        "Interactive timeline slide customization including column remapping and multiple visual Gantt styles",
+        "Clean one-click unwatermarked 1280x720 PNG slide export with zero account barriers",
+        "Local-first document processing ensuring task lists and sensitive project schedules remain in browser memory"
+      ],
+      "cons": [
+        "Captures first-party event tracking telemetry (/__l5e/trackevents) during page interaction"
+      ],
+      "privacyVerdict": "Spreadsheet parsing and Gantt chart generation run entirely client-side in the browser without uploading spreadsheet files, though outgoing first-party telemetry beacons (/__l5e/trackevents) were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Rendered 10-phase project timeline Gantt chart from spreadsheet sample in 85 ms freeze and exported an unwatermarked 85.9 KB PNG at 1280x720 resolution.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:17:53.393Z"
+    },
+    "zh": {
+      "bestFor": "将 Excel 与 CSV 项目任务表一键转换为适合 PPT 演示的甘特图时间线幻灯片，完全免登录。",
+      "pros": [
+        "纯客户端电子表格转换，支持 .csv、.xlsx 与 .xls 格式并自动识别任务列",
+        "支持灵活调整列映射与多种甘特图视觉风格，即时生成项目时间线",
+        "一键下载 1280x720 分辨率的高清无水印 PNG 幻灯片，无任何注册强制",
+        "本地优先处理架构，敏感情报与项目进度数据无需上传至远端服务器"
+      ],
+      "cons": [
+        "页面交互过程中伴随首方事件追踪请求（/__l5e/trackevents）"
+      ],
+      "privacyVerdict": "所有电子表格解析与甘特图生成均在浏览器客户端本地运行，未上传表格文件，但页面伴随首方访问追踪请求（/__l5e/trackevents）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "基于表格示例在 85ms 任务耗时内生成包含 10 个阶段的项目时间线甘特图，并成功导出 1280x720 分辨率、85.9 KB 的无水印 PNG 图片。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:17:53.393Z"
+    }
+  },
+  "photoready-app": {
+    "en": {
+      "bestFor": "Extracting individual frames or ZIP archives from animated GIFs, Live Photos, and Motion Photos locally without sign-up.",
+      "pros": [
+        "Local Web Worker GIF frame decoder inspecting animated sequence frames and frame delays",
+        "Single PNG frame extraction and batch ZIP download with zero watermarks or account gates",
+        "Client-side processing architecture keeping media files entirely on the user device",
+        "Specialized suite supporting Live Photos, Motion Photos, and GIF conversions"
+      ],
+      "cons": [
+        "H.264 Live Photo MOV encoding requires browser-level WebCodecs hardware encoder support"
+      ],
+      "privacyVerdict": "Animated GIF decoding and frame extraction execute entirely in local Web Worker memory without transmitting media files to remote servers, with zero outgoing network payloads observed during testing.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Decoded animated GIF locally via Web Worker, inspected frame timeline, and exported unwatermarked PNG frame under 0 ms freeze with zero network egress.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:41:53.779Z"
+    },
+    "zh": {
+      "bestFor": "在无需注册的情况下，纯本地提取 GIF 动图、Live Photo 与动态照片的独立帧画面或打包 ZIP 下载。",
+      "pros": [
+        "基于本地 Web Worker 的 GIF 动图解码器，可逐帧检查动画序列与帧延迟时间",
+        "支持导出单帧 PNG 图片或打包下载全部帧 ZIP，完全无水印且免登录",
+        "纯客户端处理架构，媒体数据完全保留在用户本地设备",
+        "专注实用的动态影像工具集，涵盖 Live Photo、Motion Photo 与 GIF 互相转换"
+      ],
+      "cons": [
+        "H.264 格式的 Live Photo MOV 编码依赖浏览器本地硬件编码器（WebCodecs）支持"
+      ],
+      "privacyVerdict": "所有动图解码与帧提取均在本地 Web Worker 内存中完成，未将媒体文件上传至远端服务器，测试期间未观测到任何网络出站载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "通过 Web Worker 在本地完成 GIF 动图解码，检测帧时间线并成功导出无水印 PNG 帧图像，任务阻塞 0ms 且无任何网络出站。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T03:41:53.779Z"
+    }
+  },
+  "www-sailtoworld-com-cliploom-video-to-thumbnail": {
+    "en": {
+      "bestFor": "Extracting clean video thumbnail frames and adding text overlays directly in the browser without sign-up.",
+      "pros": [
+        "Client-side video frame capture using HTML5 Video and Canvas with zero cloud upload",
+        "Instant unwatermarked high-resolution PNG and JPG export without account requirements"
+      ],
+      "cons": [
+        "Video decoding capabilities depend on browser native codec support (MP4, WebM, MOV)"
+      ],
+      "privacyVerdict": "Observed zero network payload egress during video frame capture, canvas overlay rendering, and PNG file export.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Captured 1080x1920 video frame, applied text overlay, and exported a clean 1.78 MB PNG with 0 ms main thread freeze and zero network egress.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T04:00:55.125Z"
+    },
+    "zh": {
+      "bestFor": "在无需注册的情况下，纯浏览器端提取视频画面帧并添加排版文字导出高清封面图。",
+      "pros": [
+        "基于 HTML5 Video 与 Canvas 纯客户端抓取视频帧，视频文件完全无需上传远端",
+        "直接导出高清无水印 PNG 与 JPG 封面图像，没有任何登录注册与付费墙限制"
+      ],
+      "cons": [
+        "视频解码支持取决于浏览器原生编解码能力（支持 MP4、WebM 及部分 MOV 格式）"
+      ],
+      "privacyVerdict": "在视频抓帧、Canvas 文字图层合成及 PNG 导出的全过程中，观测到零网络载荷外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "成功捕获 1080x1920 视频关键帧，叠加标题文字并导出 1.78 MB 无水印 PNG，主线程冻结 0 ms 且无任何网络载荷外发。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T04:00:55.125Z"
+    }
+  },
+  "mediapuppies-com-tools-gst-on-ads-calculator": {
+    "en": {
+      "bestFor": "Indian businesses and marketers calculating GST reverse charge, input tax credits, and true marketing cost without sign-up.",
+      "pros": [
+        "Instant real-time calculation of Meta and Google ad spend GST reverse charge and input credit",
+        "Clean breakdown of cash out, input credit, headline uplift, and annualized total cost"
+      ],
+      "cons": [
+        "No export to CSV or PDF; results are displayed on-screen only"
+      ],
+      "privacyVerdict": "Tax and ad spend calculations run entirely in browser memory, though background telemetry was observed connecting to Supabase page views and Google Analytics.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "CADES 2.0 verified: filled ₹500000 ad spend and ₹100000 agency fee inputs, updating cash out to ₹725700 within 90 ms.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T04:12:45.137Z"
+    },
+    "zh": {
+      "bestFor": "在无需登录的情况下，帮助出海与本土企业即时核算 Meta 与 Google 广告支出的印度消费税（GST）反向征税与进项税抵扣。",
+      "pros": [
+        "即时在浏览器端根据广告支出计算 GST 反向征税（RCM）与进项税额抵扣，无需注册",
+        "清晰展示月度现金流出、有效税后成本、年度总支出及抵扣明细"
+      ],
+      "cons": [
+        "不支持直接导出 CSV 或 PDF 表格，结果仅在网页端实时呈现"
+      ],
+      "privacyVerdict": "广告支出与消费税计算完全在本地浏览器内存中即时执行，但伴随向 Supabase 页面访问统计及 Google Analytics 外发轻量分析载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "CADES 2.0 实测：在 input 中填入 ₹500,000 广告支出与 ₹100,000 服务费，在 90 ms 内即时更新现金流出至 ₹725,700。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T04:12:45.137Z"
+    }
+  },
+  "www-zolyp-com-tools-social-media-character-counter": {
+    "en": {
+      "bestFor": "Social media managers and creators checking caption character limits across 9 major platforms simultaneously without login.",
+      "pros": [
+        "Instant real-time character and word count comparisons across Instagram, Facebook, LinkedIn, X, and more",
+        "Clean responsive interface with light and dark mode support and immediate feedback"
+      ],
+      "cons": [
+        "Lacks export or scheduling features; strictly a quick copy-paste counting utility"
+      ],
+      "privacyVerdict": "Character counting executes completely on-device in browser memory without sending text payloads, aside from a single first-party telemetry ping to /4c000b1a56602385/view.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 19,
+        "depth": 13,
+        "exportFreedom": 14,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Verified: input of 142 characters updated 9 platform limits and counter display within 451 ms latency.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T04:17:32.646Z"
+    },
+    "zh": {
+      "bestFor": "在无需注册的情况下，帮助社媒运营人员与创作者一站式比对 9 大主流社交平台的文案字数与字符上限。",
+      "pros": [
+        "纯客户端实时统计字数与行数，同时显示 Instagram、Facebook、LinkedIn、X 等 9 大平台的剩余额度",
+        "支持深色与浅色模式切换，界面简洁轻快且完全免登录"
+      ],
+      "cons": [
+        "不具备文案导出或定时发布功能，仅作为纯粹的字数核验辅助工具"
+      ],
+      "privacyVerdict": "字数统计逻辑完全在浏览器本地内存中执行，输入的文本内容绝不外发，仅伴随向 /4c000b1a56602385/view 发送的首方轻量访问统计载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 19,
+        "depth": 13,
+        "exportFreedom": 14,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测：输入 142 个字符在 451 ms 内即时同步更新 9 个主流社交平台的剩余字符额度与计数显示。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-12T04:17:32.647Z"
     }
   }
 }

@@ -398,6 +398,17 @@
     "lastTitle": "Free Codex Theme Builder for Desktop | CodexTheme Tools",
     "lastSignals": []
   },
+  "collagemaker-org": {
+    "lastDeepEvalAt": "2026-11-12T03:07:11.177Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-12T03:07:11.177Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T03:07:11.177Z"
+  },
   "colorhunt-co": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-10T06:13:58.419Z",
@@ -887,30 +898,17 @@
     "lastSignals": []
   },
   "financier-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-05T06:25:33.638Z",
-        "lastSeenAt": "2026-11-05T06:25:33.638Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-intent-1793859926093.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-outcome-1793859926093.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-05T06:25:33.638Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T02:46:09.651Z",
     "lastTitle": "Financier. Better Budgeting Software",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-10-31T02:37:26.399Z",
+    "lastDeepEvalAt": "2026-11-12T02:46:09.651Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified offline IndexedDB budget creation, envelope allocation grid, JSON backup export without login.",
-      "at": "2026-10-31T02:37:26.399Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-12T02:46:09.651Z",
       "closed": [
         "surface_lost"
       ]
@@ -1513,25 +1511,17 @@
     "lastSignals": []
   },
   "letriza-com": {
-    "lastDeepEvalAt": "2026-10-27T03:46:07.455Z",
+    "lastDeepEvalAt": "2026-11-12T02:51:25.548Z",
     "lastResolution": {
       "outcome": "editorial-updated",
       "note": "CADES deep evaluation synced (overall 76, capable-utility)",
-      "at": "2026-10-27T03:46:07.455Z",
-      "closed": []
+      "at": "2026-11-12T02:51:25.548Z",
+      "closed": [
+        "probe_failed"
+      ]
     },
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-05T06:24:02.104Z",
-        "lastSeenAt": "2026-11-05T06:24:02.104Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-05T06:24:02.104Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T02:51:25.548Z",
     "lastSignals": [
       "probe_failed"
     ]
@@ -1577,30 +1567,17 @@
     "lastSignals": []
   },
   "markmap-js-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-06T06:15:17.469Z",
-        "lastSeenAt": "2026-11-06T06:15:17.469Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-markmap-js-org-intent-1793945711225.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-markmap-js-org-outcome-1793945711225.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-06T06:15:17.469Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T03:01:03.438Z",
     "lastTitle": "markmap",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-01T02:35:13.047Z",
+    "lastDeepEvalAt": "2026-11-12T03:01:03.438Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified interactive mindmap repl at /repl: dynamic SVG rendering, Markdown editing, and clean unwatermarked SVG export functioning client-side without auth.",
-      "at": "2026-11-01T02:35:13.047Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-12T03:01:03.438Z",
       "closed": [
         "surface_lost"
       ]
@@ -1666,6 +1643,17 @@
     "lastScanAt": "2026-11-06T06:18:43.172Z",
     "lastTitle": "Markdown 在线编辑器：实时预览，免费使用",
     "lastSignals": []
+  },
+  "mediapuppies-com-tools-gst-on-ads-calculator": {
+    "lastDeepEvalAt": "2026-11-12T04:12:45.157Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-12T04:12:45.157Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T04:12:45.157Z"
   },
   "meet-jit-si": {
     "openAnomalies": [],
@@ -2089,6 +2077,17 @@
     "lastScanAt": "2026-11-10T06:19:20.344Z",
     "lastSignals": [],
     "lastTitle": "Photopea | Online Photo Editor"
+  },
+  "photoready-app": {
+    "lastDeepEvalAt": "2026-11-12T03:41:53.801Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, highly-recommended)",
+      "at": "2026-11-12T03:41:53.801Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T03:41:53.801Z"
   },
   "piccollages-com": {
     "openAnomalies": [],
@@ -3030,6 +3029,17 @@
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
   },
+  "tymepath-com-excel-to-powerpoint-gantt": {
+    "lastDeepEvalAt": "2026-11-12T03:17:53.418Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-12T03:17:53.418Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T03:17:53.418Z"
+  },
   "typepatch-com": {
     "lastDeepEvalAt": "2026-11-02T03:02:48.681Z",
     "lastResolution": {
@@ -3421,6 +3431,17 @@
     "lastTitle": "cURL to Code Converter | Python, JavaScript & More | PasteCurl",
     "lastSignals": []
   },
+  "www-sailtoworld-com-cliploom-video-to-thumbnail": {
+    "lastDeepEvalAt": "2026-11-12T04:00:55.144Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-12T04:00:55.144Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T04:00:55.144Z"
+  },
   "www-slabcalc-co": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T06:34:07.150Z",
@@ -3519,6 +3540,17 @@
     "lastScanAt": "2026-11-03T06:19:44.086Z",
     "lastTitle": "Free Squat Form Check | Boddy",
     "lastSignals": []
+  },
+  "www-zolyp-com-tools-social-media-character-counter": {
+    "lastDeepEvalAt": "2026-11-12T04:17:32.674Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-12T04:17:32.674Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-12T04:17:32.674Z"
   },
   "xe-com-currencyconverter": {
     "openAnomalies": [],

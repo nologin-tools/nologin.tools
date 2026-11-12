@@ -271,6 +271,12 @@
     "description": "Codex Desktop 桌面端的免费浏览器本地主题构建器——可将任意壁纸转化为兼具高可读性的个性化主题，零上传更隐私。",
     "coreTask": "在浏览器中根据壁纸制作并导出 Codex Desktop 主题，免登录无门槛"
   },
+  "collagemaker-org": {
+    "_hash": "71beb36ea46cedf4",
+    "description": "免登录在线照片拼贴制作工具，支持将 2-30 张照片组合为自定义网格与故事排版，无需注册且无水印。",
+    "coreTask": "自由排版多图照片拼贴，支持自定义相框、背景样式与一键无水印导出。",
+    "contentUpdatedAt": "2026-11-12T03:08:32.731Z"
+  },
   "colorhunt-co": {
     "_hash": "add188da1aa0fd40",
     "description": "精心策划的精美配色方案合集。浏览热门配色或按颜色搜索——一键复制十六进制代码。",
@@ -1357,6 +1363,12 @@
     "seoFocusKeyword": "免费在线 Photoshop 替代品",
     "seoTaskPhrase": "无需注册在线编辑 PSD 文件"
   },
+  "photoready-app": {
+    "_hash": "7876202f57f8cf71",
+    "description": "本地优先的动态照片与 GIF 工具集，支持在本地提取动画帧或打包 ZIP 下载，无需注册且不上传文件。",
+    "coreTask": "通过本地 Web Worker 解码动图并导出单独 PNG 帧或完整 ZIP 归档。",
+    "contentUpdatedAt": "2026-11-12T03:43:39.681Z"
+  },
   "piccollages-com": {
     "coreTask": "在浏览器本地制作照片拼图、网格排版、长图拼接及马赛克拼图，无需注册即可高清导出",
     "description": "Pic Collage Maker 是一款免费且注重隐私的浏览器拼图工具。支持照片拼贴、网格布局、长图接缝与马赛克拼图。可拖拽添加图片、文字、贴纸、滤镜及背景，并导出高分辨率成品。图像处理完全在浏览器本地完成，核心功能全程免登录。"
@@ -1928,6 +1940,12 @@
     "description": "TryInk 是一款纹身虚拟试戴工具：上传身体部位照片，放置设计图案，即可在预约纹身前在真实皮肤效果上预览大小与位置，免注册即用。",
     "coreTask": "上传身体照片，放置设计图案，并在真实皮肤上预览纹身的大小和位置效果"
   },
+  "tymepath-com-excel-to-powerpoint-gantt": {
+    "_hash": "d61d334035b90d0e",
+    "description": "免登录纯客户端转换工具，支持将 Excel 与 CSV 任务表格直接转换为可用于演示的甘特图时间线幻灯片，无水印。",
+    "coreTask": "将任务表格转换为可视化甘特图幻灯片，支持自定义列映射与一键无水印 PNG 导出。",
+    "contentUpdatedAt": "2026-11-12T03:19:33.927Z"
+  },
   "typepatch-com": {
     "_hash": "896a564435500cba",
     "description": "基于浏览器本地运行的隐私优先图片文字编辑工具，利用端侧 OCR 自动识别、擦除并替换图片中的文字内容。",
@@ -2233,5 +2251,23 @@
     "_hash": "f620e01c3824091c",
     "description": "在浏览器中直接检测、精确定位并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。支持精确码点映射与本地剪贴板复制。",
     "coreTask": "检测并清除不可见Unicode字符"
+  },
+  "www-sailtoworld-com-cliploom-video-to-thumbnail": {
+    "_hash": "a6a9a5bbddac122b",
+    "description": "免费的客户端视频缩略图生成器，直接在浏览器中逐帧捕获视频画面，添加自定义排版文字图层，无需注册或上传视频即可导出高清 PNG 或 JPG 封面图。",
+    "coreTask": "在浏览器本地捕获视频画面帧，添加排版文字并导出高清缩略图，全程无需上传文件。",
+    "contentUpdatedAt": "2026-11-12T04:03:18.947Z"
+  },
+  "mediapuppies-com-tools-gst-on-ads-calculator": {
+    "_hash": "4f2689d643c3f0fa",
+    "description": "面向跨境出海与企业营销人员的交互式计算工具，即时核算 Meta 与 Google 广告支出的印度消费税（GST）反向征税、代理商服务费及进项税抵扣额。",
+    "coreTask": "计算月度广告支出的 GST 反向征税额、进项税抵扣与真实净营销成本。",
+    "contentUpdatedAt": "2026-11-12T04:13:49.509Z"
+  },
+  "www-zolyp-com-tools-social-media-character-counter": {
+    "_hash": "9ae546fb9154082e",
+    "description": "免费的客户端字数与字符统计工具，实时比对 9 大主流社交媒体文案的长度与字符上限限制。",
+    "coreTask": "粘贴文案即时统计字数，并实时对照 9 个社交平台的字符限额与剩余空间。",
+    "contentUpdatedAt": "2026-11-12T04:18:36.229Z"
   }
 }
