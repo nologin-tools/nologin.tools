@@ -76,6 +76,17 @@
     "lastTitle": "Animista - On-Demand CSS Animations Library",
     "lastSignals": []
   },
+  "anyremover-com": {
+    "lastDeepEvalAt": "2026-11-13T04:03:17.255Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-13T04:03:17.255Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-13T04:03:17.255Z"
+  },
   "app-diagrams-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-10T02:46:29.966Z",
@@ -850,6 +861,17 @@
     "lastTitle": "Ezgif - free online animated GIF editor",
     "lastSignals": []
   },
+  "family-ready-emergency-plan-rork-app-family-emergency-plan-html": {
+    "lastDeepEvalAt": "2026-11-13T04:57:35.547Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-13T04:57:35.547Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-13T04:57:35.547Z"
+  },
   "fast-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T06:25:09.885Z",
@@ -1070,6 +1092,17 @@
     "lastScanAt": "2026-11-09T06:32:38.643Z",
     "lastTitle": "Get Waves – Create SVG waves for your next design",
     "lastSignals": []
+  },
+  "gifkit-net-gif-compressor": {
+    "lastDeepEvalAt": "2026-11-13T04:39:56.713Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-13T04:39:56.713Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-13T04:39:56.713Z"
   },
   "gizmobench-com": {
     "openAnomalies": [],
@@ -1646,6 +1679,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-11T03:15:53.318Z"
   },
+  "mdify-im": {
+    "lastDeepEvalAt": "2026-11-13T04:10:19.133Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-13T04:10:19.133Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-13T04:10:19.133Z"
+  },
   "mdprevieweditor-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-06T06:18:43.172Z",
@@ -1676,29 +1720,19 @@
     "lastSignals": []
   },
   "mermaid-live": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-07T06:23:41.213Z",
-        "lastSeenAt": "2026-11-07T06:23:41.213Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-07T06:23:41.213Z",
     "lastTitle": "Online FlowChart & Diagrams Editor - Mermaid Live Editor",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-11-04T02:44:11.921Z",
+    "lastDeepEvalAt": "2026-11-13T03:10:51.806Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Verified Mermaid Live editor initializes with interactive flowchart/sequence canvas, renders live diagram on code update, and exports clean 63KB PNG without login or watermarks. Rolling scan surface_lost was a false positive caused by modal overlay.",
-      "at": "2026-11-04T02:44:11.921Z",
+      "note": "Exercised full declarative flowchart editing, client-side pako URL hash encoding, and verified embed copy clipboard export; closed probe_failed anomaly",
+      "at": "2026-11-13T03:10:51.806Z",
       "closed": [
-        "surface_lost"
+        "probe_failed"
       ]
     }
   },
@@ -2064,6 +2098,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-07T03:18:19.739Z"
   },
+  "photocraftguide-com": {
+    "lastDeepEvalAt": "2026-11-13T03:50:08.214Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 91, editors-choice)",
+      "at": "2026-11-13T03:50:08.214Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-13T03:50:08.214Z"
+  },
   "photomosh-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-06T06:17:40.021Z",
@@ -2414,22 +2459,21 @@
     "lastScanAt": "2026-11-09T02:58:18.700Z"
   },
   "rawgraphs-io": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-07T06:23:05.059Z",
-        "lastSeenAt": "2026-11-07T06:23:05.059Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-07T06:23:05.059Z",
     "lastTitle": "RAWGraphs",
     "lastSignals": [
       "probe_failed"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-13T03:00:24.915Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Exercised full workflow: loaded sample dataset, mapped dimensions, verified clipboard export of 52 rows (1648 chars), closed probe_failed anomaly",
+      "at": "2026-11-13T03:00:24.915Z",
+      "closed": [
+        "probe_failed"
+      ]
+    }
   },
   "ray-so": {
     "openAnomalies": [],
@@ -2634,30 +2678,17 @@
     "lastSignals": []
   },
   "siteage-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-06T06:20:43.973Z",
-        "lastSeenAt": "2026-11-06T06:20:43.973Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-intent-1793946036243.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-outcome-1793946036243.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-06T06:20:43.973Z",
     "lastTitle": "Website Age Certification | SiteAge.org",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-02T02:40:21.650Z",
+    "lastDeepEvalAt": "2026-11-13T02:47:05.129Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Verified in browser: domain longevity verification, certificate generation, and export controls operate without login.",
-      "at": "2026-11-02T02:40:21.650Z",
+      "note": "Verified active lookup workflow for github.com, clean 4800x6400 unwatermarked PNG certificate download, and closed transient surface_lost anomaly",
+      "at": "2026-11-13T02:47:05.129Z",
       "closed": [
         "surface_lost"
       ]
@@ -3453,6 +3484,17 @@
     "lastScanAt": "2026-11-07T06:21:01.011Z",
     "lastTitle": "cURL to Code Converter | Python, JavaScript & More | PasteCurl",
     "lastSignals": []
+  },
+  "www-pdfcommunity-org": {
+    "lastDeepEvalAt": "2026-11-13T03:30:38.042Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-13T03:30:38.042Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-13T03:30:38.042Z"
   },
   "www-sailtoworld-com-cliploom-video-to-thumbnail": {
     "lastDeepEvalAt": "2026-11-12T04:00:55.144Z",

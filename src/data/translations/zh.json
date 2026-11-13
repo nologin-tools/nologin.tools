@@ -41,6 +41,12 @@
     "description": "即用型 CSS 动画合集。预览、自定义时序和缓动，然后复制生成的 CSS 代码。",
     "coreTask": "生成 CSS 动画代码"
   },
+  "anyremover-com": {
+    "_hash": "67c45a9ec6ddf46f",
+    "description": "免费网页端 AI 图像文字与水印擦除工具，提供画笔尺寸微调与多档渲染模式，一键导出纯净原图。",
+    "coreTask": "在浏览器中免登录擦除图片上的多余文字、水印与标识。",
+    "contentUpdatedAt": "2026-11-13T04:03:49.212Z"
+  },
   "app-diagrams-net": {
     "_hash": "0404bd761e12e740",
     "description": "创建流程图、UML 图、网络图等各类图表。前身为 draw.io，是功能最强大的免费在线绘图工具。",
@@ -579,6 +585,12 @@
     "seoFocusKeyword": "在线 GIF 制作编辑器免费",
     "seoTaskPhrase": "无需登录制作和编辑 GIF"
   },
+  "family-ready-emergency-plan-rork-app-family-emergency-plan-html": {
+    "_hash": "68436a7f98e7455c",
+    "description": "浏览器端家庭应急预案生成工具，结构化整理应急联络人、避险集结点与关键设施位置，一键打印且绝不收集个人数据。",
+    "coreTask": "在浏览器中免登录制定并打印家庭防灾应急预案。",
+    "contentUpdatedAt": "2026-11-13T04:59:59.320Z"
+  },
   "fast-com": {
     "_hash": "13279a43b37b751d",
     "description": "Netflix 出品的简单网速测试。打开页面即刻开始测量下载速度。",
@@ -735,6 +747,12 @@
     "_hash": "1e21cbf881521fa3",
     "description": "为分区分隔符生成精美的 SVG 波浪形状。通过简单 UI 自定义层数、颜色和复杂度。",
     "coreTask": "生成 SVG 波浪分隔符"
+  },
+  "gifkit-net-gif-compressor": {
+    "_hash": "7827a2c2b840c24e",
+    "description": "纯前端动图压缩工具，通过本地调色板优化与抖动算法减小 GIF 体积，无需上传服务器。",
+    "coreTask": "在浏览器本地免登录压缩 GIF 动图文件大小。",
+    "contentUpdatedAt": "2026-11-13T04:40:48.356Z"
   },
   "gizmobench-com": {
     "_hash": "ad150660df2ad640",
@@ -1102,10 +1120,22 @@
     "coreTask": "在浏览器本地将 Markdown 文本与表格转换为可编辑的 Word (.docx) 文件。",
     "contentUpdatedAt": "2026-11-11T03:16:40.584Z"
   },
+  "mdify-im": {
+    "_hash": "a9eb38a5ccbee01a",
+    "description": "纯前端本地文档转 Markdown 工具，支持 PDF、Office 文档及 EPUB，文件零上传，保护隐私安全。",
+    "coreTask": "在浏览器本地将 PDF 与文档免登录转换为纯净 Markdown 格式。",
+    "contentUpdatedAt": "2026-11-13T04:10:54.693Z"
+  },
   "mdprevieweditor-com": {
     "_hash": "6c68615157232aad",
     "description": "免费的 Markdown 在线编辑器，具备双栏实时同步预览、CodeMirror 代码编辑、多标签页、KaTeX 数学公式渲染及本地导出功能，无需注册登录。",
     "coreTask": "无需登录在线实时编写、预览并导出 Markdown 文档"
+  },
+  "mediapuppies-com-tools-gst-on-ads-calculator": {
+    "_hash": "4f2689d643c3f0fa",
+    "description": "面向跨境出海与企业营销人员的交互式计算工具，即时核算 Meta 与 Google 广告支出的印度消费税（GST）反向征税、代理商服务费及进项税抵扣额。",
+    "coreTask": "计算月度广告支出的 GST 反向征税额、进项税抵扣与真实净营销成本。",
+    "contentUpdatedAt": "2026-11-12T04:13:49.509Z"
   },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
@@ -1348,6 +1378,12 @@
     "description": "基于浏览器的本地 PSD 与 PSB 文件头诊断工具，无需上传即可快速提取 Photoshop 图像尺寸、色彩模式与位深度。",
     "coreTask": "拖入 PSD 或 PSB 文件，在本地内存中即时解析长宽分辨率、色彩通道及位深度，并下载 JSON 格式诊断报告。",
     "contentUpdatedAt": "2026-11-07T03:18:54.519Z"
+  },
+  "photocraftguide-com": {
+    "_hash": "5356a0b2fc4a541d",
+    "description": "基于 WebAssembly 与 Rust 构建的开源网页端光栅图像编辑器，支持多图层、图层蒙版及原生 PSD 文件读写。",
+    "coreTask": "在浏览器中免登录进行多图层光栅图像编辑与 PSD 文件导出。",
+    "contentUpdatedAt": "2026-11-13T03:52:58.124Z"
   },
   "photomosh-com": {
     "_hash": "e5ee5e0d010c18b3",
@@ -2172,9 +2208,21 @@
     "description": "免费的浏览器端 cURL 转代码工具，支持 23 种编程语言与 40 多种常用请求库。粘贴 Bash 风格的 cURL 命令，即可一键复制 Python、JavaScript、Go 等语言的等效代码。无需账号，命令保留在本地设备，零上传更安全。",
     "coreTask": "将 cURL 命令转换为 23 种语言的代码并一键复制结果，无需注册账号"
   },
+  "www-pdfcommunity-org": {
+    "_hash": "0be56738c5b1ac2c",
+    "description": "免费的纯前端浏览器 PDF 工具箱，支持在本地进行文档合并、分割、压缩、旋转与格式转换，无需上传服务器。",
+    "coreTask": "在浏览器本地免登录完成 PDF 文档的合并、压缩与格式转换。",
+    "contentUpdatedAt": "2026-11-13T03:33:49.791Z"
+  },
   "www-quackbuilds-com-apps-oee-pulse-html": {
     "coreTask": "追踪单机及全厂综合设备效率（OEE），记录班次数据，查看趋势分析，并导出班次报告 PDF——无需任何账号",
     "description": "专为小型机械加工车间打造的免费车间 OEE（设备综合效率）仪表板：追踪每台设备的“可用率 × 表现指数 × 质量率”，通过彩色仪表盘一览全厂 OEE，记录每个班次以形成历史趋势，并能导出班次报告 PDF 供早会汇报使用。无单机 SaaS 订阅费，无需注册，在车间平板电脑和办公室电脑上均可流畅使用。"
+  },
+  "www-sailtoworld-com-cliploom-video-to-thumbnail": {
+    "_hash": "a6a9a5bbddac122b",
+    "description": "免费的客户端视频缩略图生成器，直接在浏览器中逐帧捕获视频画面，添加自定义排版文字图层，无需注册或上传视频即可导出高清 PNG 或 JPG 封面图。",
+    "coreTask": "在浏览器本地捕获视频画面帧，添加排版文字并导出高清缩略图，全程无需上传文件。",
+    "contentUpdatedAt": "2026-11-12T04:03:18.947Z"
   },
   "www-slabcalc-co": {
     "description": "免费混凝土用量计算器，适用于平板地基、圆柱基础、路缘石及楼梯。支持英制与公制单位，自动计算体积、水泥袋数（40/50/60/80磅袋装）、总重量与预估施工成本，并支持自定义损耗率。无需账号、无需注册、无需安装任何软件。",
@@ -2219,6 +2267,12 @@
     "description": "完全在浏览器本地解析自重深蹲动作视频，基于 33 个肢体关键点提供端侧动作评估与纠错建议。",
     "coreTask": "无需创建账号，即可通过本地视频检测深蹲动作姿态并统计完成次数。"
   },
+  "www-zolyp-com-tools-social-media-character-counter": {
+    "_hash": "9ae546fb9154082e",
+    "description": "免费的客户端字数与字符统计工具，实时比对 9 大主流社交媒体文案的长度与字符上限限制。",
+    "coreTask": "粘贴文案即时统计字数，并实时对照 9 个社交平台的字符限额与剩余空间。",
+    "contentUpdatedAt": "2026-11-12T04:18:36.229Z"
+  },
   "xe-com-currencyconverter": {
     "_hash": "c1bb28b570aa2ef5",
     "description": "全球信赖的货币转换器，提供实时汇率。每分钟更新中间市场汇率，支持 300 多种货币和贵金属之间的换算。",
@@ -2251,23 +2305,5 @@
     "_hash": "f620e01c3824091c",
     "description": "在浏览器中直接检测、精确定位并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。支持精确码点映射与本地剪贴板复制。",
     "coreTask": "检测并清除不可见Unicode字符"
-  },
-  "www-sailtoworld-com-cliploom-video-to-thumbnail": {
-    "_hash": "a6a9a5bbddac122b",
-    "description": "免费的客户端视频缩略图生成器，直接在浏览器中逐帧捕获视频画面，添加自定义排版文字图层，无需注册或上传视频即可导出高清 PNG 或 JPG 封面图。",
-    "coreTask": "在浏览器本地捕获视频画面帧，添加排版文字并导出高清缩略图，全程无需上传文件。",
-    "contentUpdatedAt": "2026-11-12T04:03:18.947Z"
-  },
-  "mediapuppies-com-tools-gst-on-ads-calculator": {
-    "_hash": "4f2689d643c3f0fa",
-    "description": "面向跨境出海与企业营销人员的交互式计算工具，即时核算 Meta 与 Google 广告支出的印度消费税（GST）反向征税、代理商服务费及进项税抵扣额。",
-    "coreTask": "计算月度广告支出的 GST 反向征税额、进项税抵扣与真实净营销成本。",
-    "contentUpdatedAt": "2026-11-12T04:13:49.509Z"
-  },
-  "www-zolyp-com-tools-social-media-character-counter": {
-    "_hash": "9ae546fb9154082e",
-    "description": "免费的客户端字数与字符统计工具，实时比对 9 大主流社交媒体文案的长度与字符上限限制。",
-    "coreTask": "粘贴文案即时统计字数，并实时对照 9 个社交平台的字符限额与剩余空间。",
-    "contentUpdatedAt": "2026-11-12T04:18:36.229Z"
   }
 }

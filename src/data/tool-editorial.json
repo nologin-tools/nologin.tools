@@ -78528,5 +78528,329 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-12T04:17:32.647Z"
     }
+  },
+  "www-pdfcommunity-org": {
+    "en": {
+      "bestFor": "Users seeking a comprehensive, privacy-first suite of client-side PDF utilities for merging, compressing, converting, and watermarking without server uploads.",
+      "pros": [
+        "Comprehensive suite of 27+ client-side PDF utilities including merge, split, rotate, compress, and image conversion",
+        "Local-first document processing powered by in-browser pdf-lib and Web Workers without remote server uploads",
+        "Verified explicit integration with nologin badge and strict GDPR-compliant local execution model"
+      ],
+      "cons": [
+        "Browser memory constraints can interrupt client-side rendering on very large files or unsupported minimal PDF streams",
+        "Emits optional Cloudflare RUM performance telemetry beacons on page load"
+      ],
+      "privacyVerdict": "Observed 3 client-side performance telemetry beacons to Cloudflare RUM (/cdn-cgi/rum). Document processing and PDF transformations execute strictly within local browser memory via Web Workers without uploading user files to remote servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Exercised client-side PNG-to-PDF and compression engines, verified zero file payload egress with 3 Cloudflare RUM telemetry beacons captured.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T03:30:38.006Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地免登录完成 PDF 合并、压缩、格式转换与水印处理，且文件不上传服务器的用户与办公人群。",
+      "pros": [
+        "涵盖合并、分割、旋转、压缩及图片互转在内的 27+ 种纯前端 PDF 本地实用工具集",
+        "依托浏览器内 pdf-lib 与 Web Worker 实现本地运算，文档绝不上传至远程服务器",
+        "深度接入免登录收录认证徽章，具备完善的 GDPR 隐私保护机制"
+      ],
+      "cons": [
+        "受浏览器内存限制，处理超大文件或极简非标 PDF 数据流时可能出现解析中断",
+        "页面加载时包含发送至 Cloudflare RUM 的第一方性能监测信标"
+      ],
+      "privacyVerdict": "网络监控记录到 3 次发往 Cloudflare RUM（/cdn-cgi/rum）的性能指标载荷。PDF 文档处理与格式转换全程在浏览器 Web Worker 本地内存中执行，未将用户文件上传至远程云端服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测检验了 PNG 转 PDF 与压缩引擎，捕获 3 次 Cloudflare RUM 性能遥测载荷，确认核心文档数据零外发并验证了免登录本地化架构。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T03:30:38.006Z"
+    }
+  },
+  "photocraftguide-com": {
+    "en": {
+      "bestFor": "Designers and digital artists seeking a full-featured, zero-login Photoshop alternative running entirely in the browser via WebAssembly with multi-layer PSD support.",
+      "pros": [
+        "Full-featured raster graphics workstation compiled to WebAssembly with native multi-layer and PSD file support",
+        "Complete client-side execution running on HTML5 WebGL canvas with zero server-side image processing",
+        "Professional desktop-grade toolset including layer blending, transform controls, color swatches, and shortcut-driven PSD export"
+      ],
+      "cons": [
+        "Initial WebAssembly runtime compilation takes several seconds on slower connections",
+        "Emits analytics telemetry beacons to Google Analytics and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Observed 5 telemetry beacons to Google Analytics (www.google-analytics.com/g/collect) and Cloudflare RUM (/cdn-cgi/rum). All image rendering, layer manipulations, and PSD exports execute strictly client-side inside the WebAssembly canvas sandbox without uploading user graphics to remote servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Exercised WebAssembly canvas workstation by dropping a 100x100 PNG test layer, inspected live layer transform controls, and exported clean 4,054-byte unwatermarked test.psd file in 0 ms.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T03:50:08.179Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器端免登录使用专业级多图层图像处理工具，并希望直接读写 PSD 工程文件的设计师与插画师。",
+      "pros": [
+        "基于 WebAssembly 与 Rust 编译的完整光栅图像工作站，原生支持多图层体系与 PSD 格式",
+        "基于 HTML5 WebGL Canvas 本地渲染，图像处理全程不经过任何云端服务器",
+        "具备图层混合、变换控制、色彩面板以及快捷键原生 PSD 导出等专业级桌面能力"
+      ],
+      "cons": [
+        "首次加载需编译下载 WebAssembly 运行时，弱网环境下需等待数秒",
+        "页面加载时包含发送至 Google Analytics 与 Cloudflare RUM 的遥测请求"
+      ],
+      "privacyVerdict": "网络监控捕获到 5 次发往 Google Analytics 与 Cloudflare RUM 的遥测指标。所有图像图层编辑与 PSD 导出均在浏览器 WebAssembly Canvas 沙箱内本地运行，用户图像资产绝不上传服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 91,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 15
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "在 WebAssembly Canvas 工作站中实测载入 100x100 图层并验证图层变换体系，秒级导出 4,054 字节纯净无水印 test.psd 文件，全流程零鉴权限制。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T03:50:08.180Z"
+    }
+  },
+  "anyremover-com": {
+    "en": {
+      "bestFor": "Users looking to erase unwanted text, captions, or watermarks from photos quickly without account creation or subscription traps.",
+      "pros": [
+        "Instant zero-login AI image cleanup with responsive canvas brush and size control",
+        "Dual processing modes (Fast and Quality) with multiple undo steps and version history",
+        "Clean, full-resolution unwatermarked PNG export directly to disk"
+      ],
+      "cons": [
+        "Uploads images to cloud backend (/api/storage/upload) for AI inpainting processing",
+        "Sends telemetry beacons to ToolLinker and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Observed image payload upload to /api/storage/upload for server-side AI processing, along with analytics events sent to ps.toollinker.com and Cloudflare RUM. No personal identifying information or account registration required.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 325 KB PNG fixture, brushed canvas area with brush tool, executed AI inpainting in Quality mode in ~4s, and downloaded clean 285,619-byte unwatermarked PNG.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:03:17.229Z"
+    },
+    "zh": {
+      "bestFor": "需要快速擦除图片中多余文字、水印或杂乱标识，且不愿经历注册登录或付费弹窗的用户。",
+      "pros": [
+        "零鉴权开箱即用，支持画笔尺寸调节与灵活涂抹选择",
+        "提供快速与高清双模式，支持多步撤销与历史版本回滚",
+        "一键导出原始分辨率且完全无水印的纯净 PNG 文件"
+      ],
+      "cons": [
+        "图像处理需将素材上传至云端接口 (/api/storage/upload)",
+        "页面包含发往 ToolLinker 与 Cloudflare RUM 的遥测上报"
+      ],
+      "privacyVerdict": "网络监视器捕获到向 /api/storage/upload 发送的图片上传载荷，以及发往 ps.toollinker.com 与 Cloudflare RUM 的行为遥测。无需账号注册或个人身份鉴权。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测上传 325 KB PNG 测试图片，使用画笔工具涂抹选区后触发 Quality 高清模式去除，约 4 秒完成云端处理并直接导出 285,619 字节无水印 PNG 文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:03:17.229Z"
+    }
+  },
+  "mdify-im": {
+    "en": {
+      "bestFor": "Knowledge workers, developers, and researchers converting PDFs, Office docs, or EPUBs into clean Markdown for LLM, RAG, and Obsidian workflows without uploading private documents.",
+      "pros": [
+        "100% local client-side document-to-Markdown conversion with zero file uploads to remote servers",
+        "Instant dual-view interface with formatted visual preview and raw Markdown view",
+        "One-click unwatermarked .md file download and clipboard copy with zero account requirements"
+      ],
+      "cons": [
+        "Transmits minimal analytics telemetry beacons to ToolLinker and Cloudflare RUM",
+        "Complex tables and multi-column magazine layouts may require manual spacing adjustments"
+      ],
+      "privacyVerdict": "Zero document content or file bytes are transmitted over the network; all PDF parsing and Markdown generation execute strictly inside the browser. Network monitoring observed only lightweight analytics telemetry to ps.toollinker.com and Cloudflare RUM.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded standard sample.pdf fixture, extracted clean text heading locally in the browser, verified dual visual/markdown layout, and exported clean unwatermarked 39-byte .md file via one-click download trigger.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:10:19.099Z"
+    },
+    "zh": {
+      "bestFor": "需要将 PDF、Office 文档或 EPUB 转换为纯净 Markdown，用于大模型 RAG、Obsidian 或知识库整理且注重文档隐私的用户。",
+      "pros": [
+        "100% 浏览器本地解析转换，文档内容绝不上传至任何云端服务器",
+        "提供排版渲染预览与原生 Markdown 源码双视图自由切换",
+        "一键导出纯净无水印 .md 文件并支持剪贴板快速复制，全流程免登录"
+      ],
+      "cons": [
+        "包含轻量 ToolLinker 与 Cloudflare RUM 访问遥测请求",
+        "多栏复杂排版或密集表格转换后可能需要手动微调格式"
+      ],
+      "privacyVerdict": "网络监视器验证文件内容零上传，所有文档解析与 Markdown 生成完全在本地浏览器沙箱中完成。仅捕获到常规的前端访问遥测指标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测上传标准 sample.pdf 文档，完全基于本地浏览器解析提取文本标题，验证渲染/源码双视图并成功导出 39 字节纯净无水印 Markdown 文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:10:19.099Z"
+    }
+  },
+  "gifkit-net-gif-compressor": {
+    "en": {
+      "bestFor": "Creators, community managers, and developers needing to shrink animated GIF file sizes for Discord, Slack, or GitHub avatars locally without account creation or server uploads.",
+      "pros": [
+        "100% client-side GIF palette quantization with ordered dithering and zero file upload egress",
+        "One-click target presets tailored for Discord (256 KB) and Slack (128 KB) upload limits",
+        "Clean unwatermarked GIF export preserving exact frame timings, dimensions, and loop counts"
+      ],
+      "cons": [
+        "Emits a single Cloudflare RUM performance beacon (/cdn-cgi/rum)",
+        "Palette reduction to 64 colors can introduce visible dithering on photographic gradients"
+      ],
+      "privacyVerdict": "Zero GIF frames or media payload bytes are sent over the network; all color quantization and GIF encoding execute locally in the browser sandbox. Only a standard Cloudflare RUM beacon was observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 82 KB animated GIF fixture, compressed to 64 colors (66 KB, 80% of original) with Slack 128 KB preset in 98 ms, and downloaded clean 67,196-byte unwatermarked GIF.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:39:56.683Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器端快速压缩动图体积，以便符合 Discord、Slack 或 GitHub 表情与头像限制，且重视文件隐私的内容创作者与开发者。",
+      "pros": [
+        "100% 浏览器本地调色板量化与抖动处理，动图文件绝不上传服务器",
+        "提供针对 Discord (256 KB) 与 Slack (128 KB) 的一键预设档位",
+        "导出纯净无水印 GIF，完整保留帧延迟、尺寸及循环属性"
+      ],
+      "cons": [
+        "页面包含发往 Cloudflare RUM 的常规性能遥测请求",
+        "当调色板缩减至 64 色时，复杂真实照片渐变可能产生网点噪点"
+      ],
+      "privacyVerdict": "网络监视器验证 GIF 图片内容零上传，所有调色板分析与动画重编码均在本地完成。仅捕获到 1 次发往 Cloudflare RUM 的性能指标请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测上传 82 KB 动图测试文件，本地快速压缩至 64 色（66 KB，原体积的 80%），验证 Slack 预设档位并成功导出 67,196 字节无水印 GIF 文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:39:56.683Z"
+    }
+  },
+  "family-ready-emergency-plan-rork-app-family-emergency-plan-html": {
+    "en": {
+      "bestFor": "Families, households, and caregivers organizing emergency preparedness information into a printable binder without cloud tracking or data collection.",
+      "pros": [
+        "Zero network payload egress with absolute privacy for sensitive family, medical, and contact details",
+        "12 structured preparedness modules covering utility shutoffs, meeting spots, contacts, and special care",
+        "Print-optimized PDF stylesheet formatting emergency documents for physical binders"
+      ],
+      "cons": [
+        "Does not save data across browser restarts (ephemeral session by privacy design)",
+        "Requires manual browser print dialog to export to PDF file"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads or analytics beacons detected. All personal, medical, and emergency contact details remain strictly in the browser tab memory and are never transmitted to any server.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Filled structured household contact and meeting location prompts, inspected live prompt counter updates in 0 ms, and verified print/PDF stylesheet export trigger with zero network egress.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:57:35.514Z"
+    },
+    "zh": {
+      "bestFor": "需要为家庭或照护对象制定防灾应急预案，整理紧急联络人、集结点与应急物资信息，且极度注重隐私的家庭用户与照护者。",
+      "pros": [
+        "绝对零网络载荷外发，敏感家庭成员、病历及联络信息绝不上传云端",
+        "提供涵盖水电气阀门位置、集结地点、应急联络等 12 个结构化预案模块",
+        "内置精细的打印版样式，一键调用浏览器打印生成适合实体装订的应急手册"
+      ],
+      "cons": [
+        "基于隐私设计不持久化存储，关闭或刷新网页后内容立即清空",
+        "需通过浏览器打印对话框另存为 PDF 文件"
+      ],
+      "privacyVerdict": "网络监视器验证外发请求为 0。所有家庭应急信息仅在当前浏览器标签页内存中处理，绝不回传任何服务器或第三方追踪脚本。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 20,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测填写家庭成员与附近集结点等多项预案模块，验证表单动态统计反馈，并成功调用浏览器原生打印/PDF 导出功能，全程零网络载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-13T04:57:35.515Z"
+    }
   }
 }
