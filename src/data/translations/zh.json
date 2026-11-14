@@ -132,6 +132,12 @@
     "coreTask": "在浏览器中直接打卡和追踪每日习惯",
     "description": "专为开发者量身打造的免费免注册日常习惯追踪工具。"
   },
+  "binarytranslator-dev": {
+    "_hash": "fbe6196107ed8be1",
+    "description": "纯前端运行的双向二进制与文本转换工具，支持即时文本换向与.txt文件导出。",
+    "coreTask": "在二进制代码与ASCII/UTF-8文本之间进行双向转换并支持下载文本文件。",
+    "contentUpdatedAt": "2026-11-14T03:03:14.364Z"
+  },
   "bitibybit-com-volunteer-roster": {
     "coreTask": "通过单个链接快速发布并认领志愿者值班排班，无需注册、无追踪、零安装",
     "description": "一款专为俱乐部和学校设计的免费志愿者排班网页工具。组织者排定班次后只需分享一个链接，其他人点击即可认领岗位。全程无需注册账号，无需安装软件，不收集任何邮箱地址，且完全无广告、无追踪器和 Cookie。内置板球、田径、游泳、无网篮球等 10 款现成的俱乐部值班排班模板。"
@@ -266,6 +272,12 @@
     "_hash": "80ee725a5ade828f",
     "description": "Clideo 是一款基于浏览器的媒体工具包，提供 20 多种视频和音频编辑工具：剪辑、压缩、格式转换、合并片段、静音、添加字幕、提取音频、循环视频、调整速度以及创建 GIF。核心工具无需账号即可使用——上传文件，在其服务器上处理，然后下载结果。免费版会添加水印，付费版可去除。",
     "coreTask": "无需安装软件或注册账号，直接在浏览器中编辑、转换、剪切和压缩视频及音频文件"
+  },
+  "cliplyn-com": {
+    "_hash": "77052462390b76b4",
+    "description": "无需注册的在线视频与音频下载工具，支持解析并保存YouTube与TikTok的MP4视频、音频、封面与字幕。",
+    "coreTask": "输入公开视频链接提取并下载MP4视频、MP3音频、字幕文件及高清封面。",
+    "contentUpdatedAt": "2026-11-14T03:36:10.885Z"
   },
   "codemodshub-com": {
     "_hash": "d6780a83f5c643e8",
@@ -639,6 +651,12 @@
     "coreTask": "无需注册账号，直接查询域名的 WHOIS、HTTPS、DNS 及潜在诈骗风险信号",
     "description": "Find The Scam 通过综合分析 WHOIS 注册信息、HTTPS 证书、DNS 记录、网站声誉、安全状态及各类反诈警示信号，帮助用户快速判断网站是合法合规还是存在欺诈风险。"
   },
+  "finplann-com": {
+    "_hash": "b55d8526a7bc1303",
+    "description": "无需注册的个人理财与FIRE退休计算器套件，支持跨币种储蓄模型与目标资产测算。",
+    "coreTask": "结合多项通胀率与年化收益参数测算提前退休FIRE目标资产与储蓄年限。",
+    "contentUpdatedAt": "2026-11-14T03:21:01.533Z"
+  },
   "flexboxfroggy-com": {
     "_hash": "660459e64baef9ca",
     "description": "通过有趣的青蛙主题游戏学习 CSS Flexbox。完成 24 关卡，掌握 justify-content 和 align-items 等 flexbox 属性。",
@@ -695,6 +713,12 @@
     "description": "免费且可高度自定义的可打印网格方格纸生成器，支持导出无水印矢量的方格纸、点阵纸及工程图表 PDF/PNG 文档。",
     "coreTask": "自由定制网格类型、间距尺寸与纸张方向，即时生成并导出无水印的高清可打印方格纸矢量 PDF。",
     "contentUpdatedAt": "2026-11-05T03:46:12.082Z"
+  },
+  "fromtoday-app": {
+    "_hash": "f66afc2e4bba3ff3",
+    "description": "快速日期计算工具，即时推算日期间隔天数、工作日及时间周期并支持.ics日历导出。",
+    "coreTask": "计算两个日期之间的天数、工作日数、周数与小时数并一键下载.ics日历文件。",
+    "contentUpdatedAt": "2026-11-14T03:27:05.423Z"
   },
   "fwd2-app": {
     "coreTask": "免登录创建带有撤回密钥的短链接、配置 Webhook 触发告警的金丝雀链接，随时一键作废与删除短链",
@@ -871,6 +895,12 @@
     "description": "零配置静态 HTML 与 ZIP 资源包临时托管服务，无需注册账号即可生成公开网页预览链接。",
     "coreTask": "上传单个 HTML 文件或 ZIP 网页打包资源，在线生成并复制带时效的公开访问预览链接。",
     "contentUpdatedAt": "2026-10-31T03:02:15.578Z"
+  },
+  "howolddoilook-app": {
+    "_hash": "1d349a17abae0741",
+    "description": "无需注册的免费AI人脸年龄检测工具，通过人像照片智能推算面部年龄与特征。",
+    "coreTask": "上传人像照片进行AI人脸识别并输出年龄预测与检测框。",
+    "contentUpdatedAt": "2026-11-14T03:11:24.799Z"
   },
   "httpbin-org": {
     "_hash": "63c036ec23ebc188",
@@ -1682,6 +1712,12 @@
     "description": "一款实时二手电商佣金计算器，可横向对比 eBay、Poshmark、Mercari、Depop、Etsy 和 Vinted 六大平台的抽成、运费分担与预估净到手收益。",
     "coreTask": "无需注册账号，输入商品售价与运费承担方式即可一键对比六大转售平台的实际到账收益。"
   },
+  "seonix-ai-tools-llms-txt-generator": {
+    "_hash": "e4d57cc25a747bdd",
+    "description": "免费纯前端 llms.txt 生成器，无需注册即可生成符合规范的 Markdown 网站说明与文档链接清单供 AI 抓取。",
+    "coreTask": "填写网站基本信息与文档链接，即时生成并导出标准化 llms.txt 描述文件。",
+    "contentUpdatedAt": "2026-11-14T03:54:37.857Z"
+  },
   "sginsure-sg-1m65-fire-html": {
     "_hash": "a6498dcfc1fe6649",
     "description": "支持中英双语的纯前端新加坡 1M65 公积金复利、4% 法则 FIRE 财务自由与 Coast FIRE 退休测算工具。",
@@ -1903,6 +1939,12 @@
     "_hash": "e5d3fb33604f856c",
     "description": "与原子钟同步的精确当前时间。世界时钟、时区转换器和毫秒精度的倒计时。",
     "coreTask": "查看精确的世界时间"
+  },
+  "tinhgpa-com": {
+    "_hash": "902f99a2d4802138",
+    "description": "无需注册的在线学分GPA计算器，支持10分制与4分制成绩换算及加权均分测算。",
+    "coreTask": "输入课程学分与成绩计算4分制与10分制加权GPA并规划目标分数。",
+    "contentUpdatedAt": "2026-11-14T02:57:22.781Z"
   },
   "tinypng-com": {
     "_hash": "a192b0dd7649433b",
@@ -2149,6 +2191,12 @@
     "coreTask": "免登录计算贷款月供及完整还款分摊明细表",
     "description": "免费贷款摊销计算器，适用于房贷、车贷和个人消费贷款。即刻生成还款计划表，清晰展示本金与利息明细，无需注册账号。"
   },
+  "www-autobracketmaker-com": {
+    "_hash": "a5b15153f98d63de",
+    "description": "无需注册的交互式双败淘汰赛对阵图生成器，支持自定义8支队伍名称并生成打印布局。",
+    "coreTask": "输入自定义队伍名称生成8队双败淘汰赛对阵图并支持打印。",
+    "contentUpdatedAt": "2026-11-14T02:50:53.287Z"
+  },
   "www-calculatorcampus-com": {
     "coreTask": "无需创建账号，直接在浏览器中进行实用数值计算与单位换算",
     "description": "Calculator Campus 是一个免费的实用浏览器计算器合集。每个工具都结合了直观的输入流程、计算公式、前提假设、详细步骤示例、常见问题及权威数据来源。核心计算器均无需账号即可使用。"
@@ -2175,6 +2223,12 @@
     "description": "免费在线图片切图工具，支持在浏览器本地将图片裁切为网格九宫格、社交轮播图、自定义像素切片及固定尺寸瓦片，并提供打包 ZIP 下载。",
     "coreTask": "将图片自由裁切为网格九宫格或轮播图切片并一键下载 ZIP 压缩包。",
     "contentUpdatedAt": "2026-10-27T03:39:42.953Z"
+  },
+  "www-indietool-io-tools-logo-fast": {
+    "_hash": "89eef9a7296e3975",
+    "description": "快速纯前端标志设计工具，支持定制极简品牌图标并无水印导出矢量SVG与高清PNG。",
+    "coreTask": "自定义品牌排版、矢量图标、主题配色与阴影深度并即时导出SVG与PNG文件。",
+    "contentUpdatedAt": "2026-11-14T03:47:37.673Z"
   },
   "www-irorecipe-com": {
     "_hash": "815176ff00e8020a",

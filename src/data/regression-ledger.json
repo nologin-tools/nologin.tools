@@ -209,6 +209,17 @@
     "lastTitle": "Free Habit Tracker — No Signup, No Account, No Cloud",
     "lastSignals": []
   },
+  "binarytranslator-dev": {
+    "lastDeepEvalAt": "2026-11-14T03:02:05.366Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-14T03:02:05.366Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:02:05.366Z"
+  },
   "bitibybit-com-volunteer-roster": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T06:24:12.509Z",
@@ -391,6 +402,17 @@
     "lastScanAt": "2026-11-07T06:23:49.479Z",
     "lastTitle": "Claude 用量重置追踪：距上次 Claude 重置的天数",
     "lastSignals": []
+  },
+  "cliplyn-com": {
+    "lastDeepEvalAt": "2026-11-14T03:34:54.412Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-14T03:34:54.412Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:34:54.412Z"
   },
   "codemodshub-com": {
     "lastDeepEvalAt": "2026-11-07T03:05:05.318Z",
@@ -655,30 +677,17 @@
     "lastSignals": []
   },
   "db-fiddle-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-11-13T06:27:55.935Z",
-        "lastSeenAt": "2026-11-13T06:27:55.935Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-intent-1794551263202.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-outcome-1794551263202.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-13T06:27:55.935Z",
     "lastTitle": "DB Fiddle - SQL Database Playground",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-05T02:34:42.780Z",
+    "lastDeepEvalAt": "2026-11-14T02:39:07.914Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
-      "at": "2026-11-05T02:34:42.780Z",
+      "outcome": "cleared",
+      "note": "Loaded example schema, ran query against MySQL sandbox successfully, and exported results via Copy as Markdown. Core SQL execution and Markdown export are completely free without login; PRO is only for private fiddles.",
+      "at": "2026-11-14T02:39:07.914Z",
       "closed": [
         "paywall_copy"
       ]
@@ -758,30 +767,17 @@
     "lastSignals": []
   },
   "dochost-io": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-13T06:28:12.584Z",
-        "lastSeenAt": "2026-11-13T06:28:12.584Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-intent-1794551276054.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-outcome-1794551276054.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-13T06:28:12.584Z",
     "lastTitle": "HTML to URL & Markdown to HTML — Free HTML Host | dochost",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-05T02:36:54.698Z",
+    "lastDeepEvalAt": "2026-11-14T02:41:44.193Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
-      "at": "2026-11-05T02:36:54.698Z",
+      "outcome": "cleared",
+      "note": "Uploaded sample.md and published public live URL successfully. Link copying is free without login; Pro banner is an upsell for custom slug and permanent retention.",
+      "at": "2026-11-14T02:41:44.193Z",
       "closed": [
         "paywall_copy"
       ]
@@ -970,6 +966,17 @@
     "lastTitle": "Check if Website is Legit or Scam, Website Info, Reviews | FindTheScam",
     "lastSignals": []
   },
+  "finplann-com": {
+    "lastDeepEvalAt": "2026-11-14T03:20:01.560Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-14T03:20:01.560Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:20:01.560Z"
+  },
   "flexboxfroggy-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T06:29:12.451Z",
@@ -1058,6 +1065,17 @@
     "lastScanAt": "2026-11-13T06:29:31.319Z",
     "lastTitle": "Free Printable Graph Paper – Custom PDF Generator",
     "lastSignals": []
+  },
+  "fromtoday-app": {
+    "lastDeepEvalAt": "2026-11-14T03:25:46.289Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-14T03:25:46.289Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:25:46.289Z"
   },
   "fwd2-app": {
     "openAnomalies": [],
@@ -1304,6 +1322,17 @@
     "lastScanAt": "2026-11-08T06:25:46.913Z",
     "lastTitle": "Host HTML File",
     "lastSignals": []
+  },
+  "howolddoilook-app": {
+    "lastDeepEvalAt": "2026-11-14T03:10:27.005Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-14T03:10:27.005Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:10:27.005Z"
   },
   "httpbin-org": {
     "openAnomalies": [],
@@ -2654,6 +2683,17 @@
     "lastTitle": "Resale Fee Calculator 2026 — Compare 6 Platforms at Once | SellWhere",
     "lastSignals": []
   },
+  "seonix-ai-tools-llms-txt-generator": {
+    "lastDeepEvalAt": "2026-11-14T03:52:58.324Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-14T03:52:58.324Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:52:58.324Z"
+  },
   "sginsure-sg-1m65-fire-html": {
     "lastDeepEvalAt": "2026-11-11T09:30:38.013Z",
     "lastResolution": {
@@ -3016,6 +3056,17 @@
     "lastScanAt": "2026-11-09T06:34:58.295Z",
     "lastTitle": "Time.is 01:34",
     "lastSignals": []
+  },
+  "tinhgpa-com": {
+    "lastDeepEvalAt": "2026-11-14T02:56:27.962Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-14T02:56:27.962Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T02:56:27.962Z"
   },
   "tinypng-com": {
     "openAnomalies": [],
@@ -3416,6 +3467,17 @@
     "lastScanAt": "2026-11-12T06:24:40.145Z",
     "lastSignals": []
   },
+  "www-autobracketmaker-com": {
+    "lastDeepEvalAt": "2026-11-14T02:49:17.989Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-14T02:49:17.989Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T02:49:17.989Z"
+  },
   "www-calculatorcampus-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T06:23:18.934Z",
@@ -3464,6 +3526,17 @@
     "lastScanAt": "2026-11-13T06:30:49.716Z",
     "lastTitle": "Free Image Splitter Online — Grid & Custom Cuts | ImageSplit",
     "lastSignals": []
+  },
+  "www-indietool-io-tools-logo-fast": {
+    "lastDeepEvalAt": "2026-11-14T03:46:10.961Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 87, highly-recommended)",
+      "at": "2026-11-14T03:46:10.961Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-14T03:46:10.961Z"
   },
   "www-irorecipe-com": {
     "lastDeepEvalAt": "2026-11-07T03:33:01.499Z",
@@ -3675,30 +3748,17 @@
     "lastSignals": []
   },
   "xueboyang1985-github-io-kindle-exporter": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-11-13T06:26:48.519Z",
-        "lastSeenAt": "2026-11-13T06:26:48.519Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-intent-1794551195793.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-outcome-1794551195793.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-13T06:26:48.519Z",
     "lastTitle": "Kindle Highlights Exporter - Export Kindle Clippings to Markdown, CSV, JSON",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-07T02:37:28.892Z",
+    "lastDeepEvalAt": "2026-11-14T02:36:58.463Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Verified free first-book markdown export functions without auth or watermark; zero egress observed; PRO is only for bulk batch export as already documented in editorial cons.",
-      "at": "2026-11-07T02:37:28.892Z",
+      "note": "Real fixture upload and Markdown export verified. Single-book conversion is free without login; PRO banner is an upsell for multi-book batch export.",
+      "at": "2026-11-14T02:36:58.463Z",
       "closed": [
         "paywall_copy"
       ]

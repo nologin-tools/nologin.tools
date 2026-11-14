@@ -78852,5 +78852,499 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-13T04:57:35.515Z"
     }
+  },
+  "www-autobracketmaker-com": {
+    "en": {
+      "bestFor": "Tournament organizers, esport teams, and casual gamers looking to generate and print 8-team double elimination brackets without creating an account.",
+      "pros": [
+        "Interactive client-side double elimination bracket preview with dynamic winner and loser path tracing",
+        "Allows custom 8-player/team name entry with instant seed rearrangement and bracket generation",
+        "Clean vector bracket visualizer with pan, zoom, and browser-native print export support"
+      ],
+      "cons": [
+        "Full live tournament features and larger tournaments exceeding 8 players require account registration",
+        "Export options are limited to browser print/PDF without direct PNG or SVG downloads"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads or analytics beacons observed during live testing. Team lists and bracket matchups are rendered entirely in the browser without server submission.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 16,
+        "depth": 14,
+        "exportFreedom": 13,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Generated an 8-team double elimination bracket from custom player inputs in 53 ms with zero jank.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T02:49:17.961Z"
+    },
+    "zh": {
+      "bestFor": "需要为8支队伍快速生成并打印双败淘汰赛对阵表而无需注册账号的赛事组织者与玩家。",
+      "pros": [
+        "支持胜者组与败者组实时连线追踪的纯前端交互式双败对阵图生成器",
+        "支持自定义输入8支队伍名称并一键重新抽签生成对阵",
+        "内置平移缩放工具与原生打印/PDF导出支持"
+      ],
+      "cons": [
+        "超过8人或多阶段的实时赛事管理功能需要注册账号",
+        "导出仅支持浏览器打印为PDF，暂无直接的PNG或SVG下载"
+      ],
+      "privacyVerdict": "在测试期间未观测到任何外部网络数据传输或分析信标。队伍名单与对阵表完全在浏览器前端本地生成，不上传服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 16,
+        "depth": 14,
+        "exportFreedom": 13,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入自定义队伍后在53毫秒内完成8队双败淘汰赛对阵表生成，全流程流畅无卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T02:49:17.963Z"
+    }
+  },
+  "tinhgpa-com": {
+    "en": {
+      "bestFor": "Vietnamese university students and academic advisors needing to calculate GPA on 4.0 and 10.0 scales with transparent credit weighting without creating an account.",
+      "pros": [
+        "Instant zero-login GPA calculator with transparent 10-point to 4.0-scale conversion formulas",
+        "Includes reverse GPA target planner and weighted course component breakdown",
+        "Supports one-click shareable link copying, local result saving, and native browser print/PDF export"
+      ],
+      "cons": [
+        "Transmits telemetry and tracking requests across Google Analytics, OpenPanel, and Cloudflare RUM",
+        "Primary interface and grading conventions are localized specifically for the Vietnamese higher education system"
+      ],
+      "privacyVerdict": "Observed 5 outgoing telemetry requests during live testing, including Google Analytics (POST www.google-analytics.com/g/collect), OpenPanel (POST openpanel.xhorizon.org/api/track), and Cloudflare RUM (POST /cdn-cgi/rum). Course names, credits, and grade conversions are calculated client-side in browser memory.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Calculated 4.0-scale GPA and weighted 10-point average across multi-subject course entries in 94 ms with zero main thread freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T02:56:27.934Z"
+    },
+    "zh": {
+      "bestFor": "需要根据越南高校学分制标准快速计算4分制与10分制GPA及目标成绩且无需注册的大学生与留学生。",
+      "pros": [
+        "完全无需登录的GPA计算器，公示透明的10分制转4分制换算公式与学分权重",
+        "内置目标GPA逆向推算功能与单科分项成绩权重测算工具",
+        "提供一键复制分享链接、本地保存结果及浏览器原生打印/PDF导出"
+      ],
+      "cons": [
+        "页面加载与操作期间会发送 Google Analytics、OpenPanel 及 Cloudflare RUM 统计信标",
+        "界面语言与成绩转换规则主要面向越南高等教育体系"
+      ],
+      "privacyVerdict": "测试期间共捕获5次外部请求，包含 Google Analytics (POST www.google-analytics.com/g/collect)、OpenPanel (POST openpanel.xhorizon.org/api/track) 与 Cloudflare RUM (/cdn-cgi/rum)。课程名称、学分与绩点换算均在前端本地内存完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "完成多门课程学分输入并计算得出4分制与10分制加权GPA耗时94毫秒，界面响应流畅。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T02:56:27.935Z"
+    }
+  },
+  "binarytranslator-dev": {
+    "en": {
+      "bestFor": "Developers, computer science students, and curious learners needing to quickly convert binary code to ASCII/UTF-8 text and vice versa without logging in.",
+      "pros": [
+        "Instant real-time bidirectional binary-to-text and text-to-binary translation as you type",
+        "Provides quick presets, input swapping, and one-click plain text file (.txt) download",
+        "All conversion happens locally in browser memory without sending text to remote servers"
+      ],
+      "cons": [
+        "Emits 1 Cloudflare RUM telemetry request (/cdn-cgi/rum) on initial page loading",
+        "Limited to standard UTF-8 binary conversion without multi-encoding or bitwise manipulation features"
+      ],
+      "privacyVerdict": "Observed 1 outgoing telemetry payload to Cloudflare RUM (POST /cdn-cgi/rum) during live testing. All binary decoding and encoding routines execute strictly client-side in browser memory with zero user payload transmission.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Converted 50 characters of binary code to a 5-byte UTF-8 string in 12 ms with instant .txt download.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:02:05.334Z"
+    },
+    "zh": {
+      "bestFor": "需要快速在二进制代码与ASCII/UTF-8文本之间进行双向转换且无需登录的开发者与计算机专业学生。",
+      "pros": [
+        "随键入即时完成二进制与纯文本的双向转换，支持自动格式识别",
+        "提供预置测试用例、一键换向与无限制的.txt文件下载",
+        "所有编码解码逻辑完全在浏览器前端本地执行，不上传文本数据"
+      ],
+      "cons": [
+        "页面加载时会发送1次 Cloudflare RUM 性能监控请求 (/cdn-cgi/rum)",
+        "功能专注于基础二进制文本转换，不包含多编码格式或位运算高级工具"
+      ],
+      "privacyVerdict": "测试期间捕获到1次发往 Cloudflare RUM 的性能请求 (POST /cdn-cgi/rum)。所有二进制数据的转换完全在前端内存中运算，用户输入的文本或二进制内容不发生网络外传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 10,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在12毫秒内将50字符二进制编码转换为5字节UTF-8文本并触发.txt下载。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:02:05.334Z"
+    }
+  },
+  "howolddoilook-app": {
+    "en": {
+      "bestFor": "Users and social media creators wanting a quick, account-free AI facial age estimation from any portrait photo.",
+      "pros": [
+        "Zero-login AI face detection and age estimation with automatic bounding box overlay",
+        "Instant feedback with informative fallback error when no clear face is detected",
+        "Polished, mobile-friendly interface with built-in sample avatars for quick testing"
+      ],
+      "cons": [
+        "Face photos are transmitted to remote backend servers via POST /api/deepface for AI processing",
+        "Captures telemetry and session tracking payloads to Microsoft Clarity and Google Analytics",
+        "Lacks dedicated export controls for saving the annotated result image"
+      ],
+      "privacyVerdict": "Observed 14 outgoing network payloads including facial image transmission to POST /api/deepface alongside telemetry beacons to Google Analytics (POST www.google-analytics.com/g/collect) and Microsoft Clarity (POST t.clarity.ms/collect). Uploaded images are processed server-side.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Processed a 7.9 KB portrait avatar via POST /api/deepface in approximately 8 seconds with clear bounding box rendering.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:10:26.974Z"
+    },
+    "zh": {
+      "bestFor": "需要快速通过人像照片进行AI人脸年龄估算且无需注册账号的普通用户与自媒体创作者。",
+      "pros": [
+        "完全无需登录的AI人脸年龄估算工具，自动识别面部并标注预测年龄与识别框",
+        "对无面孔或模糊图片提供即时友好的错误提示与重试机制",
+        "现代简约的响应式界面设计，提供示例头像方便快速体验"
+      ],
+      "cons": [
+        "上传的人脸照片会通过 POST /api/deepface 发送到远程服务器进行后端深度学习模型处理",
+        "加载与分析过程中会向 Microsoft Clarity 及 Google Analytics 发送统计分析信标",
+        "未提供直接保存或导出带识别框结果图片的下载按钮"
+      ],
+      "privacyVerdict": "测试期间捕获到14次网络请求，包括发往 POST /api/deepface 的人脸图像处理请求，以及 Google Analytics 和 Microsoft Clarity (POST t.clarity.ms/collect) 的追踪信标。照片数据通过后端服务器进行深度分析。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传7.9KB肖像头像后经 POST /api/deepface 分析并在约8秒内完成年龄测算与人脸框绘制。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:10:26.975Z"
+    }
+  },
+  "finplann-com": {
+    "en": {
+      "bestFor": "Expatriates, NRIs, and FIRE aspirants looking to model financial independence, retirement corpus, and savings timelines across Indian and international currencies without logging in.",
+      "pros": [
+        "Comprehensive suite of zero-login financial calculators including FIRE, Step-Up SIP, SWP, and NRI residential status",
+        "Real-time chart visualization mapping savings growth against target FIRE corpus across customizable inflation and return rates",
+        "Polished financial UI with dual-currency INR and USD formatting and clear mathematical methodology explanations"
+      ],
+      "cons": [
+        "Full comprehensive financial dashboard and custom plan saving are gated behind a paid Pro plan",
+        "Free calculators do not provide dedicated CSV or PDF export controls",
+        "Emits analytics telemetry payloads to piqo.app/api/event during page interaction"
+      ],
+      "privacyVerdict": "Observed 6 outgoing telemetry payloads to Piqo Analytics (POST piqo.app/api/event) during live testing. All retirement corpus math, inflation adjustments, and FIRE projections calculate entirely client-side in browser memory without financial data egress.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Recomputed multi-variable FIRE projections and savings timeline across 8 financial input parameters in 83 ms with zero jank.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:20:01.525Z"
+    },
+    "zh": {
+      "bestFor": "需要测算财务自由（FIRE）目标金额、退休储备金及学分投资回报且无需注册的海外务工人员与个人理财者。",
+      "pros": [
+        "免登录提供全面的金融计算器套件，涵盖FIRE提前退休、定投递增、定期取款与居民税务身份",
+        "支持实时图表可视化展示储蓄曲线与目标金额关系，可自由调整通胀率与预期年化收益率",
+        "界面交互优雅细腻，提供清晰的计算公式与INR/USD双币种支持"
+      ],
+      "cons": [
+        "个性化资产统筹看板与长期规划保存功能需要购买Pro订阅",
+        "免费计算器未内置独立的CSV数据导出或PDF报告生成功能",
+        "操作过程中会向 piqo.app/api/event 发送统计分析事件"
+      ],
+      "privacyVerdict": "测试期间捕获到6次发往 Piqo Analytics 的统计信标 (POST piqo.app/api/event)。所有退休本金模型、通胀加权与FIRE资产测算均在前端内存中即时完成，用户输入的财务数据不上传服务器。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在83毫秒内完成包含8项财务参数的FIRE多变量推算并刷新时间线图表，运行流畅。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:20:01.526Z"
+    }
+  },
+  "fromtoday-app": {
+    "en": {
+      "bestFor": "Project managers, legal teams, and individuals calculating deadlines, business days, and time intervals between dates without an account.",
+      "pros": [
+        "Instant client-side date calculator computing exact day counts, business days with holiday exclusions, weeks, and hours",
+        "Generates downloadable .ics calendar files and syncs calculation states into shareable URL hash links",
+        "Includes natural-language date search and preset quick calculation tiles for immediate lookups"
+      ],
+      "cons": [
+        "Emits analytics telemetry payloads to Piqo Analytics (POST piqo.app/api/event) and Cloudflare RUM (/cdn-cgi/rum)",
+        "Holiday calendar exclusions currently default to US federal holidays"
+      ],
+      "privacyVerdict": "Observed 4 outgoing telemetry requests during testing, including Piqo Analytics (POST piqo.app/api/event) and Cloudflare RUM (POST /cdn-cgi/rum). All date arithmetic and calendar file generations execute locally in the browser with zero user input transmission.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Calculated 47-day interval and generated a 269-byte .ics calendar artifact in 18 ms with zero frame freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:25:46.254Z"
+    },
+    "zh": {
+      "bestFor": "需要快速计算日期差、工作日排除、截止时间倒计时及日历导出的项目经理与个人用户。",
+      "pros": [
+        "纯前端即时计算两个日期间隔天数、剔除假期的工作日数、周数及总小时数",
+        "支持直接生成并下载.ics日历事件文件，并自动将计算状态编码至URL Hash实现免登录分享",
+        "内置自然语言快速查询框与预置常用日期捷径卡片"
+      ],
+      "cons": [
+        "运行期间会向 Piqo Analytics (POST piqo.app/api/event) 与 Cloudflare RUM 发送匿名性能监控",
+        "法定节假日跳过规则目前主要预置美国联邦假期"
+      ],
+      "privacyVerdict": "测试期间观测到4次外发信标，包括 Piqo Analytics (POST piqo.app/api/event) 及 Cloudflare RUM (/cdn-cgi/rum)。所有日期推算与日历事件构造均在浏览器端本地完成，未向外部服务器上传查询参数。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在18毫秒内完成47天跨度的时间段计算并即时生成269字节.ics日历文件，运行零卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:25:46.254Z"
+    }
+  },
+  "cliplyn-com": {
+    "en": {
+      "bestFor": "Content creators, educators, and social media managers needing to extract MP4 videos, MP3 audio, subtitles, or cover thumbnails from YouTube and TikTok without signing up.",
+      "pros": [
+        "Zero-login media extractor supporting video, audio, cover image, and subtitle streams from one URL",
+        "Offers up to 3 free 1080p video downloads per day without requiring registration or browser extensions",
+        "Clean interface displaying video metadata, duration, author details, and selectable resolution presets"
+      ],
+      "cons": [
+        "URL extraction and media assembly are executed on remote servers via POST /api/video-extract/ endpoints",
+        "Free daily usage is capped at 3 downloads, with 4K resolution requiring a paid pass",
+        "Emits tracking payloads to Google Analytics (POST www.google-analytics.com/g/collect) and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Observed 5 outgoing payloads including media processing requests to POST /api/video-extract/extractions and POST /api/video-extract/downloads, alongside telemetry to Google Analytics (POST www.google-analytics.com/g/collect) and Cloudflare RUM (POST /cdn-cgi/rum). Video fetching and encoding are handled server-side.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Extracted YouTube video streams, metadata, and triggered cover asset preparation in approximately 4 seconds via POST /api/video-extract/ endpoints.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:34:54.390Z"
+    },
+    "zh": {
+      "bestFor": "需要从YouTube和TikTok快速提取MP4视频、音频、字幕或高清封面且无需登录的内容创作者与自媒体运营。",
+      "pros": [
+        "无需登录即可从单一链接同时提取视频、音频、字幕和封面图像",
+        "每日提供3次最高1080p全画质视频免登录下载，无需安装浏览器扩展",
+        "界面清晰简洁，自动解析视频时长、作者信息并支持多种清晰度切换"
+      ],
+      "cons": [
+        "视频链接与资源解析需通过远程服务器 POST /api/video-extract/ 接口完成",
+        "每日免费额度限制为3次下载，4K超清画质需要购买通行证",
+        "访问时会向 Google Analytics (POST www.google-analytics.com/g/collect) 及 Cloudflare RUM 发送统计数据"
+      ],
+      "privacyVerdict": "测试期间捕获到5次网络请求，包括发往后端处理接口 POST /api/video-extract/extractions 与 POST /api/video-extract/downloads 的多媒体解析请求，以及 Google Analytics 和 Cloudflare RUM 的统计信标。所有视频抓取与转码在服务器端完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 13,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入YouTube链接后通过后端接口在约4秒内完成媒体流解析并触发封面资源下载准备。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:34:54.391Z"
+    }
+  },
+  "www-indietool-io-tools-logo-fast": {
+    "en": {
+      "bestFor": "Indie hackers, startup founders, and developers needing to quickly design and export clean vector SVG or high-res PNG brand marks without signing up.",
+      "pros": [
+        "Instant client-side logo generator with 42 vector icons, customizable brand typography, and real-time live landing page preview",
+        "Generates clean 524x524 vector SVG and 1024x1024 PNG image downloads without watermarks or account gates",
+        "Zero outgoing network payload egress observed during customization and asset generation",
+        "Includes customizable shadow depth sliders, color palettes, and a 'Surprise Me' random design trigger"
+      ],
+      "cons": [
+        "Displays a post-export promotion modal suggesting product directory submission",
+        "Icon library is curated to 42 startup symbols without custom SVG upload support"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads observed during live testing. Brand name typography, vector icon rendering, and file export happen strictly in browser memory without transmitting design assets to external servers.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Generated customized brand assets and completed a 460-byte vector SVG download in 38 ms with zero layout shift.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:46:10.932Z"
+    },
+    "zh": {
+      "bestFor": "需要为独立项目、初创产品或开源仓库快速生成并导出高清PNG与矢量SVG标志且无需注册的独立开发者与创作者。",
+      "pros": [
+        "纯前端即时标志生成器，内置42款矢量图标、自定义字体排版及实时落地页效果预览",
+        "支持无水印导出524x524矢量SVG与1024x1024高分辨率PNG图片，完全免费免登录",
+        "测试全流程零网络请求外发，设计资产生成完全在本地内存处理",
+        "提供阴影深度滑块、预置主题色板与一键随机“Surprise Me”设计灵感触发"
+      ],
+      "cons": [
+        "导出文件后会弹出推荐将产品提交至收录目录的推广弹窗",
+        "图标库固定为42种精选极简符号，暂不支持上传自定义SVG作为图形要素"
+      ],
+      "privacyVerdict": "在测试期间未捕获到任何外部网络数据外发。标志排版、图标组合与矢量文件构造完全在浏览器本地内存中即时执行，不向任何第三方或云端服务器上传设计数据。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 18,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "完成品牌名与图标参数定制并在38毫秒内即时生成并下载460字节矢量SVG文件，全流程无卡顿。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:46:10.933Z"
+    }
+  },
+  "seonix-ai-tools-llms-txt-generator": {
+    "en": {
+      "bestFor": "Web developers, technical writers, and site operators looking to construct standardized llms.txt Markdown files for LLM crawlers without signing up.",
+      "pros": [
+        "Compliant llms.txt Markdown generator following llmstxt.org specification with structured section blocks",
+        "Real-time visual preview card and instant one-click Markdown file download without sign-up",
+        "Zero data payload egress observed for user project descriptions and site links"
+      ],
+      "cons": [
+        "Marketing navigation header contains login and pricing CTAs for the broader commercial platform",
+        "Does not include an automated sitemap crawler to fetch all domain paths automatically"
+      ],
+      "privacyVerdict": "The generator operates strictly client-side with zero data egress for user project details. Standard commercial telemetry beacons observed to analytics.google.com, stats.g.doubleclick.net, and a.clarity.ms.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Instant client-side Markdown file generation under 50ms latency; 68-byte clean llms.txt generated and downloaded with 0-byte egress for user payload; page weight 1.2MB.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:52:58.296Z"
+    },
+    "zh": {
+      "bestFor": "希望为自己的网站或文档快速构建并导出符合标准规范的 llms.txt 描述文件以便 AI 爬虫抓取且无需注册的站长与开发者。",
+      "pros": [
+        "遵循 llmstxt.org 规范的标准 llms.txt 生成器，支持分层结构与文档链接区块",
+        "提供深色卡片实时 Markdown 语法预览，支持一键无水印快速下载纯净 .txt/.md 文件",
+        "用户输入的项目名称、摘要与链接信息完全在本地处理，无表单数据外发"
+      ],
+      "cons": [
+        "顶部导航栏包含商业版主产品的登录与定价推广链接",
+        "未集成自动化 sitemap 爬取解析器，多页面链接需要手动填入"
+      ],
+      "privacyVerdict": "该生成器完全在浏览器本地前端运行，用户填写的项目信息与链接不会上传至服务器。页面中检测到 Google Analytics、Doubleclick 与 Microsoft Clarity 常用统计探针。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "纯前端毫秒级即时生成 Markdown 结构，生成并下载 68 字节纯净 llms.txt 文件，核心数据零外发，页面整体加载约 1.2MB。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-14T03:52:58.297Z"
+    }
   }
 }
