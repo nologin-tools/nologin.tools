@@ -14,7 +14,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T02:47:57.873Z"
+    "lastScanAt": "2026-11-14T06:29:12.307Z",
+    "lastTitle": "LLM API Pricing — Compare Cost Across AI Models · AI//COST",
+    "lastSignals": []
   },
   "aiexpert-fun-iskraai-en-tools-proofreader": {
     "lastDeepEvalAt": "2026-11-08T03:09:25.361Z",
@@ -105,10 +107,22 @@
     }
   },
   "archive-ph": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:26:41.878Z",
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-11-14T06:25:11.504Z",
+        "lastSeenAt": "2026-11-14T06:25:11.504Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-11-14T06:25:11.504Z",
     "lastTitle": "archive.ph",
-    "lastSignals": [],
+    "lastSignals": [
+      "probe_failed"
+    ],
     "lastDeepEvalAt": "2026-10-31T02:44:17.756Z",
     "lastResolution": {
       "outcome": "cleared",
@@ -127,13 +141,13 @@
   },
   "articleformatter-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:14:57.947Z",
+    "lastScanAt": "2026-11-14T06:30:17.168Z",
     "lastTitle": "Remove special characters from your articles - Article Formatter",
     "lastSignals": []
   },
   "askmeanythi-ng": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:15:23.755Z",
+    "lastScanAt": "2026-11-14T06:30:35.433Z",
     "lastTitle": "askmeanythi.ng",
     "lastSignals": []
   },
@@ -327,7 +341,7 @@
   },
   "caniemail-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:28:24.391Z",
+    "lastScanAt": "2026-11-14T06:26:53.957Z",
     "lastTitle": "Can I email… Support tables for HTML and CSS in emails",
     "lastSignals": []
   },
@@ -536,13 +550,13 @@
   },
   "cookies-extractor-chekun-me": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:28:06.497Z",
+    "lastScanAt": "2026-11-14T06:26:36.529Z",
     "lastTitle": "Cookies Extractor - Extract and export cookies with ease",
     "lastSignals": []
   },
   "coolors-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:26:03.948Z",
+    "lastScanAt": "2026-11-14T06:24:02.152Z",
     "lastTitle": "Coolors - The super fast color palettes generator!",
     "lastSignals": []
   },
@@ -821,7 +835,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:15:51.135Z",
+    "lastScanAt": "2026-11-14T06:31:03.832Z",
     "lastTitle": "Enshrouded Save Editor — Edit .ksd Saves in Your Browser",
     "lastSignals": []
   },
@@ -917,7 +931,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T03:07:14.755Z"
+    "lastScanAt": "2026-11-14T06:29:59.601Z",
+    "lastTitle": "Free Etsy Listing SEO Checker · Felt & Wood",
+    "lastSignals": []
   },
   "fffuel-co": {
     "openAnomalies": [],
@@ -991,7 +1007,7 @@
   },
   "fluxops-nanocorp-app-tools-reorder-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:27:37.935Z",
+    "lastScanAt": "2026-11-14T06:26:13.363Z",
     "lastTitle": "FluxOps — Auto-sync inventory. Kill spreadsheet hell.",
     "lastSignals": []
   },
@@ -1078,10 +1094,22 @@
     "lastScanAt": "2026-11-14T03:25:46.289Z"
   },
   "fwd2-app": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:25:49.477Z",
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-11-14T06:23:48.147Z",
+        "lastSeenAt": "2026-11-14T06:23:48.147Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-11-14T06:23:48.147Z",
     "lastTitle": "fwd2. Shorten a link. Keep the key. Forward to",
-    "lastSignals": []
+    "lastSignals": [
+      "probe_failed"
+    ]
   },
   "gantt-chart-io": {
     "openAnomalies": [],
@@ -1276,7 +1304,7 @@
   },
   "herebytes-com-remove-image-gps": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:29:15.539Z",
+    "lastScanAt": "2026-11-14T06:27:37.290Z",
     "lastTitle": "Free Remove Photo Location Online — Share photos without embedded location data | HereBytes",
     "lastSignals": []
   },
@@ -1355,8 +1383,8 @@
   },
   "icyzip-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:29:32.524Z",
-    "lastTitle": "IcyZip - Copy Text Between Phone and Computer",
+    "lastScanAt": "2026-11-14T06:27:51.666Z",
+    "lastTitle": "IcyZip - QR Code Text and File Transfer",
     "lastSignals": []
   },
   "iformat-io": {
@@ -1534,7 +1562,7 @@
   },
   "kitparlor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:26:49.764Z",
+    "lastScanAt": "2026-11-14T06:25:17.889Z",
     "lastTitle": "KitParlor — Free Tools & Guides for Online Sellers",
     "lastSignals": []
   },
@@ -1716,8 +1744,18 @@
     "lastScanAt": "2026-11-08T02:54:00.984Z"
   },
   "mdconvert-net-zh-markdown-to-word": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:26:15.195Z",
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-11-14T06:24:18.337Z",
+        "lastSeenAt": "2026-11-14T06:24:18.337Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-11-14T06:24:18.337Z",
     "lastSignals": [
       "probe_failed"
     ],
@@ -1772,7 +1810,7 @@
   },
   "meet-jit-si": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:27:23.267Z",
+    "lastScanAt": "2026-11-14T06:25:56.588Z",
     "lastTitle": "Jitsi Meet",
     "lastSignals": []
   },
@@ -1907,7 +1945,7 @@
   },
   "musictoolslab-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:29:58.164Z",
+    "lastScanAt": "2026-11-14T06:28:13.450Z",
     "lastTitle": "Free Music Tools for BPM, Key & Audio | Music Tools Lab",
     "lastSignals": []
   },
@@ -1939,7 +1977,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T02:51:06.131Z"
+    "lastScanAt": "2026-11-14T06:29:23.086Z",
+    "lastTitle": "Name Tracing Generator – Free Printable Name Tracing Worksheets",
+    "lastSignals": []
   },
   "nawtch-app": {
     "openAnomalies": [],
@@ -1968,7 +2008,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T03:01:36.195Z"
+    "lastScanAt": "2026-11-14T06:29:48.751Z",
+    "lastTitle": "Bank Statement Converter: PDF to Excel, CSV, QBO, OFX (Free)",
+    "lastSignals": []
   },
   "next-tools-dev": {
     "openAnomalies": [],
@@ -2028,7 +2070,7 @@
   },
   "numbeo-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:26:34.372Z",
+    "lastScanAt": "2026-11-14T06:24:40.542Z",
     "lastTitle": "Cost of Living",
     "lastSignals": []
   },
@@ -2046,7 +2088,7 @@
   },
   "omnicalculator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:28:47.208Z",
+    "lastScanAt": "2026-11-14T06:27:12.193Z",
     "lastTitle": "Omni Calculator",
     "lastSignals": []
   },
@@ -2473,7 +2515,7 @@
   },
   "questionsgenerator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:28:18.941Z",
+    "lastScanAt": "2026-11-14T06:26:48.614Z",
     "lastTitle": "Questions Generator - 3,000+ Random Questions to Ask",
     "lastSignals": []
   },
@@ -2591,8 +2633,21 @@
     "lastSignals": []
   },
   "regex101-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-06T02:36:04.550Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Pro\"",
+        "firstSeenAt": "2026-11-14T06:28:44.460Z",
+        "lastSeenAt": "2026-11-14T06:28:44.460Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-intent-1794637709389.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-outcome-1794637709389.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-14T06:28:44.460Z",
     "lastSignals": [
       "paywall_copy"
     ],
@@ -2661,7 +2716,7 @@
   },
   "salitronic-com-gerber-analyzer": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:27:08.563Z",
+    "lastScanAt": "2026-11-14T06:25:45.160Z",
     "lastTitle": "Salitronic Gerber Analyzer",
     "lastSignals": []
   },
@@ -2673,13 +2728,13 @@
   },
   "securityheaders-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:30:05.343Z",
+    "lastScanAt": "2026-11-14T06:28:20.130Z",
     "lastTitle": "Analyse your HTTP response headers",
     "lastSignals": []
   },
   "sellwhere-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:28:30.592Z",
+    "lastScanAt": "2026-11-14T06:27:00.817Z",
     "lastTitle": "Resale Fee Calculator 2026 — Compare 6 Platforms at Once | SellWhere",
     "lastSignals": []
   },
@@ -3006,7 +3061,7 @@
   },
   "textkit-tech": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:15:31.051Z",
+    "lastScanAt": "2026-11-14T06:30:42.275Z",
     "lastTitle": "TextKit — Free Online Text Tools",
     "lastSignals": []
   },
@@ -3070,13 +3125,26 @@
   },
   "tinypng-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:28:00.077Z",
-    "lastTitle": "TinyPNG – Compress WebP, PNG and JPEG images intelligently",
+    "lastScanAt": "2026-11-14T06:26:30.423Z",
+    "lastTitle": "TinyPNG – Compress AVIF, JPEG XL, WebP, PNG and JPEG",
     "lastSignals": []
   },
   "tinywow-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-06T02:39:48.160Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Start 7-Day Free Trial\"",
+        "firstSeenAt": "2026-11-14T06:28:58.814Z",
+        "lastSeenAt": "2026-11-14T06:28:58.814Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-tinywow-com-intent-1794637724572.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-tinywow-com-outcome-1794637724572.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-14T06:28:58.814Z",
     "lastSignals": [
       "paywall_copy"
     ],
@@ -3139,7 +3207,7 @@
   },
   "tools-pve-ch": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:15:37.085Z",
+    "lastScanAt": "2026-11-14T06:30:49.165Z",
     "lastTitle": "Kostenlose Web-Tools ohne Anmeldung | Tools-Portal",
     "lastSignals": []
   },
@@ -3179,7 +3247,7 @@
   },
   "tryink-me": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:14:46.331Z",
+    "lastScanAt": "2026-11-14T06:30:05.045Z",
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
   },
@@ -3320,7 +3388,7 @@
   },
   "visualpromptcompiler-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:29:03.759Z",
+    "lastScanAt": "2026-11-14T06:27:25.267Z",
     "lastTitle": "Visual Prompt Compiler for AI Image Models",
     "lastSignals": []
   },
@@ -3333,11 +3401,13 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T02:56:48.569Z"
+    "lastScanAt": "2026-11-14T06:29:34.086Z",
+    "lastTitle": "Visual Timer – Free Online Countdown Timer for Kids & Classrooms",
+    "lastSignals": []
   },
   "vocalremover-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:27:44.982Z",
+    "lastScanAt": "2026-11-14T06:26:20.440Z",
     "lastTitle": "Vocal Remover and Isolation [AI]",
     "lastSignals": []
   },
@@ -3381,7 +3451,7 @@
   },
   "webgpustress-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:15:11.108Z",
+    "lastScanAt": "2026-11-14T06:30:30.404Z",
     "lastTitle": "GPU Stress Test Online – Free Browser Benchmark | WebGPUStress",
     "lastSignals": []
   },
@@ -3417,7 +3487,7 @@
   },
   "wordpad-online-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:26:25.292Z",
+    "lastScanAt": "2026-11-14T06:24:31.280Z",
     "lastTitle": "Wordpad Online | Free Notepad Editor - wordpad-online.com",
     "lastSignals": []
   },
@@ -3440,8 +3510,21 @@
     "lastSignals": []
   },
   "write-as": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-06T02:43:05.631Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"14-day trial\"",
+        "firstSeenAt": "2026-11-14T06:29:05.164Z",
+        "lastSeenAt": "2026-11-14T06:29:05.164Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-intent-1794637738927.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-write-as-outcome-1794637738927.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-14T06:29:05.164Z",
     "lastTitle": "Write.as — A place for focused writing.",
     "lastSignals": [
       "paywall_copy"
@@ -3707,7 +3790,7 @@
   },
   "www-wheyindex-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:27:31.546Z",
+    "lastScanAt": "2026-11-14T06:26:03.770Z",
     "lastTitle": "Protein Powder Prices, Ingredients & Nutrition | WheyIndex",
     "lastSignals": []
   },
@@ -3766,8 +3849,8 @@
   },
   "yopass-se": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:29:41.263Z",
-    "lastTitle": "End-to-End Encrypted Secret Sharing | Yopass",
+    "lastScanAt": "2026-11-14T06:27:59.237Z",
+    "lastTitle": "Yopass: encrypted secret sharing you host yourself",
     "lastSignals": []
   },
   "z-ai": {
@@ -3784,7 +3867,7 @@
   },
   "zerowidthcleaner-com-zero-width-space": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-05T06:30:14.328Z",
+    "lastScanAt": "2026-11-14T06:28:29.274Z",
     "lastTitle": "Zero Width Space — Find and Remove Invisible Characters",
     "lastSignals": []
   }
