@@ -62,7 +62,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:16:35.954Z",
+    "lastScanAt": "2026-11-15T06:20:57.301Z",
     "lastTitle": "File to URL Converter – Upload & Share Files | All2URL",
     "lastSignals": []
   },
@@ -135,7 +135,7 @@
   },
   "artboardlab-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:50.486Z",
+    "lastScanAt": "2026-11-15T06:22:18.282Z",
     "lastTitle": "ArtboardLab — Free browser-based tools for designers",
     "lastSignals": []
   },
@@ -194,7 +194,7 @@
   },
   "aup4-aivismonitor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:58.176Z",
+    "lastScanAt": "2026-11-15T06:22:25.730Z",
     "lastTitle": "Open .aup4 Files Without Audacity — Play & Export | Waveward",
     "lastSignals": []
   },
@@ -332,7 +332,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T03:37:24.316Z"
+    "lastScanAt": "2026-11-15T06:26:58.931Z",
+    "lastTitle": "Free Custom Calendar Maker — Print & Export · Calendar Forge",
+    "lastSignals": []
   },
   "calorique-io": {
     "openAnomalies": [],
@@ -437,7 +439,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T03:05:05.318Z"
+    "lastScanAt": "2026-11-15T06:26:12.442Z",
+    "lastTitle": "Claude Plugins: Skills, Hooks, Agents & MCP Servers",
+    "lastSignals": []
   },
   "codextheme-tools": {
     "openAnomalies": [],
@@ -562,7 +566,7 @@
   },
   "copychar-cc": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:50.139Z",
+    "lastScanAt": "2026-11-15T06:25:14.772Z",
     "lastTitle": "CopyChar – Copy special characters to your clipboard",
     "lastSignals": []
   },
@@ -605,12 +609,9 @@
         ]
       }
     ],
-    "lastScanAt": "2026-11-06T06:19:13.689Z",
+    "lastScanAt": "2026-11-15T06:23:32.455Z",
     "lastTitle": "请稍候…",
-    "lastSignals": [
-      "surface_lost",
-      "title_changed"
-    ]
+    "lastSignals": []
   },
   "crochet-chart-maker-com": {
     "openAnomalies": [],
@@ -633,7 +634,7 @@
   },
   "crontab-guru": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:19:35.958Z",
+    "lastScanAt": "2026-11-15T06:23:54.431Z",
     "lastTitle": "Crontab.guru - The cron schedule expression generator",
     "lastSignals": []
   },
@@ -709,7 +710,7 @@
   },
   "decibelshield-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:19:40.630Z",
+    "lastScanAt": "2026-11-15T06:23:59.720Z",
     "lastTitle": "Decibel Meter Online: Free Real-Time Sound Level Meter (dB)",
     "lastSignals": []
   },
@@ -918,7 +919,7 @@
   },
   "favicon-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:18:26.924Z",
+    "lastScanAt": "2026-11-15T06:22:51.066Z",
     "lastTitle": "The Best Free Favicon Generator - favicon.ico and App Icons - favicon.io",
     "lastSignals": []
   },
@@ -943,13 +944,13 @@
   },
   "ficalc-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:19:26.116Z",
+    "lastScanAt": "2026-11-15T06:23:44.248Z",
     "lastTitle": "FI Calc",
     "lastSignals": []
   },
   "file-converter-free-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:57.804Z",
+    "lastScanAt": "2026-11-15T06:25:22.321Z",
     "lastTitle": "FileFormer - Free File Converter & 100+ Online Tools",
     "lastSignals": []
   },
@@ -1113,8 +1114,8 @@
   },
   "gantt-chart-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:36.109Z",
-    "lastTitle": "gantt-chart.io — paste a task list, get a live Gantt",
+    "lastScanAt": "2026-11-15T06:24:58.616Z",
+    "lastTitle": "Free Online Gantt Chart Maker | gantt-chart.io",
     "lastSignals": []
   },
   "gchq-github-io-cyberchef": {
@@ -1150,7 +1151,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T03:00:59.561Z"
+    "lastScanAt": "2026-11-15T06:26:05.804Z",
+    "lastTitle": "Gesture Synth Online: Play Music with Your Hands",
+    "lastSignals": []
   },
   "getspellgenie-com": {
     "lastDeepEvalAt": "2026-11-10T02:59:54.197Z",
@@ -1237,7 +1240,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:16:51.263Z",
+    "lastScanAt": "2026-11-15T06:21:12.261Z",
     "lastTitle": "Calculadora gratis de facturas pendientes y vencidas desde CSV",
     "lastSignals": []
   },
@@ -1274,13 +1277,13 @@
   },
   "haveibeenpwned-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:26.991Z",
+    "lastScanAt": "2026-11-15T06:24:48.149Z",
     "lastTitle": "Have I Been Pwned: Check if your email address has been exposed in a data breach",
     "lastSignals": []
   },
   "headlinecapitalization-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:19.837Z",
+    "lastScanAt": "2026-11-15T06:24:38.165Z",
     "lastTitle": "Headline Capitalization: Title Case Tool",
     "lastSignals": []
   },
@@ -1375,7 +1378,7 @@
   },
   "httpbin-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:18:05.671Z",
+    "lastScanAt": "2026-11-15T06:22:32.445Z",
     "lastTitle": "httpbin.org",
     "lastSignals": []
   },
@@ -1513,7 +1516,7 @@
   },
   "jakearchibald-github-io-svgomg": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:18:15.223Z",
+    "lastScanAt": "2026-11-15T06:22:42.135Z",
     "lastTitle": "SVGOMG - SVGO's Missing GUI for minifying SVGs",
     "lastSignals": []
   },
@@ -1804,7 +1807,7 @@
   },
   "mdprevieweditor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:18:43.172Z",
+    "lastScanAt": "2026-11-15T06:23:04.592Z",
     "lastTitle": "Markdown 在线编辑器：实时预览，免费使用",
     "lastSignals": []
   },
@@ -1886,7 +1889,7 @@
   },
   "monkeytype-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:19:06.613Z",
+    "lastScanAt": "2026-11-15T06:23:28.463Z",
     "lastTitle": "Monkeytype | A minimalistic, customizable typing test",
     "lastSignals": []
   },
@@ -2048,7 +2051,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:16:21.147Z",
+    "lastScanAt": "2026-11-15T06:20:39.035Z",
     "lastTitle": "NitroIDE | Zero-Latency Browser IDE & Online Code Editor",
     "lastSignals": []
   },
@@ -2236,7 +2239,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T03:18:19.739Z"
+    "lastScanAt": "2026-11-15T06:26:32.287Z",
+    "lastTitle": "PSD & PSB Header Inspector — Free, Local File Check",
+    "lastSignals": []
   },
   "photocraftguide-com": {
     "lastDeepEvalAt": "2026-11-13T03:50:08.214Z",
@@ -2251,8 +2256,8 @@
   },
   "photomosh-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:40.021Z",
-    "lastTitle": "Mosh-Lite — Free Real-Time Glitch Effects for Image & Video",
+    "lastScanAt": "2026-11-15T06:22:08.336Z",
+    "lastTitle": "Mosh-Pro Studio",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-02T02:35:13.248Z",
     "lastResolution": {
@@ -2338,8 +2343,8 @@
   },
   "prettier-io-playground": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:18:59.593Z",
-    "lastTitle": "Prettier v3.9.10",
+    "lastScanAt": "2026-11-15T06:23:20.793Z",
+    "lastTitle": "Prettier v3.10.1",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-02T02:37:52.783Z",
     "lastResolution": {
@@ -2372,7 +2377,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T02:53:00.333Z"
+    "lastScanAt": "2026-11-15T06:25:52.353Z",
+    "lastTitle": "Free Printable PDF Tools | Worksheets & Planners",
+    "lastSignals": []
   },
   "printpagecheck-com": {
     "lastDeepEvalAt": "2026-10-27T03:15:28.473Z",
@@ -2671,7 +2678,7 @@
   },
   "regexlearn-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:06.193Z",
+    "lastScanAt": "2026-11-15T06:21:27.247Z",
     "lastTitle": "Regex Learn - Step by step, from zero to advanced.",
     "lastSignals": []
   },
@@ -2719,7 +2726,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T03:11:52.803Z"
+    "lastScanAt": "2026-11-15T06:26:18.141Z",
+    "lastTitle": "Find RV dump stations and mobile repair | RV Stop Guide",
+    "lastSignals": []
   },
   "salitronic-com-gerber-analyzer": {
     "openAnomalies": [],
@@ -2776,7 +2785,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:15:59.645Z",
+    "lastScanAt": "2026-11-15T06:20:33.413Z",
     "lastTitle": "Shard Tools - Local-First Browser Tools",
     "lastSignals": []
   },
@@ -2814,7 +2823,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T02:49:55.004Z"
+    "lastScanAt": "2026-11-15T06:25:43.544Z",
+    "lastTitle": "Blur faces, cut silences, add captions, no upload | Shycut",
+    "lastSignals": []
   },
   "signaturefont-net": {
     "openAnomalies": [],
@@ -2829,8 +2840,21 @@
     "lastSignals": []
   },
   "siteage-org": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:43.973Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-15T06:25:08.528Z",
+        "lastSeenAt": "2026-11-15T06:25:08.528Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-intent-1794723898727.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-outcome-1794723898727.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-15T06:25:08.528Z",
     "lastTitle": "Website Age Certification | SiteAge.org",
     "lastSignals": [
       "surface_lost"
@@ -2972,7 +2996,7 @@
   },
   "svgviewer-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:32.485Z",
+    "lastScanAt": "2026-11-15T06:21:54.882Z",
     "lastTitle": "SVG Viewer - Free Online SVG Viewer and Converter",
     "lastSignals": []
   },
@@ -2990,13 +3014,13 @@
   },
   "tableconvert-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:20:07.035Z",
+    "lastScanAt": "2026-11-15T06:24:25.941Z",
     "lastTitle": "Table Convert - Free Online Table Converter and Generator",
     "lastSignals": []
   },
   "taimaa-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:19:48.099Z",
+    "lastScanAt": "2026-11-15T06:24:07.102Z",
     "lastTitle": "タイマー｜無料で使えるオンラインタイマー",
     "lastSignals": []
   },
@@ -3039,7 +3063,7 @@
   },
   "telemetry-sh-sql-playground": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:17.513Z",
+    "lastScanAt": "2026-11-15T06:21:39.741Z",
     "lastTitle": "结构化事件的浏览器 SQL Playground | Telemetry",
     "lastSignals": []
   },
@@ -3080,7 +3104,7 @@
   },
   "textunnel-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:21:12.854Z",
+    "lastScanAt": "2026-11-15T06:25:36.200Z",
     "lastTitle": "Textunnel — Transfer Files Between Devices over Wi-Fi",
     "lastSignals": []
   },
@@ -3224,7 +3248,7 @@
   },
   "transform-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:17:00.464Z",
+    "lastScanAt": "2026-11-15T06:21:21.702Z",
     "lastTitle": "Transform",
     "lastSignals": []
   },
@@ -3427,7 +3451,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:16:44.480Z",
+    "lastScanAt": "2026-11-15T06:21:05.911Z",
     "lastTitle": "Free Gemini Watermark Remover Online — WatermarkLift",
     "lastSignals": []
   },
@@ -3635,7 +3659,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-07T03:33:01.499Z"
+    "lastScanAt": "2026-11-15T06:26:38.301Z",
+    "lastTitle": "カラーコード・色見本・配色ツール | いろレシピ",
+    "lastSignals": []
   },
   "www-keyboardanalyzer-com": {
     "lastDeepEvalAt": "2026-10-29T03:44:09.682Z",
@@ -3877,7 +3903,7 @@
   },
   "zenpen-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-06T06:19:53.190Z",
+    "lastScanAt": "2026-11-15T06:24:12.438Z",
     "lastTitle": "ZenPen ~ Minimal Distraction, Maximum Zen",
     "lastSignals": []
   },
