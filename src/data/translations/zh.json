@@ -896,6 +896,12 @@
     "coreTask": "上传单个 HTML 文件或 ZIP 网页打包资源，在线生成并复制带时效的公开访问预览链接。",
     "contentUpdatedAt": "2026-10-31T03:02:15.578Z"
   },
+  "hostingcompass-com": {
+    "_hash": "554af85ad1d5aac9",
+    "description": "交互式主机与 VPS 方案比价工具，横向对比硬件规格、续费条款及多年综合持有成本。",
+    "coreTask": "按 CPU、内存及续费价格筛选并多列对比 VPS 主机方案，全程免注册。",
+    "contentUpdatedAt": "2026-11-15T02:56:49.173Z"
+  },
   "howolddoilook-app": {
     "_hash": "1d349a17abae0741",
     "description": "无需注册的免费AI人脸年龄检测工具，通过人像照片智能推算面部年龄与特征。",
@@ -1231,6 +1237,12 @@
     "coreTask": "生成免注册临时邮箱收件箱并支持自定义别名。",
     "contentUpdatedAt": "2026-10-27T02:51:16.149Z"
   },
+  "multiconverter-online-uniruler": {
+    "_hash": "9465a0216ab24a59",
+    "description": "交互式多单位长度转换与视觉比例尺工具，直观并排对照公制与英制单位，并支持即时矢量图表导出。",
+    "coreTask": "在浏览器中进行公制与英制长度多单位换算及视觉比例尺对照，免登录直接导出无水印矢量对比图。",
+    "contentUpdatedAt": "2026-11-15T03:37:50.530Z"
+  },
   "musicforprogramming-net": {
     "_hash": "40a44cf3074bf142",
     "description": "精心策划的环境音乐和电子音乐混音，旨在帮助编程时保持专注。60 多集专注音乐。",
@@ -1359,6 +1371,12 @@
     "description": "纯前端 XML 转 JSON 在线转换器，在浏览器内存中解析结构化 XML 并直接下载生成的 JSON 文件。",
     "coreTask": "粘贴或上传 XML 内容，在浏览器本地转换为格式化 JSON，并一键复制或下载转换结果。",
     "contentUpdatedAt": "2026-10-31T02:47:33.383Z"
+  },
+  "particlelife-app": {
+    "_hash": "1c2e20ff30ba2b1a",
+    "description": "交互式人工生命沙盒模拟器，在浏览器中实时模拟群聚行为、细胞涌现及可调引力排斥物理场。",
+    "coreTask": "实时模拟多类别粒子的生命物理涌现动态，自由调节物理作用力参数，免登录即开即玩。",
+    "contentUpdatedAt": "2026-11-15T03:29:40.891Z"
   },
   "pdfandimagetools-com": {
     "coreTask": "免登录使用全部 64 款工具：合并、拆分、压缩与转换 PDF，压缩/调整尺寸/转换图片格式，运行本地 OCR，以及智能抠图去除背景",
@@ -2197,6 +2215,12 @@
     "coreTask": "输入自定义队伍名称生成8队双败淘汰赛对阵图并支持打印。",
     "contentUpdatedAt": "2026-11-14T02:50:53.287Z"
   },
+  "www-brisqnex-com": {
+    "_hash": "4b54f225996330b4",
+    "description": "多合一在线工具箱，提供 83 款涵盖 PDF 编辑、图像转换与文本处理的免注册浏览器本地实用工具。",
+    "coreTask": "在浏览器本地重新排序与组织 PDF 页面，免登录导出干净的全新 PDF 文件。",
+    "contentUpdatedAt": "2026-11-15T02:45:20.547Z"
+  },
   "www-calculatorcampus-com": {
     "coreTask": "无需创建账号，直接在浏览器中进行实用数值计算与单位换算",
     "description": "Calculator Campus 是一个免费的实用浏览器计算器合集。每个工具都结合了直观的输入流程、计算公式、前提假设、详细步骤示例、常见问题及权威数据来源。核心计算器均无需账号即可使用。"
@@ -2241,6 +2265,12 @@
     "description": "在线键盘检测与键位测试工具，实时可视化检测全键盘按键响应、无冲状态与键码映射并导出诊断报告。",
     "coreTask": "测试物理键盘按键触发与全键布局响应，并免登录一键复制纯文本诊断报告。",
     "contentUpdatedAt": "2026-10-29T03:44:24.112Z"
+  },
+  "www-markstudios-com-tools-caption-checker": {
+    "_hash": "3b8eea02623c4e91",
+    "description": "基于浏览器的字幕质量检查与校验工具，对照 Netflix 与 BBC 等规范检测 SRT/VTT 字幕阅读速率并支持一键断行微调。",
+    "coreTask": "对照流媒体阅读速度规范校验 SRT 字幕文件，并免登录导出修正时轴后的字幕文件。",
+    "contentUpdatedAt": "2026-11-15T02:49:46.927Z"
   },
   "www-nameideabox-com": {
     "_hash": "66031826f53343af",

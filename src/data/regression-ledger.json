@@ -1351,6 +1351,17 @@
     "lastTitle": "Host HTML File",
     "lastSignals": []
   },
+  "hostingcompass-com": {
+    "lastDeepEvalAt": "2026-11-15T02:56:00.388Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-15T02:56:00.388Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-15T02:56:00.388Z"
+  },
   "howolddoilook-app": {
     "lastDeepEvalAt": "2026-11-14T03:10:27.005Z",
     "lastResolution": {
@@ -1886,30 +1897,17 @@
     "lastSignals": []
   },
   "mp3cut-net": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Premium\"",
-        "firstSeenAt": "2026-11-13T06:28:32.812Z",
-        "lastSeenAt": "2026-11-13T06:28:32.812Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-intent-1794551292694.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-outcome-1794551292694.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-13T06:28:32.812Z",
     "lastTitle": "Online MP3 Cutter - Cut Songs, Make Ringtones",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-05T02:38:55.163Z",
+    "lastDeepEvalAt": "2026-11-15T02:33:48.169Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 50, emergency-only)",
-      "at": "2026-11-05T02:38:55.163Z",
+      "outcome": "cleared",
+      "note": "Audio upload and cut export succeeded without login; 220KB artifact downloaded successfully; paywall copy is only for premium upgrade.",
+      "at": "2026-11-15T02:33:48.169Z",
       "closed": [
         "paywall_copy"
       ]
@@ -1927,6 +1925,17 @@
     "lastScanAt": "2026-11-13T06:27:43.087Z",
     "lastTitle": "Temp Mail - Free Edu / .COM Temporary Mails | MTempMail",
     "lastSignals": []
+  },
+  "multiconverter-online-uniruler": {
+    "lastDeepEvalAt": "2026-11-15T03:35:24.648Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-15T03:35:24.648Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-15T03:35:24.648Z"
   },
   "musicforprogramming-net": {
     "openAnomalies": [],
@@ -2123,6 +2132,17 @@
     "lastScanAt": "2026-11-08T06:25:28.481Z",
     "lastTitle": "XML to JSON Converter | Runs Entirely in Your Browser",
     "lastSignals": []
+  },
+  "particlelife-app": {
+    "lastDeepEvalAt": "2026-11-15T03:28:30.454Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-15T03:28:30.454Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-15T03:28:30.454Z"
   },
   "pdfandimagetools-com": {
     "openAnomalies": [],
@@ -2633,30 +2653,17 @@
     "lastSignals": []
   },
   "regex101-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-14T06:28:44.460Z",
-        "lastSeenAt": "2026-11-14T06:28:44.460Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-intent-1794637709389.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-outcome-1794637709389.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-14T06:28:44.460Z",
     "lastSignals": [
       "paywall_copy"
     ],
     "lastTitle": "regex101: Online Regex Tester, Builder, Converter & Debugger",
-    "lastDeepEvalAt": "2026-11-06T02:36:04.550Z",
+    "lastDeepEvalAt": "2026-11-15T02:35:44.069Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 95, editors-choice)",
-      "at": "2026-11-06T02:36:04.550Z",
+      "outcome": "cleared",
+      "note": "Regex parsing, real-time matching, explanation, and matches JSON export all operate smoothly without login; Upgrade to Pro is only an optional tier.",
+      "at": "2026-11-15T02:35:44.069Z",
       "closed": [
         "paywall_copy"
       ]
@@ -3130,29 +3137,16 @@
     "lastSignals": []
   },
   "tinywow-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Start 7-Day Free Trial\"",
-        "firstSeenAt": "2026-11-14T06:28:58.814Z",
-        "lastSeenAt": "2026-11-14T06:28:58.814Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-tinywow-com-intent-1794637724572.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-tinywow-com-outcome-1794637724572.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-14T06:28:58.814Z",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-06T02:39:48.160Z",
+    "lastDeepEvalAt": "2026-11-15T02:40:22.664Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
-      "at": "2026-11-06T02:39:48.160Z",
+      "outcome": "cleared",
+      "note": "Image background removal and PNG download succeeded without login; 2539-byte unwatermarked PNG artifact verified; Start 7-Day Free Trial is optional upgrade banner.",
+      "at": "2026-11-15T02:40:22.664Z",
       "closed": [
         "paywall_copy"
       ]
@@ -3561,6 +3555,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-14T02:49:17.989Z"
   },
+  "www-brisqnex-com": {
+    "lastDeepEvalAt": "2026-11-15T02:43:41.169Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-15T02:43:41.169Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-15T02:43:41.169Z"
+  },
   "www-calculatorcampus-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T06:23:18.934Z",
@@ -3644,6 +3649,17 @@
     "lastScanAt": "2026-11-07T06:20:04.407Z",
     "lastTitle": "Online Keyboard Tester - Test Every Key | KeyboardAnalyzer",
     "lastSignals": []
+  },
+  "www-markstudios-com-tools-caption-checker": {
+    "lastDeepEvalAt": "2026-11-15T02:48:58.580Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-15T02:48:58.580Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-15T02:48:58.580Z"
   },
   "www-nameideabox-com": {
     "lastDeepEvalAt": "2026-10-29T02:48:40.832Z",

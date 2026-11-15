@@ -79346,5 +79346,257 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-14T03:52:58.297Z"
     }
+  },
+  "www-brisqnex-com": {
+    "en": {
+      "bestFor": "Comprehensive suite of client-side PDF organization, text analysis, and image utilities without sign-up.",
+      "pros": [
+        "Extensive suite of 83 utilities including client-side PDF reordering and real-time word counting",
+        "Completely client-side PDF manipulation with unwatermarked 608-byte export artifact verified"
+      ],
+      "cons": [
+        "Emits Cloudflare RUM performance telemetry beacons during navigation"
+      ],
+      "privacyVerdict": "Local client-side execution verified for file tools with zero file upload; outgoing network traffic is bounded to Cloudflare RUM performance beacons (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Reordered and saved 610-byte PDF in browser, exporting a clean 608-byte PDF artifact with zero long-task freeze and 0.03 CLS; live word counter processed 113 characters instantly.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T02:43:41.139Z"
+    },
+    "zh": {
+      "bestFor": "无需注册即可使用的全功能浏览器端 PDF 页面整理、文本分析及图像处理套件。",
+      "pros": [
+        "拥有包含客户端 PDF 排序、实时字数统计等 83 款实用工具的丰富工具箱",
+        "完全在浏览器本地进行 PDF 重排与处理，实测导出 608 字节无水印干净 PDF 文件"
+      ],
+      "cons": [
+        "页面导航期间会发送 Cloudflare RUM 性能遥测信标"
+      ],
+      "privacyVerdict": "文件工具实测完全在本地客户端运行，文件无外发上传；网络请求仅监测到 Cloudflare RUM 性能遥测信标（/cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在浏览器端重排并保存 610 字节 PDF，成功导出 608 字节无水印 PDF 产物，主线程无卡顿，CLS 为 0.03；实时字数统计瞬时完成 113 字符统计。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T02:43:41.140Z"
+    }
+  },
+  "www-markstudios-com-tools-caption-checker": {
+    "en": {
+      "bestFor": "Validating and auto-adjusting SRT/VTT subtitle timing and reading speed against broadcast standards.",
+      "pros": [
+        "Checks subtitle line lengths, reading speed, and on-screen duration against Netflix and BBC standards",
+        "One-click auto-fix for line breaks and timings with direct unwatermarked file download"
+      ],
+      "cons": [
+        "Sends Google Analytics telemetry beacons during site usage"
+      ],
+      "privacyVerdict": "Subtitle parsing and timing repairs run client-side in the browser; network telemetry is restricted to Google Analytics beacons (www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Validated 2 subtitle blocks against Netflix Adult standard and executed automatic timing fix in under 50ms, exporting a 192-byte corrected subtitle artifact without account sign-up.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T02:48:58.542Z"
+    },
+    "zh": {
+      "bestFor": "对照广播与流媒体规范校验并一键自动修正 SRT/VTT 字幕行长与阅读速度。",
+      "pros": [
+        "支持对照 Netflix、BBC 与 DCMP 标准检测字幕字符数、阅读速率及屏幕停留时间",
+        "提供一键自动断行与时轴微调功能，可直接下载无水印修正后字幕文件"
+      ],
+      "cons": [
+        "使用过程中会发送 Google Analytics 统计遥测信标"
+      ],
+      "privacyVerdict": "字幕解析与时轴修正全程在浏览器本地客户端运行；网络外发仅监测到 Google Analytics 统计信标（www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "对照 Netflix 成人规范校验 2 条字幕并执行自动断行与时轴微调，耗时低于 50ms，成功导出 192 字节修正后字幕文件，无需登录。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T02:48:58.543Z"
+    }
+  },
+  "hostingcompass-com": {
+    "en": {
+      "bestFor": "Comparing VPS, cloud, and hosting provider specifications and multi-year pricing structures side-by-side.",
+      "pros": [
+        "Interactive multi-plan comparison matrix evaluating specs, renewal pricing, and 12/24-month true costs",
+        "Comprehensive filtering across hundreds of hosting tiers without registration or paywalls"
+      ],
+      "cons": [
+        "Does not provide file export (CSV/PDF) for generated plan comparison tables"
+      ],
+      "privacyVerdict": "Search queries and comparison interactions process client-side; network telemetry is bounded to first-party analytics (analytics.hostingcompass.com/api/send) and Cloudflare RUM (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Filtered 1,702 VPS plans down by budget and memory criteria and rendered side-by-side spec comparison table for Oracle Cloud vs HostGator in 83ms max task freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T02:56:00.355Z"
+    },
+    "zh": {
+      "bestFor": "横向对比多家 VPS、云主机与虚拟主机的硬件规格、续费策略与多年综合成本。",
+      "pros": [
+        "提供交互式多方案对比矩阵，清晰呈现硬件参数、续费价格及 12/24 个月真实成本",
+        "支持按预算、机房及应用场景筛选数千款主机方案，免注册即可即时对比"
+      ],
+      "cons": [
+        "对比结果不支持导出为 CSV 或 PDF 文件"
+      ],
+      "privacyVerdict": "方案筛选与对比交互在浏览器端运行；网络外发仅监测到第一方自建统计（analytics.hostingcompass.com/api/send）与 Cloudflare RUM 性能遥测（/cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 83ms 最大任务耗时与 0.00 CLS 下筛选 1,702 款 VPS 方案并生成 Oracle Cloud 与 HostGator 规格对比矩阵，免登录顺畅运行。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T02:56:00.356Z"
+    }
+  },
+  "particlelife-app": {
+    "en": {
+      "bestFor": "Simulating emergent artificial life dynamics, particle attraction matrices, and cellular swarm behaviors.",
+      "pros": [
+        "Interactive HTML5 Canvas physics engine rendering smooth real-time particle life dynamics",
+        "Rich configurable parameters including particle count, attraction forces, friction, and diverse presets"
+      ],
+      "cons": [
+        "Does not support exporting video recordings or image snapshots directly to disk",
+        "Sends Microsoft Clarity and Google Analytics telemetry beacons during simulation"
+      ],
+      "privacyVerdict": "Particle physics and simulation calculations run entirely client-side via HTML5 Canvas; outgoing network requests are telemetry beacons to Microsoft Clarity (u.clarity.ms/collect) and Google Analytics (www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 11,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Rendered 400 particles across 5 particle families in real time on HTML5 Canvas; switched between Swarm and Cells presets with zero main-thread freeze and 0.04 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T03:28:30.416Z"
+    },
+    "zh": {
+      "bestFor": "在浏览器中模拟涌现式人工生命动力学、粒子引力矩阵与细胞群聚行为。",
+      "pros": [
+        "基于 HTML5 Canvas 的实时物理引擎，流畅呈现粒子生命与集群动力学生成演化",
+        "提供丰富的物理参数调控（粒子数、引力倍率、阻尼与排斥区）及多种预设形态"
+      ],
+      "cons": [
+        "不支持直接将模拟过程录制导出为视频或高分辨率图像文件",
+        "运行过程中会向 Microsoft Clarity 与 Google Analytics 发送遥测分析信标"
+      ],
+      "privacyVerdict": "粒子物理运算与群聚模拟完全在浏览器本地 HTML5 Canvas 上运行；网络通信仅包含发送至 Microsoft Clarity（u.clarity.ms/collect）与 Google Analytics（www.google-analytics.com/g/collect）的统计信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 11,
+        "privacy": 14,
+        "polish": 15
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 HTML5 Canvas 上实时模拟 5 类共 400 个粒子的生命行为，在 Swarm 与 Cells 预设间即时切换，主线程 0 阻塞，CLS 为 0.04。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T03:28:30.416Z"
+    }
+  },
+  "multiconverter-online-uniruler": {
+    "en": {
+      "bestFor": "Multi-unit length conversions, relative visual scale perspectives, and vector comparison diagram exports.",
+      "pros": [
+        "Simultaneous multi-unit length conversions with relative linear scale visual perspective bars",
+        "Direct unwatermarked vector SVG and PNG comparison diagram export verified (4,962-byte SVG artifact)"
+      ],
+      "cons": [
+        "Emits Google Analytics and Cloudflare RUM telemetry beacons during browsing"
+      ],
+      "privacyVerdict": "Measurement conversions and vector graphic rendering operate entirely client-side; observed network egress is bounded to Google Analytics (www.google-analytics.com/g/collect) and Cloudflare RUM (/cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Converted 50 inches into feet, centimeters, and meters with linear visual perspective scale and exported clean 4,962-byte comparison SVG in 0ms task freeze and 0.04 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T03:35:24.606Z"
+    },
+    "zh": {
+      "bestFor": "多单位长度换算、直观线性比例尺对照及矢量对比图表导出。",
+      "pros": [
+        "支持英制与公制多单位同步转换，并提供直观的线性长度比例尺透视对照",
+        "支持直接导出无水印矢量 SVG 与 PNG 对比图（实测下载 4,962 字节高质量 SVG 文件）"
+      ],
+      "cons": [
+        "页面浏览期间会发送 Google Analytics 与 Cloudflare RUM 遥测信标"
+      ],
+      "privacyVerdict": "单位换算与矢量图表生成完全在浏览器本地客户端运行；网络外发仅监测到 Google Analytics（www.google-analytics.com/g/collect）与 Cloudflare RUM（/cdn-cgi/rum）的统计信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 15
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "完成 50 英寸向英尺、厘米及米的多重换算与比例尺透视渲染，成功导出 4,962 字节无水印对比 SVG 文件，主线程 0 阻塞，CLS 为 0.04。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-15T03:35:24.607Z"
+    }
   }
 }
