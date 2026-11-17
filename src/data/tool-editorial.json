@@ -40947,66 +40947,63 @@
   },
   "ignlab-net": {
     "en": {
-      "bestFor": "Converting images to JPG/WebP and accessing designer generators like SVG blobs, CSS effects, and QR codes without registration.",
+      "bestFor": "Accessing a suite of sign-in-free web utilities across ignlab.net subdomains, including SVG blob generation, image conversion, CSS generators, and QR tools.",
       "pros": [
-        "Directory hub connecting 12+ focused developer and design utilities with zero login barrier",
-        "Instant unwatermarked file downloads for converted images, CSS styles, and vector assets",
-        "Clean dark-mode interface with configurable quality slider and multi-format output targets"
+        "Studio hub links directly to active subdomain tools (svg.ignlab.net, blob.ignlab.net, qr.ignlab.net, css.ignlab.net) with zero login gates",
+        "SVG Blob Generator rendered immediately and exported a clean 371-byte 200x200 SVG plus CSS Morph code with zero watermarks",
+        "Responsive interface with 66ms max main-thread task and 0.01 CLS across tested subdomain tools"
       ],
       "cons": [
-        "Image conversion relies on server processing via POST ignlab.net/api/convert rather than client-side execution",
-        "Server drops connections on larger image uploads (300KB+), triggering conversion failures",
-        "Contains Google AdSense advertising scripts and Google Analytics tracking beacons"
+        "Image Converter on svg.ignlab.net/image-converter/ failed converting a 324.8 KB PNG via POST ignlab.net/api/convert ('Conversion failed. Check the console for details.')",
+        "Google Analytics telemetry (POST www.google-analytics.com/g/collect) observed during usage"
       ],
-      "privacyVerdict": "Image files are transmitted to a backend uvicorn server via POST ignlab.net/api/convert during conversion; observed Google Analytics (GA4) beacons and POST ignlab.net/api/convert payloads alongside Google AdSense scripts.",
+      "privacyVerdict": "SVG blob generation on blob.ignlab.net ran in-browser, while svg.ignlab.net/image-converter/ transmitted uploaded image data via POST ignlab.net/api/convert. Google Analytics beacons (POST www.google-analytics.com/g/collect) were also observed.",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
         "CloudConvert"
       ],
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Uploaded 11.8KB PNG fixture, executed server conversion to JPEG (85% quality) via POST ignlab.net/api/convert, and downloaded a clean 2,613-byte unwatermarked JPEG artifact in 1.8s.",
+      "benchmarkNotes": "Started at ignlab.net studio hub, navigated to svg.ignlab.net/image-converter/ (uploaded 324.8 KB sample.png; POST ignlab.net/api/convert returned conversion failure), then tested blob.ignlab.net (mutated blob, switched to CSS Morph, copied code, and exported a 371-byte 200x200 SVG with valid syntax and zero watermark).",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-03T02:45:26.730Z"
+      "contentUpdatedAt": "2026-11-17T02:42:03.331Z"
     },
     "zh": {
-      "bestFor": "免登录将图片转为 JPG/WebP 格式，以及使用 SVG 气泡、CSS 样式与 QR 码等轻量设计生成器的开发者与设计师。",
+      "bestFor": "免登录使用 ignlab.net 旗下多款网页工具子站，涵盖 SVG Blob 生成、图片格式转换、CSS 样式生成与二维码制作。",
       "pros": [
-        "集成 12+ 款专注型开发与设计工具的导航集，所有工具即开即用零门槛",
-        "图片转换结果、CSS 代码及矢量资源可直接一键导出或下载，无水印无付费拦截",
-        "暗色系视觉风格，提供可调压缩质量滑块与多目标格式切换"
+        "主站导航直连各功能子域名（svg.ignlab.net、blob.ignlab.net、qr.ignlab.net 等），全程无需注册登录",
+        "blob.ignlab.net 响应迅速，实测导出 371 字节 200x200 纯净 SVG 并支持 CSS Morph 代码复制"
       ],
       "cons": [
-        "图片转换需通过 POST ignlab.net/api/convert 将二进制上传至后端 uvicorn 服务器，并非纯端侧处理",
-        "后端接口对较大文件（如 300KB+）存在连接重置问题，易导致转换中断报错",
-        "页面内嵌 Google AdSense 广告脚本及 Google Analytics 访问统计信标"
+        "svg.ignlab.net/image-converter/ 在处理 324.8 KB PNG 并请求 POST ignlab.net/api/convert 时报错 Conversion failed",
+        "使用过程中观测到 Google Analytics 遥测上报请求（POST www.google-analytics.com/g/collect）"
       ],
-      "privacyVerdict": "图片转换过程需将文件上传至远端 uvicorn 服务器接口（POST ignlab.net/api/convert）；测试中抓取到 GA4 数据信标及 POST ignlab.net/api/convert 上传请求，且引入了 Google AdSense 脚本。",
+      "privacyVerdict": "blob.ignlab.net 的 SVG 形状生成在浏览器本地运行，而 svg.ignlab.net/image-converter/ 会通过 POST ignlab.net/api/convert 上传图片处理；同时捕获到 Google Analytics 请求（POST www.google-analytics.com/g/collect）。",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
         "CloudConvert"
       ],
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "上传 11.8KB 的 PNG 测试样例，通过 POST ignlab.net/api/convert 完成 85% 质量的 JPEG 转码，并在 1.8 秒内无损下载 2,613 字节无水印图片成品。",
+      "benchmarkNotes": "从 ignlab.net 主页进入 svg.ignlab.net/image-converter/（上传 324.8 KB sample.png 后通过 POST ignlab.net/api/convert 转换失败），随后实测 blob.ignlab.net（生成变异图形、切换 CSS Morph、复制代码并导出 371 字节 200x200 纯净 SVG；最大主线程阻塞 66ms，CLS 0.01）。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-03T02:45:26.731Z"
+      "contentUpdatedAt": "2026-11-17T02:42:03.333Z"
     },
     "ja": {
       "bestFor": "画像を JPG/WebP に変換し、登録なしで SVG BLOB、CSS 効果、QR コードなどのデザイナー ジェネレーターにアクセスします。",
@@ -41023,11 +41020,11 @@
       "privacyVerdict": "画像ファイルは、変換中に POST /api/convert 経由でバックエンド uvicorn サーバーに送信されます。 Google AdSense スクリプトとともに、2 つの Google Analytics (GA4) ビーコンと 5 つの /api/convert 画像ペイロードが観察されました。",
       "benchmarkNotes": "28.6KB PNG フィクスチャをアップロードし、POST /api/convert 経由で JPEG (85% 品質) へのサーバー変換を実行し、透かしのないクリーンな 7,425 バイトの JPEG アーティファクトを 2.1 秒でダウンロードしました。",
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
@@ -41053,11 +41050,11 @@
       "privacyVerdict": "이미지 파일은 변환 중에 POST /api/convert를 통해 백엔드 uvicorn 서버로 전송됩니다. Google 애드센스 스크립트와 함께 2개의 Google Analytics(GA4) 비콘과 5개의 /api/convert 이미지 페이로드를 관찰했습니다.",
       "benchmarkNotes": "28.6KB PNG 픽스처를 업로드하고, POST /api/convert를 통해 JPEG(85% 품질)로 서버 변환을 실행하고, 2.1초 안에 깨끗한 7,425바이트의 워터마크 없는 JPEG 아티팩트를 다운로드했습니다.",
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
@@ -41083,11 +41080,11 @@
       "privacyVerdict": "Los archivos de imagen se transmiten a un servidor backend de uvicorn a través de POST /api/convert durante la conversión; observó 2 balizas de Google Analytics (GA4) y 5 cargas útiles de imágenes /api/convertir junto con los scripts de Google AdSense.",
       "benchmarkNotes": "Cargó un dispositivo PNG de 28,6 KB, ejecutó la conversión del servidor a JPEG (85 % de calidad) mediante POST /api/convert y descargó un artefacto JPEG limpio de 7425 bytes sin marca de agua en 2.1.",
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
@@ -41113,11 +41110,11 @@
       "privacyVerdict": "Les fichiers image sont transmis à un serveur uvicorn backend via POST /api/convert pendant la conversion ; observé 2 balises Google Analytics (GA4) et 5 charges utiles d'images /api/convert aux côtés des scripts Google AdSense.",
       "benchmarkNotes": "Téléchargement d'un appareil PNG de 28,6 Ko, exécution de la conversion du serveur en JPEG (qualité de 85 %) via POST /api/convert et téléchargement d'un artefact JPEG propre et sans filigrane de 7 425 octets en 2,1 s.",
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
@@ -41143,11 +41140,11 @@
       "privacyVerdict": "Bilddateien werden während der Konvertierung per POST /api/convert an einen Backend-Uvicorn-Server übertragen; beobachtete 2 Google Analytics (GA4)-Beacons und 5 /api/convert-Bildnutzlasten neben Google AdSense-Skripten.",
       "benchmarkNotes": "28,6-KB-PNG-Fixture hochgeladen, Serverkonvertierung in JPEG (85 % Qualität) über POST /api/convert ausgeführt und in 2,1 Sekunden ein sauberes 7.425-Byte-JPEG-Artefakt ohne Wasserzeichen heruntergeladen.",
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
@@ -41173,11 +41170,11 @@
       "privacyVerdict": "Os arquivos de imagem são transmitidos para um servidor backend uvicorn via POST /api/convert durante a conversão; observou 2 beacons do Google Analytics (GA4) e 5 cargas úteis de imagem /api/convert junto com scripts do Google AdSense.",
       "benchmarkNotes": "Carregou o acessório PNG de 28,6 KB, executou a conversão do servidor para JPEG (qualidade de 85%) via POST /api/convert e baixou um artefato JPEG limpo de 7.425 bytes sem marca d'água em 2,1s.",
       "productScore": {
-        "overall": 82,
+        "overall": 81,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
+        "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
@@ -55335,18 +55332,17 @@
   },
   "www-textfixhub-com": {
     "en": {
-      "bestFor": "Writers, copywriters, and developers needing quick text hygiene tools like list sorting, duplicate removal, line break cleanup, and syllable counting without creating accounts.",
+      "bestFor": "Writers, copywriters, and developers needing quick browser-based text utilities like list sorting, duplicate removal, line break cleanup, and syllable counting without accounts.",
       "pros": [
-        "Diverse collection of 14 focused text utilities covering sorting, line break stripping, syllable counting, and Markov word generation",
-        "Real-time sorting engine with configurable delimiters (newline, comma, semicolon, space, custom) and deduplication",
-        "Clean one-click clipboard export with zero watermarks or promotional formatting tails",
-        "Immediate browser-side reactivity with zero server turnaround latency"
+        "Hub of 14 focused text utilities (/tools/alphabetizer, /tools/line-break-remover, /tools/sentence-counter, /tools/syllable-counter, and more) accessible immediately with no sign-up",
+        "Alphabetizer sorts and deduplicates live on input with delimiter selectors (Input/Output) and clean 24-character clipboard Copy output with zero watermarks",
+        "Zero main-thread freeze (0ms) and 0.00 CLS across tested steps"
       ],
       "cons": [
-        "Emits third-party analytics telemetry (Google Analytics GA4 and Cloudflare RUM) during user sessions",
-        "Lacks direct batch file (.txt/.csv) upload and download options"
+        "Emits third-party analytics and RUM telemetry (POST /cdn-cgi/rum and POST www.google-analytics.com/g/collect)",
+        "Alphabetizer lacks direct file (.txt/.csv) upload or download buttons"
       ],
-      "privacyVerdict": "Observed 3 outgoing telemetry payloads to Google Analytics (G-TERS757J0G) and Cloudflare RUM. All text mutations, deduplication, sorting, and clipboard operations execute in local browser memory without transmitting user text content to backend servers.",
+      "privacyVerdict": "Text sorting, deduplication, and clipboard copy ran locally in-browser without sending user text to a backend; 3 outgoing telemetry requests were observed (POST /cdn-cgi/rum and POST www.google-analytics.com/g/collect).",
       "alternativeTo": [
         "TextFixer",
         "Browserling Text Tools",
@@ -55361,22 +55357,21 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Tested Alphabetizer with a 5-item test list; enabled Remove Duplicates and captured a clean 24-character, 4-line sorted text payload via the Copy button in 0ms with zero frame jank. Observed 3 analytics payloads over the session.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Navigated from root hub to /tools/alphabetizer, entered a 5-line list with duplicates into the textarea, toggled Remove Duplicates, and captured a clean 24-character, 4-line sorted result via Copy in 0ms max task freeze with 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:44:09.400Z"
     },
     "zh": {
-      "bestFor": "需要进行列表排序、去重、换行符清洗与音节字数统计且不想注册账号的写作者、文案编辑与开发者。",
+      "bestFor": "适合文案编辑与开发者在浏览器中免登录完成列表字母排序、去重、清除换行及音节统计等轻量文本处理。",
       "pros": [
-        "涵盖列表字母排序、换行符清除、音节统计与马尔可夫伪词生成的 14 种文本轻量工具矩阵",
-        "支持换行、逗号、分号、空格及自定义分隔符的实时双向排序与一键去重机制",
-        "纯净的一键剪贴板导出，无任何营销水印或尾缀文本",
-        "本地实时计算，无服务端往返延迟"
+        "首页集成 14 款免登录文本工具（/tools/alphabetizer、/tools/line-break-remover、/tools/sentence-counter 等），打开即可使用",
+        "Alphabetizer 支持实时排序与 Remove Duplicates 去重，Copy 按钮可导出 24 字符纯净 4 行文本无水印"
       ],
       "cons": [
-        "会话期间会向 Google Analytics GA4 与 Cloudflare RUM 发送遥测信标",
-        "暂不支持直接拖拽上传与下载 .txt/.csv 批处理文件"
+        "页面会话期间捕获到第三方统计与 RUM 遥测请求（POST /cdn-cgi/rum、POST www.google-analytics.com/g/collect）",
+        "Alphabetizer 页面缺少本地 .txt/.csv 文件直接上传与下载导出按钮"
       ],
-      "privacyVerdict": "网络监控记录到 3 次发送至 Google Analytics（G-TERS757J0G）与 Cloudflare RUM 的遥测请求。所有文本排序、去重、清洗及剪贴板操作均在浏览器本地内存完成，未向后端传输用户输入的文本内容。",
+      "privacyVerdict": "排序、去重与剪贴板复制均在本地浏览器完成，未见用户文本外传；但观测到 3 次遥测请求（POST /cdn-cgi/rum 与 POST www.google-analytics.com/g/collect）。",
       "alternativeTo": [
         "TextFixer",
         "Browserling Text Tools",
@@ -55391,8 +55386,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "在 Alphabetizer 中测试了 5 项测试列表的字母排序与 Remove Duplicates 去重，通过 Copy 按钮在 0ms 内截获 24 字符、4 行纯净文本工件，操作过程零卡顿。全流程记录到 3 次统计分析网络请求。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "从主页进入 /tools/alphabetizer，输入含重复项的 5 行列表并勾选 Remove Duplicates，点击 Copy 成功捕获 24 字符 4 行排序结果，最大主线程阻塞 0ms，CLS 为 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:44:09.400Z"
     },
     "ja": {
       "bestFor": "ライター、コピーライター、開発者は、アカウントを作成せずに、リストの並べ替え、重複の削除、改行のクリーンアップ、音節のカウントなどの迅速なテキスト衛生ツールを必要としています。",
@@ -55422,7 +55418,7 @@
         "Browserling Text Tools",
         "Online-Utility.org"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "계정을 만들지 않고도 목록 정렬, 중복 제거, 줄 바꿈 정리, 음절 계산과 같은 빠른 텍스트 정리 도구가 필요한 작가, 카피라이터 및 개발자.",
@@ -55452,7 +55448,7 @@
         "Browserling Text Tools",
         "Online-Utility.org"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Escritores, redactores publicitarios y desarrolladores que necesitan herramientas rápidas de higiene del texto, como clasificación de listas, eliminación de duplicados, limpieza de saltos de línea y conteo de sílabas sin crear cuentas.",
@@ -55482,7 +55478,7 @@
         "Browserling Text Tools",
         "Online-Utility.org"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Écrivains, rédacteurs et développeurs ayant besoin d'outils rapides d'hygiène du texte, tels que le tri de listes, la suppression des doublons, le nettoyage des sauts de ligne et le comptage des syllabes sans créer de compte.",
@@ -55512,7 +55508,7 @@
         "Browserling Text Tools",
         "Online-Utility.org"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Autoren, Texter und Entwickler benötigen schnelle Tools zur Texthygiene wie Listensortierung, Entfernung von Duplikaten, Bereinigung von Zeilenumbrüchen und Silbenzählung, ohne Konten erstellen zu müssen.",
@@ -55542,7 +55538,7 @@
         "Browserling Text Tools",
         "Online-Utility.org"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Escritores, redatores e desenvolvedores que precisam de ferramentas rápidas de higiene de texto, como classificação de listas, remoção de duplicatas, limpeza de quebras de linha e contagem de sílabas sem criar contas.",
@@ -55572,7 +55568,7 @@
         "Browserling Text Tools",
         "Online-Utility.org"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "webgpustress-com": {
@@ -67537,62 +67533,63 @@
   },
   "spritesheettool-com": {
     "en": {
-      "bestFor": "Packing 2D sprite sheets, decomposing GIFs into frames, and building game engine texture atlases anonymously in-browser",
+      "bestFor": "Packing 2D sprite frames, splitting GIFs or sheets, and exporting PNG and atlas assets without an account via the /sprite-sheet-maker sub-route.",
       "pros": [
-        "Client-side HTML5 canvas packing renders sprites locally without transmitting raw image frames to backend servers",
-        "Multi-format asset export generates PNG sprite sheets, frame ZIP archives, generic JSON atlases, and Phaser JSON",
-        "Built-in tool suite features GIF frame splitting, custom padding and spacing grid settings, and live frame preview"
+        "Free local workflow at /sprite-sheet-maker packs frames onto an HTML5 canvas and exports clean PNGs (166x114, 10,143 bytes) without sign-in or watermarks",
+        "Includes separate tabs and pages for Images to sheet, GIF to sheet, Sprite Sheet Splitter, and Texture Atlas",
+        "Built-in frame animation preview with play/pause and frame stepping controls"
       ],
       "cons": [
-        "Telemetry requests recorded for self-hosted Umami analytics and a Google Identity status probe",
-        "Layout packing is limited to grid alignments rather than advanced polygon packing algorithms"
+        "Root URL (/) now fronts an account- and credit-gated AI RPG generator that redirects to /auth/login when clicking 'Sign in to generate · 25 credits'",
+        "Telemetry requests observed to umami.hongloudata.com, /api/analytics/umami/api/send, and accounts.google.com/gsi/status"
       ],
-      "privacyVerdict": "Sprite sheet generation and frame packing occur locally within browser canvas memory. Outgoing network requests are limited to 6 Umami analytics requests and 1 Google Identity check, with no user image data uploaded to remote servers.",
+      "privacyVerdict": "Sprite sheet packing and PNG export on /sprite-sheet-maker ran locally in-browser without uploading image frames; 6 outgoing telemetry/auth-probe requests were observed (POST umami.hongloudata.com/api/send, POST /api/analytics/umami/api/send, GET accounts.google.com/gsi/status). The separate AI walk-pack flow on / requires login.",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
-      "benchmarkNotes": "Dogfooded sprite sheet creation with an 804x604 px fixture image. Rendered immediate canvas preview across 1 frame with 0 ms freeze. Successfully triggered unauthenticated export of a clean 176784 bytes PNG sprite sheet artifact alongside JSON atlas options. Network telemetry recorded 7 outgoing requests (6 Umami analytics requests and 1 Google Identity probe); 0 bytes of user asset data egressed.",
-      "testedAt": "2026-09"
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested both root / (uploaded sample.png; clicking 'Sign in to generate · 25 credits' redirected to /auth/login) and /sprite-sheet-maker (loaded two-pose example, triggered Export PNG, verified 10,143-byte 166x114 PNG with valid magic bytes and zero watermark; max freeze 103ms, CLS 0.05).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:38:39.824Z"
     },
     "zh": {
-      "bestFor": "在浏览器中免登录打包 2D 精灵表、将 GIF 拆解为逐帧图片以及生成游戏引擎专用的纹理图集",
+      "bestFor": "通过 /sprite-sheet-maker 子页面免登录本地打包 2D 精灵帧、拆分 GIF 与精灵表并导出 PNG 及图集资源。",
       "pros": [
-        "基于浏览器 Canvas 本地运算排版，无需将原始图片帧上传至后端服务器即可完成拼接",
-        "支持导出完整 PNG 精灵图、逐帧 ZIP 压缩包、标准 JSON 图集及 Phaser 游戏引擎专用 JSON 数据",
-        "集成 GIF 逐帧拆分、自定义间距与内边距网格配置以及实时帧率动画预览功能"
+        "/sprite-sheet-maker 提供免登录本地 Canvas 排版，实测导出 166x114 像素、10,143 字节纯净 PNG 无水印",
+        "内置图片拼表、GIF 转精灵表、精灵表拆分与纹理图集工具，并支持帧动画播放与逐帧预览"
       ],
       "cons": [
-        "页面初始加载时记录自建 Umami 数据统计与 Google 登录状态探测网络请求",
-        "图集排版算法偏向常规网格排列，未提供高级多边形或复杂多通道压缩优化"
+        "根路径 / 现默认展示需登录和消耗积分的 AI 行走图生成器，点击生成会跳转至 /auth/login",
+        "页面加载与交互期间捕获到 umami.hongloudata.com、/api/analytics/umami/api/send 与 accounts.google.com/gsi/status 外发请求"
       ],
-      "privacyVerdict": "精灵图打包与帧提取完全在本地浏览器 Canvas 内存中完成。外发网络请求仅包含 6 次 Umami 分析上报和 1 次 Google 登录检查，用户图片素材不会被上传至远程服务器。",
+      "privacyVerdict": "/sprite-sheet-maker 的精灵帧打包与 PNG 导出在本地浏览器完成，未观察到用户图片上传；共捕获 6 次遥测与登录探测请求（POST umami.hongloudata.com/api/send、POST /api/analytics/umami/api/send、GET accounts.google.com/gsi/status）。首页独立的 AI 行走图生成需登录使用。",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
-      "benchmarkNotes": "使用 804x604 像素的样例图片进行端到端测试。在 0 毫秒冻结延迟下实现单帧 Canvas 实时渲染。无需登录直接触发导出，生成了 176784 字节的纯净 PNG 精灵表及对应 JSON 图集。网络监控记录到 7 次外发请求（6 次 Umami 分析和 1 次 Google 状态探测），用户素材数据传输量为 0 字节。",
-      "testedAt": "2026-09"
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测根路径 /（上传 sample.png 后点击生成跳转至 /auth/login）与 /sprite-sheet-maker（加载双帧示例并触发 Export PNG，导出 10,143 字节 166x114 PNG 通过魔数校验且无水印；最大主线程阻塞 103ms，CLS 0.05）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:38:39.825Z"
     },
     "ja": {
       "bestFor": "2D スプライト シートのパック、GIF のフレームへの分解、ブラウザ内で匿名でゲーム エンジン テクスチャ アトラスを構築",
@@ -67608,20 +67605,20 @@
       "privacyVerdict": "スプライト シートの生成とフレームのパッキングは、ブラウザーのキャンバス メモリ内でローカルに行われます。送信ネットワーク リクエストは 6 件の Umami 分析リクエストと 1 件の Google ID チェックに制限されており、ユーザー画像データはリモート サーバーにアップロードされません。",
       "benchmarkNotes": "804x604 ピクセルのフィクスチャ イメージを使用したドッグフード スプライト シートの作成。 0 ミリ秒のフリーズで 1 フレームにわたる即時キャンバス プレビューをレンダリングしました。 JSON アトラス オプションとともに、クリーンな 176784 バイトの PNG スプライト シート アーティファクトの非認証エクスポートが正常にトリガーされました。ネットワーク テレメトリは 7 件の送信リクエスト (6 件の Umami 分析リクエストと 1 件の Google Identity プローブ) を記録しました。 0 バイトのユーザー資産データが出力されました。",
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "2D 스프라이트 시트 패킹, GIF를 프레임으로 분해, 브라우저 내에서 익명으로 게임 엔진 텍스처 아틀라스 구축",
@@ -67637,20 +67634,20 @@
       "privacyVerdict": "스프라이트 시트 생성 및 프레임 패킹은 브라우저 캔버스 메모리 내에서 로컬로 발생합니다. 발신 네트워크 요청은 Umami 분석 요청 6개와 Google ID 확인 1개로 제한되며 사용자 이미지 데이터는 원격 서버에 업로드되지 않습니다.",
       "benchmarkNotes": "804x604픽셀 고정 이미지를 사용하여 Dogfooded 스프라이트 시트를 생성합니다. 0ms 고정으로 1프레임에 걸쳐 즉시 캔버스 미리보기를 렌더링했습니다. JSON 아틀라스 옵션과 함께 깨끗한 176784바이트 PNG 스프라이트 시트 아티팩트의 인증되지 않은 내보내기를 성공적으로 트리거했습니다. 네트워크 원격 측정은 7개의 발신 요청(Umami 분석 요청 6개 및 Google ID 프로브 1개)을 기록했습니다. 사용자 자산 데이터 0바이트가 송신되었습니다.",
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Empaquetar hojas de sprites 2D, descomponer GIF en marcos y crear atlas de texturas de motores de juegos de forma anónima en el navegador.",
@@ -67666,20 +67663,20 @@
       "privacyVerdict": "La generación de hojas de sprites y el empaquetado de cuadros se producen localmente dentro de la memoria del lienzo del navegador. Las solicitudes de red salientes están limitadas a 6 solicitudes de análisis de Umami y 1 verificación de identidad de Google, sin que se carguen datos de imágenes de usuario a servidores remotos.",
       "benchmarkNotes": "Creación de hojas de sprites dogfooded con una imagen fija de 804x604 px. Se muestra una vista previa inmediata del lienzo en 1 fotograma con una congelación de 0 ms. Se activó con éxito la exportación no autenticada de un artefacto de hoja de sprites PNG limpio de 176784 bytes junto con opciones de atlas JSON. La telemetría de red registró 7 solicitudes salientes (6 solicitudes de análisis Umami y 1 sonda de identidad de Google); 0 bytes de datos de activos del usuario salidos.",
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Emballage de feuilles de sprites 2D, décomposition de GIF en images et création d'atlas de textures de moteur de jeu de manière anonyme dans le navigateur",
@@ -67695,20 +67692,20 @@
       "privacyVerdict": "La génération de feuilles de sprite et le regroupement de cadres se produisent localement dans la mémoire du canevas du navigateur. Les requêtes réseau sortantes sont limitées à 6 requêtes d'analyse Umami et 1 vérification d'identité Google, sans qu'aucune donnée d'image utilisateur ne soit téléchargée sur des serveurs distants.",
       "benchmarkNotes": "Création d'une feuille de sprite Dogfooded avec une image de luminaire de 804x604 px. Aperçu immédiat du canevas rendu sur 1 image avec un gel de 0 ms. Déclenchement réussi de l'exportation non authentifiée d'un artefact de feuille de sprite PNG propre de 176 784 octets aux côtés des options d'atlas JSON. La télémétrie réseau a enregistré 7 requêtes sortantes (6 requêtes d'analyse Umami et 1 sonde d'identité Google) ; 0 octet de données d'actifs utilisateur sorti.",
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Packen von 2D-Sprite-Sheets, Zerlegen von GIFs in Frames und Erstellen von Game-Engine-Texturatlanten anonym im Browser",
@@ -67724,20 +67721,20 @@
       "privacyVerdict": "Die Sprite-Sheet-Generierung und Frame-Packung erfolgen lokal im Browser-Canvas-Speicher. Ausgehende Netzwerkanfragen sind auf 6 Umami-Analyseanfragen und 1 Google-Identitätsprüfung beschränkt, es werden keine Benutzerbilddaten auf Remote-Server hochgeladen.",
       "benchmarkNotes": "Dogfooded-Sprite-Sheet-Erstellung mit einem 804 x 604 Pixel großen Fixture-Bild. Sofortige Leinwandvorschau über 1 Frame mit 0 ms Standzeit gerendert. Der nicht authentifizierte Export eines sauberen 176784 Byte großen PNG-Sprite-Sheet-Artefakts wurde zusammen mit den JSON-Atlas-Optionen erfolgreich ausgelöst. Die Netzwerktelemetrie zeichnete 7 ausgehende Anfragen auf (6 Umami-Analyseanfragen und 1 Google Identity-Prüfung); Es wurden 0 Byte Benutzer-Asset-Daten ausgegeben.",
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Empacotando folhas de sprites 2D, decompondo GIFs em quadros e construindo atlas de textura de mecanismo de jogo anonimamente no navegador",
@@ -67753,20 +67750,20 @@
       "privacyVerdict": "A geração de folhas Sprite e o empacotamento de quadros ocorrem localmente na memória da tela do navegador. As solicitações de rede de saída são limitadas a 6 solicitações de análise Umami e 1 verificação de identidade do Google, sem upload de dados de imagem do usuário para servidores remotos.",
       "benchmarkNotes": "Criação de sprite sheet dogfooded com uma imagem de fixture de 804x604 px. Visualização imediata da tela renderizada em 1 quadro com congelamento de 0 ms. A exportação não autenticada foi acionada com êxito de um artefato de folha sprite PNG limpo de 176.784 bytes junto com as opções do atlas JSON. A telemetria de rede registrou 7 solicitações de saída (6 solicitações de análise Umami e 1 investigação de identidade do Google); 0 bytes de dados de ativos do usuário foram enviados.",
       "productScore": {
-        "overall": 92,
-        "frictionless": 19,
-        "depth": 24,
+        "overall": 84,
+        "frictionless": 15,
+        "depth": 21,
         "exportFreedom": 19,
         "privacy": 16,
-        "polish": 14
+        "polish": 13
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "TexturePacker",
         "ShoeBox",
         "Free texture packer"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "www-allsubconverter-com": {
@@ -79597,6 +79594,487 @@
       "benchmarkNotes": "完成 50 英寸向英尺、厘米及米的多重换算与比例尺透视渲染，成功导出 4,962 字节无水印对比 SVG 文件，主线程 0 阻塞，CLS 为 0.04。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-15T03:35:24.607Z"
+    }
+  },
+  "knittingchart-com": {
+    "en": {
+      "bestFor": "Knitters designing colorwork and stitch charts on a true-proportion grid with yarn color keys and row-by-row instructions without creating an account.",
+      "pros": [
+        "Interactive HTML5 canvas grid with Draw, Fill, Erase, Pick tools, Undo/Redo, Mirror/Flip/Rotate, and stitch symbols (knit, purl, yo, k2tog, ssk, slip, twisted)",
+        "True stitch shape toggle and gauge/chart size calculators update physical dimensions live",
+        "Free unwatermarked PNG image (812x553, 38,564 bytes), PDF, written instructions, and local project file exports with zero login gate"
+      ],
+      "cons": [
+        "Emits 8 analytics and session-telemetry payloads to Google Analytics (www.google-analytics.com/g/collect), Cloudflare RUM (/cdn-cgi/rum), and Microsoft Clarity (u.clarity.ms/collect)",
+        "Selection tool and Designer pack SVG export are locked behind Pro"
+      ],
+      "privacyVerdict": "Chart editing and PNG export executed locally on an HTML5 canvas without uploading chart files to a backend; however, 8 outgoing telemetry payloads were observed to POST www.google-analytics.com/g/collect, POST /cdn-cgi/rum, and POST u.clarity.ms/collect.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Named chart 'Test Nordic Heart', switched to Fill tool, filled canvas heart region, opened Export panel, and exported a 38,564-byte 812x553 PNG with valid magic bytes and zero watermark; max freeze 0ms, CLS 0.06.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:49:50.056Z"
+    },
+    "zh": {
+      "bestFor": "适合编织爱好者免登录在浏览器中绘制真实针目比例的配色与花样编织图，并导出图解与文字说明。",
+      "pros": [
+        "HTML5 Canvas 网格支持画笔、填充、擦除、取色、撤销/重做、镜像/翻转/旋转及 knit/purl/yo 等多种编织针法符号",
+        "支持真实针目比例切换与密度（Gauge）尺寸实时换算，无需注册即可导出无水印 PNG（812x553，38,564 字节）、PDF、文字说明与本地存档"
+      ],
+      "cons": [
+        "页面会话期间向 Google Analytics（www.google-analytics.com/g/collect）、Cloudflare RUM（/cdn-cgi/rum）与 Microsoft Clarity（u.clarity.ms/collect）发送了 8 次遥测请求",
+        "框选工具（Select）与 Designer pack SVG 导出需 Pro 订阅"
+      ],
+      "privacyVerdict": "编织图编辑与 PNG 导出均在本地 Canvas 完成，未向后端上传图稿；但观测到 8 次外发遥测请求（POST www.google-analytics.com/g/collect、POST /cdn-cgi/rum、POST u.clarity.ms/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "将图表命名为 Test Nordic Heart，使用 Fill 工具点击 Canvas 填充图案并打开 Export 面板导出 PNG，生成 38,564 字节 812x553 纯净 PNG 无水印；最大主线程阻塞 0ms，CLS 0.06。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:49:50.057Z"
+    }
+  },
+  "songluna-com-tools-bpm-tapper": {
+    "en": {
+      "bestFor": "Musicians and producers measuring song tempo via tap or spacebar and reading delay/echo millisecond values without signing in.",
+      "pros": [
+        "Tap pad and Spacebar input compute exact BPM (133.51 / 134 BPM across 4 taps), half-time (67), and double-time (267) in real time",
+        "Calculates 6 delay/echo note lengths in milliseconds (quarter, eighth, dotted 1/8, 1/8 triplet, sixteenth, half) and includes a Play click track button and Reset control"
+      ],
+      "cons": [
+        "No copy-to-clipboard or export button for the BPM and delay millisecond table",
+        "Top promotional banner and cookie consent bar clutter the viewport, and 4 telemetry requests were sent to POST /api/analytics/events and POST /cdn-cgi/rum"
+      ],
+      "privacyVerdict": "Tap tempo and delay calculations executed in-browser without uploading audio or user data; 4 outgoing analytics payloads were observed (POST /api/analytics/events and POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 17,
+        "depth": 12,
+        "exportFreedom": 13,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Clicked Tap pad and pressed Space at ~450ms intervals across 4 taps; readout updated to 133.51 BPM (67 half-time, 267 double-time) with 449ms quarter-note delay; dismissed cookie banner and verified Reset in 0.01 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:53:14.649Z"
+    },
+    "zh": {
+      "bestFor": "适合音乐人与制作人免登录通过点击或空格键测算歌曲 BPM 节拍及各音符延迟毫秒数。",
+      "pros": [
+        "支持点击测速板或空格键输入，实时输出精确 BPM（实测 4 次敲击得 133.51 / 134 BPM）、半速（67）与倍速（267）",
+        "自动换算四分、八分、附点八分、三连音等 6 种延迟/回声时值（毫秒），并提供节拍器试听（Play click track）与 Reset 重置"
+      ],
+      "cons": [
+        "结果面板缺少一键复制或导出 BPM 与延迟时值表的功能",
+        "页面顶部有订阅横幅与 Cookie 弹窗，且捕获到 4 次遥测请求（POST /api/analytics/events、POST /cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "BPM 与延迟毫秒计算均在浏览器本地执行，未上传音频数据；会话期间观测到 4 次遥测外发请求（POST /api/analytics/events 与 POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 17,
+        "depth": 12,
+        "exportFreedom": 13,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "以约 450ms 间隔完成 4 次敲击并配合空格键测试，界面实时显示 133.51 BPM（半速 67、倍速 267）及四分音符 449ms 等延迟参数，并测试了 Reset 重置与关闭横幅，CLS 仅 0.01。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:53:14.650Z"
+    }
+  },
+  "thecrossstitchpatternmaker-com": {
+    "en": {
+      "bestFor": "Crafters converting photos into printable DMC cross-stitch charts with symbol grids, floss counts, and A4/US Letter PDF export without an account.",
+      "pros": [
+        "Converts uploaded PNGs locally into a 7,500-stitch (100x75), 21-color DMC symbol chart with skein counts and Symbols/Color/Original views",
+        "Configurable width (up to 300x300 free), color count (up to 50 free), confetti clean-up, fabric count, and A4/Letter PDF paper selectors",
+        "Download PDF — free produced a clean 166,445-byte PDF with valid magic bytes and zero watermark without login"
+      ],
+      "cons": [
+        "Emits 7 telemetry payloads to Google Analytics (www.google-analytics.com/g/collect), Cloudflare RUM (/cdn-cgi/rum), and Microsoft Clarity (i.clarity.ms/collect)",
+        "Free tier limits full PDF output to the first PDF and caps width at 300x300, colors at 50, and locks OXS export behind Pro"
+      ],
+      "privacyVerdict": "Photo quantization and PDF chart generation ran locally in-browser without uploading the image to a backend; 7 outgoing telemetry requests were observed (POST www.google-analytics.com/g/collect, POST /cdn-cgi/rum, POST i.clarity.ms/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 16,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.png, generated a 100x75 (7,500 stitches, 21 colors, 0% confetti) pattern, switched to 2x zoom, and triggered 'Download PDF — free' to export a 166,445-byte unwatermarked PDF; max freeze 252ms, CLS 0.11.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:54:55.954Z"
+    },
+    "zh": {
+      "bestFor": "适合手工爱好者免登录将照片转换为带 DMC 绣线色号、绞数统计与符号网格的可打印十字绣 PDF 图纸。",
+      "pros": [
+        "本地将上传的 PNG 转换为 100x75（7,500 针、21 色）DMC 符号图解，提供符号/色块/原图视图及绣线用量表",
+        "支持免费调整宽度（最高 300x300）、颜色数（最高 50）、杂点清理、绣布规格与 A4/Letter 纸张",
+        "点击 Download PDF — free 免登录导出 166,445 字节纯净 PDF 文件，无水印且魔数校验通过"
+      ],
+      "cons": [
+        "会话期间向 Google Analytics（www.google-analytics.com/g/collect）、Cloudflare RUM（/cdn-cgi/rum）与 Microsoft Clarity（i.clarity.ms/collect）发送 7 次遥测请求",
+        "免费版仅首个 PDF 完整免费，且超过 300x300 尺寸、50 色与 OXS 格式导出需 Pro"
+      ],
+      "privacyVerdict": "照片转绣图与 PDF 生成均在浏览器本地完成，未见图片上传；但观测到 7 次遥测请求（POST www.google-analytics.com/g/collect、POST /cdn-cgi/rum、POST i.clarity.ms/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 16,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 sample.png 生成 100x75（7,500 针、21 色、0% 杂点）图解，切换 2x 缩放并触发 Download PDF — free，导出 166,445 字节无水印 PDF；最大主线程阻塞 252ms，CLS 0.11。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:54:55.955Z"
+    }
+  },
+  "convertheictojpg-org": {
+    "en": {
+      "bestFor": "Converting HEIC, PNG, WebP, SVG, and PDF images in-browser without uploading files or creating an account, if ad banners are acceptable.",
+      "pros": [
+        "Supports 18 format pairs including HEIC, PNG, WebP, GIF, SVG, and PDF plus batch conversion without login",
+        "PNG-to-JPG converter output a valid 800x600 JPEG (45,306 bytes) with clean magic bytes and zero watermark",
+        "Clear format validation message ('1 file(s) skipped: not a supported format for this tool') when uploading PNG to the HEIC-only landing route"
+      ],
+      "cons": [
+        "Large Google AdSense anchor/top banners overlap the workspace and caused 0.39 CLS layout shift",
+        "Emitted 19+ ad and analytics payloads to www.google-analytics.com, analytics.ahrefs.com, pagead2.googlesyndication.com, and fundingchoicesmessages.google.com"
+      ],
+      "privacyVerdict": "Image conversion ran locally in-browser without uploading the test image file; however, 19+ outgoing tracking and ad payloads were observed (POST www.google-analytics.com/g/collect, POST analytics.ahrefs.com/api/event, POST pagead2.googlesyndication.com/pagead/ping, POST fundingchoicesmessages.google.com).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 15,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 12,
+        "polish": 10
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Tested root HEIC route (rejected sample.png with clear unsupported-format notice), switched via Converter menu to /png-to-jpg, uploaded sample.png, and clicked Download JPG to export a 45,306-byte 800x600 JPEG; max freeze 0ms, CLS 0.39 due to ad injection.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:58:08.193Z"
+    },
+    "zh": {
+      "bestFor": "适合不介意网页广告、需要免登录在浏览器本地批量转换 HEIC、PNG、WebP、SVG 及 PDF 图片的用户。",
+      "pros": [
+        "覆盖 HEIC、PNG、WebP、GIF、SVG、PDF 等 18 种格式转换与批量处理，全程无需注册登录",
+        "在 /png-to-jpg 页面实测导出 800x600、45,306 字节纯净 JPEG，魔数校验通过且无水印",
+        "在仅限 HEIC 的首页上传 PNG 时能给出明确的格式跳过提示"
+      ],
+      "cons": [
+        "页面顶部与底部弹出大面积 Google AdSense 广告条遮挡内容并导致 0.39 CLS 布局偏移",
+        "捕获到 19+ 次广告与统计外发请求（www.google-analytics.com、analytics.ahrefs.com、pagead2.googlesyndication.com、fundingchoicesmessages.google.com）"
+      ],
+      "privacyVerdict": "图片格式转换在浏览器本地完成，未观察到测试图片上传至服务器；但捕获到 19+ 次广告与分析遥测请求（POST www.google-analytics.com/g/collect、POST analytics.ahrefs.com/api/event、POST pagead2.googlesyndication.com/pagead/ping、POST fundingchoicesmessages.google.com）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 15,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 12,
+        "polish": 10
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在首页 HEIC 转换器测试上传 sample.png 触发格式拦截提示后，切换至 /png-to-jpg 上传 sample.png 并点击 Download JPG，成功导出 45,306 字节 800x600 无水印 JPEG；最大阻塞 0ms，受广告加载影响 CLS 达 0.39。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T02:58:08.194Z"
+    }
+  },
+  "calcahead-com": {
+    "en": {
+      "bestFor": "Running transparent finance, math, health, date, and home-project calculations with CSV amortization exports and local saving without an account.",
+      "pros": [
+        "Ad-free multi-category calculator suite with instant search, global currency/unit selectors, and zero sign-up barriers",
+        "Mortgage Recast Calculator compares recast vs. keep-payment paths side by side and exports a 32,409-byte CSV breakdown with zero watermark",
+        "Also provides PNG summary export, View/copy CSV, Save on this device, and 0.00 CLS layout stability"
+      ],
+      "cons": [
+        "Emits telemetry beacons to Google Analytics (www.google-analytics.com/g/collect), app.pageview.app/api/event, and Cloudflare RUM (/cdn-cgi/rum)",
+        "Optional 30-day shareable link generation relies on remote persistence"
+      ],
+      "privacyVerdict": "Calculator computations and CSV breakdown generation executed locally in-browser; 9 outgoing requests were observed including analytics/RUM beacons (POST www.google-analytics.com/g/collect, POST app.pageview.app/api/event, POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Searched 'Mortgage' on home page, opened /finance/mortgage-recast-calculator/, updated principal balance to 400000 and lump sum to 80000, clicked Update estimate (recast monthly payment CNY 2,292.58 vs CNY 2,865.72), and exported a clean 32,409-byte CSV via 'Download breakdown (CSV)'; max freeze 62ms, CLS 0.00.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:01:02.167Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免登录进行财务、数学、健康、日期及家居项目计算并导出 CSV 明细表的用户。",
+      "pros": [
+        "无广告干扰的多领域计算器套件，支持即时搜索与全局货币/单位切换，全程无需注册",
+        "Mortgage Recast 计算器可并排对比提前还款重算与原月供方案，实测免登录导出 32,409 字节纯净 CSV 明细表",
+        "同时支持 PNG 图像导出、复制 CSV 与本地设备保存，页面 CLS 保持 0.00"
+      ],
+      "cons": [
+        "会话期间向 Google Analytics（www.google-analytics.com/g/collect）、app.pageview.app/api/event 与 Cloudflare RUM（/cdn-cgi/rum）发送统计请求",
+        "可选的 30 天分享链接功能依赖服务端存储"
+      ],
+      "privacyVerdict": "数值计算与 CSV 明细导出均在浏览器本地完成；共观测到 9 次外发请求，包含遥测上报（POST www.google-analytics.com/g/collect、POST app.pageview.app/api/event、POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在首页搜索 Mortgage 并进入 /finance/mortgage-recast-calculator/，将本金余额设为 400000、一次性还款设为 80000 后点击 Update estimate（重算月供 CNY 2,292.58 对比原月供 CNY 2,865.72），随后通过 Download breakdown (CSV) 导出 32,409 字节无水印 CSV；最大阻塞 62ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:01:02.167Z"
+    }
+  },
+  "aion2pets-org": {
+    "en": {
+      "bestFor": "AION 2 players searching pet spawn locations, tracking collection progress across 209 pets, and sharing progress links without an account.",
+      "pros": [
+        "Searchable 209-pet database with genus/region filters, farming target pinning, and interactive cluster spawn map on /collection/",
+        "Local browser collection tracker computes remaining soul counts and supports hash-encoded share links (#share) and image cards without login",
+        "Smooth responsiveness with 164ms max main-thread task and 0.00–0.05 CLS"
+      ],
+      "cons": [
+        "Emits 20+ analytics and session-recording payloads to Google Analytics (www.google-analytics.com/g/collect) and Microsoft Clarity (h.clarity.ms/collect)",
+        "Progress sharing/image export requires marking at least one pet collected first, and data lives only in local browser storage unless manually shared"
+      ],
+      "privacyVerdict": "Pet filtering, target pinning, and collection state run in local browser storage without account login; 20 outgoing telemetry payloads were observed to POST www.google-analytics.com/g/collect and POST h.clarity.ms/collect.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Searched 'Fossa' in Pet Atlas (filtered 209 pets down to 1), pinned target, navigated to /collection/ Pet Tracker (clicked map cluster 'Destroyed Temple Site' showing 30 spawn points), and tested Share your progress (Copy share link and Download image gated cleanly on marking >=1 pet); max freeze 164ms, CLS 0.05.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:05:50.696Z"
+    },
+    "zh": {
+      "bestFor": "适合 AION 2 玩家免登录检索 209 种宠物刷新点、标记收集进度与目标清单并生成分享链接。",
+      "pros": [
+        "支持按名称、属类与区域筛选 209 种宠物，在 /collection/ 页面提供聚合交互地图、怪物等级滑块与目标追踪",
+        "纯浏览器本地存储收集进度并自动计算所需灵魂数，支持通过 URL Hash 链接（#share）免登录分享",
+        "交互流畅，最大主线程任务 164ms，CLS 保持 0.00–0.05"
+      ],
+      "cons": [
+        "页面会话期间向 Google Analytics（www.google-analytics.com/g/collect）与 Microsoft Clarity（h.clarity.ms/collect）发送了 20 次统计与录屏遥测请求",
+        "生成进度分享图需先至少标记 1 只已收集宠物，且数据仅保存在当前浏览器"
+      ],
+      "privacyVerdict": "宠物检索、目标标记与收集进度均保存在浏览器本地，无需账号登录；但会话期间观测到 20 次外发遥测请求（POST www.google-analytics.com/g/collect 与 POST h.clarity.ms/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 Pet Atlas 搜索 Fossa（从 209 条精准筛出 1 条）并添加目标，进入 /collection/ 交互地图点击区域聚合点（显示 Destroyed Temple Site 及 30 个刷新点），测试 Share your progress（需先标记至少 1 只宠物方可导出进度图）；最大阻塞 164ms，CLS 0.05。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:05:50.697Z"
+    }
+  },
+  "fitsduo-com": {
+    "en": {
+      "bestFor": "Checking whether iOS apps adapt properly to the iPhone Duo foldable screen, filtering by compatibility tier and verified screenshots without an account.",
+      "pros": [
+        "Instant search across 3,048 tracked apps with live dropdown matches, 7 compatibility status pills, screenshot filter, and category/popularity sorting",
+        "Detail pages (e.g., /apps/youtube) display verified version numbers, owner-submitted screenshots, and update timestamps with zero login gate"
+      ],
+      "cons": [
+        "Collapsing/expanding filtered result grids caused 0.32–0.86 CLS layout shift during search and filter clicks",
+        "No CSV/JSON export option, and 5 telemetry payloads were sent to POST analytics.google.com/g/collect and POST stats.g.doubleclick.net/g/collect"
+      ],
+      "privacyVerdict": "Searching, filtering, and browsing app compatibility records required no account; 5 outgoing analytics payloads were observed (POST analytics.google.com/g/collect and POST stats.g.doubleclick.net/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Typed 'Notion' into Search (filtered 3,048 apps to 2 matches), clicked Clear filters, toggled 'With screenshots 91', and opened /apps/youtube detail page; max freeze 0ms, CLS reached 0.86 during grid height changes.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:08:28.173Z"
+    },
+    "zh": {
+      "bestFor": "适合免登录查询 iOS 应用在 iPhone Duo 折叠屏上的适配状态、按截图和兼容等级筛选的兼容性数据库。",
+      "pros": [
+        "支持实时检索 3,048 款应用，提供 7 种适配状态标签、带截图筛选及分类/热度排序，无需注册",
+        "应用详情页（如 /apps/youtube）展示适配版本号、实拍截图与更新时间，开箱即查"
+      ],
+      "cons": [
+        "搜索与筛选时结果列表高度变化导致 0.32–0.86 CLS 布局偏移",
+        "未提供 CSV/JSON 导出功能，且会话期间捕获到 5 次外发统计请求（POST analytics.google.com/g/collect、POST stats.g.doubleclick.net/g/collect）"
+      ],
+      "privacyVerdict": "检索、筛选与查看应用适配报告无需登录账号；但捕获到 5 次统计请求（POST analytics.google.com/g/collect 与 POST stats.g.doubleclick.net/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在搜索框输入 Notion（从 3,048 款应用中实时筛出 2 条），随后点击 Clear filters 与 With screenshots 91，并打开 /apps/youtube 详情页；最大主线程阻塞 0ms，筛选列表高度变化引发 CLS 达 0.86。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:08:28.174Z"
+    }
+  },
+  "thexly-com-tools-roas-calculator": {
+    "en": {
+      "bestFor": "Marketers and founders computing ROAS multiples and percentages locally while distinguishing platform-reported vs. collected payment revenue without signing in.",
+      "pros": [
+        "Instant live ROAS calculation displaying both multiplier (4.50x) and percentage (450% ROAS) with formula breakdown as you type",
+        "Revenue-source selector adjusts interpretation guidance between ad-platform attribution and collected payments (Stripe or similar)",
+        "Zero layout shift (0.00 CLS), 0ms main-thread freeze, and no ads or signup popups"
+      ],
+      "cons": [
+        "No copy-to-clipboard or CSV/image export button for calculated results",
+        "Emits 2 analytics payloads to POST thexly.com/api/send and POST www.google-analytics.com/g/collect"
+      ],
+      "privacyVerdict": "ROAS arithmetic ran locally in-browser on the typed numbers; 2 outgoing analytics payloads were observed (POST thexly.com/api/send and POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Entered 25000 into #adSpend and 112500 into #revenue, selected 'Payments collected (Stripe or similar)', and observed live output '4.50x' / '450% ROAS' with zero freeze (0ms) and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:10:28.364Z"
+    },
+    "zh": {
+      "bestFor": "适合营销人员与创业者免登录快速计算广告支出回报率（ROAS 倍数与百分比），并区分平台归因收入与实收款项口径。",
+      "pros": [
+        "输入即实时计算 ROAS 倍数（4.50x）、百分比（450% ROAS）及算式拆解",
+        "提供收入来源选项（广告平台统计或 Stripe 等实际收款）以给出对应的口径解读提示",
+        "页面无广告与弹窗干扰，CLS 为 0.00，最大阻塞 0ms"
+      ],
+      "cons": [
+        "计算结果区域未提供一键复制或导出按钮",
+        "会话期间向 POST thexly.com/api/send 与 POST www.google-analytics.com/g/collect 发送 2 次统计请求"
+      ],
+      "privacyVerdict": "ROAS 算式在浏览器本地实时计算；会话期间观测到 2 次统计外发请求（POST thexly.com/api/send 与 POST www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 13,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #adSpend 输入 25000、#revenue 输入 112500 并选择 Payments collected (Stripe or similar)，实时得出 4.50x 与 450% ROAS；最大主线程阻塞 0ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:10:28.364Z"
+    }
+  },
+  "namepractice-com": {
+    "en": {
+      "bestFor": "Parents and teachers generating printable Trace-Copy-Write name tracing PDF worksheets without signing up.",
+      "pros": [
+        "Immediate Trace -> Copy -> Write worksheet preview with configurable age band and paper format (US Letter / A4)",
+        "Download printable PDF generated a 250,442-byte PDF without login or export watermark (preview watermark is omitted from the exported PDF)",
+        "Zero main-thread freeze (0ms) and 0.01 CLS across tested steps"
+      ],
+      "cons": [
+        "Server-side generation transmits input names via POST /preview-draft and POST /generate alongside telemetry to app.pageview.app/api/event, /cdn-cgi/rum, and accounts.google.com/gsi/status",
+        "Free usage is capped at 10 pages per month (up to 3 names per download)"
+      ],
+      "privacyVerdict": "Worksheet preview and PDF rendering occur server-side via POST /preview-draft and POST /generate; 8 outgoing requests were observed including analytics/auth probes (POST app.pageview.app/api/event, POST /cdn-cgi/rum, GET accounts.google.com/gsi/status).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Entered 'Oliver' into #np-name-one, clicked Download printable PDF (decremented monthly counter from 10 to 9 free pages), and received a clean 250,442-byte PDF; max freeze 0ms, CLS 0.01.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:12:54.394Z"
+    },
+    "zh": {
+      "bestFor": "适合家长与教师免登录生成“描红—临摹—独立书写”三段式姓名练字 PDF 字帖。",
+      "pros": [
+        "输入姓名即实时预览三段式练字页，支持选择学龄阶段与纸张规格（US Letter / A4）",
+        "无需登录即可点击 Download printable PDF 导出 250,442 字节无水印 PDF（仅预览图带有网站水印）",
+        "交互流畅，最大主线程阻塞 0ms，CLS 仅 0.01"
+      ],
+      "cons": [
+        "字帖生成依赖服务端接口（POST /preview-draft、POST /generate）发送输入姓名，同时观测到 app.pageview.app/api/event、/cdn-cgi/rum 与 accounts.google.com/gsi/status 请求",
+        "免费额度每月限制 10 页（单次下载最多 3 个姓名）"
+      ],
+      "privacyVerdict": "字帖预览与 PDF 渲染通过服务端接口（POST /preview-draft 与 POST /generate）完成；同时捕获到 8 次外发请求，包含统计与登录状态探测（POST app.pageview.app/api/event、POST /cdn-cgi/rum、GET accounts.google.com/gsi/status）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #np-name-one 输入 Oliver 并点击 Download printable PDF（免费额度从 10 页扣减至 9 页），成功下载 250,442 字节无水印 PDF；最大主线程阻塞 0ms，CLS 0.01。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-17T03:12:54.395Z"
     }
   }
 }

@@ -21,6 +21,12 @@
     "coreTask": "即时推演宠物灵气升级需求、计算封锁槽位洗炼消耗并检索宠物刷新位置，无需注册登录。",
     "contentUpdatedAt": "2026-11-09T03:04:03.020Z"
   },
+  "aion2pets-org": {
+    "_hash": "444d5799a2eb5f81",
+    "description": "免登录 AION 2 宠物图鉴与本地收集追踪工具，涵盖 209 种宠物检索、属类/区域筛选、交互式刷新点地图、刷取目标标记以及基于 URL Hash 的进度分享。",
+    "coreTask": "免登录检索与筛选 209 种宠物数据，在交互地图上查看刷新点聚合，并在浏览器本地记录刷取目标与收集进度。",
+    "contentUpdatedAt": "2026-11-17T03:05:50.842Z"
+  },
   "aislopdetector-net": {
     "_hash": "ea8a352069e3cbaf",
     "description": "完全在浏览器本地检测文本与图片中的 AI 套话模板、高频词及低质生成特征。",
@@ -190,6 +196,12 @@
     "coreTask": "合并多个 PDF 文件、调整页面顺序并下载合并后的文件——全程无需注册账号，零数据上传到服务器。",
     "description": "直接在浏览器中将多个 PDF 文件合并为一个——零上传、免注册。文件完全利用您本地设备的计算性能在客户端处理，任何数据都不会离开您的电脑。拖拽添加、排序页面，即刻下载合并文件。"
   },
+  "calcahead-com": {
+    "_hash": "ca986a85c1d00656",
+    "description": "无广告在线计算器套件，涵盖财务、数学、健康、日期时间与家居工程等领域，支持货币/单位切换、CSV 明细与 PNG 导出以及本地保存，无需登录。",
+    "coreTask": "搜索或选择计算器并输入参数生成对比结果，免登录导出 CSV 明细表或 PNG 摘要图。",
+    "contentUpdatedAt": "2026-11-17T03:01:02.317Z"
+  },
   "calcrobin-com": {
     "_hash": "2fab3732dc7122fd",
     "description": "一站式访问 270 多款涵盖大模型 Token 测算、金融投资、健康与数学计算等完全在浏览器本地运行的实用小工具。",
@@ -338,6 +350,12 @@
   "converters-live": {
     "coreTask": "在浏览器中直接将图片转换成 PDF、视频转成 GIF、以及音频格式互转，无需注册",
     "description": "免费的在线图像、视频和音频转换器，即开即用，无需注册或登录账号。"
+  },
+  "convertheictojpg-org": {
+    "_hash": "a58e7e2eb73708d6",
+    "description": "免登录浏览器端图片格式转换工具（含广告），支持 HEIC、PNG、WebP、GIF、SVG 与 PDF 等 18 种格式组合及批量转换，可无水印下载。",
+    "coreTask": "将 HEIC 或其他受支持格式图片拖入浏览器转换器，免上传免登录直接下载转换后的 JPG、PNG 或 WebP 文件。",
+    "contentUpdatedAt": "2026-11-17T02:58:08.346Z"
   },
   "convertilo-io": {
     "coreTask": "直接在浏览器中压缩图像、转换及合并 PDF",
@@ -656,6 +674,12 @@
     "description": "无需注册的个人理财与FIRE退休计算器套件，支持跨币种储蓄模型与目标资产测算。",
     "coreTask": "结合多项通胀率与年化收益参数测算提前退休FIRE目标资产与储蓄年限。",
     "contentUpdatedAt": "2026-11-14T03:21:01.533Z"
+  },
+  "fitsduo-com": {
+    "_hash": "f87721cd322b6aaa",
+    "description": "免登录 iPhone Duo 折叠屏应用兼容性查询数据库，收录 3,048 款 iOS 应用的适配状态、实拍截图验证与分类排序。",
+    "coreTask": "免登录搜索 iOS 应用或按适配状态与截图筛选，查看其在 iPhone Duo 上的屏幕兼容表现。",
+    "contentUpdatedAt": "2026-11-17T03:08:28.320Z"
   },
   "flexboxfroggy-com": {
     "_hash": "660459e64baef9ca",
@@ -1053,6 +1077,12 @@
     "coreTask": "输入罗马尼亚语或英语采购清单句子，自动解析多件商品与具体数量，按超市货架分类，并在公开免登录演示中直接勾选打卡",
     "description": "Kmag 是一款面向家庭的双语共享购物清单 PWA 应用。其无需注册账号的公开网页演示版可将自然语言购物句子智能拆解为带有数量与超市货架分区的结构化清单，并允许用户直接在浏览器中勾选完成项目。"
   },
+  "knittingchart-com": {
+    "_hash": "4b45582e0363ce3d",
+    "description": "免登录浏览器编织图解编辑器，支持真实针目比例网格、多种针法符号、密度尺寸换算，以及无水印 PNG、PDF 和逐行文字说明导出；SVG 设计师包与云同步需 Pro。",
+    "coreTask": "在画布网格上绘制或填充配色/针法编织图，并免登录导出无水印 PNG、PDF 或逐行文字编织说明。",
+    "contentUpdatedAt": "2026-11-17T02:49:50.216Z"
+  },
   "kuakua-app": {
     "_hash": "92294a736326ef5b",
     "description": "Kuakua.app 是您的 AI 驱动心理健康资源、正念冥想和积极心理学游戏中心。参加科学测验，玩益脑任务，解锁每日肯定语，随时随地感受更幸福、更平静、更有韧性。",
@@ -1262,6 +1292,12 @@
     "_hash": "d67d51b1385f4f92",
     "description": "通过解决谋杀悬案来学习 SQL。使用 SELECT、JOIN、WHERE 等查询数据库，找出凶手。",
     "coreTask": "通过侦探游戏学习 SQL"
+  },
+  "namepractice-com": {
+    "_hash": "39777e8749b03924",
+    "description": "免登录可打印姓名描红字帖生成器（服务端渲染），提供描红-临摹-独立书写三段式字帖、学龄字号调节与无水印 PDF 导出（每月免费 10 页）。",
+    "coreTask": "输入姓名并选择学龄阶段与纸张格式，免登录下载可打印的描红-临摹-独立书写 PDF 字帖。",
+    "contentUpdatedAt": "2026-11-17T03:12:54.550Z"
   },
   "nametracing-org": {
     "_hash": "fd73b9b4c4471dc7",
@@ -1795,6 +1831,12 @@
     "coreTask": "以真实比例对比现实世界物品尺寸，并可输入自定义测量数据。",
     "description": "SizeCompare 是一款免费的可视化尺寸对比工具，涵盖手机、平板、笔记本电脑、轮胎、动物和常见日常物品。支持以真实比例对比核实过的尺寸数据，并内置轮胎、身高、屏幕比例及自定义尺寸计算器。"
   },
+  "songluna-com-tools-bpm-tapper": {
+    "_hash": "a577bda17e092bc9",
+    "description": "免登录浏览器 BPM 节拍测速工具，支持点击或空格键敲击测算精确 BPM、半速/倍速、节拍器试听以及多种音符延迟毫秒数。",
+    "coreTask": "连续点击测速板或按空格键测算歌曲 BPM，并查看四分、八分、附点、三连音与十六分音符的延迟毫秒数。",
+    "contentUpdatedAt": "2026-11-17T02:53:14.808Z"
+  },
   "sortvisualizer-com": {
     "_hash": "25ec098bf0cfab0a",
     "description": "通过动态条形图观看排序算法的运行过程。并排比较冒泡排序、快速排序、归并排序等。",
@@ -1928,6 +1970,12 @@
     "coreTask": "无需创建账号或登录，直接在浏览器中跨电脑和手机传输文本、链接、代码与文件",
     "description": "Textunnel 是一款轻量级的跨设备分享工具，让你无需创建账号或登录，即可在不同设备间快速传输文本、链接、代码和文件。直接在浏览器中打开即可开始传输，便捷安全。"
   },
+  "thecrossstitchpatternmaker-com": {
+    "_hash": "cc699bbb7810836c",
+    "description": "免登录浏览器照片转十字绣图纸工具，内置 454 种 DMC 绣线色号、符号/色块网格预览、绣线绞数计算与无水印 PDF/PNG 导出（首个 PDF 免费，更大尺寸与 OXS 导出需 Pro）。",
+    "coreTask": "上传照片并调节针数宽度、颜色数量与绣布规格，免登录导出带 DMC 色号清单的可打印十字绣 PDF。",
+    "contentUpdatedAt": "2026-11-17T02:54:56.106Z"
+  },
   "themeasureofaplan-com": {
     "_hash": "bb41b5df46e9e09e",
     "description": "提供个人财务计算器、电子表格与学习资料。Savings Goal Solver 在浏览器中根据输入假设更新计算，网站同时显示第三方广告。",
@@ -1937,6 +1985,12 @@
     "seoFocusKeyword": "免注册储蓄计算器",
     "seoTaskPhrase": "无需注册计算储蓄场景",
     "contentUpdatedAt": "2026-10-26T11:09:35.395Z"
+  },
+  "thexly-com-tools-roas-calculator": {
+    "_hash": "bf7856f935f1ada1",
+    "description": "免登录免费浏览器广告支出回报率（ROAS）计算器，实时计算倍数与百分比回报并根据收入统计口径提供解读说明。",
+    "coreTask": "输入广告花费与收入并选择收入统计口径，免登录在浏览器内实时计算 ROAS 倍数与百分比。",
+    "contentUpdatedAt": "2026-11-17T03:10:28.511Z"
   },
   "thredly-io-templates-ai-coding-handover": {
     "_hash": "e6b5ad4a6907751d",

@@ -40,6 +40,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T03:03:32.841Z"
   },
+  "aion2pets-org": {
+    "lastDeepEvalAt": "2026-11-17T03:05:50.720Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-17T03:05:50.720Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T03:05:50.720Z"
+  },
   "aislopdetector-net": {
     "lastDeepEvalAt": "2026-10-26T02:32:02.049Z",
     "lastResolution": {
@@ -310,6 +321,17 @@
     "lastTitle": "Free Merge PDF Files Online - No Signup, No Watermark",
     "lastSignals": []
   },
+  "calcahead-com": {
+    "lastDeepEvalAt": "2026-11-17T03:01:02.195Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, highly-recommended)",
+      "at": "2026-11-17T03:01:02.195Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T03:01:02.195Z"
+  },
   "calcrobin-com": {
     "lastDeepEvalAt": "2026-10-26T04:54:03.103Z",
     "lastResolution": {
@@ -533,6 +555,17 @@
       ]
     },
     "lastTitle": "在线文件转换器——图片、视频、音频 | Converters.live"
+  },
+  "convertheictojpg-org": {
+    "lastDeepEvalAt": "2026-11-17T02:58:08.233Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-17T02:58:08.233Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:58:08.233Z"
   },
   "convertilo-io": {
     "openAnomalies": [],
@@ -1006,6 +1039,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-14T03:20:01.560Z"
   },
+  "fitsduo-com": {
+    "lastDeepEvalAt": "2026-11-17T03:08:28.203Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-17T03:08:28.203Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T03:08:28.203Z"
+  },
   "flexboxfroggy-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T06:29:12.451Z",
@@ -1418,30 +1462,17 @@
     "lastSignals": []
   },
   "ignlab-net": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-11T06:45:05.283Z",
-        "lastSeenAt": "2026-11-11T06:45:05.283Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-intent-1794379497034.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-outcome-1794379497034.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-11T06:45:05.283Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:42:03.374Z",
     "lastTitle": "IgnLab — Free Web Tools, Browser Games & Indie Directories",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-03T02:45:26.758Z",
+    "lastDeepEvalAt": "2026-11-17T02:42:03.374Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
-      "at": "2026-11-03T02:45:26.758Z",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-17T02:42:03.374Z",
       "closed": [
         "surface_lost"
       ]
@@ -1612,6 +1643,17 @@
     "lastScanAt": "2026-11-08T06:22:06.080Z",
     "lastTitle": "Kmag — Shared grocery lists with voice and smart aisle sorting",
     "lastSignals": []
+  },
+  "knittingchart-com": {
+    "lastDeepEvalAt": "2026-11-17T02:49:50.089Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-17T02:49:50.089Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:49:50.089Z"
   },
   "kuakua-app": {
     "openAnomalies": [
@@ -1999,6 +2041,17 @@
     "lastScanAt": "2026-11-16T06:19:25.215Z",
     "lastTitle": "The SQL Murder Mystery",
     "lastSignals": []
+  },
+  "namepractice-com": {
+    "lastDeepEvalAt": "2026-11-17T03:12:54.432Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-17T03:12:54.432Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T03:12:54.432Z"
   },
   "nametracing-org": {
     "lastDeepEvalAt": "2026-11-06T02:51:06.131Z",
@@ -2904,6 +2957,17 @@
     "lastTitle": "Compare Sizes & Dimensions at True Scale",
     "lastSignals": []
   },
+  "songluna-com-tools-bpm-tapper": {
+    "lastDeepEvalAt": "2026-11-17T02:53:14.676Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-17T02:53:14.676Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:53:14.676Z"
+  },
   "sortvisualizer-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-11T06:47:06.744Z",
@@ -2928,30 +2992,17 @@
     "lastScanAt": "2026-11-09T03:30:33.287Z"
   },
   "spritesheettool-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"buy credits\"",
-        "firstSeenAt": "2026-11-16T06:19:02.313Z",
-        "lastSeenAt": "2026-11-16T06:19:02.313Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-spritesheettool-com-intent-1794809928522.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-spritesheettool-com-outcome-1794809928522.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-16T06:19:02.313Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:38:39.851Z",
     "lastTitle": "RPG Sprite Sheet Generator for Character Walk Packs",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-04T02:35:26.023Z",
+    "lastDeepEvalAt": "2026-11-17T02:38:39.851Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified Sprite Sheet Maker at /sprite-sheet-maker packs frames locally and exports clean 10KB PNG with no login; landing page RPG generator has credit copy but classic utility remains fully functional and anonymous.",
-      "at": "2026-11-04T02:35:26.023Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-17T02:38:39.851Z",
       "closed": [
         "paywall_copy"
       ]
@@ -3139,6 +3190,17 @@
     "lastTitle": "Textunnel — Transfer Files Between Devices over Wi-Fi",
     "lastSignals": []
   },
+  "thecrossstitchpatternmaker-com": {
+    "lastDeepEvalAt": "2026-11-17T02:54:55.992Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-17T02:54:55.992Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:54:55.992Z"
+  },
   "themeasureofaplan-com": {
     "lastDeepEvalAt": "2026-10-26T10:56:20.233Z",
     "lastResolution": {
@@ -3150,6 +3212,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-13T06:27:24.853Z",
     "lastSignals": []
+  },
+  "thexly-com-tools-roas-calculator": {
+    "lastDeepEvalAt": "2026-11-17T03:10:28.400Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-17T03:10:28.400Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T03:10:28.400Z"
   },
   "thredly-io-templates-ai-coding-handover": {
     "lastDeepEvalAt": "2026-11-10T03:25:41.646Z",
@@ -3798,30 +3871,17 @@
     "lastSignals": []
   },
   "www-textfixhub-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-11T06:47:52.639Z",
-        "lastSeenAt": "2026-11-11T06:47:52.639Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-intent-1794379663371.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-outcome-1794379663371.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-11T06:47:52.639Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-17T02:44:09.428Z",
     "lastTitle": "Free Text Tools: Alphabetize, Count & More | TextFixHub",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-11T02:40:37.822Z",
+    "lastDeepEvalAt": "2026-11-17T02:44:09.428Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Landing page is a hub linking to 14 text tools. Verified Alphabetizer in browser: entered list, clicked Remove Duplicates, real-time client-side sorting executed with no auth gate. Observed 3 analytics payloads to GA4 and Cloudflare RUM.",
-      "at": "2026-11-11T02:40:37.822Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-17T02:44:09.428Z",
       "closed": [
         "surface_lost"
       ]
