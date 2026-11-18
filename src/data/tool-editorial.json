@@ -80076,5 +80076,381 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-17T03:12:54.395Z"
     }
+  },
+  "stencilmytattoo-com-try-on-tattoo": {
+    "en": {
+      "bestFor": "Users previewing tattoo designs directly on body presets or custom photos with on-device placement before committing.",
+      "pros": [
+        "Runs skin, hair, and clothing segmentation on-device without requiring sign-in or transmitting uploaded artwork",
+        "Provides 10 body placement presets plus interactive drag, resize, and rotation handles on dual canvases",
+        "Exports a clean 1200x1800 unwatermarked PNG (3,069,489 bytes) directly via the Download preview button"
+      ],
+      "cons": [
+        "Emits 38 analytics and session-recording payloads including Google Analytics, Microsoft Clarity, Cloudflare RUM, and in.pvuv.ai",
+        "Initial on-device model initialization caused a 474 ms main-thread freeze during preview preparation"
+      ],
+      "privacyVerdict": "No uploaded image payload egress was observed during preview generation, but 38 telemetry and analytics requests were captured to /api/acquisition/visit, /api/analytics/events, www.google-analytics.com, f.clarity.ms, /cdn-cgi/rum, and in.pvuv.ai.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 10,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.png and ran Preview placement on the Back preset; after on-device segmentation completed (474 ms max freeze), Download preview produced a 3,069,489-byte 1200x1800 unwatermarked PNG.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:40:29.904Z"
+    },
+    "zh": {
+      "bestFor": "适合希望在决定纹身前将设计图叠加到身体预设或自定义照片上预览位置、大小与角度的用户。",
+      "pros": [
+        "无需登录即可在设备端完成皮肤、毛发与衣物识别，未观测到上传图片外传",
+        "提供 10 种身体部位预设及双画布交互式缩放、拖拽与旋转控制",
+        "点击下载预览即可直接导出 1200x1800 无水印 PNG（3,069,489 字节）"
+      ],
+      "cons": [
+        "会话期间发送了 38 次统计与会话录制请求，包含 Google Analytics、Microsoft Clarity、Cloudflare RUM 与 in.pvuv.ai",
+        "首次设备端模型初始化时主线程阻塞峰值达 474 毫秒"
+      ],
+      "privacyVerdict": "预览生成阶段未观测到图片上传请求，但捕获到 38 次遥测与分析外发请求，目标包括 /api/acquisition/visit、/api/analytics/events、www.google-analytics.com、f.clarity.ms、/cdn-cgi/rum 与 in.pvuv.ai。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 10,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 sample.png 并使用 Back 预设执行 Preview placement，设备端分割完成后（主线程峰值阻塞 474ms）通过下载按钮导出 3,069,489 字节的 1200x1800 无水印 PNG。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:40:29.905Z"
+    }
+  },
+  "privatevideotools-com": {
+    "en": {
+      "bestFor": "Users who want to compress, trim, crop, resize, or convert MP4/MOV/WebM videos directly in the browser without uploading footage.",
+      "pros": [
+        "Runs video compression locally using a native browser encoder with sharing target, quality, and output size presets",
+        "Provides a multi-tool video workspace covering compress, trim, crop, resize, MP4 conversion, audio removal, and batch queue downloads",
+        "Exports a clean 16,212-byte unwatermarked output file and warns honestly when re-encoding increases file size"
+      ],
+      "cons": [
+        "Emits 4 lightweight analytics payloads to app.pageview.app/api/event and /cdn-cgi/rum",
+        "First-run engine initialization estimates longer processing time before native encoder caching"
+      ],
+      "privacyVerdict": "No video file payload egress was observed during compression or export; network telemetry was limited to 4 analytics payloads to app.pageview.app/api/event and /cdn-cgi/rum.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded an 11.13 KB sample.mp4, ran Compress MP4 via #convertBtn using the native browser encoder with 0 ms max freeze, and exported a clean 16,212-byte result via #previewDownloadBtn.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:45:11.621Z"
+    },
+    "zh": {
+      "bestFor": "适合希望直接在浏览器本地压缩、裁剪、调整尺寸或转换视频格式且不愿上传原始视频的用户。",
+      "pros": [
+        "利用浏览器原生编码器在本地完成视频压缩，提供分享目标、画质与输出体积预设",
+        "集成压缩、裁剪、裁切、缩放、转 MP4、去音轨及批量队列下载等多项视频工具",
+        "导出 16,212 字节无水印成品文件，并在压缩后体积变大时给出明确提示"
+      ],
+      "cons": [
+        "会话期间向 app.pageview.app/api/event 与 /cdn-cgi/rum 发送了 4 次轻量统计请求",
+        "首次加载本地编码引擎时预估处理耗时较长"
+      ],
+      "privacyVerdict": "压缩与导出过程中未观测到视频文件上传外传；网络请求仅记录到 4 次发往 app.pageview.app/api/event 与 /cdn-cgi/rum 的分析遥测。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 11.13 KB 的 sample.mp4，通过 #convertBtn 调用浏览器原生编码器完成 MP4 压缩（主线程阻塞 0ms），并点击 #previewDownloadBtn 导出 16,212 字节无水印输出。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:45:11.623Z"
+    }
+  },
+  "batchquotelab-com": {
+    "en": {
+      "bestFor": "3D print makers and small print farms comparing single-color vs. multicolor plate costs, planning batch runs, and pricing quotes without creating an account.",
+      "pros": [
+        "Parses local .gcode and .orca.statistics.json slicer files directly in-browser alongside manual filament, electricity, labor, and failure-rate inputs",
+        "Saves quotes locally on-device, backs up saved quotes, and exports a clean 2,166-byte CSV report without sign-in or watermarks",
+        "Honors opt-out on its usage-count prompt ('No thanks') with zero outgoing network payloads observed during the entire session"
+      ],
+      "cons": [
+        "Preloaded example quote and detailed cost assumptions require manual review before issuing client quotes",
+        "No cloud sync across devices unless manually exporting and restoring local backups"
+      ],
+      "privacyVerdict": "Observed network egress during session operation was zero outgoing payloads after declining the opt-in usage prompt; quotes saved directly to device storage.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Declined telemetry prompt, renamed quote via #quote-title, saved quote locally with toast confirmation, switched to Batch production view, and exported a clean 2,166-byte CSV file with 0.00 CLS and 63 ms max task.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:54:15.071Z"
+    },
+    "zh": {
+      "bestFor": "适合 3D 打印创作者与小型打印工作室免登录对比单色/多色耗材成本、规划批量生产并核算报价。",
+      "pros": [
+        "支持直接读取本地 .gcode 与 .orca.statistics.json 切片文件，并可细粒度调节耗材、电费、人工与失败率参数",
+        "支持本地设备保存报价、备份还原以及导出 2,166 字节无水印 CSV 报表，无需注册",
+        "拒绝匿名统计弹窗（No thanks）后全程未观测到任何外发网络请求"
+      ],
+      "cons": [
+        "默认载入示例数据与预设费率，正式对外报价前需自行核对参数",
+        "未提供跨设备云同步，跨端迁移需手动导出备份文件"
+      ],
+      "privacyVerdict": "拒绝可选统计弹窗后，本次测试会话期间未观测到任何外发网络载荷，报价数据直接保存于本地设备。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 19,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "点击 No thanks 拒绝统计后，通过 #quote-title 修改报价名称并本地保存，切换 Batch production 标签页，最终导出 2,166 字节干净 CSV 文件，CLS 为 0.00，主线程峰值 63ms。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:54:15.072Z"
+    }
+  },
+  "stickerbanner-org": {
+    "en": {
+      "bestFor": "TikTok creators splitting a photo, GIF, or video clip into an aligned 3-, 6-, or 9-tile profile sticker banner without signing in.",
+      "pros": [
+        "Splits uploaded photos into aligned 3-, 6-, or 9-tile profile previews with live drag-to-reposition and size slider controls",
+        "Downloads a clean 149,735-byte unwatermarked export directly without account creation or watermarks",
+        "Processes the uploaded image locally without transmitting the media file off-device"
+      ],
+      "cons": [
+        "Emits 9 analytics and RUM payloads to plausible.io, www.google-analytics.com, /cdn-cgi/rum, and in.pvuv.ai",
+        "Specialized single-purpose layout tool tailored specifically for TikTok profile grid dimensions"
+      ],
+      "privacyVerdict": "No uploaded image payload egress was observed during grid splitting or export; 9 analytics and RUM requests were captured to plausible.io/api/event, www.google-analytics.com/g/collect, /cdn-cgi/rum, and in.pvuv.ai/in.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.png, switched sticker grid to 6 tiles on dual canvases (109 ms max freeze, 0.01 CLS), and exported a clean 149,735-byte download via Download 6 sticker videos.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:56:12.911Z"
+    },
+    "zh": {
+      "bestFor": "适合将单张图片、GIF 或视频裁切为对齐的 3、6 或 9 宫格 TikTok 主页贴纸横幅的创作者，无需注册登录。",
+      "pros": [
+        "支持一键切换 3、6、9 宫格对齐预览，并提供拖拽定位与缩放滑块调节",
+        "点击下载即可直接导出 149,735 字节无水印成品文件，无需账号",
+        "图片切片与预览均在本地完成，未观测到媒体文件上传外传"
+      ],
+      "cons": [
+        "页面会向 plausible.io、www.google-analytics.com、/cdn-cgi/rum 与 in.pvuv.ai 发送 9 次统计请求",
+        "功能高度聚焦于 TikTok 主页贴纸拼图场景，通用视频编辑能力有限"
+      ],
+      "privacyVerdict": "切片与导出过程未观测到图片上传外传；捕获到 9 次发往 plausible.io/api/event、www.google-analytics.com/g/collect、/cdn-cgi/rum 与 in.pvuv.ai/in 的统计请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 sample.png 后切换至 6 宫格模式（双画布渲染，主线程峰值 109ms，CLS 0.01），点击 Download 6 sticker videos 成功导出 149,735 字节无水印文件。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:56:12.912Z"
+    }
+  },
+  "isthissongai-app": {
+    "en": {
+      "bestFor": "Listeners and musicians checking whether a track or uploaded audio clip shows AI music generator signals (Suno/Udio) with 5 free daily checks and no sign-up.",
+      "pros": [
+        "Supports both local audio/video file analysis and Song - Artist or streaming link lookup without mandatory registration",
+        "Runs an initial on-device check on short clips (<30s) without consuming free daily quota and clearly reports Unclear results",
+        "Exports a clean 1200x630 unwatermarked PNG summary card (77,368 bytes) directly via Save image"
+      ],
+      "cons": [
+        "Limits unauthenticated users to 5 full deep checks per day before requiring paid one-time credit packs",
+        "Deep detection requires sending queries and 30-second audio excerpts to server endpoints alongside Cloudflare RUM beacons"
+      ],
+      "privacyVerdict": "Server-side detection and lookup egress observed: captured 22 requests including POST /api/ai-song-detection/start, POST /api/ai-song-detection/result, POST /api/_sf/q, POST /api/_sf/task, GET accounts.google.com/gsi/status, and POST cloudflareinsights.com/cdn-cgi/rum.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 12s sample12s.wav (returned local Unclear without spending a credit), then queried 'Cher - Believe' via Check song to obtain a 'Likely human' report and exported a 1200x630 PNG (77,368 bytes) via Save image with 0 ms max freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:59:22.954Z"
+    },
+    "zh": {
+      "bestFor": "适合希望无需注册即可每日免费检测 5 次歌曲或音频是否由 Suno/Udio 等 AI 生成器创作的听众与音乐人。",
+      "pros": [
+        "同时支持本地音视频文件上传与“歌名 - 歌手”或流媒体链接查询，无需强制登录",
+        "对不足 30 秒的音频在本地完成初筛且不消耗免费额度，明确标注存疑与适用边界",
+        "点击 Save image 可直接导出 1200x630 无水印 PNG 结果卡片（77,368 字节）"
+      ],
+      "cons": [
+        "未登录用户每日限制 5 次完整深度检测，超出需购买一次性次卡",
+        "深度检测会将查询参数及 30 秒音频片段发送至服务端，并附带 Cloudflare RUM 遥测"
+      ],
+      "privacyVerdict": "观测到服务端检测与查询外发请求：共捕获 22 次载荷，包括 POST /api/ai-song-detection/start、POST /api/ai-song-detection/result、POST /api/_sf/q、POST /api/_sf/task、GET accounts.google.com/gsi/status 与 POST cloudflareinsights.com/cdn-cgi/rum。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "先上传 12 秒 sample12s.wav（本地初筛返回 Unclear 且不扣减额度），随后输入 'Cher - Believe' 点击 Check song 获得 Likely human 报告，并通过 Save image 导出 77,368 字节 1200x630 无水印 PNG。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T02:59:22.955Z"
+    }
+  },
+  "www-sxuan-com-90507-html": {
+    "en": {
+      "bestFor": "Users needing quick one-click browser-based background removal to transparent PNG for standard photos without uploading images to a server.",
+      "pros": [
+        "Removes image backgrounds locally in-browser via a ~40MB cached AI model without transmitting user images off-device",
+        "Exports a full-resolution 400x400 transparent PNG (18,155 bytes) cleanly with no watermark or account gate"
+      ],
+      "cons": [
+        "Main-thread inference caused an 8,516 ms UI freeze on first run and threw a decode error on the PNG benchmark fixture before succeeding on JPEG",
+        "Emits 4 telemetry/CMS requests (Google Analytics, /cdn-cgi/rum, and WordPress admin-ajax.php) and lacks manual mask refinement controls"
+      ],
+      "privacyVerdict": "No uploaded image payload egress was observed during local background removal; 4 site/analytics payloads were captured to www.google-analytics.com/g/collect, www.sxuan.com/wp-admin/admin-ajax.php, and /cdn-cgi/rum.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 10
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Initial sample.png upload triggered 'The source image could not be decoded'; uploading a 400x400 test-subject.jpg and clicking 开始抠图 removed the blue background locally (8,516 ms max main-thread freeze) and exported an 18,155-byte 400x400 transparent PNG.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T03:03:25.142Z"
+    },
+    "zh": {
+      "bestFor": "适合希望无需上传原图至服务器即可在浏览器本地一键抠除照片背景并导出透明 PNG 的用户。",
+      "pros": [
+        "通过浏览器端缓存的约 40MB AI 模型在本地完成去背景处理，未观测到图片上传外传",
+        "点击下载透明 PNG 即可直接导出原分辨率 400x400 透明底 PNG（18,155 字节），无水印且无需登录"
+      ],
+      "cons": [
+        "首次本地模型推理导致主线程阻塞峰值达 8,516 毫秒，且对部分 PNG 样本报解码错误（改用 JPEG 后正常）",
+        "存在 4 次网站与统计外发请求（Google Analytics、/cdn-cgi/rum 与 WordPress admin-ajax.php），且缺少手动修边画笔功能"
+      ],
+      "privacyVerdict": "本地抠图过程中未观测到图片数据上传；共捕获 4 次站点与统计请求，目标为 www.google-analytics.com/g/collect、www.sxuan.com/wp-admin/admin-ajax.php 与 /cdn-cgi/rum。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 10
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "首次上传 sample.png 提示解码失败；改传 400x400 test-subject.jpg 并点击开始抠图后成功本地去背景（主线程峰值阻塞 8,516ms），最终导出 18,155 字节的 400x400 透明 PNG。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T03:03:25.143Z"
+    }
+  },
+  "flipaview-com": {
+    "en": {
+      "bestFor": "Users wanting an instant, clutter-free HTML canvas tool to mirror, flip, or rotate a photo in 90-degree steps and download without registration.",
+      "pros": [
+        "Flips horizontally/vertically and rotates 90 degrees left or right directly on an HTML canvas with zero image upload egress",
+        "Preserves full dimensions (rotated 800x600 sample.png to 600x800 PNG, 149,333 bytes) with no watermark or sign-in gate",
+        "Supports drag-and-drop, file picker, clipboard paste, and a one-click sample photo with 0 ms main-thread freeze"
+      ],
+      "cons": [
+        "Limited to single-image horizontal/vertical flips and 90-degree rotations without arbitrary angles, cropping, or batch processing",
+        "Sends 1 lightweight first-party analytics request (POST /api/hit) during the session"
+      ],
+      "privacyVerdict": "No uploaded image payload egress was observed during canvas flipping or rotation; network egress was limited to 1 first-party counter payload (POST /api/hit).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 800x600 sample.png, clicked Flip horizontal and Rotate right with 0 ms max freeze and 0.03 CLS, and exported a 600x800 unwatermarked PNG (149,333 bytes) via Download.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T03:05:20.211Z"
+    },
+    "zh": {
+      "bestFor": "适合希望无需注册即可快速、无干扰地对单张图片进行水平/垂直镜像翻转或 90 度旋转并导出的用户。",
+      "pros": [
+        "基于 HTML Canvas 在本地完成水平/垂直翻转与左右 90 度旋转，未观测到图片上传外传",
+        "保留完整分辨率与 PNG 透明通道（800x600 样本旋转后导出 600x800、149,333 字节无水印 PNG）",
+        "支持拖拽、剪贴板粘贴与一键示例图片体验，交互主线程零阻塞（0ms）"
+      ],
+      "cons": [
+        "功能聚焦于单图翻转与 90 度步进旋转，不支持任意角度、裁剪或批量处理",
+        "会话期间发送了 1 次站内计数请求（POST /api/hit）"
+      ],
+      "privacyVerdict": "图像翻转、旋转与导出过程中未观测到图片数据上传；仅捕获到 1 次发往本站的计数请求（POST /api/hit）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 800x600 sample.png 后依次点击水平翻转与向右旋转（主线程阻塞 0ms，CLS 0.03），通过 Download 成功导出 149,333 字节的 600x800 无水印 PNG。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-18T03:05:20.213Z"
+    }
   }
 }

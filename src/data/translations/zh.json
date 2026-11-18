@@ -134,6 +134,12 @@
     "coreTask": "在线转换孟加拉语 Unicode 与 Bijoy 编码文本",
     "description": "BanglaTools 为学生、教育工作者和内容创作者提供在线孟加拉语 Unicode 与 Bijoy 文本转换工具。所有工具均免登录使用，无需注册账号。"
   },
+  "batchquotelab-com": {
+    "_hash": "30cbfcac35b120f1",
+    "description": "浏览器端 3D 打印成本计算器，支持单色/多色切片对比、批量生产规划与本地 CSV/PDF 报价导出。",
+    "coreTask": "配置耗材与生产费率或导入切片文件，对比单盘成本并导出报价 CSV。",
+    "contentUpdatedAt": "2026-11-18T02:54:15.248Z"
+  },
   "betterhabitsdaily-com-tracker": {
     "coreTask": "在浏览器中直接打卡和追踪每日习惯",
     "description": "专为开发者量身打造的免费免注册日常习惯追踪工具。"
@@ -686,6 +692,12 @@
     "description": "通过有趣的青蛙主题游戏学习 CSS Flexbox。完成 24 关卡，掌握 justify-content 和 align-items 等 flexbox 属性。",
     "coreTask": "通过游戏学习 CSS Flexbox"
   },
+  "flipaview-com": {
+    "_hash": "a08909f0fc5e03c6",
+    "description": "极简的浏览器端 Canvas 图片翻转与旋转工具，支持本地水平/垂直镜像及 90 度旋转导出。",
+    "coreTask": "上传或粘贴图片，执行水平/垂直翻转或 90 度旋转，并下载无水印结果文件。",
+    "contentUpdatedAt": "2026-11-18T03:05:20.350Z"
+  },
   "flukeout-github-io": {
     "_hash": "19908709cbf028a2",
     "description": "通过晚餐主题游戏学习 CSS 选择器。完成 32 关卡，从基础选择器到高级伪类。",
@@ -1008,6 +1020,12 @@
     "_hash": "e9c6d3f281099372",
     "description": "全面的泄漏检测：IP 地址、DNS 服务器、WebRTC、地理位置和浏览器指纹。VPN 验证的必备工具。",
     "coreTask": "检测 IP 和 DNS 泄漏"
+  },
+  "isthissongai-app": {
+    "_hash": "19fd5ffa346c584f",
+    "description": "AI 音乐检测工具，支持上传音频文件或输入歌曲名/链接识别 Suno/Udio 等 AI 生成信号，每日免费 5 次无需登录。",
+    "coreTask": "上传音频文件或输入歌曲信息，运行 AI 生成检测并保存可分享的 PNG 结果报告。",
+    "contentUpdatedAt": "2026-11-18T02:59:23.112Z"
   },
   "it-tools-tech": {
     "_hash": "5389867c21326cce",
@@ -1582,6 +1600,12 @@
     "seoFocusKeyword": "浏览器隐私对比测试",
     "seoTaskPhrase": "无需登录对比浏览器隐私"
   },
+  "privatevideotools-com": {
+    "_hash": "da172b54ccdb33cd",
+    "description": "基于浏览器原生编码的本地视频工具箱，支持压缩、裁剪、裁切、缩放及格式转换。",
+    "coreTask": "上传本地视频文件，配置压缩或编辑参数后直接下载处理结果，无需上传原片。",
+    "contentUpdatedAt": "2026-11-18T02:45:11.821Z"
+  },
   "privnote-com": {
     "_hash": "d4361f9edcc8eb74",
     "description": "发送阅后即焚的加密备忘录。消息被阅读后自动删除——非常适合分享敏感信息。",
@@ -1876,6 +1900,18 @@
     "_hash": "7e5dcd96465405fc",
     "description": "免费开源的纯浏览器文件工具箱，直接在本地处理图片、PDF 与二维码生成。支持本地文件压缩、格式转换与离线运行，无需上传文件。",
     "coreTask": "本地处理文件与生成二维码"
+  },
+  "stencilmytattoo-com-try-on-tattoo": {
+    "_hash": "9318dbb58829545c",
+    "description": "浏览器端纹身试戴模拟器，可将上传的纹身设计图叠加到身体部位预设或自定义照片上，支持设备端识别与无水印 PNG 导出。",
+    "coreTask": "上传纹身设计图，在身体照片上调整位置、大小和角度后下载合成预览 PNG。",
+    "contentUpdatedAt": "2026-11-18T02:40:30.050Z"
+  },
+  "stickerbanner-org": {
+    "_hash": "26d62c12cb1b1bc8",
+    "description": "浏览器端 TikTok 主页贴纸横幅制作工具，可将图片、GIF 或视频拆分为对齐的 3/6/9 宫格贴纸视频并无水印导出。",
+    "coreTask": "上传图片或视频片段，选择 3、6 或 9 宫格并调整构图后直接下载贴纸视频。",
+    "contentUpdatedAt": "2026-11-18T02:56:13.071Z"
   },
   "studycalcpro-com": {
     "description": "专为学生设计的免费在线计算器与学习工具包——包含 GPA 计算器、期末成绩预测、百分比换算、加权与累积绩点、番茄钟、考试倒计时等。无需注册，看答案前无干扰广告。",
@@ -2365,6 +2401,12 @@
   "www-slabcalc-co": {
     "description": "免费混凝土用量计算器，适用于平板地基、圆柱基础、路缘石及楼梯。支持英制与公制单位，自动计算体积、水泥袋数（40/50/60/80磅袋装）、总重量与预估施工成本，并支持自定义损耗率。无需账号、无需注册、无需安装任何软件。",
     "coreTask": "在浏览器中免登录计算平板、圆柱、路缘或楼梯的混凝土体积、袋装用量、重量与成本估算"
+  },
+  "www-sxuan-com-90507-html": {
+    "_hash": "b86a95b8e9a0398f",
+    "description": "基于浏览器本地缓存 AI 模型的免费抠图工具，无需上传原图即可一键去背景并导出无水印透明 PNG。",
+    "coreTask": "上传图片，点击开始抠图在本地去除背景，并下载透明底 PNG。",
+    "contentUpdatedAt": "2026-11-18T03:03:25.305Z"
   },
   "www-textfixhub-com": {
     "coreTask": "列表按字母排序、去除换行、统计词句音节、镜像翻转文本、上下标小字转换，即开即用无需账号",

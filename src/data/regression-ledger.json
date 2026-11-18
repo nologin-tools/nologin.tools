@@ -230,6 +230,17 @@
     "lastTitle": "Free Unicode to Bijoy Converter + DOCX/XLSX",
     "lastSignals": []
   },
+  "batchquotelab-com": {
+    "lastDeepEvalAt": "2026-11-18T02:54:15.099Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 87, highly-recommended)",
+      "at": "2026-11-18T02:54:15.099Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T02:54:15.099Z"
+  },
   "betterhabitsdaily-com-tracker": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-11T06:48:11.777Z",
@@ -622,35 +633,20 @@
     "lastSignals": []
   },
   "craiyon-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-06T06:19:13.689Z",
-        "lastSeenAt": "2026-11-06T06:19:13.689Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-intent-1793945946739.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-outcome-1793945946739.png"
-        ]
-      },
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"Free AI Image Generator | Craiyon\" → \"请稍候…\"",
-        "firstSeenAt": "2026-11-06T06:19:13.689Z",
-        "lastSeenAt": "2026-11-06T06:19:13.689Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-intent-1793945946739.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-craiyon-com-outcome-1793945946739.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-15T06:23:32.455Z",
     "lastTitle": "请稍候…",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-18T02:32:33.427Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified landing page loads at https://www.craiyon.com/en with prompt textarea and Draw now button (rolling scan WAF title_changed/surface_lost not reproduced on initial load). Prompt submission triggered POST /api/image/draw and Cloudflare Turnstile verification modal (not bypassed); existing editorial (score 63, emergency-only) remains accurate.",
+      "at": "2026-11-18T02:32:33.427Z",
+      "closed": [
+        "surface_lost",
+        "title_changed"
+      ]
+    }
   },
   "crochet-chart-maker-com": {
     "openAnomalies": [],
@@ -1061,6 +1057,17 @@
     "lastScanAt": "2026-11-09T06:29:12.451Z",
     "lastTitle": "Flexbox Froggy - A game for learning CSS flexbox",
     "lastSignals": []
+  },
+  "flipaview-com": {
+    "lastDeepEvalAt": "2026-11-18T03:05:20.240Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-18T03:05:20.240Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T03:05:20.240Z"
   },
   "flukeout-github-io": {
     "openAnomalies": [],
@@ -1557,6 +1564,17 @@
     "lastTitle": "IP/DNS Detect - What is your IP, what is your DNS, what informations you send to websites.",
     "lastSignals": []
   },
+  "isthissongai-app": {
+    "lastDeepEvalAt": "2026-11-18T02:59:22.981Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-18T02:59:22.981Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T02:59:22.981Z"
+  },
   "it-tools-tech": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-13T06:26:12.993Z",
@@ -1820,26 +1838,16 @@
     "lastSignals": []
   },
   "mdconvert-net-zh-markdown-to-word": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-14T06:24:18.337Z",
-        "lastSeenAt": "2026-11-14T06:24:18.337Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-14T06:24:18.337Z",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-11-11T02:48:18.592Z",
+    "lastDeepEvalAt": "2026-11-18T02:36:07.442Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Uploaded sample.md fixture and triggered 下载 .doc to export 6,766-byte Word-compatible document with live dual-pane preview. Observed 1 Cloudflare RUM telemetry beacon with no auth gate.",
-      "at": "2026-11-11T02:48:18.592Z",
+      "note": "Uploaded sample.md, verified live Word preview rendering, and downloaded 6766-byte .doc (HTML-based Word document, watermark heuristic triggered by sample.md text). Still compliant; existing score 72 (capable-utility) remains accurate.",
+      "at": "2026-11-18T02:36:07.442Z",
       "closed": [
         "probe_failed"
       ]
@@ -2525,6 +2533,17 @@
       ]
     }
   },
+  "privatevideotools-com": {
+    "lastDeepEvalAt": "2026-11-18T02:45:11.643Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-18T02:45:11.643Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T02:45:11.643Z"
+  },
   "privnote-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-08T06:29:01.304Z",
@@ -3025,30 +3044,17 @@
     "lastTitle": "Squoosh"
   },
   "stackedit-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-12T06:23:02.057Z",
-        "lastSeenAt": "2026-11-12T06:23:02.057Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-intent-1794464576172.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-outcome-1794464576172.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-12T06:23:02.057Z",
     "lastTitle": "StackEdit – In-browser Markdown editor",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-11T02:43:02.947Z",
+    "lastDeepEvalAt": "2026-11-18T02:34:58.407Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Landing page has START WRITING link to /app. Exercised Markdown editor with live preview, input text, and exported 7,247-byte unwatermarked Markdown file. Zero payload egress observed.",
-      "at": "2026-11-11T02:43:02.947Z",
+      "note": "Landing page links via START WRITING to /app Markdown editor; edited document with live preview and exported clean 63-byte unwatermarked Markdown file. Zero outgoing payloads observed.",
+      "at": "2026-11-18T02:34:58.407Z",
       "closed": [
         "surface_lost"
       ]
@@ -3059,6 +3065,28 @@
     "lastScanAt": "2026-11-08T06:28:44.017Z",
     "lastTitle": "Stayput: Free File Tools That Never Upload Your Files",
     "lastSignals": []
+  },
+  "stencilmytattoo-com-try-on-tattoo": {
+    "lastDeepEvalAt": "2026-11-18T02:40:29.932Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-18T02:40:29.932Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T02:40:29.932Z"
+  },
+  "stickerbanner-org": {
+    "lastDeepEvalAt": "2026-11-18T02:56:12.939Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-18T02:56:12.939Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T02:56:12.939Z"
   },
   "studycalcpro-com": {
     "openAnomalies": [],
@@ -3879,6 +3907,17 @@
     "lastScanAt": "2026-11-09T06:34:07.150Z",
     "lastTitle": "Concrete Calculator — Cubic Yards, Bags & Weight | SlabCalc",
     "lastSignals": []
+  },
+  "www-sxuan-com-90507-html": {
+    "lastDeepEvalAt": "2026-11-18T03:03:25.176Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-18T03:03:25.176Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-18T03:03:25.176Z"
   },
   "www-textfixhub-com": {
     "openAnomalies": [],
