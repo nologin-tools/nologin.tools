@@ -287,6 +287,28 @@
     "lastTitle": "Black Screen Online · Blank Dark Fullscreen Tool",
     "lastSignals": []
   },
+  "blockblast-co-solver": {
+    "lastDeepEvalAt": "2026-11-19T02:52:46.105Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-19T02:52:46.105Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:52:46.105Z"
+  },
+  "blockposter-net": {
+    "lastDeepEvalAt": "2026-11-19T03:26:49.526Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-19T03:26:49.526Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T03:26:49.526Z"
+  },
   "blur-face-com-blur-face": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-16T06:18:40.148Z",
@@ -341,6 +363,17 @@
     "lastScanAt": "2026-11-11T06:44:36.939Z",
     "lastTitle": "Free Merge PDF Files Online - No Signup, No Watermark",
     "lastSignals": []
+  },
+  "caesarcipher-org": {
+    "lastDeepEvalAt": "2026-11-19T02:55:20.053Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-19T02:55:20.053Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:55:20.053Z"
   },
   "calcahead-com": {
     "lastDeepEvalAt": "2026-11-17T03:01:02.195Z",
@@ -1105,9 +1138,16 @@
   },
   "flukeout-github-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:21.693Z",
+    "lastScanAt": "2026-11-19T02:39:23.327Z",
     "lastTitle": "CSS Diner - Where we feast on CSS Selectors!",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-19T02:39:23.327Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-19T02:39:23.327Z",
+      "closed": []
+    }
   },
   "fluxops-nanocorp-app-tools-reorder-calculator": {
     "openAnomalies": [],
@@ -1361,6 +1401,17 @@
     "lastScanAt": "2026-11-12T06:22:50.692Z",
     "lastTitle": "Create a free menu page with QR code | GrazieChef",
     "lastSignals": []
+  },
+  "gridcraft-me": {
+    "lastDeepEvalAt": "2026-11-19T03:08:56.727Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, highly-recommended)",
+      "at": "2026-11-19T03:08:56.727Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T03:08:56.727Z"
   },
   "haikei-app": {
     "openAnomalies": [],
@@ -1833,6 +1884,17 @@
     "lastTitle": "Markdown Converter – Files to MD & MD to Files | MarkAny",
     "lastSignals": []
   },
+  "markdownonline-app": {
+    "lastDeepEvalAt": "2026-11-19T02:59:12.198Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-19T02:59:12.198Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:59:12.198Z"
+  },
   "markmap-js-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T03:01:03.438Z",
@@ -1950,27 +2012,17 @@
     "lastSignals": []
   },
   "mermaid-live": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-16T06:21:04.405Z",
-        "lastSeenAt": "2026-11-16T06:21:04.405Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-16T06:21:04.405Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:38:28.938Z",
     "lastTitle": "Online FlowChart & Diagrams Editor - Mermaid Live Editor",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-11-13T03:10:51.806Z",
+    "lastDeepEvalAt": "2026-11-19T02:38:28.938Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Exercised full declarative flowchart editing, client-side pako URL hash encoding, and verified embed copy clipboard export; closed probe_failed anomaly",
-      "at": "2026-11-13T03:10:51.806Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 95, editors-choice)",
+      "at": "2026-11-19T02:38:28.938Z",
       "closed": [
         "probe_failed"
       ]
@@ -2227,6 +2279,17 @@
     "lastScanAt": "2026-11-11T06:46:41.611Z",
     "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
     "lastSignals": []
+  },
+  "oil-capacity-com": {
+    "lastDeepEvalAt": "2026-11-19T03:11:51.591Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-19T03:11:51.591Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T03:11:51.591Z"
   },
   "olivez-in-tool-image-compressor": {
     "openAnomalies": [],
@@ -2751,6 +2814,17 @@
     "lastTitle": "The Rasterbator — Free Online Wall Poster Maker & PDF",
     "lastSignals": []
   },
+  "rasterbator-org": {
+    "lastDeepEvalAt": "2026-11-19T03:18:25.170Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-19T03:18:25.170Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T03:18:25.170Z"
+  },
   "rawgraphs-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-16T06:20:27.616Z",
@@ -2986,30 +3060,17 @@
     "lastSignals": []
   },
   "siteage-org": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-15T06:25:08.528Z",
-        "lastSeenAt": "2026-11-15T06:25:08.528Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-intent-1794723898727.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-siteage-org-outcome-1794723898727.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-15T06:25:08.528Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:36:05.957Z",
     "lastTitle": "Website Age Certification | SiteAge.org",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-13T02:47:05.129Z",
+    "lastDeepEvalAt": "2026-11-19T02:36:05.957Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified active lookup workflow for github.com, clean 4800x6400 unwatermarked PNG certificate download, and closed transient surface_lost anomaly",
-      "at": "2026-11-13T02:47:05.129Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-19T02:36:05.957Z",
       "closed": [
         "surface_lost"
       ]
@@ -3237,6 +3298,17 @@
     "lastTitle": "结构化事件的浏览器 SQL Playground | Telemetry",
     "lastSignals": []
   },
+  "teleprompteronline-net": {
+    "lastDeepEvalAt": "2026-11-19T02:56:57.829Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-19T02:56:57.829Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:56:57.829Z"
+  },
   "temp-mail-org": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-09T06:32:27.364Z",
@@ -3336,6 +3408,17 @@
     "lastScanAt": "2026-11-09T06:34:58.295Z",
     "lastTitle": "Time.is 01:34",
     "lastSignals": []
+  },
+  "timelinevisualizer-org": {
+    "lastDeepEvalAt": "2026-11-19T03:24:02.192Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-19T03:24:02.192Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T03:24:02.192Z"
   },
   "tinhgpa-com": {
     "lastDeepEvalAt": "2026-11-14T02:56:27.962Z",
@@ -3800,6 +3883,17 @@
     "lastScanAt": "2026-11-12T06:23:18.934Z",
     "lastTitle": "Calculator Campus | Practical Online Calculators",
     "lastSignals": []
+  },
+  "www-dblqr-xyz": {
+    "lastDeepEvalAt": "2026-11-19T02:48:35.702Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-19T02:48:35.702Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-19T02:48:35.702Z"
   },
   "www-freedominvoice-com-tools-invoice-generator": {
     "openAnomalies": [],

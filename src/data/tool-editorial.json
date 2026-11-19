@@ -17647,15 +17647,15 @@
     "en": {
       "bestFor": "Authoring, rendering, and sharing flowcharts, sequence diagrams, and architecture maps using Mermaid diagram-as-code syntax.",
       "pros": [
-        "Comprehensive diagram syntax support spanning flowcharts, sequence, ER, class, Gantt, state, and git diagrams",
-        "Diagram definitions persist entirely inside the client URL hash fragment via pako deflate encoding",
-        "Versatile export workflows supporting SVG, PNG, embeddable iframes, and raw web components"
+        "Supports dozens of diagram types in a live Monaco-based code editor with real-time SVG canvas rendering",
+        "Diagram state persists directly in the client URL hash fragment via pako deflate encoding without backend storage",
+        "Verified clean 24,985-byte SVG export alongside PNG, MMD, and Markdown embed outputs with zero watermarks"
       ],
       "cons": [
-        "Initial visit presents an upsell modal prompting for Mermaid Chart cloud subscription",
-        "Large complex graphs with hundreds of nodes can introduce canvas rendering latency"
+        "Initial visit displays a promotional modal for the paid Mermaid Visual Editor before clicking Stay in mermaid.live",
+        "Large or complex diagrams can trigger brief main-thread rendering pauses (251ms max task observed)"
       ],
-      "privacyVerdict": "Diagram rendering executes locally in the browser SVG pipeline. Diagram contents are kept within the URL hash fragment and never dispatched to backend APIs; outgoing traffic is limited to 5 privacy-respecting Plausible analytics events.",
+      "privacyVerdict": "Diagram code and SVG rendering run in the browser with state encoded into the client #pako URL hash fragment; observed outgoing network payloads consisted of 9 analytics events sent to self-hosted Plausible (POST p.mermaid.live/api/event).",
       "alternativeTo": [
         "PlantUML",
         "Draw.io",
@@ -17670,21 +17670,22 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Flowchart SVG rendered within 350 ms long task; state encoded into client-side pako URL hash fragment; 5 requests to self-hosted p.mermaid.live analytics; zero commercial trackers.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Dismissed the Mermaid Visual Editor modal, switched between Sequence and Flowchart templates via Monaco editor and SVG canvas, and exported a clean 24,985-byte SVG artifact; observed 251ms max long task, 0.04 CLS, and 9 payloads to POST p.mermaid.live/api/event.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:38:28.907Z"
     },
     "zh": {
-      "bestFor": "使用 Mermaid 声明式代码在浏览器中即时编写、渲染与分享流程图、时序图及架构拓扑。",
+      "bestFor": "适合开发者与技术团队免登录使用 Mermaid 代码语法实时编写、渲染和分享流程图、时序图及架构图。",
       "pros": [
-        "完整支持 Mermaid 全语法体系，涵盖流程图、时序图、ER 关系图、状态图及 Git 分支图",
-        "图表源码通过 pako 压缩直接保存在 URL 哈希片段中，无需云端数据库建表存储",
-        "支持导出 SVG 矢量图、PNG 位图以及直接嵌入 iframe 与 Web Component"
+        "内置 Monaco 代码编辑器与实时 SVG 画布渲染，支持 Flowchart、Sequence 等数十种图表类型",
+        "图表状态通过 pako 压缩编码直接保存在客户端 URL hash 片段中，无需后端账户存储",
+        "实测导出 24,985 字节无水印 SVG 文件，同时支持 PNG、MMD 及 Markdown 链接导出"
       ],
       "cons": [
-        "首次进入页面会弹出引导试用 Mermaid Chart 云端商业版的促销弹窗",
-        "包含数百个节点的超复杂拓扑图在重绘时存在一定的浏览器主线程卡顿"
+        "首次访问会弹出 Mermaid Visual Editor 推广弹窗，需点击 Stay in mermaid.live 关闭",
+        "复杂图表渲染时主线程存在轻微阻塞（实测最大长任务 251ms）"
       ],
-      "privacyVerdict": "图表语法解析与 SVG 矢量渲染均在浏览器端运行。图表文本保留在客户端 URL Hash 中不经由服务器接口，出站网络流量仅限 5 次自建 Plausible 性能统计信标。",
+      "privacyVerdict": "图表编辑与 SVG 渲染在浏览器本地执行，数据编码保存在客户端 #pako URL 片段中；本次测试观察到 9 次发往自托管 Plausible 分析端点的外发请求（POST p.mermaid.live/api/event）。",
       "alternativeTo": [
         "PlantUML",
         "Draw.io",
@@ -17699,8 +17700,9 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "流程图 SVG 渲染耗时 350 ms，状态存储于前端 pako URL 哈希片段中，网络监控仅捕获 5 次自建 p.mermaid.live 访问请求，无广告商脚本。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "关闭推广弹窗后通过 Monaco 编辑器与 SVG 画布切换 Sequence 和 Flowchart 模板，成功导出 24,985 字节无水印 SVG；实测最大长任务 251ms、CLS 0.04，观察到 9 个 POST p.mermaid.live/api/event 请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:38:28.908Z"
     },
     "ja": {
       "bestFor": "Mermaid のコードとしてのダイアグラム構文を使用した、フローチャート、シーケンス図、アーキテクチャ マップの作成、レンダリング、共有。",
@@ -17729,7 +17731,7 @@
         "Draw.io",
         "Excalidraw"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "Mermaid 다이어그램-코드 구문을 사용하여 순서도, 시퀀스 다이어그램 및 아키텍처 맵을 작성, 렌더링 및 공유합니다.",
@@ -17758,7 +17760,7 @@
         "Draw.io",
         "Excalidraw"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Crear, representar y compartir diagramas de flujo, diagramas de secuencia y mapas de arquitectura utilizando la sintaxis de diagrama como código de Mermaid.",
@@ -17787,7 +17789,7 @@
         "Draw.io",
         "Excalidraw"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Création, rendu et partage d'organigrammes, de diagrammes de séquence et de cartes d'architecture à l'aide de la syntaxe de diagramme en tant que code Mermaid.",
@@ -17816,7 +17818,7 @@
         "Draw.io",
         "Excalidraw"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Erstellen, Rendern und Teilen von Flussdiagrammen, Sequenzdiagrammen und Architekturkarten mithilfe der Mermaid-Diagramm-as-Code-Syntax.",
@@ -17845,7 +17847,7 @@
         "Draw.io",
         "Excalidraw"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Criação, renderização e compartilhamento de fluxogramas, diagramas de sequência e mapas de arquitetura usando a sintaxe de diagrama como código Mermaid.",
@@ -17874,7 +17876,7 @@
         "Draw.io",
         "Excalidraw"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "caniemail-com": {
@@ -23049,15 +23051,16 @@
   },
   "flukeout-github-io": {
     "en": {
-      "bestFor": "Gamified interactive 32-level puzzle practice for mastering CSS selectors and pseudo-classes.",
+      "bestFor": "Interactive 32-level puzzle practice for learning and testing CSS selectors and pseudo-classes without registration.",
       "pros": [
-        "Engaging 32-level curriculum progressing from elemental tags to complex pseudo-classes (:nth-child, :only-of-type, :empty)",
-        "Real-time synchronized visual table display, interactive CSS editor, and companion HTML markup tree"
+        "32-level progressive curriculum from element selectors (plate, bento) and ID selectors (#fancy) to complex pseudo-classes",
+        "Synchronized visual table display, interactive CSS editor, and HTML markup viewer with immediate feedback"
       ],
       "cons": [
-        "Lacks export or download functionality to backup solved puzzle progress or dump customized selector cheat-sheets"
+        "No export or download feature for solved progress or custom selector cheat-sheets",
+        "Level transitions introduce minor cumulative layout shift (0.09 CLS observed)"
       ],
-      "privacyVerdict": "Telemetry is bounded to 3 Google Analytics requests (/j/collect, /g/collect). User inputs and level progress remain stored locally in browser localStorage under 'currentLevel' and 'progress'.",
+      "privacyVerdict": "Puzzle inputs and level progress stay in browser storage without accounts; observed outgoing network payloads consisted of 3 Google Analytics beacons (POST www.google-analytics.com/j/collect and /g/collect).",
       "alternativeTo": [
         "css-speedrun-netlify-app",
         "regexlearn-com",
@@ -23072,19 +23075,21 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Completed Level 1 ('plate') and Level 2 ('bento') with 79 ms max long task and 0.05 CLS; progress successfully persisted in localStorage.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Solved Levels 1 ('plate'), 2 ('bento'), and 3 ('#fancy') in the interactive CSS editor with 0ms max long task and 0.09 CLS; observed 3 Google Analytics beacons.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:39:23.279Z"
     },
     "zh": {
-      "bestFor": "以趣味餐桌为场景的 32 关沉浸式 CSS 选择器与伪类规则闯关训练。",
+      "bestFor": "适合开发者与前端学习者免登录通过 32 关交互式关卡练习和掌握 CSS 选择器与伪类语法。",
       "pros": [
-        "编排严谨的 32 关渐进式体系，由浅入深覆盖基础标签、类名、后代选择器及高阶伪类（:nth-child、:only-of-type、:empty）",
-        "生动的三栏同步视窗，直观呈现动画餐桌、动态 CSS 输入框与标准 HTML 节点层级树"
+        "提供 32 关递进式课程，涵盖标签选择器（plate、bento）、ID 选择器（#fancy）及复杂伪类",
+        "实时联动餐桌可视化区、CSS 编辑器与 HTML 结构树，输入回车即刻验证正误"
       ],
       "cons": [
-        "未提供将通关进度或解题笔记一键打包导出为本地文件的导出功能"
+        "不支持导出或下载通关记录与选择器速查表",
+        "切关动画伴随轻微布局偏移（实测 CLS 0.09）"
       ],
-      "privacyVerdict": "网络请求仅包含 3 次 Google Analytics 匿名分析信标（/j/collect 与 /g/collect）。输入的选择器与通关记录仅保存于本地 localStorage（键名 currentLevel 与 progress）。",
+      "privacyVerdict": "关卡输入与进度保存在浏览器本地，无需注册；本次测试观察到 3 个发往 Google Analytics 的统计信标（POST www.google-analytics.com/j/collect 与 /g/collect）。",
       "alternativeTo": [],
       "productScore": {
         "overall": 84,
@@ -23095,8 +23100,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 79ms 最大主线程延迟与 0.05 CLS 下顺畅完成第 1 关 plate 与第 2 关 bento，通关状态完好写入本地 localStorage。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 CSS 编辑器中依次输入 plate、bento、#fancy 通过第 1 至第 3 关，主线程最大阻塞 0ms、CLS 0.09，观察到 3 个 Google Analytics 外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:39:23.280Z"
     },
     "ja": {
       "bestFor": "CSS セレクターと疑似クラスをマスターするための、ゲーム化されたインタラクティブな 32 レベルのパズルの練習です。",
@@ -23123,7 +23129,7 @@
         "regexlearn-com",
         "flexboxfroggy-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "CSS 선택기와 의사 클래스를 마스터하기 위한 게임화된 대화형 32레벨 퍼즐 연습입니다.",
@@ -23150,7 +23156,7 @@
         "regexlearn-com",
         "flexboxfroggy-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Práctica gamificada de rompecabezas interactivos de 32 niveles para dominar los selectores y pseudoclases de CSS.",
@@ -23177,7 +23183,7 @@
         "regexlearn-com",
         "flexboxfroggy-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Pratique de puzzle interactive et gamifiée à 32 niveaux pour maîtriser les sélecteurs CSS et les pseudo-classes.",
@@ -23204,7 +23210,7 @@
         "regexlearn-com",
         "flexboxfroggy-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Gamifizierte interaktive 32-Level-Rätselübung zur Beherrschung von CSS-Selektoren und Pseudoklassen.",
@@ -23231,7 +23237,7 @@
         "regexlearn-com",
         "flexboxfroggy-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Prática gamificada de quebra-cabeça interativo de 32 níveis para dominar seletores CSS e pseudoclasses.",
@@ -23258,7 +23264,7 @@
         "regexlearn-com",
         "flexboxfroggy-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "pythontutor-com": {
@@ -31208,16 +31214,16 @@
   },
   "siteage-org": {
     "en": {
-      "bestFor": "Domain owners, web historians, and developers seeking to certify website longevity, generate archival age badges, or download high-resolution certificates without registration",
+      "bestFor": "Domain owners, web historians, and developers seeking to look up website longevity, generate archival age badges, or download high-resolution certificates without registration.",
       "pros": [
-        "Synthesizes domain longevity across multiple public archives including Wayback Machine, Certificate Transparency, and RDAP records",
-        "Generates ultra high-resolution 4800x6400 unwatermarked PNG certificate downloads and customizable SVG embed badges"
+        "Synthesizes domain longevity across Wayback Machine, Certificate Transparency, RDAP, and Common Crawl with immediate homepage lookup",
+        "Generates unwatermarked 4800x6400 PNG certificate downloads (3.86 MB verified) alongside selectable SVG badge styles such as Flat and Gold"
       ],
       "cons": [
-        "Root homepage experiences a server-side render truncation that requires navigating directly to domain paths for lookup",
-        "Estimated founding dates may diverge from private incorporation records when early archival snapshots are sparse"
+        "Estimated founding dates may diverge from private incorporation records when early public archival snapshots are sparse",
+        "Domain correction claim flow links to an ownership verification step for disputed dates"
       ],
-      "privacyVerdict": "Privacy-focused public domain lookup with observed network activity confined to first-party Cloudflare Web Analytics RUM beacons; domain longevity is synthesized from public archives without user tracking cookies or third-party advertising scripts.",
+      "privacyVerdict": "Operates without user accounts or third-party ad trackers; observed outgoing network activity during the lookup and certificate download flow was limited to Cloudflare Web Analytics RUM beacons (POST /cdn-cgi/rum) and first-party GET requests.",
       "alternativeTo": [
         "archive-org",
         "whois-com"
@@ -31231,20 +31237,21 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Recorded 2 first-party Cloudflare RUM payloads, 632ms main thread baseline, verified 30-character clean clipboard capture, and inspected a pristine 3.86MB 4800x6400 PNG certificate download.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Looked up github.com from the landing input, switched badge styles (Flat), triggered Copy Link, and downloaded a 3,861,150-byte 4800x6400 PNG certificate without watermarks or auth traps; observed 0ms baseline freeze, 162ms max task during badge switch, 0.00 CLS, and 3 payloads including POST /cdn-cgi/rum.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:36:05.923Z"
     },
     "zh": {
-      "bestFor": "希望对网站存续年限进行认证、生成可嵌入历史徽章或下载高清认证证书，且免注册的域名持有者与历史考据者",
+      "bestFor": "适合站长、网络历史研究者和开发者免登录查询网站上线年限、生成存档徽章或下载高分辨率证书。",
       "pros": [
-        "聚合 Wayback Machine、证书透明度日志（crt.sh）与 RDAP 注册记录等多源公共归档推算域名存续年限",
-        "提供无水印的 4800x6400 超高清 PNG 认证证书文件下载，以及多种样式的动态 SVG 嵌入式徽章代码"
+        "综合 Wayback Machine、Certificate Transparency、RDAP 与 Common Crawl 数据，首页输入框可直接完成域名年限查询",
+        "支持无水印 4800x6400 PNG 证书下载（实测 3.86 MB）及 Flat 等多种可切换 SVG 徽章样式"
       ],
       "cons": [
-        "网站根主页存在服务端渲染截断问题，需要直接在 URL 路径中输入具体域名才能触发查询展示",
-        "当早期网页快照缺失时，推算的建站时间可能与实际私有注册日期存在一定偏差"
+        "当早期公开存档快照稀疏时，推算的建站年份可能与实际注册或上线时间存在偏差",
+        "若需纠偏域名年份记录，需通过域名认领流程进行所有权验证"
       ],
-      "privacyVerdict": "采用免登录的公开域名溯源架构，观测到的网络外发仅限于 Cloudflare Web Analytics 第一方 RUM 性能指标；域名存续时长基于公共历史归档推算，无用户追踪 Cookie 或第三方商业广告脚本。",
+      "privacyVerdict": "无需账号或第三方广告追踪；本次查询与证书下载流程中观察到的外发请求仅包含 Cloudflare Web Analytics RUM 信标（POST /cdn-cgi/rum）及第一方 GET 请求。",
       "alternativeTo": [],
       "productScore": {
         "overall": 81,
@@ -31255,8 +31262,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "记录到 2 次第一方 Cloudflare RUM 性能载荷，主线程基线延迟 632ms，经实测捕获 30 字符纯净剪贴板链接，并完成 3.86MB 4800x6400 高清 PNG 证书物理校验。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在首页输入 github.com 完成查询，切换 Flat 徽章样式并点击 Copy Link，成功下载 3,861,150 字节 4800x6400 无水印 PNG 证书；基线阻塞 0ms，切换徽章时最大长任务 162ms，CLS 为 0.00，共观察到 3 个载荷（含 POST /cdn-cgi/rum）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:36:05.923Z"
     },
     "ja": {
       "bestFor": "ウェブサイトの寿命を証明したり、アーカイブ期間バッジを生成したり、登録せずに高解像度の証明書をダウンロードしたいと考えているドメイン所有者、ウェブ歴史家、開発者",
@@ -31283,7 +31291,7 @@
         "archive-org",
         "whois-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "웹사이트 수명을 인증하거나 보관 연령 배지를 생성하거나 등록 없이 고해상도 인증서를 다운로드하려는 도메인 소유자, 웹 기록자 및 개발자",
@@ -31310,7 +31318,7 @@
         "archive-org",
         "whois-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Propietarios de dominios, historiadores web y desarrolladores que buscan certificar la longevidad del sitio web, generar insignias de antigüedad de archivo o descargar certificados de alta resolución sin registrarse.",
@@ -31337,7 +31345,7 @@
         "archive-org",
         "whois-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Propriétaires de domaines, historiens du Web et développeurs cherchant à certifier la longévité d'un site Web, à générer des badges d'âge d'archives ou à télécharger des certificats haute résolution sans inscription",
@@ -31364,7 +31372,7 @@
         "archive-org",
         "whois-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Domaininhaber, Webhistoriker und Entwickler, die die Langlebigkeit von Websites zertifizieren, Altersabzeichen für die Archivierung erstellen oder hochauflösende Zertifikate ohne Registrierung herunterladen möchten",
@@ -31391,7 +31399,7 @@
         "archive-org",
         "whois-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Proprietários de domínios, historiadores da web e desenvolvedores que buscam certificar a longevidade de sites, gerar selos de idade de arquivamento ou baixar certificados de alta resolução sem registro",
@@ -31418,7 +31426,7 @@
         "archive-org",
         "whois-com"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "next-tools-dev": {
@@ -80451,6 +80459,538 @@
       "benchmarkNotes": "上传 800x600 sample.png 后依次点击水平翻转与向右旋转（主线程阻塞 0ms，CLS 0.03），通过 Download 成功导出 149,333 字节的 600x800 无水印 PNG。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-18T03:05:20.213Z"
+    }
+  },
+  "www-dblqr-xyz": {
+    "en": {
+      "bestFor": "Dragon Ball Legends players generating Shenron/Porunga activity QR codes and friend-code QR cards without an account.",
+      "pros": [
+        "Supports both Activity QR and Add Friends modes plus batching up to 5 friend codes without sign-up",
+        "Generates and downloads a 6,755-byte 304x343 PNG QR image immediately with 0.00 CLS"
+      ],
+      "cons": [
+        "Exported PNG cards include a small dblqr.xyz text label beneath the QR matrix",
+        "Single-purpose format limited to PNG export without SVG output"
+      ],
+      "privacyVerdict": "QR generation executes in the browser without transmitting the entered friend code to a backend endpoint; observed outgoing network payloads were Google Analytics (POST www.google-analytics.com/g/collect) and Cloudflare RUM (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Entered 8-character friend code 'e4qxnjw2' in #shenron-code-1, clicked Generate QR Codes (71ms max task, 0.00 CLS), and downloaded a 6,755-byte 304x343 PNG via Download All QR Codes; observed 2 telemetry beacons (GA and /cdn-cgi/rum).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:48:35.635Z"
+    },
+    "zh": {
+      "bestFor": "适合龙珠激战传说玩家免登录批量生成神龙活动二维码与好友码分享卡片。",
+      "pros": [
+        "支持 Activity QR 与 Add Friends 双模式，一次最多可添加 5 个好友码并立即生成",
+        "实测可直接导出 6,755 字节 304x343 PNG 二维码图片，页面布局稳定（CLS 0.00）"
+      ],
+      "cons": [
+        "导出的 PNG 二维码底部附带小字 dblqr.xyz 域名标识",
+        "仅支持 PNG 图片下载，不提供 SVG 等矢量导出格式"
+      ],
+      "privacyVerdict": "二维码生成在浏览器内完成，输入的好友码未发送至后端接口；本次测试观察到 Google Analytics（POST www.google-analytics.com/g/collect）与 Cloudflare RUM（POST /cdn-cgi/rum）遥测信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #shenron-code-1 输入测试好友码 e4qxnjw2 并点击 Generate QR Codes（最大任务 71ms、CLS 0.00），通过 Download All QR Codes 成功下载 6,755 字节 304x343 PNG；观察到 2 个分析信标。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:48:35.637Z"
+    }
+  },
+  "blockblast-co-solver": {
+    "en": {
+      "bestFor": "Block Blast players wanting an account-free 8x8 board solver from a game screenshot or manual grid input.",
+      "pros": [
+        "Parses uploaded screenshots on canvas with interactive 8x8 board and tray-box cropping, plus manual cell editing",
+        "Computes multiple ranked 3-block placement options (Option 1-3) showing exact row/column clears without login"
+      ],
+      "cons": [
+        "Transmits extensive ad and session-recording telemetry (27 payloads across Google Analytics, DoubleClick, Microsoft Clarity, and AdSense)",
+        "Severe layout shift (1.35 CLS observed) with large empty ad-slot spacing above the solver",
+        "No file or image export for sharing computed placement plans"
+      ],
+      "privacyVerdict": "Screenshot parsing and board solving ran in the browser without uploading board images to a solver API, but heavy third-party tracking and ad telemetry was observed (27 payloads including analytics.google.com, stats.g.doubleclick.net, f.clarity.ms, pagead2.googlesyndication.com, and fundingchoicesmessages.google.com).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 16,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.png to verify error fallback and interactive cropper, then loaded Try example, ran Recalculate placements, and switched to Option 2 (3/3 blocks placed, 2 lines cleared); observed 98ms max task, 1.35 CLS, and 27 ad/analytics payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:52:46.027Z"
+    },
+    "zh": {
+      "bestFor": "适合 Block Blast 玩家免登录上传截图或手动输入 8×8 棋盘，快速求解最优三块放置顺序。",
+      "pros": [
+        "支持在本地画布解析游戏截图并提供 8×8 棋盘与方块托盘框选微调及手动格子编辑",
+        "免账号即可计算多套三连块放置方案（Option 1–3）并直观标出消除行列"
+      ],
+      "cons": [
+        "存在大量广告与行为录制遥测外发（实测 27 个载荷，包含 Google Analytics、DoubleClick、Microsoft Clarity 与 AdSense）",
+        "页面布局偏移严重（实测 CLS 1.35），顶部存在较大空白广告占位",
+        "不支持导出或下载求解步骤图"
+      ],
+      "privacyVerdict": "截图解析与棋盘求解均在浏览器本地执行，未将图片上传至求解接口；但观察到大量第三方广告与会话录制遥测（共 27 个载荷，含 analytics.google.com、stats.g.doubleclick.net、f.clarity.ms、pagead2.googlesyndication.com 等）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 16,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 11,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "先上传 sample.png 测试异常提示与区域框选器，随后点击 Try example、Recalculate placements 与 Option 2（成功放置 3/3 方块并消除 2 行）；最大长任务 98ms、CLS 1.35，观察到 27 个广告与分析载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:52:46.027Z"
+    }
+  },
+  "caesarcipher-org": {
+    "en": {
+      "bestFor": "Students, puzzle solvers, and developers encoding, decoding, and exploring classical ciphers like Caesar, ROT13, and Vigenere without login.",
+      "pros": [
+        "Instant browser-based encryption and decryption right on the landing page with shift presets (1, 3, 13, 25) and a dedicated brute-force solver route",
+        "Verified clean 18-character clipboard export with zero watermark tails and 0.00 CLS layout stability"
+      ],
+      "cons": [
+        "Sends analytics and session telemetry to Google Analytics, Microsoft Clarity (l.clarity.ms), and Cloudflare RUM",
+        "No downloadable TXT/JSON export beyond clipboard copy and share links"
+      ],
+      "privacyVerdict": "Cipher encoding and decoding run in the browser without sending input text to a remote API; observed outgoing network traffic consisted of Google Analytics (POST www.google-analytics.com/g/collect), Microsoft Clarity (POST l.clarity.ms/collect), and Cloudflare RUM (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Encrypted 'NoLogin Tools Test' to 'QrOrjlq Wrrov Whvw' on the homepage, navigated to /ciphers/caesar Decrypt mode, decrypted back to 'NoLogin Tools Test', and verified clean 18-char clipboard export; observed 112ms max task, 0.00 CLS, and 10+ analytics/Clarity/RUM payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:55:20.001Z"
+    },
+    "zh": {
+      "bestFor": "适合学生、解谜爱好者和开发者免登录在线进行凯撒密码、ROT13、维吉尼亚等古典密码加解密与暴力破解。",
+      "pros": [
+        "首页即开即用，支持 1/3/13/25 位移预设，并提供专属凯撒解码器、暴力破解与字母轮盘页面",
+        "实测剪贴板复制输出 18 字符完整无水印尾巴，页面布局稳定（CLS 0.00）"
+      ],
+      "cons": [
+        "存在 Google Analytics、Microsoft Clarity（l.clarity.ms）及 Cloudflare RUM 等遥测信标外发",
+        "仅支持剪贴板复制与分享链接，未提供 TXT/JSON 文件下载"
+      ],
+      "privacyVerdict": "加解密运算在浏览器本地完成，输入文本未发送至后端接口；本次测试观察到 Google Analytics（POST www.google-analytics.com/g/collect）、Microsoft Clarity（POST l.clarity.ms/collect）与 Cloudflare RUM（POST /cdn-cgi/rum）外发请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在首页将 'NoLogin Tools Test' 加密为 'QrOrjlq Wrrov Whvw'，跳转至 /ciphers/caesar 解密模式还原原文并通过 Copy to clipboard 捕获 18 字符纯净文本；最大任务 112ms、CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:55:20.003Z"
+    }
+  },
+  "teleprompteronline-net": {
+    "en": {
+      "bestFor": "Video creators, presenters, and speakers needing an instant browser teleprompter with mirror rig mode, WPM speed control, and voice scrolling without login.",
+      "pros": [
+        "Immediate script editing with live word count, estimated read duration, WPM speed slider, font sizing, Mirror mode, Voice scroll, and Fullscreen",
+        "Supports local script saving/loading and file upload with 0ms max long task and 0.00 CLS"
+      ],
+      "cons": [
+        "Save script persists locally in browser storage rather than exporting a standalone TXT/MD download",
+        "Fires analytics beacons to Google Analytics, Pageview (app.pageview.app), and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Script content is processed in the browser without uploading text to a remote API; observed outgoing payloads were analytics beacons to cloudflareinsights.com/cdn-cgi/rum, app.pageview.app/api/event, and www.google-analytics.com/g/collect.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Entered custom script into the main textarea, ran Play countdown, toggled horizontal Mirror mode, tested Stop and Save script; recorded 0ms max freeze, 0.00 CLS, and 3 telemetry payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:56:57.694Z"
+    },
+    "zh": {
+      "bestFor": "适合视频创作者与演讲者免登录使用支持镜像反射、WPM 调速与语音滚动的浏览器提词器。",
+      "pros": [
+        "打开即用，提供实时字数与时长估算、WPM 滚动调速、字号调节、Mirror 镜像模式、Voice 语音跟读与全屏提词",
+        "支持脚本本地保存/加载与文件上传，实测主线程 0ms 阻塞且 CLS 为 0.00"
+      ],
+      "cons": [
+        "Save script 仅保存在浏览器本地存储中，未直接导出为 TXT/MD 文件下载",
+        "存在 Google Analytics、Pageview（app.pageview.app）与 Cloudflare RUM 统计信标外发"
+      ],
+      "privacyVerdict": "提词文本在浏览器本地处理，未向远端服务器上传文稿；本次测试观察到发往 cloudflareinsights.com/cdn-cgi/rum、app.pageview.app/api/event 与 www.google-analytics.com/g/collect 的 3 个统计请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在主文本框输入测试台词，触发 Play 倒计时、切换 Mirror 镜像翻转并测试 Stop 与 Save script；全程 0ms 主线程阻塞、CLS 0.00，观察到 3 个遥测载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:56:57.695Z"
+    }
+  },
+  "markdownonline-app": {
+    "en": {
+      "bestFor": "Writers and developers drafting READMEs, notes, and docs in Markdown with live preview, outline navigation, and multi-format export without an account.",
+      "pros": [
+        "Immediate split-pane Markdown editor with live HTML preview, heading Outline toggle, Sync Scroll, dark mode, and starter templates",
+        "Verified 6,991-byte standalone HTML export alongside .md, PDF, and clipboard MD/HTML copy with zero added watermarks"
+      ],
+      "cons": [
+        "Loads Google Analytics and Cloudflare Web Analytics RUM telemetry beacons",
+        "Lacks multi-file workspace tree or collaborative sync"
+      ],
+      "privacyVerdict": "Markdown editing, preview rendering, and file export execute in the browser without uploading document content; observed outgoing payloads were Google Analytics (POST www.google-analytics.com/g/collect) and Cloudflare RUM (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded sample.md (4,282 chars, 526 words), toggled Outline sidebar and dark mode, and exported a 6,991-byte HTML file via the .html button; observed 0ms max long task, 0.07 CLS, and 2 analytics/RUM payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:59:12.151Z"
+    },
+    "zh": {
+      "bestFor": "适合技术作者与开发者免登录编写 Markdown 文档、README 或会议纪要，并实时预览、查看大纲及导出多格式文件。",
+      "pros": [
+        "开箱即用的双栏编辑器，支持实时预览、Outline 标题大纲、Sync Scroll 同步滚动、暗黑模式与文档模板",
+        "支持一键导出 6,991 字节独立 HTML 文件以及 .md、PDF 与剪贴板复制，导出内容无附加水印"
+      ],
+      "cons": [
+        "存在 Google Analytics 与 Cloudflare Web Analytics RUM 统计信标外发",
+        "仅面向单文档编辑，不提供多文件项目目录树"
+      ],
+      "privacyVerdict": "Markdown 编辑、预览渲染与文件导出均在浏览器内完成，未向远端上传文档内容；本次测试观察到 Google Analytics（POST www.google-analytics.com/g/collect）与 Cloudflare RUM（POST /cdn-cgi/rum）2 个外发请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 4,282 字符 sample.md 测试文档，切换 Outline 大纲与暗黑模式，并通过 .html 按钮导出 6,991 字节纯净 HTML 文件；最大长任务 0ms、CLS 0.07，观察到 2 个统计载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T02:59:12.152Z"
+    }
+  },
+  "gridcraft-me": {
+    "en": {
+      "bestFor": "Analysts and students needing an account-free browser spreadsheet workstation with Excel-style ribbon controls, formulas, conditional formatting, and embedded charts.",
+      "pros": [
+        "Full canvas-rendered spreadsheet workstation inside /editor-app with Excel-style ribbon tabs, formulas, conditional formatting, embedded bar charts, and multi-sheet tabs",
+        "Launches directly from starter templates (Blank, Sales dashboard, Monthly budget, Grade tracker) without registration and with 0.00 CLS"
+      ],
+      "cons": [
+        "Requires three navigation clicks (Try it in your browser, template, Launch GridCraft) plus loading time before entering the canvas workspace",
+        "Loads Google DoubleClick AdSense iframes alongside stats.cadcraft.org analytics and Cloudflare RUM beacons",
+        "Alpha software (v0.19.1) rendered inside an isolated canvas iframe"
+      ],
+      "privacyVerdict": "Spreadsheet editing and chart rendering execute locally inside the browser canvas iframe without transmitting workbook contents; observed outgoing traffic and third-party frames included POST stats.cadcraft.org/api/event, POST /cdn-cgi/rum, and Google DoubleClick AdSense iframes.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Navigated to /editor, selected Monthly budget, launched the canvas spreadsheet workstation (GridCraft v0.19.1), selected cell A20 and tested formula input and Save triggers; observed 106ms max task, 0.00 CLS, and 5 payloads (stats.cadcraft.org, /cdn-cgi/rum).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:08:56.683Z"
+    },
+    "zh": {
+      "bestFor": "适合数据分析与学习场景免登录在浏览器中使用具备类 Excel 功能区、公式、条件格式与内置图表的电子表格工作台。",
+      "pros": [
+        "在 /editor-app 内提供完整的 Canvas 电子表格工作台，支持类 Excel 功能区、公式计算、条件格式、内嵌柱状图与多工作表标签",
+        "提供空白、销售看板、月度预算、成绩追踪等模板，免注册即可启动且页面 CLS 为 0.00"
+      ],
+      "cons": [
+        "需经过三次点击引导并等待工作区加载后才能进入表格编辑界面",
+        "页面加载了 Google DoubleClick AdSense 广告框架以及 stats.cadcraft.org 与 Cloudflare RUM 遥测",
+        "目前为 v0.19.1 Alpha 版本，表格界面封装在单 Canvas iframe 内"
+      ],
+      "privacyVerdict": "表格编辑与图表渲染在浏览器本地 Canvas iframe 中执行，未上传工作簿数据；本次测试观察到 POST stats.cadcraft.org/api/event、POST /cdn-cgi/rum 以及 Google DoubleClick AdSense 广告框架。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 18,
+        "depth": 22,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "进入 /editor 选择 Monthly budget 模板并启动 GridCraft v0.19.1 Canvas 工作台，选中单元格 A20 测试公式输入与保存交互；最大长任务 106ms、CLS 0.00，观察到 5 个载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:08:56.684Z"
+    }
+  },
+  "oil-capacity-com": {
+    "en": {
+      "bestFor": "Car owners and mechanics checking engine oil capacity, viscosity grades, and filter specs by Year/Make/Model or 17-character VIN without signing in.",
+      "pros": [
+        "Supports both Year/Make/Model selection and 17-character VIN decoding (matched 2.5L 4-Cylinder, 0W-20, 4.6 qt with filter)",
+        "Includes dedicated oil filter spec links, owner manual references, and small-engine capacity lookups with zero registration"
+      ],
+      "cons": [
+        "Dispatches VIN queries to a server-side endpoint (POST /api/public/v1/vin/decode) alongside Google Analytics and Cloudflare RUM",
+        "No CSV, PDF, or clipboard export button for looked-up vehicle oil specs",
+        "Displays advertisement slots on the landing page"
+      ],
+      "privacyVerdict": "VIN decoding executes server-side via POST oil-capacity.com/api/public/v1/vin/decode without requiring user accounts; observed outgoing traffic also included Google Analytics (POST www.google-analytics.com/g/collect) and Cloudflare RUM (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Switched to /oil-capacity-by-vin, entered 17-character VIN 4T1BF1FK6EU462152, and ran Look Up Oil Capacity returning 2.5L 4-Cylinder / 0W-20 / 4.6 qt with filter; observed 53ms max task, 0.08 CLS, and 10 payloads including POST /api/public/v1/vin/decode.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:11:51.553Z"
+    },
+    "zh": {
+      "bestFor": "适合车主与维修人员免登录按车型年份或 17 位车架号（VIN）查询机油加注量、黏度标号与机滤规格。",
+      "pros": [
+        "支持按年份/品牌/车型及 17 位 VIN 解码查询机油参数（实测返回 2.5L 4-Cylinder、0W-20、4.6 qt 含滤芯）",
+        "内置机滤匹配、车主手册入口与小型发动机机油量查询，全程无需登录"
+      ],
+      "cons": [
+        "VIN 查询需通过后端接口（POST /api/public/v1/vin/decode）处理，同时加载 Google Analytics 与 Cloudflare RUM 遥测",
+        "查询结果页未提供导出或一键复制按钮",
+        "页面包含广告位"
+      ],
+      "privacyVerdict": "VIN 识别需将输入的车架号发送至服务端接口 POST oil-capacity.com/api/public/v1/vin/decode 处理；本次测试还观察到 Google Analytics（POST www.google-analytics.com/g/collect）与 Cloudflare RUM（POST /cdn-cgi/rum）外发信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "进入 /oil-capacity-by-vin 输入 17 位 VIN 码 4T1BF1FK6EU462152 并点击 Look Up Oil Capacity，返回 2.5L 4-Cylinder / 0W-20 / 4.6 qt 含滤芯结果；最大任务 53ms、CLS 0.08，观察到 10 个载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:11:51.554Z"
+    }
+  },
+  "rasterbator-org": {
+    "en": {
+      "bestFor": "DIY makers and designers converting photos into multi-page halftone wall posters without creating an account.",
+      "pros": [
+        "Complete 6-step halftone poster wizard (Upload, Paper & Size, Style, Color, Print Options, Rasterbate) with zero sign-up required",
+        "Generated and downloaded a clean 112,061-byte 1181x1695 image artifact with zero watermarks or auth traps"
+      ],
+      "cons": [
+        "Sticky bottom AdSense banner overlaps lower controls on smaller viewports and contributes to 0.23 CLS",
+        "Fires 41 telemetry and ad-network payloads including Google Analytics, Microsoft Clarity (g.clarity.ms), Pageview, and Google AdSense",
+        "AI background removal requires Pro credits"
+      ],
+      "privacyVerdict": "Poster halftone generation ran in the browser without uploading source images to a processing server; observed outgoing traffic consisted of 41 ad-network and analytics payloads (analytics/GA, g.clarity.ms, app.pageview.app, pagead2.googlesyndication.com, fundingchoicesmessages.google.com).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 15,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 11,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Loaded city.webp via URL input, stepped through Paper & Size, Style, Color, and Print Options, and triggered Rasterbate! downloading a 112,061-byte 1181x1695 unwatermarked JPEG; observed 99ms max task, 0.23 CLS, and 41 ad/analytics payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:18:25.139Z"
+    },
+    "zh": {
+      "bestFor": "适合手工制作与海报设计用户免登录将图片转换为多页半调点阵墙面海报。",
+      "pros": [
+        "提供上传、纸张尺寸、风格、色彩、打印选项与生成共 6 步半调海报向导，核心流程无需登录",
+        "实测点击 Rasterbate! 成功下载 112,061 字节 1181x1695 无水印图像输出"
+      ],
+      "cons": [
+        "底部悬浮广告条会遮挡部分下方按钮并带来 0.23 CLS 布局偏移",
+        "存在 41 个广告与分析遥测载荷（Google Analytics、Microsoft Clarity、Pageview 与 Google AdSense）",
+        "AI 去背景等功能需要 Pro 积分"
+      ],
+      "privacyVerdict": "半调海报生成在浏览器本地执行，未将图片上传至后端处理接口；但本次测试观察到 41 个广告与追踪外发载荷（Google Analytics、g.clarity.ms、app.pageview.app、pagead2.googlesyndication.com 等）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 15,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 11,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "通过 URL 输入加载 city.webp，依次完成纸张、风格、色彩与打印设置并点击 Rasterbate!，成功下载 112,061 字节 1181x1695 无水印 JPEG；最大任务 99ms、CLS 0.23，观察到 41 个广告与分析载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:18:25.140Z"
+    }
+  },
+  "timelinevisualizer-org": {
+    "en": {
+      "bestFor": "Travelers turning Google Maps Timeline or Location History JSON files into animated 9:16 or 16:9 travel route videos without uploading location data or creating an account.",
+      "pros": [
+        "Complete 4-step browser studio (Route dates/title, Style 9:16/16:9, Motion camera/replay, Export MP4/WebM) with instant sample trip mode",
+        "Parses Timeline JSON and renders animated map canvas video locally in the browser with 0ms max long task"
+      ],
+      "cons": [
+        "Real-time MediaRecorder video export requires keeping the tab visible in the foreground until recording completes",
+        "Video frame includes a small 'TIMELINEVISUALIZER.ORG' header label and attribution pill",
+        "Fires analytics beacons to app.pageview.app, Google Analytics, and Cloudflare RUM"
+      ],
+      "privacyVerdict": "Location history JSON parsing and animated canvas video recording execute in the browser without uploading route files to a server; observed outgoing payloads consisted of analytics beacons to app.pageview.app/api/event, www.google-analytics.com/g/collect, and /cdn-cgi/rum.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested file upload with sample.json, launched Explore sample trip, renamed Story title to 'NoLogin Test Trip', stepped through Style, Motion, and Export, and triggered Export video (recorded live canvas animation at 18% progress); observed 0ms max freeze, 0.11 CLS, and 15 analytics/RUM payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:24:02.138Z"
+    },
+    "zh": {
+      "bestFor": "适合旅行者免登录将 Google Maps Timeline 定位历史 JSON 转换为 9:16 或 16:9 动画旅行路线视频。",
+      "pros": [
+        "提供 Route、Style、Motion、Export 四步浏览器工作室及一键示例行程，支持 9:16 竖屏与 16:9 横屏 MP4/WebM 导出",
+        "Timeline JSON 解析与地图轨迹画布录制均在浏览器本地完成，全程 0ms 主线程阻塞"
+      ],
+      "cons": [
+        "基于浏览器实时录屏导出视频，录制期间需保持页面在前台可见",
+        "预览与成片画布带有小字 TIMELINEVISUALIZER.ORG 标识",
+        "存在 app.pageview.app、Google Analytics 与 Cloudflare RUM 统计信标外发"
+      ],
+      "privacyVerdict": "定位历史 JSON 解析与动画地图视频录制均在浏览器本地执行，不会上传行程文件至远端服务器；本次测试观察到 app.pageview.app/api/event、www.google-analytics.com/g/collect 与 /cdn-cgi/rum 统计信标。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 19,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 sample.json 并加载 Explore sample trip，修改标题为 'NoLogin Test Trip'，依次经过 Style、Motion 与 Export 步骤并触发 Export video 实时录制（观测到录制进度 18%）；最大任务 0ms、CLS 0.11，共 15 个遥测载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:24:02.139Z"
+    }
+  },
+  "blockposter-net": {
+    "en": {
+      "bestFor": "Home printers and DIY makers splitting large images into tiled multi-page printable posters without signing in.",
+      "pros": [
+        "Interactive grid preview with configurable paper size, Portrait/Landscape orientation, page count sliders, Fit/Fill modes, and crop controls without login",
+        "Verified clean 16,068-byte 1200x800 download artifact triggered via CREATE MY POSTER! with zero watermarks or auth traps"
+      ],
+      "cons": [
+        "Sticky bottom AdSense banner and floating promotional chip overlap lower controls",
+        "Transmits 22 ad-network and analytics payloads (Google Analytics, Pageview, AdSense, FundingChoices, Cloudflare RUM)",
+        "Background removal and Batch Studio require Pro credits"
+      ],
+      "privacyVerdict": "Poster tiling and rendering execute in the browser without uploading source images to a server; observed outgoing payloads consisted of 22 telemetry and ad requests including /cdn-cgi/rum, app.pageview.app/api/event, www.google-analytics.com/g/collect, pagead2.googlesyndication.com, and fundingchoicesmessages.google.com.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 16,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Loaded Pet sample image, adjusted Pages Wide slider (#_r_1_), toggled Landscape orientation, and exported via CREATE MY POSTER! yielding a clean 16,068-byte 1200x800 WEBP artifact; observed 194ms max task, 0.05 CLS, and 22 ad/analytics payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:26:49.440Z"
+    },
+    "zh": {
+      "bestFor": "适合家庭打印与手工用户免登录将大图拆分为多页可拼接打印海报。",
+      "pros": [
+        "免登录提供纸张规格、横竖方向、页数滑块、Fit/Fill 填充与裁切等实时网格预览控制",
+        "实测点击 CREATE MY POSTER! 成功下载 16,068 字节 1200x800 无水印导出文件"
+      ],
+      "cons": [
+        "底部悬浮 AdSense 广告条会遮挡部分下方页面控件",
+        "存在 22 个广告与分析载荷（Google Analytics、Pageview、AdSense、FundingChoices、Cloudflare RUM）",
+        "AI 去背景与 Batch studio 功能需要 Pro 积分"
+      ],
+      "privacyVerdict": "海报切分与预览渲染在浏览器本地完成，未向远端服务器上传图片；本次测试观察到 22 个广告与统计载荷（含 /cdn-cgi/rum、app.pageview.app/api/event、www.google-analytics.com/g/collect、pagead2.googlesyndication.com 等）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 16,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "加载 Pet 示例图片并调节 Pages Wide 滑块（#_r_1_）、切换 Landscape 横向排版，点击 CREATE MY POSTER! 成功导出 16,068 字节 1200x800 无水印文件；最大任务 194ms、CLS 0.05，观察到 22 个载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-19T03:26:49.441Z"
     }
   }
 }

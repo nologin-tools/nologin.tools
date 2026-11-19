@@ -165,6 +165,18 @@
     "coreTask": "一键全屏纯黑显示或导出自定义分辨率的纯色背景壁纸。",
     "contentUpdatedAt": "2026-11-08T03:23:32.999Z"
   },
+  "blockblast-co-solver": {
+    "_hash": "7ae575099d5520ca",
+    "description": "免费的 Block Blast 8×8 棋盘求解器，支持游戏截图识别、区域框选校准、手动填格及多套三块放置方案计算。",
+    "coreTask": "免登录上传 Block Blast 截图或手动输入 8×8 棋盘并计算最优三方块放置步骤。",
+    "contentUpdatedAt": "2026-11-19T02:52:46.373Z"
+  },
+  "blockposter-net": {
+    "_hash": "c7e9531bd2f98376",
+    "description": "免费的多页拼贴海报生成器，支持纸张规格、横竖方向、网格页数与裁切配置并可打印拼接。",
+    "coreTask": "免登录上传或加载图片，设置海报拼接页数、方向与纸张尺寸并导出可打印海报。",
+    "contentUpdatedAt": "2026-11-19T03:26:49.653Z"
+  },
   "blur-face-com-blur-face": {
     "coreTask": "自动识别并模糊人脸、批量处理照片、清除 EXIF 元数据并快速下载，全程无需创建账号",
     "description": "免费的浏览器端照片隐私保护工具，可自动检测并模糊人脸。所有处理均在浏览器本地完成，图片绝不上载到服务器。支持批量上传处理以及一键擦除 EXIF 拍摄元数据。"
@@ -201,6 +213,12 @@
   "bytepriva-com-merge-pdf": {
     "coreTask": "合并多个 PDF 文件、调整页面顺序并下载合并后的文件——全程无需注册账号，零数据上传到服务器。",
     "description": "直接在浏览器中将多个 PDF 文件合并为一个——零上传、免注册。文件完全利用您本地设备的计算性能在客户端处理，任何数据都不会离开您的电脑。拖拽添加、排序页面，即刻下载合并文件。"
+  },
+  "caesarcipher-org": {
+    "_hash": "e9e287d4552e3840",
+    "description": "免费的古典密码在线工具箱，支持凯撒密码、ROT13、维吉尼亚、阿特巴希及暴力破解并支持一键复制。",
+    "coreTask": "免登录在浏览器中对文本进行凯撒及古典替代密码加密、解密与暴力求解。",
+    "contentUpdatedAt": "2026-11-19T02:55:20.346Z"
   },
   "calcahead-com": {
     "_hash": "ca986a85c1d00656",
@@ -862,6 +880,12 @@
     "description": "免注册餐厅菜单在线页面与桌台二维码生成工具。",
     "coreTask": "生成餐厅菜单页面与二维码"
   },
+  "gridcraft-me": {
+    "_hash": "8a1eedb6a10950fd",
+    "description": "免费的浏览器端开源电子表格工作台，具备类 Excel 功能区、公式、条件格式与内置图表支持。",
+    "coreTask": "免登录在浏览器中新建或打开模板工作簿，编辑单元格、计算公式并查看可视化图表。",
+    "contentUpdatedAt": "2026-11-19T03:08:56.856Z"
+  },
   "haikei-app": {
     "_hash": "06db3a60b652a26c",
     "description": "生成独特的 SVG 背景形状——波浪、斑点、渐变、堆叠等。导出为 SVG 或 PNG 用于设计。",
@@ -1173,6 +1197,12 @@
     "coreTask": "免注册即可批量将支持的文件或公开 HTTPS 文件链接转换为 Markdown，预览结果、复制并下载 Markdown 文件。",
     "description": "支持将 PDF、Word、Excel、PowerPoint、HTML、EPUB 以及图片文件转换为带有自动 OCR 识别的结构化 Markdown，同时支持将可编辑的 Markdown 导出为常见的文档、图像、电子书、幻灯片和电子表格格式。"
   },
+  "markdownonline-app": {
+    "_hash": "04c40b055966f155",
+    "description": "免费的浏览器端 Markdown 编辑器，提供实时双栏预览、标题大纲、模板、暗黑模式及 .md/.html/PDF 导出。",
+    "coreTask": "免登录在线编写或上传 Markdown 文档，并实时预览及导出为 .md、独立 .html 或 PDF。",
+    "contentUpdatedAt": "2026-11-19T02:59:12.532Z"
+  },
   "markmap-js-org": {
     "_hash": "4b34f5e048ec3b3c",
     "description": "将 Markdown 转换为交互式思维导图。编写结构化 Markdown，看它变成可缩放、可导航的树状可视化图。",
@@ -1392,6 +1422,12 @@
   "nutilz-com-caa-record-generator": {
     "coreTask": "构建并验证 CAA DNS 记录，精细控制哪些 CA 机构可为你的域名颁发 SSL/TLS 证书",
     "description": "生成并校验 CAA（证书颁发机构授权）DNS 解析记录。自由选择受信任的证书颁发机构，配置通配符规则和 iodef 违规告警邮箱，并提供原始记录解析与校验功能。完全在浏览器本地运行，无需注册。"
+  },
+  "oil-capacity-com": {
+    "_hash": "010e3b543d1f8b80",
+    "description": "免费的发动机机油加注量、黏度标号与机滤查询工具，支持按年份/车型选择或 17 位 VIN 解码。",
+    "coreTask": "免登录按车辆年份型号或 17 位车架号（VIN）查询发动机机油容量、推荐黏度及机滤规格。",
+    "contentUpdatedAt": "2026-11-19T03:11:51.726Z"
   },
   "olivez-in-tool-image-compressor": {
     "description": "免费的 JPG、PNG 和 WebP 图片压缩工具。图片完全在浏览器本地处理，零上传、绝不发送至服务器。支持多达 40 张批量压缩、前后画质对比、独立的 JPEG/WebP 质量微调、PNG 颜色精简、单独下载及一键打包 ZIP 导出。无需账号。",
@@ -1693,6 +1729,12 @@
     "coreTask": "上传图片并配置半色调网点样式与多页切片尺寸，直接下载免水印拼贴打印 PDF，无需注册登录。",
     "contentUpdatedAt": "2026-11-09T02:58:54.098Z"
   },
+  "rasterbator-org": {
+    "_hash": "64bd5c2d12fa04ef",
+    "description": "免费的 6 步半调点阵墙面海报生成器，支持纸张尺寸、半调风格、色彩与打印参数定制。",
+    "coreTask": "免登录加载图片并配置纸张尺寸、半调样式与色彩，生成并下载可打印海报。",
+    "contentUpdatedAt": "2026-11-19T03:18:25.307Z"
+  },
   "rawgraphs-io": {
     "_hash": "e4f54a4b1faf0367",
     "description": "开源数据可视化框架。粘贴数据，选择图表类型，导出精美的 SVG 或 PNG 可视化结果。",
@@ -1975,6 +2017,12 @@
     "description": "Telemetry 的免费 SQL 练习场：无需注册，即可在浏览器中对内置的模拟应用事件运行查询，查看错误率、请求量和延迟指标，练习发布后的数据验证。查询在浏览器本地通过 DuckDB 执行，零数据上传。",
     "coreTask": "选择内置模拟事件，在浏览器中编辑并执行 SQL 查询，分析请求量、错误率与延迟，无需账号"
   },
+  "teleprompteronline-net": {
+    "_hash": "0b5c9a31c8f30636",
+    "description": "免费的浏览器在线提词器，支持镜像模式、WPM 调速、语音滚动、文件上传及本地脚本保存。",
+    "coreTask": "免登录粘贴或上传台词脚本，在浏览器中运行支持调速与镜像的提词器。",
+    "contentUpdatedAt": "2026-11-19T02:56:58.105Z"
+  },
   "temp-mail-org": {
     "_hash": "1ab0b70580d2a532",
     "description": "一次性临时邮件服务。即时获取匿名邮箱地址，无需暴露真实邮件即可接收邮件，到期后自动删除。",
@@ -2047,6 +2095,12 @@
     "_hash": "e5d3fb33604f856c",
     "description": "与原子钟同步的精确当前时间。世界时钟、时区转换器和毫秒精度的倒计时。",
     "coreTask": "查看精确的世界时间"
+  },
+  "timelinevisualizer-org": {
+    "_hash": "0f13393ef0973ca6",
+    "description": "免费的浏览器端旅行轨迹视频生成工具，可在本地将 Google Maps Timeline JSON 转为 9:16 或 16:9 动态路线视频。",
+    "coreTask": "免登录加载 Google Maps 定位历史 JSON 或示例行程，定制路线标题、画幅风格与镜头动画并导出旅行视频。",
+    "contentUpdatedAt": "2026-11-19T03:24:02.331Z"
   },
   "tinhgpa-com": {
     "_hash": "902f99a2d4802138",
@@ -2314,6 +2368,12 @@
   "www-calculatorcampus-com": {
     "coreTask": "无需创建账号，直接在浏览器中进行实用数值计算与单位换算",
     "description": "Calculator Campus 是一个免费的实用浏览器计算器合集。每个工具都结合了直观的输入流程、计算公式、前提假设、详细步骤示例、常见问题及权威数据来源。核心计算器均无需账号即可使用。"
+  },
+  "www-dblqr-xyz": {
+    "_hash": "9de615835fb3ca5b",
+    "description": "免费的《龙珠激战传说》二维码生成器，支持活动二维码与好友码生成及批量 PNG 下载。",
+    "coreTask": "输入 8 位好友码免登录生成并下载龙珠激战传说活动或好友二维码。",
+    "contentUpdatedAt": "2026-11-19T02:48:36.018Z"
   },
   "www-freedominvoice-com-tools-invoice-generator": {
     "_hash": "7e4278a764ba2e3f",
