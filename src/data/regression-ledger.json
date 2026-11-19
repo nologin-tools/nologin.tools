@@ -105,11 +105,24 @@
     "lastScanAt": "2026-11-13T04:03:17.255Z"
   },
   "app-diagrams-net": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-10T02:46:29.966Z",
-    "lastTitle": "Flowchart Maker & Online Diagram Software",
+    "openAnomalies": [
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"Flowchart Maker & Online Diagram Software\" → \"draw.io\"",
+        "firstSeenAt": "2026-11-19T06:06:22.295Z",
+        "lastSeenAt": "2026-11-19T06:06:22.295Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-intent-1795068370596.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-outcome-1795068370596.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-19T06:06:22.295Z",
+    "lastTitle": "draw.io",
     "lastSignals": [
-      "surface_lost"
+      "title_changed"
     ],
     "lastDeepEvalAt": "2026-11-10T02:46:29.966Z",
     "lastResolution": {
@@ -230,7 +243,7 @@
   },
   "banglatools-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:14:51.671Z",
+    "lastScanAt": "2026-11-19T06:10:00.572Z",
     "lastTitle": "Free Unicode to Bijoy Converter + DOCX/XLSX",
     "lastSignals": []
   },
@@ -479,7 +492,7 @@
   },
   "chordgen-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:14:09.146Z",
+    "lastScanAt": "2026-11-19T06:09:20.053Z",
     "lastTitle": "Chord Progression Generator & Maker | chordgen",
     "lastSignals": []
   },
@@ -521,7 +534,7 @@
   },
   "codextheme-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:04.610Z",
+    "lastScanAt": "2026-11-19T06:10:15.183Z",
     "lastTitle": "Free Codex Theme Builder for Desktop | CodexTheme Tools",
     "lastSignals": []
   },
@@ -538,7 +551,7 @@
   },
   "colorhunt-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:13:58.419Z",
+    "lastScanAt": "2026-11-19T06:09:07.984Z",
     "lastTitle": "Color Hunt - Color Palettes for Designers and Artists",
     "lastSignals": []
   },
@@ -581,7 +594,7 @@
   },
   "contadordepalabras-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:34:27.945Z",
+    "lastScanAt": "2026-11-19T06:05:12.649Z",
     "lastTitle": "Contador de palabras, contador de caracteres",
     "lastSignals": []
   },
@@ -726,13 +739,13 @@
   },
   "csv-safecheck-pages-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:33:06.376Z",
+    "lastScanAt": "2026-11-19T06:04:01.449Z",
     "lastTitle": "CSV SafeCheck — Shopify product CSV preflight",
     "lastSignals": []
   },
   "csvjson-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:13:33.942Z",
+    "lastScanAt": "2026-11-19T06:08:43.879Z",
     "lastTitle": "CSV to JSON Converter — CSVJSON",
     "lastSignals": []
   },
@@ -982,7 +995,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T03:41:34.794Z"
+    "lastScanAt": "2026-11-19T06:07:50.948Z",
+    "lastTitle": "AI Excel Editor Online — Edit XLSX with AI | ExcelCraft",
+    "lastSignals": []
   },
   "explainshell-com": {
     "openAnomalies": [],
@@ -1157,7 +1172,7 @@
   },
   "focus2grow-app-dealcove": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:13:20.585Z",
+    "lastScanAt": "2026-11-19T06:08:26.587Z",
     "lastTitle": "Einfaches CRM für kleine Unternehmen · Dealcove",
     "lastSignals": []
   },
@@ -1176,7 +1191,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T03:31:43.393Z"
+    "lastScanAt": "2026-11-19T06:07:37.899Z",
+    "lastTitle": "PNG Text Generator — Transparent Background Text | Fontique",
+    "lastSignals": []
   },
   "fontjoy-com": {
     "openAnomalies": [],
@@ -1193,7 +1210,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T03:10:07.621Z"
+    "lastScanAt": "2026-11-19T06:07:10.965Z",
+    "lastTitle": "Football Legends DB | Football History & Legends",
+    "lastSignals": []
   },
   "formatdrop-com": {
     "openAnomalies": [],
@@ -1307,11 +1326,13 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T02:59:54.197Z"
+    "lastScanAt": "2026-11-19T06:07:03.785Z",
+    "lastTitle": "SpellGenie — Free Spelling Test Maker with Audio",
+    "lastSignals": []
   },
   "getwaves-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:32:38.643Z",
+    "lastScanAt": "2026-11-19T06:03:34.616Z",
     "lastTitle": "Get Waves – Create SVG waves for your next design",
     "lastSignals": []
   },
@@ -1591,7 +1612,7 @@
   },
   "imagecompressortokb-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:32:08.180Z",
+    "lastScanAt": "2026-11-19T06:03:10.096Z",
     "lastTitle": "Image Compressor to KB - Compress to a Target File Size",
     "lastSignals": []
   },
@@ -1859,7 +1880,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T02:52:45.403Z"
+    "lastScanAt": "2026-11-19T06:06:56.948Z",
+    "lastTitle": "Crochet Pattern Generator — Photo to Chart, Free | Looprel",
+    "lastSignals": []
   },
   "makehalftone-com": {
     "openAnomalies": [],
@@ -2183,7 +2206,7 @@
   },
   "nawtch-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:32:52.503Z",
+    "lastScanAt": "2026-11-19T06:03:48.680Z",
     "lastTitle": "Nawtch — Free Calorie & Macro Tracker, No Account Needed",
     "lastSignals": []
   },
@@ -2214,7 +2237,7 @@
   },
   "next-tools-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:33:30.917Z",
+    "lastScanAt": "2026-11-19T06:04:20.303Z",
     "lastTitle": "Next-Tools - 开发者在线工具箱",
     "lastSignals": []
   },
@@ -2293,7 +2316,7 @@
   },
   "olivez-in-tool-image-compressor": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:14:30.030Z",
+    "lastScanAt": "2026-11-19T06:09:40.476Z",
     "lastTitle": "Image Compressor - Reduce Image Size Online",
     "lastSignals": []
   },
@@ -2305,7 +2328,7 @@
   },
   "online-tone-generator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:34:50.592Z",
+    "lastScanAt": "2026-11-19T06:05:37.683Z",
     "lastTitle": "Online Tone Generator — Sine, Square, Triangle, Sawtooth (20Hz–20kHz)",
     "lastSignals": []
   },
@@ -2416,7 +2439,7 @@
   },
   "perplexity-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:08.759Z",
+    "lastScanAt": "2026-11-19T06:10:20.211Z",
     "lastSignals": []
   },
   "phet-colorado-edu": {
@@ -2623,8 +2646,21 @@
     "lastSignals": []
   },
   "privacytests-org": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-10T02:49:49.351Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-19T06:06:29.545Z",
+        "lastSeenAt": "2026-11-19T06:06:29.545Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-intent-1795068382418.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-privacytests-org-outcome-1795068382418.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-19T06:06:29.545Z",
     "lastTitle": "What are the best private browsers in 2026?",
     "lastSignals": [
       "surface_lost"
@@ -2676,12 +2712,24 @@
     "lastSignals": []
   },
   "ps-keepmot-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-10T02:38:48.391Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-19T06:06:10.463Z",
+        "lastSeenAt": "2026-11-19T06:06:10.463Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1795068357579.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1795068357579.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-19T06:06:10.463Z",
     "lastTitle": "免费在线拼图工具_免登录无水印_高清图片拼接网站",
     "lastSignals": [
-      "surface_lost",
-      "title_changed"
+      "surface_lost"
     ],
     "lastDeepEvalAt": "2026-11-10T02:38:48.391Z",
     "lastResolution": {
@@ -2743,7 +2791,7 @@
   },
   "qrcode-monkey-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:34:43.643Z",
+    "lastScanAt": "2026-11-19T06:05:29.465Z",
     "lastTitle": "QRCode Monkey - The free QR Code Generator to create custom QR Codes with Logo",
     "lastSignals": []
   },
@@ -3091,7 +3139,7 @@
   },
   "sizecompare-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:14:16.437Z",
+    "lastScanAt": "2026-11-19T06:09:26.952Z",
     "lastTitle": "Compare Sizes & Dimensions at True Scale",
     "lastSignals": []
   },
@@ -3114,7 +3162,7 @@
   },
   "speed-cloudflare-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:35:05.309Z",
+    "lastScanAt": "2026-11-19T06:05:51.704Z",
     "lastTitle": "Internet Speed Test - Measure Network Performance | Cloudflare",
     "lastSignals": []
   },
@@ -3201,7 +3249,7 @@
   },
   "studycalcpro-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:35:11.068Z",
+    "lastScanAt": "2026-11-19T06:05:57.450Z",
     "lastTitle": "StudyTools — Free Online Calculators &amp; Study Tools for Students",
     "lastSignals": []
   },
@@ -3275,7 +3323,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T03:46:46.262Z"
+    "lastScanAt": "2026-11-19T06:08:00.399Z",
+    "lastTitle": "US Import Duty Stack & Landed Cost Calculator 2026",
+    "lastSignals": []
   },
   "teachablemachine-withgoogle-com": {
     "openAnomalies": [],
@@ -3311,7 +3361,7 @@
   },
   "temp-mail-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:32:27.364Z",
+    "lastScanAt": "2026-11-19T06:03:28.475Z",
     "lastTitle": "Temp Mail - Disposable Temporary Email",
     "lastSignals": []
   },
@@ -3330,7 +3380,7 @@
   },
   "textbench-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:33:44.157Z",
+    "lastScanAt": "2026-11-19T06:04:31.801Z",
     "lastTitle": "Textbench — 63 text tools, one page, nothing uploaded.",
     "lastSignals": []
   },
@@ -3342,8 +3392,8 @@
   },
   "textlogo-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:13:50.298Z",
-    "lastTitle": "Text Logo - Logo Generator",
+    "lastScanAt": "2026-11-19T06:09:00.711Z",
+    "lastTitle": "TextLogo: Free Text Logo Maker, Download PNG & SVG",
     "lastSignals": []
   },
   "textunnel-com": {
@@ -3395,7 +3445,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T03:25:41.646Z"
+    "lastScanAt": "2026-11-19T06:07:22.880Z",
+    "lastTitle": "AI Coding Handover Template for a New Chat | thredly",
+    "lastSignals": []
   },
   "til-re": {
     "openAnomalies": [],
@@ -3405,8 +3457,8 @@
   },
   "time-is": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:34:58.295Z",
-    "lastTitle": "Time.is 01:34",
+    "lastScanAt": "2026-11-19T06:05:44.432Z",
+    "lastTitle": "Time.is 01:05",
     "lastSignals": []
   },
   "timelinevisualizer-org": {
@@ -3640,7 +3692,7 @@
   },
   "untrackedtools-com-en": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:32:15.713Z",
+    "lastScanAt": "2026-11-19T06:03:17.397Z",
     "lastTitle": "Free Online Tools - No Signup | UnTrackedTools",
     "lastSignals": []
   },
@@ -3701,7 +3753,7 @@
   },
   "visualgo-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:33:16.228Z",
+    "lastScanAt": "2026-11-19T06:04:09.218Z",
     "lastTitle": "visualising data structures and algorithms through animation - VisuAlgo",
     "lastSignals": []
   },
@@ -3782,7 +3834,7 @@
   },
   "webutilslab-com-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:14:35.754Z",
+    "lastScanAt": "2026-11-19T06:09:45.710Z",
     "lastTitle": "Free Browser Developer Tools - WebUtilsLab",
     "lastSignals": []
   },
@@ -4014,7 +4066,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T03:56:03.325Z"
+    "lastScanAt": "2026-11-19T06:08:19.048Z",
+    "lastTitle": "Free LinkedIn CSV Checker · OutreachGenie",
+    "lastSignals": []
   },
   "www-pastecurl-com": {
     "openAnomalies": [],
@@ -4046,7 +4100,7 @@
   },
   "www-slabcalc-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:34:07.150Z",
+    "lastScanAt": "2026-11-19T06:04:58.562Z",
     "lastTitle": "Concrete Calculator — Cubic Yards, Bags & Weight | SlabCalc",
     "lastSignals": []
   },
@@ -4124,8 +4178,8 @@
   },
   "www-yhile-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:33:37.961Z",
-    "lastTitle": "yhile.com — Free Online Tools. No Signup. No Data Stored.",
+    "lastScanAt": "2026-11-19T06:04:25.995Z",
+    "lastTitle": "yhile.com — Free Online Tools, APIs and AI Models",
     "lastSignals": []
   },
   "www-yourboddy-com-form-check": {
@@ -4183,7 +4237,7 @@
   },
   "z-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-09T06:34:18.331Z",
+    "lastScanAt": "2026-11-19T06:05:05.749Z",
     "lastTitle": "Z.ai - Advanced AI Chatbot & Agent powered by GLM-5.3-Flash",
     "lastSignals": []
   },
