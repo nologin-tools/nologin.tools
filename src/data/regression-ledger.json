@@ -105,32 +105,19 @@
     "lastScanAt": "2026-11-13T04:03:17.255Z"
   },
   "app-diagrams-net": {
-    "openAnomalies": [
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"Flowchart Maker & Online Diagram Software\" → \"draw.io\"",
-        "firstSeenAt": "2026-11-19T06:06:22.295Z",
-        "lastSeenAt": "2026-11-19T06:06:22.295Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-intent-1795068370596.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-app-diagrams-net-outcome-1795068370596.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-19T06:06:22.295Z",
     "lastTitle": "draw.io",
     "lastSignals": [
       "title_changed"
     ],
-    "lastDeepEvalAt": "2026-11-10T02:46:29.966Z",
+    "lastDeepEvalAt": "2026-11-20T02:38:26.460Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 93, editors-choice)",
-      "at": "2026-11-10T02:46:29.966Z",
+      "outcome": "cleared",
+      "note": "Verified draw.io diagram editor loads without login (title updated to Untitled Diagram - draw.io), searched shape library, interacted with File/Save menu, 0 outgoing payloads.",
+      "at": "2026-11-20T02:38:26.460Z",
       "closed": [
-        "surface_lost"
+        "title_changed"
       ]
     }
   },
@@ -257,6 +244,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-18T02:54:15.099Z"
+  },
+  "bestllmfor-com-recommandeur-quantification": {
+    "lastDeepEvalAt": "2026-11-20T02:51:09.218Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-20T02:51:09.218Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-20T02:51:09.218Z"
   },
   "betterhabitsdaily-com-tracker": {
     "openAnomalies": [],
@@ -1106,6 +1104,17 @@
       ]
     }
   },
+  "findkeybpm-com": {
+    "lastDeepEvalAt": "2026-11-20T03:05:33.610Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-20T03:05:33.610Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-20T03:05:33.610Z"
+  },
   "findthescam-net": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-11T06:48:31.586Z",
@@ -1231,6 +1240,17 @@
     "lastScanAt": "2026-11-16T06:19:43.200Z",
     "lastTitle": "Free QR Code Generator | Free QR Codes",
     "lastSignals": []
+  },
+  "freeattractivenesstest-com": {
+    "lastDeepEvalAt": "2026-11-20T03:18:50.631Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-20T03:18:50.631Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-20T03:18:50.631Z"
   },
   "freegraphpaper-org": {
     "lastDeepEvalAt": "2026-11-05T03:45:40.905Z",
@@ -2022,6 +2042,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T04:12:45.157Z"
   },
+  "medleads-io-tools-clinic-website-scanner": {
+    "lastDeepEvalAt": "2026-11-20T02:59:19.372Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-20T02:59:19.372Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-20T02:59:19.372Z"
+  },
   "meet-jit-si": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-14T06:25:56.588Z",
@@ -2243,9 +2274,16 @@
   },
   "nextgenailearning-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:26.907Z",
+    "lastScanAt": "2026-11-20T02:42:02.155Z",
     "lastTitle": "The ID Toolbox: free tools for instructional designers",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-20T02:42:02.155Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 89, highly-recommended)",
+      "at": "2026-11-20T02:42:02.155Z",
+      "closed": []
+    }
   },
   "nextreset-ai": {
     "openAnomalies": [],
@@ -2712,33 +2750,19 @@
     "lastSignals": []
   },
   "ps-keepmot-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-19T06:06:10.463Z",
-        "lastSeenAt": "2026-11-19T06:06:10.463Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-intent-1795068357579.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ps-keepmot-com-outcome-1795068357579.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-19T06:06:10.463Z",
     "lastTitle": "免费在线拼图工具_免登录无水印_高清图片拼接网站",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-10T02:38:48.391Z",
+    "lastDeepEvalAt": "2026-11-20T02:36:54.473Z",
     "lastResolution": {
-      "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
-      "at": "2026-11-10T02:38:48.391Z",
+      "outcome": "cleared",
+      "note": "Verified /zh/design/ collage workspace loads and operates without login; filled custom watermark text, toggled watermark controls, and triggered 下载图片 export with zero auth wall (observed GA + Cloudflare RUM beacons only).",
+      "at": "2026-11-20T02:36:54.473Z",
       "closed": [
-        "surface_lost",
-        "title_changed"
+        "surface_lost"
       ]
     }
   },
@@ -4087,6 +4111,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-13T03:30:38.042Z"
   },
+  "www-pwdgen-xyz": {
+    "lastDeepEvalAt": "2026-11-20T03:13:10.553Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-20T03:13:10.553Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-20T03:13:10.553Z"
+  },
   "www-sailtoworld-com-cliploom-video-to-thumbnail": {
     "lastDeepEvalAt": "2026-11-12T04:00:55.144Z",
     "lastResolution": {
@@ -4097,6 +4132,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-12T04:00:55.144Z"
+  },
+  "www-sichtschutz-im-garten-info": {
+    "lastDeepEvalAt": "2026-11-20T02:54:10.905Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-20T02:54:10.905Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-20T02:54:10.905Z"
   },
   "www-slabcalc-co": {
     "openAnomalies": [],

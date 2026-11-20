@@ -140,6 +140,12 @@
     "coreTask": "配置耗材与生产费率或导入切片文件，对比单盘成本并导出报价 CSV。",
     "contentUpdatedAt": "2026-11-18T02:54:15.248Z"
   },
+  "bestllmfor-com-recommandeur-quantification": {
+    "_hash": "9a3476205948ab37",
+    "description": "基于显存或统一内存容量的 LLM 量化方案推荐工具，结合上下文长度与使用场景实时匹配可运行的 GGUF、GPTQ 与 AWQ 模型。",
+    "coreTask": "输入可用内存容量、硬件类型、上下文窗口与用途，实时获取匹配的量化大模型推荐列表。",
+    "contentUpdatedAt": "2026-11-20T02:51:09.333Z"
+  },
   "betterhabitsdaily-com-tracker": {
     "coreTask": "在浏览器中直接打卡和追踪每日习惯",
     "description": "专为开发者量身打造的免费免注册日常习惯追踪工具。"
@@ -689,6 +695,12 @@
     "description": "受 YNAB 启发的离线优先个人预算管理器。信封预算法配合自动同步——所有数据保留在你的设备上。",
     "coreTask": "离线管理个人预算"
   },
+  "findkeybpm-com": {
+    "_hash": "15a0957bbbd2f247",
+    "description": "基于浏览器的 MP3 与 WAV 音频调性、BPM 速度及 Camelot 混音代码检测工具，附带节拍测速、和弦推调与 BPM 转毫秒实用工具。",
+    "coreTask": "拖入至少 4 秒的 MP3 或 WAV 音频文件（或运行内置示例音频），检测其 BPM 速度、音乐调性与 Camelot 编号。",
+    "contentUpdatedAt": "2026-11-20T03:05:33.745Z"
+  },
   "findthescam-net": {
     "coreTask": "无需注册账号，直接查询域名的 WHOIS、HTTPS、DNS 及潜在诈骗风险信号",
     "description": "Find The Scam 通过综合分析 WHOIS 注册信息、HTTPS 证书、DNS 记录、网站声誉、安全状态及各类反诈警示信号，帮助用户快速判断网站是合法合规还是存在欺诈风险。"
@@ -761,6 +773,12 @@
   "free-qr-codes-com": {
     "coreTask": "直接在浏览器中生成静态二维码、扫描识别并校验内容，全程无需注册账号",
     "description": "注重隐私的纯前端二维码工具。支持为网址、Wi-Fi、联系人名片等生成静态二维码，并支持摄像头或图片扫描识别。免登录使用，无水印，永不失效。"
+  },
+  "freeattractivenesstest-com": {
+    "_hash": "05be05b83069be7b",
+    "description": "浏览器本地运行的 AI 面部比例与评分分析工具，可在不上传照片的情况下检测眼型、眼距、眉高、下颌宽度及眼角倾斜度并导出 PNG 结果卡片。",
+    "coreTask": "上传正面人像照片（或点击示例人像）在本地执行面部比例检测，并下载结果卡片。",
+    "contentUpdatedAt": "2026-11-20T03:18:50.769Z"
   },
   "freegraphpaper-org": {
     "_hash": "577aff07b4f700a8",
@@ -1250,6 +1268,12 @@
     "description": "面向跨境出海与企业营销人员的交互式计算工具，即时核算 Meta 与 Google 广告支出的印度消费税（GST）反向征税、代理商服务费及进项税抵扣额。",
     "coreTask": "计算月度广告支出的 GST 反向征税额、进项税抵扣与真实净营销成本。",
     "contentUpdatedAt": "2026-11-12T04:13:49.509Z"
+  },
+  "medleads-io-tools-clinic-website-scanner": {
+    "_hash": "aac6a4f8af58f99f",
+    "description": "免费的公开医疗诊所网站检测工具，自动抓取最多 20 个同站 HTML 页面并依据 26 项专科患者信息标准生成评估报告与 Markdown 开发清单。",
+    "coreTask": "输入公开诊所网址并选择医疗专科，执行最多 20 页的检测并下载开发者整改清单。",
+    "contentUpdatedAt": "2026-11-20T02:59:19.509Z"
   },
   "meet-jit-si": {
     "_hash": "367a9d19bf298f27",
@@ -2448,6 +2472,12 @@
     "coreTask": "在浏览器本地免登录完成 PDF 文档的合并、压缩与格式转换。",
     "contentUpdatedAt": "2026-11-13T03:33:49.791Z"
   },
+  "www-pwdgen-xyz": {
+    "_hash": "31e10fd369a02dbb",
+    "description": "支持多语言的批量随机密码生成器，可在浏览器本地一次生成 5 至 20 个可定制密码（6–64 位），支持单条、多选与一键全量复制。",
+    "coreTask": "设置密码长度、生成数量与字符过滤规则，点击 Regenerate 并通过 Copy all 复制生成的密码列表。",
+    "contentUpdatedAt": "2026-11-20T03:13:10.690Z"
+  },
   "www-quackbuilds-com-apps-oee-pulse-html": {
     "coreTask": "追踪单机及全厂综合设备效率（OEE），记录班次数据，查看趋势分析，并导出班次报告 PDF——无需任何账号",
     "description": "专为小型机械加工车间打造的免费车间 OEE（设备综合效率）仪表板：追踪每台设备的“可用率 × 表现指数 × 质量率”，通过彩色仪表盘一览全厂 OEE，记录每个班次以形成历史趋势，并能导出班次报告 PDF 供早会汇报使用。无单机 SaaS 订阅费，无需注册，在车间平板电脑和办公室电脑上均可流畅使用。"
@@ -2457,6 +2487,12 @@
     "description": "免费的客户端视频缩略图生成器，直接在浏览器中逐帧捕获视频画面，添加自定义排版文字图层，无需注册或上传视频即可导出高清 PNG 或 JPG 封面图。",
     "coreTask": "在浏览器本地捕获视频画面帧，添加排版文字并导出高清缩略图，全程无需上传文件。",
     "contentUpdatedAt": "2026-11-12T04:03:18.947Z"
+  },
+  "www-sichtschutz-im-garten-info": {
+    "_hash": "b8255b1a79195b23",
+    "description": "交互式德语花园遮挡方案筛选与成本估算工具，支持按围栏长度、预算、维护强度与生态条件对比 30 种绿篱、围栏及移动隔断方案。",
+    "coreTask": "设置边界长度、总预算、维护频率与具体需求，实时筛选并估算适配的花园遮挡方案。",
+    "contentUpdatedAt": "2026-11-20T02:54:11.017Z"
   },
   "www-slabcalc-co": {
     "description": "免费混凝土用量计算器，适用于平板地基、圆柱基础、路缘石及楼梯。支持英制与公制单位，自动计算体积、水泥袋数（40/50/60/80磅袋装）、总重量与预估施工成本，并支持自定义损耗率。无需账号、无需注册、无需安装任何软件。",

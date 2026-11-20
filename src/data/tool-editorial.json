@@ -69472,17 +69472,17 @@
   },
   "nextgenailearning-com": {
     "en": {
-      "bestFor": "Instructional designers and elearning creators needing zero-egress tools for caption conversion, Bloom taxonomy validation, and course scoping",
+      "bestFor": "Instructional designers and elearning developers needing 55 single-purpose browser utilities for SCORM validation, caption conversion, scoping estimates, and SVG cleanup without accounts.",
       "pros": [
-        "Specialized suite of 14+ client-side utilities purpose-built for instructional designers and elearning developers",
-        "Pedagogical tooling includes Bloom taxonomy observable verb analysis and 21 cps reading-speed threshold warnings",
-        "Local-only in-browser processing with direct export to WebVTT, SRT, TTML, and plain text transcripts"
+        "Expanded light suite of 55 specialized client-side utilities covering course scoping, SCORM validation, caption timing, audio analysis, and asset optimization",
+        "Analytics consent banner explicitly defers Google Analytics until accepted; declining consent produced zero outgoing network requests across 9 steps",
+        "Instant in-browser processing with clean unwatermarked clipboard export verified on SVG Optimizer (163 chars reduced to 134 chars)"
       ],
       "cons": [
-        "Minimalist blueprint aesthetic lacks an integrated automatic speech-to-text transcription engine",
-        "Specialized primarily for instructional design workflows rather than general-purpose multi-track video editing"
+        "Individual tools are lightweight single-purpose utilities rather than a multi-track authoring workstation",
+        "Filtering tools and updating live estimates triggered minor layout shift (CLS 0.16–0.17)"
       ],
-      "privacyVerdict": "True zero-egress client-side architecture. When analytics consent is declined, exactly 0 outgoing network requests are dispatched. All caption parsing, taxonomy evaluations, and file generation execute purely inside the browser sandbox.",
+      "privacyVerdict": "When analytics consent was declined at startup, zero outgoing network payloads were observed across 9 tested steps in Development Time & Cost Estimator and SVG Optimizer.",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
@@ -69490,29 +69490,30 @@
         "Happy Scribe"
       ],
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
-      "benchmarkNotes": "Dogfooded The ID Toolbox across Learning Objective Checker (Bloom taxonomy classification of 4 objectives) and Caption Converter. Loaded forklift safety sample with 0 ms freeze and CLS of 0.07. Converted SRT cues to WebVTT with 3 timing overlap detections, and exported an unwatermarked 369 bytes WebVTT caption file in 42 ms. With analytics consent declined, network monitoring captured 0 outgoing network payloads (0 bytes egress).",
-      "testedAt": "2026-09"
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Tested search filter, Development Time & Cost Estimator (45 minutes, Advanced complexity), and SVG Optimizer (pasted 163-char SVG, verified 18% reduction to 134 chars and clean COPY clipboard export) with 0 outgoing network payloads after declining Google Analytics.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:42:02.132Z"
     },
     "zh": {
-      "bestFor": "免登录、零数据出境使用面向教学设计与微课研发的专业小工具（如布鲁姆教学目标检测、字幕转换与课件字数盘点）",
+      "bestFor": "需要免登录使用 55 款轻量单用途浏览器工具完成 SCORM 校验、字幕处理、开发工时估算与 SVG 精简的教学设计与在线课程开发者。",
       "pros": [
-        "专为教学设计（ID）与在线课程开发者打造的 14+ 款纯本地运行轻量工具集合",
-        "集成布鲁姆认知目标动词可观测性判定以及每秒 21 字符的阅读速度超标预警分析",
-        "纯客户端零数据出境处理，支持将字幕直接导出为标准 WebVTT、SRT、TTML 或纯文本脚本"
+        "内置 55 款面向教学设计与在线课件制作的专用客户端实用工具，涵盖工时估算、SCORM 校验、字幕处理、音频分析与素材优化",
+        "统计授权弹窗在用户点击拒绝前不会加载 Google Analytics；拒绝后全程 9 步实测零对外网络载荷",
+        "浏览器内即时处理并支持无水印剪贴板导出，SVG Optimizer 实测将 163 字符精简至 134 字符"
       ],
       "cons": [
-        "极简蓝图网格风格界面，不包含基于服务端的自动语音识别（ASR）转写功能",
-        "功能高度聚焦于教学课件与 LMS 规范，而非通用型多轨视频剪辑与时间轴特效"
+        "各子工具定位为单用途轻量脚本集合，而非完整的多轨交互式课件制作工作台",
+        "搜索筛选与实时计算结果更新时存在轻微布局偏移（CLS 0.16–0.17）"
       ],
-      "privacyVerdict": "严格的纯客户端零数据出境架构。在拒绝统计 Cookie 授权后，网络外发请求量严格为 0 次。所有字幕解析、目标矩阵归类与格式重构均在本地浏览器沙箱中闭环完成。",
+      "privacyVerdict": "在初始弹窗拒绝分析统计后，于开发工时估算器与 SVG Optimizer 连续 9 步操作期间均未观测到任何对外网络载荷。",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
@@ -69520,16 +69521,17 @@
         "Happy Scribe"
       ],
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
-      "benchmarkNotes": "实测了 The ID Toolbox 中的学习目标检测器（布鲁姆认知层级分析 4 项教学目标）与字幕转换器。加载叉车安全实例文本，界面交互卡顿为 0 毫秒，累积布局偏移（CLS）为 0.07。成功将 4 条 SRT 字幕转换为 WebVTT 格式并准确标出 3 处时间重叠隐患，耗时 42 毫秒免登录导出了 369 字节无水印 WebVTT 文件。在拒绝统计授权后，网络监控捕获到 0 次外发网络请求（数据出境量为 0 字节）。",
-      "testedAt": "2026-09"
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "测试工具搜索过滤、Development Time & Cost Estimator（45 分钟、Advanced 复杂度）及 SVG Optimizer（输入 163 字符 SVG，压缩 18% 至 134 字符并无水印复制导出），拒绝 Google Analytics 后零网络外传。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:42:02.132Z"
     },
     "ja": {
       "bestFor": "キャプション変換、ブルーム分類検証、コース範囲設定のためのゼロエグレスツールを必要とする教育デザイナーと e ラーニング作成者",
@@ -69545,21 +69547,21 @@
       "privacyVerdict": "真のゼロエグレスクライアント側アーキテクチャ。分析の同意が拒否された場合、送信されるネットワーク要求はちょうど 0 件になります。すべてのキャプション解析、分類評価、ファイル生成は純粋にブラウザー サンドボックス内で実行されます。",
       "benchmarkNotes": "学習目標チェッカー (4 つの目標のブルーム分類分類) とキャプション コンバーターにわたる ID ツールボックスをドッグフード化します。 0 ミリ秒のフリーズと 0.07 の CLS を備えたフォークリフト安全サンプルをロードしました。 3 つのタイミング重複検出を使用して SRT キューを WebVTT に変換し、透かしなしの 369 バイトの WebVTT キャプション ファイルを 42 ミリ秒でエクスポートしました。分析の同意が拒否されたため、ネットワーク監視では送信ネットワーク ペイロードが 0 件 (送信バイト数が 0 件) がキャプチャされました。",
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
         "Subly",
         "Happy Scribe"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "캡션 변환, Bloom 분류 확인 및 코스 범위 지정을 위한 제로 이그레스 도구가 필요한 교육 디자이너 및 e러닝 제작자",
@@ -69575,21 +69577,21 @@
       "privacyVerdict": "진정한 제로 이그레스 클라이언트 측 아키텍처. 분석 동의가 거부되면 정확히 0개의 발신 네트워크 요청이 발송됩니다. 모든 캡션 구문 분석, 분류 평가 및 파일 생성은 순전히 브라우저 샌드박스 내에서 실행됩니다.",
       "benchmarkNotes": "학습 목표 검사기(4개 목표의 Bloom 분류 분류) 및 캡션 변환기 전반에 걸쳐 ID 도구 상자를 Dogfooded했습니다. 정지 시간이 0ms이고 CLS가 0.07인 적재된 지게차 안전 샘플입니다. 3개의 타이밍 중복 감지를 통해 SRT 큐를 WebVTT로 변환하고 42ms 내에 워터마크가 없는 369바이트 WebVTT 캡션 파일을 내보냈습니다. 분석 동의가 거부됨에 따라 네트워크 모니터링은 0개의 발신 네트워크 페이로드(0바이트 송신)를 캡처했습니다.",
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
         "Subly",
         "Happy Scribe"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Diseñadores instruccionales y creadores de aprendizaje electrónico que necesitan herramientas de salida cero para la conversión de subtítulos, la validación de la taxonomía Bloom y el alcance del curso.",
@@ -69605,21 +69607,21 @@
       "privacyVerdict": "Verdadera arquitectura del lado del cliente sin salida. Cuando se rechaza el consentimiento de análisis, se envían exactamente 0 solicitudes de red salientes. Todo el análisis de subtítulos, las evaluaciones de taxonomía y la generación de archivos se ejecutan exclusivamente dentro del entorno limitado del navegador.",
       "benchmarkNotes": "Se aplicó dogfood The ID Toolbox en Learning Objective Checker (clasificación de taxonomía Bloom de 4 objetivos) y Caption Converter. Muestra de seguridad de montacargas cargado con congelación de 0 ms y CLS de 0,07. Convirtió señales SRT a WebVTT con 3 detecciones de superposición de tiempo y exportó un archivo de subtítulos WebVTT de 369 bytes sin marca de agua en 42 ms. Con el consentimiento de análisis rechazado, el monitoreo de la red capturó 0 cargas útiles de red salientes (0 bytes de salida).",
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
         "Subly",
         "Happy Scribe"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Concepteurs pédagogiques et créateurs d'apprentissage en ligne ayant besoin d'outils sans issue pour la conversion des sous-titres, la validation de la taxonomie Bloom et la définition de la portée des cours.",
@@ -69635,21 +69637,21 @@
       "privacyVerdict": "Véritable architecture côté client sans sortie. Lorsque le consentement à l’analyse est refusé, exactement 0 requête réseau sortante est envoyée. Toutes les analyses de légendes, évaluations de taxonomie et génération de fichiers s'exécutent uniquement dans le bac à sable du navigateur.",
       "benchmarkNotes": "Dogfooded La boîte à outils d'identification à travers Learning Objective Checker (classification taxonomique Bloom de 4 objectifs) et Caption Converter. Échantillon de sécurité pour chariot élévateur chargé avec gel de 0 ms et CLS de 0,07. Conversion des signaux SRT en WebVTT avec 3 détections de chevauchement de synchronisation et exportation d'un fichier de sous-titres WebVTT de 369 octets sans filigrane en 42 ms. Le consentement à l'analyse étant refusé, la surveillance du réseau n'a capturé aucune charge utile réseau sortante (sortie de 0 octet).",
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
         "Subly",
         "Happy Scribe"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Lehrplaner und E-Learning-Ersteller benötigen Zero-Egress-Tools für die Konvertierung von Untertiteln, die Validierung der Bloom-Taxonomie und die Festlegung des Kursumfangs",
@@ -69665,21 +69667,21 @@
       "privacyVerdict": "Echte clientseitige Zero-Egress-Architektur. Wenn die Einwilligung zur Analyse abgelehnt wird, werden genau 0 ausgehende Netzwerkanfragen gesendet. Das gesamte Untertitel-Parsing, die Taxonomie-Auswertung und die Dateigenerierung werden ausschließlich in der Browser-Sandbox ausgeführt.",
       "benchmarkNotes": "Dogfooded Die ID-Toolbox für den Learning Objective Checker (Bloom-Taxonomieklassifizierung von 4 Zielen) und den Caption Converter. Beladenes Gabelstapler-Sicherheitsbeispiel mit 0 ms Einfrieren und CLS von 0,07. Konvertierte SRT-Cues in WebVTT mit 3 Timing-Überlappungserkennungen und exportierte eine 369 Byte große WebVTT-Untertiteldatei ohne Wasserzeichen in 42 ms. Da die Zustimmung zur Analyse abgelehnt wurde, erfasste die Netzwerküberwachung 0 ausgehende Netzwerknutzlasten (0 Byte ausgehender Datenverkehr).",
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
         "Subly",
         "Happy Scribe"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Designers instrucionais e criadores de e-learning que precisam de ferramentas de saída zero para conversão de legendas, validação de taxonomia Bloom e definição do escopo do curso",
@@ -69695,21 +69697,21 @@
       "privacyVerdict": "Arquitetura verdadeira do lado do cliente com saída zero. Quando o consentimento analítico é recusado, exatamente 0 solicitações de rede de saída são enviadas. Toda a análise de legendas, avaliações de taxonomia e geração de arquivos são executadas exclusivamente dentro da sandbox do navegador.",
       "benchmarkNotes": "Dogfooded A caixa de ferramentas de identificação no verificador de objetivos de aprendizagem (classificação da taxonomia Bloom de 4 objetivos) e no conversor de legendas. Amostra de segurança de empilhadeira carregada com congelamento de 0 ms e CLS de 0,07. Converti dicas SRT para WebVTT com 3 detecções de sobreposição de tempo e exportei um arquivo de legenda WebVTT de 369 bytes sem marca d'água em 42 ms. Com o consentimento analítico recusado, o monitoramento de rede capturou 0 cargas úteis de rede de saída (0 bytes de saída).",
       "productScore": {
-        "overall": 96,
+        "overall": 89,
         "frictionless": 19,
-        "depth": 24,
+        "depth": 20,
         "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 14
+        "privacy": 19,
+        "polish": 12
       },
-      "verdictTier": "editors-choice",
+      "verdictTier": "highly-recommended",
       "alternativeTo": [
         "Subtitle Edit",
         "Articulate 360",
         "Subly",
         "Happy Scribe"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "www-wheyindex-com": {
@@ -80991,6 +80993,328 @@
       "benchmarkNotes": "加载 Pet 示例图片并调节 Pages Wide 滑块（#_r_1_）、切换 Landscape 横向排版，点击 CREATE MY POSTER! 成功导出 16,068 字节 1200x800 无水印文件；最大任务 194ms、CLS 0.05，观察到 22 个载荷。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-19T03:26:49.441Z"
+    }
+  },
+  "bestllmfor-com-recommandeur-quantification": {
+    "en": {
+      "bestFor": "Local AI users matching a GPU or unified-memory VRAM budget to viable GGUF, GPTQ, or AWQ model quantizations without creating an account.",
+      "pros": [
+        "Filters an indexed catalog of 258 LLMs in real time by memory size, hardware type (VRAM vs. unified), context window (8K/32K), and workload",
+        "Calculates usable memory overhead and suggests concrete quantization levels (such as Q4_K_M or Q5_K_M) with zero login required"
+      ],
+      "cons": [
+        "No CSV, JSON, or Markdown export button for the filtered model recommendation table",
+        "Displays promotional banners for paid setup kits and loads Google Analytics telemetry"
+      ],
+      "privacyVerdict": "Recommendations update client-side in the browser without submitting queries to a remote API; observed outgoing network traffic was limited to a Google Analytics beacon (POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Set memory to 24 GB VRAM, switched context to 32K tokens and usage to Code; table updated live to recommend Laguna XS 2.1 (33B, Q4_K_M, ~24 GB) alongside 5 matching coding models with 0 ms freeze and 1 Google Analytics beacon.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:51:09.190Z"
+    },
+    "zh": {
+      "bestFor": "需要根据显卡显存或统一内存容量快速筛选合适 GGUF/GPTQ/AWQ 量化方案的本地大模型用户。",
+      "pros": [
+        "支持按内存容量、硬件类型（独立显存或统一内存）、上下文窗口（8K/32K）与用途实时筛选 258 个索引模型",
+        "结合 KV Cache 占用估算可用显存并推荐具体量化精度（如 Q4_K_M、Q5_K_M），全程无需登录"
+      ],
+      "cons": [
+        "筛选后的模型推荐表格缺少 CSV、JSON 或 Markdown 导出功能",
+        "页面顶部包含付费配置套件促销横幅，且加载了 Google Analytics 统计脚本"
+      ],
+      "privacyVerdict": "模型量化匹配与筛选在浏览器端实时计算，未向远程后端提交查询参数；测试期间仅观测到 Google Analytics 统计请求（POST www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测将显存设为 24 GB、上下文切至 32K tokens、用途切至 Code，表格实时更新并推荐 Laguna XS 2.1（33B Q4_K_M，约 24 GB）等编码模型，主线程零卡顿，仅触发 1 次 GA 统计上报。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:51:09.190Z"
+    }
+  },
+  "www-sichtschutz-im-garten-info": {
+    "en": {
+      "bestFor": "German-speaking homeowners comparing costs, ecological traits, and maintenance effort across 30 garden privacy screen and hedge options without registration.",
+      "pros": [
+        "Real-time interactive Sichtschutz-Finder scales material cost estimates to custom fence lengths (1–100 m) and budgets (up to €20,000)",
+        "Filters 30 hedge, fence, and portable screen options by maintenance effort, immediate opacity, native ecology, DIY feasibility, and toxicity",
+        "Syncs filter parameters to shareable URL query strings with zero outgoing network payloads observed during interaction"
+      ],
+      "cons": [
+        "Interface and 130+ supporting reference entries are available only in German",
+        "No dedicated CSV or PDF comparison export beyond sharing the parameterized URL"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads were observed during testing across slider and checkbox filter interactions; the finder updates results and URL query parameters locally in the browser.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Adjusted #f-meter range input to 35 m, #f-budget range input to €2,500, and toggled the 'Sofort fertig' checkbox; DOM results updated live from 30 to 5 matching options with recalculated 35 m cost ranges (e.g., €280–€1,050 for bamboo mats), 0 ms main-thread freeze, CLS 0.00, and 0 outgoing payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:54:10.871Z"
+    },
+    "zh": {
+      "bestFor": "需要按长度、预算、维护成本与生态属性对比 30 种花园遮挡与围栏方案的德语用户。",
+      "pros": [
+        "交互式 Sichtschutz-Finder 支持按 1–100 米长度与最高 20,000 欧元预算实时换算 30 种方案的材料成本区间",
+        "支持按维护难度、即时遮挡、本土生态价值、DIY 可行性与无毒安全性多维筛选",
+        "筛选条件自动同步至可分享的 URL 查询参数，实测交互期间零对外网络载荷"
+      ],
+      "cons": [
+        "界面与 130 余篇配套百科条目仅提供德语版本",
+        "除复制带参数的页面链接外，不支持导出 CSV 或 PDF 对比清单"
+      ],
+      "privacyVerdict": "在测试期间调整滑块与复选框筛选时未观测到任何对外网络请求，筛选结果与 URL 参数均在浏览器本地即时更新。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 11,
+        "exportFreedom": 15,
+        "privacy": 18,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测将长度设为 35 米、预算设为 2,500 欧元并勾选「Sofort fertig」，结果实时从 30 项筛选为 5 项，并按 35 米重算价格区间（如竹帘 280–1,050 欧元），全程零网络载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:54:10.871Z"
+    }
+  },
+  "medleads-io-tools-clinic-website-scanner": {
+    "en": {
+      "bestFor": "Clinic operators and web developers auditing public healthcare websites against 26 specialty-specific patient-information checks without creating an account.",
+      "pros": [
+        "Crawls up to 20 public same-site pages server-side and evaluates 26 structured patient-information checks tailored by clinical specialty",
+        "Exports an unwatermarked 179.5 KB Markdown developer checklist directly with additional Copy and Print/PDF options",
+        "Provides browser-scoped report deletion controls and automatic 7-day expiration with zero login gates"
+      ],
+      "cons": [
+        "Inspects server-returned HTML only and does not execute client-side JavaScript or inspect PDFs",
+        "Requires server-side crawling and telemetry endpoints alongside Cloudflare RUM monitoring"
+      ],
+      "privacyVerdict": "Server-side scanning tool; submitting a public URL dispatches crawl and event payloads to POST /api/clinic-scanner/scans and POST /api/clinic-scanner/events, alongside Cloudflare RUM (/cdn-cgi/rum) beacons. Reports are scoped to the browser session with a 7-day expiry and an explicit delete button.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Scanned https://medleads.io/ with Dental specialty selected; crawler attempted 19 pages (18 readable) and scored 100/100 across 18 assessed checks, then exported a clean 179,516-byte Markdown developer checklist with 123 ms max task and 4 outgoing payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:59:19.350Z"
+    },
+    "zh": {
+      "bestFor": "需要免登录对照 26 项专科患者信息规范审计公开医疗诊所网站并导出开发修复清单的诊所运营者与开发者。",
+      "pros": [
+        "服务端自动抓取最多 20 个站内公开页面，并按医疗专科维度运行 26 项结构化信息完整度检测",
+        "支持一键下载无水印 179.5 KB Markdown 开发者核对清单，并提供剪贴板复制与 PDF 打印导出",
+        "全程无需账号或邮箱，支持 7 天自动过期与一键彻底删除报告"
+      ],
+      "cons": [
+        "仅检测服务端返回的静态 HTML，不解析客户端 JavaScript 渲染内容、PDF 或外部预约系统",
+        "扫描与事件记录依赖后端接口通信，且站点启用了 Cloudflare RUM 性能遥测"
+      ],
+      "privacyVerdict": "本工具为服务端抓取分析架构；提交公开网址后会向 POST /api/clinic-scanner/scans 与 POST /api/clinic-scanner/events 发送请求，并伴随 Cloudflare RUM（/cdn-cgi/rum）监控上报。报告限当前浏览器访问，7 天后自动过期且支持手动永久删除。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 19,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测以 Dental 专科扫描 https://medleads.io/，爬虫尝试 19 个页面（18 个可读）并完成 18 项检测得 100/100，随后无水印下载 179,516 字节 Markdown 清单；主线程最大阻塞 123 ms，记录 4 次网络请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T02:59:19.351Z"
+    }
+  },
+  "findkeybpm-com": {
+    "en": {
+      "bestFor": "DJs, music producers, and remixers needing instant browser-based BPM, musical key, and Camelot wheel detection for MP3/WAV tracks without uploading files.",
+      "pros": [
+        "Analyzes MP3 and WAV tracks locally in the browser (up to 40 MB / 10 minutes) for tempo, musical key with confidence score, and Camelot notation",
+        "Includes Half/Double BPM toggles, secondary key candidates, interactive audio waveform playback, plus Tap Tempo, Camelot wheel, Key from chords, and BPM-to-ms utilities",
+        "Provides clean one-click clipboard copy buttons for tempo, key, and Camelot code with zero signup required"
+      ],
+      "cons": [
+        "Requires clips of at least 4 seconds for automatic audio analysis and displays minor layout shift (CLS 0.22) when results render",
+        "Site loads Google Analytics and Cloudflare RUM telemetry beacons"
+      ],
+      "privacyVerdict": "Audio analysis runs in-browser with zero audio file upload endpoints observed; captured outgoing network traffic across 6 steps was limited to Google Analytics (POST www.google-analytics.com/g/collect) and Cloudflare RUM (POST /cdn-cgi/rum) beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded sample.wav (validated 4s minimum length guard), then analyzed the 32s synthetic-a-minor-120.wav clip (1,411,244-byte WAV); detected 120 BPM, A minor (66% confidence), and Camelot 8A with 0 ms main-thread freeze, clean clipboard capture via Copy tempo, and 3 telemetry payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T03:05:33.587Z"
+    },
+    "zh": {
+      "bestFor": "需要免登录在浏览器本地快速检测 MP3/WAV 音频的 BPM 速度、调性与 Camelot 混音代码的 DJ、音乐制作人与混音师。",
+      "pros": [
+        "在浏览器本地解析 MP3 与 WAV 音频（最大 40 MB / 10 分钟），输出 BPM、调性置信度与 Camelot 编号",
+        "内置半速/倍速对比、备选调性参考、波形播放试听，以及节拍器 Tap Tempo、Camelot 轮盘、和弦推调与 BPM 转毫秒工具",
+        "提供一键复制速度、调性与 Camelot 代码功能，全程无需注册账号"
+      ],
+      "cons": [
+        "自动音频分析要求片段时长至少 4 秒，且结果面板展开时存在轻微布局偏移（CLS 0.22）",
+        "页面加载了 Google Analytics 与 Cloudflare RUM 统计及性能遥测请求"
+      ],
+      "privacyVerdict": "音频解析在浏览器本地完成，未观测到任何音频文件上传请求；测试 6 步期间捕获的对外请求仅限于 Google Analytics（POST www.google-analytics.com/g/collect）与 Cloudflare RUM（POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测先上传 sample.wav 验证 4 秒最短时长校验，随后分析 32 秒合成音频 synthetic-a-minor-120.wav（1,411,244 字节 WAV），准确识别 120 BPM、A minor（66% 置信度）与 Camelot 8A，主线程零卡顿，Copy tempo 无水印复制成功。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T03:05:33.588Z"
+    }
+  },
+  "www-pwdgen-xyz": {
+    "en": {
+      "bestFor": "Users needing quick batch generation of 5 to 20 customizable random passwords (6–64 characters) with one-click individual or bulk clipboard copy and no account.",
+      "pros": [
+        "Generates batches of 5, 10, or 20 passwords (6–64 characters) with symbol, number, case, and ambiguous-character filters",
+        "Provides Select all, Copy selected, Copy all, and per-row Copy actions without login or watermarks",
+        "Multilingual interface with 0 ms main-thread freeze and 0.00 CLS"
+      ],
+      "cons": [
+        "Dispatches Google Ads and DoubleClick remarketing/conversion beacons alongside view and vitals telemetry",
+        "Single-purpose password generator without passphrase wordlists or entropy audit calculators"
+      ],
+      "privacyVerdict": "Passwords are generated client-side without submitting generated strings to an API, but 9 outgoing telemetry and ad-remarketing beacons were observed during the session, including ad.doubleclick.net, googleads.g.doubleclick.net, www.google.com/rmkt/collect, www.google.com/ccm/collect, and first-party /view and /vitals endpoints.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 19,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Set length to 24 characters, enabled symbols, clicked Regenerate, and triggered Copy all; clipboard captured 249 clean text chars (10 newline-separated 24-char passwords) with 0 ms max task, 0.00 CLS, and 9 outgoing tracking/ad payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T03:13:10.520Z"
+    },
+    "zh": {
+      "bestFor": "需要免登录一次性批量生成 5 至 20 个可定制随机密码（6–64 位）并支持单条或整批复制的用户。",
+      "pros": [
+        "支持批量生成 5、10 或 20 个密码（6–64 位），可勾选符号、数字、大小写及排除易混淆字符",
+        "提供全选、复制选中、全部复制与单行复制按钮，无需账号且无多余水印",
+        "提供多语言界面切换，实测主线程零阻塞（0 ms）且布局零偏移（CLS 0.00）"
+      ],
+      "cons": [
+        "页面加载了 Google Ads 与 DoubleClick 再营销及转化追踪请求，并包含页面访问与性能遥测",
+        "定位为单一随机密码生成器，未提供助记词短语或密码熵值审计工具"
+      ],
+      "privacyVerdict": "密码在浏览器本地生成，未观测到密码明文上传；但会话期间共记录到 9 次对外追踪与广告遥测请求，包括 ad.doubleclick.net、googleads.g.doubleclick.net、www.google.com/rmkt/collect、www.google.com/ccm/collect 以及站点自建的 /view 与 /vitals 接口。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 19,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测将密码长度设为 24 位并启用符号，点击 Regenerate 后触发 Copy all，剪贴板捕获 249 字符纯文本（10 条 24 位密码），主线程零阻塞、CLS 0.00，同时捕获 9 次追踪与广告网络载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T03:13:10.521Z"
+    }
+  },
+  "freeattractivenesstest-com": {
+    "en": {
+      "bestFor": "Users curious to run client-side facial proportion and landmark readings (eye size, eye spacing, brow height, jaw width) plus a shareable PNG summary card without uploading photos.",
+      "pros": [
+        "Runs face detection and landmark proportion analysis locally in-browser without uploading user photos to a server",
+        "Provides 4 sample portraits alongside custom photo upload and accurately rejects non-face images",
+        "Exports a downloadable PNG result card (with or without photo) with zero login required"
+      ],
+      "cons": [
+        "Headline 60–99 attractiveness score is subjective novelty feedback and exported result cards carry the site domain",
+        "Result view produces minor layout shift (CLS 0.16) and loads Google Analytics tracking beacons"
+      ],
+      "privacyVerdict": "Uploaded photos are validated and analyzed locally in-browser with no image upload requests observed; captured outgoing network traffic was limited to Google Analytics beacons (POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.png (correctly rejected as non-face), analyzed example portrait 1 (scored 89 with Eye Size, Eye Spacing, Brow Height, and Jaw Width readings), and clicked Save result to export a 332,574-byte PNG card with 0 ms freeze, CLS 0.16, and 2 GA beacons.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T03:18:50.599Z"
+    },
+    "zh": {
+      "bestFor": "希望在不上传照片的前提下在本地浏览器分析面部五官比例（眼型、眼距、眉高、下颌宽度）并导出结果卡片的用户。",
+      "pros": [
+        "人脸检测与五官比例计算均在浏览器本地执行，不会将用户照片上传至远程服务器",
+        "提供 4 张示例人像与本地上传入口，并能准确识别并拦截无人脸图片",
+        "支持免登录导出包含或隐藏照片的 PNG 结果卡片"
+      ],
+      "cons": [
+        "主打的 60–99 颜值评分属于娱乐向主观参考，且导出的结果卡片带有站点域名标识",
+        "结果展开时存在轻微布局偏移（CLS 0.16），并加载了 Google Analytics 统计脚本"
+      ],
+      "privacyVerdict": "上传照片在浏览器本地完成检测与渲染，未观测到图片上传网络请求；捕获的对外请求仅限于 Google Analytics 统计上报（POST www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测上传 sample.png 被准确判定为无人脸，随后对示例人像 1 运行分析（得出 89 分及五官比例指标），点击 Save result 导出 332,574 字节 PNG 卡片；主线程零阻塞、CLS 0.16，记录 2 次 GA 上报。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-20T03:18:50.600Z"
     }
   }
 }
