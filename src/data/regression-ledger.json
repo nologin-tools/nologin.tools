@@ -224,7 +224,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:16:10.943Z",
+    "lastScanAt": "2026-11-20T06:04:39.615Z",
     "lastTitle": "Low Quality Image Maker – Blur, Pixelate & Deep Fry",
     "lastSignals": []
   },
@@ -360,7 +360,7 @@
   },
   "bunengchi-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:10.548Z",
+    "lastScanAt": "2026-11-20T06:06:35.550Z",
     "lastTitle": "不能吃什么｜人群、宠物、食品安全查询",
     "lastSignals": []
   },
@@ -768,7 +768,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:24:46.767Z"
+    "lastScanAt": "2026-11-20T06:09:06.499Z",
+    "lastTitle": "Upside Down Text Generator - Flip Text Copy & Paste",
+    "lastSignals": []
   },
   "dataformatkit-com": {
     "openAnomalies": [],
@@ -808,7 +810,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:56.164Z",
+    "lastScanAt": "2026-11-20T06:04:22.639Z",
     "lastTitle": "DeclaRenta - Broker extranjero → Renta española",
     "lastSignals": []
   },
@@ -820,7 +822,7 @@
   },
   "deepl-com-translator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:17:28.941Z",
+    "lastScanAt": "2026-11-20T06:05:53.364Z",
     "lastTitle": "DeepL Translator | World's Most Accurate Translator",
     "lastSignals": []
   },
@@ -832,7 +834,7 @@
   },
   "devdocs-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:42:45.776Z",
+    "lastScanAt": "2026-11-20T06:10:15.797Z",
     "lastSignals": [],
     "lastTitle": "DevDocs API Documentation"
   },
@@ -980,7 +982,7 @@
   },
   "excalidraw-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:42:28.511Z",
+    "lastScanAt": "2026-11-20T06:09:59.094Z",
     "lastSignals": [],
     "lastTitle": "Excalidraw Whiteboard"
   },
@@ -1231,7 +1233,7 @@
   },
   "formweft-com-tools-motion-workbench": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:00.709Z",
+    "lastScanAt": "2026-11-20T06:06:25.879Z",
     "lastTitle": "口播动效工作台 · 海贸观",
     "lastSignals": []
   },
@@ -1369,13 +1371,13 @@
   },
   "gizmobench-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:05.726Z",
+    "lastScanAt": "2026-11-20T06:06:31.444Z",
     "lastTitle": "GizmoBench: Free Browser Tools for Everyday Tasks",
     "lastSignals": []
   },
   "go-dev-play": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:17:41.141Z",
+    "lastScanAt": "2026-11-20T06:06:06.687Z",
     "lastTitle": "Go Playground - The Go Programming Language",
     "lastSignals": []
   },
@@ -1498,7 +1500,7 @@
   },
   "hemingwayapp-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:42.657Z",
+    "lastScanAt": "2026-11-20T06:08:05.877Z",
     "lastSignals": [],
     "lastTitle": "Hemingway Editor"
   },
@@ -1682,7 +1684,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:44:59.591Z"
+    "lastScanAt": "2026-11-20T06:09:51.099Z",
+    "lastTitle": "Free Online Invoice Maker — No Sign-Up | Invosmith",
+    "lastSignals": []
   },
   "ipleak-net": {
     "openAnomalies": [],
@@ -1740,7 +1744,7 @@
   },
   "jsonformatter-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:42:40.193Z",
+    "lastScanAt": "2026-11-20T06:10:09.899Z",
     "lastSignals": [],
     "lastTitle": "Best JSON Formatter and JSON Validator: Online JSON Formatter"
   },
@@ -1841,7 +1845,7 @@
   },
   "languagetool-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:44.884Z",
+    "lastScanAt": "2026-11-20T06:07:11.031Z",
     "lastSignals": [],
     "lastTitle": "Free AI Grammar Checker - LanguageTool"
   },
@@ -1853,13 +1857,13 @@
   },
   "led-run": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:32.244Z",
+    "lastScanAt": "2026-11-20T06:07:55.450Z",
     "lastSignals": [],
     "lastTitle": "led.run — 显示工具集"
   },
   "leettranslator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:17:15.781Z",
+    "lastScanAt": "2026-11-20T06:05:42.931Z",
     "lastTitle": "Leet Speak Translator – Convert English to 1337 & Back",
     "lastSignals": []
   },
@@ -1919,7 +1923,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:06:56.682Z"
+    "lastScanAt": "2026-11-20T06:08:40.462Z",
+    "lastTitle": "MamaTool – 50+ Free Online Tools (Password, QR, JSON & More)",
+    "lastSignals": []
   },
   "markany-ai": {
     "openAnomalies": [],
@@ -2012,7 +2018,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:15:53.318Z"
+    "lastScanAt": "2026-11-20T06:08:53.952Z",
+    "lastTitle": "Free Markdown to Word Converter – MD to DOCX Online",
+    "lastSignals": []
   },
   "mdify-im": {
     "lastDeepEvalAt": "2026-11-13T04:10:19.133Z",
@@ -2090,7 +2098,7 @@
   },
   "metatags-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:44.609Z",
+    "lastScanAt": "2026-11-20T06:04:11.111Z",
     "lastTitle": "Meta Tags — Preview, Edit and Generate",
     "lastSignals": []
   },
@@ -2108,7 +2116,7 @@
   },
   "mojisuu-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:16:54.857Z",
+    "lastScanAt": "2026-11-20T06:05:21.154Z",
     "lastTitle": "文字数カウント｜無料の文字数カウンター・文字カウントツール",
     "lastSignals": []
   },
@@ -2201,7 +2209,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:16:43.993Z",
+    "lastScanAt": "2026-11-20T06:05:09.435Z",
     "lastTitle": "Color Draping Online: Compare 12 Season Palettes",
     "lastSignals": []
   },
@@ -2313,13 +2321,13 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:16:32.566Z",
+    "lastScanAt": "2026-11-20T06:04:59.095Z",
     "lastTitle": "Background Noise Remover: Free Noise Reduction Online | QuietTake",
     "lastSignals": []
   },
   "nologin-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:29.075Z",
+    "lastScanAt": "2026-11-20T06:06:52.707Z",
     "lastSignals": [],
     "lastTitle": "No-Login Tools — Free, Private, No Signup Needed | nologin.tools"
   },
@@ -2457,10 +2465,22 @@
     }
   },
   "pdfzus-de": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:27.503Z",
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-11-20T06:03:51.635Z",
+        "lastSeenAt": "2026-11-20T06:03:51.635Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-11-20T06:03:51.635Z",
     "lastTitle": "PDF Zusammenfügen – vertraulich & ohne Upload | pdfzus.de",
-    "lastSignals": []
+    "lastSignals": [
+      "probe_failed"
+    ]
   },
   "peptidetracks-com": {
     "lastDeepEvalAt": "2026-10-27T02:54:54.882Z",
@@ -2482,7 +2502,7 @@
   },
   "phet-colorado-edu": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:16.634Z",
+    "lastScanAt": "2026-11-20T06:03:50.149Z",
     "lastTitle": "PhET: Free online physics, chemistry, biology, earth science and math simulations | PhET Simulations",
     "lastSignals": []
   },
@@ -2528,7 +2548,7 @@
   },
   "photopea-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:20.344Z",
+    "lastScanAt": "2026-11-20T06:07:44.730Z",
     "lastSignals": [],
     "lastTitle": "Photopea | Online Photo Editor"
   },
@@ -2551,7 +2571,7 @@
   },
   "pixeltools-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:15:32.851Z",
+    "lastScanAt": "2026-11-20T06:03:57.918Z",
     "lastTitle": "PixelTools — Free Image, PDF, Audio, Video, Text & Dev Tools",
     "lastSignals": []
   },
@@ -2569,7 +2589,7 @@
   },
   "playbacktimer-com-audiobook-speed-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:21.509Z",
+    "lastScanAt": "2026-11-20T06:06:46.261Z",
     "lastTitle": "Audiobook Speed Calculator: 1.5x Time & Libby Due Dates | PlaybackTimer",
     "lastSignals": []
   },
@@ -2592,10 +2612,25 @@
     "lastSignals": []
   },
   "pomofocus-io": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:55.772Z",
-    "lastSignals": [],
-    "lastTitle": "25:00 - Time to focus!"
+    "openAnomalies": [
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"25:00 - Time to focus!\" → \"Pomodoro Timer Online - Pomofocus\"",
+        "firstSeenAt": "2026-11-20T06:08:12.983Z",
+        "lastSeenAt": "2026-11-20T06:08:12.983Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pomofocus-io-intent-1795154886016.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pomofocus-io-outcome-1795154886016.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-20T06:08:12.983Z",
+    "lastSignals": [
+      "title_changed"
+    ],
+    "lastTitle": "Pomodoro Timer Online - Pomofocus"
   },
   "prettier-io-playground": {
     "openAnomalies": [],
@@ -2945,7 +2980,7 @@
   },
   "reficompass-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:17:04.233Z",
+    "lastScanAt": "2026-11-20T06:05:31.423Z",
     "lastTitle": "Compare Every Mortgage Option in One Place | Refi Compass",
     "lastSignals": []
   },
@@ -2974,7 +3009,7 @@
   },
   "remove-bg": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:00.033Z",
+    "lastScanAt": "2026-11-20T06:07:27.162Z",
     "lastSignals": [],
     "lastTitle": "Remove Background from Image for Free – remove.bg"
   },
@@ -3222,7 +3257,7 @@
   },
   "squoosh-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:37.754Z",
+    "lastScanAt": "2026-11-20T06:08:01.078Z",
     "lastSignals": [],
     "lastTitle": "Squoosh"
   },
@@ -3336,7 +3371,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:39:11.518Z"
+    "lastScanAt": "2026-11-20T06:09:34.300Z",
+    "lastTitle": "Free Online Metronome with Tap Tempo | Tap Metronome",
+    "lastSignals": []
   },
   "tariffschart-com": {
     "lastDeepEvalAt": "2026-11-10T03:46:46.262Z",
@@ -3475,7 +3512,7 @@
   },
   "til-re": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:07.221Z",
+    "lastScanAt": "2026-11-20T06:07:33.465Z",
     "lastSignals": [],
     "lastTitle": "til.re - Time. In. Link."
   },
@@ -3547,7 +3584,7 @@
   },
   "tmp-tf": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:18:51.574Z",
+    "lastScanAt": "2026-11-20T06:07:16.338Z",
     "lastSignals": [],
     "lastTitle": "Tmp.tf - Transfer Freely"
   },
@@ -3566,11 +3603,13 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:01:28.053Z"
+    "lastScanAt": "2026-11-20T06:08:34.321Z",
+    "lastTitle": "Nyxiontech PDF Tools",
+    "lastSignals": []
   },
   "tools-pdf24-org-en": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:19:13.360Z",
+    "lastScanAt": "2026-11-20T06:07:39.100Z",
     "lastSignals": [],
     "lastTitle": "PDF24 Tools: Free PDF solutions for all PDF problems"
   },
@@ -3612,7 +3651,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T03:32:00.045Z"
+    "lastScanAt": "2026-11-20T06:09:23.059Z",
+    "lastTitle": "Treadmill Pace Calculator: MPH & km/h to Pace",
+    "lastSignals": []
   },
   "tryink-me": {
     "openAnomalies": [],
@@ -3640,7 +3681,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-10T06:16:22.763Z",
+    "lastScanAt": "2026-11-20T06:04:49.904Z",
     "lastTitle": "Free Online Image Text Editor – Local & Private",
     "lastSignals": []
   },
@@ -3999,7 +4040,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T02:55:57.995Z"
+    "lastScanAt": "2026-11-20T06:08:27.209Z",
+    "lastTitle": "BG Remover Online Free – AI, No Upload, No Watermark",
+    "lastSignals": []
   },
   "www-imagesplit-online": {
     "lastDeepEvalAt": "2026-10-27T03:39:20.699Z",
