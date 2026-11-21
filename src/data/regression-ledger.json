@@ -1,7 +1,7 @@
 {
   "1600-now": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:44:43.676Z",
+    "lastScanAt": "2026-11-21T06:05:47.830Z",
     "lastTitle": "Free SAT Practice & Question Bank | 1600.now",
     "lastSignals": []
   },
@@ -258,7 +258,7 @@
   },
   "betterhabitsdaily-com-tracker": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:48:11.777Z",
+    "lastScanAt": "2026-11-21T06:08:42.801Z",
     "lastTitle": "Free Habit Tracker — No Signup, No Account, No Cloud",
     "lastSignals": []
   },
@@ -371,7 +371,7 @@
   },
   "bytepriva-com-merge-pdf": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:44:36.939Z",
+    "lastScanAt": "2026-11-21T06:05:35.770Z",
     "lastTitle": "Free Merge PDF Files Online - No Signup, No Watermark",
     "lastSignals": []
   },
@@ -425,8 +425,9 @@
   },
   "calorique-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:47:57.606Z",
-    "lastSignals": []
+    "lastScanAt": "2026-11-21T06:08:28.840Z",
+    "lastSignals": [],
+    "lastTitle": "Free TDEE, Calorie Deficit & Macro Calculator 2026 | Calorique"
   },
   "caniemail-com": {
     "openAnomalies": [],
@@ -436,13 +437,13 @@
   },
   "caniuse-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:42:53.461Z",
+    "lastScanAt": "2026-11-21T06:04:07.879Z",
     "lastSignals": [],
     "lastTitle": "Can I use... Support tables for HTML5, CSS3, etc"
   },
   "carbon-now-sh": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:16.703Z",
+    "lastScanAt": "2026-11-21T06:04:35.050Z",
     "lastSignals": [],
     "lastTitle": "Carbon | Create and share beautiful images of your source code"
   },
@@ -455,7 +456,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T09:25:56.036Z"
+    "lastScanAt": "2026-11-21T06:10:31.490Z",
+    "lastTitle": "Healthcare cover letter generator (free AI tool) | CareJobs.Now",
+    "lastSignals": []
   },
   "cfiresim-com": {
     "openAnomalies": [],
@@ -496,7 +499,7 @@
   },
   "citefetch-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:45:28.461Z",
+    "lastScanAt": "2026-11-21T06:06:11.363Z",
     "lastTitle": "Free Citation Checker, Catch Fake References | CiteFetch",
     "lastSignals": []
   },
@@ -545,7 +548,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T03:07:11.177Z"
+    "lastScanAt": "2026-11-21T06:11:25.888Z",
+    "lastTitle": "Free Collage Maker — No Watermark, No Sign-Up",
+    "lastSignals": []
   },
   "colorhunt-co": {
     "openAnomalies": [],
@@ -580,8 +585,8 @@
   },
   "compressto100kb-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:44:20.428Z",
-    "lastTitle": "Compress Image to 100KB Online — Free Image Compressor, No Upload",
+    "lastScanAt": "2026-11-21T06:05:17.568Z",
+    "lastTitle": "Compress Image to 100KB Online — Free, Private, No Upload",
     "lastSignals": []
   },
   "comprimirpdf-app": {
@@ -672,7 +677,7 @@
   },
   "countlink-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:46:29.451Z",
+    "lastScanAt": "2026-11-21T06:07:01.671Z",
     "lastTitle": "Shared Timer — Free Shareable Countdown, Synced by Link | CountLink",
     "lastSignals": []
   },
@@ -774,7 +779,7 @@
   },
   "dataformatkit-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:48:41.776Z",
+    "lastScanAt": "2026-11-21T06:09:40.215Z",
     "lastTitle": "Text to CSV Converter - Free Browser Tool | DataFormatKit",
     "lastSignals": []
   },
@@ -852,7 +857,7 @@
   },
   "dillinger-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:07.014Z",
+    "lastScanAt": "2026-11-21T06:04:22.002Z",
     "lastSignals": [],
     "lastTitle": "Markdown Editor — Online, Free, with Live Preview | Dillinger"
   },
@@ -887,7 +892,7 @@
   },
   "drunkcalc-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:46.270Z",
+    "lastScanAt": "2026-11-21T06:04:41.362Z",
     "lastTitle": "Drunk Calculator: Free BAC & Sober Time Estimator",
     "lastSignals": []
   },
@@ -902,11 +907,9 @@
       ]
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T09:16:28.584Z",
+    "lastScanAt": "2026-11-21T06:10:25.166Z",
     "lastTitle": "Duck.ai 是由 DuckDuckGo 提供的免费人工智能私聊工具。",
-    "lastSignals": [
-      "surface_lost"
-    ]
+    "lastSignals": []
   },
   "earchord-com": {
     "openAnomalies": [],
@@ -1067,7 +1070,7 @@
   },
   "fffuel-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:47:31.124Z",
+    "lastScanAt": "2026-11-21T06:08:08.283Z",
     "lastTitle": "Free SVG generators, color tools & web design tools",
     "lastSignals": []
   },
@@ -1090,8 +1093,21 @@
     "lastSignals": []
   },
   "financier-io": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-12T02:46:09.651Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-21T06:10:58.883Z",
+        "lastSeenAt": "2026-11-21T06:10:58.883Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-intent-1795241451608.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-outcome-1795241451608.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-21T06:10:58.883Z",
     "lastTitle": "Financier. Better Budgeting Software",
     "lastSignals": [
       "surface_lost"
@@ -1119,7 +1135,7 @@
   },
   "findthescam-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:48:31.586Z",
+    "lastScanAt": "2026-11-21T06:09:29.970Z",
     "lastTitle": "Check if Website is Legit or Scam, Website Info, Reviews | FindTheScam",
     "lastSignals": []
   },
@@ -1389,7 +1405,7 @@
   },
   "godbolt-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:45:46.294Z",
+    "lastScanAt": "2026-11-21T06:06:30.865Z",
     "lastTitle": "Compiler Explorer",
     "lastSignals": []
   },
@@ -1630,7 +1646,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T09:51:08.693Z"
+    "lastScanAt": "2026-11-21T06:10:51.485Z",
+    "lastTitle": "Free Private Image Converter — Convert, Compress & Resize",
+    "lastSignals": []
   },
   "imagecompressortokb-com": {
     "openAnomalies": [],
@@ -1719,7 +1737,7 @@
   },
   "jottools-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:44:07.451Z",
+    "lastScanAt": "2026-11-21T06:05:03.383Z",
     "lastTitle": "JotTools | Free Online Tools",
     "lastSignals": []
   },
@@ -1851,7 +1869,7 @@
   },
   "lanternpathbooks-com-free-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:46:47.535Z",
+    "lastScanAt": "2026-11-21T06:07:20.940Z",
     "lastTitle": "Free Printable Tools for Parents & Teachers | Lantern Path Books",
     "lastSignals": []
   },
@@ -1884,10 +1902,9 @@
       ]
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T02:51:25.548Z",
-    "lastSignals": [
-      "probe_failed"
-    ]
+    "lastScanAt": "2026-11-21T06:11:07.915Z",
+    "lastSignals": [],
+    "lastTitle": "Letras Bonitas para Copiar y Pegar ✨ +3,600 Estilos Gratis"
   },
   "lite-datasette-io": {
     "openAnomalies": [],
@@ -1968,11 +1985,9 @@
   },
   "markmap-js-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T03:01:03.438Z",
-    "lastTitle": "markmap",
-    "lastSignals": [
-      "surface_lost"
-    ],
+    "lastScanAt": "2026-11-21T06:11:14.393Z",
+    "lastTitle": "markmap - Markdown as mind maps",
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-11-12T03:01:03.438Z",
     "lastResolution": {
       "outcome": "editorial-updated",
@@ -1998,7 +2013,7 @@
   },
   "max-agent-hub-github-io-browser-sop-builder": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:48:05.269Z",
+    "lastScanAt": "2026-11-21T06:08:36.115Z",
     "lastTitle": "Browser SOP Builder | Mackanic Technologies",
     "lastSignals": []
   },
@@ -2132,7 +2147,7 @@
   },
   "mockaroo-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:46:59.447Z",
+    "lastScanAt": "2026-11-21T06:07:35.038Z",
     "lastTitle": "Mockaroo - Random Data Generator and API Mocking Tool | JSON / CSV / SQL / Excel",
     "lastSignals": []
   },
@@ -2203,7 +2218,7 @@
   },
   "musicforprogramming-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:45:15.199Z",
+    "lastScanAt": "2026-11-21T06:05:56.205Z",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-03T02:50:13.332Z",
     "lastResolution": {
@@ -2367,7 +2382,7 @@
   },
   "nutilz-com-caa-record-generator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:46:41.611Z",
+    "lastScanAt": "2026-11-21T06:07:14.305Z",
     "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
     "lastSignals": []
   },
@@ -2638,7 +2653,7 @@
   },
   "playfatelab-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:45:55.531Z",
+    "lastScanAt": "2026-11-21T06:06:40.681Z",
     "lastTitle": "FATE // LAB — Random Tools for Decisions, Games & Chaos",
     "lastSignals": []
   },
@@ -2936,10 +2951,38 @@
     }
   },
   "quixcalc-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:48:17.342Z",
-    "lastTitle": "Free Online Calculators and Tools | QuixCalc",
-    "lastSignals": []
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-21T06:08:49.401Z",
+        "lastSeenAt": "2026-11-21T06:08:49.401Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quixcalc-com-intent-1795241322931.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quixcalc-com-outcome-1795241322931.png"
+        ]
+      },
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"Free Online Calculators and Tools | QuixCalc\" → \"Site not found · GitHub Pages\"",
+        "firstSeenAt": "2026-11-21T06:08:49.401Z",
+        "lastSeenAt": "2026-11-21T06:08:49.401Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quixcalc-com-intent-1795241322931.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-quixcalc-com-outcome-1795241322931.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-21T06:08:49.401Z",
+    "lastTitle": "Site not found · GitHub Pages",
+    "lastSignals": [
+      "surface_lost",
+      "title_changed"
+    ]
   },
   "radiostation-live-en": {
     "lastDeepEvalAt": "2026-11-21T03:01:26.271Z",
@@ -3006,7 +3049,7 @@
   },
   "ray-so": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:44:02.698Z",
+    "lastScanAt": "2026-11-21T06:04:57.857Z",
     "lastTitle": "Create beautiful images of your code",
     "lastSignals": []
   },
@@ -3031,7 +3074,7 @@
   },
   "realtimecolors-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:47:43.228Z",
+    "lastScanAt": "2026-11-21T06:08:22.056Z",
     "lastTitle": "Realtime Colors",
     "lastSignals": []
   },
@@ -3158,7 +3201,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T09:30:38.013Z"
+    "lastScanAt": "2026-11-21T06:10:37.517Z",
+    "lastTitle": "1M65 & FIRE Calculator Singapore | Retire Early | SgInsure",
+    "lastSignals": []
   },
   "shard-tools": {
     "lastDeepEvalAt": "2026-10-28T03:00:28.502Z",
@@ -3181,7 +3226,7 @@
   },
   "shields-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:45:22.263Z",
+    "lastScanAt": "2026-11-21T06:06:03.989Z",
     "lastTitle": "Shields.io",
     "lastSignals": []
   },
@@ -3272,7 +3317,7 @@
   },
   "sortvisualizer-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:47:06.744Z",
+    "lastScanAt": "2026-11-21T06:07:41.713Z",
     "lastTitle": "Sort Visualizer",
     "lastSignals": []
   },
@@ -3403,7 +3448,7 @@
   },
   "t-8ma-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:46:16.442Z",
+    "lastScanAt": "2026-11-21T06:06:47.772Z",
     "lastTitle": "8码快传 · 文件点对点直传",
     "lastSignals": []
   },
@@ -3677,9 +3722,22 @@
     "lastSignals": []
   },
   "toolsphare-tech-en": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-11T09:08:05.287Z",
-    "lastTitle": "674+ Free Online Tools — PDF, Image & Text | ToolSphare",
+    "openAnomalies": [
+      {
+        "code": "login_to_continue_copy",
+        "severity": "high",
+        "evidence": "Visible copy: \"sign up to use\"",
+        "firstSeenAt": "2026-11-21T06:09:54.937Z",
+        "lastSeenAt": "2026-11-21T06:09:54.937Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-intent-1795241380338.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-outcome-1795241380339.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-21T06:09:54.937Z",
+    "lastTitle": "718+ Free Online Tools — PDF, Image & Text | ToolSphare",
     "lastSignals": [
       "login_to_continue_copy"
     ],
@@ -3796,8 +3854,21 @@
     ]
   },
   "uicolors-app": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-11T09:10:34.310Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Pro\"",
+        "firstSeenAt": "2026-11-21T06:10:09.221Z",
+        "lastSeenAt": "2026-11-21T06:10:09.221Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-intent-1795241395065.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-outcome-1795241395065.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-21T06:10:09.221Z",
     "lastTitle": "Tailwind CSS Colors - All colors + Custom color generator",
     "lastSignals": [
       "paywall_copy"
@@ -3972,7 +4043,7 @@
   },
   "webhook-site": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:47:22.408Z",
+    "lastScanAt": "2026-11-21T06:07:57.614Z",
     "lastTitle": "Webhook.site - Test, transform and automate Web requests and emails",
     "lastSignals": []
   },
@@ -4014,7 +4085,7 @@
   },
   "worldtimebuddy-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:53.375Z",
+    "lastScanAt": "2026-11-21T06:04:47.822Z",
     "lastTitle": "Time Converter and World Clock - Conversion at a Glance - Pick best time to schedule conference calls, webinars, online meetings and phone calls.",
     "lastSignals": []
   },
