@@ -1190,6 +1190,12 @@
     "description": "通过 WebAssembly（Pyodide）完全在浏览器中运行的 Datasette。上传 SQLite 数据库或 CSV 文件，用完整的 SQL 界面直接探索数据——无需服务器，无需账号，数据始终留在你的设备上。基于 Simon Willison 开发的知名 Datasette 数据探索框架。",
     "coreTask": "无需安装或注册，直接在浏览器中用 SQL 查询和探索 SQLite 数据库与 CSV 文件"
   },
+  "livnaro-cc": {
+    "_hash": "77b8791f1b3251b6",
+    "description": "多箱型 CBM 体积与海运/空运/快递/陆运计费重计算器，支持集装箱装载测算与 CSV 导出。",
+    "coreTask": "输入或粘贴多组纸箱尺寸与毛重，对比不同运输方式的计费重并导出 CSV 装箱明细。",
+    "contentUpdatedAt": "2026-11-21T03:17:37.393Z"
+  },
   "looprel-com": {
     "_hash": "1b34befaf02b5385",
     "description": "无需注册的浏览器端钩针图解生成工具，可将照片转换为带有行号、网格和毛线配色的针法图解。",
@@ -1220,6 +1226,12 @@
     "description": "免费的浏览器端 Markdown 编辑器，提供实时双栏预览、标题大纲、模板、暗黑模式及 .md/.html/PDF 导出。",
     "coreTask": "免登录在线编写或上传 Markdown 文档，并实时预览及导出为 .md、独立 .html 或 PDF。",
     "contentUpdatedAt": "2026-11-19T02:59:12.532Z"
+  },
+  "markitdownai-org": {
+    "_hash": "4172aaea5dd05e96",
+    "description": "基于浏览器的文档转 Markdown 工具，支持 PDF、DOCX、PPTX、XLSX、HTML、CSV、JSON 与 XML 格式。",
+    "coreTask": "在 Basic 模式下选择受支持的文档或数据文件，本地转换为 Markdown 并下载或复制 .md 结果。",
+    "contentUpdatedAt": "2026-11-21T02:56:35.021Z"
   },
   "markmap-js-org": {
     "_hash": "4b34f5e048ec3b3c",
@@ -1447,6 +1459,12 @@
     "coreTask": "构建并验证 CAA DNS 记录，精细控制哪些 CA 机构可为你的域名颁发 SSL/TLS 证书",
     "description": "生成并校验 CAA（证书颁发机构授权）DNS 解析记录。自由选择受信任的证书颁发机构，配置通配符规则和 iodef 违规告警邮箱，并提供原始记录解析与校验功能。完全在浏览器本地运行，无需注册。"
   },
+  "nxlxtx-com": {
+    "_hash": "fb9cbc9bb5fa1700",
+    "description": "支持 PDF 转图片与图片合并为 PDF 的本地浏览器双向转换工具，提供纸张大小、排序、边距与 ZIP/PDF 导出。",
+    "coreTask": "选择 PDF 转图片或图片转 PDF 模式，加载本地文件并配置输出参数后下载图片、ZIP 或 PDF。",
+    "contentUpdatedAt": "2026-11-21T03:10:22.432Z"
+  },
   "oil-capacity-com": {
     "_hash": "010e3b543d1f8b80",
     "description": "免费的发动机机油加注量、黏度标号与机滤查询工具，支持按年份/车型选择或 17 位 VIN 解码。",
@@ -1570,6 +1588,12 @@
   "piccollages-com": {
     "coreTask": "在浏览器本地制作照片拼图、网格排版、长图拼接及马赛克拼图，无需注册即可高清导出",
     "description": "Pic Collage Maker 是一款免费且注重隐私的浏览器拼图工具。支持照片拼贴、网格布局、长图接缝与马赛克拼图。可拖拽添加图片、文字、贴纸、滤镜及背景，并导出高分辨率成品。图像处理完全在浏览器本地完成，核心功能全程免登录。"
+  },
+  "pipecuttemplates-com": {
+    "_hash": "50682079db90eed2",
+    "description": "管道与圆管切口模板生成器，可计算展开切割曲线并导出 1:1 可打印 PDF 与 DXF 轮廓。",
+    "coreTask": "输入待切管外径、配合管外径和夹角，生成 1:1 可打印 PDF 或 DXF 管道切口模板。",
+    "contentUpdatedAt": "2026-11-21T02:45:04.626Z"
   },
   "pixeltools-io": {
     "coreTask": "在浏览器本地调整大小、压缩与转换图像、PDF、音频及视频——零上传、无需注册",
@@ -1740,6 +1764,12 @@
   "quixcalc-com": {
     "description": "QuixCalc 是一个包含 60 多款在线计算器与实用工具的免费合集，涵盖金融理财到家居项目等场景，全部在浏览器本地快速运行，免登录即用。",
     "coreTask": "在线免费使用站内所有快捷实用的计算器与工具，无需注册"
+  },
+  "radiostation-live-en": {
+    "_hash": "26bfe2ed1d90f4f1",
+    "description": "免登录的网页实时电台播放器，支持全球电台搜索、国家筛选、睡眠定时、悬浮播放与本地收藏。",
+    "coreTask": "按关键词或国家搜索实时广播电台，直接开始播放并收藏常用频道。",
+    "contentUpdatedAt": "2026-11-21T03:01:26.383Z"
   },
   "randomtopicgenerators-com": {
     "_hash": "73f4e3b0fe760fa5",
@@ -2252,6 +2282,12 @@
     "coreTask": "计算 IRS 3 年加权在美居留天数并免登录导出纯文本税务工作底稿。",
     "contentUpdatedAt": "2026-10-29T03:25:28.890Z"
   },
+  "uspaycheckguide-com": {
+    "_hash": "9528c37c3c51223d",
+    "description": "2026 年美国税后工资计算器，支持全美 50 州联邦税、州税、FICA 与税前扣除明细拆解。",
+    "coreTask": "输入年薪或时薪并选择州别与报税身份，计算每次发薪的税后实发金额与税收占比。",
+    "contentUpdatedAt": "2026-11-21T03:03:32.179Z"
+  },
   "utilbear-com": {
     "coreTask": "统计字数与字符数，将 HEIC 格式照片转换为 JPG 或 PNG，以及将 WebP 图片转换为 PNG。所有工具均免账号，文件与文本均在浏览器本地处理。",
     "description": "UtilBear 提供注重隐私的免费在线小工具，支持文本字数统计以及 WebP 和 HEIC 图片格式转换。所有运算均在浏览器本地完成，文件绝不上传至服务器。免注册账号、无水印，完美适配桌面端与移动端，且界面支持 8 种语言。"
@@ -2264,6 +2300,12 @@
     "_hash": "d1e6ab9d571c40b7",
     "description": "基于浏览器的在线视频压缩工具，专为需要压缩文件体积以便分享的用户打造。支持断点续传、实时进度展示，处理结果保留24小时可下载，无需注册账号，导出无水印。",
     "coreTask": "在浏览器中将视频压缩至目标文件大小并导出 MP4，无需账号"
+  },
+  "videotextremover-net-remove-audio-from-video": {
+    "_hash": "37b40cfaa06cca06",
+    "description": "免上传的网页本地视频消音工具，可直接在浏览器中移除最大 200 MiB 的 MP4、MOV 或 WebM 视频音轨。",
+    "coreTask": "选择本地视频文件并预览，在浏览器中移除全部音轨后直接下载静音版 MP4。",
+    "contentUpdatedAt": "2026-11-21T03:30:24.838Z"
   },
   "virustotal-com": {
     "_hash": "8100c406cdd30476",

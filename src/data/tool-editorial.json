@@ -3015,62 +3015,66 @@
   },
   "pomofocus-io": {
     "en": {
-      "bestFor": "Direct browser-based Pomodoro time-boxing, interval customization, and local task tracking without account creation.",
+      "bestFor": "Browser-based Pomodoro time-boxing with custom task checklists and break intervals without creating an account.",
       "pros": [
-        "Instant Pomodoro timer accessible without signup, featuring customizable work and break durations",
-        "Stores custom intervals, sound choices, and task checklists directly in browser localStorage",
-        "Dynamic color palette shifting between focus and break phases with audio alarm alerts"
+        "Core Pomodoro, Short Break, and Long Break countdowns run immediately without signup",
+        "Supports adding tasks with estimated Pomodoro counts and shifts palette themes per phase",
+        "Stores tasks and timer state in browser storage with low layout shift (CLS 0.05)"
       ],
       "cons": [
-        "Historical productivity reports, streak tracking, and CSV data export require signing into an account",
-        "Contains bottom display ad slots with 80+ third-party ad-tech network requests"
+        "Activity Summary reports, Year view, Projects, and CSV exports require signing in",
+        "Fires heavy third-party ad-bidding and analytics traffic (21+ beacons including Google Analytics, Adnxs, OneTag, Prebid, and Fullres)",
+        "Main-thread tasks reached 94ms on initial load"
       ],
-      "privacyVerdict": "Timer countdowns and task items operate strictly within client-side memory and localStorage; however, 83 telemetry and programmatic ad-exchange payloads (Google Analytics, Criteo, Pubmatic) were recorded on page load.",
+      "privacyVerdict": "Pomodoro timer and task list operate client-side without login, but 21 outgoing analytics and programmatic ad-bidding requests (Google Analytics, fullres, prebid.a-mo.net, rt.marphezis.com, ib.adnxs.com, onetag-sys.com) were captured during the session.",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Switched timer to 5-minute Short Break mode and ran countdown to 04:59 with pause toggle verified. Monitored 83 outgoing ad-tech network payloads. Observed 100ms max task latency and verified configuration persistence across browser localStorage keys (_iiq_fdata, _GUSM). Confirmed that detailed CSV reports require user authentication while core timers remain functional without login.",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Added task 'Review CADES evaluation' via #input_activity_title, started the 25:00 Pomodoro timer, switched to Short Break, and opened the Report modal ('This report will be available when you are logged in'). Recorded 94ms max task freeze, 0.05 CLS, and 21 ad/analytics payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:40:18.565Z"
     },
     "zh": {
-      "bestFor": "在无需创建账号的前提下，直接在浏览器中进行番茄工作法时间管理、自定义时段与本地任务清单跟踪。",
+      "bestFor": "适合免注册在浏览器中使用番茄钟计时、休息切换与本地任务清单管理的用户。",
       "pros": [
-        "免注册即可使用的番茄钟计时器，支持自由调整专注与休息时长",
-        "自定义时间间隔、提示音效及任务清单全部持久化保存在浏览器 localStorage 本地存储中",
-        "专注与休息状态切换时具备平滑的主题色彩变换及音频提示"
+        "核心番茄钟（25:00）、短休息与长休息计时均可免登录直接使用",
+        "支持添加任务与预估番茄数，并随阶段切换界面配色",
+        "任务与计时状态保留在浏览器本地，交互布局偏移低（CLS 0.05）"
       ],
       "cons": [
-        "历史生产力统计报表、连续打卡记录及 CSV 数据导出功能需要登录账号",
-        "页面底部嵌有展示广告栏，包含发往第三方广告技术网络的 80+ 次请求"
+        "活动汇总报表、年度视图、项目分类与 CSV 导出均需登录",
+        "页面触发大量第三方广告竞价与统计信标（本次捕获 21+ 条，含 Google Analytics、Adnxs、OneTag、Prebid、Fullres）",
+        "初始加载期间主线程阻塞峰值达 94ms"
       ],
-      "privacyVerdict": "计时逻辑与任务清单均在前端内存和 localStorage 本地运行，不上传任务文本；但页面加载期间监测到 83 个发往 Google Analytics、Criteo 及 Pubmatic 等第三方广告交易平台的网络请求。",
+      "privacyVerdict": "番茄钟与任务清单无需登录即可在客户端运行，但测试期间捕获到 21 条统计与程序化广告竞价请求（Google Analytics、fullres、prebid.a-mo.net、rt.marphezis.com、ib.adnxs.com、onetag-sys.com）。",
       "alternativeTo": [
         "Forest 专注森林",
         "Toggl Track",
         "Be Focused"
       ],
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "切换至 5 分钟短休息模式并启动倒计时至 04:59，验证了暂停与继续交互。记录到 83 个第三方广告网络请求，主线程最大冻结延迟为 100ms，并校验了浏览器 localStorage 本地存储键值持久化。确认详细 CSV 报告需登录账号，而核心番茄钟与任务功能完全免登录可用。",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "通过 #input_activity_title 添加任务 'Review CADES evaluation'，点击 START 启动计时并切换至 Short Break，随后打开 Report 弹窗确认汇总报表提示需登录；主线程最大阻塞 94ms，CLS 0.05。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:40:18.566Z"
     },
     "ja": {
       "bestFor": "アカウントを作成せずに、ブラウザベースのポモドーロ タイムボックス、間隔のカスタマイズ、ローカル タスクの追跡を直接実行できます。",
@@ -3086,20 +3090,20 @@
       "privacyVerdict": "タイマーのカウントダウンとタスク項目は、クライアント側のメモリとローカルストレージ内で厳密に動作します。ただし、83 件のテレメトリおよびプログラマティック広告交換ペイロード (Google Analytics、Criteo、Pubmatic) がページ読み込み時に記録されました。",
       "benchmarkNotes": "タイマーを 5 分間のショートブレイク モードに切り替え、一時停止トグルが確認された状態で 04:59 までのカウントダウンを実行しました。 83 の送信アドテク ネットワーク ペイロードを監視しました。最大 100 ミリ秒のタスク遅延が観察され、ブラウザーの localStorage キー (_iiq_fdata、_GUSM) 全体で構成の永続性が確認されました。詳細な CSV レポートにはユーザー認証が必要ですが、コア タイマーはログインしなくても機能し続けることを確認しました。",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "계정 생성 없이 직접 브라우저 기반 Pomodoro 시간 제한, 간격 사용자 정의 및 로컬 작업 추적이 가능합니다.",
@@ -3115,20 +3119,20 @@
       "privacyVerdict": "타이머 카운트다운과 작업 항목은 클라이언트 측 메모리와 localStorage 내에서 엄격하게 작동합니다. 그러나 83개의 원격 분석 및 프로그래밍 방식 Ad-Exchange 페이로드(Google Analytics, Criteo, Pubmatic)가 페이지 로드 시 기록되었습니다.",
       "benchmarkNotes": "타이머를 5분 짧은 휴식 모드로 전환하고 일시 중지 토글이 확인된 상태에서 04:59까지 카운트다운을 실행했습니다. 83개의 나가는 광고 기술 네트워크 페이로드를 모니터링했습니다. 최대 100ms의 작업 대기 시간을 관찰하고 브라우저 localStorage 키(_iiq_fdata, _GUSM) 전체에서 구성 지속성을 확인했습니다. 세부 CSV 보고서에는 사용자 인증이 필요한 반면 핵심 타이머는 로그인 없이 계속 작동함을 확인했습니다.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Boxeo de tiempo Pomodoro directo basado en navegador, personalización de intervalos y seguimiento de tareas locales sin creación de cuenta.",
@@ -3144,20 +3148,20 @@
       "privacyVerdict": "Las cuentas regresivas del temporizador y los elementos de las tareas operan estrictamente dentro de la memoria del lado del cliente y el almacenamiento local; sin embargo, se registraron 83 cargas útiles de intercambio de anuncios programáticos y de telemetría (Google Analytics, Criteo, Pubmatic) al cargar la página.",
       "benchmarkNotes": "Se cambió el temporizador al modo de descanso breve de 5 minutos y se ejecutó la cuenta regresiva hasta las 04:59 con el cambio de pausa verificado. Supervisó 83 cargas útiles salientes de redes de tecnología publicitaria. Se observó una latencia máxima de tarea de 100 ms y se verificó la persistencia de la configuración en las claves de almacenamiento local del navegador (_iiq_fdata, _GUSM). Se confirmó que los informes CSV detallados requieren autenticación del usuario mientras que los temporizadores centrales siguen funcionando sin iniciar sesión.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Timeboxing Pomodoro direct basé sur un navigateur, personnalisation des intervalles et suivi des tâches locales sans création de compte.",
@@ -3173,20 +3177,20 @@
       "privacyVerdict": "Les comptes à rebours et les éléments de tâches fonctionnent strictement dans la mémoire côté client et dans le stockage local ; cependant, 83 charges utiles de télémétrie et d'échange d'annonces programmatiques (Google Analytics, Criteo, Pubmatic) ont été enregistrées lors du chargement de la page.",
       "benchmarkNotes": "Minuterie commutée en mode pause courte de 5 minutes et compte à rebours jusqu'à 04h59 avec bascule de pause vérifiée. Surveillance de 83 charges utiles sortantes du réseau ad-tech. Latence de tâche maximale observée de 100 ms et persistance de la configuration vérifiée sur les clés de stockage local du navigateur (_iiq_fdata, _GUSM). Confirmation que les rapports CSV détaillés nécessitent une authentification de l'utilisateur tandis que les minuteries principales restent fonctionnelles sans connexion.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Direktes browserbasiertes Pomodoro-Timeboxing, Intervallanpassung und lokale Aufgabenverfolgung ohne Kontoerstellung.",
@@ -3202,20 +3206,20 @@
       "privacyVerdict": "Timer-Countdowns und Aufgabenelemente funktionieren ausschließlich im clientseitigen Speicher und im lokalen Speicher. Allerdings wurden beim Laden der Seite 83 Telemetrie- und programmatische Ad-Exchange-Nutzlasten (Google Analytics, Criteo, Pubmatic) aufgezeichnet.",
       "benchmarkNotes": "Der Timer wurde auf den 5-Minuten-Kurzpausenmodus umgestellt und der Countdown bis 04:59 ausgeführt, wobei die Pausenumschaltung überprüft wurde. Überwachte 83 ausgehende Ad-Tech-Netzwerknutzlasten. Beobachtete eine maximale Aufgabenlatenz von 100 ms und überprüfte Konfigurationspersistenz über alle Browser-LocalStorage-Schlüssel (_iiq_fdata, _GUSM). Bestätigt, dass detaillierte CSV-Berichte eine Benutzerauthentifizierung erfordern, während Kerntimer ohne Anmeldung funktionsfähig bleiben.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Time-boxing Pomodoro direto baseado em navegador, personalização de intervalo e rastreamento de tarefas locais sem criação de conta.",
@@ -3231,20 +3235,20 @@
       "privacyVerdict": "As contagens regressivas do temporizador e os itens de tarefas operam estritamente na memória do lado do cliente e no localStorage; no entanto, 83 cargas úteis de telemetria e troca de anúncios programáticas (Google Analytics, Criteo, Pubmatic) foram registradas no carregamento da página.",
       "benchmarkNotes": "Mudou o cronômetro para o modo Short Break de 5 minutos e fez a contagem regressiva até 04:59 com alternância de pausa verificada. Monitorou 83 cargas úteis de rede de tecnologia de publicidade de saída. Latência máxima de tarefa de 100 ms observada e persistência de configuração verificada nas chaves localStorage do navegador (_iiq_fdata, _GUSM). Confirmado que os relatórios CSV detalhados exigem autenticação do usuário, enquanto os temporizadores principais permanecem funcionais sem login.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 16,
+        "exportFreedom": 12,
+        "privacy": 11,
+        "polish": 13,
+        "overall": 70
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Forest App",
         "Toggl Track",
         "Be Focused"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "ezgif-com": {
@@ -48048,17 +48052,17 @@
   },
   "productivitytimer-com": {
     "en": {
-      "bestFor": "Knowledge workers, students, and remote professionals seeking a distraction-free Pomodoro timer and task estimation suite with keyboard shortcuts and zero tracking of task contents.",
+      "bestFor": "Keyboard-driven Pomodoro focus sessions with customizable intervals, audio alarms, and local session history without signup.",
       "pros": [
-        "Instant Pomodoro timer with configurable intervals, audio alarm presets, keyboard shortcuts, and auto-cycle capability.",
-        "Includes companion planning utilities such as Pomodoro Task Estimator, Daily Focus Score, and printable tracking sheets.",
-        "All project subtasks and tracking sheets persist automatically in local browser localStorage with zero server egress."
+        "Custom Pomodoro, Short Break, and Long Break durations apply immediately via Settings without an account",
+        "Provides keyboard shortcuts (SPACE, ALT+P, ALT+S), auto-cycle toggle, round progress ring, and Timer History tab",
+        "Links to companion browser utilities (Task Estimator, Focus Score, Printable Tracking Sheet) with zero ads"
       ],
       "cons": [
-        "Tracking sheet and task estimates require browser print or manual copy to export as physical or digital artifacts.",
-        "Does not offer cross-device cloud synchronization without third-party browser sync."
+        "Main timer lacks direct CSV or JSON export for session history",
+        "Fires Google Analytics (GA4) and Cloudflare RUM beacons during page usage"
       ],
-      "privacyVerdict": "Client-side productivity suite operating entirely within the browser. Task names, complexity ratings, and tracking logs persist in local localStorage. Network egress is strictly limited to 4 telemetry beacons (GA4 and Cloudflare RUM); zero user-entered task data is transmitted to external servers.",
+      "privacyVerdict": "Timer settings and session counts run locally in the browser without login; 2 telemetry beacons (www.google-analytics.com/g/collect and /cdn-cgi/rum) were observed during the tested session.",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
@@ -48066,29 +48070,30 @@
         "Forest"
       ],
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Tested core Pomodoro countdown with keyboard shortcuts and sound selection. Navigated to the Task Estimator, added subtask Migrate CSS to Tailwind (3 Pomodoros, 75 min), verified localStorage serialization, and triggered the printable tracking sheet export with 0ms freeze and 0.01 CLS.",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Opened Settings modal, updated #pomodoro-timer-minutes to 30 via Set Times, started countdown to 29:59, and toggled Stop with 58ms max task freeze, 0.02 CLS, and 2 analytics/RUM payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:41:46.908Z"
     },
     "zh": {
-      "bestFor": "寻求无干扰番茄钟与任务工时估算工具的知识工作者、学生及远程办公人士，支持键盘快捷键且任务内容完全不被追踪。",
+      "bestFor": "适合需要键盘快捷键、自定义番茄时段与本地计时历史记录且免登录专注的用户。",
       "pros": [
-        "即开即用的番茄钟工具，支持自定义工作/休息时长、多种提示音、键盘快捷键与自动轮转。",
-        "内置丰富的伴生效率工具，包括任务工时估算器、每日专注度评分以及支持直接打印的纸质追踪表。",
-        "所有子任务工时估算与每日专注记录自动保存于浏览器 localStorage，绝不向云端外传任何任务文本。"
+        "在 Settings 弹窗中即可免注册自定义工作/短休/长休时长并立即生效",
+        "支持键盘快捷键（SPACE、ALT+P、ALT+S）、自动循环切换、轮次指示与计时历史标签页",
+        "无广告干扰，并附带任务估算器、专注评分与可打印记录表等配套工具"
       ],
       "cons": [
-        "追踪表与任务估算主要依赖浏览器系统打印或手动复制保存为数字文档。",
-        "不提供跨设备云端同步功能，多设备流转需依赖浏览器自身配置同步。"
+        "主计时器未提供计时历史的直接 CSV 或 JSON 导出功能",
+        "页面运行期间触发 Google Analytics (GA4) 与 Cloudflare RUM 遥测请求"
       ],
-      "privacyVerdict": "完全在浏览器前端运行的单机效率套件。任务名称、复杂度评级与专注记录均持久化保存在本地 localStorage 中。实测捕获到 4 次遥测请求（GA4 与 Cloudflare RUM），用户输入的任何任务及日程内容均零外传。",
+      "privacyVerdict": "计时配置与会话记录在浏览器本地处理，无需登录；测试期间捕获到 2 条遥测信标（www.google-analytics.com/g/collect 与 /cdn-cgi/rum）。",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
@@ -48096,16 +48101,17 @@
         "Forest"
       ],
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "测试了核心番茄钟倒计时、键盘快捷键及提示音配置。随后进入任务估算器录入子任务 Migrate CSS to Tailwind（3 个番茄钟，75 分钟），确认数据在 localStorage 中完成序列化，并触发了追踪表的系统打印导出，主线程卡顿 0ms，CLS 仅 0.01。",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "打开 Settings 将 #pomodoro-timer-minutes 设为 30 并点击 Set Times，随后点击 Start 启动倒计时至 29:59 并测试 Stop；主线程最大阻塞 58ms，CLS 为 0.02，捕获 2 条遥测请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:41:46.908Z"
     },
     "ja": {
       "bestFor": "キーボード ショートカットとタスク内容のゼロ追跡を備えた、気を散らすことのないポモドーロ タイマーとタスク推定スイートを求めているナレッジ ワーカー、学生、リモート プロフェッショナル。",
@@ -48121,21 +48127,21 @@
       "privacyVerdict": "完全にブラウザ内で動作するクライアント側の生産性スイート。タスク名、複雑さの評価、および追跡ログはローカルの localStorage に保持されます。ネットワーク下りは 4 つのテレメトリ ビーコン (GA4 および Cloudflare RUM) に厳密に制限されます。ユーザーが入力したタスク データが外部サーバーに送信されることはありません。",
       "benchmarkNotes": "キーボード ショートカットとサウンドの選択を使用して、コア ポモドーロ カウントダウンをテストしました。 Task Estimator に移動し、サブタスク「CSS を Tailwind に移行する (3 ポモドーロ、75 分)」を追加し、localStorage のシリアル化を検証し、0ms フリーズと 0.01 CLS で印刷可能なトラッキング シートのエクスポートをトリガーしました。",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
         "Marinara Timer",
         "Forest"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "키보드 단축키 및 작업 내용 추적 제로 기능을 갖춘 방해 없는 Pomodoro 타이머 및 작업 예측 제품군을 원하는 지식 근로자, 학생 및 원격 전문가.",
@@ -48151,21 +48157,21 @@
       "privacyVerdict": "브라우저 내에서 완전히 작동하는 클라이언트 측 생산성 제품군입니다. 작업 이름, 복잡성 등급 및 추적 로그는 로컬 localStorage에 유지됩니다. 네트워크 송신은 4개의 원격 측정 비콘(GA4 및 Cloudflare RUM)으로 엄격하게 제한됩니다. 사용자가 입력한 작업 데이터는 외부 서버로 전송됩니다.",
       "benchmarkNotes": "키보드 단축키 및 사운드 선택을 통해 핵심 Pomodoro 카운트다운을 테스트했습니다. Task Estimator로 이동하고 하위 작업 Migrate CSS to Tailwind(3 Pomodoros, 75분)를 추가하고 localStorage 직렬화를 확인하고 0ms 동결 및 0.01 CLS로 인쇄 가능한 추적 시트 내보내기를 트리거했습니다.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
         "Marinara Timer",
         "Forest"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Trabajadores del conocimiento, estudiantes y profesionales remotos que buscan un temporizador Pomodoro sin distracciones y un conjunto de estimación de tareas con atajos de teclado y seguimiento cero del contenido de las tareas.",
@@ -48181,21 +48187,21 @@
       "privacyVerdict": "Suite de productividad del lado del cliente que funciona completamente dentro del navegador. Los nombres de las tareas, las clasificaciones de complejidad y los registros de seguimiento persisten en el almacenamiento local. La salida de la red está estrictamente limitada a 4 balizas de telemetría (GA4 y Cloudflare RUM); Los datos de tareas cero ingresados ​​por el usuario se transmiten a servidores externos.",
       "benchmarkNotes": "Cuenta atrás de Pomodoro central probada con atajos de teclado y selección de sonido. Navegó al Estimador de tareas, agregó la subtarea Migrar CSS a Tailwind (3 Pomodoros, 75 min), verificó la serialización del almacenamiento local y activó la exportación de la hoja de seguimiento imprimible con congelación de 0 ms y 0,01 CLS.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
         "Marinara Timer",
         "Forest"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Travailleurs du savoir, étudiants et professionnels à distance à la recherche d'une suite de minuterie et d'estimation de tâches Pomodoro sans distraction avec des raccourcis clavier et un suivi nul du contenu des tâches.",
@@ -48211,21 +48217,21 @@
       "privacyVerdict": "Suite de productivité côté client fonctionnant entièrement dans le navigateur. Les noms de tâches, les évaluations de complexité et les journaux de suivi sont conservés dans le stockage local local. La sortie du réseau est strictement limitée à 4 balises de télémétrie (GA4 et Cloudflare RUM) ; Aucune donnée de tâche saisie par l'utilisateur n'est transmise à des serveurs externes.",
       "benchmarkNotes": "Compte à rebours Pomodoro de base testé avec raccourcis clavier et sélection de sons. Navigation vers l'estimateur de tâches, ajout de la sous-tâche Migrer CSS vers Tailwind (3 Pomodoros, 75 min), vérification de la sérialisation de localStorage et déclenchement de l'exportation de la feuille de suivi imprimable avec un gel de 0 ms et 0,01 CLS.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
         "Marinara Timer",
         "Forest"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Wissensarbeiter, Studenten und Fernprofis, die einen ablenkungsfreien Pomodoro-Timer und eine Aufgabenschätzungssuite mit Tastaturkürzeln und Nullverfolgung von Aufgabeninhalten suchen.",
@@ -48241,21 +48247,21 @@
       "privacyVerdict": "Clientseitige Produktivitätssuite, die vollständig im Browser läuft. Aufgabennamen, Komplexitätsbewertungen und Tracking-Protokolle bleiben im lokalen localStorage bestehen. Der Netzwerkausgang ist streng auf 4 Telemetrie-Beacons (GA4 und Cloudflare RUM) beschränkt. Es werden keine vom Benutzer eingegebenen Aufgabendaten an externe Server übertragen.",
       "benchmarkNotes": "Getesteter Kern-Pomodoro-Countdown mit Tastaturkürzeln und Soundauswahl. Navigierte zum Task Estimator, fügte die Unteraufgabe „Migrate CSS to Tailwind“ (3 Pomodoros, 75 Min.) hinzu, überprüfte die LocalStorage-Serialisierung und löste den Export des druckbaren Tracking Sheets mit 0 ms Freeze und 0,01 CLS aus.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
         "Marinara Timer",
         "Forest"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Trabalhadores do conhecimento, estudantes e profissionais remotos que buscam um cronômetro Pomodoro sem distrações e um conjunto de estimativa de tarefas com atalhos de teclado e rastreamento zero do conteúdo da tarefa.",
@@ -48271,21 +48277,21 @@
       "privacyVerdict": "Conjunto de produtividade do lado do cliente operando inteiramente no navegador. Nomes de tarefas, classificações de complexidade e logs de rastreamento persistem no localStorage local. A saída da rede é estritamente limitada a 4 beacons de telemetria (GA4 e Cloudflare RUM); nenhum dado de tarefa inserido pelo usuário é transmitido para servidores externos.",
       "benchmarkNotes": "Contagem regressiva básica do Pomodoro testada com atalhos de teclado e seleção de som. Naveguei até o Task Estimator, adicionei a subtarefa Migrate CSS to Tailwind (3 Pomodoros, 75 min), verifiquei a serialização localStorage e acionei a exportação da planilha de rastreamento imprimível com congelamento de 0 ms e 0,01 CLS.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
-        "depth": 18,
-        "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Pomofocus",
         "Toggl Track",
         "Marinara Timer",
         "Forest"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "mojisuu-app": {
@@ -52694,17 +52700,18 @@
   },
   "pdfzus-de": {
     "en": {
-      "bestFor": "European users, privacy-conscious administrators, and office workers seeking quick, GDPR-aligned PDF merging and page reordering without uploading sensitive paperwork to third-party servers.",
+      "bestFor": "Merging and reordering multiple PDF files directly in the browser without account registration, especially for German-speaking users.",
       "pros": [
-        "Performs local multi-page PDF merging and page reordering directly in the browser runtime",
-        "Includes a convenient 'Beispiel-PDF testen' button for immediate zero-risk workflow verification",
-        "Exports clean, watermark-free PDF artifacts with customizable filenames and optional post-merge compression"
+        "Reorders and merges multiple PDF files locally with customizable output filenames and optional compression",
+        "Includes a built-in 'Beispiel-PDF testen' sample loader and pre-download 'PDF prüfen' preview",
+        "Exports valid watermark-free PDF binaries (verified 1248-byte merged-2026-11-21.pdf) without login walls"
       ],
       "cons": [
-        "Primary user interface and labels are exclusively localized in German",
-        "Integrates third-party display advertisements and telemetry beacons (Google AdSense, Umami, Google Analytics)"
+        "Interface and controls are German-only",
+        "Rejects minimal synthetic PDF inputs ('PDFs konnten nicht zusammengeführt werden') without detailed parse error",
+        "Fires 26 analytics, RUM, and ad-consent beacons (Google Analytics, Umami, Ahrefs, Cloudflare RUM, FundingChoices) and exhibits layout shift (CLS 0.43) when adding/clearing files"
       ],
-      "privacyVerdict": "Client-side document processing architecture. PDF manipulation, page merging, and reordering execute locally within the browser runtime via WebAssembly. Observed network traffic was limited to third-party ad networks and telemetry beacons (Google AdSense, Umami, Google Analytics, and Ahrefs); user documents and PDF pages are not transmitted to remote servers.",
+      "privacyVerdict": "No PDF document bytes were observed in outgoing payloads, though 26 telemetry and ad-consent requests (Google Analytics, Umami, Ahrefs, /cdn-cgi/rum, and Google FundingChoices) were captured during the session.",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
@@ -52712,29 +52719,31 @@
         "PDF24 Tools"
       ],
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Loaded two sample PDF files (670 bytes each) and executed client-side merge; generated a 1018-byte valid two-page PDF artifact in ~300ms with 0ms task freeze. Visual inspection confirmed clean document rendering without promotional stamps. Network audit detected 25 third-party ad and telemetry beacons without document egress.",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 610-byte sample.pdf (rejected by parser) then tested 'Beispiel-PDF testen' (2 files, 2 pages), clicked 'PDF zusammenführen', and downloaded a clean 1248-byte PDF via 'Herunterladen' with 56ms max task freeze and 0.43 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:37:52.590Z"
     },
     "zh": {
-      "bestFor": "注重个人隐私与合规性、需要在本地快速完成多份 PDF 合并、调序与轻量压缩，绝不希望将敏感文件上传到第三方服务器的办公人员与学生群体。",
+      "bestFor": "适合无需注册即可在浏览器中合并和调整多份 PDF 顺序的用户，界面以德语为主。",
       "pros": [
-        "在浏览器运行时中本地执行多页 PDF 合并与拖拽调序，核心文件无需上传远端服务器",
-        "贴心内置‘测试示例 PDF’按钮，无需翻找本地文件即可零风险验证合并功能",
-        "导出干净无水印的合规 PDF 文档，支持自定义文件名并提供可选的合并后体积压缩"
+        "支持本地多文件合并、页面顺序调整、自定义输出文件名以及可选合并后压缩",
+        "提供一键示例按钮（Beispiel-PDF testen）和下载前预览（PDF prüfen）",
+        "导出的 1248 字节 merged-2026-11-21.pdf 文件魔数有效且无水印、无登录拦截"
       ],
       "cons": [
-        "主界面与操作指引主要为德语本地化呈现",
-        "页面集成了第三方展示广告与分析遥测脚本（Google AdSense、Umami 及 Google Analytics）"
+        "界面与操作按钮仅提供德语版本",
+        "遇到极简非标准测试 PDF 会直接提示合并失败，缺乏具体解析错误说明",
+        "会话期间触发 26 条分析、RUM 与广告同意信标（Google Analytics、Umami、Ahrefs、Cloudflare RUM、FundingChoices），增删文件时存在 0.43 的布局偏移"
       ],
-      "privacyVerdict": "基于前端本地执行的文档处理架构。PDF 解析、页面拼接与重排序通过 WebAssembly 在浏览器运行时中本地完成。实测网络活动仅限于第三方广告联盟及遥测信标（Google AdSense、Umami、Google Analytics 与 Ahrefs），用户上传的 PDF 文档绝不传输至远程服务器。",
+      "privacyVerdict": "本次测试未观察到 PDF 文件内容外发，但捕获到 26 条分析与广告同意请求（Google Analytics、Umami、Ahrefs、/cdn-cgi/rum、Google FundingChoices）。",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
@@ -52742,16 +52751,17 @@
         "PDF24 Tools"
       ],
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "加载两份测试示例 PDF（各 670 字节）并执行本地合并；在约 300ms 内生成 1018 字节结构完整的两页 PDF 文件，长任务阻塞 0ms。视觉核验确认成品无任何宣传水印。网络监测记录到 25 个第三方广告与分析遥测信标，文档素材未发生任何外传。",
-      "testedAt": "2026-09"
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "先上传 610 字节 sample.pdf（解析报错），随后点击 Beispiel-PDF testen 加载 2 份示例 PDF 并点击 PDF zusammenführen 合并，通过 Herunterladen 导出 1248 字节有效 PDF；主线程最大阻塞 56ms，CLS 为 0.43。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:37:52.591Z"
     },
     "ja": {
       "bestFor": "欧州のユーザー、プライバシーを重視する管理者、会社員は、機密書類をサードパーティのサーバーにアップロードせずに、GDPR に準拠した PDF の結合やページの並べ替えを迅速に行うことを求めています。",
@@ -52767,21 +52777,21 @@
       "privacyVerdict": "クライアント側のドキュメント処理アーキテクチャ。 PDF の操作、ページの結合、並べ替えは、WebAssembly を介してブラウザー ランタイム内でローカルに実行されます。観測されたネットワーク トラフィックは、サードパーティの広告ネットワークとテレメトリー ビーコン (Google AdSense、Umami、Google Analytics、Ahrefs) に限定されていました。ユーザードキュメントと PDF ページはリモートサーバーに送信されません。",
       "benchmarkNotes": "2 つのサンプル PDF ファイル (それぞれ 670 バイト) をロードし、クライアント側のマージを実行しました。 0 ミリ秒のタスク フリーズにより、1018 バイトの有効な 2 ページの PDF アーティファクトを ~300 ミリ秒で生成しました。目視検査により、販促スタンプのないきれいな文書レンダリングが確認されました。ネットワーク監査により、ドキュメントの出力のない 25 個のサードパーティの広告およびテレメトリ ビーコンが検出されました。",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "Stirling-PDF",
         "PDF24 Tools"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "민감한 서류를 제3자 서버에 업로드하지 않고 신속하게 GDPR에 부합하는 PDF 병합 및 페이지 재정렬을 원하는 유럽 사용자, 개인 정보 보호를 중시하는 관리자 및 직장인.",
@@ -52797,21 +52807,21 @@
       "privacyVerdict": "클라이언트 측 문서 처리 아키텍처. PDF 조작, 페이지 병합 및 재정렬은 WebAssembly를 통해 브라우저 런타임 내에서 로컬로 실행됩니다. 관찰된 네트워크 트래픽은 제3자 광고 네트워크 및 원격 측정 비콘(Google AdSense, Umami, Google Analytics 및 Ahrefs)으로 제한되었습니다. 사용자 문서와 PDF 페이지는 원격 서버로 전송되지 않습니다.",
       "benchmarkNotes": "두 개의 샘플 PDF 파일(각각 670바이트)을 로드하고 클라이언트측 병합을 실행했습니다. 0ms 작업 정지로 ~300ms 내에 1018바이트의 유효한 2페이지 PDF 아티팩트를 생성했습니다. 육안 검사를 통해 판촉 스탬프가 없는 깨끗한 문서 렌더링이 확인되었습니다. 네트워크 감사에서는 문서 송신 없이 25개의 타사 광고 및 원격 측정 비콘을 감지했습니다.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "Stirling-PDF",
         "PDF24 Tools"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Usuarios europeos, administradores preocupados por la privacidad y trabajadores de oficina que buscan fusionar PDF y reordenar páginas de forma rápida y alineada con GDPR sin cargar documentos confidenciales en servidores de terceros.",
@@ -52827,21 +52837,21 @@
       "privacyVerdict": "Arquitectura de procesamiento de documentos del lado del cliente. La manipulación de PDF, la combinación de páginas y la reordenación se ejecutan localmente dentro del tiempo de ejecución del navegador a través de WebAssembly. El tráfico de red observado se limitó a redes publicitarias y balizas de telemetría de terceros (Google AdSense, Umami, Google Analytics y Ahrefs); Los documentos de usuario y las páginas PDF no se transmiten a servidores remotos.",
       "benchmarkNotes": "Cargué dos archivos PDF de muestra (670 bytes cada uno) y ejecuté la combinación del lado del cliente; generó un artefacto PDF de dos páginas válido de 1018 bytes en ~300 ms con una congelación de tareas de 0 ms. La inspección visual confirmó la presentación limpia del documento sin sellos promocionales. La auditoría de red detectó 25 balizas de telemetría y anuncios de terceros sin salida de documentos.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "Stirling-PDF",
         "PDF24 Tools"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Utilisateurs européens, administrateurs soucieux de leur confidentialité et employés de bureau recherchant une fusion de PDF et une réorganisation de pages rapides et conformes au RGPD sans télécharger de documents sensibles sur des serveurs tiers.",
@@ -52857,21 +52867,21 @@
       "privacyVerdict": "Architecture de traitement des documents côté client. La manipulation de PDF, la fusion de pages et la réorganisation s'exécutent localement dans le runtime du navigateur via WebAssembly. Le trafic réseau observé était limité aux réseaux publicitaires tiers et aux balises de télémétrie (Google AdSense, Umami, Google Analytics et Ahrefs) ; les documents utilisateur et les pages PDF ne sont pas transmis aux serveurs distants.",
       "benchmarkNotes": "Chargement de deux exemples de fichiers PDF (670 octets chacun) et exécution de la fusion côté client ; généré un artefact PDF valide de deux pages de 1 018 octets en environ 300 ms avec un gel des tâches de 0 ms. L'inspection visuelle a confirmé un rendu propre des documents, sans tampons promotionnels. L'audit du réseau a détecté 25 balises publicitaires et de télémétrie tierces sans sortie de documents.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "Stirling-PDF",
         "PDF24 Tools"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Europäische Benutzer, datenschutzbewusste Administratoren und Büroangestellte, die eine schnelle, DSGVO-konforme PDF-Zusammenführung und Seitenneuordnung wünschen, ohne sensible Unterlagen auf Server von Drittanbietern hochzuladen.",
@@ -52887,21 +52897,21 @@
       "privacyVerdict": "Architektur für die clientseitige Dokumentenverarbeitung. PDF-Bearbeitung, Seitenzusammenführung und Neuordnung werden lokal innerhalb der Browser-Laufzeit über WebAssembly ausgeführt. Der beobachtete Netzwerkverkehr beschränkte sich auf Werbenetzwerke und Telemetrie-Beacons von Drittanbietern (Google AdSense, Umami, Google Analytics und Ahrefs); Benutzerdokumente und PDF-Seiten werden nicht an Remote-Server übertragen.",
       "benchmarkNotes": "Zwei Beispiel-PDF-Dateien (jeweils 670 Byte) geladen und clientseitige Zusammenführung ausgeführt; Generierte ein 1018 Byte großes gültiges zweiseitiges PDF-Artefakt in ca. 300 ms mit einem Task-Freeze von 0 ms. Eine visuelle Prüfung bestätigte die saubere Wiedergabe des Dokuments ohne Werbestempel. Bei der Netzwerkprüfung wurden 25 Werbe- und Telemetrie-Beacons von Drittanbietern ohne Dokumentenausgang entdeckt.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "Stirling-PDF",
         "PDF24 Tools"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Usuários europeus, administradores preocupados com a privacidade e funcionários de escritório que buscam mesclagem de PDF e reordenação de páginas rápida e alinhada ao GDPR, sem carregar documentos confidenciais em servidores de terceiros.",
@@ -52917,21 +52927,21 @@
       "privacyVerdict": "Arquitetura de processamento de documentos do lado do cliente. A manipulação de PDF, mesclagem de páginas e reordenação são executadas localmente no tempo de execução do navegador via WebAssembly. O tráfego de rede observado foi limitado a redes de anúncios de terceiros e beacons de telemetria (Google AdSense, Umami, Google Analytics e Ahrefs); documentos do usuário e páginas PDF não são transmitidos para servidores remotos.",
       "benchmarkNotes": "Carregou dois arquivos PDF de amostra (670 bytes cada) e executou a mesclagem do lado do cliente; gerou um artefato PDF válido de duas páginas de 1.018 bytes em aproximadamente 300 ms com congelamento de tarefa de 0 ms. A inspeção visual confirmou a renderização limpa do documento, sem selos promocionais. A auditoria de rede detectou 25 beacons de telemetria e anúncios de terceiros sem saída de documentos.",
       "productScore": {
-        "overall": 82,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 16,
-        "polish": 13
+        "privacy": 13,
+        "polish": 12,
+        "overall": 78
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Smallpdf",
         "ILovePDF",
         "Stirling-PDF",
         "PDF24 Tools"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "taimaa-net": {
@@ -81315,6 +81325,386 @@
       "benchmarkNotes": "实测上传 sample.png 被准确判定为无人脸，随后对示例人像 1 运行分析（得出 89 分及五官比例指标），点击 Save result 导出 332,574 字节 PNG 卡片；主线程零阻塞、CLS 0.16，记录 2 次 GA 上报。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-20T03:18:50.600Z"
+    }
+  },
+  "pipecuttemplates-com": {
+    "en": {
+      "bestFor": "Fabricators, welders, and metalworkers generating 1:1 pipe notching wrap templates, cutback tables, and DXF profiles without signing in.",
+      "pros": [
+        "Supports Branch-end notch, Main tube opening, and Joint tasks in mm or inches with guided or full-form input",
+        "Renders live SVG unwrapped cut-line profile with wrap length, maximum cutback, and optional 3D joint preview",
+        "Exports watermark-free 1:1 PDF (verified 5728 bytes), DXF profiles, and printable cutback tables without login"
+      ],
+      "cons": [
+        "Cross-device cloud project saving requires signing into an account",
+        "Fires Cloudflare RUM and first-party stats beacons (/cdn-cgi/rum, /stats/event) even after rejecting analytics cookies"
+      ],
+      "privacyVerdict": "Tube dimensions and template generation ran in the browser without login or dimension payloads in outgoing traffic; 4 telemetry beacons (/cdn-cgi/rum and /stats/event) were recorded during the session.",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14,
+        "overall": 85
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Rejected analytics cookies, switched to full form, entered 50mm cut tube OD, 75mm mating tube OD, and 45-degree angle to compute 157.08mm wrap length and 50.00mm max cutback, then exported a clean 5728-byte 1:1 PDF (0ms max task freeze, 0.06 CLS).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:45:04.478Z"
+    },
+    "zh": {
+      "bestFor": "适合焊接与管材加工人员免登录生成 1:1 管道切口包裹模板、切割数据表和 DXF 轮廓文件。",
+      "pros": [
+        "支持支管端切口、主管开孔与连接任务，支持毫米/英寸切换及引导或完整表单模式",
+        "实时渲染 SVG 展开切割曲线，显示包裹周长、最大切深，并提供 3D 接头预览",
+        "免登录导出无水印 1:1 PDF（实测 5728 字节）、DXF 轮廓与可打印数据表"
+      ],
+      "cons": [
+        "跨设备保存项目需要使用账号登录",
+        "拒绝分析 Cookie 后仍会发送 Cloudflare RUM 与站点统计信标（/cdn-cgi/rum、/stats/event）"
+      ],
+      "privacyVerdict": "管径输入与模板生成均在浏览器本地完成且无需登录，未见尺寸数据外发；测试期间记录到 4 条遥测请求（/cdn-cgi/rum 与 /stats/event）。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14,
+        "overall": 85
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "拒绝分析 Cookie 后切换完整表单，输入 50mm 支管外径、75mm 主管外径与 45° 夹角，实时算得 157.08mm 包裹周长与 50.00mm 最大切深，并导出 5728 字节无水印 1:1 PDF；主线程最大阻塞 0ms，CLS 0.06。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:45:04.479Z"
+    }
+  },
+  "markitdownai-org": {
+    "en": {
+      "bestFor": "Converting JSON, CSV, HTML, PDF, DOCX, PPTX, XLSX, and XML files to Markdown directly in the browser without signing in.",
+      "pros": [
+        "Basic mode converts 8 document and data formats locally in the browser without requiring an account",
+        "Displays live Markdown preview with character count before export",
+        "Exports clean .md files (verified 72-byte Markdown download) and supports one-click Copy full Markdown"
+      ],
+      "cons": [
+        "Advanced OCR and complex layout mode requires account/paid tier",
+        "Fires Google Analytics, Microsoft Clarity, and trk.taphold.me telemetry beacons (36 requests observed) even after clicking Reject on the cookie banner",
+        "Single-file conversion only, with 0.17 CLS during state transitions"
+      ],
+      "privacyVerdict": "Basic conversion processed test JSON locally in the browser without uploading document bytes, but 36 telemetry and session-replay beacons (www.google-analytics.com/g/collect, k.clarity.ms/collect, trk.taphold.me/api/event) were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Rejected cookies, loaded a JSON file (test.json), clicked 'Convert locally' to render a 72-char Markdown preview, and exported a clean 72-byte .md file via 'Download full .md' with 0ms max task freeze and 0.17 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:56:34.861Z"
+    },
+    "zh": {
+      "bestFor": "适合免登录在浏览器中将 JSON、CSV、HTML、PDF、DOCX、PPTX、XLSX 和 XML 文件转换为 Markdown 的用户。",
+      "pros": [
+        "Basic 模式可在浏览器本地直接转换 8 种常见文档与数据格式，无需注册登录",
+        "转换后实时展示 Markdown 预览及字符数统计",
+        "支持一键下载纯净 .md 文件（实测 72 字节）或复制完整 Markdown"
+      ],
+      "cons": [
+        "高级 OCR 与复杂排版模式（Advanced）需账号或付费套餐",
+        "即使点击 Cookie 弹窗中的 Reject，仍向 Google Analytics、Microsoft Clarity 与 trk.taphold.me 发送了 36 条遥测与会话记录请求",
+        "仅支持单文件转换，状态切换时存在 0.17 的布局偏移（CLS）"
+      ],
+      "privacyVerdict": "Basic 模式在浏览器本地完成 JSON 到 Markdown 的转换且未上传文件内容，但测试期间捕获到 36 条遥测与录屏信标（www.google-analytics.com/g/collect、k.clarity.ms/collect、trk.taphold.me/api/event）。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "拒绝 Cookie 后加载 JSON 文件（test.json），点击 Convert locally 生成 72 字符 Markdown 预览，并通过 Download full .md 导出 72 字节无水印 .md 文件；主线程最大阻塞 0ms，CLS 0.17。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T02:56:34.861Z"
+    }
+  },
+  "radiostation-live-en": {
+    "en": {
+      "bestFor": "Streaming international live radio stations in the browser with instant search, sleep timer, and local favorites without an account.",
+      "pros": [
+        "Streams live radio stations directly in the browser with zero signup and zero display ads",
+        "Includes station search (#q), country filters, keyboard shortcuts, sleep timer, floating player, and local favorites",
+        "Analytics (Google Analytics) remain disabled unless explicitly accepted via the consent prompt"
+      ],
+      "cons": [
+        "Streaming playback relies on external broadcaster audio streams and requires an internet connection",
+        "No playlist export (e.g., M3U/OPML) for saved favorites"
+      ],
+      "privacyVerdict": "Zero outgoing payload-bearing requests were observed during search, station switching, and favoriting when the analytics consent prompt was not accepted (though audio streams load from remote broadcasters).",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 14,
+        "privacy": 17,
+        "polish": 13,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Searched 'jazz' in #q, toggled #play and #fav, and switched stations via #next with 89ms max task freeze, 0.00 CLS, and 0 outgoing telemetry payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:01:26.242Z"
+    },
+    "zh": {
+      "bestFor": "适合免注册直接在浏览器中收听全球实时电台、设置睡眠定时并收藏常用频道的用户。",
+      "pros": [
+        "无需登录即可在浏览器中直接播放全球实时广播电台且无广告干扰",
+        "内置电台搜索（#q）、国家筛选、键盘快捷键、睡眠定时、悬浮播放器与本地收藏功能",
+        "未同意 Cookie 提示时不会触发 Google Analytics 统计请求"
+      ],
+      "cons": [
+        "依赖外部电台音频流，无法离线使用",
+        "本地收藏的电台不支持导出 M3U 或 OPML 播放列表"
+      ],
+      "privacyVerdict": "在未接受统计授权提示的情况下，搜索、切换电台与收藏操作期间未捕获到遥测外发请求（音频流仍来自各电台远程服务器）。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 14,
+        "privacy": 17,
+        "polish": 13,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #q 输入 'jazz' 搜索电台，依次操作 #play、#fav 与 #next 切换频道，主线程最大阻塞 89ms，CLS 为 0.00，捕获 0 条遥测载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:01:26.243Z"
+    }
+  },
+  "uspaycheckguide-com": {
+    "en": {
+      "bestFor": "Estimating 2026 US net paycheck take-home pay across all 50 states with federal, state, FICA, and pre-tax deduction breakdowns without signing in.",
+      "pros": [
+        "Supports Salary and Hourly modes, pay frequencies, filing statuses, and 401(k)/health/HSA deductions without signup",
+        "Displays stacked percentage breakdown plus Effective and Marginal Tax Rates immediately on calculation",
+        "Provides Download as PDF (print-to-PDF) and Copy Shareable Link controls without login walls"
+      ],
+      "cons": [
+        "Sends calculation inputs server-side to /calculate.php and fires Google Analytics beacons",
+        "PDF export relies on browser print dialog rather than generating a direct binary PDF or CSV file"
+      ],
+      "privacyVerdict": "Tax calculation submits entered paycheck parameters to POST /calculate.php and fires Google Analytics (www.google-analytics.com/g/collect); 5 outgoing payloads were recorded during the test flow.",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 15,
+        "privacy": 12,
+        "polish": 13,
+        "overall": 74
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Entered $95,000 annual salary in #gross_pay with California (#state = CA) and biweekly frequency, computed $2,685.46 net paycheck (26.5% effective rate), and triggered Download as PDF (print dialog) with 0ms freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:03:32.008Z"
+    },
+    "zh": {
+      "bestFor": "适合免注册快速测算 2026 年美国 50 个州的税后实发工资、联邦/州税、FICA 与税前扣除明细的用户。",
+      "pros": [
+        "免登录支持年薪与时薪模式、发薪周期、报税身份及 401(k)/医保/HSA 扣除项配置",
+        "计算后直观展示各项税收占比条、实际税率与边际税率",
+        "提供 Download as PDF（打印导出）与 Copy Shareable Link 分享链接功能"
+      ],
+      "cons": [
+        "工资与税收参数通过 POST /calculate.php 发送至服务端计算，并触发 Google Analytics 请求",
+        "PDF 导出调用浏览器打印对话框，而非直接下载二进制 PDF 或 CSV 文件"
+      ],
+      "privacyVerdict": "工资与扣除参数通过 POST /calculate.php 提交至服务端计算，同时触发 Google Analytics（www.google-analytics.com/g/collect），测试期间共捕获 5 条外发载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 15,
+        "privacy": 12,
+        "polish": 13,
+        "overall": 74
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #gross_pay 输入 95000 年薪并选择加州（CA）与双周发薪，算得税后每次实发 $2,685.46（实际税率 26.5%），并触发 Download as PDF 打印导出；主线程最大阻塞 0ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:03:32.009Z"
+    }
+  },
+  "nxlxtx-com": {
+    "en": {
+      "bestFor": "Chinese-speaking users converting PDFs to JPG/PNG or merging JPG, PNG, and WebP images into PDF locally in the browser without trackers or accounts.",
+      "pros": [
+        "Bidirectional PDF-to-Image (JPG/PNG, quality, page range, ZIP export) and Image-to-PDF conversion in one clean workspace",
+        "Image-to-PDF supports reordering, page size presets (Auto, A4, A3, Letter), orientation, margins, and quality controls",
+        "Exports valid watermark-free PDF binaries (verified 1066 bytes) with zero third-party analytics or ads observed"
+      ],
+      "cons": [
+        "Interface and guides are strictly in Simplified Chinese with no English toggle",
+        "Output quality preset options are limited on Image-to-PDF (Original vs Standard)"
+      ],
+      "privacyVerdict": "Converted test-card.png to PDF locally in the browser without uploading files; only 1 GET request to nxlxtx.com/ and zero third-party tracker or analytics beacons were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 86
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Switched to Image-to-PDF tab, loaded 200x200 test-card.png, generated test-card.pdf, and downloaded a verified 1066-byte watermark-free PDF via '下载 PDF' with 0ms max freeze and 0.05 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:10:22.276Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免登录、无追踪地在浏览器本地完成 PDF 转图片或将多张 JPG/PNG/WebP 合并为 PDF 的中文用户。",
+      "pros": [
+        "集成 PDF 转图片（JPG/PNG、页码范围、ZIP 打包）与图片转 PDF 双向工作台",
+        "图片转 PDF 支持排序调整、A4/A3/Letter 纸张尺寸、方向、边距与画质设置",
+        "导出 1066 字节有效无水印 PDF 文件，测试期间未观察到任何第三方广告或统计信标"
+      ],
+      "cons": [
+        "界面与帮助文档仅提供简体中文版本",
+        "图片转 PDF 的压缩画质档位仅提供原图与标准两档"
+      ],
+      "privacyVerdict": "在浏览器本地将 test-card.png 转为 PDF 且未上传图片文件；整个会话仅记录到 1 次 nxlxtx.com/ 页面请求，未捕获任何第三方统计或追踪载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 18,
+        "polish": 14,
+        "overall": 86
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "切换至图片转 PDF 标签页，加载 200×200 test-card.png 后点击生成 PDF 并通过下载 PDF 导出 1066 字节无水印有效 PDF；主线程最大阻塞 0ms，CLS 0.05。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:10:22.277Z"
+    }
+  },
+  "livnaro-cc": {
+    "en": {
+      "bestFor": "Freight shippers, importers, and logistics planners calculating multi-carton CBM, chargeable weight across Sea/Air/Express/Road, and container fit without signing in.",
+      "pros": [
+        "Supports mixed carton dimensions, spreadsheet paste, dynamic line additions, and cm/in + kg/lb unit switching",
+        "Calculates chargeable weight across Sea LCL, Air, Express, and Road with explicit formulas and 20' GP / 40' HQ container fill checks",
+        "Exports clean 1104-byte CSV spreadsheets, printable packing summaries, and share links without login walls"
+      ],
+      "cons": [
+        "Anonymous usage counter and Cloudflare RUM beacons (ops.nivloro.net/api/usage/collect, /cdn-cgi/rum) are enabled by default until toggled off",
+        "Interface is English-only"
+      ],
+      "privacyVerdict": "Carton calculations and CSV generation ran locally in the browser; 5 anonymous usage and RUM beacons (POST ops.nivloro.net/api/usage/collect and POST /cdn-cgi/rum) were observed, with a footer toggle to disable usage counts.",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14,
+        "overall": 83
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Renamed Carton 1 to 'LED Monitor Box', added a new carton line, switched chargeable weight mode to Air, and exported an 1104-byte UTF-8 CSV via 'Export CSV' with 78ms max freeze and 0.02 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:17:37.217Z"
+    },
+    "zh": {
+      "bestFor": "适合外贸、跨境卖家与物流规划人员免登录计算多箱混合体积（CBM）、海空快运计费重及集装箱装载率。",
+      "pros": [
+        "支持多箱型混合录入、电子表格粘贴导入、增行编辑以及公制/英制单位切换",
+        "覆盖海运散货（Sea LCL）、空运、快递与陆运计费重换算，并附带公式与 20/40 尺集装箱装载测算",
+        "免登录直接导出 1104 字节 CSV 报表、可打印装箱汇总及分享链接"
+      ],
+      "cons": [
+        "默认开启匿名使用统计与 Cloudflare RUM（ops.nivloro.net/api/usage/collect、/cdn-cgi/rum），需手动关闭",
+        "界面仅支持英文"
+      ],
+      "privacyVerdict": "箱规计算与 CSV 导出在浏览器本地完成；期间捕获到 5 条匿名使用计数与 RUM 信标（POST ops.nivloro.net/api/usage/collect 与 POST /cdn-cgi/rum），页脚提供关闭开关。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 14,
+        "overall": 83
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "将 Carton 1 改名为 'LED Monitor Box'，新增一行箱规，切换至 Air 空运模式后点击 Export CSV 成功导出 1104 字节 UTF-8 CSV；主线程最大阻塞 78ms，CLS 0.02。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:17:37.219Z"
+    }
+  },
+  "videotextremover-net-remove-audio-from-video": {
+    "en": {
+      "bestFor": "Stripping audio tracks from MP4, MOV, or WebM video clips locally in the browser without uploading files or signing in.",
+      "pros": [
+        "Removes audio tracks locally in the browser up to 200 MiB without requiring login or credits",
+        "Preserves the original H.264 video stream (verified via ffprobe on 7,751-byte muted output) with side-by-side preview",
+        "Exports silent MP4 files directly via blob URL with zero watermarks"
+      ],
+      "cons": [
+        "Fires 15 telemetry and auth-check requests (/api/analytics/visit, Google Analytics, /cdn-cgi/rum, accounts.google.com/gsi/status) even after clicking Decline on cookies",
+        "Top promo banner and sidebar promote paid credit packs for sibling AI video tools"
+      ],
+      "privacyVerdict": "Video demuxing and audio removal ran locally via browser blob output without uploading video bytes; 15 telemetry and GSI status requests (/api/analytics/visit, www.google-analytics.com/g/collect, accounts.google.com/gsi/status, /cdn-cgi/rum) were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 17 KB test-audio-video.mp4 (320x240 H.264 + AAC), clicked 'Remove audio', and exported a 7,751-byte silent MP4 via 'Download video without audio' (ffprobe confirmed single h264 video stream, 0 audio streams) with 51ms max freeze and 0.03 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:30:24.682Z"
+    },
+    "zh": {
+      "bestFor": "适合免登录在浏览器本地快速移除 MP4、MOV 或 WebM 视频音轨并导出静音视频的用户。",
+      "pros": [
+        "支持最大 200 MiB 视频的纯本地音轨剥离，免登录且不消耗积分",
+        "保留原始 H.264 视频流（ffprobe 校验输出 7,751 字节仅含单条 h264 视频轨），提供对比预览",
+        "通过浏览器 blob 链接直接导出无水印静音 MP4 文件"
+      ],
+      "cons": [
+        "即使在 Cookie 弹窗点击 Decline，仍会发送 15 条遥测与登录状态检查请求（/api/analytics/visit、Google Analytics、/cdn-cgi/rum、accounts.google.com/gsi/status）",
+        "顶部与侧边栏展示同站其他 AI 视频工具的付费积分促销横幅"
+      ],
+      "privacyVerdict": "视频解复用与音轨移除在浏览器本地完成并生成 blob 下载，未上传视频数据；测试期间捕获到 15 条分析与登录状态请求（/api/analytics/visit、www.google-analytics.com/g/collect、accounts.google.com/gsi/status、/cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 13,
+        "overall": 77
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 17 KB 含音轨的 test-audio-video.mp4（320×240 H.264 + AAC），点击 Remove audio 后通过 Download video without audio 导出 7,751 字节静音 MP4（ffprobe 验证仅保留 h264 视频轨）；主线程最大阻塞 51ms，CLS 0.03。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-21T03:30:24.682Z"
     }
   }
 }

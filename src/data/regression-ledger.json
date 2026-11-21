@@ -1895,6 +1895,17 @@
     "lastTitle": "Datasette",
     "lastSignals": []
   },
+  "livnaro-cc": {
+    "lastDeepEvalAt": "2026-11-21T03:17:37.244Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-21T03:17:37.244Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T03:17:37.245Z"
+  },
   "looprel-com": {
     "lastDeepEvalAt": "2026-11-10T02:52:45.403Z",
     "lastResolution": {
@@ -1943,6 +1954,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-19T02:59:12.198Z"
+  },
+  "markitdownai-org": {
+    "lastDeepEvalAt": "2026-11-21T02:56:34.888Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-21T02:56:34.888Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T02:56:34.888Z"
   },
   "markmap-js-org": {
     "openAnomalies": [],
@@ -2349,6 +2371,17 @@
     "lastTitle": "CAA Record Generator — Free CAA DNS Record Builder | Nutilz",
     "lastSignals": []
   },
+  "nxlxtx-com": {
+    "lastDeepEvalAt": "2026-11-21T03:10:22.308Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, highly-recommended)",
+      "at": "2026-11-21T03:10:22.308Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T03:10:22.308Z"
+  },
   "oil-capacity-com": {
     "lastDeepEvalAt": "2026-11-19T03:11:51.591Z",
     "lastResolution": {
@@ -2465,22 +2498,21 @@
     }
   },
   "pdfzus-de": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-20T06:03:51.635Z",
-        "lastSeenAt": "2026-11-20T06:03:51.635Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-20T06:03:51.635Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T02:37:52.626Z",
     "lastTitle": "PDF Zusammenfügen – vertraulich & ohne Upload | pdfzus.de",
     "lastSignals": [
       "probe_failed"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-21T02:37:52.626Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-21T02:37:52.626Z",
+      "closed": [
+        "probe_failed"
+      ]
+    }
   },
   "peptidetracks-com": {
     "lastDeepEvalAt": "2026-10-27T02:54:54.882Z",
@@ -2569,6 +2601,17 @@
     "lastTitle": "照片拼贴工具-免费在线拼图制作器-九宫格长图拼接网格布局模板-本地处理100%隐私安全-高清PNG导出 | PicCollages",
     "lastSignals": []
   },
+  "pipecuttemplates-com": {
+    "lastDeepEvalAt": "2026-11-21T02:45:04.500Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-21T02:45:04.500Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T02:45:04.500Z"
+  },
   "pixeltools-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-20T06:03:57.918Z",
@@ -2612,25 +2655,21 @@
     "lastSignals": []
   },
   "pomofocus-io": {
-    "openAnomalies": [
-      {
-        "code": "title_changed",
-        "severity": "medium",
-        "evidence": "\"25:00 - Time to focus!\" → \"Pomodoro Timer Online - Pomofocus\"",
-        "firstSeenAt": "2026-11-20T06:08:12.983Z",
-        "lastSeenAt": "2026-11-20T06:08:12.983Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pomofocus-io-intent-1795154886016.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-pomofocus-io-outcome-1795154886016.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-20T06:08:12.983Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T02:40:18.719Z",
     "lastSignals": [
       "title_changed"
     ],
-    "lastTitle": "Pomodoro Timer Online - Pomofocus"
+    "lastTitle": "Pomodoro Timer Online - Pomofocus",
+    "lastDeepEvalAt": "2026-11-21T02:40:18.719Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-21T02:40:18.719Z",
+      "closed": [
+        "title_changed"
+      ]
+    }
   },
   "prettier-io-playground": {
     "openAnomalies": [],
@@ -2767,9 +2806,16 @@
   },
   "productivitytimer-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-11T06:43:39.543Z",
+    "lastScanAt": "2026-11-21T02:41:46.977Z",
     "lastTitle": "Productivity Timer",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-21T02:41:46.977Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-21T02:41:46.977Z",
+      "closed": []
+    }
   },
   "productlair-com-profit-calculator": {
     "lastDeepEvalAt": "2026-10-26T02:13:35.704Z",
@@ -2894,6 +2940,17 @@
     "lastScanAt": "2026-11-11T06:48:17.342Z",
     "lastTitle": "Free Online Calculators and Tools | QuixCalc",
     "lastSignals": []
+  },
+  "radiostation-live-en": {
+    "lastDeepEvalAt": "2026-11-21T03:01:26.271Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-21T03:01:26.271Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T03:01:26.271Z"
   },
   "randomtopicgenerators-com": {
     "lastDeepEvalAt": "2026-10-27T03:33:33.121Z",
@@ -3774,6 +3831,17 @@
     "lastTitle": "IRS Substantial Presence Test & Travel Planner",
     "lastSignals": []
   },
+  "uspaycheckguide-com": {
+    "lastDeepEvalAt": "2026-11-21T03:03:32.045Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-21T03:03:32.045Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T03:03:32.045Z"
+  },
   "utilbear-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-18T06:06:03.845Z",
@@ -3800,6 +3868,17 @@
     "lastScanAt": "2026-11-17T06:26:59.603Z",
     "lastTitle": "Video Size Reducer — Compress Videos to a Target Size",
     "lastSignals": []
+  },
+  "videotextremover-net-remove-audio-from-video": {
+    "lastDeepEvalAt": "2026-11-21T03:30:24.709Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-21T03:30:24.709Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-21T03:30:24.709Z"
   },
   "virustotal-com": {
     "openAnomalies": [],
