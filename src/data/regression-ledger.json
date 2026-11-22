@@ -64,7 +64,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:40.142Z",
+    "lastScanAt": "2026-11-22T06:10:24.105Z",
     "lastTitle": "AI Slop Detector: Check Text & Images for AI Slop",
     "lastSignals": []
   },
@@ -187,13 +187,13 @@
   },
   "astexplorer-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:23:54.276Z",
+    "lastScanAt": "2026-11-22T06:13:32.574Z",
     "lastTitle": "AST explorer",
     "lastSignals": []
   },
   "at-use-com-tools-json-formatter": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:23.146Z",
+    "lastScanAt": "2026-11-22T06:14:09.406Z",
     "lastTitle": "JSON Formatter & Validator — Free Online Tool | AT USE",
     "lastSignals": []
   },
@@ -286,7 +286,7 @@
   },
   "bitibybit-com-volunteer-roster": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:12.509Z",
+    "lastScanAt": "2026-11-22T06:13:57.544Z",
     "lastTitle": "Volunteer Roster — free sign up sheet online",
     "lastSignals": []
   },
@@ -377,8 +377,9 @@
   },
   "bytepane-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:44.424Z",
-    "lastSignals": []
+    "lastScanAt": "2026-11-22T06:14:32.268Z",
+    "lastSignals": [],
+    "lastTitle": "Parse JS & JSON Online: Free Validator & Beautifier | BytePane"
   },
   "bytepriva-com-merge-pdf": {
     "openAnomalies": [],
@@ -417,7 +418,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:21:15.263Z",
+    "lastScanAt": "2026-11-22T06:10:58.140Z",
     "lastTitle": "CalcRobin — Free Online Calculators and Tools",
     "lastSignals": []
   },
@@ -602,7 +603,7 @@
   },
   "comprimirpdf-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:21:56.893Z",
+    "lastScanAt": "2026-11-22T06:11:31.323Z",
     "lastTitle": "comprimir pdf gratis online",
     "lastSignals": []
   },
@@ -652,7 +653,7 @@
   },
   "convertilo-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:21:39.744Z",
+    "lastScanAt": "2026-11-22T06:11:14.124Z",
     "lastTitle": "Convertilo — Images, PDFs, Translator Online in Browser",
     "lastSignals": []
   },
@@ -664,7 +665,7 @@
   },
   "convertlo-pro": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:23:33.532Z",
+    "lastScanAt": "2026-11-22T06:13:06.488Z",
     "lastTitle": "Free Online File Converter — No Upload Required | Convertlo",
     "lastSignals": []
   },
@@ -716,7 +717,7 @@
   },
   "crochet-chart-maker-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:14.968Z",
+    "lastScanAt": "2026-11-22T06:10:00.046Z",
     "lastTitle": "Crochet Graph Maker – Free Image to Pixel Chart",
     "lastSignals": []
   },
@@ -729,7 +730,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:21:07.981Z",
+    "lastScanAt": "2026-11-22T06:10:50.644Z",
     "lastTitle": "Free Crochet Tapestry Pattern Maker | Gauge-Aware",
     "lastSignals": []
   },
@@ -747,7 +748,7 @@
   },
   "cssgridgarden-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:21:46.692Z",
+    "lastScanAt": "2026-11-22T06:11:21.441Z",
     "lastTitle": "Grid Garden - A game for learning CSS grid",
     "lastSignals": []
   },
@@ -862,7 +863,7 @@
   },
   "diffhero-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:23:45.518Z",
+    "lastScanAt": "2026-11-22T06:13:18.489Z",
     "lastTitle": "Diffhero — Free Online Diff Checker for Text & Code",
     "lastSignals": []
   },
@@ -880,7 +881,7 @@
   },
   "dnsleaktest-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:25:05.033Z",
+    "lastScanAt": "2026-11-22T06:14:52.093Z",
     "lastTitle": "DNS leak test",
     "lastSignals": []
   },
@@ -931,7 +932,7 @@
   },
   "earchord-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:04.731Z",
+    "lastScanAt": "2026-11-22T06:09:49.881Z",
     "lastTitle": "Chord Finder from Audio - Free, No Signup | EarChord (earchord.com)",
     "lastSignals": []
   },
@@ -1063,7 +1064,7 @@
   },
   "fast-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:25:09.885Z",
+    "lastScanAt": "2026-11-22T06:14:56.971Z",
     "lastTitle": "Internet Speed Test | Fast.com",
     "lastSignals": []
   },
@@ -1242,7 +1243,7 @@
   },
   "fontjoy-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:59.508Z",
+    "lastScanAt": "2026-11-22T06:14:46.053Z",
     "lastTitle": "Fontjoy - Generate font pairings in one click",
     "lastSignals": []
   },
@@ -1460,7 +1461,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:22:28.614Z",
+    "lastScanAt": "2026-11-22T06:12:00.338Z",
     "lastTitle": "Swing Weight Calculator and Swing Weight Chart | Golf Club Reference",
     "lastSignals": []
   },
@@ -1486,7 +1487,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:22:50.692Z",
+    "lastScanAt": "2026-11-22T06:12:24.468Z",
     "lastTitle": "Create a free menu page with QR code | GrazieChef",
     "lastSignals": []
   },
@@ -1509,7 +1510,7 @@
   },
   "happyhues-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:53.474Z",
+    "lastScanAt": "2026-11-22T06:14:38.869Z",
     "lastTitle": "Happy Hues - Curated colors in context.",
     "lastSignals": []
   },
@@ -1633,7 +1634,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:22:13.010Z",
+    "lastScanAt": "2026-11-22T06:11:46.245Z",
     "lastTitle": "AI Humanizer — Rewrite English Text Naturally | Humanize Ink",
     "lastSignals": []
   },
@@ -1706,7 +1707,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:22:23.527Z",
+    "lastScanAt": "2026-11-22T06:11:55.709Z",
     "lastTitle": "Free Image to Video Prompt Generator | Image to Video Prompts Library",
     "lastSignals": []
   },
@@ -1779,7 +1780,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:58.826Z",
+    "lastScanAt": "2026-11-22T06:10:41.840Z",
     "lastTitle": "Free local CSV encoding checker — UTF-8 or GB18030",
     "lastSignals": []
   },
@@ -2125,7 +2126,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T04:12:45.157Z"
+    "lastScanAt": "2026-11-22T06:09:29.791Z",
+    "lastTitle": "GST on Ad Spend Calculator, Meta, Google & Agency Fees",
+    "lastSignals": []
   },
   "medleads-io-tools-clinic-website-scanner": {
     "lastDeepEvalAt": "2026-11-20T02:59:19.372Z",
@@ -2181,7 +2184,7 @@
   },
   "midiplayeronline-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:23:13.399Z",
+    "lastScanAt": "2026-11-22T06:12:46.154Z",
     "lastTitle": "Online MIDI Player — Play MIDI Online Free",
     "lastSignals": []
   },
@@ -2659,7 +2662,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T03:41:53.801Z"
+    "lastScanAt": "2026-11-22T06:09:08.369Z",
+    "lastTitle": "Live Photo & Motion Photo Tools Online | PhotoReady",
+    "lastSignals": []
   },
   "piccollages-com": {
     "openAnomalies": [],
@@ -2710,7 +2715,7 @@
   },
   "playground-tensorflow-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:21.157Z",
+    "lastScanAt": "2026-11-22T06:10:07.039Z",
     "lastTitle": "A Neural Network Playground",
     "lastSignals": []
   },
@@ -2892,7 +2897,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:31.692Z",
+    "lastScanAt": "2026-11-22T06:10:17.463Z",
     "lastTitle": "Dropshipping Profit Calculator | ProductLair",
     "lastSignals": []
   },
@@ -2928,7 +2933,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:21:26.794Z",
+    "lastScanAt": "2026-11-22T06:11:02.973Z",
     "lastTitle": "Free resume builder with examples: PDF and Word | PuReSume.com",
     "lastSignals": []
   },
@@ -3177,7 +3182,7 @@
   },
   "rentry-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:22:56.055Z",
+    "lastScanAt": "2026-11-22T06:12:29.489Z",
     "lastTitle": "Rentry.co - Markdown Paste Service",
     "lastSignals": []
   },
@@ -3293,7 +3298,7 @@
   },
   "sharedrop-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:04.407Z",
+    "lastScanAt": "2026-11-22T06:13:40.629Z",
     "lastTitle": "ShareDrop — Send Files to Nearby Devices, Free, No App",
     "lastSignals": []
   },
@@ -3312,7 +3317,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:22:36.724Z",
+    "lastScanAt": "2026-11-22T06:12:09.470Z",
     "lastTitle": "AI Image to Video Planner & Prompt Tools",
     "lastSignals": []
   },
@@ -3448,8 +3453,21 @@
     "lastTitle": "Squoosh"
   },
   "stackedit-io": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:23:02.057Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-22T06:12:35.651Z",
+        "lastSeenAt": "2026-11-22T06:12:35.651Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-intent-1795327949623.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-outcome-1795327949623.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-22T06:12:35.651Z",
     "lastTitle": "StackEdit – In-browser Markdown editor",
     "lastSignals": [
       "surface_lost"
@@ -3856,7 +3874,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T03:17:53.418Z"
+    "lastScanAt": "2026-11-22T06:08:57.421Z",
+    "lastTitle": "Excel to PowerPoint Gantt Chart — Free, No Signup | Tymepath",
+    "lastSignals": []
   },
   "typepatch-com": {
     "lastDeepEvalAt": "2026-11-02T03:02:48.681Z",
@@ -4089,7 +4109,7 @@
   },
   "wave-webaim-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:26.025Z",
+    "lastScanAt": "2026-11-22T06:10:11.876Z",
     "lastTitle": "WAVE Web Accessibility Evaluation Tools",
     "lastSignals": []
   },
@@ -4178,8 +4198,9 @@
   },
   "www-amortio-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:24:40.145Z",
-    "lastSignals": []
+    "lastScanAt": "2026-11-22T06:14:21.895Z",
+    "lastSignals": [],
+    "lastTitle": "Mortgage Calculator (2026): PITI, PMI & Amortization Schedule"
   },
   "www-autobracketmaker-com": {
     "lastDeepEvalAt": "2026-11-14T02:49:17.989Z",
@@ -4205,7 +4226,7 @@
   },
   "www-calculatorcampus-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:23:18.934Z",
+    "lastScanAt": "2026-11-22T06:12:52.289Z",
     "lastTitle": "Calculator Campus | Practical Online Calculators",
     "lastSignals": []
   },
@@ -4382,7 +4403,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T04:00:55.144Z"
+    "lastScanAt": "2026-11-22T06:09:23.030Z",
+    "lastTitle": "Video to Thumbnail Generator — Free, No Upload | SailToWorld",
+    "lastSignals": []
   },
   "www-sichtschutz-im-garten-info": {
     "lastDeepEvalAt": "2026-11-20T02:54:10.905Z",
@@ -4488,7 +4511,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:20:52.591Z",
+    "lastScanAt": "2026-11-22T06:10:35.954Z",
     "lastTitle": "Free Squat Form Check | Boddy",
     "lastSignals": []
   },
@@ -4501,7 +4524,9 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T04:17:32.674Z"
+    "lastScanAt": "2026-11-22T06:09:36.273Z",
+    "lastTitle": "Social Media Character Counter for Every Platform",
+    "lastSignals": []
   },
   "xe-com-currencyconverter": {
     "openAnomalies": [],
