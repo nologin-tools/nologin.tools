@@ -21301,14 +21301,14 @@
     "en": {
       "bestFor": "Frontend developers generating 11-shade Tailwind CSS v3 and v4 color scales from any base hex color with live UI component previews.",
       "pros": [
-        "Instant client-side interpolation of 11-step Tailwind palettes (50 to 950) with live previews across Cards, Dashboards, Shadcn/ui, and Charts",
+        "Instant client-side interpolation of 11-step Tailwind palettes (50 to 950) with live previews across Cards, Website, Dashboard, Shadcn/ui, and Charts",
         "Unwatermarked one-click clipboard export for Tailwind v3 and Tailwind v4 hex configuration objects without signing in"
       ],
       "cons": [
-        "Non-Tailwind export formats (CSS, SCSS, SVG, Figma Tokens, OKLCH/HSL) and numeric APCA contrast cell values require a paid Pro upgrade",
-        "Sends 2 PostHog telemetry payloads (us.i.posthog.com) during session interaction"
+        "Non-Tailwind export formats (CSS, SCSS, SVG, Tokens Studio, W3C Design Tokens, OKLCH/HSL/RGB) require a paid Pro upgrade",
+        "Sends 1 PostHog telemetry payload (POST us.i.posthog.com/e/) during session interaction"
       ],
-      "privacyVerdict": "Observed 2 outgoing PostHog analytics requests (POST us.i.posthog.com/e/ and POST us.i.posthog.com/i/v0/e/); palette interpolation and Tailwind config clipboard export run locally in browser memory without account registration.",
+      "privacyVerdict": "Observed 1 outgoing PostHog analytics request (POST us.i.posthog.com/e/) during session interaction; palette interpolation and Tailwind config clipboard export run locally in browser memory without account registration.",
       "alternativeTo": [
         "realtimecolors-com",
         "colorhunt-co",
@@ -21323,21 +21323,21 @@
         "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Generated full 11-step 'Genoa' scale from #0f766e with 96 ms max main-thread task and exported a clean 13-line (231 chars) Tailwind v3 hex config via clipboard with zero login prompt. Verified 'Upgrade to Pro' gates secondary formats (CSS/SVG/OKLCH) and detailed APCA numbers while leaving core Tailwind v3/v4 generation free.",
+      "benchmarkNotes": "Re-evaluated https://uicolors.app: generated 11-step 'Genoa' scale from #0f766e (77 ms max freeze, 0.00 CLS) and copied a clean 13-line (231 chars) Tailwind v3 hex config via clipboard without signing in. Confirmed 'Upgrade to Pro' only gates secondary formats (CSS/SCSS/SVG/OKLCH) while core Tailwind v3/v4 generation and export remain free.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-11T09:10:34.275Z"
+      "contentUpdatedAt": "2026-11-22T02:36:44.920Z"
     },
     "zh": {
       "bestFor": "适合需要从任意主色 HEX 快速生成 11 阶 Tailwind CSS v3/v4 色板并实时预览 UI 组件效果的前端开发者。",
       "pros": [
-        "纯前端瞬时插值计算 50–950 共 11 阶色板，支持在卡片、仪表盘、Shadcn/ui 与图表组件上实时预览配色",
+        "纯前端瞬时插值计算 50–950 共 11 阶色板，支持在卡片、网页、仪表盘、Shadcn/ui 与图表组件上实时预览配色",
         "无需注册即可一键无水印复制完整的 Tailwind v3 与 Tailwind v4 HEX 配置代码"
       ],
       "cons": [
-        "CSS/SCSS/SVG/Figma Tokens、OKLCH/HSL 格式导出以及对比度矩阵的具体数值需升级 Pro 解锁",
-        "会话期间向 PostHog（us.i.posthog.com）发送了 2 条前端行为统计请求"
+        "CSS/SCSS/SVG/Tokens Studio/W3C Design Tokens 与 OKLCH/HSL/RGB 等扩展格式导出需升级 Pro 解锁",
+        "会话交互期间向 PostHog（POST us.i.posthog.com/e/）发送了 1 条行为统计请求"
       ],
-      "privacyVerdict": "实测捕获 2 条发往 PostHog（POST us.i.posthog.com/e/ 与 us.i.posthog.com/i/v0/e/）的统计请求；色板插值运算与 Tailwind 配置复制均在浏览器本地完成，无需登录账号。",
+      "privacyVerdict": "实测捕获 1 条发往 PostHog（POST us.i.posthog.com/e/）的统计请求；色板插值运算与 Tailwind 配置复制均在浏览器本地完成，无需登录账号。",
       "alternativeTo": [
         "realtimecolors-com",
         "colorhunt-co",
@@ -21352,9 +21352,9 @@
         "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "输入 #0f766e 实时生成 11 阶 Genoa 色板（主线程最大任务耗时 96ms），免登录一键复制 13 行（231 字符）干净的 Tailwind v3 配置代码。核实“Upgrade to Pro”仅限制 CSS/SVG/OKLCH 等扩展导出及 APCA 详细数值，核心 Tailwind v3/v4 色板生成完全免费可用。",
+      "benchmarkNotes": "复测 https://uicolors.app：输入 #0f766e 生成 11 阶 Genoa 色板（最大主线程阻塞 77ms，CLS 0.00），免登录一键复制 13 行（231 字符）干净的 Tailwind v3 配置代码。核实“Upgrade to Pro”仅限制 CSS/SCSS/SVG/OKLCH 等扩展导出格式，核心 Tailwind v3/v4 生成与导出免费可用。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-11T09:10:34.276Z"
+      "contentUpdatedAt": "2026-11-22T02:36:44.921Z"
     },
     "ja": {
       "bestFor": "調和のとれた 11 シェードの Tailwind CSS および Shadcn/ui カラー スケールを任意の基本 16 進カラーから生成します。",
@@ -64357,18 +64357,17 @@
   },
   "drunkcalc-org": {
     "en": {
-      "bestFor": "Adults, health educators, event planners, and designated drivers seeking a private, zero-account blood alcohol content (BAC) estimator to model alcohol elimination timelines and sober times before social outings.",
+      "bestFor": "Adults, health educators, and event planners seeking a zero-account blood alcohol content (BAC) estimator using the Modified Widmark model.",
       "pros": [
-        "Zero registration required with instant reactive updates across weight, gender, and beverage parameters",
-        "Uses the peer-reviewed Modified Widmark formula incorporating sex-specific body water distribution constants",
-        "Dynamic visual gauge rendering immediate blood alcohol percentage curves and time-to-zero milestones",
-        "Confirmed zero network egress: sensitive health, weight, and alcohol intake inputs remain entirely in browser memory"
+        "Zero registration required with instant reactive updates across body weight, gender, drink presets, and elapsed hours",
+        "Uses the Modified Widmark formula with model range intervals (e.g., 0.052–0.082%) and impairment guidance",
+        "Observed zero outgoing network payloads during navigation and multi-drink BAC recalculation"
       ],
       "cons": [
-        "Lacks dedicated export controls for downloading or copying BAC curves to clipboard",
+        "Lacks dedicated export controls for downloading or copying BAC timelines to clipboard",
         "Provides educational approximations only and cannot replace certified breathalyzer hardware or legal sobriety determinations"
       ],
-      "privacyVerdict": "Strict zero-egress architecture verified; network audit confirmed 0 outgoing network requests, ensuring personal biological attributes and alcohol consumption logs never leave local browser memory.",
+      "privacyVerdict": "Observed 0 outgoing network payloads across navigation and tested BAC recalculations; biological inputs and drink logs triggered no remote requests within the bounded test window.",
       "alternativeTo": [
         "Omni Calculator BAC",
         "Calculator.net BAC",
@@ -64384,22 +64383,22 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to drunkcalc.org and tested the live BAC simulator with a baseline of 180 lb body weight. Toggled gender from Male to Female, observing the reactive circular gauge adjust instantaneous blood alcohol content from 0.046% to 0.064% based on Widmark distribution volume formulas. Added additional beverage entries with 0ms long task freezes and 0.00 CLS. Audited network activity, confirming 0 outbound payloads across the entire session.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-evaluated https://drunkcalc.org/: updated body weight from 180 lb to 165 lb, switched gender to Female, and added another drink via '+ Add another drink', updating the live gauge to 0.072% (model range 0.052–0.082%) with 54 ms max freeze, 0.00 CLS, and 0 outgoing network payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:39:41.421Z"
     },
     "zh": {
-      "bestFor": "需要在聚会或社交活动前快速估算血液酒精浓度（BAC）与完全代谢清醒时间，且极度注重个人生理健康数据隐私的成年人、健康宣教人员及指定代驾者。",
+      "bestFor": "适合需要免注册快速估算血液酒精浓度（BAC）与代谢时间线、参考改良 Widmark 模型的成年用户、健康教育者与活动组织者。",
       "pros": [
-        "完全无需注册或登录，调整体重、性别与饮酒量时右侧仪表盘实时联动计算",
-        "采用科学验证的修正 Widmark 公式，考虑不同性别体内水分分布比例差异进行精准建模",
-        "可视化刻度仪表盘清晰标注 0.05% 与 0.08% 法定红线及预计完全清醒时间点",
-        "严格的零网络外传架构：体重与饮酒记录等高度敏感的生理数据完全封存在浏览器内存中"
+        "免登录即可实时响应体重、性别、饮品条目与饮酒时长的动态计算",
+        "采用改良 Widmark 公式并给出置信区间（如 0.052–0.082%）与驾驶风险提示",
+        "在测试页面访问与多饮品计算交互期间未观测到任何对外网络载荷请求"
       ],
       "cons": [
-        "未提供将测算记录或代谢折线图一键导出为文件或复制至剪贴板的功能",
-        "仅供健康参考与科普估算，不能作为判断能否安全驾驶或法律责任认定的替代手段"
+        "缺少将 BAC 估算结果或代谢时间线导出、复制或下载的专用功能",
+        "仅提供科普估算参考，不能替代经过校准的酒精测试仪或法律认定标准"
       ],
-      "privacyVerdict": "经实机网络抓包审计确认，全流程产生 0 次外部网络请求，严格杜绝任何数据外传；输入的个人体重、生理性别与饮酒细节均保存在本地浏览器中，无任何追踪器或第三方分析接入。",
+      "privacyVerdict": "在本次页面访问与 BAC 计算实测窗口内捕获到 0 次对外网络请求；体重与饮酒记录未在测试期间触发远端外发。",
       "alternativeTo": [
         "Omni Calculator BAC 计算器",
         "Calculator.net 酒精估算器",
@@ -64415,8 +64414,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 drunkcalc.org 并以 180 磅体重进行基准测试。将性别由男切换为女，右侧环形仪表盘即刻根据 Widmark 体液分布系数将估算血液酒精浓度从 0.046% 联动更新至 0.064%。添加饮酒项目全程长任务耗时 0ms，CLS 为 0.00。网络审计确认全过程记录到 0 次外发网络载荷。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "复测 https://drunkcalc.org/：将体重从 180 lb 修改为 165 lb、切换性别为 Female 并点击“+ Add another drink”添加饮品，实时仪表盘更新为 0.072%（模型区间 0.052–0.082%），最大主线程阻塞 54ms，CLS 0.00，全程 0 次对外网络载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:39:41.422Z"
     },
     "ja": {
       "bestFor": "成人、健康教育者、イベント プランナー、および指定ドライバーで、アルコール除去タイムラインと社交外出前の断酒時間をモデル化するための、プライベートのゼロアカウント血中アルコール濃度 (BAC) 推定ツールを探している人。",
@@ -64447,7 +64447,7 @@
         "DrinkFox BAC Calculator",
         "Bactrack App"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "사교 활동 전 음주 금지 일정과 금주 시간을 모델링하기 위해 계정이 없는 개인 혈중 알코올 농도(BAC) 추정기를 찾는 성인, 보건 교육자, 이벤트 기획자 및 지정 운전자.",
@@ -64478,7 +64478,7 @@
         "DrinkFox BAC Calculator",
         "Bactrack App"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Adultos, educadores de salud, planificadores de eventos y conductores designados que buscan un estimador privado de contenido de alcohol en sangre (BAC) de cuenta cero para modelar los cronogramas de eliminación de alcohol y los tiempos de sobriedad antes de las salidas sociales.",
@@ -64509,7 +64509,7 @@
         "DrinkFox BAC Calculator",
         "Bactrack App"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Adultes, éducateurs en santé, organisateurs d'événements et conducteurs désignés à la recherche d'un estimateur privé d'alcoolémie (TAC) sans compte pour modéliser les délais d'élimination de l'alcool et les temps de sobriété avant les sorties sociales.",
@@ -64540,7 +64540,7 @@
         "DrinkFox BAC Calculator",
         "Bactrack App"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Erwachsene, Gesundheitspädagogen, Veranstaltungsplaner und ausgewiesene Fahrer suchen einen privaten, kontofreien Schätzer für den Blutalkoholgehalt (BAC), um Zeitpläne für die Alkoholentwöhnung und nüchterne Zeiten vor gesellschaftlichen Ausflügen zu modellieren.",
@@ -64571,7 +64571,7 @@
         "DrinkFox BAC Calculator",
         "Bactrack App"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Adultos, educadores de saúde, planejadores de eventos e motoristas designados que buscam um estimador privado de teor de álcool no sangue (TAS) privado e sem conta para modelar cronogramas de eliminação de álcool e tempos de sobriedade antes de passeios sociais.",
@@ -64602,7 +64602,7 @@
         "DrinkFox BAC Calculator",
         "Bactrack App"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "makehalftone-com": {
@@ -68028,17 +68028,17 @@
   },
   "toolsphare-tech-en": {
     "en": {
-      "bestFor": "Developers, designers, and office workflows needing an all-in-one suite of 674+ browser-based PDF, image, QR, and JSON utilities without creating an account.",
+      "bestFor": "Developers, designers, and everyday workflows needing an all-in-one suite of 718+ browser-based PDF, image, QR, and JSON utilities without creating an account.",
       "pros": [
-        "Expansive 674-tool multi-category workbench spanning 28 categories with HTML5 canvas rendering for QR and image utilities",
-        "Rich QR generator supporting 10 payload schemas (URL, Wi-Fi, vCard, Event), real-time WCAG contrast checking, and unwatermarked PNG, SVG, and PDF exports",
-        "Zero-signup execution across developer formatters and design generators with PWA install support"
+        "Expansive 718-tool multi-category workbench spanning 28 categories with HTML5 canvas rendering for QR and image utilities",
+        "QR generator supports 10 payload schemas (URL, Text, Wi-Fi, Event, Email, Phone, SMS, WhatsApp, vCard, Location), contrast checking (17.9:1), and unwatermarked PNG, SVG, and PDF exports",
+        "Zero-signup execution across developer and design utilities with PWA install support"
       ],
       "cons": [
-        "Sends 1 Google Analytics telemetry request (www.google-analytics.com/g/collect) during navigation",
+        "Sends 1 Google Analytics telemetry request (POST www.google-analytics.com/g/collect) during session navigation",
         "Selected AI-labeled sub-utilities rely on remote server endpoints rather than purely local browser execution"
       ],
-      "privacyVerdict": "Observed 1 outgoing Google Analytics request (POST www.google-analytics.com/g/collect) during session navigation; QR canvas generation, JSON formatting, and 512x512 PNG export completed locally in browser memory without transmitting user input payloads.",
+      "privacyVerdict": "Observed 1 outgoing Google Analytics request (POST www.google-analytics.com/g/collect) during session navigation; QR HTML5 canvas generation and 512x512 PNG export completed without transmitting user input payloads.",
       "alternativeTo": [
         "TinyWow",
         "10015.io",
@@ -68054,22 +68054,22 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "Tested JSON Formatter and HTML5 canvas QR Code Generator on https://toolsphare.com: encoded custom URL with #0F766E foreground (17.9:1 contrast) in 99 ms max frame freeze and exported a clean, unwatermarked 512x512 PNG (18,362 bytes). Confirmed FAQ text 'Do I need to sign up to use the tools?' is benign documentation, not an auth gate.",
+      "benchmarkNotes": "Re-evaluated https://toolsphare.com/ (718+ live tools): opened QR Code Generator, encoded https://nologin.tools with #0F766E foreground (17.9:1 contrast, 66 ms max freeze, 0.01 CLS), and exported an unwatermarked 512x512 PNG (15,469 bytes). Confirmed 'sign up to use' is FAQ copy ('Do I need to sign up to use the tools? — No.'), not an auth gate.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-11T09:08:05.262Z"
+      "contentUpdatedAt": "2026-11-22T02:34:10.873Z"
     },
     "zh": {
-      "bestFor": "需要在一个免注册工作台中快速调用 674 余款 PDF、图像、二维码与 JSON 开发者工具的研发、设计与日常办公人群。",
+      "bestFor": "需要在一个免注册工作台中快速调用 718 余款 PDF、图像、二维码与 JSON 开发者工具的研发、设计与日常办公人群。",
       "pros": [
-        "覆盖 28 个分类共 674 余款在线实用工具，二维码与图像工具采用 HTML5 Canvas 本地渲染架构",
-        "二维码工作台支持 URL、Wi-Fi、vCard 等 10 种数据结构、实时对比度校验（17.9:1）及无水印 PNG/SVG/PDF 导出",
-        "开发者格式化与设计生成流程全程免登录，并支持渐进式 Web 应用（PWA）安装"
+        "覆盖 28 个分类共 718 余款在线实用工具，二维码与图像工具采用 HTML5 Canvas 本地渲染架构",
+        "二维码工作台支持 URL、Text、Wi-Fi、Event、vCard 等 10 种数据结构、对比度校验（17.9:1）及无水印 PNG/SVG/PDF 导出",
+        "开发者与设计工具全程免登录，并支持渐进式 Web 应用（PWA）安装"
       ],
       "cons": [
-        "页面访问期间会向 Google Analytics（www.google-analytics.com/g/collect）发送 1 条统计请求",
+        "页面访问期间会向 Google Analytics（POST www.google-analytics.com/g/collect）发送 1 条统计请求",
         "部分标注 AI 的子工具需调用远端接口，并非全部为纯本地沙盒运算"
       ],
-      "privacyVerdict": "实测捕获 1 条发往 Google Analytics（POST www.google-analytics.com/g/collect）的访问统计请求；二维码 Canvas 渲染、JSON 格式化及 512x512 PNG 导出均在浏览器内存中完成，未外发用户输入内容。",
+      "privacyVerdict": "实测捕获 1 条发往 Google Analytics（POST www.google-analytics.com/g/collect）的统计请求；二维码 HTML5 Canvas 生成与 512x512 PNG 导出未外发用户输入内容。",
       "alternativeTo": [
         "TinyWow",
         "10015.io",
@@ -68085,9 +68085,9 @@
         "polish": 14
       },
       "verdictTier": "editors-choice",
-      "benchmarkNotes": "实测 JSON 格式化器与基于 HTML5 Canvas 的二维码生成器：输入自定义链接与 #0F766E 前景色（对比度 17.9:1），最大主线程阻塞 99ms，直接导出无水印 512x512 PNG（18,362 字节）。核实“Do I need to sign up to use the tools?”仅为 FAQ 问答文案而非登录拦截。",
+      "benchmarkNotes": "复测 https://toolsphare.com/（718+ 在线工具）：在二维码生成器中编码 https://nologin.tools 并设置前景色 #0F766E（17.9:1 对比度，最大主线程阻塞 66ms，CLS 0.01），成功导出无水印 512x512 PNG（15,469 字节）。核实“sign up to use”仅为 FAQ 问答文案，非登录拦截。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-11T09:08:05.263Z"
+      "contentUpdatedAt": "2026-11-22T02:34:10.873Z"
     },
     "ja": {
       "bestFor": "280 を超えるクライアント側 PDF、画像、テキスト、開発者ユーティリティの広範なディレクトリに 1 か所でアクセス",
@@ -81705,6 +81705,434 @@
       "benchmarkNotes": "上传 17 KB 含音轨的 test-audio-video.mp4（320×240 H.264 + AAC），点击 Remove audio 后通过 Download video without audio 导出 7,751 字节静音 MP4（ffprobe 验证仅保留 h264 视频轨）；主线程最大阻塞 51ms，CLS 0.03。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-21T03:30:24.682Z"
+    }
+  },
+  "knitchartmaker-com": {
+    "en": {
+      "bestFor": "Knitters and textile designers creating Fair Isle, Nordic, and stranded colorwork charts with live gauge-accurate yarn simulation and printable PDF instructions without an account.",
+      "pros": [
+        "Dual-canvas workstation rendering interactive stitch grids alongside real-time yarn texture previews across 23 canvas surfaces",
+        "Supports custom stitch/row dimensions, repeats, gauge sizing, float/contrast checks, photo-to-chart conversion, and colorway management",
+        "Unwatermarked multi-format export (PDF with written row-by-row instructions, Image, Fabric, and Data) with zero signup"
+      ],
+      "cons": [
+        "Sends 8 telemetry requests during session navigation and studio interaction (POST /api/analytics/event, www.google-analytics.com/g/collect, /cdn-cgi/rum)"
+      ],
+      "privacyVerdict": "Observed 8 outgoing analytics and RUM requests (POST /api/analytics/event, POST www.google-analytics.com/g/collect, POST /cdn-cgi/rum); canvas chart editing, gauge recalculation, and PDF export ran locally in the browser without uploading design data.",
+      "alternativeTo": [
+        "Stitch Fiddle",
+        "Chart Minder",
+        "Stitchmastery"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "Evaluated https://knitchartmaker.com/ and /studio: resized chart from 12 to 16 stitches on the dual-canvas editor (50 ms max freeze, 0.00 CLS) and exported a clean, unwatermarked 28,381-byte PDF chart with written instructions.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:42:10.642Z"
+    },
+    "zh": {
+      "bestFor": "适合免注册设计费尔岛、北欧等提花编织图解，并需要实时毛线织片效果预览与可打印 PDF 说明的编织爱好者与设计师。",
+      "pros": [
+        "采用双 Canvas 工作台架构，支持交互式针目网格绘制与实时仿真毛线织片预览",
+        "内置针数/行数、重复单元、密度尺寸换算、浮线与对比度检查、照片转图解及配色方案管理",
+        "免登录直接导出无水印 PDF（含逐行文字编织说明）、图像、织片与数据文件"
+      ],
+      "cons": [
+        "访问与工作室交互期间会发送 8 条统计与 RUM 请求（POST /api/analytics/event、www.google-analytics.com/g/collect、/cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "实测捕获 8 条统计与 RUM 请求（POST /api/analytics/event、POST www.google-analytics.com/g/collect、POST /cdn-cgi/rum）；Canvas 图解编辑、密度计算与 PDF 导出均在浏览器本地完成。",
+      "alternativeTo": [
+        "Stitch Fiddle",
+        "Chart Minder",
+        "Stitchmastery"
+      ],
+      "productScore": {
+        "overall": 90,
+        "frictionless": 19,
+        "depth": 23,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "editors-choice",
+      "benchmarkNotes": "实测 https://knitchartmaker.com/ 与 /studio：在双 Canvas 编辑器中将针数从 12 调整为 16（最大主线程阻塞 50ms，CLS 0.00），并成功导出 28,381 字节无水印 PDF 图解及文字编织说明。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:42:10.643Z"
+    }
+  },
+  "pdfminto-com-merge-pdf": {
+    "en": {
+      "bestFor": "Users who need to combine 2 to 40 PDF documents, reorder or rotate pages by 90 degrees, and download the merged PDF without creating an account.",
+      "pros": [
+        "Supports merging 2–40 PDFs (up to 30 MB and 200 pages) with per-file reordering, 90-degree rotation, and inclusion checkboxes",
+        "Observed zero outgoing network payloads during file loading, merging, and downloading a 4-page 51,550-byte PDF",
+        "Clean, unwatermarked PDF export without account signup or export gates"
+      ],
+      "cons": [
+        "Selecting a file immediately before initial worker setup completes can surface a retryable processing error",
+        "Optional Compress PDF step explicitly notes files are uploaded to a server if chosen after merging"
+      ],
+      "privacyVerdict": "Observed 0 outgoing network payloads during PDF loading, client-side merging, and download of the 51,550-byte output; the UI explicitly notes that optional compression uploads files only if initiated.",
+      "alternativeTo": [
+        "ILovePDF",
+        "Smallpdf",
+        "PDF24"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 17,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated https://pdfminto.com/merge-pdf/: loaded two 2-page PDFs (doc1.pdf, doc2.pdf), merged into a 4-page PDF via 'Merge PDF' (0 ms max freeze, 0.15 CLS), and downloaded an unwatermarked 51,550-byte PDF with 0 outgoing network payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:48:18.657Z"
+    },
+    "zh": {
+      "bestFor": "适合免注册合并 2 至 40 份 PDF 文档、调整文件顺序或 90 度旋转页面并直接下载合并结果的用户。",
+      "pros": [
+        "支持合并 2–40 个 PDF（总计最高 30 MB / 200 页），并提供排序、90 度旋转及勾选控制",
+        "在读取 PDF、执行合并与下载 4 页（51,550 字节）成品期间未捕获到任何对外网络载荷",
+        "无登录拦截且导出 PDF 无水印"
+      ],
+      "cons": [
+        "在解析器初始化完成前快速连续导入文件可能出现可重试的读取报错",
+        "合并完成后的“Continue to compression”压缩选项提示点击后会上传文件至服务器处理"
+      ],
+      "privacyVerdict": "在 PDF 读取、合并与 51,550 字节成品下载过程中捕获 0 次对外网络请求；页面提示仅在主动选择压缩步骤时才会上传文件。",
+      "alternativeTo": [
+        "ILovePDF",
+        "Smallpdf",
+        "PDF24"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 17,
+        "depth": 14,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 https://pdfminto.com/merge-pdf/：导入两份 2 页 PDF 并点击“Merge PDF”完成合并（最大主线程阻塞 0ms，CLS 0.15），成功下载 51,550 字节无水印 4 页 PDF，全程 0 次对外网络载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:48:18.657Z"
+    }
+  },
+  "audioknife-calcsunny-com": {
+    "en": {
+      "bestFor": "Podcasters, musicians, and everyday users needing a 24-tool browser audio suite for batch format conversion, cutting, 10-band EQ, noise removal, and BPM/key detection without uploading files.",
+      "pros": [
+        "24-tool audio suite spanning batch format conversion (MP3/WAV/OGG/M4A/FLAC/AAC/AIFF/WebM), cutting, joining, 10-band EQ, noise removal, LUFS metering, and BPM & key detection",
+        "Direct browser-based WAV-to-MP3 conversion with configurable bitrate (192 kbps), sample rate, and channels plus clean 25,077-byte MP3 export",
+        "Zero signup and zero audio payload uploads during conversion and EQ loading"
+      ],
+      "cons": [
+        "Sends 3 Cloudflare Insights RUM telemetry beacons (POST cloudflareinsights.com/cdn-cgi/rum) across page navigation"
+      ],
+      "privacyVerdict": "Observed 3 outgoing Cloudflare Insights RUM beacons (POST cloudflareinsights.com/cdn-cgi/rum) during navigation; audio conversion and EQ processing completed locally in browser memory with zero uploaded audio payloads.",
+      "alternativeTo": [
+        "AudioTrimmer",
+        "123apps Audio Cutter",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated https://audioknife.calcsunny.com/: converted sample.wav (86 KB) to 192 kbps MP3 in Audio Converter (0 ms max freeze, 0.00 CLS), downloaded a clean 25,077-byte MP3 via 'Download all', and loaded sample.wav in the 10-band EQ.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:50:22.049Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免上传、免注册使用批量格式转换、裁剪、拼接、10 段均衡器、降噪及 BPM/调性检测等 24 款浏览器端音频工具的播客主与音频创作者。",
+      "pros": [
+        "集成 24 款音频实用工具，涵盖多格式批量转换（MP3/WAV/OGG/FLAC 等）、裁剪、合并、10 段 EQ、降噪、LUFS 响度计及 BPM/调性检测",
+        "支持码率（192 kbps）、采样率与声道配置，实测将 WAV 转换为 25,077 字节无水印 MP3 直接导出",
+        "全程免登录，音频转换与 EQ 加载期间未向服务器上传音频文件"
+      ],
+      "cons": [
+        "页面切换期间发送了 3 条 Cloudflare Insights RUM 遥测请求（POST cloudflareinsights.com/cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "页面访问期间捕获 3 条 Cloudflare Insights RUM 遥测请求（POST cloudflareinsights.com/cdn-cgi/rum）；音频转换与 EQ 加载均在浏览器本地完成，未外发音频文件内容。",
+      "alternativeTo": [
+        "AudioTrimmer",
+        "123apps Audio Cutter",
+        "CloudConvert"
+      ],
+      "productScore": {
+        "overall": 88,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 https://audioknife.calcsunny.com/：在 Audio Converter 中导入 sample.wav（86 KB）并转换为 192 kbps MP3（最大主线程阻塞 0ms，CLS 0.00），通过“Download all”导出 25,077 字节干净 MP3，并在 /eq/ 中验证了 10 段均衡器加载。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:50:22.050Z"
+    }
+  },
+  "revpado-com": {
+    "en": {
+      "bestFor": "Students and certification candidates planning exam revision timetables with daily study limits, blocked dates, spaced reviews, and calendar or CSV exports without creating an account.",
+      "pros": [
+        "Schedules topics across custom study windows with per-day minute limits, blocked dates, spaced review sessions, and an integrated practice clock",
+        "Unwatermarked multi-format exports including CSV (1,662 bytes verified), Calendar .ics, JSON backup, and Print without registration",
+        "Bilingual EN/ZH interface with instant local schedule recalculation"
+      ],
+      "cons": [
+        "Sends a Cloudflare RUM telemetry request (POST /cdn-cgi/rum) during navigation",
+        "Minor 0.10 CLS on initial layout hydration"
+      ],
+      "privacyVerdict": "Observed 1 Cloudflare RUM request (POST /cdn-cgi/rum) and initial document GET during navigation; study topics, daily budgets, and CSV timetable export ran locally in browser memory without transmitting plan data.",
+      "alternativeTo": [
+        "MyStudyLife",
+        "Adapt",
+        "Notion"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated https://revpado.com/: updated subject to 'System Design Final' and daily limit to 120 minutes, rebuilt the full study plan (0 ms max freeze, 0.10 CLS), and exported an unwatermarked 1,662-byte CSV timetable.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:51:50.896Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免注册规划考试复习时间表、设置每日学习时长上限、排除不可用日期、安排间隔复习并导出日历或 CSV 的学生与备考人群。",
+      "pros": [
+        "支持自定义考期窗口、每日可用分钟数、不可用日期屏蔽、间隔复习排期及内置练习计时器",
+        "免登录直接导出无水印 CSV（实测 1,662 字节）、Calendar .ics 日历文件、本地备份与打印视图",
+        "提供中英双语界面，计划变更后实时重算课时分配"
+      ],
+      "cons": [
+        "页面访问期间会发送 1 条 Cloudflare RUM 遥测请求（POST /cdn-cgi/rum）",
+        "页面初始渲染存在轻微布局偏移（CLS 0.10）"
+      ],
+      "privacyVerdict": "页面访问期间捕获 1 条 Cloudflare RUM 请求（POST /cdn-cgi/rum）；科目设置、时长规划与 CSV 课表导出均在浏览器本地完成。",
+      "alternativeTo": [
+        "MyStudyLife",
+        "Adapt",
+        "Notion"
+      ],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 https://revpado.com/：将科目修改为“System Design Final”、每日可用时长调整为 120 分钟并重建学习计划（最大主线程阻塞 0ms，CLS 0.10），成功导出 1,662 字节无水印 CSV 时间表。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:51:50.897Z"
+    }
+  },
+  "glyahh-top-flatnest": {
+    "en": {
+      "bestFor": "Developers and data analysts flattening nested JSON objects into dot-notation keys or unflattening flat key maps back into nested JSON under 80,000 characters without signing up.",
+      "pros": [
+        "Bidirectional Flatten and Unflatten modes with configurable key separator, array index expansion, pretty print, and one-click Swap",
+        "Observed zero outgoing network payloads during JSON conversion and file export",
+        "Clean 118-byte .json download and clipboard copy with zero signup or watermarks"
+      ],
+      "cons": [
+        "Free usage is capped at 80,000 characters per conversion",
+        "Single-purpose JSON transformation scope without CSV/YAML conversion or schema validation"
+      ],
+      "privacyVerdict": "Observed 0 outgoing network payloads across navigation, JSON flattening, swapping, and .json download; no remote transmission of JSON payloads was detected within the tested session.",
+      "alternativeTo": [
+        "jq",
+        "JSON Formatter",
+        "ConvertCSV"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated https://glyahh.top/flatnest/: flattened nested JSON with array values into dot-notation keys (0 ms max freeze, 0.00 CLS), swapped output back into input, and downloaded an unwatermarked 118-byte .json file with 0 outgoing payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:53:07.480Z"
+    },
+    "zh": {
+      "bestFor": "适合需要将 8 万字符以内的嵌套 JSON 展平为点分键值对，或将扁平键值反向还原为嵌套 JSON 的开发者与数据分析人员。",
+      "pros": [
+        "支持双向展平（Flatten）与还原（Unflatten），可配置分隔符、数组下标展开、格式化缩进及一键 Swap 互换",
+        "在 JSON 转换与 .json 文件下载期间捕获到 0 次对外网络请求",
+        "免登录直接复制结果或下载 118 字节无水印 .json 文件"
+      ],
+      "cons": [
+        "免费版单次输入上限为 80,000 字符",
+        "功能聚焦于 JSON 键值展平与还原，不涵盖 CSV/YAML 转换或 Schema 校验"
+      ],
+      "privacyVerdict": "在页面访问、JSON 展平、Swap 互换及 .json 下载测试过程中捕获 0 次对外网络请求；测试期间未观测到输入数据外发。",
+      "alternativeTo": [
+        "jq",
+        "JSON Formatter",
+        "ConvertCSV"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 https://glyahh.top/flatnest/：输入包含数组与嵌套对象的 JSON 并展平为点分键值（最大主线程阻塞 0ms，CLS 0.00），验证 Swap 互换并成功下载 118 字节无水印 .json 文件，全程 0 次对外网络载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:53:07.481Z"
+    }
+  },
+  "recipetool-net": {
+    "en": {
+      "bestFor": "Home cooks, meal preppers, and food bloggers calculating per-serving calories and macros from USDA ingredient data and downloading a 400x600 nutrition label PNG without an account.",
+      "pros": [
+        "Calculates whole-recipe and per-serving calories, protein, carbs, fat, fiber, and sodium from USDA 100g ingredient data",
+        "Unwatermarked 400x600 PNG nutrition label download (28,813 bytes verified) and clipboard summary copy without signing up",
+        "Zero main-thread freezes (0 ms) and clean editorial UI with Kitchen Tools and Calorie Calculator sub-tools"
+      ],
+      "cons": [
+        "Sends 7 analytics and ad telemetry requests during session interaction (google-analytics.com, pagead2.googlesyndication.com, /cdn-cgi/rum, /api/roi-event)",
+        "Saving recipes, batch weighing, CSV, and print tools require the $19 one-time Studio upgrade"
+      ],
+      "privacyVerdict": "Observed 7 outgoing telemetry and ad-network payloads (POST /cdn-cgi/rum, POST www.google-analytics.com/g/collect, POST pagead2.googlesyndication.com/pagead/ping, POST /api/roi-event); ingredient nutrition calculation and PNG label rendering completed in browser memory without submitting recipes to a server.",
+      "alternativeTo": [
+        "Verywell Fit Recipe Nutrition Calculator",
+        "Cronometer",
+        "MyFitnessPal Recipe Importer"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated https://recipetool.net/: entered 'Oat Bowl' with 100g oats across 4 servings, computed 389 total calories (4.2g protein, 16.6g carbs, 1.7g fat per serving) with 0 ms max freeze and 0.06 CLS, and downloaded a clean 400x600 PNG nutrition label (28,813 bytes).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:59:22.376Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免注册基于 USDA 成分库计算食谱总热量及每份宏量营养素，并下载 400x600 PNG 营养成分表图片的家庭烹饪者与备餐人群。",
+      "pros": [
+        "基于 USDA 每百克数据库实时计算整份食谱与单份热量、蛋白质、碳水、脂肪、膳食纤维及钠含量",
+        "免登录直接复制结果摘要或下载无水印 400x600 PNG 营养成分标签（实测 28,813 字节）",
+        "计算响应流畅（主线程阻塞 0ms），附带厨房换算与热量计算辅助页面"
+      ],
+      "cons": [
+        "会话期间发送了 7 条统计与广告遥测请求（google-analytics.com、pagead2.googlesyndication.com、/cdn-cgi/rum、/api/roi-event）",
+        "保存食谱库、熟重分装、CSV 与打印工具需一次性付费 $19 解锁 Studio"
+      ],
+      "privacyVerdict": "实测捕获 7 条统计与广告遥测请求（POST /cdn-cgi/rum、POST www.google-analytics.com/g/collect、POST pagead2.googlesyndication.com/pagead/ping、POST /api/roi-event）；食谱营养计算与 PNG 标签绘制均在浏览器本地完成。",
+      "alternativeTo": [
+        "Verywell Fit Recipe Nutrition Calculator",
+        "Cronometer",
+        "MyFitnessPal Recipe Importer"
+      ],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 https://recipetool.net/：创建“Oat Bowl”并输入 100g oats（4 份），计算得到总热量 389 kcal（每份 4.2g 蛋白质、16.6g 碳水、1.7g 脂肪），最大主线程阻塞 0ms、CLS 0.06，成功下载无水印 400x600 PNG 营养标签（28,813 字节）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T02:59:22.378Z"
+    }
+  },
+  "slpagecalc-com": {
+    "en": {
+      "bestFor": "Speech-language pathologists (SLPs), school clinicians, and educators calculating exact chronological ages in Y;M;D protocol format for single assessments or batch caseload screenings without signing up.",
+      "pros": [
+        "Computes chronological age in years, months, and days (Y;M;D protocol format) with selectable Calendar-month or 30-day borrowing rules",
+        "Includes a multi-line Batch caseload mode plus companion Adjusted Age, MLU, IEP Timeline, Caseload, and Word Lists tools",
+        "One-click unwatermarked clipboard export (25-character sentence verified) with zero registration"
+      ],
+      "cons": [
+        "Sends lightweight telemetry and Cloudflare RUM beacons (POST /cdn-cgi/rum, POST /e/single-run, POST /e/batch-tab) during usage"
+      ],
+      "privacyVerdict": "Observed Cloudflare RUM and lightweight usage event beacons (POST /cdn-cgi/rum, POST /e/single-run, POST /e/batch-tab); birth dates, assessment dates, and age calculations remained in browser memory without transmitting student records.",
+      "alternativeTo": [
+        "Pearson Chronological Age Calculator",
+        "Timeanddate Date Calculator",
+        "Omni Age Calculator"
+      ],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated https://slpagecalc.com/: entered DOB 2020-05-14 against 2026-11-22 with Calendar month borrowing (66 ms max freeze, 0.02 CLS), verified 6 years, 6 months, 8 days (6;06;08), exported a clean 25-char summary via 'Copy sentence', and exercised Batch caseload mode.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T03:07:31.091Z"
+    },
+    "zh": {
+      "bestFor": "适合言语治疗师（SLP）、学校评估人员与教育工作者免注册计算单个学生或批量名单的精确历龄（Y;M;D 评估表格式）。",
+      "pros": [
+        "按年、月、日（Y;M;D 格式）精准计算历龄，支持自然月借位与 30 天借位两种临床规范算法",
+        "内置多行批量筛查（Batch）模式，并提供矫正月龄、MLU、IEP 时间线、个案管理与词表等配套工具",
+        "免登录一键无水印复制格式化结果与完整评估语句（实测剪贴板 25 字符）"
+      ],
+      "cons": [
+        "使用期间会向同源事件接口与 Cloudflare RUM 发送轻量行为统计请求（POST /cdn-cgi/rum、POST /e/single-run、POST /e/batch-tab）"
+      ],
+      "privacyVerdict": "实测捕获 Cloudflare RUM 与轻量交互计数请求（POST /cdn-cgi/rum、POST /e/single-run、POST /e/batch-tab）；出生日期、评估日期与批量名单均在浏览器本地计算，未外发个案日期数据。",
+      "alternativeTo": [
+        "Pearson Chronological Age Calculator",
+        "Timeanddate Date Calculator",
+        "Omni Age Calculator"
+      ],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 https://slpagecalc.com/：输入出生日期 2020-05-14 与评估日期 2026-11-22（最大主线程阻塞 66ms，CLS 0.02），算得 6 岁 6 个月 8 天（6;06;08），通过“Copy sentence”导出 25 字符纯净文本，并验证了 Batch 批量模式。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-22T03:07:31.092Z"
     }
   }
 }

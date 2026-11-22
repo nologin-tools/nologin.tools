@@ -197,6 +197,17 @@
     "lastTitle": "JSON Formatter & Validator — Free Online Tool | AT USE",
     "lastSignals": []
   },
+  "audioknife-calcsunny-com": {
+    "lastDeepEvalAt": "2026-11-22T02:50:22.088Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 88, highly-recommended)",
+      "at": "2026-11-22T02:50:22.088Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:50:22.088Z"
+  },
   "audiomass-co": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-17T06:27:49.519Z",
@@ -892,9 +903,16 @@
   },
   "drunkcalc-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-21T06:04:41.362Z",
+    "lastScanAt": "2026-11-22T02:39:41.455Z",
     "lastTitle": "Drunk Calculator: Free BAC & Sober Time Estimator",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-22T02:39:41.455Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-22T02:39:41.455Z",
+      "closed": []
+    }
   },
   "duck-ai": {
     "lastDeepEvalAt": "2026-11-11T09:16:28.584Z",
@@ -1391,6 +1409,17 @@
     "lastTitle": "GizmoBench: Free Browser Tools for Everyday Tasks",
     "lastSignals": []
   },
+  "glyahh-top-flatnest": {
+    "lastDeepEvalAt": "2026-11-22T02:53:07.536Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-22T02:53:07.536Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:53:07.536Z"
+  },
   "go-dev-play": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-20T06:06:06.687Z",
@@ -1819,6 +1848,17 @@
     "lastScanAt": "2026-11-17T06:23:13.181Z",
     "lastTitle": "Kmag — Shared grocery lists with voice and smart aisle sorting",
     "lastSignals": []
+  },
+  "knitchartmaker-com": {
+    "lastDeepEvalAt": "2026-11-22T02:42:10.672Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 90, editors-choice)",
+      "at": "2026-11-22T02:42:10.672Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:42:10.672Z"
   },
   "knittingchart-com": {
     "lastDeepEvalAt": "2026-11-17T02:49:50.089Z",
@@ -2497,6 +2537,17 @@
       ]
     }
   },
+  "pdfminto-com-merge-pdf": {
+    "lastDeepEvalAt": "2026-11-22T02:48:18.693Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-22T02:48:18.693Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:48:18.693Z"
+  },
   "pdftomdconverter-app": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-18T06:06:28.459Z",
@@ -3078,6 +3129,17 @@
     "lastTitle": "Realtime Colors",
     "lastSignals": []
   },
+  "recipetool-net": {
+    "lastDeepEvalAt": "2026-11-22T02:59:22.430Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-22T02:59:22.430Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:59:22.430Z"
+  },
   "reficompass-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-20T06:05:31.423Z",
@@ -3124,6 +3186,17 @@
     "lastScanAt": "2026-11-17T06:26:38.320Z",
     "lastTitle": "Retirement Calculator - Year-by-Year Projections",
     "lastSignals": []
+  },
+  "revpado-com": {
+    "lastDeepEvalAt": "2026-11-22T02:51:50.932Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-22T02:51:50.932Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:51:50.932Z"
   },
   "roascompare-com": {
     "openAnomalies": [],
@@ -3303,6 +3376,17 @@
     "lastScanAt": "2026-11-19T06:09:26.952Z",
     "lastTitle": "Compare Sizes & Dimensions at True Scale",
     "lastSignals": []
+  },
+  "slpagecalc-com": {
+    "lastDeepEvalAt": "2026-11-22T03:07:31.203Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-22T03:07:31.203Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T03:07:31.203Z"
   },
   "songluna-com-tools-bpm-tapper": {
     "lastDeepEvalAt": "2026-11-17T02:53:14.676Z",
@@ -3722,30 +3806,17 @@
     "lastSignals": []
   },
   "toolsphare-tech-en": {
-    "openAnomalies": [
-      {
-        "code": "login_to_continue_copy",
-        "severity": "high",
-        "evidence": "Visible copy: \"sign up to use\"",
-        "firstSeenAt": "2026-11-21T06:09:54.937Z",
-        "lastSeenAt": "2026-11-21T06:09:54.937Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-intent-1795241380338.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-toolsphare-tech-en-outcome-1795241380339.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-21T06:09:54.937Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:34:10.909Z",
     "lastTitle": "718+ Free Online Tools — PDF, Image & Text | ToolSphare",
     "lastSignals": [
       "login_to_continue_copy"
     ],
-    "lastDeepEvalAt": "2026-11-11T09:08:05.287Z",
+    "lastDeepEvalAt": "2026-11-22T02:34:10.909Z",
     "lastResolution": {
       "outcome": "editorial-updated",
       "note": "CADES deep evaluation synced (overall 91, editors-choice)",
-      "at": "2026-11-11T09:08:05.287Z",
+      "at": "2026-11-22T02:34:10.909Z",
       "closed": [
         "login_to_continue_copy"
       ]
@@ -3854,30 +3925,17 @@
     ]
   },
   "uicolors-app": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-21T06:10:09.221Z",
-        "lastSeenAt": "2026-11-21T06:10:09.221Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-intent-1795241395065.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-uicolors-app-outcome-1795241395065.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-21T06:10:09.221Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-22T02:36:44.958Z",
     "lastTitle": "Tailwind CSS Colors - All colors + Custom color generator",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-11T09:10:34.310Z",
+    "lastDeepEvalAt": "2026-11-22T02:36:44.958Z",
     "lastResolution": {
       "outcome": "editorial-updated",
       "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
-      "at": "2026-11-11T09:10:34.310Z",
+      "at": "2026-11-22T02:36:44.958Z",
       "closed": [
         "paywall_copy"
       ]
