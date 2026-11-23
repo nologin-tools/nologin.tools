@@ -359,7 +359,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:27:11.550Z",
+    "lastScanAt": "2026-11-23T06:15:37.735Z",
     "lastTitle": "Browserleaks - Check your browser for privacy leaks",
     "lastSignals": []
   },
@@ -499,7 +499,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:30:16.692Z",
+    "lastScanAt": "2026-11-23T06:17:57.525Z",
     "lastTitle": "Chord Finder — Find Chords from Any Song (MP3, WAV)",
     "lastSignals": []
   },
@@ -591,7 +591,7 @@
   },
   "comparetexts-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:26:09.277Z",
+    "lastScanAt": "2026-11-23T06:14:42.490Z",
     "lastTitle": "Compare Two Texts Online — Private Text Diff | CompareTexts",
     "lastSignals": []
   },
@@ -615,13 +615,13 @@
   },
   "contextwindowvramcalculator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:25:27.787Z",
+    "lastScanAt": "2026-11-23T06:14:02.463Z",
     "lastTitle": "Context Window VRAM Calculator — KV Cache & Max Tokens",
     "lastSignals": []
   },
   "controllertester-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:31:25.551Z",
+    "lastScanAt": "2026-11-23T06:19:00.117Z",
     "lastTitle": "Controller Tester – Online Gamepad Test (Xbox, PS5, Switch)",
     "lastSignals": []
   },
@@ -796,8 +796,21 @@
     "lastSignals": []
   },
   "db-fiddle-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:27:55.935Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to PRO\"",
+        "firstSeenAt": "2026-11-23T06:16:17.287Z",
+        "lastSeenAt": "2026-11-23T06:16:17.287Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-intent-1795414566310.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-outcome-1795414566310.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-23T06:16:17.287Z",
     "lastTitle": "DB Fiddle - SQL Database Playground",
     "lastSignals": [
       "paywall_copy"
@@ -886,8 +899,21 @@
     "lastSignals": []
   },
   "dochost-io": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:28:12.584Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Pro\"",
+        "firstSeenAt": "2026-11-23T06:16:33.722Z",
+        "lastSeenAt": "2026-11-23T06:16:33.722Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-intent-1795414577403.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-outcome-1795414577403.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-23T06:16:33.722Z",
     "lastTitle": "HTML to URL & Markdown to HTML — Free HTML Host | dochost",
     "lastSignals": [
       "paywall_copy"
@@ -992,7 +1018,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:29:23.074Z",
+    "lastScanAt": "2026-11-23T06:17:29.282Z",
     "lastTitle": "EveryTool4U — 108 Free Online Tools | PDF, Image, Video & More",
     "lastSignals": []
   },
@@ -1112,30 +1138,17 @@
     "lastSignals": []
   },
   "financier-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-21T06:10:58.883Z",
-        "lastSeenAt": "2026-11-21T06:10:58.883Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-intent-1795241451608.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-financier-io-outcome-1795241451608.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-21T06:10:58.883Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-23T02:40:06.012Z",
     "lastTitle": "Financier. Better Budgeting Software",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-12T02:46:09.651Z",
+    "lastDeepEvalAt": "2026-11-23T02:40:06.012Z",
     "lastResolution": {
       "outcome": "editorial-updated",
       "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
-      "at": "2026-11-12T02:46:09.651Z",
+      "at": "2026-11-23T02:40:06.012Z",
       "closed": [
         "surface_lost"
       ]
@@ -1262,7 +1275,7 @@
   },
   "formatdrop-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:26:35.678Z",
+    "lastScanAt": "2026-11-23T06:15:05.563Z",
     "lastTitle": "FormatDrop — Free Online File Converter",
     "lastSignals": []
   },
@@ -1298,7 +1311,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:29:31.319Z",
+    "lastScanAt": "2026-11-23T06:17:35.605Z",
     "lastTitle": "Free Printable Graph Paper – Custom PDF Generator",
     "lastSignals": []
   },
@@ -1345,13 +1358,13 @@
   },
   "geogebra-org-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:25:01.819Z",
+    "lastScanAt": "2026-11-23T06:13:37.766Z",
     "lastTitle": "计算器套件 - GeoGebra",
     "lastSignals": []
   },
   "geojson-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:25:16.711Z",
+    "lastScanAt": "2026-11-23T06:13:51.330Z",
     "lastTitle": "geojson.io | Powered by Mapbox",
     "lastSignals": []
   },
@@ -1565,7 +1578,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:29:14.803Z",
+    "lastScanAt": "2026-11-23T06:17:23.479Z",
     "lastTitle": "HeyUtils – 300+ Free Online Developer Tools",
     "lastSignals": []
   },
@@ -1646,7 +1659,7 @@
   },
   "iformat-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:24:55.849Z",
+    "lastScanAt": "2026-11-23T06:13:31.660Z",
     "lastTitle": "iFormat - Free Online File Converter, Compressor & Editor",
     "lastSignals": []
   },
@@ -1755,7 +1768,7 @@
   },
   "it-tools-tech": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:26:12.993Z",
+    "lastScanAt": "2026-11-23T06:14:46.234Z",
     "lastTitle": "IT Tools - Handy online tools for developers",
     "lastSignals": []
   },
@@ -1786,7 +1799,7 @@
   },
   "jsoncrack-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:31:13.025Z",
+    "lastScanAt": "2026-11-23T06:18:48.132Z",
     "lastTitle": "JSON Crack | Online JSON Viewer - Transform your data into interactive graphs",
     "lastSignals": []
   },
@@ -1928,7 +1941,7 @@
   },
   "lensup-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:27:05.861Z",
+    "lastScanAt": "2026-11-23T06:15:33.021Z",
     "lastTitle": "LensUp — 免费在线文档扫描工具（照片 → PDF）",
     "lastSignals": []
   },
@@ -2048,7 +2061,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:28:40.508Z",
+    "lastScanAt": "2026-11-23T06:16:53.807Z",
     "lastTitle": "16 Personalities Match | Discover Your Match",
     "lastSignals": []
   },
@@ -2172,7 +2185,7 @@
   },
   "metadataremover-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:26:27.591Z",
+    "lastScanAt": "2026-11-23T06:14:57.467Z",
     "lastTitle": "Metadata Remover — Remove Metadata from Images Online Free",
     "lastSignals": []
   },
@@ -2202,7 +2215,7 @@
   },
   "monkeetools-pages-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:25:24.384Z",
+    "lastScanAt": "2026-11-23T06:12:22.103Z",
     "lastTitle": "Get Paid Faster: Free Invoice Generator, No Signup",
     "lastSignals": []
   },
@@ -2219,8 +2232,21 @@
     "lastSignals": []
   },
   "mp3cut-net": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:28:32.812Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to Premium\"",
+        "firstSeenAt": "2026-11-23T06:16:47.323Z",
+        "lastSeenAt": "2026-11-23T06:16:47.323Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-intent-1795414593841.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-outcome-1795414593841.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-23T06:16:47.323Z",
     "lastTitle": "Online MP3 Cutter - Cut Songs, Make Ringtones",
     "lastSignals": [
       "paywall_copy"
@@ -2244,7 +2270,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:27:43.087Z",
+    "lastScanAt": "2026-11-23T06:16:06.200Z",
     "lastTitle": "Temp Mail - Free Edu / .COM Temporary Mails | MTempMail",
     "lastSignals": []
   },
@@ -2471,7 +2497,7 @@
   },
   "pairdrop-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:27:14.405Z",
+    "lastScanAt": "2026-11-23T06:15:40.608Z",
     "lastTitle": "PairDrop | Transfer Files Cross-Platform. No Setup, No Signup.",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-10-26T10:50:58.320Z",
@@ -2521,7 +2547,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:29:07.314Z",
+    "lastScanAt": "2026-11-23T06:17:17.032Z",
     "lastTitle": "PDF Annotator – Annotate PDF Online",
     "lastSignals": []
   },
@@ -2592,7 +2618,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:30:02.232Z",
+    "lastScanAt": "2026-11-23T06:17:42.886Z",
     "lastTitle": "Peptide Tracker: Free App and Web Dose Log | PeptideMate",
     "lastSignals": []
   },
@@ -2691,7 +2717,7 @@
   },
   "pixotter-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:24:41.057Z",
+    "lastScanAt": "2026-11-23T06:13:16.176Z",
     "lastTitle": "Free Online Image Compressor, Resizer & Converter | Pixotter",
     "lastSignals": []
   },
@@ -2759,13 +2785,13 @@
   },
   "preuveenmain-ca-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:26:19.767Z",
+    "lastScanAt": "2026-11-23T06:13:01.232Z",
     "lastTitle": "PEM PRÊT · Preuve en main",
     "lastSignals": []
   },
   "printable-tools-lab-pages-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:25:41.905Z",
+    "lastScanAt": "2026-11-23T06:14:15.831Z",
     "lastTitle": "Free Printable PDF, Image, and QR Tools - PrintableTools Lab",
     "lastSignals": []
   },
@@ -2791,7 +2817,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:30:24.821Z",
+    "lastScanAt": "2026-11-23T06:18:04.051Z",
     "lastTitle": "Print Test Page Online – Free Printer Test Pages",
     "lastSignals": []
   },
@@ -3060,7 +3086,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:30:38.134Z",
+    "lastScanAt": "2026-11-23T06:18:17.396Z",
     "lastTitle": "Random Topic Generator — Free Ideas to Talk, Write & Speak",
     "lastSignals": []
   },
@@ -3124,7 +3150,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:30:58.483Z",
+    "lastScanAt": "2026-11-23T06:18:35.781Z",
     "lastTitle": "Browser Benchmark Companion & Tool Comparison Platform — RealTest",
     "lastSignals": []
   },
@@ -3453,30 +3479,17 @@
     "lastTitle": "Squoosh"
   },
   "stackedit-io": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-22T06:12:35.651Z",
-        "lastSeenAt": "2026-11-22T06:12:35.651Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-intent-1795327949623.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-stackedit-io-outcome-1795327949623.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-22T06:12:35.651Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-23T02:42:18.444Z",
     "lastTitle": "StackEdit – In-browser Markdown editor",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-18T02:34:58.407Z",
+    "lastDeepEvalAt": "2026-11-23T02:42:18.444Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Landing page links via START WRITING to /app Markdown editor; edited document with live preview and exported clean 63-byte unwatermarked Markdown file. Zero outgoing payloads observed.",
-      "at": "2026-11-18T02:34:58.407Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-23T02:42:18.444Z",
       "closed": [
         "surface_lost"
       ]
@@ -3524,7 +3537,7 @@
   },
   "svgrepo-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:26:07.615Z",
+    "lastScanAt": "2026-11-23T06:12:50.323Z",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-10-29T02:36:46.271Z",
     "lastResolution": {
@@ -3687,7 +3700,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:27:24.853Z",
+    "lastScanAt": "2026-11-23T06:15:50.785Z",
     "lastSignals": []
   },
   "thexly-com-tools-roas-calculator": {
@@ -4145,7 +4158,7 @@
   },
   "wolframalpha-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:25:51.131Z",
+    "lastScanAt": "2026-11-23T06:14:25.106Z",
     "lastTitle": "Wolfram|Alpha：计算型智能",
     "lastSignals": []
   },
@@ -4163,9 +4176,16 @@
   },
   "worldtimebuddy-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-21T06:04:47.822Z",
+    "lastScanAt": "2026-11-23T02:45:13.334Z",
     "lastTitle": "Time Converter and World Clock - Conversion at a Glance - Pick best time to schedule conference calls, webinars, online meetings and phone calls.",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-23T02:45:13.334Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-23T02:45:13.334Z",
+      "closed": []
+    }
   },
   "wormhole-app": {
     "openAnomalies": [],
@@ -4256,7 +4276,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:28:52.707Z",
+    "lastScanAt": "2026-11-23T06:17:04.669Z",
     "lastTitle": "Analyse céphalométrique en ligne gratuite : Steiner et Tweed | GS Ortho",
     "lastSignals": []
   },
@@ -4282,7 +4302,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:30:49.716Z",
+    "lastScanAt": "2026-11-23T06:18:28.235Z",
     "lastTitle": "Free Image Splitter Online — Grid & Custom Cuts | ImageSplit",
     "lastSignals": []
   },
@@ -4480,13 +4500,13 @@
   },
   "www-whatsmyiplive-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:26:01.785Z",
+    "lastScanAt": "2026-11-23T06:12:45.779Z",
     "lastTitle": "404: NOT_FOUND",
     "lastSignals": []
   },
   "www-when2meet-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:25:56.312Z",
+    "lastScanAt": "2026-11-23T06:14:29.957Z",
     "lastTitle": "When2meet",
     "lastSignals": []
   },
@@ -4530,13 +4550,26 @@
   },
   "xe-com-currencyconverter": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-12T06:25:52.416Z",
+    "lastScanAt": "2026-11-23T06:12:37.524Z",
     "lastTitle": "Currency Converter - Currency Exchange | Xe",
     "lastSignals": []
   },
   "xueboyang1985-github-io-kindle-exporter": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-13T06:26:48.519Z",
+    "openAnomalies": [
+      {
+        "code": "paywall_copy",
+        "severity": "medium",
+        "evidence": "Visible copy: \"Upgrade to PRO\"",
+        "firstSeenAt": "2026-11-23T06:15:18.130Z",
+        "lastSeenAt": "2026-11-23T06:15:18.130Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-intent-1795414505689.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-outcome-1795414505689.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-23T06:15:18.130Z",
     "lastTitle": "Kindle Highlights Exporter - Export Kindle Clippings to Markdown, CSV, JSON",
     "lastSignals": [
       "paywall_copy"
