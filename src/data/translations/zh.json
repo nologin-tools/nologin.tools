@@ -3,6 +3,12 @@
     "description": "面向高中生的免费 SAT 备考题库平台：支持按科目、考点和难度筛选题目，配备详尽解析、限时模考、词汇练习以及数学难题视频讲解。免登录即可直接刷题（可自选注册以保存进度）。",
     "coreTask": "无需账号即可练习 SAT 真题、查看解析、参加限时模考及背记词汇"
   },
+  "agentonduty-neocities-org-apple-health-to-excel-free": {
+    "_hash": "d8dad5ca0a97a539",
+    "description": "免上传浏览器端 Apple Health export.xml / export.zip 转换工具，可本地解析健康指标并导出干净的 Excel (.xlsx) 表格。",
+    "coreTask": "在本地解析 Apple Health 导出文件并将所选健康指标下载为 Excel 表格",
+    "contentUpdatedAt": "2026-11-24T02:40:39.854Z"
+  },
   "aicost-tools": {
     "_hash": "8aee9da33f09caf9",
     "description": "对比 150+ 款主流大模型 API 价格并按推理 Token 与提示词缓存命中率精确估算月度调用成本。",
@@ -192,6 +198,12 @@
   "blur-face-com-blur-face": {
     "coreTask": "自动识别并模糊人脸、批量处理照片、清除 EXIF 元数据并快速下载，全程无需创建账号",
     "description": "免费的浏览器端照片隐私保护工具，可自动检测并模糊人脸。所有处理均在浏览器本地完成，图片绝不上载到服务器。支持批量上传处理以及一键擦除 EXIF 拍摄元数据。"
+  },
+  "boringutils-com-chart-link": {
+    "_hash": "70ece04dd3aa2fad",
+    "description": "浏览器端 CSV/JSON 图表制作工具，支持可编辑表格视图、柱状/折线/面积图切换、URL 哈希分享及高清 PNG/SVG 导出。",
+    "coreTask": "粘贴 CSV 或 JSON 数据并调整图表样式，导出或复制高清 PNG 与 SVG 图表",
+    "contentUpdatedAt": "2026-11-24T03:20:05.284Z"
   },
   "breachline-io-tools": {
     "_hash": "6fb1e2918d30cf5a",
@@ -1609,6 +1621,12 @@
     "coreTask": "通过本地 Web Worker 解码动图并导出单独 PNG 帧或完整 ZIP 归档。",
     "contentUpdatedAt": "2026-11-12T03:43:39.681Z"
   },
+  "pic2svg-com-svg-cut-file-checker": {
+    "_hash": "ebaf9017ce7c17e7",
+    "description": "面向 Cricut、Silhouette 与激光切割机的浏览器端 SVG 切割文件检查器，可本地排查开放路径、未转曲文字、纯描边与尺寸 DPI 问题。",
+    "coreTask": "在浏览器本地对 SVG 标记执行 9 项切割兼容性检查",
+    "contentUpdatedAt": "2026-11-24T03:10:34.064Z"
+  },
   "piccollages-com": {
     "coreTask": "在浏览器本地制作照片拼图、网格排版、长图拼接及马赛克拼图，无需注册即可高清导出",
     "description": "Pic Collage Maker 是一款免费且注重隐私的浏览器拼图工具。支持照片拼贴、网格布局、长图接缝与马赛克拼图。可拖拽添加图片、文字、贴纸、滤镜及背景，并导出高分辨率成品。图像处理完全在浏览器本地完成，核心功能全程免登录。"
@@ -2051,6 +2069,12 @@
     "coreTask": "上传图片或视频片段，选择 3、6 或 9 宫格并调整构图后直接下载贴纸视频。",
     "contentUpdatedAt": "2026-11-18T02:56:13.071Z"
   },
+  "strikethroughgen-com": {
+    "_hash": "efa88e2df831f7a7",
+    "description": "浏览器端 Unicode 删除线文本生成器，支持聊天气泡实时预览、一键复制及 .txt 文件下载。",
+    "coreTask": "将普通文本转换为多种 Unicode 删除线样式并复制或下载输出",
+    "contentUpdatedAt": "2026-11-24T02:48:55.112Z"
+  },
   "studycalcpro-com": {
     "description": "专为学生设计的免费在线计算器与学习工具包——包含 GPA 计算器、期末成绩预测、百分比换算、加权与累积绩点、番茄钟、考试倒计时等。无需注册，看答案前无干扰广告。",
     "coreTask": "即时使用所有学习计算工具并查阅各类学习指南，无需注册账号"
@@ -2103,6 +2127,12 @@
     "description": "美国进口关税分层解析与到岸成本核算工具，支持根据 HTS 编码查询税率、核查 301/232 贸易条款，并一键导出 CSV 报告。",
     "coreTask": "根据 HTS 编码解析美国进口关税并测算到岸成本，无需登录。",
     "contentUpdatedAt": "2026-11-10T03:47:08.821Z"
+  },
+  "tattoofontgen-com": {
+    "_hash": "96a339d4b973ff06",
+    "description": "按真实物理尺寸预览的纹身字体与模板生成器，提供部位预设、晕色风险评估及 300 dpi PNG/SVG 导出。",
+    "coreTask": "按精确物理尺寸预览纹身文字效果并导出可打印的 PNG 或 SVG 模板",
+    "contentUpdatedAt": "2026-11-24T02:51:03.668Z"
   },
   "teachablemachine-withgoogle-com": {
     "_hash": "336f6d1a3e015ed4",
@@ -2239,6 +2269,12 @@
     "seoDescription": "端对端加密跨设备同步文字。打开命名频道，粘贴内容，即刻分享——无需注册。",
     "seoFocusKeyword": "加密剪贴板同步无需注册",
     "seoTaskPhrase": "无需注册跨设备同步文字"
+  },
+  "toolmight-com": {
+    "_hash": "4060b3d486ca30a8",
+    "description": "聚合 49+ 浏览器端开发者工具、生成器与算法可视化工具集，支持 JSON 格式化、键名排序与 TypeScript 类型生成。",
+    "coreTask": "在浏览器端免登录格式化、校验、排序并导出 JSON 等开发工具结果",
+    "contentUpdatedAt": "2026-11-24T02:46:16.835Z"
   },
   "tools-berry-com": {
     "coreTask": "免账号在浏览器中计算全美各州到手工资、统计字数、生成二维码、账单及随机密码",
@@ -2650,6 +2686,12 @@
     "_hash": "42b52eb3b37c2c03",
     "description": "使用端对端加密安全分享秘密。消息在被阅读或达到设定的过期时间后自毁。",
     "coreTask": "分享加密的自毁秘密"
+  },
+  "yougkxm-github-io": {
+    "_hash": "126fec31da1a188f",
+    "description": "免费在线 Etsy、Gumroad 与 Shopify 利润与保本价计算器，支持退货损耗与目标净利率测算。",
+    "coreTask": "按平台费率预设实时核算单笔净利润、保本售价及百单明细",
+    "contentUpdatedAt": "2026-11-24T02:38:55.667Z"
   },
   "z-ai": {
     "_hash": "fc17d89b870d4c6c",

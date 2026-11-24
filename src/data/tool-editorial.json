@@ -13741,17 +13741,17 @@
   },
   "worldtimebuddy-com": {
     "en": {
-      "bestFor": "Distributed remote teams, coordinators, and frequent travelers coordinating meetings across multiple international time zones",
+      "bestFor": "Distributed remote teams, coordinators, and frequent travelers comparing international time zones side-by-side without sign-in.",
       "pros": [
-        "Intuitive visual timeline aligning multiple global time zones side-by-side",
-        "Encodes full city configurations directly into shareable URL query parameters without an account",
-        "Displays day/night transitions and daylight saving time offsets automatically"
+        "Intuitive visual timeline aligning multiple global time zones side-by-side with 12h/24h toggling",
+        "Shareable view links and city search autocomplete work without creating an account",
+        "Displays day/night transitions and multi-day calendar tabs clearly"
       ],
       "cons": [
         "Free tier displays prominent third-party banner advertisements",
-        "Transmits multiple advertising telemetry and tracking beacons to external ad networks"
+        "Transmits multiple advertising telemetry and analytics beacons to external ad networks"
       ],
-      "privacyVerdict": "Observed 17 network payloads comprising Google Analytics, DoubleClick, and advertising exchange telemetry (Dotomi, Funding Choices). Time conversions are calculated client-side in the browser, but third-party ad networks track page impressions.",
+      "privacyVerdict": "Observed 16 outgoing network payloads during the session, including Google Analytics (analytics.google.com/g/collect), DoubleClick (stats.g.doubleclick.net/g/collect), Dotomi (media.msg.dotomi.com/s2s/header), and Google Funding Choices. Time zone conversions run client-side without requiring login.",
       "alternativeTo": [
         "TimeAndDate",
         "Every Time Zone",
@@ -13766,21 +13766,22 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Aligned 4 global time zones in DOM across 24 hours with 75 ms latency, encoding state into shareable URL parameters despite 17 requests observed.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-verified in CADES 2.0 session: searched 'Tokyo' in the place input, toggled 24-hour display mode, and triggered LINK TO THIS VIEW across 3 default time zones with 1084 ms max task, 0.00 CLS, and 16 analytics/ad payloads observed.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-23T02:45:13.290Z"
     },
     "zh": {
-      "bestFor": "需要跨越多个国家和地区协调跨国会议、线上研讨及差旅计划的远程团队与项目经理",
+      "bestFor": "适合跨时区远程团队、会议协调者与频繁出差人员免登录直观对比多地时间与日程窗口。",
       "pros": [
-        "直观的多行并列时间轴，一目了然对比跨国城市的工作与重叠时间",
-        "免注册将选择的城市列表直接编码为包含 URL 参数的链接便于团队协作",
-        "自动计算夏令时差异并以深浅色块区分昼夜与非工作时段"
+        "直观的多时区横向时间轴对比视图，支持 12/24 小时制切换",
+        "免登录即可使用城市搜索自动补全与「LINK TO THIS VIEW」视图分享功能",
+        "清晰展示昼夜过渡与多日历日期标签切换"
       ],
       "cons": [
-        "免费版页面中央嵌入了较多第三方横幅广告",
-        "页面加载时会向广告追踪网络与分析服务发送较多网络遥测请求"
+        "免费版页面展示较明显的第三方横幅广告",
+        "向外部广告与分析网络发送多条遥测追踪信标"
       ],
-      "privacyVerdict": "会话期间观察到 17 次外发网络负载，包含 Google Analytics、DoubleClick 及广告交换联盟（Dotomi、Funding Choices）等营销追踪代码。时区转换由前端计算，但第三方广告网络会收集页面曝光数据。",
+      "privacyVerdict": "会话期间观测到 16 次外发网络载荷，包含 Google Analytics（analytics.google.com/g/collect）、DoubleClick（stats.g.doubleclick.net/g/collect）、Dotomi（media.msg.dotomi.com/s2s/header）及 Google Funding Choices。时区换算可在免登录状态下于浏览器端完成。",
       "alternativeTo": [
         "TimeAndDate",
         "Every Time Zone",
@@ -13795,8 +13796,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 DOM 内以 75 ms 交互延迟同步渲染 4 个全球时区，并将状态编码为可分享 URL，观察到 17 次网络请求。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 CADES 2.0 会话中复测：在地点输入框输入「Tokyo」，切换 24 小时制并点击 LINK TO THIS VIEW，实测主线程最大任务耗时 1084ms，CLS 0.00，观测到 16 次分析与广告外发载荷。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-23T02:45:13.292Z"
     },
     "ja": {
       "bestFor": "複数の国際タイムゾーンにまたがる会議を調整する、分散したリモート チーム、コーディネーター、頻繁に旅行する人",
@@ -13825,7 +13827,7 @@
         "Every Time Zone",
         "World Clock Widget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "여러 국제 시간대에 걸쳐 회의를 조정하는 분산된 원격 팀, 코디네이터 및 빈번한 여행자",
@@ -13854,7 +13856,7 @@
         "Every Time Zone",
         "World Clock Widget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Equipos remotos distribuidos, coordinadores y viajeros frecuentes que coordinan reuniones en múltiples zonas horarias internacionales.",
@@ -13883,7 +13885,7 @@
         "Every Time Zone",
         "World Clock Widget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Équipes distantes réparties, coordinateurs et voyageurs fréquents coordonnant des réunions sur plusieurs fuseaux horaires internationaux",
@@ -13912,7 +13914,7 @@
         "Every Time Zone",
         "World Clock Widget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Verteilte Remote-Teams, Koordinatoren und Vielreisende koordinieren Meetings über mehrere internationale Zeitzonen hinweg",
@@ -13941,7 +13943,7 @@
         "Every Time Zone",
         "World Clock Widget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Equipes remotas distribuídas, coordenadores e viajantes frequentes coordenando reuniões em vários fusos horários internacionais",
@@ -13970,7 +13972,7 @@
         "Every Time Zone",
         "World Clock Widget"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "excalideck-com": {
@@ -15355,17 +15357,17 @@
   },
   "db-fiddle-com": {
     "en": {
-      "bestFor": "Database administrators, backend engineers, and students writing, debugging, and sharing SQL queries across MySQL, PostgreSQL, and SQLite",
+      "bestFor": "Backend developers, DBAs, and students writing, executing, and sharing SQL schema and query fiddles across MySQL, PostgreSQL, and SQLite without an account.",
       "pros": [
-        "Instant zero-login SQL sandbox supporting MySQL, PostgreSQL, and SQLite with separate DDL schema and DML query panes",
-        "One-click 'Copy as Markdown' for tabular query outputs and zero-login permalink saving",
-        "Integrates privacy-focused EthicalAds without invasive tracking networks or third-party cookies"
+        "Executes DDL schema and SQL queries directly in separate editor panes without sign-in",
+        "Supports anonymous fiddle saving/forking and one-click Copy as Markdown for query results",
+        "Uses developer-focused EthicalAds alongside standard Google Analytics rather than ad-exchange trackers"
       ],
       "cons": [
-        "Private fiddles and iframe embeds require upgrading to a paid PRO subscription",
-        "Emits a Google Analytics telemetry request upon initial page loading"
+        "Private fiddles, starred bookmarks, and iframe embeds require upgrading to a paid PRO plan",
+        "Sends SQL statements to remote execution/revision endpoints and emits a Google Analytics beacon"
       ],
-      "privacyVerdict": "SQL code and schema definitions transmit directly to execute.db-fiddle.com sandbox instances; ad monetization utilizes privacy-conscious EthicalAds with zero tracking cookies alongside 1 Google Analytics event (POST www.google-analytics.com/j/collect, POST execute.db-fiddle.com/).",
+      "privacyVerdict": "Observed 3 outgoing payloads during live testing: POST execute.db-fiddle.com/, POST prod-api.db-fiddle.com/v1/revisions, and POST www.google-analytics.com/j/collect. SQL code is executed server-side without requiring user authentication.",
       "alternativeTo": [
         "SQL Fiddle",
         "OneCompiler SQL",
@@ -15380,22 +15382,22 @@
         "polish": 13
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Executed SQL schema and query against MySQL in 13.01 ms, formatted tabular rows into Markdown clipboard, and verified zero-login query execution without account requirements.",
+      "benchmarkNotes": "Re-evaluated Upgrade to PRO anomaly: loaded MySQL v9 example schema, filled fiddle title, ran query (47.42 ms toast / 0.2 ms query execution), saved revision anonymously, and triggered Copy as Markdown (273 chars, 22 lines MARKDOWN clipboard export, 183 ms max task, 0.02 CLS).",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-05T02:34:42.752Z"
+      "contentUpdatedAt": "2026-11-24T02:35:37.301Z"
     },
     "zh": {
-      "bestFor": "需要在 MySQL、PostgreSQL 与 SQLite 之间快速编写、调试并分享 SQL 查询语句的后端工程师与数据库学习者",
+      "bestFor": "需要在 MySQL、PostgreSQL 与 SQLite 之间免登录编写、执行并分享 SQL 建表与查询片段的后端开发者与学习者。",
       "pros": [
-        "无需登录即可使用支持 MySQL、PostgreSQL 和 SQLite 的独立 DDL 结构建表与 DML 查询双面板沙箱",
-        "支持一键将表格查询结果复制为 Markdown 格式，并可匿名生成永久共享链接",
-        "采用保护隐私的 EthicalAds 开发者广告网络，不加载侵入式商业追踪 Cookie"
+        "提供独立的 Schema DDL 与 Query SQL 双面板沙箱，免登录即可执行查询",
+        "支持匿名保存与 Fork 代码片段，以及一键将查询结果复制为 Markdown 表格",
+        "广告位采用面向开发者的 EthicalAds，未引入侵入式跨站广告联盟追踪"
       ],
       "cons": [
-        "私有代码片段（Private Fiddle）和网页内嵌功能需付费升级 PRO 套餐",
-        "首屏载入时会发出 1 次 Google Analytics 统计遥测请求"
+        "私有 Fiddle、收藏（Star）与网页内嵌（Embed）功能需升级付费 PRO 套餐",
+        "SQL 语句会发送至远端沙箱与版本接口执行保存，且页面加载包含 Google Analytics 遥测"
       ],
-      "privacyVerdict": "SQL 脚本与表结构定义通过 HTTPS 发送至 execute.db-fiddle.com 沙箱后端执行；广告位采用无跟踪 Cookie 的 EthicalAds，伴随 1 条谷歌分析遥测（POST www.google-analytics.com/j/collect，POST execute.db-fiddle.com/）。",
+      "privacyVerdict": "实测期间观测到 3 次外发载荷：POST execute.db-fiddle.com/、POST prod-api.db-fiddle.com/v1/revisions 以及 POST www.google-analytics.com/j/collect。SQL 代码在服务端沙箱免登录执行。",
       "alternativeTo": [],
       "productScore": {
         "overall": 79,
@@ -15406,9 +15408,9 @@
         "polish": 13
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "在 13.01 ms 内完成 MySQL 表结构创建与数据查询，支持一键将结果导出为 Markdown 表格，全程无需登录账户。",
+      "benchmarkNotes": "复测 Upgrade to PRO 提示异常：加载 MySQL v9 示例、填写标题并执行查询（47.42ms 完成、查询耗时 0.2ms），匿名点击 Save 保存版本并触发 Copy as Markdown 导出 273 字符（22 行）MARKDOWN 内容（最大阻塞 183ms，CLS 0.02）。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-05T02:34:42.753Z"
+      "contentUpdatedAt": "2026-11-24T02:35:37.301Z"
     },
     "ja": {
       "bestFor": "MySQL、PostgreSQL、SQLite で SQL クエリを作成、デバッグ、共有するデータベース管理者、バックエンド エンジニア、学生",
@@ -21960,12 +21962,12 @@
       "bestFor": "Full-featured in-browser Markdown authoring with synchronized preview, KaTeX math, and offline document storage.",
       "pros": [
         "Comprehensive Markdown workstation supporting synchronized HTML preview, KaTeX math typesetting, and local file tree management",
-        "Verified clean unwatermarked file downloads (7,176-byte Markdown document) and offline browser persistence"
+        "Verified clean Markdown file import and export (4,300-byte sample.md export) with zero outgoing network payloads observed"
       ],
       "cons": [
         "Direct PDF and Pandoc compilation formats are marked as sponsored features"
       ],
-      "privacyVerdict": "Observed network egress during session operation was zero outgoing payloads. File storage, syntax parsing, and HTML export render locally within the browser.",
+      "privacyVerdict": "Observed network egress during session operation was zero outgoing payloads. Markdown parsing, live preview, and file export ran in the browser without triggering remote requests.",
       "alternativeTo": [
         "dillinger-io",
         "hackmd-io",
@@ -21980,19 +21982,20 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Loaded 7,173-byte document across 143 lines with synchronized preview in 138 ms; exported unwatermarked 7,176-byte Markdown file.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-verified in CADES 2.0 session: clicked START WRITING, imported 4282 bytes sample.md into PRE.editor__inner, applied Bold and Italic toolbar buttons with synchronized HTML preview (241 ms max task, 0.07 CLS), and exported 4300 bytes Markdown artifact with 0 outgoing payloads observed.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-23T02:42:18.404Z"
     },
     "zh": {
-      "bestFor": "在浏览器中进行全功能 Markdown 写作排版，支持双栏同步滚动预览、KaTeX 数学公式与离线文档存储。",
+      "bestFor": "适合需要同步 HTML 预览、KaTeX 数学公式排版与本地离线文档存储的浏览器端全功能 Markdown 编辑器。",
       "pros": [
-        "功能完备的 Markdown 工作台，集成实时 HTML 渲染、KaTeX 公式排版、表格工具栏与本地多文件树管理",
-        "实测无障碍导出 7,176 字节纯净无水印 Markdown 文件，文档持久化存储于浏览器离线存储中"
+        "功能完整的浏览器端 Markdown 工作台，支持实时同步预览、KaTeX 公式排版与本地文件树管理",
+        "实测免登录导入与导出纯净 Markdown 文件（导出 4,300 字节），会话期间零网络外发载荷"
       ],
       "cons": [
-        "直接导出 PDF 与高级 Pandoc 格式转换依赖赞助商模块支持"
+        "直接导出 PDF 与 Pandoc 格式转换标记为赞助（Sponsor）功能"
       ],
-      "privacyVerdict": "测试会话期间网络观测记录到零条发往外部的遥测载荷。文档存储、语法解析与 HTML 导出全程在本地浏览器内完成。",
+      "privacyVerdict": "会话操作期间未观测到任何网络外发载荷（0 payloads），Markdown 解析、实时预览与文件导出均在浏览器端完成。",
       "alternativeTo": [
         "dillinger-io",
         "hackmd-io",
@@ -22007,8 +22010,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 138ms 内完成 143 行、7,173 字节文档的双栏同步解析，并成功下载 7,176 字节标准 Markdown 文件。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 CADES 2.0 会话中复测：点击 START WRITING 进入编辑器，导入 4,282 字节 sample.md，使用粗体与斜体工具栏确认实时 HTML 预览同步，并导出 4,300 字节 Markdown 文件，全程 0 外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-23T02:42:18.406Z"
     },
     "ja": {
       "bestFor": "同期プレビュー、KaTeX 数学、オフライン ドキュメント ストレージを備えたフル機能のブラウザ内 Markdown オーサリング。",
@@ -22035,7 +22039,7 @@
         "hackmd-io",
         "marktext"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "동기화된 미리보기, KaTeX 수학 및 오프라인 문서 저장 기능을 갖춘 모든 기능을 갖춘 브라우저 내 마크다운 작성.",
@@ -22062,7 +22066,7 @@
         "hackmd-io",
         "marktext"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Creación de Markdown en el navegador con todas las funciones con vista previa sincronizada, matemáticas KaTeX y almacenamiento de documentos sin conexión.",
@@ -22089,7 +22093,7 @@
         "hackmd-io",
         "marktext"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Création Markdown complète dans le navigateur avec aperçu synchronisé, mathématiques KaTeX et stockage de documents hors ligne.",
@@ -22116,7 +22120,7 @@
         "hackmd-io",
         "marktext"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Voll ausgestattetes Markdown-Authoring im Browser mit synchronisierter Vorschau, KaTeX-Mathematik und Offline-Dokumentenspeicherung.",
@@ -22143,7 +22147,7 @@
         "hackmd-io",
         "marktext"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Autoria Markdown completa no navegador com visualização sincronizada, matemática KaTeX e armazenamento de documentos offline.",
@@ -22170,7 +22174,7 @@
         "hackmd-io",
         "marktext"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "rentry-co": {
@@ -28459,14 +28463,14 @@
       "pros": [
         "Offline-first zero-based envelope budgeting engine inspired by classic desktop financial software",
         "Stores all ledgers, transactions, and categories locally in browser IndexedDB with zero cloud synchronization requirements",
-        "Native backup and restore tooling allowing full JSON database dumps and CSV spreadsheet exports",
-        "Zero third-party analytics, telemetry beacons, or advertising trackers embedded across the entire application"
+        "Native backup and restore tooling allowing full CSV/ZIP archive exports without sign-up",
+        "Minimal network footprint with only 1 first-party navigation request (GET app.financier.io/create-budget) observed during the session"
       ],
       "cons": [
         "Free offline mode relies solely on local browser storage; clearing browser cache without a manual backup will erase local budgets",
         "Multi-device automatic cloud synchronization requires a separate optional paid account"
       ],
-      "privacyVerdict": "Local IndexedDB storage verified. Budget data remains stored in browser IndexedDB; observed network egress was limited to the initial first-party navigation GET to app.financier.io/create-budget, with no tracking beacons aside from that single request.",
+      "privacyVerdict": "Local IndexedDB storage verified. Budget data remains stored in browser IndexedDB; observed outgoing network activity consisted of 1 first-party navigation request (GET app.financier.io/create-budget).",
       "alternativeTo": [
         "YNAB",
         "Actual Budget"
@@ -28480,23 +28484,23 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Re-verified in CADES 2.0 dogfood session: created 'Household 2026 Nov' budget locally in IndexedDB, tested Reports and Budget views, and exported budget archive (ZIP 13.5 KB) via options cog with zero third-party tracking.",
+      "benchmarkNotes": "Re-verified in CADES 2.0 dogfood session: created 'Test Budget Nov 23' locally in IndexedDB, switched across Reports and Budget views, and exported budget archive (ZIP 13,498 bytes) via the budget options menu with 1 first-party navigation request observed.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-12T02:46:09.629Z"
+      "contentUpdatedAt": "2026-11-23T02:40:05.973Z"
     },
     "zh": {
-      "bestFor": "在无需注册任何账户的情况下，利用离线架构进行零基信封式个人财务记账与预算规划。",
+      "bestFor": "适合注重离线隐私、希望免注册使用零基信封预算法与个人账户账本管理的用户。",
       "pros": [
-        "完全离线优先的零基信封预算引擎，支持多账户流水记账与分类预算分配",
-        "所有收支明细与账本数据完全存储于本地浏览器 IndexedDB，不依赖任何云端服务器",
-        "内置完善的本地备份与恢复机制，支持导出完整 JSON 账本归档与 CSV 表格数据",
-        "全站零广告、零商业追踪信标与零遥测代码，提供纯净的个人财务隐私防护"
+        "受经典桌面财务软件启发的离线优先零基信封预算引擎",
+        "所有账本、交易和分类均本地存储在浏览器 IndexedDB 中，无需云端同步或登录",
+        "内置原生导出功能，免账号即可导出完整 CSV/ZIP 预算归档备份",
+        "网络载荷极简，全流程仅观测到 1 次第一方导航请求（GET app.financier.io/create-budget）"
       ],
       "cons": [
-        "免费离线模式完全依赖本地浏览器存储，清理浏览器缓存若未提前备份将导致账本数据丢失",
-        "跨设备多端实时云同步功能需要选购付费订阅账户"
+        "免费离线模式完全依赖本地浏览器存储，清理浏览器缓存前需手动备份以防数据丢失",
+        "多设备自动云同步功能需要额外开通可选付费账户"
       ],
-      "privacyVerdict": "验证本地 IndexedDB 存储。预算数据保存在浏览器本地数据库中，观察到的网络出站仅限首方页面导航请求（GET app.financier.io/create-budget），除该首方请求外未发现任何第三方追踪或数据上传。",
+      "privacyVerdict": "已实测本地 IndexedDB 存储。预算数据保存在浏览器本地，实测仅观测到 1 次第一方导航请求（GET app.financier.io/create-budget）。",
       "alternativeTo": [
         "YNAB",
         "Actual Budget"
@@ -28510,9 +28514,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 CADES 2.0 评测中重新验证：在本地 IndexedDB 初始化 'Household 2026 Nov' 账本，测试报表与预算表格，并通过设置齿轮导出 13.5 KB ZIP 归档，除首方请求外零外部遥测。",
+      "benchmarkNotes": "在 CADES 2.0 会话中复测：免登录在本地 IndexedDB 创建「Test Budget Nov 23」预算，切换查看 Reports 与 Budget 视图，并通过齿轮菜单成功导出 13,498 字节 ZIP 预算归档，仅观测到 1 次第一方导航请求。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-12T02:46:09.629Z"
+      "contentUpdatedAt": "2026-11-23T02:40:05.974Z"
     },
     "ja": {
       "bestFor": "ゼロベースのエンベロープ予算作成と個人アカウントの台帳追跡。100% オフライン プライバシーがあり、アカウントは必要ありません。",
@@ -35083,18 +35087,17 @@
   },
   "xueboyang1985-github-io-kindle-exporter": {
     "en": {
-      "bestFor": "Kindle readers, researchers, and Obsidian or Notion users wanting to convert local Kindle clippings into clean Markdown, CSV, or JSON without uploading reading history to the cloud",
+      "bestFor": "Kindle readers wanting to parse local My Clippings.txt files into Markdown, CSV, or JSON in the browser without uploading reading history.",
       "pros": [
-        "Zero-egress client-side parser: parses My Clippings.txt directly in browser memory without sending private reading history to external servers",
-        "Multi-format export options: instant generation of clean Markdown blockquotes, tabular CSV, and structured JSON",
-        "Interactive book preview: organizes highlights and notes into collapsible accordions with author metadata and page/location stamps",
-        "Hosted as a static open-source GitHub Pages web app with zero commercial trackers or telemetry beacons"
+        "Parses My Clippings.txt locally in browser memory with zero network payloads observed",
+        "Provides built-in Load Sample Clippings demo alongside local file upload",
+        "Exports clean watermark-free Markdown, CSV, and JSON without login"
       ],
       "cons": [
-        "Free export is restricted to the first book in the file; bulk multi-book batch export requires a one-time PRO upgrade",
-        "Requires manual USB cable connection to a computer to extract the My Clippings.txt file from Kindle storage"
+        "Free export is limited to the first book in the file; exporting all books requires a one-time PRO purchase",
+        "Requires manual USB copy of My Clippings.txt from a Kindle device"
       ],
-      "privacyVerdict": "Pure client-side processing with zero observed network egress payloads or telemetry beacons during live testing. Highlights and personal annotations from My Clippings.txt are parsed in memory using JavaScript, keeping all reading data strictly private on your device.",
+      "privacyVerdict": "Zero outgoing network payloads observed during navigation, file upload, and Markdown export; parsing runs in the browser without requiring sign-in.",
       "alternativeTo": [
         "Readwise",
         "Clippings.io",
@@ -35102,30 +35105,30 @@
         "KindleMate"
       ],
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Uploaded authentic My Clippings.txt fixture containing 3 books and 3 highlights/notes. File parsed locally in 0ms with zero network requests. Tested Export as Markdown button to download a 234 bytes clean Markdown file without watermarks or login gates, verifying first-book free export logic.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-evaluated PRO banner anomaly: loaded sample clippings (3 books) and uploaded 2-book My Clippings.txt fixture (0ms max freeze, 0.03 CLS), then triggered Export as Markdown to download a 293 bytes MARKDOWN file with 0 outgoing network payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:34:28.181Z"
     },
     "zh": {
-      "bestFor": "希望将 Kindle 设备中的本地划线与读书笔记转换为干净的 Markdown、CSV 或 JSON，且绝不愿将阅读记录上传到云端服务器的 Kindle 读者与笔记爱好者",
+      "bestFor": "希望在浏览器本地将 Kindle 的 My Clippings.txt 转换为 Markdown、CSV 或 JSON 且不上传阅读记录的 Kindle 读者。",
       "pros": [
-        "零网络外传纯本地解析：直接在浏览器内存中解析 My Clippings.txt，绝不向外部服务器传输个人阅读隐私",
-        "多格式一键导出：支持导出为排版规整的 Markdown 引用块、表格化 CSV 以及结构化 JSON 数据",
-        "书籍折叠预览：按书籍自动聚合划线与随手笔记，清晰标注作者、页码及位置坐标",
-        "基于 GitHub Pages 静态托管开源工具，全流程无商业追踪或行为统计信标"
+        "直接在浏览器内存中本地解析 My Clippings.txt，实测零网络外发载荷",
+        "提供一键加载示例数据与本地文件上传两种入口",
+        "免登录即可导出无水印的 Markdown、CSV 与 JSON 文件"
       ],
       "cons": [
-        "免费导出仅包含文件中的第一本书籍内容，多本书籍的批量打包导出需付费购买 PRO 许可",
-        "需要通过 USB 数据线将 Kindle 设备连接至电脑手动拷贝 My Clippings.txt 文件"
+        "免费版仅支持导出文件中的第一本书，全部书籍批量导出需一次性购买 PRO",
+        "需要通过 USB 手动从 Kindle 设备拷贝 My Clippings.txt"
       ],
-      "privacyVerdict": "纯客户端本地处理，实测全程捕获到 0 个网络外发请求或分析信标。My Clippings.txt 中的高亮划线与个人读书笔记完全在浏览器内存中通过 JavaScript 解析，阅读隐私数据绝不离开本地设备。",
+      "privacyVerdict": "页面加载、上传测试文件与导出 Markdown 全程未观测到任何外发网络载荷，解析在浏览器端免登录完成。",
       "alternativeTo": [
         "Readwise",
         "Clippings.io",
@@ -35133,16 +35136,17 @@
         "KindleMate"
       ],
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "上传包含 3 本书籍与 3 条划线/笔记的真实 My Clippings.txt 测试文件。前端在 0ms 内完成本地解析，未发起任何网络请求。点击 Export as Markdown 按钮即时下载 234 bytes 的无水印 Markdown 文件，全程免登录，验证了免费首本导出逻辑。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "复测 PRO 提示异常：点击加载示例数据并上传含 2 本书的 My Clippings.txt 测试文件（0ms 最大阻塞、0.03 CLS），点击 Export as Markdown 成功下载 293 字节 MARKDOWN 文件，全程免登录且 0 外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:34:28.182Z"
     },
     "ja": {
       "bestFor": "Kindle 読者、研究者、Obsidian または Notion ユーザーは、読書履歴をクラウドにアップロードせずに、ローカル Kindle の切り抜きをクリーンな Markdown、CSV、または JSON に変換したいと考えています。",
@@ -35159,9 +35163,9 @@
       "privacyVerdict": "ライブ テスト中にネットワーク出力ペイロードやテレメトリ ビーコンが観測されない、純粋なクライアント側の処理。 My Clippings.txt のハイライトと個人的な注釈は、JavaScript を使用してメモリ内で解析され、すべての読み取りデータがデバイス上で厳密にプライベートに保たれます。",
       "benchmarkNotes": "3 冊の本と 3 つのハイライト/メモを含む本物の My Clippings.txt フィクスチャをアップロードしました。ファイルはネットワーク要求なしで 0 ミリ秒でローカルに解析されました。 「Markdown としてエクスポート」ボタンをテストして、透かしやログイン ゲートのない 234 バイトのクリーンな Markdown ファイルをダウンロードし、最初のブックの無料エクスポート ロジックを検証しました。",
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
@@ -35173,7 +35177,7 @@
         "Bookcision",
         "KindleMate"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "읽기 기록을 클라우드에 업로드하지 않고 로컬 Kindle 클리핑을 깨끗한 Markdown, CSV 또는 JSON으로 변환하려는 Kindle 독자, 연구원, Obsidian 또는 Notion 사용자",
@@ -35190,9 +35194,9 @@
       "privacyVerdict": "실시간 테스트 중에 관찰된 네트워크 송신 페이로드 또는 원격 측정 비콘을 사용하지 않는 순수한 클라이언트 측 처리입니다. My Clippings.txt의 하이라이트와 개인 주석은 JavaScript를 사용하여 메모리에서 구문 분석되어 모든 읽기 데이터를 장치에서 엄격하게 비공개로 유지합니다.",
       "benchmarkNotes": "3권의 책과 3개의 하이라이트/메모가 포함된 실제 My Clippings.txt 고정물을 업로드했습니다. 네트워크 요청 없이 0ms 내에 로컬로 구문 분석된 파일입니다. 워터마크나 로그인 게이트 없이 234바이트의 깨끗한 Markdown 파일을 다운로드하기 위한 Markdown으로 내보내기 버튼을 테스트하여 첫 번째 책 무료 내보내기 논리를 확인했습니다.",
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
@@ -35204,7 +35208,7 @@
         "Bookcision",
         "KindleMate"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Lectores de Kindle, investigadores y usuarios de Obsidian o Notion que deseen convertir recortes locales de Kindle en Markdown, CSV o JSON limpios sin cargar el historial de lectura en la nube.",
@@ -35221,9 +35225,9 @@
       "privacyVerdict": "Procesamiento puro del lado del cliente sin cargas útiles de salida de red ni balizas de telemetría observadas durante las pruebas en vivo. Los aspectos destacados y las anotaciones personales de My Clippings.txt se analizan en la memoria mediante JavaScript, lo que mantiene todos los datos de lectura estrictamente privados en su dispositivo.",
       "benchmarkNotes": "Se cargó un archivo My Clippings.txt auténtico que contiene 3 libros y 3 notas/resaltados. Archivo analizado localmente en 0 ms sin solicitudes de red. Botón Exportar como Markdown probado para descargar un archivo Markdown limpio de 234 bytes sin marcas de agua ni puertas de inicio de sesión, verificando la lógica de exportación gratuita del primer libro.",
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
@@ -35235,7 +35239,7 @@
         "Bookcision",
         "KindleMate"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Lecteurs Kindle, chercheurs et utilisateurs d'Obsidian ou Notion souhaitant convertir des coupures Kindle locales en Markdown, CSV ou JSON sans télécharger l'historique de lecture sur le cloud",
@@ -35252,9 +35256,9 @@
       "privacyVerdict": "Traitement côté client pur sans aucune charge utile de sortie réseau ni balise de télémétrie observée lors des tests en direct. Les faits saillants et les annotations personnelles de My Clippings.txt sont analysés en mémoire à l'aide de JavaScript, gardant toutes les données de lecture strictement privées sur votre appareil.",
       "benchmarkNotes": "Mise en ligne d'un montage My Clippings.txt authentique contenant 3 livres et 3 faits saillants/notes. Fichier analysé localement en 0 ms avec zéro requête réseau. Test du bouton Exporter en tant que Markdown pour télécharger un fichier Markdown propre de 234 octets sans filigrane ni portes de connexion, vérifiant la logique d'exportation gratuite du premier livre.",
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
@@ -35266,7 +35270,7 @@
         "Bookcision",
         "KindleMate"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Kindle-Leser, Forscher und Obsidian- oder Notion-Benutzer, die lokale Kindle-Ausschnitte in sauberes Markdown, CSV oder JSON konvertieren möchten, ohne den Leseverlauf in die Cloud hochzuladen",
@@ -35283,9 +35287,9 @@
       "privacyVerdict": "Reine clientseitige Verarbeitung ohne beobachtete Netzwerkausgangsnutzlasten oder Telemetrie-Beacons während Live-Tests. Hervorhebungen und persönliche Anmerkungen aus „My Clippings.txt“ werden mithilfe von JavaScript im Speicher analysiert, sodass alle Lesedaten auf Ihrem Gerät streng vertraulich bleiben.",
       "benchmarkNotes": "Authentische My Clippings.txt-Datei mit 3 Büchern und 3 Highlights/Notizen hochgeladen. Lokale Analyse der Datei in 0 ms ohne Netzwerkanfragen. Die Schaltfläche „Als Markdown exportieren“ wurde getestet, um eine 234 Byte große, saubere Markdown-Datei ohne Wasserzeichen oder Login-Gates herunterzuladen und die Logik für den kostenlosen Export im ersten Buch zu überprüfen.",
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
@@ -35297,7 +35301,7 @@
         "Bookcision",
         "KindleMate"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Leitores, pesquisadores e usuários do Obsidian ou Notion do Kindle que desejam converter recortes locais do Kindle em Markdown, CSV ou JSON limpos sem carregar o histórico de leitura para a nuvem",
@@ -35314,9 +35318,9 @@
       "privacyVerdict": "Processamento puro do lado do cliente com zero cargas úteis de saída de rede ou beacons de telemetria observados durante testes em tempo real. Destaques e anotações pessoais de My Clippings.txt são analisados ​​na memória usando JavaScript, mantendo todos os dados de leitura estritamente privados em seu dispositivo.",
       "benchmarkNotes": "Carregado dispositivo My Clippings.txt autêntico contendo 3 livros e 3 destaques/notas. Arquivo analisado localmente em 0 ms sem nenhuma solicitação de rede. Botão Exportar como Markdown testado para baixar um arquivo Markdown limpo de 234 bytes, sem marcas d'água ou portas de login, verificando a lógica de exportação gratuita do primeiro livro.",
       "productScore": {
-        "overall": 81,
+        "overall": 80,
         "frictionless": 18,
-        "depth": 18,
+        "depth": 17,
         "exportFreedom": 17,
         "privacy": 15,
         "polish": 13
@@ -35328,7 +35332,7 @@
         "Bookcision",
         "KindleMate"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "geometry-formulas-com-geometry-calculator": {
@@ -56091,19 +56095,18 @@
   },
   "dochost-io": {
     "en": {
-      "bestFor": "Web developers, technical writers, and students needing to publish and share rendered HTML pages or Markdown documents via instant public links without setting up GitHub Pages or registering accounts.",
+      "bestFor": "Developers, technical writers, and students needing to publish rendered HTML pages or Markdown files to an instant shareable link without account signup.",
       "pros": [
-        "Zero-configuration static hosting supporting drag-and-drop file uploads and direct markup pasting for HTML and Markdown",
-        "Automated Markdown parsing and live rendering with auto-detected format classification",
-        "Dual-link architecture providing a public viewing URL and a secret token-based edit URL for future in-place revisions",
-        "Single-click clipboard link export with integrated QR code generation and social sharing triggers"
+        "Instant drag-and-drop hosting for HTML and Markdown with automatic format detection",
+        "Generates both a shareable viewing URL and a secret token-based edit URL without registration",
+        "One-click Copy link export and QR/social sharing controls work immediately after publishing"
       ],
       "cons": [
-        "Free tier links are ephemeral with an automatic expiry window of 3 to 7 days",
-        "Emits multiple third-party telemetry payloads across Google Analytics, OpenPanel, and Cloudflare RUM",
-        "Custom slugs and password protection features are gated behind paid Pro plans"
+        "Free links expire automatically after 3 days (Private) or 7 days (Public on Explore)",
+        "Emits multiple third-party analytics/telemetry payloads (PostHog, OpenPanel, Google Analytics, Cloudflare RUM)",
+        "Custom slugs, password protection, branding removal, and permanent hosting require Pro"
       ],
-      "privacyVerdict": "Observed 31 outgoing network payloads including Google Analytics (POST www.google-analytics.com/g/collect), OpenPanel (openpanel.xhorizon.org/api/track), Google Ad/DoubleClick beacons, and Cloudflare RUM (/cdn-cgi/rum). Uploaded or pasted HTML/Markdown files are transmitted to dochost servers to generate public sharing URLs and token-guarded edit endpoints; free tier links remain active for 3 to 7 days.",
+      "privacyVerdict": "Observed 24 outgoing network payloads including POST /, POST /cdn-cgi/rum, POST openpanel.xhorizon.org/api/track, POST us.i.posthog.com/flags/, POST us.i.posthog.com/e/, and POST www.google-analytics.com/g/collect. Uploaded files are sent to dochost servers to generate share and edit links without login.",
       "alternativeTo": [
         "Surge.sh",
         "Tiiny Host",
@@ -56119,24 +56122,23 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Uploaded sample.md fixture file; system auto-detected Markdown format and published the document to https://dochost.co/d/vm2vb4fa?v=c. Captured 33-character public share URL via the Copy link button in 0ms with zero task freeze.",
+      "benchmarkNotes": "Re-evaluated Upgrade to Pro anomaly: uploaded sample.md fixture, selected Private visibility, clicked Get my link to publish https://dochost.co/d/ogyaihoz?v=c, and triggered Copy link for a 33-char TEXT clipboard capture (63 ms max task, 0.05 CLS, 24 outgoing payloads).",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-05T02:36:54.676Z"
+      "contentUpdatedAt": "2026-11-24T02:36:53.608Z"
     },
     "zh": {
-      "bestFor": "需要快速将 HTML 页面或 Markdown 文档发布为可分享网页链接、免除 GitHub Pages 配置与账号注册的 Web 开发者、技术写作者与学生。",
+      "bestFor": "需要将 HTML 页面或 Markdown 文档免注册快速托管并生成可分享网页链接的开发者、技术写作者与学生。",
       "pros": [
-        "零配置静态托管，支持拖拽上传或直接粘贴 HTML 与 Markdown 文件",
-        "自动化 Markdown 语法解析与实时页面渲染，具备文件格式自动识别机制",
-        "双链接架构，同时生成公开访问短链与基于密钥 Token 的原地二次编辑链接",
-        "一键剪贴板导出公开链接，内置二维码生成与社交分享快捷操作"
+        "支持免登录拖拽上传 HTML 与 Markdown 文件并自动识别格式渲染托管",
+        "发布后同时生成公开分享链接与基于密钥 Token 的原地编辑链接",
+        "支持一键 Copy link 复制链接以及二维码分享"
       ],
       "cons": [
-        "免费版网页链接具有时效性，将在 3 至 7 天后自动失效",
-        "页面包含发送至 Google Analytics、OpenPanel 与 Cloudflare RUM 的多项第三方遥测分析",
-        "自定义子路径短链与访问密码保护功能需要付费 Pro 计划支持"
+        "免费链接存在有效期限制，私密链接 3 天过期、公开链接 7 天过期",
+        "页面会向 PostHog、OpenPanel、Google Analytics 与 Cloudflare RUM 发送多项第三方分析遥测",
+        "自定义短链、密码保护、去品牌与永久保存需升级 Pro 套餐"
       ],
-      "privacyVerdict": "网络监控记录到 31 次出站网络请求，涉及 Google Analytics（POST www.google-analytics.com/g/collect）、OpenPanel（openpanel.xhorizon.org/api/track）、Google 广告信标以及 Cloudflare RUM（/cdn-cgi/rum）。上传或粘贴的 HTML/Markdown 内容需传输至 dochost 服务端以生成公开访问短链与管理 Token，免费版页面具备 3 至 7 天的时效保留期。",
+      "privacyVerdict": "实测共观测到 24 次外发网络载荷，包括 POST /、POST /cdn-cgi/rum、POST openpanel.xhorizon.org/api/track、POST us.i.posthog.com/flags/、POST us.i.posthog.com/e/ 及 POST www.google-analytics.com/g/collect。上传文件传输至服务端以生成访问与编辑链接。",
       "alternativeTo": [
         "Surge.sh",
         "Tiiny Host",
@@ -56152,9 +56154,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "上传了 sample.md 样例测试文件，系统自动识别为 Markdown 格式并成功发布生成 https://dochost.co/d/vm2vb4fa?v=c。通过 Copy link 按钮以 0ms 耗时截获 33 字符公开链接，主线程运行平稳无卡顿。",
+      "benchmarkNotes": "复测 Upgrade to Pro 提示异常：上传 sample.md 测试文件，选择 Private 可见性并点击 Get my link 成功发布 https://dochost.co/d/ogyaihoz?v=c，随后通过 Copy link 复制 33 字符 TEXT 链接（最大阻塞 63ms，CLS 0.05，24 次外发载荷）。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-05T02:36:54.676Z"
+      "contentUpdatedAt": "2026-11-24T02:36:53.608Z"
     },
     "ja": {
       "bestFor": "Web 開発者、テクニカル ライター、学生は、GitHub Pages を設定したりアカウントを登録したりすることなく、インスタント パブリック リンク経由でレンダリングされた HTML ページまたは Markdown ドキュメントを公開および共有する必要があります。",
@@ -82133,6 +82135,378 @@
       "benchmarkNotes": "实测 https://slpagecalc.com/：输入出生日期 2020-05-14 与评估日期 2026-11-22（最大主线程阻塞 66ms，CLS 0.02），算得 6 岁 6 个月 8 天（6;06;08），通过“Copy sentence”导出 25 字符纯净文本，并验证了 Batch 批量模式。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-22T03:07:31.092Z"
+    }
+  },
+  "yougkxm-github-io": {
+    "en": {
+      "bestFor": "Etsy, Gumroad, and Shopify sellers calculating net profit per order, return impact, break-even price, and target-margin pricing without signing in.",
+      "pros": [
+        "Pre-configured 2026 fee presets for Etsy, Gumroad Direct, Gumroad Discover, and Shopify/Custom rates",
+        "Instant live calculation of net profit, break-even price, target-margin price, and 100-order breakdown",
+        "One-click Copy this summary exports clean 7-line text breakdown without watermarks or login"
+      ],
+      "cons": [
+        "Export is limited to plain-text clipboard summary with no CSV or JSON download",
+        "Multi-SKU Excel/workbook bundle is promoted as a paid upsell ($14.99)"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads or telemetry beacons observed during initial load, price edits, preset switching, and clipboard export; calculations update live in the browser without login.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Selected Gumroad Direct preset and filled Sale price 45, updating net profit to $21.98 (48.8% net margin) and break-even price to $16.97 with 0ms max freeze and 0.00 CLS; Copy this summary captured 219 chars (7 lines) TEXT clipboard output.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:38:35.512Z"
+    },
+    "zh": {
+      "bestFor": "需要免登录核算 Etsy、Gumroad 与 Shopify 单笔订单净利润、退货损耗、保本价及目标利润率定价的线上卖家。",
+      "pros": [
+        "内置 Etsy、Gumroad Direct、Gumroad Discover 与 Shopify/自定义 2026 年费率预设",
+        "输入即实时计算单笔净利润、保本价、目标利润定价与百单明细拆解",
+        "支持一键复制纯文本汇总结果，无水印且无需注册"
+      ],
+      "cons": [
+        "导出仅支持剪贴板文本汇总，缺少 CSV 或 JSON 表格导出",
+        "页面内包含多 SKU 离线表格（$14.99）的付费推广卡片"
+      ],
+      "privacyVerdict": "页面加载、参数修改、平台预设切换与剪贴板导出全程未观测到任何外发网络载荷或统计信标，计算在浏览器端免登录实时完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "切换至 Gumroad Direct 预设并修改售价为 45，净利润实时更新为 $21.98（净利率 48.8%）、保本价 $16.97，主线程最大阻塞 0ms、CLS 0.00；点击 Copy this summary 导出 219 字符（7 行）TEXT 摘要。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:38:35.513Z"
+    }
+  },
+  "agentonduty-neocities-org-apple-health-to-excel-free": {
+    "en": {
+      "bestFor": "iPhone and Apple Watch users wanting to convert Apple Health export.xml or export.zip files into Excel (.xlsx) spreadsheets in the browser without uploading health records.",
+      "pros": [
+        "Parses Apple Health XML exports locally in the browser with zero outgoing payloads observed",
+        "Detects available health metrics with record counts and date ranges before generating Excel output",
+        "Produces clean .xlsx spreadsheets directly via browser download without sign-in or watermarks"
+      ],
+      "cons": [
+        "Free web tier limits exports to the last 30 days and up to 3 metrics per run",
+        "Custom date filtering and raw CSV export require purchasing the standalone full version"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads or telemetry beacons observed while uploading export.xml, parsing metrics, and downloading the .xlsx spreadsheet; core parsing executes without login.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded synthetic Apple Health export.xml (3 records across Step Count and Heart Rate), clicked Read file (0 jank, 0.00 CLS), and exported Apple_Health_2026-11-22_2026-11-23.xlsx (14617 bytes ZIP/XLSX format) with 0 outgoing payloads.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:40:15.267Z"
+    },
+    "zh": {
+      "bestFor": "希望免上传、免登录将 iPhone/Apple Watch 的 Apple Health export.xml 或 export.zip 转换为 Excel (.xlsx) 表格的用户。",
+      "pros": [
+        "在浏览器端本地解析 Apple Health XML 导出文件，实测零外发网络载荷",
+        "读取后自动列出健康指标、记录条数及起止日期并支持勾选导出",
+        "免登录直接下载干净无水印的 .xlsx Excel 文件"
+      ],
+      "cons": [
+        "免费版仅支持导出文件中最近 30 天内最多 3 项指标",
+        "自定义日期筛选与原始 CSV 导出需购买完整版"
+      ],
+      "privacyVerdict": "上传 export.xml、解析健康指标与下载 .xlsx 表格全过程未观测到任何外发网络载荷或统计信标，无需账号登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传包含步数与心率 3 条记录的 Apple Health export.xml 测试文件，点击 Read file（0 卡顿、CLS 0.00），点击 Download Excel 成功下载 14617 字节 ZIP/XLSX 格式文件，全程 0 外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:40:15.268Z"
+    }
+  },
+  "toolmight-com": {
+    "en": {
+      "bestFor": "Web and backend developers needing a unified browser workspace of 49+ utilities, builders, and visualizers such as JSON formatting, key sorting, and TypeScript generation without signing in.",
+      "pros": [
+        "Unified suite of 49+ browser-based developer tools, builders, and algorithm visualizers with Ctrl+K quick search",
+        "JSON Formatter & Validator supports formatting, minifying, alphabetical key sorting, TypeScript type generation, and depth/key metrics",
+        "Direct clean JSON file download and Copy Output without watermarks or login gates"
+      ],
+      "cons": [
+        "Emits third-party analytics and session telemetry beacons (Google Analytics, DoubleClick, Microsoft Clarity, Cloudflare RUM)"
+      ],
+      "privacyVerdict": "Observed 21 outgoing network payloads during navigation and tool testing, including Google Analytics (analytics.google.com/g/collect), DoubleClick (stats.g.doubleclick.net/g/collect), Microsoft Clarity (p.clarity.ms/collect), and Cloudflare RUM (/cdn-cgi/rum). Tested JSON formatting and sorting executed in the browser without uploading payload content to a processing API.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Opened JSON Formatter & Validator via search, entered minified JSON, ran SORT KEYS (producing 84 chars, 4 keys, Depth 3 output), and downloaded an 84-byte JSON artifact via Download JSON with 109 ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:45:57.889Z"
+    },
+    "zh": {
+      "bestFor": "需要免登录使用 49+ 开发者工具、生成器与算法可视化工作台的 Web 与后端开发者。",
+      "pros": [
+        "聚合 49+ 浏览器端开发者工具、生成器与算法可视化模块，支持 Ctrl+K 快速检索",
+        "JSON 格式化与校验器支持美化、压缩、按键名排序、TypeScript 类型生成及键数/深度统计",
+        "支持无水印直接下载 JSON 文件或一键复制输出，全程免登录"
+      ],
+      "cons": [
+        "页面运行期间会向 Google Analytics、DoubleClick、Microsoft Clarity 与 Cloudflare RUM 发送统计遥测"
+      ],
+      "privacyVerdict": "页面导航与实测期间共观测到 21 次外发网络载荷，包含 Google Analytics（analytics.google.com/g/collect）、DoubleClick（stats.g.doubleclick.net/g/collect）、Microsoft Clarity（p.clarity.ms/collect）及 Cloudflare RUM（/cdn-cgi/rum）。测试的 JSON 格式化与排序在浏览器端完成，未上传用户输入数据至后端处理接口。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 18,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "通过站内搜索打开 JSON Formatter & Validator，输入压缩 JSON 并点击 SORT KEYS 生成 84 字符（4 个键、Depth 3）格式化结果，随后点击 Download JSON 下载 84 字节 JSON 文件，主线程最大阻塞 109ms、CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:45:57.889Z"
+    }
+  },
+  "strikethroughgen-com": {
+    "en": {
+      "bestFor": "Social media writers and messaging users generating Unicode strikethrough, slash, and styled text variants with chat-bubble preview and .txt download without logging in.",
+      "pros": [
+        "Generates multiple Unicode strikethrough styles simultaneously with character count tracking and chat-bubble preview",
+        "Includes a toggle to strike through spaces and a dedicated Remove Strikethrough utility",
+        "Supports one-click per-style Copy, Copy all styles, and clean .txt file download without sign-in"
+      ],
+      "cons": [
+        "Narrow single-task Unicode text-styling scope",
+        "Emits Cloudflare RUM telemetry beacons (POST /cdn-cgi/rum) and shows initial CLS of 0.20"
+      ],
+      "privacyVerdict": "Observed 2 outgoing Cloudflare RUM payloads (POST /cdn-cgi/rum) during the session; entered text is transformed client-side in the browser without requiring user authentication or sending text to a formatting API.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Filled 'Hello nologin tools' into the input textarea, unchecked Strike through spaces too (updating character count to 19 / 36 after strikethrough), and triggered Download .txt to export a 2034-byte text file with 52 ms max freeze and 0.20 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:48:35.054Z"
+    },
+    "zh": {
+      "bestFor": "需要免登录生成 Unicode 删除线、斜杠等文本样式并预览聊天气泡效果或下载 .txt 文件的社交媒体写作者。",
+      "pros": [
+        "实时生成多种 Unicode 删除线样式，提供字符数统计与聊天气泡预览",
+        "支持开关空格删除线选项，并提供去除删除线辅助工具",
+        "支持单样式复制、一键复制全部样式及无水印 .txt 文件下载"
+      ],
+      "cons": [
+        "功能聚焦于单一 Unicode 文本样式转换",
+        "加载期间会发送 Cloudflare RUM 遥测（POST /cdn-cgi/rum），首屏存在 0.20 CLS"
+      ],
+      "privacyVerdict": "实测期间观测到 2 次 Cloudflare RUM 外发载荷（POST /cdn-cgi/rum）；输入文本在浏览器端免登录转换，未发送至服务端处理接口。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在输入框填写 'Hello nologin tools' 并取消勾选 Strike through spaces too（字符统计更新为 19 / 36），点击 Download .txt 导出 2034 字节文本文件，最大阻塞 52ms、CLS 0.20。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:48:35.054Z"
+    }
+  },
+  "tattoofontgen-com": {
+    "en": {
+      "bestFor": "Tattoo planners and lettering artists previewing custom phrases at physical inch/cm dimensions across body placements with ink-blur warnings and 300 dpi stencil exports without signing in.",
+      "pros": [
+        "Real-size ruler preview with body-placement presets (Finger, Wrist, Forearm, Collarbone, Ribs, Upper back) and photo overlay mode",
+        "Calculates ink-blur risk ('Holds up' vs 'May blur') from physical width, lowercase height, and loop geometry",
+        "Exports clean 300 dpi PNG, SVG vector, Print-at-size output, and state-encoded share links without login"
+      ],
+      "cons": [
+        "Emits Cloudflare RUM telemetry (POST /cdn-cgi/rum) on page interactions"
+      ],
+      "privacyVerdict": "Observed 2 outgoing Cloudflare RUM payloads (POST /cdn-cgi/rum) during testing; lettering sizing, legibility diagnostics, and 300 dpi PNG export run in the browser without requiring an account.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Entered 'Memento mori' into text input, selected Wrist placement (1.75 in / 4.44 cm), switched font to Hurricane (triggering 'May blur' legibility warning), and exported a 21627-byte 555x110 PNG via Download PNG (300 dpi) with 186 ms max freeze and 0.01 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:50:43.177Z"
+    },
+    "zh": {
+      "bestFor": "希望免登录按真实厘米/英寸尺寸预览纹身文字效果、评估细线晕色风险并导出 300 dpi PNG 或 SVG 模板的纹身规划者与设计者。",
+      "pros": [
+        "支持按真实物理尺寸标尺预览，并提供手指、手腕、前臂、锁骨等部位预设及照片叠加模式",
+        "根据文字宽度、字高与笔画环径自动评估「Holds up」或「May blur」晕色风险",
+        "免登录直接导出无水印 300 dpi PNG、SVG 矢量图、按尺寸打印及参数化分享链接"
+      ],
+      "cons": [
+        "页面交互期间会发送 Cloudflare RUM 遥测信标（POST /cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "实测期间观测到 2 次 Cloudflare RUM 外发载荷（POST /cdn-cgi/rum）；文字尺寸测算、清晰度诊断与 300 dpi PNG 导出均在浏览器端免登录完成。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 82,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "输入 'Memento mori' 并选择 Wrist 部位预设（1.75 in / 4.44 cm），切换至 Hurricane 字体触发「May blur」清晰度提示，随后通过 Download PNG (300 dpi) 导出 21627 字节 555x110 PNG 文件，最大阻塞 186ms、CLS 0.01。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T02:50:43.177Z"
+    }
+  },
+  "pic2svg-com-svg-cut-file-checker": {
+    "en": {
+      "bestFor": "Cricut, Silhouette, Brother ScanNCut, and laser-cutter makers checking SVG files for open paths, live text, stroke-only shapes, hidden objects, and DPI sizing issues without signing in.",
+      "pros": [
+        "Audits SVG markup locally in the browser across 9 cut-readiness checks including open outlines, stroke-only shapes, and 96 vs 72 DPI sizing",
+        "Provides clear remediation steps for Inkscape and Illustrator alongside a built-in Try a sample test file",
+        "Runs immediately without account registration or uploading user SVG files to a conversion API"
+      ],
+      "cons": [
+        "Read-only diagnostic report with no downloadable report or automated SVG fix export",
+        "Emits third-party analytics/RUM telemetry (PostHog, Microsoft Clarity, Cloudflare RUM, pvuv.ai) and exhibits 0.57 CLS on result expansion"
+      ],
+      "privacyVerdict": "Observed 9 outgoing telemetry payloads during the session (POST /cdn-cgi/rum, POST us.i.posthog.com/e/, POST q.clarity.ms/collect, POST in.pvuv.ai/in); tested SVG XML parsing ran client-side in the browser without uploading the SVG file to a backend endpoint.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.svg fixture and clicked Check SVG (detecting 4 issues including 9/12 open outlines, 1 background shape, 2 stroke-only shapes, 2 live text nodes, and 800x600 px 96/72 DPI dimensions), then tested Try a sample (5 issues, 2 passed) with 236 ms max freeze and 0.57 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T03:10:12.086Z"
+    },
+    "zh": {
+      "bestFor": "使用 Cricut、Silhouette、Brother ScanNCut 或激光切割机前，希望免登录检查 SVG 开放路径、未转曲文本、纯描边与尺寸 DPI 问题的创作者。",
+      "pros": [
+        "在浏览器端检查 SVG 标记的 9 项切割就绪指标，覆盖开放轮廓、纯描边、隐藏元素与 96/72 DPI 尺寸换算",
+        "针对每项问题给出 Inkscape 与 Illustrator 修复指引，并提供一键 Try a sample 示例测试",
+        "无需注册登录，也不会将用户 SVG 文件上传至远端处理接口"
+      ],
+      "cons": [
+        "仅提供诊断报告展示，不支持导出检查报告或自动修复后的 SVG",
+        "存在第三方分析遥测（PostHog、Microsoft Clarity、Cloudflare RUM、pvuv.ai），结果展开时 CLS 为 0.57"
+      ],
+      "privacyVerdict": "实测期间观测到 9 次外发遥测载荷（POST /cdn-cgi/rum、POST us.i.posthog.com/e/、POST q.clarity.ms/collect、POST in.pvuv.ai/in）；SVG XML 解析在浏览器端本地完成，未将测试 SVG 上传至服务端。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 13,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 sample.svg 并点击 Check SVG（检出 4 项待处理问题，含 9/12 开放路径、1 个背景形状、2 个纯描边、2 处未转曲文字及 800x600 px 尺寸换算），随后测试 Try a sample（检出 5 项问题、2 项通过），最大阻塞 236ms、CLS 0.57。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T03:10:12.087Z"
+    }
+  },
+  "boringutils-com-chart-link": {
+    "en": {
+      "bestFor": "Engineers, product managers, and analysts turning CSV or JSON snippets into clean PNG or SVG charts for READMEs, Slack, emails, and slides without signing in.",
+      "pros": [
+        "Supports both CSV and JSON input with live switching between raw Text and editable Table views",
+        "Renders Bar, Horizontal bar, Line, and Area charts with Side-by-side or Stacked options and URL-hash state sharing",
+        "Exports watermark-free 1600x800 PNG, SVG, clipboard PNG/SVG, and shareable editor links without login"
+      ],
+      "cons": [
+        "Emits analytics and Cloudflare RUM telemetry (POST /cdn-cgi/rum, POST /api/event) during sessions"
+      ],
+      "privacyVerdict": "Observed 4 outgoing telemetry payloads during the session (POST /cdn-cgi/rum and POST /api/event); pasted CSV data and chart rendering ran client-side in the browser without uploading dataset values or requiring an account.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Clicked Make a chart, pasted a 4-row CSV dataset, switched to editable Table view, switched from Line to Side-by-side Bar chart, and triggered Download PNG to export a 56936-byte 1600x800 PNG with 86 ms max freeze, 0.00 CLS, and #chart= URL hash persistence.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T03:19:35.337Z"
+    },
+    "zh": {
+      "bestFor": "希望免登录将 CSV 或 JSON 数据快速生成用于 README、Slack、邮件或幻灯片的干净 PNG/SVG 图表的工程师与产品分析人员。",
+      "pros": [
+        "同时支持 CSV 与 JSON 输入，并在纯文本与可编辑表格视图间无缝切换",
+        "提供柱状图、横向柱状图、折线图、面积图与并列/堆叠模式，支持 URL Hash 状态分享",
+        "免登录直接导出无水印 1600x800 PNG、SVG 文件，或复制 PNG/SVG 与编辑链接"
+      ],
+      "cons": [
+        "会话期间会发送统计事件与 Cloudflare RUM 遥测（POST /cdn-cgi/rum、POST /api/event）"
+      ],
+      "privacyVerdict": "实测期间观测到 4 次外发遥测载荷（POST /cdn-cgi/rum 与 POST /api/event）；输入的 CSV 数据解析与图表绘制在浏览器端完成，未上传数据集至后端或要求登录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "点击 Make a chart 后输入 4 行 CSV 数据，切换至 Table 可编辑表格并由折线图切换为并列柱状图，点击 Download PNG 导出 56936 字节 1600x800 PNG 图片（最大阻塞 86ms、CLS 0.00），状态同步写入 #chart= URL 哈希。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-24T03:19:35.338Z"
     }
   }
 }

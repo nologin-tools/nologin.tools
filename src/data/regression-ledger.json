@@ -5,6 +5,17 @@
     "lastTitle": "Free SAT Practice & Question Bank | 1600.now",
     "lastSignals": []
   },
+  "agentonduty-neocities-org-apple-health-to-excel-free": {
+    "lastDeepEvalAt": "2026-11-24T02:40:15.290Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-24T02:40:15.290Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:40:15.290Z"
+  },
   "aicost-tools": {
     "lastDeepEvalAt": "2026-11-06T02:47:57.873Z",
     "lastResolution": {
@@ -336,6 +347,17 @@
     "lastScanAt": "2026-11-16T06:18:40.148Z",
     "lastTitle": "Face Blur Effect Online — Blur Faces in Photos | Blur Face",
     "lastSignals": []
+  },
+  "boringutils-com-chart-link": {
+    "lastDeepEvalAt": "2026-11-24T03:19:35.364Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-24T03:19:35.364Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T03:19:35.364Z"
   },
   "breachline-io-tools": {
     "lastDeepEvalAt": "2026-11-09T03:19:24.990Z",
@@ -796,30 +818,17 @@
     "lastSignals": []
   },
   "db-fiddle-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-11-23T06:16:17.287Z",
-        "lastSeenAt": "2026-11-23T06:16:17.287Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-intent-1795414566310.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-db-fiddle-com-outcome-1795414566310.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-23T06:16:17.287Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:35:37.327Z",
     "lastTitle": "DB Fiddle - SQL Database Playground",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-14T02:39:07.914Z",
+    "lastDeepEvalAt": "2026-11-24T02:35:37.327Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Loaded example schema, ran query against MySQL sandbox successfully, and exported results via Copy as Markdown. Core SQL execution and Markdown export are completely free without login; PRO is only for private fiddles.",
-      "at": "2026-11-14T02:39:07.914Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-24T02:35:37.327Z",
       "closed": [
         "paywall_copy"
       ]
@@ -899,30 +908,17 @@
     "lastSignals": []
   },
   "dochost-io": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-23T06:16:33.722Z",
-        "lastSeenAt": "2026-11-23T06:16:33.722Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-intent-1795414577403.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-dochost-io-outcome-1795414577403.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-23T06:16:33.722Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:36:53.630Z",
     "lastTitle": "HTML to URL & Markdown to HTML — Free HTML Host | dochost",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-14T02:41:44.193Z",
+    "lastDeepEvalAt": "2026-11-24T02:36:53.630Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Uploaded sample.md and published public live URL successfully. Link copying is free without login; Pro banner is an upsell for custom slug and permanent retention.",
-      "at": "2026-11-14T02:41:44.193Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-24T02:36:53.630Z",
       "closed": [
         "paywall_copy"
       ]
@@ -2692,6 +2688,17 @@
     "lastTitle": "Live Photo & Motion Photo Tools Online | PhotoReady",
     "lastSignals": []
   },
+  "pic2svg-com-svg-cut-file-checker": {
+    "lastDeepEvalAt": "2026-11-24T03:10:12.109Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-24T03:10:12.109Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T03:10:12.109Z"
+  },
   "piccollages-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-17T06:28:17.130Z",
@@ -3523,6 +3530,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-18T02:56:12.939Z"
   },
+  "strikethroughgen-com": {
+    "lastDeepEvalAt": "2026-11-24T02:48:35.072Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-24T02:48:35.072Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:48:35.072Z"
+  },
   "studycalcpro-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-19T06:05:57.450Z",
@@ -3604,6 +3622,17 @@
     "lastScanAt": "2026-11-19T06:08:00.399Z",
     "lastTitle": "US Import Duty Stack & Landed Cost Calculator 2026",
     "lastSignals": []
+  },
+  "tattoofontgen-com": {
+    "lastDeepEvalAt": "2026-11-24T02:50:43.203Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-24T02:50:43.203Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:50:43.203Z"
   },
   "teachablemachine-withgoogle-com": {
     "openAnomalies": [],
@@ -3804,6 +3833,17 @@
     "lastScanAt": "2026-11-20T06:07:16.338Z",
     "lastSignals": [],
     "lastTitle": "Tmp.tf - Transfer Freely"
+  },
+  "toolmight-com": {
+    "lastDeepEvalAt": "2026-11-24T02:45:57.915Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-24T02:45:57.915Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:45:57.915Z"
   },
   "tools-berry-com": {
     "openAnomalies": [],
@@ -4555,30 +4595,17 @@
     "lastSignals": []
   },
   "xueboyang1985-github-io-kindle-exporter": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to PRO\"",
-        "firstSeenAt": "2026-11-23T06:15:18.130Z",
-        "lastSeenAt": "2026-11-23T06:15:18.130Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-intent-1795414505689.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-xueboyang1985-github-io-kindle-exporter-outcome-1795414505689.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-23T06:15:18.130Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:34:28.222Z",
     "lastTitle": "Kindle Highlights Exporter - Export Kindle Clippings to Markdown, CSV, JSON",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-14T02:36:58.463Z",
+    "lastDeepEvalAt": "2026-11-24T02:34:28.222Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Real fixture upload and Markdown export verified. Single-book conversion is free without login; PRO banner is an upsell for multi-book batch export.",
-      "at": "2026-11-14T02:36:58.463Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-24T02:34:28.222Z",
       "closed": [
         "paywall_copy"
       ]
@@ -4589,6 +4616,17 @@
     "lastScanAt": "2026-11-14T06:27:59.237Z",
     "lastTitle": "Yopass: encrypted secret sharing you host yourself",
     "lastSignals": []
+  },
+  "yougkxm-github-io": {
+    "lastDeepEvalAt": "2026-11-24T02:38:35.534Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-24T02:38:35.534Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-24T02:38:35.534Z"
   },
   "z-ai": {
     "openAnomalies": [],
