@@ -255,6 +255,12 @@
     "description": "一站式访问 270 多款涵盖大模型 Token 测算、金融投资、健康与数学计算等完全在浏览器本地运行的实用小工具。",
     "coreTask": "无需创建账号，即可在 270 余款纯本地工具中进行运算并导出结果卡片。"
   },
+  "calendar-tanfujun-com": {
+    "_hash": "e64f5565b9fbfdf3",
+    "description": "并排对照型 PDF/图片日程转日历工具，支持逐条核对提取的事件日期与时间并免登录导出标准 .ics 文件。",
+    "coreTask": "打开日程 PDF 或示例通知，对照原文预览核对事件详情并下载 .ics 日历文件。",
+    "contentUpdatedAt": "2026-11-25T02:55:26.134Z"
+  },
   "calendarforge-net-make-calendar": {
     "_hash": "861f5da891389018",
     "description": "高度可定制的免注册月历排版工具，支持多国节假日叠加、单日备忘录与 SVG、PDF、ICS、CSV、XLSX 多格式导出。",
@@ -814,6 +820,12 @@
     "coreTask": "免登录创建带有撤回密钥的短链接、配置 Webhook 触发告警的金丝雀链接，随时一键作废与删除短链",
     "description": "一款无需登录且提供完整 API 的隐私短链接工具。其独特之处在于每个生成的短网址都配有一枚独立的撤销密钥（Revocation Key），用户无需注册账号即可凭借密钥随时撤销或停用链接，全面掌控短链生命周期。"
   },
+  "gamedevtool-com-roblox-tax-calculator": {
+    "_hash": "bae0428f31e54fa8",
+    "description": "Roblox 市场税费计算器，即时计算扣除 30% 平台抽成后的净收益、含税标价、DevEx 美元估值并支持剪贴板复制。",
+    "coreTask": "输入 Robux 数量并选择交易类型，查看税后实收与含税定价，并复制结算明细至剪贴板。",
+    "contentUpdatedAt": "2026-11-25T02:49:58.905Z"
+  },
   "gantt-chart-io": {
     "coreTask": "粘贴任务列表即刻生成甘特图并分享链接，无需注册即可试用",
     "description": "只需粘贴待办清单或文字段落，即可实时生成甘特图。AI 可提出排期建议，但在你确认之前不会直接修改日程。无需账号即可试用；如需永久保存，付费方案为每月 12 美元起。"
@@ -850,6 +862,12 @@
     "description": "基于浏览器的手势与键盘复音合成器工作台，可在线调制模拟音色并直接内录音频，无需安装插件或登录。",
     "coreTask": "选择调式音阶，通过键盘快捷键或手势触发复音和弦演奏，并一键导出内录的 WebM 高品质音频文件。",
     "contentUpdatedAt": "2026-11-07T03:01:23.919Z"
+  },
+  "getestimatedesk-com-tools-painting-estimate-follow-up": {
+    "_hash": "5305421dd53a822b",
+    "description": "面向油漆与橱柜翻新业务的免费报价跟进消息生成器，支持按场景与项目类型生成可编辑邮件草稿并复制。",
+    "coreTask": "选择跟进场景与项目类型，生成并修改跟进消息草稿，然后复制至剪贴板。",
+    "contentUpdatedAt": "2026-11-25T02:59:23.871Z"
   },
   "getspellgenie-com": {
     "_hash": "c1d370b5522c2155",
@@ -1069,6 +1087,12 @@
     "description": "免注册浏览器端 AI 视频提示词生成器，为 Grok、Kling、Hailuo 等模型快速排版动态与镜头描述。",
     "coreTask": "生成 AI 视频模型运动提示词"
   },
+  "imgflow-taoliapp-com-en": {
+    "_hash": "e57621c0e4814cc3",
+    "description": "本地运行的多格式图片压缩与转换工具，支持分屏画质对比、默认剥离 EXIF/GPS 信息、离线 PWA 安装与批量处理。",
+    "coreTask": "拖入或选择图片，调整 Fine-tune 微调与格式设置，对比压缩前后效果并下载输出图片。",
+    "contentUpdatedAt": "2026-11-25T02:56:53.259Z"
+  },
   "imgrove-com": {
     "description": "免费的浏览器本地图片工具集合，涵盖格式转换、图片压缩、调整尺寸、简单编辑、元数据查看及导出。所有图片完全保留在本地设备上处理，无水印、免登录、无需注册账号。",
     "coreTask": "在浏览器本地免费进行图片转换、压缩、调整尺寸、编辑与元数据查看，保护隐私免登录"
@@ -1106,6 +1130,12 @@
     "seoDescription": "上传或粘贴 SVG，文件大小立即缩减，画质无损。基于浏览器，由 SVGO 驱动——无上传限制，无需账号。",
     "seoFocusKeyword": "在线 SVG 优化器免费",
     "seoTaskPhrase": "无需注册优化和压缩 SVG 文件"
+  },
+  "jobinterviewat-com-pay-raise-calculator": {
+    "_hash": "c2c7af31c9e1786c",
+    "description": "调薪计算器，将时薪或年薪涨幅换算为各发薪周期的新旧对比表，并与 CPI 通胀率及行业加薪基准进行对比。",
+    "coreTask": "输入当前时薪或年薪以及加薪百分比或金额，点击 Calculate 查看各周期薪资变化及跑赢通胀幅度。",
+    "contentUpdatedAt": "2026-11-25T02:53:39.434Z"
   },
   "jottools-com": {
     "coreTask": "转换 HEIC、SVG 与各类图片，压缩与裁剪照片，合并与压缩 PDF，生成二维码，调色与生成 CSS 渐变，格式化 JSON 等 130 多款免登录工具",
@@ -1177,6 +1207,12 @@
     "_hash": "92294a736326ef5b",
     "description": "Kuakua.app 是您的 AI 驱动心理健康资源、正念冥想和积极心理学游戏中心。参加科学测验，玩益脑任务，解锁每日肯定语，随时随地感受更幸福、更平静、更有韧性。",
     "coreTask": "提供全球心理学资源综合集合、体验式心理学内容和各种积极心理学工具"
+  },
+  "lab-haoming-luo-com-morph": {
+    "_hash": "aafbc6efe0085a9b",
+    "description": "面向可编程柔性结构（柔性杆）的交互式逆向设计实验室，支持目标点求解、手绘曲线拟合、多分支探索及致动参数 JSON 导出。",
+    "coreTask": "在实时力学画布上调整目标形态或致动参数，预览准静态加载过程并导出设计 JSON 文件。",
+    "contentUpdatedAt": "2026-11-25T02:48:07.283Z"
   },
   "languagetool-org": {
     "_hash": "3446ed68ac96dc6d",
@@ -1369,6 +1405,12 @@
   "morsecodetranslator-tools": {
     "coreTask": "无需创建账号，双向互转普通文本与摩尔斯电码",
     "description": "直接在浏览器中即时将文本转换为摩尔斯电码，或将摩尔斯电码还原为文本。"
+  },
+  "morsecove-com": {
+    "_hash": "4290d140d85146eb",
+    "description": "支持双向转换的在线摩斯电码翻译器，可调节语速（WPM）与音调频率（Hz），提供字符脉冲可视化并支持直接下载 WAV 音频。",
+    "coreTask": "在文本与摩斯电码之间双向转换，在浏览器中合成可调参数的音频信号并导出 WAV 文件。",
+    "contentUpdatedAt": "2026-11-25T02:39:38.890Z"
   },
   "mp3cut-net": {
     "_hash": "b5af830b325d39a0",

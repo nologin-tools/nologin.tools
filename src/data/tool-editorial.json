@@ -82508,5 +82508,369 @@
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-24T03:19:35.338Z"
     }
+  },
+  "morsecove-com": {
+    "en": {
+      "bestFor": "Encoding and decoding Morse code with adjustable WPM speed, tone frequency, live character pulse display, and browser-generated WAV audio export.",
+      "pros": [
+        "Immediate bidirectional Text-to-Morse and Morse-to-Text translation with preset shortcuts (SOS, Hello, I love you) and live character pulse matrix",
+        "Adjustable WPM speed and Hz tone frequency controls with in-browser audio playback and clean 777,970-byte WAV file export"
+      ],
+      "cons": [
+        "Input messages are limited to 1,000 characters per translation session",
+        "Emits Cloudflare RUM (/cdn-cgi/rum) and third-party analytics (in.pvuv.ai/in) beacons on page load"
+      ],
+      "privacyVerdict": "No text input or audio payload upload was observed during encoding or WAV export; 3 outgoing analytics/RUM requests were captured (POST /cdn-cgi/rum and POST in.pvuv.ai/in).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 17,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Encoded 17-character text into Morse code in #nb-input, tested Play signal/Stop playback at 12 WPM and 600 Hz, and downloaded a verified 777,970-byte WAV artifact with 0.02 CLS and 103 ms max freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:39:38.753Z"
+    },
+    "zh": {
+      "bestFor": "无需注册即可进行双向摩斯电码编解码，支持语速（WPM）与音调（Hz）调节、实时脉冲矩阵预览以及本地 WAV 音频导出。",
+      "pros": [
+        "支持文本与摩斯电码双向实时转换，提供 SOS 等快捷预设与字符脉冲矩阵可视化",
+        "支持自定义 WPM 语速与 Hz 音调频率，可直接播放信号并无水印导出 777,970 字节的 WAV 音频文件"
+      ],
+      "cons": [
+        "单次输入文本长度上限为 1,000 个字符",
+        "页面加载时会发送 Cloudflare RUM（/cdn-cgi/rum）与第三方统计信标（in.pvuv.ai/in）"
+      ],
+      "privacyVerdict": "在文本编码与 WAV 音频导出测试过程中未观察到用户输入上传；共监测到 3 条统计与 RUM 外发请求（POST /cdn-cgi/rum 与 POST in.pvuv.ai/in）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 78,
+        "frictionless": 19,
+        "depth": 15,
+        "exportFreedom": 17,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #nb-input 中输入 17 字符文本并实时编码为摩斯电码，在 12 WPM 与 600 Hz 参数下测试 Play signal/Stop 播放控制，并成功导出经魔数校验的 777,970 字节 WAV 文件（CLS 0.02，最大主线程冻结 103ms）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:39:38.754Z"
+    }
+  },
+  "lab-haoming-luo-com-morph": {
+    "en": {
+      "bestFor": "Researchers and mechanical engineers solving flexible rod inverse-design targets, fitting drawn target curves, and exporting actuation parameters as JSON.",
+      "pros": [
+        "Three interactive inverse-design modes (01 Reach a point, 02 Draw a shape, 03 Explore branches) with live canvas mechanics and quasi-static Play loading animation",
+        "Configurable actuation zones, fixed or free base modes, curvature parameter sliders (#k1–#k3, base angle), and clean 8,845-byte JSON design export"
+      ],
+      "cons": [
+        "Specialized flexible-rod mechanics domain requires engineering familiarity with dimensionless coordinate lengths (x/L, y/L) and curvature actuation parameters",
+        "Exports design data in JSON format only without built-in SVG or CAD mesh export"
+      ],
+      "privacyVerdict": "Zero outgoing payload-bearing requests or third-party analytics beacons were observed during navigation, live canvas simulation, and JSON design export; bounded observation covers only the tested session.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Adjusted actuation parameter k1=1.5, tested Down preset and Play loading playback, switched to 02 Draw a shape canvas mode, and exported an 8,845-byte JSON design file with 0.00 CLS and 52 ms max freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:48:07.143Z"
+    },
+    "zh": {
+      "bestFor": "适用于科研人员与机械工程设计者进行柔性杆逆向设计、手绘目标曲线拟合以及导出致动参数 JSON。",
+      "pros": [
+        "提供 01 Reach a point、02 Draw a shape、03 Explore branches 三种逆向设计模式，配备实时 Canvas 力学求解与准静态加载动画",
+        "支持致动分区数、基座固定/自由模式、多段曲率滑块（#k1–#k3 与基座角度）调节，并可无水印导出 8,845 字节 JSON 设计文件"
+      ],
+      "cons": [
+        "面向柔性杆力学专业场景，需要理解无量纲坐标（x/L、y/L）与曲率致动参数",
+        "目前仅支持导出 JSON 设计数据，未内置 SVG 或 CAD 网格导出"
+      ],
+      "privacyVerdict": "在页面加载、实时力学仿真与 JSON 导出测试过程中未监测到任何外发载荷请求或第三方追踪信标（该观测仅代表本次受测流程）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 16,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "调整致动参数 k1=1.5 并触发 Down 预设与 Play loading 动画，切换至 02 Draw a shape 模式后成功导出 8,845 字节 JSON 设计文件，全程 CLS 0.00、最大冻结 52ms。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:48:07.144Z"
+    }
+  },
+  "gamedevtool-com-roblox-tax-calculator": {
+    "en": {
+      "bestFor": "Roblox creators calculating net Robux after the 30% Marketplace Fee, reverse-pricing to hit target payouts, and copying tax breakdowns.",
+      "pros": [
+        "Simultaneously shows net payout after 30% fee, required listing price to net the target Robux, and approximate DevEx USD value",
+        "Supports switching sale types via dropdown, updates URL query state (?price=5000), and copies a clean 55-character breakdown to clipboard"
+      ],
+      "cons": [
+        "Single-purpose calculator scope with only clipboard text copy and no CSV/JSON export",
+        "Recorded 0.15 CLS layout shift during page load and interaction, plus Cloudflare RUM and view-tracking beacons"
+      ],
+      "privacyVerdict": "No calculator inputs were sent to a calculation API; 2 telemetry payloads were observed during testing (POST /cdn-cgi/rum and POST /f17b21b4264222db/view).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Entered 5000 Robux into the number input, switched sale type to transfer, and clicked Copy breakdown capturing 55 characters cleanly without watermark; max task 0 ms, CLS 0.15.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:49:58.761Z"
+    },
+    "zh": {
+      "bestFor": "适合 Roblox 开发者快速计算扣除 30% 平台手续费后的净收益、反推含税标价以及复制结算明细。",
+      "pros": [
+        "同时展示扣除 30% 手续费后的实收 Robux、实现目标净收入所需的定价以及 DevEx 美元估算值",
+        "支持通过下拉菜单切换交易类型，同步更新 URL 查询参数（?price=5000），并可一键复制无水印的 55 字符明细文本"
+      ],
+      "cons": [
+        "功能聚焦于单一税率计算，仅支持剪贴板文本复制，不提供 CSV 或 JSON 导出",
+        "页面加载与交互期间出现 0.15 CLS 布局偏移，并存在 Cloudflare RUM 与访问统计请求"
+      ],
+      "privacyVerdict": "计算过程未向后端计算接口发送用户输入；测试期间共捕获 2 条统计与 RUM 外发请求（POST /cdn-cgi/rum 与 POST /f17b21b4264222db/view）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 19,
+        "depth": 12,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在数字框输入 5000 Robux 并切换交易类型为 transfer，点击 Copy breakdown 成功复制 55 字符无水印明细；最大主线程冻结 0ms，CLS 0.15。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:49:58.761Z"
+    }
+  },
+  "jobinterviewat-com-pay-raise-calculator": {
+    "en": {
+      "bestFor": "Employees and job seekers calculating new hourly, weekly, biweekly, monthly, and annual gross pay after a raise alongside inflation and benchmark comparisons.",
+      "pros": [
+        "Supports hourly or salary inputs, raise entry by percentage or dollar amount, and adjustable weekly hours, CPI inflation, and WTW raise benchmarks",
+        "Displays immediate pre-tax breakdown tables comparing before/after hourly, weekly, and biweekly pay plus real inflation-adjusted gain"
+      ],
+      "cons": [
+        "No built-in CSV, PDF, or clipboard export button for calculated pay raise tables",
+        "Loads a bottom cookie consent bar and transmits Google Analytics telemetry (www.google-analytics.com/g/collect)"
+      ],
+      "privacyVerdict": "Calculator inputs were not sent to a backend calculation endpoint during testing; 1 outgoing Google Analytics payload was observed (POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Filled #rc-pay with 32.50 and #rc-raise with 6.5, clicked CALCULATE yielding $34.61/hour (+$4,394.00/year, Ahead of inflation by 2.7%) with 0 ms max freeze and 0.09 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:53:39.300Z"
+    },
+    "zh": {
+      "bestFor": "适合职场人士与求职者快速计算调薪后的时薪、周薪、双周薪与年薪变化，并与 CPI 通胀率及行业加薪基准对比。",
+      "pros": [
+        "支持按时薪或年薪输入、按百分比或金额设置涨幅，并可自定义每周工时、CPI 通胀率与行业加薪基准参数",
+        "实时生成调薪前后的时薪、周薪与双周薪对比明细表，并直观提示是否跑赢通胀"
+      ],
+      "cons": [
+        "未内置 CSV、PDF 或一键复制剪贴板导出功能",
+        "页面底部存在 Cookie 提示条，并发送 Google Analytics 统计请求（www.google-analytics.com/g/collect）"
+      ],
+      "privacyVerdict": "测试期间未监测到薪资输入数据上传至计算接口；共捕获 1 条 Google Analytics 外发统计请求（POST www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 72,
+        "frictionless": 18,
+        "depth": 14,
+        "exportFreedom": 12,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 #rc-pay 输入 32.50、#rc-raise 输入 6.5 后点击 CALCULATE，即时算出 $34.61/小时（+$4,394.00/年，领先通胀 2.7%），主线程最大冻结 0ms，CLS 为 0.09。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:53:39.301Z"
+    }
+  },
+  "calendar-tanfujun-com": {
+    "en": {
+      "bestFor": "Reviewing school notices or schedule PDFs/images side-by-side, verifying extracted event dates and times, and exporting clean .ics calendar files without signing in.",
+      "pros": [
+        "Side-by-side document viewer and structured event editor with timezone, export group, start/end date, and per-event verification checkboxes",
+        "Transparent opt-in consent before AI extraction and free single .ics export generating a clean 1,149-byte calendar file without registration"
+      ],
+      "cons": [
+        "Automated event extraction sends page images and text to Cloudflare AI servers, while grouped ZIP export requires a $5 30-day pass",
+        "Emits Cloudflare RUM (cloudflareinsights.com/cdn-cgi/rum) and /api/events telemetry payloads during usage"
+      ],
+      "privacyVerdict": "Document preview opened locally in browser, while AI event extraction requires opting into sending page images/text to Cloudflare; 6 telemetry payloads were observed (POST cloudflareinsights.com/cdn-cgi/rum and POST /api/events).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded sample.pdf, loaded the 3-event sample notice, checked all 3 per-event confirmation boxes, and downloaded a verified 1,149-byte .ics artifact via Download .ics 3 events with 0.05 CLS and 51 ms max freeze.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:55:26.004Z"
+    },
+    "zh": {
+      "bestFor": "适合将学校通知或日程表 PDF/图片与结构化事件列表并排核对，手动确认起止时间后免登录导出标准 .ics 日历文件。",
+      "pros": [
+        "提供原文预览与事件表单并排对照界面，支持设置时区、分组、全天事件及逐条核对确认复选框",
+        "AI 提取前提供明确授权提示，且免费支持无账号、无水印下载 1,149 字节标准 .ics 单文件"
+      ],
+      "cons": [
+        "AI 自动提取需将页面图像与文本发送至 Cloudflare 服务端，且分组 ZIP 批量导出需购买 $5 30 天通行证",
+        "使用期间监测到 Cloudflare RUM（cloudflareinsights.com/cdn-cgi/rum）与 /api/events 遥测请求"
+      ],
+      "privacyVerdict": "文档预览在浏览器本地打开，AI 事件提取需用户勾选同意将页面图像与文本发送至 Cloudflare；本次测试共捕获 6 条外发遥测请求（POST cloudflareinsights.com/cdn-cgi/rum 与 POST /api/events）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 sample.pdf 并加载 3 事件示例文档，勾选全部 3 项人工核对框后点击 Download .ics 3 events，成功下载 1,149 字节 .ics 日历文件；CLS 0.05，最大冻结 51ms。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:55:26.004Z"
+    }
+  },
+  "imgflow-taoliapp-com-en": {
+    "en": {
+      "bestFor": "Compressing, converting, and stripping EXIF/GPS metadata from PNG, JPG, WebP, AVIF, and HEIC images on-device without uploading files.",
+      "pros": [
+        "Instant client-side compression reducing a 332,574-byte 800x600 sample.png to a verified 26,234-byte 800x600 PNG without quality artifacts",
+        "Interactive before/after split comparison slider, Fine-tune and Advanced controls, EXIF/GPS stripping, and offline PWA install option"
+      ],
+      "cons": [
+        "Saved reusable presets and Studio folder-hierarchy pipelines are gated behind the Pro tier",
+        "Emits Cloudflare RUM telemetry (POST /cdn-cgi/rum) on page interaction; 0.10 CLS recorded during panel expansion"
+      ],
+      "privacyVerdict": "No image data or file upload payloads were observed during compression and export; 2 Cloudflare RUM telemetry requests (POST /cdn-cgi/rum) were captured.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 332,574-byte sample.png, expanded Fine-tune and Advanced panels, and exported a verified 26,234-byte 800x600 PNG without watermark; max task 0 ms, CLS 0.10.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:56:53.124Z"
+    },
+    "zh": {
+      "bestFor": "无需上传文件即可在本地压缩、转换 PNG/JPG/WebP/AVIF/HEIC 图片并默认清除 EXIF/GPS 元数据，适合摄影师、电商与开发者。",
+      "pros": [
+        "实时本地压缩，将 332,574 字节 800x600 sample.png 无水印压缩至 26,234 字节 800x600 PNG，导出校验完整",
+        "配备前后画质拖拽对比滑块、Fine-tune 微调与 Advanced 高级选项、EXIF/GPS 擦除以及离线 PWA 安装支持"
+      ],
+      "cons": [
+        "保存自定义预设与保留文件夹目录结构的 Studio 流水线属于 Pro 付费功能",
+        "监测到 Cloudflare RUM 遥测请求（POST /cdn-cgi/rum），展开面板时记录到 0.10 CLS"
+      ],
+      "privacyVerdict": "图片压缩与导出全程未观察到图片文件上传请求；测试期间共捕获 2 条 Cloudflare RUM 外发遥测（POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 332,574 字节 sample.png，展开 Fine-tune 与 Advanced 控制面板后点击 Download image，成功导出经魔数校验的 26,234 字节 800x600 无水印 PNG；最大冻结 0ms，CLS 0.10。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:56:53.125Z"
+    }
+  },
+  "getestimatedesk-com-tools-painting-estimate-follow-up": {
+    "en": {
+      "bestFor": "Painting and cabinet-refinishing contractors drafting polite, customizable estimate follow-up emails without logging in.",
+      "pros": [
+        "Instant situation and project-type selectors generating tailored subject suggestions and editable draft templates",
+        "One-click Copy message transfers clean 133-character plain text without watermarks, with 0 ms freeze and 0.00 CLS"
+      ],
+      "cons": [
+        "Single-purpose template builder limited to painting and cabinet-refinishing estimate follow-ups",
+        "Only supports clipboard copy without direct mailto launch or .txt/.eml file download"
+      ],
+      "privacyVerdict": "Observed 1 same-origin GET request to getestimatedesk.com/tools/painting-estimate-follow-up during the session; draft generation and clipboard copy ran in the browser without sending draft text or third-party tracker beacons.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 15,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Updated #situation to clarification and #project-type to interior, clicked Build my draft, edited #message-draft, and verified clean 133-character clipboard capture via Copy message with 0 ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:59:23.744Z"
+    },
+    "zh": {
+      "bestFor": "适合油漆与橱柜翻新承包商免登录快速起草并微调报价跟进邮件模板。",
+      "pros": [
+        "通过场景与项目类型下拉选择器即时生成对应邮件主题建议与可编辑正文草稿",
+        "点击 Copy message 可无水印复制 133 字符纯文本内容，全程主线程冻结 0ms、CLS 0.00"
+      ],
+      "cons": [
+        "功能聚焦于单一报价跟进模板场景，覆盖范围较窄",
+        "仅支持剪贴板复制，未提供 mailto 一键唤起或 .txt/.eml 文件下载"
+      ],
+      "privacyVerdict": "测试期间仅观测到 1 次同源 GET 请求（getestimatedesk.com/tools/painting-estimate-follow-up），草稿生成与剪贴板复制均在浏览器端完成，未出现第三方追踪信标或草稿提交请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 75,
+        "frictionless": 19,
+        "depth": 11,
+        "exportFreedom": 15,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "将 #situation 切换为 clarification、#project-type 切换为 interior 后点击 Build my draft，编辑 #message-draft 并通过 Copy message 验证捕获 133 字符无水印剪贴板文本（0ms 冻结，0.00 CLS）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-25T02:59:23.745Z"
+    }
   }
 }

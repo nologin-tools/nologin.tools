@@ -459,6 +459,17 @@
     "lastTitle": "CalcRobin — Free Online Calculators and Tools",
     "lastSignals": []
   },
+  "calendar-tanfujun-com": {
+    "lastDeepEvalAt": "2026-11-25T02:55:26.026Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-25T02:55:26.026Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:55:26.026Z"
+  },
   "calendarforge-net-make-calendar": {
     "lastDeepEvalAt": "2026-11-07T03:37:24.316Z",
     "lastResolution": {
@@ -1355,6 +1366,17 @@
       "probe_failed"
     ]
   },
+  "gamedevtool-com-roblox-tax-calculator": {
+    "lastDeepEvalAt": "2026-11-25T02:49:58.790Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-25T02:49:58.790Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:49:58.790Z"
+  },
   "gantt-chart-io": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-15T06:24:58.616Z",
@@ -1397,6 +1419,17 @@
     "lastScanAt": "2026-11-15T06:26:05.804Z",
     "lastTitle": "Gesture Synth Online: Play Music with Your Hands",
     "lastSignals": []
+  },
+  "getestimatedesk-com-tools-painting-estimate-follow-up": {
+    "lastDeepEvalAt": "2026-11-25T02:59:23.764Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 75, capable-utility)",
+      "at": "2026-11-25T02:59:23.764Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:59:23.764Z"
   },
   "getspellgenie-com": {
     "lastDeepEvalAt": "2026-11-10T02:59:54.197Z",
@@ -1735,6 +1768,17 @@
     "lastTitle": "Free Image to Video Prompt Generator | Image to Video Prompts Library",
     "lastSignals": []
   },
+  "imgflow-taoliapp-com-en": {
+    "lastDeepEvalAt": "2026-11-25T02:56:53.146Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-25T02:56:53.146Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:56:53.146Z"
+  },
   "imgrove-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-17T06:26:30.666Z",
@@ -1788,6 +1832,17 @@
     "lastScanAt": "2026-11-15T06:22:42.135Z",
     "lastTitle": "SVGOMG - SVGO's Missing GUI for minifying SVGs",
     "lastSignals": []
+  },
+  "jobinterviewat-com-pay-raise-calculator": {
+    "lastDeepEvalAt": "2026-11-25T02:53:39.323Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-25T02:53:39.323Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:53:39.323Z"
   },
   "jottools-com": {
     "openAnomalies": [],
@@ -1925,6 +1980,17 @@
     "lastSignals": [
       "probe_failed"
     ]
+  },
+  "lab-haoming-luo-com-morph": {
+    "lastDeepEvalAt": "2026-11-25T02:48:07.164Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, highly-recommended)",
+      "at": "2026-11-25T02:48:07.164Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:48:07.164Z"
   },
   "languagetool-org": {
     "openAnomalies": [],
@@ -2252,31 +2318,29 @@
     "lastTitle": "Morse Code Translator – Text to Morse & Morse to Text",
     "lastSignals": []
   },
+  "morsecove-com": {
+    "lastDeepEvalAt": "2026-11-25T02:39:38.777Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 78, capable-utility)",
+      "at": "2026-11-25T02:39:38.777Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-25T02:39:38.777Z"
+  },
   "mp3cut-net": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Premium\"",
-        "firstSeenAt": "2026-11-23T06:16:47.323Z",
-        "lastSeenAt": "2026-11-23T06:16:47.323Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-intent-1795414593841.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-mp3cut-net-outcome-1795414593841.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-23T06:16:47.323Z",
     "lastTitle": "Online MP3 Cutter - Cut Songs, Make Ringtones",
     "lastSignals": [
       "paywall_copy"
     ],
-    "lastDeepEvalAt": "2026-11-15T02:33:48.169Z",
+    "lastDeepEvalAt": "2026-11-25T02:32:59.763Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Audio upload and cut export succeeded without login; 220KB artifact downloaded successfully; paywall copy is only for premium upgrade.",
-      "at": "2026-11-15T02:33:48.169Z",
+      "note": "Verified audio upload (sample.wav) and Save export (220,371 bytes) complete without login or paywall; Upgrade to Premium/Remove Ads is optional ad-removal upsell.",
+      "at": "2026-11-25T02:32:59.763Z",
       "closed": [
         "paywall_copy"
       ]
@@ -3210,30 +3274,17 @@
     "lastSignals": []
   },
   "regex101-com": {
-    "openAnomalies": [
-      {
-        "code": "paywall_copy",
-        "severity": "medium",
-        "evidence": "Visible copy: \"Upgrade to Pro\"",
-        "firstSeenAt": "2026-11-24T06:24:53.450Z",
-        "lastSeenAt": "2026-11-24T06:24:53.450Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-intent-1795501395274.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-regex101-com-outcome-1795501395274.png"
-        ]
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-24T06:24:53.450Z",
     "lastSignals": [
       "paywall_copy"
     ],
     "lastTitle": "regex101: Online Regex Tester, Builder, Converter & Debugger",
-    "lastDeepEvalAt": "2026-11-15T02:35:44.069Z",
+    "lastDeepEvalAt": "2026-11-25T02:34:40.064Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Regex parsing, real-time matching, explanation, and matches JSON export all operate smoothly without login; Upgrade to Pro is only an optional tier.",
-      "at": "2026-11-15T02:35:44.069Z",
+      "note": "Verified regex matching (2 matches, 70 steps, 200 us), AST explanation, and Export Matches JSON download (946 bytes) work without login; Upgrade to Pro only gates optional Benchmark/Format Pro tools.",
+      "at": "2026-11-25T02:34:40.064Z",
       "closed": [
         "paywall_copy"
       ]
@@ -4251,22 +4302,21 @@
     "lastSignals": []
   },
   "wordpad-online-com": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-24T06:18:20.263Z",
-        "lastSeenAt": "2026-11-24T06:18:20.263Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-24T06:18:20.263Z",
     "lastTitle": "Wordpad Online | Free Notepad Editor - wordpad-online.com",
     "lastSignals": [
       "probe_failed"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-25T02:38:19.681Z",
+    "lastResolution": {
+      "outcome": "cleared",
+      "note": "Verified ProseMirror rich text editing (8 words, 63 chars), zero login barrier, and clean Export TXT download (63 bytes); telemetry matches existing record (Clarity, GA, Cloudflare RUM).",
+      "at": "2026-11-25T02:38:19.681Z",
+      "closed": [
+        "probe_failed"
+      ]
+    }
   },
   "wordtojpg-app": {
     "openAnomalies": [],
