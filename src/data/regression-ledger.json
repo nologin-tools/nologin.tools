@@ -247,25 +247,21 @@
     "lastSignals": []
   },
   "aup4-aivismonitor-com": {
-    "openAnomalies": [
-      {
-        "code": "cross_host_redirect",
-        "severity": "medium",
-        "evidence": "aup4.aivismonitor.com → waveward.app",
-        "firstSeenAt": "2026-11-25T06:05:49.397Z",
-        "lastSeenAt": "2026-11-25T06:05:49.397Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-aup4-aivismonitor-com-intent-1795586736514.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-aup4-aivismonitor-com-outcome-1795586736514.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-25T06:05:49.397Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:34:22.292Z",
     "lastTitle": "Waveward — Browser Tools for Audacity Project Files",
     "lastSignals": [
       "cross_host_redirect"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-26T02:34:22.292Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 82, highly-recommended)",
+      "at": "2026-11-26T02:34:22.292Z",
+      "closed": [
+        "cross_host_redirect"
+      ]
+    }
   },
   "badqualityimagemaker-com": {
     "lastDeepEvalAt": "2026-11-02T02:50:50.209Z",
@@ -324,6 +320,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-14T03:02:05.366Z"
+  },
+  "bingo-tanfujun-com": {
+    "lastDeepEvalAt": "2026-11-26T03:16:09.496Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-26T03:16:09.496Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T03:16:09.496Z"
   },
   "bitibybit-com-volunteer-roster": {
     "openAnomalies": [],
@@ -867,6 +874,17 @@
     "lastTitle": "Upside Down Text Generator - Flip Text Copy & Paste",
     "lastSignals": []
   },
+  "cutwisp-com": {
+    "lastDeepEvalAt": "2026-11-26T02:43:53.568Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 86, highly-recommended)",
+      "at": "2026-11-26T02:43:53.568Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:43:53.568Z"
+  },
   "dataformatkit-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-21T06:09:40.215Z",
@@ -932,6 +950,17 @@
     "lastScanAt": "2026-11-20T06:10:15.797Z",
     "lastSignals": [],
     "lastTitle": "DevDocs API Documentation"
+  },
+  "devtoolry-com": {
+    "lastDeepEvalAt": "2026-11-26T02:41:43.274Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-26T02:41:43.274Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:41:43.274Z"
   },
   "diagrflow-com": {
     "openAnomalies": [],
@@ -1013,6 +1042,17 @@
     "lastScanAt": "2026-11-22T06:09:49.881Z",
     "lastTitle": "Chord Finder from Audio - Free, No Signup | EarChord (earchord.com)",
     "lastSignals": []
+  },
+  "easymemorize-com": {
+    "lastDeepEvalAt": "2026-11-26T03:09:31.523Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-26T03:09:31.523Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T03:09:31.523Z"
   },
   "enshroudedsaveeditor-com": {
     "lastDeepEvalAt": "2026-10-28T02:52:17.900Z",
@@ -1857,6 +1897,17 @@
     "lastTitle": "IT Tools - Handy online tools for developers",
     "lastSignals": []
   },
+  "itimelines-date": {
+    "lastDeepEvalAt": "2026-11-26T02:46:51.418Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-26T02:46:51.418Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:46:51.418Z"
+  },
   "jakearchibald-github-io-svgomg": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-25T06:06:03.604Z",
@@ -2192,26 +2243,16 @@
     "lastSignals": []
   },
   "mdconvert-net-zh-markdown-to-word": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-24T06:15:19.811Z",
-        "lastSeenAt": "2026-11-24T06:15:19.811Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-24T06:15:19.811Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:37:16.982Z",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-11-18T02:36:07.442Z",
+    "lastDeepEvalAt": "2026-11-26T02:37:16.982Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Uploaded sample.md, verified live Word preview rendering, and downloaded 6766-byte .doc (HTML-based Word document, watermark heuristic triggered by sample.md text). Still compliant; existing score 72 (capable-utility) remains accurate.",
-      "at": "2026-11-18T02:36:07.442Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-26T02:37:16.982Z",
       "closed": [
         "probe_failed"
       ]
@@ -2894,6 +2935,17 @@
       ]
     }
   },
+  "poolcarecalculators-com": {
+    "lastDeepEvalAt": "2026-11-26T02:49:33.060Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-26T02:49:33.060Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:49:33.060Z"
+  },
   "prettier-io-playground": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-25T06:06:34.502Z",
@@ -3285,6 +3337,17 @@
     "lastScanAt": "2026-11-21T06:08:22.056Z",
     "lastTitle": "Realtime Colors",
     "lastSignals": []
+  },
+  "recipeagents-usestarbase-com": {
+    "lastDeepEvalAt": "2026-11-26T03:24:27.734Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-26T03:24:27.734Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T03:24:27.734Z"
   },
   "recipetool-net": {
     "lastDeepEvalAt": "2026-11-22T02:59:22.430Z",
@@ -3875,6 +3938,17 @@
     "lastTitle": "AI Coding Handover Template for a New Chat | thredly",
     "lastSignals": []
   },
+  "tierversus-com-maker": {
+    "lastDeepEvalAt": "2026-11-26T03:11:47.882Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-26T03:11:47.882Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T03:11:47.882Z"
+  },
   "til-re": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-20T06:07:33.465Z",
@@ -4374,29 +4448,19 @@
     "lastSignals": []
   },
   "write-as": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-24T06:27:07.660Z",
-        "lastSeenAt": "2026-11-24T06:27:07.660Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-24T06:27:07.660Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:39:48.780Z",
     "lastTitle": "Write.as — A place for focused writing.",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-11-16T02:33:29.296Z",
+    "lastDeepEvalAt": "2026-11-26T02:39:48.780Z",
     "lastResolution": {
-      "outcome": "cleared",
-      "note": "Verified anonymous writing and publishing remain fully functional without account creation. Marketing trial link on landing page is for optional paid pro plans.",
-      "at": "2026-11-16T02:33:29.296Z",
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
+      "at": "2026-11-26T02:39:48.780Z",
       "closed": [
-        "paywall_copy"
+        "probe_failed"
       ]
     }
   },
@@ -4450,6 +4514,17 @@
     },
     "openAnomalies": [],
     "lastScanAt": "2026-11-19T02:48:35.702Z"
+  },
+  "www-englishtosomali-org": {
+    "lastDeepEvalAt": "2026-11-26T03:06:44.617Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 76, capable-utility)",
+      "at": "2026-11-26T03:06:44.617Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T03:06:44.617Z"
   },
   "www-freedominvoice-com-tools-invoice-generator": {
     "openAnomalies": [],
@@ -4687,6 +4762,17 @@
     "lastScanAt": "2026-11-16T06:17:07.080Z",
     "lastTitle": "Video to Image Sequence Converter — Extract Frames Online, Free",
     "lastSignals": []
+  },
+  "www-wallpaintcalculator-com": {
+    "lastDeepEvalAt": "2026-11-26T02:51:20.365Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 84, highly-recommended)",
+      "at": "2026-11-26T02:51:20.365Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-26T02:51:20.365Z"
   },
   "www-whatsmyiplive-com": {
     "openAnomalies": [],

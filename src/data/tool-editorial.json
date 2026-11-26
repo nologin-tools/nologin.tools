@@ -32353,18 +32353,17 @@
   },
   "write-as": {
     "en": {
-      "bestFor": "Writers, journalists, and thinkers wanting an instant, distraction-free markdown publishing platform without accounts, cookies, or ad trackers",
+      "bestFor": "Writers, journalists, and thinkers wanting an instant, distraction-free markdown publishing platform without accounts, cookies, or ad trackers.",
       "pros": [
-        "Zero account creation or email requirement to write and instantly publish live markdown posts",
-        "Exemplary privacy architecture with zero commercial analytics, ad scripts, or behavioral telemetry (only 1 functional /api/posts request observed)",
-        "Direct raw Markdown access via appending .md to any published post URL",
-        "Powered by the open-source AGPL-3.0 WriteFreely backend with clean distraction-free typography"
+        "Zero account creation required to write, publish, and edit live Markdown posts anonymously",
+        "Clean privacy posture with zero third-party analytics or ad scripts observed (only functional POST /api/posts dispatch)",
+        "Direct raw Markdown access via .md URL suffix and distraction-free serif typography"
       ],
       "cons": [
-        "Anonymous trial posts auto-expire and unpublish after 1 hour unless upgraded to a paid plan",
-        "Limited rich styling options compared to complex WYSIWYG editors"
+        "Anonymous trial posts automatically unpublish after 1 hour without a paid account",
+        "Limited rich formatting controls compared to full WYSIWYG editors"
       ],
-      "privacyVerdict": "Gold standard privacy hygiene. Live browser audits observed zero third-party trackers, zero advertising scripts, and zero telemetry payloads, with no requests observed except the single functional POST /api/posts dispatch required to publish the article.",
+      "privacyVerdict": "Observed 1 functional first-party request (POST /api/posts) to publish the anonymous Markdown post, with zero third-party trackers, analytics beacons, or advertising scripts captured during editing, publishing, and re-editing.",
       "alternativeTo": [
         "Medium",
         "Substack",
@@ -32380,23 +32379,22 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Conducted end-to-end writing and publishing audit. Verified instant anonymous editing in textarea#writer, published post b1eg2722zaw2w in 472ms, verified direct raw markdown access via .md suffix, and recorded zero extraneous network telemetry.",
+      "benchmarkNotes": "Re-evaluated write.as end-to-end. Entered anonymous editor via Start writing, filled Markdown in textarea, published live post (write.as/34j2c3g9gjknm.md), re-opened Edit view, updated content, and republished with 0ms max freeze and 0.00 CLS.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-06T02:43:05.612Z"
+      "contentUpdatedAt": "2026-11-26T02:39:48.752Z"
     },
     "zh": {
-      "bestFor": "需要即时、无干扰 Markdown 写作与发布平台且杜绝任何账户、Cookie 或广告追踪的写作者与媒体人",
+      "bestFor": "希望免注册、无 Cookie 与无广告追踪，即开即写并发布简洁 Markdown 文章的写作者与技术作者。",
       "pros": [
-        "完全无需注册账户或邮箱即可即时编写并公开发布 Markdown 文章",
-        "极具典范的隐私架构，零商业统计、广告代码与行为遥测（仅检测到 1 次发布文章的功能性 /api/posts 请求）",
-        "在已发布文章 URL 末尾追加 .md 即可直接获取纯文本 Markdown 原文",
-        "基于开源 AGPL-3.0 WriteFreely 引擎构建，排版典雅纯净且无干扰"
+        "完全免注册即可匿名撰写、发布并二次编辑在线 Markdown 文章",
+        "实测未捕获第三方统计或广告脚本，仅产生功能所需的 POST /api/posts 发布请求",
+        "支持通过 .md 后缀直出原始 Markdown 文本，排版克制专注"
       ],
       "cons": [
-        "匿名试用发布的文章在 1 小时后会自动下线，长期托管需注册付费账户",
-        "相比复杂富文本排版编辑器，样式定制选项相对克制精简"
+        "未登录的匿名试用文章会在发布 1 小时后自动下线",
+        "相比完整富文本编辑器，可视化排版选项较少"
       ],
-      "privacyVerdict": "标杆级隐私保护规范。除发布文章所需的单个功能性 POST /api/posts 接口外，未监测到任何第三方统计、广告追踪脚本或商业遥测。",
+      "privacyVerdict": "仅观测到 1 次第一方功能请求（POST /api/posts）用于发布文章；在撰写、发布与重新编辑全过程中均未捕获第三方追踪器、统计信标或广告脚本。",
       "alternativeTo": [],
       "productScore": {
         "overall": 81,
@@ -32407,9 +32405,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "进行了全流程即时写作与发布实测。验证了在 textarea#writer 中秒级即写即发，472ms 内成功生成匿名文章 b1eg2722zaw2w，验证了末尾 .md 后缀获取 Markdown 原文功能，全网仅触发必要发布请求。",
+      "benchmarkNotes": "完成 write.as 端到端复测。点击 Start writing 进入匿名编辑器并输入 Markdown，成功发布至 write.as/34j2c3g9gjknm.md，随后点击 Edit 修改正文并重新发布，全程主线程阻塞 0ms、CLS 0.00。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-06T02:43:05.613Z"
+      "contentUpdatedAt": "2026-11-26T02:39:48.752Z"
     },
     "ja": {
       "bestFor": "作家、ジャーナリスト、思想家は、アカウント、Cookie、広告トラッカーを必要とせず、気を散らすことのない即時マークダウン出版プラットフォームを望んでいます。",
@@ -36087,18 +36085,17 @@
   },
   "mdconvert-net-zh-markdown-to-word": {
     "en": {
-      "bestFor": "Writers, documentation authors, and technical teams converting Markdown notes into editable Word-compatible documents without creating accounts or uploading text to external servers",
+      "bestFor": "Writers, documentation authors, and technical teams converting Markdown notes into editable Word-compatible .doc files in the browser without creating accounts.",
       "pros": [
-        "Client-side Markdown processing: converts headings, tables, blockquotes, and lists locally in the browser runtime without sending source documents to remote backends",
-        "Instant dual-pane workflow: displays raw Markdown input on the left with a synchronized Word-style rendered DOM preview on the right",
-        "Convenient input mechanisms: supports direct local .md file uploading as well as manual textarea typing and clipboard pasting",
-        "One-click direct export: downloads a Word-compatible .doc file without watermarks, registration gates, or conversion queues"
+        "Zero-login dual-pane workflow displaying Markdown source alongside a synchronized Word-style preview",
+        "Supports local .md file upload and one-click .doc download without registration or forced watermarks",
+        "Dark/light theme toggle and multi-mode converter navigation (PDF, HTML, Word)"
       ],
       "cons": [
-        "Exports documents in HTML-based .doc format rather than native compressed OOXML (.docx) format",
-        "Limited styling configuration with no custom Word template, font selection, or margin controls"
+        "Exports HTML-wrapped .doc files rather than native compressed OOXML (.docx)",
+        "Emits third-party analytics and session telemetry to Google Analytics, Microsoft Clarity, and Cloudflare RUM"
       ],
-      "privacyVerdict": "Document conversion and HTML-to-Word generation execute locally within browser memory. External network activity during testing was limited to 1 observed POST request to /cdn-cgi/rum? (Cloudflare performance monitoring); zero source text or document payloads were transmitted off-device.",
+      "privacyVerdict": "Observed 4 outgoing telemetry/analytics payloads (POST www.google-analytics.com/g/collect, POST /cdn-cgi/rum, POST i.clarity.ms/collect). Markdown parsing and HTML-based .doc generation ran in the browser with no document content uploaded to a conversion endpoint.",
       "alternativeTo": [
         "Pandoc",
         "Typora",
@@ -36106,30 +36103,30 @@
         "Dillinger"
       ],
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Audited using an 87 lines Markdown benchmark fixture containing tables and blockquotes via file upload input. Synchronized Word preview rendered within 157 ms without interface freeze. Clicked 下载 .doc button to verify direct download of a 6766 bytes Word-compatible document blob, while observing 1 POST request to Cloudflare RUM.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-evaluated mdconvert.net/zh/markdown-to-word. Uploaded sample.md fixture (renders headings, tables, blockquotes, and lists in DOM Word preview with 71ms max task), downloaded clean 6766 bytes HTML-wrapped .doc artifact (no promotional watermark), and verified dark theme toggle.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:37:16.955Z"
     },
     "zh": {
-      "bestFor": "需要在不注册账号且不将文稿上传至云端服务器的前提下，将 Markdown 笔记快速转换为 Word 兼容文档的写作者与技术文档撰写者",
+      "bestFor": "需要将 Markdown 笔记免注册快速转换为 Word 可编辑 .doc 文档、并即时核对排版预览的写作者与技术团队。",
       "pros": [
-        "纯前端浏览器解析：在本地运行时直接解析多级标题、表格、引用块与列表，无需将源文件上传至远端服务器",
-        "双栏即时预览工作流：左侧编辑 Markdown 源码，右侧即时同步呈现 Word 排版样式的 DOM 渲染效果",
-        "灵活的内容录入方式：支持直接上传本地 .md 文件解析，亦支持在文本框内自由粘贴与输入",
-        "一键免登录直接导出：点击即可下载 Word 兼容的 .doc 文件，无任何水印、注册弹窗或排队等待"
+        "免登录双栏工作区，左侧编辑或上传 Markdown，右侧实时渲染 Word 风格预览",
+        "支持本地 .md 文件上传与一键下载 .doc 文档，无注册墙或强制宣传水印",
+        "支持明暗主题切换，顶部集成 PDF、HTML、Word 互转工具栏"
       ],
       "cons": [
-        "导出文件采用 HTML 封装的 .doc 兼容格式，而非原生压缩的 OOXML (.docx) 格式",
-        "缺少高级排版样式配置选项，不支持自定义 Word 模板、字体切换或页面边距调节"
+        "导出格式为 HTML 封装的 .doc 文件，而非原生压缩 OOXML（.docx）格式",
+        "页面发送至 Google Analytics、Microsoft Clarity 及 Cloudflare RUM 的统计信标"
       ],
-      "privacyVerdict": "文稿转换与 Word 文件组装全流程在浏览器本地内存中完成。实测期间仅捕获到 1 次发往 /cdn-cgi/rum? 的 Cloudflare 性能遥测 POST 请求，用户输入的文本内容与生成文档绝无云端上传。",
+      "privacyVerdict": "实测捕获 4 次后台遥测/统计请求（POST www.google-analytics.com/g/collect、POST /cdn-cgi/rum、POST i.clarity.ms/collect）。Markdown 解析与 HTML 封装 .doc 生成在浏览器端完成，未观测到文档正文上传至远程转换接口。",
       "alternativeTo": [
         "Pandoc",
         "Typora",
@@ -36137,16 +36134,17 @@
         "Dillinger"
       ],
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "使用包含表格与引用的 87 行 Markdown 基准测试文件进行实测。右侧 Word 预览在 157 ms 内同步渲染完成且无卡顿。点击下载 .doc 按钮验证直接生成 6766 bytes 的 Word 兼容文档，全程捕获 1 次发往 Cloudflare RUM 的性能请求。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "复测 mdconvert.net/zh/markdown-to-word。上传 sample.md 测试固件并核对标题、表格、引用与列表的 Word 实时预览，点击下载获得 6,766 字节 HTML 封装 .doc 文件（无强制推广水印，检测器关键词匹配来自测试正文文本），并验证暗色主题切换。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:37:16.956Z"
     },
     "ja": {
       "bestFor": "ライター、ドキュメント作成者、技術チームは、アカウントを作成したり外部サーバーにテキストをアップロードしたりせずに、Markdown ノートを編集可能な Word 互換ドキュメントに変換します。",
@@ -36163,11 +36161,11 @@
       "privacyVerdict": "ドキュメントの変換と HTML から Word への生成は、ブラウザーのメモリ内でローカルに実行されます。テスト中の外部ネットワーク アクティビティは、/cdn-cgi/rum? への POST リクエストが 1 件観察されたことに限定されていました。 (Cloudflareのパフォーマンス監視);ソース テキストまたはドキュメント ペイロードがデバイス外に送信されることはありませんでした。",
       "benchmarkNotes": "ファイルアップロード入力を介して、テーブルとブロッククォートを含む 87 行の Markdown ベンチマーク フィクスチャを使用して監査されました。同期された Word プレビューは、インターフェイスがフリーズすることなく 157 ミリ秒以内にレンダリングされました。 [Download .doc] ボタンをクリックして、Cloudflare RUM への 1 つの POST リクエストを観察しながら、6766 バイトの Word 互換ドキュメント BLOB の直接ダウンロードを確認しました。",
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
@@ -36177,7 +36175,7 @@
         "CloudConvert Markdown to DOCX",
         "Dillinger"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "계정을 만들거나 외부 서버에 텍스트를 업로드하지 않고도 Markdown 메모를 편집 가능한 Word 호환 문서로 변환하는 작성자, 문서 작성자 및 기술 팀",
@@ -36194,11 +36192,11 @@
       "privacyVerdict": "문서 변환 및 HTML-to-Word 생성은 브라우저 메모리 내에서 로컬로 실행됩니다. 테스트 중 외부 네트워크 활동은 /cdn-cgi/rum?에 대한 관찰된 POST 요청 1개로 제한되었습니다. (Cloudflare 성능 모니터링) 소스 텍스트나 문서 페이로드가 장치 외부로 전송되지 않았습니다.",
       "benchmarkNotes": "파일 업로드 입력을 통해 테이블과 인용문이 포함된 87줄 Markdown 벤치마크 픽스쳐를 사용하여 감사되었습니다. 인터페이스 정지 없이 157ms 이내에 렌더링된 동기화된 Word 미리 보기.下载 .doc 버튼을 클릭하여 6766바이트 Word 호환 문서 Blob의 직접 다운로드를 확인하는 동시에 Cloudflare RUM에 대한 1개의 POST 요청을 관찰했습니다.",
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
@@ -36208,7 +36206,7 @@
         "CloudConvert Markdown to DOCX",
         "Dillinger"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Redactores, autores de documentación y equipos técnicos que convierten notas de Markdown en documentos editables compatibles con Word sin crear cuentas ni cargar texto en servidores externos.",
@@ -36225,11 +36223,11 @@
       "privacyVerdict": "La conversión de documentos y la generación de HTML a Word se ejecutan localmente dentro de la memoria del navegador. ¿La actividad de la red externa durante las pruebas se limitó a 1 solicitud POST observada en /cdn-cgi/rum? (Monitoreo del rendimiento de Cloudflare); No se transmitieron textos de origen ni cargas útiles de documentos fuera del dispositivo.",
       "benchmarkNotes": "Auditado utilizando un dispositivo de referencia Markdown de 87 líneas que contiene tablas y citas en bloque a través de la entrada de archivos. Vista previa sincronizada de Word renderizada en 157 ms sin congelar la interfaz. Se hizo clic en el botón 下载 .doc para verificar la descarga directa de un blob de documento compatible con Word de 6766 bytes, mientras se observaba 1 solicitud POST a Cloudflare RUM.",
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
@@ -36239,7 +36237,7 @@
         "CloudConvert Markdown to DOCX",
         "Dillinger"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Rédacteurs, auteurs de documentation et équipes techniques convertissant les notes Markdown en documents modifiables compatibles Word sans créer de compte ni télécharger de texte sur des serveurs externes",
@@ -36256,11 +36254,11 @@
       "privacyVerdict": "La conversion de documents et la génération HTML vers Word s'exécutent localement dans la mémoire du navigateur. L'activité du réseau externe pendant les tests était limitée à 1 requête POST observée vers /cdn-cgi/rum? (Surveillance des performances Cloudflare) ; aucun texte source ou charge utile de document n'a été transmis hors appareil.",
       "benchmarkNotes": "Audité à l'aide d'un appareil de référence Markdown de 87 lignes contenant des tableaux et des citations via une entrée de téléchargement de fichier. Aperçu Word synchronisé rendu dans un délai de 157 ms sans gel de l'interface. J'ai cliqué sur le bouton 下载 .doc pour vérifier le téléchargement direct d'un blob de document compatible Word de 6 766 octets, tout en observant 1 requête POST vers Cloudflare RUM.",
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
@@ -36270,7 +36268,7 @@
         "CloudConvert Markdown to DOCX",
         "Dillinger"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Autoren, Dokumentationsautoren und technische Teams wandeln Markdown-Notizen in bearbeitbare Word-kompatible Dokumente um, ohne Konten zu erstellen oder Text auf externe Server hochzuladen",
@@ -36287,11 +36285,11 @@
       "privacyVerdict": "Die Dokumentkonvertierung und die HTML-zu-Word-Generierung werden lokal im Browserspeicher ausgeführt. Die externe Netzwerkaktivität während des Tests war auf eine beobachtete POST-Anfrage an /cdn-cgi/rum beschränkt? (Cloudflare-Leistungsüberwachung); Es wurden keine Quelltext- oder Dokumentnutzlasten außerhalb des Geräts übertragen.",
       "benchmarkNotes": "Geprüft mit einem 87-Zeilen-Markdown-Benchmark-Gerät, das Tabellen und Blockzitate über die Datei-Upload-Eingabe enthält. Die synchronisierte Word-Vorschau wurde innerhalb von 157 ms gerendert, ohne dass die Benutzeroberfläche einfrierte. Klicken Sie auf die Schaltfläche „.doc“, um den direkten Download eines 6766 Byte großen Word-kompatiblen Dokument-Blobs zu überprüfen und gleichzeitig eine POST-Anfrage an Cloudflare RUM zu beobachten.",
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
@@ -36301,7 +36299,7 @@
         "CloudConvert Markdown to DOCX",
         "Dillinger"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Escritores, autores de documentação e equipes técnicas convertendo notas Markdown em documentos editáveis ​​compatíveis com Word sem criar contas ou enviar texto para servidores externos",
@@ -36318,11 +36316,11 @@
       "privacyVerdict": "A conversão de documentos e a geração de HTML para Word são executadas localmente na memória do navegador. A atividade da rede externa durante o teste foi limitada a 1 solicitação POST observada para /cdn-cgi/rum? (Monitoramento de desempenho Cloudflare); zero texto de origem ou cargas úteis de documentos foram transmitidos para fora do dispositivo.",
       "benchmarkNotes": "Auditado usando um dispositivo de benchmark Markdown de 87 linhas contendo tabelas e blockquotes por meio de entrada de upload de arquivo. Visualização sincronizada do Word renderizada em 157 ms sem congelamento da interface. Clicou no botão 下载 .doc para verificar o download direto de um blob de documento compatível com Word de 6766 bytes, enquanto observa 1 solicitação POST para Cloudflare RUM.",
       "productScore": {
-        "overall": 72,
+        "overall": 70,
         "frictionless": 17,
         "depth": 13,
         "exportFreedom": 15,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 12
       },
       "verdictTier": "capable-utility",
@@ -36332,7 +36330,7 @@
         "CloudConvert Markdown to DOCX",
         "Dillinger"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "file-converter-free-com": {
@@ -66327,18 +66325,17 @@
   },
   "aup4-aivismonitor-com": {
     "en": {
-      "bestFor": "Podcasters, audio engineers, journalists, and sound designers who need to preview tracks, export WAV/MP3 mixes, recover crashed recordings, or downgrade Audacity 4 (.aup4) projects to Audacity 3 (.aup3) directly in the browser without installing Audacity or uploading confidential audio.",
+      "bestFor": "Podcasters, audio engineers, journalists, and sound designers who need to preview Audacity (.aup4/.aup3/.aup) projects, recover corrupted recordings, or measure ITU-R BS.1770 LUFS loudness directly in the browser without installing Audacity or uploading confidential audio.",
       "pros": [
-        "Zero registration required with instant in-browser project inspection for both Audacity 4 (.aup4) and Audacity 3 (.aup3) files",
-        "Sophisticated client-side architecture using SQLite compiled to WebAssembly in a dedicated background Web Worker",
-        "Deep forensic capabilities including project corruption analysis, missing block diagnostics, and version downgrade conversion",
-        "Strong local data containment with explicit 0-byte upload enforcement and direct audio playback"
+        "Zero registration required with instant in-browser inspection for Audacity .aup4, .aup3, and .aup projects plus a free ITU-R BS.1770 LUFS loudness meter",
+        "Client-side architecture using SQLite compiled to WebAssembly in a Web Worker with explicit 0-byte upload status",
+        "Deep forensic recovery and downgrade modules alongside WAV/MP3 mix export up to 256 MB free"
       ],
       "cons": [
-        "Transmits 1 background telemetry beacon to Google Analytics",
-        "Advanced project rebuilding and stem extraction tools require a one-time license"
+        "Emits background telemetry beacons to analytics.google.com and stats.g.doubleclick.net",
+        "Normalised LUFS download, stem extraction, and >256 MB project exports require a $9.90 Waveward Pro license"
       ],
-      "privacyVerdict": "Observed 1 background telemetry beacon to Google Analytics (google-analytics.com/g/collect). Audacity SQLite database inspection, audio sample extraction, and WAV/MP3 decoding execute entirely within a local browser Web Worker; zero audio data egresses the machine.",
+      "privacyVerdict": "Observed 2 background telemetry beacons (POST analytics.google.com/g/collect and POST stats.g.doubleclick.net/g/collect). Audio loudness measurement and SQLite Audacity project parsing execute client-side via File API, Web Workers, and SQLite WebAssembly with zero audio payload egress observed.",
       "alternativeTo": [
         "Audacity Desktop",
         "Tenacity Audio Editor",
@@ -66354,22 +66351,22 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "CADES 2.0 Route A dogfooding verified in ego-browser Chromium. Navigated to aup4.aivismonitor.com and tested file upload with a 12,288 bytes SQLite database fixture. The Web Worker executed WebAssembly SQLite validation locally without uploading data, correctly identifying the database structure and confirming 'Ready — 0 bytes uploaded'. Inspected dark/light theme toggle and recovery modules. Network audit recorded 1 HTTP POST telemetry beacon to Google Analytics and strictly zero audio payload egress.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Re-evaluated after cross-host redirect from aup4.aivismonitor.com to waveward.app. Tested LUFS Meter with sample.wav (measured -3.7 LUFS integrated, -0.0 dBFS peak with -14/-16/-23 LUFS gain table), verified dark theme toggle, probed Download normalised file (Pro $9.90 modal, no forced login for free features), and inspected Recover route showing Ready — 0 bytes uploaded.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:34:22.262Z"
     },
     "zh": {
-      "bestFor": "需要在未安装 Audacity 的电脑上快速试听工程多轨、导出 WAV/MP3 成品、抢救崩溃损坏录音或将 Audacity 4（.aup4）降级兼容至 Audacity 3（.aup3），同时严防敏感录音外传的播客主播、记者与音频后期工程师。",
+      "bestFor": "需要在未安装 Audacity 时于浏览器中直接试听 Audacity（.aup4/.aup3/.aup）工程、抢救损坏录音或测量 ITU-R BS.1770 LUFS 响度，同时避免敏感音频上传云端的播客主播、音频工程师与记者。",
       "pros": [
-        "完全免注册免登录，打开即用，全面支持 Audacity 4（.aup4）与 Audacity 3（.aup3）工程文件",
-        "采用高性能 Web Worker 与 WebAssembly 编译的 SQLite 引擎，在浏览器后台直接解析工程数据库",
-        "具备深度音频取证与修复能力，支持工程坏块检测、崩溃回滚恢复与跨大版本降级转换",
-        "严格的本地隐私防护机制，界面明确显示 0 字节上传，所有音频波形与样本块均在本地设备处理"
+        "免注册免登录即开即用，支持 Audacity .aup4/.aup3/.aup 工程解析及免费 ITU-R BS.1770 LUFS 响度计",
+        "基于 File API、Web Worker 与 WebAssembly 编译版 SQLite 在本地解析，界面明确标注 0 字节上传",
+        "提供崩溃修复与降级转换模块，256 MB 以内工程试听与混音导出免费可用"
       ],
       "cons": [
-        "页面包含 1 次 Google Analytics 匿名统计信标请求",
-        "高级工程重建与分轨导出（Stems）等深度修复功能需单次付费授权"
+        "页面会发送至 analytics.google.com 与 stats.g.doubleclick.net 的后台统计信标",
+        "响度归一化文件下载、分轨导出及超过 256 MB 的大型工程导出需付费解锁 Waveward Pro（9.90 美元）"
       ],
-      "privacyVerdict": "实测捕获 1 次 Google Analytics 匿名统计请求（google-analytics.com/g/collect）。Audacity SQLite 数据库解析、音频采样提取与 WAV/MP3 合成完全在浏览器 Web Worker 本地线程中执行，录音原文件 0 字节上传云端。",
+      "privacyVerdict": "实测捕获 2 次后台统计信标请求（POST analytics.google.com/g/collect 与 POST stats.g.doubleclick.net/g/collect）。音频响度测量与 Audacity SQLite 工程解析均在浏览器本地 File API、Web Worker 与 SQLite WebAssembly 中运行，未观测到音频数据外发。",
       "alternativeTo": [
         "Audacity 桌面端",
         "Tenacity 音频编辑",
@@ -66385,8 +66382,9 @@
         "polish": 13
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "在 ego-browser Chromium 环境完成 CADES 2.0 Route A 实机评测。访问 aup4.aivismonitor.com 并上传 12,288 字节 SQLite 数据库测试固件。Web Worker 在本地完成 WebAssembly SQLite 结构验证，未触发任何文件上传并明确显示'0 bytes uploaded'。测试暗色主题切换与音频恢复路由。网络审计捕获 1 次 Google Analytics 统计信标，音频数据外发严格为 0。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "针对 aup4.aivismonitor.com 跳转至 waveward.app 的域名迁移进行复测。上传 sample.wav 实测 LUFS Meter（测得 -3.7 LUFS 综合响度与 -0.0 dBFS 采样峰值并输出 -14/-16/-23 LUFS 增益表），验证暗色主题切换，点击归一化下载按钮确认其为 Pro 付费提示弹窗（核心免费功能无需登录），并核查 Recover 页面明确显示 0 bytes uploaded。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:34:22.263Z"
     },
     "ja": {
       "bestFor": "Audacity をインストールしたり機密オーディオをアップロードしたりせずに、ブラウザで直接トラックのプレビュー、WAV/MP3 ミックスのエクスポート、クラッシュした録音の回復、または Audacity 4 (.aup4) プロジェクトを Audacity 3 (.aup3) にダウングレードする必要があるポッドキャスター、オーディオ エンジニア、ジャーナリスト、サウンド デザイナー。",
@@ -66417,7 +66415,7 @@
         "AudioMass Web Audio",
         "Sodaphonic"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "Audacity를 설치하거나 기밀 오디오를 업로드하지 않고 브라우저에서 직접 트랙을 미리 보고, WAV/MP3 믹스를 내보내고, 충돌한 녹음을 복구하거나, Audacity 4(.aup4) 프로젝트를 Audacity 3(.aup3)으로 다운그레이드해야 하는 팟캐스터, 오디오 엔지니어, 언론인 및 사운드 디자이너.",
@@ -66448,7 +66446,7 @@
         "AudioMass Web Audio",
         "Sodaphonic"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Podcasters, ingenieros de audio, periodistas y diseñadores de sonido que necesitan obtener una vista previa de las pistas, exportar mezclas WAV/MP3, recuperar grabaciones fallidas o degradar proyectos de Audacity 4 (.aup4) a Audacity 3 (.aup3) directamente en el navegador sin instalar Audacity ni cargar audio confidencial.",
@@ -66479,7 +66477,7 @@
         "AudioMass Web Audio",
         "Sodaphonic"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Podcasters, ingénieurs du son, journalistes et concepteurs sonores qui ont besoin de prévisualiser des pistes, d'exporter des mixages WAV/MP3, de récupérer des enregistrements en panne ou de rétrograder des projets Audacity 4 (.aup4) vers Audacity 3 (.aup3) directement dans le navigateur sans installer Audacity ni télécharger de l'audio confidentiel.",
@@ -66510,7 +66508,7 @@
         "AudioMass Web Audio",
         "Sodaphonic"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Podcaster, Audioingenieure, Journalisten und Sounddesigner, die direkt im Browser eine Vorschau von Titeln, den Export von WAV/MP3-Mischungen, die Wiederherstellung abgestürzter Aufnahmen oder ein Downgrade von Audacity 4-Projekten (.aup4) auf Audacity 3 (.aup3) benötigen, ohne Audacity zu installieren oder vertrauliche Audiodaten hochzuladen.",
@@ -66541,7 +66539,7 @@
         "AudioMass Web Audio",
         "Sodaphonic"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Podcasters, engenheiros de áudio, jornalistas e designers de som que precisam visualizar faixas, exportar mixagens WAV/MP3, recuperar gravações travadas ou fazer downgrade de projetos do Audacity 4 (.aup4) para Audacity 3 (.aup3) diretamente no navegador, sem instalar o Audacity ou fazer upload de áudio confidencial.",
@@ -66572,7 +66570,7 @@
         "AudioMass Web Audio",
         "Sodaphonic"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "dataformatkit-com": {
@@ -82871,6 +82869,546 @@
       "benchmarkNotes": "将 #situation 切换为 clarification、#project-type 切换为 interior 后点击 Build my draft，编辑 #message-draft 并通过 Copy message 验证捕获 133 字符无水印剪贴板文本（0ms 冻结，0.00 CLS）。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-25T02:59:23.745Z"
+    }
+  },
+  "devtoolry-com": {
+    "en": {
+      "bestFor": "Developers and technical users needing instant browser-based JSON formatting, tree inspection, Base64/JWT utilities, and file utilities without mandatory sign-up.",
+      "pros": [
+        "284 free utilities (232 running locally in the browser) accessible without registration or daily quotas",
+        "Dedicated JSON workbench supporting formatting, validation, tree viewing, JSONPath, schema checks, and clean JSON file downloads",
+        "Live homepage sandbox for quick JSON, JWT, Base64, and URL conversions with 0ms main-thread lag"
+      ],
+      "cons": [
+        "Emits analytics and RUM beacons to Google Analytics and Cloudflare (/cdn-cgi/rum)",
+        "Subset of tools (such as remote compilers) run server-side rather than strictly in-browser"
+      ],
+      "privacyVerdict": "Observed 3 telemetry payloads (POST /cdn-cgi/rum and POST www.google-analytics.com/g/collect). Tested JSON formatting, Base64 encoding, and tree inspection ran in the browser without uploading user text payloads to a remote API.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated homepage inline workbench (filled JSON and switched to Base64 tab) and full JSON Formatter/Viewer (/developer-tools/json-viewer). Loaded 14-key depth-4 sample JSON, switched to collapsible Tree view, and downloaded a clean 350 bytes JSON file with 0ms max task and 0.01 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:41:43.242Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册即开即用的开发者与技术用户，用于浏览器端 JSON 格式化、树形结构查看、Base64/JWT 编解码与文档图像处理。",
+      "pros": [
+        "提供 284 款免费工具（其中 232 款在浏览器本地运行），核心功能无需注册且无每日限额",
+        "JSON 专用工作台集成格式化、校验、树形视图、JSONPath、Schema 校验与干净的 JSON 文件下载",
+        "首页内置 JSON、JWT、Base64 与 URL 实时沙盒，交互响应流畅（0ms 主线程阻塞）"
+      ],
+      "cons": [
+        "页面会发送 Google Analytics 与 Cloudflare RUM（/cdn-cgi/rum）统计信标",
+        "部分编译器等非纯前端工具仍需服务端执行"
+      ],
+      "privacyVerdict": "实测捕获 3 次遥测信标请求（POST /cdn-cgi/rum 与 POST www.google-analytics.com/g/collect）。实测 JSON 格式化、Base64 编码与树形解析均在浏览器中执行，未观测到用户输入文本上传至远程 API。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 18,
+        "depth": 20,
+        "exportFreedom": 18,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测首页内嵌沙盒（输入 JSON 并切换 Base64 标签）以及完整 JSON Formatter/Viewer（/developer-tools/json-viewer）：加载 14 键 4 层深度示例 JSON，切换至可折叠树形视图并成功下载 350 bytes 干净 JSON 文件，主线程最大阻塞 0ms、CLS 0.01。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:41:43.242Z"
+    }
+  },
+  "cutwisp-com": {
+    "en": {
+      "bestFor": "Creators and everyday users needing to trim, compress, rotate, resize, or convert videos and audio locally in the browser without uploading files or creating accounts.",
+      "pros": [
+        "Broad suite of browser-based video and audio tools (trim, compress, vertical crop, rotate, MP4/MP3/GIF conversion) with zero sign-up",
+        "Visual timeline scrubber with yellow start/end handles, frame-exact cutting, and clean MP4 output with no watermarks",
+        "Opt-in Yandex Metrica consent banner allows declining analytics before editing, keeping video files on-device"
+      ],
+      "cons": [
+        "Emits Cloudflare RUM telemetry beacons (/cdn-cgi/rum) and prompts for optional Yandex Metrica visitor statistics",
+        "Client-side re-encoding speed depends on local device CPU and memory for larger video files"
+      ],
+      "privacyVerdict": "Observed 2 Cloudflare RUM telemetry beacons (POST /cdn-cgi/rum) after declining the optional Yandex Metrica consent prompt. Video trimming and MP4 export executed in the browser with zero video payload egress observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated Cutwisp Trim Video (/en/trim-video/). Declined Yandex Metrica prompt, uploaded 3.5 KB MP4 fixture, inspected timeline scrubber and Play selection control, and clicked Cut and save to download a clean 2630 bytes ISO Media MP4 artifact with 0ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:43:53.544Z"
+    },
+    "zh": {
+      "bestFor": "需要在浏览器本地无上传、免登录完成视频裁剪、压缩、旋转、分辨率调整及 MP4/MP3/GIF 转换的视频创作者与日常用户。",
+      "pros": [
+        "涵盖视频裁剪、压缩、竖屏转换、旋转及 MP4/MP3/GIF 互转等完整工具矩阵，免注册即用",
+        "提供可视化时间轴黄标滑块、选区试播与逐帧精确裁剪，导出 MP4 文件无任何水印",
+        "Yandex Metrica 访问统计弹窗支持主动拒绝，音视频处理保留在本地设备"
+      ],
+      "cons": [
+        "页面存在 Cloudflare RUM 性能信标（/cdn-cgi/rum）及可选统计授权弹窗",
+        "浏览器端重编码大型视频的速度受限于本地设备算力与内存"
+      ],
+      "privacyVerdict": "拒绝可选 Yandex Metrica 统计弹窗后，仅捕获 2 次 Cloudflare RUM 性能遥测请求（POST /cdn-cgi/rum）。视频裁剪与 MP4 导出均在浏览器端完成，未观测到视频文件上传外发。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 86,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 19,
+        "privacy": 17,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 Cutwisp Trim Video（/en/trim-video/）。拒绝 Yandex Metrica 统计弹窗后上传 3.5 KB MP4 测试固件，验证时间轴滑块与 Play selection 播放控制，点击 Cut and save 成功下载 2630 bytes 标准 ISO Media MP4 成品，主线程最大阻塞 0ms、CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:43:53.544Z"
+    }
+  },
+  "itimelines-date": {
+    "en": {
+      "bestFor": "Writers, educators, historians, and planners creating clean visual timelines in the browser with PNG, SVG, and JSON backup exports without signing up.",
+      "pros": [
+        "Immediate browser workspace requiring zero account creation, saving timelines locally with JSON backup and restore",
+        "Opt-out analytics prompt (Reject analytics) suppresses Google Analytics and Microsoft Clarity before entering the studio",
+        "Clean 1080x1128 PNG and SVG vector exports alongside live preview and event search"
+      ],
+      "cons": [
+        "Free PNG/SVG exports include a small bottom-margin 'Made with Timeline · timeline maker' attribution unless upgraded to Pro",
+        "Emits Cloudflare RUM beacons (/cdn-cgi/rum) even when optional analytics are declined"
+      ],
+      "privacyVerdict": "Observed 3 telemetry payloads (POST /cdn-cgi/rum) after clicking Reject analytics on the Google Analytics and Microsoft Clarity consent prompt. Timeline creation, event editing, and PNG export executed locally in the browser with no timeline content uploaded.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated itimelines.date/editor. Declined analytics banner, added event 'Artemis milestone' with story text in Timeline Studio, verified live preview update, and exported a 130849 bytes 1080x1128 PNG artifact via Export -> PNG image with 0ms max freeze and 0.03 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:46:51.395Z"
+    },
+    "zh": {
+      "bestFor": "希望免注册在浏览器中制作视觉美观的时间轴、并支持导出 PNG/SVG 图片与 JSON 工作区备份的写作者、教师与项目策划者。",
+      "pros": [
+        "免登录直接进入 Timeline Studio 编辑区，数据保存于浏览器本地并支持 JSON 导入导出备份",
+        "提供隐私统计拒绝按钮（Reject analytics），进入工作室前即可关闭 Google Analytics 与 Microsoft Clarity",
+        "支持实时预览、事件检索及清晰的 1080x1128 PNG 与 SVG 矢量导出"
+      ],
+      "cons": [
+        "免费导出的图片底部带有小字归属署名（Made with Timeline · timeline maker），需 Pro 版去除",
+        "拒绝可选统计后仍会发送 Cloudflare RUM 性能信标（/cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "点击 Reject analytics 拒绝 Google Analytics 与 Microsoft Clarity 后，仅观测到 3 次 Cloudflare RUM 信标请求（POST /cdn-cgi/rum）。时间轴编辑、事件保存与 PNG 导出均在浏览器本地执行，未观测到内容上传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 81,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 itimelines.date/editor：拒绝统计弹窗后进入工作区，新增事件 'Artemis milestone' 并填写详情保存，确认右侧实时预览更新后通过 Export -> PNG image 下载 130849 bytes（1080x1128）清晰 PNG 图片，主线程最大阻塞 0ms、CLS 0.03。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:46:51.396Z"
+    }
+  },
+  "poolcarecalculators-com": {
+    "en": {
+      "bestFor": "Pool owners and maintenance technicians calculating salt, chlorine, pH, alkalinity, volume, pump sizing, and heating costs in the browser without creating an account.",
+      "pros": [
+        "Nine focused pool math calculators (salt, chlorine, pH, volume, pump size, heating cost, shock) with instant live dosing output and zero login",
+        "Browser-saved pool volume defaults ('Save to My Pool') plus printable summary and dosing log export",
+        "Transparent formulas and staged addition warnings shown directly alongside results"
+      ],
+      "cons": [
+        "Emits extensive third-party telemetry (17 payloads across Microsoft Clarity, Google Analytics, and Cloudflare RUM)",
+        "HTML5 number step validation on the pool gallons field rejects round numbers like 20000 on Recalculate submit (expects 19901 or 20001)"
+      ],
+      "privacyVerdict": "Observed 17 telemetry and session-recording payloads (POST l.clarity.ms/collect, POST /cdn-cgi/rum, POST www.google-analytics.com/g/collect). Pool chemistry and dosing calculations executed client-side in the browser without uploading test inputs to a calculation API.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 11,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated Pool Salt Calculator (/pool-salt-calculator/). Entered 20000 gallons and 1800 ppm current salt; observed live dosing output update (175 lb staged add), caught native step validation error on #gallons upon Recalculate click, and verified Print trigger (0ms max freeze, 0.02 CLS).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:49:33.030Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册快速计算泳池加盐量、余氯、pH 值、容积、水泵功率与加热成本的泳池维护人员及家庭用户。",
+      "pros": [
+        "集成 9 款泳池专业计算器（加盐、氯含量、pH、容积、水泵、加热成本等），免登录实时给出投加建议",
+        "支持浏览器本地保存默认泳池容积（Save to My Pool），并提供投加记录与打印汇总导出",
+        "界面公开计算公式并在大剂量投加时提示分阶段循环复测"
+      ],
+      "cons": [
+        "存在较多第三方遥测请求（捕获 17 次请求，含 Microsoft Clarity、Google Analytics 与 Cloudflare RUM）",
+        "泳池加仑数输入框存在 HTML5 step 校验瑕疵，点击 Recalculate 时会将整万数值 20000 判为无效（提示 19901 或 20001）"
+      ],
+      "privacyVerdict": "实测捕获 17 次后台遥测与行为录制请求（POST l.clarity.ms/collect、POST /cdn-cgi/rum、POST www.google-analytics.com/g/collect）。泳池水质与投药公式计算在浏览器本地执行，未向计算接口上传输入参数。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 11,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 Pool Salt Calculator（/pool-salt-calculator/）：输入 20000 加仑与当前盐度 1800 ppm，确认即时输出更新为分阶段加盐约 175 lb，点击 Recalculate 时发现 #gallons 存在 step 校验提示问题，并成功触发 Print 导出（主线程阻塞 0ms、CLS 0.02）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:49:33.031Z"
+    }
+  },
+  "www-wallpaintcalculator-com": {
+    "en": {
+      "bestFor": "Homeowners, renters, and painters estimating wall/ceiling paintable area, optimal can combinations, and project costs in imperial or metric units without sign-up.",
+      "pros": [
+        "Instant live calculations with interactive room diagram, door/window subtraction, ceiling toggle, and ft/gal or m/L unit switching",
+        "Actionable purchase breakdown (optimal 1 gal and 0.25 gal can mix, reserve buffer, leftover estimate) plus Print list and URL link sharing",
+        "Zero outgoing network payloads, analytics scripts, or consent popups observed during testing"
+      ],
+      "cons": [
+        "Does not offer direct CSV/PDF file download buttons beyond browser print and shareable URL state",
+        "Specialized for interior/exterior paint estimation rather than full room floor-plan CAD"
+      ],
+      "privacyVerdict": "No outgoing network payloads, analytics beacons, or third-party tracking requests were observed across all evaluation steps. Room measurements and paint quantity calculations updated immediately in the browser DOM.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Evaluated wallpaintcalculator.com. Changed room length to 16 ft and width to 14 ft, toggled 'Include the ceiling' (live result updated from 2 gal to 4.25 gal / 659 ft² paintable area with 4 x 1 gal + 1 x 0.25 gal shopping list), and verified Print list trigger (0ms max freeze, 0.00 CLS, 0 outgoing payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:51:20.331Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册在浏览器中测算墙面与天花板涂刷面积、扣减门窗面积、换算最优油漆桶组合及预算的装修业主与油漆工。",
+      "pros": [
+        "输入房间长宽高、门窗数量与是否含顶面后实时更新面积与用量，支持英制/公制切换及示意图联动",
+        "直接给出最优桶装采购清单（如 4 × 1 gal + 1 × 0.25 gal）、损耗余量与剩余量，并支持打印清单与链接分享",
+        "全流程未观测到任何网络数据外发、统计信标或弹窗干扰"
+      ],
+      "cons": [
+        "除浏览器打印（Print list）与链接复制外，不提供独立 PDF/CSV 文件下载按钮",
+        "专注于墙体与外立面油漆用量估算，不涉及完整室内 CAD 平面绘图"
+      ],
+      "privacyVerdict": "全程未观测到任何网络请求外发、统计信标或第三方追踪脚本；房间尺寸与油漆用量均在浏览器 DOM 中即时完成计算。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 84,
+        "frictionless": 19,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 18,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "实测 wallpaintcalculator.com：将房间长度改为 16 ft、宽度改为 14 ft 并勾选 Include the ceiling，实测结果从 2 gal 实时更新为 4.25 gal（可涂刷面积 659 ft²，推荐采购 4 × 1 gal + 1 × 0.25 gal），并成功触发 Print list 打印导出（主线程阻塞 0ms、CLS 0.00、外发请求 0）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T02:51:20.332Z"
+    }
+  },
+  "www-englishtosomali-org": {
+    "en": {
+      "bestFor": "Learners, travelers, and communicators needing quick English-to-Somali and Somali-to-English translations with tone modes, audio playback, and clean text downloads without creating an account.",
+      "pros": [
+        "No registration required to translate up to 600 characters per request across Standard, AI polish, and Formal tone modes",
+        "Includes one-click Download, Copy translation, audio Listen, phrase saving, and companion Somali dictionary/phrase guides",
+        "Transparent inline disclaimer reminding users that drafts are AI-assisted and not for sensitive data"
+      ],
+      "cons": [
+        "Server-side translation via POST /api/translate plus Google Analytics, DoubleClick, and Cloudflare RUM telemetry",
+        "600-character limit per translation request"
+      ],
+      "privacyVerdict": "Observed 8 outgoing payloads including server-side translation dispatch (POST /api/translate) and third-party analytics/telemetry beacons (POST analytics.google.com/g/collect, POST stats.g.doubleclick.net/g/collect, POST /cdn-cgi/rum, POST www.google.com/g/collect). Avoid entering sensitive personal text.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 11,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated englishtosomali.org/#translator. Entered 50-char English prompt in textarea, selected Formal mode, triggered POST /api/translate (returned Somali output 'Iska warran, sidee tahay maanta? Waad ku mahadsantahay caawinaadaada.'), and clicked Download to export a clean 69 bytes text file with 0ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:06:44.588Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册进行英语与索马里语双向互译、切换语气模式（标准/AI润色/正式）、试听发音并导出译文文本的学习者与日常沟通用户。",
+      "pros": [
+        "免登录即可使用，支持 Standard、AI polish 与 Formal 三种语气模式，单次支持 600 字符互译",
+        "提供一键 Download 导出文本、复制译文、语音朗读、常用短语保存及配套索马里语词典指南",
+        "界面明确提示为 AI 辅助草稿并提醒勿输入敏感信息，透明度较高"
+      ],
+      "cons": [
+        "核心翻译依赖服务端接口 POST /api/translate，并发送 Google Analytics、DoubleClick 与 Cloudflare RUM 信标",
+        "单次翻译输入框限制最多 600 个字符"
+      ],
+      "privacyVerdict": "实测捕获 8 次外发请求，包含服务端翻译接口 POST /api/translate 及第三方统计信标（POST analytics.google.com/g/collect、POST stats.g.doubleclick.net/g/collect、POST /cdn-cgi/rum、POST www.google.com/g/collect），不建议输入敏感个人文本。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 11,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 englishtosomali.org/#translator：输入 50 字符英文例句并切换至 Formal 模式，触发 POST /api/translate 成功返回索马里语译文（Iska warran, sidee tahay maanta? Waad ku mahadsantahay caawinaadaada.），点击 Download 成功导出 69 bytes 纯净文本文件，主线程阻塞 0ms、CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:06:44.589Z"
+    }
+  },
+  "easymemorize-com": {
+    "en": {
+      "bestFor": "Speakers, students, and presenters memorizing speeches or scripts line-by-line in the browser using active recall drills without creating an account.",
+      "pros": [
+        "No sign-up required; converts any pasted or TXT-imported speech into a structured rehearsal plan with deadline pacing",
+        "Seven distinct drill modes including Read & Recall, Fill the Gaps, First-Letter Hints, Cue Cards, Type from Memory, Speak It Aloud, and Full Rehearsal",
+        "Stores scripts and section mastery progress locally in the browser without uploading speech content by default"
+      ],
+      "cons": [
+        "Emits third-party analytics payloads to Google Analytics, Cloudflare RUM (/cdn-cgi/rum), and in.pvuv.ai/in",
+        "Initial script load and view transitions recorded 146ms max task freeze and 0.35 CLS"
+      ],
+      "privacyVerdict": "Observed 10 telemetry payloads (POST /cdn-cgi/rum, POST www.google-analytics.com/g/collect, POST in.pvuv.ai/in). Speech scripts and practice progress are saved locally in the browser unless the user optionally supplies an AI provider key.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated easymemorize.com end-to-end. Pasted a 19-word speech into textarea, set a 3-day target deadline, clicked Build My Practice to generate Blueprint/Cue Cards/Recall Questions, and launched Fill the Gaps mode (/practice?mode=hide); recorded 146ms max task and 0.35 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:09:31.500Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册将演讲稿或背诵文本拆分为分节记忆计划，并通过填空、首字母提示、默写和语音朗读等主动回忆练习牢记台词的演讲者与学生。",
+      "pros": [
+        "免登录即可将粘贴或导入的 TXT 讲稿生成按截止日期排期的分节背诵计划",
+        "内置 7 种记忆练习模式：阅读回忆、填空（Fill the Gaps）、首字母提示、提示卡、默写、朗读与全真预演",
+        "默认将讲稿与练习进度保存在浏览器本地，无需上传台词正文（仅可选接入自带 AI Key）"
+      ],
+      "cons": [
+        "页面会发送 Google Analytics、Cloudflare RUM（/cdn-cgi/rum）与 in.pvuv.ai/in 统计请求",
+        "初始加载主线程峰值阻塞 146ms，且练习页切换时 CLS 达 0.35"
+      ],
+      "privacyVerdict": "实测捕获 10 次后台统计信标请求（POST /cdn-cgi/rum、POST www.google-analytics.com/g/collect、POST in.pvuv.ai/in）。演讲稿文本与背诵进度默认保存于浏览器本地，不上传正文。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 76,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 14,
+        "privacy": 13,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 easymemorize.com：在输入框粘贴 19 词演讲稿，选择 3 天目标周期并点击 Build My Practice 生成 Blueprint、Cue Cards 与 Recall Questions，随后成功进入 Fill the Gaps（mode=hide）练习界面，测得主线程峰值 146ms、CLS 0.35。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:09:31.501Z"
+    }
+  },
+  "tierversus-com-maker": {
+    "en": {
+      "bestFor": "Creators, gamers, and community hosts building custom tier lists, brackets, blind rankings, and alignment charts from local images without creating an account.",
+      "pros": [
+        "Six interactive ranking modes (Tier Maker, 0-10, Blind Rank, Versus, Bracket, Alignment Chart) accessible without registration",
+        "Processes local JPG, PNG, GIF, and WEBP images in the browser with customizable tier rows and dark mode",
+        "High-resolution 2248x1568 PNG export with zero watermarks or login gates"
+      ],
+      "cons": [
+        "Displays a sticky bottom Google AdSense banner and emits 14 ad/analytics payloads (AdSense, Funding Choices, Google Analytics, Cloudflare RUM)",
+        "Initial layout shift of 0.08 CLS from ad slot loading"
+      ],
+      "privacyVerdict": "Observed 14 ad and telemetry payloads (POST www.google-analytics.com/g/collect, POST pagead2.googlesyndication.com/pagead/ping, POST fundingchoicesmessages.google.com, POST /cdn-cgi/rum). Local image loading, tier customization, and PNG rendering ran client-side without uploading image files.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 10,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated tierversus.com/maker. Uploaded sample.png into Image Pool, clicked Add Tier and Switch to dark mode, and exported a 108230 bytes 2248x1568 PNG via Export as Image with zero watermarks (0ms max task, 0.08 CLS).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:11:47.847Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册将本地图片制作为分级榜（Tier List）、淘汰赛对阵图（Bracket）、盲排或九宫格阵营图并导出高清图片的内容创作者与游戏玩家。",
+      "pros": [
+        "免登录提供 6 种排名模式（Tier Maker、0-10、Blind Rank、Versus、Bracket、Alignment Chart）",
+        "支持浏览器本地导入 JPG/PNG/GIF/WEBP 图片、增减层级与切换暗色模式",
+        "支持一键导出 2248x1568 高清无水印 PNG 图片"
+      ],
+      "cons": [
+        "页面底部存在固定 Google AdSense 广告条，实测发送 14 次广告与统计请求（AdSense、Funding Choices、Google Analytics、Cloudflare RUM）",
+        "广告加载带来 0.08 CLS 轻微布局偏移"
+      ],
+      "privacyVerdict": "实测捕获 14 次广告与统计信标请求（含 www.google-analytics.com/g/collect、pagead2.googlesyndication.com、fundingchoicesmessages.google.com 与 /cdn-cgi/rum）。图片加载、层级编辑与 PNG 渲染均在浏览器本地完成，未上传图片文件。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 17,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 10,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 tierversus.com/maker：上传 sample.png 至图片池，点击 Add Tier 新增层级并切换暗色模式，点击 Export as Image 成功导出 108230 bytes（2248x1568）无水印 PNG 图片（主线程阻塞 0ms、CLS 0.08）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:11:47.848Z"
+    }
+  },
+  "bingo-tanfujun-com": {
+    "en": {
+      "bestFor": "Teachers, trainers, and event hosts generating printable classroom bingo cards and caller definition sheets from custom answer-clue pairs without creating an account.",
+      "pros": [
+        "No registration required; converts 24–100 answer | clue pairs into separate printable student card PDFs and a full caller sheet in a single ZIP",
+        "Supports A4 and US Letter layouts, deterministic Set codes to reproduce exact card layouts, and pre-export layout verification",
+        "Lesson pairs stay in the browser with no forced watermarks on the free 10-card print pack"
+      ],
+      "cons": [
+        "Emits telemetry payloads to cloudflareinsights.com/cdn-cgi/rum and /api/events, and limits input to printable English ASCII text",
+        "Preview expansion causes 0.47 CLS, and more than 10 cards or CSV/JSON exports require a $7 one-time Plus pass"
+      ],
+      "privacyVerdict": "Observed 6 telemetry payloads (POST cloudflareinsights.com/cdn-cgi/rum and POST /api/events). Lesson answer-clue text and PDF ZIP generation ran locally in the browser without uploading lesson content.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated bingo.tanfujun.com. Filled 26 custom answer|clue pairs into textarea, ran Preview & check layout to render card layout preview, and clicked Download free pack to export a clean 10487 bytes ZIP archive with zero watermarks (0ms max task, 0.47 CLS on preview expand).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:16:09.469Z"
+    },
+    "zh": {
+      "bestFor": "需要免注册将课堂词汇与释义批量生成可打印学生宾果卡与主持人题单 PDF 打包文件的教师、培训师及活动组织者。",
+      "pros": [
+        "免登录即可将 24–100 组“答案 | 线索”生成独立的学生卡片 PDF 与完整主持人题单并打包为 ZIP 下载",
+        "支持 A4 与 US Letter 纸张切换、基于 Set code 复现固定排版以及导出前排版检查",
+        "免费版 10 张卡片包无水印且在浏览器本地生成，无需登录账号"
+      ],
+      "cons": [
+        "页面会发送 cloudflareinsights.com/cdn-cgi/rum 与 /api/events 遥测请求，且仅支持可打印英文 ASCII 文本",
+        "展开排版预览时产生 0.47 CLS，超过 10 张卡片及 CSV/JSON 导出需一次性购买 7 美元 Plus 版"
+      ],
+      "privacyVerdict": "实测捕获 6 次遥测请求（POST cloudflareinsights.com/cdn-cgi/rum 与 POST /api/events）。课程词条解析与 PDF ZIP 打包均在浏览器端执行，未观测到词库文本上传。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 17,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 bingo.tanfujun.com：在输入框填入 26 组自定义 answer|clue 词条，点击 Preview & check layout 检查排版后，点击 Download free pack 成功下载 10487 bytes 无水印 ZIP 文件包（主线程阻塞 0ms，展开预览 CLS 0.47）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:16:09.470Z"
+    }
+  },
+  "recipeagents-usestarbase-com": {
+    "en": {
+      "bestFor": "n8n workflow builders and automation engineers evaluating community node reliability, npm download velocity, and 3- to 6-month retention before installing.",
+      "pros": [
+        "No account required to search, filter by 8 categories, and sort 45 n8n community nodes by composite score, npm downloads, or retention",
+        "Tracks 3-month and 6-month download retention, churn percentages, and forum problem density rather than vanity install counts",
+        "Includes searchable workflow recipes and an n8n vs. Zapier vs. Make comparison view"
+      ],
+      "cons": [
+        "No direct CSV or JSON bulk export button on the ranking table",
+        "Emits telemetry beacons to Vercel Insights (/_vercel/insights/view) and Ahrefs Analytics (analytics.ahrefs.com/api/event)"
+      ],
+      "privacyVerdict": "Observed 2 analytics payloads (POST /_vercel/insights/view and POST analytics.ahrefs.com/api/event). Node filtering and sorting execute immediately in the browser without submitting search queries to an external API.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Evaluated recipeagents.usestarbase.com. Searched 'MCP' in the node filter input (narrowed to n8n-nodes-mcp with 141,554 monthly downloads and 100%/100% 3-/6-month retention), toggled Downloads and Retention sorting, and navigated to /n8n-vs-zapier-vs-make (0ms max task, 0.18 CLS).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:24:27.711Z"
+    },
+    "zh": {
+      "bestFor": "需要在安装 n8n 社区节点前评估 npm 月下载量、3 个月与 6 个月留存率、流失率及社区问题密度的自动化开发者与工作流工程师。",
+      "pros": [
+        "免登录即可对 45 个 n8n 社区节点按 8 大分类筛选、关键词检索，并按综合分、下载量或留存率排序",
+        "基于 npm 下载量与 3/6 个月留存/流失数据评估节点长期活跃度，而非仅看累计安装量",
+        "内置可检索 AI 工作流配方（Recipes）及 n8n / Zapier / Make 对比视图"
+      ],
+      "cons": [
+        "排行榜页面暂未提供 CSV 或 JSON 批量导出按钮",
+        "页面发送 Vercel Insights（/_vercel/insights/view）与 Ahrefs Analytics（analytics.ahrefs.com/api/event）统计信标"
+      ],
+      "privacyVerdict": "实测捕获 2 次分析统计信标（POST /_vercel/insights/view 与 POST analytics.ahrefs.com/api/event）。节点检索、分类过滤与排序均在浏览器端即时完成，未向外部搜索接口发送查询。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 15,
+        "exportFreedom": 14,
+        "privacy": 14,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "实测 recipeagents.usestarbase.com：在节点检索框输入 MCP 筛选出 n8n-nodes-mcp（月下载 141,554、3/6 个月留存 100%/100%），测试 Downloads 与 Retention 排序切换，并访问 /n8n-vs-zapier-vs-make 对比页（主线程阻塞 0ms、CLS 0.18）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-26T03:24:27.712Z"
     }
   }
 }
