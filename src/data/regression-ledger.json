@@ -100,7 +100,7 @@
   },
   "animista-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:15:08.963Z",
+    "lastScanAt": "2026-11-26T06:11:00.427Z",
     "lastTitle": "Animista - On-Demand CSS Animations Library",
     "lastSignals": []
   },
@@ -381,7 +381,7 @@
   },
   "blur-face-com-blur-face": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:18:40.148Z",
+    "lastScanAt": "2026-11-26T06:13:59.666Z",
     "lastTitle": "Face Blur Effect Online — Blur Faces in Photos | Blur Face",
     "lastSignals": []
   },
@@ -501,7 +501,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-15T06:26:58.931Z",
+    "lastScanAt": "2026-11-26T06:10:04.966Z",
     "lastTitle": "Free Custom Calendar Maker — Print & Export · Calendar Forge",
     "lastSignals": []
   },
@@ -587,7 +587,7 @@
   },
   "claude-resets-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:21:12.586Z",
+    "lastScanAt": "2026-11-26T06:15:41.786Z",
     "lastTitle": "Claude 用量重置追踪：距上次 Claude 重置的天数",
     "lastSignals": []
   },
@@ -729,7 +729,7 @@
   },
   "convertio-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:14:49.317Z",
+    "lastScanAt": "2026-11-26T06:10:37.835Z",
     "lastTitle": "Convertio — 文件转换器",
     "lastSignals": []
   },
@@ -765,7 +765,7 @@
   },
   "coveryourtracks-eff-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:14:56.481Z",
+    "lastScanAt": "2026-11-26T06:10:43.440Z",
     "lastTitle": "Cover Your Tracks",
     "lastSignals": []
   },
@@ -827,7 +827,7 @@
   },
   "cssgradient-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:20:37.853Z",
+    "lastScanAt": "2026-11-26T06:15:16.195Z",
     "lastTitle": "CSS Gradient – Generator, Maker, and Background",
     "lastSignals": []
   },
@@ -851,7 +851,7 @@
   },
   "cubic-bezier-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:20:47.435Z",
+    "lastScanAt": "2026-11-26T06:15:25.220Z",
     "lastTitle": "cubic-bezier(.17,.67,.83,.67) ✿ cubic-bezier.com",
     "lastSignals": []
   },
@@ -941,7 +941,7 @@
   },
   "desmos-com-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:17:56.049Z",
+    "lastScanAt": "2026-11-26T06:13:24.612Z",
     "lastTitle": "Desmos | 图形计算器",
     "lastSignals": []
   },
@@ -1141,7 +1141,7 @@
   },
   "explainshell-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:15:36.446Z",
+    "lastScanAt": "2026-11-26T06:11:23.048Z",
     "lastTitle": "explainshell.com - match command-line arguments to their help text",
     "lastSignals": []
   },
@@ -1152,12 +1152,12 @@
         "severity": "medium",
         "evidence": "Rolling probe produced no inspection result",
         "firstSeenAt": "2026-11-16T06:14:23.342Z",
-        "lastSeenAt": "2026-11-16T06:14:23.342Z",
-        "seenCount": 1,
+        "lastSeenAt": "2026-11-26T06:10:16.909Z",
+        "seenCount": 2,
         "evidencePaths": []
       }
     ],
-    "lastScanAt": "2026-11-16T06:14:23.342Z",
+    "lastScanAt": "2026-11-26T06:10:16.909Z",
     "lastTitle": "Extractor — Video and Audio Downloader",
     "lastSignals": [
       "probe_failed"
@@ -1165,7 +1165,7 @@
   },
   "ezgif-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:15:29.130Z",
+    "lastScanAt": "2026-11-26T06:11:17.634Z",
     "lastTitle": "Ezgif - free online animated GIF editor",
     "lastSignals": []
   },
@@ -1379,7 +1379,7 @@
   },
   "free-qr-codes-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:19:43.200Z",
+    "lastScanAt": "2026-11-26T06:14:38.180Z",
     "lastTitle": "Free QR Code Generator | Free QR Codes",
     "lastSignals": []
   },
@@ -1821,7 +1821,7 @@
   },
   "imagetoascii-art": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:14:38.414Z",
+    "lastScanAt": "2026-11-26T06:10:26.879Z",
     "lastTitle": "Image to ASCII Converter - Free, Private ASCII Art Generator",
     "lastSignals": []
   },
@@ -1958,7 +1958,7 @@
   },
   "jwt-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:18:21.835Z",
+    "lastScanAt": "2026-11-26T06:13:45.486Z",
     "lastTitle": "JSON Web Tokens - jwt.io",
     "lastSignals": []
   },
@@ -2477,7 +2477,7 @@
   },
   "mystery-knightlab-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:19:25.215Z",
+    "lastScanAt": "2026-11-26T06:14:22.198Z",
     "lastTitle": "The SQL Murder Mystery",
     "lastSignals": []
   },
@@ -2690,7 +2690,7 @@
   },
   "pdfandimagetools-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:19:32.837Z",
+    "lastScanAt": "2026-11-26T06:14:27.843Z",
     "lastTitle": "PDF & Image Tools | Free, Private, No Watermarks",
     "lastSignals": []
   },
@@ -2798,7 +2798,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-15T06:26:32.287Z",
+    "lastScanAt": "2026-11-26T06:09:31.813Z",
     "lastTitle": "PSD & PSB Header Inspector — Free, Local File Check",
     "lastSignals": []
   },
@@ -2914,7 +2914,7 @@
   },
   "polymarketscan-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:15:44.939Z",
+    "lastScanAt": "2026-11-26T06:11:29.501Z",
     "lastTitle": "PolymarketScan - Polymarket 扫描器和浏览器",
     "lastSignals": []
   },
@@ -3189,7 +3189,7 @@
   },
   "quicktinyv2-vercel-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:15:21.914Z",
+    "lastScanAt": "2026-11-26T06:11:11.977Z",
     "lastTitle": "QuickTiny — Paste Anything. Find the Right Tool.",
     "lastSignals": []
   },
@@ -3294,7 +3294,7 @@
   },
   "rawgraphs-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:20:27.616Z",
+    "lastScanAt": "2026-11-26T06:15:07.472Z",
     "lastTitle": "RAWGraphs",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-13T03:00:24.915Z",
@@ -3420,7 +3420,7 @@
   },
   "roascompare-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:20:10.156Z",
+    "lastScanAt": "2026-11-26T06:15:01.680Z",
     "lastTitle": "Break-Even ROAS Calculator & Comparison | ROAS Compare",
     "lastSignals": []
   },
@@ -3446,7 +3446,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-15T06:26:18.141Z",
+    "lastScanAt": "2026-11-26T06:09:17.512Z",
     "lastTitle": "Find RV dump stations and mobile repair | RV Stop Guide",
     "lastSignals": []
   },
@@ -3458,7 +3458,7 @@
   },
   "seatsolver-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:16:07.679Z",
+    "lastScanAt": "2026-11-26T06:11:48.454Z",
     "lastTitle": "Seating Chart Maker - Import Your Guest List, Free PDF, No Signup",
     "lastSignals": []
   },
@@ -3551,7 +3551,7 @@
   },
   "signaturefont-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:19:14.782Z",
+    "lastScanAt": "2026-11-26T06:14:15.106Z",
     "lastTitle": "Signature Fonts Generator - Free Signature Font Download",
     "lastSignals": []
   },
@@ -3587,7 +3587,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:16:29.699Z",
+    "lastScanAt": "2026-11-26T06:12:10.145Z",
     "lastTitle": "Free Website Check: Launch Readiness Score | Sitelemetry",
     "lastSignals": []
   },
@@ -3731,7 +3731,7 @@
   },
   "subsuperscript-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:15:55.938Z",
+    "lastScanAt": "2026-11-26T06:11:39.802Z",
     "lastTitle": "Subscript and Superscript Generator — Copy & Paste ¹²³",
     "lastSignals": []
   },
@@ -4173,11 +4173,11 @@
         "severity": "medium",
         "evidence": "No inputs, canvas, or buttons detected on the landing page",
         "firstSeenAt": "2026-11-16T06:16:38.497Z",
-        "lastSeenAt": "2026-11-16T06:16:38.497Z",
-        "seenCount": 1,
+        "lastSeenAt": "2026-11-26T06:12:16.629Z",
+        "seenCount": 2,
         "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-u2c-app-intent-1794809789838.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-u2c-app-outcome-1794809789838.png"
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-u2c-app-intent-1795673530266.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-u2c-app-outcome-1795673530266.png"
         ]
       },
       {
@@ -4193,11 +4193,10 @@
         ]
       }
     ],
-    "lastScanAt": "2026-11-16T06:16:38.497Z",
+    "lastScanAt": "2026-11-26T06:12:16.629Z",
     "lastTitle": "请稍候…",
     "lastSignals": [
-      "surface_lost",
-      "title_changed"
+      "surface_lost"
     ]
   },
   "uicolors-app": {
@@ -4232,7 +4231,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:16:51.080Z",
+    "lastScanAt": "2026-11-26T06:12:32.574Z",
     "lastTitle": "IRS Substantial Presence Test & Travel Planner",
     "lastSignals": []
   },
@@ -4389,7 +4388,7 @@
   },
   "whatthegif-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:17:40.682Z",
+    "lastScanAt": "2026-11-26T06:13:13.145Z",
     "lastTitle": "What the GIF: Frame-Perfect Video to GIF Maker. Zero Uploads.",
     "lastSignals": []
   },
@@ -4443,7 +4442,7 @@
   },
   "wormhole-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:21:31.882Z",
+    "lastScanAt": "2026-11-26T06:15:54.554Z",
     "lastTitle": "Wormhole - 简单、私密的文件共享",
     "lastSignals": []
   },
@@ -4466,7 +4465,7 @@
   },
   "www-allsubconverter-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:20:56.887Z",
+    "lastScanAt": "2026-11-26T06:15:34.658Z",
     "lastTitle": "Free Online Subtitle Converter & Editor | AllSubConverter",
     "lastSignals": []
   },
@@ -4528,7 +4527,7 @@
   },
   "www-freedominvoice-com-tools-invoice-generator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:19:58.398Z",
+    "lastScanAt": "2026-11-26T06:14:51.170Z",
     "lastTitle": "Free Online Invoice Generator | Pocket Invoice",
     "lastSignals": []
   },
@@ -4591,7 +4590,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-15T06:26:38.301Z",
+    "lastScanAt": "2026-11-26T06:09:36.952Z",
     "lastTitle": "カラーコード・色見本・配色ツール | いろレシピ",
     "lastSignals": []
   },
@@ -4604,7 +4603,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:17:15.180Z",
+    "lastScanAt": "2026-11-26T06:12:50.100Z",
     "lastTitle": "Online Keyboard Tester - Test Every Key | KeyboardAnalyzer",
     "lastSignals": []
   },
@@ -4627,14 +4626,26 @@
       "at": "2026-10-29T02:48:40.832Z",
       "closed": []
     },
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:16:18.906Z",
-    "lastSignals": [],
+    "openAnomalies": [
+      {
+        "code": "probe_failed",
+        "severity": "medium",
+        "evidence": "Rolling probe produced no inspection result",
+        "firstSeenAt": "2026-11-26T06:11:59.459Z",
+        "lastSeenAt": "2026-11-26T06:11:59.459Z",
+        "seenCount": 1,
+        "evidencePaths": []
+      }
+    ],
+    "lastScanAt": "2026-11-26T06:11:59.459Z",
+    "lastSignals": [
+      "probe_failed"
+    ],
     "lastTitle": "Free AI Name Generator for Any Idea | NameIdeaBox"
   },
   "www-ottopoll-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:18:48.381Z",
+    "lastScanAt": "2026-11-26T06:14:04.960Z",
     "lastTitle": "Otto · Create a free poll with friends, no account",
     "lastSignals": []
   },
@@ -4653,7 +4664,7 @@
   },
   "www-pastecurl-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:18:10.081Z",
+    "lastScanAt": "2026-11-26T06:13:35.926Z",
     "lastTitle": "cURL to Code Converter | Python, JavaScript & More | PasteCurl",
     "lastSignals": []
   },
@@ -4746,7 +4757,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:17:26.640Z",
+    "lastScanAt": "2026-11-26T06:13:00.831Z",
     "lastTitle": "Free Online Tools for PDFs, Images, Text & Calculations",
     "lastSignals": []
   },
@@ -4759,7 +4770,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:17:07.080Z",
+    "lastScanAt": "2026-11-26T06:12:42.295Z",
     "lastTitle": "Video to Image Sequence Converter — Extract Frames Online, Free",
     "lastSignals": []
   },
