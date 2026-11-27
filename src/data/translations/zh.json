@@ -765,6 +765,12 @@
     "coreTask": "免登录搜索 iOS 应用或按适配状态与截图筛选，查看其在 iPhone Duo 上的屏幕兼容表现。",
     "contentUpdatedAt": "2026-11-17T03:08:28.320Z"
   },
+  "flagmakerfree-com": {
+    "_hash": "ddff650ed297e7ac",
+    "description": "基于浏览器的免登录旗帜设计工具，提供 17 种版式、20 种矢量符号、自定义文字图层、撤销重做与 URL 分享，支持无水印 PNG/SVG 导出。",
+    "coreTask": "设计多图层自定义旗帜并导出无水印 PNG 或 SVG 文件",
+    "contentUpdatedAt": "2026-11-27T02:51:48.156Z"
+  },
   "flexboxfroggy-com": {
     "_hash": "660459e64baef9ca",
     "description": "通过有趣的青蛙主题游戏学习 CSS Flexbox。完成 24 关卡，掌握 justify-content 和 align-items 等 flexbox 属性。",
@@ -1303,6 +1309,12 @@
     "description": "提供低风险投资策略、ETF、分红股票及智能投资组合管理的专家指南。内容支持三种语言，面向稳健型投资者，助力财富稳步增长。",
     "coreTask": "阅读投资指南、浏览 ETF 对比分析、使用金融计算器"
   },
+  "magicremover-org": {
+    "_hash": "52be035ff5dc1cde",
+    "description": "支持画笔涂抹遮罩、前后对比与多种擦除模式的 AI 图片去杂物/去人物工具，免登录每日可免费处理 2 次并下载无水印图片。",
+    "coreTask": "上传照片并涂抹遮罩以擦除目标区域，导出无水印 JPEG 结果",
+    "contentUpdatedAt": "2026-11-27T03:00:36.613Z"
+  },
   "makehalftone-com": {
     "coreTask": "在浏览器中直接将照片转换为可直接打印的半色调网点图案。",
     "description": "将照片转换为适用于丝网印刷、DTF 热转印和海报印刷的半色调网点图案。纯浏览器本地运行，零数据上传。"
@@ -1479,6 +1491,12 @@
     "description": "通过解决谋杀悬案来学习 SQL。使用 SELECT、JOIN、WHERE 等查询数据库，找出凶手。",
     "coreTask": "通过侦探游戏学习 SQL"
   },
+  "namefontgenerator-com": {
+    "_hash": "32bf5e9e36d64a44",
+    "description": "免费在线 Unicode 花体字生成器，提供 60 种可复制文本样式、符号装饰边框与分类筛选功能。",
+    "coreTask": "将普通文本实时转换为带符号装饰的 Unicode 花体样式并复制",
+    "contentUpdatedAt": "2026-11-27T02:44:42.147Z"
+  },
   "namepractice-com": {
     "_hash": "39777e8749b03924",
     "description": "免登录可打印姓名描红字帖生成器（服务端渲染），提供描红-临摹-独立书写三段式字帖、学龄字号调节与无水印 PDF 导出（每月免费 10 页）。",
@@ -1567,6 +1585,12 @@
     "coreTask": "选择 PDF 转图片或图片转 PDF 模式，加载本地文件并配置输出参数后下载图片、ZIP 或 PDF。",
     "contentUpdatedAt": "2026-11-21T03:10:22.432Z"
   },
+  "odluck-com-en-password-generator-12-characters": {
+    "_hash": "c45cdeed8c639dc3",
+    "description": "支持自定义密码长度与可编辑字符池（大小写字母、数字、特殊符号）的网页随机密码生成器。",
+    "coreTask": "配置字符集与密码长度并在浏览器本地生成随机密码",
+    "contentUpdatedAt": "2026-11-27T02:49:49.042Z"
+  },
   "oil-capacity-com": {
     "_hash": "010e3b543d1f8b80",
     "description": "免费的发动机机油加注量、黏度标号与机滤查询工具，支持按年份/车型选择或 17 位 VIN 解码。",
@@ -1589,6 +1613,12 @@
   "online-tone-generator-com": {
     "description": "在浏览器中生成并聆听 20 Hz 至 20,000 Hz 的纯音信号。支持正弦波、方波、三角波或锯齿波，可调节音量与左右平衡，使用快捷预设，复制音频参数链接或直接保存为 WAV 音频文件，免登录使用。",
     "coreTask": "播放音频信号，调节频率与波形，控制音量与左右声道平衡，导出 WAV 文件，无需登录"
+  },
+  "onlineminitools-com-pdf-merger": {
+    "_hash": "3970cd19a41319ff",
+    "description": "基于浏览器的免上传 PDF 合并工具，支持组合多个 PDF 文档、筛选保留特定页面并调整输出页序。",
+    "coreTask": "在浏览器中合并与重排 PDF 页面并导出合并后的 PDF 文件",
+    "contentUpdatedAt": "2026-11-27T02:43:31.913Z"
   },
   "pairdrop-net": {
     "_hash": "3ffa9547bcac0ba5",
@@ -1771,6 +1801,12 @@
   "printable-tools-lab-pages-dev": {
     "coreTask": "免登录使用 PDF、图片、二维码和常用文档小工具并直接下载生成的文件",
     "description": "面向 PDF、图像、二维码和日常办公纸质文档任务的免费免登录浏览器工具。无需注册账号，即可按目标 KB 压缩图片、调整照片尺寸、图片转 PDF、生成二维码以及排版简易 PDF。"
+  },
+  "printablegrid-com-graph-paper": {
+    "_hash": "321c97e58e1fbc71",
+    "description": "基于浏览器的免登录坐标纸生成器，支持毫米/英寸单位、纸张大小、边距、网格尺寸与线型线宽自定义，并可导出无水印可打印 PDF。",
+    "coreTask": "自定义坐标纸网格与边距参数并导出可打印 PDF 文件",
+    "contentUpdatedAt": "2026-11-27T02:53:36.022Z"
   },
   "printabletoolkit-com": {
     "_hash": "6e8d6ca18bc5a5e6",
@@ -2402,6 +2438,12 @@
     "description": "TryInk 是一款纹身虚拟试戴工具：上传身体部位照片，放置设计图案，即可在预约纹身前在真实皮肤效果上预览大小与位置，免注册即用。",
     "coreTask": "上传身体照片，放置设计图案，并在真实皮肤上预览纹身的大小和位置效果"
   },
+  "tuskshift-schema-check-surge-sh-translate": {
+    "_hash": "9e0b58a0ef9c940b",
+    "description": "浏览器端 MySQL 转 PostgreSQL 语法转换工具，支持原生 SQL 与 Laravel 片段转换并附带逐条改写原因说明。",
+    "coreTask": "在浏览器中将 MySQL 查询语句转换为 PostgreSQL 语法并查看改动说明",
+    "contentUpdatedAt": "2026-11-27T02:55:36.517Z"
+  },
   "tymepath-com-excel-to-powerpoint-gantt": {
     "_hash": "d61d334035b90d0e",
     "description": "免登录纯客户端转换工具，支持将 Excel 与 CSV 任务表格直接转换为可用于演示的甘特图时间线幻灯片，无水印。",
@@ -2625,6 +2667,12 @@
     "description": "基于浏览器的交互式正畸头影测量分析工具，直接在本地计算 Steiner 与 Tweed 正畸测量数值与诊断分类。",
     "coreTask": "上传侧位 X 光片或加载范例描记图，定位解剖标志点并即时计算正畸角度与骨面型诊断结论，无需登录注册。",
     "contentUpdatedAt": "2026-11-05T03:01:23.810Z"
+  },
+  "www-hikkoshinote-com-move-in-fridge-fit": {
+    "_hash": "833e568da65b061c",
+    "description": "面向搬家场景的日文网页端冰箱/大型家具搬入路径模拟器，支持直线与 L 型转角尺寸比对、俯视示意图生成及 PNG/PDF 确认单导出。",
+    "coreTask": "模拟冰箱在直线与 L 型走廊中的搬入通过余量并导出确认示意图",
+    "contentUpdatedAt": "2026-11-27T02:46:37.853Z"
   },
   "www-imageconvertlab-com-tools-remove-image-background-html": {
     "_hash": "4128b099432c105e",

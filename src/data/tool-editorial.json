@@ -72048,50 +72048,54 @@
   },
   "zerowidthcleaner-com-zero-width-space": {
     "en": {
-      "bestFor": "Detecting, inspecting, and selectively removing invisible zero-width Unicode characters and byte order marks locally in the browser.",
+      "bestFor": "Inspecting and selectively stripping hidden zero-width Unicode characters and BOM markers in the browser.",
       "pros": [
-        "Precise code-point detection table identifying position, Unicode code points (U+200B, U+200C, U+200D, U+FEFF), and surrounding context",
-        "Completely client-side execution with zero external requests or data leakage"
+        "Maps exact 1-based code-point positions, Unicode names (U+200B, U+200C, U+200D, U+FEFF), and surrounding context before removal",
+        "Allows per-occurrence checkbox selection or bulk Select all found control before producing cleaned output"
       ],
       "cons": [
-        "Specialized for invisible Unicode whitespace and formatting control characters rather than general text linting"
+        "Loads Google Analytics (POST www.google-analytics.com/g/collect) on page load",
+        "Clipboard copy triggers a browser clipboard permission prompt and only supports plain-text copy without file download"
       ],
-      "privacyVerdict": "Strict client-side execution; network inspection confirmed zero outgoing data payload egress during text inspection and clipboard export.",
+      "privacyVerdict": "Text inspection and character removal run locally in the browser with no text-upload payloads observed, though 1 Google Analytics telemetry request (POST www.google-analytics.com/g/collect) was captured during the session.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Pasted text into textarea containing 4 hidden Unicode code points (U+200B, U+200C, U+200D, U+FEFF); DOM table mapped positions and clipboard export copied 24 clean bytes with 0 network requests.",
-      "testedAt": "2026-10"
+      "benchmarkNotes": "Pasted 26-code-point text containing U+200B, U+200C, U+200D, and U+FEFF into #source-text; Findings table listed all 4 occurrences (positions 6, 12, 17, 22) and Remove selected produced 22-char HelloWorldTestTextDone in #result-text (56ms max freeze, 0.04 CLS, 1 GA4 beacon).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:34:35.232Z"
     },
     "zh": {
       "bestFor": "在浏览器本地检测、核对并选择性清除不可见的零宽 Unicode 字符与 BOM 标记。",
       "pros": [
-        "高精度码点检测列表，精确标出字符位置、Unicode 码点（U+200B、U+200C、U+200D、U+FEFF）及上下文文本",
-        "完全在浏览器本地执行，无任何远程网络请求或文本泄露风险"
+        "精确标出 1-based 码点位置、Unicode 名称（U+200B、U+200C、U+200D、U+FEFF）及上下文片段后再执行清除",
+        "支持按条勾选或一键全选待清除项，并在独立输出框生成清洗结果"
       ],
       "cons": [
-        "专注于隐形 Unicode 字符与格式控制字符的清洗，不包含通用代码格式化功能"
+        "页面加载时会发送 Google Analytics 统计请求（POST www.google-analytics.com/g/collect）",
+        "点击复制按钮会触发浏览器剪贴板权限弹窗，且仅支持文本复制不提供文件导出"
       ],
-      "privacyVerdict": "严格的纯客户端本地运行；网络监控确认在文本扫描、清洗与剪贴板复制期间没有任何数据外发。",
+      "privacyVerdict": "文本扫描与字符清除在浏览器本地完成，未观察到用户输入文本外发；但会话期间捕获到 1 次 Google Analytics 遥测请求（POST www.google-analytics.com/g/collect）。",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
-      "benchmarkNotes": "测试包含 4 处隐藏码点（U+200B、U+200C、U+200D、U+FEFF）的文本样本，工具精准定位并一键清洗为 24 字符纯文本，网络抓包确认 0 次数据外发。",
-      "testedAt": "2026-10"
+      "benchmarkNotes": "向 #source-text 输入包含 U+200B、U+200C、U+200D 与 U+FEFF 的 26 码点测试文本，Findings 表格准确检出第 6、12、17、22 位共 4 处字符，点击 Remove selected 在 #result-text 输出 22 字符结果（最大主线程阻塞 56ms，CLS 0.04，1 次 GA4 请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:34:35.233Z"
     },
     "ja": {
       "bestFor": "ブラウザ内で不可視のゼロ幅Unicode文字やBOMを検出・精査し、安全に除去する用途。",
@@ -72105,16 +72109,16 @@
       "privacyVerdict": "クライアント内での完全ローカル処理。テキスト検査およびクリップボード取得時に外部通信は一切発生しません。",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "4種類の不可視文字を含むテスト文字列を正確に検出し、24文字の整形テキストを生成。ネットワーク通信なし。",
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "브라우저 로컬에서 보이지 않는 제로 너비 유니코드 문자와 BOM을 감지하고 선택적으로 제거하는 작업.",
@@ -72128,16 +72132,16 @@
       "privacyVerdict": "엄격한 클라이언트 측 실행; 텍스트 정제 및 클립보드 복사 중 외부 페이로드 전송이 전혀 없었습니다.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "4개의 숨겨진 유니코드 문자가 포함된 텍스트를 검사하여 정확한 위치 파악 및 24자 정제 텍스트 추출 완료, 외부 통신 0건.",
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Detectar, inspeccionar y eliminar caracteres invisibles de ancho cero y marcas BOM dentro del navegador.",
@@ -72151,16 +72155,16 @@
       "privacyVerdict": "Ejecución estricta en el cliente; la auditoría de red verificó cero datos transmitidos hacia el exterior.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "Analizó texto con 4 caracteres invisibles; mapeó posiciones y exportó 24 caracteres limpios sin telemetría de red.",
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Détecter, inspecter et supprimer les caractères invisibles de largeur nulle et balises BOM dans le navigateur.",
@@ -72174,16 +72178,16 @@
       "privacyVerdict": "Traitement strictement local en mémoire client; aucune transmission de données observée.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "Détection de 4 points de code invisibles, suppression sélective et copie propre de 24 caractères sans trafic réseau.",
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Unsichtbare Zero-Width-Unicode-Zeichen und BOM-Markierungen lokal im Browser aufspüren und bereinigen.",
@@ -72197,16 +72201,16 @@
       "privacyVerdict": "Strikt clientseitige Verarbeitung; Netzwerküberwachung bestätigt null ausgehende Datenpakete.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "Text mit 4 versteckten Codepunkten geprüft, fehlerfrei isoliert und 24 Zeichen sauberen Text ohne HTTP-Traffic exportiert.",
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Localizar, inspecionar e remover caracteres invisíveis de largura zero e BOM no navegador.",
@@ -72220,16 +72224,16 @@
       "privacyVerdict": "Execução local no cliente; auditoria de tráfego confirmou nenhuma transmissão de dados.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 89,
+        "overall": 80,
         "frictionless": 19,
-        "depth": 18,
-        "exportFreedom": 19,
-        "privacy": 20,
-        "polish": 13
+        "depth": 15,
+        "exportFreedom": 16,
+        "privacy": 16,
+        "polish": 14
       },
       "verdictTier": "highly-recommended",
       "benchmarkNotes": "Inspecionou texto com 4 caracteres invisíveis, mapeando posições e copiando 24 caracteres limpos sem tráfego de rede.",
-      "testedAt": "2026-10"
+      "testedAt": "2026-11"
     }
   },
   "seatsolver-com": {
@@ -74324,54 +74328,54 @@
   },
   "www-nameideabox-com": {
     "en": {
-      "bestFor": "Founders, creators, and parents seeking curated, themed naming suggestions from natural language prompts without signing up.",
+      "bestFor": "Browsing static naming guides while the primary AI name generator endpoint is failing.",
       "pros": [
-        "Instant generation of categorized name candidates with phonetic pronunciation guides and contextual rationales",
-        "Zero signup required to generate, copy, pronounce, or compare shortlist candidates",
-        "Clean responsive interface with categorized presets for business, product, baby, and pet names"
+        "No login prompt blocks access to the homepage generator form and preset topic buttons",
+        "Preserves user brief text across failed generation attempts without losing form state"
       ],
       "cons": [
-        "Relies on server-side inference endpoint with Google Analytics tracking beacons present"
+        "Core AI name generation failed across 3 consecutive attempts (custom brief, retry, and Business name preset) with a GENERATION PAUSED error",
+        "Transmits pageview and event telemetry to Google Analytics and Ahrefs (POST www.google-analytics.com/g/collect, POST analytics.ahrefs.com/api/event)"
       ],
-      "privacyVerdict": "Observed network egress includes POST requests to /api/generators/home-name-generator to process the naming prompt via remote models, alongside Google Analytics telemetry (www.google-analytics.com/g/collect). No user account or authentication is required.",
+      "privacyVerdict": "Observed outgoing payloads to Google Analytics (POST www.google-analytics.com/g/collect), Ahrefs analytics (POST analytics.ahrefs.com/api/event), and first-party POST /api/generators/home-name-generator during generation attempts.",
       "alternativeTo": [],
       "productScore": {
-        "overall": 71,
-        "frictionless": 18,
-        "depth": 12,
-        "exportFreedom": 14,
-        "privacy": 13,
-        "polish": 14
+        "overall": 46,
+        "frictionless": 15,
+        "depth": 5,
+        "exportFreedom": 6,
+        "privacy": 11,
+        "polish": 9
       },
-      "verdictTier": "capable-utility",
-      "benchmarkNotes": "Processed a 63-character naming prompt in 12s, generating 6 distinct branded name candidates with pronunciation keys and one-click copy controls.",
-      "testedAt": "2026-10",
-      "contentUpdatedAt": "2026-10-29T02:48:40.813Z"
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "Tested 75-char custom brief, retry button, and 138-char Business name preset across 10 steps; all 3 POST /api/generators/home-name-generator requests ended in GENERATION PAUSED ('We couldn't finish that shortlist'), leaving Copy list unusable (66ms max freeze, 0.03 CLS, 7+ payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:41:21.078Z"
     },
     "zh": {
-      "bestFor": "需要根据自然语言描述快速获取分类命名灵感与音标释义，且无需注册登录的创作者与创业者。",
+      "bestFor": "当前核心 AI 命名生成接口持续报错时，仅可作为静态命名指南浏览。",
       "pros": [
-        "免登录即时生成结构化命名候选，附带音标读音指南与命名契合度说明",
-        "支持免登录一键复制、发音朗读与加入对比候选清单",
-        "界面排版典雅精致，内置商业、产品、婴儿及宠物等多维度预设"
+        "首页输入框与主题预设按钮均无需登录即可直接访问",
+        "生成失败后会保留已填写的描述文本，不会清空表单状态"
       ],
       "cons": [
-        "生成依赖服务端推理接口，且页面包含 Google Analytics 遥测请求"
+        "连续 3 次测试（自定义提示词、重试与 Business name 预设）均触发 GENERATION PAUSED 报错，无法生成任何名称列表",
+        "页面加载与交互期间会向 Google Analytics 与 Ahrefs 发送遥测请求"
       ],
-      "privacyVerdict": "实测监测到发往 /api/generators/home-name-generator 的服务端模型推理请求，以及 Google Analytics 遥测记录。整个生成与复制过程完全无需注册或登录账户。",
+      "privacyVerdict": "实测捕获到向 Google Analytics（POST www.google-analytics.com/g/collect）、Ahrefs（POST analytics.ahrefs.com/api/event）以及服务端接口 POST /api/generators/home-name-generator 发送的网络载荷。",
       "alternativeTo": [],
       "productScore": {
-        "overall": 71,
-        "frictionless": 18,
-        "depth": 12,
-        "exportFreedom": 14,
-        "privacy": 13,
-        "polish": 14
+        "overall": 46,
+        "frictionless": 15,
+        "depth": 5,
+        "exportFreedom": 6,
+        "privacy": 11,
+        "polish": 9
       },
-      "verdictTier": "capable-utility",
-      "benchmarkNotes": "输入 63 字符命名需求后在 12 秒内完成生成，输出 6 组附带音标与一键复制功能的高质量命名候选。",
-      "testedAt": "2026-10",
-      "contentUpdatedAt": "2026-10-29T02:48:40.813Z"
+      "verdictTier": "emergency-only",
+      "benchmarkNotes": "历经 10 步测试 75 字符自定义描述、重试按钮及 138 字符 Business name 预设，3 次 POST /api/generators/home-name-generator 请求均返回 GENERATION PAUSED 错误，导致 Copy list 无法产出结果（最大主线程阻塞 66ms，CLS 0.03）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:41:21.079Z"
     }
   },
   "printstencil-com-pumpkin-painting-stencils-name-stencil": {
@@ -83409,6 +83413,420 @@
       "benchmarkNotes": "实测 recipeagents.usestarbase.com：在节点检索框输入 MCP 筛选出 n8n-nodes-mcp（月下载 141,554、3/6 个月留存 100%/100%），测试 Downloads 与 Retention 排序切换，并访问 /n8n-vs-zapier-vs-make 对比页（主线程阻塞 0ms、CLS 0.18）。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-26T03:24:27.712Z"
+    }
+  },
+  "onlineminitools-com-pdf-merger": {
+    "en": {
+      "bestFor": "Merging and reordering individual PDF pages locally in the browser with custom output filenames when display ads are acceptable.",
+      "pros": [
+        "Supports selecting or deselecting individual pages, reordering source documents and output pages via Up/Down controls, and customizing the download filename",
+        "Generates a clean, unwatermarked merged PDF directly in the browser without uploading source PDFs to a server"
+      ],
+      "cons": [
+        "Displays a prominent bottom AdSense anchor banner that partially overlaps lower page controls",
+        "Loads Microsoft Clarity (p.clarity.ms/collect), Google AdSense, and Cloudflare RUM (/cdn-cgi/rum) telemetry beacons"
+      ],
+      "privacyVerdict": "PDF files appear to be merged locally in the browser with no file-upload POST requests observed; however, 7 telemetry/ad requests were captured to Microsoft Clarity (POST p.clarity.ms/collect), Google AdSense (POST pagead2.googlesyndication.com/pagead/ping), and Cloudflare RUM (POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 16,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded two 610-byte sample.pdf fixtures, renamed output to combined-sample, reordered pages via Down button, and exported a clean 921-byte merged PDF via Merge and download PDF (0ms max freeze, 0.08 CLS, 7 ad/telemetry payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:43:31.761Z"
+    },
+    "zh": {
+      "bestFor": "在可接受页面展示广告的前提下，于浏览器本地免登录合并多个 PDF 文档、筛选页面顺序并自定义输出文件名。",
+      "pros": [
+        "支持勾选或取消单个页面、通过 Up/Down 按钮调整源文档与输出页序，并支持自定义导出文件名",
+        "无需上传 PDF 至服务端即可在本地完成合并，导出文件无水印且无登录拦截"
+      ],
+      "cons": [
+        "页面底部会弹出较大的 Google AdSense 悬浮广告横幅，部分遮挡下方页面卡片",
+        "页面加载并运行 Microsoft Clarity 会话追踪（p.clarity.ms/collect）、Google AdSense 与 Cloudflare RUM 遥测请求"
+      ],
+      "privacyVerdict": "PDF 文件合并在浏览器本地执行，未观察到文件上传请求；但捕获到 7 次发往 Microsoft Clarity（POST p.clarity.ms/collect）、Google AdSense（POST pagead2.googlesyndication.com/pagead/ping）及 Cloudflare RUM（POST /cdn-cgi/rum）的追踪与广告载荷。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 16,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 13,
+        "polish": 11
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "先后导入两份 610 字节 sample.pdf 样本，将输出文件名修改为 combined-sample 并点击 Down 调整顺序，通过 Merge and download PDF 成功导出 921 字节无水印合并 PDF（最大主线程阻塞 0ms，CLS 0.08，捕获 7 次广告与遥测请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:43:31.761Z"
+    }
+  },
+  "namefontgenerator-com": {
+    "en": {
+      "bestFor": "Generating stylized Unicode text with decorative wrappers and category filters for social bios and usernames without signing in.",
+      "pros": [
+        "Transforms text live across 60 Unicode font styles with 11 clickable decoration wrappers and instant category filtering",
+        "Zero sign-up required with per-card Copy and pin buttons plus dark mode toggle"
+      ],
+      "cons": [
+        "Outputs only Unicode text via Copy buttons without image or SVG export",
+        "Emits telemetry payloads to Cloudflare RUM (POST /cdn-cgi/rum) and custom analytics (POST p.futantan.com/api/event)"
+      ],
+      "privacyVerdict": "Text styling executes locally in the browser with no user-text upload observed; 2 analytics/RUM payloads were captured during the session (POST /cdn-cgi/rum and POST p.futantan.com/api/event).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Entered 'NoLogin Studio' into textarea, applied the ✨ A ✨ decoration wrapper, and filtered to Gothic & Outline; live output updated immediately across filtered cards (124ms max freeze, 0.14 CLS, 2 telemetry payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:44:41.983Z"
+    },
+    "zh": {
+      "bestFor": "免登录快速生成带有装饰符号与分类筛选的 Unicode 花体字与昵称文案，用于社交主页或游戏昵称。",
+      "pros": [
+        "输入文本后实时生成 60 种 Unicode 字体样式，支持 11 种装饰边框一键套用与风格分类筛选",
+        "无需注册即可使用每张卡片的 Copy 复制与置顶功能，支持暗色模式切换"
+      ],
+      "cons": [
+        "仅支持复制 Unicode 文本，不提供图片或矢量文件导出",
+        "页面会向 Cloudflare RUM（POST /cdn-cgi/rum）及统计服务（POST p.futantan.com/api/event）发送遥测请求"
+      ],
+      "privacyVerdict": "字体字符映射在浏览器本地实时完成，未观察到用户输入文本外发；但捕获到 2 次遥测请求（POST /cdn-cgi/rum 与 POST p.futantan.com/api/event）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在文本输入框填入 NoLogin Studio，依次点击 ✨ A ✨ 装饰预设与 Gothic & Outline 分类标签，页面即时刷新过滤后的 Unicode 样式卡片（最大主线程阻塞 124ms，CLS 0.14，2 次遥测请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:44:41.984Z"
+    }
+  },
+  "www-hikkoshinote-com-move-in-fridge-fit": {
+    "en": {
+      "bestFor": "Simulating refrigerator or large-furniture clearance through straight and L-shaped hallways with side-by-side candidate comparison and printable delivery sheets.",
+      "pros": [
+        "Simulates straight and L-shaped corridor turning geometry with a scaled top-down SVG collision diagram and side-by-side candidate comparison",
+        "Exports a crisp 1600x1632 unwatermarked PNG summary image alongside text-copy, print/PDF sheet, and browser-local save controls"
+      ],
+      "cons": [
+        "Interface is only available in Japanese",
+        "Loads Google Analytics (www.google-analytics.com/g/collect) and Firebase Installations requests on page load"
+      ],
+      "privacyVerdict": "Path calculations, canvas image rendering, and record storage execute locally in the browser with no dimension data uploaded; however, 5 outgoing telemetry/config payloads were observed (POST www.google-analytics.com/g/collect and POST firebaseinstallations.googleapis.com).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Filled custom fridge label, loaded sample dimensions, ran L-corridor route comparison showing collision vs clear paths, generated delivery check sheet, and exported a clean 1600x1632 PNG (326,204 bytes, 124ms max freeze, 0.01 CLS, 5 telemetry payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:46:37.698Z"
+    },
+    "zh": {
+      "bestFor": "在浏览器本地模拟冰箱或大型家具通过直线与 L 型走廊转角的空间余量，支持双候选对比并导出搬入确认图。",
+      "pros": [
+        "支持直线与 L 型转角通道几何模拟，绘制同比例俯视碰撞示意图并支持多候选方案对比",
+        "支持一键导出 1600x1632 无水印 PNG 示意图、文本摘要复制、打印/PDF 确认单与浏览器本地存档"
+      ],
+      "cons": [
+        "界面仅提供日文版本",
+        "页面加载时会向 Google Analytics（www.google-analytics.com/g/collect）与 Firebase Installations 发送遥测请求"
+      ],
+      "privacyVerdict": "尺寸比对、路线几何计算、图片渲染与记录保存均在浏览器本地完成，未观察到用户输入数据外发；但会话期间捕获到 5 次发往 Google Analytics 与 Firebase Installations 的请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 83,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "填写冰箱名称并加载示例尺寸后点击路径计算，成功生成 L 型走廊碰撞对比图与搬入确认单，随后通过画像保存按钮导出 1600x1632 无水印 PNG（326,204 字节，最大阻塞 124ms，CLS 0.01，5 次遥测请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:46:37.699Z"
+    }
+  },
+  "odluck-com-en-password-generator-12-characters": {
+    "en": {
+      "bestFor": "Generating customizable random passwords with editable character pools and length directly in the browser without signing in.",
+      "pros": [
+        "Allows toggling and directly editing lowercase, uppercase, numeric, and symbol character pools alongside custom password length",
+        "Instant browser-side password generation with 0ms freeze and 0.00 CLS"
+      ],
+      "cons": [
+        "No dedicated Copy button or download option; users must manually highlight the generated string",
+        "Loads Google Analytics, DoubleClick, Microsoft Clarity (a.clarity.ms), Google Funding Choices, and Cloudflare RUM telemetry"
+      ],
+      "privacyVerdict": "Password generation runs locally in the browser with no credential payloads uploaded; however, 16 analytics and ad-tech payloads were captured (analytics.google.com, stats.g.doubleclick.net, a.clarity.ms, fundingchoicesmessages.google.com, and /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 13,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Updated Password Length input[type='number'] from 12 to 20 and clicked the Random button to regenerate a 20-character password (0ms max freeze, 0.00 CLS, 16 third-party analytics/ad payloads observed).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:49:48.863Z"
+    },
+    "zh": {
+      "bestFor": "免登录在浏览器本地按自定义长度与字符池规则生成随机密码。",
+      "pros": [
+        "支持独立开关并直接编辑大小写字母、数字与特殊符号字符集，并可自定义密码长度",
+        "浏览器本地即时生成密码，交互零卡顿（0ms）且无布局偏移（0.00 CLS）"
+      ],
+      "cons": [
+        "缺少一键复制按钮与文件导出功能，需手动选中结果文本复制",
+        "页面加载了 Google Analytics、DoubleClick、Microsoft Clarity、Google Funding Choices 与 Cloudflare RUM 遥测与广告脚本"
+      ],
+      "privacyVerdict": "密码在浏览器本地生成且未观察到密码数据外发，但捕获到 16 次第三方统计与广告网络请求（analytics.google.com、stats.g.doubleclick.net、a.clarity.ms、fundingchoicesmessages.google.com 与 /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 70,
+        "frictionless": 18,
+        "depth": 13,
+        "exportFreedom": 13,
+        "privacy": 12,
+        "polish": 14
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "将 Password Length 数值框由 12 修改为 20 并点击 Random 按钮，即时生成 20 位随机密码（最大阻塞 0ms，CLS 0.00，捕获 16 次统计与广告请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:49:48.864Z"
+    }
+  },
+  "flagmakerfree-com": {
+    "en": {
+      "bestFor": "Designing custom flags, emblems, and layered banners in the browser with unwatermarked PNG/SVG exports and shareable URL state.",
+      "pros": [
+        "Provides 17 flag layouts, 20 vector symbols, custom text layers, undo/redo history, and URL-hash state serialization without an account",
+        "Exports unwatermarked PNG (1200x800 verified, configurable up to 4800px), SVG, and animated waving flag views"
+      ],
+      "cons": [
+        "Triggering consecutive downloads in the same session prompts browser multi-download confirmation",
+        "Loads 1 Cloudflare RUM telemetry beacon (POST /cdn-cgi/rum)"
+      ],
+      "privacyVerdict": "Flag composition, layer transforms, and PNG rendering execute locally in the browser with design state stored in the URL hash; 1 Cloudflare RUM telemetry payload (POST /cdn-cgi/rum) was observed on page load.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Added custom text layer 'NOLOGIN', swapped layout colors via ⇄ Swap colors, and exported an unwatermarked 1200x800 PNG (46,479 bytes) via Download PNG (70ms max freeze, 0.01 CLS, 1 /cdn-cgi/rum payload).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:51:47.993Z"
+    },
+    "zh": {
+      "bestFor": "在浏览器本地免登录设计自定义旗帜与徽章图案，支持多图层排版、URL 状态分享及无水印 PNG/SVG 导出。",
+      "pros": [
+        "内置 17 种旗帜版式、20 种矢量图标、自定义文字图层、撤销重做历史与 URL Hash 分享编码，全程免登录",
+        "支持导出无水印高分辨率 PNG（实测 1200x800，最高可选 4800px）、SVG 与动态飘动旗帜"
+      ],
+      "cons": [
+        "连续触发多次文件下载会弹出浏览器多文件下载权限确认",
+        "页面加载时会发送 1 次 Cloudflare RUM 性能遥测请求（POST /cdn-cgi/rum）"
+      ],
+      "privacyVerdict": "旗帜图形合成、图层调整与 PNG 导出均在浏览器本地完成，设计状态编码于 URL Hash 中；测试期间仅观察到 1 次 Cloudflare RUM 遥测请求（POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 85,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 17,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "输入并添加 NOLOGIN 文字图层，点击 ⇄ Swap colors 交换配色后，通过 Download PNG 成功导出 1200x800 无水印 PNG（46,479 字节，最大阻塞 70ms，CLS 0.01，1 次 /cdn-cgi/rum 请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:51:47.994Z"
+    }
+  },
+  "printablegrid-com-graph-paper": {
+    "en": {
+      "bestFor": "Configuring custom graph paper templates with exact millimeter or inch spacing, margins, and line weights and exporting print-ready PDFs without signing in.",
+      "pros": [
+        "Offers granular controls for paper size, orientation, MM/INCH units, margins, grid cell dimensions, Solid/Dashed/Dotted lines, and line weight",
+        "Exports a clean, unwatermarked 430,817-byte print-ready PDF directly in the browser"
+      ],
+      "cons": [
+        "Loads Google AdSense (pagead2.googlesyndication.com), Google Analytics, Google Funding Choices, and /api/analytics/track beacons"
+      ],
+      "privacyVerdict": "Grid canvas rendering and PDF generation run locally in the browser with no design uploads observed; however, 17 outgoing analytics and ad-tech payloads were captured (POST /api/analytics/track, www.google-analytics.com, pagead2.googlesyndication.com, and fundingchoicesmessages.google.com).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 16,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Updated All Sides margin to 15mm, switched grid line style to Dashed and weight to 0.5, and exported a clean 430,817-byte PDF via EXPORT AS PDF (108ms max freeze, 0.00 CLS, 17 analytics/ad payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:53:35.830Z"
+    },
+    "zh": {
+      "bestFor": "免登录在浏览器内精确配置毫米/英寸网格尺寸、页边距与线条粗细，并导出可直接打印的无水印坐标纸 PDF。",
+      "pros": [
+        "支持纸张规格、方向、MM/INCH 单位切换、页边距、网格宽高、实线/虚线/点线样式与线宽精确配置",
+        "可直接在浏览器本地生成并导出 430,817 字节的无水印高清可打印 PDF"
+      ],
+      "cons": [
+        "页面加载并触发了 Google AdSense（pagead2.googlesyndication.com）、Google Analytics、Google Funding Choices 与 /api/analytics/track 请求"
+      ],
+      "privacyVerdict": "网格预览与 PDF 导出均在浏览器本地完成，未观察到设计参数上传；但捕获到 17 次发往 /api/analytics/track、Google Analytics 与 Google AdSense 的统计及广告请求。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 16,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 13,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "将四周边距调整为 15mm、切换 Dashed 虚线样式并选择 0.5 线宽后，点击 EXPORT AS PDF 成功导出 430,817 字节无水印 PDF（最大阻塞 108ms，CLS 0.00，17 次统计与广告请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:53:35.831Z"
+    }
+  },
+  "tuskshift-schema-check-surge-sh-translate": {
+    "en": {
+      "bestFor": "Translating MySQL queries and Laravel raw SQL fragments into PostgreSQL syntax with change-by-change explanations in the browser.",
+      "pros": [
+        "Rewrites MySQL backticks, IFNULL, GROUP_CONCAT, and DATE_FORMAT into PostgreSQL equivalents (COALESCE, string_agg, to_char) with categorized change notes",
+        "Zero login, zero advertisements, and zero outgoing network payloads observed during the tested translation workflow"
+      ],
+      "cons": [
+        "No .sql file download option beyond Copy result button",
+        "Static promotional callout links to paid Migration Kit and Error Fix Pack bundles"
+      ],
+      "privacyVerdict": "Zero outgoing network payloads were captured during the tested SQL translation session; while the bounded capture alone cannot prove offline architecture, no analytics beacons or remote SQL uploads were observed.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Translated a multi-clause MySQL query (backticks, IFNULL, GROUP_CONCAT, DATE_FORMAT) via Translate button into valid PostgreSQL syntax with 4 categorized change explanations, plus tested Load an example (77ms max freeze, 0.04 CLS, 0 outgoing payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:55:36.363Z"
+    },
+    "zh": {
+      "bestFor": "免登录在浏览器内将 MySQL 查询语句或 Laravel 原生 SQL 片段转换为 PostgreSQL 语法，并逐项查看改写原因。",
+      "pros": [
+        "可自动将反引号、IFNULL、GROUP_CONCAT 与 DATE_FORMAT 等语法转写为 PostgreSQL 对应的 COALESCE、string_agg 与 to_char，并附带改动分类说明",
+        "全程免登录、无广告弹窗，实测期间未捕获任何外发网络请求"
+      ],
+      "cons": [
+        "除 Copy result 复制按钮外，不提供 .sql 文件直接下载",
+        "页面底部包含付费迁移工具包的静态推广区块"
+      ],
+      "privacyVerdict": "本次 SQL 语法转换测试期间未捕获到任何外发网络载荷（0 请求）；尽管仅凭有界观测本身不足以证明完整离线架构，但全流程未发现追踪器或 SQL 上传行为。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 79,
+        "frictionless": 19,
+        "depth": 17,
+        "exportFreedom": 15,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "输入包含反引号、IFNULL、GROUP_CONCAT 与 DATE_FORMAT 的 MySQL 查询并点击 Translate，成功输出 PostgreSQL 语法及 4 项改动说明，并测试 Load an example（最大阻塞 77ms，CLS 0.04，0 次外发请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T02:55:36.364Z"
+    }
+  },
+  "magicremover-org": {
+    "en": {
+      "bestFor": "Erasing brushed objects, people, text, or watermarks from photos for up to 2 free edits per day without signing in.",
+      "pros": [
+        "Provides an interactive brush canvas with adjustable brush size, Undo/Clear, before/after comparison, and 5 removal modes without requiring login",
+        "Exports an unwatermarked 576x432 JPEG result via Download result"
+      ],
+      "cons": [
+        "Large bottom AdSense anchor ad covers the primary action and download buttons in the viewport",
+        "Limits unauthenticated usage to 2 edits per day, converts 800x600 PNG input to 576x432 JPEG, and sends images to remote API (/api/remove-passersby) with 24-hour retention"
+      ],
+      "privacyVerdict": "Server-side image processing observed via POST /api/remove-passersby alongside Google AdSense requests (POST pagead2.googlesyndication.com/pagead/ping); the site notes processed results are kept for 24 hours.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 800x600 sample.png, painted mask stroke on brush canvas, ran Remove people via /api/remove-passersby, and exported unwatermarked 576x432 JPEG (54,391 bytes) via Download result (60ms max freeze, 0.02 CLS, 9+ payloads).",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T03:00:36.464Z"
+    },
+    "zh": {
+      "bestFor": "免登录在照片上涂抹擦除人物、杂物、文字或水印，每日支持 2 次免费编辑并下载无水印结果。",
+      "pros": [
+        "免登录提供可调画笔大小的涂抹画布、撤销/清空、前后对比以及 5 种擦除模式",
+        "支持通过 Download result 直接下载 576x432 无水印 JPEG 结果图"
+      ],
+      "cons": [
+        "页面底部巨大的 Google AdSense 悬浮广告会遮挡右侧主操作与下载按钮",
+        "未登录每日限额 2 次，且会将 800x600 PNG 压缩输出为 576x432 JPEG；需上传至服务端接口（/api/remove-passersby）并保留结果 24 小时"
+      ],
+      "privacyVerdict": "实测图像通过 POST /api/remove-passersby 上传至服务端处理，页面提示结果将保留 24 小时，同时捕获到 Google AdSense 广告请求（POST pagead2.googlesyndication.com/pagead/ping）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 71,
+        "frictionless": 15,
+        "depth": 16,
+        "exportFreedom": 16,
+        "privacy": 12,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 800x600 sample.png 并在画布涂抹遮罩后点击 Remove people 调用 /api/remove-passersby 完成擦除，随后通过 Download result 导出 54,391 字节 576x432 无水印 JPEG（最大阻塞 60ms，CLS 0.02，9 次以上外发请求）。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-27T03:00:36.464Z"
     }
   }
 }

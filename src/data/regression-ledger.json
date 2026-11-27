@@ -1285,6 +1285,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-17T03:08:28.203Z"
   },
+  "flagmakerfree-com": {
+    "lastDeepEvalAt": "2026-11-27T02:51:48.015Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 85, highly-recommended)",
+      "at": "2026-11-27T02:51:48.015Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:51:48.015Z"
+  },
   "flexboxfroggy-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-18T06:08:41.748Z",
@@ -2148,6 +2159,17 @@
     "lastTitle": "Crochet Pattern Generator — Photo to Chart, Free | Looprel",
     "lastSignals": []
   },
+  "magicremover-org": {
+    "lastDeepEvalAt": "2026-11-27T03:00:36.491Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
+      "at": "2026-11-27T03:00:36.491Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T03:00:36.491Z"
+  },
   "makehalftone-com": {
     "openAnomalies": [],
     "lastScanAt": "2026-11-18T06:05:45.883Z",
@@ -2481,6 +2503,17 @@
     "lastTitle": "The SQL Murder Mystery",
     "lastSignals": []
   },
+  "namefontgenerator-com": {
+    "lastDeepEvalAt": "2026-11-27T02:44:42.007Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-27T02:44:42.007Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:44:42.007Z"
+  },
   "namepractice-com": {
     "lastDeepEvalAt": "2026-11-17T03:12:54.432Z",
     "lastResolution": {
@@ -2622,6 +2655,17 @@
     "openAnomalies": [],
     "lastScanAt": "2026-11-21T03:10:22.308Z"
   },
+  "odluck-com-en-password-generator-12-characters": {
+    "lastDeepEvalAt": "2026-11-27T02:49:48.895Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 70, capable-utility)",
+      "at": "2026-11-27T02:49:48.895Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:49:48.895Z"
+  },
   "oil-capacity-com": {
     "lastDeepEvalAt": "2026-11-19T03:11:51.591Z",
     "lastResolution": {
@@ -2650,6 +2694,17 @@
     "lastScanAt": "2026-11-19T06:05:37.683Z",
     "lastTitle": "Online Tone Generator — Sine, Square, Triangle, Sawtooth (20Hz–20kHz)",
     "lastSignals": []
+  },
+  "onlineminitools-com-pdf-merger": {
+    "lastDeepEvalAt": "2026-11-27T02:43:31.791Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-27T02:43:31.791Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:43:31.791Z"
   },
   "pairdrop-net": {
     "openAnomalies": [],
@@ -2972,6 +3027,17 @@
     "lastScanAt": "2026-11-23T06:14:15.831Z",
     "lastTitle": "Free Printable PDF, Image, and QR Tools - PrintableTools Lab",
     "lastSignals": []
+  },
+  "printablegrid-com-graph-paper": {
+    "lastDeepEvalAt": "2026-11-27T02:53:35.855Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-27T02:53:35.855Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:53:35.855Z"
   },
   "printabletoolkit-com": {
     "lastDeepEvalAt": "2026-11-07T02:53:00.333Z",
@@ -3990,28 +4056,18 @@
     "lastSignals": []
   },
   "tinywow-com": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-24T06:26:00.545Z",
-        "lastSeenAt": "2026-11-24T06:26:00.545Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
+    "openAnomalies": [],
     "lastScanAt": "2026-11-24T06:26:00.545Z",
     "lastSignals": [
       "probe_failed"
     ],
-    "lastDeepEvalAt": "2026-11-15T02:40:22.664Z",
+    "lastDeepEvalAt": "2026-11-27T02:38:30.593Z",
     "lastResolution": {
       "outcome": "cleared",
-      "note": "Image background removal and PNG download succeeded without login; 2539-byte unwatermarked PNG artifact verified; Start 7-Day Free Trial is optional upgrade banner.",
-      "at": "2026-11-15T02:40:22.664Z",
+      "note": "Verified Remove BG workflow without login; uploaded sample.png and downloaded unwatermarked 800x600 PNG (2539 bytes); editorial score 70 (capable-utility) remains accurate.",
+      "at": "2026-11-27T02:38:30.593Z",
       "closed": [
-        "paywall_copy"
+        "probe_failed"
       ]
     },
     "lastTitle": "Free AI Writing, PDF, Image, and other Online Tools - TinyWow"
@@ -4120,6 +4176,17 @@
     "lastScanAt": "2026-11-24T06:29:08.371Z",
     "lastTitle": "TryInk Tattoo Simulator - Try On Tattoos on Your Body Photo | TryInk.me",
     "lastSignals": []
+  },
+  "tuskshift-schema-check-surge-sh-translate": {
+    "lastDeepEvalAt": "2026-11-27T02:55:36.393Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-27T02:55:36.393Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:55:36.393Z"
   },
   "tymepath-com-excel-to-powerpoint-gantt": {
     "lastDeepEvalAt": "2026-11-12T03:17:53.418Z",
@@ -4544,6 +4611,17 @@
     "lastTitle": "Analyse céphalométrique en ligne gratuite : Steiner et Tweed | GS Ortho",
     "lastSignals": []
   },
+  "www-hikkoshinote-com-move-in-fridge-fit": {
+    "lastDeepEvalAt": "2026-11-27T02:46:37.722Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 83, highly-recommended)",
+      "at": "2026-11-27T02:46:37.722Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:46:37.722Z"
+  },
   "www-imageconvertlab-com-tools-remove-image-background-html": {
     "lastDeepEvalAt": "2026-11-11T02:55:57.995Z",
     "lastResolution": {
@@ -4619,25 +4697,17 @@
     "lastScanAt": "2026-11-15T02:48:58.580Z"
   },
   "www-nameideabox-com": {
-    "lastDeepEvalAt": "2026-10-29T02:48:40.832Z",
+    "lastDeepEvalAt": "2026-11-27T02:41:21.116Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 71, capable-utility)",
-      "at": "2026-10-29T02:48:40.832Z",
-      "closed": []
+      "note": "CADES deep evaluation synced (overall 46, emergency-only)",
+      "at": "2026-11-27T02:41:21.116Z",
+      "closed": [
+        "probe_failed"
+      ]
     },
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-26T06:11:59.459Z",
-        "lastSeenAt": "2026-11-26T06:11:59.459Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-26T06:11:59.459Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:41:21.116Z",
     "lastSignals": [
       "probe_failed"
     ],
@@ -4888,21 +4958,20 @@
     "lastSignals": []
   },
   "zerowidthcleaner-com-zero-width-space": {
-    "openAnomalies": [
-      {
-        "code": "probe_failed",
-        "severity": "medium",
-        "evidence": "Rolling probe produced no inspection result",
-        "firstSeenAt": "2026-11-24T06:23:15.157Z",
-        "lastSeenAt": "2026-11-24T06:23:15.157Z",
-        "seenCount": 1,
-        "evidencePaths": []
-      }
-    ],
-    "lastScanAt": "2026-11-24T06:23:15.157Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-27T02:34:35.270Z",
     "lastTitle": "Zero Width Space — Find and Remove Invisible Characters",
     "lastSignals": [
       "probe_failed"
-    ]
+    ],
+    "lastDeepEvalAt": "2026-11-27T02:34:35.270Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-27T02:34:35.270Z",
+      "closed": [
+        "probe_failed"
+      ]
+    }
   }
 }
