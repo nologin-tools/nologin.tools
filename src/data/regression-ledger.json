@@ -38,7 +38,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:22:39.613Z",
+    "lastScanAt": "2026-11-27T06:11:33.590Z",
     "lastTitle": "AI proofreader — Iskra AI",
     "lastSignals": []
   },
@@ -207,7 +207,7 @@
   },
   "aspectratiocalculator-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:27:28.234Z",
+    "lastScanAt": "2026-11-27T06:16:35.735Z",
     "lastTitle": "Aspect Ratio Calculator - Images & Video Dimensions",
     "lastSignals": []
   },
@@ -353,7 +353,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:22:54.764Z",
+    "lastScanAt": "2026-11-27T06:11:49.938Z",
     "lastTitle": "Black Screen Online · Blank Dark Fullscreen Tool",
     "lastSignals": []
   },
@@ -544,7 +544,7 @@
   },
   "cfiresim-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:24:37.136Z",
+    "lastScanAt": "2026-11-27T06:13:39.081Z",
     "lastTitle": "cFIREsim",
     "lastSignals": []
   },
@@ -649,7 +649,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:22:27.072Z",
+    "lastScanAt": "2026-11-27T06:11:22.195Z",
     "lastTitle": "Text Compare – Compare Two Texts Online, Free & Private",
     "lastSignals": []
   },
@@ -697,7 +697,7 @@
   },
   "converters-live": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:27.919Z",
+    "lastScanAt": "2026-11-27T06:12:25.247Z",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-04T02:52:32.221Z",
     "lastResolution": {
@@ -857,7 +857,7 @@
   },
   "currawongweb-com-verify-china-usci-checker": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:24:17.546Z",
+    "lastScanAt": "2026-11-27T06:13:17.978Z",
     "lastTitle": "Unified social credit code checker: China USCI validation",
     "lastSignals": []
   },
@@ -1466,7 +1466,7 @@
   },
   "gchq-github-io-cyberchef": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:25:39.599Z",
+    "lastScanAt": "2026-11-27T06:14:41.973Z",
     "lastTitle": "CyberChef",
     "lastSignals": []
   },
@@ -1484,7 +1484,7 @@
   },
   "geometry-formulas-com-geometry-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:49.165Z",
+    "lastScanAt": "2026-11-27T06:15:52.085Z",
     "lastTitle": "Geometry Calculator with Steps for 2D and 3D Shapes",
     "lastSignals": []
   },
@@ -1586,7 +1586,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:06.649Z",
+    "lastScanAt": "2026-11-27T06:12:03.592Z",
     "lastTitle": "Gold Calculator: Live Scrap Gold Price per Gram, Oz & KG",
     "lastSignals": []
   },
@@ -1672,7 +1672,7 @@
   },
   "heic-to-jpg-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:24:11.785Z",
+    "lastScanAt": "2026-11-27T06:13:09.772Z",
     "lastTitle": "HEIC to JPG Converter Online - Free, Private, Batch | heic-to-jpg.app",
     "lastSignals": []
   },
@@ -1709,7 +1709,7 @@
   },
   "hoppscotch-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:21:49.940Z",
+    "lastScanAt": "2026-11-27T06:10:24.105Z",
     "lastTitle": "Hoppscotch • Open source API development ecosystem • Hoppscotch",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-08T02:41:39.214Z",
@@ -1731,8 +1731,8 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:25.204Z",
-    "lastTitle": "Host HTML File",
+    "lastScanAt": "2026-11-27T06:15:27.924Z",
+    "lastTitle": "Host HTML File — Host an HTML File Free",
     "lastSignals": []
   },
   "hostingcompass-com": {
@@ -1789,8 +1789,21 @@
     "lastSignals": []
   },
   "ignlab-net": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-17T02:42:03.374Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-27T06:10:45.357Z",
+        "lastSeenAt": "2026-11-27T06:10:45.357Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-intent-1795759837162.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-outcome-1795759837162.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-27T06:10:45.357Z",
     "lastTitle": "IgnLab — Free Web Tools, Browser Games & Indie Directories",
     "lastSignals": [
       "surface_lost"
@@ -1826,7 +1839,7 @@
   },
   "imageconverttools-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:24:26.614Z",
+    "lastScanAt": "2026-11-27T06:13:27.498Z",
     "lastTitle": "Free online image converter and editing tools",
     "lastSignals": []
   },
@@ -1862,13 +1875,13 @@
   },
   "imgrove-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:30.666Z",
+    "lastScanAt": "2026-11-27T06:15:33.568Z",
     "lastTitle": "Free Browser Image Tools, No Upload | imgrove",
     "lastSignals": []
   },
   "investor-gov-financial-tools-calculators-calculators-compound-interest-calculator": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:59.032Z",
+    "lastScanAt": "2026-11-27T06:12:56.822Z",
     "lastTitle": "Compound Interest Calculator | Investor.gov",
     "lastSignals": []
   },
@@ -1988,7 +2001,7 @@
   },
   "kitelabs-netlify-app-kitchen": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:24:42.219Z",
+    "lastScanAt": "2026-11-27T06:13:43.955Z",
     "lastTitle": "Food Cost Calculator + Free Recipe Costing Spreadsheet",
     "lastSignals": []
   },
@@ -2017,7 +2030,7 @@
   },
   "kmag-ro-en": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:13.181Z",
+    "lastScanAt": "2026-11-27T06:12:10.173Z",
     "lastTitle": "Kmag — Shared grocery lists with voice and smart aisle sorting",
     "lastSignals": []
   },
@@ -2260,7 +2273,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:22:13.087Z",
+    "lastScanAt": "2026-11-27T06:11:08.189Z",
     "lastTitle": "Free Maze Generator: Custom Shapes & PDF/SVG Export",
     "lastSignals": []
   },
@@ -2546,13 +2559,13 @@
   },
   "needgohome-netlify-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:25:22.802Z",
+    "lastScanAt": "2026-11-27T06:14:26.200Z",
     "lastTitle": "Need Go Home | Professional early-leave messages in seconds",
     "lastSignals": []
   },
   "neumorphism-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:25:02.413Z",
+    "lastScanAt": "2026-11-27T06:14:05.966Z",
     "lastTitle": "Neumorphism CSS shadow generator",
     "lastSignals": []
   },
@@ -2590,7 +2603,7 @@
   },
   "nextreset-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:39.887Z",
+    "lastScanAt": "2026-11-27T06:12:38.411Z",
     "lastTitle": "Codex Reset Tracker & Prediction — Tibo Reset Watch | NextReset",
     "lastSignals": []
   },
@@ -2728,7 +2741,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:08.881Z",
+    "lastScanAt": "2026-11-27T06:15:10.317Z",
     "lastTitle": "XML to JSON Converter | Runs Entirely in Your Browser",
     "lastSignals": []
   },
@@ -2764,7 +2777,7 @@
   },
   "pdfinjpgumwandeln-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:22:03.014Z",
+    "lastScanAt": "2026-11-27T06:10:59.473Z",
     "lastTitle": "PDF in JPG umwandeln - kostenlos im Browser",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-08T02:45:17.448Z",
@@ -3094,7 +3107,7 @@
   },
   "privacy-sexy": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:27:23.051Z",
+    "lastScanAt": "2026-11-27T06:16:29.986Z",
     "lastTitle": "privacy.sexy - Maximize Your Privacy and Security",
     "lastSignals": []
   },
@@ -3190,7 +3203,7 @@
   },
   "pst-aivismonitor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:20.122Z",
+    "lastScanAt": "2026-11-27T06:12:17.056Z",
     "lastTitle": "Open a PST File Without Outlook, Even on a Mac | Mailward",
     "lastSignals": []
   },
@@ -3209,7 +3222,7 @@
   },
   "pythontutor-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-16T06:21:41.834Z",
+    "lastScanAt": "2026-11-27T06:10:15.192Z",
     "lastTitle": "Python Tutor - Python Online Compiler with Visual Debugger",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-08T02:35:48.470Z",
@@ -3231,7 +3244,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:22:45.036Z",
+    "lastScanAt": "2026-11-27T06:11:39.261Z",
     "lastTitle": "قارن التمويل الشخصي في السعودية واحسب قسطك | قسطنا",
     "lastSignals": []
   },
@@ -3381,7 +3394,7 @@
   },
   "readanytext-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:23:47.463Z",
+    "lastScanAt": "2026-11-27T06:12:45.881Z",
     "lastTitle": "ReadAnyText - Free Text to Speech with Natural AI Voices",
     "lastSignals": []
   },
@@ -3468,10 +3481,38 @@
     "lastSignals": []
   },
   "retireclarity-com-calculator": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:38.320Z",
-    "lastTitle": "Retirement Calculator - Year-by-Year Projections",
-    "lastSignals": []
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-27T06:15:40.369Z",
+        "lastSeenAt": "2026-11-27T06:15:40.369Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-retireclarity-com-calculator-intent-1795760133709.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-retireclarity-com-calculator-outcome-1795760133709.png"
+        ]
+      },
+      {
+        "code": "title_changed",
+        "severity": "medium",
+        "evidence": "\"Retirement Calculator - Year-by-Year Projections\" → \"503: SERVICE_UNAVAILABLE\"",
+        "firstSeenAt": "2026-11-27T06:15:40.369Z",
+        "lastSeenAt": "2026-11-27T06:15:40.369Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-retireclarity-com-calculator-intent-1795760133709.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-retireclarity-com-calculator-outcome-1795760133709.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-27T06:15:40.369Z",
+    "lastTitle": "503: SERVICE_UNAVAILABLE",
+    "lastSignals": [
+      "surface_lost",
+      "title_changed"
+    ]
   },
   "revpado-com": {
     "lastDeepEvalAt": "2026-11-22T02:51:50.932Z",
@@ -3712,11 +3753,9 @@
   },
   "spritesheettool-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T02:38:39.851Z",
-    "lastTitle": "RPG Sprite Sheet Generator for Character Walk Packs",
-    "lastSignals": [
-      "paywall_copy"
-    ],
+    "lastScanAt": "2026-11-27T06:10:37.029Z",
+    "lastTitle": "RPG Sprite Sheet Generator from an Image | Sprite Sheet Tool",
+    "lastSignals": [],
     "lastDeepEvalAt": "2026-11-17T02:38:39.851Z",
     "lastResolution": {
       "outcome": "editorial-updated",
@@ -3884,7 +3923,7 @@
   },
   "teachablemachine-withgoogle-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:25:55.932Z",
+    "lastScanAt": "2026-11-27T06:14:57.036Z",
     "lastTitle": "Teachable Machine",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-07T02:44:34.831Z",
@@ -4106,7 +4145,7 @@
   },
   "tools-berry-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:25:44.534Z",
+    "lastScanAt": "2026-11-27T06:14:47.434Z",
     "lastTitle": "Tools Berry: Free Online Calculators & Tools",
     "lastSignals": []
   },
@@ -4216,13 +4255,13 @@
   },
   "typescale-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:24:52.329Z",
+    "lastScanAt": "2026-11-27T06:13:54.606Z",
     "lastTitle": "Typescale - Create stunning typography, generate CSS, and find inspiration.",
     "lastSignals": []
   },
   "typescriptlang-org-play": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:25:13.773Z",
+    "lastScanAt": "2026-11-27T06:14:16.667Z",
     "lastTitle": "TypeScript: TS Playground - An online editor for exploring TypeScript and JavaScript",
     "lastSignals": []
   },
@@ -4336,7 +4375,7 @@
   },
   "video-size-reducer-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:59.603Z",
+    "lastScanAt": "2026-11-27T06:16:03.318Z",
     "lastTitle": "Video Size Reducer — Compress Videos to a Target Size",
     "lastSignals": []
   },
@@ -4406,7 +4445,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:26:14.685Z",
+    "lastScanAt": "2026-11-27T06:15:16.700Z",
     "lastTitle": "Voltage Drop Calculator | Free NEC 2023 Wire Sizing Tool",
     "lastSignals": []
   },
@@ -4425,7 +4464,7 @@
   },
   "watermarkzero-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:27:14.315Z",
+    "lastScanAt": "2026-11-27T06:16:20.800Z",
     "lastTitle": "Free Gemini Watermark Remover Online | Remove Locally",
     "lastSignals": []
   },
@@ -4802,8 +4841,21 @@
     "lastScanAt": "2026-11-18T03:03:25.176Z"
   },
   "www-textfixhub-com": {
-    "openAnomalies": [],
-    "lastScanAt": "2026-11-17T02:44:09.428Z",
+    "openAnomalies": [
+      {
+        "code": "surface_lost",
+        "severity": "medium",
+        "evidence": "No inputs, canvas, or buttons detected on the landing page",
+        "firstSeenAt": "2026-11-27T06:10:54.721Z",
+        "lastSeenAt": "2026-11-27T06:10:54.721Z",
+        "seenCount": 1,
+        "evidencePaths": [
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-intent-1795759845495.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-outcome-1795759845495.png"
+        ]
+      }
+    ],
+    "lastScanAt": "2026-11-27T06:10:54.721Z",
     "lastTitle": "Free Text Tools: Alphabetize, Count & More | TextFixHub",
     "lastSignals": [
       "surface_lost"
