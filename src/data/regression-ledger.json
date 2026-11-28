@@ -62,7 +62,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:07:16.357Z",
+    "lastScanAt": "2026-11-28T06:08:01.272Z",
     "lastTitle": "AION 2 Pets: 206 Companions, Farming Map & Insight Guide",
     "lastSignals": []
   },
@@ -212,7 +212,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:06:38.475Z",
+    "lastScanAt": "2026-11-28T06:07:16.677Z",
     "lastTitle": "Aspect Ratio Calculator - Resize Images & Videos by Ratio",
     "lastSignals": []
   },
@@ -247,13 +247,13 @@
   },
   "audiomass-co": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:27:49.519Z",
+    "lastScanAt": "2026-11-28T06:04:51.966Z",
     "lastTitle": "AudioMass - Audio Editor",
     "lastSignals": []
   },
   "audiotrimmer-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:08:06.695Z",
+    "lastScanAt": "2026-11-28T06:08:59.015Z",
     "lastTitle": "Online Mp3 Cutter - Audio Trimmer",
     "lastSignals": []
   },
@@ -362,7 +362,7 @@
   },
   "bizntools-com-data-json-to-csv-converter": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:08:18.009Z",
+    "lastScanAt": "2026-11-28T06:09:13.290Z",
     "lastTitle": "JSON to CSV Converter — Free, Private & Precise | BiznTools",
     "lastSignals": []
   },
@@ -427,7 +427,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:07:33.991Z",
+    "lastScanAt": "2026-11-28T06:08:18.723Z",
     "lastTitle": "Free Security & Attack Surface Tools | BreachLine",
     "lastSignals": []
   },
@@ -572,13 +572,13 @@
   },
   "chatgpt-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:10:23.025Z",
+    "lastScanAt": "2026-11-28T06:12:40.041Z",
     "lastTitle": "ChatGPT: Chat, Work, Create & Code with AI",
     "lastSignals": []
   },
   "choicervoicer-games": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:28:00.497Z",
+    "lastScanAt": "2026-11-28T06:05:03.124Z",
     "lastTitle": "Play Choicer Voicer Online Free – Voice Imitation Game",
     "lastSignals": []
   },
@@ -688,7 +688,7 @@
   },
   "comparediff-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:10:40.031Z",
+    "lastScanAt": "2026-11-28T06:12:50.391Z",
     "lastTitle": "Compare Diff Online - Free Text Compare & Diff Checker",
     "lastSignals": []
   },
@@ -1015,7 +1015,7 @@
   },
   "discrete-logarithm-tomasz-slapinski-pl": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:15.561Z",
+    "lastScanAt": "2026-11-28T06:05:52.522Z",
     "lastTitle": "Logarytm dyskretny (DLP) — Baby-step Giant-step",
     "lastSignals": []
   },
@@ -1107,11 +1107,11 @@
         "severity": "medium",
         "evidence": "No inputs, canvas, or buttons detected on the landing page",
         "firstSeenAt": "2026-11-18T06:09:32.994Z",
-        "lastSeenAt": "2026-11-18T06:09:32.994Z",
-        "seenCount": 1,
+        "lastSeenAt": "2026-11-28T06:10:25.427Z",
+        "seenCount": 2,
         "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-entityminder-smoke-web-app-em-lookup-intent-1794982165939.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-entityminder-smoke-web-app-em-lookup-outcome-1794982165939.png"
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-entityminder-smoke-web-app-em-lookup-intent-1795846219126.png",
+          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-entityminder-smoke-web-app-em-lookup-outcome-1795846219126.png"
         ]
       },
       {
@@ -1127,11 +1127,10 @@
         ]
       }
     ],
-    "lastScanAt": "2026-11-18T06:09:32.994Z",
+    "lastScanAt": "2026-11-28T06:10:25.427Z",
     "lastTitle": "Site Not Found",
     "lastSignals": [
-      "surface_lost",
-      "title_changed"
+      "surface_lost"
     ]
   },
   "everytool4u-com": {
@@ -1149,7 +1148,7 @@
   },
   "excalideck-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:27:39.133Z",
+    "lastScanAt": "2026-11-28T06:04:41.451Z",
     "lastTitle": "Excalideck | Weapon for Legendary Slides",
     "lastSignals": []
   },
@@ -1269,7 +1268,7 @@
   },
   "fileontap-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:20.709Z",
+    "lastScanAt": "2026-11-28T06:05:59.073Z",
     "lastTitle": "Free File Converter in Your Browser — No Upload | FileOnTap",
     "lastSignals": []
   },
@@ -1342,7 +1341,7 @@
   },
   "flexboxfroggy-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:08:41.748Z",
+    "lastScanAt": "2026-11-28T06:09:34.194Z",
     "lastTitle": "Flexbox Froggy - A game for learning CSS flexbox",
     "lastSignals": []
   },
@@ -1611,7 +1610,7 @@
   },
   "goblin-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:09:19.028Z",
+    "lastScanAt": "2026-11-28T06:10:13.210Z",
     "lastTitle": "首页 - Goblin Tools",
     "lastSignals": []
   },
@@ -1698,7 +1697,7 @@
   },
   "hardenmyrepo-github-io-browser-audit": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:09:25.815Z",
+    "lastScanAt": "2026-11-28T06:10:18.994Z",
     "lastTitle": "AI Coding-Agent Repository Audit — Local and Private",
     "lastSignals": []
   },
@@ -1722,7 +1721,7 @@
   },
   "heictopdf-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:10:14.941Z",
+    "lastScanAt": "2026-11-28T06:12:32.792Z",
     "lastTitle": "HEIC to PDF Converter - Convert & Merge iPhone Photos Online Free",
     "lastSignals": []
   },
@@ -1942,7 +1941,7 @@
   },
   "ipleak-net": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:10:45.323Z",
+    "lastScanAt": "2026-11-28T06:12:57.209Z",
     "lastTitle": "IP/DNS Detect - What is your IP, what is your DNS, what informations you send to websites.",
     "lastSignals": []
   },
@@ -2037,7 +2036,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:06:50.162Z",
+    "lastScanAt": "2026-11-28T06:07:29.221Z",
     "lastTitle": "Keyboard Tester - Free Online Keyboard Test for Every Key",
     "lastSignals": []
   },
@@ -2133,11 +2132,9 @@
         "evidencePaths": []
       }
     ],
-    "lastScanAt": "2026-11-18T06:07:52.616Z",
+    "lastScanAt": "2026-11-28T06:08:41.880Z",
     "lastTitle": "Boost Happiness & Well-Being with AI Psychology Tools",
-    "lastSignals": [
-      "probe_failed"
-    ]
+    "lastSignals": []
   },
   "lab-haoming-luo-com-morph": {
     "lastDeepEvalAt": "2026-11-25T02:48:07.164Z",
@@ -2197,7 +2194,7 @@
   },
   "lite-datasette-io": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:25.674Z",
+    "lastScanAt": "2026-11-28T06:06:04.220Z",
     "lastTitle": "Datasette",
     "lastSignals": []
   },
@@ -2238,8 +2235,8 @@
   },
   "makehalftone-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:45.883Z",
-    "lastTitle": "Halftone Generator — Convert Images to Print-Ready Dot Patterns",
+    "lastScanAt": "2026-11-28T06:06:22.803Z",
+    "lastTitle": "Halftone Generator — Make Print-Ready Dot Patterns",
     "lastSignals": []
   },
   "mamatool-com": {
@@ -2257,7 +2254,7 @@
   },
   "markany-ai": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:08:32.544Z",
+    "lastScanAt": "2026-11-28T06:09:28.310Z",
     "lastTitle": "Markdown Converter – Files to MD & MD to Files | MarkAny",
     "lastSignals": []
   },
@@ -2473,7 +2470,7 @@
   },
   "morsecodetranslator-tools": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:09:09.577Z",
+    "lastScanAt": "2026-11-28T06:10:03.150Z",
     "lastTitle": "Morse Code Translator – Text to Morse & Morse to Text",
     "lastSignals": []
   },
@@ -2856,7 +2853,7 @@
   },
   "pdftomdconverter-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:06:28.459Z",
+    "lastScanAt": "2026-11-28T06:07:05.438Z",
     "lastTitle": "pdf to md converter",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-09T02:43:08.683Z",
@@ -2982,7 +2979,7 @@
   },
   "piccollages-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:28:17.130Z",
+    "lastScanAt": "2026-11-28T06:05:23.626Z",
     "lastTitle": "照片拼贴工具-免费在线拼图制作器-九宫格长图拼接网格布局模板-本地处理100%隐私安全-高清PNG导出 | PicCollages",
     "lastSignals": []
   },
@@ -3011,7 +3008,7 @@
   },
   "play-rust-lang-org": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-17T06:28:26.717Z",
+    "lastScanAt": "2026-11-28T06:05:33.352Z",
     "lastTitle": "Rust Playground",
     "lastSignals": []
   },
@@ -3207,7 +3204,7 @@
   },
   "privnote-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:57.958Z",
+    "lastScanAt": "2026-11-28T06:06:34.023Z",
     "lastSignals": [],
     "lastTitle": "Privnote - Send notes that will self-destruct after being read"
   },
@@ -3315,7 +3312,7 @@
   },
   "quickbgcut-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:10:00.222Z",
+    "lastScanAt": "2026-11-28T06:12:18.524Z",
     "lastTitle": "Free Batch Background Remover — No Signup | QuickBGCut",
     "lastSignals": []
   },
@@ -3409,7 +3406,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:07:04.555Z",
+    "lastScanAt": "2026-11-28T06:07:44.089Z",
     "lastTitle": "The Rasterbator — Free Online Wall Poster Maker & PDF",
     "lastSignals": []
   },
@@ -3600,7 +3597,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:07:24.494Z",
+    "lastScanAt": "2026-11-28T06:08:08.040Z",
     "lastTitle": "Rumi ke Jawi – Tukar Melayu ke Jawi Secara Percuma",
     "lastSignals": []
   },
@@ -3818,7 +3815,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:07:51.927Z",
+    "lastScanAt": "2026-11-28T06:08:37.230Z",
     "lastTitle": "Sprite Sheet Cutter – Free PNG Frame Export | SpriteFuse",
     "lastSignals": []
   },
@@ -3862,7 +3859,7 @@
   },
   "stayput-dev": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:31.963Z",
+    "lastScanAt": "2026-11-28T06:06:10.519Z",
     "lastTitle": "Stayput: Free File Tools That Never Upload Your Files",
     "lastSignals": []
   },
@@ -4050,7 +4047,7 @@
       "closed": []
     },
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:07:42.094Z",
+    "lastScanAt": "2026-11-28T06:08:27.123Z",
     "lastTitle": "Tesla Wrap 3D Preview & PNG Fixer — Free, No Signup",
     "lastSignals": []
   },
@@ -4195,7 +4192,7 @@
   },
   "tldraw-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:06:19.027Z",
+    "lastScanAt": "2026-11-28T06:06:57.703Z",
     "lastSignals": [],
     "lastTitle": "tldraw • very good free whiteboard",
     "lastDeepEvalAt": "2026-11-09T02:40:32.942Z",
@@ -4447,7 +4444,7 @@
   },
   "utilbear-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:06:03.845Z",
+    "lastScanAt": "2026-11-28T06:06:39.492Z",
     "lastTitle": "UtilBear – Fast, Private Online Tools",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-09T02:35:38.538Z",
@@ -4462,7 +4459,7 @@
   },
   "verifiedlimits-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:08:48.109Z",
+    "lastScanAt": "2026-11-28T06:09:40.342Z",
     "lastTitle": "Ledger&Leaf — Free HSA, IRA & 401(k) Calculators",
     "lastSignals": []
   },
@@ -4485,7 +4482,7 @@
   },
   "virustotal-com": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:08:57.631Z",
+    "lastScanAt": "2026-11-28T06:09:50.815Z",
     "lastTitle": "VirusTotal",
     "lastSignals": [],
     "lastDeepEvalAt": "2026-11-07T02:46:50.250Z",
@@ -4593,7 +4590,7 @@
   },
   "wise-com-gb-currency-converter": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:09:49.105Z",
+    "lastScanAt": "2026-11-28T06:12:07.660Z",
     "lastTitle": "Currency Converter | Foreign Exchange Rates | Wise",
     "lastSignals": []
   },
@@ -4622,7 +4619,7 @@
   },
   "wordtojpg-app": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-18T06:05:05.864Z",
+    "lastScanAt": "2026-11-28T06:05:44.687Z",
     "lastTitle": "Word to JPG Converter Online Free | Convert DOCX to Images",
     "lastSignals": []
   },
