@@ -5,6 +5,17 @@
     "lastTitle": "Free SAT Practice & Question Bank | 1600.now",
     "lastSignals": []
   },
+  "aftertherelationship-com-no-contact": {
+    "lastDeepEvalAt": "2026-11-28T02:48:57.100Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 74, capable-utility)",
+      "at": "2026-11-28T02:48:57.100Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:48:57.100Z"
+  },
   "agentonduty-neocities-org-apple-health-to-excel-free": {
     "lastDeepEvalAt": "2026-11-24T02:40:15.290Z",
     "lastResolution": {
@@ -310,6 +321,17 @@
     "lastTitle": "Free Habit Tracker — No Signup, No Account, No Cloud",
     "lastSignals": []
   },
+  "billsmith-app": {
+    "lastDeepEvalAt": "2026-11-28T02:45:31.573Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 87, highly-recommended)",
+      "at": "2026-11-28T02:45:31.573Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:45:31.574Z"
+  },
   "binarytranslator-dev": {
     "lastDeepEvalAt": "2026-11-14T03:02:05.366Z",
     "lastResolution": {
@@ -584,6 +606,17 @@
     "lastScanAt": "2026-11-21T06:06:11.363Z",
     "lastTitle": "Free Citation Checker, Catch Fake References | CiteFetch",
     "lastSignals": []
+  },
+  "classnoise-com": {
+    "lastDeepEvalAt": "2026-11-28T02:43:03.252Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-28T02:43:03.252Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:43:03.252Z"
   },
   "claude-resets-com": {
     "openAnomalies": [],
@@ -1192,6 +1225,17 @@
     "lastTitle": "The Best Free Favicon Generator - favicon.ico and App Icons - favicon.io",
     "lastSignals": []
   },
+  "fee-lantern-netlify-app-reconcile-etsy-deposits": {
+    "lastDeepEvalAt": "2026-11-28T02:47:25.246Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-28T02:47:25.246Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:47:25.246Z"
+  },
   "feltandwood-com-tool": {
     "lastDeepEvalAt": "2026-11-06T03:07:14.754Z",
     "lastResolution": {
@@ -1789,30 +1833,17 @@
     "lastSignals": []
   },
   "ignlab-net": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-27T06:10:45.357Z",
-        "lastSeenAt": "2026-11-27T06:10:45.357Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-intent-1795759837162.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-ignlab-net-outcome-1795759837162.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-27T06:10:45.357Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:37:59.294Z",
     "lastTitle": "IgnLab — Free Web Tools, Browser Games & Indie Directories",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-17T02:42:03.374Z",
+    "lastDeepEvalAt": "2026-11-28T02:37:59.294Z",
     "lastResolution": {
       "outcome": "editorial-updated",
-      "note": "CADES deep evaluation synced (overall 81, highly-recommended)",
-      "at": "2026-11-17T02:42:03.374Z",
+      "note": "CADES deep evaluation synced (overall 79, capable-utility)",
+      "at": "2026-11-28T02:37:59.294Z",
       "closed": [
         "surface_lost"
       ]
@@ -1884,6 +1915,17 @@
     "lastScanAt": "2026-11-27T06:12:56.822Z",
     "lastTitle": "Compound Interest Calculator | Investor.gov",
     "lastSignals": []
+  },
+  "invoiceize-com": {
+    "lastDeepEvalAt": "2026-11-28T02:59:46.611Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 80, highly-recommended)",
+      "at": "2026-11-28T02:59:46.611Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:59:46.611Z"
   },
   "invosmith-com-invoice-generator": {
     "lastDeepEvalAt": "2026-11-11T03:44:59.591Z",
@@ -1998,6 +2040,17 @@
     "lastScanAt": "2026-11-18T06:06:50.162Z",
     "lastTitle": "Keyboard Tester - Free Online Keyboard Test for Every Key",
     "lastSignals": []
+  },
+  "kitbun-com": {
+    "lastDeepEvalAt": "2026-11-28T02:51:27.807Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 87, highly-recommended)",
+      "at": "2026-11-28T02:51:27.807Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:51:27.807Z"
   },
   "kitelabs-netlify-app-kitchen": {
     "openAnomalies": [],
@@ -3388,9 +3441,16 @@
   },
   "ray-so": {
     "openAnomalies": [],
-    "lastScanAt": "2026-11-21T06:04:57.857Z",
+    "lastScanAt": "2026-11-28T02:40:48.198Z",
     "lastTitle": "Create beautiful images of your code",
-    "lastSignals": []
+    "lastSignals": [],
+    "lastDeepEvalAt": "2026-11-28T02:40:48.198Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 72, capable-utility)",
+      "at": "2026-11-28T02:40:48.198Z",
+      "closed": []
+    }
   },
   "readanytext-com": {
     "openAnomalies": [],
@@ -3704,6 +3764,17 @@
     "lastTitle": "Compare Sizes & Dimensions at True Scale",
     "lastSignals": []
   },
+  "sketchphotoai-com": {
+    "lastDeepEvalAt": "2026-11-28T03:07:17.909Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 73, capable-utility)",
+      "at": "2026-11-28T03:07:17.909Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T03:07:17.909Z"
+  },
   "slpagecalc-com": {
     "lastDeepEvalAt": "2026-11-22T03:07:31.203Z",
     "lastResolution": {
@@ -3833,6 +3904,17 @@
     "lastScanAt": "2026-11-19T06:05:57.450Z",
     "lastTitle": "StudyTools — Free Online Calculators &amp; Study Tools for Students",
     "lastSignals": []
+  },
+  "stylegpt-app": {
+    "lastDeepEvalAt": "2026-11-28T03:03:57.035Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 77, capable-utility)",
+      "at": "2026-11-28T03:03:57.035Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T03:03:57.035Z"
   },
   "subsuperscript-com": {
     "openAnomalies": [],
@@ -4321,6 +4403,17 @@
         "paywall_copy"
       ]
     }
+  },
+  "uncrop-si": {
+    "lastDeepEvalAt": "2026-11-28T03:11:10.330Z",
+    "lastResolution": {
+      "outcome": "editorial-updated",
+      "note": "CADES deep evaluation synced (overall 87, highly-recommended)",
+      "at": "2026-11-28T03:11:10.330Z",
+      "closed": []
+    },
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T03:11:10.330Z"
   },
   "untrackedtools-com-en": {
     "openAnomalies": [],
@@ -4841,30 +4934,17 @@
     "lastScanAt": "2026-11-18T03:03:25.176Z"
   },
   "www-textfixhub-com": {
-    "openAnomalies": [
-      {
-        "code": "surface_lost",
-        "severity": "medium",
-        "evidence": "No inputs, canvas, or buttons detected on the landing page",
-        "firstSeenAt": "2026-11-27T06:10:54.721Z",
-        "lastSeenAt": "2026-11-27T06:10:54.721Z",
-        "seenCount": 1,
-        "evidencePaths": [
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-intent-1795759845495.png",
-          "/var/folders/70/lwskpl612dv33nq1j1f3fn040000gn/T/dogfood-www-textfixhub-com-outcome-1795759845495.png"
-        ]
-      }
-    ],
-    "lastScanAt": "2026-11-27T06:10:54.721Z",
+    "openAnomalies": [],
+    "lastScanAt": "2026-11-28T02:39:19.973Z",
     "lastTitle": "Free Text Tools: Alphabetize, Count & More | TextFixHub",
     "lastSignals": [
       "surface_lost"
     ],
-    "lastDeepEvalAt": "2026-11-17T02:44:09.428Z",
+    "lastDeepEvalAt": "2026-11-28T02:39:19.973Z",
     "lastResolution": {
       "outcome": "editorial-updated",
       "note": "CADES deep evaluation synced (overall 72, capable-utility)",
-      "at": "2026-11-17T02:44:09.428Z",
+      "at": "2026-11-28T02:39:19.973Z",
       "closed": [
         "surface_lost"
       ]

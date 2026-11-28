@@ -13281,16 +13281,17 @@
   },
   "ray-so": {
     "en": {
-      "bestFor": "Developers, technical writers, and educators creating pristine, shareable code snippet screenshots for documentation and social media",
+      "bestFor": "Developers, technical writers, and educators creating shareable code snippet screenshots for documentation and social media without login.",
       "pros": [
-        "Generates ultra-high-resolution 2132x912 code screenshot PNGs with zero watermarks",
-        "Client-side syntax highlighting and automatic code formatting powered by Prettier",
-        "Refined Raycast aesthetic with customizable gradient backdrops, padding, and dark/light modes"
+        "Generates high-resolution 2204x1048 PNG code screenshots with zero watermarks",
+        "Client-side TypeScript syntax detection and code formatting via Format Code button",
+        "Customizable gradient themes, padding toggles (16/32/64/128), dark/light modes, and URL hash state"
       ],
       "cons": [
-        "Sends lightweight pageview telemetry to Vercel Insights on navigation and export"
+        "Sends lightweight pageview/event telemetry to Vercel Insights (POST /_vercel/insights/view and /event)",
+        "Initial hydration freeze of 400ms observed before code textarea became interactive"
       ],
-      "privacyVerdict": "Observed 2 lightweight Vercel Insights telemetry POST payloads, but all code parsing, DOM layout, and image rendering occur entirely client-side via in-browser Canvas with zero source code sent to external servers.",
+      "privacyVerdict": "Observed 2 outgoing Vercel Insights telemetry payloads (POST /_vercel/insights/view and POST /_vercel/insights/event); code formatting, syntax highlighting, and PNG export executed in-browser with no code payload sent to external APIs.",
       "alternativeTo": [
         "Carbon",
         "CodeKeep",
@@ -13305,20 +13306,22 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Rendered custom syntax highlighting and exported unwatermarked 2132x912 PNG (1217838 bytes) in-browser; observed 2 lightweight Vercel Insights POST requests.",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "Entered TypeScript function into textarea.ZFZPPq_textarea, formatted via Format Code, and exported an unwatermarked 2204x1048 PNG (1363289 bytes); observed 2 Vercel Insights POST requests and 400ms max hydration task.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:40:48.178Z"
     },
     "zh": {
-      "bestFor": "需要为技术文档、博客或社交平台快速生成精致优雅、无水印代码卡片截图的开发者与技术博主",
+      "bestFor": "需要免登录生成高分辨率代码截图用于文档与社交分享的开发者和技术写作者。",
       "pros": [
-        "免登录一键导出 2132x912 超清无水印代码截图 PNG",
-        "基于浏览器本地运行语法高亮与 Prettier 自动化代码格式化",
-        "延续 Raycast 精致设计质感，支持多款渐变底色、内边距与深浅色模式切换"
+        "直接导出 2204x1048 高清无水印 PNG 代码截图（1,363,289 字节）。",
+        "支持客户端语言自动识别（TypeScript）与 Format Code 一键格式化。",
+        "提供主题配色、内边距（16/32/64/128）、明暗模式及 URL 哈希状态保存。"
       ],
       "cons": [
-        "在页面加载与导出时会向 Vercel Insights 发送轻量遥测请求"
+        "导航与导出时会发送 Vercel Insights 遥测请求（POST /_vercel/insights/view 与 /event）。",
+        "页面水合阶段测得 400ms 主线程任务阻塞。"
       ],
-      "privacyVerdict": "页面交互中观察到 2 次向 Vercel Insights 发送的轻量遥测 POST 请求，但所有代码解析、高亮渲染与图片生成均由本地 Canvas 完成，源代码绝不外发。",
+      "privacyVerdict": "观测到 2 条 Vercel Insights 遥测载荷（POST /_vercel/insights/view 与 /_vercel/insights/event）；代码格式化、高亮及 PNG 导出均在浏览器内完成，未见源码外发请求。",
       "alternativeTo": [
         "Carbon",
         "CodeKeep",
@@ -13333,8 +13336,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "在浏览器内即时完成代码高亮排版，并无水印导出 2132x912 高清 PNG（1217838 bytes），仅观察到 2 次 Vercel Insights POST 遥测请求。",
-      "testedAt": "2026-09"
+      "benchmarkNotes": "在 textarea.ZFZPPq_textarea 输入 TypeScript 函数并点击 Format Code 格式化，通过 Export Image 成功导出 2204x1048 无水印 PNG（1363289 字节），观测到 2 条 Vercel Insights 请求与 400ms 最大水合阻塞。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:40:48.179Z"
     },
     "ja": {
       "bestFor": "開発者、テクニカル ライター、教育者は、ドキュメントやソーシャル メディア用に、共有可能な初期のコード スニペットのスクリーンショットを作成します。",
@@ -13362,7 +13366,7 @@
         "CodeKeep",
         "Chalk.ist"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "ko": {
       "bestFor": "문서 및 소셜 미디어용으로 깨끗하고 공유 가능한 코드 조각 스크린샷을 만드는 개발자, 기술 작성자 및 교육자",
@@ -13390,7 +13394,7 @@
         "CodeKeep",
         "Chalk.ist"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "es": {
       "bestFor": "Desarrolladores, redactores técnicos y educadores que crean capturas de pantalla de fragmentos de código impecables y compartibles para documentación y redes sociales.",
@@ -13418,7 +13422,7 @@
         "CodeKeep",
         "Chalk.ist"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "fr": {
       "bestFor": "Développeurs, rédacteurs techniques et éducateurs créant des captures d'écran d'extraits de code impeccables et partageables pour la documentation et les réseaux sociaux",
@@ -13446,7 +13450,7 @@
         "CodeKeep",
         "Chalk.ist"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "de": {
       "bestFor": "Entwickler, technische Redakteure und Pädagogen erstellen makellose, gemeinsam nutzbare Code-Snippet-Screenshots für Dokumentation und soziale Medien",
@@ -13474,7 +13478,7 @@
         "CodeKeep",
         "Chalk.ist"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     },
     "pt": {
       "bestFor": "Desenvolvedores, redatores técnicos e educadores criando capturas de tela de trechos de código imaculados e compartilháveis ​​para documentação e mídia social",
@@ -13502,7 +13506,7 @@
         "CodeKeep",
         "Chalk.ist"
       ],
-      "testedAt": "2026-09"
+      "testedAt": "2026-11"
     }
   },
   "fast-com": {
@@ -40961,63 +40965,64 @@
   },
   "ignlab-net": {
     "en": {
-      "bestFor": "Accessing a suite of sign-in-free web utilities across ignlab.net subdomains, including SVG blob generation, image conversion, CSS generators, and QR tools.",
+      "bestFor": "Accessing a suite of sign-in-free web utilities across ignlab.net subdomains, including SVG blob generation, CSS tools, and QR generators.",
       "pros": [
         "Studio hub links directly to active subdomain tools (svg.ignlab.net, blob.ignlab.net, qr.ignlab.net, css.ignlab.net) with zero login gates",
-        "SVG Blob Generator rendered immediately and exported a clean 371-byte 200x200 SVG plus CSS Morph code with zero watermarks",
-        "Responsive interface with 66ms max main-thread task and 0.01 CLS across tested subdomain tools"
+        "SVG Blob Generator on blob.ignlab.net mutated shapes immediately and exported a clean 371-byte 200x200 SVG with zero watermarks",
+        "Responsive interface with 93ms max main-thread task and 0.01 CLS across tested subdomain tools"
       ],
       "cons": [
         "Image Converter on svg.ignlab.net/image-converter/ failed converting a 324.8 KB PNG via POST ignlab.net/api/convert ('Conversion failed. Check the console for details.')",
-        "Google Analytics telemetry (POST www.google-analytics.com/g/collect) observed during usage"
+        "Emits Google Analytics, Google Funding Choices, and admedia.ignlab.net/api/track.php telemetry payloads"
       ],
-      "privacyVerdict": "SVG blob generation on blob.ignlab.net ran in-browser, while svg.ignlab.net/image-converter/ transmitted uploaded image data via POST ignlab.net/api/convert. Google Analytics beacons (POST www.google-analytics.com/g/collect) were also observed.",
+      "privacyVerdict": "SVG blob generation on blob.ignlab.net ran in-browser, while svg.ignlab.net/image-converter/ uploaded sample.png via POST ignlab.net/api/convert. Observed 10 outgoing payloads including POST www.google-analytics.com/g/collect, POST admedia.ignlab.net/api/track.php, and POST fundingchoicesmessages.google.com.",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
         "CloudConvert"
       ],
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "Started at ignlab.net studio hub, navigated to svg.ignlab.net/image-converter/ (uploaded 324.8 KB sample.png; POST ignlab.net/api/convert returned conversion failure), then tested blob.ignlab.net (mutated blob, switched to CSS Morph, copied code, and exported a 371-byte 200x200 SVG with valid syntax and zero watermark).",
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Started at ignlab.net studio hub, navigated to svg.ignlab.net/image-converter/ (uploaded 324.8 KB sample.png; POST ignlab.net/api/convert returned conversion failure), then tested blob.ignlab.net (mutated blob via Mutate and exported a 371-byte 200x200 SVG with valid syntax and zero watermark) with 93ms max freeze and 0.01 CLS.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-17T02:42:03.331Z"
+      "contentUpdatedAt": "2026-11-28T02:37:59.274Z"
     },
     "zh": {
-      "bestFor": "免登录使用 ignlab.net 旗下多款网页工具子站，涵盖 SVG Blob 生成、图片格式转换、CSS 样式生成与二维码制作。",
+      "bestFor": "免登录使用 ignlab.net 子域下的多款网页工具（含 SVG Blob 生成器、CSS 工具、图片转换器等）。",
       "pros": [
-        "主站导航直连各功能子域名（svg.ignlab.net、blob.ignlab.net、qr.ignlab.net 等），全程无需注册登录",
-        "blob.ignlab.net 响应迅速，实测导出 371 字节 200x200 纯净 SVG 并支持 CSS Morph 代码复制"
+        "工作室导航页直连各子域实用工具（svg.ignlab.net、blob.ignlab.net、qr.ignlab.net 等），全程免登录。",
+        "blob.ignlab.net 响应迅速，随机变换并成功导出 371 字节 200x200 无水印 SVG 文件。",
+        "界面交互流畅，实测最大主线程阻塞 93ms、CLS 0.01。"
       ],
       "cons": [
-        "svg.ignlab.net/image-converter/ 在处理 324.8 KB PNG 并请求 POST ignlab.net/api/convert 时报错 Conversion failed",
-        "使用过程中观测到 Google Analytics 遥测上报请求（POST www.google-analytics.com/g/collect）"
+        "svg.ignlab.net/image-converter/ 上传 324.8 KB sample.png 后通过 POST ignlab.net/api/convert 转换失败并报错。",
+        "测试期间捕获到 Google Analytics、Google Funding Choices 及 admedia.ignlab.net/api/track.php 遥测请求。"
       ],
-      "privacyVerdict": "blob.ignlab.net 的 SVG 形状生成在浏览器本地运行，而 svg.ignlab.net/image-converter/ 会通过 POST ignlab.net/api/convert 上传图片处理；同时捕获到 Google Analytics 请求（POST www.google-analytics.com/g/collect）。",
+      "privacyVerdict": "blob.ignlab.net 的 SVG 形状生成在浏览器内完成，但 svg.ignlab.net/image-converter/ 会通过 POST ignlab.net/api/convert 上传图片；本次共观测到 10 条外发载荷，含 POST www.google-analytics.com/g/collect、POST admedia.ignlab.net/api/track.php 与 POST fundingchoicesmessages.google.com。",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
         "CloudConvert"
       ],
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
-      "benchmarkNotes": "从 ignlab.net 主页进入 svg.ignlab.net/image-converter/（上传 324.8 KB sample.png 后通过 POST ignlab.net/api/convert 转换失败），随后实测 blob.ignlab.net（生成变异图形、切换 CSS Morph、复制代码并导出 371 字节 200x200 纯净 SVG；最大主线程阻塞 66ms，CLS 0.01）。",
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "从 ignlab.net 主页进入 svg.ignlab.net/image-converter/ 上传 324.8 KB sample.png（转换接口报错失败），随后测试 blob.ignlab.net 随机变形并导出 371 字节 200x200 无水印 SVG，最大任务阻塞 93ms，CLS 0.01。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-17T02:42:03.333Z"
+      "contentUpdatedAt": "2026-11-28T02:37:59.275Z"
     },
     "ja": {
       "bestFor": "画像を JPG/WebP に変換し、登録なしで SVG BLOB、CSS 効果、QR コードなどのデザイナー ジェネレーターにアクセスします。",
@@ -41034,14 +41039,14 @@
       "privacyVerdict": "画像ファイルは、変換中に POST /api/convert 経由でバックエンド uvicorn サーバーに送信されます。 Google AdSense スクリプトとともに、2 つの Google Analytics (GA4) ビーコンと 5 つの /api/convert 画像ペイロードが観察されました。",
       "benchmarkNotes": "28.6KB PNG フィクスチャをアップロードし、POST /api/convert 経由で JPEG (85% 品質) へのサーバー変換を実行し、透かしのないクリーンな 7,425 バイトの JPEG アーティファクトを 2.1 秒でダウンロードしました。",
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -41064,14 +41069,14 @@
       "privacyVerdict": "이미지 파일은 변환 중에 POST /api/convert를 통해 백엔드 uvicorn 서버로 전송됩니다. Google 애드센스 스크립트와 함께 2개의 Google Analytics(GA4) 비콘과 5개의 /api/convert 이미지 페이로드를 관찰했습니다.",
       "benchmarkNotes": "28.6KB PNG 픽스처를 업로드하고, POST /api/convert를 통해 JPEG(85% 품질)로 서버 변환을 실행하고, 2.1초 안에 깨끗한 7,425바이트의 워터마크 없는 JPEG 아티팩트를 다운로드했습니다.",
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -41094,14 +41099,14 @@
       "privacyVerdict": "Los archivos de imagen se transmiten a un servidor backend de uvicorn a través de POST /api/convert durante la conversión; observó 2 balizas de Google Analytics (GA4) y 5 cargas útiles de imágenes /api/convertir junto con los scripts de Google AdSense.",
       "benchmarkNotes": "Cargó un dispositivo PNG de 28,6 KB, ejecutó la conversión del servidor a JPEG (85 % de calidad) mediante POST /api/convert y descargó un artefacto JPEG limpio de 7425 bytes sin marca de agua en 2.1.",
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -41124,14 +41129,14 @@
       "privacyVerdict": "Les fichiers image sont transmis à un serveur uvicorn backend via POST /api/convert pendant la conversion ; observé 2 balises Google Analytics (GA4) et 5 charges utiles d'images /api/convert aux côtés des scripts Google AdSense.",
       "benchmarkNotes": "Téléchargement d'un appareil PNG de 28,6 Ko, exécution de la conversion du serveur en JPEG (qualité de 85 %) via POST /api/convert et téléchargement d'un artefact JPEG propre et sans filigrane de 7 425 octets en 2,1 s.",
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -41154,14 +41159,14 @@
       "privacyVerdict": "Bilddateien werden während der Konvertierung per POST /api/convert an einen Backend-Uvicorn-Server übertragen; beobachtete 2 Google Analytics (GA4)-Beacons und 5 /api/convert-Bildnutzlasten neben Google AdSense-Skripten.",
       "benchmarkNotes": "28,6-KB-PNG-Fixture hochgeladen, Serverkonvertierung in JPEG (85 % Qualität) über POST /api/convert ausgeführt und in 2,1 Sekunden ein sauberes 7.425-Byte-JPEG-Artefakt ohne Wasserzeichen heruntergeladen.",
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -41184,14 +41189,14 @@
       "privacyVerdict": "Os arquivos de imagem são transmitidos para um servidor backend uvicorn via POST /api/convert durante a conversão; observou 2 beacons do Google Analytics (GA4) e 5 cargas úteis de imagem /api/convert junto com scripts do Google AdSense.",
       "benchmarkNotes": "Carregou o acessório PNG de 28,6 KB, executou a conversão do servidor para JPEG (qualidade de 85%) via POST /api/convert e baixou um artefato JPEG limpo de 7.425 bytes sem marca d'água em 2,1s.",
       "productScore": {
-        "overall": 81,
+        "overall": 79,
         "frictionless": 18,
         "depth": 18,
         "exportFreedom": 17,
-        "privacy": 15,
+        "privacy": 13,
         "polish": 13
       },
-      "verdictTier": "highly-recommended",
+      "verdictTier": "capable-utility",
       "alternativeTo": [
         "Squoosh",
         "TinyPNG",
@@ -55356,13 +55361,13 @@
       "pros": [
         "Hub of 14 focused text utilities (/tools/alphabetizer, /tools/line-break-remover, /tools/sentence-counter, /tools/syllable-counter, and more) accessible immediately with no sign-up",
         "Alphabetizer sorts and deduplicates live on input with delimiter selectors (Input/Output) and clean 24-character clipboard Copy output with zero watermarks",
-        "Zero main-thread freeze (0ms) and 0.00 CLS across tested steps"
+        "Low main-thread freeze (67ms max) and 0.00 CLS across tested steps"
       ],
       "cons": [
         "Emits third-party analytics and RUM telemetry (POST /cdn-cgi/rum and POST www.google-analytics.com/g/collect)",
         "Alphabetizer lacks direct file (.txt/.csv) upload or download buttons"
       ],
-      "privacyVerdict": "Text sorting, deduplication, and clipboard copy ran locally in-browser without sending user text to a backend; 3 outgoing telemetry requests were observed (POST /cdn-cgi/rum and POST www.google-analytics.com/g/collect).",
+      "privacyVerdict": "Text sorting, deduplication, and clipboard copy ran locally in-browser without sending user text to a backend; 4 outgoing telemetry requests were observed (POST /cdn-cgi/rum and POST www.google-analytics.com/g/collect).",
       "alternativeTo": [
         "TextFixer",
         "Browserling Text Tools",
@@ -55377,21 +55382,22 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "Navigated from root hub to /tools/alphabetizer, entered a 5-line list with duplicates into the textarea, toggled Remove Duplicates, and captured a clean 24-character, 4-line sorted result via Copy in 0ms max task freeze with 0.00 CLS.",
+      "benchmarkNotes": "Navigated from root hub to /tools/alphabetizer, entered a 5-line list with duplicates into the textarea, toggled Remove Duplicates, and captured a clean 24-character, 4-line sorted result via Copy with 67ms max freeze and 0.00 CLS.",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-17T02:44:09.400Z"
+      "contentUpdatedAt": "2026-11-28T02:39:19.944Z"
     },
     "zh": {
-      "bestFor": "适合文案编辑与开发者在浏览器中免登录完成列表字母排序、去重、清除换行及音节统计等轻量文本处理。",
+      "bestFor": "需要免登录快速使用文本排序去重、换行清理、句数与音节统计等工具的写作者与开发者。",
       "pros": [
-        "首页集成 14 款免登录文本工具（/tools/alphabetizer、/tools/line-break-remover、/tools/sentence-counter 等），打开即可使用",
-        "Alphabetizer 支持实时排序与 Remove Duplicates 去重，Copy 按钮可导出 24 字符纯净 4 行文本无水印"
+        "集成 14 款聚焦文本小工具（如 Alphabetizer、Line Break Remover、Sentence Counter 等），打开即用无需注册。",
+        "Alphabetizer 支持实时排序、去重及输入输出分隔符切换，Copy 剪贴板导出 24 字符 4 行结果无水印。",
+        "交互稳定，实测最大主线程阻塞 67ms，CLS 0.00。"
       ],
       "cons": [
-        "页面会话期间捕获到第三方统计与 RUM 遥测请求（POST /cdn-cgi/rum、POST www.google-analytics.com/g/collect）",
-        "Alphabetizer 页面缺少本地 .txt/.csv 文件直接上传与下载导出按钮"
+        "存在第三方统计与 RUM 遥测请求（POST /cdn-cgi/rum 与 POST www.google-analytics.com/g/collect）。",
+        "Alphabetizer 缺少直接导入或导出 .txt/.csv 文件的按钮。"
       ],
-      "privacyVerdict": "排序、去重与剪贴板复制均在本地浏览器完成，未见用户文本外传；但观测到 3 次遥测请求（POST /cdn-cgi/rum 与 POST www.google-analytics.com/g/collect）。",
+      "privacyVerdict": "文本排序、去重及剪贴板复制均在浏览器本地执行，未见输入文本上传至服务端；测试期间观测到 4 条遥测请求（POST /cdn-cgi/rum 与 POST www.google-analytics.com/g/collect）。",
       "alternativeTo": [
         "TextFixer",
         "Browserling Text Tools",
@@ -55406,9 +55412,9 @@
         "polish": 12
       },
       "verdictTier": "capable-utility",
-      "benchmarkNotes": "从主页进入 /tools/alphabetizer，输入含重复项的 5 行列表并勾选 Remove Duplicates，点击 Copy 成功捕获 24 字符 4 行排序结果，最大主线程阻塞 0ms，CLS 为 0.00。",
+      "benchmarkNotes": "从首页进入 /tools/alphabetizer，输入 5 行含重复项列表并勾选 Remove Duplicates，通过 Copy 导出 24 字符 4 行排序去重结果，最大任务阻塞 67ms，CLS 0.00。",
       "testedAt": "2026-11",
-      "contentUpdatedAt": "2026-11-17T02:44:09.400Z"
+      "contentUpdatedAt": "2026-11-28T02:39:19.944Z"
     },
     "ja": {
       "bestFor": "ライター、コピーライター、開発者は、アカウントを作成せずに、リストの並べ替え、重複の削除、改行のクリーンアップ、音節のカウントなどの迅速なテキスト衛生ツールを必要としています。",
@@ -83827,6 +83833,492 @@
       "benchmarkNotes": "上传 800x600 sample.png 并在画布涂抹遮罩后点击 Remove people 调用 /api/remove-passersby 完成擦除，随后通过 Download result 导出 54,391 字节 576x432 无水印 JPEG（最大阻塞 60ms，CLS 0.02，9 次以上外发请求）。",
       "testedAt": "2026-11",
       "contentUpdatedAt": "2026-11-27T03:00:36.464Z"
+    }
+  },
+  "classnoise-com": {
+    "en": {
+      "bestFor": "Teachers and facilitators projecting a calming, sign-in-free classroom noise meter with animated wildlife feedback, countdown timers, and class instruction banners.",
+      "pros": [
+        "Animated canvas savanna sanctuary with 7 shy animal species that react to classroom decibel thresholds (Silent, Whisper, Partner)",
+        "Built-in countdown Timer (5m–25m or custom), editable classroom Note banner, and Simulated Audio test mode alongside Live Mic",
+        "Zero layout shift (0.00 CLS) and clean full-screen projection mode with bilingual EN/ZH UI toggle"
+      ],
+      "cons": [
+        "Emits Cloudflare RUM and third-party analytics beacons (POST /cdn-cgi/rum and POST in.pvuv.ai/in)",
+        "No exportable session log or CSV summary of noise incidents"
+      ],
+      "privacyVerdict": "Audio level monitoring, countdown timer, and classroom notes operate locally in the browser with no audio upload observed; 6 telemetry requests were captured (POST /cdn-cgi/rum and POST in.pvuv.ai/in).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Opened Note banner and typed 'Silent reading: Chapter 4' into textarea, activated 5m Timer (observed 04:57 countdown), and switched to Simulated Audio mode (observed live 35 dB Calm readout) with 114ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:43:03.223Z"
+    },
+    "zh": {
+      "bestFor": "适合教师在课堂投屏使用的免登录动物主题噪音监测仪，内置倒计时与课堂提示横幅。",
+      "pros": [
+        "基于 Canvas 的草原生态动画，内置 7 种动物与 Quiet/Whisper/Partner 三档分贝阈值联动。",
+        "集成 5–25 分钟倒计时器、可编辑课堂提示横幅，以及免麦克风演示用的 Simulated Audio 模式。",
+        "投屏界面零布局偏移（0.00 CLS），支持中英文一键切换。"
+      ],
+      "cons": [
+        "测试期间捕获到 Cloudflare RUM 与第三方统计请求（POST /cdn-cgi/rum 与 POST in.pvuv.ai/in）。",
+        "不支持导出课堂噪音记录或统计报告。"
+      ],
+      "privacyVerdict": "音量监测、倒计时与课堂提示均在浏览器本地运行，未观测到音频上传；但捕获到 6 条遥测请求（POST /cdn-cgi/rum 与 POST in.pvuv.ai/in）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 19,
+        "depth": 18,
+        "exportFreedom": 15,
+        "privacy": 14,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "点击 Note 在 textarea 输入“Silent reading: Chapter 4”，开启 5m Timer 倒计时（实测走时至 04:57），并切换 Simulated Audio 模式验证 35 dB Calm 实时读数，最大主线程阻塞 114ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:43:03.224Z"
+    }
+  },
+  "billsmith-app": {
+    "en": {
+      "bestFor": "Freelancers, UK/US contractors, and small businesses generating compliant PDF or Word invoices, quotes, and receipts without creating an account.",
+      "pros": [
+        "Supports Invoice, Quote/Estimate, and Receipt modes with UK (HMRC VAT/CIS), US (sales tax/Letter), and Other regional rules",
+        "Real-time live document preview with PNG logo upload, dynamic line items, and local browser persistence",
+        "Exports clean 261,583-byte PDFs (and offers .docx Word export) with zero watermarks and helpful pre-send missing-field checklist"
+      ],
+      "cons": [
+        "Emits Vercel Insights pageview and event telemetry (POST /_vercel/insights/view and /event)",
+        "No multi-currency batch invoicing or automated client email dispatch"
+      ],
+      "privacyVerdict": "Invoice fields, uploaded PNG logo, and PDF generation ran in-browser without uploading document data to a backend; 4 outgoing telemetry requests were captured (POST /_vercel/insights/view and POST /_vercel/insights/event).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Entered 'Northwind Studio LLC' into input[name='business.name'], added a line item, switched to US mode, uploaded 332.6 KB sample.png logo, and exported an unwatermarked 261,583-byte PDF via Download anyway with 128ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:45:31.547Z"
+    },
+    "zh": {
+      "bestFor": "适合自由职业者与中小团队免登录快速制作并导出符合英/美税务规范的 PDF 与 Word 发票、报价单及收据。",
+      "pros": [
+        "支持发票、报价单与收据三种单据，内置英国（VAT/CIS）与美国（销售税/Letter 纸张）规则切换。",
+        "支持上传 PNG 标志、动态增删明细行、实时预览与浏览器本地保存。",
+        "成功导出 261,583 字节无水印 PDF（亦提供 .docx 导出），并在导出前提供缺失项检查提示。"
+      ],
+      "cons": [
+        "测试期间捕获到 Vercel Insights 遥测请求（POST /_vercel/insights/view 与 /event）。",
+        "不支持多币种批量开票或直接通过邮件发送给客户。"
+      ],
+      "privacyVerdict": "发票内容、上传的 PNG 标志与 PDF 生成均在浏览器本地完成，未见业务数据上传；但捕获到 4 条 Vercel Insights 遥测请求（POST /_vercel/insights/view 与 /event）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 20,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 14
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 input[name='business.name'] 填写 'Northwind Studio LLC'，新增明细行并切换 US 模式，上传 332.6 KB sample.png 标志后通过 Download anyway 成功导出 261,583 字节无水印 PDF，最大阻塞 128ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:45:31.548Z"
+    }
+  },
+  "fee-lantern-netlify-app-reconcile-etsy-deposits": {
+    "en": {
+      "bestFor": "Etsy sellers reconciling monthly payment account CSV statements against bank deposit CSV exports without creating an account.",
+      "pros": [
+        "Dual CSV upload inputs (Etsy Monthly Statement and Bank credits) with configurable date/amount column mapping and matching day window",
+        "Includes a one-click 'Try fictional data' dataset showing matched, flagged multi-candidate, and unmatched transfers",
+        "Exports a clean 225-byte review CSV (Download review CSV) with zero watermarks and smooth 0.00 CLS rendering"
+      ],
+      "cons": [
+        "Requires matching UTF-8 CSV exports under 5,000 rows and 3 MB per file",
+        "Changing the calendar day window after loading fictional data requires re-running with uploaded CSVs rather than re-filtering the demo"
+      ],
+      "privacyVerdict": "No outgoing network payload or analytics beacon was observed during the tested fictional-data reconciliation and CSV export flow; bounded runtime capture alone does not prove offline behavior.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Updated input#match-days to 14, clicked 'Try fictional data' (1 matched, 1 flagged, 1 unmatched across 10-day window), and exported a 225-byte 4-row review CSV via 'Download review CSV' with 0 jank, 0.00 CLS, and 0 captured egress requests.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:47:25.219Z"
+    },
+    "zh": {
+      "bestFor": "适合 Etsy 卖家免登录将月度结算 CSV 与银行流水 CSV 进行对账并导出复核清单。",
+      "pros": [
+        "提供 Etsy 月结单与银行入账双 CSV 上传入口，支持日期/金额列映射与匹配天数窗口设置。",
+        "内置 Try fictional data 示例数据集，直观区分单候选、多候选待复核与无匹配项。",
+        "支持一键导出 225 字节无水印复核 CSV，页面交互流畅（0.00 CLS、零卡顿）。"
+      ],
+      "cons": [
+        "仅支持 5,000 行、3 MB 以内的 UTF-8 格式 CSV 文件。",
+        "加载示例数据后调整天数窗口不会动态重算示例结果，需上传实际 CSV 对比。"
+      ],
+      "privacyVerdict": "在本次示例数据对账与 CSV 导出测试流程中未观测到外发网络载荷或统计信标；仅凭该有限观测不足以证明离线运行能力。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 16,
+        "exportFreedom": 17,
+        "privacy": 16,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "将 input#match-days 设为 14 并点击 Try fictional data 生成示例对账结果，随后通过 Download review CSV 成功导出 225 字节 4 行对账 CSV，全程零卡顿、0.00 CLS 且未捕获外发请求。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:47:25.220Z"
+    }
+  },
+  "aftertherelationship-com-no-contact": {
+    "en": {
+      "bestFor": "People practicing no-contact after a breakup who want an account-free private draft box and downloadable story card instead of sending an impulsive text.",
+      "pros": [
+        "Immediate distraction-free draft box with 'I didn't send it' and 'I'm still going to send it' reflection flows and zero sign-up",
+        "Generates and downloads a clean 1080x1920 PNG story card (389,408 bytes) with zero commercial watermark",
+        "Responsive interface with 0ms max main-thread freeze and 0.01 CLS"
+      ],
+      "cons": [
+        "Narrow single-purpose utility with an embedded $7 PDF journal upsell below the tool",
+        "Emits analytics and RUM telemetry requests (POST /api/event and POST /cdn-cgi/rum)"
+      ],
+      "privacyVerdict": "Typed draft text remained in-browser during the tested unsent-draft and PNG card export flow; 6 outgoing telemetry requests were captured (POST /api/event and POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Typed a draft into textarea#draft, clicked 'I didn't send it', and clicked 'Make a card for my story' to download a clean 1080x1920 PNG (389,408 bytes) with 0ms max freeze and 0.01 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:48:57.076Z"
+    },
+    "zh": {
+      "bestFor": "适合失恋后执行断联期的人免登录写下未发送草稿并生成故事卡片，避免冲动发消息。",
+      "pros": [
+        "打开即用的免登录草稿输入区，提供“I didn't send it”反思反馈流程。",
+        "一键生成并下载 1080x1920 无水印 PNG 故事卡片（389,408 字节）。",
+        "界面流畅稳定，实测 0ms 主线程阻塞与 0.01 CLS。"
+      ],
+      "cons": [
+        "功能较为单一，页面下方包含 7 美元 PDF 手册推广。",
+        "测试期间捕获到统计与 RUM 遥测请求（POST /api/event 与 POST /cdn-cgi/rum）。"
+      ],
+      "privacyVerdict": "在本次未发送草稿编写与 PNG 卡片导出测试中，输入文本留在浏览器本地，但观测到 6 条遥测请求（POST /api/event 与 POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 74,
+        "frictionless": 18,
+        "depth": 12,
+        "exportFreedom": 16,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "在 textarea#draft 输入草稿并点击 I didn't send it，随后通过 Make a card for my story 成功下载 1080x1920 无水印 PNG（389,408 字节），最大阻塞 0ms，CLS 0.01。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:48:57.077Z"
+    }
+  },
+  "kitbun-com": {
+    "en": {
+      "bestFor": "Users seeking an installable offline-capable suite of 113 file compression, conversion, archive, and encryption utilities without uploading files or signing in.",
+      "pros": [
+        "113 browser tools with Kitbun Drop auto-filtering compatible tools upon dropping a file",
+        "Installable PWA ('Install app' / 'Available offline') supporting lossless and fewer-color PNG compression, metadata stripping, and max-dimension resizing",
+        "Compressed 332,574-byte sample.png to a clean 15,035-byte 800x600 PNG with zero watermark and 0.00 CLS"
+      ],
+      "cons": [
+        "Client-side PNG quantization produced a 709ms main-thread freeze",
+        "Emits Cloudflare RUM telemetry (POST /cdn-cgi/rum)"
+      ],
+      "privacyVerdict": "Image compression ran locally in-browser with no file upload request observed; 3 network entries were captured including POST /cdn-cgi/rum.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Dropped 332,574-byte sample.png into Kitbun Drop, opened /compress/png/, switched to Fewer colors, and exported a 15,035-byte 800x600 PNG via Download PNG (95.5% reduction) with 709ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:51:27.781Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免登录离线可用的全能浏览器文件工具箱（113 款压缩、格式转换与加密工具）的用户。",
+      "pros": [
+        "集成 113 款浏览器工具，Kitbun Drop 可根据拖入文件自动筛选匹配工具。",
+        "支持 PWA 安装与离线使用（Available offline），PNG 压缩支持无损、减色、去除元数据及最大尺寸限制。",
+        "将 332,574 字节 sample.png 压缩至 15,035 字节无水印 800x600 PNG，且 0.00 CLS。"
+      ],
+      "cons": [
+        "客户端减色压缩期间出现 709ms 主线程阻塞。",
+        "测试期间捕获到 Cloudflare RUM 遥测请求（POST /cdn-cgi/rum）。"
+      ],
+      "privacyVerdict": "图片压缩在浏览器本地完成，未观测到文件上传请求；但捕获到包含 POST /cdn-cgi/rum 在内的 3 条网络记录。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 16,
+        "polish": 12
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 Kitbun Drop 上传 332,574 字节 sample.png 并进入 /compress/png/，切换 Fewer colors 后点击 Download PNG 导出 15,035 字节 800x600 无水印 PNG（压缩率 95.5%），最大主线程阻塞 709ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:51:27.782Z"
+    }
+  },
+  "invoiceize-com": {
+    "en": {
+      "bestFor": "Freelancers and small businesses creating styled PDF invoices, receipts, quotations, and pay stubs in-browser without creating an account.",
+      "pros": [
+        "Suite of Invoice, Receipt, Quotation, and Pay Stub generators with Classic/Modern/Minimal templates, font selectors, accent colors, and US Letter/A4 sizing",
+        "Supports custom PNG/JPG/SVG logo upload, local browser autosave ('Saved on this device only'), and one-click sample data fill",
+        "Exports clean 229,216-byte PDFs via 'Download PDF · Free' with zero forced watermarks and 0.00 CLS"
+      ],
+      "cons": [
+        "Captures Microsoft Clarity session recording (POST a.clarity.ms/collect), Google Analytics, /api/funnel, and Cloudflare RUM telemetry",
+        "Free preview displays a subtle 'Made with invoiceize.com' footer unless toggled via Remove footer"
+      ],
+      "privacyVerdict": "Invoice drafts are autosaved locally in Guest mode without signup, though 18 outgoing telemetry payloads were observed including Microsoft Clarity (POST a.clarity.ms/collect), Google Analytics (POST www.google-analytics.com/g/collect), POST /api/funnel, and POST /cdn-cgi/rum.",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Filled 'Apex Craft LLC' into Business name, uploaded 332.6 KB sample.png logo, loaded sample invoice via 'Try with sample data' ($2,343.60 total), and exported a 229,216-byte clean PDF via 'Download PDF · Free' with 78ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:59:46.589Z"
+    },
+    "zh": {
+      "bestFor": "适合自由职业者与小微企业免登录制作并导出多模板 PDF 发票、收据、报价单与工资单。",
+      "pros": [
+        "集成发票、收据、报价单与工资单工具，提供 Classic/Modern/Minimal 模板、字体配色及 US Letter/A4 纸张切换。",
+        "支持上传 PNG/JPG/SVG 标志、本地浏览器自动保存及一键填充示例数据。",
+        "通过 Download PDF · Free 成功导出 229,216 字节无水印 PDF，界面 0.00 CLS。"
+      ],
+      "cons": [
+        "存在较多遥测追踪，包含 Microsoft Clarity 会话录制（POST a.clarity.ms/collect）、Google Analytics、/api/funnel 与 Cloudflare RUM。",
+        "预览页脚默认带有 'Made with invoiceize.com' 字样，需手动点 Remove footer 移除。"
+      ],
+      "privacyVerdict": "访客模式下发票草稿在浏览器本地自动保存，但测试期间观测到 18 条外发遥测请求，包括 Microsoft Clarity（POST a.clarity.ms/collect）、Google Analytics、POST /api/funnel 与 POST /cdn-cgi/rum。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 80,
+        "frictionless": 18,
+        "depth": 19,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "在 Business name 输入 'Apex Craft LLC' 并上传 332.6 KB sample.png 标志，点击 Try with sample data 载入 $2,343.60 示例发票后，通过 Download PDF · Free 成功导出 229,216 字节无水印 PDF，最大阻塞 78ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T02:59:46.590Z"
+    }
+  },
+  "stylegpt-app": {
+    "en": {
+      "bestFor": "Apparel sellers and e-commerce stores generating ghost mannequin product packshots in 2K JPG without signing up.",
+      "pros": [
+        "Runs AI ghost mannequin generation and 2048x2048 JPEG export (611,138 bytes) without requiring login",
+        "Supports Ghost Mannequin, Flat Lay, and Model styles with Front/Back/Side/3-4 angle and JPG/PNG/WEBP format controls",
+        "Exports unwatermarked 2K packshots via Export Product Packshot modal with 0.00 CLS"
+      ],
+      "cons": [
+        "Uploads product images to POST /api/generate-ghost for server-side processing and emits Google Analytics beacons",
+        "Initial hydration freeze of 623ms observed; non-garment test fixtures are still synthesized into apparel rather than rejected"
+      ],
+      "privacyVerdict": "Uploaded image data is transmitted to POST /api/generate-ghost for server-side AI generation, accompanied by Google Analytics telemetry (POST www.google-analytics.com/g/collect).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Uploaded 332.6 KB sample.png, clicked Generate Image (POST /api/generate-ghost), and downloaded a watermark-free 2048x2048 JPEG (611,138 bytes) via Export Product Packshot -> Download (2K JPG) with 623ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T03:03:57.014Z"
+    },
+    "zh": {
+      "bestFor": "适合服装电商卖家免登录生成 2K 高清隐形模特（Ghost Mannequin）商品白底图。",
+      "pros": [
+        "无需注册即可完成 AI 隐形模特图生成并导出 2048x2048（611,138 字节）JPG 文件。",
+        "支持 Ghost Mannequin、Flat Lay 与 Model 风格，提供视角选择与 JPG/PNG/WEBP 格式切换。",
+        "导出弹窗支持 2K 分辨率下载且无商业水印，页面布局稳定（0.00 CLS）。"
+      ],
+      "cons": [
+        "图片需通过 POST /api/generate-ghost 上传至服务端处理，且包含 Google Analytics 遥测请求。",
+        "页面水合阶段出现 623ms 主线程阻塞；非服装测试图仍会被强行合成服饰预览。"
+      ],
+      "privacyVerdict": "上传图片会通过 POST /api/generate-ghost 发送至服务端进行 AI 推理，同时观测到 Google Analytics 遥测请求（POST www.google-analytics.com/g/collect）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 77,
+        "frictionless": 18,
+        "depth": 17,
+        "exportFreedom": 18,
+        "privacy": 12,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "上传 332.6 KB sample.png 并点击 Generate Image（调用 POST /api/generate-ghost），通过导出弹窗下载 2048x2048 无水印 JPEG（611,138 字节），最大阻塞 623ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T03:03:57.015Z"
+    }
+  },
+  "sketchphotoai-com": {
+    "en": {
+      "bestFor": "Users converting photos into client-side pencil, charcoal, line art, or watercolor sketch previews at full 800x600 resolution without signing in.",
+      "pros": [
+        "Converts uploaded JPG, PNG, WebP, or HEIC images into 4 local sketch styles (Pencil Sketch, Charcoal Drawing, Line Art, Watercolor) without login",
+        "Exports clean 800x600 PNGs (421,028 bytes) via 'Download preview' with zero watermarks",
+        "Rejects optional tracking cookies cleanly via Cookie Settings banner ('Reject All')"
+      ],
+      "cons": [
+        "Cloud AI sketch generation ('Sign in for AI generation', 24 credits/style) is gated behind account login and paid credits",
+        "Emits Plausible and Cloudflare RUM telemetry (POST sketchphotoai.com/plausible/api/event and POST /cdn-cgi/rum)"
+      ],
+      "privacyVerdict": "Local 4-style sketch conversion and 800x600 PNG export executed in-browser via blob URL without uploading the test image; 3 outgoing telemetry payloads were observed (POST sketchphotoai.com/plausible/api/event and POST /cdn-cgi/rum).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 13,
+        "exportFreedom": 17,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "Rejected optional cookies, uploaded 332.6 KB sample.png, switched to Charcoal Drawing style, and downloaded an unwatermarked 800x600 PNG (421,028 bytes) via 'Download preview' with 179ms max freeze and 0.07 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T03:07:17.887Z"
+    },
+    "zh": {
+      "bestFor": "适合需要免登录在浏览器内将照片快速转为素描、炭笔、线稿或水彩风格并导出无水印预览图的用户。",
+      "pros": [
+        "支持 JPG/PNG/WebP/HEIC 本地即时生成 4 种素描风格（铅笔、炭笔、线稿、水彩），无需注册。",
+        "通过 Download preview 可直接下载 800x600（421,028 字节）无水印 PNG 成品。",
+        "Cookie 弹窗提供 Reject All 按钮，可拒绝非必要追踪。"
+      ],
+      "cons": [
+        "云端 AI 重绘模式（Sign in for AI generation，每次 24 积分）需要登录并消耗付费积分。",
+        "观测到 Plausible 与 Cloudflare RUM 遥测请求（POST /plausible/api/event 与 POST /cdn-cgi/rum）。"
+      ],
+      "privacyVerdict": "4 种本地滤镜素描转换与 800x600 PNG 导出均通过浏览器 blob URL 在本地完成，未见图片上传；但观测到 3 条遥测请求（POST sketchphotoai.com/plausible/api/event 与 POST /cdn-cgi/rum）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 73,
+        "frictionless": 17,
+        "depth": 13,
+        "exportFreedom": 17,
+        "privacy": 14,
+        "polish": 12
+      },
+      "verdictTier": "capable-utility",
+      "benchmarkNotes": "点击 Reject All 后上传 332.6 KB sample.png，切换 Charcoal Drawing 风格并通过 Download preview 导出 800x600 无水印 PNG（421,028 字节），最大阻塞 179ms，CLS 0.07。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T03:07:17.888Z"
+    }
+  },
+  "uncrop-si": {
+    "en": {
+      "bestFor": "Designers, photographers, and social creators expanding photo aspect ratios (e.g., 4:3 to 16:9) in-browser without cropping or signing in.",
+      "pros": [
+        "Interactive canvas uncropper supporting Aspect Ratio presets (1:1 to 21:9), Expand sides, Exact size, and drag positioning with Undo/Redo",
+        "Multiple local edge-fill modes (Blur, Mirror, Stretch, Color, Texture fill, Transparent) plus optional AI uncrop, alongside 111 companion tools and PWA install",
+        "Expanded 800x600 sample.png to 1067x600 16:9 and downloaded an unwatermarked 82,855-byte JPEG with 0.00 CLS"
+      ],
+      "cons": [
+        "Higher-tier Best/Max AI uncrop modes require credits (5–8 credits/run), though local fills and daily Free AI run require no login",
+        "Emits Google Analytics, Cloudflare RUM, and /api/page-check requests (10 payloads captured)"
+      ],
+      "privacyVerdict": "Local canvas resizing and Mirror edge-fill ran in-browser without uploading the test image; 10 outgoing requests were observed (POST /cdn-cgi/rum, POST www.google-analytics.com/g/collect, and POST /api/page-check).",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "Uploaded 800x600 sample.png, selected 16:9 aspect ratio and Mirror edge-fill on canvas, and exported an unwatermarked 1067x600 JPEG (82,855 bytes) via button.btn.btn-primary with 250ms max freeze and 0.00 CLS.",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T03:11:10.286Z"
+    },
+    "zh": {
+      "bestFor": "适合摄影师与设计师免登录在浏览器内无裁剪扩展图片画幅比例（如 4:3 扩为 16:9）并自动填充边缘。",
+      "pros": [
+        "交互式画布支持多种比例预设（1:1 至 21:9）、单边扩展、精确像素及拖拽定位与撤销重做。",
+        "提供 Blur、Mirror、Stretch、纯色、纹理与透明等本地边缘填充及 AI 扩图，内含 111 款工具并支持 PWA 安装。",
+        "成功将 800x600 sample.png 扩展为 1067x600（16:9）并下载 82,855 字节无水印 JPEG，CLS 0.00。"
+      ],
+      "cons": [
+        "Best/Max 档位云端 AI 扩图需消耗积分，但本地填充与基础功能均免费免登录。",
+        "测试期间捕获到 10 条请求，含 Google Analytics、Cloudflare RUM 与 /api/page-check。"
+      ],
+      "privacyVerdict": "本地画布扩图与 Mirror 边缘填充在浏览器内完成，未见测试图片上传；但观测到 10 条外发请求（POST /cdn-cgi/rum、POST www.google-analytics.com/g/collect 与 POST /api/page-check）。",
+      "alternativeTo": [],
+      "productScore": {
+        "overall": 87,
+        "frictionless": 19,
+        "depth": 21,
+        "exportFreedom": 19,
+        "privacy": 15,
+        "polish": 13
+      },
+      "verdictTier": "highly-recommended",
+      "benchmarkNotes": "上传 800x600 sample.png 并选择 16:9 比例与 Mirror 镜像边缘填充，通过 Download 导出 1067x600 无水印 JPEG（82,855 字节），最大阻塞 250ms，CLS 0.00。",
+      "testedAt": "2026-11",
+      "contentUpdatedAt": "2026-11-28T03:11:10.286Z"
     }
   }
 }

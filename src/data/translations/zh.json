@@ -3,6 +3,12 @@
     "description": "面向高中生的免费 SAT 备考题库平台：支持按科目、考点和难度筛选题目，配备详尽解析、限时模考、词汇练习以及数学难题视频讲解。免登录即可直接刷题（可自选注册以保存进度）。",
     "coreTask": "无需账号即可练习 SAT 真题、查看解析、参加限时模考及背记词汇"
   },
+  "aftertherelationship-com-no-contact": {
+    "_hash": "dda20d2d50d124ca",
+    "description": "免登录断联期“未发送消息”草稿箱与情绪缓冲工具，本地暂存倾诉文本并支持导出 1080x1920 PNG 打卡卡片。",
+    "coreTask": "免登录写下未发送的草稿并记录未发送状态，导出 1080x1920 PNG 纪念卡片",
+    "contentUpdatedAt": "2026-11-28T02:48:57.212Z"
+  },
   "agentonduty-neocities-org-apple-health-to-excel-free": {
     "_hash": "d8dad5ca0a97a539",
     "description": "免上传浏览器端 Apple Health export.xml / export.zip 转换工具，可本地解析健康指标并导出干净的 Excel (.xlsx) 表格。",
@@ -161,6 +167,12 @@
   "betterhabitsdaily-com-tracker": {
     "coreTask": "在浏览器中直接打卡和追踪每日习惯",
     "description": "专为开发者量身打造的免费免注册日常习惯追踪工具。"
+  },
+  "billsmith-app": {
+    "_hash": "4dbb43bada6093c7",
+    "description": "免登录本地发票、报价单与收据生成器，支持英美税务规则、自定义 Logo 及无水印 PDF 与 Word（.docx）导出。",
+    "coreTask": "填写商户与明细信息并上传标志，直接导出无水印 PDF 或 Word 发票",
+    "contentUpdatedAt": "2026-11-28T02:45:31.691Z"
   },
   "binarytranslator-dev": {
     "_hash": "fbe6196107ed8be1",
@@ -334,6 +346,12 @@
   "citefetch-com": {
     "coreTask": "核对参考文献、检索真实学术数据库记录并生成标准引用格式，无需注册账号",
     "description": "CiteFetch 通过 CrossRef 和 OpenAlex 校验学术参考文献，自动标记虚构或输错的文献出处，并生成各种主流引用格式（APA、MLA 等）。完全免费，免登录且无广告干扰。"
+  },
+  "classnoise-com": {
+    "_hash": "e408be2cad6e5f59",
+    "description": "免登录课堂噪音监测工具，通过草原动物动画实时反馈音量，内置倒计时器、三档噪音预设与课堂提示横幅。",
+    "coreTask": "在课堂投屏中监测实时音量阈值，并配合倒计时与屏幕提示横幅使用",
+    "contentUpdatedAt": "2026-11-28T02:43:03.382Z"
   },
   "claude-resets-com": {
     "_hash": "a98827949e5991ab",
@@ -712,6 +730,12 @@
     "seoDescription": "几秒内将文字、图片或 emoji 转为完整的图标套装。下载 ICO、PNG 和 Web Manifest 文件，直接用于你的网站——无需账号。",
     "seoFocusKeyword": "网站图标生成器免费在线",
     "seoTaskPhrase": "无需注册生成网站图标"
+  },
+  "fee-lantern-netlify-app-reconcile-etsy-deposits": {
+    "_hash": "ed14ac0e88809140",
+    "description": "免登录 Etsy 月结单与银行流水 CSV 对账工具，支持匹配天数窗口配置及复核结果 CSV 导出。",
+    "coreTask": "比对 Etsy 结算单与银行入账 CSV 记录并导出待复核清单 CSV",
+    "contentUpdatedAt": "2026-11-28T02:47:25.361Z"
   },
   "feltandwood-com-tool": {
     "_hash": "89ceaa6692b73a03",
@@ -1136,6 +1160,12 @@
     "seoFocusKeyword": "复利计算器免费",
     "seoTaskPhrase": "无需注册计算复利增长"
   },
+  "invoiceize-com": {
+    "_hash": "ee1c0dfd00aceb54",
+    "description": "免登录浏览器发票、收据、报价单与工资单生成器，支持多款排版模板、自定义 Logo、本地自动保存及无水印 PDF 导出。",
+    "coreTask": "填写商户与明细信息并上传标志，免登录直接下载 PDF 发票",
+    "contentUpdatedAt": "2026-11-28T02:59:46.749Z"
+  },
   "ipleak-net": {
     "_hash": "e9c6d3f281099372",
     "description": "全面的泄漏检测：IP 地址、DNS 服务器、WebRTC、地理位置和浏览器指纹。VPN 验证的必备工具。",
@@ -1210,6 +1240,12 @@
     "description": "在线测试 104 键全尺寸键盘，排查按键连击双击故障并验证多键无冲防鬼键。",
     "coreTask": "在 104 键虚拟键盘上击键实测按键响应、防鬼键无冲与连击抖动，无需注册登录。",
     "contentUpdatedAt": "2026-11-09T02:50:37.909Z"
+  },
+  "kitbun-com": {
+    "_hash": "32def5cf25bdfc7c",
+    "description": "支持 PWA 安装与离线使用的 113 合 1 浏览器文件工具集，涵盖压缩、格式转换、解压缩与加密，免登录且文件不上传。",
+    "coreTask": "拖入文件智能匹配工具或直接在浏览器内压缩 PNG 并下载无水印结果",
+    "contentUpdatedAt": "2026-11-28T02:51:27.931Z"
   },
   "kitelabs-netlify-app-kitchen": {
     "coreTask": "计算完整菜品配方成本、应用出成率，并即时得出单份成本、食材成本占比和单品毛利润——无需账号即开即用。",
@@ -2125,6 +2161,12 @@
     "coreTask": "以真实比例对比现实世界物品尺寸，并可输入自定义测量数据。",
     "description": "SizeCompare 是一款免费的可视化尺寸对比工具，涵盖手机、平板、笔记本电脑、轮胎、动物和常见日常物品。支持以真实比例对比核实过的尺寸数据，并内置轮胎、身高、屏幕比例及自定义尺寸计算器。"
   },
+  "sketchphotoai-com": {
+    "_hash": "98f86fbe2d358b3c",
+    "description": "免登录本地照片转素描工具，支持铅笔、炭笔、线稿与水彩四种风格并可直接下载无水印 PNG；云端 AI 进阶模式需登录。",
+    "coreTask": "上传照片并选择素描风格，在浏览器内生成并下载无水印 PNG",
+    "contentUpdatedAt": "2026-11-28T03:07:18.032Z"
+  },
   "slpagecalc-com": {
     "_hash": "451d99729d8faf4a",
     "description": "免费的言语治疗历龄计算器，按 Y;M;D 评估表格式输出年/月/日历龄，支持自然月与 30 天借位规则、批量名单录入及配套言语治疗工具。",
@@ -2198,6 +2240,12 @@
   "studycalcpro-com": {
     "description": "专为学生设计的免费在线计算器与学习工具包——包含 GPA 计算器、期末成绩预测、百分比换算、加权与累积绩点、番茄钟、考试倒计时等。无需注册，看答案前无干扰广告。",
     "coreTask": "即时使用所有学习计算工具并查阅各类学习指南，无需注册账号"
+  },
+  "stylegpt-app": {
+    "_hash": "48948071b0dda4f0",
+    "description": "免登录试用 AI 服装商品图工作室，可将实拍服饰照片转为隐形模特白底图并支持 2K 高清导出。",
+    "coreTask": "上传服饰照片生成隐形模特商品图并直接下载 2K 无水印成品",
+    "contentUpdatedAt": "2026-11-28T03:03:57.159Z"
   },
   "subsuperscript-com": {
     "description": "将普通文本转换为可直接复制粘贴的 Unicode 上标或下标。公式模式可在保留普通文本可读性的同时转换指数、下角标与科学记数法；微型文字模式则全面转换支持的字符。提供实时预览、字符对照表与一键复制功能，免登录即用。",
@@ -2476,6 +2524,12 @@
     "_hash": "1da01cb02001c1d1",
     "description": "从任意颜色生成 Tailwind CSS 色阶。一键获取完整的 50-950 色调调色板，可直接用于配置文件。",
     "coreTask": "生成 Tailwind CSS 色阶"
+  },
+  "uncrop-si": {
+    "_hash": "e8065c2f17763bec",
+    "description": "免登录浏览器图片扩图与画幅扩展工具，支持模糊、镜像、拉伸、纯色、纹理及透明边缘填充并高清导出。",
+    "coreTask": "上传图片并设置目标画幅与边缘填充模式，免登录导出扩展后的图片",
+    "contentUpdatedAt": "2026-11-28T03:11:10.444Z"
   },
   "unscreen-com": {
     "_hash": "caa06fea0aaec5b5",
